@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: 594f240eb80f38ce00e97ad4f96ac47ca4199840
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb4b21fdb034ea2939377c1010a789de3fb8786f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102444699"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113077"
 ---
 Iniziare a usare la libreria client di Visione personalizzata per Java per creare un modello di rilevamento oggetti. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Usare questo esempio come modello per la creazione di un'applicazione di riconoscimento immagini personalizzata.
 
@@ -100,7 +100,7 @@ Nella classe **CustomVisionQuickstart** dell'applicazione creare variabili per l
 
 
 > [!IMPORTANT]
-> Accedere al portale di Azure. Se le risorse Visione personalizzata create nella sezione **Prerequisiti** sono state distribuite correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. Le chiavi e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. Sarà necessario ottenere le chiavi di training e di previsione, oltre all'endpoint delle risorse di training.
+> Accedere al portale di Azure. Se le risorse Visione personalizzata create nella sezione **Prerequisiti** sono state distribuite correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. Le chiavi e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. È necessario ottenere le chiavi per le risorse di training e di stima, insieme all'endpoint API per la risorsa di training.
 >
 > Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](../../../cognitive-services-security.md) di Servizi cognitivi.
 

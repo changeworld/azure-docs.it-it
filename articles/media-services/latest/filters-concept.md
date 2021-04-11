@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: bb5561ced93c3f5a899c6e48fdab0f14e52914bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ba9a4d5ac427533c2ce005a74fe43b0ce80de79
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89291552"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109442"
 ---
 # <a name="filters"></a>Filtri
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Quando si distribuiscono contenuti ai clienti (eventi live streaming o video on demand), il client potrebbe richiedere una maggiore flessibilità rispetto a quanto descritto nel file manifesto dell'asset predefinito. Servizi multimediali di Azure offre [manifesti dinamici](filters-dynamic-manifest-overview.md) basati su filtri predefiniti. 
+Quando si distribuiscono contenuti ai clienti (eventi live streaming o video on demand), il client potrebbe richiedere una maggiore flessibilità rispetto a quanto descritto nel file manifesto dell'asset predefinito. Servizi multimediali di Azure offre [manifesti dinamici](filters-dynamic-manifest-concept.md) basati su filtri predefiniti. 
 
 I filtri sono regole lato server che consentono ai clienti di eseguire operazioni come: 
 
@@ -141,12 +141,12 @@ Nell'esempio seguente viene definito un filtro di streaming live:
 
 ## <a name="associating-filters-with-streaming-locator"></a>Associazione di filtri con il localizzatore di streaming
 
-È possibile specificare un elenco di [filtri asset o account](filters-concept.md) nel [localizzatore di streaming](/rest/api/media/streaminglocators/create#request-body). Il [Packager dinamico](dynamic-packaging-overview.md) applica questo elenco di filtri insieme a quelli specificati dal client nell'URL. Questa combinazione genera un [manifesto dinamico](filters-dynamic-manifest-overview.md), basato sui filtri presenti nell'URL e nei filtri specificati nel localizzatore di streaming. 
+È possibile specificare un elenco di [filtri asset o account](filters-concept.md) nel [localizzatore di streaming](/rest/api/media/streaminglocators/create#request-body). Il [Packager dinamico](encode-dynamic-packaging-concept.md) applica questo elenco di filtri insieme a quelli specificati dal client nell'URL. Questa combinazione genera un [manifesto dinamico](filters-dynamic-manifest-concept.md), basato sui filtri presenti nell'URL e nei filtri specificati nel localizzatore di streaming. 
 
 Vedere gli esempi seguenti:
 
-* [Associare filtri a un localizzatore di streaming-.NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
-* [Associare filtri a un localizzatore di streaming-CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+* [Associare filtri a un localizzatore di streaming-.NET](filters-dynamic-manifest-dotnet-how-to.md#associate-filters-with-streaming-locator)
+* [Associare filtri a un localizzatore di streaming-CLI](filters-dynamic-manifest-cli-how-to.md#associate-filters-with-streaming-locator)
 
 ## <a name="updating-filters"></a>Aggiornamento dei filtri
  
@@ -161,5 +161,5 @@ Se è necessario modificare la definizione del filtro, è consigliabile creare u
 Gli articoli seguenti spiegano come creare filtri in modo programmatico.  
 
 - [Creare filtri con le API REST](filters-dynamic-manifest-rest-howto.md)
-- [Creare filtri con .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Creare filtri con l’interfaccia della riga di comando](filters-dynamic-manifest-cli-howto.md)
+- [Creare filtri con .NET](filters-dynamic-manifest-dotnet-how-to.md)
+- [Creare filtri con l’interfaccia della riga di comando](filters-dynamic-manifest-cli-how-to.md)

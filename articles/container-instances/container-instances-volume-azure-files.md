@@ -2,23 +2,27 @@
 title: Montare File di Azure volume al gruppo di contenitori
 description: Informazioni su come montare un volume di File di Azure per rendere persistente lo stato con Istanze di Azure Container
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 03/24/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d52ad8ad02735c98b29a83d8ca69cdea8c6af7d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09a4d9922a4f9ba4296fc194d72c621fecb8342d
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97954975"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968901"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montare una condivisione file di Azure in Istanze di Azure Container
 
 Per impostazione predefinita, Istanze di Azure Container è senza stato. Se il contenitore viene riavviato, si arresta in modo anomalo o si interrompe, tutto il relativo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Come illustrato in questo articolo, le istanze di contenitore di Azure possono montare una condivisione file di Azure creata con [file di Azure](../storage/files/storage-files-introduction.md). File di Azure offre condivisioni file completamente gestite ospitate in archiviazione di Azure accessibili tramite il protocollo SMB (Server Message Block) standard di settore. L'uso di una condivisione file di Azure con Istanze di Azure Container offre funzionalità di condivisione di file simili all'uso di una condivisione file di Azure con macchine virtuali di Azure.
 
+## <a name="limitations"></a>Limitazioni
+
+* È possibile montare solo File di Azure condivisioni a contenitori Linux. Per ulteriori informazioni sulle differenze nel supporto delle funzionalità per i gruppi di contenitori Linux e Windows, vedere la [Panoramica](container-instances-overview.md#linux-and-windows-containers).
+* Il montaggio del volume di condivisione file di Azure richiede l'esecuzione del contenitore Linux come *radice* .
+* I montaggi del volume di condivisione file di Azure sono limitati al supporto CIFS.
+
 > [!NOTE]
-> Il montaggio di una condivisione File di Azure è attualmente limitato ai contenitori Linux. Trovare le attuali differenze della piattaforma nella [Panoramica](container-instances-overview.md#linux-and-windows-containers).
->
-> Il montaggio di una condivisione di File di Azure in un'istanza di contenitore è simile a quello di un [montaggio di binding](https://docs.docker.com/storage/bind-mounts/)docker. Tenere presente che se si monta una condivisione in una directory del contenitore in cui sono presenti file o directory, questi file o directory sono nascosti dal montaggio e non sono accessibili durante l'esecuzione del contenitore.
+> Il montaggio di una condivisione di File di Azure in un'istanza di contenitore è simile a quello di un [montaggio di binding](https://docs.docker.com/storage/bind-mounts/)docker. Se si monta una condivisione in una directory del contenitore in cui sono presenti file o directory, il montaggio nasconde file o directory, rendendoli inaccessibili durante l'esecuzione del contenitore.
 >
 
 > [!IMPORTANT]

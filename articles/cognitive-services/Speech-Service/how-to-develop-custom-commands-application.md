@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddf36530e52703ab1033b8e2e787b42b6dc60332
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97935819"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553278"
 ---
 # <a name="develop-custom-commands-applications"></a>Sviluppare applicazioni di comandi personalizzati
 
@@ -96,7 +96,7 @@ Per altre informazioni sulle regole e sulle regole di completamento, vedere [con
     | Impostazione    | Valore consigliato                          | Descrizione                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **Nome**       | `ConfirmationResponse`                  | Nome che descrive lo scopo della regola          |
-    | **Condizioni** | nessuno                                     | Condizioni che determinano quando la regola può essere eseguita    |
+    | **Condizioni** | Nessuno                                     | Condizioni che determinano quando la regola può essere eseguita    |
     | **Actions**    | **Invia risposta vocale**  >  **Editor semplice**  >  **Prima variazione** > `Ok, turning the tv on` | Azione da eseguire quando la condizione della regola è true |
 
    > [!div class="mx-imgBorder"]
@@ -119,7 +119,7 @@ Modificare quindi le regole di completamento **eseguite** esistenti come segue:
 | Impostazione    | Valore consigliato                          |
 | ---------- | ---------------------------------------- |
 | **Nome**  | `ConfirmationResponse`                  |
-| **Condizioni** | nessuno                                     |
+| **Condizioni** | Nessuno                                     |
 | **Actions**    | **Invia risposta vocale**  >  **Editor semplice**  >  **Prima variazione** > `Ok, setting temperature to 40 degrees` |
 
 Selezionare **Save (Salva** ) per salvare tutte le modifiche apportate al comando.
@@ -131,7 +131,7 @@ Creare un nuovo `SetAlarm` comando. Usare la frase di esempio `Set an alarm for 
 | Impostazione    | Valore consigliato                          |
 | ---------- | ---------------------------------------- |
 | **Nome**  | `ConfirmationResponse`                  |
-| **Condizioni** | nessuno                                     |
+| **Condizioni** | Nessuno                                     |
 | **Actions**    | **Invia risposta vocale**  >  **Editor semplice**  >  **Prima variazione** > `Ok, setting an alarm for 9 am tomorrow` |
 
 Selezionare **Save (Salva** ) per salvare tutte le modifiche apportate al comando.
@@ -212,7 +212,7 @@ Per iniziare, modificare il `TurnOn` comando esistente per attivare e disattivar
     | **È globale**          | Deselezionato             |
     | **Obbligatorio**           | Opzione selezionata               |
     | **Risposta per il parametro obbligatorio**     | **Editor semplice** > `Which device do you want to control?`    | 
-    | **Tipo**               | **Stringa**                |          |
+    | **Tipo**               | **Stringa**                |     
     | **Configuration**      | **Accetta valori di input predefiniti da un catalogo interno** | 
     | **Valori di input predefiniti** | `tv`, `fan`               |
     | **Alias** ( `tv` )      | `television`, `telly`     |
@@ -633,7 +633,7 @@ Un altro modo per personalizzare le risposte ai comandi personalizzati consiste 
 > ![Screenshot che illustra le frasi di esempio e i parametri.](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> Per le voci pubbliche, i tipi neurali sono disponibili solo per aree specifiche. Per altre informazioni, vedere [aree supportate per il servizio vocale](./regions.md#standard-and-neural-voices).
+> Per le voci pubbliche, i tipi neurali sono disponibili solo per aree specifiche. Per altre informazioni, vedere [aree supportate per il servizio vocale](./regions.md#neural-and-standard-voices).
 >
 > È possibile creare voci personalizzate nella pagina del progetto **Voice personalizzato** . Per altre informazioni, vedere [Introduzione alla voce personalizzata](./how-to-custom-voice.md).
 

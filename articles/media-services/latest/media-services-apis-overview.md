@@ -128,7 +128,7 @@ AMSE è un progetto open source il cui supporto viene fornito dalla community (i
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali
 
-Vedere [Applicazione di filtri, ordinamento e paging delle entità di Servizi multimediali di Azure](entities-overview.md).
+Vedere [Applicazione di filtri, ordinamento e paging delle entità di Servizi multimediali di Azure](filter-order-page-entitites-how-to.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 

@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/31/2021
 ms.author: victorh
-ms.openlocfilehash: 906687e08c9f31890a9ecec9154079e704512832
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8e10eef89df12807cabd96d64d9c7d659f91d6c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96485723"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109510"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Distribuire un provider del partner di sicurezza
 
@@ -67,7 +67,7 @@ Tenere presente che è necessario distribuire un gateway VPN per convertire un h
 
 ## <a name="configure-third-party-security-providers-to-connect-to-a-secured-hub"></a>Configurare provider di sicurezza di terze parti per la connessione a un hub protetto
 
-Per configurare i tunnel per il gateway VPN dell'hub virtuale, i provider di terze parti necessitano dei diritti di accesso all'hub. A tale scopo, associare un'entità servizio alla sottoscrizione o al gruppo di risorse e concedere i diritti di accesso. È quindi necessario assegnare queste credenziali a terze parti tramite il portale.
+Per configurare i tunnel per il gateway VPN dell'hub virtuale, i provider di terze parti necessitano dei diritti di accesso all'hub. A tale scopo, associare un'entità servizio alla sottoscrizione o al gruppo di risorse e concedere i diritti di accesso. È quindi necessario assegnare queste credenziali alla terza parte usando il portale.
 
 ### <a name="create-and-authorize-a-service-principal"></a>Creare e autorizzare un'entità servizio
 
@@ -90,28 +90,25 @@ Per configurare i tunnel per il gateway VPN dell'hub virtuale, i provider di ter
    
 2. È possibile esaminare lo stato di creazione del tunnel nel portale WAN virtuale di Azure in Azure. Quando i tunnel sono **connessi** sia in Azure che nel portale per i partner, continuare con i passaggi successivi per configurare le route per selezionare quali Branch e reti virtuali devono inviare il traffico Internet al partner.
 
-## <a name="configure-route-settings"></a>Configurare le impostazioni della route
+## <a name="configure-security-with-firewall-manager"></a>Configurare la sicurezza con gestione firewall
 
 1. Passare ad Azure Firewall Manager-> Hub protetti. 
 2. Selezionare un hub. Lo stato dell'hub dovrebbe ora visualizzare il **provisioning** invece della **connessione di sicurezza in sospeso**.
 
    Verificare che il provider di terze parti possa connettersi all'hub. I tunnel nel gateway VPN devono trovarsi in uno stato **connesso** . Questo stato è più riflettente sull'integrità della connessione tra l'hub e il partner di terze parti rispetto allo stato precedente.
-3. Selezionare l'hub e passare a **Impostazioni route**.
+3. Selezionare l'hub e passare a **configurazioni di sicurezza**.
 
    Quando si distribuisce un provider di terze parti nell'hub, l'hub viene convertito in un *hub virtuale protetto*. Ciò garantisce che il provider di terze parti stia annunciando una route 0.0.0.0/0 (impostazione predefinita) all'hub. Tuttavia, le connessioni VNet e i siti connessi all'hub non ottengono questa route, a meno che non si scelga esplicitamente le connessioni che devono ottenere la route predefinita.
-4. In **traffico Internet** selezionare **da VNet a Internet** o da **ramo a Internet** oppure entrambe le route sono configurate invia tramite la terza parte.
+4. Configurare la sicurezza della rete WAN virtuale impostando il **traffico Internet** tramite il firewall di Azure e il **traffico privato** tramite un partner di sicurezza attendibile. Questa operazione protegge automaticamente le singole connessioni nella rete WAN virtuale.
 
-   Questo indica solo il tipo di traffico che deve essere indirizzato all'hub, ma non influisce sulle route su reti virtuali o sui rami. Queste route non vengono propagate a tutti i reti virtuali/rami collegati all'hub per impostazione predefinita.
-5. È necessario selezionare **connessioni sicure** e selezionare le connessioni in cui devono essere impostate tali route. Ciò indica quali reti virtuali/Branch possono iniziare a inviare traffico Internet al provider di terze parti.
-6. In **Impostazioni route** selezionare **connessioni sicure** in traffico Internet, quindi selezionare VNet o Branch (*siti* in WAN virtuale) da proteggere. Selezionare **traffico Internet sicuro**.
-   ![Traffico Internet sicuro](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Tornare alla pagina Hub. Lo stato del **provider del partner di sicurezza** dell'hub dovrebbe essere ora  **protetto**.
+   :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Configurazione della sicurezza":::
+5. Inoltre, se l'organizzazione usa intervalli di indirizzi IP pubblici in reti virtuali e succursali, è necessario specificare in modo esplicito tali prefissi IP usando i **prefissi di traffico privati**. I prefissi degli indirizzi IP pubblici possono essere specificati singolarmente o come aggregati.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Ramo o traffico Internet VNet tramite servizio di terze parti
 
 Successivamente, è possibile verificare se le macchine virtuali VNet o il sito di succursale può accedere a Internet e verificare che il traffico venga propagato al servizio di terze parti.
 
-Dopo aver completato i passaggi di impostazione della route, le macchine virtuali VNet e i siti secondari vengono inviati a 0/0 una route del servizio di terze parti. Non è possibile usare RDP o SSH in queste macchine virtuali. Per accedere, è possibile distribuire il servizio [Azure Bastion](../bastion/bastion-overview.md) in un VNet con peering.
+Dopo aver completato i passaggi di impostazione della route, le macchine virtuali VNet e i siti secondari vengono inviati a 0/0 per la route del servizio di terze parti. Non è possibile usare RDP o SSH in queste macchine virtuali. Per accedere, è possibile distribuire il servizio [Azure Bastion](../bastion/bastion-overview.md) in un VNet con peering.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

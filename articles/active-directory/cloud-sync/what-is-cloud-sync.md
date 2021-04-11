@@ -11,12 +11,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b880d70baf7c160f8235bd01a5000f83825c36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc81e0b5a2b7e9e2e5ab12094950f71ad51c6871
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98614488"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107225972"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>Che cos'è Azure AD Connect sincronizzazione cloud?
 Azure AD Connect sincronizzazione cloud è una nuova offerta di Microsoft progettata per soddisfare e raggiungere gli obiettivi di identità ibrida per la sincronizzazione di utenti, gruppi e contatti con Azure AD.  Questa operazione viene eseguita tramite l'agente di provisioning Azure AD cloud invece dell'applicazione Azure AD Connect.  Tuttavia, può essere utilizzato insieme a Azure AD Connect Sync e offre i seguenti vantaggi:
@@ -63,7 +63,7 @@ Nella tabella seguente viene illustrato un confronto tra Azure AD Connect e Azur
 | Supporto per la federazione |●|●|
 | Accesso Single Sign-On facile (Seamless SSO)|● |●|
 | Supporta l'installazione in un controller di dominio |● |● |
-| Supporto per Windows Server 2012 e Windows Server 2012 R2 |● |● |
+| Supporto per Windows Server 2016|● |● |
 | Applicazioni di filtri in base a domini/unità organizzative/gruppi |● |● |
 | Applicazione di filtri in base a valori di attributo degli oggetti |● | |
 | Possibilità di sincronizzare un set minimo di attributi (MinSync) |● |● |

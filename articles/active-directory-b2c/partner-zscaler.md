@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dbeb3cd4fccf80f434e6c7ac08c658632f64b135
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9cd193eb6ff2858440f1cd9a62bdd53d58d6047d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096854"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256294"
 ---
 # <a name="tutorial-configure-zscaler-private-access-with-azure-active-directory-b2c"></a>Esercitazione: configurare l'accesso privato zScaler con Azure Active Directory B2C
 
@@ -96,7 +96,7 @@ Dopo aver configurato Azure AD B2C, il resto della configurazione di IdP riprend
 >[!Note]
 >Questo passaggio è necessario solo se non sono già stati configurati criteri personalizzati. Se si dispone già di uno o più criteri personalizzati, è possibile ignorare questo passaggio.
 
-Per configurare i criteri personalizzati nel tenant di Azure AD B2C, vedere [Introduzione ai criteri personalizzati in Azure Active Directory B2C](./custom-policy-get-started.md).
+Per configurare i criteri personalizzati nel tenant di Azure AD B2C, vedere [Introduzione ai criteri personalizzati in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ### <a name="step-3-register-zpa-as-a-saml-application-in-azure-ad-b2c"></a>Passaggio 3: registrare ZPA come applicazione SAML in Azure AD B2C
 
@@ -149,7 +149,7 @@ Passare a un portale per gli utenti di ZPA o a un'applicazione di accesso al bro
 
 Per ulteriori informazioni, vedere gli articoli seguenti:
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 - [Registrare un'applicazione SAML in Azure AD B2C](./saml-service-provider.md)
 - [Guida dettagliata alla configurazione di ZPA](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa)
 - [Configurare un IdP per Single Sign-On](https://help.zscaler.com/zpa/configuring-idp-single-sign)

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 254f424694df72a290a07369fe910587fadf58d4
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385548"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552955"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless in Azure Synapse Analytics
 
@@ -104,6 +104,15 @@ Per accedere a un account di archiviazione protetto da firewall, è possibile us
 #### <a name="user-identity"></a>Identità utente
 
 Per accedere all'account di archiviazione protetto da firewall tramite l'identità utente, è possibile usare il modulo Az.Storage di PowerShell.
+#### <a name="configuration-via-azure-portal"></a>Configurazione tramite portale di Azure
+
+1. Cercare l'account di archiviazione in portale di Azure.
+1. Passare a rete nella sezione Impostazioni.
+1. Nella sezione "istanze di risorse" aggiungere un'eccezione per l'area di lavoro sinapsi.
+1. Selezionare Microsoft. sinapsi/Workspaces come tipo di risorsa.
+1. Selezionare il nome dell'area di lavoro come nome dell'istanza.
+1. Fare clic su Salva.
+
 #### <a name="configuration-via-powershell"></a>Configurazione tramite PowerShell
 
 Seguire questa procedura per configurare il firewall dell'account di archiviazione e aggiungere un'eccezione per l'area di lavoro di Synapse.

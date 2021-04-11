@@ -1,6 +1,6 @@
 ---
 title: Assegnare un criterio di accesso Azure Key Vault (CLI)
-description: Come usare l'interfaccia della riga di comando di Azure per assegnare un criterio di accesso Key Vault a un'entità servizio o un'identità dell'applicazione.
+description: Come usare l'interfaccia della riga di comando di Azure per assegnare un criterio di accesso Key Vault a un'entità di sicurezza o un'identità dell'applicazione.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0c7910ac149c8de43eeac92913a0d314fcc1854e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9dc03f776ac430072e456332955cbfc75d73bf2
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934578"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968850"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Assegnare un criterio di accesso Key Vault
 
-Un criterio di accesso Key Vault determina se una determinata entità servizio, ovvero un'applicazione o un gruppo di utenti, può eseguire diverse operazioni su Key Vault [segreti](../secrets/index.yml), [chiavi](../keys/index.yml)e [certificati](../certificates/index.yml). È possibile assegnare i criteri di accesso usando il [portale di Azure](assign-access-policy-portal.md), l'interfaccia della riga di comando di Azure (questo articolo) o [Azure PowerShell](assign-access-policy-powershell.md).
+Un criterio di accesso Key Vault determina se un'entità di sicurezza specificata, ovvero un utente, un'applicazione o un gruppo di utenti, può eseguire diverse operazioni su Key Vault [segreti](../secrets/index.yml), [chiavi](../keys/index.yml)e [certificati](../certificates/index.yml). È possibile assegnare i criteri di accesso usando il [portale di Azure](assign-access-policy-portal.md), l'interfaccia della riga di comando di Azure (questo articolo) o [Azure PowerShell](assign-access-policy-powershell.md).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
@@ -69,7 +69,7 @@ Usare il comando [AZ Vault set-Policy](/cli/azure/keyvault#az-keyvault-set-polic
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
 ```
 
-Sostituire `<object-id>` con l'ID oggetto dell'entità servizio.
+Sostituire `<object-id>` con l'ID oggetto dell'entità di sicurezza.
 
 È necessario includere `--secret-permissions` , `--key-permissions` e solo quando si `--certificate-permissions` assegnano autorizzazioni a tali tipi particolari. I valori consentiti per `<secret-permissions>` , `<key-permissions>` e `<certificate-permissions>` sono specificati nella documentazione [AZ di Vault set-Policy](/cli/azure/keyvault#az-keyvault-set-policy) .
 

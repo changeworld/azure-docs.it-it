@@ -4,12 +4,12 @@ description: Descrive come usare il bus di servizio per ottimizzare le prestazio
 ms.topic: article
 ms.date: 03/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10435f74cfb7c87ccb28b64e1b3f136add1dc927
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4093d93da11e992ed9e6558a5386eb88f417ef9
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561875"
+ms.locfileid: "105967762"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
 
@@ -35,7 +35,7 @@ Sono disponibili tre SDK .NET del bus di servizio di Azure supportati. Le API so
 | Pacchetto NuGet | Spazi dei nomi primari | Piattaforma/i minima | Protocolli |
 |---------------|----------------------|---------------------|-------------|
 | [Azure. Messaging. ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Piattaforma UWP (Universal Windows Platform) 10.0.16299 | AMQP<br>HTTP |
-| [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Piattaforma UWP (Universal Windows Platform) 10.0.16299 | AMQP<br>HTTP |
+| [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Piattaforma UWP (Universal Windows Platform) 10.0.16299 | AMQP<br>HTTP |
 | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
 Per ulteriori informazioni sul supporto della piattaforma .NET Standard minima, vedere [supporto dell'implementazione di .NET](/dotnet/standard/net-standard#net-implementation-support).

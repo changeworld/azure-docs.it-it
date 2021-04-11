@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d106021d90304a06ea7c08494d626511bb903df0
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90019530"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553040"
 ---
 # <a name="upload-files-with-iot-hub"></a>Caricare file con l'hub IoT
 
@@ -44,7 +44,13 @@ Per usare la funzionalità di caricamento file, è prima necessario collegare un
 Le guide procedurali per [Caricare i file dal dispositivo nel cloud con un hub IoT](iot-hub-csharp-csharp-file-upload.md) includono una procedura completa del processo di caricamento dei file. Queste guide procedurali illustrano come usare il portale di Azure per associare un account di archiviazione a un hub IoT.
 
 > [!NOTE]
-> Gli [SDK di IoT di Azure](iot-hub-devguide-sdks.md) gestiscono automaticamente il recupero dell'URI di firma di accesso condiviso, il caricamento del file e la notifica all'hub IoT del completamento del caricamento.
+> Gli [SDK di Azure](iot-hub-devguide-sdks.md) per la gestione delle app di Azure gestiscono automaticamente il recupero dell'URI della firma di accesso condiviso, il caricamento del file e l'invio di una notifica all'hub degli eventi di un caricamento completato. Se un firewall blocca l'accesso all'endpoint di archiviazione BLOB, ma consente l'accesso all'endpoint dell'hub Internet delle cose, il processo di caricamento dei file ha esito negativo e visualizza l'errore seguente per l'SDK per dispositivi C#:
+>
+> `---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond`
+>
+> Per il corretto funzionamento della funzionalità di caricamento dei file, è necessario che l'accesso sia all'endpoint dell'hub Internet che all'endpoint di archiviazione BLOB sia disponibile per il dispositivo.
+> 
+
 
 ## <a name="initialize-a-file-upload"></a>Inizializzazione del caricamento di un file
 L'hub IoT dispone di un endpoint dedicato in modo specifico ai dispositivi che consente di richiedere un URI di firma di accesso condiviso con cui l'archiviazione possa caricare un file. Per avviare il processo di caricamento del file, il dispositivo invia una richiesta POST a `{iot hub}.azure-devices.net/devices/{deviceId}/files` con il corpo JSON seguente:

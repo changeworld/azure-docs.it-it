@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: a431060be380952940bdb99c65abc7a9740091de
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5bb061af37f6f6d7e6e27cf25f0faa63bca7353c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105038159"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109187"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Come codificare ed eseguire lo streaming di file video con Node.JS
 
@@ -58,7 +58,7 @@ Aprire [index. TS](https://github.com/Azure-Samples/media-services-v3-node-tutor
 
 L'esempio esegue le azioni seguenti:
 
-1. Crea una **trasformazione** con un [set di impostazioni di codifica compatibile](./content-aware-encoding.md)con il contenuto. Verifica innanzitutto se la trasformazione specificata esiste.
+1. Crea una **trasformazione** con un [set di impostazioni di codifica compatibile](./encode-content-aware-concept.md)con il contenuto. Verifica innanzitutto se la trasformazione specificata esiste.
 1. Crea un **Asset** di output usato dal **processo** di codifica per contenere l'output
 1. Facoltativamente, carica un file locale usando storage BLOB SDK
 1. Crea l'input del **processo** in base a un URL HTTPS o a un file caricato

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: bf66723f878f8b277d71577c068afdad56708ad6
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 2cdf068d31cf621538eb265977ea0dae20e16e85
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563272"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109323"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Guida alla migrazione basata su scenari di codifica
 
@@ -91,7 +91,7 @@ Nella versione V2, i file di metadati di input e output XML vengono generati com
 
 ## <a name="premium-encoder-to-v3-standard-encoder-or-partner-based-solutions"></a>Codificatore Premium per il codificatore standard V3 o soluzioni basate su partner
 
-L'API v2 non supporta più il codificatore Premium. Se in precedenza è stato usato il codificatore Premium basato sul flusso di lavoro per la codifica HEVC, è necessario eseguire la migrazione al nuovo [codificatore v3 standard](media-encoder-standard-formats.md) con supporto della codifica HEVC.
+L'API v2 non supporta più il codificatore Premium. Se in precedenza è stato usato il codificatore Premium basato sul flusso di lavoro per la codifica HEVC, è necessario eseguire la migrazione al nuovo [codificatore v3 standard](encode-media-encoder-standard-formats-reference.md) con supporto della codifica HEVC.
 
 Se sono necessarie le funzionalità avanzate del flusso di lavoro del codificatore Premium, si consiglia di iniziare a usare una soluzione partner di codifica avanzata di Azure da [Imagine Communications](https://imaginecommunications.com), [Telestream](https://www.telestream.net)o [Bitmovin](https://bitmovin.com).
 
@@ -109,14 +109,14 @@ Per i clienti che usano il processore Indexer V1 nell'API v2, è necessario crea
 
 ### <a name="concepts"></a>Concetti
 
-- [Codifica di video e audio con servizi multimediali](encoding-concept.md)
-- [Formati e codec standard del codificatore](media-encoder-standard-formats.md)
-- [Codifica con una scala a bitrate generata automaticamente](autogen-bitrate-ladder.md)
-- [Usare il set di impostazioni di codifica compatibile con il contenuto per trovare il valore di velocità in bit ottimale per una determinata risoluzione](content-aware-encoding.md)
+- [Codifica di video e audio con servizi multimediali](encode-concept.md)
+- [Formati e codec standard del codificatore](encode-media-encoder-standard-formats-reference.md)
+- [Codifica con una scala a bitrate generata automaticamente](encode-autogen-bitrate-ladder.md)
+- [Usare il set di impostazioni di codifica compatibile con il contenuto per trovare il valore di velocità in bit ottimale per una determinata risoluzione](encode-content-aware-concept.md)
 - [Media reserved unit](concept-media-reserved-units.md)
 - [Metadati di input](input-metadata-schema.md)
 - [Metadati di output](output-metadata-schema.md)
-- [Creazione dinamica dei pacchetti in servizi multimediali V3: codec audio](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging)
+- [Creazione dinamica dei pacchetti in servizi multimediali V3: codec audio](encode-dynamic-packaging-concept.md#audio-codecs-supported-by-dynamic-packaging)
 
 ### <a name="tutorials"></a>Esercitazioni
 
@@ -129,13 +129,13 @@ Per i clienti che usano il processore Indexer V1 nell'API v2, è necessario crea
 - [Creare un input del processo da un file locale](job-input-from-local-file-how-to.md)
 - [Creare una trasformazione audio di base](how-to-create-basic-audio-transform.md)
 - Con .NET
-  - [Come codificare con una trasformazione personalizzata-.NET](customize-encoder-presets-how-to.md)
+  - [Come codificare con una trasformazione personalizzata-.NET](encode-custom-presets-how-to.md)
   - [Come creare una sovrapposizione con Media Encoder Standard](how-to-create-overlay.md)
   - [Come generare anteprime usando il codificatore standard con .NET](media-services-generate-thumbnails-dotnet.md)
 - Con l'interfaccia della riga di comando di Azure
-  - [Come codificare con una trasformazione personalizzata-interfaccia della riga di comando di Azure](custom-preset-cli-howto.md)
+  - [Come codificare con una trasformazione personalizzata-interfaccia della riga di comando di Azure](encode-custom-preset-cli-how-to.md)
 - Con REST
-  - [Come codificare con una trasformazione personalizzata-REST](custom-preset-rest-howto.md)
+  - [Come codificare con una trasformazione personalizzata-REST](encode-custom-preset-rest-how-to.md)
   - [Come generare anteprime usando il codificatore standard con REST](media-services-generate-thumbnails-rest.md)
 - [Sottoclip di un video durante la codifica con servizi multimediali-.NET](subclip-video-dotnet-howto.md)
 - [Sottoclip di un video durante la codifica con servizi multimediali-REST](subclip-video-rest-howto.md)

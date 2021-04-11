@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: 5beff6bdc00e14a7aea4183f7c01e5e0be3594de
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: c60c0326018e615a0c84d56c98faee58560f1d87
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104803447"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113153"
 ---
 Introduzione alla libreria client di Visione personalizzata per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per creare un modello di classificazione immagini. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'applicazione di riconoscimento immagini personalizzata.
 
@@ -59,7 +59,7 @@ Creare le variabili per l'endpoint e le chiavi della sottoscrizione di Azure del
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Accedere al portale di Azure. Se le risorse Visione personalizzata create nella sezione **Prerequisiti** sono state distribuite correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. È possibile trovare le chiavi e l'endpoint nelle pagine **chiave ed endpoint** delle risorse. Sarà necessario ottenere le chiavi di training e di previsione, oltre all'endpoint delle risorse di training.
+> Accedere al portale di Azure. Se le risorse Visione personalizzata create nella sezione **Prerequisiti** sono state distribuite correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. È possibile trovare le chiavi e l'endpoint nelle pagine **chiave ed endpoint** delle risorse. È necessario ottenere le chiavi per le risorse di training e di stima, insieme all'endpoint API per la risorsa di training.
 >
 > È possibile trovare il valore ID della risorsa di stima nella scheda **Proprietà** della risorsa, elencato come **ID sottoscrizione**.
 >

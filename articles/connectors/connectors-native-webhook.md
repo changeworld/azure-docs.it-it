@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdbf853a96f319cb27c10136004a1398014e602f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89227900"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109153"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creare ed eseguire flussi di lavoro automatizzati basati su eventi usando webhook HTTP in app per la logica di Azure
 
@@ -145,9 +145,9 @@ Di seguito sono riportate altre informazioni sugli output di un trigger o un'azi
 | Nome proprietà | Type | Descrizione |
 |---------------|------|-------------|
 | headers | object | Intestazioni della richiesta |
-| Corpo | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| Corpo | object | Oggetto con il contenuto del corpo della richiesta |
 | Codice di stato | INT | Codice di stato della risposta |
-|||
+||||
 
 | Codice di stato | Descrizione |
 |-------------|-------------|

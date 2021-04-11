@@ -2,17 +2,19 @@
 title: Reimposta le credenziali vSphere per la soluzione VMware di Azure
 description: Informazioni su come reimpostare le credenziali vSphere per il cloud privato della soluzione VMware di Azure e verificare che HCX Connector disponga delle credenziali di vSphere più recenti.
 ms.topic: how-to
-ms.date: 03/16/2021
-ms.openlocfilehash: 1376b6322250da506d32b8ced0a62ddbf60ba9f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/31/2021
+ms.openlocfilehash: 793b79e42a0adbca54804d1b66102736aff22d7a
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587628"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109102"
 ---
 # <a name="reset-vsphere-credentials-for-azure-vmware-solution"></a>Reimposta le credenziali vSphere per la soluzione VMware di Azure
 
 Questo articolo illustra i passaggi per reimpostare le credenziali di server vCenter e NSX-T Manager per il cloud privato della soluzione VMware di Azure. Ciò consentirà di verificare che HCX Connector disponga delle credenziali server vCenter più recenti.
+
+Oltre a questa procedura, è anche possibile visualizzare il video per [la reimpostazione della password di amministratore di vCenter CloudAdmin & NSX-T](https://youtu.be/cK1qY3knj88).
 
 ## <a name="reset-your-azure-vmware-solution-credentials"></a>Reimposta le credenziali della soluzione VMware di Azure
 

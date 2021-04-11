@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 810aaae9634a7de8d07b6d49edd0c6c2eda96754
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8bd46f013680d5cbc9e75a312206fdb2fdcac7ec
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730882"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109357"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Chiamare un endpoint REST con App per la logica di Azure
 
@@ -150,9 +150,9 @@ Di seguito sono riportate altre informazioni sugli output di un trigger o di un'
 | Nome proprietà | Type | Descrizione |
 |---------------|------|-------------|
 | headers | object | Intestazioni della richiesta |
-| Corpo | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| Corpo | object | Oggetto con il contenuto del corpo della richiesta |
 | Codice di stato | INT | Codice di stato della risposta |
-|||
+||||
 
 | Codice di stato | Descrizione |
 |-------------|-------------|

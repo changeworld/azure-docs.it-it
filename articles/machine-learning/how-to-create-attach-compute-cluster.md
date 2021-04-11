@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: c11176f0c7760e76b755406bda96b72b302f8857
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1e3549a6f5f4f9d7f6a6da574378c90c20e42dcf
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506940"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169573"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creare un cluster di elaborazione di Azure Machine Learning
 
@@ -44,11 +44,9 @@ I cluster di calcolo possono eseguire processi in modo sicuro in un [ambiente di
 
 ## <a name="limitations"></a>Limitazioni
 
-* **Non creare più allegati simultanei nello stesso calcolo** dall'area di lavoro. Ad esempio, se si connette un cluster di calcolo a un'area di lavoro usando due nomi diversi. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
-
-    Se si desidera ricollegare una destinazione di calcolo, ad esempio per modificare le impostazioni di configurazione del cluster, è necessario innanzitutto rimuovere l'allegato esistente.
-
 * Alcuni degli scenari elencati in questo documento sono contrassegnati come __Anteprima__. La funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+* Attualmente è supportata solo la creazione (e non l'aggiornamento) dei cluster tramite i modelli ARM [ https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/workspaces/computes?tabs=json ]. Per l'aggiornamento del calcolo, è consigliabile usare SDK, CLI o UX per il momento.
 
 * Per alcuni aspetti, l'ambiente di calcolo di Azure Machine Learning prevede limiti predefiniti, ad esempio il numero di core che possono essere allocati. Per altre informazioni, consultare il documento [Gestire e richiedere quote per risorse di Azure](how-to-manage-quotas.md).
 

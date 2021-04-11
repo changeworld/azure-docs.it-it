@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: d6b5bab1c1b6c8db4821fdf84728eb66eb55b899
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b7ead2e54889327bfbea188ad464012c3861556
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98882230"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968612"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Esercitazione: Configurare la sincronizzazione dati SQL tra i database nel database SQL di Azure e in SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,7 +64,7 @@ Per esempi di PowerShell su come configurare la sincronizzazione dati SQL, veder
    | **Usare il collegamento privato** | Scegliere un endpoint privato gestito dal servizio per stabilire una connessione sicura tra il servizio di sincronizzazione e il database hub. |
 
    > [!NOTE]
-   > Microsoft consiglia di creare un nuovo database vuoto da usare come **Database dei metadati di sincronizzazione**. La sincronizzazione dati crea tabelle in questo database ed esegue un carico di lavoro frequente. Questo database viene condiviso come **database dei metadati di sincronizzazione** per tutti i gruppi di sincronizzazione in un'area e in una sottoscrizione selezionate. Non è possibile modificare il database o il nome di questo senza rimuovere tutti i gruppi e gli agenti di sincronizzazione nell'area.
+   > Microsoft consiglia di creare un nuovo database vuoto da usare come **Database dei metadati di sincronizzazione**. La sincronizzazione dati crea tabelle in questo database ed esegue un carico di lavoro frequente. Questo database viene condiviso come **database dei metadati di sincronizzazione** per tutti i gruppi di sincronizzazione in un'area e in una sottoscrizione selezionate. Non è possibile modificare il database o il nome di questo senza rimuovere tutti i gruppi e gli agenti di sincronizzazione nell'area. Inoltre, un database di processi elastici non può essere utilizzato come database dei metadati di sincronizzazione dati SQL e viceversa.  
 
    Selezionare **OK** e attendere che il gruppo di sincronizzazione venga creato e distribuito.
    

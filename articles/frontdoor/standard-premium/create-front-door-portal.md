@@ -4,20 +4,19 @@ description: Questa Guida introduttiva illustra come usare il servizio Azure fro
 services: frontdoor
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 04/16/2021
 ms.author: duau
-ms.openlocfilehash: 175fb82a5fdf300915f89c3d8cdc238638a742e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8c6fe355621b4f096814268dea8fd2fc8e1166a7
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565130"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552870"
 ---
 # <a name="quickstart-create-an-azure-front-door-standardpremium-profile---azure-portal"></a>Guida introduttiva: creare un profilo standard/Premium di Azure front door-portale di Azure
 
@@ -90,7 +89,7 @@ Se non si ha già un'app Web, usare la procedura seguente per configurare un'app
 
 1. Nella scheda **nozioni di base** della pagina **Crea app Web** immettere o selezionare le informazioni seguenti.
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | **Sottoscrizione**               | Selezionare la propria sottoscrizione. |
     | **Gruppo di risorse**       | Selezionare **Crea nuovo** e immettere *FrontDoorQS_rg1* nella casella di testo.|
@@ -127,7 +126,7 @@ Configurare Azure front door standard/Premium (Preview) per indirizzare il traff
 
 1. Nella scheda informazioni di **base**   immettere o selezionare le informazioni seguenti e quindi selezionare **Next: Secret (segreto**). 
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | **Sottoscrizione** | Selezionare la propria sottoscrizione. |
     | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere *FrontDoorQS_rg0* nella casella di testo. |
@@ -148,13 +147,13 @@ Configurare Azure front door standard/Premium (Preview) per indirizzare il traff
     
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Screenshot dell'aggiunta di un endpoint.":::
 
-1. Successivamente, aggiungere un gruppo di origine che contenga le due app Web. Selezionare **+ Aggiungi**   per aprire **la pagina Aggiungi un gruppo di origine** . Per nome immettere *myOrignGroup*, quindi selezionare **+ Aggiungi un'origine**.
+1. Successivamente, aggiungere un gruppo di origine che contenga le due app Web. Selezionare **+ Aggiungi**   per aprire **la pagina Aggiungi un gruppo di origine** . Per nome immettere *myOriginGroup*, quindi selezionare **+ Aggiungi un'origine**.
  
      :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Screenshot dell'aggiunta di un gruppo di origine.":::
 
 1. Nella pagina **Aggiungi un'origine**   immettere o selezionare le informazioni riportate di seguito. Quindi selezionare **Aggiungi**.
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | **Nome** | Immettere **app Web 1** |
     | **Tipo di origine** | Selezionare i **Servizi app** |
@@ -179,7 +178,7 @@ Configurare Azure front door standard/Premium (Preview) per indirizzare il traff
   
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-route-without-caching.png" alt-text="Aggiungi route senza Caching":::
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --- | --- |
     | **Nome** | Immettere la **Route** |    
     | **Dominio** | Selezionare `contoso-frontend.z01.azurefd.net` | 

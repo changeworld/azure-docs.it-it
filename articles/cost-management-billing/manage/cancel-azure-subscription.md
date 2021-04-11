@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 03/31/2021
 ms.author: banders
-ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b20134cbfb85c2dcaef1227e6390c8c6047ad5be
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735776"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109391"
 ---
 # <a name="cancel-your-azure-subscription"></a>Annullare la sottoscrizione di Azure
 
@@ -77,6 +77,10 @@ Se si ha una sottoscrizione di valutazione gratuita, non è necessario attendere
 1. Selezionare la sottoscrizione da eliminare.
 1. Selezionare **Panoramica** e quindi **Elimina sottoscrizione**.
 
+## <a name="delete-other-subscriptions"></a>Elimina altre sottoscrizioni
+
+L'unico tipo di sottoscrizione che è possibile eliminare manualmente è una sottoscrizione di valutazione gratuita. Tutti gli altri tipi di sottoscrizione, incluse le sottoscrizioni con pagamento in base al consumo, vengono eliminati solo tramite il processo di [annullamento della sottoscrizione](#cancel-subscription-in-the-azure-portal) . In altre parole, non è possibile eliminare direttamente una sottoscrizione, a meno che non si tratti di una sottoscrizione di valutazione gratuita. Tuttavia, dopo aver annullato una sottoscrizione, è possibile creare una [richiesta di supporto di Azure](https://go.microsoft.com/fwlink/?linkid=2083458) per chiedere di eliminare immediatamente la sottoscrizione.
+
 ## <a name="reactivate-a-subscription"></a>Riattivare una sottoscrizione
 
 Se si annulla la sottoscrizione con tariffe con pagamento in base al consumo accidentale, è possibile [riattivarla nel portale di Azure](subscription-disabled.md).
@@ -89,7 +93,7 @@ Se la sottoscrizione non è con pagamento in base al consumo, contattare il supp
 
 ## <a name="how-do-i-delete-my-azure-account"></a>Come si elimina l'account Azure?
 
-*È necessario rimuovere l'account, incluse tutte le informazioni personali. Sono già state annullate le sottoscrizioni attive (versione di valutazione gratuita). Non sono presenti sottoscrizioni attive e si vuole eliminare completamente l'account*.
+È *necessario rimuovere l'account, incluse tutte le informazioni personali. Ho già annullato le sottoscrizioni attive (versione di valutazione gratuita). Non ho sottoscrizioni attive e desidero eliminare completamente l'account*.
 
 * Se l'account Azure Active Directory è stato fornito dall'organizzazione potrà essere eliminato dall'amministratore di Azure AD. Dopo questo intervallo, i servizi vengono disabilitati. Le macchine virtuali vengono deallocate, gli indirizzi IP temporanei vengono liberati e la risorsa di archiviazione diventa di sola lettura. In breve, nel momento in cui viene annullata, la fatturazione viene interrotta immediatamente.
 
