@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9a878dc5cdbbe336e7279d0cd919bd17cd42d0e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e1b7e091fe09bc2c093cc84473bd07917347f26d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728216"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220794"
 ---
 # <a name="communication-services-notifications"></a>Notifiche di Servizi di comunicazione
 
@@ -67,13 +67,24 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 #### <a name="using-the-azure-portal-to-link-your-notification-hub"></a>Uso del portale di Azure per collegare l'hub di notifica
 
-Nel portale passare alla risorsa di Servizi di comunicazione di Azure. All'interno della risorsa di Servizi di comunicazione selezionare Notifiche push nel menu a sinistra della pagina di Servizi di comunicazione e connettere l'hub di notifica di cui è stato effettuato il provisioning in precedenza. È necessario specificare qui la stringa di connessione e l'ID risorsa:
+1. Nel portale passare alla risorsa servizi di comunicazione di Azure.
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot che mostra le impostazioni di Notifiche push nel portale di Azure.":::
+1. All'interno della risorsa servizi di comunicazione selezionare **notifiche push** dal menu a sinistra della pagina servizi di comunicazione e connettere l'hub di notifica di cui è stato effettuato il provisioning in precedenza.
+
+1. Selezionare **Connetti Hub di notifica**. Verrà visualizzato un elenco di hub di notifica disponibili per la connessione.
+ 
+1. Selezionare l'hub di notifica che si vuole usare per questa risorsa.
+ 
+   - Se è necessario creare un nuovo hub, selezionare **Crea nuovo** Hub di notifica per ottenere un nuovo hub di cui è stato effettuato il provisioning per questa risorsa.
+
+   :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot che mostra le impostazioni di Notifiche push nel portale di Azure.":::
+
+A questo punto verrà visualizzato l'hub di notifica collegato con lo stato connesso.
+
+Se si vuole usare un hub diverso per la risorsa, selezionare **Disconnetti** e quindi ripetere i passaggi per collegare il diverso Hub di notifica.
 
 > [!NOTE]
-> Se la stringa di connessione dell'hub di notifica di Azure viene aggiornata, è necessario aggiornare anche la risorsa di Servizi di comunicazione.
-Qualsiasi modifica apportata al modo in cui l'hub è collegato si rifletterà nel piano dati, ossia quando viene inviata una notifica, entro un intervallo massimo di ``10`` minuti. Ciò vale anche quando l'hub viene collegato per la prima volta **se** erano già state inviate notifiche.
+> Qualsiasi modifica apportata al collegamento dell'hub viene riflessa nel piano dati, ovvero quando si invia una notifica, entro un periodo massimo di 10 minuti. Questo stesso comportamento si applica quando l'hub viene collegato per la prima volta, **se** le notifiche sono state inviate prima della modifica.
 
 ### <a name="device-registration"></a>Registrazione del dispositivo
 

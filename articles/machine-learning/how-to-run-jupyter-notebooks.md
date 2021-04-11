@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: fec4eb55f43bd17db5935ab32e5429927c74f5b9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 953b987e908736df703c354067ee27fc27d56073
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066212"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220709"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Eseguire Jupyter notebook nell'area di lavoro
 
@@ -46,16 +46,19 @@ Quando un'istanza di calcolo è in esecuzione, è anche possibile usare il compl
 
 Usare la modalità messa a fuoco per espandere la visualizzazione corrente in modo da potersi concentrare sulle schede attive. La modalità messa a fuoco nasconde Esplora file dei notebook.
 
-1. Nella barra degli strumenti della finestra del terminale selezionare **modalità messa a fuoco** per attivare la modalità messa a fuoco. A seconda della larghezza della finestra, è possibile che si trovi nella voce di menu **..** . nella barra degli strumenti.
+1. Nella barra degli strumenti della finestra del terminale selezionare **modalità messa a fuoco** per attivare la modalità messa a fuoco. A seconda della larghezza della finestra, è possibile che lo strumento si trovi nella voce di menu **..** . della barra degli strumenti.
 1. In modalità messa a fuoco tornare alla visualizzazione standard selezionando **visualizzazione standard**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Attiva/Nascondi modalità messa a fuoco/visualizzazione standard":::
 
 ## <a name="code-completion-intellisense"></a>Completamento del codice (IntelliSense)
 
-[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) è un supporto per il completamento del codice che include numerose funzionalità: Elenca membri, informazioni sul parametro, informazioni rapide e completa parola. Queste funzionalità consentono di acquisire altre informazioni sul codice in uso, tengono traccia dei parametri che si digitano e aggiungono le chiamate a proprietà e metodi con poche sequenze di tasti.  
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) è un supporto per il completamento del codice che include molte funzionalità: Elenca membri, informazioni sul parametro, informazioni rapide e completa parola. Con poche sequenze di tasti è possibile:
+* Scopri di più sul codice che usi
+* Tenere traccia dei parametri digitati
+* Aggiungere chiamate a proprietà e metodi 
 
-### <a name="use-code-snippets-preview"></a>Usare frammenti di codice (anteprima)
+### <a name="insert-code-snippets-preview"></a>Inserisci frammenti di codice (anteprima)
 
 Usare **CTRL + barra spaziatrice** per attivare i frammenti di codice IntelliSense.  Scorrere i suggerimenti o iniziare a digitare per trovare il codice che si desidera inserire.  Una volta inserito il codice, scorrere gli argomenti per personalizzare il codice per uso personale.
 
@@ -67,7 +70,7 @@ Questi stessi frammenti sono disponibili quando si apre il notebook in VS Code. 
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/open-snippet-panel.png" alt-text="Strumento pannello Apri frammento nella barra degli strumenti del notebook":::
 
-Dal pannello frammenti è inoltre possibile inviare una richiesta di aggiunta di nuovi frammenti di codice.
+Dal pannello frammenti, è anche possibile inviare una richiesta per aggiungere nuovi frammenti di codice.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Il pannello snippet consente di proporre un nuovo frammento di codice":::
 
@@ -285,8 +288,8 @@ Usando i tasti di scelta rapida seguenti, è possibile esplorare ed eseguire pi�
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * Se non è possibile connettersi a un notebook, assicurarsi che la comunicazione del socket Web **non** sia disabilitata. Per il funzionamento della funzionalità Jupyter dell'istanza di calcolo, è necessario abilitare la comunicazione WebSocket. Assicurarsi che la rete consenta le connessioni WebSocket a *. instances.azureml.net e *. instances.azureml.ms. 
-
 * Quando l'istanza di calcolo viene distribuita in un'area di lavoro di collegamento privato, è possibile [accedervi solo dall'interno della rete virtuale](./how-to-secure-training-vnet.md#compute-instance). Se si usa un file host o DNS personalizzato, aggiungere una voce per < nome istanza >. < Region >. instances.azureml.ms con l'indirizzo IP privato dell'endpoint privato dell'area di lavoro. Per altre informazioni, vedere l'articolo [DNS personalizzato](./how-to-custom-dns.md?tabs=azure-cli) .
+
     
 ## <a name="next-steps"></a>Passaggi successivi
 

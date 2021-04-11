@@ -44,7 +44,7 @@
     - name: Gemelli digitali
       href: concepts-digital-twin.md
     - name: Certificato del dispositivo
-      href: concepts-certification-program.md
+      href: ../certification/program-requirements-pnp.md
     - name: Repository modelli
       href: concepts-model-repository.md
     - name: Usare i modelli in una soluzione
@@ -61,8 +61,6 @@
       href: howto-use-embedded-c.md
     - name: Gestire i gemelli digitali
       href: howto-manage-digital-twin.md
-    - name: Certificare un dispositivo
-      href: howto-certify-device.md
     - name: Come connettere un esempio Plug and Play Bridge
       href: howto-use-iot-pnp-bridge.md
     - name: Compila e Distribuisci Plug and Play Bridge

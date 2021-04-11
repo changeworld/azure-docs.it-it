@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ab9f33616547c073e8e3a2128a441238bf3a17d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84697844"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220454"
 ---
 # <a name="http-api-reference"></a>Informazioni di riferimento sulle API HTTP
 
@@ -128,6 +128,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 Nella versione 2. x del runtime di funzioni, il formato dell'URL presenta tutti gli stessi parametri, ma con un prefisso leggermente diverso:
@@ -140,6 +141,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti:
@@ -153,16 +155,17 @@ I parametri della richiesta per questa API includono il set predefinito indicato
 | **`createdTimeFrom`**   | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco delle istanze restituite create in corrispondenza o dopo il timestamp ISO8601 specificato.|
 | **`createdTimeTo`**     | Stringa di query    | Parametro facoltativo. Quando specificato, filtra l'elenco delle istanze restituite create in corrispondenza o prima del timestamp ISO8601 specificato.|
 | **`runtimeStatus`**     | Stringa di query    | Parametro facoltativo. Se specificato, filtra l'elenco delle istanze restituite in base allo stato del runtime. Per visualizzare l'elenco dei possibili valori dello stato di runtime, vedere l'articolo [querying instances](durable-functions-instance-management.md) . |
+| **`returnInternalServerErrorOnFailure`**  | Stringa di query    | Parametro facoltativo. Se è impostato su `true` , questa API restituirà una risposta HTTP 500 anziché 200 se l'istanza si trova in uno stato di errore. Questo parametro è destinato agli scenari automatici di polling dello stato. |
 
 ### <a name="response"></a>Risposta
 
 Possono essere restituiti diversi valori di codice di stato.
 
-* **HTTP 200 (OK)**: l'istanza specificata è in stato completato.
+* **HTTP 200 (OK)**: l'istanza specificata è in stato completato o non riuscito.
 * **HTTP 202 (Accettata )**: l'istanza specificata è in esecuzione.
 * **HTTP 400 (Richiesta non valida)**: l'istanza specificata ha avuto esito negativo o è stata terminata.
 * **HTTP 404 (Non trovata)**: l'istanza specificata non esiste o l'esecuzione non è iniziata.
-* **HTTP 500 (Errore interno del server)**: si è verificato un errore dell'istanza specificata con un'eccezione non gestita.
+* **HTTP 500 (errore interno del server)**: restituito solo quando `returnInternalServerErrorOnFailure` è impostato su `true` e l'istanza specificata non è riuscita con un'eccezione non gestita.
 
 Il payload di risposta per i casi **HTTP 200** e **HTTP 202** è un oggetto JSON con i campi seguenti:
 

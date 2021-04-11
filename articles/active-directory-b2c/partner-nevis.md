@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8e72cab6d6220b71e93550eec7649752201180a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98674994"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256583"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Esercitazione per configurare Nevis con Azure Active Directory B2C per l'autenticazione senza password
 
@@ -32,7 +32,7 @@ Per iniziare, è necessario:
 
 - Un [tenant Azure ad B2C](./tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
 
-- Configurato Azure AD B2C ambiente per l'uso di [criteri personalizzati](./custom-policy-get-started.md), se si vuole integrare Nevis nel flusso dei criteri di iscrizione.
+- Configurato Azure AD B2C ambiente per l'uso di [criteri personalizzati](./tutorial-create-user-flows.md?pivots=b2c-custom-policy), se si vuole integrare Nevis nel flusso dei criteri di iscrizione.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -270,4 +270,4 @@ Per ulteriori informazioni, vedere gli articoli seguenti.
 
 - [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

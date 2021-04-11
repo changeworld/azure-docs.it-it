@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: f720cc196f4034d29ec1d628e28d3534b10f3e41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a94784f2f3fc622e0232033d63bc957279a7d34c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025816"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076310"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Esercitazione: implementare CI/CD con GitOps usando cluster Kubernetes abilitati per Azure Arc
 
@@ -58,7 +58,7 @@ Questa esercitazione presuppone una certa familiarità con DevOps, Azure Repos e
 
 ## <a name="import-application-and-gitops-repos-into-azure-repos"></a>Importazione di applicazioni e repository GitOps in Azure Repos
 
-Importare un [repository dell'applicazione](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd#application-repo) e un [repository GitOps](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd#gitops-repo) in Azure Repos. Per questa esercitazione, usare il repository di esempio seguente:
+Importare un [repository dell'applicazione](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#application-repo) e un [repository GitOps](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#gitops-repo) in Azure Repos. Per questa esercitazione, usare il repository di esempio seguente:
 
 * repository dell'applicazione **Arc-CICD-demo-src**
    * URL: https://github.com/Azure/arc-cicd-demo-src
@@ -338,4 +338,4 @@ In questa esercitazione è stato configurato un flusso di lavoro CI/CD completo 
 Passare al nostro articolo concettuale per ottenere altre informazioni su GitOps e sulle configurazioni con Azure Arc Enabled Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Flusso di lavoro CI/CD con GitOps-Azure Arc Enabled Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd)
+> [Flusso di lavoro CI/CD con GitOps-Azure Arc Enabled Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)

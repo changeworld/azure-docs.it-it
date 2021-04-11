@@ -3,16 +3,16 @@ title: Configurare l'autenticazione di Twitter
 description: Informazioni su come configurare l'autenticazione di Twitter come provider di identità per il servizio app o l'app funzioni di Azure.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 11c913b12b4dcb7d2a5ffa532064b347b82904ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ecce954991d9f3901c54a6f87fc803b32469862
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80519900"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077976"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Configurare il servizio app o l'app funzioni di Azure per usare l'account di accesso di Twitter
 
@@ -34,38 +34,28 @@ Per completare la procedura descritta in questo articolo, è necessario un accou
    - Chiave API
    - Chiave privata API
 
-   > [!NOTE]
+   > [!IMPORTANT]
    > La chiave privata API è una credenziale di sicurezza importante. Non condividere questo valore con altri né distribuirlo con l'app.
 
 ## <a name="add-twitter-information-to-your-application"></a><a name="secrets"> </a>Aggiungere informazioni di Twitter all'applicazione
 
-1. Passare all'applicazione nel [Azure portal].
-1. Selezionare **Impostazioni** > **Autenticazione/Autorizzazione** e assicurarsi che l'opzione **Autenticazione servizio app** sia impostata su **Sì**.
-1. Selezionare **Twitter**.
-1. Incollare i `API key` valori e `API secret key` ottenuti in precedenza.
-1. Selezionare **OK**.
+1. Accedere al [portale di Azure] e passare all'app.
+1. Selezionare **autenticazione** nel menu a sinistra. Fare clic su **Aggiungi provider di identità**.
+1. Selezionare **Twitter** nell'elenco a discesa provider di identità. Incollare i `API key` valori e `API secret key` ottenuti in precedenza.
 
-   ![Screenshot delle impostazioni di Twitter per app per dispositivi mobili][1]
+    Il segreto verrà archiviato come [impostazione dell'applicazione](./configure-common.md#configure-app-settings) con slot-Sticky denominata `TWITTER_PROVIDER_AUTHENTICATION_SECRET` . È possibile aggiornare tale impostazione in un secondo momento per usare i [riferimenti Key Vault](./app-service-key-vault-references.md) se si vuole gestire il segreto in Azure Key Vault.
 
-   Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso autorizzato al contenuto del sito e alle API. È necessario autorizzare gli utenti nel codice dell'app.
+1. Se questo è il primo provider di identità configurato per l'applicazione, verrà visualizzata anche una sezione **impostazioni di autenticazione del servizio app** . In caso contrario, è possibile passare al passaggio successivo.
+    
+    Queste opzioni determinano il modo in cui l'applicazione risponde alle richieste non autenticate e le selezioni predefinite reindirizza tutte le richieste di accesso con questo nuovo provider. È possibile modificare la personalizzazione di questo comportamento ora oppure modificare le impostazioni in un secondo momento dalla schermata principale di **autenticazione** scegliendo **modifica** accanto a **impostazioni di autenticazione**. Per altre informazioni su queste opzioni, vedere [flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
 
-1. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati da Twitter, impostare il parametro **Azione da eseguire quando la richiesta non è autenticata** su **Twitter**. Quando si imposta questa funzionalità, l'app richiede che tutte le richieste vengano autenticate. Reindirizza anche tutte le richieste non autenticate a Twitter per l'autenticazione.
+1. Fare clic su **Aggiungi**.
 
-   > [!CAUTION]
-   > La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, il che potrebbe non essere opportuno per le app dotate di una home page disponibile pubblicamente, come nel caso di molte applicazioni a pagina singola. Per queste applicazioni, potrebbe essere preferibile scegliere **Consenti richieste anonime (nessuna azione)** in modo che l'app possa avviare l'autenticazione manualmente in autonomia. Per altre informazioni, vedere [Flusso di autenticazione](overview-authentication-authorization.md#authentication-flow).
-
-1. Selezionare **Salva**.
-
-È ora possibile usare un account Twitter per l'autenticazione nell'app.
+A questo punto si è pronti per usare Twitter per l'autenticazione nell'app. Il provider verrà elencato nella schermata **Authentication** . Da qui è possibile modificare o eliminare questa configurazione del provider.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Passaggi successivi
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
-<!-- Images. -->
-
-[0]: ./media/app-service-mobile-how-to-configure-twitter-authentication/app-service-twitter-redirect.png
-[1]: ./media/app-service-mobile-how-to-configure-twitter-authentication/mobile-app-twitter-settings.png
 
 <!-- URLs. -->
 

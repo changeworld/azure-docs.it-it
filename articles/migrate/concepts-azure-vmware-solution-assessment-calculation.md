@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 1d9918786b22faddaeb07a12f0840b36a11ffe4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b55f0562ae08a6e5a6b38bd0b6fc9f781b94ab64
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778382"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078690"
 ---
 # <a name="assessment-overview-migrate-to-azure-vmware-solution"></a>Panoramica della valutazione (migrazione alla soluzione VMware di Azure)
 
@@ -31,6 +31,9 @@ Le valutazioni create con Azure Migrate sono uno snapshot temporizzato dei dati.
 **Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. È possibile valutare i server locali nell'ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione alle macchine virtuali di Azure con questo tipo di valutazione.
 **SQL di Azure** | Valutazioni per la migrazione dei server SQL locali dall'ambiente VMware al database SQL di Azure o al Istanza gestita SQL di Azure.
 **Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> Se il numero di macchine virtuali di Azure o di valutazione AVS non è corretto nello strumento di individuazione e valutazione, fare clic sul numero totale di valutazioni per passare a tutte le valutazioni e ricalcolare la VM di Azure o le valutazioni AVS. Lo strumento di individuazione e valutazione indicherà quindi il numero corretto per tale tipo di valutazione. 
 
 La valutazione della soluzione VMware di Azure (AVS) fornisce due opzioni per i criteri di ridimensionamento:
 

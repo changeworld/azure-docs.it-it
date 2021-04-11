@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 79d21549e7234e4ee342776466f8d3d8ced5f08c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1302d44a4cb5b09f6dc3b1bf0cb08a12a932c87
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508810"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029404"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -39,7 +39,7 @@ Di seguito vengono indicati alcuni dettagli importanti sugli endpoint privati:
 
 - Quando si crea un endpoint privato, viene creata anche un'interfaccia di rete di sola lettura per il ciclo di vita della risorsa. All'interfaccia vengono assegnati indirizzi IP privati dinamici dalla subnet che esegue il mapping alla risorsa di collegamento privato. Il valore dell'indirizzo IP privato rimane invariato per l'intero ciclo di vita dell'endpoint privato.
  
-- L'endpoint privato deve essere distribuito nella stessa area della rete virtuale. 
+- L'endpoint privato deve essere distribuito nella stessa area e nella stessa sottoscrizione della rete virtuale. 
  
 - La risorsa di collegamento privato può essere distribuita in un'area diversa rispetto alla rete virtuale e all'endpoint privato.
  

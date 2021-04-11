@@ -5,12 +5,12 @@ ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 70c9498bae9117585963e111bea4f1e127cab232
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f4b12a9b3b830fcc4f45cb5e957232fee5a756a3
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097942"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078646"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
 
@@ -150,7 +150,7 @@ Parametro | Descrizione | Valore di esempio
 Consortium Member ID (ID membro del consorzio) | ID associato a ogni membro che partecipa alla rete Consortium. Viene usato per configurare gli spazi degli indirizzi IP per evitare conflitti. Per una rete privata, l'ID membro deve essere univoco tra organizzazioni diverse nella stessa rete.  È necessario un ID membro univoco anche quando la stessa organizzazione esegue la distribuzione in più regioni. Prendere nota del valore di questo parametro poiché è necessario condividerlo con altri membri di join per assicurarsi che non esistano conflitti. L'intervallo valido è compreso tra 0 e 255. | 0
 ID rete | L'ID di rete per la rete di consorzio Ethereum in fase di realizzazione. Ogni rete Ethereum ha il proprio ID di rete, di cui 1 è l'ID della rete pubblica. L'intervallo valido è compreso tra 5 e 999.999.999 | 10101010
 Admin Ethereum Address (Indirizzo Ethereum amministratore) | Indirizzo dell'account Ethereum usato per partecipare alla governance del PoA. È possibile usare metamask per generare un indirizzo Ethereum. |
-Opzioni avanzate | Opzioni avanzate per le impostazioni di Ethereum | Abilita
+Opzioni avanzate | Opzioni avanzate per le impostazioni di Ethereum | Abilitare
 Eseguire la distribuzione tramite IP pubblico | Se si seleziona VNet privato, la rete viene distribuita dietro un gateway VNet e rimuove l'accesso al peering. Per i VNet privati, tutti i membri devono usare un gateway VNet per la compatibilità della connessione. | IP pubblico
 Limite di gas di blocco | Limite di gas di blocco iniziale della rete. | 50 milioni
 Block Reseal Period (sec) (Periodo nuovo sigillo blocco (sec)) | Frequenza con cui verranno creati blocchi vuoti in assenza di transazioni in rete. Una frequenza maggiore determina una finalità più rapida, ma costi di archiviazione maggiori. | 15
@@ -166,11 +166,11 @@ Il monitoraggio consente di configurare una risorsa di log per la rete. L'agente
 
 Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
-Monitoraggio | Opzione per abilitare il monitoraggio | Abilita
+Monitoraggio | Opzione per abilitare il monitoraggio | Abilitare
 Connettersi ai log di monitoraggio di Azure esistenti | Opzione per creare una nuova istanza di log di monitoraggio di Azure o aggiungere un'istanza esistente | Creare un nuovo gruppo di risorse
 Location | Area in cui è distribuita la nuova istanza | Stati Uniti orientali
-ID dell'area di lavoro di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|ID area di lavoro dell'istanza dei log di monitoraggio di Azure esistente||N/D
-Chiave primaria di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|Chiave primaria usata per connettersi all'istanza di log di monitoraggio di Azure esistente||N/D
+ID dell'area di lavoro di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|ID area di lavoro dell'istanza dei log di monitoraggio di Azure esistente|N/D
+Chiave primaria di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|Chiave primaria usata per connettersi all'istanza di log di monitoraggio di Azure esistente|N/D
 
 Selezionare **OK**.
 

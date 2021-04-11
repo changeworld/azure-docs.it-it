@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'esempio di progetto Media
 description: Panoramica dell'esempio di progetto Media. Questo esempio di progetto consente ai clienti di valutare specifici controlli Media.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: f2b9e29d8f5095947587107cc372beb34b18abb7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
-ms.translationtype: HT
+ms.openlocfilehash: f883a22b7af50adedd527bc6783cab435904010a
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034986"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386364"
 ---
 # <a name="overview-of-the-media-blueprint-sample"></a>Panoramica dell'esempio di progetto Media
 

@@ -4,12 +4,12 @@ description: Informazioni su come creare la prima funzione di Azure per l'esecuz
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 6ca187181d68d7924f97ebfac08e81dec77251e9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea5b6a9e51b6982a33dc748f72557ed539b8e2e0
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492124"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385990"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creare la prima funzione nel portale di Azure
 
@@ -60,11 +60,7 @@ Successivamente, creare una funzione nella nuova app per le funzioni.
 
     ![Creare l'URL della funzione dal portale di Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Incollare l'URL della funzione nella barra degli indirizzi del browser. Aggiungere il valore della stringa di query `?name=<your_name>` alla fine dell'URL e premere INVIO per eseguire la richiesta. 
-
-    L'esempio seguente mostra la risposta nel browser:
-
-    ![Risposta della funzione nel browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+1. Incollare l'URL della funzione nella barra degli indirizzi del browser. Aggiungere il valore della stringa di query `?name=<your_name>` alla fine dell'URL e premere INVIO per eseguire la richiesta. Nel browser dovrebbe essere visualizzato un messaggio di risposta che restituisce il valore della stringa di query. 
 
     Se l'URL della richiesta include un [tasto](functions-bindings-http-webhook-trigger.md#authorization-keys) di `?code=...` scelta (), si sceglie la **funzione** anziché il livello di accesso **Anonimo** durante la creazione della funzione. In questo caso, è necessario aggiungere `&name=<your_name>` .
 

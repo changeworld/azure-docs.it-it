@@ -3,16 +3,16 @@ title: Configurare l'autenticazione Microsoft
 description: Informazioni su come configurare l'autenticazione con account Microsoft come provider di identità per un'app del servizio app o di Funzioni di Azure.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: 9ec9c102680496407106a3bf9b7683890c7a63ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e7b4c7ed1950b2fa585639a3097cc1f5688d739
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93043253"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077943"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configurare un'app del servizio app o di Funzioni di Azure per l'uso dell'account Microsoft come account di accesso
 
@@ -20,8 +20,8 @@ ms.locfileid: "93043253"
 
 Questo argomento illustra come configurare Servizio app di Azure o Funzioni di Azure per usare AAD per supportare gli account Microsoft di accesso personali.
 
-> [!NOTE]
-> Sia gli account Microsoft personali che gli account aziendali usano il provider di identità AAD. Al momento non è possibile configurare questo provider di identità per supportare entrambi i tipi di account di accesso.
+> [!IMPORTANT]
+> Sebbene il provider di account Microsoft sia ancora supportato, è consigliabile usare invece il [provider Microsoft Identity Platform (Azure ad)](./configure-authentication-provider-aad.md). La piattaforma Microsoft Identity offre supporto per account aziendali e account Microsoft personali.
 
 ## <a name="register-your-app-with-microsoft-account"></a><a name="register-microsoft-account"> </a>Registrare l'app con l'account Microsoft
 

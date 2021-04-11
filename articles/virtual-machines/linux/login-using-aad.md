@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: 44dfd07a5b749d88552bb1dcac2ee4b4e5ce65e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e14e214a220d9dade4fac028620d23c563d86a8f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565241"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554077"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
 
@@ -140,7 +140,7 @@ Per altre informazioni su come usare il controllo degli accessi in base al ruolo
 
 ## <a name="using-conditional-access"></a>Uso dell'accesso condizionale
 
-È possibile applicare criteri di accesso condizionale, ad esempio l'autenticazione a più fattori o il controllo dei rischi di accesso degli utenti prima di autorizzare l'accesso alle macchine virtuali Linux in Azure abilitate con Azure AD accedi. Per applicare i criteri di accesso condizionale, è necessario selezionare l'app "Azure Linux VM Sign-in" dall'opzione app Cloud o assegnazione azioni e quindi usare il rischio di accesso come condizione e/o richiedere l'autenticazione a più fattori come controllo di concessione dell'accesso. 
+È possibile applicare criteri di accesso condizionale, ad esempio l'autenticazione a più fattori o il controllo dei rischi di accesso degli utenti prima di autorizzare l'accesso alle macchine virtuali Linux in Azure abilitate con Azure AD accedi. Per applicare i criteri di accesso condizionale, è necessario selezionare l'opzione "Microsoft Azure l'accesso alla macchina virtuale Linux" dall'opzione di assegnazione app Cloud o azioni e quindi usare il rischio di accesso come condizione e/o richiedere l'autenticazione a più fattori come controllo di concessione dell'accesso. 
 
 > [!WARNING]
 > La Azure AD Multi-Factor Authentication abilitata/applicata per utente non è supportata per l'accesso alla macchina virtuale.

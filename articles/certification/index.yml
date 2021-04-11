@@ -1,0 +1,24 @@
+### YamlMime:Landing
+title: Documentazione per i dispositivi Azure Certified
+summary: Questo programma è il tuo unico punto di forza per distinguere, promuovere e trovare in modo semplice i dispositivi creati per l'esecuzione in Azure.
+metadata:
+  title: Programma Azure Certified Device
+  description: Questo programma è il tuo unico punto di forza per distinguere, promuovere e trovare in modo semplice i dispositivi creati per l'esecuzione in Azure.
+  ms.service: certification
+  ms.topic: landing-page
+  author: cbroad
+  ms.author: cbroad
+  ms.date: 03/18/2021
+  ms.openlocfilehash: 3fa7e18388fc35eebdfdd0d0aec2be308765b4e1
+  ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/30/2021
+  ms.locfileid: "105970091"
+landingContent:
+- title: Informazioni sul programma Azure Certified Device
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è il programma Azure Certified Device?
+      url: ./overview.md

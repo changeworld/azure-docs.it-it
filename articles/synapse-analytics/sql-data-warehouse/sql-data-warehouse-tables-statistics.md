@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3ade41c51cbb8065734e8957cfc8b9f0c22b2df3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42dd34f0fe4006411f413002eb7c351646e72390
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673367"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078962"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Statistiche della tabella per il pool SQL dedicato in Azure sinapsi Analytics
 
@@ -90,7 +90,7 @@ Tuttavia, se il pool SQL dedicato contiene solo un paese e si importano i dati d
 
 Di seguito sono forniti alcuni elementi consigliati per l'aggiornamento delle statistiche:
 
-|||
+| Attributo Statistics | Recommendation|
 |-|-|
 | **Frequenza degli aggiornamenti delle statistiche**  | Conservativa: Giornaliera </br> Dopo il caricamento o la trasformazione dei dati |
 | **Campionamento** |  Se inferiore a 1 miliardo di righe, usare il campionamento predefinito (20%). </br> Se superiore a 1 miliardo righe, usare il campionamento del 2%. |

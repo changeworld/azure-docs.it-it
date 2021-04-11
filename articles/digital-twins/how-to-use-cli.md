@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 261dceb70a6059c76dbe3bd1d7636eee5d9d77bc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5037450d401153811899b8d769ca92af7ce4068e
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936292"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103777"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Usare l'interfaccia della riga di comando di Gemelli digitali di Azure
 
@@ -25,7 +25,7 @@ Oltre a gestire l'istanza di Azure Digital Twins nell'portale di Azure, i dispos
 * Gestione delle [Route](concepts-route-events.md)
 * Configurazione della [sicurezza](concepts-security.md) tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)
 
-Il set di comandi è denominato **AZ DT** ed è parte dell' [estensione Azure Internet per l'interfaccia](https://github.com/Azure/azure-iot-cli-extension)della riga di comando di Azure. È possibile visualizzare l'elenco completo dei comandi e il relativo utilizzo come parte della documentazione di riferimento per il set di comandi `az iot` : [ *AZ DT* Command Reference](/cli/azure/ext/azure-iot/dt).
+Il set di comandi è denominato **AZ DT** ed è parte dell' [estensione Azure Internet per l'interfaccia](https://github.com/Azure/azure-iot-cli-extension)della riga di comando di Azure. È possibile visualizzare l'elenco completo dei comandi e il relativo utilizzo come parte della documentazione di riferimento per il set di comandi `az iot` : [ *AZ DT* Command Reference](/cli/azure/dt).
 
 ## <a name="uses-deploy-and-validate"></a>Usi (Deploy e Validate)
 
@@ -61,4 +61,4 @@ az extension add --upgrade -n azure-iot
 ## <a name="next-steps"></a>Passaggi successivi
 
 Esplorare l'interfaccia della riga di comando e il set completo di comandi tramite la documentazione di riferimento:
-* [Guida di riferimento al comando *AZ DT*](/cli/azure/ext/azure-iot/dt)
+* [Guida di riferimento al comando *AZ DT*](/cli/azure/dt)

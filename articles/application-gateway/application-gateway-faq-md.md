@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 83779dcd319614ae15de6b7e3e4e3abfd9599089
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc803814e493ffef6f5928dc9971f9f6f864342d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102619155"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221739"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione di Azure
 
@@ -394,6 +394,16 @@ Se si usa lo SKU V1 del servizio gateway applicazione/WAF, è necessario caricar
 Per ulteriori informazioni, vedere la documentazione [qui](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers).
 
 Se si usa lo SKU V2 del servizio gateway applicazione/WAF, non è necessario caricare il nuovo certificato nelle impostazioni HTTP perché lo SKU V2 USA "certificati radice attendibili" e non è necessario eseguire alcuna azione.
+
+## <a name="configuration---mutual-authentication"></a>Configurazione-autenticazione reciproca
+
+### <a name="what-is-mutual-authentication"></a>Che cos'è l'autenticazione reciproca?
+
+L'autenticazione reciproca è l'autenticazione bidirezionale tra un client e un server. L'autenticazione reciproca con il gateway applicazione consente attualmente al gateway di verificare il client che invia la richiesta, ovvero l'autenticazione client. In genere, il client è l'unico che autentica il gateway applicazione. Poiché il gateway applicazione è ora in grado di autenticare il client, diventa l'autenticazione reciproca in cui il gateway applicazione e il client si autenticano reciprocamente tra loro. 
+
+### <a name="is-mutual-authentication-available-between-application-gateway-and-its-backend-pools"></a>È disponibile l'autenticazione reciproca tra il gateway applicazione e i pool back-end?
+
+No, l'autenticazione reciproca è attualmente solo tra il client front-end e il gateway applicazione. L'autenticazione reciproca back-end non è attualmente supportata.
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Configurazione - Controller di ingresso per il servizio Azure Kubernetes
 

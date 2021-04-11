@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 02/19/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: ebaca1f39b16e4a06b5dcaa4e5f1de07122c6c89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0614e6fb1df13332cb05dcb7bb9b0f07a1764d23
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103621982"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107251409"
 ---
 | Risorsa | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -29,7 +29,7 @@ ms.locfileid: "103621982"
 | Numero massimo di sottoscrizioni per istanza del servizio<sup>8</sup> | 500 |
 | Numero massimo di certificati client per istanza del servizio<sup>8</sup> | 50 |
 | Numero massimo di API per istanza del servizio<sup>8</sup> | 50 |
-| Numero massimo di operazioni API per istanza del servizio<sup>8</sup> | 1\.000 |
+| Numero massimo di operazioni di gestione API per ogni istanza di servizio<sup>8</sup> | 1\.000 |
 | Durata totale massima delle richieste<sup>8</sup> | 30 secondi |
 | Dimensioni massime del payload memorizzato nel buffer<sup>8</sup> | 2 MiB |
 | Dimensioni massime dell'URL delle richieste<sup>9</sup> | 4096 byte |

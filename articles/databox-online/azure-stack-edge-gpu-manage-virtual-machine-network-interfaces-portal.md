@@ -6,15 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 03/30/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
-ms.openlocfilehash: 84077f174fabd02afcd5171e8d365e8cbd3a52c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e709b04b4eac60e6cc0ba3e53eb77583162dfef
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027650"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078894"
 ---
 # <a name="use-the-azure-portal-to-manage-network-interfaces-on-the-vms-on-your-azure-stack-edge-pro-gpu"></a>Usare il portale di Azure per gestire le interfacce di rete nelle macchine virtuali nella GPU di Azure Stack Edge Pro
 
@@ -40,7 +39,7 @@ Il dispositivo supporta solo un commutere virtuale ma più interfacce di rete vi
 
 Prima di iniziare a gestire le macchine virtuali nel dispositivo tramite il portale di Azure, assicurarsi che:
 
-1. È stata abilitata un'interfaccia di rete per il calcolo nel dispositivo. Questa azione crea un commutire virtuale nell'interfaccia di rete della macchina virtuale. 
+1. È possibile accedere a un dispositivo GPU Pro Azure Stack Edge attivato. È stata abilitata un'interfaccia di rete per il calcolo nel dispositivo. Questa azione crea un commutire virtuale nell'interfaccia di rete della macchina virtuale. 
     1. Nell'interfaccia utente locale del dispositivo passare a **calcolo**. Selezionare l'interfaccia di rete che si userà per creare uno switch virtuale.
 
         > [!IMPORTANT] 

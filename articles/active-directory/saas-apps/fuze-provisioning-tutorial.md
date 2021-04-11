@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 04/05/2021
 ms.author: zhchia
-ms.openlocfilehash: 2fcb85b2c16bc2dd418c2260420733dd8663382a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 809b32fcf6f39ba9dec2980a79e8824e282b54b7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96179255"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450090"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Esercitazione: Configurare Fuze per il provisioning utenti automatico
 
@@ -144,6 +144,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
 * Fuze supporta attributi SCIM personalizzati denominati **Entitlement**. Questi attributi possono solo essere creati ma non aggiornati. 
+* L'API Spolett SCIM non supporta l'applicazione di filtri all'attributo userName. Di conseguenza, è possibile che si verifichino errori nei log quando si tenta di sincronizzare un utente esistente che non dispone di un attributo userName ma esiste con un messaggio di posta elettronica che corrisponde a userPrincipalName in Azure AD. 
 
 ## <a name="change-log"></a>Registro delle modifiche
 

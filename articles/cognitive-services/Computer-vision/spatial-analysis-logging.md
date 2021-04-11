@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd35062ca1a5b3218a9af1fbd28fe8e7d7073c07
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722702"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077619"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e risoluzione dei problemi
 
@@ -103,21 +103,21 @@ Una volta distribuito il modulo Telegraf, è possibile accedere alle metriche se
 
 ### <a name="system-health-events"></a>Eventi di integrità del sistema
 
-| Nome evento | Descrizione|
-|------|---------|
-|archon_exit     |Inviato quando un utente modifica lo stato del modulo di analisi spaziale da *in esecuzione* a *arrestato*.  |
-|archon_error     |Inviato quando uno dei processi all'interno del contenitore si arresta in modo anomalo. Si tratta di un errore critico.  |
-|InputRate     |Velocità con cui il grafico elabora l'input video. Segnalato ogni 5 minuti. | 
-|OutputRate     |Velocità con cui il grafo genera informazioni dettagliate di intelligenza artificiale. Segnalato ogni 5 minuti. |
-|archon_allGraphsStarted | Inviato al termine dell'avvio di tutti i grafici. |
-|archon_configchange     | Inviato quando viene modificata una configurazione del grafo. |
-|archon_graphCreationFailed     |Inviato quando il grafico con l'oggetto restituito `graphId` non viene avviato. |
-|archon_graphCreationSuccess     |Inviato quando il grafo con l'oggetto riportato `graphId` viene avviato correttamente. |
-|archon_graphCleanup     | Inviato quando il grafico con il segnalato viene `graphId` pulito e chiuso. |
-|archon_graphHeartbeat     |Heartbeat inviato ogni minuto per ogni grafico di una competenza. |
-|archon_apiKeyAuthFail |Inviato quando la chiave della risorsa Visione artificiale non riesce ad autenticare il contenitore per più di 24 ore, a causa dei motivi seguenti: fuori quota, non valido, offline. |
-|VideoIngesterHeartbeat     |Inviato ogni ora per indicare che il video è trasmesso dall'origine video, con il numero di errori in quell'ora. Segnalato per ogni grafico. |
-|VideoIngesterState | Report *interrotti* o *avviati* per lo streaming video. Segnalato per ogni grafico. |
+| Nome evento                  | Descrizione    |
+|-----------------------------|-------------------------------------------------------------------------------------------|
+| archon_exit                 | Inviato quando un utente modifica lo stato del modulo di analisi spaziale da *in esecuzione* a *arrestato*.  |
+| archon_error                | Inviato quando uno dei processi all'interno del contenitore si arresta in modo anomalo. Si tratta di un errore critico.      |
+| InputRate                   | Velocità con cui il grafico elabora l'input video. Segnalato ogni 5 minuti.              |
+| OutputRate                  | Velocità con cui il grafo genera informazioni dettagliate di intelligenza artificiale. Segnalato ogni 5 minuti.                |
+| archon_allGraphsStarted     | Inviato al termine dell'avvio di tutti i grafici.                                           |
+| archon_configchange         | Inviato quando viene modificata una configurazione del grafo.                                              |
+| archon_graphCreationFailed  | Inviato quando il grafico con l'oggetto restituito `graphId` non viene avviato.                           |
+| archon_graphCreationSuccess | Inviato quando il grafo con l'oggetto riportato `graphId` viene avviato correttamente.                      |
+| archon_graphCleanup         | Inviato quando il grafico con il segnalato viene `graphId` pulito e chiuso.                      |
+| archon_graphHeartbeat       | Heartbeat inviato ogni minuto per ogni grafico di una competenza.                                   |
+| archon_apiKeyAuthFail       | Inviato quando la chiave della risorsa Visione artificiale non riesce ad autenticare il contenitore per più di 24 ore, a causa dei motivi seguenti: fuori quota, non valido, offline. |
+| VideoIngesterHeartbeat      | Inviato ogni ora per indicare che il video è trasmesso dall'origine video, con il numero di errori in quell'ora. Segnalato per ogni grafico. |
+| VideoIngesterState          | Report *interrotti* o *avviati* per lo streaming video. Segnalato per ogni grafico.              |
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Risoluzione dei problemi relativi a un dispositivo IoT Edge
 

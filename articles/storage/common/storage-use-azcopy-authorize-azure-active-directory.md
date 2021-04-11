@@ -4,15 +4,15 @@ description: È possibile fornire le credenziali di autorizzazione per le operaz
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 04/01/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 99e06a36c2afa66f2874c14990d50c6287623efd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd3aeaf133c02ef54eceaff776ead34cc2318260
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97672492"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220478"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorizzare l'accesso ai BLOB con AzCopy e Azure Active Directory (Azure AD)
 
@@ -261,9 +261,10 @@ Digitare il comando seguente, quindi premere il tasto INVIO.
 export AZCOPY_AUTO_LOGIN_TYPE=SPN
 export AZCOPY_SPA_APPLICATION_ID=<application-id>
 export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
+export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Sostituire il `<application-id>` segnaposto con l'ID applicazione della registrazione dell'app dell'entità servizio. Sostituire il `<client-secret>` segnaposto con il segreto client.
+Sostituire il `<application-id>` segnaposto con l'ID applicazione della registrazione dell'app dell'entità servizio. Sostituire il `<client-secret>` segnaposto con il segreto client. Sostituire il `<tenant-id>` segnaposto con l'ID tenant dell'organizzazione a cui appartiene l'account di archiviazione. Per trovare l'ID tenant, selezionare **Azure Active Directory > proprietà > ID directory** nella portale di Azure. 
 
 > [!NOTE]
 > Prendere in considerazione l'uso di una richiesta di raccolta della password da parte dell'utente. In questo modo, la password non verrà visualizzata nella cronologia dei comandi. 
@@ -282,9 +283,10 @@ Digitare il comando seguente, quindi premere il tasto INVIO.
 export AZCOPY_AUTO_LOGIN_TYPE=SPN
 export AZCOPY_SPA_CERT_PATH=<path-to-certificate-file>
 export AZCOPY_SPA_CERT_PASSWORD=<certificate-password>
+export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
-Sostituire il `<path-to-certificate-file>` segnaposto con il percorso relativo o il percorso completo del file di certificato. AzCopy Salva il percorso del certificato, ma non salva una copia del certificato, quindi assicurarsi di conservare il certificato. Sostituire il `<certificate-password>` segnaposto con la password del certificato.
+Sostituire il `<path-to-certificate-file>` segnaposto con il percorso relativo o il percorso completo del file di certificato. AzCopy Salva il percorso del certificato, ma non salva una copia del certificato, quindi assicurarsi di conservare il certificato. Sostituire il `<certificate-password>` segnaposto con la password del certificato. Sostituire il `<tenant-id>` segnaposto con l'ID tenant dell'organizzazione a cui appartiene l'account di archiviazione. Per trovare l'ID tenant, selezionare **Azure Active Directory > proprietà > ID directory** nella portale di Azure. 
 
 > [!NOTE]
 > Prendere in considerazione l'uso di una richiesta di raccolta della password da parte dell'utente. In questo modo, la password non verrà visualizzata nella cronologia dei comandi. 

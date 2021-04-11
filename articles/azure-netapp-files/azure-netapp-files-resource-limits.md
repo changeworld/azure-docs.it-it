@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 03/30/2021
 ms.author: b-juche
-ms.openlocfilehash: c82e834c0af3737c1e5ef19c7aa789b94d87f6d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b061184f97abeea79912aadbae2c2b188206c72
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99095392"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058001"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limiti delle risorse per Azure NetApp Files
 
@@ -45,6 +45,7 @@ La tabella seguente descrive i limiti delle risorse per Azure NetApp Files:
 |  Dimensioni massime di un singolo file     |    16 TiB    |    No    |    
 |  Dimensioni massime dei metadati della directory in una singola directory      |    320 MB    |    No    |    
 |  Numero massimo di file ([maxfiles](#maxfiles)) per volume     |    100 milioni    |    Sì    |    
+|  Numero massimo di regole dei criteri di esportazione per volume     |    5  |    No    | 
 |  Velocità effettiva minima assegnata per un volume QoS manuale     |    1 MiB/s   |    No    |    
 |  Velocità effettiva massima assegnata per un volume QoS manuale     |    4.500 MiB/s    |    No    |    
 |  Numero di volumi di protezione dei dati di replica tra aree (volumi di destinazione)     |    5    |    Sì    |     

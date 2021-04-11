@@ -8,32 +8,32 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8bb1f8bb2aaeab88e5a9ea19534c8983af8c1626
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c80b9fd65588fe6c390f44b34509168f3bfb549
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97895751"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077687"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Garantire la disponibilità elevata dell'applicazione durante l'esecuzione in VMware in Azure
 
 La soluzione CloudSimple offre disponibilità elevata per le applicazioni in esecuzione su VMware nell'ambiente Azure. La tabella seguente elenca gli scenari di errore e le funzionalità di disponibilità elevata associate.
 
-| Scenario di errore | Applicazione protetta | Funzionalità disponibilità elevata piattaforma | Funzionalità disponibilità elevata VMware | Funzionalità disponibilità elevata di Azure |
------------- | ------------- | ------------ | ------------ | ------------- |
-| Errore del disco | YES | Sostituzione rapida del nodo non riuscito | [Informazioni sui criteri di archiviazione predefiniti di rete VSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html) |
-| Errore della ventola | YES | Ventilatori ridondanti, sostituzione rapida del nodo non riuscito |  |  |
-| Errore NIC | YES | NIC ridondante, sostituzione rapida del nodo non riuscito
-| Errore di alimentazione dell'host | YES | Alimentatore ridondante |  |  |
-| Errore host ESXi | YES | sostituzione rapida del nodo non riuscito | [Disponibilità elevata VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html) |  |  |
-| Errore della macchina virtuale | YES | [Servizi di bilanciamento del carico](load-balancers.md)  | [Disponibilità elevata VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html) | Azure Load Balancer per le macchine virtuali VMware senza stato |
-| Errore della porta di commutazione foglia | YES | SCHEDA di interfaccia di rete ridondante |  |  |
-| Errore switch foglia | YES | Commutatori foglia ridondanti |  |  |
-| Errore rack | YES | Gruppi di posizionamento |  |  |
-| Connettività di rete al controller di dominio locale | YES  | Servizi di rete ridondanti |  | Circuiti ER ridondanti |
-| Connettività di rete ad Azure | YES | |  | Circuiti ER ridondanti |
-| Errore del Data Center | YES |  |  | Zone di disponibilità |
-| Errore a livello di area | YES  |  |  | Aree di Azure |
+|  Scenario di errore  |  Applicazione protetta  |  Funzionalità disponibilità elevata piattaforma  |  Funzionalità disponibilità elevata VMware  |  Funzionalità disponibilità elevata di Azure  |
+|----------------------------------------|------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+|  Errore del disco  |  YES  |  Sostituzione rapida del nodo non riuscito  |  [Informazioni sui criteri di archiviazione predefiniti di rete VSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html)  |  |
+|  Errore della ventola  |  YES  |  Ventilatori ridondanti, sostituzione rapida del nodo non riuscito  |  |  |
+|  Errore NIC  |  YES  |  NIC ridondante, sostituzione rapida del nodo non riuscito  |  |  |
+|  Errore di alimentazione dell'host  |  YES  |  Alimentatore ridondante  |  |  |
+|  Errore host ESXi  |  YES  |  sostituzione rapida del nodo non riuscito  |  [Disponibilità elevata VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html)  |  |
+|  Errore della macchina virtuale  |  YES  |  [Bilanciamento del carico](load-balancers.md)  |  [Disponibilità elevata VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html)  |  Azure Load Balancer per le macchine virtuali VMware senza stato  |
+|  Errore della porta di commutazione foglia  |  YES  |  SCHEDA di interfaccia di rete ridondante  |  |  |
+|  Errore switch foglia  |  YES  |  Commutatori foglia ridondanti  |  |  |
+|  Errore rack  |  YES  |  Gruppi di posizionamento  |  |  |
+|  Connettività di rete al controller di dominio locale  |  YES  |  Servizi di rete ridondanti  |  |  Circuiti ER ridondanti  |
+|  Connettività di rete ad Azure  |  YES  |  |  |  Circuiti ER ridondanti  |
+|  Errore del Data Center  |  YES  |  |  |  Zone di disponibilità  |
+|  Errore a livello di area  |  YES  |  |  |  Aree di Azure  |
 
 La soluzione VMware di Azure di CloudSimple offre le seguenti funzionalità di disponibilità elevata.
 

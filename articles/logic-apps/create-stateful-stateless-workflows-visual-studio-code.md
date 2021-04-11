@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/30/2021
+ms.openlocfilehash: 491d5f14cc8f456d228a5bc6efaa6686575979c1
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557013"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078741"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creare flussi di lavoro con stato e senza stato in Visual Studio Code con l'estensione app per la logica di Azure (anteprima)
 
@@ -101,8 +101,8 @@ Per compilare ed eseguire localmente il progetto di app per la logica in Visual 
 1. Salvare la stringa di connessione in un punto sicuro. Dopo aver creato il progetto di app per la logica in Visual Studio Code, è necessario aggiungere la stringa al **local.settings.js** nel file nella cartella del livello radice del progetto.
 
    > [!IMPORTANT]
-   > Se si prevede di eseguire la distribuzione in un contenitore Docker, è necessario aggiungere anche questa stringa di connessione al file Docker usato per la distribuzione.
-
+   > Se si prevede di eseguire la distribuzione in un contenitore Docker, è necessario usare anche questa stringa di connessione con il file Docker usato per la distribuzione. Per gli scenari di produzione, assicurarsi di proteggere e proteggere tali segreti e informazioni riservate, ad esempio usando un insieme di credenziali delle chiavi.
+  
 ### <a name="tools"></a>Strumenti
 
 * [Visual Studio Code 1.30.1 (gennaio 2019) o versione successiva](https://code.visualstudio.com/), che è gratuita. Inoltre, scaricare e installare questi strumenti per Visual Studio Code, se non sono già presenti:
@@ -304,6 +304,9 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
          }
       }
       ```
+
+      > [!IMPORTANT]
+      > Per gli scenari di produzione, assicurarsi di proteggere e proteggere tali segreti e informazioni riservate, ad esempio usando un insieme di credenziali delle chiavi.
 
    1. Al termine, assicurarsi di salvare le modifiche.
 
@@ -1205,7 +1208,10 @@ Se non si ha familiarità con Docker, vedere gli argomenti seguenti:
 
 * Un file Docker per il flusso di lavoro usato durante la compilazione del contenitore Docker
 
-  Ad esempio, questo file Docker di esempio distribuisce un'app per la logica. Specifica la stringa di connessione che contiene la chiave di accesso per l'account di archiviazione di Azure usato per la pubblicazione dell'app per la logica nella portale di Azure. Per trovare questa stringa, vedere [ottenere la stringa di connessione dell'account di archiviazione](#find-storage-account-connection-string).
+  Ad esempio, questo file Docker di esempio distribuisce un'app per la logica e specifica la stringa di connessione che contiene la chiave di accesso per l'account di archiviazione di Azure usato per la pubblicazione dell'app per la logica nella portale di Azure. Per trovare questa stringa, vedere [ottenere la stringa di connessione dell'account di archiviazione](#find-storage-account-connection-string). Per altre informazioni, vedere [procedure consigliate per la scrittura di file Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+  
+  > [!IMPORTANT]
+  > Per gli scenari di produzione, assicurarsi di proteggere e proteggere tali segreti e informazioni riservate, ad esempio usando un insieme di credenziali delle chiavi. Per i file di Docker in particolare, rivedere le [Immagini di compilazione con BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) e [gestire i dati sensibili con i segreti di Docker](https://docs.docker.com/engine/swarm/secrets/).
 
    ```text
    FROM mcr.microsoft.com/azure-functions/node:3.0
@@ -1219,8 +1225,6 @@ Se non si ha familiarità con Docker, vedere gli argomenti seguenti:
 
    RUN cd /home/site/wwwroot
    ```
-
-   Per altre informazioni, vedere [procedure consigliate per la scrittura di file Docker](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 <a name="find-storage-account-connection-string"></a>
 

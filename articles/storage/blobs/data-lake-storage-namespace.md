@@ -4,16 +4,16 @@ description: Viene descritto il concetto di spazio dei nomi gerarchico per Azure
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 04/01/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 26062d73ae4c61af77b15dd2cac0541f2a988d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de7f62dd4d4205e819278e6dc90d905e825580f2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95912995"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220505"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Spazio dei nomi gerarchico per Azure Data Lake Storage Gen2
 
@@ -44,6 +44,10 @@ In generale, si consiglia di attivare uno spazio dei nomi gerarchico per i caric
 I motivi per l'abilitazione di uno spazio dei nomi gerarchico sono determinati da un'analisi TCO. In generale, i miglioramenti in termini di latenza di carico di lavoro dovuti a un'accelerazione dell'archiviazione richiederanno risorse di calcolo per un tempo inferiore. La latenza per molti carichi di lavoro può essere migliorata a causa della manipolazione di directory atomica abilitata da uno spazio dei nomi gerarchico. In molti carichi di lavoro, la risorsa di calcolo rappresenta > 85% del costo totale e pertanto anche una riduzione modesta della latenza del carico di lavoro implica un risparmio significativo in termini di costo totale di proprietà. Anche nei casi in cui l'abilitazione di uno spazio dei nomi gerarchico aumenta i costi di archiviazione, il TCO è ancora ridotto a causa di costi di calcolo ridotti.
 
 Per analizzare le differenze tra i prezzi di archiviazione dei dati, i prezzi delle transazioni e i prezzi di prenotazione della capacità di archiviazione tra gli account che hanno uno spazio dei nomi gerarchico o uno spazio dei nomi gerarchico, vedere [Azure Data Lake storage Gen2 prezzi](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+
+## <a name="enabling-a-hierarchical-namespace"></a>Abilitazione di uno spazio dei nomi gerarchico
+
+Non è possibile abilitare uno spazio dei nomi gerarchico in un account di archiviazione esistente. È possibile abilitare uno spazio dei nomi gerarchico solo quando si crea un account di archiviazione. Per istruzioni, vedere [creare un account di archiviazione da usare con Azure Data Lake storage Gen2](create-data-lake-storage-account.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

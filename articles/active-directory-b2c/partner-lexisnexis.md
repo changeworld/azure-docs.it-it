@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 362704368958d2600d16cd907421917b824a59cb
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97108434"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256600"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di LexisNexis con Azure Active Directory B2C
 
@@ -122,7 +122,7 @@ Nei [criteri TrustFrameworkExtensions](https://github.com/azure-ad-b2c/partner-i
 
 ### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Parte 7: configurare i criteri di Azure AD B2C
 
-Fare riferimento a questo [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) per scaricare gli [account locali Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) e configurare i [criteri](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) per il tenant Azure ad B2C.
+Fare riferimento a questo [documento](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) per scaricare gli [account locali Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) e configurare i [criteri](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) per il tenant Azure ad B2C.
 
 >[!NOTE]
 >Aggiornare i criteri specificati per la correlazione con il tenant specifico.
@@ -155,4 +155,4 @@ Per ulteriori informazioni, vedere gli articoli seguenti:
 
 - [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

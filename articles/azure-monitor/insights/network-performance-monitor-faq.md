@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 909cbd6174fe7eceaa8b53b5ba44fe72990b56d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a17dcf36cd8b23bf3bc014e2d101d057221de2b8
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708051"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504894"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
@@ -95,9 +95,6 @@ Se un hop è rosso, significa che fa parte di almeno un percorso non integro. Mo
 
 ### <a name="how-does-fault-localization-in-performance-monitor-work"></a>Come funziona l'individuazione degli errori in Performance Monitor?
 Monitoraggio prestazioni rete adotta un meccanismo probabilistico per assegnare le probabilità di errore a ogni percorso e segmento di rete e agli hop di rete in base al numero di percorsi non integri di cui fanno parte. Quando i segmenti e gli hop di rete diventano parte di un numero maggiore di percorsi non integri, la probabilità di errore associata aumenta. Questo algoritmo funziona in modo ottimale quando sono presenti molti nodi con agente di Monitoraggio prestazioni rete connessi tra loro poiché in questo modo aumenta il numero di punti dati per calcolare le probabilità di errore.
-
-### <a name="how-can-i-create-alerts-in-npm"></a>Come è possibile creare avvisi in Monitoraggio prestazioni rete?
-Attualmente la creazione di avvisi dall'interfaccia utente di NPM non riesce a causa di un problema noto. [Creare gli avvisi manualmente](../alerts/alerts-log.md).
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quali sono le query Log Analytics predefinite per gli avvisi
 Query di performance monitor

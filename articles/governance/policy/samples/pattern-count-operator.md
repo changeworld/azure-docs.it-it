@@ -1,14 +1,14 @@
 ---
 title: 'Modello: operatore Count in una definizione di criteri'
 description: Questo modello di Criteri di Azure fornisce un esempio di come usare l'operatore count in una definizione di criteri.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 1339dff7f8bc92a8e38ec5635690cc2069dd8df4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc2914028887ae5a91e3379e2a94ddbc57a7cef3
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96005419"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093453"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Modello di Criteri di Azure: operatore count
 

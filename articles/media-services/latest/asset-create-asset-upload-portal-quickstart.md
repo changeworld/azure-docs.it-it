@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 3f175ff8e7c809032f35cdea9dc3cffa8345b82c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 929d8412b3be894e80a13d9a2bd07ab7401b8dda
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106824"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277862"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Avvio rapido: Caricamento, codifica e streaming di contenuto con il portale
 
@@ -41,8 +41,8 @@ Questa esercitazione illustra come usare il portale di Azure per il caricamento,
     
     Vedere:
 
-    * [Localizzatori di streaming](streaming-locators-concept.md)
-    * [Criteri di streaming](streaming-policy-concept.md)
+    * [Localizzatori di streaming](stream-streaming-locators-concept.md)
+    * [Criteri di streaming](stream-streaming-policy-concept.md)
     * [Creazione di pacchetti e distribuzione](encode-dynamic-packaging-concept.md)
     * [Filtri](filters-concept.md)
 * È possibile proteggere il contenuto tramite crittografia AES-128 (Advanced Encryption Standard) o/e con uno dei tre sistemi Digital Rights Management principali: Microsoft PlayReady, Google Widevine e Apple FairPlay. L'argomento di avvio rapido [Crittografare contenuti con il portale di Azure](drm-encrypt-content-how-to.md) illustra come configurare la protezione del contenuto.
@@ -94,7 +94,7 @@ Per pubblicare un asset, è ora necessario aggiungere un localizzatore di stream
 
     > [!NOTE]
     > Se si vuole che lo streaming sia crittografato, è necessario creare un criterio di chiave simmetrica e impostarlo sul localizzatore di streaming. Per i dettagli, vedere [Crittografare contenuti con il portale di Azure](drm-encrypt-content-how-to.md).
-1. Nella finestra **Aggiungi localizzatore di streaming** scegliere uno dei criteri di streaming predefiniti. Per informazioni dettagliate, vedere [Criteri di streaming](streaming-policy-concept.md)
+1. Nella finestra **Aggiungi localizzatore di streaming** scegliere uno dei criteri di streaming predefiniti. Per informazioni dettagliate, vedere [Criteri di streaming](stream-streaming-policy-concept.md)
 
     ![Localizzatore di streaming](./media/asset-create-asset-upload-portal-quickstart/streaming-locator.png)
 
@@ -105,7 +105,7 @@ Una volta pubblicato, l'asset può essere trasmesso in streaming direttamente ne
 In alternativa, copiare l'URL di streaming e usarlo nel lettore client.
 
 > [!NOTE]
-> Assicurarsi che l'[endpoint di streaming](streaming-endpoint-concept.md) sia in esecuzione. Quando si crea per la prima volta un account di Servizi multimediali, viene creato l'endpoint di streaming predefinito, il cui stato è interrotto, quindi è necessario avviarlo prima di trasmettere in streaming il contenuto.<br/>Si ricevono addebiti solo quando l'eseguire di streaming è in esecuzione.
+> Assicurarsi che l'[endpoint di streaming](stream-streaming-endpoint-concept.md) sia in esecuzione. Quando si crea per la prima volta un account di Servizi multimediali, viene creato l'endpoint di streaming predefinito, il cui stato è interrotto, quindi è necessario avviarlo prima di trasmettere in streaming il contenuto.<br/>Si ricevono addebiti solo quando l'eseguire di streaming è in esecuzione.
 
 ## <a name="cleanup-resources"></a>Risorse di pulizia
 
