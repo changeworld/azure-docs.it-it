@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: f894fd5ca7bb98c48b106c13b8fe6130b2c76c6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fa5d34d195cfed2d5dbfa6954d83b28487bf0bba
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102201057"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167754"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Esercitazione: Dimensionare rapidamente e proteggere un'applicazione Web tramite il servizio Frontdoor di Azure e Web application firewall di Azure (WAF)
 
@@ -140,7 +140,7 @@ Se infine si usa un dominio personalizzato per raggiungere l'applicazione Web e 
 
 ## <a name="lock-down-your-web-application"></a>Bloccare l'applicazione Web
 
-Si consiglia di verificare che solo i vertici di Frontdoor di Azure possano comunicare con l'applicazione Web. In questo modo, non sarà possibile aggirare la protezione di Frontdoor di Azure e accedere direttamente all'applicazione. Per eseguire questa operazione di blocco, vedere [Come si blocca l'accesso al back-end limitandolo solo a Frontdoor di Azure?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+Si consiglia di verificare che solo i vertici di Frontdoor di Azure possano comunicare con l'applicazione Web. In questo modo, non sarà possibile aggirare la protezione di Frontdoor di Azure e accedere direttamente all'applicazione. Per eseguire questa operazione di blocco, vedere [Come si blocca l'accesso al back-end limitandolo solo a Frontdoor di Azure?](./front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

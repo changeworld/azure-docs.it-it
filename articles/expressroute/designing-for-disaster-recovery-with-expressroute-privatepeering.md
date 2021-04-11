@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 3da044057784763df8d071af6c101f7baffbefc6
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: d0aa9e8bfd565eeb7599d52adc0ac5b854e750bb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562308"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937227"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Progettazione per il ripristino di emergenza con peering privato ExpressRoute
 
@@ -47,7 +47,7 @@ Tuttavia, se si esegue il bilanciamento del carico del traffico tra percorsi par
 
 ### <a name="different-metros"></a>Metro differenti
 
-Quando si usano diversi metro per la ridondanza, la località secondaria deve trovarsi nella stessa [area geografica](expressroute-locations-providers.md#locations). Per scegliere una località all'esterno dell'area geografica, è necessario usare lo SKU Premium per entrambi i circuiti nei percorsi paralleli. Il vantaggio di questa configurazione è costituito dalle probabilità che un'emergenza naturale causi un'interruzione a entrambi i collegamenti sia molto inferiore, ma con il costo di un aumento della latenza end-to-end.
+Quando si usano diversi metro per la ridondanza, è necessario selezionare la località secondaria nella stessa [area geografica](expressroute-locations-providers.md#locations). Per scegliere una località all'esterno dell'area geografica, è necessario usare lo SKU Premium per entrambi i circuiti nei percorsi paralleli. Il vantaggio di questa configurazione è costituito dalle probabilità che un'emergenza naturale causi un'interruzione a entrambi i collegamenti sia molto inferiore, ma con un aumento della latenza end-to-end.
 
 Questo articolo illustra come risolvere i problemi che possono verificarsi durante la configurazione di percorsi con ridondanza geografica.
 

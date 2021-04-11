@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: b62160861f686c6ea5a8ebfd03d904da2ad5d80a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 09110bb15f853f20b0be9d8c4c6f5088e7a55d8b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869447"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382981"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Matrice di supporto per l'individuazione e la valutazione dei server fisici 
 
@@ -39,6 +39,8 @@ Per valutare i server fisici, creare un progetto e aggiungere lo strumento Azure
 **Autorizzazioni:**
 
 - Per i server Windows, usare un account di dominio per i server aggiunti a un dominio e un account locale per i server non aggiunti a un dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users.
+    > [!Note]
+    > Per Windows Server 2008 e 2008 R2, assicurarsi che WMF 3,0 sia installato nei server e che l'account di dominio/locale utilizzato per accedere ai server venga aggiunto a questi gruppi: Performance Monitor Users, Performance Log Users e WinRMRemoteWMIUsers.
 - Per i server Linux, è necessario un account radice nei server Linux che si desidera individuare. In alternativa, è possibile impostare un account non radice con le funzionalità necessarie usando i comandi seguenti:
 
 **Comando** | **Scopo**

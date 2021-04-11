@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 03/24/2021
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 78b31cb32e3df9b0d8e198d8c2122e492e609283
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bb09a25d7ea242dfafd7d853015ae8e127b13883
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625815"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383406"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Che cos'è Azure Synapse Analytics?
 
@@ -43,9 +43,9 @@ ms.locfileid: "105625815"
 
 Azure Synapse rimuove le tradizionali barriere tecnologiche che ostacolano l'uso simultaneo di SQL e Spark. È possibile combinare facilmente le piattaforme in base alle esigenze e alle competenze.
 
-* Un sistema di metadati condiviso compatibile con Hive consente di utilizzare in Spark o Hive le tabelle definite nei file del data lake.
+* Le tabelle definite nei file in data Lake vengono utilizzate facilmente da Spark o hive.
 * SQL e Spark possono esplorare e analizzare direttamente i file Parquet, CSV, TSV e JSON archiviati nel data lake.
-* Procedure veloci e scalabili di caricamento e scaricamento dei dati trasferiti tra database SQL e Spark
+* Caricamento di dati veloce e scalabile tra database SQL e Spark
 
 ## <a name="built-in-data-integration"></a>Integrazione dei dati incorporata
 
@@ -53,7 +53,7 @@ La sinapsi di Azure contiene lo stesso motore di integrazione dei dati e le stes
 
 * Inserimento di dati da più di 90 origini dati
 * Processi ETL senza codice con attività del flusso di dati
-* Orchestrazione di notebook, processi Spark, stored procedure, script SQL e altro ancora
+* Orchestrare notebook, processi Spark, stored procedure, script SQL e altro ancora
 
 ## <a name="unified-management-monitoring-and-security"></a>Soluzione unificata di gestione, monitoraggio e sicurezza
 
@@ -71,10 +71,10 @@ Azure Synapse offre alle aziende una singola soluzione per gestire le risorse di
 * Produttività leader nel settore per la scrittura di codice SQL o Spark: creazione, debug e ottimizzazione delle prestazioni
 * Integrazione con il processo Enterprise CI/CD
 
-## <a name="engage-with-the-synapse-engineering-team"></a>Collaborare con il team di progettazione di Synapse
+## <a name="engage-with-the-synapse-community"></a>Interagisci con la community sinapsi
 
+- [Microsoft Q&A](/answers/topics/azure-synapse-analytics.html): porre domande tecniche.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): per domande relative allo sviluppo.
-- [Pagina di domande e risposte Microsoft](/answers/topics/azure-synapse-analytics.html): per domande di carattere tecnico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

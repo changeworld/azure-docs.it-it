@@ -6,17 +6,17 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 08/10/2020
-ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: b0aa9d5dec25d8d600ecbcde59a57e67917c6411
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026234"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011152"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funzioni nell'API SQL con iperscalabilità (CITUS)
 
-Questa sezione contiene informazioni di riferimento per le funzioni definite dall'utente fornite da iperscale (CITUS). Queste funzioni consentono di fornire funzionalità distribuite aggiuntive a iperscalabilità (CITUS) diverse dai comandi SQL standard.
+Questa sezione contiene informazioni di riferimento per le funzioni definite dall'utente fornite da iperscale (CITUS). Queste funzioni consentono di fornire funzionalità distribuite a iperscalabilità (CITUS).
 
 > [!NOTE]
 >
@@ -178,6 +178,48 @@ SELECT create_distributed_function(
 );
 ```
 
+### <a name="alter_columnar_table_set"></a>alter_columnar_table_set
+
+La funzione alter_columnar_table_set () modifica le impostazioni di una [tabella a colonne](concepts-hyperscale-columnar.md). La chiamata di questa funzione in una tabella non a colonne restituisce un errore. Tutti gli argomenti eccetto il nome della tabella sono facoltativi.
+
+Per visualizzare le opzioni correnti per tutte le tabelle a colonne, consultare la tabella seguente:
+
+```postgresql
+SELECT * FROM columnar.options;
+```
+
+I valori predefiniti per le impostazioni a colonne per le tabelle appena create possono essere sostituiti con i seguenti GUCs:
+
+* a colonne. Compression
+* columnar.compression_level
+* columnar.stripe_row_count
+* columnar.chunk_row_count
+
+#### <a name="arguments"></a>Argomenti
+
+**table_name:** Nome della tabella a colonne.
+
+**chunk_row_count:** (facoltativo) numero massimo di righe per blocco per i dati appena inseriti. I blocchi di dati esistenti non verranno modificati e potrebbero avere più righe rispetto al valore massimo. Il valore predefinito è 10000.
+
+**stripe_row_count:** (facoltativo) numero massimo di righe per striping per i dati appena inseriti. Le strisce di dati esistenti non verranno modificate e potrebbero avere più righe rispetto al valore massimo. Il valore predefinito è 150000.
+
+**compressione:** (facoltativo) `[none|pglz|zstd|lz4|lz4hc]` tipo di compressione per i dati appena inseriti. I dati esistenti non verranno ricompressi o decompressi. Il valore predefinito e consigliato è zstd (se il supporto è stato compilato in).
+
+**compression_level:** (facoltativo) le impostazioni valide sono da 1 a 19. Se il metodo di compressione non supporta il livello scelto, verrà invece selezionato il livello più vicino.
+
+#### <a name="return-value"></a>Valore restituito
+
+N/D
+
+#### <a name="example"></a>Esempio
+
+```postgresql
+SELECT alter_columnar_table_set(
+  'my_columnar_table',
+  compression => 'none',
+  stripe_row_count => 10000);
+```
+
 ## <a name="metadata--configuration-information"></a>Metadati/informazioni di configurazione
 
 ### <a name="master_get_table_metadata"></a>\_metadati della \_ tabella master Get \_
@@ -220,7 +262,7 @@ SELECT * from master_get_table_metadata('github_events');
 
 ### <a name="get_shard_id_for_distribution_column"></a>ottenere \_ l' \_ ID \_ di partizione per la \_ colonna di distribuzione \_
 
-Iperscale (CITUS) assegna ogni riga di una tabella distribuita a una partizione in base al valore della colonna di distribuzione della riga e al metodo di distribuzione della tabella. Nella maggior parte dei casi, il mapping preciso è un dettaglio di basso livello che l'amministratore del database può ignorare. Può tuttavia essere utile determinare la partizione di una riga, per le attività di manutenzione manuale del database o solo per soddisfare le curiosità. La `get_shard_id_for_distribution_column` funzione fornisce queste informazioni per le tabelle con distribuzione hash e con intervallo e per le tabelle di riferimento. Non funziona per la distribuzione di Accodamento.
+Iperscale (CITUS) assegna ogni riga di una tabella distribuita a una partizione in base al valore della colonna di distribuzione della riga e al metodo di distribuzione della tabella. Nella maggior parte dei casi, il mapping preciso è un dettaglio di basso livello che l'amministratore del database può ignorare. Può tuttavia essere utile determinare la partizione di una riga, per le attività di manutenzione manuale del database o solo per soddisfare le curiosità. La `get_shard_id_for_distribution_column` funzione fornisce queste informazioni per le tabelle di riferimento e distribuite con valori hash. Non funziona per la distribuzione di Accodamento.
 
 #### <a name="arguments"></a>Argomenti
 
@@ -363,7 +405,7 @@ N/D
 
 #### <a name="return-value"></a>Valore restituito
 
-nessuno
+Nessuno
 
 ## <a name="server-group-management-and-repair"></a>Gestione e ripristino dei gruppi di server
 

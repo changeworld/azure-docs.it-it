@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5d4ff622f69445880c0de8cb74dc1aeee422c89b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 540f0725427ace4aec76de373556cd6699a1b229
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052161"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732755"
 ---
 # <a name="enable-vm-insights-guest-health-preview"></a>Abilitare l'integrità Guest di VM Insights (anteprima)
 L'integrità Guest di VM Insights consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come abilitare questa funzionalità nella sottoscrizione e come abilitare il monitoraggio Guest per ogni macchina virtuale.
@@ -20,6 +20,7 @@ L'integrità Guest di VM Insights consente di visualizzare l'integrità di una m
 L'integrità Guest di VM Insights presenta le limitazioni seguenti nell'anteprima pubblica:
 
 - Attualmente sono supportate solo macchine virtuali di Azure. Azure Arc per server non è attualmente supportato.
+- I proxy di rete non sono attualmente supportati.
 
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati

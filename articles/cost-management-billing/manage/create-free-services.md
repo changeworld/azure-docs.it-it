@@ -5,18 +5,18 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: 3bd571195a3f0df290387812e68f2b0377fe3c3c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.openlocfilehash: b475990a6b079de5e9ff01e52c2135f3c99a4f2f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584051"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055638"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Creare i servizi inclusi nell'account gratuito di Azure
 
-Per i primi 30 giorni dopo la creazione di un account gratuito di Azure si ha a disposizione un credito di 200 dollari da usare per qualsiasi servizio, ad eccezione degli acquisti di prodotti di terze parti sul Marketplace. È possibile sperimentare diversi livelli e tipi di servizi di Azure usando il credito gratuito per provare Azure. Se durante questo periodo di tempo si usano servizi o risorse di Azure non gratuiti, gli addebiti vengono dedotti dal credito.
+Durante i primi 30 giorni dopo la creazione di un account Azure gratuito, si dispone di un credito di 200 USD nella valuta di fatturazione da usare per qualsiasi servizio, ad eccezione degli acquisti in Marketplace di terze parti. È possibile sperimentare diversi livelli e tipi di servizi di Azure usando il credito gratuito per provare Azure. Se durante questo periodo di tempo si usano servizi o risorse di Azure non gratuiti, gli addebiti vengono dedotti dal credito.
 
 Se il credito non viene usato completamente entro la fine dei primi 30 giorni, il credito residuo viene perso. Dopo i primi 30 giorni e nei 12 mesi dopo l'iscrizione è possibile usare solo una quantità limitata di *alcuni servizi*. Non tutti i servizi di Azure sono gratuiti. Se si esegue l'aggiornamento prima di 30 giorni ed è disponibile del credito residuo, è possibile usarlo con una sottoscrizione con pagamento in base al consumo per i giorni rimanenti. Ad esempio, se si effettua l'iscrizione per l'account gratuito il 1° novembre e si esegue l'aggiornamento il 5 novembre, si avrà tempo fino al 30 novembre per usare il credito nella nuova sottoscrizione con pagamento in base al consumo. 
 

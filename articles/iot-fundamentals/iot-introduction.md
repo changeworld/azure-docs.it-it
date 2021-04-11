@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: d2afd88500801f1e2b1e4da5a1e267bddfa69fc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1053062302c9a00cf49cee1cd8de5ca6652b745
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96453026"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167703"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Informazioni su Azure IoT (Internet of Things)
 
@@ -30,7 +30,7 @@ Un dispositivo IoT è in genere costituito da un circuito stampato con sensori c
 * Accelerometro in un ascensore.
 * Sensori di presenza in una stanza.
 
-Per creare la soluzione, è disponibile un'ampia gamma di dispositivi realizzati da produttori diversi. Per un elenco dei dispositivi certificati compatibili con l'hub IoT di Azure IoT, vedere [Catalogo dei dispositivi Azure Certified per IoT](https://catalog.azureiotsolutions.com/alldevices). Per la realizzazione di prototipi, è possibile usare dispositivi come [MXChip DevKit](https://microsoft.github.io/azure-iot-developer-kit/) o [Raspberry Pi](https://www.raspberrypi.org/). Il dispositivo Devkit include sensori per temperatura, pressione e umidità, oltre a un giroscopio, un accelerometro e un magnetometro. Il dispositivo Raspberry Pi consente di collegare numerosi tipi di sensori. 
+Per creare la soluzione, è disponibile un'ampia gamma di dispositivi realizzati da produttori diversi. Per un elenco dei dispositivi certificati compatibili con l'hub IoT di Azure IoT, vedere [Catalogo dei dispositivi Azure Certified per IoT](https://devicecatalog.azure.com). Per la realizzazione di prototipi, è possibile usare dispositivi come [MXChip DevKit](https://microsoft.github.io/azure-iot-developer-kit/) o [Raspberry Pi](https://www.raspberrypi.org/). Il dispositivo Devkit include sensori per temperatura, pressione e umidità, oltre a un giroscopio, un accelerometro e un magnetometro. Il dispositivo Raspberry Pi consente di collegare numerosi tipi di sensori. 
 
 Microsoft offre [SDK per dispositivi](../iot-hub/iot-hub-devguide-sdks.md) open source che è possibile usare per creare app eseguibili nei dispositivi. Questi [SDK consentono di semplificare e velocizzare](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/) lo sviluppo di soluzioni IoT.
 

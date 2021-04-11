@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2f3d1d47bd26167253296f06af5470818760850
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a532ae9485efa9571137130d32ba0827728e8094
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257981"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166871"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applicazioni con carattere jolly in Azure Active Directory Application Proxy
 
@@ -68,11 +68,23 @@ Per motivi di sicurezza, questo requisito è obbligatorio e non saranno supporta
 
 ### <a name="dns-updates"></a>Aggiornamenti del DNS
 
-Quando si usano i domini personalizzati, è necessario creare una voce DNS con un record CNAME per l'URL esterno (ad esempio, `*.adventure-works.com`) che punti all'URL esterno dell'endpoint proxy dell'applicazione. Per le applicazioni con carattere jolly, il record CNAME deve puntare agli URL esterni pertinenti:
+Quando si usano i domini personalizzati, è necessario creare una voce DNS con un record CNAME per l'URL esterno (ad esempio,  `*.adventure-works.com` ) che punta all'URL esterno dell'endpoint del proxy di applicazione. Per le applicazioni con caratteri jolly, il record CNAME deve puntare all'URL esterno pertinente:
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
 Per verificare la corretta configurazione del record CNAME, è possibile usare [nslookup](/windows-server/administration/windows-commands/nslookup) su uno degli endpoint di destinazione, ad esempio `expenses.adventure-works.com`.  La risposta deve includere l'alias già menzionato (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+
+### <a name="using-connector-groups-assigned-to-an-app-proxy-cloud-service-region-other-than-the-default-region"></a>Uso dei gruppi di connettori assegnati a un'area del servizio cloud proxy app diversa dall'area predefinita
+Se i connettori sono installati in aree diverse dall'area del tenant predefinita, può essere utile modificare l'area in cui il gruppo di connettori è ottimizzato per migliorare le prestazioni di accesso a queste applicazioni. Per altre informazioni, vedere [ottimizzare i gruppi di connettori per usare il servizio cloud proxy applicazione più vicino](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview).
+ 
+Se il gruppo di connettori assegnato all'applicazione con caratteri jolly usa un' **area diversa da quella predefinita**, sarà necessario aggiornare il record CNAME in modo che punti a un URL esterno specifico dell'area. Usare la tabella seguente per determinare l'URL pertinente:
+
+| Area assegnata al connettore | URL esterno |
+| ---   | ---         |
+| Asia | `<yourAADTenantId>.asia.tenant.runtime.msappproxy.net`|
+| Australia  | `<yourAADTenantId>.aus.tenant.runtime.msappproxy.net` |
+| Europa  | `<yourAADTenantId>.eur.tenant.runtime.msappproxy.net`|
+| America del Nord  | `<yourAADTenantId>.nam.tenant.runtime.msappproxy.net` |
 
 ## <a name="considerations"></a>Considerazioni
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 2/22/2021
+ms.date: 3/30/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb75450527fc31d6ea4a9f9d60d676718ad79bda
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101647422"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167584"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione
 
@@ -35,9 +35,21 @@ Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per 
 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 
+### <a name="bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice"></a>Correzione di bug: Azure AD non sarà più possibile codificare il parametro di stato due volte.
+
+**Data di validità**: maggio 2021
+
+**Endpoint interessati**: v 1.0 e v 2.0 
+
+**Influisce sul protocollo**: tutti i flussi che visitano l' `/authorize` endpoint (flusso implicito e flusso del codice di autorizzazione)
+
+È stato rilevato un bug che è stato corretto nella risposta Azure AD autorizzazione. Durante la fase `/authorize` di autenticazione, il `state` parametro della richiesta viene incluso nella risposta, per mantenere lo stato dell'app e impedire gli attacchi CSRF. Azure AD URL in modo errato codificato il `state` parametro prima di inserirlo nella risposta, in cui è stato codificato ancora una volta.  In questo modo, le applicazioni rifiuteranno erroneamente la risposta dal Azure AD. 
+
+Azure AD non verrà più codificato a doppio questo parametro, consentendo alle app di analizzare correttamente il risultato. Questa modifica verrà eseguita per tutte le applicazioni. 
+
 ### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>L'accesso condizionale viene attivato solo per gli ambiti richiesti in modo esplicito
 
-**Data di validità**: 2021 marzo
+**Data di validità**: maggio 2021, con implementazione graduale a partire da aprile. 
 
 **Endpoint interessati**: v 2.0
 
@@ -48,6 +60,8 @@ Alle applicazioni che usano il consenso dinamico vengono concesse tutte le autor
 Per ridurre il numero di richieste di accesso condizionale non necessarie, Azure AD sta cambiando il modo in cui vengono forniti gli ambiti non richiesti alle applicazioni, in modo che solo gli ambiti richiesti in modo esplicito attivino l'accesso condizionale. Questa modifica può causare l'indisponibilità di app che dipendono dal comportamento precedente di Azure AD (ossia, fornendo tutte le autorizzazioni anche quando non sono state richieste), perché i token richiesti saranno privi di autorizzazioni.
 
 Le app riceveranno ora i token di accesso con una combinazione di autorizzazioni in questo, quelli richiesti, oltre a quelli per i quali non sono richieste richieste di accesso condizionale.  L'ambito del token di accesso viene riflesso nel parametro della risposta del token `scope` . 
+
+Questa modifica verrà apportata per tutte le app, ad eccezione di quelle con una dipendenza osservata da questo comportamento.  Gli sviluppatori riceveranno una copertura in caso di esenzione da questa modifica, in quanto potrebbero dipendere da ulteriori richieste di accesso condizionale. 
 
 **esempi**
 

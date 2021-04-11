@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: 3d43a532f57feab361c6a3de79269991f46fc55d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cf15d6f669718cca8b99d67a7912d3959d9c191f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684023"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732506"
 ---
 # <a name="prepare-data-with-data-wrangling"></a>Preparare i dati con data wrangling
 
@@ -20,7 +20,7 @@ ms.locfileid: "98684023"
 I dati in data factory consentono di creare mash-up interattivi Power Query in modo nativo in ADF e quindi di eseguirli su larga scala all'interno di una pipeline di ADF.
 
 > [!NOTE]
-> Power Query all'attività in ADF è attualmente avilable in versione di anteprima pubblica
+> Power Query attività in ADF è attualmente disponibile in anteprima pubblica
 
 ## <a name="create-a-power-query-activity"></a>Creare un'attività di Power Query
 

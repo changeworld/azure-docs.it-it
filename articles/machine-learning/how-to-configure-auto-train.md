@@ -1,7 +1,7 @@
 ---
 title: Creare esperimenti di Machine Learning automatizzato
 titleSuffix: Azure Machine Learning
-description: Informazioni su come definire le origini dati, i calcoli e le impostazioni di configurazione per gli esperimenti automatici di machine learning.
+description: Informazioni su come definire le origini dati, i calcoli e le impostazioni di configurazione per gli esperimenti di Machine Learning automatizzati.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 24c0d57490ecd039039992310f93ca3e21c47b3b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 12a6761ac2cd305e6ff949ffa59ee3bbdff1934d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563488"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732891"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 
@@ -217,7 +217,7 @@ Per informazioni sulle definizioni specifiche di queste metriche, vedere [Risult
 
 ### <a name="primary-metrics-for-classification-scenarios"></a>Metriche primarie per gli scenari di classificazione 
 
-Le metriche post-soglia, `accuracy` ad esempio,, `average_precision_score_weighted` `norm_macro_recall` e `precision_score_weighted` potrebbero non essere ottimizzate anche per i set di risultati di dimensioni molto ridotte, presentano un'asimmetria di classe molto grande (squilibrio della classe) o quando il valore della metrica prevista è molto prossimo a 0,0 o 1,0. In questi casi, `AUC_weighted` può essere una scelta migliore per la metrica primaria. Al termine dell'apprendimento automatico, è possibile scegliere il modello vincente in base alla metrica più adatta alle proprie esigenze aziendali.
+Le metriche post-soglia, `accuracy` ad esempio,, `average_precision_score_weighted` `norm_macro_recall` e `precision_score_weighted` potrebbero non essere ottimizzate anche per i set di risultati di dimensioni ridotte, presentano un'asimmetria di classe molto grande (squilibrio della classe) o quando il valore della metrica prevista è molto prossimo a 0,0 o 1,0. In questi casi, `AUC_weighted` può essere una scelta migliore per la metrica primaria. Al termine dell'apprendimento automatico, è possibile scegliere il modello vincente in base alla metrica più adatta alle proprie esigenze aziendali.
 
 | Metrica | Casi d'uso di esempio |
 | ------ | ------- |
@@ -386,16 +386,113 @@ Configurare  `max_concurrent_iterations` nell' `AutoMLConfig` oggetto. Se non è
 
 ## <a name="explore-models-and-metrics"></a>Esplora i modelli e le metriche
 
-È possibile visualizzare i risultati del training in un widget o inline in un notebook. Per altri dettagli, vedere [Tenere traccia dei modelli e valutarli](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs).
+Automatizzato ML offre opzioni per il monitoraggio e la valutazione dei risultati della formazione. 
 
-Vedere [valutare i risultati automatici dell'esperimento di Machine Learning](how-to-understand-automated-ml.md) per le definizioni e gli esempi dei grafici delle prestazioni e delle metriche disponibili per ogni esecuzione. 
+* È possibile visualizzare i risultati del training in un widget o inline in un notebook. Per informazioni dettagliate [, vedere come monitorare le esecuzioni automatiche di ml](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) .
 
-Per ottenere un riepilogo di conteggi e comprendere quali funzionalità sono state aggiunte a un particolare modello, vedere la pagina relativa alla [trasparenza di conteggi](how-to-configure-auto-features.md#featurization-transparency). 
+* Per definizioni ed esempi dei grafici delle prestazioni e delle metriche disponibili per ogni esecuzione, vedere [valutare i risultati di un esperimento di Machine Learning automatizzato](how-to-understand-automated-ml.md) . 
 
+* Per ottenere un riepilogo di conteggi e comprendere quali funzionalità sono state aggiunte a un particolare modello, vedere la pagina relativa alla [trasparenza di conteggi](how-to-configure-auto-features.md#featurization-transparency). 
+
+È possibile visualizzare gli iperparametri, le tecniche di ridimensionamento e normalizzazione e l'algoritmo applicato a una specifica esecuzione automatizzata di ML con la seguente soluzione di codice personalizzato. 
+
+Di seguito viene definito il metodo personalizzato, `print_model()` , che stampa gli iperparametri di ogni passaggio della pipeline di training di Machine Learning automatica.
+ 
+```python
+from pprint import pprint
+
+def print_model(model, prefix=""):
+    for step in model.steps:
+        print(prefix + step[0])
+        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
+            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            print()
+            for estimator in step[1].estimators:
+                print_model(estimator[1], estimator[0]+ ' - ')
+        elif hasattr(step[1], '_base_learners') and hasattr(step[1], '_meta_learner'):
+            print("\nMeta Learner")
+            pprint(step[1]._meta_learner)
+            print()
+            for estimator in step[1]._base_learners:
+                print_model(estimator[1], estimator[0]+ ' - ')
+        else:
+            pprint(step[1].get_params())
+            print()   
+```
+
+Per un'esecuzione locale o remota appena inviata e sottoposta a Training dall'interno dello stesso notebook dell'esperimento, è possibile passare il modello migliore usando il `get_output()` metodo. 
+
+```python
+best_run, fitted_model = run.get_output()
+print(best_run)
+         
+print_model(fitted_model)
+```
+
+L'output seguente indica che:
+ 
+* La tecnica StandardScalerWrapper è stata usata per ridimensionare e normalizzare i dati prima del training.
+
+* L'algoritmo XGBoostClassifier è stato identificato come l'esecuzione migliore e Mostra anche i valori di iperparametri. 
+
+```python
+StandardScalerWrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing.data',
+ 'with_mean': False,
+ 'with_std': False}
+
+XGBoostClassifier
+{'base_score': 0.5,
+ 'booster': 'gbtree',
+ 'colsample_bylevel': 1,
+ 'colsample_bynode': 1,
+ 'colsample_bytree': 0.6,
+ 'eta': 0.4,
+ 'gamma': 0,
+ 'learning_rate': 0.1,
+ 'max_delta_step': 0,
+ 'max_depth': 8,
+ 'max_leaves': 0,
+ 'min_child_weight': 1,
+ 'missing': nan,
+ 'n_estimators': 400,
+ 'n_jobs': 1,
+ 'nthread': None,
+ 'objective': 'multi:softprob',
+ 'random_state': 0,
+ 'reg_alpha': 0,
+ 'reg_lambda': 1.6666666666666667,
+ 'scale_pos_weight': 1,
+ 'seed': None,
+ 'silent': None,
+ 'subsample': 0.8,
+ 'tree_method': 'auto',
+ 'verbose': -10,
+ 'verbosity': 1}
+```
+
+Per un'esecuzione esistente da un esperimento diverso nell'area di lavoro, ottenere l'ID di esecuzione specifico che si desidera esplorare e passarlo al `print_model()` metodo. 
+
+```python
+from azureml.train.automl.run import AutoMLRun
+
+ws = Workspace.from_config()
+experiment = ws.experiments['automl-classification']
+automl_run = AutoMLRun(experiment, run_id = 'AutoML_xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx')
+
+automl_run
+best_run, model_from_aml = automl_run.get_output()
+
+print_model(model_from_aml)
+
+```
 > [!NOTE]
 > Gli algoritmi automatizzati di Machine Learning utilizzano una casualità intrinseca che può causare una lieve variazione del punteggio finale delle metriche di un modello consigliato, ad esempio l'accuratezza. Automatizzato ML esegue anche operazioni su dati come la suddivisione del test di training, la suddivisione del training e la convalida incrociata, se necessario. Quindi, se si esegue un esperimento con le stesse impostazioni di configurazione e la metrica primaria più volte, è probabile che si verifichino variazioni in ogni esperimento Punteggio della metrica finale a causa di questi fattori. 
 
 ## <a name="register-and-deploy-models"></a>Registrare e distribuire modelli
+
 È possibile registrare un modello, in modo da poterlo tornare per un uso successivo. 
 
 Per registrare un modello da un'esecuzione automatica di ML, usare il [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) metodo. 

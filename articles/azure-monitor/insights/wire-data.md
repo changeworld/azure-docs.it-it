@@ -4,350 +4,166 @@ description: I dati in transito sono dati di prestazioni e di rete consolidati p
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/29/2020
-ms.openlocfilehash: 5981a5f136d613ffcedda86797d807d2eecfab0d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/26/2021
+ms.openlocfilehash: 1a9ea544419ef5c688e78a25eeb0eb444b196ec9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101713627"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732024"
 ---
-# <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Soluzione Wire Data 2.0 (anteprima) in monitoraggio di Azure
+# <a name="wire-data-20-preview-solution-in-azure-monitor-retired"></a>Soluzione Wire Data 2.0 (anteprima) in monitoraggio di Azure (ritirata)
 
 ![Simbolo di Wire Data](media/wire-data/wire-data2-symbol.png)
 
+>[!NOTE]
+>La soluzione Wire data è stata sostituita con la soluzione [VM Insights](../vm/vminsights-overview.md) e [mapping dei servizi](../vm/service-map.md).  Entrambi usano l'agente Log Analytics e Dependency Agent per raccogliere i dati di connessione di rete in monitoraggio di Azure.
+>
+>Il supporto per la soluzione Wire data si concluderà il **31 marzo 2022**.  Fino alla data di ritiro, i clienti esistenti che usano la soluzione Wire Data 2.0 (anteprima) potrebbero continuare a usarlo.
+>
+>I clienti nuovi ed esistenti devono installare la soluzione [VM Insights](../vm/vminsights-enable-overview.md) o [mapping dei servizi](../vm/service-map.md).  Il set di dati della mappa che raccoglie è paragonabile al set di dati Wire Data 2.0 (anteprima).  VM Insights include il set di dati Mapping dei servizi insieme a ulteriori dati sulle prestazioni e funzionalità per l'analisi. Entrambe le offerte includono [connessioni con Sentinel di Azure](https://docs.microsoft.com/azure/sentinel/connect-data-sources#map-data-types-with-azure-sentinel-connection-options).
+ 
+
 I dati in transito sono dati di prestazioni e di rete consolidati che vengono raccolti da computer connessi tramite Windows o Linux all'agente di Log Analytics e includono i dati monitorati da Operations Manager nell'ambiente in uso. I dati di rete vengono combinati con altri dati di log per consentire la correlazione dei dati.
 
-Oltre all'agente di Log Analytics, la soluzione Wire Data usa le istanze di Microsoft Dependency Agent installate nei computer dell'infrastruttura IT. Le istanze di Dependency Agent monitorano i dati di rete inviati da e verso i computer per i livelli di rete 2-3 del [modello OSI](https://en.wikipedia.org/wiki/OSI_model), che includono le diverse porte e i vari protocolli usati. I dati vengono quindi inviati al monitoraggio di Azure tramite agenti.  
+Oltre all'agente di Log Analytics, la soluzione Wire Data usa le istanze di Microsoft Dependency Agent installate nei computer dell'infrastruttura IT. Le istanze di Dependency Agent monitorano i dati di rete inviati da e verso i computer per i livelli di rete 2-3 del [modello OSI](https://en.wikipedia.org/wiki/OSI_model), che includono le diverse porte e i vari protocolli usati. I dati vengono quindi inviati al monitoraggio di Azure tramite agenti.
+
+## <a name="migrate-to-azure-monitor-vm-insights-or-service-map"></a>Eseguire la migrazione ad Azure monitor VM Insights o Mapping dei servizi
+
+In molti casi, si noterà che i clienti hanno spesso sia Wire Data 2.0 (anteprima) che le  [informazioni sulle VM](../vm/vminsights-overview.md) o [mapping dei servizi soluzione](../vm/service-map.md) già abilitata nelle stesse macchine virtuali.  Ciò significa che l'offerta di sostituzione è abilitata nella macchina virtuale.  È possibile [rimuovere semplicemente la soluzione Wire data 2.0 (anteprima) dall'area di lavoro di log Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution).
+
+Se si dispone di macchine virtuali in cui sono abilitate solo Wire Data 2.0 (anteprima), è possibile caricare le VM in una soluzione di [VM Insights](../vm/vminsights-enable-overview.md) o [mapping dei servizi](../vm/service-map.md) , quindi [rimuovere la soluzione Wire data 2.0 (anteprima) dall'area di lavoro log Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution).
+
+## <a name="migrate-your-queries-to-the-vmconnection-table-from-azure-monitor-vm-insights"></a>Eseguire la migrazione delle query alla tabella VMConnection da monitoraggio di Azure VM Insights
+
+### <a name="agents-providing-data"></a>Agenti che forniscono dati
+
+#### <a name="wire-data-20-query"></a>Query Wire Data 2.0
+
+```
+WireData
+| summarize AggregatedValue = sum(TotalBytes) by Computer
+| limit 500000
+```
+
+#### <a name="vm-insights-and-service-map-query"></a>VM Insights e query Mapping dei servizi
+
+```
+VMConnection
+| summarize AggregatedValue = sum(BytesReceived + BytesSent) by Computer
+| limit 500000
+```
+
+### <a name="ip-addresses-of-the-agents-providing-data"></a>Indirizzi IP degli agenti che forniscono dati
+
+#### <a name="wire-data-20-query"></a>Query Wire Data 2.0
+
+```
+WireData
+| summarize AggregatedValue = count() by LocalIP
+```
+
+#### <a name="vm-insights-and-service-map-query"></a>VM Insights e query Mapping dei servizi
+
+```
+VMComputer
+| distinct Computer, tostring(Ipv4Addresses)
+```
+
+### <a name="all-outbound-communications-by-remote-ip-address"></a>Tutte le comunicazioni in uscita per indirizzo IP remoto
+
+#### <a name="wire-data-20-query"></a>Query Wire Data 2.0
+
+```
+WireData
+| where Direction == "Outbound"
+| summarize AggregatedValue = count() by RemoteIP
+```
+
+#### <a name="vm-insights-and-service-map-query"></a>VM Insights e query Mapping dei servizi
+
+```
+VMConnection
+| where Direction == "outbound"
+| summarize AggregatedValue = count() by RemoteIp
+```
+
+### <a name="bytes-received-by-protocol-name"></a>Byte ricevuti per nome protocollo
+
+#### <a name="wire-data-20-query"></a>Query Wire Data 2.0
+
+```
+WireData 
+| where Direction == "Inbound"
+| summarize AggregatedValue = sum(ReceivedBytes) by ProtocolName
+```
+
+#### <a name="vm-insights-and-service-map-query"></a>VM Insights e query Mapping dei servizi
+
+```
+VMConnection
+| where Direction == "inbound"
+| summarize AggregatedValue = sum(BytesReceived) by Protocol
+```
+
+### <a name="amount-of-network-traffic-in-bytes-by-process"></a>Quantità di traffico di rete (in byte) per processo
+
+#### <a name="wire-data-20-query"></a>Query Wire Data 2.0
+
+```
+WireData
+| summarize AggregatedValue = sum(TotalBytes) by ProcessName
+```
+
+#### <a name="vm-insights-and-service-map-query"></a>VM Insights e query Mapping dei servizi
+
+```
+VMConnection
+| summarize sum(BytesReceived), sum(BytesSent) by ProcessName
+```
+
+### <a name="more-examples-queries"></a>Altri esempi di query
+
+Vedere la [documentazione di ricerca log di VM Insights](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-log-search) e la [documentazione degli avvisi di VM Insights](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-alerts#sample-alert-queries) per altre query di esempio.
+
+## <a name="uninstall-wire-data-20-solution"></a>Disinstalla Wire Data 2.0 soluzione
+
+Per disinstallare Wire Data 2.0 è semplicemente necessario rimuovere la soluzione dalle aree di lavoro Log Analytics.  Si otterrà quindi quanto segue:
+
+* il Wire Gestione dati Pack viene rimosso dalle macchine virtuali connesse all'area di lavoro 
+* il tipo di dati wire data non viene più visualizzato nell'area di lavoro
+
+Seguire [queste istruzioni](https://docs.microsoft.com/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution) per rimuovere la soluzione Wire data.
 
 >[!NOTE]
->La soluzione Wire data è stata sostituita con la [soluzione mapping dei servizi](../vm/service-map.md).  Entrambi usano l'agente Log Analytics e Dependency Agent per raccogliere i dati di connessione di rete in monitoraggio di Azure. 
-> 
->I clienti esistenti che usano la soluzione Wire data possono continuare a usarlo. Si pubblicheranno le linee guida per una sequenza temporale di migrazione per il passaggio a Mapping dei servizi.
->
->I nuovi clienti devono installare la [soluzione mapping dei servizi](../vm/service-map.md) o le [informazioni dettagliate sulla macchina virtuale](../vm/vminsights-overview.md).  Il set di dati Mapping dei servizi è paragonabile ai dati in transito.  VM Insights include il set di dati Mapping dei servizi con ulteriori dati sulle prestazioni e funzionalità per l'analisi. 
+>Se è presente la soluzione Mapping dei servizi o VM Insights nell'area di lavoro, la Management Pack non verrà rimossa, perché queste soluzioni usano anche questa Management Pack.
 
+### <a name="wire-data-20-management-packs"></a>Management Pack Wire Data 2.0
 
-Per impostazione predefinita, monitoraggio di Azure registra i dati relativi alle prestazioni della CPU, della memoria, del disco e della rete dai contatori incorporati in Windows e Linux, oltre che da altri contatori delle prestazioni che è possibile specificare. La raccolta dei dati di rete e di altro tipo viene eseguita in tempo reale per ogni agente, inclusi subnet e protocolli a livello di applicazione usati dal computer.  Wire Data esamina i dati di rete a livello di applicazione, non a livello di trasporto TCP, più basso.  La soluzione non esamina ACK e SYN singoli.  Dopo l'esecuzione dell'handshake, la connessione viene considerata attiva e viene contrassegnata come connessa. La connessione rimane attiva finché entrambe le parti acconsentono all'apertura del socket e alla trasmissione di dati nei due sensi.  Quando uno dei due lati chiude la connessione, viene contrassegnato come disconnesso.  Viene quindi contata solo la larghezza di banda dei pacchetti completati correttamente e non vengono segnalati i nuovi tentativi di invio né i pacchetti la cui trasmissione non è riuscita.
+Quando viene attivato Wire Data in un'area di lavoro Log Analytics, a tutti i server Windows nell'area di lavoro viene inviato un Management Pack di 300 KB. Se si usano agenti System Center Operations Manager in un [gruppo di gestione connesso](../agents/om-agents.md), il Management Pack di Dependency Monitor viene distribuito da System Center Operations Manager. Se gli agenti sono connessi direttamente, monitoraggio di Azure recapita il Management Pack.
 
-Se si è usato [sFlow](http://www.sflow.org/) o un altro software con il [protocollo NetFlow di Cisco](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), le statistiche e i dati visualizzati dai dati in transito risulteranno familiari.
+Il Management Pack è denominato Microsoft.IntelligencePacks.ApplicationDependencyMonitor e viene inserito in %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. L'origine dati usata dal Management Pack è %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Resources&lt;IDGeneratoAutomaticamente&gt;\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
-Alcuni tipi di query di ricerca nei log predefinite includono:
+## <a name="uninstall-the-dependency-agent"></a>Disinstallare Dependency Agent
 
-- Agenti che forniscono dati in transito
-- Indirizzo IP degli agenti che forniscono dati in transito
-- Comunicazioni in uscita da parte degli indirizzi IP
-- Numero di byte inviati dai protocolli applicativi
-- Numero di byte inviati da un servizio dell’applicazione
-- Byte ricevuti da protocolli diversi
-- Byte totali inviati e ricevuti per versione IP
-- Latenza media per le connessioni misurate in modo affidabile
-- Processi dei computer che hanno avviato o ricevuto traffico di rete
-- Quantità di traffico di rete per un processo
+>[!NOTE]
+>Se si prevede di sostituire i dati in transito con Mapping dei servizi o VM Insights, è consigliabile non rimuovere Dependency Agent.
 
-Quando si esegue una ricerca usando i dati in transito, è possibile filtrare e raggruppare i dati per visualizzare le informazioni su agenti e protocolli principali. In alternativa, è possibile visualizzare quando determinati computer (indirizzi IP/indirizzi MAC) hanno comunicato tra loro, per quanto tempo e quanti dati sono stati inviati, visualizzando essenzialmente metadati relativi al traffico di rete basati sulla ricerca.
+Usare le sezioni seguenti per rimuovere Dependency Agent.  
 
-La visualizzazione di metadati, tuttavia, non è necessariamente utile per una risoluzione dei problemi approfondita. I dati in transito in monitoraggio di Azure non sono un'acquisizione completa dei dati di rete.  e non sono destinati a una risoluzione dei problemi approfondita a livello di pacchetto. Il vantaggio di usare l'agente, rispetto ad altri metodi di raccolta, è che non è necessario installare Appliance, riconfigurare i commutatori di rete o eseguire configurazioni complesse. I dati in transito sono basati semplicemente sull'agente, che viene installato in un computer e monitora il proprio traffico di rete. Un altro vantaggio si riscontra quando si vogliono monitorare carichi di lavoro in esecuzione in provider di servizi cloud, provider di servizi di hosting o Microsoft Azure, in cui l'utente non è proprietario del livello infrastruttura.
-
-## <a name="connected-sources"></a>Origini connesse
-
-Wire Data ottiene i dati da Microsoft Dependency Agent. Il Dependency Agent dipende dall'agente Log Analytics per le connessioni a monitoraggio di Azure. quindi nel server con Dependency Agent deve essere installato e configurato Log Analytics. La tabella seguente descrive le origini connesse supportate dalla soluzione Wire Data.
-
-| **Origine connessa** | **Supportato** | **Descrizione** |
-| --- | --- | --- |
-| Agenti di Windows | Sì | Wire Data analizza e raccoglie i dati da computer agente Windows. <br><br> Oltre all' [agente log Analytics per Windows](../agents/agent-windows.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere i [sistemi operativi supportati](../vm/vminsights-enable-overview.md#supported-operating-systems) . |
-| Agenti Linux | Sì | Wire Data analizza e raccoglie i dati da computer agente Linux.<br><br> Oltre all' [agente log Analytics per Linux](../vm/quick-collect-linux-computer.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere i [sistemi operativi supportati](../vm/vminsights-enable-overview.md#supported-operating-systems) . |
-| Gruppo di gestione di System Center Operations Manager | Sì | Wire Data analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione di System Center Operations Manager](../agents/om-agents.md) connesso. <br><br> È necessaria una connessione diretta dal computer agente System Center Operations Manager a monitoraggio di Azure. |
-| Account di archiviazione di Azure | No | Wire Data raccoglie i dati dai computer agente, quindi non devono essere raccolti dati da Archiviazione di Azure. |
-
-In Windows, il Microsoft Monitoring Agent (MMA) viene usato sia da System Center Operations Manager che da monitoraggio di Azure per raccogliere e inviare dati. A seconda del contesto, l'agente viene chiamato agente di System Center Operations Manager, agente di Log Analytics, agente MMA o agente diretto. System Center Operations Manager e monitoraggio di Azure forniscono versioni leggermente diverse di MMA. Queste versioni possono eseguire ogni report System Center Operations Manager, monitoraggio di Azure o entrambi.
-
-In Linux, l'agente di Log Analytics per Linux raccoglie e invia i dati a monitoraggio di Azure. È possibile usare i dati in transito sui server con agenti direttamente connessi a monitoraggio di Azure o su server che si connettono a monitoraggio di Azure tramite System Center Operations Manager gruppi di gestione.
-
-Dependency Agent non trasmette alcun dato e non richiede alcuna modifica a firewall o porte. I dati nei dati in transito vengono sempre trasmessi dall'agente Log Analytics al monitoraggio di Azure, direttamente o tramite il gateway di Log Analytics.
-
-![Diagramma degli agenti](./media/wire-data/agents.png)
-
-Se si è un utente System Center Operations Manager con un gruppo di gestione connesso a monitoraggio di Azure:
-
-- Quando gli agenti System Center Operations Manager possono accedere a Internet per connettersi a monitoraggio di Azure, non è necessaria alcuna configurazione aggiuntiva.
-- È necessario configurare il gateway Log Analytics per lavorare con System Center Operations Manager quando gli agenti System Center Operations Manager non possono accedere a monitoraggio di Azure tramite Internet.
-
-Se i computer Windows o Linux non possono connettersi direttamente al servizio, è necessario configurare l'agente di Log Analytics per connettersi a monitoraggio di Azure tramite il gateway di Log Analytics. È possibile scaricare il gateway Log Analytics dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
-
-## <a name="prerequisites"></a>Prerequisiti
-
-- È necessaria la soluzione [Informazioni dettagliate e analisi](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) offerta.
-- Se si usa la versione precedente della soluzione Wire Data, prima di tutto è necessario rimuoverla. Tutti i dati acquisiti tramite la soluzione Wire Data originale, tuttavia, saranno ancora disponibili in Wire Data 2.0 e nella ricerca log.
-- Per installare o disinstallare Dependency Agent sono necessari i privilegi di amministratore.
-- Dependency Agent deve essere installato in un computer con un sistema operativo a 64 bit.
-
-### <a name="operating-systems"></a>Sistemi operativi
-
-Nelle sezioni seguenti sono elencati i sistemi operativi supportati per Dependency Agent. Wire Data non supporta architetture a 32 bit per i sistemi operativi.
-
-#### <a name="windows-server"></a>Windows Server
-
-- Windows Server 2019
-- Windows Server 2016 1803
-- Windows Server 2016
-- Windows Server 2012 R2
-- Windows Server 2012
-- Windows Server 2008 R2 SP1
-
-#### <a name="windows-desktop"></a>Desktop di Windows
-
-- Windows 10 1803
-- Windows 10
-- Windows 8.1
-- Windows 8
-- Windows 7
-
-#### <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
-Le sezioni seguenti elencano i sistemi operativi supportati per Dependency Agent in Linux.  
-
-- Sono supportate solo versioni predefinita e SMP del kernel Linux.
-- Le versioni del kernel non standard, ad esempio PAE e Xen, non sono supportate per le distribuzioni Linux. Ad esempio, un sistema con la stringa di versione "2.6.16.21-0.8-xen" non è supportato.
-- I kernel personalizzati, tra cui le ricompilazioni dei kernel standard, non sono supportati.
-
-##### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-
-| Versione sistema operativo | Versione del kernel |
-|:--|:--|
-| 7.4 | 3.10.0-693 |
-| 7,5 | 3.10.0-862 |
-| 7.6 | 3.10.0-957 |
-
-##### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-
-| Versione sistema operativo | Versione del kernel |
-|:--|:--|
-| 6.9 | 2.6.32-696 |
-| 6.10 | 2.6.32-754 |
-
-##### <a name="centosplus"></a>CentOSPlus
-| Versione sistema operativo | Versione del kernel |
-|:--|:--|
-| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
-| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
-
-##### <a name="ubuntu-server"></a>Ubuntu Server
-
-| Versione sistema operativo | Versione del kernel |
-|:--|:--|
-| Ubuntu 18.04 | kernel 4,15.\*<br>4,18 * |
-| Ubuntu 16.04.3 | kernel 4.15.* |
-| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
-| 14.04 | 3.13.\*<br>4.4.\* |
-
-##### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
-
-| Versione sistema operativo | Versione del kernel
-|:--|:--|
-| 11 SP4 | 3,0. * |
-
-##### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
-
-| Versione sistema operativo | Versione del kernel
-|:--|:--|
-| 12 SP2 | 4.4.* |
-| 12 SP3 | 4.4.* |
-
-### <a name="dependency-agent-downloads"></a>Download di Dependency Agent
-
-| File | OS | Versione | SHA-256 |
-|:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
-
-
-
-## <a name="configuration"></a>Configurazione
-
-Per configurare la soluzione Wire Data per le proprie aree di lavoro, seguire questa procedura.
-
-1. Abilitare la soluzione Analisi log attività da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) o seguendo la procedura descritta in [aggiungere soluzioni di monitoraggio dalla raccolta di soluzioni](../insights/solutions.md).
-2. Installare Dependency Agent in ogni computer in cui si desidera ottenere i dati. Dependency Agent è in grado di monitorare le connessioni ai vicini immediatamente, quindi potrebbe non essere necessario un agente in ogni computer.
-
-> [!NOTE]
-> Non è possibile aggiungere la versione precedente della soluzione Wire Data a nuove aree di lavoro. Se è stata abilitata la soluzione Wire Data originale, è possibile continuare a usarla. Per usare Wire Data 2.0, tuttavia, è prima necessario rimuovere la versione originale.
-> 
- 
-### <a name="install-the-dependency-agent-on-windows"></a>Installare Dependency Agent in Windows
-
-Per installare o disinstallare l'agente sono necessari i privilegi di amministratore.
-
-Dependency Agent viene installato nei computer che eseguono Windows con InstallDependencyAgent-Windows.exe. Se si esegue questo file eseguibile senza opzioni, avvia una procedura guidata che consente di completare l'installazione in modo interattivo.
-
-Usare la procedura seguente per installare Dependency Agent in ogni computer che esegue Windows:
-
-1. Installare l'agente di Log Analytics seguendo la procedura descritta in [Raccogliere dati dai computer Windows ospitati nell'ambiente](../agents/agent-windows.md).
-2. Scaricare Windows Dependency Agent usando il collegamento nella sezione precedente e quindi eseguirlo con il comando seguente: `InstallDependencyAgent-Windows.exe`
-3. Seguire la procedura guidata per installare l'agente.
-4. Se Dependency Agent non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs.
-
-#### <a name="windows-command-line"></a>Riga di comando di Windows
-
-Usare le opzioni della tabella seguente per eseguire l'installazione dalla riga di comando. Per visualizzare un elenco dei flag di installazione, eseguire il programma di installazione con il flag /? come segue.
-
-InstallDependencyAgent-Windows.exe /?
-
-| **Contrassegno** | **Descrizione** |
-| --- | --- |
-| <code>/?</code> | Ottenere un elenco delle opzioni della riga di comando. |
-| <code>/S</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
-
-Per impostazione predefinita, i file per l'agente di dipendenza di Windows vengono inseriti in C:\Programmi\Microsoft Dependency Agent.
-
-### <a name="install-the-dependency-agent-on-linux"></a>Installare Dependency Agent in Linux
-
-Per installare o configurare l'agente è necessario l'accesso alla radice.
-
-Dependency Agent viene installato nei computer Linux tramite Installdependencyagent-linux64. bin, uno script della shell con un file binario autoestraente. È possibile eseguire il file con _sh_ oppure aggiungere autorizzazioni di esecuzione al file stesso.
-
-Per installare Dependency Agent in ogni computer Linux, seguire questa procedura:
-
-1. Installare l'agente di Log Analytics seguendo la procedura descritta in [Raccogliere dati dai computer Linux ospitati nell'ambiente](../vm/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
-2. Scaricare Dependency Agent per Linux usando il collegamento riportato nella sezione precedente e quindi installarlo come radice con questo comando: sh InstallDependencyAgent-Linux64.bin
-3. Se Dependency Agent non si avvia, controllare i log per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux, la directory di log è /var/opt/microsoft/dependency-agent/log.
-
-Per visualizzare un elenco dei flag di installazione, eseguire il programma di installazione con il flag `-help` come segue.
-
-```
-InstallDependencyAgent-Linux64.bin -help
-```
-
-| **Contrassegno** | **Descrizione** |
-| --- | --- |
-| <code>-help</code> | Ottenere un elenco delle opzioni della riga di comando. |
-| <code>-s</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
-| <code>--check</code> | Controllare le autorizzazioni e il sistema operativo senza installare l'agente. |
-
-I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
-
-| **File** | **Posizione** |
-| --- | --- |
-| File core | /opt/microsoft/dependency-agent |
-| File di registro | /var/opt/microsoft/dependency-agent/log |
-| File di configurazione | /etc/opt/microsoft/dependency-agent/config |
-| File eseguibili del servizio | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br><br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
-| File binary di archiviazione | /var/opt/microsoft/dependency-agent/storage |
-
-### <a name="installation-script-examples"></a>Esempi di script di installazione
-
-Per distribuire facilmente Dependency Agent su più server contemporaneamente, è utile usare uno script. È possibile usare gli esempi di script seguenti per scaricare e installare Dependency Agent in Windows o Linux.
-
-#### <a name="powershell-script-for-windows"></a>Script di PowerShell per Windows
-
-```powershell
-
-Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
-
-.\InstallDependencyAgent-Windows.exe /S
-
-```
-
-#### <a name="shell-script-for-linux"></a>Script della shell per Linux
-
-```
-wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
-```
-
-```
-sh InstallDependencyAgent-Linux64.bin -s
-```
-
-### <a name="desired-state-configuration"></a>Desired State Configuration
-
-Per distribuire Dependency Agent tramite desired state Configuration, è possibile usare il modulo xPSDesiredStateConfiguration e un frammento di codice simile al seguente:
-
-```powershell
-Import-DscResource -ModuleName xPSDesiredStateConfiguration
-
-$DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
-
-
-
-Node $NodeName
-
-{
-
-    # Download and install the Dependency agent
-
-    xRemoteFile DAPackage
-
-    {
-
-        Uri = "https://aka.ms/dependencyagentwindows"
-
-        DestinationPath = $DAPackageLocalPath
-
-        DependsOn = "[Package]OI"
-
-    }
-
-    xPackage DA
-
-    {
-
-        Ensure = "Present"
-
-        Name = "Dependency Agent"
-
-        Path = $DAPackageLocalPath
-
-        Arguments = '/S'
-
-        ProductId = ""
-
-        InstalledCheckRegKey = "HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
-
-        InstalledCheckRegValueName = "DisplayName"
-
-        InstalledCheckRegValueData = "Dependency Agent"
-
-    }
-
-}
-
-```
-
-### <a name="uninstall-the-dependency-agent"></a>Disinstallare Dependency Agent
-
-Usare le sezioni seguenti per rimuovere Dependency Agent.
-
-#### <a name="uninstall-the-dependency-agent-on-windows"></a>Disinstallare Dependency Agent in Windows
+### <a name="uninstall-the-dependency-agent-on-windows"></a>Disinstallare Dependency Agent in Windows
 
 Dependency Agent per Windows può essere disinstallato da un amministratore tramite il Pannello di controllo.
 
 Per disinstallare Dependency Agent, un amministratore può anche eseguire %Programfiles%\Microsoft Dependency Agent\Uninstall.exe.
 
-#### <a name="uninstall-the-dependency-agent-on-linux"></a>Disinstallare Dependency Agent in Linux
+### <a name="uninstall-the-dependency-agent-on-linux"></a>Disinstallare Dependency Agent in Linux
 
 Per disinstallare completamente Dependency Agent da Linux, è necessario rimuovere l'agente stesso e il connettore, che viene installato automaticamente con l'agente. È possibile disinstallare entrambi con il singolo comando seguente:
 
 ```
 rpm -e dependency-agent dependency-agent-connector
 ```
-
-## <a name="management-packs"></a>Management Pack
-
-Quando viene attivato Wire Data in un'area di lavoro Log Analytics, a tutti i server Windows nell'area di lavoro viene inviato un Management Pack di 300 KB. Se si usano agenti System Center Operations Manager in un [gruppo di gestione connesso](../agents/om-agents.md), il Management Pack di Dependency Monitor viene distribuito da System Center Operations Manager. Se gli agenti sono connessi direttamente, monitoraggio di Azure recapita il Management Pack.
-
-Il Management Pack è denominato Microsoft.IntelligencePacks.ApplicationDependencyMonitor e viene inserito in %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. L'origine dati usata dal Management Pack è %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Resources&lt;IDGeneratoAutomaticamente&gt;\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
-
-## <a name="using-the-solution"></a>Uso della soluzione
-
-Usare le informazioni seguenti per installare e configurare la soluzione.
-
-- La soluzione Wire Data acquisisce i dati dai computer che eseguono Windows Server 2012 R2, Windows 8.1 e versioni successive.
-- Nei computer da cui si desidera acquisire i dati in transito è necessario che sia installato Microsoft .NET Framework 4.0 o versione successiva.
-- Aggiungere la soluzione Wire data all'area di lavoro di Log Analytics usando la procedura descritta in [aggiungere soluzioni di monitoraggio dalla raccolta di soluzioni](../insights/solutions.md). Non è richiesta alcuna ulteriore configurazione.
-- Se si vogliono visualizzare i dati in transito per una soluzione specifica, è necessario che la soluzione sia già stata aggiunta all'area di lavoro.
-
-Dopo l'installazione degli agenti e della soluzione, nell'area di lavoro verrà visualizzato il riquadro Wire Data 2.0.
-
-![Riquadro Wire Data](./media/wire-data/wire-data-tile.png)
 
 ## <a name="using-the-wire-data-20-solution"></a>Uso della soluzione Wire Data 2.0
 
@@ -415,5 +231,5 @@ Per ogni tipo di dati di input vene creato un record con tipo _WireData_. I reco
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Vedere [distribuire VM Insights](./vminsights-enable-overview.md) per i requisiti e i metodi che consentono il monitoraggio delle macchine virtuali.
 - [Ricerche nei log](../logs/log-query-overview.md) per visualizzare i record di ricerca dettagliati su Wire Data.
-

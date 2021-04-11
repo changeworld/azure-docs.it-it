@@ -8,13 +8,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
-ms.date: 03/01/2021
-ms.openlocfilehash: 1b2a3f018b16258622b817648cb00e230313bf49
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.date: 03/29/2021
+ms.openlocfilehash: 186f1e085cecdc92e345231d50d06195bba55504
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564518"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732959"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Eseguire la migrazione dei database da SQL Server a SQL Istanza gestita utilizzando il servizio di riproduzione log (anteprima)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,7 +70,7 @@ Dopo l'arresto di con ridondanza locale, tramite il completamento automatico o m
 | **2. avviare con ridondanza locale nel cloud**. | È possibile riavviare il servizio con una scelta di cmdlet: PowerShell ([Start-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure ([cmdlet di az_sql_midb_log_replay_start](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)). <br /><br /> Avviare con ridondanza locale separatamente per ogni database che punta a una cartella di backup nell'archivio BLOB. <br /><br /> Una volta avviato, il servizio eseguirà i backup dal contenitore di archiviazione BLOB e avvierà il ripristino in SQL Istanza gestita.<br /><br /> Se con ridondanza locale è stato avviato in modalità continua, dopo il ripristino di tutti i backup caricati inizialmente, il servizio osserverà eventuali nuovi file caricati nella cartella. Il servizio applicherà continuamente i log in base alla catena del numero di sequenza del file di log (LSN) finché non verrà arrestato. |
 | **2,1. monitorare lo stato dell'operazione**. | È possibile monitorare lo stato di avanzamento dell'operazione di ripristino con una scelta di cmdlet: PowerShell ([Get-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure ([cmdlet di az_sql_midb_log_replay_show](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)). |
 | **2,2. arrestare l'operazione, se necessario**. | Se è necessario arrestare il processo di migrazione, è possibile scegliere i cmdlet: PowerShell ([Stop-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure ([az_sql_midb_log_replay_stop](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop)). <br /><br /> L'arresto dell'operazione eliminerà il database di cui si sta eseguendo il ripristino in SQL Istanza gestita. Dopo l'arresto di un'operazione, non è possibile riprendere con ridondanza locale per un database. È necessario riavviare il processo di migrazione da zero. |
-| **3. quando si è pronti, passare al cloud**. | Arrestare l'applicazione e il carico di lavoro. Eseguire l'ultimo backup di log Tail e caricarlo nell'archiviazione BLOB di Azure.<br /><br /> Completare il cutover avviando un'operazione con ridondanza locale `complete` con una scelta di cmdlet: PowerShell ([complete-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure [az_sql_midb_log_replay_complete](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete). Questa operazione arresterà con ridondanza locale e causerà la messa in linea del database per l'utilizzo in lettura e scrittura su SQL Istanza gestita.<br /><br /> Consente di reindirizzare la stringa di connessione dell'applicazione da SQL Server a SQL Istanza gestita. |
+| **3. quando si è pronti, passare al cloud**. | Arrestare l'applicazione e il carico di lavoro. Eseguire l'ultimo backup di log Tail e caricarlo nell'archiviazione BLOB di Azure.<br /><br /> Completare il cutover avviando un'operazione con ridondanza locale `complete` con una scelta di cmdlet: PowerShell ([complete-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay)) o l'interfaccia della riga di comando di Azure [az_sql_midb_log_replay_complete](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete). Questa operazione arresterà con ridondanza locale e causerà la messa in linea del database per l'utilizzo in lettura e scrittura su SQL Istanza gestita.<br /><br /> Consente di reindirizzare la stringa di connessione dell'applicazione da SQL Server a SQL Istanza gestita. Sarà necessario orchestrare questo passaggio manualmente, tramite una modifica manuale della stringa di connessione nell'applicazione o automaticamente (ad esempio, se l'applicazione può, ad esempio, leggere la stringa di connessione da una proprietà o da un database). |
 
 ## <a name="requirements-for-getting-started"></a>Requisiti per la Guida introduttiva
 

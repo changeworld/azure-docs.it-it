@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 745cc7be37120cda27fe4d4077b9bda0fa07badf
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96435451"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550779"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -168,13 +168,11 @@ Gli utenti ottengono SSO dai dispositivi aggiunti ad Azure AD se il dispositivo 
 
 ### <a name="on-premises-network-shares"></a>Condivisioni di rete locali
 
-Gli utenti ottengono SSO dai dispositivi aggiunti ad Azure AD se un dispositivo ha accesso a un controller di dominio locale.
+Gli utenti ottengono SSO dai dispositivi aggiunti ad Azure AD se un dispositivo ha accesso a un controller di dominio locale. [Scopri come funziona](azuread-join-sso.md)
 
 ### <a name="printers"></a>Stampanti
 
-Per le stampanti, è necessario distribuire la [stampa su cloud ibrido](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) per individuare le stampanti nei dispositivi aggiunti ad Azure AD. 
-
-Mentre le stampanti non possono essere individuate automaticamente in un ambiente solo cloud, gli utenti possono usare anche il percorso UNC delle stampanti per aggiungerle direttamente. 
+Si consiglia di distribuire la [stampa universale](/universal-print/fundamentals/universal-print-whatis) per avere una soluzione di gestione della stampa basata sul cloud senza dipendenze locali. 
 
 ### <a name="on-premises-applications-relying-on-machine-authentication"></a>Applicazioni locali basate sull'autenticazione del computer
 
@@ -221,7 +219,7 @@ Scegliere l'approccio o gli approcci di distribuzione consultando la tabella pre
 
 ## <a name="configure-your-device-settings"></a>Configurare le impostazioni dei dispositivi
 
-Il portale di Azure permette di controllare la distribuzione dei dispositivi aggiunti ad Azure AD nell'organizzazione. Per configurare le impostazioni correlate, nella pagina **Azure Active Directory** selezionare `Devices > Device settings`.
+Il portale di Azure permette di controllare la distribuzione dei dispositivi aggiunti ad Azure AD nell'organizzazione. Per configurare le impostazioni correlate, nella pagina **Azure Active Directory** selezionare `Devices > Device settings`. [Scopri di più](device-management-azure-portal.md)
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Gli utenti possono aggiungere dispositivi ad Azure AD
 
@@ -235,11 +233,13 @@ Scegliere **Selezionati** e selezionare gli utenti che si vuole aggiungere al gr
 
 ![Amministratori locali aggiuntivi su dispositivi aggiunti ad Azure AD](./media/azureadjoin-plan/02.png)
 
-### <a name="require-multi-factor-auth-to-join-devices"></a>Richiedi Multi-Factor Authentication per aggiungere i dispositivi
+### <a name="require-multi-factor-authentication-mfa-to-join-devices"></a>Richiedi autenticazione a più fattori per aggiungere dispositivi
 
 Selezionare **Sì** se gli utenti devono eseguire l'autenticazione a più fattori durante l'aggiunta dei dispositivi ad Azure AD. Per gli utenti che aggiungono dispositivi ad Azure AD tramite MFA, il dispositivo stesso diventa un secondo fattore.
 
 ![Richiedi Multi-Factor Authentication per aggiungere i dispositivi](./media/azureadjoin-plan/03.png)
+
+**Raccomandazione:** Usare il registro azioni utente [o i dispositivi aggiunti](/conditional-access/concept-conditional-access-cloud-apps#user-actions) all'accesso condizionale per l'applicazione dell'autenticazione a più fattori per l'aggiunta di dispositivi.
 
 ## <a name="configure-your-mobility-settings"></a>Configurare le impostazioni di mobilità
 

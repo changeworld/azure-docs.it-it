@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: risverma
 ms.custom: include file
-ms.openlocfilehash: fc61c111291f9862f71f9a81828fa0fa828ab2ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 83a19dea56693a1caff2c982b9f772543fe1cf2e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510617"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073547"
 ---
 Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente. Le dimensioni isolate si trovano in un ambiente di generazione hardware specifico e verranno deprecate quando la generazione dell'hardware viene ritirata.
 
@@ -31,6 +31,7 @@ Le offerte di macchine virtuali con piano Isolato correnti includono:
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
+* Standard_DC8_v2
 
 
 > [!NOTE]
@@ -48,6 +49,7 @@ Le dimensioni delle VM isolate hanno una durata limitata dell'hardware. Azure em
 | Standard_GS5  | 15 febbraio 2022 |
 | Standard_E64i_v3  | 15 febbraio 2022 |
 | Standard_E64is_v3  | 15 febbraio 2022 |
+| Standard_DC8_v2 | 15 febbraio 2022 |
 
 
 ## <a name="faq"></a>Domande frequenti
@@ -82,7 +84,7 @@ Le dimensioni delle VM isolate hanno una durata limitata dell'hardware. Azure em
 | Data | Azione |
 |---|---|
 | 15 febbraio 2021<sup>1</sup> | Avviso di ritiro dell'isolamento G5/GS5/E64i_v3/E64is_v3 |
-| 15 febbraio 2022 | Garanzia di isolamento G5/GS5/E64i_v3/E64is_v3 rimossa |
+| 28 febbraio 2022 | Garanzia di isolamento G5/GS5/E64i_v3/E64is_v3 rimossa |
 
 <sup>1</sup> il cliente esistente che usa queste dimensioni riceverà un messaggio di posta elettronica con istruzioni dettagliate sui passaggi successivi.  
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa3614aa3c4fbaec3611806406e5129379999bc3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102522394"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067142"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -790,7 +790,7 @@ Per annullare un ordine di Azure Data Box, eseguire [`az databox job cancel`](/c
    |resource-group [obbligatorio]| Nome del gruppo di risorse associato all'ordine da eliminare. Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme. | "myresourcegroup"|
    |name [obbligatorio]| Nome dell'ordine da eliminare. | "mydataboxorder"|
    |reason [obbligatorio]| Motivo per l'annullamento dell'ordine. | "Ho immesso informazioni errate e ho dovuto annullare l'ordine." |
-   |sì| Indica che non è richiesta la conferma. | --yes (-y)| --yes -y |
+   |sì| Indica che non è richiesta la conferma. | --yes (-y)| 
    |debug| Include le informazioni di debug per la registrazione dettagliata | --debug |
    |help| Visualizza le informazioni della Guida per questo comando. | --help -h |
    |only-show-errors| Mostra solo gli errori, eliminando gli avvisi. | --only-show-errors |
@@ -827,7 +827,7 @@ Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [`az da
    |resource-group [obbligatorio]| Nome del gruppo di risorse associato all'ordine da eliminare. Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme. | "myresourcegroup"|
    |name [obbligatorio]| Nome dell'ordine da eliminare. | "mydataboxorder"|
    |sottoscrizione| Nome o ID (GUID) della propria sottoscrizione di Azure. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
-   |sì| Indica che non è richiesta la conferma. | --yes (-y)| --yes -y |
+   |sì| Indica che non è richiesta la conferma. | --yes (-y)|
    |debug| Include le informazioni di debug per la registrazione dettagliata | --debug |
    |help| Visualizza le informazioni della Guida per questo comando. | --help -h |
    |only-show-errors| Mostra solo gli errori, eliminando gli avvisi. | --only-show-errors |

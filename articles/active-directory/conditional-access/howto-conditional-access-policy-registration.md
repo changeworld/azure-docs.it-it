@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 03/29/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 711d4bdf2be2ad3158c12e4690a70fb83fe7a846
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 38ddd825321a3cb7947eb76c4f5f6cdbc6cb3414
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559503"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055706"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Accesso condizionale: protezione della registrazione delle informazioni di sicurezza
 
@@ -52,7 +52,7 @@ I criteri seguenti si applicano agli utenti selezionati, che tentano di eseguire
 1. Impostare **Abilita criterio** su **Sì**.
 1. Quindi selezionare **Crea**
 
-Gli amministratori dovranno ora emettere credenziali di accesso temporaneo ai nuovi utenti in modo che possano soddisfare i requisiti per la registrazione di autenticazione a più fattori. Per completare questa attività, vedere la sezione [creare un passaggio di accesso temporaneo nel portale di Azure ad](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass-in-the-azure-ad-portal).
+Gli amministratori dovranno ora emettere credenziali di accesso temporaneo ai nuovi utenti in modo che possano soddisfare i requisiti per la registrazione di autenticazione a più fattori. Per completare questa attività, vedere la sezione [creare un passaggio di accesso temporaneo nel portale di Azure ad](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass).
 
 Le organizzazioni possono scegliere di richiedere altri controlli di concessione oltre al o al posto di **richiedere l'autenticazione** a più fattori al passaggio 6b. Quando si selezionano più controlli, assicurarsi di selezionare l'interruttore appropriato del pulsante di opzione per richiedere **tutti** o **uno** dei controlli selezionati quando si apportano queste modifiche.
 
