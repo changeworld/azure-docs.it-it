@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'esempio di progetto DoD Impact Level 4
 description: Panoramica dell'esempio DoD Impact Level 4. Questo esempio di progetto consente ai clienti di valutare specifici controlli DoD Impact Level 4.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 3fdb14d1abdac182dceed844fe8b9ab65bed3210
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
-ms.translationtype: HT
+ms.openlocfilehash: a6f184e0446e311da54bcec3906667865c665bc7
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035088"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386925"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Panoramica dell'esempio di progetto DoD Impact Level 4
 

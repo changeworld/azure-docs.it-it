@@ -9,14 +9,14 @@ ms. Service: Media-Services ms. workload: ms. Topic: Conceptual ms. Date: 02/13/
 
 In Servizi multimediali di Microsoft Azure, un [endpoint di streaming](/rest/api/media/streamingendpoints) rappresenta un servizio di creazione e creazione di pacchetti dinamici (just-in-Time) in grado di fornire contenuti live e on demand direttamente a un'app per giocatori client usando uno dei protocolli di streaming media comuni (HLS o Dash). Inoltre, l' **endpoint di streaming** fornisce la crittografia dinamica (just-in-Time) a DRM leader del settore. 
 
-Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. È possibile creare altri endpoint di streaming con l'account (vedere [quote e limiti](limits-quotas-constraints.md)).
+Quando si crea un account di Servizi multimediali viene creato un endpoint di streaming **predefinito** nello stato Arrestato. È possibile creare altri endpoint di streaming con l'account (vedere [quote e limiti](limits-quotas-constraints-reference.md)).
 
 > [!NOTE]
 > Per avviare lo streaming di video, è necessario avviare l **'endpoint di streaming** da cui si vuole trasmettere il video.
 >
 > Viene addebitato solo quando l'endpoint di streaming è nello stato in esecuzione.
 
-Assicurarsi di rivedere anche l'argomento [Dynamic Packaging](dynamic-packaging-overview.md) . 
+Assicurarsi di rivedere anche l'argomento [Dynamic Packaging](encode-dynamic-packaging-concept.md) . 
 
 ## <a name="naming-convention"></a>Convenzione di denominazione
 
@@ -201,7 +201,7 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="see-also"></a>Vedere anche
 
-[Creazione dinamica dei pacchetti](dynamic-packaging-overview.md)
+[Creazione dinamica dei pacchetti](encode-dynamic-packaging-concept.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

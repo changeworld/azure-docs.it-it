@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: b6a2d7ad92c209a93d740d60808c2cbd2f90c6b4
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: bbb8baf111c62e3a1207de9b910979a77927cd6e
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258419"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490803"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creazione di un volume a doppio protocollo (NFSv3 e SMB) per Azure NetApp Files
 
-Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1), SMB3 o il protocollo duale. Questo articolo illustra come creare un volume che usa il protocollo duale di NFSv3 e SMB con supporto per il mapping utente LDAP. 
+Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1), SMB3 o il protocollo duale. Questo articolo illustra come creare un volume che usa il protocollo duale di NFSv3 e SMB con supporto per il mapping utente LDAP.  
 
-Per creare volumi NFS, vedere [creare un volume NFS](azure-netapp-files-create-volumes.md). Per creare volumi SMB, vedere [creare un volume SMB](azure-netapp-files-create-volumes-smb.md). 
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 
@@ -141,9 +140,9 @@ Per creare volumi NFS, vedere [creare un volume NFS](azure-netapp-files-create-v
 
 È necessario impostare gli attributi seguenti per gli utenti LDAP e i gruppi LDAP: 
 * Attributi obbligatori per gli utenti LDAP:   
-    `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: posixAccount`
+    `uid`: Alice, `uidNumber` : 139, `gidNumber` : 555, `objectClass` : posixAccount
 * Attributi obbligatori per i gruppi LDAP:   
-    `objectClass: posixGroup`, `gidNumber: 555`
+    `objectClass`: "posixGroup", `gidNumber` : 555
 
 ## <a name="configure-the-nfs-client"></a>Configurare il client NFS 
 

@@ -1,18 +1,18 @@
 ---
 title: Abilitare le protezioni dei carichi di lavoro integrati del Centro sicurezza di Azure
-description: Scopri come abilitare Azure Defender per estendere le protezioni del Centro sicurezza di Azure alle tue risorse ibride e multicloud
+description: Informazioni su come abilitare Azure Defender per estendere le protezioni del Centro sicurezza di Azure alle risorse ibride e cloud
 author: memildin
 ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
 ms.date: 02/24/2021
-ms.openlocfilehash: 6496b18c8c22cbbd4fd3344736a4b38b7a998890
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7124014821c79fa37aa04da8909e3b4ac3bcb4fb
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102108923"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492495"
 ---
 # <a name="quickstart-enable-azure-defender"></a>Guida introduttiva: abilitare Azure Defender
 

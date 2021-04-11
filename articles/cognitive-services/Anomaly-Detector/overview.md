@@ -12,12 +12,12 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: rilevamento anomalie, Machine Learning, algoritmi
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: ad3bd1eed6e5e7efb783c4a40958e16c3ca23691
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3bfa30cc5d3d57cfcd2677bb4b2719061541d5a9
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572088"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278865"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
 
@@ -28,6 +28,12 @@ L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dat
 ![Rilevare cambiamenti del modello delle richieste di servizi](./media/anomaly_detection2.png)
 
 L'uso del Rilevamento anomalie non richiede alcuna esperienza precedente in apprendimento automatico e l'API RESTful consente di integrare facilmente il servizio nelle applicazioni e nei processi.
+
+Questa documentazione contiene i seguenti tipi di articoli:
+* Le [guide introduttive](./Quickstarts/client-libraries.md) sono istruzioni dettagliate che consentono di effettuare chiamate al servizio e ottenere risultati in un breve periodo di tempo. 
+* Le [guide alle procedure](./how-to/identify-anomalies.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.
+* Gli [articoli concettuali](./concepts/anomaly-detection-best-practices.md) forniscono spiegazioni approfondite sulle funzionalità e sulle funzionalità del servizio.
+* Le [esercitazioni](./tutorials/batch-anomaly-detection-powerbi.md) sono guide più lunghe che illustrano come usare questo servizio come componente in soluzioni aziendali più ampie.
 
 ## <a name="features"></a>Funzionalità
 

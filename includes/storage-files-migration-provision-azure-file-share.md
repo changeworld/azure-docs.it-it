@@ -1,18 +1,19 @@
 ---
-title: Considerazioni per il provisioning di condivisioni file di Azure
-description: Provisioning di condivisioni file di Azure per l'uso con Sincronizzazione file di Azure. Un blocco di testo comune, condiviso tra documenti di migrazione.
+title: includere file
+description: includere file
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
-ms.openlocfilehash: d48baba5ee60a2bf5a4cb5e4d1ce840fce8eec43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file
+ms.openlocfilehash: c003e765574d764b6653823e8554d0718ea85e0e
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82143586"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081100"
 ---
 Una condivisione file di Azure viene archiviata nel cloud in un account di archiviazione di Azure.
 Ecco un altro livello di considerazioni sulle prestazioni.

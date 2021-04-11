@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
-ms.openlocfilehash: 5548d82326ec4ac2306e2c8945bedc20236a4e54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 8970fc2d5f11d106f34cf2f4c05a1c61bdc6c438
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009352"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107415"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel flusso di dati di mapping
 
@@ -120,7 +120,35 @@ Di seguito è riportata un'esercitazione video sull'utilizzo automatico della ge
 
 ## <a name="data-preview-in-sink"></a>Anteprima dati in sink
 
-Quando si recupera un'anteprima dei dati in un cluster di debug, non vengono scritti dati nel sink. Verrà restituito uno snapshot dell'aspetto dei dati, ma non verrà scritto alcun elemento nella destinazione. Per testare la scrittura dei dati nel sink, eseguire un debug della pipeline dall'area di disegno della pipeline.
+Quando si recupera un'anteprima dei dati in modalità di debug, non vengono scritti dati nel sink. Verrà restituito uno snapshot dell'aspetto dei dati, ma non verrà scritto alcun elemento nella destinazione. Per testare la scrittura dei dati nel sink, eseguire un debug della pipeline dall'area di disegno della pipeline.
+
+## <a name="data-flow-script"></a>Script del flusso di dati
+
+### <a name="example"></a>Esempio
+
+Di seguito è riportato un esempio di trasformazione sink e dello script del flusso di dati:
+
+```
+sink(input(
+        movie as integer,
+        title as string,
+        genres as string,
+        year as integer,
+        Rating as integer
+    ),
+    allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:false,
+    updateable:true,
+    upsertable:false,
+    keys:['movie'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true,
+    saveOrder: 1,
+    errorHandlingOption: 'stopOnFirstError') ~> sink1
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

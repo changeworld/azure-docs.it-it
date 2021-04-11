@@ -1,18 +1,18 @@
 ---
 title: Distribuire tipi di nodo solo senza stato in un cluster Service Fabric
-description: Informazioni su come creare e distribuire tipi di nodo senza stato nel cluster di Azure Service Fabric.
+description: Informazioni su come creare e distribuire tipi di nodo senza stato in Azure Service Fabric cluster.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74680f7b56ad98851e2839b53c1f9e92b6c6c23a
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563777"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030011"
 ---
-# <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Distribuire un cluster di Azure Service Fabric con tipi di nodo solo senza stato (anteprima)
+# <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types"></a>Distribuire un cluster di Azure Service Fabric con tipi di nodo solo senza stato
 I tipi di nodo Service Fabric hanno presupposto intrinseco che in un determinato momento i servizi con stato possono essere inseriti nei nodi. I tipi di nodo senza stato rilassano questa ipotesi per un tipo di nodo, consentendo così al tipo di nodo di usare altre funzionalità, ad esempio le operazioni di scalabilità orizzontale più veloci, il supporto per aggiornamenti automatici del sistema operativo sulla durabilità Bronze e la scalabilità orizzontale a più di 100 nodi in un singolo set di scalabilità
 
 * I tipi di nodo primari non possono essere configurati come senza stato
@@ -23,7 +23,7 @@ I tipi di nodo Service Fabric hanno presupposto intrinseco che in un determinato
 Sono disponibili modelli di esempio: [Service Fabric modello di tipi di nodo](https://github.com/Azure-Samples/service-fabric-cluster-templates) senza stato
 
 ## <a name="enabling-stateless-node-types-in-service-fabric-cluster"></a>Abilitazione di tipi di nodo senza stato nel cluster Service Fabric
-Per impostare uno o più tipi di nodo come senza **stato** in una risorsa cluster, impostare la proprietà IsSynchronized su "true". Quando si distribuisce un cluster Service Fabric con tipi di nodo senza stato, ricordarsi di avere almeno un tipo di nodo primario nella risorsa cluster.
+Per impostare uno o più tipi di nodo come senza **stato** in una risorsa cluster, impostare la proprietà IsSynchronized su **true**. Quando si distribuisce un cluster Service Fabric con tipi di nodo senza stato, ricordarsi di avere almeno un tipo di nodo primario nella risorsa cluster.
 
 * La risorsa cluster Service Fabric apiVersion deve essere "2020-12-01-Preview" o una versione successiva.
 
@@ -44,7 +44,7 @@ Per impostare uno o più tipi di nodo come senza **stato** in una risorsa cluste
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateless": false,
+        "isStateless": false, // Primary Node Types cannot be stateless
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -72,16 +72,15 @@ Per impostare uno o più tipi di nodo come senza **stato** in una risorsa cluste
 Per abilitare i tipi di nodo senza stato, è necessario configurare la risorsa del set di scalabilità di macchine virtuali sottostante nel modo seguente:
 
 * Proprietà del valore  **singlePlacementGroup** , che deve essere impostata su **false** se è necessario applicare la scalabilità a più di 100 macchine virtuali.
-* La **modalità** **upgradePolicy** del set di scalabilità deve essere impostata su in **sequenza**.
+* Il **upgradeMode** del set di scalabilità deve essere impostato su in **sequenza**.
 * Per la modalità di aggiornamento in sequenza è richiesta l'estensione integrità dell'applicazione o i probe di integrità. Configurare il probe di integrità con la configurazione predefinita per i tipi di nodo senza stato come suggerito di seguito. Una volta distribuite le applicazioni nel tipo di nodo, è possibile modificare le porte di estensione del probe di integrità/integrità per monitorare l'integrità dell'applicazione.
 
 >[!NOTE]
-> È necessario che il numero di domini di errore della piattaforma venga aggiornato a 5 quando un tipo di nodo senza stato è supportato da un set di scalabilità di macchine virtuali che si estende su più zone. Per altri dettagli, vedere questo [modello](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) .
-> 
-> **platformFaultDomainCount: 5**
+> Quando si usa la scalabilità automatica con NodeTypes senza stato, dopo l'operazione di riduzione, lo stato del nodo non viene pulito automaticamente. Per pulire il nodestre dei nodi inattivi durante la scalabilità automatica, è consigliabile usare [Service Fabric helper di ridimensionamento](https://github.com/Azure/service-fabric-autoscale-helper) automatico.
+
 ```json
 {
-    "apiVersion": "2018-10-01",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.Compute/virtualMachineScaleSets",
     "name": "[parameters('vmNodeType1Name')]",
     "location": "[parameters('computeLocation')]",
@@ -92,8 +91,9 @@ Per abilitare i tipi di nodo senza stato, è necessario configurare la risorsa d
           "automaticOSUpgradePolicy": {
             "enableAutomaticOSUpgrade": true
           }
-        }
-    }
+        },
+        "platformFaultDomainCount": 5
+    },
     "virtualMachineProfile": {
     "extensionProfile": {
     "extensions": [
@@ -136,6 +136,18 @@ Per abilitare i tipi di nodo senza stato, è necessario configurare la risorsa d
     ]
 }
 ```
+
+## <a name="configuring-stateless-node-types-with-multiple-availability-zones"></a>Configurazione di tipi di nodo senza stato con più zone di disponibilità
+Per configurare il NodeType senza stato che si estende in più zone di disponibilità, seguire la documentazione [qui](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), insieme alle poche modifiche come segue:
+
+* Set **singlePlacementGroup** :  **false**  se è necessario abilitare più gruppi di posizionamento.
+* Impostare  **upgradeMode** : in **sequenza**   e aggiungere l'estensione dell'integrità dell'applicazione o i probe di integrità come indicato in precedenza.
+* Impostare **platformFaultDomainCount** : **5** per il set di scalabilità di macchine virtuali.
+
+>[!NOTE]
+> Indipendentemente dalla configurazione di VMSSZonalUpgradeMode nel cluster, gli aggiornamenti del set di scalabilità di macchine virtuali avvengono sempre in sequenza una zona di disponibilità alla volta per l'oggetto NodeType senza stato che si estende su più zone, perché usa la modalità di aggiornamento in sequenza.
+
+Per riferimento, esaminare il [modello](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) per la configurazione di tipi di nodo senza stato con più zone di disponibilità
 
 ## <a name="networking-requirements"></a>Requisiti di rete
 ### <a name="public-ip-and-load-balancer-resource"></a>IP pubblico e risorsa Load Balancer
@@ -184,7 +196,7 @@ Per abilitare il ridimensionamento a più di 100 VM in una risorsa del set di sc
 ```
 
 >[!NOTE]
-> Non è possibile eseguire una modifica sul posto dello SKU nell'IP pubblico e nelle risorse del servizio di bilanciamento del carico. Se si esegue la migrazione da risorse esistenti con SKU Basic, vedere la sezione relativa alla migrazione di questo articolo.
+> Non è possibile eseguire una modifica sul posto dello SKU nell'IP pubblico e nelle risorse del servizio di bilanciamento del carico. 
 
 ### <a name="virtual-machine-scale-set-nat-rules"></a>Regole NAT del set di scalabilità di macchine virtuali
 Le regole NAT in ingresso del servizio di bilanciamento del carico devono corrispondere ai pool NAT del set di scalabilità di macchine virtuali. Ogni set di scalabilità di macchine virtuali deve avere un pool NAT in ingresso univoco.
@@ -243,7 +255,7 @@ Load Balancer Standard e l'IP pubblico standard introducono nuove funzionalità 
 
 
 
-### <a name="migrate-to-using-stateless-node-types-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Eseguire la migrazione a usando i tipi di nodo senza stato da un cluster usando uno SKU di base Load Balancer e un IP dello SKU Basic
+## <a name="migrate-to-using-stateless-node-types-in-a-cluster"></a>Eseguire la migrazione a utilizzando tipi di nodo senza stato in un cluster
 Per tutti gli scenari di migrazione è necessario aggiungere un nuovo tipo di nodo solo senza stato. Non è possibile eseguire la migrazione del tipo di nodo esistente in modo che sia senza stato.
 
 Per eseguire la migrazione di un cluster che stava usando un Load Balancer e un IP con uno SKU di base, è necessario creare prima di tutto una nuova Load Balancer e una risorsa IP usando lo SKU standard. Non è possibile aggiornare queste risorse sul posto.
@@ -256,9 +268,6 @@ Per iniziare, sarà necessario aggiungere le nuove risorse al modello di Gestion
 * Un NSG a cui fa riferimento la subnet in cui vengono distribuiti i set di scalabilità di macchine virtuali.
 
 Una volta terminata la distribuzione delle risorse, è possibile iniziare a disabilitare i nodi del tipo di nodo che si vuole rimuovere dal cluster originale.
-
->[!NOTE]
-> Quando si usa la scalabilità automatica con NodeTypes senza stato con durabilità Bronze, dopo l'operazione di riduzione lo stato del nodo non viene pulito automaticamente. Per pulire il nodestre dei nodi inattivi durante la scalabilità automatica, è consigliabile usare [Service Fabric helper di ridimensionamento](https://github.com/Azure/service-fabric-autoscale-helper) automatico.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)

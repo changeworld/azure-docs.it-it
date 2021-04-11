@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 092078a79124682f7ee5c7824d4f7906c6e35475
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 95cecd66f4d0164594eb4e8da9efe765b5833e5e
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558500"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120776"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Panoramica dell'aggiornamento del dispositivo per l'hub Internet (anteprima)
 
@@ -80,7 +80,7 @@ Quando viene ricevuto un comando Update in un dispositivo, viene eseguita la fas
 
 ### <a name="importing"></a>Importazione
 
-L'importazione è il modo in cui vengono inseriti gli aggiornamenti nell'aggiornamento del dispositivo, in modo che possano essere distribuiti nei dispositivi. L'aggiornamento del dispositivo supporta l'implementazione di un singolo aggiornamento per ogni dispositivo. Questa soluzione è ideale per gli aggiornamenti full-image che aggiornano una sola partizione del sistema operativo in una sola volta o un manifesto apt che descrive tutti i pacchetti che si vuole aggiornare nel dispositivo. Per importare gli aggiornamenti nell'aggiornamento del dispositivo, creare prima di tutto un manifesto di importazione che descrive l'aggiornamento, quindi caricare i file di aggiornamento e il manifesto di importazione in un percorso accessibile da Internet. Successivamente, è possibile usare l' [API REST](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) di portale di Azure o l'importazione dell'aggiornamento del dispositivo per avviare il processo asincrono di importazione degli aggiornamenti. L'aggiornamento del dispositivo carica i file, li elabora e li rende disponibili per la distribuzione nei dispositivi Internet.
+L'importazione è il modo in cui vengono inseriti gli aggiornamenti nell'aggiornamento del dispositivo, in modo che possano essere distribuiti nei dispositivi. L'aggiornamento del dispositivo supporta l'implementazione di un singolo aggiornamento per ogni dispositivo. Questa soluzione è ideale per gli aggiornamenti full-image che aggiornano una sola partizione del sistema operativo in una sola volta o un manifesto apt che descrive tutti i pacchetti che si vuole aggiornare nel dispositivo. Per importare gli aggiornamenti nell'aggiornamento del dispositivo, creare prima di tutto un manifesto di importazione che descrive l'aggiornamento, quindi caricare i file di aggiornamento e il manifesto di importazione in un percorso accessibile da Internet. Successivamente, è possibile usare il portale di Azure o l' [API REST](https://docs.microsoft.com/rest/api/deviceupdate/) per l'aggiornamento del dispositivo per avviare il processo asincrono di importazione degli aggiornamenti. L'aggiornamento del dispositivo carica i file, li elabora e li rende disponibili per la distribuzione nei dispositivi Internet.
 
 Per contenuti sensibili, Proteggi il download usando una firma di accesso condiviso (SAS), ad esempio una firma di accesso condiviso ad hoc per l'archiviazione BLOB di Azure. [Altre informazioni su SAS](../storage/common/storage-sas-overview.md)
 

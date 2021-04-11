@@ -4,15 +4,15 @@ description: Informazioni su come identificare il punto di ripristino e configur
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: ee6eedbc078e1b9c07ed00922ce1c37b38410128
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 707ef9f60891c1da7c13638e233ee74e78fc20dd
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381869"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283938"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-portal"></a>Configurare e gestire il backup continuo e il ripristino temporizzato (anteprima)-uso di portale di Azure
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -32,6 +32,10 @@ Quando si crea un nuovo account di Azure Cosmos DB, per l'opzione **criteri di b
 
 :::image type="content" source="./media/continuous-backup-restore-portal/configure-continuous-backup-portal.png" alt-text="Effettuare il provisioning di un account Azure Cosmos DB con la configurazione del backup continuo." border="true":::
 
+## <a name="backup-storage-redundancy"></a>Ridondanza dell'archiviazione di backup
+
+Per impostazione predefinita, Azure Cosmos DB archivia i dati di backup in modalità continua nei BLOB di archiviazione con ridondanza locale. Per le aree in cui è configurata la ridondanza della zona, il backup viene archiviato in BLOB di archiviazione con ridondanza della zona. In questa modalità non è possibile aggiornare la ridondanza dell'archiviazione di backup.
+
 ## <a name="restore-a-live-account-from-accidental-modification"></a><a id="restore-live-account"></a>Ripristinare un account Live da modifiche accidentali
 
 È possibile usare portale di Azure per ripristinare un account Live o i database e i contenitori selezionati al suo interno. Per ripristinare i dati, attenersi alla procedura seguente:
@@ -46,7 +50,7 @@ Quando si crea un nuovo account di Azure Cosmos DB, per l'opzione **criteri di b
 
    * **Punto di ripristino (UTC)** : un timestamp negli ultimi 30 giorni. L'account deve esistere in tale timestamp. È possibile specificare il punto di ripristino in formato UTC. Può essere il più vicino al secondo quando si desidera ripristinarlo. Selezionare il collegamento **fare clic qui** per ottenere informazioni sull' [Identificazione del punto di ripristino](#event-feed).
 
-   * **Località** : area di destinazione in cui viene ripristinato l'account. L'account deve esistere in quest'area al timestamp specificato (ad esempio, Stati Uniti occidentali o Stati Uniti orientali. Un account può essere ripristinato solo nelle aree in cui è presente l'account di origine.
+   * **Località** : area di destinazione in cui viene ripristinato l'account. L'account deve esistere in quest'area al timestamp specificato (ad esempio, Stati Uniti occidentali o Stati Uniti orientali). Un account può essere ripristinato solo nelle aree in cui è presente l'account di origine.
 
    * **Ripristina risorsa** : è possibile scegliere un **intero account** o un **database/contenitore selezionato** da ripristinare. I database e i contenitori devono esistere al timestamp specificato. In base al punto di ripristino e al percorso selezionati, le risorse di ripristino vengono popolate, consentendo all'utente di selezionare database o contenitori specifici che devono essere ripristinati.
 

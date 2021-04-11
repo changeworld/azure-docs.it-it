@@ -6,16 +6,19 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: cba9615a8c76387b593109bc2174ab4718f1750a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 59f70659f25f925f8f802b0fcaa1f61d4e7f7dc0
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609310"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106939"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Driver MySQL e strumenti di gestione compatibili con Database di Azure per MySQL
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
-Questo articolo descrive i driver e gli strumenti di gestione compatibili con il Database di Azure per MySQL.
+
+Questo articolo descrive i driver e gli strumenti di gestione compatibili con il server singolo database di Azure per MySQL.
+
+>[!NOTE]
+>Questo articolo è applicabile solo al server singolo database di Azure per MySQL per garantire che i driver siano compatibili con l' [architettura di connettività](concepts-connectivity-architecture.md) del servizio a server singolo. Il [server flessibile database di Azure per MySQL](/../flexible-server/overview.md) è compatibile con tutti i driver e gli strumenti supportati e compatibili con MySQL Community Edition. 
 
 ## <a name="mysql-drivers"></a>Driver di MySQL
 Database di Azure per MySQL usa la versione di community del database MySQL più diffusa al mondo. Pertanto è compatibile con un'ampia gamma di linguaggi di programmazione e driver. L'obiettivo è supportare le tre versioni più recenti dei driver MySQL e continuare l'attività  con gli autori della community open source per migliorare costantemente le funzionalità  e l'usabilità  dei driver MySQL. Nella tabella seguente è riportato un elenco di driver che sono stati testati e che risultano compatibili con Database di Azure per MySQL 5.6 e 5.7:

@@ -1,6 +1,6 @@
 ---
-title: Offuscare visi nell'API di servizi multimediali di Azure V3 | Microsoft Docs
-description: Servizi multimediali di Azure V3 fornisce un set di impostazioni per il rilevamento e la modifica del viso che consente di inviare un file video, rilevare visi e applicarne la sfocatura in un singolo passaggio combinato oppure tramite un'operazione a due fasi che consente la modifica. Questo articolo illustra come offuscare i visi con il set di impostazioni del rilevamento viso nell'API V3.
+title: Individuare e offuscare i visi nell'API di servizi multimediali di Azure V3 | Microsoft Docs
+description: Servizi multimediali di Azure V3 fornisce un set di impostazioni per il rilevamento e la modifica della superficie che consente di inviare un file video, rilevare visi e, facoltativamente, applicare la redazione (sfocatura) in un unico passaggio combinato oppure tramite un'operazione a due fasi che consente la modifica. Questo articolo illustra come trovare e offuscare i visi con il set di impostazioni del rilevamento del viso nell'API V3.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6db93aa369366936c90446c41406eafe9ee6e414
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 4907a81fc8cb55499fa97f2b02a3e19e7117bbbc
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105630492"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286386"
 ---
-# <a name="redact-faces-with-the-face-detector-preset"></a>Offuscare facce con il set di impostazioni del rilevamento viso
+# <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Individuare i visi e offuscare (Blur) con il set di impostazioni del rilevamento viso
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -29,10 +29,11 @@ L'API di servizi multimediali di Azure v3 include un set di impostazioni per il 
 
 Questo articolo fornisce informazioni dettagliate sul **set di impostazioni del rilevamento del viso** e Mostra come usarlo con Azure Media Services SDK per .NET.
 
+[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
+
 ## <a name="compliance-privacy-and-security"></a>Conformità, privacy e sicurezza
  
 Come promemoria importante, è necessario rispettare tutte le leggi applicabili nell'uso dell'analisi in servizi multimediali di Azure. Non è necessario usare servizi multimediali di Azure o altri servizi di Azure in modo da violare i diritti di altri utenti. Prima di caricare i video, inclusi i dati biometrici, nel servizio servizi multimediali di Azure per l'elaborazione e l'archiviazione, è necessario disporre di tutti i diritti appropriati, inclusi tutti i consensi appropriati, dagli utenti del video. Per informazioni su conformità, privacy e sicurezza in servizi multimediali di Azure, le [condizioni per servizi cognitivi](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)di Azure. Per gli obblighi sulla privacy e la gestione dei dati di Microsoft, consultare l' [informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement)di Microsoft, le condizioni per i [servizi online](https://www.microsoft.com/licensing/product-licensing/products) (OST) e l'Addendum per l' [elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Altre informazioni sulla privacy, tra cui la conservazione dei dati, l'eliminazione o la distruzione, sono disponibili nella OST e [qui](../video-indexer/faq.md). Con servizi multimediali di Azure, l'utente accetta di essere vincolato dalle condizioni di servizi cognitivi, da OST, DPA e dall'Informativa sulla privacy
-
 
 ## <a name="face-redaction-modes"></a>Modalità per l'offuscamento dei volti
 
@@ -147,9 +148,6 @@ Esempio foo_IDList.txt
 In modalità **combinata** o **offuscare** sono disponibili cinque diverse modalità di sfocatura tra cui è possibile scegliere tramite la configurazione di input JSON: **low**, **Med**, **High**, **Box** e **Black**. Per impostazione predefinita, viene usata **Med**.
 
 Di seguito sono riportati alcuni esempi dei tipi di sfocature.
-
-### <a name="example-settings-for-face-detector-preset"></a>Impostazioni di esempio per il set di impostazioni del rilevamento viso
-[!code-csharp[Main](../../../media-services-v3-dotnet/VideoAnalytics/FaceRedactor/Program.cs#FaceDetectorPreset)]
 
 
 #### <a name="low"></a>Basso

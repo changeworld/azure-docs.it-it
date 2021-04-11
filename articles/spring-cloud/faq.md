@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: cee71557e60be9fdd94099453d9b8617c4b3b5ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f28ddfc272e6f95106595958cacfe732b2bfc3cc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878572"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258691"
 ---
 # <a name="azure-spring-cloud-faq"></a>Domande frequenti su Azure Spring cloud
 
@@ -37,7 +37,7 @@ Sicurezza e privacy sono tra le priorità principali per i clienti di Azure e Az
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>In quali aree è disponibile Azure Spring cloud?
 
-Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Europa occidentale, Europa settentrionale, Regno Unito meridionale, Asia sudorientale, Australia orientale, Canada centrale, Emirati Arabi Uniti settentrionali, India centrale, Corea centrale, Asia orientale e Cina orientale 2 (Mooncake). [Altre informazioni](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Europa occidentale, Europa settentrionale, Regno Unito meridionale, Asia sudorientale, Australia orientale, Canada centrale, Emirati Arabi Uniti settentrionali, India centrale, Corea centrale, Asia orientale, Giappone orientale, Sudafrica settentrionale e Cina orientale 2 (Mooncake). [Altre informazioni](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>I dati dei clienti vengono archiviati al di fuori dell'area specificata?
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 9483b0a8829c042a7cf8d516c6007cbbf14a97ac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d1f0728a9a8da264f0960be2b956516b3c93742e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105639752"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258078"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Esercitazione: configurare Microsoft Dynamics 365 Fraud Protection con Azure Active Directory B2C
 
@@ -68,7 +68,7 @@ Il diagramma dell'architettura seguente illustra l'implementazione di.
 ## <a name="set-up-the-solution"></a>Configurare la soluzione
 
 1. [Creare un'applicazione Facebook](./identity-provider-facebook.md#create-a-facebook-application) configurata per consentire la Azure ad B2C della Federazione.
-2. [Aggiungere il segreto di Facebook](./custom-policy-get-started.md#create-the-facebook-key) creato come chiave dei criteri del Framework dell'esperienza di identità.
+2. [Aggiungere il segreto di Facebook](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#create-the-facebook-key) creato come chiave dei criteri del Framework dell'esperienza di identità.
 
 ## <a name="configure-your-application-under-microsoft-dfp"></a>Configurare l'applicazione in Microsoft DFP
 
@@ -148,7 +148,7 @@ Il valore dell'ID utente deve corrispondere a quello del valore di configurazion
 
 1. Passare al [criterio Azure ad B2C](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies) nella cartella criteri.
 
-2. Segui questo [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) per scaricare lo [Starter Pack le LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
+2. Segui questo [documento](./tutorial-create-user-flows.md?pivots=b2c-custom-policy?tabs=applications#custom-policy-starter-pack) per scaricare lo [Starter Pack le LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 
 3. Configurare i criteri per il tenant Azure AD B2C.
 
@@ -184,4 +184,4 @@ Per ulteriori informazioni, vedere gli articoli seguenti:
 
 - [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)

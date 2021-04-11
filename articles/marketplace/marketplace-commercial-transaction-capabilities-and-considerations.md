@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 9797401fd96bf052fdc9de0c2c2ceaf88b3d46b6
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 0a25e1b50455cad5bdbe5b76b2a291f2a1c11940
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504210"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107007"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del marketplace commerciale
 
@@ -189,7 +189,7 @@ In questa sezione vengono analizzati i requisiti delle transazioni per i diversi
 - Per l'opzione di pubblicazione delle transazioni, sono necessari un account Microsoft e informazioni finanziarie, indipendentemente dal modello di determinazione prezzi dell'offerta.
 - Le informazioni finanziarie obbligatorie includono l'account di pagamento e il profilo fiscale.
 
-Per ulteriori informazioni sulla configurazione di questi account, vedere [gestire l'account del Marketplace commerciale nel centro per i partner](partner-center-portal/manage-account.md).
+Per ulteriori informazioni sulla configurazione di questi account, vedere [gestire l'account del Marketplace commerciale nel centro per i partner](manage-account.md).
 
 ### <a name="requirements-for-specific-offer-types"></a>Requisiti per tipi di offerte specifici
 

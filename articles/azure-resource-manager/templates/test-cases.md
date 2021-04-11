@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 31e30b4853da03e28a4a2d15292050805f5bc292
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97674043"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064147"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Test case predefiniti per ARM template test Toolkit
 
-Questo articolo descrive i test predefiniti eseguiti con il Toolkit di [test del modello](test-toolkit.md). Fornisce esempi che superano o non superano il test. Include il nome di ogni test.
+Questo articolo descrive i test predefiniti che vengono eseguiti con il [Toolkit di test del modello](test-toolkit.md) per i modelli di Azure Resource Manager (modelli ARM). Fornisce esempi che superano o non superano il test. Include il nome di ogni test. Per eseguire un test specifico, vedere [parametri di test](test-toolkit.md#test-parameters).
 
 ## <a name="use-correct-schema"></a>Usa schema corretto
 
@@ -137,7 +137,7 @@ Nell'esempio seguente viene **passato** questo test.
 
 Nome test: il **percorso non deve essere hardcoded**
 
-I modelli devono avere un parametro denominato location. Usare questo parametro per impostare la posizione delle risorse nel modello. Nel modello principale (denominato azuredeploy.json o mainTemplate.json), questo parametro può essere impostato come predefinito nella posizione del gruppo di risorse. Nei modelli collegati o annidati il parametro location non deve avere un percorso predefinito.
+I modelli devono avere un parametro denominato location. Usare questo parametro per impostare la posizione delle risorse nel modello. Nel modello principale (denominato _azuredeploy.json_ o _mainTemplate.json_), questo parametro può essere impostato come predefinito nella posizione del gruppo di risorse. Nei modelli collegati o annidati il parametro location non deve avere un percorso predefinito.
 
 È possibile che agli utenti del modello siano disponibili aree limitate. Quando si codifica il percorso della risorsa, è possibile che agli utenti venga impedito di creare una risorsa in tale area. Gli utenti possono essere bloccati anche se il percorso della risorsa è impostato su `"[resourceGroup().location]"` . Il gruppo di risorse potrebbe essere stato creato in un'area a cui gli altri utenti non possono accedere. A questi utenti viene impedito l'uso del modello.
 
@@ -393,11 +393,11 @@ Quando si includono parametri per `_artifactsLocation` e `_artifactsLocationSasT
 * Se si specifica un parametro, è necessario fornire l'altro
 * `_artifactsLocation` deve essere una **stringa**
 * `_artifactsLocation` deve avere un valore predefinito nel modello principale
-* `_artifactsLocation` non è possibile avere un valore predefinito in un modello annidato 
+* `_artifactsLocation` non è possibile avere un valore predefinito in un modello annidato
 * `_artifactsLocation` deve avere `"[deployment().properties.templateLink.uri]"` o l'URL del repository non elaborato per il valore predefinito
 * `_artifactsLocationSasToken` deve essere un oggetto **secureString**
 * `_artifactsLocationSasToken` può avere solo una stringa vuota per il valore predefinito
-* `_artifactsLocationSasToken` non è possibile avere un valore predefinito in un modello annidato 
+* `_artifactsLocationSasToken` non è possibile avere un valore predefinito in un modello annidato
 
 ## <a name="declared-variables-must-be-used"></a>È necessario usare le variabili dichiarate
 
@@ -520,7 +520,7 @@ L'esempio successivo **supera** questo test.
 
 Nome del test: **ResourceIds non deve contenere**
 
-Quando si generano gli ID risorsa, non usare funzioni superflue per i parametri facoltativi. Per impostazione predefinita, la funzione [resourceId](template-functions-resource.md#resourceid) usa la sottoscrizione e il gruppo di risorse correnti. Non è necessario specificare tali valori.  
+Quando si generano gli ID risorsa, non usare funzioni superflue per i parametri facoltativi. Per impostazione predefinita, la funzione [resourceId](template-functions-resource.md#resourceid) usa la sottoscrizione e il gruppo di risorse correnti. Non è necessario specificare tali valori.
 
 Nell'esempio seguente il test **non viene superato** perché non è necessario fornire l'ID sottoscrizione corrente e il nome del gruppo di risorse.
 
@@ -691,7 +691,40 @@ L'esempio seguente ha **esito negativo** perché usa una funzione [List *](templ
 }
 ```
 
+## <a name="use-protectedsettings-for-commandtoexecute-secrets"></a>Usare protectedSettings per i segreti commandToExecute
+
+Nome del test: **CommandToExecute deve usare ProtectedSettings per i segreti**
+
+In un'estensione di script personalizzata usare la proprietà Encrypted `protectedSettings` quando `commandToExecute` include i dati segreti, ad esempio una password. Esempi di tipi di dati Secret sono `secureString` , `secureObject` , `list()` funzioni o script.
+
+Per ulteriori informazioni sull'estensione script personalizzata per le macchine virtuali, vedere [Windows](
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)e lo schema [Microsoft. Compute virtualMachines/Extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+
+In questo esempio, un modello con un parametro denominato `adminPassword` e un tipo `secureString` **passa** il test perché la proprietà crittografata `protectedSettings` include `commandToExecute` .
+
+```json
+"properties": [
+  {
+    "protectedSettings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
+Il test ha **esito negativo** se la proprietà non crittografata `settings` include `commandToExecute` .
+
+```json
+"properties": [
+  {
+    "settings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sull'esecuzione del Toolkit di test, vedere [use ARM template test Toolkit](test-toolkit.md).
-- Per un modulo Microsoft Learn che illustra l'uso del Toolkit di test, vedere visualizzare [in anteprima le modifiche e convalidare le risorse di Azure usando simulazione di simulazione e il Toolkit di test del modello ARM](/learn/modules/arm-template-test/).
+* Per informazioni sull'esecuzione del Toolkit di test, vedere [use ARM template test Toolkit](test-toolkit.md).
+* Per un modulo Microsoft Learn che illustra l'uso del Toolkit di test, vedere visualizzare [in anteprima le modifiche e convalidare le risorse di Azure usando simulazione di simulazione e il Toolkit di test del modello ARM](/learn/modules/arm-template-test/).

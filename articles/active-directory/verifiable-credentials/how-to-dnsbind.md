@@ -1,5 +1,5 @@
 ---
-title: Collegare il dominio all'identificatore decentralizzato (DID) (anteprima)
+title: Collegare il dominio all'identificatore decentralizzato (DID) (anteprima)-Azure Active Directory credenziali verificabili
 description: Informazioni su come eseguire il binding DNS
 documentationCenter: ''
 author: barclayn
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: be7db16a8e3a827d08c0db637961bf004af1d621
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 90ea52b0ed5ee2d8e36caab18491eecd6e1295fd
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170243"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222816"
 ---
 # <a name="link-your-domain-to-your-decentralized-identifier-did"></a>Collegare il dominio all'identificatore decentralizzato (DID)
 
@@ -81,7 +81,7 @@ Dopo aver creato il file di configurazione noto, è necessario rendere disponibi
 >[!IMPORTANT]
 >Microsoft Authenticator non rispetta i reindirizzamenti, l'URL specificato deve essere l'URL di destinazione finale.
 
-## <a name="user-experience"></a>Esperienza dell'utente 
+## <a name="user-experience"></a>Esperienza utente 
 
 Quando un utente sta attraversando un flusso di rilascio o presentando una credenziale verificabile, deve conoscere qualcosa sull'organizzazione e il suo stato. Se il dominio il raccoglitore di credenziali verificabile, Microsoft Authenticator, convalida una relazione di tipo DID con il dominio nel documento DID e presenta agli utenti due esperienze diverse a seconda del risultato.
 

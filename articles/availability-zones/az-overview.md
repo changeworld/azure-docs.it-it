@@ -4,16 +4,16 @@ description: Informazioni sulle aree e zone di disponibilità in Azure per soddi
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 04/09/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 44ff938d0990a1a7794140a82c0e9222bb69a5d7
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: a15a94694f3c0623830650a8b5bbb00dc4c4cb6b
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384256"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285514"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Aree e zone di disponibilità in Azure
 
@@ -100,45 +100,35 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > | Azure Data Lake Storage Gen2           | Servizi di dominio Azure Active Directory            | 
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | IP pubblico di Azure                        | Cache di Azure per Redis                             | 
-> | Database SQL di Azure                     | Ricerca cognitiva di Azure                            | 
-> | Istanza gestita di SQL di Azure             | Servizi cognitivi di Azure                          | 
-> | Archiviazione su disco                           | Servizi cognitivi di Azure: Visione artificiale         | 
-> | Hub eventi                             | Servizi cognitivi di Azure: Content Moderator       | 
-> | Key Vault                              | Servizi cognitivi di Azure: viso                    | 
-> | Bilanciamento del carico                          | Servizi cognitivi di Azure: Lettore immersivo        | 
-> | Bus di servizio                            | Servizi cognitivi di Azure: Language Understanding  | 
-> | Service Fabric                         | Servizi cognitivi di Azure: servizi vocali         | 
-> | Archiviazione: livelli di archiviazione BLOB ad accesso frequente/sporadico   | Servizi cognitivi di Azure: Analisi del testo          | 
-> | Archiviazione: Managed Disks                 | Servizi cognitivi di Azure: Translator              | 
-> | Set di scalabilità di macchine virtuali             | Esplora dati di Azure                               | 
-> | Macchine virtuali                       | Condivisione dati di Azure                                  | 
-> | Macchine virtuali: host dedicato di Azure | Database di Azure per MySQL                          | 
-> | Macchine virtuali: Av2-Series           | Database di Azure per PostgreSQL                     | 
-> | Macchine virtuali: Bs-Series            | Protezione DDoS di Azure                             | 
-> | Macchine virtuali: DSv2-Series          | Firewall di Azure                                    | 
-> | Macchine virtuali: DSv3-Series          | Gestione firewall di Azure                            | 
-> | Macchine virtuali: Dv2-Series           | Funzioni di Azure                                   | 
-> | Macchine virtuali: Dv3-Series           | Hub IoT di Azure                                     |     
-> | Macchine virtuali: ESv3-Series          | Servizio Azure Kubernetes                    | 
-> | Macchine virtuali: Ev3-Series           | Azure Machine Learning                            | 
-> | Rete virtuale                        | Monitoraggio di Azure: Application Insights               | 
-> | Gateway VPN                            | Monitoraggio di Azure: Log Analytics                      | 
-> |                                        | Collegamento privato di Azure                                | 
-> |                                        | Azure Red Hat OpenShift                           | 
-> |                                        | Azure Site Recovery                               | 
-> |                                        | Analisi di flusso di Azure                            | 
-> |                                        | Azure Synapse Analytics                           | 
-> |                                        | Batch                                             | 
-> |                                        | Servizi cloud: serie M                          | 
-> |                                        | Istanze di contenitore                               | 
-> |                                        | Registro contenitori                                | 
+> | Database SQL di Azure                     | Servizi cognitivi di Azure                          | 
+> | Istanza gestita di SQL di Azure             | Servizi cognitivi di Azure: Visione artificiale         | 
+> | Archiviazione su disco                           | Servizi cognitivi di Azure: Content Moderator       | 
+> | Hub eventi                             | Servizi cognitivi di Azure: viso                    | 
+> | Key Vault                              | Servizi cognitivi di Azure: Analisi del testo          | 
+> | Bilanciamento del carico                          | Esplora dati di Azure                               | 
+> | Bus di servizio                            | Database di Azure per MySQL                          | 
+> | Service Fabric                         | Database di Azure per PostgreSQL                     | 
+> | Archiviazione: livelli di archiviazione BLOB ad accesso frequente/sporadico   | Protezione DDoS di Azure                             | 
+> | Archiviazione: Managed Disks                 | Firewall di Azure                                    | 
+> | Set di scalabilità di macchine virtuali             | Gestione firewall di Azure                            | 
+> | Macchine virtuali                       | Funzioni di Azure                                   | 
+> | Macchine virtuali: host dedicato di Azure | Hub IoT di Azure                                     | 
+> | Macchine virtuali: Av2-Series           | Servizio Azure Kubernetes                    | 
+> | Macchine virtuali: Bs-Series            | Monitoraggio di Azure: Application Insights               | 
+> | Macchine virtuali: DSv2-Series          | Monitoraggio di Azure: Log Analytics                      | 
+> | Macchine virtuali: DSv3-Series          | Collegamento privato di Azure                                | 
+> | Macchine virtuali: Dv2-Series           | Azure Site Recovery                               | 
+> | Macchine virtuali: Dv3-Series           | Azure Synapse Analytics                           |     
+> | Macchine virtuali: ESv3-Series          | Batch                                             | 
+> | Macchine virtuali: Ev3-Series           | Servizi cloud: serie M                          | 
+> | Rete virtuale                        | Istanze di contenitore                               | 
+> | Gateway VPN                            | Registro contenitori                                | 
 > |                                        | Data Factory                                      | 
 > |                                        | Griglia di eventi                                        | 
 > |                                        | HDInsight                                         |  
 > |                                        | App per la logica                                        | 
 > |                                        | Servizi multimediali                                    | 
 > |                                        | Network Watcher                                   | 
-> |                                        | Hub di notifica                                 | 
 > |                                        | Archiviazione BLOB Premium                              | 
 > |                                        | Archiviazione file Premium                             | 
 > |                                        | Macchine virtuali: Ddsv4-Series                    | 
@@ -163,11 +153,17 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > |------------------------------------------------------|
 > | API di Azure per FHIR                                   |
 > | Azure Analysis Services                              |
+> | Servizio Azure Blockchain                             |
 > | Servizi cognitivi di Azure: rilevamento anomalie           |
 > | Servizi cognitivi di Azure: Visione personalizzata              |
 > | Servizi cognitivi di Azure: riconoscimento moduli            |
+> | Servizi cognitivi di Azure: Lettore immersivo           |
+> | Servizi cognitivi di Azure: Language Understanding     |
 > | Servizi cognitivi di Azure: personalizzatore               |
 > | Servizi cognitivi di Azure: QnA Maker                  |
+> | Servizi cognitivi di Azure: servizi vocali            |
+> | Condivisione dati di Azure                                     |
+> | Azure Databricks                                     |
 > | Database di Azure per MariaDB                           |
 > | Servizio Migrazione del database di Azure                     |
 > | Modulo di protezione hardware dedicato di Azure                                  |
@@ -176,13 +172,13 @@ Come indicato in precedenza, Azure classifica i servizi in tre categorie: fondam
 > | Cache HPC di Azure                                      |
 > | Azure Lab Services                                   |
 > | Azure NetApp Files                                   |
+> | Azure Red Hat OpenShift                              |
 > | Servizio Azure SignalR                                |
-> | Servizio cloud Spring di Azure                           |
+> | Azure Spring Cloud                                   |
+> | Analisi di flusso di Azure                               |
 > | Azure Time Series Insights                           |
 > | Soluzione Azure VMware                                |
 > | Soluzione Azure VMware di CloudSimple                 |
-> | Data Lake Analytics                                  |
-> | Azure Machine Learning Studio (versione classica)              |
 > | Ancoraggi nello spazio                                      |
 > | Archiviazione: Spazio di archiviazione                             |
 > | archiviazione su disco Ultra                                   |

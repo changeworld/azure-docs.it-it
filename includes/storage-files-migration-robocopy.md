@@ -1,18 +1,19 @@
 ---
-title: Eseguire il mapping di una struttura di cartelle a una topologia di Sincronizzazione file di Azure
-description: Eseguire il mapping di una struttura di file e cartelle esistente alle condivisioni file di Azure per l'uso con Sincronizzazione file di Azure. Un blocco di testo comune, condiviso tra documenti di migrazione.
+title: includere file
+description: includere file
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
-ms.openlocfilehash: cde85e245c8cc6ae8c55b24270f125bacc111737
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.custom: include file
+ms.openlocfilehash: 6158964c04a689ed421f216c2910f47d7a39e2be
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102547552"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081126"
 ---
 ```console
 Robocopy /MT:16 /NP /NFL /NDL /B /MIR /IT /COPY:DATSO /COPY:DATSO /DCOPY:DAT /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 

@@ -28,14 +28,14 @@ L'esercitazione illustra come:
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
 - Installare Visual Studio Code o Visual Studio.
-- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).<br/>Assicurarsi di copiare i dettagli di accesso all'API in formato JSON o archiviare i valori necessari per connettersi all'account di servizi multimediali nel formato di file con estensione ENV usato in questo esempio.
+- [Creare un account di Servizi multimediali di Azure](./account-create-how-to.md).<br/>Assicurarsi di copiare i dettagli di accesso all'API in formato JSON o archiviare i valori necessari per connettersi all'account di servizi multimediali nel formato di file con estensione ENV usato in questo esempio.
 - Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](./access-api-howto.md) e salvare le credenziali. È necessario usarli per accedere all'API in questo esempio o immetterli nel formato di file. env. 
 - Una fotocamera o un dispositivo (ad esempio un portatile) usato per trasmettere un evento.
-- Un codificatore software locale che codifica il flusso della fotocamera e lo invia al servizio di streaming live di servizi multimediali usando il protocollo RTMP, vedere [codificatori Live locali consigliati](recommended-on-premises-live-encoders.md). Il flusso deve essere in formato **RTMP** oppure **Smooth Streaming**.  
+- Un codificatore software locale che codifica il flusso della fotocamera e lo invia al servizio di streaming live di servizi multimediali usando il protocollo RTMP, vedere [codificatori Live locali consigliati](encode-recommended-on-premises-live-encoders.md). Il flusso deve essere in formato **RTMP** oppure **Smooth Streaming**.  
 - Per questo esempio, è consigliabile iniziare con un codificatore software, ad esempio [Open Broadcast software OBS Studio](https://obsproject.com/download) , per semplificarne l'introduzione. 
 
 > [!TIP]
-> Assicurarsi di leggere [Live streaming with Azure Media Services v3](live-streaming-overview.md) (Streaming live con Servizi multimediali di Azure v3) prima di procedere. 
+> Assicurarsi di leggere [Live streaming with Azure Media Services v3](stream-live-streaming-concept.md) (Streaming live con Servizi multimediali di Azure v3) prima di procedere. 
 
 ## <a name="download-and-configure-the-sample"></a>Scaricare e configurare l'esempio
 
@@ -70,15 +70,15 @@ Per iniziare a usare le API di Servizi multimediali con .NET, è necessario crea
 
 ### <a name="create-a-live-event"></a>Creare un evento live
 
-Questa sezione mostra come creare un evento live di tipo **pass-through** (LiveEventEncodingType impostato su None). Per altre informazioni sugli altri tipi disponibili di eventi live, vedere [tipi di eventi live](live-events-outputs-concept.md#live-event-types). Oltre al pass-through, è possibile usare un evento live di transcodifica Live per la codifica cloud con velocità in bit adattiva 720P o 1080P. 
+Questa sezione mostra come creare un evento live di tipo **pass-through** (LiveEventEncodingType impostato su None). Per altre informazioni sugli altri tipi disponibili di eventi live, vedere [tipi di eventi live](live-event-outputs-concept.md#live-event-types). Oltre al pass-through, è possibile usare un evento live di transcodifica Live per la codifica cloud con velocità in bit adattiva 720P o 1080P. 
  
 Alcune caratteristiche che è possibile specificare durante la creazione dell'evento live sono:
 
 * Il protocollo di inserimento per l'evento Live (attualmente, i protocolli RTMP e Smooth Streaming sono supportati).<br/>Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione dell'evento live o degli output live associati. Se sono necessari protocolli diversi, è necessario creare eventi live separati per ogni protocollo di streaming.  
 * Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo evento live. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').<br/>Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.<br/>Gli indirizzi IP devono essere in uno dei formati seguenti: Indirizzo IpV4 con quattro numeri o intervallo di indirizzi CIDR.
-* Quando si crea l'evento, è possibile impostarne l'avvio automatico. <br/>Quando l'avvio automatico è impostato su true, l'evento live verrà avviato dopo la creazione. Ciò significa che la fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing.md).
+* Quando si crea l'evento, è possibile impostarne l'avvio automatico. <br/>Quando l'avvio automatico è impostato su true, l'evento live verrà avviato dopo la creazione. Ciò significa che la fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing-concept.md).
 Sono disponibili anche modalità standby per avviare l'evento live con uno stato "allocato" del costo inferiore che rende più veloce lo spostamento allo stato "in esecuzione". Questa operazione è utile per situazioni come hotpools che devono distribuire rapidamente i canali ai flussi.
-* Affinché un URL di inserimento sia predittivo e più semplice da gestire in un codificatore Live basato su hardware, impostare la proprietà "useStaticHostname" su true. Per informazioni dettagliate, vedere [URL di inserimento di eventi live](live-events-outputs-concept.md#live-event-ingest-urls).
+* Affinché un URL di inserimento sia predittivo e più semplice da gestire in un codificatore Live basato su hardware, impostare la proprietà "useStaticHostname" su true. Per informazioni dettagliate, vedere [URL di inserimento di eventi live](live-event-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveEvent)]
 
@@ -128,7 +128,7 @@ Gli output live iniziano al momento della creazione e terminano quando vengono e
 #### <a name="create-a-streaming-locator"></a>Creare un localizzatore di streaming
 
 > [!NOTE]
-> Quando viene creato l'account Servizi multimediali, all'account viene aggiunto un endpoint di streaming **predefinito** nello stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md) e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato in **esecuzione** .
+> Quando viene creato l'account Servizi multimediali, all'account viene aggiunto un endpoint di streaming **predefinito** nello stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione [dinamica dei pacchetti](encode-dynamic-packaging-concept.md) e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato in **esecuzione** .
 
 Quando si pubblica l'asset usando un localizzatore di streaming, l'evento Live (fino alla lunghezza della finestra DVR) continuerà a essere visualizzabile fino alla scadenza o all'eliminazione del localizzatore di streaming, a seconda del valore che viene raggiunto per primo. Questo è il modo in cui è possibile rendere disponibile la registrazione "Tape" virtuale per visualizzare i destinatari in diretta e su richiesta. Lo stesso URL può essere usato per controllare l'evento Live, la finestra DVR o l'asset su richiesta al termine della registrazione (quando viene eliminato l'output Live).
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: c0108cf07f1c734ccf4b6e42c013f7237eb7daf2
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 0a0052fa3d78a3b77094cfccbd4c011321ac5925
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122068"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279018"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Guida alla migrazione basata sullo scenario per la creazione di pacchetti e la distribuzione
 
@@ -31,7 +31,7 @@ Modifiche sostanziali alla modalità di pubblicazione del contenuto nell'API V3.
 ## <a name="packaging-and-delivery-in-v3"></a>Creazione di pacchetti e recapito in V3
 
 1. Creare [criteri per chiavi](drm-content-key-policy-concept.md)simmetriche.
-1. Creare [localizzatori di streaming](streaming-locators-concept.md).
+1. Creare [localizzatori di streaming](stream-streaming-locators-concept.md).
 1. Ottenere i [percorsi di streaming](create-streaming-locator-build-url.md) 
     1. Configurarlo per un [Dash](encode-dynamic-packaging-concept.md#mpeg-dash-protocol) o un lettore [HLS](encode-dynamic-packaging-concept.md#hls-protocol) .
 
@@ -44,20 +44,20 @@ Per i passaggi specifici, vedere pubblicazione di concetti, esercitazioni e proc
 - [Creazione dinamica dei pacchetti in Servizi multimediali versione 3](encode-dynamic-packaging-concept.md)
 - [Filtri](filters-concept.md)
 - [Filtrare i manifesti usando Dynamic Packager](filters-dynamic-manifest-concept.md)
-- [Endpoint di streaming (Origin) in servizi multimediali di Azure](streaming-endpoint-concept.md)
-- [Flusso di contenuto con l'integrazione della rete CDN](scale-streaming-cdn.md)
-- [Localizzatori di streaming](streaming-locators-concept.md)
+- [Endpoint di streaming (Origin) in servizi multimediali di Azure](stream-streaming-endpoint-concept.md)
+- [Flusso di contenuto con l'integrazione della rete CDN](stream-scale-streaming-cdn-concept.md)
+- [Localizzatori di streaming](stream-streaming-locators-concept.md)
 
 ### <a name="how-to-guides"></a>Guide pratiche
 
-- [Gestire gli endpoint di streaming con servizi multimediali V3](manage-streaming-endpoints-howto.md)
+- [Gestire gli endpoint di streaming con servizi multimediali V3](stream-manage-streaming-endpoints-how-to.md)
 - [Esempio dell'interfaccia della riga di comando: Pubblicare un asset](cli-publish-asset.md)
 - [Creare un localizzatore di streaming e gli URL di compilazione](create-streaming-locator-build-url.md)
 - [Scaricare i risultati di un processo](job-download-results-how-to.md)
 - [Segnala tracce audio descrittive](signal-descriptive-audio-howto.md)
 - [Azure Media Player installazione completa](../azure-media-player/azure-media-player-full-setup.md)
-- [Come usare il lettore di Video.js con servizi multimediali di Azure](how-to-video-js-player.md)
-- [Come usare il lettore Shaka con servizi multimediali di Azure](how-to-shaka-player.md)
+- [Come usare il lettore di Video.js con servizi multimediali di Azure](player-how-to-video-js-player.md)
+- [Come usare il lettore Shaka con servizi multimediali di Azure](player-shaka-player-how-to.md)
 
 ## <a name="samples"></a>Esempi
 

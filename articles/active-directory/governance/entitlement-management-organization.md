@@ -16,12 +16,12 @@ ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f08c25749bbd21e3624dee898d9a8c97fd74164
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b6a1ead2fe3c1ec4e2206d1ffbaea4e5ec57433
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98059382"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222522"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti
 
@@ -42,7 +42,7 @@ Si supponga, ad esempio, di lavorare presso la Woodgrove Bank e di voler collabo
 - Graphic Design Institute USA Azure AD e i relativi utenti hanno un nome dell'entità utente che termina con *graphicdesigninstitute.com*.
 - Contoso non usa ancora Azure AD. Gli utenti di Contoso hanno un nome dell'entità utente che termina con *contoso.com*.
 
-In questo caso, è possibile configurare due organizzazioni connesse. Si crea un'organizzazione connessa per Graphic Design Institute e una per contoso. Se successivamente si aggiungono le due organizzazioni connesse a un criterio, gli utenti di ogni organizzazione con un nome dell'entità utente corrispondente ai criteri possono richiedere pacchetti di accesso. Gli utenti con un nome dell'entità utente che ha un dominio di *graphicdesigninstitute.com* corrispondono all'organizzazione connessa a Graphic Design Institute e possono inviare richieste. Gli utenti con un nome dell'entità utente che ha un dominio di *contoso.com* corrispondono all'organizzazione connessa a Contoso e possono anche richiedere pacchetti. Inoltre, poiché Graphic Design Institute USA Azure AD, tutti gli utenti con un nome di entità corrispondente a un [dominio verificato](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) aggiunto al tenant, ad *esempio graphicdesigninstitute. example*, potranno anche richiedere pacchetti di accesso usando lo stesso criterio.
+In questo caso, è possibile configurare due organizzazioni connesse. Si crea un'organizzazione connessa per Graphic Design Institute e una per contoso. Se successivamente si aggiungono le due organizzazioni connesse a un criterio, gli utenti di ogni organizzazione con un nome dell'entità utente corrispondente ai criteri possono richiedere pacchetti di accesso. Gli utenti con un nome dell'entità utente che ha un dominio di contoso.com corrispondono all'organizzazione connessa a Contoso e possono anche richiedere pacchetti. Gli utenti con un nome dell'entità utente che ha un dominio di *graphicdesigninstitute.com* corrispondono all'organizzazione connessa a Graphic Design Institute e possono inviare richieste. Inoltre, poiché Graphic Design Institute USA Azure AD, tutti gli utenti con un nome di entità corrispondente a un [dominio verificato](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) aggiunto al tenant, ad *esempio graphicdesigninstitute. example*, potranno anche richiedere pacchetti di accesso usando lo stesso criterio. Se è attivata l'autenticazione di accesso monouso [(OTP) per la posta elettronica](../external-identities/one-time-passcode.md) , che include gli utenti di questi domini che non dispongono ancora di account Azure ad che effettueranno l'autenticazione con OTP della posta elettronica durante l'accesso alle risorse. 
 
 ![Esempio di organizzazione connessa](./media/entitlement-management-organization/connected-organization-example.png)
 

@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: 24aa3bc455bf716c074526d707594bd3b4170619
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/01/2021
+ms.openlocfilehash: 7ffcb93493ada36df59c0a8305e941176e8320b8
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564178"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121473"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -697,6 +697,9 @@ Quando si esegue uno script pre-distribuzione, è necessario specificare una var
 Quando si esegue uno script post-distribuzione, è necessario specificare una variante dei parametri seguenti nel campo **Argomenti script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
+
+> [!NOTE]
+> Il `-deleteDeployment` flag viene usato per specificare l'eliminazione della voce di distribuzione di ADF dalla cronologia di distribuzione in ARM.
 
 ![Attività di Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
 

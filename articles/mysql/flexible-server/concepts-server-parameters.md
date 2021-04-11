@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: f83f743b692ae5a625a4c881b12cbad999f1f606
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d64dc4f3c034279aee7401503bbb60883c9ed4e7
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106769"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492240"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Parametri del server nel database di Azure per MySQL-server flessibile
 
@@ -39,9 +39,11 @@ Vedere le sezioni seguenti per altre informazioni sui limiti dei diversi paramet
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-Nel database di Azure per il server flessibile MySQL i log binari sono sempre abilitati, ovvero `log_bin` è impostato su on. Se si vogliono usare i trigger, verrà generato un errore simile a quello in *cui non si dispone del privilegio Super e la registrazione binaria è abilitata (è possibile usare la variabile meno sicura `log_bin_trust_function_creators` )*. 
+Nel database di Azure per il server flessibile MySQL i log binari sono sempre abilitati, ovvero `log_bin` è impostato su on. per impostazione predefinita, log_bin_trust_function_creators è impostato su ON in server flessibili. 
 
-Il formato di registrazione binario è sempre **Row** e tutte le connessioni al server utilizzano **sempre** la registrazione binaria basata su righe. Con la registrazione binaria basata su righe, non esistono problemi di sicurezza e la registrazione binaria non può essere interrotta, quindi è possibile impostare in modo sicuro [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) su **true**.
+Il formato di registrazione binario è sempre **Row** e tutte le connessioni al server utilizzano **sempre** la registrazione binaria basata su righe. Con la registrazione binaria basata su righe, non esistono problemi di sicurezza e la registrazione binaria non può essere interrotta, quindi è possibile consentire la conservazione [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) **in** modo sicuro.
+
+Se [ `log_bin_trust_function_creators` ] è impostato su off, se si tenta di creare trigger, è possibile che si verifichino errori simili a *non avere il privilegio Super e la registrazione binaria sia abilitata (potrebbe essere necessario utilizzare la variabile meno sicura `log_bin_trust_function_creators` )*. 
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 

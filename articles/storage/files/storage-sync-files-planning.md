@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 85d5d5b484163c4c65e7ec14c5d5ce5aea339669
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d3cc8f36f05def18c16db0875cb712cdf5d165f9
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593204"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121354"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 
@@ -351,7 +351,7 @@ Se è abilitata la suddivisione in livelli nel cloud, le soluzioni che eseguono 
 Se si preferisce usare una soluzione di backup locale, è necessario eseguire i backup in un server del gruppo di sincronizzazione con la suddivisione in livelli nel cloud disabilitata. Quando si esegue un ripristino, usare le opzioni di ripristino a livello di volume o a livello di file. I file ripristinati tramite l'opzione di ripristino a livello di file vengono sincronizzati con tutti gli endpoint del gruppo di sincronizzazione e i file esistenti vengono sostituiti dalla versione ripristinata dal backup.  Nel ripristino a livello di volume i file non vengono sostituiti dalla versione più recente nella condivisione file di Azure o in altri endpoint server.
 
 > [!WARNING]
-> L'opzione Robocopy/B non è supportata con Sincronizzazione file di Azure. L'uso dell'opzione Robocopy/B con un endpoint del server Sincronizzazione file di Azure come origine può causare il danneggiamento del file.
+> Se è necessario usare Robocopy/B con un agente Sincronizzazione file di Azure in esecuzione nel server di origine o di destinazione, eseguire l'aggiornamento a Sincronizzazione file di Azure agente versione v 12.0 o successiva. L'uso di Robocopy/B con le versioni dell'agente inferiori a v 12.0 provocherà il danneggiamento dei file a livelli durante la copia.
 
 > [!Note]  
 > Il ripristino bare metal può avere risultati imprevisti e non è attualmente supportato.

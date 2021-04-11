@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/22/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dc52414fa0d2eeffe0381a68bd66eadafe4862ea
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 8469e05b82a651760829761ca57af3bdb1b256a9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781280"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443407"
 ---
 # <a name="page-layout-versions"></a>Versioni del layout di pagina
 
@@ -33,6 +33,13 @@ Azure AD B2C layout di pagina usa la versione seguente della [libreria jQuery](h
 |1.1.0 | 1.10.2 |
 
 ## <a name="self-asserted-page-selfasserted"></a>Pagina autocertificata (selfasserted)
+
+**2.1.4**
+- Versione di jQuery aggiornata a 3.5.1.
+- Aggiornamento della versione di HandlebarJS a 4.7.6.
+
+**2.1.3**
+- Correzioni per la sicurezza.
 
 **2.1.2**
 - Correzione del problema di codifica della localizzazione per le lingue, ad esempio spagnolo e francese.
@@ -87,6 +94,14 @@ Azure AD B2C layout di pagina usa la versione seguente della [libreria jQuery](h
 > [!TIP]
 > Se si localizza la pagina per supportare più impostazioni locali o lingue in un flusso utente. L'articolo [ID localizzazione](localization-string-ids.md) fornisce l'elenco degli ID di localizzazione che è possibile usare per la versione della pagina selezionata.
 
+**2.1.4**
+- Versione di jQuery aggiornata a 3.5.1.
+- Aggiornamento della versione di HandlebarJS a 4.7.6.
+
+**2.1.3**
+- Correzioni per la sicurezza.
+- Correzione di bug di minore entità.
+
 **2.1.2**
 - Correzione del problema di codifica della localizzazione per le lingue, ad esempio spagnolo e francese.
 - Consentire il collegamento "password dimenticata" da utilizzare come scambio di attestazioni. Per altre informazioni, vedere [reimpostazione della password self-service](add-password-reset-policy.md#self-service-password-reset-recommended).
@@ -126,6 +141,15 @@ Azure AD B2C layout di pagina usa la versione seguente della [libreria jQuery](h
 
 ## <a name="mfa-page-multifactor"></a>Pagina multi-factor authentication (a più fattori)
 
+**1.2.4**
+- Versione di jQuery aggiornata a 3.5.1.
+- Aggiornamento della versione di HandlebarJS a 4.7.6.
+
+**1.2.3**
+- Consentire l'override della stringa della descrizione comando tramite la localizzazione del linguaggio.
+- Correzioni per la sicurezza.
+- Correzione di bug di minore entità.
+
 **1.2.2**
 - Correzione di un problema relativo al completamento automatico del codice di verifica quando si utilizza iOS.
 - Correzione di un problema relativo al reindirizzamento di un token al relying party da Android WebView. 
@@ -162,6 +186,10 @@ Azure AD B2C layout di pagina usa la versione seguente della [libreria jQuery](h
 
 ## <a name="exception-page-globalexception"></a>Pagina eccezione (globalexception)
 
+**1.2.1**
+- Versione di jQuery aggiornata a 3.5.1.
+- Aggiornamento della versione di HandlebarJS a 4.7.6.
+
 **1.2.0**
 
 -  Correzioni di accessibilità
@@ -182,6 +210,10 @@ Azure AD B2C layout di pagina usa la versione seguente della [libreria jQuery](h
 - Versione iniziale
 
 ## <a name="other-pages-providerselection-claimsconsent-unifiedssd"></a>Altre pagine (ProviderSelection, ClaimsConsent, UnifiedSSD)
+
+**1.2.1**
+- Versione di jQuery aggiornata a 3.5.1.
+- Aggiornamento della versione di HandlebarJS a 4.7.6.
 
 **1.2.0**
 

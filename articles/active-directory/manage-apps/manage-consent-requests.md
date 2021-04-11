@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.openlocfilehash: 189a89276d922665dd1ad0fbacc77ba499137048
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c41543cdfff4e5ffaad614f6cb7a539d78a0bdae
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99253103"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105562"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestione del consenso alle applicazioni e valutazione delle richieste di consenso
 
@@ -26,7 +26,7 @@ Quando il consenso dell'utente finale è disabilitato o limitato, è necessario 
 
 ## <a name="process-changes-and-education"></a>Elaborazione delle modifiche e della formazione
 
- 1. Provare ad abilitare il [flusso di lavoro di consenso dell'amministratore (anteprima)](configure-admin-consent-workflow.md) per consentire agli utenti di richiedere l'approvazione dell'amministratore direttamente dalla schermata di consenso.
+ 1. Si consiglia di abilitare il [flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md) per consentire agli utenti di richiedere l'approvazione dell'amministratore direttamente dalla schermata di consenso.
 
  2. Assicurarsi che tutti gli amministratori conoscano le [autorizzazioni e il Framework di consenso](../develop/consent-framework.md), il funzionamento della [richiesta di consenso](../develop/application-consent-experience.md) e la [valutazione di una richiesta di consenso dell'amministratore a livello di tenant](#evaluating-a-request-for-tenant-wide-admin-consent).
  3. Esaminare i processi esistenti dell'organizzazione per consentire agli utenti di richiedere l'approvazione dell'amministratore per un'applicazione e di effettuare gli aggiornamenti, se necessario. Se i processi vengono modificati:

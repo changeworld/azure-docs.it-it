@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 46c6eac80ddbff73d99e05c070e66aa1700da174
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1441210303984bf777c6b580f6f7ab0c67ce6f21
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928631"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257858"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di onfido con Azure Active Directory B2C
 
@@ -142,7 +142,7 @@ Nei [criteri personalizzati](https://github.com/azure-ad-b2c/partner-integration
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>Parte 4: configurare i criteri di Azure AD B2C
 
-Fare riferimento a questo [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) per istruzioni su come configurare il tenant di Azure ad B2C e configurare i criteri.
+Fare riferimento a questo [documento](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) per istruzioni su come configurare il tenant di Azure ad B2C e configurare i criteri.
 
 >[!NOTE]
 > Come procedura consigliata, è consigliabile che i clienti aggiungano una notifica di consenso nella pagina della raccolta di attributi. Notificare agli utenti che le informazioni verranno inviate a servizi di terze parti per la verifica dell'identità.
@@ -171,4 +171,4 @@ Per ulteriori informazioni, vedere gli articoli seguenti:
 
 - [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

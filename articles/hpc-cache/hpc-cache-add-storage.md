@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: afb896100ea60c21aaf37890d7b520bf38c6ce18
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 44b2534d7aeb12f4819a6c42cfb29d057ce26ddc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772723"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259031"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -314,6 +314,8 @@ Le destinazioni di archiviazione ADLS-NFS presentano alcune analogie con le dest
 
 Prima di poter creare una destinazione di archiviazione ADLS-NFS, è necessario creare un account di archiviazione abilitato per NFS. Seguire i suggerimenti dei [prerequisiti per la cache HPC di Azure](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) e le istruzioni riportate in [montare l'archiviazione BLOB tramite NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Dopo aver configurato l'account di archiviazione, è possibile creare un nuovo contenitore quando si crea la destinazione di archiviazione.
 
+Per ulteriori informazioni su questa configurazione, vedere [usare l'archiviazione BLOB montata con NFS con la cache HPC di Azure](nfs-blob-considerations.md) .
+
 Per creare una destinazione di archiviazione ADLS-NFS, aprire la pagina **Aggiungi destinazione di archiviazione** nel portale di Azure. (Altri metodi sono in fase di sviluppo).
 
 ![Screenshot della pagina Aggiungi destinazione di archiviazione con la destinazione ADLS-NFS definita](media/add-adls-target.png)
@@ -331,8 +333,6 @@ Immettere queste informazioni.
 * **Modello di utilizzo** : scegliere uno dei profili di caching dei dati in base al flusso di lavoro, descritto in [scegliere un modello di utilizzo](#choose-a-usage-model) precedente.
 
 Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
-
-<!-- **** -->
 
 ## <a name="view-storage-targets"></a>Visualizzare le destinazioni di archiviazione
 

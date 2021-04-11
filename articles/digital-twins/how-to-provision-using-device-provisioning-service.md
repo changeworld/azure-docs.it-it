@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a571d92dd9663c7d2d0a576b59e5cd2b3352cb76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad1351b7c9a649a553ce54422b99a13c286437d6
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951015"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107296"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gestire automaticamente i dispositivi nei dispositivi gemelli digitali di Azure usando il servizio Device provisioning (DPS)
 
@@ -302,7 +302,7 @@ Una volta attraversato questo flusso, tutti gli elementi vengono impostati per r
 
 Per attivare il processo di ritiro, è necessario eliminare manualmente il dispositivo dall'hub.
 
-È possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-iot/iot/hub/module-identity#ext_azure_iot_az_iot_hub_module_identity_delete) o nel portale di Azure. Attenersi alla procedura seguente per eliminare il dispositivo nel portale di Azure:
+È possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](/cli/azure/iot/hub/module-identity#az_iot_hub_module_identity_delete) o nel portale di Azure. Attenersi alla procedura seguente per eliminare il dispositivo nel portale di Azure:
 
 1. Passare all'hub Internet e scegliere **dispositivi** Internet nelle opzioni di menu a sinistra. 
 2. Nella [prima metà di questo articolo](#auto-provision-device-using-device-provisioning-service)verrà visualizzato un dispositivo con l'ID di registrazione del dispositivo scelto. In alternativa, è possibile scegliere qualsiasi altro dispositivo da eliminare, purché abbia un gemello in Azure Digital gemelli, in modo da poter verificare che il dispositivo gemello venga eliminato automaticamente dopo l'eliminazione del dispositivo.

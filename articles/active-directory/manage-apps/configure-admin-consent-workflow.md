@@ -12,16 +12,16 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d89ea0cbc7d1e0379a9cbfce40f11d4f8ac93f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e01a3b1538c6bf3030e5c8f129606adaecffda60
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643763"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105324"
 ---
-# <a name="configure-the-admin-consent-workflow-preview"></a>Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
+# <a name="configure-the-admin-consent-workflow"></a>Configurare il flusso di lavoro di consenso dell'amministratore
 
-Questo articolo descrive come abilitare la funzionalità di flusso di lavoro di consenso dell'amministratore (anteprima), che consente agli utenti finali di richiedere l'accesso alle applicazioni che richiedono il consenso dell'amministratore.
+Questo articolo descrive come abilitare la funzionalità di flusso di lavoro di consenso dell'amministratore, che consente agli utenti finali di richiedere l'accesso alle applicazioni che richiedono il consenso dell'amministratore.
 
 Senza un flusso di lavoro di consenso dell'amministratore, un utente in un tenant in cui il consenso dell'utente è disabilitato verrà bloccato quando tenterà di accedere a qualsiasi app che richiede le autorizzazioni per accedere ai dati aziendali. L'utente visualizza un messaggio di errore generico che indica che non è autorizzato ad accedere all'app ed è necessario richiedere assistenza all'amministratore. Spesso, tuttavia, l'utente non è in grado di contattare il cliente, in modo che sia possibile rinunciare o creare un nuovo account locale nell'applicazione. Anche quando un amministratore riceve una notifica, non è sempre un processo semplificato per consentire all'amministratore di concedere l'accesso e inviare una notifica agli utenti.
  
@@ -38,7 +38,7 @@ Per abilitare il flusso di lavoro di consenso dell'amministratore e scegliere i 
 3. Nella casella di ricerca filtro digitare "**Azure Active Directory**" e selezionare **l'elemento Azure Active Directory** .
 4. Scegliere **Applicazioni aziendali** dal menu di spostamento. 
 5. In **Gestisci** selezionare **impostazioni utente**.
-6. In **richieste di consenso dell'amministratore (anteprima)**, impostare **gli utenti possono richiedere il consenso dell'amministratore alle app a cui non sono in grado** di fornire il consenso **.**
+6. In **richieste di consenso dell'amministratore**, impostare **gli utenti possono richiedere il consenso dell'amministratore alle app a cui non è consentito** fornire il **consenso.**
 
    ![Configurare le impostazioni del flusso di lavoro di consenso dell'amministratore](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
@@ -78,7 +78,7 @@ Per esaminare le richieste di consenso dell'amministratore e intraprendere l'azi
 2. Selezionare **tutti i servizi** nella parte superiore del menu di spostamento a sinistra. Aprire l'estensione **Azure Active Directory**.
 3. Nella casella di ricerca filtro digitare "**Azure Active Directory**" e selezionare l'elemento **Azure Active Directory** .
 4. Scegliere **Applicazioni aziendali** dal menu di spostamento.
-5. In **attività** selezionare **richieste di consenso dell'amministratore (anteprima)**.
+5. In **attività** selezionare **richieste di consenso dell'amministratore**.
 
    > [!NOTE]
    > I revisori vedranno solo le richieste di amministratore create dopo essere state designate come revisore.
@@ -112,11 +112,7 @@ I richiedenti riceveranno le notifiche tramite posta elettronica quando:
  
 ## <a name="audit-logs"></a>Log di controllo 
  
-La tabella seguente descrive gli scenari e i valori di controllo disponibili per il flusso di lavoro di consenso dell'amministratore. 
-
-> [!NOTE]
-> Il contesto utente dell'attore di controllo non è attualmente presente in tutti gli scenari. Si tratta di un limite noto nella versione di anteprima.
-
+La tabella seguente descrive gli scenari e i valori di controllo disponibili per il flusso di lavoro di consenso dell'amministratore.
 
 |Scenario  |Servizio di controllo  |Categoria di controllo  |Attività di controllo  |Attore di controllo  |Limitazioni dei log di controllo  |
 |---------|---------|---------|---------|---------|---------|

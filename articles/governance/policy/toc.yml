@@ -32,6 +32,8 @@
     - name: Assegnare un criterio - Modello di Resource Manager
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: Assegnare un criterio-bicipite
+      href: ./assign-policy-bicep.md
     - name: Assegnare un criterio - Terraform
       displayName: 'assign, compliance, hcl, provider'
       href: ./assign-policy-terraform.md

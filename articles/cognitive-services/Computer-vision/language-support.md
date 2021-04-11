@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 43804907d68ddd58e55c7ce453e0731d0cb4b9b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 774eb05ae43e393db3d11e8e21a427736614809b
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560379"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285111"
 ---
 # <a name="language-support-for-computer-vision"></a>Supporto delle lingue per Visione artificiale
 
@@ -23,7 +23,7 @@ Alcune funzionalità di Visione artificiale supportano più lingue; le funzional
 
 ## <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
 
-Le API OCR di Visione artificiale supportano diverse lingue. Non è necessario specificare un codice di lingua. Per ulteriori informazioni, vedere [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md) .
+Le API OCR di Visione artificiale supportano diverse lingue. Non è necessario specificare un codice di lingua. Per ulteriori informazioni, vedere [Panoramica del riconoscimento ottico dei caratteri (OCR)](overview-ocr.md) .
 
 |Linguaggio| Codice lingua | API OCR | Leggi 3.0/3.1 | Leggi versione 3.2 anteprima |
 |:-----|:----:|:-----:|:---:|:---:|
@@ -68,7 +68,7 @@ Le API OCR di Visione artificiale supportano diverse lingue. Non è necessario s
 |Italiano | `it` |✔ |✔ |✔ |
 |Giapponese | `ja` |✔ | |✔ |
 |Giavanese | `jv` | | |✔ |
-|Iche  | `quc` | | |✔ |
+|Quiché  | `quc` | | |✔ |
 |Caboverdiano | `kea` | | |✔ |
 |Kachin (alfabeto latino) | `kac` | | |✔ |
 |Kara-Kalpak | `kaa` | | |✔ |
@@ -111,7 +111,7 @@ Le API OCR di Visione artificiale supportano diverse lingue. Non è necessario s
 
 ## <a name="image-analysis"></a>Analisi di immagini
 
-Alcune azioni dell'API [Analyze-image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) possono restituire i risultati in altri linguaggi, specificati con il `language` parametro di query. Altre azioni restituiscono i risultati in inglese indipendentemente dalla lingua specificata e altre generano un'eccezione per le lingue non supportate. Le azioni vengono specificate con `visualFeatures` i `details` parametri di query e. per un elenco di tutte le azioni che è possibile eseguire con l'analisi delle immagini, vedere la [Panoramica](overview.md) .
+Alcune azioni dell'API [Analyze-image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) possono restituire i risultati in altri linguaggi, specificati con il `language` parametro di query. Altre azioni restituiscono i risultati in inglese indipendentemente dalla lingua specificata e altre generano un'eccezione per le lingue non supportate. Le azioni vengono specificate con `visualFeatures` i `details` parametri di query e. per un elenco di tutte le azioni che è possibile eseguire con l'analisi delle immagini, vedere la [Panoramica](overview-image-analysis.md) .
 
 |Linguaggio | Codice lingua | Categorie | Tag | Descrizione | Adult (Adulti) | Marchi | Colore | Smile | ImageType | Oggetti | Celebrità | Punti di riferimento |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

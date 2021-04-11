@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-nodejs-uiex
-ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3b1ff02d6a9b3e8c7b7abaf1b185a9becd2be12b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735115"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105834"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creare un'app Web Node.js in Azure
 
@@ -313,11 +313,11 @@ Se viene visualizzato l'errore **"Non si dispone delle autorizzazioni necessarie
 
 In questa sezione si è appreso come visualizzare i log dell'app del Servizio app in esecuzione. Tutte le chiamate a `console.log` nell'app vengono visualizzate nella finestra di output in Visual Studio Code.
 
-Trovare l'app nello strumento di esplorazione dei **servizi app di Azure**, fare clic su di essa con il pulsante destro del mouse e scegliere **Visualizza log in streaming**.
+Trovare l'app in Esplora **Servizi app di Azure** , fare clic con il pulsante destro del mouse sull'app e scegliere **Avvia log in streaming**.
 
 Verrà aperta la finestra di output di VS Code con una connessione al flusso di log.
 
-![Comando Visualizza log in streaming](./media/quickstart-nodejs/view-logs.png)
+![Avvia streaming dei log](./media/quickstart-nodejs/view-logs.png)
 
 :::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot della richiesta di VS Code di abilitare la registrazione dei file e riavviare l'app Web, con il pulsante Sì selezionato.":::
 

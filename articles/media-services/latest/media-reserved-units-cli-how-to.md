@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: 06c0c6333b84697415ef598d4c5e853d5c006f08
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c5fa3aa8397ea6e13500717f035c414af8de8e3d
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870161"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121677"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Come ridimensionare media reserved unit
 
@@ -26,7 +26,7 @@ Questo articolo illustra come ridimensionare media reserved Unit (MRSs) per una 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
+[Creare un account di Servizi multimediali di Azure](./account-create-how-to.md).
 
 Informazioni sulle [unità riservate multimediali](concept-media-reserved-units.md).
 
@@ -46,8 +46,8 @@ L'addebito è basato sul numero di minuti per cui viene effettuato il provisioni
 
 ## <a name="next-step"></a>Passaggio successivo
 
-[Analizzare i video](analyze-videos-tutorial-with-api.md)
+[Analizzare i video](analyze-videos-tutorial.md)
 
 ## <a name="see-also"></a>Vedi anche
 
-* [Quote e limiti](limits-quotas-constraints.md)
+* [Quote e limiti](limits-quotas-constraints-reference.md)

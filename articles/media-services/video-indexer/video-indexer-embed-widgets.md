@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: b13086e11e1181bba91a3255e68e9f8a32e78450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56db88bff5b0e92a3819670e200177f10609aaa8
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98797779"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029727"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorporare Widget Video Indexer nelle app
 
@@ -66,16 +66,15 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 
 <sup>*</sup>Il proprietario deve prestare `accessToken` attenzione.
 
-## <a name="embedding-videos"></a>Incorporamento di video
+## <a name="embed-videos"></a>Incorpora video
 
-Questa sezione illustra come incorporare il contenuto pubblico e privato nelle app.
+Questa sezione illustra l'incorporamento di video tramite [il portale](#the-portal-experience) o l' [assemblaggio manuale dell'URL](#assemble-the-url-manually) nelle app. 
 
 Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial` è il valore predefinito per il `location` parametro. Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
-> [!IMPORTANT]
-> La condivisione di un collegamento per il widget **Player** o **Insights** includerà il token di accesso e consentirà di concedere le autorizzazioni di sola lettura all'account.
+### <a name="the-portal-experience"></a>Esperienza del portale
 
-### <a name="public-content"></a>Contenuto pubblico
+Per incorporare un video, usare il portale come descritto di seguito:
 
 1. Accedere al sito Web [video Indexer](https://www.videoindexer.ai/) .
 1. Selezionare il video che si desidera utilizzare e premere **Play**.
@@ -84,18 +83,27 @@ Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere
 5. Copiare il codice di incorporamento (viene visualizzato in **copia il codice incorporato** nella finestra di dialogo di **condivisione & incorporamento** ).
 6. Aggiungere il codice all'app.
 
-### <a name="private-content"></a>Contenuto privato
+> [!NOTE]
+> La condivisione di un collegamento per il widget **Player** o **Insights** includerà il token di accesso e consentirà di concedere le autorizzazioni di sola lettura all'account.
 
-Per incorporare un video privato, è necessario passare un token di accesso nell' `src` attributo dell'iframe:
+### <a name="assemble-the-url-manually"></a>Assemblare manualmente l'URL
+
+#### <a name="public-videos"></a>Video pubblici
+
+È possibile incorporare i video pubblici assemblando l'URL come indicato di seguito:
+
+`https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>`
+  
+  
+#### <a name="private-videos"></a>Video privati
+
+Per incorporare un video privato, è necessario passare un token di accesso (usare [Get video Access token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?) nell' `src` attributo dell'iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
-    
-Per ottenere il contenuto del widget cognitive Insights, usare uno dei metodi seguenti:
+  
+### <a name="provide-editing-insights-capabilities"></a>Fornire funzionalità per la modifica di Insights
 
-- API [widget ottenere informazioni dettagliate](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) .<br/>
-- [Token di accesso Get video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Aggiungerlo come parametro di query all'URL. Specificare questo URL come `src` valore per l'iframe, come illustrato in precedenza.
-
-Per fornire funzionalità di modifica di Insights nel widget incorporato, è necessario passare un token di accesso che include le autorizzazioni di modifica. Usare il [widget Get Insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) o [ottenere il token di accesso video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) con `&allowEdit=true` .
+Per fornire funzionalità di modifica di Insights nel widget incorporato, è necessario passare un token di accesso che include le autorizzazioni di modifica. Usare [ottenere il token di accesso video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) con `&allowEdit=true` .
 
 ## <a name="widgets-interaction"></a>Interazione dei widget
 
