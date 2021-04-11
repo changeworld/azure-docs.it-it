@@ -2,14 +2,14 @@
 title: Bloccare le risorse per impedire modifiche
 description: Impedire agli utenti di aggiornare o eliminare le risorse di Azure applicando un blocco per tutti gli utenti e i ruoli.
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/07/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6d989f2077618ce80382b38acc651553cb331d5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1cc96a855c2bfe79bbf5876f0476c016d36ca9a4
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932761"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030067"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste
 
@@ -34,11 +34,13 @@ L'applicazione di blocchi può causare risultati imprevisti perché alcune opera
 
 * Un blocco di sola lettura in un **account di archiviazione** impedisce agli utenti di elencare le chiavi dell'account. L'operazione di [elenco delle chiavi](/rest/api/storagerp/storageaccounts/listkeys) di archiviazione di Azure viene gestita tramite una richiesta post per proteggere l'accesso alle chiavi dell'account, che forniscono l'accesso completo ai dati nell'account di archiviazione. Quando si configura un blocco di sola lettura per un account di archiviazione, gli utenti che non dispongono delle chiavi dell'account devono usare Azure AD credenziali per accedere ai dati di BLOB o di Accodamento. Un blocco di sola lettura impedisce anche l'assegnazione di ruoli di controllo degli accessi in base al ruolo di Azure con ambito dell'account di archiviazione o di un contenitore di dati (contenitore BLOB o coda).
 
-* Un blocco non può essere eliminato in un **account di archiviazione** non impedisce l'eliminazione o la modifica dei dati all'interno di tale account. Questo tipo di blocco protegge solo l'account di archiviazione da eliminare e non protegge i dati BLOB, di Accodamento, di tabelle o di file all'interno di tale account di archiviazione. 
+* Un blocco non può essere eliminato in un **account di archiviazione** non impedisce l'eliminazione o la modifica dei dati all'interno di tale account. Questo tipo di blocco protegge solo l'account di archiviazione da eliminare e non protegge i dati di BLOB, code, tabelle o file all'interno di tale account di archiviazione. 
 
-* Un blocco di sola lettura in un **account di archiviazione** non impedisce l'eliminazione o la modifica dei dati all'interno di tale account. Questo tipo di blocco protegge solo l'account di archiviazione da eliminare o modificare e non protegge i dati BLOB, di Accodamento, di tabelle o di file all'interno di tale account di archiviazione. 
+* Un blocco di sola lettura in un **account di archiviazione** non impedisce l'eliminazione o la modifica dei dati all'interno di tale account. Questo tipo di blocco impedisce solo l'eliminazione o la modifica dell'account di archiviazione e non protegge i dati BLOB, di Accodamento, di tabelle o di file all'interno di tale account di archiviazione. 
 
 * Un blocco di sola lettura applicato a una risorsa **Servizio app** impedisce a Visual Studio Server Explorer di visualizzare i file della risorsa perché questa interazione richiede l'accesso in scrittura.
+
+* Un blocco di sola lettura in un **gruppo di risorse** che contiene un **piano di servizio app** impedisce [la scalabilità verticale o orizzontale del piano](../../app-service/manage-scale-up.md).
 
 * Un blocco di sola lettura applicato a un **gruppo di risorse** che contiene una **macchina virtuale** impedisce a tutti gli utenti di avviare o riavviare la macchina virtuale. Queste operazioni richiedono una richiesta POST.
 
@@ -324,7 +326,7 @@ az lock delete --ids $lockid
 
 ### <a name="rest-api"></a>API REST
 
-È possibile bloccare le risorse distribuite tramite l'[API REST per i blocchi di gestione](/rest/api/resources/managementlocks/managementlocks). L'API REST consente di creare ed eliminare i blocchi e recuperare informazioni sui blocchi esistenti.
+È possibile bloccare le risorse distribuite tramite l'[API REST per i blocchi di gestione](/rest/api/resources/managementlocks). L'API REST consente di creare ed eliminare i blocchi e recuperare informazioni sui blocchi esistenti.
 
 Per creare un blocco, eseguire:
 

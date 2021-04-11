@@ -2,22 +2,22 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f929b5d3c285752a14bea34cf043c1eeb496c506
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7b618a19f6e6a3510b3d587970124e5a7c12b309
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105032665"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090085"
 ---
 |Nome |Descrizione |Criteri |Versione |
 |---|---|---|---|
 |[\[Anteprima \] : protetto da ISM per enti australiani](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRAP_Audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli Australian Government Information Security Manual (ISM). Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/AustralianGovernmentISM-blueprint](https://aka.ms/AustralianGovernmentISM-blueprint). |61 |4.0.1-Preview |
 |[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli Canada Federal PBMM. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint). |59 |5.0.0 |
-|[CIS Microsoft Azure Foundations Benchmark 1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json) |Questa iniziativa include criteri che riguardano un subset di SID Microsoft Azure fondazioni benchmark raccomandazioni. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/cisazure110-initiative](https://aka.ms/cisazure110-initiative). |92 |9.0.0 |
-|[\[Anteprima \] : 1.3.0 del benchmark delle fondamenta di Microsoft Azure CIS](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json) |Questa iniziativa include criteri che riguardano un subset di SID Microsoft Azure fondazioni benchmark raccomandazioni. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/cisazure130-initiative](https://aka.ms/cisazure130-initiative). |104 |1.0.0-preview |
+|[CIS Microsoft Azure Foundations Benchmark v1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json) |Questa iniziativa include criteri che riguardano un subset di SID Microsoft Azure fondazioni benchmark raccomandazioni. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/cisazure110-initiative](https://aka.ms/cisazure110-initiative). |99 |10.0.0 |
+|[\[Anteprima \] : 1.3.0 di base di Microsoft Azure CIS per le fondamenta v](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json) |Questa iniziativa include criteri che riguardano un subset di SID Microsoft Azure fondazioni benchmark raccomandazioni. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/cisazure130-initiative](https://aka.ms/cisazure130-initiative). |104 |1.0.1-preview |
 |[\[Anteprima \] : livello CMMC 3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CMMC_L3.json) |Questa iniziativa include i criteri che soddisfano i requisiti di un subset di Cybersecurity Maturity Model Certification (CMMC) Level 3. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/cmmc-initiative](https://aka.ms/cmmc-initiative). |183 |3.0.0-preview |
 |[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli FedRAMP H. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint). |71 |4.0.1 |
 |[FedRAMP Moderate](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_M_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli FedRAMP M. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/fedrampm-blueprint](https://aka.ms/fedrampm-blueprint). |62 |4.0.1 |

@@ -2,20 +2,20 @@
 title: Usare l'inventario di archiviazione di Azure per gestire i dati BLOB (anteprima)
 description: L'inventario di archiviazione di Azure è uno strumento che consente di ottenere una panoramica di tutti i dati BLOB in un account di archiviazione.
 services: storage
-author: mhopkins-msft
+author: twooley
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.author: mhopkins
-ms.reviewer: yzheng
+ms.author: twooley
+ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 8310de465a6416102a7ce4e614ead7029e6be87a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33d50d1a6b5e84d178b522851795bcc42f5fc169
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950927"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277267"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Usare l'inventario BLOB di archiviazione di Azure per gestire i dati BLOB (anteprima)
 
@@ -37,6 +37,7 @@ L'anteprima dell'inventario BLOB è disponibile negli account di archiviazione n
 - Canada orientale
 - Stati Uniti orientali
 - Stati Uniti Orientali 2
+- Europa occidentale
 
 ### <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
@@ -202,6 +203,14 @@ Evento di esempio:
   "eventTime": "2020-10-13T15:47:54Z"
 }
 ```
+
+## <a name="known-issues"></a>Problemi noti
+
+Questa sezione descrive le limitazioni e i problemi noti della funzionalità di inventario dei BLOB di archiviazione di Azure.
+
+### <a name="inventory-job-fails-to-complete"></a>Non è stato possibile completare il processo di inventario
+
+Il processo di inventario potrebbe non essere completato entro 24 ore per un account con milioni di BLOB e spazi dei nomi gerarchici abilitati. In tal caso, non viene creato alcun file di inventario.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

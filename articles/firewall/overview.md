@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 03/10/2021
+ms.date: 04/05/2021
 ms.author: victorh
-ms.openlocfilehash: 6855eb50519afacdf971ffcb8b70aa289b7cfe26
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bb89b6acbc76a4020ee721e87272b154bab6d0a4
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066331"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385174"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -54,7 +54,6 @@ Il Firewall di Azure presenta i problemi noti seguenti:
 
 |Problema  |Descrizione  |Strategia di riduzione del rischio  |
 |---------|---------|---------|
-|Se si aggiorna una regola dall'indirizzo IP al gruppo IP o viceversa usando il portale, vengono salvati entrambi i tipi, ma solo uno viene visualizzato nel portale.|Questo problema si verifica con le regole classiche.<br><br>Quando si usa il portale per aggiornare un tipo di origine di una regola NAT da un indirizzo IP a un gruppo IP o viceversa, Salva entrambi i tipi nel back-end, ma presenta solo il tipo appena aggiornato.<br><br>Lo stesso problema si verifica quando si aggiorna un tipo di destinazione di una regola di rete o di applicazione da indirizzo IP a tipo di gruppo IP o viceversa.|Una correzione del portale è destinata a marzo 2021.<br><br>Nel frattempo, usare Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API per modificare una regola da un indirizzo IP a un gruppo IP o viceversa.|
 |Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](../load-balancer/load-balancer-overview.md). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.|
 |Supporto di PowerShell e CLI mancante per ICMP|Azure PowerShell e l'interfaccia della riga di comando non supportano ICMP come protocollo valido nelle regole di rete.|È comunque possibile usare ICMP come protocollo tramite il portale e l'API REST. A breve ICMP sarà aggiunto anche in PowerShell e nell'interfaccia della riga di comando.|
 |I tag FQDN richiedono l'impostazione di protocol:port|Le regole di applicazione con tag FQDN richiedono la definizione port:protocol.|È possibile usare **https** come valore port:protocol. A breve questo campo sarà reso facoltativo quando vengono usati i tag FQDN.|
@@ -78,6 +77,7 @@ Il Firewall di Azure presenta i problemi noti seguenti:
 |L'avvio/arresto non funziona con un firewall configurato in modalità di tunneling forzato|L'avvio/arresto non funziona con Firewall di Azure configurato in modalità di tunneling forzato. Se si tenta di avviare Firewall di Azure con il tunneling forzato configurato, si verifica l'errore seguente:<br><br>*Set-AzFirewall: Non è possibile aggiungere la configurazione IP di gestione del Firewall di Azure FW-xx a un firewall esistente. Per usare il supporto del tunneling forzato, ridistribuire con una configurazione IP di gestione.<br>StatusCode: 400<br>ReasonPhrase: Richiesta non valida*|In fase di analisi.<br><br>Come soluzione alternativa, è possibile eliminare il firewall esistente e crearne uno nuovo con gli stessi parametri.|
 |Non è possibile aggiungere tag dei criteri firewall usando il portale|I criteri di Firewall di Azure hanno una limitazione del supporto delle patch che impedisce di aggiungere un tag usando il portale di Azure. Viene generato l'errore seguente: *Non è stato possibile salvare i tag per la risorsa*.|È in corso la ricerca di una correzione. In alternativa, è possibile usare il cmdlet Azure PowerShell `Set-AzFirewallPolicy` per aggiornare i tag.|
 |IPv6 non ancora supportato|Se si aggiunge un indirizzo IPv6 a una regola, si verifica un errore del firewall.|Usare solo indirizzi IPv4. Il supporto di IPv6 è in fase di analisi.|
+|L'aggiornamento di più gruppi IP ha esito negativo con errore di conflitto.|Quando si aggiornano due o più IPGroups collegati allo stesso firewall, una delle risorse entra in uno stato di errore.|Si tratta di un problema noto o di una limitazione. <br><br>Quando si aggiorna un IPGroup, viene attivato un aggiornamento su tutti i firewall a cui è collegato IPGroup. Se viene avviato un aggiornamento a un secondo IPGroup mentre il firewall è ancora in stato di *aggiornamento* , l'aggiornamento di IPGroup non riesce.<br><br>Per evitare l'errore, è necessario che IPGroups collegato allo stesso firewall venga aggiornato uno alla volta. Consenti tempo sufficiente tra gli aggiornamenti per consentire al firewall di uscire dallo stato di *aggiornamento* .| 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,14 +1,14 @@
 ---
-title: Risparmiare sui costi con l'istanza riservata della soluzione VMware di Azure
-description: Informazioni su come acquistare un'istanza riservata per la soluzione VMware di Azure.
+title: Istanze riservate della soluzione VMware di Azure
+description: Informazioni su come acquistare un'istanza riservata per la soluzione VMware di Azure. L'istanza riservata copre solo la parte di calcolo dell'utilizzo e include i costi di licenza software.
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 6f181d4b6ee7e2098130633fef0eb8558add0308
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550976"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210025"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Salva i costi con la soluzione VMware di Azure
 
@@ -135,7 +135,7 @@ I CSP possono annullare, scambiare o rimborsare le prenotazioni, con determinate
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato descritto come acquistare un'istanza riservata della soluzione VMware di Azure, è possibile ottenere informazioni su:
+Ora che è stata trattata l'istanza riservata della soluzione VMware di Azure, è possibile ottenere informazioni su:
 
 - [Creazione di una valutazione della soluzione VMware di Azure](../migrate/how-to-create-azure-vmware-solution-assessment.md).
 - [Gestione di DHCP per la soluzione VMware di Azure](manage-dhcp.md).

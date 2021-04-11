@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10ff568ede601c57369f8c942ed61cb7a39ba703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2d965ec17fb605362c1e8cd8ef781a6bd2029d0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103465709"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067385"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usare Servizi multimediali per distribuire licenze DRM o chiavi AES
 
@@ -54,7 +54,7 @@ Il diagramma seguente mostra i passaggi principali necessari per usare Servizi m
     ```
  
 ## <a name="net-code-example"></a>Esempio di codice .NET
-L'esempio di codice seguente illustra come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. Per configurare il server locale, sono necessari una chiave simmetrica, l'ID della chiave e l'URL di acquisizione della licenza. Dopo aver configurato il server locale, è possibile effettuare lo streaming dal server locale destinato a questo scopo. Poiché il flusso crittografato punta al server licenze di Servizi multimediali, il lettore richiederà una licenza da Servizi multimediali. Se si sceglie l'autenticazione tramite token, il server licenze di Servizi multimediali esegue la convalida del token inviato tramite HTTPS e, se questo è valido, distribuisce la licenza al lettore. L'esempio di codice seguente illustra solo come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. Per distribuire chiavi AES-128, è necessario creare una chiave simmetrica della busta e ottenere un URL di acquisizione della chiave. Per altre informazioni, vedere [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md).
+L'esempio di codice seguente illustra come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. Per configurare il server locale, sono necessari una chiave simmetrica, l'ID della chiave e l'URL di acquisizione della licenza. Dopo aver configurato il server locale, è possibile effettuare lo streaming dal server locale destinato a questo scopo. Poiché il flusso crittografato punta al server licenze di Servizi multimediali, il lettore richiederà una licenza da Servizi multimediali. Se si sceglie l'autenticazione tramite token, il server licenze di Servizi multimediali esegue la convalida del token inviato tramite HTTPS e, se questo è valido, distribuisce la licenza al lettore. L'esempio di codice seguente illustra solo come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. Per distribuire chiavi AES-128, è necessario creare una chiave simmetrica della busta e ottenere un URL di acquisizione della chiave. Per altre informazioni, vedere [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-playready-license-template-overview.md).
 
 ```csharp
 using System;
@@ -357,4 +357,4 @@ namespace DeliverDRMLicenses
 
 ## <a name="see-also"></a>Vedi anche
 * [Usare la crittografia comune dinamica Widevine e/o PlayReady](media-services-protect-with-playready-widevine.md)
-* [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md)
+* [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-playready-license-template-overview.md)

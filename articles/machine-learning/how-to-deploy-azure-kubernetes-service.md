@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: ef9c03b687bbc9b8fe736c872bbde14b8daba899
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a9c56724ca11c6fc79bbb8ab849a6d3e0b5f4c2
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519385"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209964"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 
@@ -139,7 +139,7 @@ Al momento della distribuzione del modello, per un nodo AKS della distribuzione 
 
 Dopo la distribuzione del modello e l'avvio del servizio, azureml-Fe lo individuerà automaticamente usando l'API AKS e sarà pronto per instradare la richiesta. Deve essere in grado di comunicare con i pod del modello.
 >[!Note]
->Se per il modello distribuito è necessaria una connettività, ad esempio per eseguire query su un database esterno o su un altro servizio REST, scaricare un BLOG e così via, è necessario abilitare sia la risoluzione DNS che la comunicazione in uscita per questi servizi.
+>Se il modello distribuito richiede una connettività, ad esempio l'esecuzione di query su un database esterno o un altro servizio REST, il download di un BLOB e così via, è necessario abilitare sia la risoluzione DNS che la comunicazione in uscita per questi servizi.
 
 ## <a name="deploy-to-aks"></a>Distribuire in servizio Azure Kubernetes
 

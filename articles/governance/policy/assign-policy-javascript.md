@@ -1,15 +1,15 @@
 ---
 title: 'Avvio rapido: Nuova assegnazione di criteri con JavaScript'
 description: In questa guida di avvio rapido si usa JavaScript per creare un'assegnazione di Criteri di Azure per identificare le risorse non conformi.
-ms.date: 09/24/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 7548053e4bd5be214bf7de3eef3dc4c6c95442d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d42156e68747b66778ea1cf2001d2b4bfc901bb0
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91348174"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090181"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-javascript"></a>Avvio rapido: Creare un'assegnazione di criteri per identificare le risorse non conformi con JavaScript
 

@@ -6,10 +6,10 @@
   items:
     - name: Novità
       href: release-notes.md
-    - name: Architettura della soluzione senza agenti
+    - name: Che cos'è l'architettura della soluzione senza agenti
       displayName: 'deployment, where to deploy'
       href: architecture.md
-    - name: Architettura della soluzione basata su agenti
+    - name: Che cos'è l'architettura della soluzione basata su agenti
       href: architecture-agent-based.md
 - name: Avvi rapidi
   expanded: true
@@ -121,20 +121,31 @@
               href: how-to-install-software.md
         - name: Preparare i sensori
           items:
-            - name: Eseguire l'onboarding dei sensori
-              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions'
+            - name: Gestire i sensori
+              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions, offboarding'
               href: how-to-manage-sensors-on-the-cloud.md
             - name: Attivare e configurare il sensore
               displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
               href: how-to-activate-and-set-up-your-sensor.md
         - name: Preparare la console di gestione locale
           items:
+            - name: Gestire le sottoscrizioni
+              displayName: 'onboard, offboard, subscription, billing, pricing, payment'
+              href: how-to-manage-subscriptions.md
             - name: Attivare e configurare la console di gestione locale
               displayName: 'deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file'
               href: how-to-activate-and-set-up-your-on-premises-management-console.md
             - name: Configurare la disponibilità elevata
               displayName: 'primary, secondary, failover, failback fail, recovery'
               href: how-to-set-up-high-availability.md
+        - name: Preparare i sensori
+          items:
+            - name: Eseguire l'onboarding dei sensori
+              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions'
+              href: how-to-manage-sensors-on-the-cloud.md
+            - name: Attivare e configurare il sensore
+              displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
+              href: how-to-activate-and-set-up-your-sensor.md
         - name: Gestire gli utenti e il relativo accesso
           items:
             - name: Creare e gestire gli utenti

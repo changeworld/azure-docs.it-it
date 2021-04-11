@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2021
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: e9d8e7b514dca7d4930ad33bf08d4ceb07fb860d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cd2b0a6b943ceb32420ef119a7fc5eddefa2e19
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599129"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276995"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procedura: Analisi del sentiment e opinion mining
 
-La funzionalità Analisi del sentiment dell'API Analisi del testo consente di rilevare il sentiment positivo e negativo in due modi. Se si invia una richiesta di Analisi del sentiment, l'API restituisce le etichette del sentiment (ad esempio "negativo", "neutrale" e "positivo") e i punteggi di attendibilità a livello di frase e di documento. È anche possibile inviare richieste di Opinion Mining usando l'endpoint Analisi del sentiment, che fornisce informazioni granulari sulle opinioni correlate alle parole, ad esempio gli attributi di prodotti o servizi, nel testo. 
+La funzionalità Analisi del sentiment dell'API Analisi del testo consente di rilevare il sentiment positivo e negativo in due modi. Se si invia una richiesta di Analisi del sentiment, l'API restituisce le etichette del sentiment (ad esempio "negativo", "neutrale" e "positivo") e i punteggi di attendibilità a livello di frase e di documento. È anche possibile inviare richieste di Opinion Mining usando l'endpoint Analisi del sentiment, che fornisce informazioni granulari sulle opinioni correlate alle parole, ad esempio gli attributi di prodotti o servizi, nel testo.
 
 I modelli di intelligenza artificiale usati dall'API vengono forniti dal servizio, quindi è sufficiente inviare contenuto per l'analisi.
 
@@ -151,7 +151,7 @@ L'output viene restituito immediatamente. È possibile trasmettere i risultati a
 
 Analisi del sentiment v3.1 può restituire oggetti della risposta sia per Analisi del sentiment che per opinion mining.
   
-L'analisi del sentiment restituisce un'etichetta del sentiment e un punteggio di attendibilità per l'intero documento e per ogni frase al suo interno. I punteggi più prossimi a 1 indicano una maggiore attendibilità nella classificazione dell'etichetta, mentre i punteggi inferiori indicano un'attendibilità inferiore. Un documento può includere più frasi e la somma dei punteggi di attendibilità all'interno di ogni documento o frase è pari a 1. assessments 
+L'analisi del sentiment restituisce un'etichetta del sentiment e un punteggio di attendibilità per l'intero documento e per ogni frase al suo interno. I punteggi più prossimi a 1 indicano una maggiore attendibilità nella classificazione dell'etichetta, mentre i punteggi inferiori indicano un'attendibilità inferiore. Un documento può includere più frasi e la somma dei punteggi di attendibilità all'interno di ogni documento o frase è pari a 1.
 
 Opinion Mining individuerà le destinazioni (sostantivi o verbi) nel testo e la valutazione associata (aggettivo). Nella risposta riportata di seguito, la frase *del ristorante era un ottimo cibo e il cameriere era descrittivo* con due obiettivi: *cibo* e *cameriere*. Ogni proprietà della destinazione `relations` contiene un `ref` valore con il riferimento URI agli `documents` oggetti, e associati `sentences` `assessments` .
 

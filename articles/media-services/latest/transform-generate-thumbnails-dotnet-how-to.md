@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 51b926dcc5e33048151e79ea22f187928bfe4e0d
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: d20d57432ff72c5fbad14474f1da50d79c094cef
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106282079"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106489928"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>Come generare anteprime usando il codificatore standard con .NET
 
@@ -29,7 +29,7 @@ ms.locfileid: "106282079"
 
 ## <a name="recommended-reading-and-practice"></a>Letture e procedure consigliate
 
-Si consiglia di acquisire familiarità con le trasformazioni personalizzate leggendo [come codificare con una trasformazione personalizzata-.NET](encode-custom-presets-how-to.md).
+Si consiglia di acquisire familiarità con le trasformazioni personalizzate leggendo [come codificare con una trasformazione personalizzata-.NET](transform-custom-presets-how-to.md).
 
 ## <a name="transform-code-example"></a>Esempio di codice di trasformazione
 
@@ -94,7 +94,3 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
     return transform;
 }
 ```
-
-## <a name="next-steps"></a>Passaggi successivi
-
-[Generare anteprime usando REST](transform-generate-thumbnails-rest-how-to.md)

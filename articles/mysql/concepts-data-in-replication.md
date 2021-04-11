@@ -6,16 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: 99beddba470f73d6eadb448dfe1b77453ce6426d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab2433bfa4df3d75f10bc9128dc736ff6d12be76
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95996220"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210517"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
-Replica dei dati in ingresso consente di sincronizzare i dati da un server MySQL esterno nel servizio Database di Azure per MySQL. Il server esterno può trovarsi in locale, in macchine virtuali, o essere un servizio di database ospitato da altri provider di servizi cloud. La replica dei dati in ingresso si basa sulla replica nativa di MySQL in base alla posizione di file di log binari (binlog). Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL). 
+Replica dei dati in ingresso consente di sincronizzare i dati da un server MySQL esterno nel servizio Database di Azure per MySQL. Il server esterno può trovarsi in locale, in macchine virtuali, o essere un servizio di database ospitato da altri provider di servizi cloud. Replica dei dati in ingresso si basa sulla replica binaria (binlog) basata sul file di log o su gtid nativa a MySQL. Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL). 
 
 ## <a name="when-to-use-data-in-replication"></a>Quando usare la replica dei dati in ingresso
 Gli scenari principali da considerare quando si usa la funzione di replica dei dati in ingresso sono i seguenti:
@@ -35,20 +35,20 @@ Per ignorare le tabelle di replica del server di origine (ospitate in locale, in
 
 Per altre informazioni su questo parametro, esaminare la [documentazione di MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table).
 
+## <a name="supported-in-general-purpose-or-memory-optimized-tier-only"></a>Supportato solo nel livello per utilizzo generico o con ottimizzazione per la memoria
+La replica dei dati in ingresso è supportata solo nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria.
+
 ### <a name="requirements"></a>Requisiti
 - La versione del server di origine deve essere almeno la versione 5,6 di MySQL. 
 - Le versioni del server di origine e di replica devono essere uguali. Ad esempio, in entrambi deve essere installato MySQL versione 5.6 o MySQL versione 5.7.
 - Ogni tabella deve avere una chiave primaria.
 - Il server di origine deve usare il motore InnoDB di MySQL.
 - L'utente deve disporre delle autorizzazioni per configurare la registrazione binaria e creare nuovi utenti nel server di origine.
-- Se nel server di origine è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso nel `mysql.az_replication_change_master` stored procedure. Fare riferimento agli [esempi](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) seguenti e al `master_ssl_ca` parametro.
+- Se nel server di origine è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso nel `mysql.az_replication_change_master` `mysql.az_replication_change_master_with_gtid` stored procedure o. Fare riferimento agli [esempi](./howto-data-in-replication.md#4-link-source-and-replica-servers-to-start-data-in-replication) seguenti e al `master_ssl_ca` parametro.
 - Verificare che l'indirizzo IP del server di origine sia stato aggiunto alle regole del firewall del server di replica di database di Azure per MySQL. Aggiornare le regole firewall usando il [portale di Azure](./howto-manage-firewall-using-portal.md) o l'[interfaccia della riga di comando di Azure](./howto-manage-firewall-using-cli.md).
 - Verificare che il computer che ospita il server di origine consenta il traffico in ingresso e in uscita sulla porta 3306.
 - Verificare che il server di origine disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).
 
-### <a name="other"></a>Altro
-- La replica dei dati in ingresso è supportata solo nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria.
-- Gli identificatori di transazione globale (GTID) non sono supportati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [configurare la replica dei dati](howto-data-in-replication.md)
