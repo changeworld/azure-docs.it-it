@@ -6,18 +6,18 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 tags: connectors
-ms.openlocfilehash: 983e0d34692d67302e11c35abac590fefd610b2e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5eae6b48a65f919ea233ad77a215ed5672425175
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449629"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385854"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
+# <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>Creare e gestire file SFTP usando SSH e app per la logica di Azure
 
-Per automatizzare le attività che monitorano, creano, inviano e ricevono file in un server [SFTP (Secure File Transfer Protocol)](https://www.ssh.com/ssh/sftp/) usando il protocollo [SSH (Secure Shell)](https://www.ssh.com/ssh/protocol/), è possibile creare e automatizzare i flussi di lavoro di integrazione usando App per la logica di Azure e il connettore SFTP-SSH. SFTP è un protocollo di rete che fornisce l'accesso ai file, il trasferimento di file e la gestione di file su qualsiasi flusso di dati affidabile.
+Per automatizzare le attività per la creazione e la gestione di file in un server [SFTP (Secure File Transfer Protocol)](https://www.ssh.com/ssh/sftp/) usando il protocollo di [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) , è possibile creare flussi di lavoro di integrazione automatizzati usando app per la logica di Azure e il connettore SFTP-SSH. SFTP è un protocollo di rete che fornisce l'accesso ai file, il trasferimento di file e la gestione di file su qualsiasi flusso di dati affidabile.
 
 Ecco alcuni esempi di attività che è possibile automatizzare:
 
@@ -27,7 +27,7 @@ Ecco alcuni esempi di attività che è possibile automatizzare:
 * Leggere contenuti e metadati dei file.
 * Estrarre archivi nella cartella.
 
-È possibile usare trigger che monitorano eventi sul server SFTP e rendere disponibile l'output per altre azioni. È possibile usare azioni che eseguono varie attività sul server SFTP. Si può anche fare in modo che altre azioni dell'app per la logica usino l'output delle azioni SFTP. Se ad esempio si recuperano regolarmente file dal server SFTP, è possibile inviare avvisi su tali file e sul relativo contenuto tramite posta elettronica usando il connettore Outlook di Office 365 o Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+Nel flusso di lavoro è possibile usare un trigger che monitora gli eventi nel server SFTP e rende l'output disponibile per altre azioni. È quindi possibile usare le azioni per eseguire varie attività nel server SFTP. È anche possibile includere altre azioni che usano l'output delle azioni SFTP-SSH. Ad esempio, se si recuperano regolarmente file dal server SFTP, è possibile inviare avvisi di posta elettronica relativi a tali file e ai relativi contenuti usando il connettore Office 365 Outlook o il connettore Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sezione [confrontare SFTP-SSH rispetto a SFTP](#comparison) più avanti in questo argomento.
 
@@ -40,16 +40,14 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
   * OpenText Secure MFT
   * Serie GXS OpenText
 
-* Il connettore SFTP-SSH supporta l'autenticazione tramite chiave privata o la password, non entrambe.
-
-* Le azioni SFTP-SSH che supportano la [suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md) possono gestire file fino a 1 GB, mentre le azioni SFTP-SSH che non supportano la suddivisione in blocchi possono gestire file fino a 50 MB. Sebbene le dimensioni predefinite del blocco siano pari a 15 MB, questa dimensione può variare in modo dinamico, a partire da 5 MB e aumentando gradualmente fino al valore massimo di 50 MB, in base a fattori quali la latenza di rete, il tempo di risposta del server e così via.
+* Le azioni SFTP-SSH che supportano la [suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md) possono gestire file fino a 1 GB, mentre le azioni SFTP-SSH che non supportano la suddivisione in blocchi possono gestire file fino a 50 MB. Le dimensioni predefinite del blocco sono pari a 15 MB. Questa dimensione può tuttavia cambiare dinamicamente, a partire da 5 MB e aumentando gradualmente fino al valore massimo di 50 MB. Il dimensionamento dinamico si basa su fattori quali la latenza di rete, il tempo di risposta del server e così via.
 
   > [!NOTE]
   > Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), questa versione con etichetta ISE del connettore richiede la suddivisione in blocchi per usare invece i [limiti dei messaggi di ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
   È possibile eseguire l'override di questo comportamento adattivo quando si [specificano le dimensioni del blocco costante](#change-chunk-size) da usare. Questa dimensione può variare da 5 MB a 50 MB. Si supponga, ad esempio, di disporre di un file di 45 MB e di una rete in grado di supportare le dimensioni del file senza latenza. La suddivisione in blocchi adattiva comporta diverse chiamate, invece di una chiamata. Per ridurre il numero di chiamate, è possibile provare a impostare una dimensione di blocco di 50 MB. In uno scenario diverso, se l'app per la logica sta per scadere, ad esempio quando si usano blocchi da 15 MB, è possibile provare a ridurne le dimensioni a 5 MB.
 
-  Le dimensioni del blocco sono associate a una connessione, il che significa che è possibile usare la stessa connessione per le azioni che supportano la suddivisione in blocchi e quindi per le azioni che non supportano la suddivisione in blocchi. In questo caso, le dimensioni del blocco per le azioni che non supportano la suddivisione in blocchi variano da 5 MB a 50 MB. Questa tabella mostra le azioni SFTP-SSH che supportano la suddivisione in blocchi:
+  Le dimensioni del blocco sono associate a una connessione. Questo attributo indica che è possibile usare la stessa connessione per entrambe le azioni che supportano la suddivisione in blocchi e le azioni che non supportano la suddivisione in blocchi. In questo caso, le dimensioni del blocco per le azioni che non supportano la suddivisione in blocchi variano da 5 MB a 50 MB. Questa tabella mostra le azioni SFTP-SSH che supportano la suddivisione in blocchi:
 
   | Azione | Supporto per la suddivisione in blocchi | Sostituisci supporto dimensioni blocco |
   |--------|------------------|-----------------------------|
@@ -69,15 +67,15 @@ Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sez
 
 * I trigger SFTP-SSH non supportano la suddivisione in blocchi del messaggio. Quando si richiede il contenuto del file, i trigger selezionano solo i file di 15 MB o inferiori. Per ottenere file di dimensioni superiori a 15 MB, seguire invece questo modello:
 
-  1. Usare un trigger SFTP-SSH che restituisce solo le proprietà del file, ad esempio **quando un file viene aggiunto o modificato (solo proprietà)**.
+  1. Usare un trigger SFTP-SSH che restituisce solo le proprietà del file. Questi trigger hanno nomi che includono la descrizione, **(solo proprietà)**.
 
-  1. Seguire il trigger con l'azione SFTP-SSH **get file content** , che legge il file completo e USA in modo implicito la suddivisione in blocchi dei messaggi.
+  1. Seguire il trigger con l'azione SFTP-SSH **get file content** . Questa azione legge il file completo e USA in modo implicito la suddivisione in blocchi dei messaggi.
 
 <a name="comparison"></a>
 
 ## <a name="compare-sftp-ssh-versus-sftp"></a>SFTP-SSH e SFTP a confronto
 
-Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e il connettore SFTP. SFTP-SSH offre queste funzionalità:
+L'elenco seguente descrive le funzionalità SFTP-SSH principali che differiscono dal connettore SFTP:
 
 * Usa la [libreria SSH.NET](https://github.com/sshnet/SSH.NET), una libreria SSH (open source Secure Shell) che supporta .NET.
 
@@ -85,30 +83,25 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 * Fornisce l'azione **Rinomina file** che rinomina un file nel server SFTP.
 
-* Memorizza nella cache la connessione al server SFTP *per un massimo di un'ora*, migliorando così le prestazioni e riducendo il numero di tentativi di connessione al server. Per impostare la durata di questo comportamento di memorizzazione nella cache, modificare la proprietà [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) nella configurazione di SSH sul server SFTP.
+* Memorizza nella cache la connessione al server SFTP *per un massimo di 1 ora*. Questa funzionalità consente di migliorare le prestazioni e di ridurre la frequenza con cui il connettore tenta di connettersi al server. Per impostare la durata di questo comportamento di memorizzazione nella cache, modificare la [proprietà **ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) nella configurazione SSH nel server SFTP.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* L'indirizzo del server SFTP e le credenziali dell'account che consentono all'app per la logica di accedere all'account SFTP. È anche necessario accedere a una chiave privata SSH e alla password della chiave privata SSH. Per utilizzare la suddivisione in blocchi durante il caricamento di file di grandi dimensioni, è necessario disporre delle autorizzazioni di lettura e scrittura per la cartella radice sul server SFTP. In caso contrario, viene ricevuto un errore "401 non autorizzato".
+* L'indirizzo del server SFTP e le credenziali dell'account, in modo che il flusso di lavoro possa accedere all'account SFTP. È anche necessario accedere a una chiave privata SSH e alla password della chiave privata SSH. Per caricare file di grandi dimensioni usando la suddivisione in blocchi, è necessario l'accesso in lettura e scrittura per la cartella radice sul server SFTP. In caso contrario, viene ricevuto un errore "401 non autorizzato".
 
-  > [!IMPORTANT]
-  >
-  > Il connettore SFTP-SSH supporta *solo* questi formati di chiave privata, algoritmi e impronte digitali:
-  >
-  > * **Formati di chiave privata**: chiavi RSA (Rivet Shamir Adleman) e DSA (Digital Signature Algorithm) nei formati OpenSSH e SSH.com. Se la chiave privata è in formato di file PuTTy (con estensione PPK), [convertire prima la chiave nel formato di file OpenSSH (con estensione PEM)](#convert-to-openssh).
-  >
-  > * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
-  >
-  > * **Impronta digitale**: MD5
-  >
-  > Dopo aver aggiunto il trigger SFTP-SSH o l'azione desiderata per l'app per la logica, è necessario fornire le informazioni di connessione per il server SFTP. Quando si specifica la chiave privata SSH per questa connessione, ***non immettere o modificare manualmente la chiave***, il che potrebbe causare l'esito negativo della connessione. Al contrario, assicurarsi di ***copiare la chiave*** dal file di chiave privata SSH e ***incollare*** la chiave nei dettagli della connessione. 
-  > Per altre informazioni, vedere la sezione [connettersi a SFTP con SSH](#connect) più avanti in questo articolo.
+  Il connettore SFTP-SSH supporta sia l'autenticazione della chiave privata che l'autenticazione tramite password. Tuttavia, il connettore SFTP-SSH supporta *solo* i formati di chiave privata, gli algoritmi e le impronte digitali:
+
+  * **Formati di chiave privata**: chiavi RSA (Rivet Shamir Adleman) e DSA (Digital Signature Algorithm) nei formati OpenSSH e SSH.com. Se la chiave privata è in formato di file PuTTy (con estensione PPK), [convertire prima la chiave nel formato di file OpenSSH (con estensione PEM)](#convert-to-openssh).
+  * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
+  * **Impronta digitale**: MD5
+
+  Dopo aver aggiunto un trigger SFTP-SSH o un'azione al flusso di lavoro, è necessario fornire le informazioni di connessione per il server SFTP. Quando si specifica la chiave privata SSH per questa connessione, ***non immettere o modificare manualmente la chiave** _, il che potrebbe causare l'esito negativo della connessione. Assicurarsi invece di _*_copiare la chiave_*_ dal file di chiave privata SSH e di *_incollare_** tale chiave nei dettagli della connessione. Per altre informazioni, vedere la sezione [connettersi a SFTP con SSH](#connect) più avanti in questo articolo.
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* L'app per la logica in cui si vuole accedere all'account SFPT. Per iniziare con un trigger SFTP-SSH, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione SFTP-SSH, avviare l'app per la logica con un altro trigger, ad esempio il trigger **Ricorrenza**.
+* Il flusso di lavoro dell'app per la logica in cui si vuole accedere all'account SFTP. Per iniziare con un trigger SFTP-SSH, [creare un flusso di lavoro dell'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione SFTP-SSH, avviare il flusso di lavoro con un altro trigger, ad esempio il trigger di **ricorrenza** .
 
 ## <a name="how-sftp-ssh-triggers-work"></a>Funzionamento dei trigger SFTP-SSH
 
@@ -130,13 +123,13 @@ Quando un trigger rileva un nuovo file, controlla che sia completo e non parzial
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>Spostamento della ricorrenza del trigger e Drift
 
-I trigger basati sulla connessione in cui è necessario creare prima una connessione, ad esempio il trigger SFTP-SSH, differiscono da quelli predefiniti eseguiti in modalità nativa in app per la logica di Azure, ad esempio il [trigger di ricorrenza](../connectors/connectors-native-recurrence.md). Nei trigger ricorrenti basati sulla connessione, la pianificazione della ricorrenza non è l'unico driver che controlla l'esecuzione e il fuso orario determina solo l'ora di inizio iniziale. Le esecuzioni successive dipendono dalla pianificazione della ricorrenza, dall'ultima esecuzione del trigger *e* da altri fattori che potrebbero causare tempi di esecuzione derivanti o produrre un comportamento imprevisto, ad esempio, la mancata gestione della pianificazione specificata all'inizio e alla fine dell'ora legale (DST). Per assicurarsi che il tempo di ricorrenza non venga spostato quando viene applicata l'ora legale, regolare manualmente la ricorrenza in modo che l'app per la logica continui a essere eseguita al momento previsto. In caso contrario, l'ora di inizio viene spostata un'ora in avanti quando l'ora legale viene avviata e un'ora indietro all'ora di fine. Per altre informazioni, vedere [ricorrenza per trigger basati sulla connessione](../connectors/apis-list.md#recurrence-connection-based).
+I trigger basati sulla connessione in cui è necessario creare prima una connessione, ad esempio il trigger SFTP-SSH, differiscono da quelli predefiniti eseguiti in modalità nativa in app per la logica di Azure, ad esempio il [trigger di ricorrenza](../connectors/connectors-native-recurrence.md). Nei trigger ricorrenti basati sulla connessione, la pianificazione della ricorrenza non è l'unico driver che controlla l'esecuzione e il fuso orario determina solo l'ora di inizio iniziale. Le esecuzioni successive dipendono dalla pianificazione della ricorrenza, dall'ultima esecuzione del trigger *e* da altri fattori che potrebbero causare tempi di esecuzione derivanti o produrre un comportamento imprevisto. Ad esempio, un comportamento imprevisto può includere la mancata gestione della pianificazione specificata all'inizio e alla fine dell'ora legale (DST). Per assicurarsi che il tempo di ricorrenza non venga spostato quando l'ora legale viene applicata, regolare manualmente la ricorrenza. In questo modo, il flusso di lavoro continua a essere eseguito al momento previsto. In caso contrario, l'ora di inizio viene spostata un'ora in avanti quando l'ora legale viene avviata e un'ora indietro all'ora di fine. Per altre informazioni, vedere [ricorrenza per trigger basati sulla connessione](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="convert-to-openssh"></a>
 
 ## <a name="convert-putty-based-key-to-openssh"></a>Convertire la chiave basata su PuTTy in OpenSSH
 
-Se la chiave privata è in formato PuTTy, che usa l'estensione del nome di file. PPK (PuTTy Private Key), convertire prima la chiave nel formato OpenSSH, che usa l'estensione di file PEM (Privacy Enhanced Mail).
+Il formato PuTTy e il formato OpenSSH usano estensioni di file differenti. Il formato PuTTy usa la chiave privata. PPK o PuTTy, ovvero l'estensione di file. Il formato OpenSSH usa l'estensione di file PEM o Privacy Enhanced Mail. Se la chiave privata è in formato PuTTy ed è necessario usare il formato OpenSSH, convertire prima la chiave nel formato OpenSSH attenendosi alla procedura seguente:
 
 ### <a name="unix-based-os"></a>Sistema operativo basato su UNIX
 
@@ -176,9 +169,9 @@ Questa sezione descrive le considerazioni da tenere presenti quando si usano i t
 
 ### <a name="use-different-sftp-folders-for-file-upload-and-processing"></a>Usare cartelle SFTP diverse per il caricamento e l'elaborazione di file
 
-Sul server SFTP, assicurarsi di usare cartelle separate per la posizione in cui vengono archiviati i file caricati e la posizione in cui il trigger monitora tali file per l'elaborazione, il che significa che è necessario un modo per spostare i file tra tali cartelle. In caso contrario, il trigger non viene attivato e si comporta in modo imprevedibile, ad esempio ignorando un numero casuale di file elaborati dal trigger.
+Nel server SFTP usare cartelle separate per archiviare i file caricati e per il trigger per monitorare i file per l'elaborazione. In caso contrario, il trigger non viene attivato e si comporta in modo imprevedibile, ad esempio ignorando un numero casuale di file elaborati dal trigger. Tuttavia, questo requisito significa che è necessario un modo per spostare i file tra tali cartelle. 
 
-Se si verifica questo problema, rimuovere i file dalla cartella monitorata dal trigger e utilizzare una cartella diversa per archiviare i file caricati.
+Se si verifica questo problema di trigger, rimuovere i file dalla cartella monitorata dal trigger e utilizzare una cartella diversa per archiviare i file caricati.
 
 <a name="create-file"></a>
 
@@ -216,7 +209,7 @@ Per creare un file nel server SFTP, è possibile usare l'azione di **creazione f
 
    1. Selezionare **modifica**  >  **copia**.
 
-   1. Nell'azione o nel trigger SFTP-SSH aggiunto, incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe.  **_Assicurarsi di incollare_*_ The Key. _*_non immettere o modificare manualmente la chiave_**.
+   1. Nell'azione o nel trigger SFTP-SSH *incollare la* chiave copiata completa nella proprietà **chiave privata SSH** , che supporta più righe. **_Non immettere o modificare manualmente la chiave_**.
 
 1. Al termine dell'immissione dei dettagli della connessione, selezionare **Crea**.
 
@@ -244,9 +237,9 @@ Per eseguire l'override del comportamento adattivo predefinito usato per la sudd
 
 ### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>Trigger SFTP-SSH: Quando viene aggiunto o modificato un file
 
-Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene aggiunto o modificato un file in un server SFTP. È ad esempio possibile aggiungere una condizione che controlla il contenuto del file e lo recupera in base al fatto che soddisfi una condizione specificata. Si può quindi aggiungere un'azione che recupera il contenuto del file e lo inserisce in una cartella del server SFTP.
+Questo trigger avvia un flusso di lavoro quando un file viene aggiunto o modificato in un server SFTP. Come azioni di completamento di esempio, il flusso di lavoro può usare una condizione per verificare se il contenuto del file soddisfa i criteri specificati. Se il contenuto soddisfa la condizione, l'azione **get file content** SFTP-SSH può ottenere il contenuto e quindi un'altra azione SFTP-SSH può inserire il file in una cartella diversa del server SFTP.
 
-**Esempio riguardante un'organizzazione**: si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
+**Esempio riguardante un'organizzazione**: si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. È quindi possibile usare un'azione SFTP-SSH, ad esempio **recuperare il contenuto del file** , in modo da ottenere il contenuto dell'ordine per un'ulteriore elaborazione e archiviarlo in un database Orders.
 
 <a name="get-content"></a>
 
@@ -282,7 +275,7 @@ Questo errore può verificarsi quando l'app per la logica non riesce a stabilire
 
 ### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 errore: "è stato fatto riferimento a un file o a una cartella che non esiste"
 
-Questo errore può verificarsi quando l'app per la logica crea un nuovo file nel server SFTP tramite l'azione di **creazione file** SFTP-SSH, ma sposta immediatamente il file appena creato prima che il servizio app per la logica possa ottenere i metadati del file. Quando l'app per la logica esegue l'azione **Crea file** , il servizio app per la logica chiama automaticamente anche il server SFTP per ottenere i metadati del file. Tuttavia, se l'app per la logica sposta il file, il servizio app per la logica non è più in grado di trovare il file in modo da ottenere il `404` messaggio di errore.
+Questo errore può verificarsi quando il flusso di lavoro crea un file nel server SFTP con l'azione di **creazione file** SFTP-SSH, ma sposta immediatamente il file prima che il servizio app per la logica possa ottenere i metadati del file. Quando il flusso di lavoro esegue l'azione **Crea file** , il servizio app per la logica chiama automaticamente il server SFTP per ottenere i metadati del file. Tuttavia, se l'app per la logica sposta il file, il servizio app per la logica non è più in grado di trovare il file in modo da ottenere il `404` messaggio di errore.
 
 Se non è possibile evitare o ritardare lo spostamento del file, è possibile ignorare la lettura dei metadati del file dopo la creazione del file attenendosi alla procedura seguente:
 
