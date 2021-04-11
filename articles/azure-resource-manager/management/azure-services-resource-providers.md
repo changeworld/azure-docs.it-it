@@ -3,12 +3,12 @@ title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: d8239a9305560eb77ac2c714b993373f0d5b16fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f33017713d8154fb56472ad5f53b97b22d32e0e3
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023011"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167873"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -103,7 +103,7 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. HybridNetwork  | [Zone perimetrali private](../../networking/edge-zones-overview.md) |
 | Microsoft.ImportExport | [Importazione/Esportazione di Azure](../../import-export/storage-import-export-service.md) |
-| microsoft.insights | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
+| Microsoft.Insights | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Gemelli digitali di Azure](../../digital-twins/index.yml) |
 | Microsoft.Intune | [Monitoraggio di Azure](../../azure-monitor/index.yml) |

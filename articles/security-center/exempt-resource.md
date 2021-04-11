@@ -7,12 +7,12 @@ ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d3627f6bcda7a18204c24fc2a1347c4a512c5369
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ab729f5aa94c7137203c25319a5b830448d00a7
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149733"
+ms.locfileid: "105968204"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Esenzione di risorse e consigli dal punteggio sicuro 
 

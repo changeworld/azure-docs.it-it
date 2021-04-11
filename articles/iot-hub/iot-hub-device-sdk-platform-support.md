@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: c47e67375e093ff6e9a5cf7193c76eeeb5228e29
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: ab450c6ec6ae32cafcf07e88940736f209973d8d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045652"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168043"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Supporto della piattaforma SDK per dispositivi Azure
 
@@ -22,7 +22,7 @@ Oltre agli SDK per dispositivi, Microsoft offre diverse altre strade per consent
 
 * Microsoft collabora con diverse società partner per contribuire alla pubblicazione di kit di sviluppo, in base all'SDK di Azure per le proprie piattaforme hardware.
 
-* Microsoft collabora con i partner attendibili Microsoft per offrire un set di dispositivi in continua espansione che sono stati testati e certificati per Azure. Per un elenco aggiornato di questi dispositivi, vedere il [Catalogo dei dispositivi Azure Certified per](https://catalog.azureiotsolutions.com/)l'it.
+* Microsoft collabora con i partner attendibili Microsoft per offrire un set di dispositivi in continua espansione che sono stati testati e certificati per Azure. Per un elenco aggiornato di questi dispositivi, vedere il [Catalogo dei dispositivi Azure Certified per](https://devicecatalog.azure.com/)l'it.
 
 * Microsoft offre un livello di astrazione della piattaforma (PAL) nell'SDK del dispositivo hub Azure Internet che consente agli sviluppatori di trasferire facilmente l'SDK alla propria piattaforma. Per ulteriori informazioni, vedere la [Guida al porting di C SDK](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
 
@@ -114,9 +114,9 @@ Se la piattaforma del dispositivo non è coperta da una delle sezioni precedenti
 
 Microsoft collabora con diversi partner per espandere continuamente l'universo di Azure Internet con i dispositivi testati e certificati di Azure.
 
-* Per esplorare i dispositivi certificati Azure, vedere [Microsoft Azure Certified per IOT catalogo dei dispositivi](https://catalog.azureiotsolutions.com/).
+* Per esplorare i dispositivi certificati Azure, vedere [Microsoft Azure Certified per IOT catalogo dei dispositivi](https://devicecatalog.azure.com/).
 
-* Per altre informazioni sull'ecosistema di Azure Certified per Internet, vedere l'articolo relativo [all'aggiunta dell'ecosistema Certified for](https://catalog.azureiotsolutions.com/register)Internet.
+* Per altre informazioni sull'ecosistema di Azure Certified per Internet, vedere l'articolo relativo [all'aggiunta dell'ecosistema Certified for](../certification/overview.md)Internet.
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Connessione all'hub Internet senza SDK
 

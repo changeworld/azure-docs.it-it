@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8f7bfd63d858fb409286268c318c9f66474e3d53
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 7651142d1c2b24da64d9f72dd2300dc0c3807e93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110917"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937876"
 ---
 # <a name="call-flow-basics"></a>Nozioni di base sul flusso di chiamate
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include-phone-numbers.md)]
 
 La sezione seguente offre una panoramica dei flussi di chiamate in Servizi di comunicazione di Azure. I flussi multimediali e di segnalazione dipendono dai tipi di chiamate effettuate dagli utenti. Esempi di tipi di chiamate sono le chiamate VoIP uno-a-uno, PSTN uno-a-uno e di gruppo che contengono una combinazione di partecipanti VoIP e connessi a PSTN. Esaminare i [tipi di chiamate](./voice-video-calling/about-call-types.md).
 

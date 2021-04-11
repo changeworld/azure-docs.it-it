@@ -10,12 +10,12 @@ ms.date: 03/12/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
-ms.openlocfilehash: 0a59b18fa2c09cff943dbccd2203027cd72e146a
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 30451f237f4a6d42fee018d5e6c5adb3bbf022b4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644307"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958177"
 ---
 Per iniziare a usare i servizi di comunicazione di Azure, è possibile usare i servizi di comunicazione Java SMS SDK per inviare messaggi SMS.
 
@@ -54,7 +54,7 @@ Aprire il file **pom.xml** nell'editor di testo. Aggiungere l'elemento di dipend
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.4</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 

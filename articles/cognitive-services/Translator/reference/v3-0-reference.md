@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: 567e28ee7f698565d6ad0020db7abdca0557f053
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2b391c5a435c2dd2f19a3f170bf7c84edd7143f2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100650763"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063033"
 ---
 # <a name="translator-v30"></a>Traduttore v 3.0
 
@@ -35,7 +35,7 @@ Microsoft Translator è accessibile da più posizioni di data center. Attualment
 
 * **Americhe:** Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali e Stati Uniti occidentali 2 
 * **Asia Pacifico:** Corea meridionale, Giappone orientale, Asia sudorientale e Australia orientale
-* **Europa:** Europa settentrionale, Europa occidentale, Svizzera settentrionale <sup>1, 2</sup>e Svizzera occidentale <sup>1, 2</sup>
+* **Europa:** Europa settentrionale, Europa occidentale
 
 Le richieste a Microsoft Translator sono nella maggior parte dei casi gestiti dal Data Center più vicino alla posizione in cui ha avuto origine la richiesta. In caso di errore di un Data Center, la richiesta può essere instradata al di fuori della geografia di Azure.
 
@@ -48,7 +48,7 @@ Per forzare la gestione della richiesta da parte di una specifica area geografic
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacifico|    api-apc.cognitive.microsofttranslator.com|
 
-<sup>1</sup> il cliente con una risorsa situata in Svizzera settentrionale o Svizzera occidentale può garantire che le richieste dell'API di testo vengano gestite in Svizzera. Per assicurarsi che le richieste vengano gestite in Svizzera, creare la risorsa di conversione in ' area risorse '' Svizzera settentrionale ' o ' Svizzera occidentale ', quindi usare l'endpoint personalizzato della risorsa nelle richieste API. Ad esempio, se si crea una risorsa di conversione in portale di Azure con ' area risorse ' come ' Svizzera settentrionale ' e il nome della risorsa è' My-ch-n', l'endpoint personalizzato è " https://my-ch-n.cognitiveservices.azure.com ". Una richiesta di esempio per tradurre è la seguente:
+<sup>1</sup> i clienti con una risorsa situata in Svizzera settentrionale o Svizzera occidentale possono garantire che le richieste API di testo vengano gestite in Svizzera. Per assicurarsi che le richieste vengano gestite in Svizzera, creare la risorsa di conversione in ' area risorse '' Svizzera settentrionale ' o ' Svizzera occidentale ', quindi usare l'endpoint personalizzato della risorsa nelle richieste API. Ad esempio, se si crea una risorsa di conversione in portale di Azure con ' area risorse ' come ' Svizzera settentrionale ' e il nome della risorsa è' My-ch-n', l'endpoint personalizzato è " https://my-ch-n.cognitiveservices.azure.com ". Una richiesta di esempio per tradurre è la seguente:
 ```curl
 // Pass secret key and region using headers to a custom endpoint
 curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
@@ -57,7 +57,7 @@ curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translat
 -H "Content-Type: application/json" \
 -d "[{'Text':'Hello'}]" -v
 ```
-<sup>2</sup> Il convertitore personalizzato non è attualmente disponibile in Svizzera.
+<sup>2</sup> il traduttore personalizzato non è attualmente disponibile in Svizzera.
 
 ## <a name="authentication"></a>Authentication
 

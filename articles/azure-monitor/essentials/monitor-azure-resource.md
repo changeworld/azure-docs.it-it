@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: af2803a945821a23ff59f196967d792a6593009f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 203af340a8bd48bdb6dee70f92c2ecc39708b8e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033385"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732330"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitoraggio delle risorse di Azure con Monitoraggio di Azure
 Quando si usano applicazioni e processi aziendali critici basati sulle risorse di Azure, è consigliabile monitorare tali risorse per verificarne disponibilità, prestazioni e funzionamento. Questo articolo descrive i dati di monitoraggio generati dalle risorse di Azure e come è possibile usare le funzionalità di Monitoraggio di Azure per analizzare e creare avvisi su tali dati.
@@ -63,7 +63,7 @@ Alcuni dati di monitoraggio vengono raccolti automaticamente, ma potrebbe essere
 
 - [Metriche della piattaforma](../essentials/data-platform-metrics.md): le metriche della piattaforma vengono raccolte automaticamente nelle [metriche di Monitoraggio di Azure](../essentials/data-platform-metrics.md) senza dover eseguire alcuna operazione di configurazione. Creare un'impostazione di diagnostica per inviare le voci ai log di Monitoraggio di Azure o inoltrarli all'esterno di Azure.
 - [Log risorse](./platform-logs-overview.md): i log risorse vengono generati automaticamente dalle risorse di Azure, ma non vengono raccolti senza un'impostazione di diagnostica.  Creare un'impostazione di diagnostica per inviare le voci ai log di Monitoraggio di Azure o inoltrarli all'esterno di Azure.
-- [Log attività](./platform-logs-overview.md): il log attività viene raccolto automaticamente senza alcuna operazione di configurazione e può essere visualizzato nel portale di Azure. Creare un'impostazione di diagnostica per copiarlo nei log di Monitoraggio di Azure o per inviarlo all'esterno di Azure.
+- [Log attività](./platform-logs-overview.md) : il log attività viene raccolto automaticamente senza alcuna configurazione necessaria e può essere visualizzato nel portale di Azure. Creare un'impostazione di diagnostica per copiarlo nei log di Monitoraggio di Azure o per inviarlo all'esterno di Azure.
 
 ### <a name="log-analytics-workspace"></a>Area di lavoro Log Analytics
 Per raccogliere dati nei log di Monitoraggio di Azure è necessaria un'area di lavoro Log Analytics. È possibile avviare rapidamente il monitoraggio del servizio creando una nuova area di lavoro, sebbene possa essere utile usare un'area di lavoro che raccoglie già dati da altri servizi. Vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../logs/quick-create-workspace.md) per informazioni dettagliate sulla creazione di un'area di lavoro e [Progettazione della distribuzione dei log di Monitoraggio di Azure](../logs/design-logs-deployment.md) per determinare la progettazione dell'area di lavoro più adatta alle proprie esigenze. Se si usa un'area di lavoro esistente nell'organizzazione, sarà necessario disporre delle autorizzazioni appropriate, come descritto in [Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure](../logs/manage-access.md). 

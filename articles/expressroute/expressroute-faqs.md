@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: da293f15ba070fc9a00ad37defd6a76175ded2f2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 579a7114a06386fe48fcc074cc1095e980837ba0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587280"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732177"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -265,7 +265,7 @@ Sì. ExpressRoute può coesistere con VPN da sito a sito. Vedere [Configurare co
 
 ### <a name="how-do-i-enable-routing-between-my-site-to-site-vpn-connection-and-my-expressroute"></a>Ricerca per categorie Abilita il routing tra la connessione VPN da sito a sito e la ExpressRoute?
 
-Se si vuole abilitare il routing tra il ramo connesso a Expressoute e il ramo connesso a una connessione VPN da sito a sito, è necessario configurare il [server di route di Azure](../route-server/expressroute-vpn-support.md).
+Se si vuole abilitare il routing tra il ramo connesso a ExpressRoute e il ramo connesso a una connessione VPN da sito a sito, è necessario configurare il [server di route di Azure](../route-server/expressroute-vpn-support.md).
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Perché esiste un indirizzo IP pubblico associato al gateway ExpressRoute in una rete virtuale?
 

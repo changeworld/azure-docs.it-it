@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 22e948a0100f23dbddef8fc138576bb4b9372c77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ef4be54f5c6025a09314a04504cff40fc39478d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363203"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168162"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo IoT nell'applicazione Azure IoT Central
 
@@ -59,7 +59,7 @@ Alcuni [modelli di applicazione](concepts-app-templates.md) includono già model
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Creare un modello di dispositivo dal catalogo dispositivi
 
-In qualità di generatore, è possibile iniziare rapidamente a creare la soluzione usando un dispositivo certificato. Vedere l'elenco nel [catalogo dei dispositivi Azure IoT](https://catalog.azureiotsolutions.com/alldevices). IoT Central si integra con il catalogo dispositivi, in modo da poter importare un modello di dispositivo da uno qualsiasi dei dispositivi certificati. Per creare un modello di dispositivo da uno di questi dispositivi in IoT Central:
+In qualità di generatore, è possibile iniziare rapidamente a creare la soluzione usando un dispositivo certificato. Vedere l'elenco nel [catalogo dei dispositivi Azure IoT](https://devicecatalog.azure.com). IoT Central si integra con il catalogo dispositivi, in modo da poter importare un modello di dispositivo da uno qualsiasi dei dispositivi certificati. Per creare un modello di dispositivo da uno di questi dispositivi in IoT Central:
 
 1. Passare alla pagina **modelli di dispositivo** nell'applicazione IoT Central.
 1. Selezionare **+ nuovo**, quindi selezionare uno dei dispositivi certificati dal catalogo. IoT Central crea un modello di dispositivo basato su questo modello di dispositivo.

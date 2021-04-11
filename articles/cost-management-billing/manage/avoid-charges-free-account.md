@@ -6,18 +6,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 03/30/2021
 ms.author: banders
-ms.openlocfilehash: dfbfa6c97ef23976ed791fb04482346d9f336bfe
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.openlocfilehash: d2648276ead73d8951a93fe3215bee345a79dca9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584036"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106062982"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Evitare addebiti con l'account Azure gratuito
 
-I nuovi utenti idonei ottengono 200 dollari di credito Azure per i primi 30 giorni e una quantità limitata di servizi gratuiti per 12 mesi con l'[account gratuito di Azure](https://azure.microsoft.com/free/). Per altre informazioni sui limiti dei servizi gratuiti, vedere [Domande frequenti sull'account Azure gratuito](https://azure.microsoft.com/free/free-account-faq/). Fino a quando il credito non è scaduto o si usano solo i servizi gratuiti entro i limiti, non vengono addebitati costi.
+I nuovi utenti idonei ottengono un credito Azure di 200 USD nella valuta di fatturazione per i primi 30 giorni e una quantità limitata di servizi gratuiti per 12 mesi con il tuo [account Azure gratuito](https://azure.microsoft.com/free/). Per altre informazioni sui limiti dei servizi gratuiti, vedere [Domande frequenti sull'account Azure gratuito](https://azure.microsoft.com/free/free-account-faq/). Fino a quando il credito non è scaduto o si usano solo i servizi gratuiti entro i limiti, non vengono addebitati costi.
 
 Ecco alcuni motivi per cui si possono sostenere costi sull'account gratuito di Azure.
 

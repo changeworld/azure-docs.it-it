@@ -3,12 +3,12 @@ title: Autenticare il recapito di eventi a gestori eventi (griglia di eventi di 
 description: Questo articolo descrive le diverse modalità di autenticazione del recapito ai gestori di eventi in griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 98d7a4a0dee6c355ec340668bef7d8b306f97496
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f7a105c36b7c924e35c295edc43107353d738d5b
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98633121"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968136"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticare il recapito di eventi a gestori eventi (griglia di eventi di Azure)
 Questo articolo fornisce informazioni sull'autenticazione del recapito di eventi ai gestori eventi. Viene anche illustrato come proteggere gli endpoint del webhook usati per ricevere eventi da griglia di eventi usando Azure Active Directory (Azure AD) o un segreto condiviso.
@@ -40,7 +40,7 @@ Poiché i parametri di query potrebbero contenere segreti client, vengono gestit
 Per altre informazioni su come recapitare gli eventi ai webhook, vedere [Recapito eventi webhook](webhook-event-delivery.md).
 
 > [!IMPORTANT]
-Griglia di eventi di Azure supporta solo endpoint webhook **HTTPS**. 
+> Griglia di eventi di Azure supporta solo endpoint webhook **HTTPS**. 
 
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>Convalida degli endpoint con CloudEvents v1.0
 Se si ha già familiarità con griglia di eventi, si potrebbe essere a conoscenza dell'handshake di convalida dell'endpoint per impedire abusi. CloudEvents v 1.0 implementa la propria [semantica di protezione da abusi](webhook-event-delivery.md) usando il metodo delle **Opzioni http** . Per ulteriori informazioni, vedere la pagina [relativa agli hook Web HTTP 1,1 per il recapito degli eventi, versione 1,0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Quando si usa lo schema CloudEvents per l'output, griglia di eventi usa la protezione dagli abusi di CloudEvents v 1.0 al posto del meccanismo di convalida degli eventi di griglia di eventi. Per altre informazioni, vedere [usare lo schema CloudEvents v 1.0 con griglia di eventi](cloudevents-schema.md). 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1bc1df4582c83b093b6ed25d03cc73aef9a81483
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5423c26b15c5ba9fa84e5d823f75f3c82a8cb8b4
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563940"
+ms.locfileid: "105968119"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Baseline della sicurezza di Azure per griglia di eventi
 
@@ -48,9 +48,7 @@ Griglia di eventi di Azure supporta anche i controlli di accesso basati su IP pu
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e NIC
 
-**Linee guida**: usare il Centro sicurezza di Azure e seguire le raccomandazioni per la protezione della rete per proteggere le risorse di griglia di eventi in Azure. Se si usa
-
-Macchine virtuali di Azure per accedere alle risorse di griglia di eventi, abilitare i log di flusso del gruppo di sicurezza di rete (NSG) e inviare i log a un account di archiviazione per il controllo del traffico.
+**Linee guida**: usare il Centro sicurezza di Azure e seguire le raccomandazioni per la protezione della rete per proteggere le risorse di griglia di eventi in Azure. Se si usano macchine virtuali di Azure per accedere alle risorse di griglia di eventi, abilitare i log di flusso del gruppo di sicurezza di rete (NSG) e inviare i log a un account di archiviazione per il controllo del traffico.
 
 - [Come abilitare i log dei flussi NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 

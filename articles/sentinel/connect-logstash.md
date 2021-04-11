@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 10812cf97f4f0dfc6f7957608eddf7acf929c3fc
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035428"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579765"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Usare logstash per connettere le origini dati ad Azure Sentinel
 
@@ -44,7 +44,9 @@ Il motore logstash è costituito da tre componenti:
 - Plug-in di output: invio personalizzato di dati raccolti ed elaborati a diverse destinazioni.
 
 > [!NOTE]
-> Azure Sentinel supporta solo il plug-in di output fornito. Non supporta plug-in di output di terze parti per Sentinel di Azure o qualsiasi altro plug-in logstash di qualsiasi tipo.
+> - Azure Sentinel supporta solo il plug-in di output fornito. La versione corrente del plug-in è la v 1.0.0, rilasciata 2020-08-25. Non supporta plug-in di output di terze parti per Sentinel di Azure o qualsiasi altro plug-in logstash di qualsiasi tipo.
+>
+> - Il plug-in di output logstash di Azure Sentinel supporta solo le **versioni logstash da 7,0 a 7,9**.
 
 Il plug-in di output di Azure Sentinel per logstash invia dati in formato JSON all'area di lavoro Log Analytics, usando l'API REST dell'agente di raccolta dati HTTP Log Analytics. I dati vengono inseriti in log personalizzati.
 
@@ -67,19 +69,21 @@ Usare le informazioni nella struttura logstash [di un documento del file di conf
 
 | Nome del campo | Tipo di dati | Descrizione |
 |----------------|---------------|-----------------|
-| `workspace_id` | string | Immettere il GUID dell'ID dell'area di lavoro. * |
-| `workspace_key` | string | Immettere il GUID della chiave primaria dell'area di lavoro. * |
+| `workspace_id` | string | Immettere il GUID dell'ID dell'area di lavoro (vedere Tip). |
+| `workspace_key` | string | Immettere il GUID della chiave primaria dell'area di lavoro (vedere Tip). |
 | `custom_log_table_name` | string | Consente di impostare il nome della tabella in cui verranno inseriti i log. È possibile configurare solo un nome di tabella per ogni plug-in di output. La tabella dei log verrà visualizzata in Sentinel di Azure in **log**, in **tabelle** nella categoria **log personalizzati** con un `_CL` suffisso. |
 | `endpoint` | string | Campo facoltativo. Per impostazione predefinita, si tratta dell'endpoint Log Analytics. Utilizzare questo campo per impostare un endpoint alternativo. |
 | `time_generated_field` | string | Campo facoltativo. Questa proprietà esegue l'override del campo predefinito **TimeGenerated** in log Analytics. Immettere il nome del campo timestamp nell'origine dati. I dati nel campo devono essere conformi al formato ISO 8601 ( `YYYY-MM-DDThh:mm:ssZ` ) |
 | `key_names` | array | Immettere un elenco di Log Analytics campi dello schema di output. Ogni elemento dell'elenco deve essere racchiuso tra virgolette singole e gli elementi separati da virgole e l'intero elenco racchiuso tra parentesi quadre. Vedi l'esempio seguente. |
 | `plugin_flush_interval` | d'acquisto | Campo facoltativo. Impostare per definire l'intervallo massimo (in secondi) tra le trasmissioni dei messaggi a Log Analytics. Il valore predefinito è 5. |
-    | `amount_resizing` | boolean | True o false. Abilita o Disabilita il meccanismo di scalabilità automatica, che regola le dimensioni del buffer del messaggio in base al volume dei dati di log ricevuti. |
+| `amount_resizing` | boolean | True o false. Abilita o Disabilita il meccanismo di scalabilità automatica, che regola le dimensioni del buffer del messaggio in base al volume dei dati di log ricevuti. |
 | `max_items` | d'acquisto | Campo facoltativo. Si applica solo se è `amount_resizing` impostato su "false". Utilizzare per impostare un limite per le dimensioni del buffer dei messaggi (nei record). Il valore predefinito è 2000.  |
 | `azure_resource_id` | string | Campo facoltativo. Definisce l'ID della risorsa di Azure in cui si trovano i dati. <br>Il valore di ID risorsa è particolarmente utile se si usa il controllo degli accessi in base al [contesto delle risorse](resource-context-rbac.md) per fornire solo l'accesso a dati specifici. |
 | | | |
 
-* È possibile trovare l'ID dell'area di lavoro e la chiave primaria nella risorsa dell'area di lavoro, in **Gestione agenti**.
+> [!TIP]
+> - È possibile trovare l'ID dell'area di lavoro e la chiave primaria nella risorsa dell'area di lavoro, in **Gestione agenti**.
+> - Poiché, **tuttavia**, le credenziali e le altre informazioni riservate archiviate in testo non crittografato nei file di configurazione non sono conformi alle procedure consigliate per la sicurezza, si consiglia vivamente di utilizzare l' **archivio chiavi logstash** per includere in modo sicuro l' **ID dell'area di lavoro** e la **chiave primaria dell'area di lavoro** nella configurazione. Per istruzioni, vedere [la documentazione di Elastic](https://www.elastic.co/guide/en/elasticsearch/reference/current/get-started-logstash-user.html) .
 
 #### <a name="sample-configurations"></a>Configurazioni di esempio
 
