@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 49054d9bbde67dc3670ec444e4b60c3ddf503db5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2ecbd207c4b1946a69b01f43ec2bc77d29b1a8c9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645411"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073474"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -21,10 +21,9 @@ ms.locfileid: "105645411"
 ## <a name="install-the-sdk"></a>Installare l'SDK
 
 > [!NOTE]
-> Questo documento usa la versione 1.0.0-beta. 10 dell'SDK chiamante.
+> Questo documento usa ACS che chiama Web SDK.
 
 Usare il `npm install` comando per installare i servizi di comunicazione di Azure che chiamano e gli SDK comuni per JavaScript.
-Questo documento fa riferimento ai tipi nella versione 1.0.0-beta. 10 della libreria chiamante.
 
 ```console
 npm install @azure/communication-common --save
@@ -144,6 +143,8 @@ const call = callAgent.join(context);
 ```
 
 ### <a name="join-a-teams-meeting"></a>Unisciti a un team meeting
+> [!NOTE]
+> Questa API viene fornita come anteprima per gli sviluppatori e potrebbe essere modificata in base ai commenti ricevuti. Non usare questa API in un ambiente di produzione. Per usare questa API, usare la versione ' beta ' di ACS che chiama Web SDK
 
 Per partecipare a una riunione teams, usare il `join` metodo e passare un collegamento alla riunione o le coordinate.
 
@@ -593,8 +594,8 @@ console.log(result.video);
 ```
 
 ## <a name="record-calls"></a>Chiamate di record
-
-[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
+> [!NOTE]
+> Questa API viene fornita come anteprima per gli sviluppatori e potrebbe essere modificata in base ai commenti ricevuti. Non usare questa API in un ambiente di produzione. Per usare questa API, usare la versione ' beta ' di ACS che chiama Web SDK
 
 La registrazione delle chiamate è una funzionalità estesa dell' `Call` API di base. Per prima cosa è necessario ottenere l'oggetto API della funzionalità di registrazione:
 
@@ -620,6 +621,8 @@ callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler)
 ```
 
 ## <a name="transfer-calls"></a>Chiamate di trasferimento
+> [!NOTE]
+> Questa API viene fornita come anteprima per gli sviluppatori e potrebbe essere modificata in base ai commenti ricevuti. Non usare questa API in un ambiente di produzione. Per usare questa API, usare la versione ' beta ' di ACS che chiama Web SDK
 
 Il trasferimento delle chiamate è una funzionalità estesa dell' `Call` API di base. Per prima cosa è necessario ottenere l'oggetto API della funzionalità di trasferimento:
 

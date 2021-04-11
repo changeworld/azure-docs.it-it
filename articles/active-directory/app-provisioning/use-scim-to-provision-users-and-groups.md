@@ -12,12 +12,12 @@ ms.date: 03/22/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8d517aaa6121120399e09bfef8aa6dd36e745563
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8192c5c6734009f69e3f741531251dd85675b47
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022943"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449450"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Esercitazione: sviluppare e pianificare il provisioning per un endpoint SCIM
 
@@ -168,10 +168,10 @@ Nell'RFC di SCIM sono definiti diversi endpoint. È possibile iniziare con l' `/
 |--|--|
 |/User|Eseguire operazioni CRUD su un oggetto utente.|
 |/Group|Eseguire operazioni CRUD su un oggetto gruppo.|
-|/ServiceProviderConfig|Offre informazioni dettagliate sulle funzionalità dello standard SCIM supportate, ad esempio sulle risorse supportate e sul metodo di autenticazione.|
-|/ResourceTypes|Specifica i metadati relativi a ogni risorsa.|
 |/Schemas|Il set di attributi supportato da ogni client e provider di servizi può variare. Un provider di servizi potrebbe includere `name`, `title` e `emails`, mentre un altro magari usa `name`, `title` e `phoneNumbers`. L'endpoint degli schemi consente l'individuazione degli attributi supportati.|
 |/Bulk|Le operazioni in blocco consentono di eseguire azioni su una grande raccolta di oggetti risorsa in un'unica operazione, come ad esempio aggiornare le appartenenze per un gruppo di grandi dimensioni.|
+|/ServiceProviderConfig|Offre informazioni dettagliate sulle funzionalità dello standard SCIM supportate, ad esempio sulle risorse supportate e sul metodo di autenticazione.|
+|/ResourceTypes|Specifica i metadati relativi a ogni risorsa.|
 
 **Elenco di endpoint di esempio**
 
@@ -1329,9 +1329,9 @@ Usare l'elenco di controllo per caricare rapidamente l'applicazione e i clienti 
 > * Usare 3 credenziali di test non in scadenza per l'applicazione (obbligatorio)
 > * Supportare la concessione del codice di autorizzazione OAuth o un token di lunga durata come descritto di seguito (obbligatorio)
 > * Stabilire un punto di contatto per la progettazione e il supporto tecnico per supportare i clienti dopo l'onboarding nella raccolta (obbligatorio)
+> * [Supporto individuazione schema (obbligatorio)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Supporto dell'aggiornamento di più appartenenze a gruppi con una singola PATCH
 > * Documentare l'endpoint SCIM pubblicamente
-> * [Supportare l'individuazione dello schema](https://tools.ietf.org/html/rfc7643#section-6)
 
 ### <a name="authorization-to-provisioning-connectors-in-the-application-gallery"></a>Autorizzazione per il provisioning dei connettori nella raccolta di applicazioni
 La specifica SCIM non definisce uno schema specifico di SCIM per l'autenticazione e l'autorizzazione e si basa sull'uso di standard di settore esistenti.

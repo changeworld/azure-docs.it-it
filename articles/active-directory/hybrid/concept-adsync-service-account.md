@@ -15,12 +15,12 @@ ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb23d79caa6964c3f61fbb84c8b8f229f475b8ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca99a997d621bfd2455e909b36b6802775b20ac2
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104722158"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074608"
 ---
 # <a name="adsync-service-account"></a>Account del servizio ADSync
 Azure AD Connect installa un servizio locale che orchestra la sincronizzazione tra Active Directory e Azure Active Directory.  Il servizio di sincronizzazione Microsoft Azure AD sincronizzazione (ADSync) viene eseguito in un server nell'ambiente locale.  Le credenziali per il servizio sono impostate per impostazione predefinita nelle installazioni Express, ma possono essere personalizzate per soddisfare i requisiti di sicurezza dell'organizzazione.  Queste credenziali non vengono usate per la connessione alle foreste locali o Azure Active Directory.
@@ -56,7 +56,7 @@ Legenda:
 - sMSA: [account del servizio gestito autonomo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
 - gMSA: [account del servizio gestito del gruppo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
- ||**Database locale </br> Express**|**Database locale/LocalSQL </br> personalizzato**|**SQL </br> personalizzato remoto**|
+|Tipo di computer |**Database locale </br> Express**|**Database locale/LocalSQL </br> personalizzato**|**SQL </br> personalizzato remoto**|
 |-----|-----|-----|-----|
 |**computer aggiunto a un dominio**|**VSA**|**VSA**</br> *sMSA*</br> *gMSA*</br> Account locale</br> Account di dominio| *gMSA* </br>Account di dominio|
 |Controller di dominio| **sMSA**|**sMSA** </br>*gMSA*</br> Account di dominio|*gMSA*</br>Account di dominio| 

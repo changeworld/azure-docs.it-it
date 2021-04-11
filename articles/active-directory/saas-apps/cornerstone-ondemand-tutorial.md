@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: f7167df523ca6f84eacd92fc7af1011e8b3b00b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ba6eb0a1b607fc05c4d0c660dd3d7016f81ef4b3
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950336"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449495"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-single-sign-on"></a>Esercitazione: Azure Active Directory l'integrazione dell'accesso Single Sign-on (SSO) con l'unica pietra miliare Sign-On
 
@@ -123,49 +123,11 @@ In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On conced
 
 ## <a name="configure-cornerstone-single-sign-on-sso"></a>Configurare la chiave singola Sign-On SSO
 
-1. Accedere al Sign-On di base singolo come amministratore.
-
-1. Accedere agli **strumenti di amministrazione->**.
-
-    ![LinkedDataFormUpdated per la pagina di amministrazione.](./media/cornerstone-ondemand-tutorial/admin.png)
-
-1. Selezionare Pannello **perimetrale** in **strumenti di configurazione**.
-
-    ![LinkedDataFormUpdated per il pannello EDGE.](./media/cornerstone-ondemand-tutorial/edge-panel.png)
-
-1. Selezionare Single Sign-On nella sezione **integrazione** .
-
-    ![LinkedDataFormUpdated per l'opzione Single Sign-On.](./media/cornerstone-ondemand-tutorial/single-sign-on.png)
-
-1. Fare clic sul pulsante **Aggiungi SSO** . Selezionare **SAML in ingresso** nella finestra popup riportata di seguito, quindi fare clic su **Aggiungi**.
-
-    ![LinkedDataFormUpdated per SAML in ingresso.](./media/cornerstone-ondemand-tutorial/inbound.png)
-
-1. Eseguire i passaggi seguenti nella pagina seguente:
-
-    ![LinkedDataFormUpdated per la sezione di configurazione per l'elemento di base.](./media/cornerstone-ondemand-tutorial/configuration.png)
-
-    a. In **Proprietà generali** fare clic su **Carica file** per caricare il file del **certificato (base64)** scaricato dal portale di Azure.
-
-    b. Selezionare la casella di controllo **Abilita** e nella casella di testo **IDP URL (URL IDP** ) incollare il valore dell' **url di accesso** copiato dal portale di Azure.
-
-    c. Fare clic su **Salva**.
+Per configurare Single Sign-On sul lato **Single Sign-on** di base, è necessario inviare il **certificato (base64)** scaricato e gli URL copiati appropriati da portale di Azure al team di supporto di un [singolo Sign-On](mailto:moreinfo@csod.com) o contattare il proprio partner. La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-cornerstone-single-sign-on-test-user"></a>Creazione di un utente di test di base singolo Sign-On
 
 Questa sezione descrive come creare un utente denominato B. Simon in elemento di base Single Sign-on. Il singolo elemento cardine Sign-On supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](./cornerstone-ondemand-provisioning-tutorial.md).
-
-**Per creare un utente manualmente, seguire questa procedura:**
-
-1. Accedere al Sign-On di base singolo come amministratore.
-
-1. Passare a **amministratore-> utenti** e fare clic su **Aggiungi utente** nella parte inferiore della pagina.
-
-    ![LinkedDataFormUpdated per la creazione di un utente di test di base.](./media/cornerstone-ondemand-tutorial/user-1.png)
-
-1. Compilare i campi obbligatori nella pagina **Aggiungi nuovo utente** e fare clic su **Salva**.
-
-    ![LinkedDataFormUpdated per la creazione di utenti di test con i campi obbligatori.](./media/cornerstone-ondemand-tutorial/user-2.png)
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

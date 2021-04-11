@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f690f4a416e86b02de0d35fc673849c1293df577
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1f3fb07eaf7f63d15232f4c94eeee45f43c81616
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095766"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075135"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestione delle sessioni Single Sign-On in Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ In Azure AD B2C sono stati definiti alcuni provider di sessione SSO che è possi
 |---------|---------|
 |[NoopSSOSessionProvider](#noopssosessionprovider)     |  nessuno       |       
 |[DefaultSSOSessionProvider](#defaultssosessionprovider)    | Strumento di gestione interno di Azure AD B2C.      |       
-|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider)     | Tra Azure AD B2C e uno dei provider di identità OAuth1, OAuth2 oppure OpenId Connect.        |         |
+|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider)     | Tra Azure AD B2C e uno dei provider di identità OAuth1, OAuth2 oppure OpenId Connect.        | 
 |[OAuthSSOSessionProvider](#oauthssosessionprovider)     | Tra un'applicazione relying party OAuth2 oppure OpenId Connect e Azure AD B2C.        |        
 |[SamlSSOSessionProvider](#samlssosessionprovider)     | Tra Azure AD B2C e il provider di identità SAML, nonché tra un provider di servizi SAML (applicazione relying party) e Azure AD B2C.  |        
 

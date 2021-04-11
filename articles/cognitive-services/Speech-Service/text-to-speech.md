@@ -12,18 +12,25 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: sintesi vocale
-ms.openlocfilehash: 45977faec9ab54fed0c1e7054c567b4d18b11f50
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1a7ff7befc1a5e82c5518cf103a81b35ec38c7db
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645018"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449359"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 In questa panoramica vengono illustrati i vantaggi e le funzionalità del servizio di sintesi vocale, che consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale. È possibile scegliere tra le voci standard e neurali oppure creare una voce personalizzata univoca per il prodotto o il marchio. sono disponibili più di 75 voci standard in più di 45 lingue e impostazioni locali e 5 voci neurali sono disponibili in un numero selezionato di lingue e impostazioni locali. Per un elenco completo delle voci, dei linguaggi e delle impostazioni locali supportate, vedere [linguaggi supportati](language-support.md#text-to-speech).
+
+Questa documentazione contiene i tipi di articolo seguenti:
+
+* Nelle **guide introduttive** vengono fornite istruzioni introduttive per l'esecuzione di richieste al servizio.
+* Le **guide alle procedure** contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.
+* I **concetti** forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.
+* Le **esercitazioni** sono guide più lunghe che illustrano come usare il servizio come componente in soluzioni aziendali più ampie.
 
 > [!NOTE]
 > Il riconoscimento vocale Bing è stato ritirato il 15 ottobre 2019. Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocale Bing o Riconoscimento vocale personalizzato, sono state create guide che consentono di eseguire la migrazione al servizio di riconoscimento vocale.

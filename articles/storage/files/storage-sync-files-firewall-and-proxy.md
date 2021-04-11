@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f0dbe7f32f14eb4da3d591811d619eb2e9bea397
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 84ab3451ef71b95db3a0f00f88a58482516b48f4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729641"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581857"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Impostazioni di proxy e firewall di Sincronizzazione file di Azure
 Sincronizzazione file di Azure connette i server locali a File di Azure abilitando la sincronizzazione tra più siti e funzionalità di suddivisione in livelli cloud. È necessario quindi che un server locale sia connesso a Internet e che un amministratore IT scelga il percorso migliore per consentire al server di accedere ai servizi cloud di Azure.
@@ -95,6 +95,10 @@ Per configurare le impostazioni proxy a livello di computer, attenersi alla proc
      ```
 
 2. Configurare le impostazioni del proxy WinHTTP 
+
+   > [!Note]  
+   > Sono disponibili diversi metodi (WPAD, file PAC, netsh e così via) per configurare un server Windows per l'utilizzo di un server proxy. I passaggi seguenti illustrano come configurare le impostazioni proxy usando netsh, ma è supportato qualsiasi metodo elencato nella documentazione relativa alla [configurazione delle impostazioni del server proxy nella documentazione di Windows](https://docs.microsoft.com/troubleshoot/windows-server/networking/configure-proxy-server-settings) .
+
 
    - Eseguire il comando seguente da un prompt dei comandi con privilegi elevati o PowerShell per visualizzare le impostazioni del proxy esistente:   
 

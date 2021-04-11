@@ -3,13 +3,12 @@ title: Domande generali sul servizio Azure Site Recovery
 description: Questo articolo illustra le domande generali più frequenti su Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 7/14/2020
-ms.author: raynew
-ms.openlocfilehash: 9db91a15c0ee5c982f73f36a36f12b38b969a125
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 974a119efaa69440aed6e6f9c3ac26ba26d7da16
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99820197"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581175"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Domande generali su Azure Site Recovery
 

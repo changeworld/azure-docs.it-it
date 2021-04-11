@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 69930e06e2ce7f2679feec74ca8ccbc93bdb8d30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95a468d130d1ab1eee349f15592175301c9ddf37
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101721124"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110020"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>Come creare una sovrapposizione con Media Encoder Standard
 
@@ -41,8 +41,8 @@ Il Media Encoder Standard consente di sovrapporre un'immagine, un file audio o u
 
 Se non si ha già familiarità con le trasformazioni, è consigliabile completare le attività seguenti:
 
-* Leggi [la codifica di video e audio con servizi multimediali](encoding-concept.md)
-* Leggere [le informazioni su come codificare con una trasformazione personalizzata-.NET](customize-encoder-presets-how-to.md). Attenersi alla procedura descritta in questo articolo per configurare .NET necessario per usare le trasformazioni, quindi tornare qui per provare un esempio di set di impostazioni sovrapposte.
+* Leggi [la codifica di video e audio con servizi multimediali](encode-concept.md)
+* Leggere [le informazioni su come codificare con una trasformazione personalizzata-.NET](encode-custom-presets-how-to.md). Attenersi alla procedura descritta in questo articolo per configurare .NET necessario per usare le trasformazioni, quindi tornare qui per provare un esempio di set di impostazioni sovrapposte.
 * Vedere il [documento di riferimento per le trasformazioni](/rest/api/media/transforms).
 
 Dopo aver acquisito familiarità con le trasformazioni, scaricare l'esempio overlays.

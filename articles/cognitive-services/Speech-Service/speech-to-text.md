@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento vocale, software di riconoscimento vocale
-ms.openlocfilehash: 5e593202a8cd68dfc4a92f991d573b4b06051b36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3450d39729096bfc3077f51e2069f8f102e571a5
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102434314"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449393"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
 
@@ -26,7 +26,12 @@ La sintesi vocale, nota anche come riconoscimento vocale, consente la trascrizio
 
 Per impostazione predefinita, il servizio di sintesi vocale usa il modello di linguaggio universale. Questo modello è stato sottoposto a training usando i dati di proprietà di Microsoft e viene distribuito nel cloud. È ideale per gli scenari di conversazione e di dettatura. Quando si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, di lingua e di pronuncia personalizzati. La personalizzazione è utile per risolvere il rumore di ambiente o il vocabolario specifico del settore.
 
-Con il testo di riferimento aggiuntivo come input, il servizio riconoscimento vocale consente inoltre la funzionalità di [valutazione della pronuncia](rest-speech-to-text.md#pronunciation-assessment-parameters) per valutare la pronuncia vocale e fornire commenti e suggerimenti sull'accuratezza e la fluidità dell'audio parlato. Con la valutazione della pronuncia, gli Learner del linguaggio possono esercitarsi, ottenere commenti e suggerimenti istantanei e migliorare la loro pronuncia in modo che possano comunicare e presentare in tutta sicurezza. Gli educatori possono usare la funzionalità per valutare la pronuncia di più speaker in tempo reale. La funzionalità supporta attualmente la lingua inglese (Stati Uniti) e mette in correlazione le valutazioni dei dialoghi eseguite dagli esperti.
+Questa documentazione contiene i tipi di articolo seguenti:
+
+* Nelle **guide introduttive** vengono fornite istruzioni introduttive per l'esecuzione di richieste al servizio.
+* Le **guide alle procedure** contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.
+* I **concetti** forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.
+* Le **esercitazioni** sono guide più lunghe che illustrano come usare il servizio come componente in soluzioni aziendali più ampie.
 
 > [!NOTE]
 > Il riconoscimento vocale Bing è stato ritirato il 15 ottobre 2019. Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocale Bing, sono state create guide che consentono di eseguire la migrazione al servizio di riconoscimento vocale.

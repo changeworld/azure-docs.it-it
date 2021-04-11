@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 412e5ac661761d5fda1d375c59511c053a6354a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce3bda82e634cd80560d7915a08fa33218173779
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714783"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967200"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modificare la modalità di replica di un account di archiviazione
 
@@ -122,25 +122,30 @@ Sebbene Microsoft gestisca tempestivamente la richiesta di migrazione in tempo r
 - Si vuole eseguire la migrazione dei dati da ZRS a con ridondanza locale, GRS o RA-GRS.
 - L'account di archiviazione include i dati nel livello archivio.
 
-È possibile richiedere la migrazione in tempo reale tramite il [portale del supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Nel portale selezionare l'account di archiviazione da convertire in archiviazione con ridondanza della zona.
+È possibile richiedere la migrazione in tempo reale tramite il [portale del supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). 
 
-1. Selezionare **nuova richiesta di supporto**.
-2. Completare le **nozioni** di base in base alle informazioni sull'account: 
+> [!IMPORTANT]
+> Se è necessario eseguire la migrazione di più di un account di archiviazione, creare un singolo ticket di supporto e specificare i nomi degli account da convertire nella scheda **Dettagli** .
+
+Per richiedere una migrazione in tempo reale, seguire questa procedura:
+
+1. Nella portale di Azure passare a un account di archiviazione di cui si vuole eseguire la migrazione.
+1. In **supporto e risoluzione dei problemi** selezionare **nuova richiesta di supporto**.
+1. Completare la scheda **nozioni** di base in base alle informazioni sull'account:
     - **Tipo di problema**: selezionare **tecnico**.
-    - **Servizio**: selezionare **servizi personali** e **Gestione account di archiviazione**.
-    - **Risorsa**: selezionare la risorsa che si vuole convertire in ZRS.
-3. Selezionare **Avanti**.
-4. Specificare i valori seguenti nella sezione **Problema**:
-    - **Gravità**: lasciare il valore predefinito.
-    - **Tipo di problema**: selezionare **Migrazione dei dati**.
-    - **Category**: selezionare **migrate to ZRS**.
-    - **Titolo**: digitare un titolo descrittivo, ad esempio **migrazione di account con archiviazione con ridondanza della zona**.
-    - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell' \_ \_ area.
-5. Selezionare **Avanti**.
-6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Crea**.
+    - **Servizio**: selezionare **servizi personali**, quindi **gestione degli account di archiviazione**.
+    - **Risorsa**: selezionare un account di archiviazione da migrare. Se è necessario specificare più account di archiviazione, è possibile farlo nella sezione dei **Dettagli** .
+    - **Tipo di problema**: scegliere **migrazione dei dati**.
+    - **Sottotipo di problema**: scegliere **Esegui migrazione a ZRS, GZRS o ra-GZRS**.
 
-Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria.
+    :::image type="content" source="media/redundancy-migration/request-live-migration-basics-portal.png" alt-text="Screenshot che illustra come richiedere una scheda Live Migration-nozioni di base":::
+
+1. Selezionare **Avanti**. Nella scheda **soluzioni** è possibile verificare l'idoneità degli account di archiviazione per la migrazione.
+1. Selezionare **Avanti**. Se si dispone di più di un account di archiviazione da migrare, nella scheda **Dettagli** specificare il nome di ogni account, separato da un punto e virgola.
+
+    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Screenshot che illustra come richiedere una scheda Live Migration-Details":::
+
+1. Immettere le informazioni aggiuntive necessarie nella scheda **Dettagli** , quindi selezionare **Verifica + crea** per esaminare e inviare il ticket di supporto. Un utente del supporto contatterà l'utente per fornire assistenza.
 
 > [!NOTE]
 > Le condivisioni file Premium (account filestorage) sono disponibili solo per con ridondanza locale e ZRS.

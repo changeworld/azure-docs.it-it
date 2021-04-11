@@ -7,14 +7,14 @@ ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/06/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6499e4b3404a255025f88488e73da1efb6449296
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 50ecf6e394d5d19d09033554272023bd6796851b
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075952"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581204"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Distribuire una macchina virtuale con avvio attendibile abilitato (anteprima)
 
@@ -41,10 +41,13 @@ Creare una macchina virtuale con avvio attendibile abilitato.
 5. In **Dettagli progetto** verificare che sia selezionata la sottoscrizione corretta.
 6. In **gruppo di risorse** selezionare **Crea nuovo** e digitare un nome per il gruppo di risorse oppure selezionare un gruppo di risorse esistente nell'elenco a discesa.
 7. In **Dettagli istanza** Digitare un nome per il nome della macchina virtuale e scegliere un'area che supporti l' [avvio attendibile](trusted-launch.md#public-preview-limitations).
-8. In **immagine** selezionare un' [immagine che supporti l'avvio attendibile](trusted-launch.md#public-preview-limitations). È possibile che venga visualizzata solo la versione di generazione 1 dell'immagine, ovvero OK, procedere al passaggio successivo.
-9. Passare alla scheda **Avanzate** selezionandola nella parte superiore della pagina.
-10. Scorrere verso il basso fino alla sezione **generazione VM** e quindi selezionare **generazione 2**.
-11. Sempre nella scheda **Avanzate** scorrere fino a **avvio attendibile**, quindi selezionare la casella di controllo **avvio attendibile** . Verranno visualizzate altre due opzioni: avvio protetto e vTPM. Selezionare le opzioni appropriate per la distribuzione.
+8. In **immagine** selezionare un'immagine di generazione 2 [che supporti l'avvio attendibile](trusted-launch.md#public-preview-limitations). 
+   > [!TIP]
+   > Se non viene visualizzata la versione di generazione 2 dell'immagine desiderata nell'elenco a discesa, selezionare Visualizza **tutte le immagini** e quindi modificare il filtro di **generazione della macchina virtuale** in modo che mostri solo le immagini di generazione 2. Individuare l'immagine nell'elenco, quindi usare l'elenco a discesa **Seleziona** per selezionare la versione di generazione 2.
+ 
+1. Passare alla scheda **Avanzate** selezionandola nella parte superiore della pagina.
+1. Scorrere verso il basso fino alla sezione **generazione VM** . Verificare che sia selezionata l'opzione **generazione 2** .
+1. Sempre nella scheda **Avanzate** scorrere fino a **avvio attendibile**, quindi selezionare la casella di controllo **avvio attendibile** . Verranno visualizzate altre due opzioni: avvio protetto e vTPM. Selezionare le opzioni appropriate per la distribuzione.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot che mostra le opzioni per l'avvio attendibile.":::
 
@@ -67,10 +70,10 @@ La distribuzione della macchina virtuale richiederà alcuni minuti.
 È possibile distribuire VM con avvio attendibile usando un modello di avvio rapido:
 
 **Linux**:    
-[![Distribuzione in Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
+[![Distribuzione in Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
 **Windows**:    
-[![Distribuzione in Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
+[![Distribuzione in Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ## <a name="view-and-update"></a>Visualizza e aggiorna
 

@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/30/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 4a8efff7ef53753e15a47e87a2bb82d0124ae997
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d0e86d95205acea2ac48ce027bcd118f4e3bf20
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590450"
+ms.locfileid: "105967031"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funzionalità di anteprima di Azure Firewall Premium
 
@@ -105,39 +105,37 @@ oppure
 
 Azure Firewall Premium Preview è supportato nelle aree seguenti:
 
-- Europa occidentale (pubblico/Europa)
-- Stati Uniti orientali (pubblico/Stati Uniti)
-- Australia orientale (pubblico/Australia)
-- Asia sudorientale (pubblico/Asia Pacifico)
-- Regno Unito meridionale (pubblico/Regno Unito)
-- Europa settentrionale (pubblica/Europa)
-- Stati Uniti orientali 2 (pubblico/Stati Uniti)
-- Stati Uniti centro-meridionali (pubblici/Stati Uniti)
-- Stati Uniti occidentali 2 (pubblico/Stati Uniti)
-- Stati Uniti occidentali (pubblico/Stati Uniti)
-- Stati Uniti centrali (pubblico/Stati Uniti)
-- Stati Uniti centro-settentrionali (pubblico/Stati Uniti)
-- Giappone orientale (pubblico/Giappone)
-- Asia orientale (pubblico/Asia Pacifico)
-- Canada centrale (pubblico/Canada)
-- Francia centrale (pubblico/Francia)
-- Sudafrica settentrionale (pubblico/Sudafrica)
-- Emirati Arabi Uniti settentrionali (pubblico/UAE)
-- Svizzera settentrionale (pubblico/Svizzera)
-- Brasile meridionale (pubblico/Brasile)
-- Norvegia orientale (pubblico/Norvegia)
 - Australia centrale (pubblico/Australia)
 - Australia centrale 2 (pubblico/Australia)
+- Australia orientale (pubblico/Australia)
 - Australia sud-orientale (pubblico/Australia)
+- Brasile meridionale (pubblico/Brasile)
+- Canada centrale (pubblico/Canada)
 - Canada orientale (pubblico/Canada)
+- Stati Uniti centrali (pubblico/Stati Uniti)
 - Stati Uniti centrali EUAP (pubblico/canarino (Stati Uniti))
+- Asia orientale (pubblico/Asia Pacifico)
+- Stati Uniti orientali (pubblico/Stati Uniti)
+- Stati Uniti orientali 2 (pubblico/Stati Uniti)
+- Francia centrale (pubblico/Francia)
 - Francia meridionale (pubblico/Francia)
+- Giappone orientale (pubblico/Giappone)
 - Giappone occidentale (pubblico/Giappone)
+- Corea centrale (pubblico/Corea)
 - Corea meridionale (pubblico/Corea)
+- Stati Uniti centro-settentrionali (pubblico/Stati Uniti)
+- Europa settentrionale (pubblica/Europa)
+- Sudafrica settentrionale (pubblico/Sudafrica)
+- Stati Uniti centro-meridionali (pubblici/Stati Uniti)
+- Asia sudorientale (pubblico/Asia Pacifico)
 - Emirati Arabi Uniti centrali (pubblico/UAE)
+- Regno Unito meridionale (pubblico/Regno Unito)
 - Regno Unito occidentale (pubblico/Regno Unito)
 - Stati Uniti centro-occidentali (pubblico/Stati Uniti)
+- Europa occidentale (pubblico/Europa)
 - India occidentale (pubblico/India)
+- Stati Uniti occidentali (pubblico/Stati Uniti)
+- Stati Uniti occidentali 2 (pubblico/Stati Uniti)
 
 
 ## <a name="known-issues"></a>Problemi noti

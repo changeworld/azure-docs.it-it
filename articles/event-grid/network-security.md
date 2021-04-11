@@ -5,12 +5,12 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d58e8b5ce9fb444fa501f897cca722613d9c51fe
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94917529"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967575"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sicurezza di rete per le risorse di griglia di eventi di Azure
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con griglia di eventi di Azure: 
@@ -44,7 +44,7 @@ Per istruzioni dettagliate su come configurare il firewall IP per argomenti e do
 
 L'uso di endpoint privati per la risorsa griglia di eventi consente di:
 
-- Proteggere l'accesso all'argomento o al dominio da un VNet su una rete backbone Microsoft anziché da Internet pubblico.
+- Proteggere l'accesso all'argomento o al dominio da un VNet tramite la rete backbone Microsoft anziché la rete Internet pubblica.
 - Connettersi in modo sicuro da reti locali che si connettono alla VNet tramite VPN o Express route con peering privato.
 
 Quando si crea un endpoint privato per un argomento o un dominio nel VNet, viene inviata una richiesta di consenso per l'approvazione al proprietario della risorsa. Se l'utente che richiede la creazione dell'endpoint privato è anche un proprietario della risorsa, questa richiesta di consenso viene approvata automaticamente. In caso contrario, la connessione è in stato di **attesa** fino all'approvazione. Le applicazioni in VNet possono connettersi senza interruzioni al servizio griglia di eventi tramite l'endpoint privato, usando le stesse stringhe di connessione e i meccanismi di autorizzazione usati in altro modo. I proprietari delle risorse possono gestire le richieste di consenso e gli endpoint privati, tramite la scheda **endpoint privati** per la risorsa nel portale di Azure.

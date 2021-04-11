@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 85520032e9bc63b6296e40dd1c1055e36762dcc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30c73849d07c1495251c17510ea71f29c674c618
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555007"
+ms.locfileid: "105967490"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 
@@ -28,7 +28,7 @@ L'aggiornamento a un account di archiviazione per utilizzo generico V2 dagli acc
 > [!NOTE]
 > Sebbene Microsoft consigli gli account per utilizzo generico V2 per la maggior parte degli scenari, Microsoft continuerà a supportare gli account per utilizzo generico V1 per i clienti nuovi ed esistenti. È possibile creare account di archiviazione per utilizzo generico V1 in nuove aree ogni volta che archiviazione di Azure è disponibile in tali aree. Microsoft non ha attualmente un piano per deprecare il supporto per gli account per utilizzo generico V1 e fornirà almeno un preavviso di un anno prima di deprecare le funzionalità di archiviazione di Azure. Microsoft continuerà a fornire aggiornamenti della sicurezza per gli account per utilizzo generico V1, ma per questo tipo di account non è previsto alcun nuovo sviluppo di funzionalità.
 >
-> A partire dal 1 ° ottobre 2020, i prezzi per gli account per utilizzo generico V1 nelle nuove aree di archiviazione di Azure equivalgono ai prezzi per gli account per utilizzo generico V2 in tali aree. I prezzi nelle aree di archiviazione di Azure esistenti non sono stati modificati. Per informazioni dettagliate sui prezzi per gli account per utilizzo generico V1 in un'area specifica, vedere la pagina dei prezzi di archiviazione di Azure. Scegliere l'area geografica e quindi selezionare **altro** accanto a offerte per i **prezzi**.
+> Per le nuove aree di Azure che sono online dopo il 1 ° ottobre 2020, i prezzi per gli account per utilizzo generico V1 sono stati modificati e sono equivalenti ai prezzi per gli account per utilizzo generico V2 in tali aree. I prezzi per gli account per utilizzo generico V1 nelle aree di Azure esistenti prima del 1 ° ottobre 2020 non sono stati modificati. Per informazioni dettagliate sui prezzi per gli account per utilizzo generico V1 in un'area specifica, vedere la pagina dei prezzi di archiviazione di Azure. Scegliere l'area geografica e quindi selezionare **altro** accanto a offerte per i **prezzi**.
 
 ## <a name="upgrade-an-account"></a>Aggiornare un account
 

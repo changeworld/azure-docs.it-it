@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: c315c071aeb36eea0bd1af84b1344cf2fef5f703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f4bdd5332b3c10cf375c7c04ede25137328714a2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91329661"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073078"
 ---
 >[!NOTE]
 >Per le risorse non fisse aprire un ticket di supporto e richiedere l'aumento delle quote. Non creare altri account di Servizi multimediali di Azure per provare a ottenere limiti superiori.
@@ -41,7 +41,7 @@ A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account 
 
 <sup>3</sup>Quando si effettua una richiesta per elencare le entità processo, vengono restituiti al massimo 1.000 processi per ogni richiesta. Per tenere traccia di tutti i processi inviati, usare le opzioni top o skip descritte nell'argomento [Opzioni delle query di sistema OData](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
-<sup>4</sup>I localizzatori non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [Proteggere i contenuti con Servizi multimediali di Azure](../articles/media-services/previous/media-services-content-protection-overview.md).
+<sup>4</sup>I localizzatori non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [Proteggere i contenuti con Servizi multimediali di Azure](../articles/media-services/latest/drm-content-protection-concept.md).
 
 <sup>5</sup>Gli account di archiviazione devono appartenere alla stessa sottoscrizione di Azure.
 

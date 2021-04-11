@@ -2,24 +2,24 @@
 title: Multi-tenant e isolamento del contenuto
 titleSuffix: Azure Cognitive Search
 description: Informazioni sui modelli di progettazione comuni per le applicazioni SaaS multi-tenant durante l'uso di Azure ricerca cognitiva.
-manager: nitinme
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 7833dcf8fbe2b6460346310a4d094c7bb5d606c4
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91397369"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581574"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelli di progettazione per applicazioni SaaS multi-tenant e Azure ricerca cognitiva
 
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento dei tenant per le applicazioni multi-tenant compilate con ricerca cognitiva di Azure.
 
 ## <a name="azure-cognitive-search-concepts"></a>Concetti di Azure ricerca cognitiva
+
 Come soluzione di ricerca distribuita come servizio, [Azure ricerca cognitiva](search-what-is-azure-search.md) consente agli sviluppatori di aggiungere esperienze di ricerca avanzate alle applicazioni senza gestire alcuna infrastruttura o diventare esperti nel recupero delle informazioni. I dati vengano caricati nel servizio e quindi archiviati nel cloud. Usando semplici richieste all'API ricerca cognitiva di Azure, i dati possono quindi essere modificati e cercati. 
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Servizi di ricerca, indici, campi e documenti
@@ -31,14 +31,16 @@ Quando si usa ricerca cognitiva di Azure, si sottoscrive un *servizio di ricerca
 Ogni indice all'interno di un servizio di ricerca ha un proprio schema, definito da un certo numero di *campi* personalizzabili. I dati vengono aggiunti a un indice di ricerca cognitiva di Azure sotto forma di singoli *documenti*. Ogni documento deve essere caricato in un indice specifico e deve adattarsi allo schema di tale indice. Quando si eseguono ricerche nei dati utilizzando Azure ricerca cognitiva, le query di ricerca full-text vengono eseguite su un particolare indice.  Facendo riferimento ai database, i campi possono essere paragonati alle colonne e i documenti alle righe di una tabella del database.
 
 ### <a name="scalability"></a>Scalabilità
+
 Qualsiasi servizio ricerca cognitiva di Azure nel piano [tariffario](https://azure.microsoft.com/pricing/details/search/) standard può essere ridimensionato in due dimensioni: archiviazione e disponibilità.
 
-* *partizioni* per aumentare lo spazio di archiviazione di un servizio di ricerca.
-* *repliche* a un servizio per aumentare la velocità effettiva delle richieste che un servizio di ricerca può gestire.
++ *partizioni* per aumentare lo spazio di archiviazione di un servizio di ricerca.
++ *repliche* a un servizio per aumentare la velocità effettiva delle richieste che un servizio di ricerca può gestire.
 
 Aggiungendo e rimuovendo partizioni e repliche si consentirà alla capacità del servizio di ricerca di crescere in base alla quantità di dati e al traffico richiesti dall'applicazione. Affinché un servizio di ricerca rispetti un [contratto di servizio](https://azure.microsoft.com/support/legal/sla/search/v1_0/)di lettura, sono necessarie due repliche. Affinché un servizio rispetti un [contratto di servizio](https://azure.microsoft.com/support/legal/sla/search/v1_0/)di lettura-scrittura, sono necessarie tre repliche.
 
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Limiti di servizio e di indice in Azure ricerca cognitiva
+
 Sono disponibili diversi [piani tariffari](https://azure.microsoft.com/pricing/details/search/) in Azure ricerca cognitiva, ciascuno dei quali presenta [limiti e quote](search-limits-quotas-capacity.md)diversi. Alcuni di questi limiti sono a livello di servizio, altri sono a livello di indice e altri ancora a livello di partizione.
 
 |  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
@@ -51,6 +53,7 @@ Sono disponibili diversi [piani tariffari](https://azure.microsoft.com/pricing/d
 | **Massimo numero di indici per servizio** |5 |50 |200 |200 |3000 (max 1000 indici/partizione) |
 
 #### <a name="s3-high-density"></a>S3 ad alta densità
+
 Nel piano tariffario S3 di ricerca cognitiva Azure è disponibile un'opzione per la modalità ad alta densità (HD) progettata specificamente per gli scenari multi-tenant. In molti casi è necessario supportare un numero elevato di tenant più piccoli in un singolo servizio, per ottenere vantaggi come semplicità e convenienza.
 
 S3 HD consente di comprimere numerosi indici di piccole dimensioni, che vengono quindi gestiti da un singolo servizio di ricerca, sacrificando la possibilità di aumentare il numero di indici che usano le partizioni in cambio dell'hosting di un maggior numero di indici in un singolo servizio.
@@ -58,24 +61,32 @@ S3 HD consente di comprimere numerosi indici di piccole dimensioni, che vengono 
 Un servizio S3 è progettato per ospitare un numero fisso di indici (massimo 200) e consentire a ogni indice di ridimensionarsi orizzontalmente quando vengono aggiunte nuove partizioni al servizio. L'aggiunta di partizioni ai servizi S3 HD aumenta il numero massimo di indici che il servizio è in grado di ospitare. La dimensione massima ideale per un singolo indice S3HD è di circa 50-80 GB, anche se non esiste alcun limite di dimensioni rigide per ogni indice imposto dal sistema.
 
 ## <a name="considerations-for-multitenant-applications"></a>Considerazioni per le applicazioni multi-tenant
+
 Le applicazioni multi-tenant devono distribuire in modo efficace le risorse tra i tenant mantenendo al tempo stesso un certo livello di privacy tra i vari tenant. Quando si progetta l'architettura di un'applicazione di questo tipo, ci sono alcuni aspetti da considerare:
 
-* *Isolamento del tenant:* gli sviluppatori di applicazioni devono adottare misure appropriate per assicurarsi che nessun tenant non autorizzato o indesiderato acceda ai dati di altri tenant. Oltre alla questione della privacy dei dati, le strategie di isolamento tenant richiedono una gestione efficace delle risorse condivise e la protezione da vicini fastidiosi.
-* *Costi delle risorse del cloud:* come con qualsiasi altra applicazione, le soluzioni software devono rimanere competitive quando sono componenti di un'applicazione multi-tenant.
-* *Semplicità delle operazioni:* quando si sviluppa un'architettura multi-tenant, l'impatto sulle operazioni e la complessità dell'applicazione è un fattore importante. Azure ricerca cognitiva dispone di un [contratto di contratto del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* *Presenza globale:* le applicazioni multi-tenant potrebbero dover gestire in modo efficace tenant distribuiti in tutto il mondo.
-* *Scalabilità:* gli sviluppatori di applicazioni devono mantenere le applicazioni a un livello di complessità sufficientemente ridotto e allo stesso tempo progettarle in maniera che siano scalabili in base al numero di tenant e alla dimensione dei dati e del carico di lavoro dei tenant.
++ *Isolamento del tenant:* gli sviluppatori di applicazioni devono adottare misure appropriate per assicurarsi che nessun tenant non autorizzato o indesiderato acceda ai dati di altri tenant. Oltre alla questione della privacy dei dati, le strategie di isolamento tenant richiedono una gestione efficace delle risorse condivise e la protezione da vicini fastidiosi.
+
++ *Costi delle risorse del cloud:* come con qualsiasi altra applicazione, le soluzioni software devono rimanere competitive quando sono componenti di un'applicazione multi-tenant.
+
++ *Semplicità delle operazioni:* quando si sviluppa un'architettura multi-tenant, l'impatto sulle operazioni e la complessità dell'applicazione è un fattore importante. Azure ricerca cognitiva dispone di un [contratto di contratto del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+
++ *Presenza globale:* le applicazioni multi-tenant potrebbero dover gestire in modo efficace tenant distribuiti in tutto il mondo.
+
++ *Scalabilità:* gli sviluppatori di applicazioni devono mantenere le applicazioni a un livello di complessità sufficientemente ridotto e allo stesso tempo progettarle in maniera che siano scalabili in base al numero di tenant e alla dimensione dei dati e del carico di lavoro dei tenant.
 
 Azure ricerca cognitiva offre alcuni limiti che possono essere usati per isolare i dati e il carico di lavoro dei tenant.
 
 ## <a name="modeling-multitenancy-with-azure-cognitive-search"></a>Modellazione del multi-tenant con Azure ricerca cognitiva
+
 Nel caso di uno scenario multi-tenant, lo sviluppatore dell'applicazione usa uno o più servizi di ricerca e divide i tenant tra i servizi, gli indici o entrambi. Azure ricerca cognitiva include alcuni modelli comuni per la modellazione di uno scenario multi-tenant:
 
-1. *Indice per tenant:* ogni tenant dispone di un proprio indice all'interno di un servizio di ricerca che è condiviso con altri tenant.
-2. *Servizio per tenant:* Ogni tenant dispone di un servizio ricerca cognitiva di Azure dedicato, che offre il massimo livello di separazione dei dati e del carico di lavoro.
-3. *Combinazione di entrambi:* ai tenant più grandi e attivi vengono assegnati servizi dedicati mentre ai tenant più piccoli vengono assegnati singoli indici all'interno di servizi condivisi.
++ *Un indice per ogni tenant:* Ogni tenant dispone di un proprio indice all'interno di un servizio di ricerca condiviso con altri tenant.
 
-## <a name="1-index-per-tenant"></a>1. indice per tenant
++ *Un servizio per ogni tenant:* Ogni tenant dispone di un servizio ricerca cognitiva di Azure dedicato, che offre il massimo livello di separazione dei dati e del carico di lavoro.
+
++ *Combinazione di entrambi:* ai tenant più grandi e attivi vengono assegnati servizi dedicati mentre ai tenant più piccoli vengono assegnati singoli indici all'interno di servizi condivisi.
+
+## <a name="model-1-one-index-per-tenant"></a>Modello 1: un indice per ogni tenant
 
 :::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="Un'immagine del modello &quot;indice per tenant&quot;" border="false":::
 
@@ -93,7 +104,7 @@ Azure ricerca cognitiva consente la scalabilità sia dei singoli indici che del 
 
 Se il numero totale di indici diventa troppo grande per un singolo servizio, è necessario eseguire il provisioning di un altro servizio per accogliere i nuovi tenant. Se gli indici devono essere spostati tra i servizi di ricerca man mano che vengono aggiunti nuovi servizi, i dati dell'indice devono essere copiati manualmente da un indice all'altro in quanto ricerca cognitiva di Azure non consente lo spostamento di un indice.
 
-## <a name="2-service-per-tenant"></a>2. servizio per tenant
+## <a name="model-2-once-service-per-tenant"></a>Modello 2: una volta il servizio per ogni tenant
 
 :::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Un'immagine del modello &quot;servizio per tenant&quot;" border="false":::
 
@@ -109,7 +120,8 @@ Il modello "servizio per tenant" è una scelta efficiente per le applicazioni co
 
 Problematiche di scalabilità di questo modello si verificano quando i singoli tenant diventano troppo grandi per il servizio. Azure ricerca cognitiva attualmente non supporta l'aggiornamento del piano tariffario di un servizio di ricerca, pertanto tutti i dati devono essere copiati manualmente in un nuovo servizio.
 
-## <a name="3-mixing-both-models"></a>3. combinazione di entrambi i modelli
+## <a name="model-3-hybrid"></a>Modello 3: ibrido
+
 Un'altra possibilità per la modellazione multi-tenancy consiste nell'unione delle due strategie "indice per tenant" e "servizio per tenant".
 
 Combinando i due modelli, i tenant più grandi di un'applicazione possono occupare servizi dedicati mentre la lunga coda di tenant più piccoli e meno attivi può occupare gli indici in un servizio condiviso. Questo modello garantisce ai tenant più grandi di ottenere prestazioni elevate e coerenti dal servizio, contribuendo al tempo stesso a proteggere i tenant più piccoli da eventuali vicini fastidiosi.
@@ -117,6 +129,7 @@ Combinando i due modelli, i tenant più grandi di un'applicazione possono occupa
 L'implementazione di questa strategia si basa tuttavia sulla previsione di quali tenant richiederanno un servizio dedicato e non un indice in un servizio condiviso. La complessità dell'applicazione aumenta con la necessità di gestire entrambi questi modelli multi-tenancy.
 
 ## <a name="achieving-even-finer-granularity"></a>Raggiungimento di una granularità ancora maggiore
+
 I modelli di progettazione precedenti per modellare gli scenari multi-tenant in Azure ricerca cognitiva presuppongono un ambito uniforme in cui ogni tenant è un'intera istanza di un'applicazione. Le applicazioni tuttavia possono gestire a volte numerosi ambiti più piccoli.
 
 Se i modelli "servizio per tenant" e "indice per tenant" non hanno un ambito sufficientemente piccolo, è possibile modellare un indice per ottenere un livello di granularità ancora più preciso.
@@ -127,10 +140,8 @@ Questo metodo può essere usato per ottenere funzionalità di account utente div
 
 > [!NOTE]
 > L'uso dell'approccio descritto sopra per configurare un singolo indice per più tenant influisce sulla pertinenza dei risultati della ricerca. I punteggi di pertinenza della ricerca vengono calcolati a livello di indice, non a livello di tenant, quindi tutti i dati dei tenant vengono incorporati nelle statistiche dei punteggi di pertinenza, ad esempio la frequenza del termine.
-> 
-> 
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
-Azure ricerca cognitiva è una scelta interessante per molte applicazioni. Quando si valutano i vari modelli di progettazione per le applicazioni multi-tenant, prendere in considerazione i [diversi piani tariffari](https://azure.microsoft.com/pricing/details/search/) e i rispettivi [limiti di servizio](search-limits-quotas-capacity.md) per personalizzare meglio Azure ricerca cognitiva per adattare i carichi di lavoro delle applicazioni e le architetture di tutte le dimensioni.
 
-Eventuali domande sugli scenari di Azure ricerca cognitiva e multi-tenant possono essere indirizzate a azuresearch_contact@microsoft.com .
+Azure ricerca cognitiva è una scelta interessante per molte applicazioni. Quando si valutano i vari modelli di progettazione per le applicazioni multi-tenant, prendere in considerazione i [diversi piani tariffari](https://azure.microsoft.com/pricing/details/search/) e i rispettivi [limiti di servizio](search-limits-quotas-capacity.md) per personalizzare meglio Azure ricerca cognitiva per adattare i carichi di lavoro delle applicazioni e le architetture di tutte le dimensioni.

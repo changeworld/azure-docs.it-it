@@ -2,7 +2,7 @@
 title: Riferimento ai dati di Azure Time Series Insights di monitoraggio | Microsoft Docs
 description: Documentazione di riferimento per il monitoraggio Azure Time Series Insights.
 author: deepakpalled
-ms.author: lyhughes
+ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: bfd0d04313f0b519b4013a43e29d88400c73ea31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20d376ee501edf16711617847c685dfd531f2c80
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591376"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504584"
 ---
 # <a name="monitoring-azure-time-series-insights-data-reference"></a>Riferimento ai dati di monitoraggio Azure Time Series Insights
 
@@ -23,11 +23,12 @@ Informazioni sui dati e sulle risorse raccolti da monitoraggio di Azure dall'amb
 
 ## <a name="metrics"></a>Metriche
 
-Questa sezione elenca tutte le metriche della piattaforma raccolte automaticamente raccolte per Azure Time Series Insights. Per un elenco di tutte le metriche di supporto di monitoraggio di Azure (incluse Azure Time Series Insights), vedere [metriche supportate di monitoraggio di Azure](../azure-monitor/essentials/metrics-supported.md). Il provider di risorse per queste metriche è [Microsoft. TimeSeriesInsights/environments/EventSources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) e [Microsoft. TimeSeriesInsights/environments](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments).
+Questa sezione elenca tutte le metriche della piattaforma raccolte automaticamente raccolte per Azure Time Series Insights. Per un elenco di tutte le metriche di supporto di monitoraggio di Azure (incluse Azure Time Series Insights), vedere [metriche supportate di monitoraggio di Azure](../azure-monitor/essentials/metrics-supported.md).
+Il provider di risorse per queste metriche è [Microsoft. TimeSeriesInsights/environments/EventSources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) e [Microsoft. TimeSeriesInsights/environments](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments).
 
 
 ### <a name="ingress"></a>Dati in ingresso
- 
+
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
 |IngressReceivedBytes|Ingress Received Bytes (Byte ricevuti in ingresso)|Byte|Totale|Numero di byte letti dall'origine eventi|

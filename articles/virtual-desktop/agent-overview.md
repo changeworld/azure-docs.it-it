@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: ecc4a5a17186eddd4223715462b14399bdf702df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 371cc78f3ebad638008f4195f164b66a64948c65
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601891"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504550"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Introduzione all'agente desktop virtuale di Windows
 
@@ -25,7 +25,7 @@ In questo articolo viene illustrata una breve panoramica dei processi di install
 
 ## <a name="initial-installation-process"></a>Processo di installazione iniziale
 
-L'agente desktop virtuale di Windows viene inizialmente installato in uno dei due modi seguenti. Se si effettua il provisioning di macchine virtuali (VM) nell'portale di Azure e in Azure Marketplace, verranno installati automaticamente il bootloader dell'agente e dell'agente. Se si effettua il provisioning di macchine virtuali tramite PowerShell, è necessario scaricare manualmente i file dell'agente e dell'agente bootloader. msi quando si [Crea un pool host di desktop virtuali Windows con PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool). Quando l'agente viene installato, lo stack side-by-side di desktop virtuale di Windows e l'agente di monitoraggio di Ginevra vengono installati contemporaneamente. Il componente stack affiancato è necessario per consentire agli utenti di stabilire in modo sicuro connessioni inverse da server a client. L'agente di monitoraggio di Ginevra monitora lo stato dell'agente. Tutti e tre questi componenti sono essenziali per un corretto funzionamento della connettività utente end-to-end.
+L'agente desktop virtuale di Windows viene inizialmente installato in uno dei due modi seguenti. Se si effettua il provisioning di macchine virtuali (VM) nell'portale di Azure e in Azure Marketplace, verranno installati automaticamente il bootloader dell'agente e dell'agente. Se si effettua il provisioning di macchine virtuali tramite PowerShell, è necessario scaricare manualmente i file dell'agente e dell'agente bootloader. msi quando si [Crea un pool host di desktop virtuali Windows con PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool). Una volta installato, l'agente installa lo stack side-by-side di desktop virtuale di Windows e l'agente di monitoraggio di Ginevra. Il componente stack affiancato è necessario per consentire agli utenti di stabilire in modo sicuro connessioni inverse da server a client. L'agente di monitoraggio di Ginevra monitora lo stato dell'agente. Tutti e tre questi componenti sono essenziali per un corretto funzionamento della connettività utente end-to-end.
 
 >[!IMPORTANT]
 >Per installare correttamente l'agente desktop virtuale di Windows, lo stack affiancato e l'agente di monitoraggio di Ginevra, è necessario sbloccare tutti gli URL elencati nell' [elenco degli URL richiesti](safe-url-list.md#virtual-machines). Lo sblocco di questi URL è necessario per utilizzare il servizio desktop virtuale di Windows.
@@ -38,6 +38,7 @@ Le nuove versioni dell'agente vengono distribuite a intervalli regolari nei peri
 
 
 >[!NOTE]
+>Poiché le macchine virtuali nel pool host possono ricevere aggiornamenti degli agenti in momenti diversi, sarà necessario essere in grado di indicare la differenza tra problemi di volo e aggiornamenti dell'agente non riusciti. Se si passa ai registri eventi per la macchina virtuale in **Visualizzatore eventi**  >  **applicazione Windows Logs**  >   e si visualizza un evento con etichetta "ID 3277", significa che l'aggiornamento dell'agente non è riuscito. Se questo evento non viene visualizzato, la macchina virtuale si trova in un altro volo e verrà aggiornata in un secondo momento.
 >- Quando l'agente di monitoraggio di Ginevra esegue l'aggiornamento alla versione più recente, l'attività GenevaTask precedente viene individuata e disabilitata prima di creare una nuova attività per il nuovo agente di monitoraggio. La versione precedente dell'agente di monitoraggio non viene eliminata se la versione più recente dell'agente di monitoraggio presenta un problema che richiede il ripristino della versione precedente per la correzione. Se la versione più recente presenta un problema, l'agente di monitoraggio precedente verrà riabilitato per continuare a consegnare i dati di monitoraggio. Tutte le versioni del monitoraggio precedenti all'ultima installata prima dell'aggiornamento verranno eliminate dalla macchina virtuale.
 >- La VM conserva tre versioni dello stack affiancato alla volta. Questo consente un ripristino rapido se si verifica un errore durante l'aggiornamento. La versione meno recente dello stack viene rimossa dalla VM ogni volta che lo stack viene aggiornato.
 

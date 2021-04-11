@@ -120,7 +120,7 @@
               href: use-dynamic-groups.md
             - name: Informazioni sull'utente B2B
               href: user-properties.md
-            - name: Reimposta lo stato di riscatto
+            - name: Reimposta stato riscatto (anteprima)
               href: reset-redemption-status.md
             - name: B2B per app integrate con Azure AD
               href: configure-saas-apps.md

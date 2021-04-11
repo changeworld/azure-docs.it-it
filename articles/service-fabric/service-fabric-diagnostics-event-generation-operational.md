@@ -3,12 +3,12 @@ title: Elenco di eventi Service Fabric di Azure
 description: Elenco completo degli eventi disponibili in Azure Service Fabric per monitorare i cluster.
 ms.topic: reference
 ms.date: 2/25/2019
-ms.openlocfilehash: 3f65d7c3ddec8263ff6f115df9616b48814afc93
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a1ba21aaac831abb07544944420f2b77e1753955
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628884"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279783"
 ---
 # <a name="list-of-service-fabric-events"></a>Elenco degli eventi di Service Fabric 
 
@@ -36,6 +36,12 @@ Altre informazioni sugli aggiornamenti dei cluster sono disponibili [qui](servic
 | 29629 | ClusterUpgradeRollbackStarted | Aggiornamento | È stato avviato il ripristino dello stato precedente all'aggiornamento del cluster  | Gestione certificati | Avviso | 
 | 29630 | ClusterUpgradeRollbackCompleted | Aggiornamento | È stato completato il ripristino dello stato precedente all'aggiornamento del cluster | Gestione certificati | Avviso | 
 | 29631 | ClusterUpgradeDomainCompleted | Aggiornamento | Un dominio di aggiornamento ha completato l'aggiornamento durante un aggiornamento del cluster | Gestione certificati | Informativo | 
+
+**Eventi di selezione host**
+| EventId | Nome | Category | Descrizione |Origine (attività) | Level |
+| --- | --- | ---| --- | --- | --- |
+| 17616 | Decisione |StateTransition | È stato pianificato l'operazione di posizionamento per decidere la posizione di nuove repliche. | CRM | Informativo |
+
 
 ## <a name="node-events"></a>Eventi dei nodi
 

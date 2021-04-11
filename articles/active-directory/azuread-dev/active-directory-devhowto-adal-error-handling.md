@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad5595f7eebc8feca2f00a6f95e10c547ded9529
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da47893839322f06cebfbee40902414040bb87d8
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85383735"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075203"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
 
@@ -197,7 +197,7 @@ In caso di errore, un'applicazione può presentare un'interfaccia utente per con
 
 La gestione degli errori nelle applicazioni native può essere definita da due casi:
 
-|  |  |
+| Caso | Descrizione  |
 |------|-------------|
 | **Caso 1**:<br>Errore irreversibile (la maggior parte dei casi) | 1. non provare immediatamente a riprovare. Presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo (ad esempio, "riprovare ad accedere" o "scaricare Azure AD applicazione broker"). |
 | **Caso 2**:<br>Errore non irreversibile | 1. eseguire un singolo tentativo perché l'utente finale potrebbe essere entrato in uno stato che comporta un esito positivo.<br><br>2. se il tentativo non riesce, presentare l'interfaccia utente dell'utente finale in base all'errore specifico che richiama un nuovo tentativo ("riprovare a eseguire l'accesso", "Scarica Azure AD app broker" e così via). |
@@ -371,7 +371,7 @@ Se si sta creando un'applicazione a pagina singola con adal.js e AcquireToken, i
 
 Per una chiamata AcquireToken non riuscita esistono i casi seguenti:
 
-|  |  |
+| Caso | Descrizione  |
 |------|-------------|
 | **Caso 1**:<br>Risolvibile con una richiesta interattiva | 1. Se login () non riesce, non eseguire immediatamente un nuovo tentativo. Ripetere solo dopo la richiesta di un nuovo tentativo con un'azione dell'utente.|
 | **Caso 2**:<br>Non risolvibile con una richiesta interattiva. L'errore non è irreversibile. | 1. eseguire un singolo tentativo quando il principale dell'utente finale è entrato in uno stato che determina un esito positivo.<br><br>2. se il tentativo non riesce, presentare all'utente finale un'azione basata sull'errore specifico che può richiamare un nuovo tentativo ("riprovare a eseguire l'accesso"). |

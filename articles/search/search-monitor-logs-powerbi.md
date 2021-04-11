@@ -1,25 +1,25 @@
 ---
-title: Visualizzare i log e le metriche di ricerca cognitiva di Azure con Power BI
-description: Visualizzare i log e le metriche di ricerca cognitiva di Azure con Power BI
-manager: eladz
+title: Visualizzare i log e le metriche con Power BI
+description: Visualizzare i log e le metriche di Azure ricerca cognitiva con Power BI.
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 4056e892855c06ce6c412ec4a592ebcd97fc11a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: fbbeb861e50abfd393b416ddc46ff147fffb7b8e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96325384"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581624"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualizzare i log e le metriche di ricerca cognitiva di Azure con Power BI
-[Azure ricerca cognitiva](./search-what-is-azure-search.md) consente di archiviare i log delle operazioni e le metriche dei servizi relativi al servizio di ricerca in un account di archiviazione di Azure. In questa pagina vengono fornite istruzioni su come è possibile visualizzare tali informazioni tramite un'app modello di Power BI. L'app fornisce informazioni dettagliate sul servizio di ricerca, incluse informazioni su ricerca, indicizzazione, operazioni e metriche del servizio.
+
+[Azure ricerca cognitiva](./search-what-is-azure-search.md) può inviare i log delle operazioni e le metriche del servizio a un account di archiviazione di Azure, che sarà quindi possibile visualizzare nel Power bi. Questo articolo illustra i passaggi e come usare un'app modello di Power BI per visualizzare i dati. Il modello può essere utile per ottenere informazioni dettagliate sul servizio di ricerca, incluse informazioni su query, indicizzazione, operazioni e metriche del servizio.
 
 È possibile trovare l'app modello di Power BI **Azure ricerca cognitiva: analizzare i log e le metriche** nel [Marketplace delle app di Power bi](https://appsource.microsoft.com/marketplace/apps).
 
-## <a name="how-to-get-started-with-the-app"></a>Come iniziare a usare l'app
+## <a name="set-up-the-app"></a>Configurare l'app
 
 1. Abilitare le metriche e la registrazione delle risorse per il servizio di ricerca:
 
@@ -67,7 +67,8 @@ ms.locfileid: "96325384"
 
     :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Screenshot del report Power BI di Azure ricerca cognitiva.":::
 
-## <a name="how-to-change-the-app-parameters"></a>Come modificare i parametri dell'app
+## <a name="modify-app-parameters"></a>Modificare i parametri dell'app
+
 Se si desidera visualizzare i dati da un account di archiviazione diverso o modificare il numero di giorni di dati su cui eseguire la query, attenersi ai passaggi seguenti per modificare i parametri **Days** e **StorageAccount** .
 
 1. Passare alle app Power BI, trovare l'app Azure ricerca cognitiva e selezionare il pulsante **modifica app** per visualizzare l'area di lavoro.
@@ -86,7 +87,8 @@ Se si desidera visualizzare i dati da un account di archiviazione diverso o modi
 
 1. Aprire il report per visualizzare i dati aggiornati. Potrebbe inoltre essere necessario aggiornare il report per visualizzare i dati più recenti.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting-report-issues"></a>Risoluzione dei problemi relativi ai report
+
 Se non è possibile visualizzare i dati, seguire questa procedura di risoluzione dei problemi:
 
 1. Aprire il report e aggiornare la pagina per assicurarsi che siano visualizzati i dati più recenti. Nel report è disponibile un'opzione per aggiornare i dati. Selezionare questa operazione per ottenere i dati più recenti.
@@ -98,8 +100,7 @@ Se non è possibile visualizzare i dati, seguire questa procedura di risoluzione
 1. Verificare se il set di dati è ancora in corso di aggiornamento. L'indicatore di stato di aggiornamento è illustrato nel passaggio 8 precedente. Se è ancora in corso l'aggiornamento, attendere il completamento dell'aggiornamento per aprire e aggiornare il report.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Scopri di più su Azure ricerca cognitiva](./index.yml)
 
-[Che cos'è Power BI?](/power-bi/fundamentals/power-bi-overview)
-
-[Concetti di base del servizio Power BI](/power-bi/service-basic-concepts)
++ [Monitorare le operazioni e le attività di ricerca](search-monitor-usage.md)
++ [Che cos'è Power BI?](/power-bi/fundamentals/power-bi-overview)
++ [Concetti di base del servizio Power BI](/power-bi/service-basic-concepts)

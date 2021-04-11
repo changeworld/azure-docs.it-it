@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c7474b001284286ed589f6b7995db6bc7fd50af
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94647597"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075067"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -304,7 +304,7 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 | Utente | streetaddress | Indirizzo |
 | Utente | postalcode | CAP |
 | Utente | PreferredLanguage | Lingua preferita |
-| Utente | onpremisesuserprincipalname | UPN locale |*
+| Utente | onpremisesuserprincipalname | UPN locale |
 | Utente | mailNickname | Nome di posta elettronica alternativo |
 | Utente | extensionattribute1 | Attributo di estensione 1 |
 | Utente | extensionattribute2 | Attributo di estensione 2 |
@@ -419,16 +419,6 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 | ExtractMailPrefix | nessuno |
 | Join | Il suffisso da aggiungere deve essere un dominio verificato del tenant delle risorse. |
 
-### <a name="custom-signing-key"></a>Chiave di firma personalizzata
-
-È necessario assegnare una chiave di firma personalizzata all'oggetto entità servizio per poter applicare criteri di mapping di attestazioni. In questo modo si conferma che i token sono stati modificati dall'autore del criterio di mapping delle attestazioni e si proteggono le applicazioni dai criteri di mapping di attestazioni creati da malintenzionati. Per aggiungere una chiave di firma personalizzata, è possibile usare il cmdlet Azure PowerShell [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) per creare una credenziale della chiave del certificato per l'oggetto applicazione.
-
-Per le app con mapping delle attestazioni abilitato è necessario convalidare le chiavi di firma del token aggiungendo `appid={client_id}` alle [richieste di metadati OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Di seguito è riportato il formato del documento di metadati OpenID Connect.
-
-```
-https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
-```
-
 ### <a name="cross-tenant-scenarios"></a>Scenari tra tenant
 
 I criteri di mapping delle attestazioni non si applicano agli utenti guest. Se un utente guest prova ad accedere a un'applicazione con criteri di mapping delle attestazioni assegnati all'entità servizio, viene emesso il token predefinito (i criteri non hanno effetto).
@@ -531,6 +521,33 @@ In questo esempio si creano i criteri che generano un'attestazione personalizzat
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
+
+Le applicazioni che ricevono token si basano sul fatto che i valori delle attestazioni vengono emessi in maniera autorevole da Azure AD e non possono essere manomessi. Tuttavia, quando si modifica il contenuto del token tramite i criteri di mapping delle attestazioni, questi presupposti potrebbero non essere più corretti. Le applicazioni devono confermare esplicitamente che i token sono stati modificati dal creatore dei criteri di mapping delle attestazioni per proteggersi dai criteri di mapping delle attestazioni creati da attori malintenzionati. Questa operazione può essere eseguita nei modi seguenti:
+
+- Configurare una chiave di firma personalizzata
+- Aggiornare il manifesto dell'applicazione in modo da accettare le attestazioni mappate.
+ 
+Senza questo, Azure AD restituirà un [ `AADSTS50146` codice di errore](reference-aadsts-error-codes.md#aadsts-error-codes).
+
+### <a name="custom-signing-key"></a>Chiave di firma personalizzata
+
+Per aggiungere una chiave di firma personalizzata all'oggetto entità servizio, è possibile usare il cmdlet Azure PowerShell [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) per creare una credenziale della chiave del certificato per l'oggetto applicazione.
+
+Per le app con mapping delle attestazioni abilitato è necessario convalidare le chiavi di firma del token aggiungendo `appid={client_id}` alle [richieste di metadati OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Di seguito è riportato il formato del documento di metadati OpenID Connect.
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
+
+### <a name="update-the-application-manifest"></a>Aggiornare il manifesto dell'applicazione
+
+In alternativa, è possibile impostare la `acceptMappedClaims` proprietà su `true` nel [manifesto dell'applicazione](reference-app-manifest.md). Come illustrato nel [tipo di risorsa apiApplication](/graph/api/resources/apiapplication#properties), consente a un'applicazione di usare il mapping delle attestazioni senza specificare una chiave di firma personalizzata.
+
+Questa operazione richiede che i destinatari dei token richiesti usino un nome di dominio verificato del tenant di Azure AD, quindi è necessario assicurarsi di impostare `Application ID URI` (rappresentato da `identifierUris` nel manifesto dell'applicazione), ad esempio in `https://contoso.com/my-api` o (usando semplicemente il nome del tenant predefinito) `https://contoso.onmicrosoft.com/my-api` .
+
+Se non si usa un dominio verificato, Azure AD restituirà un `AADSTS501461` codice di errore con *il messaggio "AcceptMappedClaims è supportato solo per i destinatari del token che corrispondono al GUID dell'applicazione o a un gruppo di destinatari nei domini verificati del tenant. Modificare l'identificatore di risorsa o usare una chiave di firma specifica dell'applicazione ".*
 
 ## <a name="see-also"></a>Vedere anche
 
