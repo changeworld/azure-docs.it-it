@@ -1,15 +1,15 @@
 ---
 title: Dettagli di conformità alle normative per CIS Microsoft Azure Foundations benchmark 1.1.0
 description: Informazioni dettagliate sull'iniziativa incorporata per la conformità normativa di CIS Microsoft Azure Foundations benchmark 1.1.0. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 7d26825e3e401984b52216c6827b8a3baf44ad62
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1d21d04fe4347a2ff7735045e786520c106309c7
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105032515"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091753"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Informazioni dettagliate sull'iniziativa incorporata per la conformità alle normative di CIS Microsoft Azure Foundations benchmark 1.1.0
 
@@ -17,7 +17,7 @@ L'articolo seguente illustra in dettaglio come viene eseguito il mapping della d
 Per ulteriori informazioni su questo standard di conformità, vedere la pagina relativa al [benchmark di Microsoft Azure di CIS](https://www.cisecurity.org/benchmark/azure/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
 I mapping seguenti sono ai controlli **CIS Microsoft Azure Foundations benchmark 1.1.0** . Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
-Quindi, trovare e selezionare la definizione dell'iniziativa predefinita di conformità alle normative **CIS Microsoft Azure Foundations Benchmark 1.1.0**.
+Quindi, trovare e selezionare la definizione di iniziativa predefinita di **CIS Microsoft Azure Foundations benchmark v 1.1.0** Regulatory Compliance.
 
 Questa iniziativa predefinita viene distribuita come parte dell'esempio di [progetto di benchmark 1.1.0 di CIS Microsoft Azure Foundations](../../blueprints/samples/cis-azure-1-1-0.md).
 
@@ -70,7 +70,14 @@ Questa iniziativa predefinita viene distribuita come parte dell'esempio di [prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[È consigliabile selezionare il piano tariffario Standard del Centro sicurezza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |Il piano tariffario Standard consente il rilevamento delle minacce per reti e macchine virtuali e fornisce informazioni sulle minacce, rilevamento delle anomalie e analisi del comportamento nel Centro sicurezza di Azure |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
+|[Azure Defender per il Servizio app deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2913021d-f2fd-4f3d-b958-22354e2bdbcb) |Azure Defender per il Servizio app sfrutta la portata del cloud e la visibilità di Azure come provider di servizi cloud per monitorare gli attacchi alle app Web più comuni. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnAppServices_Audit.json) |
+|[Azure Defender per i server di database SQL di Azure deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |Azure Defender per SQL fornisce funzionalità per l'individuazione e la mitigazione di potenziali vulnerabilità del database, il rilevamento di attività anomale che possono indicare minacce ai database SQL e l'individuazione e la classificazione di dati sensibili. |AuditIfNotExists, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
+|[Azure Defender per i registri contenitori deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4) |Azure Defender per i registri contenitori fornisce l'analisi delle vulnerabilità delle immagini di cui è stato eseguito il pull negli ultimi 30 giorni oppure di cui è stato eseguito il push o l'importazione nel registro ed espone i risultati dettagliati per immagine. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainerRegistry_Audit.json) |
+|[Azure Defender per Key Vault deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e6763cc-5078-4e64-889d-ff4d9a839047) |Azure Defender per Key Vault fornisce un ulteriore livello di protezione e di intelligence per sulla sicurezza grazie al rilevamento di tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di Key Vault. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnKeyVaults_Audit.json) |
+|[Azure Defender per Kubernetes deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F523b5cd1-3e23-492f-a539-13118b6d1e3a) |Azure Defender per Kubernetes fornisce protezione dalle minacce in tempo reale per gli ambienti containerizzati e genera avvisi per le attività sospette. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnKubernetesService_Audit.json) |
+|[Azure Defender per i server deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4da35fc9-c9e7-4960-aec9-797fe7d9051d) |Azure Defender per i server fornisce protezione dalle minacce in tempo reale per i carichi di lavoro dei server e genera raccomandazioni per la protezione avanzata e avvisi sulle attività sospette. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnVM_Audit.json) |
+|[Azure Defender per i server SQL nelle macchine virtuali deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6581d072-105e-4418-827f-bd446d56421b) |Azure Defender per SQL fornisce funzionalità per l'individuazione e la mitigazione di potenziali vulnerabilità del database, il rilevamento di attività anomale che possono indicare minacce ai database SQL e l'individuazione e la classificazione di dati sensibili. |AuditIfNotExists, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServerVirtualMachines_Audit.json) |
+|[Azure Defender per l'archiviazione deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F308fbb08-4ab8-4e67-9b29-592e93fb94fa) |Azure Defender per l'archiviazione offre il rilevamento di tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnStorageAccounts_Audit.json) |
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Assicurarsi che "Provisioning automatico dell'agente di monitoraggio" sia impostata su "Sì"
 

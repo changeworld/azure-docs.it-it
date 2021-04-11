@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: ec72431d927fd59677075e7adfdf7df171574882
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44131ecf6fd3d8d2f07f0fe567fb924ac8621682
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772944"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110003"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager
 
@@ -67,7 +67,7 @@ Per un modello di app per la logica, è possibile usare principalmente questi og
 |-----------|-------------|
 | `parameters` | Dichiara i [parametri del modello](../azure-resource-manager/templates/template-syntax.md#parameters) per accettare i valori da usare durante la creazione e la personalizzazione delle risorse per la distribuzione in Azure. Ad esempio, questi parametri accettano i valori per il nome e il percorso dell'app per la logica, le connessioni e altre risorse necessarie per la distribuzione. È possibile archiviare questi valori di parametro in un [file di parametri](#template-parameter-files), descritto più avanti in questo argomento. Per informazioni generali, vedere [parametri: Gestione risorse la struttura e la sintassi del modello](../azure-resource-manager/templates/template-syntax.md#parameters). |
 | `resources` | Definisce le [risorse](../azure-resource-manager/templates/template-syntax.md#resources) da creare o aggiornare e distribuire in un gruppo di risorse di Azure, ad esempio l'app per la logica, le connessioni, gli account di archiviazione di Azure e così via. Per informazioni generali, vedere [risorse-Gestione risorse la struttura e la sintassi del modello](../azure-resource-manager/templates/template-syntax.md#resources). |
-||||
+|||
 
 Il modello di app per la logica usa questo formato di nome file:
 

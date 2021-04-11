@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 22f4c5bba3ea6836a8c9b016315f3cfae36cb52d
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 225f1d311739bdafbe39971a2b4ac74917e770e9
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111937"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279494"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codifica di video e audio con servizi multimediali
 
@@ -31,7 +31,7 @@ I video vengono in genere recapitati a dispositivi e app tramite [download progr
 > Servizi multimediali non esegue la fatturazione per i processi annullati o con errori. Ad esempio, un processo che ha raggiunto il 50% di avanzamento e viene annullato non viene fatturato al 50% dei minuti del processo. Vengono addebitati solo i processi finiti.
 
 * Per eseguire il download progressivo, è possibile usare servizi multimediali di Azure per convertire un file multimediale digitale (mezzanino) in un file [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) , che contiene video codificati con il codec [H. 264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) e audio che è stato codificato con il codec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) . Questo file MP4 viene scritto in un asset nell'account di archiviazione. È possibile usare le API o gli SDK di archiviazione di Azure, ad esempio l' [API REST di archiviazione](../../storage/common/storage-rest-api-auth.md) o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md), per scaricare direttamente il file. Se l'asset di output è stato creato con un nome di contenitore specifico nello spazio di archiviazione, usare tale percorso. In caso contrario, è possibile usare servizi multimediali per [elencare gli URL del contenitore di asset](/rest/api/media/assets/listcontainersas). 
-* Per preparare il contenuto per la distribuzione tramite streaming a bitrate adattivo, è necessario codificare il file in formato intermedio a più velocità in bit (da alto a basso). Per garantire una transizione normale della qualità, la risoluzione del video viene ridotta quando il bitrate viene ridotto. In questo modo si ottiene una cosiddetta scala di codifica, ovvero una tabella di risoluzioni e bitrate (vedere [scala a bitrate adattivo generato automaticamente](encode-autogen-bitrate-ladder.md)). È possibile usare servizi multimediali per codificare i file in formato intermedio a più velocità in bit. In questo modo, si otterrà un set di file MP4 e file di configurazione del flusso associati scritti in un asset nell'account di archiviazione. È quindi possibile usare la funzionalità di creazione [dinamica dei pacchetti](encode-dynamic-packaging-concept.md) di servizi multimediali per distribuire il video tramite protocolli di streaming, ad esempio [MPEG-Dash](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) e [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). A questo scopo, è necessario creare un [localizzatore di streaming](streaming-locators-concept.md) e creare URL di streaming corrispondenti ai protocolli supportati, che possono essere quindi passati a dispositivi/app in base alle relative funzionalità.
+* Per preparare il contenuto per la distribuzione tramite streaming a bitrate adattivo, è necessario codificare il file in formato intermedio a più velocità in bit (da alto a basso). Per garantire una transizione normale della qualità, la risoluzione del video viene ridotta quando il bitrate viene ridotto. In questo modo si ottiene una cosiddetta scala di codifica, ovvero una tabella di risoluzioni e bitrate (vedere [scala a bitrate adattivo generato automaticamente](encode-autogen-bitrate-ladder.md)). È possibile usare servizi multimediali per codificare i file in formato intermedio a più velocità in bit. In questo modo, si otterrà un set di file MP4 e file di configurazione del flusso associati scritti in un asset nell'account di archiviazione. È quindi possibile usare la funzionalità di creazione [dinamica dei pacchetti](encode-dynamic-packaging-concept.md) di servizi multimediali per distribuire il video tramite protocolli di streaming, ad esempio [MPEG-Dash](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) e [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). A questo scopo, è necessario creare un [localizzatore di streaming](stream-streaming-locators-concept.md) e creare URL di streaming corrispondenti ai protocolli supportati, che possono essere quindi passati a dispositivi/app in base alle relative funzionalità.
 
 Il diagramma seguente illustra il flusso di lavoro per la codifica su richiesta con la creazione dinamica dei pacchetti.
 
@@ -41,7 +41,7 @@ Questo argomento contiene indicazioni su come codificare il contenuto con Serviz
 
 ## <a name="transforms-and-jobs"></a>Trasformazioni e processi
 
-Per eseguire la codifica con servizi multimediali V3, è necessario creare una [trasformazione](/rest/api/media/transforms) e un [processo](/rest/api/media/jobs). La trasformazione definisce una ricetta per le impostazioni di codifica e gli output. il processo è un'istanza della ricetta. Per altre informazioni, vedere [Trasformazioni e processi](transforms-jobs-concept.md).
+Per eseguire la codifica con servizi multimediali V3, è necessario creare una [trasformazione](/rest/api/media/transforms) e un [processo](/rest/api/media/jobs). La trasformazione definisce una ricetta per le impostazioni di codifica e gli output. il processo è un'istanza della ricetta. Per altre informazioni, vedere [Trasformazioni e processi](transform-jobs-concept.md).
 
 Durante la codifica con Servizi multimediali si usano set di impostazioni per indicare al codificatore come elaborare i file multimediali di input. In servizi multimediali V3 si usa il codificatore standard per codificare i file. Ad esempio, è possibile specificare la risoluzione video e/o il numero di canali audio desiderati nel contenuto codificato.
 
@@ -84,8 +84,8 @@ Quando si codifica un video, è possibile specificare di tagliare o ritagliare a
 
 Ecco alcuni esempi:
 
-* [Creare una clip video secondaria con .NET](subclip-video-dotnet-howto.md)
-* [Creare una clip video secondaria con REST](subclip-video-rest-howto.md)
+* [Creare una clip video secondaria con .NET](transform-subclip-video-dotnet-how-to.md)
+* [Creare una clip video secondaria con REST](transform-subclip-video-rest-how-to.md)
 
 ## <a name="built-in-presets"></a>Set di impostazioni predefiniti
 

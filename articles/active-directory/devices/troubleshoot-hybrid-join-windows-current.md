@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3fd837a4c547b227147752b03b6a7312c733a5ae
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 63415037b9f91936e04fa715405bfb86bf022cdd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057015"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551765"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi a dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
@@ -423,4 +423,4 @@ Se i valori sono **NO**, il motivo potrebbe essere:
 
 Continuare [la risoluzione dei problemi dei dispositivi tramite il comando dsregcmd](troubleshoot-device-dsregcmd.md)
 
-Per altre informazioni, vedere le [domande frequenti sulla gestione dei dispositivi](faq.md)
+Per altre informazioni, vedere le [domande frequenti sulla gestione dei dispositivi](faq.yml)

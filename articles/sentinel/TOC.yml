@@ -291,6 +291,8 @@
   items:
     - name: Principali cartelle di lavoro di Azure Sentinel
       href: top-workbooks.md
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/sentinel/sentinel
     - name: Ruoli del controllo degli accessi in base al ruolo di Azure
       items:
         - name: Tutti i ruoli di Azure

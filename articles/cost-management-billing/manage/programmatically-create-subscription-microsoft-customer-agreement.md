@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/12/2021
+ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 779a1410641f945dc8dbf38aecf65b97d64971b1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5409c30020db2c8d7acf3c23df5a7d709d872341
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593968"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963275"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-customer-agreement-with-the-latest-apis"></a>Creare sottoscrizioni di Azure a livello di codice per un contratto del cliente Microsoft con le API più recenti
 
@@ -28,7 +28,9 @@ Quando si crea una sottoscrizione di Azure a livello di codice, tale sottoscrizi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per creare sottoscrizioni, è necessario avere un ruolo di tipo Proprietario, Collaboratore o Autore di sottoscrizioni di Azure in una sezione della fattura oppure un ruolo di tipo Proprietario o Collaboratore in un profilo di fatturazione o un account di fatturazione. Per altre informazioni, vedere [Ruoli e attività di fatturazione della sottoscrizione](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+Per creare sottoscrizioni, è necessario avere un ruolo di tipo Proprietario, Collaboratore o Autore di sottoscrizioni di Azure in una sezione della fattura oppure un ruolo di tipo Proprietario o Collaboratore in un profilo di fatturazione o un account di fatturazione. È anche possibile assegnare lo stesso ruolo a un nome dell'entità servizio (SPN). Per ulteriori informazioni sui ruoli e sull'assegnazione delle autorizzazioni, vedere [attività e ruoli di fatturazione della sottoscrizione](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+
+Se si usa un nome SPN per creare sottoscrizioni, usare il valore ObjectId della registrazione dell'applicazione Azure AD come l'ObjectId dell'entità servizio usando [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) o l'interfaccia della riga di comando di [Azure](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_list). 
 
 Per sapere se si ha accesso a un account con contratto del cliente Microsoft, vedere [Verificare l'accesso a un Contratto del cliente Microsoft](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement).
 

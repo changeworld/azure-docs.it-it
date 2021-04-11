@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0719fede4147943e76ddfea1c5e77388c7c5cc9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13dadd9665f2d66861e00d769086fb23a4dea115
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609740"
+ms.locfileid: "105961694"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorare i log di diagnostica di servizi multimediali
 
@@ -31,7 +31,7 @@ Questo articolo illustra come instradare i dati all'account di archiviazione e q
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un account di Servizi multimediali di Azure](../create-account-howto.md).
+- [Creare un account di Servizi multimediali di Azure](../account-create-how-to.md).
 - Esaminare  [monitoraggio servizi multimediali](monitor-media-services.md).
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Indirizzare i dati all'account di archiviazione usando il portale

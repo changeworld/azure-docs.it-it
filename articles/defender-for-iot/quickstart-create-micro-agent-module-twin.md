@@ -1,18 +1,22 @@
 ---
-title: Creare un modulo gemello di Defender Internet Agent (anteprima)
-description: Informazioni su come creare singoli moduli DefenderIotMicroAgent gemelli per i nuovi dispositivi.
+title: 'Guida introduttiva: creare un modulo gemello di Defender Internet Agent (anteprima)'
+description: Questa Guida introduttiva illustra come creare singoli moduli DefenderIotMicroAgent gemelli per i nuovi dispositivi.
 ms.date: 1/20/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5036eefbd77a22d492f6ce7d3c7d15f50a081490
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1bcaa76e9bfbe417bfd0d4b539b8e0c7ff95c7b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781059"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384512"
 ---
-# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Creare un modulo gemello di Defender Internet Agent (anteprima)
+# <a name="quickstart-create-a-defender-iot-micro-agent-module-twin-preview"></a>Guida introduttiva: creare un modulo gemello di Defender Internet Agent (anteprima)
 
 È possibile creare singoli moduli **DefenderIotMicroAgent** gemelli per i nuovi dispositivi. È anche possibile creare in batch i moduli gemelli per tutti i dispositivi in un hub Internet. 
+
+## <a name="prerequisites"></a>Prerequisiti
+
+- nessuno
 
 ## <a name="device-twins"></a>Dispositivi gemelli 
 
@@ -70,4 +74,5 @@ Per verificare se esiste un dispositivo gemello Defender-be-micro-Agent per un d
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-Passare all'articolo successivo per informazioni su come [analizzare le raccomandazioni sulla sicurezza](quickstart-investigate-security-recommendations.md).
+> [!div class="nextstepaction"]
+> [esaminare le raccomandazioni sulla sicurezza](quickstart-investigate-security-recommendations.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 62723f5c833ca89618a6d9e0781539a13efba4f3
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 9d61e9ff753c37268be19e95db9450e2cd923d96
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105959671"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279681"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Passaggio 3: configurare per eseguire la migrazione all'API REST V3 o all'SDK client
 
@@ -43,7 +43,7 @@ I clienti che usano in precedenza la versione 2015-10-01 dell'API di gestione AR
 
 ## <a name="create-a-new-media-services-account-for-testing"></a>Creare un nuovo account di servizi multimediali per il test
 
-Seguire i passaggi della Guida introduttiva per la [configurazione dell'ambiente](how-to-set-azure-subscription.md?tabs=portal) usando il portale di Azure. Selezionare accesso all'API e autenticazione basata su entità servizio per generare un nuovo ID applicazione Azure AD e i segreti da usare con questo account di test.
+Seguire i passaggi della Guida introduttiva per la [configurazione dell'ambiente](setup-azure-subscription-how-to.md?tabs=portal) usando il portale di Azure. Selezionare accesso all'API e autenticazione basata su entità servizio per generare un nuovo ID applicazione Azure AD e i segreti da usare con questo account di test.
 
 [Creare un account di servizi multimediali](account-create-how-to.md?tabs=portal).
 [Ottenere le credenziali per accedere all'API di servizi multimediali](access-api-howto.md?tabs=portal).
@@ -66,7 +66,7 @@ Seguire i passaggi della Guida introduttiva per la [configurazione dell'ambiente
 
 ## <a name="rest"></a>[REST](#tab/rest)
 
-Usare il [post](./media-rest-apis-with-postman.md) per le chiamate all'API REST di servizi multimediali V3.
+Usare il [post](./setup-postman-rest-how-to.md) per le chiamate all'API REST di servizi multimediali V3.
 Leggere le [pagine di riferimento dell'API REST](/rest/api/media/).
 
 È consigliabile usare la stringa di versione 2020-05-01 nella raccolta dei post.

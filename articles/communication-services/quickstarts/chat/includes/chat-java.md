@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 800acddcb3527b9ca16d7fc664c2a3c27b528c25
-ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
+ms.openlocfilehash: afb8a6f7d18a36503253da3666a1325eef228651
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105726685"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958061"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,7 +56,7 @@ Nel file POM fare riferimento al pacchetto `azure-communication-chat` con le API
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.7</version> 
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -66,7 +66,7 @@ Per l'autenticazione, il client deve fare riferimento al pacchetto `azure-commun
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version> 
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -82,7 +82,7 @@ Le classi e le interfacce seguenti gestiscono alcune delle principali funzionali
 | ChatThreadAsyncClient | Questa classe è necessaria per la funzionalità di thread di chat asincrona. È possibile ottenere un'istanza tramite ChatAsyncClient e usarla per inviare/ricevere/aggiornare/eliminare messaggi, aggiungere/rimuovere/ottenere utenti, inviare notifiche di digitazione in corso e conferme di lettura. |
 
 ## <a name="create-a-chat-client"></a>Creare un client di chat
-Per creare un client di chat, si useranno l''endpoint di Servizi di comunicazione e il token di accesso generato nell'ambito dei passaggi preliminari. I token di accesso utente consentono di creare applicazioni client che eseguono l'autenticazione direttamente in Servizi di comunicazione di Azure. Dopo aver generato questi token nel server, passarli a un dispositivo client. È necessario usare la classe CommunicationTokenCredential dell'SDK comune per passare il token al client di chat. 
+Per creare un client di chat, si useranno l''endpoint di Servizi di comunicazione e il token di accesso generato nell'ambito dei passaggi preliminari. I token di accesso utente consentono di creare applicazioni client che eseguono l'autenticazione direttamente in Servizi di comunicazione di Azure. Dopo aver generato questi token nel server, passarli a un dispositivo client. È necessario usare la classe CommunicationTokenCredential dell'SDK comune per passare il token al client di chat.
 
 Altre informazioni sull' [architettura della chat](../../../concepts/chat/concepts.md)
 
@@ -106,7 +106,7 @@ public class App
     public static void main( String[] args ) throws IOException
     {
         System.out.println("Azure Communication Services - Chat Quickstart");
-        
+
         // Your unique Azure Communication service endpoint
         String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 
@@ -139,7 +139,8 @@ Usare il metodo `createChatThread` per creare un thread di chat.
 - Usare il `topic` parametro del costruttore per assegnare un argomento a questa chat. L'argomento può essere aggiornato dopo la creazione del thread di chat mediante la `UpdateThread` funzione.
 - Consente `participants` di elencare i partecipanti al thread da aggiungere al thread. `ChatParticipant` accetta l'utente creato nella guida di avvio rapido [Token di accesso utente](../../access-tokens.md).
 
-`CreateChatThreadResult` risposta restituita dalla creazione di un thread di chat. Contiene un `getChatThread()` metodo che restituisce l' `ChatThread` oggetto che può essere utilizzato per ottenere il client thread dal quale è possibile ottenere per l' `ChatThreadClient` esecuzione di operazioni sul thread creato: aggiungere partecipanti, inviare messaggi e così via. L' `ChatThread` oggetto contiene inoltre il `getId()` metodo che recupera l'ID univoco del thread.
+`CreateChatThreadResult` risposta restituita dalla creazione di un thread di chat.
+Contiene un `getChatThread()` metodo che restituisce l' `ChatThread` oggetto che può essere utilizzato per ottenere il client thread dal quale è possibile ottenere per l' `ChatThreadClient` esecuzione di operazioni sul thread creato: aggiungere partecipanti, inviare messaggi e così via. L' `ChatThread` oggetto contiene inoltre il `getId()` metodo che recupera l'ID univoco del thread.
 
 ```Java
 ChatParticipant firstThreadParticipant = new ChatParticipant()
