@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4623610960d8f21a2dab3293c7499a2112416254
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37e2dc194eb2ebbcbe91eef6e50f3eb1e7b62e17
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718914"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110394"
 ---
 # <a name="create-a-transform"></a>Creare una trasformazione
 
@@ -30,12 +30,12 @@ Lo script dell'interfaccia della riga di comando di Azure in questo articolo mos
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
+[Creare un account di Servizi multimediali di Azure](./account-create-how-to.md).
 
 ## <a name="cli"></a>[CLI](#tab/cli/)
 
 > [!NOTE]
-> È possibile specificare solo un percorso di un file JSON predefinito del codificatore standard personalizzato per [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Vedere l'esempio di [codifica con una trasformazione personalizzata](custom-preset-cli-howto.md).
+> È possibile specificare solo un percorso di un file JSON predefinito del codificatore standard personalizzato per [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Vedere l'esempio di [codifica con una trasformazione personalizzata](encode-custom-preset-cli-how-to.md).
 >
 > Non è possibile passare un nome file quando si usa [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
 

@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: f349d260fff32427712442615cabf6d3958468ac
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 997a4e115f8632544b2f73aef498d40dceb0d459
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640034"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449971"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opzioni di configurazione-Application Insights di monitoraggio di Azure per Java
 
@@ -39,14 +39,14 @@ Per ulteriori informazioni e altre opzioni di configurazione, vedere di seguito.
 
 ## <a name="configuration-file-path"></a>Percorso del file di configurazione
 
-Per impostazione predefinita, Application Insights Java 3,0 prevede che il file di configurazione sia denominato `applicationinsights.json` e che si trovi nella stessa directory di `applicationinsights-agent-3.0.2.jar` .
+Per impostazione predefinita, Application Insights Java 3,0 prevede che il file di configurazione sia denominato `applicationinsights.json` e che si trovi nella stessa directory di `applicationinsights-agent-3.0.3.jar` .
 
 È possibile specificare un percorso del file di configurazione personalizzato utilizzando
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` variabile di ambiente o
 * `applicationinsights.configuration.file` Proprietà di sistema Java
 
-Se si specifica un percorso relativo, questo verrà risolto in relazione alla directory in cui `applicationinsights-agent-3.0.2.jar` si trova.
+Se si specifica un percorso relativo, questo verrà risolto in relazione alla directory in cui `applicationinsights-agent-3.0.3.jar` si trova.
 
 ## <a name="connection-string"></a>Stringa di connessione
 
@@ -61,7 +61,7 @@ La stringa di connessione è obbligatoria. È possibile trovare la stringa di co
 }
 ```
 
-È anche possibile impostare la stringa di connessione usando la variabile `APPLICATIONINSIGHTS_CONNECTION_STRING` di ambiente (che avrà quindi la precedenza se la stringa di connessione viene specificata anche nella configurazione JSON).
+È anche possibile impostare la stringa di connessione usando la variabile `APPLICATIONINSIGHTS_CONNECTION_STRING` di ambiente (che avrà quindi la precedenza sulla stringa di connessione specificata nella configurazione JSON).
 
 Se non si imposta la stringa di connessione, l'agente Java viene disattivato.
 
@@ -81,7 +81,7 @@ Se si desidera impostare il nome del ruolo Cloud:
 
 Se il nome del ruolo Cloud non è impostato, il nome della risorsa Application Insights verrà usato per etichettare il componente nella mappa dell'applicazione.
 
-È anche possibile impostare il nome del ruolo cloud usando la variabile `APPLICATIONINSIGHTS_ROLE_NAME` di ambiente (che avrà quindi la precedenza se il nome del ruolo cloud viene specificato anche nella configurazione JSON).
+È anche possibile impostare il nome del ruolo cloud usando la variabile `APPLICATIONINSIGHTS_ROLE_NAME` di ambiente (che avrà quindi la precedenza sul nome del ruolo Cloud specificato nella configurazione JSON).
 
 ## <a name="cloud-role-instance"></a>Istanza del ruolo del cloud
 
@@ -98,7 +98,7 @@ Se si desidera impostare l'istanza del ruolo Cloud su un valore diverso anziché
 }
 ```
 
-È anche possibile impostare l'istanza del ruolo cloud usando la variabile `APPLICATIONINSIGHTS_ROLE_INSTANCE` di ambiente (che avrà quindi la precedenza se l'istanza del ruolo cloud viene specificata anche nella configurazione JSON).
+È anche possibile impostare l'istanza del ruolo cloud usando la variabile `APPLICATIONINSIGHTS_ROLE_INSTANCE` di ambiente (che avrà quindi la precedenza sull'istanza del ruolo Cloud specificata nella configurazione JSON).
 
 ## <a name="sampling"></a>campionamento
 
@@ -117,14 +117,14 @@ Di seguito è riportato un esempio di come impostare il campionamento per acquis
 }
 ```
 
-È anche possibile impostare la percentuale di campionamento usando la variabile `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` di ambiente (che avrà quindi la precedenza se la percentuale di campionamento viene specificata anche nella configurazione JSON).
+È anche possibile impostare la percentuale di campionamento usando la variabile `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` di ambiente (che avrà quindi la precedenza sulla percentuale di campionamento specificata nella configurazione JSON).
 
 > [!NOTE]
 > Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero. Il campionamento attualmente non supporta altri valori.
 
 ## <a name="sampling-overrides-preview"></a>Override di campionamento (anteprima)
 
-Questa funzionalità è in anteprima, a partire da 3.0.3-BETA. 2.
+Questa funzionalità è in anteprima, a partire da 3.0.3.
 
 Le sostituzioni di campionamento consentono di eseguire l'override della [percentuale di campionamento predefinita](#sampling), ad esempio:
 * Impostare la percentuale di campionamento su 0 (o un valore minimo) per i controlli di integrità rumorosi.
@@ -215,7 +215,7 @@ Il livello predefinito configurato per Application Insights è `INFO` . Se si de
 }
 ```
 
-È anche possibile impostare il livello usando la variabile `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` di ambiente (che avrà quindi la precedenza se il livello viene specificato anche nella configurazione JSON).
+È anche possibile impostare il livello usando la variabile `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` di ambiente (che avrà quindi la precedenza sul livello specificato nella configurazione JSON).
 
 Questi sono i `level` valori validi che è possibile specificare nel `applicationinsights.json` file e il modo in cui corrispondono ai livelli di registrazione in diversi framework di registrazione:
 
@@ -256,9 +256,32 @@ Per disabilitare la raccolta automatica di metriche del micrometro (incluse le m
 }
 ```
 
+## <a name="auto-collected-azure-sdk-telemetry"></a>Telemetria di Azure SDK raccolta automaticamente
+
+Questa funzionalità è in anteprima.
+
+Molte delle librerie di Azure SDK più recenti emettono dati di telemetria.
+
+A partire dalla versione 3.0.3, è possibile abilitare la raccolta dei dati di telemetria seguenti:
+
+```json
+{
+  "preview": {
+    "instrumentation": {
+      "azureSdk": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
+
+È anche possibile abilitare questa funzionalità usando la variabile di ambiente `APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
+(che avrà quindi la precedenza su Enabled specificato nella configurazione JSON).
+
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>Eliminazione di dati di telemetria raccolti automaticamente specifici
 
-A partire dalla versione 3.0.2, i dati di telemetria raccolti automaticamente specifici possono essere eliminati usando le opzioni di configurazione seguenti:
+A partire dalla versione 3.0.3, i dati di telemetria raccolti automaticamente specifici possono essere eliminati usando le opzioni di configurazione seguenti:
 
 ```json
 {
@@ -267,6 +290,9 @@ A partire dalla versione 3.0.2, i dati di telemetria raccolti automaticamente sp
       "enabled": false
     },
     "jdbc": {
+      "enabled": false
+    },
+    "jms": {
       "enabled": false
     },
     "kafka": {
@@ -280,13 +306,28 @@ A partire dalla versione 3.0.2, i dati di telemetria raccolti automaticamente sp
     },
     "redis": {
       "enabled": false
+    },
+    "springScheduling": {
+      "enabled": false
     }
   }
 }
 ```
 
-> Si noti che se si cerca un controllo più granulare, ad esempio per disattivare alcune chiamate Redis ma non tutte le chiamate Redis, vedere [override di campionamento](./java-standalone-sampling-overrides.md).
+È anche possibile escludere queste instrumenthe usando le variabili di ambiente seguenti:
 
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
+
+(che avrà quindi la precedenza su Enabled specificato nella configurazione JSON).
+
+> Si noti che se si cerca un controllo più granulare, ad esempio per disattivare alcune chiamate Redis ma non tutte le chiamate Redis, vedere [override di campionamento](./java-standalone-sampling-overrides.md).
 
 ## <a name="heartbeat"></a>Heartbeat
 
@@ -324,7 +365,7 @@ Questa funzionalità è in anteprima.
 
 Per impostazione predefinita, le metriche vengono acquisite ogni 60 secondi.
 
-A partire dalla versione 3.0.3-BETA, è possibile modificare l'intervallo seguente:
+A partire dalla versione 3.0.3, è possibile modificare questo intervallo:
 
 ```json
 {
@@ -384,13 +425,13 @@ Per impostazione predefinita, Application Insights i registri Java 3,0 al livell
 
 `level` può essere uno tra `OFF` , `ERROR` , `WARN` , `INFO` , `DEBUG` o `TRACE` .
 
-`path` può essere un percorso assoluto o relativo. I percorsi relativi vengono risolti rispetto alla directory in cui `applicationinsights-agent-3.0.2.jar` si trova.
+`path` può essere un percorso assoluto o relativo. I percorsi relativi vengono risolti rispetto alla directory in cui `applicationinsights-agent-3.0.3.jar` si trova.
 
 `maxSizeMb` dimensioni massime del file di log prima del rollover.
 
 `maxHistory` numero di file di log di cui è stato eseguito il rollback, conservati (oltre al file di log corrente).
 
-A partire dalla versione 3.0.2, è anche possibile impostare la diagnostica automatica `level` usando la variabile `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` di ambiente (che avrà quindi la precedenza se la diagnostica automatica `level` viene specificata anche nella configurazione JSON).
+A partire dalla versione 3.0.2, è anche possibile impostare la diagnostica automatica `level` usando la variabile `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` di ambiente (che avrà quindi la precedenza sul livello di diagnostica automatica specificato nella configurazione JSON).
 
 ## <a name="an-example"></a>un esempio
 

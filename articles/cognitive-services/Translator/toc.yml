@@ -1,17 +1,19 @@
 - name: Documentazione del servizio Translator
   href: index.yml
 - name: Panoramica
+  expanded: true
   items:
-    - name: Che cos'è Traduttore?
-      href: translator-info-overview.md
     - name: Supporto delle lingue
       href: language-support.md
     - name: Prezzi e limiti
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator'
+- name: Traduzione testuale
+  expanded: true
+  items:
+    - name: Che cos'è Traduttore?
+      href: translator-info-overview.md
     - name: Domande frequenti su Translator
       href: 'https://www.microsoft.com/translator/faq.aspx'
-- name: Traduzione testuale
-  items:
     - name: Avvio rapido
       href: quickstart-translator.md
     - name: Esempi
@@ -84,10 +86,10 @@
   items:
     - name: Informazioni su Custom Translator
       href: custom-translator/overview.md
-    - name: Avvio rapido
-      href: custom-translator/quickstart-build-deploy-custom-model.md
     - name: Domande frequenti
       href: custom-translator/faq.md
+    - name: Avvio rapido
+      href: custom-translator/quickstart-build-deploy-custom-model.md
     - name: Guide pratiche
       items:
         - name: Creare un progetto
@@ -160,7 +162,7 @@
           href: document-translation/reference/get-operations.md
         - name: Annulla operazione
           href: document-translation/reference/cancel-operation.md
-- name: Risorse di traduzione
+- name: Risorse
   items:
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bbd778eabf150b734b04e004006dfeea2254ec4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94542678"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077482"
 ---
 # <a name="sizing-guidance"></a>Linee guida per il ridimensionamento
 
@@ -92,9 +92,9 @@ Ogni pod di istanza gestita di SQL creato ha tre contenitori:
 
 |Nome contenitore|Richiesta CPU|Richiesta di memoria|Limite CPU|Limite memoria|Note|
 |---|---|---|---|---|---|
-|fluentbit|100m|100Mi|Non specificato|Non specificato|Le richieste di risorse del contenitore fluentbit sono _in aggiunta alle_ richieste specificate per l'istanza gestita di SQL.||
-|Arc-sqlmi|Utente specificato o non specificato.|Utente specificato o non specificato.|Utente specificato o non specificato.|Utente specificato o non specificato.||
-|collectd|Non specificato|Non specificato|Non specificato|Non specificato||
+|fluentbit|100m|100Mi|Non specificato|Non specificato|Le richieste di risorse del contenitore fluentbit sono _in aggiunta alle_ richieste specificate per l'istanza gestita di SQL.|
+|Arc-sqlmi|Utente specificato o non specificato.|Utente specificato o non specificato.|Utente specificato o non specificato.|Utente specificato o non specificato.|
+|collectd|Non specificato|Non specificato|Non specificato|Non specificato|
 
 La dimensione predefinita del volume per tutti i volumi persistenti è 5Gi.
 

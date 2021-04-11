@@ -1,21 +1,21 @@
 ---
 title: Panoramica dell'archiviazione-Azure Time Series Insights Gen2 | Microsoft Docs
 description: Informazioni sull'archiviazione dei dati in Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 748eaca93eaee5ec858ea43261995111cef8ceda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67ab4c8cf079adaf3b38cdcc30abeec43cd4612f
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98676852"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505196"
 ---
 # <a name="data-storage"></a>Archiviazione dati
 
@@ -87,7 +87,7 @@ Non eliminare i file di Azure Time Series Insights Gen2. Gestire i dati correlat
 
 ### <a name="parquet-file-format-and-folder-structure"></a>Formato di file parquet e struttura della cartelle
 
-Parquet è un formato di file open source a colonne progettato per archiviazioni e prestazioni efficienti. Azure Time Series Insights Gen2 USA parquet per abilitare le prestazioni delle query basate su ID della serie temporale su larga scala.  
+Parquet è un formato di file open source a colonne progettato per archiviazioni e prestazioni efficienti. Azure Time Series Insights Gen2 USA parquet per abilitare le prestazioni delle query basate su ID della serie temporale su larga scala.
 
 Per altre informazioni sul tipo di file parquet, vedere la [documentazione relativa a parquet](https://parquet.apache.org/documentation/latest/).
 

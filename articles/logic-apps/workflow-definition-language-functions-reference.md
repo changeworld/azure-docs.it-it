@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 03/12/2021
-ms.openlocfilehash: 1414a7b0f17918caa16ccf854d70ea199fb42a47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/30/2021
+ms.openlocfilehash: 53e96f4057b35fa6c849ec643ac1c9e0c7d5b402
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870195"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076548"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate
 
@@ -145,7 +145,7 @@ Per eseguire operazioni con le condizioni, confrontare i valori e i risultati de
 Per modificare il tipo o il formato di un valore, è possibile usare queste funzioni di conversione. Ad esempio, è possibile modificare un valore da booleano a intero. Per altre informazioni sul modo in cui App per la logica gestisce i tipi di contenuto durante la conversione, vedere [Gestire tipi di contenuto](../logic-apps/logic-apps-content-type.md). Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
-> App per la logica di Azure esegue la conversione automatica dei valori tra alcuni tipi di dati, questo significa che non è necessario eseguirla manualmente. Tuttavia, se lo si fa, è possibile che si verifichino comportamenti di visualizzazione imprevisti, che non influiscono effettivamente sulle conversioni ma solo sul modo in cui vengono visualizzate. Per altre informazioni vedere [Conversioni implicite di tipi di dati](#implicit-data-conversions).
+> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni vedere [Conversioni implicite di tipi di dati](#implicit-data-conversions).
 
 | Funzione di conversione | Attività |
 | ------------------- | ---- |
@@ -177,7 +177,7 @@ Per modificare il tipo o il formato di un valore, è possibile usare queste funz
 
 ## <a name="implicit-data-type-conversions"></a>Conversioni implicite di tipi di dati
 
-App per la logica di Azure esegue la conversione in modo automatico o implicito tra alcuni tipi di dati, pertanto non è necessario farlo manualmente. Ad esempio, se si usano valori non stringa laddove si prevede l'uso di stringhe come input, App per la logica converte in modo automatico i valori non stringa in stringhe.
+App per la logica di Azure converte automaticamente o in modo implicito tra alcuni tipi di dati, pertanto non è necessario eseguire manualmente queste conversioni. Ad esempio, se si usano valori non stringa laddove si prevede l'uso di stringhe come input, App per la logica converte in modo automatico i valori non stringa in stringhe.
 
 Si supponga, ad esempio, che un trigger restituisca un valore numerico come output:
 
@@ -187,9 +187,11 @@ Se si usa questo output numerico laddove è prevista una stringa come input, ad 
 
 `@{triggerBody()?['123']}`
 
+<a name="base64-encoding-decoding"></a>
+
 ### <a name="base64-encoding-and-decoding"></a>Codifica e decodifica Base64
 
-App per la logica esegue in modo automatico o implicito la codifica o la decodifica Base64, pertanto non è necessario eseguire queste operazioni manualmente usando le espressioni corrispondenti:
+App per la logica esegue automaticamente o in modo implicito la codifica o la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni corrispondenti:
 
 * `base64(<value>)`
 * `base64ToBinary(<value>)`
@@ -200,7 +202,7 @@ App per la logica esegue in modo automatico o implicito la codifica o la decodif
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> Se si aggiungono manualmente queste espressioni all'app per la logica, ad esempio usando l'editor per le espressioni, uscire da Progettazione app per la logica e tornare alla finestra di progettazione che mostra solo i valori dei parametri. Le espressioni vengono mantenute nella visualizzazione Codice solo se l'utente non modifica i valori dei parametri. Altrimenti, App per la logica rimuove le espressioni dalla visualizzazione Codice, lasciando solo i valori dei parametri. Questo comportamento non influisce sulla codifica o sulla decodifica, ma solo sul modo in cui le espressioni sono visualizzate.
+> Se si aggiunge manualmente una di queste funzioni al flusso di lavoro tramite la finestra di progettazione dell'app per la logica, ad esempio usando l'editor espressioni, uscire dalla finestra di progettazione e tornare alla finestra di progettazione, la funzione scompare dalla finestra di progettazione, lasciando solo i valori dei parametri. Questo comportamento si verifica anche se si seleziona un trigger o un'azione che usa questa funzione senza modificare i valori dei parametri della funzione. Questo risultato influisce solo sulla visibilità della funzione e non sull'effetto. Nella visualizzazione codice la funzione non è interessata. Tuttavia, se si modificano i valori dei parametri della funzione, la funzione e il relativo effetto vengono rimossi dalla visualizzazione del codice, lasciando solo i valori dei parametri della funzione.
 
 <a name="math-functions"></a>
 
@@ -944,7 +946,7 @@ E viene restituito questo risultato: `["hello"]`
 Restituisce la versione di una stringa con codifica base64.
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente la codifica e la decodifica Base64, questo significa che non è necessario eseguire manualmente le conversioni. Tuttavia, se lo si fa, è possibile che si verifichino comportamenti di visualizzazione imprevisti, che non influiscono effettivamente sulle conversioni ma solo sul modo in cui vengono visualizzate. Per altre informazioni vedere [Conversioni implicite di tipi di dati](#implicit-data-conversions).
+> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
 
 ```
 base64('<value>')
@@ -977,7 +979,7 @@ E viene restituito questo risultato: `"aGVsbG8="`
 Restituisce la versione binaria di una stringa con codifica base64.
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente la codifica e la decodifica Base64, questo significa che non è necessario eseguire manualmente le conversioni. Tuttavia, se lo si fa, è possibile che si verifichino comportamenti di visualizzazione imprevisti, che non influiscono effettivamente sulle conversioni ma solo sul modo in cui vengono visualizzate. Per altre informazioni vedere [Conversioni implicite di tipi di dati](#implicit-data-conversions).
+> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
 
 ```
 base64ToBinary('<value>')
@@ -1012,7 +1014,7 @@ E viene restituito questo risultato:
 Restituisce la versione stringa di una stringa con codifica base64, decodificando in modo efficace la stringa base64. Usare questa funzione al posto di [decodeBase64()](#decodeBase64), che è deprecata.
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente la codifica e la decodifica Base64, questo significa che non è necessario eseguire manualmente le conversioni. Tuttavia, se lo si fa, è possibile che si verifichino comportamenti di visualizzazione imprevisti, che non influiscono effettivamente sulle conversioni ma solo sul modo in cui vengono visualizzate. Per altre informazioni vedere [Conversioni implicite di tipi di dati](#implicit-data-conversions).
+> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
 
 ```
 base64ToString('<value>')
@@ -1074,9 +1076,7 @@ E viene restituito questo risultato:
 
 ### <a name="body"></a>Corpo
 
-Restituisce l'oggetto `body` di output di un'azione in fase di esecuzione.
-Sintassi abbreviata per `actions('<actionName>').outputs.body`.
-Vedere [actionBody()](#actionBody) e [actions()](#actions).
+Restituisce l'oggetto `body` di output di un'azione in fase di esecuzione. Sintassi abbreviata per `actions('<actionName>').outputs.body`. Vedere [actionBody()](#actionBody) e [actions()](#actions).
 
 ```
 body('<actionName>')
@@ -1194,6 +1194,15 @@ E vengono restituiti questi risultati:
 
 Combina due o più stringhe e restituisce la stringa combinata.
 
+> [!NOTE]
+> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni quando si usa la `concat()` funzione con i dati che richiedono la codifica o la decodifica:
+> 
+> * `concat('data:;base64,',<value>)`
+> * `concat('data:,',encodeUriComponent(<value>))`
+> 
+> Tuttavia, se si usa questa funzione comunque nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità della funzione e non sull'effetto, a meno che non si modifichino i valori dei parametri della funzione, che rimuove la funzione e l'effetto dal codice. 
+> Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
+
 ```
 concat('<text1>', '<text2>', ...)
 ```
@@ -1222,9 +1231,7 @@ E viene restituito questo risultato: `"HelloWorld"`
 
 ### <a name="contains"></a>contains
 
-Verifica se una raccolta include un elemento specifico.
-Restituisce true se l'elemento viene trovato o false se non viene trovato.
-Questa funzione fa distinzione tra maiuscole e minuscole.
+Verifica se una raccolta include un elemento specifico. Restituisce true se l'elemento viene trovato o false se non viene trovato. Questa funzione fa distinzione tra maiuscole e minuscole.
 
 ```
 contains('<collection>', '<value>')
@@ -1622,7 +1629,7 @@ Questa funzione è deprecata. usare invece [base64ToString()](#base64ToString).
 Restituisce la versione binaria di un URI (Uniform Resource Identifier) di dati. Usare [dataUriToBinary()](#dataUriToBinary) al posto di `decodeDataUri()`. Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usare `dataUriToBinary()`.
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente la codifica e la decodifica Base64, questo significa che non è necessario eseguire manualmente le conversioni. Tuttavia, se lo si fa, è possibile che si verifichino comportamenti di visualizzazione imprevisti, che non influiscono effettivamente sulle conversioni ma solo sul modo in cui vengono visualizzate. Per altre informazioni vedere [Conversioni implicite di tipi di dati](#implicit-data-conversions).
+> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
 
 ```
 decodeDataUri('<value>')
@@ -1729,7 +1736,7 @@ div(11.0,5)
 Restituisce la versione con codifica URI (Uniform Resource Identifier) per una stringa sostituendo i caratteri non sicuri per gli URL con caratteri di escape. Usare [uriComponent()](#uriComponent) al posto di `encodeUriComponent()`. Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usare `uriComponent()`.
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente la codifica e la decodifica Base64, questo significa che non è necessario eseguire manualmente le conversioni. Tuttavia, se lo si fa, è possibile che si verifichino comportamenti di visualizzazione imprevisti, che non influiscono effettivamente sulle conversioni ma solo sul modo in cui vengono visualizzate. Per altre informazioni vedere [Conversioni implicite di tipi di dati](#implicit-data-conversions).
+> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
 
 ```
 encodeUriComponent('<value>')

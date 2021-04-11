@@ -1,19 +1,19 @@
 ---
 title: 'Avvio rapido: Libreria client di Archiviazione BLOB di Azure v8 per Java'
 description: Si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Si usa quindi la libreria client di Archiviazione di Azure v8 per Java per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
-author: mhopkins-msft
+author: twooley
 ms.custom: devx-track-java
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b3bb8736eb7a8e24f47812fc4feecbf96628dfb6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49c55a2b565100e370ce561537c96a96b896f355
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98599807"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280599"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Avvio rapido: Gestire i BLOB con Java v8 SDK
 

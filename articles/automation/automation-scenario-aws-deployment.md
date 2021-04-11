@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 03f1f1659d120a2aa1b827063cb2bc84138f3655
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05c06d368dca03e1cb7f07c064f7899300f05cf7
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896071"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169012"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Distribuire una macchina virtuale di Amazon Web Services con un runbook
 
-In questo articolo si apprenderà come sfruttare Automazione di Azure per effettuare il provisioning di una macchina virtuale nella sottoscrizione di Amazon Web Service (AWS) e come assegnare alla VM un nome specifico. Questa operazione è definita in AWS "assegnazione di tag" alla VM.
+Questo articolo illustra come usare automazione di Azure per effettuare il provisioning di una macchina virtuale nella sottoscrizione di Amazon Web Service (AWS) e assegnare a tale VM un nome specifico, a cui AWS fa riferimento come "assegnazione di tag" alla VM.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: c1d7bf933b487c40d571f1912341b5ef771e4e67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2d081ded07b1d32ee7525855c1756e13dfd57aa
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90527327"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277505"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali
 
@@ -26,7 +26,7 @@ ms.locfileid: "90527327"
 
 Quando si distribuiscono contenuti ai clienti (flusso di eventi dal vivo o di video on demand) il client potrebbe avere bisogno di una maggiore flessibilità rispetto a quanto descritto nel file manifesto dell'asset predefinito. Servizi multimediali di Azure consente di definire i filtri account e i filtri asset per i propri contenuti. 
 
-Per una descrizione dettagliata di questa funzionalità e degli scenari in cui viene usata, vedere [manifesti](filters-dynamic-manifest-overview.md) e [filtri](filters-concept.md)dinamici.
+Per una descrizione dettagliata di questa funzionalità e degli scenari in cui viene usata, vedere [manifesti](filters-dynamic-manifest-concept.md) e [filtri](filters-concept.md)dinamici.
 
 Questo argomento illustra come definire un filtro per un asset Video on demand e usare le API REST per creare [Filtri account](/rest/api/media/accountfilters) e [Filtri asset](/rest/api/media/assetfilters). 
 
@@ -37,10 +37,10 @@ Questo argomento illustra come definire un filtro per un asset Video on demand e
 
 Per completare i passaggi descritti in questo argomento, è necessario:
 
-- Leggere [Filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
-- [Configurare Postman per le chiamate API REST Servizi multimediali di Azure](media-rest-apis-with-postman.md).
+- Leggere [Filtri e manifesti dinamici](filters-dynamic-manifest-concept.md).
+- [Configurare Postman per le chiamate API REST Servizi multimediali di Azure](setup-postman-rest-how-to.md).
 
-    Assicurarsi di seguire l'ultimo passaggio nell'argomento [Ottenere Token in Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
+    Assicurarsi di seguire l'ultimo passaggio nell'argomento [Ottenere Token in Azure AD](setup-postman-rest-how-to.md#get-azure-ad-token). 
 
 ## <a name="define-a-filter"></a>Definire un filtro  
 
@@ -121,7 +121,7 @@ Per informazioni dettagliate su come creare o aggiornare i filtri asset, vedere 
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associare filtri a un localizzatore di streaming
 
-È possibile specificare un elenco di filtri asset o account applicabili al localizzatore di streaming. Il [Packager dinamico (endpoint di streaming)](dynamic-packaging-overview.md) applica questo elenco di filtri insieme a quelli specificati dal client nell'URL. Questa combinazione genera un [manifesto dinamico](filters-dynamic-manifest-overview.md), basato sui filtri presenti nell'URL e nei filtri specificati nel localizzatore di streaming. Si consiglia di utilizzare questa funzionalità se si desidera applicare filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
+È possibile specificare un elenco di filtri asset o account applicabili al localizzatore di streaming. Il [Packager dinamico (endpoint di streaming)](encode-dynamic-packaging-concept.md) applica questo elenco di filtri insieme a quelli specificati dal client nell'URL. Questa combinazione genera un [manifesto dinamico](filters-dynamic-manifest-concept.md), basato sui filtri presenti nell'URL e nei filtri specificati nel localizzatore di streaming. Si consiglia di utilizzare questa funzionalità se si desidera applicare filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
 
 Per creare e associare filtri a un localizzatore di streaming usando REST, usare i [localizzatori di streaming-create](/rest/api/media/streaminglocators/create) API e specificare `properties.filters` nel [corpo della richiesta](/rest/api/media/streaminglocators/create#request-body).
                                 

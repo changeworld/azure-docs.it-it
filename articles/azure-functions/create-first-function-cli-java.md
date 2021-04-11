@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-java-uiex
-ms.openlocfilehash: 0ef52da8400cfadfaaa26664d984d8b898a3b9a3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 261ba24a360dd49a9759bc70f561810a9e1fd2c8
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729301"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277080"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione Java in Azure dalla riga di comando
 
@@ -152,11 +152,7 @@ L'archetipo genera anche uno unit test per la funzione. Quando si modifica la fu
     > [!NOTE]  
     > Se HttpExample non viene visualizzato come illustrato sopra, è probabile che l'host non sia stato avviato dalla cartella radice del progetto. In tal caso, premere **CTRL**+**C** per arrestare l'host, passare alla cartella radice del progetto ed eseguire di nuovo il comando precedente.
 
-1. Copiare l'URL della funzione `HttpExample` da questo output in un browser e aggiungere la stringa di query `?name=<YOUR_NAME>`, rendendo l'URL completo come `http://localhost:7071/api/HttpExample?name=Functions`. Nel browser dovrebbe essere visualizzato un messaggio simile a `Hello Functions`:
-
-    ![Risultato della funzione eseguita in locale nel browser](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
-    
-    Il terminale in cui è stato avviato il progetto mostra anche l'output del log quando si effettuano le richieste.
+1. Copiare l'URL della funzione `HttpExample` da questo output in un browser e aggiungere la stringa di query `?name=<YOUR_NAME>`, rendendo l'URL completo come `http://localhost:7071/api/HttpExample?name=Functions`. Nel browser dovrebbe essere visualizzato un messaggio che restituisce il valore della stringa di query. Il terminale in cui è stato avviato il progetto mostra anche l'output del log quando si effettuano le richieste.
 
 1. Al termine, premere **CTRL**+**C** e scegliere `y` per arrestare l'host di Funzioni.
 

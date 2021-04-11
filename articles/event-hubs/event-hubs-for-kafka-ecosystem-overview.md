@@ -3,12 +3,12 @@ title: Usare Hub eventi dall'app Apache Kafka - Hub eventi di Azure | Microsoft 
 description: Questo articolo fornisce informazioni sul supporto di Apache Kafka in Hub eventi di Azure.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cd6d06b610ccccb8c80818d3bdec726ed94e875
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97861341"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505315"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usare Hub eventi di Azure da applicazioni Apache Kafka
 Hub eventi fornisce un endpoint compatibile con le API Apache Kafka® Producer e consumer che possono essere usate dalla maggior parte delle applicazioni client Apache Kafka esistenti in alternativa all'esecuzione di un cluster Apache Kafka. Hub eventi supporta i client API Producer e consumer di Apache Kafka alla versione 1,0 e successive.
@@ -67,7 +67,7 @@ bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=OAUTHBEARER
 sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
-sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
+sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler
 ```
 
 #### <a name="shared-access-signature-sas"></a>Firma di accesso condiviso

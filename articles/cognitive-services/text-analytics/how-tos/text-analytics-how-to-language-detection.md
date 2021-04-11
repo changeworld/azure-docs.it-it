@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/17/2020
+ms.date: 04/02/2021
 ms.author: aahi
-ms.openlocfilehash: ef40201a13412cc735a5e15bf468e2c934ec81ab
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
-ms.translationtype: HT
+ms.openlocfilehash: e2148f56c216795c5022b86b6a1d90b476a4672e
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656802"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277284"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Esempio: Rilevare la lingua con Analisi del testo
 
@@ -80,7 +80,7 @@ Per altre informazioni sulla definizione della richiesta, vedere [Chiamare l'API
 
 ## <a name="step-2-post-the-request"></a>Passaggio 2: Inviare la richiesta POST
 
-Al momento della ricezione della richiesta viene eseguita l'analisi. Per informazioni sulle dimensioni e sul numero delle richieste che è possibile inviare al minuto e al secondo, vedere la sezione [Limiti dei dati](../overview.md#data-limits) nella panoramica.
+Al momento della ricezione della richiesta viene eseguita l'analisi. Per informazioni sulle dimensioni e sul numero di richieste che è possibile inviare al minuto e in secondo luogo, vedere l'articolo relativo ai [limiti dei dati](../concepts/data-limits.md) .
 
 Tenere presente che il servizio è senza stato. Nessun dato viene archiviato nell'account. I risultati vengono restituiti immediatamente nella risposta.
 

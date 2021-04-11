@@ -11,20 +11,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 03/16/2021
+ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 110a94c78427087f4ca5555f59055ab8e3bebcee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 87c0ce72348f67c22759915a3a15c69193ad2f60
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592670"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552793"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Creare una verifica di accesso dei ruoli delle risorse di Azure in Privileged Identity Management
 
 La necessità di accedere ai ruoli delle risorse di Azure con privilegi dai dipendenti cambia nel tempo. Per ridurre i rischi associati alle assegnazioni di ruolo obsolete, è necessario esaminare periodicamente l'accesso. È possibile usare Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per creare verifiche di accesso per l'accesso con privilegi ai ruoli delle risorse di Azure. È anche possibile configurare le verifiche di accesso periodiche che vengono eseguite automaticamente. Questo articolo descrive come creare una o più verifiche di accesso.
+
+## <a name="prerequisite-license"></a>Licenza per prerequisiti
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. Per ulteriori informazioni sulle licenze per PIM, vedere la sezione relativa ai [requisiti di licenza per l'utilizzo di Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+>  Attualmente, è possibile definire l'ambito di una verifica di accesso alle entità servizio con accesso a Azure AD e ai ruoli delle risorse di Azure (anteprima) con un'edizione Azure Active Directory Premium P2 attiva nel tenant. Il modello di licenza per le entità servizio verrà finalizzato per la disponibilità generale di questa funzionalità e potrebbero essere necessarie licenze aggiuntive.
 
 ## <a name="prerequisite-role"></a>Ruolo prerequisiti
 
@@ -34,9 +41,9 @@ La necessità di accedere ai ruoli delle risorse di Azure con privilegi dai dipe
 
 1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente assegnato a uno dei ruoli prerequisiti.
 
-1. Aprire **Azure ad Privileged Identity Management**.
-
-1. Nel menu a sinistra selezionare **risorse di Azure**.
+1. Seleziona **governance identità**
+ 
+1. Nel menu a sinistra selezionare **risorse di Azure** in **Azure ad Privileged Identity Management**.
 
 1. Selezionare la risorsa che si vuole gestire, ad esempio una sottoscrizione.
 
@@ -58,9 +65,12 @@ La necessità di accedere ai ruoli delle risorse di Azure con privilegi dai dipe
 
 1. Usare l'impostazione **Fine** per specificare come terminare la serie di verifiche di accesso ricorrenti. La serie può terminare in tre modi: può essere eseguita in modo continuo per avviare le verifiche per un periodo illimitato o fino a una data specifica oppure terminare dopo che è stato completato un numero definito di occorrenze. Un utente con ruolo Amministratore utente o Amministratore globale può interrompere la serie dopo la creazione modificando la data in **Impostazioni**, in modo che termini in tale data.
 
-1. Nella sezione **Utenti** selezionare uno o più ruoli di cui si desidera verificare l'appartenenza.
+1. Nella sezione **utenti** selezionare l'ambito della verifica. Per esaminare gli utenti, selezionare **utenti o selezionare (anteprima) entità servizio** per esaminare gli account del computer con accesso al ruolo di Azure.   
 
     ![Ambito degli utenti per verificare l'appartenenza ai ruoli di](./media/pim-resource-roles-start-access-review/users.png)
+
+
+1. In **Verifica appartenenza a ruoli** selezionare i ruoli di Azure con privilegi da rivedere. 
 
     > [!NOTE]
     > - I ruoli selezionati qui includono sia i [ruoli permanenti che idonei](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -77,9 +87,9 @@ La necessità di accedere ai ruoli delle risorse di Azure con privilegi dai dipe
 
     ![Elenco dei revisori degli utenti o membri selezionati (autonomo)](./media/pim-resource-roles-start-access-review/reviewers.png)
 
-    - **Utenti selezionati**: usare questa opzione quando non è noto chi abbia bisogno dell'accesso. Con questa opzione è possibile assegnare l'esecuzione della revisione a un proprietario delle risorse o a un gestore del gruppo.
-    - **Membri (autonomo)** : usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni di ruolo. 
-    - **Manager** : usare questa opzione per fare in modo che il responsabile dell'utente riveda l'assegnazione di ruolo. Quando si seleziona Manager, sarà anche possibile specificare un revisore di fallback. Ai revisori di fallback viene richiesto di esaminare un utente quando l'utente non dispone di un responsabile specificato nella directory. 
+    - **Utenti selezionati** : usare questa opzione per designare un utente specifico per completare la verifica. Questa opzione è disponibile indipendentemente dall'ambito della revisione e i revisori selezionati possono esaminare gli utenti e le entità servizio. 
+    - **Membri (autonomo)** : usare questa opzione per fare in modo che gli utenti verifichino le proprie assegnazioni di ruolo. Questa opzione è disponibile solo se la revisione ha come ambito **gli utenti**.
+    - **Manager** : usare questa opzione per fare in modo che il responsabile dell'utente riveda l'assegnazione di ruolo. Questa opzione è disponibile solo se la revisione ha come ambito **gli utenti**. Quando si seleziona Manager, sarà anche possibile specificare un revisore di fallback. Ai revisori di fallback viene richiesto di esaminare un utente quando l'utente non dispone di un responsabile specificato nella directory. 
 
 ### <a name="upon-completion-settings"></a>Impostazioni al completamento
 

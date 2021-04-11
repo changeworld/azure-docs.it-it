@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 23c64cc91378be605481eb554af2178100df3508
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 956c92c5c020f892b8148e9d43d403b1099fbdba
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629363"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106113308"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -54,7 +54,7 @@ L' `--save` opzione aggiunge la libreria come dipendenza nella **package.jssu** 
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-Importare **PhoneNumbersClient** dalla libreria client e crearne un'istanza con la stringa di connessione. Il codice seguente recupera la stringa di connessione per la risorsa da una variabile di ambiente denominata `COMMUNICATION_SERVICES_CONNECTION_STRING`. Vedere come [gestire la stringa di connessione della risorsa](../../create-communication-resource.md#store-your-connection-string).
+Importare **PhoneNumbersClient** dalla libreria client e crearne un'istanza con la stringa di connessione. Il codice seguente recupera la stringa di connessione per la risorsa da una variabile di ambiente denominata `COMMUNICATION_SERVICES_CONNECTION_STRING`. Informazioni su come [gestire la stringa di connessione della risorsa](../../create-communication-resource.md#store-your-connection-string).
 
 Aggiungere il codice seguente all'inizio della **phone-numbers-quickstart.js**:
 

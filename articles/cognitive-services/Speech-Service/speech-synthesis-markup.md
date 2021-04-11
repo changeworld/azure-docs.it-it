@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5a3459c0264d087759572bffc497430cdb69ac9
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 2c66a7e3bf9e417b47d08e50e21c08625e9d0549
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105966946"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210211"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -27,11 +27,9 @@ L'implementazione del servizio vocale di SSML è basata sulla [versione 1,0 del 
 > [!IMPORTANT]
 > I caratteri cinesi, giapponesi e coreani sono considerati come due caratteri per la fatturazione. Per altre informazioni, vedere [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-## <a name="standard-neural-and-custom-voices"></a>Voci standard, Neural e Custom
+## <a name="neural-and-custom-voices"></a>Voci neurali e personalizzate
 
-È possibile scegliere tra le voci standard e neurali oppure creare una voce personalizzata univoca per il prodotto o il marchio. 75 e le voci standard sono disponibili in più di 45 lingue e impostazioni locali e 5 voci neurali sono disponibili in quattro lingue e impostazioni locali. Per un elenco completo delle lingue supportate, delle impostazioni locali e delle voci (neurale e standard), vedere [Supporto per le lingue](language-support.md).
-
-Per altre informazioni sulle voci standard, neurale e personalizzate, vedere [Cenni preliminari](text-to-speech.md)sulla sintesi vocale.
+Usa una voce neurale simile a quella umana o crea una tua voce personalizzata univoca per il tuo prodotto o marchio. Per un elenco completo delle lingue supportate, delle impostazioni locali e delle voci, vedere [supporto](language-support.md)per le lingue. Per altre informazioni sulle voci neurali e personalizzate, vedere [Cenni preliminari](text-to-speech.md)sulla sintesi vocale.
 
 
 > [!NOTE]
@@ -194,12 +192,9 @@ speechConfig!.setPropertyTo(
 
 ## <a name="adjust-speaking-styles"></a>Modificare gli stili di pronuncia
 
-> [!IMPORTANT]
-> La regolazione degli stili di lingua funzionerà solo con le voci neurali.
+Per impostazione predefinita, il servizio Text-to-Speech sintetizza il testo usando uno stile di pronuncia neutro per le voci neurali. È possibile modificare lo stile di pronuncia per esprimere emozioni diverse, ad esempio allegria, empatia e tranquillità, oppure ottimizzare la voce per diversi scenari, ad esempio servizio clienti, telegiornalismo e Assistente vocale, usando l' `mstts:express-as` elemento. Si tratta di un elemento facoltativo univoco per il servizio di riconoscimento vocale.
 
-Per impostazione predefinita, il servizio Text-to-Speech sintetizza il testo usando uno stile di pronuncia neutro per le voci standard e neurali. Con le voci neurali è possibile modificare lo stile di pronuncia per esprimere emozioni diverse, ad esempio allegria, empatia e tranquillità, oppure ottimizzare la voce per diversi scenari, ad esempio servizio clienti, telegiornalismo e Assistente vocale, usando l' `mstts:express-as` elemento. Si tratta di un elemento facoltativo univoco per il servizio di riconoscimento vocale.
-
-Attualmente sono supportate le rettifiche di stile per le voci neurali seguenti:
+Attualmente sono supportate le modifiche di stile per le voci neurali seguenti:
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
@@ -215,7 +210,7 @@ Attualmente sono supportate le rettifiche di stile per le voci neurali seguenti:
 
 L'intensità dello stile di pronuncia può essere modificata ulteriormente per adattarsi meglio al caso d'uso. È possibile specificare uno stile più solido o più flessibile con `styledegree` per rendere il discorso più espressivo o sommesso. Attualmente, le rettifiche di stile di lingua sono supportate per le voci neurali cinese (mandarino, semplificato).
 
-Oltre a modificare gli stili di pronuncia e il grado di stile, è anche possibile modificare il `role` parametro in modo che la voce imita un'età e un sesso diversi. Ad esempio, una voce maschile può aumentare il pitch e modificare l'intonazione per imitare una voce femminile, ma il nome della voce non verrà modificato. Attualmente, le regolazioni dei ruoli sono supportate per le voci neurali cinese (mandarino, semplificate):
+Oltre a modificare gli stili di pronuncia e il grado di stile, è anche possibile modificare il `role` parametro in modo che la voce imita un'età e un sesso diversi. Ad esempio, una voce maschile può aumentare il pitch e modificare l'intonazione per imitare una voce femminile, ma il nome della voce non verrà modificato. Attualmente, le regolazioni dei ruoli sono supportate per le voci neurali cinese (mandarino, semplificato):
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
@@ -631,7 +626,7 @@ Nell'esempio precedente viene usato l'alfabeto fonetico internazionale, noto anc
 
 Considerato che l'IPA non è facile da ricordare, il servizio di riconoscimento vocale definisce un set fonetico per sette lingue ( `en-US` ,, `fr-FR` `de-DE` , `es-ES` , `ja-JP` , `zh-CN` e `zh-TW` ).
 
-È possibile usare il `sapi` come vale per l' `alphabet` attributo con i lessico personalizzati, come illustrato di seguito:
+È possibile usare `sapi` come valore per l' `alphabet` attributo con i lessico personalizzati, come illustrato di seguito:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -717,7 +712,7 @@ Le modifiche di pitch possono essere applicate alle voci standard a livello di p
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-Guy24kRUS">
+    <voice name="en-US-AriaNeural">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
 </speak>

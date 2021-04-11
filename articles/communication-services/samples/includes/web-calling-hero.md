@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: c1ad467dcd27bb48d7b1472d8cfb829dcd005f4f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0504467e387c0875a8e00bd1cf638ec437232092
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729865"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554330"
 ---
 Il gruppo di servizi di comunicazione di Azure che **chiama l'esempio Hero** illustra come usare i servizi di comunicazione che chiamano l'SDK Web per creare un'esperienza di chiamata di gruppo.
 
@@ -23,7 +23,7 @@ In questo avvio rapido viene illustrato il funzionamento dell'esempio prima dell
 
 ## <a name="download-code"></a>Scaricare il codice
 
-Trovare il codice finalizzato per questa Guida introduttiva su [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
+Trovare il progetto per questo esempio in [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). È possibile trovare una versione dell'esempio con [interoperabilità teams](../../concepts/teams-interop.md) in un [ramo](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop)separato.
 
 ## <a name="overview"></a>Panoramica
 
@@ -46,6 +46,9 @@ Componenti della schermata principale della chiamata:
 - **Raccolta multimediale**: l'area principale in cui vengono visualizzati i partecipanti. Se un partecipante ha la fotocamera abilitata, il suo feed video viene visualizzato qui. A ogni partecipante è associato un singolo riquadro che mostra il nome visualizzato e il flusso video (se presente)
 - **Intestazione**: l'area in cui si trovano i controlli principali per la chiamata, che consentono di attivare e disattivare le impostazioni e la barra laterale dei partecipanti, attivare e disattivare il video e il microfono, condividere lo schermo e abbandonare la chiamata.
 - **Barra laterale**: questa barra mostra i partecipanti e le informazioni sulle impostazioni attivate con i controlli dell'intestazione. Il componente può essere rimosso usando la 'X' nell'angolo in alto a destra. La barra laterale dei partecipanti mostrerà l'elenco dei partecipanti e un collegamento per invitare altri utenti alla chat. La barra laterale delle impostazioni consente di configurare il microfono e la fotocamera.
+
+> [!NOTE]
+> In base alle limitazioni dell'SDK per la chiamata Web, viene eseguito il rendering di un solo flusso video remoto. Per ulteriori informazioni, vedere la pagina relativa alla [chiamata del supporto del flusso SDK](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#calling-sdk-streaming-support).
 
 Di seguito sono disponibili ulteriori informazioni sui prerequisiti e i passaggi da seguire per configurare l'esempio.
 

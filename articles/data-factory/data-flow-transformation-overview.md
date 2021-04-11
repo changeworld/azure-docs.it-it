@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb5021c0125c3140ef44a1ec3304b9d0ac40c30f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593867"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060228"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Panoramica sulla trasformazione del flusso di dati
 
@@ -42,3 +42,4 @@ Di seguito è riportato un elenco delle trasformazioni attualmente supportate ne
 | [Union](data-flow-union.md) | Input/output multipli | Combinare più flussi di dati verticalmente |
 | [UnPivot](data-flow-unpivot.md) | Modificatore schema | Colonne pivot in valori di riga |
 | [Window](data-flow-window.md) | Modificatore schema |  Definire le aggregazioni basate su finestra di colonne nei flussi di dati. |
+| [Parse](data-flow-parse.md). | Modificatore schema |  Analizzare i dati della colonna in JSON o testo delimitato |

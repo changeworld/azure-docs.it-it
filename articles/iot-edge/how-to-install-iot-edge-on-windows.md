@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 8b549d868aed443e19d639ba6f6df7db20e014b1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 98b312066294f2c4ed7f9b089e0f8ea1a68fe4be
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612119"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059701"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Installare Azure IoT Edge per Linux in un dispositivo Windows ed effettuare il provisioning (anteprima)
 
@@ -44,8 +44,8 @@ Questo articolo elenca i passaggi per configurare IoT Edge in un dispositivo Win
   * Edizioni Professional, Enterprise o server
   * Memoria minima disponibile: 2 GB
   * Spazio minimo disponibile su disco: 10 GB
-  * Se si sta creando una nuova distribuzione usando Windows 10, assicurarsi di abilitare Hyper-V. Per ulteriori informazioni, vedere come [installare Hyper-V in Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md).
-  * Se si sta creando una nuova distribuzione usando Windows Server, assicurarsi di installare il ruolo Hyper-V. Per ulteriori informazioni, vedere come [installare il ruolo Hyper-V in Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
+  * Se si sta creando una nuova distribuzione usando Windows 10, assicurarsi di abilitare Hyper-V. Per ulteriori informazioni, vedere come [installare Hyper-V in Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+  * Se si sta creando una nuova distribuzione usando Windows Server, assicurarsi di installare il ruolo Hyper-V. Per ulteriori informazioni, vedere come [installare il ruolo Hyper-V in Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
   * Se si sta creando una nuova distribuzione usando una macchina virtuale, assicurarsi di configurare correttamente la virtualizzazione annidata. Per ulteriori informazioni, vedere la guida alla [virtualizzazione annidata](nested-virtualization.md) .
 
 * Accesso all'interfaccia di amministrazione di Windows con l'estensione Azure IoT Edge per l'interfaccia di amministrazione di Windows installata:
