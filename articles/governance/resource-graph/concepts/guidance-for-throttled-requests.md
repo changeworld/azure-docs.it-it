@@ -1,15 +1,15 @@
 ---
 title: Istruzioni per le richieste con limitazioni
 description: Informazioni per il raggruppamento, la distribuzione, l’impaginazione e l’esecuzione di query in parallelo per evitare che le richieste vengano limitate da Azure Resource Graph.
-ms.date: 01/27/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ddd3cf4d411733e831c94039c3bc9aeaf0e95271
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 891d5951670dd6022b66ae2936ee855f73f8b33a
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98917708"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283542"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Istruzioni per le richieste con limitazioni in Azure Resource Graph
 
@@ -231,7 +231,7 @@ Poiché Azure Resource Graph restituisce al massimo 1000 voci in una singola ris
 
 ## <a name="still-get-throttled"></a>Applicazione di limitazioni
 
-Se viene comunque applicata la limitazione dopo aver seguito gli elementi consigliati precedenti, contattare il team all'indirizzo [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
+Se viene applicata la limitazione dopo aver eseguito le raccomandazioni precedenti, contattare il [team di Azure Resource Graph](mailto:resourcegraphsupport@microsoft.com).
 
 Specificare questi dettagli:
 

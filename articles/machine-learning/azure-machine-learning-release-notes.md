@@ -9,18 +9,92 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: ea7eda7e50e7d8733fd24a63d533272e5bca6bab
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 13ef91af5f7ed8398e3d23400fa5e9df467ce6bc
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166684"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210895"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](/python/api/overview/azure/ml/intro) .
 
 __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggiornata copiando e incollando l'URL seguente nel lettore di feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-04-05"></a>2021-04-05
+
+### <a name="azure-machine-learning-sdk-for-python-v1260"></a>SDK di Azure Machine Learning per Python v 1.26.0
++ **Correzioni di bug e miglioramenti**
+  + **azureml-automl-core**
+    + È stato risolto un problema per cui i modelli Naive venivano consigliati nelle esecuzioni di AutoMLStep e hanno esito negativo con funzionalità di intervallo o di ritardo. Questi modelli non saranno consigliati quando vengono impostati i ritardi di destinazione o le dimensioni della finestra mobile di destinazione.
+    +  L'output della console è stato modificato quando si invia un'esecuzione AutoML per visualizzare un collegamento del portale all'esecuzione.
+  + **azureml-core**
+    + Aggiunta della modalità HDFS nella documentazione.
+    + Aggiunta del supporto per comprendere le partizioni del set di dati del file in base alla struttura glob.
+    + Aggiunta del supporto per l'aggiornamento del registro contenitori associato all'area di lavoro AzureML.
+    + Gli attributi di ambiente deprecati in DockerSection-"Enabled", "shared_volume" e "Arguments" fanno ora parte di DockerConfiguration in RunConfiguration.
+    + Documentazione del clone dell'interfaccia della riga di comando aggiornata
+    + URI del portale aggiornati per includere il tenant per l'autenticazione
+    + Il nome dell'esperimento è stato rimosso dagli URI di esecuzione per evitare i reindirizzamenti 
+    + Aggiornamento dell'esperimento URO per l'uso dell'ID esperimento.
+    + Correzioni di bug per il fissaggio del calcolo remoto con l'interfaccia della riga di comando AzureML.
+    + URI del portale aggiornati per includere il tenant per l'autenticazione.
+    + URI dell'esperimento aggiornato per usare l'ID esperimento.
+  + **azureml-interpret**
+    + azureml-interpreta aggiornata per l'uso dell'0.17.0 di interpretazione della community
+  + **azureml-opendatasets**
+    + Data di inizio e di fine dell'input, convalida del tipo e indicazione di errore se non è di tipo DateTime.
+  + **azureml-esecuzione parallela**
+    + [Funzionalità sperimentale] Aggiungere `partition_keys` il parametro a ParallelRunConfig, se specificato, i set di dati di input verranno partizionati in mini-batch in base alle chiavi specificate. Richiede il partizionamento di tutti i set di dati di input.
+  + **azureml-pipeline-steps**
+    + Bugfix: supporto path_on_compute durante il passaggio della configurazione del set di dati come download.
+    + Deprecare RScriptStep a favore dell'uso di CommandStep per l'esecuzione di script R nelle pipeline. 
+    + Deprecare EstimatorStep a favore dell'uso di CommandStep per l'esecuzione del training di ML (incluso il training distribuito) nelle pipeline.
+  + **azureml-sdk**
+    + Aggiornare python_requires < 3,9 per azureml-SDK
+  + **azureml-train-automl-client**
+    +  L'output della console è stato modificato quando si invia un'esecuzione AutoML per visualizzare un collegamento del portale all'esecuzione.
+  + **azureml-train-core**
+    + Gli attributi ' Enabled ',' shared_volume ' è arguments ' di DockerSection sono deprecati a favore dell'uso di DockerConfiguration con ScriptRunConfig.
+    +  Usare i set di dati aperti di Azure per il set di dati MNIST
+    + I messaggi di errore iperguidati sono stati aggiornati.
+
+
+## <a name="2021-03-22"></a>2021-03-22
+
+### <a name="azure-machine-learning-sdk-for-python-v1250"></a>SDK di Azure Machine Learning per Python v 1.25.0
++ **Correzioni di bug e miglioramenti**
+  + **azureml-automl-core**
+    +  L'output della console è stato modificato quando si invia un'esecuzione AutoML per visualizzare un collegamento del portale all'esecuzione.
+  + **azureml-core**
+    + Inizia a supportare l'aggiornamento del registro contenitori per l'area di lavoro in SDK e CLI
+    + Gli attributi ' Enabled ',' shared_volume ' è arguments ' di DockerSection sono deprecati a favore dell'uso di DockerConfiguration con ScriptRunConfig.
+    + Documentazione del clone dell'interfaccia della riga di comando aggiornata
+    + URI del portale aggiornati per includere il tenant per l'autenticazione
+    + Il nome dell'esperimento è stato rimosso dagli URI di esecuzione per evitare i reindirizzamenti
+    + Aggiornamento dell'esperimento URO per l'uso dell'ID esperimento.
+    + Correzioni di bug per il fissaggio di risorse di calcolo remote con AZ CLI
+    + URI del portale aggiornati per includere il tenant per l'autenticazione.
+    + Aggiunta del supporto per comprendere le partizioni del set di dati del file in base alla struttura glob.
+  + **azureml-interpret**
+    + azureml-interpreta aggiornata per l'uso dell'0.17.0 di interpretazione della community
+  + **azureml-opendatasets**
+    + Data di inizio e di fine dell'input, convalida del tipo e indicazione di errore se non è di tipo DateTime.
+  + **azureml-pipeline-core**
+    + Bugfix: supporto path_on_compute durante il passaggio della configurazione del set di dati come download.
+  + **azureml-pipeline-steps**
+    + Bugfix: supporto path_on_compute durante il passaggio della configurazione del set di dati come download.
+    + Deprecare RScriptStep a favore dell'uso di CommandStep per l'esecuzione di script R nelle pipeline. 
+    + Deprecare EstimatorStep a favore dell'uso di CommandStep per l'esecuzione del training di ML (incluso il training distribuito) nelle pipeline.
+  + **azureml-train-automl-runtime**
+    +  L'output della console è stato modificato quando si invia un'esecuzione AutoML per visualizzare un collegamento del portale all'esecuzione.
+  + **azureml-train-core**
+    + Gli attributi ' Enabled ',' shared_volume ' è arguments ' di DockerSection sono deprecati a favore dell'uso di DockerConfiguration con ScriptRunConfig.
+    + Usare i set di dati aperti di Azure per il set di dati MNIST
+    + I messaggi di errore iperguidati sono stati aggiornati.
+
 
 ## <a name="2021-03-31"></a>2021-03-31
 ### <a name="azure-machine-learning-studio-notebooks-experience-march-update"></a>Esperienza di Azure Machine Learning Studio notebook (aggiornamento di marzo)
@@ -38,6 +112,7 @@ __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggi
   + I collegamenti sono ora selezionabili nel terminale
   + Miglioramento delle prestazioni di IntelliSense
 
+
 ## <a name="2021-03-08"></a>2021-03-08
 
 ### <a name="azure-machine-learning-sdk-for-python-v1240"></a>SDK di Azure Machine Learning per Python v 1.24.0
@@ -50,8 +125,6 @@ __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggi
     + Aggiunta di funzionalità per filtrare i set di valori tabulari in base ai valori di colonna e ai set di file in base ai metadati
   + **azureml-contrib-fairness**
     + Includi schema JSON nella rotellina per `azureml-contrib-fairness`
-  + **azureml-contrib-K8S**
-    + È ora necessario fornire resource_id per il fissaggio al posto del nome del gruppo di risorse e del cluster.
   + **azureml-contrib-Mir**
     + Con l'impostazione show_output su true quando si distribuiscono modelli, la configurazione dell'inferenza e la configurazione della distribuzione verranno riprodotte prima di inviare la richiesta al server.
   + **azureml-core**

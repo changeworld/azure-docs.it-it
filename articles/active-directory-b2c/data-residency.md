@@ -8,22 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/20/2020
+ms.date: 03/31/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e724b3517d9e5a63d8699e9f66c51cf41f02012
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92309673"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092518"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: aree di disponibilità e residenza dei dati
 
 Le aree di disponibilità e la residenza dei dati sono due concetti molto diversi che si applicano in modo diverso ad Azure AD B2C rispetto al resto di Azure. In questo articolo vengono illustrate le differenze tra questi due concetti e viene confrontato il modo in cui si applicano ad Azure rispetto a Azure AD B2C.
 
-Azure AD B2C è **disponibile a livello generale in tutto il mondo** con l'opzione per la **residenza dei dati** in **Stati Uniti, Europa o Asia Pacifico**.
+Azure AD B2C è **disponibile a livello generale in tutto il mondo** con l'opzione per la **residenza dei dati** in **Stati Uniti, Europa o Asia Pacifico**. Azure AD B2C è in versione di **anteprima pubblica** in Australia.
 
 L'[area di disponibilità](#region-availability) si riferisce al paese in cui è possibile usare un servizio.
 
@@ -53,11 +53,15 @@ I dati si trovano in **Europa** per i paesi/aree geografiche seguenti:
 
 I dati risiedono in **Asia Pacifico** per i paesi/aree geografiche seguenti:
 
-> Afghanistan (AF), Hong Kong SAR (HK), India (IN), Indonesia (ID), Giappone (JP), Corea (KR), Malaysia (MY), Filippine (PH), Singapore (SG), Sri Lanka (LC), Taiwan (TW) e Tailandia (TH).
+> Afghanistan (AF), Hong Kong SAR (HK), India (IN), Indonesia (ID), Giappone (JP), Corea (KR), Malaysia (MY), Filippine (PH), Singapore (SG), Sri Lanka (LC), Taiwan (TW) e Tailandia (TH)
+
+I dati si trovano in **Australia** (anteprima) per i paesi/aree geografiche seguenti:
+
+> Australia e Nuova Zelanda
 
 I paesi/aree geografiche seguenti sono in fase di aggiunta all'elenco. Per ora, è comunque possibile usare Azure AD B2C scegliendo uno dei paesi/aree geografiche indicati precedentemente.
 
-> Argentina, Australia, Brasile, Cile, Colombia, Ecuador, Iraq, Nuova Zelanda, Paraguay, Perù, Uruguay e Venezuela.
+> Argentina, Brasile, Cile, Colombia, Ecuador, Iraq, Paraguay, Perù, Uruguay e Venezuela
 
 ## <a name="remote-profile-solution"></a>Soluzione profilo remoto
 
@@ -66,18 +70,6 @@ Con Azure AD B2C [criteri personalizzati](custom-policy-overview.md), è possibi
 - Al momento dell'accesso, dopo la convalida delle credenziali con un account locale o di social networking, Azure AD B2C richiama l'API REST, che invia l'identificatore univoco dell'utente come chiave primaria utente (indirizzo di posta elettronica o objectId utente). L'API REST legge i dati dal database remoto e restituisce il profilo utente.  
 
 Una volta completata l'iscrizione, la modifica del profilo o l'accesso, Azure AD B2C include il profilo utente nel token di accesso restituito all'applicazione. Per altre informazioni, vedere la [soluzione di esempio Azure ad B2C Remote profile](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) in GitHub.
-
-## <a name="preview-tenant"></a>Tenant di anteprima
-
-Se è stato creato un tenant B2C durante Azure AD periodo di anteprima B2C, è probabile che il **tipo di tenant** indichi **tenant di anteprima**.
-
-In tal caso, è necessario usare il tenant solo a scopo di sviluppo e test. Non usare un tenant di anteprima per le applicazioni di produzione.
-
-Non esiste **alcun percorso di migrazione** da un tenant di anteprima B2C a un tenant B2C a livello di produzione. È necessario creare un nuovo tenant B2C per le applicazioni di produzione.
-
-Si verificano problemi noti quando si elimina un tenant B2C di anteprima e si crea un tenant B2C a livello di produzione con lo stesso nome di dominio. *È necessario creare un tenant B2C a livello di produzione con un nome di dominio diverso*.
-
-![Screenshot di un tipo di tenant, come tenant di anteprima.](./media/data-residency/preview-b2c-tenant.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

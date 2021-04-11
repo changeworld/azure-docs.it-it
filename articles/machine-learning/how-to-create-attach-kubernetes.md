@@ -10,13 +10,13 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/11/2021
-ms.openlocfilehash: 28a647949fdb3ff4d8527268919dbd7e49b27ea4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.date: 04/08/2021
+ms.openlocfilehash: 075b02e3e5f2e409298bf31eb0b6720e64af68a0
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276655"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210829"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creare e alleghi un cluster di servizi Kubernetes di Azure
 
@@ -67,6 +67,10 @@ Azure Machine Learning possibile distribuire modelli di apprendimento automatico
     - [Configurare la scalabilità automatica del cluster in AKS](../aks/cluster-autoscaler.md)
 
 - __Non aggiornare direttamente il cluster usando una configurazione YAML__. Sebbene i servizi Kubernetes di Azure supportino gli aggiornamenti tramite la configurazione YAML, le distribuzioni Azure Machine Learning sostituiranno le modifiche. Gli unici due campi YAML che non verranno sovrascritti sono i __limiti della richiesta__ e la __CPU e la memoria__.
+
+- La creazione di un cluster AKS con l'interfaccia utente di Azure Machine Learning Studio, l'SDK o l'estensione CLI __non__ è idempotente. Il tentativo di creare nuovamente la risorsa genererà un errore in cui esiste già un cluster con lo stesso nome.
+    
+    - Anche l'uso di un modello di Azure Resource Manager e della risorsa [Microsoft. MachineLearningServices/Workspaces/Computes](/azure/templates/microsoft.machinelearningservices/2019-11-01/workspaces/computes) per creare un cluster AKS __non__ è idempotente. Se si tenta di utilizzare di nuovo il modello per aggiornare una risorsa già esistente, verrà visualizzato lo stesso errore.
 
 ## <a name="azure-kubernetes-service-version"></a>Versione del servizio Azure Kubernetes
 

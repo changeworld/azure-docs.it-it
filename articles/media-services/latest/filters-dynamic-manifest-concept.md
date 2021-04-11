@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ad3b6fa581bfc36579ef4b6937b50f8c1789a7f5
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 1fb8724edc32477bb1c399db0493833e9df984bb
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111865"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277573"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrare i manifesti usando Dynamic Packager
 
@@ -26,7 +26,7 @@ ms.locfileid: "106111865"
 
 Quando si distribuisce contenuto di streaming a bitrate adattivo ai dispositivi, a volte è necessario pubblicare più versioni di un manifesto per individuare funzionalità specifiche del dispositivo o larghezza di banda di rete disponibile. [Dynamic Packager](encode-dynamic-packaging-concept.md) consente di specificare filtri che consentono di filtrare i codec, le soluzioni, le velocità in bit e le combinazioni di tracce audio specifiche in tempo reale. Questo filtro elimina la necessità di creare più copie. È sufficiente pubblicare un nuovo URL con un set specifico di filtri configurati per i dispositivi di destinazione (iOS, Android, SmartTV o browser) e le funzionalità di rete (scenari a larghezza di banda elevata, per dispositivi mobili o a larghezza di banda ridotta). In questo caso, i client possono modificare lo streaming del contenuto tramite la stringa di query (specificando i filtri di [asset o i filtri](filters-concept.md)per gli account disponibili) e usare i filtri per trasmettere sezioni specifiche di un flusso.
 
-Per alcuni scenari di recapito è necessario assicurarsi che un cliente non possa accedere a tracce specifiche. Ad esempio, è possibile che non si desideri pubblicare un manifesto che contiene tracce HD a un livello specifico del Sottoscrittore. In alternativa, è possibile rimuovere tracce specifiche di velocità in bit adattiva (ABR) per ridurre i costi di consegna a un dispositivo specifico che non trarrebbe vantaggio dalle tracce aggiuntive. In questo caso, è possibile associare un elenco di filtri creati in precedenza al [localizzatore di streaming](streaming-locators-concept.md) al momento della creazione. I client non possono quindi modificare il modo in cui il contenuto viene trasmesso perché è definito dal **localizzatore di streaming**.
+Per alcuni scenari di recapito è necessario assicurarsi che un cliente non possa accedere a tracce specifiche. Ad esempio, è possibile che non si desideri pubblicare un manifesto che contiene tracce HD a un livello specifico del Sottoscrittore. In alternativa, è possibile rimuovere tracce specifiche di velocità in bit adattiva (ABR) per ridurre i costi di consegna a un dispositivo specifico che non trarrebbe vantaggio dalle tracce aggiuntive. In questo caso, è possibile associare un elenco di filtri creati in precedenza al [localizzatore di streaming](stream-streaming-locators-concept.md) al momento della creazione. I client non possono quindi modificare il modo in cui il contenuto viene trasmesso perché è definito dal **localizzatore di streaming**.
 
 È possibile combinare i filtri tramite la specifica di [filtri nel localizzatore di streaming](filters-concept.md#associating-filters-with-streaming-locator) e altri filtri specifici del dispositivo specificati dal client nell'URL. Questa combinazione è utile per limitare tracce aggiuntive, come metadati, flussi di eventi, lingue audio o tracce audio descrittive.
 

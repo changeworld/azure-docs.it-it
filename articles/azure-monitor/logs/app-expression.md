@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
-ms.openlocfilehash: 235a6bf4a0dd9afcac8751067b2eac3ddb37c0cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d60857503402554381068fc36121fa3f7b61622
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031243"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283559"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Espressione app() in una query di Monitoraggio di Azure
 
 L'espressione `app` viene usata in una query di Monitoraggio di Azure per recuperare dati da un'app Application Insights specifica nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. È utile per includere dati dell'applicazione in una query di log di Monitoraggio di Azure e per eseguire query su dati di più applicazioni in una query di Application Insights.
 
 > [!IMPORTANT]
-> L'espressione app () non viene usata se si usa una [risorsa di Application Insights basata sull'area di lavoro](../app/create-workspace-resource.md) perché i dati di log vengono archiviati in un'area di lavoro di log Analytics. Usare l'espressione log () per scrivere una query che includa l'applicazione in più aree di lavoro. Per più applicazioni nella stessa area di lavoro, non è necessaria una query tra aree di lavoro.
+> L'espressione app () non viene usata se si usa una [risorsa di Application Insights basata sull'area di lavoro](../app/create-workspace-resource.md) perché i dati di log vengono archiviati in un'area di lavoro di log Analytics. Usare l'espressione Workspace () per scrivere una query che includa l'applicazione in più aree di lavoro. Per più applicazioni nella stessa area di lavoro, non è necessaria una query tra aree di lavoro.
 
 ## <a name="syntax"></a>Sintassi
 

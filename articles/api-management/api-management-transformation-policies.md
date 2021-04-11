@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: c0c7a6b25c15be2e521e0985c315baf819650aa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48f8445e30bd186681d1a4384d16f228a3382473
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491757"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012438"
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
@@ -366,7 +366,7 @@ Il criterio `set-body` può essere configurato per l'uso del linguaggio di model
 > [!IMPORTANT]
 > L'implementazione di Liquid usato nel criterio `set-body` è configurato in "modalità C#". Questo è particolarmente importante quando si eseguono operazioni quali l'applicazione del filtro. Ad esempio, l'uso di un filtro data richiede l'uso della convenzione Pascal e della formattazione delle date C#, ad esempio:
 >
-> {{body.foo.startDateTime| Data:"yyyyMMddTHH:mm:ddZ"}}
+> {{Body. foo. startDateTime | Data: "yyyyMMddTHH: mm: ssZ"}}
 
 > [!IMPORTANT]
 > Per eseguire correttamente l'associazione a un corpo XML utilizzando il modello Liquid, usare un criterio `set-header` per impostare il tipo di contenuto su application/xml, text/xml (o su qualsiasi tipo che termini con +xml); per un corpo JSON, deve essere application/json, testo/json (o qualsiasi tipo che termini con +json).

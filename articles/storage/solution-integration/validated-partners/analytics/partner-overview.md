@@ -8,12 +8,12 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 6c0ea6664c7f86a2672cb22091970ef727969dc2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c88dca926e3b185d388ff09ee424780d5097fb1f
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562519"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075478"
 ---
 # <a name="azure-storage-analytics-and-big-data-partners"></a>Analisi archiviazione di Azure e partner Big Data
 
@@ -23,7 +23,7 @@ In questo articolo vengono evidenziate le società partner Microsoft integrate c
 
 | Partner | Descrizione | Sito Web/collegamento al prodotto |
 | ------- | ----------- | -------------------- |
-|![Logo della società Dremio](./media/dremio-logo.png) |**Dremio**<br>Gli analisti e i data scientist possono individuare, esplorare e curare i dati, mentre il reparto IT (Information Technology) mantiene governance e sicurezza. Dremio consente di aggiungere facilmente Data Lake Storage con archiviazione BLOB, database SQL di Azure, SQL sinapsi di Azure, HDInsight e altro ancora. Con Dremio, Power BI analisti possono ricercare nuovi set di dati archiviati in Data Lake Storage, accedere immediatamente a tali dati in Power BI, creare visualizzazioni e perfezionare in modo iterativo i report in tempo reale. Gli analisti possono inoltre creare nuovi report che combinano i dati tra Data Lake Storage e altri database.|[Pagina del partner](https://www.dremio.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dremiocorporation.dremio_ce)<br>|
+|![Logo della società Dremio](./media/dremio-logo.jpg) |**Dremio**<br>Gli analisti e i data scientist possono individuare, esplorare e curare i dati, mentre il reparto IT (Information Technology) mantiene governance e sicurezza. Dremio consente di aggiungere facilmente Data Lake Storage con archiviazione BLOB, database SQL di Azure, SQL sinapsi di Azure, HDInsight e altro ancora. Con Dremio, Power BI analisti possono ricercare nuovi set di dati archiviati in Data Lake Storage, accedere immediatamente a tali dati in Power BI, creare visualizzazioni e perfezionare in modo iterativo i report in tempo reale. Gli analisti possono inoltre creare nuovi report che combinano i dati tra Data Lake Storage e altri database.|[Pagina del partner](https://www.dremio.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dremiocorporation.dremio_ce)<br>|
 ![Logo della società informatica](./media/informatica-logo.png) |**Informatica**<br>La piattaforma di gestione dati a livello aziendale di informatica, nativa del cloud, automatizza e accelera l'individuazione, la distribuzione, la qualità e la governance dei dati aziendali in Azure. L'integrazione dei dati basata sui metadati e basata sui metadati e la qualità dei dati e le funzionalità di governance consentono di modernizzare le analisi e accelerare il passaggio a una data warehouse o a un data Lake in Azure.|[Pagina partner](https://www.informatica.com/azure)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/informatica.annualiics?tab=Overview)|
 ![Logo della società Wandisco](./media/wandisco-logo.jpg) |**WANdisco**<br>Il motore di migrazione di WANdisco consente di eseguire la migrazione dei dati Hadoop a Data Lake Storage mentre rimane in uso attivo su qualsiasi scala, con tempo di inattività pari a zero e perdita di dati pari a zero.<br><br>Sviluppato in collaborazione con Microsoft, la [piattaforma WANdisco LiveData per Azure](../../../blobs/migrate-gen2-wandisco-live-data-platform.md) è strettamente integrata con Azure. Oltre ad avere un'esperienza di distribuzione portale di Azure, sfrutta anche il controllo degli accessi in base al ruolo, la Azure Active Directory, l'applicazione dei criteri di Azure e l'integrazione dei log attività. Con l'integrazione di fatturazione di Azure non è necessario aggiungere un contratto fornitore o ottenere ulteriori approvazioni del fornitore.<br><br>Accelera la replica dei dati di Hadoop tra più origini e destinazioni per qualsiasi architettura di dati. Con i servizi cloud LiveData, i dati saranno disponibili per Azure Databricks, sinapsi Analytics e HDInsight non appena vengono rilasciati, con coerenza dei dati garantita del 100%. |[Pagina del partner](https://www.wandisco.com/microsoft/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldm?tab=Overview)|
 

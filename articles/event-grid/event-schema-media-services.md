@@ -3,12 +3,12 @@ title: Servizi multimediali di Azure come origine di griglia di eventi
 description: Descrive le proprietà disponibili per gli eventi di Servizi multimediali con Griglia di eventi di Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1f2f62f0a5ceed0e000c8bb7690fff009593bf82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5772a2332e1864d0b8df0d4e102006b29b6a61e
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104591929"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120113"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Servizi multimediali di Azure come origine di griglia di eventi
 
@@ -514,7 +514,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | `encoderPort` | string | Porta del codificatore da cui proviene il flusso. |
 | `resultCode` | string | Motivo per cui la connessione è stata rifiutata. I codici di risultato sono elencati nella tabella seguente. |
 
-È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](../media-services/latest/live-event-error-codes.md).
+È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](../media-services/latest/live-event-error-codes-reference.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -639,7 +639,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | `encoderPort` | string | Porta del codificatore da cui proviene il flusso. |
 | `resultCode` | string | Motivo di disconnessione del codificatore. La causa può essere una disconnessione normale o causata da un errore. I codici di risultato sono elencati nella tabella seguente. |
 
-È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](../media-services/latest/live-event-error-codes.md).
+È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](../media-services/latest/live-event-error-codes-reference.md).
 
 I codici di risultato della disconnessione normale sono:
 
@@ -1118,4 +1118,4 @@ Un evento presenta i seguenti dati di primo livello:
 
 - [EventGrid .NET SDK che include gli eventi per Servizi multimediali](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definizioni degli eventi di Servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Codici di errore dell'evento Live](../media-services/latest/live-event-error-codes.md)
+- [Codici di errore dell'evento Live](../media-services/latest/live-event-error-codes-reference.md)

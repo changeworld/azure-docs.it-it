@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/17/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ee066ff46f319749469a41e6decf12b35c0ee27e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e160b21581bc7b5fa38b12309bd9deb90bfbbe51
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651945"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107251646"
 ---
 La tabella seguente include informazioni sulle quote specifiche per la messaggistica del bus di servizio di Azure. Per informazioni sui prezzi e su altre quote del bus di servizio, vedere [Prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Nome della quota | Scope | Note | valore |
 | --- | --- | --- | --- |
-| Numero massimo di spazi dei nomi Basic o Standard per sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Basic o Standard vengono rifiutate dal portale di Azure. |100|
-| Numero massimo di spazi dei nomi Premium per sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Premium vengono rifiutate dal portale. |100 |
+| Numero massimo di spazi dei nomi Basic o Standard per sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Basic o Standard vengono rifiutate dal portale di Azure. | Il valore predefinito è 100. <br/> Il valore massimo è 1.000. <br/><br/> Per aumentare il limite, contattare il supporto tecnico di Azure. |
+| Numero massimo di spazi dei nomi Premium per sottoscrizione di Azure |Spazio dei nomi |Le successive richieste di altri spazi dei nomi Premium vengono rifiutate dal portale. | Il valore predefinito è 100. <br/> Il valore massimo è 1.000. <br/><br/> Per aumentare il limite, contattare il supporto tecnico di Azure. |
 | Dimensioni coda o argomento |Entità |Definite al momento della creazione della coda o dell'argomento. <br/><br/> I messaggi in arrivo successivi vengono rifiutati e il codice chiamante riceve un'eccezione. |1, 2, 3, 4 GB o 5 GB.<br /><br />Nello SKU Premium, oltre che nello SKU Standard con il [partizionamento](../articles/service-bus-messaging/service-bus-partitioning.md) abilitato, le dimensioni massime della coda o dell'argomento sono 80 GB. |
 | Numero di connessioni simultanee per uno spazio dei nomi |Spazio dei nomi |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. Le operazioni REST non vengono conteggiate ai fini del numero di connessioni TCP simultanee. |Messaggistica di rete: 1.000.<br /><br />AMQP: 5.000. |
 | Numero di richieste di ricezione simultanee su un'entità coda, argomento o sottoscrizione |Entità |Le richieste di ricezione successive vengono rifiutate e il codice chiamante riceve un'eccezione. Questa quota si applica al numero combinato di operazioni di ricezione simultanee per tutte le sottoscrizioni relative a un argomento. |5\.000 |
@@ -38,6 +38,6 @@ La tabella seguente include informazioni sulle quote specifiche per la messaggis
 | Dimensioni di filtri o azioni SQL |Spazio dei nomi |Le successive richieste di creazione di altri filtri vengono rifiutate e il codice chiamante riceve un'eccezione. |Lunghezza massima della stringa della condizione del filtro: 1.024 (1 K).<br /><br />Lunghezza massima della stringa dell'azione della regola: 1.024 (1 K).<br /><br />Numero massimo di espressioni per ogni azione della regola: 32. |
 | Numero di regole di autorizzazione per l'accesso condiviso per spazio dei nomi, coda o argomento |Entità, spazio dei nomi |Le successive richieste di creazione di altre regole vengono rifiutate e il codice chiamante riceve un'eccezione. |Numero massimo di regole per tipo di entità: 12. <br /><br /> Le regole configurate in uno spazio dei nomi del bus di servizio si applicano a tutti i tipi, ossia code e argomenti. |
 | Numero di messaggi per transazione | Transazione | Messaggi in arrivo aggiuntivi vengono rifiutati e il codice chiamante riceve un'eccezione con un messaggio analogo a "Non è possibile inviare più di 100 messaggi in una singola transazione". | 100 <br /><br /> Per entrambe le operazioni **Send()** e **SendAsync()**. |
-| Numero di regole di rete virtuale e filtro IP | Spazio dei nomi | &nbsp; | 128 | 
+| Numero di regole di rete virtuale e filtro IP | Spazio dei nomi | &nbsp; | 128 |
 
 [Azure portal]: https://portal.azure.com

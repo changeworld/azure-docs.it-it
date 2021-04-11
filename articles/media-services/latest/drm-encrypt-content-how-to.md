@@ -3,12 +3,12 @@ title: Crittografare contenuti con il portale di Azure
 description: Questo argomento di avvio rapido illustra come configurare la crittografia dei contenuti usando Servizi multimediali di Azure nel portale di Azure.
 ms.topic: quickstart
 ms.date: 08/31/2020
-ms.openlocfilehash: a97e1a3c51d44b7c530de0c6eeca569f898d07c1
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 5ce942447f6d143116350940bda0e01a8b532d24
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106069324"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277679"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>Avvio rapido: Usare il portale per crittografare contenuto
 
@@ -28,8 +28,8 @@ Questo argomento di avvio rapido illustra come creare un criterio chiave simmetr
 ### <a name="suggested-pre-reading"></a>Letture consigliate
 
 * [Crittografia dinamica e distribuzione delle chiavi](drm-content-protection-concept.md)
-* [Localizzatori di streaming](streaming-locators-concept.md)
-* [Criteri di streaming](streaming-policy-concept.md)
+* [Localizzatori di streaming](stream-streaming-locators-concept.md)
+* [Criteri di streaming](stream-streaming-policy-concept.md)
 * [Criteri chiave simmetrica](drm-content-key-policy-concept.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -80,7 +80,7 @@ Per informazioni dettagliate sui modelli di licenza, vedere:
 1. Nella sezione **Localizzatore di streaming** relativa all'asset selezionato scegliere **+ Aggiungi localizzatore di streaming**. 
 1. Selezionare un **criterio di streaming** appropriato per i **criteri chiave simmetrica** configurati.
 
-    L'argomento [Criteri di streaming](streaming-policy-concept.md) fornisce informazioni dettagliate sui criteri di streaming corrispondenti ai criteri chiave simmetrica.
+    L'argomento [Criteri di streaming](stream-streaming-policy-concept.md) fornisce informazioni dettagliate sui criteri di streaming corrispondenti ai criteri chiave simmetrica.
 1. Dopo aver selezionato i criteri di streaming appropriati, è possibile selezionare i criteri chiave simmetrica dall'elenco a discesa.
 1. Scegliere **Aggiungi** per aggiungere il localizzatore di streaming all'asset.
 

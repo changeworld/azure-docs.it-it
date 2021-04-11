@@ -1,15 +1,15 @@
 ---
 title: Dettagli di conformità alle normative per 1.3.0 di base di CIS Microsoft Azure Foundation
 description: Dettagli del 1.3.0 di base di riferimento per la conformità alle normative di Microsoft Azure CIS. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: e359ae66e8dc34032e365af360020844ec8f66b8
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 03e8d5ae24e379928910783f9638327f0b7a42dd
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105032481"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091651"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>Dettagli del 1.3.0 di base di riferimento per la conformità alle normative di Microsoft Azure CIS
 
@@ -17,11 +17,11 @@ L'articolo seguente illustra in dettaglio come viene eseguito il mapping della d
 Per altre informazioni su questo standard di conformità, vedere la pagina relativa al [benchmark di 1.3.0 di CIS Microsoft Azure Foundation](https://www.cisecurity.org/benchmark/azure/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
 I mapping seguenti sono relativi ai controlli di **1.3.0 di benchmark della Microsoft Azure** di base di CIS. Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
-Quindi, trovare e selezionare il **sid Microsoft Azure Foundations benchmark 1.3.0** Regulatory Compliance Initiative definizione.
+Quindi, trovare e selezionare la definizione di iniziativa di base per la conformità alle normative **CIS Microsoft Azure Foundations benchmark v 1.3.0** .
 
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../overview.md).
-> Questi criteri possono aiutare a [valutare la conformità](../how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza 1:1 o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo alle definizioni dei criteri e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra domini di conformità, controlli e definizioni di Criteri di Azure per questo standard di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json).
+> Questi criteri possono aiutare a [valutare la conformità](../how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza uno-a-uno o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo alle definizioni dei criteri e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra domini di conformità, controlli e definizioni di Criteri di Azure per questo standard di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_3_0.json).
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 

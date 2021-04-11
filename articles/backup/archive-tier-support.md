@@ -3,12 +3,12 @@ title: Supporto del livello archivio (anteprima)
 description: Informazioni sul supporto del livello di archiviazione per backup di Azure
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 322bc9d7e2160cc9156c793859b9fda833b3df09
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7a42b8702cfdda14a18aa3cdd4e084ed78767b0a
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563974"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012149"
 ---
 # <a name="archive-tier-support-preview"></a>Supporto del livello archivio (anteprima)
 
@@ -40,6 +40,8 @@ Client supportati:
 
 ## <a name="get-started-with-powershell"></a>Introduzione a PowerShell
 
+1. Scaricare la versione [più recente](https://github.com/PowerShell/PowerShell/releases) di PowerShell da GitHub.
+
 1. In PowerShell eseguire questo comando:
   
     ```azurepowershell
@@ -57,7 +59,13 @@ Client supportati:
 
 1. Ottenere l'elenco degli elementi di backup:
 
-    `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM/AzureWorkload" -WorkloadType "AzureVM/MSSQL"`
+    - Per macchine virtuali di Azure:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM" -WorkloadType "AzureVM"`
+
+    - Per SQL Server in macchine virtuali di Azure:
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureWorkload" -WorkloadType "MSSQL"`
 
 1. Ottiene l'elemento di backup.
 

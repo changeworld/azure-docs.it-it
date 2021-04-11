@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: a49fd6f97a9130fa0369d2a36cdc38e59613afc1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bcf96a222dd40909401b70d8f1812b7d29b6088b
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544384"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012463"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
 Zone di disponibilità in Azure è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Una zona di disponibilità è una posizione fisica univoca dotata di alimentazione, raffreddamento e rete indipendenti in un'area di Azure.
@@ -33,7 +33,7 @@ Per la topologia consigliata per il tipo di nodo primario sono necessarie le ris
 * Un NSG a cui fa riferimento la subnet in cui vengono distribuiti i set di scalabilità di macchine virtuali.
 
 >[!NOTE]
-> Il set di scalabilità di macchine virtuali proprietà del gruppo di posizionamento singolo deve essere impostato su true, poiché Service Fabric non supporta un singolo set di scalabilità di macchine virtuali che si estende su zone.
+> Il set di scalabilità di macchine virtuali proprietà del gruppo di posizionamento singolo deve essere impostato su true.
 
 Diagramma che mostra il diagramma dell'architettura della zona ![ di disponibilità di azure Service fabric che mostra l'architettura della zona di disponibilità di azure Service Fabric.][sf-architecture]
 

@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: 31ba96e0f8772877d7b4881c6bab0561cbe7956e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/31/2021
+ms.openlocfilehash: e882ae89da2fd081d6b41d3d42e998d3600f0e18
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604254"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120750"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novità di Azure Sentinel
 
@@ -32,13 +32,36 @@ Le funzionalità indicate sono attualmente in anteprima. Le [condizioni aggiunti
 
 ## <a name="march-2021"></a>Marzo 2021
 
+- [Nuovi rilevamenti per il firewall di Azure](#new-detections-for-azure-firewall)
 - [Regole di automazione e PlayBook attivati dagli eventi imprevisti](#automation-rules-and-incident-triggered-playbooks) (inclusa la documentazione di tutti i nuovi PlayBook)
 - [Nuovi miglioramenti degli avvisi: mapping di entità migliorato e dettagli personalizzati](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
 - [Stampa le cartelle di lavoro di Azure Sentinel o Salva come PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
 - [Filtri per gli eventi imprevisti e preferenze di ordinamento ora salvati nella sessione (anteprima pubblica)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Integrazione di Microsoft 365 Defender Incident (anteprima pubblica)](#microsoft-365-defender-incident-integration-public-preview)
 - [Nuovi connettori del servizio Microsoft con criteri di Azure](#new-microsoft-service-connectors-using-azure-policy)
- 
+
+### <a name="new-detections-for-azure-firewall"></a>Nuovi rilevamenti per il firewall di Azure
+
+Sono stati aggiunti diversi rilevamenti predefiniti per il firewall di Azure all'area [Analytics](import-threat-intelligence.md#analytics-puts-your-threat-indicators-to-work-detecting-potential-threats) in Sentinel di Azure. Questi nuovi rilevamenti consentono ai team di sicurezza di ottenere avvisi se i computer nella rete interna tentano di eseguire query o connettersi a nomi di dominio Internet o indirizzi IP associati a IOC noti, come definito nella query della regola di rilevamento.
+
+I nuovi rilevamenti includono:
+
+- [Beacon di rete Solorigate](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
+- [Domini e hash del gallio noti](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GalliumIOCs.yaml)
+- [IP IRIDIUM noto](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
+- [Domini/IP del gruppo fosforo noti](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
+- [Domini di TALLio inclusi in Takedown Takedown](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
+- [Hash maldoc correlato allo ZINCo noto](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+- [Domini del gruppo di STRONZi noti](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
+- [Nobelium-Domain e IP IOC-marzo 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
+
+
+I rilevamenti per i firewall di Azure vengono aggiunti continuamente alla raccolta di modelli incorporata. Per ottenere i rilevamenti più recenti per il firewall di Azure, in **modelli di regole** filtrare le **origini dati** in base al **firewall di Azure**:
+
+:::image type="content" source="media/whats-new/new-detections-analytics-efficiency-workbook.jpg" alt-text="Nuovi rilevamenti nella cartella di lavoro di analisi dell'efficienza":::
+
+Per altre informazioni, vedere [nuovi rilevamenti per il firewall di Azure in Sentinel di Azure](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
+
 ### <a name="automation-rules-and-incident-triggered-playbooks"></a>Regole di automazione e PlayBook attivati dagli eventi imprevisti
 
 Le regole di automazione sono un nuovo concetto di Azure Sentinel, che consente di gestire centralmente l'automazione della gestione degli eventi imprevisti. Oltre a consentire l'assegnazione di PlayBook a eventi imprevisti (non solo agli avvisi come prima), le regole di automazione consentono anche di automatizzare le risposte per più regole di analisi in una sola volta, contrassegnare, assegnare o chiudere automaticamente gli eventi imprevisti senza la necessità di PlayBook e controllare l'ordine delle azioni eseguite. Le regole di automazione semplificano l'uso dell'automazione in Sentinel di Azure e consentono di semplificare i flussi di lavoro complessi per i processi di orchestrazione degli eventi imprevisti.
@@ -47,7 +70,7 @@ Scopri di più con questa [spiegazione completa delle regole di automazione](aut
 
 Come indicato in precedenza, è ora possibile attivare i PlayBook con il trigger di evento imprevisto oltre al trigger di avviso. Il trigger di evento imprevisto fornisce ai PlayBook un set di input più ampio da usare (poiché l'evento imprevisto include anche tutti i dati di avviso e di entità), garantendo una maggiore potenza e flessibilità nei flussi di lavoro di risposta. I PlayBook attivati dagli eventi imprevisti vengono attivati chiamando dalle regole di automazione.
 
-Scopri di più sui [funzionalità avanzati dei PlayBook](automate-responses-with-playbooks.md)e su come [creare un flusso di lavoro di risposta](tutorial-respond-threats-playbook.md) usando i PlayBook insieme alle regole di automazione.
+Scopri di più sulle [funzionalità avanzate dei PlayBook](automate-responses-with-playbooks.md)e su come [creare un flusso di lavoro di risposta](tutorial-respond-threats-playbook.md) usando i PlayBook insieme alle regole di automazione.
 
 ### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details"></a>Nuovi miglioramenti degli avvisi: mapping di entità migliorato e dettagli personalizzati
 

@@ -10,18 +10,29 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: 44bcc27f877f6b2a547c51ecd3848214719cb085
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cbc147cb0aabc0540e3a91c99243aa88a8cca146
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643653"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210793"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Informazioni su Machine Learning automatizzato
 
 Machine Learning automatizzato, o ML automatizzato, è il processo che consente di automatizzare le attività iterative per lo sviluppo di modelli di Machine Learning che richiedono molto tempo. Consente a data scientist, analisti e sviluppatori di creare modelli di Machine Learning con scalabilità, efficienza e produttività elevate, garantendo al tempo stesso la qualità del modello. Il Machine Learning Machine Learning in Azure Machine Learning si basa su un'innovazione della [divisione Microsoft Research](https://www.microsoft.com/research/project/automl/).
 
 Lo sviluppo tradizionale di modelli di Machine Learning richiede un utilizzo elevato delle risorse, una conoscenza approfondita del dominio e un dispendio considerevole di tempo per produrre e confrontare numerosi modelli. Grazie a Machine Learning automatizzato, sarà possibile accelerare il tempo necessario per ottenere modelli di Machine Learning pronti per la produzione con grande facilità ed efficienza.
+
+## <a name="automl-in-azure-machine-learning"></a>Machine Learning automatizzato in Azure Machine Learning
+
+Azure Machine Learning offre due esperienze per l'uso di ML automatizzato:
+
+* Per i clienti con esperienza di codice, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  Introduzione all' [esercitazione: usare Machine Learning automatizzato per prevedere le tariffe dei taxi](tutorial-auto-train-models.md).
+
+* Per i clienti con esperienza limitata o senza codice, Azure Machine Learning Studio all'indirizzo [https://ml.azure.com](https://ml.azure.com/) .  Inizia a usare queste esercitazioni:
+    * [Esercitazione: creare un modello di classificazione con ml automatico in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
+    *  [Esercitazione: Prevedere la domanda con Machine Learning automatizzato](tutorial-automated-ml-forecast.md)
+
 
 ## <a name="when-to-use-automl-classify-regression--forecast"></a>Quando usare Machine Learning automatizzato: classificazione, regressione e previsione
 
@@ -199,14 +210,6 @@ Ad esempio, la creazione di un modello __per ogni istanza o unico__ negli scenar
 * Stima delle vendite per ogni singolo negozio
 * Manutenzione predittiva per centinaia di pozzi di petrolio
 * Adattamento di un'esperienza ai singoli utenti
-
-## <a name="automl-in-azure-machine-learning"></a>Machine Learning automatizzato in Azure Machine Learning
-
-Azure Machine Learning offre due esperienze per l'uso di ML automatizzato:
-
-* Per i clienti con esperienza di codice, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 
-
-* Per i clienti con esperienza limitata o che non dispongono di codice, Azure Machine Learning Studio all'indirizzo [https://ml.azure.com](https://ml.azure.com/)  
 
 <a name="parity"></a>
 

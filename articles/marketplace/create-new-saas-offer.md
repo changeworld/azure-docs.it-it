@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 03/19/2021
-ms.openlocfilehash: f652858f22e26eb7167a0cc7a2cfb8ef4b600ace
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 74d30b7c42002c8f134520e0198774eba1519bcd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047301"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553839"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Come creare un'offerta SaaS nel Marketplace commerciale
 
@@ -56,7 +56,7 @@ Nella scheda **installazione offerta** , in **Dettagli installazione**, sceglier
    + Per fornire una versione di valutazione gratuita di 30 giorni, selezionare versione di valutazione **gratuita**, quindi nella casella **URL di valutazione** visualizzata immettere l'URL (a partire da *http* o *https*), in cui i clienti possono accedere alla versione di valutazione gratuita tramite [l'autenticazione con un clic usando Azure Active Directory (Azure ad)](azure-ad-saas.md). Ad esempio: `https://contoso.com/trial/saas-app`.
    + Per consentire ai clienti potenziali di contattare l'utente per acquistare l'offerta, selezionare **contattami**.
 
-### <a name="enable-a-test-drive-optional"></a>Abilitare una test drive (facoltativo)
+## <a name="enable-a-test-drive-optional"></a>Abilitare una test drive (facoltativo)
 
 Un test drive è un ottimo modo per presentare l'offerta a potenziali clienti, offrendo loro l'accesso a un ambiente preconfigurato per un numero fisso di ore. L'offerta di un test drive comporta un aumento della velocità di conversione e genera lead altamente qualificati. Per ulteriori informazioni sulle unità di test, vedere [che cos'è un test drive?](./what-is-test-drive.md).
 
@@ -67,14 +67,14 @@ Un test drive è un ottimo modo per presentare l'offerta a potenziali clienti, o
 1.  In **test drive** selezionare la casella di controllo **Abilita un test drive** .
 1.  Selezionare il tipo di test drive dall'elenco visualizzato.
 
-### <a name="configure-lead-management"></a>Configurare la gestione dei lead
+## <a name="configure-lead-management"></a>Configurare la gestione dei lead
 
 Connetti il tuo sistema CRM (Customer Relationship Management) all'offerta del Marketplace commerciale per ricevere le informazioni di contatto del cliente quando un cliente esprime interesse o distribuisce il prodotto. È possibile modificare questa connessione in qualsiasi momento durante o dopo la creazione dell'offerta.
 
 > [!NOTE]
 > È necessario configurare la gestione dei lead se si sta vendendo l'offerta tramite Microsoft o se è stata selezionata l'opzione **Contatta** l'utente. Per istruzioni dettagliate, vedere [Lead dei clienti dall'offerta del Marketplace commerciale](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
-#### <a name="to-configure-the-connection-details-in-partner-center"></a>Per configurare i dettagli della connessione nel centro per i partner
+### <a name="configure-the-connection-details-in-partner-center"></a>Configurare i dettagli della connessione nel centro per i partner
 
 1.  In **Lead cliente** selezionare il collegamento **Connetti** .
 1. Nella finestra di dialogo **Dettagli connessione** selezionare una destinazione principale nell'elenco.
@@ -88,6 +88,36 @@ Connetti il tuo sistema CRM (Customer Relationship Management) all'offerta del M
 
 1. Per convalidare la configurazione specificata, selezionare il collegamento **convalida** .
 1. Per chiudere la finestra di dialogo, fare clic su **OK**.
+
+## <a name="configure-microsoft-365-app-integration"></a>Configurare l'integrazione di Microsoft 365 app
+
+È possibile attivare l' [individuazione unificata e il recapito](./plan-SaaS-offer.md) dell'offerta SaaS e qualsiasi utilizzo di app Microsoft 365 correlato tramite collegamento.
+
+### <a name="integrate-with-microsoft-api"></a>Integrazione con l'API Microsoft
+
+1. Se l'offerta SaaS non si integra con Microsoft Graph API, selezionare **No**. Continuare con il collegamento dei client di utilizzo delle app Microsoft 365 pubblicati.  
+
+1. Se l'offerta SaaS si integra con Microsoft Graph API, selezionare **Sì** e quindi specificare l'ID app Azure Active Directory creato e registrato per l'integrazione con Microsoft Graph API. 
+
+### <a name="link-published-microsoft-365-app-consumption-clients"></a>Collegamento dei client di utilizzo app Microsoft 365 pubblicato
+
+1. Se non è stato pubblicato il componente aggiuntivo di Office, l'app teams o le soluzioni di SharePoint Framework che funzionano con l'offerta SaaS, selezionare **No**.
+
+1. Se è stato pubblicato il componente aggiuntivo di Office, l'app teams o le soluzioni di SharePoint Framework che funzionano con l'offerta SaaS, selezionare **Sì**, quindi selezionare **+ Aggiungi un altro collegamento AppSource** per aggiungere nuovi collegamenti.  
+
+1. Fornire un collegamento AppSource valido.
+
+1. Continuare ad aggiungere tutti i collegamenti selezionando **+ Aggiungi un altro collegamento AppSource** e fornire collegamenti AppSource validi.  
+
+1. L'ordine in cui i prodotti collegati vengono visualizzati nella pagina di inserzione dell'offerta SaaS è indicato dal valore di pertinenza, è possibile modificarlo selezionando, tenendo premuto e spostando l'icona = verso l'alto e verso il basso nell'elenco. 
+
+1. È possibile eliminare un prodotto collegato selezionando **Elimina** nella riga del prodotto.  
+
+
+> [!IMPORTANT]
+> Se si interrompe la vendita di un prodotto collegato, non verrà scollegato automaticamente nell'offerta SaaS, sarà necessario eliminarlo dall'elenco dei prodotti collegati e inviare nuovamente l'offerta SaaS.  
+
+ 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

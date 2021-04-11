@@ -4,12 +4,12 @@ description: Informazioni su come configurare una crittografia basata su host in
 services: container-service
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: f4e599ae7aa81c15f86d0e8b1c934824010ea45b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6942a3d445892faf0ea0570561eb06019e841e23
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430156"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443196"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Crittografia basata su host in Azure Kubernetes Service (AKS) (anteprima)
 
@@ -28,11 +28,18 @@ Questa funzionalità può essere impostata solo in fase di creazione del cluster
 - Assicurarsi che sia `aks-preview` installata l'estensione CLI v 0.4.73 o versione successiva.
 - Assicurarsi che sia stato `EnableEncryptionAtHostPreview` abilitato il flag funzionalità `Microsoft.ContainerService` .
 
-Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica **encryptionAtHost@microsoft.com** con gli ID sottoscrizione per ottenere la funzionalità abilitata per le sottoscrizioni. 
+Prima di usare la proprietà EncryptionAtHost per il cluster del servizio Kubernetes di Azure, è necessario abilitare la funzionalità per la sottoscrizione. Per abilitare la funzionalità per la sottoscrizione, seguire questa procedura:
 
-> [!IMPORTANT]
-> **encryptionAtHost@microsoft.com** Per ottenere la funzionalità abilitata per le risorse di calcolo, è necessario inviare un messaggio di posta elettronica con gli ID sottoscrizione. Non è possibile abilitarlo manualmente per le risorse di calcolo.
+1. Eseguire il comando seguente per registrare la funzionalità per la sottoscrizione
 
+```azurecli-interactive
+Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+```
+2. Verificare che lo stato di registrazione sia registrato (richiede qualche minuto) usando il comando seguente prima di provare la funzionalità.
+
+```azurecli-interactive
+Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"
+```
 
 ### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga di comando aks-preview
 

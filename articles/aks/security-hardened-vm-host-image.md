@@ -4,35 +4,38 @@ description: Informazioni sulla protezione avanzata nel sistema operativo host d
 services: container-service
 author: mlearned
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 03/29/2021
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0866905d0228d2304ebf5c8ef930a629979d2da
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86244039"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012080"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Protezione avanzata per il sistema operativo host del nodo AKS Agent
 
-Azure Kubernetes Service (AKS) è un servizio sicuro conforme agli standard SOC, ISO, PCI DSS e HIPAA. Questo articolo illustra la protezione avanzata applicata agli host di macchine virtuali AKS. Per altre informazioni sulla sicurezza di AKS, vedere Concetti relativi alla [sicurezza per le applicazioni e i cluster in Azure Kubernetes Service (AKS)](./concepts-security.md).
+Come servizio protetto, Azure Kubernetes Service (AKS) è conforme agli standard SOC, ISO, PCI DSS e HIPAA. Questo articolo illustra la protezione avanzata applicata agli host delle macchine virtuali (VM) AKS. Per altre informazioni sulla sicurezza di AKS, vedere Concetti relativi alla [sicurezza per le applicazioni e i cluster in Azure Kubernetes Service (AKS)](./concepts-security.md).
 
 > [!Note]
 > Questo documento è limitato agli agenti Linux in AKS.
 
-I cluster AKS vengono distribuiti nelle macchine virtuali host che eseguono un sistema operativo ottimizzato per la sicurezza usato per i contenitori in esecuzione su AKS. Questo sistema operativo host si basa su un'immagine **Ubuntu 16.04. LTS** con protezione avanzata e ottimizzazioni aggiuntive applicate (vedere dettagli protezione avanzata).
+I cluster AKS vengono distribuiti nelle VM host, che eseguono un sistema operativo ottimizzato per la sicurezza usato per i contenitori in esecuzione su AKS. Questo sistema operativo host si basa su un'immagine **Ubuntu 16.04. LTS** con una maggiore [protezione avanzata](#security-hardening-features) e ottimizzazioni applicate.
 
 L'obiettivo del sistema operativo host con protezione avanzata consiste nel ridurre la superficie di attacco e l'ottimizzazione per la distribuzione dei contenitori in modo sicuro.
 
 > [!Important]
-> Il sistema operativo con protezione avanzata non è un benchmark di CIS. Sebbene ci siano sovrapposizioni con i benchmark CIS, l'obiettivo non è conforme a CIS. L'obiettivo per la protezione avanzata del sistema operativo host è quello di convergere su un livello di protezione coerente con gli standard di sicurezza degli host interni di Microsoft.
+> Il sistema operativo con protezione avanzata **non** è un benchmark di CIS. Sebbene si sovrappongano ai benchmark CIS, l'obiettivo non è conforme a CIS. L'obiettivo per la protezione avanzata del sistema operativo host è quello di convergere su un livello di protezione coerente con gli standard di sicurezza degli host interni di Microsoft.
 
 ## <a name="security-hardening-features"></a>Funzionalità di protezione avanzata
 
-* AKS fornisce un sistema operativo host con ottimizzazione per la sicurezza per impostazione predefinita. Non è possibile selezionare un sistema operativo alternativo.
+* AKS fornisce un sistema operativo host ottimizzato per la sicurezza per impostazione predefinita, ma non è possibile selezionare un sistema operativo alternativo.
 
-* Azure applica patch giornaliere (incluse le patch di sicurezza) agli host di macchine virtuali AKS. Per alcune di queste patch è necessario riavviare il computer, mentre altre non lo sono. L'utente è responsabile della pianificazione dei riavvii dell'host della macchina virtuale AKS in base alle esigenze. Per istruzioni su come automatizzare l'applicazione di patch AKS, vedere applicazione di [patch ai nodi AKS](./node-updates-kured.md).
+* Azure applica patch giornaliere (incluse le patch di sicurezza) agli host di macchine virtuali AKS. 
+    * Alcune di queste patch richiedono un riavvio, mentre altre non lo sono. 
+    * L'utente è responsabile della pianificazione dei riavvii dell'host della macchina virtuale AKS in base alle esigenze. 
+    * Per istruzioni su come automatizzare l'applicazione di patch di AKS, vedere applicazione di [patch ai nodi AKS](./node-updates-kured.md).
 
 ## <a name="what-is-configured"></a>Cosa è configurato
 
@@ -79,14 +82,12 @@ L'obiettivo del sistema operativo host con protezione avanzata consiste nel ridu
  
 * Per ridurre ulteriormente la superficie di attacco, alcuni driver del modulo kernel non necessari sono stati disabilitati nel sistema operativo.
 
-* Il sistema operativo con protezione avanzata viene compilato e gestito in modo specifico per AKS e non è supportato al di fuori della piattaforma AKS.
+* Il sistema operativo con protezione avanzata viene compilato e gestito in modo specifico per AKS e **non** è supportato al di fuori della piattaforma AKS.
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
 Per ulteriori informazioni sulla sicurezza di AKS, vedere gli articoli seguenti: 
 
-[Servizio Azure Kubernetes](./intro-kubernetes.md)
-
-[Considerazioni sulla sicurezza di AKS ](./concepts-security.md)
-
-[Procedure consigliate di AKS ](./best-practices.md)
+* [Servizio Azure Kubernetes](./intro-kubernetes.md)
+* [Considerazioni sulla sicurezza di AKS](./concepts-security.md)
+* [Procedure consigliate di AKS](./best-practices.md)

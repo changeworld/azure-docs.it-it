@@ -10,14 +10,15 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 02/16/2021
+ms.custom: references_regions
+ms.date: 03/30/2021
 ms.author: juliako
-ms.openlocfilehash: 618617d3602e45ebb15314c7cc5f6898a73bb71f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c2465d845da9dd9c2c1690c39a8f1d1c7e86899f
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102203726"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075713"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -32,9 +33,31 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 
 ## <a name="march-2021"></a>Marzo 2021
 
+### <a name="audio-analysis"></a>Analisi audio 
+
 L'analisi audio è ora disponibile in un nuovo bundle aggiuntivo di funzionalità audio a un punto di prezzo diverso. Il nuovo set di impostazioni di base di analisi **audio** offre un'opzione a basso costo per estrarre solo le didascalie e i sottotitoli di output per la traduzione vocale. Il set di impostazioni **audio di base** produrrà due contatori distinti sulla fattura, inclusa una riga per la trascrizione e una riga separata per la formattazione della didascalia e del sottotitolo. Per altre informazioni sui prezzi, vedere la pagina dei [prezzi di servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/) .
 
 Il bundle appena aggiunto è disponibile durante l'indicizzazione o la reindicizzazione del file scegliendo il set di impostazioni di   ->  **base audio** (opzione avanzata), sotto la casella di riepilogo a discesa **video + audio indicizzazione** .
+
+### <a name="new-developer-portal"></a>Nuovo portale per sviluppatori 
+
+Video Indexer dispone di un [nuovo portale per sviluppatori](https://api-portal.videoindexer.ai/), provare le nuove API video Indexer e trovare tutte le risorse rilevanti in un'unica posizione: [repository GitHub](https://github.com/Azure-Samples/media-services-video-indexer), [stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [video Indexer Tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) con post di Blog pertinenti, [video Indexer domande frequenti](faq.md), [voce utente](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016) per fornire commenti e suggerimenti e suggerire funzionalità e  [collegamento ' CodePen '](https://codepen.io/videoindexer) con gli esempi di codice dei widget. 
+ 
+### <a name="advanced-customization-capabilities-for-insight-widget"></a>Funzionalità di personalizzazione avanzate per il widget Insight 
+
+SDK è ora disponibile per incorporare il widget Insights Video Indexer nel proprio servizio e personalizzarne lo stile e i dati. SDK supporta il widget standard Video Indexer Insights e un widget Insights completamente personalizzabile. Il codice di esempio è disponibile nel [repository video Indexer GitHub](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets/widget-customization). Grazie a questa funzionalità di personalizzazione avanzata, lo sviluppatore di soluzioni può applicare uno stile personalizzato e riunire i dati di intelligenza artificiale del cliente e presentarli nel widget Insight (con o senza Video Indexer Insights). 
+
+### <a name="video-indexer-deployed-in-the-us-north-central--us-west-and-canada-central"></a>Video Indexer distribuito negli Stati Uniti centro-settentrionali, Stati Uniti occidentali e Canada centrale 
+
+È ora possibile creare un account a pagamento Video Indexer nelle aree Stati Uniti centro-settentrionali, Stati Uniti occidentali e Canada centrale
+ 
+### <a name="new-source-languages-support-for-speech-to-text-stt-translation-and-search"></a>Supporto dei nuovi linguaggi di origine per il riconoscimento vocale (STT), traduzione e ricerca 
+
+Video Indexer ora supporta STT, traduzione e ricerca in danese ("da-DK"), norvegese ("nb-NO"), svedese ("sv-SE"), finlandese ("fi-FI"), francese canadese (' fr-CA '), Thai (' th-TH '), arabo (' AR-BH ',' ar-EG ',' AR-IQ ',' ar-JO ',' AR-KW ',' AR-LB ',' AR-OM ',' AR-QA ',' AR-S'è ar-SY ') e Turkish (' TR-TR '). Tali lingue sono disponibili sia nell'API che nel sito Web Video Indexer. 
+ 
+### <a name="search-by-topic-in-video-indexer-website"></a>Cerca per argomento nel sito Web Video Indexer 
+
+È ora possibile usare la funzionalità di ricerca nella parte superiore della pagina del [sito web video Indexer](https://www.videoindexer.ai/account/login) per cercare i video con argomenti specifici. 
 
 ## <a name="february-2021"></a>2021 febbraio
 

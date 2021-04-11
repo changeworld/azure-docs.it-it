@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 8cbc101ec9b5608574b93ea17022a3b0ef02ce4b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 90e72bd12d9115e5ff95213428ae4ac37979dcf3
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644419"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120096"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Esercitazione sull'aggiornamento del dispositivo per l'hub Azure. uso dell'agente di riferimento del simulatore Ubuntu (18,04 x64)
 
@@ -147,9 +147,9 @@ Agent running. [main]
 
 1. Accedere a [portale di Azure](https://portal.azure.com) e passare all'hub Internet delle cose.
 
-2. Da "dispositivi Internet o" IoT Edge "nel riquadro di spostamento a sinistra trova il tuo dispositivo e passa al dispositivo gemello.
+2. Da "dispositivi Internet o" IoT Edge "nel riquadro di spostamento a sinistra trova il tuo dispositivo e passa al dispositivo gemello o al modulo gemello.
 
-3. Nel dispositivo gemello eliminare qualsiasi valore del tag di aggiornamento del dispositivo esistente impostando il valore su null.
+3. Nel modulo gemello del modulo Device Update Agent eliminare qualsiasi valore di tag di aggiornamento del dispositivo esistente impostando il valore su null. Se si usa l'identità del dispositivo con l'agente di aggiornamento del dispositivo, apportare queste modifiche nel dispositivo gemello.
 
 4. Aggiungere un nuovo valore del tag di aggiornamento del dispositivo come illustrato di seguito.
 

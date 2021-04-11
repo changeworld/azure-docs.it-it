@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 01/27/2021
+ms.date: 04/07/2021
 ms.author: alkohli
-ms.openlocfilehash: b6389152116a47bedbc9c2dc44231f3e1732fdc6
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 43477f11effaafb0bcd6158be6843c79d19092ac
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055111"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210811"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Avvio rapido: Introduzione ad Azure Stack Edge Pro con GPU 
 
@@ -36,7 +36,7 @@ Prima di eseguire la distribuzione, verificare che siano soddisfatti i prerequis
 
 ## <a name="deployment-steps"></a>Passaggi di distribuzione
 
-1. **Installare**: connettere la PORTA 1 a un computer client tramite un cavo incrociato o una scheda Ethernet USB. Connettere almeno un'altra porta del dispositivo per i dati, preferibilmente 25 GbE (dalla PORTA 3 alla PORTA 6) a Internet tramite un commutatore (almeno 1 GbE) e cavi in rame SFP+. Connettere i cavi di alimentazione forniti alle unità di alimentazione e a uscite di distribuzione dell'alimentazione separate. Premere il pulsante di alimentazione sul pannello anteriore per accendere il dispositivo.  
+1. **Installare**: connettere la PORTA 1 a un computer client tramite un cavo incrociato o una scheda Ethernet USB. Connettere almeno un'altra porta del dispositivo per i dati, preferibilmente 25 GbE (dalla porta 3 alla porta 6) a Internet tramite cavi SFP + in rame o usare la porta 2 con cavo di patch RJ45. Connettere i cavi di alimentazione forniti alle unità di alimentazione e a uscite di distribuzione dell'alimentazione separate. Premere il pulsante di alimentazione sul pannello anteriore per accendere il dispositivo.  
 
     Vedere la [matrice di interoperabilità per la serie Cavium FastlinQ 41000](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) e i [prodotti compatibili con la scheda di rete Mellanox a due porte 25G ConnectX-4 canali](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) per informazioni su cavi di rete e commutatori compatibili.
 

@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 480b8ef401387863693bc88c3d508ce296636c93
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 8a192c3c3accf115b1a1db8e32a56d6d936078be
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107597"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277658"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Creare un localizzatore di streaming e gli URL di compilazione
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Per creare un URL di streaming in servizi multimediali di Azure, è prima di tutto necessario creare un [localizzatore di streaming](streaming-locators-concept.md). Si concatenano quindi il nome host dell' [endpoint di streaming](/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming** . In questo esempio viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account del servizio multimediale per la prima volta, questo **endpoint di streaming** *predefinito* si trova nello stato interrotto, quindi è necessario chiamare **Start** per avviare il flusso.
+Per creare un URL di streaming in servizi multimediali di Azure, è prima di tutto necessario creare un [localizzatore di streaming](stream-streaming-locators-concept.md). Si concatenano quindi il nome host dell' [endpoint di streaming](/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming** . In questo esempio viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account del servizio multimediale per la prima volta, questo **endpoint di streaming** *predefinito* si trova nello stato interrotto, quindi è necessario chiamare **Start** per avviare il flusso.
 
 Questo articolo illustra come creare un localizzatore di streaming e creare un URL di streaming usando gli SDK Java e .NET.
 

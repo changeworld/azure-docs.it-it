@@ -12,12 +12,12 @@ metadata:
   author: IngridAtMicrosoft
   ms.author: inhenkel
   ms.date: 03/25/2021
-  ms.openlocfilehash: 947e85ee143274e95ccca4bfcd3b68ad26dff6e5
-  ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+  ms.openlocfilehash: fb85f973a8a20340768249a6dc2d04a360c9e587
+  ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/27/2021
-  ms.locfileid: "105625178"
+  ms.lasthandoff: 04/03/2021
+  ms.locfileid: "106277488"
 landingContent:
 - title: Informazioni su Servizi multimediali
   linkLists:
@@ -30,15 +30,15 @@ landingContent:
   - linkListType: concept
     links:
     - text: Account dei Servizi multimediali
-      url: media-services-account-concept.md
+      url: account-move-account-how-to.md
     - text: Account di archiviazione
       url: storage-account-concept.md
     - text: Packaging
-      url: dynamic-packaging-overview.md
+      url: encode-dynamic-packaging-concept.md
     - text: Monitoraggio
       url: monitoring/reacting-to-media-services-events.md
     - text: Clienti più importanti
-      url: use-azure-media-player.md
+      url: player-use-azure-media-player-how-to.md
     - text: Sviluppo con le istruzioni dell'API v3
       url: media-services-apis-overview.md
 - title: Introduzione
@@ -46,7 +46,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Creare un account
-      url: ./create-account-howto.md
+      url: ./account-create-how-to.md
     - text: Accedere all'API
       url: ./access-api-howto.md
   - linkListType: download
@@ -72,7 +72,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Streaming live
-      url: live-streaming-overview.md
+      url: stream-live-streaming-concept.md
   - linkListType: tutorial
     links:
     - text: Streaming live
@@ -84,7 +84,7 @@ landingContent:
     - text: Caricamento
       url: assets-concept.md
     - text: Codifica
-      url: encoding-concept.md
+      url: encode-concept.md
   - linkListType: tutorial
     links:
     - text: Codificare il file remoto e trasmetterlo in streaming
@@ -96,24 +96,24 @@ landingContent:
   - linkListType: concept
     links:
     - text: Protezione
-      url: content-protection-overview.md
+      url: drm-content-protection-concept.md
   - linkListType: tutorial
     links:
     - text: Crittografare in modo dinamico il contenuto con AES-128
-      url: protect-with-aes128.md
+      url: drm-playready-license-template-concept.md
     - text: Crittografare in modo dinamico il contenuto con DRM
-      url: protect-with-drm.md
+      url: drm-protect-with-drm-tutorial.md
 - title: Analizzare il contenuto
   linkLists:
   - linkListType: concept
     links:
     - text: Analisi di contenuti multimediali
-      url: analyzing-video-audio-files-concept.md
+      url: analyze-video-audio-files-concept.md
     - text: Conformità, privacy e sicurezza
-      url: analyzing-video-audio-files-concept.md#compliance-privacy-and-security
+      url: analyze-video-audio-files-concept.md#compliance-privacy-and-security
   - linkListType: tutorial
     links:
     - text: Analizzare i video
-      url: analyze-videos-tutorial-with-api.md
+      url: analyze-videos-tutorial.md
     - text: Offuscare visi nei video
       url: analyze-face-redaction-concept.md

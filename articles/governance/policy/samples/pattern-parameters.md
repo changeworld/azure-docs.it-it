@@ -1,14 +1,14 @@
 ---
 title: 'Criterio: Parametri in una definizione di criteri'
-description: Questo modello di Criteri di Azure fornisce un esempio di come usare i parametri di stringa e matrice in una definizione dei criteri, nonché come parametrizzare l'effetto.
-ms.date: 08/17/2020
+description: Questo modello di criteri di Azure fornisce un esempio di come usare i parametri di stringa e matrice in una definizione di criteri e come parametrizzare l'effetto.
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 7bb991c43a1deee39dd047aa7d814c124712fe69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b742aaaf950e2b5670edbaa1f0134da144e675b6
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89649955"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092773"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Modello di Criteri di Azure: parametri
 
@@ -16,7 +16,7 @@ Una definizione di criteri può essere resa dinamica tramite [parametri](../conc
 
 ## <a name="sample-1-string-parameters"></a>Esempio 1. Parametri stringa
 
-Questa definizione di criteri usa due parametri, **tagName** e **tagValue**, per impostare gli elementi da cercare nelle risorse con l'assegnazione di criteri. Questo formato consente di usare la definizione dei criteri per un numero qualsiasi di combinazioni di nomi e valori di tag, ma di mantenere una singola definizione di criteri.
+Questa definizione di criteri usa due parametri, **tagName** e **tagValue**, per impostare le informazioni che l'assegnazione dei criteri sta cercando sulle risorse. Questo formato consente di usare la definizione dei criteri per un numero qualsiasi di combinazioni di nomi e valori di tag, ma di mantenere una singola definizione di criteri.
 
 > [!NOTE]
 > Per un esempio di tag che usa la **modalità** _All_ e funziona con un gruppo di risorse, vedere [Criterio: Tag - Esempio n. 1](./pattern-tags.md#sample-1-parameterize-tags).

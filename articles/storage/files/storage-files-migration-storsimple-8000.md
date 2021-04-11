@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 814a2f7e32f173111e45fff02f00c3e4d2a9a670
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1d2de439e661ef5b1d1669187355621f25400bc4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601084"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075588"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
@@ -65,11 +65,11 @@ Quando si configura il dispositivo StorSimple per la prima volta, viene generata
 
 La chiave di crittografia dei dati del servizio è necessaria per una migrazione corretta. Ora è il momento giusto per recuperare questa chiave dai record, uno per ogni appliance nell'inventario.
 
-Se non è possibile trovare le chiavi nei record, è possibile recuperare la chiave dal dispositivo. Ogni appliance ha una chiave di crittografia univoca. Per recuperare la chiave:
+Se non è possibile trovare le chiavi nei record, è possibile generare una nuova chiave dall'appliance. Ogni appliance ha una chiave di crittografia univoca.
 
-* Archiviare una richiesta di supporto con Microsoft Azure tramite il portale di Azure. La richiesta deve contenere i numeri di serie del dispositivo StorSimple e una richiesta di recupero della chiave di crittografia dei dati del servizio.
-* Un tecnico del supporto StorSimple ti contatterà per una richiesta di riunione virtuale.
-* Assicurarsi che prima della riunione venga avviata la connessione all'appliance StorSimple [tramite una console seriale](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) o tramite una [sessione remota di PowerShell](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple).
+#### <a name="change-the-service-data-encryption-key"></a>Modificare la chiave DEK del servizio
+
+[!INCLUDE [storage-files-migration-generate-key](../../../includes/storage-files-migration-generate-key.md)]
 
 > [!CAUTION]
 > Quando si decide come connettersi al dispositivo StorSimple, tenere presente quanto segue:

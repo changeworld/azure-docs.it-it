@@ -1,5 +1,5 @@
 ---
-title: Esempi di comunicazione del servizio emittente (anteprima)
+title: Esempi di comunicazione del servizio emittente (anteprima)-Azure Active Directory credenziali verificabili
 description: Dettagli della comunicazione tra il provider di identità e il servizio emittente
 author: barclayn
 manager: davba
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: bd1b7560967ff0c458639a5737a02fca27ffc9f5
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 8771c61f96b244e0cc0bca1c61ceb8042b4a5b4c
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170172"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220199"
 ---
 # <a name="issuer-service-communication-examples-preview"></a>Esempi di comunicazione del servizio emittente (anteprima)
 
@@ -141,3 +141,7 @@ Il token ID deve usare il formato di serializzazione JWT Compact e non deve esse
 | `iat` | Deve contenere l'ora in cui è stato emesso il token ID. |
 | `nonce` | Valore incluso nella richiesta di autorizzazione. |
 | Attestazioni aggiuntive | Il token ID deve contenere eventuali attestazioni aggiuntive i cui valori verranno inclusi nelle credenziali verificabili che verranno rilasciate. In questa sezione è necessario includere tutti gli attributi relativi all'utente, ad esempio il nome. |
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Come personalizzare le credenziali Azure Active Directory verificabili](credential-design.md)

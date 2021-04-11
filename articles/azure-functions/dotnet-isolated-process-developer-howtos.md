@@ -4,12 +4,12 @@ description: Informazioni su come creare ed eseguire il debug di funzioni C# usa
 ms.date: 03/03/2021
 ms.topic: how-to
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 9751d5d354d738a64d6b02e8153464491d78ec14
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6403e5d898b76d459a9712f7847e81e5442deeda
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201382"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075348"
 ---
 # <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Sviluppare e pubblicare funzioni .NET 5 con funzioni di Azure 
 
@@ -160,7 +160,7 @@ A questo punto, è possibile eseguire il `func start` comando dalla radice della
 
 1. Nella barra degli indirizzi del browser digitare l'URL della funzione locale, simile al seguente, ed eseguire la richiesta. 
 
-    <http://localhost:7071/api/HttpExample>
+    `http://localhost:7071/api/HttpExample`
 
     Verrà visualizzato l'output di traccia dalla richiesta scritta nel terminale in esecuzione. L'esecuzione del codice viene arrestata in corrispondenza di tutti i punti di interruzione impostati nel codice della funzione.
 

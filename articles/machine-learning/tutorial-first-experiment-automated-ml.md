@@ -1,7 +1,7 @@
 ---
 title: Creare modelli di classificazione di ML automatizzato
 titleSuffix: Azure Machine Learning
-description: Informazioni su come eseguire il training e la distribuzione di modelli di classificazione con l'interfaccia di Machine Learning automatizzato (ML automatizzato) in Azure Machine Learning.
+description: Eseguire il training & distribuire i modelli di classificazione senza scrivere codice, usando l'interfaccia automatizzata di Machine Learning (automatico ML) di Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,29 +11,31 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ad8a9f7af9ddabe969d090f80378ba5ff891d7f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d0e236891e48a20adf1901d2f95a90ae25969c49
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691944"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210847"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning
 
-
-In questa esercitazione viene descritto come creare un modello di classificazione semplice senza scrivere una sola riga di codice usando Machine Learning automatizzato in Azure Machine Learning Studio. Questo modello di classificazione consente di stimare se un cliente sottoscriverà un deposito a termine fisso presso un istituto finanziario.
+Informazioni su come creare un [modello di classificazione semplice](concept-automated-ml.md#classification) senza scrivere una singola riga di codice usando Machine Learning automatizzato in Azure Machine Learning Studio. Questo modello di classificazione consente di stimare se un cliente sottoscriverà un deposito a termine fisso presso un istituto finanziario.
 
 Con l'apprendimento automatico automatizzato, è possibile automatizzare le attività a elevato utilizzo di tempo. L'apprendimento automatico automatizzato esegue rapidamente l'iterazione su numerose combinazioni di algoritmi e iperparametri per aiutare a trovare il modello migliore in base a una metrica di riuscita di propria scelta.
 
-Per un esempio di previsione di serie temporali, vedere [Esercitazione: Previsione della domanda e AutoML](tutorial-automated-ml-forecast.md).
-
-In questa esercitazione si apprenderà come eseguire le attività seguenti:
+Non verrà scritto alcun codice in questa esercitazione, si userà l'interfaccia di studio per eseguire il training.  Si apprenderà come eseguire le attività seguenti:
 
 > [!div class="checklist"]
 > * Creare un'area di lavoro di Azure Machine Learning.
 > * Eseguire un esperimento di Machine Learning automatizzato.
 > * Visualizzare i dettagli sull'esperimento.
 > * Distribuire il modello.
+
+Provare anche Machine Learning automatico per questi altri tipi di modelli:
+
+* Per un esempio di previsione senza codice, vedere [esercitazione: previsione della domanda & AutoML](tutorial-automated-ml-forecast.md).
+* Per un esempio Code First di un modello di regressione, vedere l' [esercitazione: usare Machine Learning automatico per stimare le tariffe dei taxi](tutorial-auto-train-models.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,7 +54,7 @@ Esistono molti [modi per creare un'area di lavoro](how-to-manage-workspace.md). 
 >[!IMPORTANT] 
 > Prendere nota dell'**area di lavoro** e della **sottoscrizione**. Si tratta di informazioni necessarie per assicurarsi di creare l'esperimento nel posto giusto. 
 
-## <a name="get-started-in-azure-machine-learning-studio"></a>Iniziare con Azure Machine Learning Studio
+## <a name="sign-in-to-the-studio"></a>Accedi a Studio
 
 Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento tramite Azure Machine Learning Studio in https://ml.azure.com, un'interfaccia Web consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti della materia di qualsiasi livello di competenza. Studio non è supportato nei browser Internet Explorer.
 

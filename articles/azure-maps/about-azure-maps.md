@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: b53af0fda8bb24bf03d0e02f61ce7d195ae69503
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc70e6370f53848e9f3672611a3dfda685bcb9fe
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680827"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011777"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
@@ -173,7 +173,7 @@ Per altre informazioni, vedere la [documentazione del servizio informazioni sul 
 
 I servizi meteo offrono API che gli sviluppatori possono usare per recuperare le informazioni meteo per una determinata località. Le informazioni contengono informazioni dettagliate, ad esempio la data e l'ora di osservazione, una breve descrizione delle condizioni meteo, l'icona meteo, i flag degli indicatori delle precipitazioni, la temperatura e le informazioni sulla velocità del vento. Vengono restituiti anche altri dettagli, ad esempio la temperatura RealFeel™ e l'indice UV.
 
-Gli sviluppatori possono usare l'[API per il recupero del meteo lungo il percorso](/rest/api/maps/weather/getweatheralongroutepreview) per recuperare le informazioni meteorologiche lungo un itinerario specifico. Il servizio supporta inoltre la generazione di notifiche meteo per i waypoint interessati da rischi meteorologici, ad esempio alluvioni o pioggia intensa.
+Gli sviluppatori possono usare l'[API per il recupero del meteo lungo il percorso](/rest/api/maps/weather/getweatheralongroute) per recuperare le informazioni meteorologiche lungo un itinerario specifico. Il servizio supporta inoltre la generazione di notifiche meteo per i waypoint interessati da rischi meteorologici, ad esempio alluvioni o pioggia intensa.
 
 L'[API Recupera tessera mappa v2](/rest/api/maps/renderv2/getmaptilepreview) consente di richiedere le tessere radar e satellitari passate, correnti e future.
 

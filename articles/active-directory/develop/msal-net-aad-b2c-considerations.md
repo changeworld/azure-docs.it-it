@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 84a65e9ce7360a38f552c0dea61a33ff8a94b9cc
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: cdbba1618815dbc8b52195169b7de2bcec2986d8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055519"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255580"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
 
@@ -178,7 +178,7 @@ Un sintomo di tale scenario è che MSAL.NET restituisce `Missing from the token 
 
 La soluzione alternativa suggerita consiste nell'usare la [memorizzazione nella cache in base ai criteri](#acquire-a-token-to-apply-a-policy) descritti in precedenza.
 
-In alternativa, è possibile usare l' `tid` attestazione se si usano [criteri personalizzati](../../active-directory-b2c/custom-policy-get-started.md) in Azure ad B2C. I criteri personalizzati possono restituire attestazioni aggiuntive all'applicazione tramite la [trasformazione delle attestazioni](../../active-directory-b2c/claims-transformation-technical-profile.md).
+In alternativa, è possibile usare l' `tid` attestazione se si usano [criteri personalizzati](../../active-directory-b2c/user-flow-overview.md) in Azure ad B2C. I criteri personalizzati possono restituire attestazioni aggiuntive all'applicazione tramite la [trasformazione delle attestazioni](../../active-directory-b2c/claims-transformation-technical-profile.md).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigazione per "missing from the token Response"
 

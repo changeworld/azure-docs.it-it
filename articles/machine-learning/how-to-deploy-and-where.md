@@ -10,14 +10,14 @@ author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 03/25/2021
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2
 adobe-target: true
-ms.openlocfilehash: 4d2aa4d43fbc8cf9040702afb1877e0271b2eab2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 598da277214a2ee8e52cc5baaf2c792dfdc0429d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568291"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220233"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Distribuire modelli di Machine Learning in Azure
 
@@ -321,7 +321,7 @@ A questo punto è possibile distribuire il modello.
 Se il modello è stato registrato nell'area di lavoro Azure Machine Learning, sostituire "modello: 1" con il nome del modello e il relativo numero di versione.
 
 ```azurecli-interactive
-az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+az ml model deploy -n tutorial -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
 ```
 
 ### <a name="using-a-local-model"></a>Uso di un modello locale
