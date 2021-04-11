@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: f9029a36dc3b778e139b4553524e8e2ca6b4bbad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6db43acda679c6c1c1edd6336f693cc4757b6d45
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98757170"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220918"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Estensioni per i servizi cloud (supporto esteso)
 
@@ -36,6 +36,14 @@ Con il monitoraggio di base, i dati dei contatori delle prestazioni provenienti 
 Con il monitoraggio avanzato, altre metriche vengono campionate e raccolte a intervalli di 5 minuti, 1 ora e 12 ore. I dati aggregati vengono salvati in un account di archiviazione all'interno di tabelle e vengono eliminati dopo 10 giorni. L'account di archiviazione usato è configurato per ruolo; è possibile usare account di archiviazione diversi per ruoli diversi. 
 
 Per ulteriori informazioni, vedere [Apply the Windows Azure Diagnostics Extension in Cloud Services (Extended Support)](enable-wad.md)
+
+## <a name="anti-malware-extension"></a>Estensione anti malware
+Un'applicazione o un servizio di Azure può abilitare e configurare Microsoft Antimalware per Servizi cloud di Azure con i cmdlet di PowerShell. Si noti che Microsoft antimalware è installato in uno stato disabilitato nella piattaforma di servizi cloud che esegue Windows Server 2012 R2 e versioni precedenti, che richiede un'azione da parte di un'applicazione Azure per abilitarla. Per Windows Server 2016 e versioni successive, Windows Defender è abilitato per impostazione predefinita, di conseguenza questi cmdlet possono essere usati per la configurazione di antimalware.
+
+Per altre informazioni, vedere [aggiungere Microsoft antimalware al servizio cloud di Azure con supporto esteso (CS-ES)](https://docs.microsoft.com/azure/security/fundamentals/antimalware-code-samples#add-microsoft-antimalware-to-azure-cloud-service-using-extended-support)
+
+Per saperne di più su Azure antimalware, visita [qui](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi 

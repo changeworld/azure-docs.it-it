@@ -12,18 +12,25 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traduzione vocale
-ms.openlocfilehash: 94ddd06068513261b5b73b313877e273c7251d62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99541d7fe9eaa867860af93bc1423d476ce8bf4a
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954961"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449937"
 ---
 # <a name="what-is-speech-translation"></a>Che cos'è la traduzione vocale?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 In questa panoramica vengono illustrati i vantaggi e le funzionalità del servizio di traduzione vocale, che consente la traduzione vocale e vocale in tempo reale e [multilingue](language-support.md#speech-translation) dei flussi audio. Con l'SDK di riconoscimento vocale, le applicazioni, gli strumenti e i dispositivi hanno accesso a trascrizioni di origine e output di traduzione per l'audio fornito. I risultati della trascrizione e della traduzione provvisori vengono restituiti quando viene rilevato il riconoscimento vocale e i risultati finali possono essere convertiti in sintesi vocale.
+
+Questa documentazione contiene i tipi di articolo seguenti:
+
+* Nelle **guide introduttive** vengono fornite istruzioni introduttive per l'esecuzione di richieste al servizio.
+* Le **guide alle procedure** contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.
+* I **concetti** forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.
+* Le **esercitazioni** sono guide più lunghe che illustrano come usare il servizio come componente in soluzioni aziendali più ampie.
 
 ## <a name="core-features"></a>Funzionalità di base
 

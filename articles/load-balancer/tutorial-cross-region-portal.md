@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65d85f51afef36aa618868e2fda1d2bbf583ea21
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104576918"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221127"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Esercitazione: Creare un servizio di Azure Load Balancer tra più aree usando il portale di Azure
 
@@ -105,34 +105,6 @@ Creare il pool di indirizzi back-end **myBackendPool-CR** per includere i serviz
 8. Selezionare **Aggiungi**.
 
     :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Aggiungere i servizi di bilanciamento del carico a livello di area al pool back-end" border="true":::
-
-## <a name="create-a-health-probe"></a>Creare un probe di integrità
-
-In questa sezione verrà creato un probe di integrità per creare la regola di bilanciamento del carico:
-
-* Denominato **myHealthProbe**.
-* Protocollo **TCP**.
-* Intervallo di **5** secondi.
-* Soglia di non integrità di **due** errori.
-
-1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine selezionare **myLoadBalancer-CR** nell'elenco di risorse.
-
-2. In **Impostazioni** selezionare **Probe di integrità**.
-
-3. Usare questi valori per configurare il probe di integrità:
-
-    | Impostazione | Valore |
-    | ------- | ----- |
-    | Nome | Immettere **myHealthProbe**. |
-    | Protocollo | selezionare **TCP**. |
-    | Porta | Immettere **80**. |
-    | Interval | Immettere **5**. |
-    | Soglia non integra | Immettere **2**. |
-
-4. Selezionare **OK**.
-
-    > [!NOTE]
-    > Il servizio di bilanciamento del carico tra più aree ha un probe di integrità incorporato. Questo probe è un segnaposto per il funzionamento della creazione della regola di bilanciamento del carico.  Per altre informazioni, vedere **[Limitazioni del servizio di bilanciamento del carico tra più aree](cross-region-overview.md#limitations)** .
 
 ## <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 

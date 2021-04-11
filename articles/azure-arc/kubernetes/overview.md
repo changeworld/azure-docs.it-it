@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Questo articolo offre una panoramica di Kubernetes con abilitazione di per Azure Arc.
 keywords: Kubernetes, Arc, Azure, contenitori
 ms.custom: references_regions
-ms.openlocfilehash: b3296aa1c1d5d463cc7f4cb932b44ad76632e19e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69e9886f214d0076c8e66231fd6ad15bb060828f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121593"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449648"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>Che cos'è Kubernetes con abilitazione di Azure Arc?
 
@@ -43,9 +43,11 @@ Kubernetes con abilitazione di Azure Arc supporta gli scenari seguenti:
 
 * Distribuire le applicazioni e applicare la configurazione tramite la gestione della configurazione basata su GitOps. 
 
-* Visualizza e monitora i cluster con monitoraggio di Azure per i contenitori. 
+* Visualizza e monitora i cluster con monitoraggio di Azure per i contenitori.
 
-* Applicare criteri usando criteri di Azure per Kubernetes. 
+* Applicare la protezione dalle minacce usando Azure Defender per Kubernetes.
+
+* Applicare criteri usando criteri di Azure per Kubernetes.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

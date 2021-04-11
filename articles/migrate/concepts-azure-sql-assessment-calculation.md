@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: c2e739a45c7915c957ca89e5b01b98afa945d03e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a22fa184f91cb409f7a4d7795a4bc34bdd83e598
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557191"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077806"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Panoramica della valutazione (migrazione a SQL di Azure)
 
@@ -28,6 +28,9 @@ Sono disponibili tre tipi di valutazione che è possibile creare utilizzando lo 
 **Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare i server locali nell'ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione alle macchine virtuali di Azure con questo tipo di valutazione.
 **SQL di Azure** | Valutazioni per la migrazione dei server SQL locali dall'ambiente VMware al database SQL di Azure o al Istanza gestita SQL di Azure.
 **Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> Se il numero di macchine virtuali di Azure o di valutazione AVS non è corretto nello strumento di individuazione e valutazione, fare clic sul numero totale di valutazioni per passare a tutte le valutazioni e ricalcolare la VM di Azure o le valutazioni AVS. Lo strumento di individuazione e valutazione indicherà quindi il numero corretto per tale tipo di valutazione. 
 
 Una valutazione di Azure SQL fornisce un criterio di ridimensionamento:
 

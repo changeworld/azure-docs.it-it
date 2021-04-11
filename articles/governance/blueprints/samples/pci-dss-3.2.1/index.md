@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'esempio di progetto PCI-DSS v3.2.1
 description: Panoramica dell'esempio di progetto Payment Card Industry Data Security Standard v3.2.1. Questo esempio di progetto consente ai clienti di valutare specifici controlli.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 409be63f367c1077b3f35ec62c86a36d26aaaab1
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: c2903b6579faf49cc114752500fa2c6e70dae488
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045003"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106386123"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>Panoramica dell'esempio di progetto PCI-DSS v3.2.1
 

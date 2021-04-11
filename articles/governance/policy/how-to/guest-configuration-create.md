@@ -1,14 +1,14 @@
 ---
 title: Come creare criteri di Configurazione guest per Windows
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Windows.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 72772743eba23ea7c2a93f5037ac84b671256a66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6eaefdbc28b8efc53dc7c4d46eb5d8a56d5be141
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104887700"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096598"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di Configurazione guest per Windows
 
@@ -25,8 +25,7 @@ Usare le azioni seguenti per creare una configurazione personalizzata per la con
 > [!IMPORTANT]
 > Le definizioni dei criteri personalizzati con la configurazione Guest negli ambienti Azure per enti pubblici e Azure Cina sono una funzionalità in anteprima.
 >
-> L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure.
-> Per distribuire l'estensione su larga scala in tutti i computer Windows, assegnare le definizioni dei criteri seguenti: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure. Per distribuire l'estensione su larga scala in tutti i computer Windows, assegnare le definizioni dei criteri seguenti: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 > 
 > Non usare segreti o informazioni riservate nei pacchetti di contenuto personalizzati.
 
@@ -138,7 +137,7 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
-Se la risorsa ha proprietà obbligatorie, queste devono essere restituite anche da `Get-TargetResource` in parallelo con la `reasons` classe. Se `reasons` non è incluso, il servizio include un comportamento "catch-all" che confronta i valori di input `Get-TargetResource` e i valori restituiti da `Get-TargetResource` e fornisce un confronto dettagliato come `reasons` .
+Se la risorsa ha proprietà obbligatorie, tali proprietà devono essere restituite anche da `Get-TargetResource` in parallelo con la `reasons` classe. Se `reasons` non è incluso, il servizio include un comportamento "catch-all" che confronta i valori di input `Get-TargetResource` e i valori restituiti da `Get-TargetResource` e fornisce un confronto dettagliato come `reasons` .
 
 ### <a name="configuration-requirements"></a>Requisiti di configurazione
 
@@ -181,9 +180,7 @@ Il pacchetto completato viene usato da Configurazione guest per creare le defini
   - Modulo DscNativeResources
   - Moduli risorse (Windows) DSC richiesti dal file MOF
 
-I cmdlet di PowerShell facilitano la creazione del pacchetto.
-Non è necessaria alcuna cartella di livello radice o cartella delle versioni.
-Il formato del pacchetto deve essere un file con estensione zip e non può superare le dimensioni totali di 100MB quando non è compresso.
+I cmdlet di PowerShell facilitano la creazione del pacchetto. Non è necessaria alcuna cartella di livello radice o cartella delle versioni. Il formato del pacchetto deve essere un file con estensione zip e non può superare le dimensioni totali di 100 MB quando non è compresso.
 
 ### <a name="storing-guest-configuration-artifacts"></a>Archiviazione degli artefatti di Configurazione guest
 
@@ -217,8 +214,7 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-Eseguire questo script in un terminale di PowerShell o salvare il file con nome `config.ps1` nella cartella del progetto.
-Eseguirlo in PowerShell eseguendo `./config.ps1` nel terminale. Verrà creato un nuovo file MOF.
+Eseguire questo script in un terminale di PowerShell o salvare il file con nome `config.ps1` nella cartella del progetto. Eseguirlo in PowerShell eseguendo `./config.ps1` nel terminale. Verrà creato un nuovo file MOF.
 
 Il comando `Node AuditBitlocker` non è tecnicamente necessario, ma produce un file denominato `AuditBitlocker.mof` anziché il file `localhost.mof` predefinito. Un nome di file MOF che segue la configurazione consente di organizzare in modo semplice molti file quando si opera su larga scala.
 
@@ -274,7 +270,7 @@ Parametri del cmdlet `Publish-GuestConfigurationPackage`:
 - **Path**: percorso del pacchetto da pubblicare
 - **ResourceGroupName**: nome del gruppo di risorse in cui si trova l'account di archiviazione
 - **StorageAccountName**: nome dell'account di archiviazione in cui deve essere pubblicato il pacchetto
-- **StorageContainerName**: (valore predefinito: *guestconfiguration*) nome del contenitore di archiviazione nell'account di archiviazione
+- **StorageContainerName**: (valore predefinito: _guestconfiguration_) nome del contenitore di archiviazione nell'account di archiviazione
 - **Force**: sovrascrivere il pacchetto esistente nell'account di archiviazione con lo stesso nome
 
 L'esempio seguente pubblica il pacchetto nel nome del contenitore di archiviazione ' guestconfiguration '.
@@ -367,7 +363,7 @@ Di seguito è riportato un frammento di codice di esempio di una definizione dei
 
 ### <a name="using-parameters-in-custom-guest-configuration-policy-definitions"></a>Uso di parametri nelle definizioni dei criteri di Configurazione guest personalizzate
 
-Configurazione guest supporta l'override delle proprietà di una configurazione in fase di esecuzione. Ciò significa che i valori nel file MOF del pacchetto non devono essere considerati statici. I valori di override vengono forniti tramite Criteri di Azure e non influiscono sul modo in cui le configurazioni vengono create o compilate.
+Configurazione guest supporta l'override delle proprietà di una configurazione in fase di esecuzione. Ciò significa che i valori nel file MOF del pacchetto non devono essere considerati statici. I valori di sostituzione vengono forniti tramite criteri di Azure e non modificano la modalità di creazione o compilazione delle configurazioni.
 
 I cmdlet `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` includono un parametro denominato **Parameter**. Questo parametro accetta una definizione di tabella hash che include tutti i dettagli su ogni parametro e crea le sezioni necessarie di ogni file usato per la definizione di Criteri di Azure.
 
@@ -389,7 +385,7 @@ $PolicyParameterInfo = @(
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
+        ResourceId = 'UserSelectedNameExample'                          # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)
@@ -431,8 +427,7 @@ Se si vuole rilasciare un aggiornamento del criterio, apportare la modifica sia 
 > [!NOTE]
 > La `version` proprietà dell'assegnazione di configurazione Guest ha effetto solo sui pacchetti ospitati da Microsoft. La procedura consigliata per il controllo delle versioni del contenuto personalizzato consiste nell'includere la versione nel nome del file.
 
-In primo luogo, quando `New-GuestConfigurationPackage` si esegue, specificare un nome per il pacchetto che lo renda univoco rispetto alle versioni precedenti. È possibile includere un numero di versione nel nome, ad esempio `PackageName_1.0.0` .
-Il numero in questo esempio viene utilizzato solo per rendere univoco il pacchetto, non per specificare che il pacchetto deve essere considerato più recente o meno recente di altri pacchetti.
+In primo luogo, quando `New-GuestConfigurationPackage` si esegue, specificare un nome per il pacchetto che lo renda univoco rispetto alle versioni precedenti. È possibile includere un numero di versione nel nome, ad esempio `PackageName_1.0.0` . Il numero in questo esempio viene utilizzato solo per rendere univoco il pacchetto, non per specificare che il pacchetto deve essere considerato più recente o meno recente di altri pacchetti.
 
 In secondo luogo, aggiornare i parametri usati con il `New-GuestConfigurationPolicy` cmdlet attenendosi a ognuna delle spiegazioni riportate di seguito.
 

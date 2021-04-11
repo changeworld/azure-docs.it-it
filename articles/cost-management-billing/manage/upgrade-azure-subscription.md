@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 432330ae06b2e1c19401456dc05f87d0dd908f2d
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 6066b5efc9bb004aab6b651f15d24b19672c3497
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574135"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220607"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Aggiornare l'account Azure gratuito o l'account Azure for Students Starter
 
 È possibile aggiornare l' [account Azure gratuito](https://azure.microsoft.com/free/) alle [tariffe con pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/) al consumo nella portale di Azure.
 
-Se si dispone di un [account Starter per Azure per studenti](https://azure.microsoft.com/offers/ms-azr-0144p/) e si è idonei per un [account Azure gratuito](https://azure.microsoft.com/free/), è possibile eseguire l'aggiornamento a un [account Azure gratuito](https://azure.microsoft.com/free/). Al momento dell'aggiornamento, si riceverà un credito Azure di $ 200 e 12 mesi di servizi gratuiti. Se non si è qualificati per un account gratuito, è possibile eseguire l'aggiornamento alle [tariffe con pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/) al consumo con una [richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se si dispone di un [account Starter per Azure per studenti](https://azure.microsoft.com/offers/ms-azr-0144p/) e si è idonei per un [account Azure gratuito](https://azure.microsoft.com/free/), è possibile eseguire l'aggiornamento a un [account Azure gratuito](https://azure.microsoft.com/free/). Si otterrà il credito Azure USD 200 nella valuta di fatturazione e 12 mesi di servizi gratuiti durante l'aggiornamento. Se non si è qualificati per un account gratuito, è possibile eseguire l'aggiornamento alle [tariffe con pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/) al consumo con una [richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 Se si dispone di un account [Azure per studenti](https://azure.microsoft.com/offers/ms-azr-0170p/) , è possibile eseguire l'aggiornamento alle [tariffe con pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/) al consumo con una [richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458)
 

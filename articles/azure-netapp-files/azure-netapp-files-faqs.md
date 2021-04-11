@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 04/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 318b7e8b35fa7cc56a86033a08e316257a488b6f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d63587eec1f7e6d24ae1638e8365b85fd1ec2c94
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2021
-ms.locfileid: "106442695"
+ms.locfileid: "106504992"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -91,10 +91,6 @@ Per l'elenco completo delle autorizzazioni di Azure NetApp Files, vedere operazi
 Azure NetApp Files è un servizio nativo di Azure. Vengono registrate tutte le API PUT, POST e DELETE rispetto a Azure NetApp Files. Ad esempio, i log mostrano attività quali chi ha creato lo snapshot, chi ha modificato il volume e così via.
 
 Per l'elenco completo delle operazioni API, vedere [Azure NetApp Files API REST](/rest/api/netapp/).
-
-### <a name="how-do-i-audit-file-access-on-azure-netapp-files-nfs-v3-and-v41-volumes"></a>Ricerca per categorie controllare l'accesso ai file nei volumi Azure NetApp Files NFS (v3 e v 4.1)?
-
-È possibile configurare i log di controllo sul lato client. Tutte le modifiche di lettura, scrittura e attributo vengono registrate. 
 
 ### <a name="can-i-use-azure-policies-with-azure-netapp-files"></a>È possibile usare I criteri di Azure con Azure NetApp Files?
 

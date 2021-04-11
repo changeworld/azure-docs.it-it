@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36566baac2885c449e1eae762924357bf571b39f
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008195"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490217"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Creare la prima funzione durevole in C\#
 
@@ -53,7 +53,7 @@ In questa sezione si userà Visual Studio Code per creare un progetto di Funzion
 
 1. Seguire le istruzioni e specificare le informazioni seguenti:
 
-    | Prompt | Valore | Descrizione |
+    | Prompt | valore | Descrizione |
     | ------ | ----- | ----------- |
     | Selezionare un linguaggio per il progetto di app per le funzioni | C# | Creare un progetto Funzioni C# in locale. |
     | Selezionare una versione | Azure Functions v3 (Funzioni di Azure v3) | Questa opzione viene visualizzata solo quando gli strumenti Core Tools non sono già installati. In questo caso, gli strumenti Core Tools vengono installati la prima volta che si esegue l'app. |
@@ -70,7 +70,7 @@ La procedura seguente usa un modello per creare il codice di funzione durevole n
 
 1. Seguire le istruzioni e specificare le informazioni seguenti:
 
-    | Prompt | Valore | Descrizione |
+    | Prompt | valore | Descrizione |
     | ------ | ----- | ----------- |
     | Select a template for your function (Selezionare un modello per la funzione) | DurableFunctionsOrchestration | Creare un'orchestrazione Durable Functions |
     | Specificare un nome di funzione | HelloOrchestration | Nome della classe in cui vengono create le funzioni |
@@ -78,7 +78,7 @@ La procedura seguente usa un modello per creare il codice di funzione durevole n
 
 1. Quando VS Code richiede di selezionare un account di archiviazione, scegliere **Select storage account** (Seleziona account di archiviazione). Seguire le istruzioni e specificare le informazioni seguenti per creare un nuovo account di archiviazione in Azure.
 
-    | Prompt | Valore | Descrizione |
+    | Prompt | valore | Descrizione |
     | ------ | ----- | ----------- |
     | Seleziona sottoscrizione | *nome della sottoscrizione* | Selezionare la sottoscrizione ad Azure |
     | Select a storage account (Selezionare un account di archiviazione) | Creare un nuovo account di archiviazione. |  |
@@ -163,7 +163,7 @@ Si è usato Visual Studio Code per creare e pubblicare un'app per le funzioni du
 
 ::: zone pivot="code-editor-visualstudio"
 
-Questo articolo illustra come usare Visual Studio 2019 per creare e testare in locale una funzione durevole "hello world".  Questa funzione orchestra e concatena le chiamate ad altre funzioni. Il codice della funzione verrà quindi pubblicato in Azure. Questi strumenti sono disponibili come parte del carico di lavoro di sviluppo di Azure in Visual Studio 2019.
+Questo articolo illustra come usare Visual Studio 2019 per creare e testare localmente una funzione permanente "Hello World".  Questa funzione orchestra e concatena le chiamate ad altre funzioni. Il codice della funzione verrà quindi pubblicato in Azure. Questi strumenti sono disponibili come parte del carico di lavoro di sviluppo di Azure in Visual Studio 2019.
 
 ![Screenshot che mostra una finestra di Visual Studio 2019 con una funzione durevole.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 

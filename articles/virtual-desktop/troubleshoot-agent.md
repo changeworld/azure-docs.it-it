@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: b47a205cac1717dfc66594f856fd9370a01a9ae3
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2f321413a275676d0abb1a075ba958885ffcd821
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168213"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505026"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Risolvere i problemi comuni relativi all'agente desktop virtuale di Windows
 
@@ -216,7 +216,7 @@ Per risolvere il problema:
 
 ## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>Errore: problema di heartbeat per cui gli utenti continuano a rimanere disconnessi dagli host della sessione
 
-Se il server non preleva un heartbeat dal servizio desktop virtuale di Windows, sarà necessario modificare la soglia di heartbeat. Seguire le istruzioni riportate in questa sezione se si applicano uno o più dei seguenti scenari:
+Se il server non preleva un heartbeat dal servizio desktop virtuale di Windows, sarà necessario modificare la soglia di heartbeat. Questo eliminerà temporaneamente i sintomi del problema, ma non risolverà il problema di rete sottostante. Seguire le istruzioni riportate in questa sezione se si applicano uno o più dei seguenti scenari:
 
 - Si sta ricevendo un errore **CheckSessionHostDomainIsReachableAsync**
 - Si sta ricevendo un errore **ConnectionBrokenMissedHeartbeatThresholdExceeded**
@@ -316,7 +316,7 @@ Per risolvere il problema:
 
 Se il problema non è stato trovato in questo articolo o le istruzioni non sono state utili, è consigliabile disinstallare, reinstallare e registrare di nuovo l'agente desktop virtuale di Windows. Le istruzioni riportate in questa sezione illustrano come registrare nuovamente la VM nel servizio desktop virtuale di Windows disinstallando tutti i componenti agente, caricatore di avvio e stack, rimuovendo l'host sessione dal pool host, generando una nuova chiave di registrazione per la macchina virtuale e reinstallando l'agente e il caricatore di avvio. Se si applicano uno o più degli scenari seguenti, seguire queste istruzioni:
 - La macchina virtuale è bloccata durante l' **aggiornamento** o non è **disponibile**
-- Il listener dello stack non funziona ed è in esecuzione in Windows 10 1809, 1903 o 1904
+- Il listener dello stack non funziona ed è in esecuzione in Windows 10 1809, 1903 o 1909
 - Si riceve un errore di **EXPIRED_REGISTRATION_TOKEN**
 - Le macchine virtuali non vengono visualizzate nell'elenco degli host della sessione
 - Il **caricatore dell'agente di desktop remoto** non viene visualizzato nella finestra Servizi

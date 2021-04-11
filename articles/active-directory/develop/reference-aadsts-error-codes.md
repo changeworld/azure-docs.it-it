@@ -12,12 +12,12 @@ ms.date: 03/17/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 56ffa8c33c409e274318407a70f33edaabb5073d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75d838e8ce785a4f59b056bf0dec736b982ea716
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578499"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283814"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione di Azure AD
 
@@ -123,7 +123,7 @@ Se, ad esempio, è stato ricevuto il codice di errore "AADSTS50058", eseguire un
 | AADSTS50055 | InvalidPasswordExpiredPassword: la password è scaduta. |
 | AADSTS50056 | Password non valida o null: la password non è presente nell'archivio per questo utente. |
 | AADSTS50057 | UserDisabled: l'account utente è disabilitato. L'account è stato disabilitato da un amministratore. |
-| AADSTS50058 | UserInformationNotProvided: un utente non ha effettuato l'accesso. Si tratta di un errore comune che si verifica in genere quando un utente non è autenticato e non ha ancora effettuato l'accesso.</br>Se questo errore viene visualizzato in un contesto SSO in cui l'utente ha precedentemente effettuato l'accesso, significa che la sessione SSO non è stata trovata o non è valida.</br>Questo errore può essere restituito all'applicazione se è specificato prompt=none. |
+| AADSTS50058 | UserInformationNotProvided: un utente non ha effettuato l'accesso. Si tratta di un errore comune che si verifica in genere quando un utente non è autenticato e non ha ancora effettuato l'accesso.</br>Se questo errore si verifica in un contesto SSO in cui l'utente ha eseguito l'accesso in precedenza, significa che la sessione SSO non è stata trovata o non è valida.</br>Questo errore può essere restituito all'applicazione se è specificato prompt=none. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided: non sono state trovate informazioni di identificazione del tenant nella richiesta né sono state incluse in modo implicito nelle credenziali fornite. L'utente può contattare l'amministratore del tenant per ottenere informazioni per la risoluzione del problema. |
 | AADSTS50061 | SignoutInvalidRequest: la richiesta di disconnessione non è valida. |
 | AADSTS50064 | CredentialAuthenticationError: la convalida delle credenziali per nome utente e password non è riuscita. |

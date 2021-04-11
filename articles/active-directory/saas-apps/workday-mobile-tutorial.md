@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94ab61a5c6335d43842ada48f17572c186af773c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182020"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077194"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con l'applicazione Workday per dispositivi mobili
 
@@ -132,13 +132,11 @@ Per assicurarsi che i dispositivi iOS siano in grado di accedere solo tramite Wo
 
 | Scenario | Coppie chiave-valore |
 |----------------------------------------------------------------------------------------   |-----------|
-| Popolare automaticamente i campi Tenant e Indirizzo Web per:<br>● Workday in Android quando si abilitano i profili di lavoro di Android.<br>● Workday in iPad e iPhone.     | Usare questi valori per configurare il tenant: <br>● Chiave di configurazione = `UserGroupCode`<br>● Tipo di valore = stringa <br>● Valore di configurazione = il nome del tenant. Esempio: `gms`<br>Usare questi valori per configurare l'indirizzo Web:<br>● Chiave di configurazione = `AppServiceHost`<br>● Tipo di valore = stringa<br>● Valore di configurazione = URL di base per il tenant. Esempio: `https://www.myworkday.com`                                |   |
+| Popolare automaticamente i campi Tenant e Indirizzo Web per:<br>● Workday in Android quando si abilitano i profili di lavoro di Android.<br>● Workday in iPad e iPhone.     | Usare questi valori per configurare il tenant: <br>● Chiave di configurazione = `UserGroupCode`<br>● Tipo di valore = stringa <br>● Valore di configurazione = il nome del tenant. Esempio: `gms`<br>Usare questi valori per configurare l'indirizzo Web:<br>● Chiave di configurazione = `AppServiceHost`<br>● Tipo di valore = stringa<br>● Valore di configurazione = URL di base per il tenant. Esempio: `https://www.myworkday.com`                                | 
 | Disabilitare queste azioni per Workday in iPad e iPhone:<br>● Taglia, Copia e Incolla<br>● Stampa                       | Impostare il valore (booleano) su `False` in queste chiavi per disabilitare la funzionalità:<br>●   `AllowCutCopyPaste`<br>●    `AllowPrint`    |
 | Disabilitare gli screenshot per Workday in Android. |Impostare il valore (booleano) su `False` nella chiave `AllowScreenshots` per disabilitare la funzionalità.|
 | Disabilitare gli aggiornamenti suggeriti per gli utenti.|Impostare il valore (booleano) su `False` nella chiave `AllowSuggestedUpdates` per disabilitare la funzionalità.|
 |Personalizzare l'URL dell'App Store per indirizzare gli utenti di dispositivi mobili a uno store specifico.|Usare questi valori per cambiare l'URL dell'Spp Store:<br>● Chiave di configurazione = `AppUpdateURL`<br>● Tipo di valore = stringa<br> ● Valore di configurazione = URL dell'App Store|
-|       |
-
 
 ## <a name="ios-configuration-policies"></a>Criteri di configurazione di iOS
 

@@ -9,19 +9,19 @@ ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: b00956a6fb5a79b09602ca1752cc547595f32db6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57dec4187ea42476ff1c0a993b751a7389da5639
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103224595"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490353"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)
 
 L'archiviazione BLOB supporta ora il protocollo NFS (Network File System) 3,0. Questo supporto fornisce la compatibilità di Linux file system alla scalabilità e ai prezzi di archiviazione degli oggetti e consente ai client Linux di montare un contenitore nell'archiviazione BLOB da una macchina virtuale (VM) di Azure o da un computer locale. 
 
 > [!NOTE]
-> Il supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure è in versione di anteprima pubblica. Supporta gli account di archiviazione GPV2 con prestazioni del livello standard nelle aree seguenti: Australia orientale, Corea centrale e Stati Uniti centro-meridionali. L'anteprima supporta anche il BLOB in blocchi con livello di prestazioni Premium in tutte le aree pubbliche.
+> Il supporto del protocollo NFS 3,0 nell'archivio BLOB di Azure è in versione di anteprima pubblica. Supporta gli account di archiviazione GPV2 con prestazioni del livello standard nelle aree seguenti: Australia orientale, Corea centrale, Stati Uniti orientali e Stati Uniti centro-meridionali. L'anteprima supporta anche il BLOB in blocchi con livello di prestazioni Premium in tutte le aree pubbliche.
 
 Si tratta sempre di una sfida per eseguire carichi di lavoro legacy su larga scala, ad esempio HPC (High Performance Computing) nel cloud. Un motivo è che le applicazioni spesso usano protocolli di file tradizionali, ad esempio NFS o Server Message Block (SMB) per accedere ai dati. Inoltre, i servizi di archiviazione cloud nativi si concentrano sull'archiviazione di oggetti che hanno uno spazio dei nomi flat e metadati completi anziché file System che forniscono uno spazio dei nomi gerarchico e operazioni efficienti sui metadati. 
 

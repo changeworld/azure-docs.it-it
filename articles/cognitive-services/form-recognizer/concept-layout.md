@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 73bef21f430bde1c6c2c95d7c3f685cccbbd9179
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc19d5652f416657cbcd339de61379265587b4e7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467018"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505383"
 ---
 # <a name="form-recognizer-layout-service"></a>Servizio di layout riconoscimento moduli
 
-Il riconoscitore di form di Azure può estrarre testo, tabelle, contrassegni di selezione e informazioni sulla struttura dai documenti usando il servizio di layout. L'API di layout consente ai clienti di prendere documenti in un'ampia gamma di formati e restituire rappresentazioni dei dati strutturati dei documenti. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](../computer-vision/concept-recognizing-text.md) con modelli di apprendimento avanzato per estrarre testo, tabelle, contrassegni di selezione e struttura del documento. 
+Il riconoscitore di form di Azure può estrarre testo, tabelle, contrassegni di selezione e informazioni sulla struttura dai documenti usando il servizio di layout. L'API di layout consente ai clienti di prendere documenti in un'ampia gamma di formati e restituire rappresentazioni dei dati strutturati dei documenti. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](../computer-vision/overview-ocr.md) con modelli di apprendimento avanzato per estrarre testo, tabelle, contrassegni di selezione e struttura del documento. 
 
 ## <a name="what-does-the-layout-service-do"></a>Cosa funziona il servizio di layout?
 
@@ -32,7 +32,7 @@ L'API di layout estrae testo, tabelle, contrassegni di selezione e informazioni 
 Per provare il servizio di layout riconoscimento moduli, passare allo strumento dell'interfaccia utente di esempio online:
 
 > [!div class="nextstepaction"]
-> [Strumento di test OCR del modulo (FOTT)](https://fott-preview.azurewebsites.net)
+> [Provare Riconoscimento modulo](https://fott-preview.azurewebsites.net)
 
 È necessaria una sottoscrizione di Azure ([crearne una gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e un endpoint e una chiave del sistema di [riconoscimento del modulo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) per provare l'API del layout di riconoscimento del modulo. 
 
@@ -48,7 +48,7 @@ Prima di tutto, chiamare l'operazione di [analisi del layout](https://westcentra
 
 |Intestazione risposta| URL risultato |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
 
 ### <a name="natural-reading-order-output-latin-only"></a>Output dell'ordine di lettura naturale (solo alfabeto latino)
 

@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, MashaMSFT
 ms.date: 07/10/2020
-ms.openlocfilehash: 2da7311e61aa39be69a6a0a29eff686baaad7ebf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd66c10bb1d6316bbe90e7ba4092d79c6a43a75d
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91323193"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285283"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Panoramica delle operazioni di gestione di Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,12 +70,14 @@ Le tabelle seguenti riepilogano le operazioni e le durate complessive tipiche, i
 |Operazione  |Segmento a esecuzione prolungata  |Durata stimata  |
 |---------|---------|---------|
 |Modifica delle proprietà dell'istanza (password amministratore, accesso di Azure AD, flag di Vantaggio Azure Hybrid)|N/D|Fino a 1 minuto.|
-|Aumento/Riduzione dell'archiviazione delle istanze (livello di servizio per utilizzo generico)|Collegamento di file di database|Il 90% delle operazioni viene completato in 5 minuti.|
+|Aumento/Riduzione dell'archiviazione delle istanze (livello di servizio per utilizzo generico)|Nessun segmento con esecuzione prolungata<sup>1</sup>|99% di operazioni terminano tra 5 minuti.|
 |Aumento/Riduzione dell'archiviazione delle istanze (livello di servizio business critical)|- Ridimensionamento del cluster virtuale<br>- Seeding dei gruppi di disponibilità AlwaysOn|Il 90% delle operazioni viene completato in 2,5 ore + il tempo per il seeding di tutti i database (220 GB/ora).|
 |Aumento e riduzione del calcolo (vCore) delle istanze (utilizzo generico)|- Ridimensionamento del cluster virtuale<br>- Collegamento di file di database|Il 90% delle operazioni viene completato in 2,5 ore.|
 |Aumento e riduzione del calcolo (vCore) delle istanze (business critical)|- Ridimensionamento del cluster virtuale<br>- Seeding dei gruppi di disponibilità AlwaysOn|Il 90% delle operazioni viene completato in 2,5 ore + il tempo per il seeding di tutti i database (220 GB/ora).|
 |Modifica del livello di servizio dell'istanza (da utilizzo generico a business critical e viceversa)|- Ridimensionamento del cluster virtuale<br>- Seeding dei gruppi di disponibilità AlwaysOn|Il 90% delle operazioni viene completato in 2,5 ore + il tempo per il seeding di tutti i database (220 GB/ora).|
 | | | 
+
+<sup>1</sup> il ridimensionamento per utilizzo generico l'archiviazione di istanze gestite non provocherà un failover al termine dell'operazione. In questo caso, l'operazione consiste nell'aggiornare i metadati e la propagazione della risposta per la richiesta inviata.
 
 **Categoria: Eliminazione**
 
@@ -90,6 +92,9 @@ Le tabelle seguenti riepilogano le operazioni e le durate complessive tipiche, i
 ## <a name="instance-availability"></a>Disponibilità dell'istanza
 
 Istanza gestita di SQL **rimane disponibile durante le operazioni di aggiornamento**, ad eccezione di un breve tempo di inattività causato dal failover che si verifica alla fine dell'aggiornamento. In genere, si tratta di un massimo di 10 secondi anche nel caso di transazioni a esecuzione prolungata interrotte, grazie al [recupero del database accelerato](../accelerated-database-recovery.md).
+
+> [!NOTE]
+> Il ridimensionamento per utilizzo generico l'archiviazione di istanze gestite non provocherà un failover alla fine dell'aggiornamento.
 
 Istanza gestita di SQL non è disponibile per le applicazioni client durante le operazioni di distribuzione ed eliminazione.
 

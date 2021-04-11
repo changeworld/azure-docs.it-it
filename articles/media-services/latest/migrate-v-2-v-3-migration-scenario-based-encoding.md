@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 2cdf068d31cf621538eb265977ea0dae20e16e85
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: a01571f4a1f852deb84b7f20d61b8048e8000790
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109323"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490098"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Guida alla migrazione basata su scenari di codifica
 
@@ -43,7 +43,7 @@ Fare clic sull'immagine seguente per visualizzare una versione più grande.
 
 [![Flusso di lavoro di codifica per V2 ](./media/migration-guide/V2-pretty.svg)](./media/migration-guide/V2-pretty.svg#lightbox)
 
-1. Configurazione
+1. Eseguire la configurazione
     1. Creare un asset o usare un asset esistente. Se si usa un nuovo asset, caricare il contenuto nell'asset. Se si usa un asset esistente, è necessario codificare i file già esistenti nell'asset.
     2. Ottenere i valori degli elementi seguenti:
         - ID o oggetto media processor
@@ -103,7 +103,7 @@ Se in precedenza sono stati usati flussi di lavoro per copiare file da file BLOB
 
 ## <a name="indexer-v1-audio-transcription-to-the-new-audioanalyzer-basic-mode"></a>Trascrizione audio dell'indicizzatore V1 alla nuova AudioAnalyzer "modalità di base"
 
-Per i clienti che usano il processore Indexer V1 nell'API v2, è necessario creare una trasformazione che richiama il nuovo `AudioAnalyzer` in [modalità di base](how-to-create-basic-audio-transform.md) prima di inviare un processo.
+Per i clienti che usano il processore Indexer V1 nell'API v2, è necessario creare una trasformazione che richiama il nuovo `AudioAnalyzer` in [modalità di base](transform-create-basic-audio-how-to.md) prima di inviare un processo.
 
 ## <a name="encoding-transforms-and-jobs-concepts-tutorials-and-how-to-guides"></a>Concetti relativi a codifica, trasformazioni e processi, esercitazioni e procedure guidate
 
@@ -127,18 +127,18 @@ Per i clienti che usano il processore Indexer V1 nell'API v2, è necessario crea
 
 - [Creare un input del processo da un URL HTTPS](job-input-from-http-how-to.md)
 - [Creare un input del processo da un file locale](job-input-from-local-file-how-to.md)
-- [Creare una trasformazione audio di base](how-to-create-basic-audio-transform.md)
+- [Creare una trasformazione audio di base](transform-create-basic-audio-how-to.md)
 - Con .NET
-  - [Come codificare con una trasformazione personalizzata-.NET](encode-custom-presets-how-to.md)
-  - [Come creare una sovrapposizione con Media Encoder Standard](how-to-create-overlay.md)
-  - [Come generare anteprime usando il codificatore standard con .NET](media-services-generate-thumbnails-dotnet.md)
+  - [Come codificare con una trasformazione personalizzata-.NET](transform-custom-presets-how-to.md)
+  - [Come creare una sovrapposizione con Media Encoder Standard](transform-create-overlay-how-to.md)
+  - [Come generare anteprime usando il codificatore standard con .NET](transform-generate-thumbnails-dotnet-how-to.md)
 - Con l'interfaccia della riga di comando di Azure
-  - [Come codificare con una trasformazione personalizzata-interfaccia della riga di comando di Azure](encode-custom-preset-cli-how-to.md)
+  - [Come codificare con una trasformazione personalizzata-interfaccia della riga di comando di Azure](transform-custom-preset-cli-how-to.md)
 - Con REST
-  - [Come codificare con una trasformazione personalizzata-REST](encode-custom-preset-rest-how-to.md)
-  - [Come generare anteprime usando il codificatore standard con REST](media-services-generate-thumbnails-rest.md)
-- [Sottoclip di un video durante la codifica con servizi multimediali-.NET](subclip-video-dotnet-howto.md)
-- [Sottoclip di un video durante la codifica con servizi multimediali-REST](subclip-video-rest-howto.md)
+  - [Come codificare con una trasformazione personalizzata-REST](transform-custom-preset-rest-how-to.md)
+  - [Come generare anteprime usando il codificatore standard con REST](transform-generate-thumbnails-rest-how-to.md)
+- [Sottoclip di un video durante la codifica con servizi multimediali-.NET](transform-subclip-video-dotnet-how-to.md)
+- [Sottoclip di un video durante la codifica con servizi multimediali-REST](transform-subclip-video-rest-how-to.md)
 
 ## <a name="samples"></a>Esempi
 

@@ -1,7 +1,7 @@
 ---
 title: Novità della gestione delle applicazioni Azure Active Directory
 description: Documentazione nuova e aggiornata per la gestione delle applicazioni Azure Active Directory.
-ms.date: 03/08/2021
+ms.date: 04/04/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,45 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 5b645efe2bbaadeca31b4a0a3b957ff53f5ed3aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81898875af85becf1766f02a5b7e077cb388a173
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775511"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450039"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestione applicazioni Azure Active Directory: novità
 
 Ecco le novità della documentazione sulla gestione delle applicazioni Azure Active Directory. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità relative al servizio di gestione delle applicazioni, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="march-2021"></a>Marzo 2021
+
+### <a name="new-articles"></a>Nuovi articoli
+
+- [Domande frequenti sui certificati di gestione delle applicazioni Azure Active Directory (Azure AD)](application-management-certs-faq.md)
+- [Esempi di Azure Active Directory PowerShell per la gestione delle applicazioni](app-management-powershell-samples.md)
+- [Disabilitare l'accelerazione automatica a un IDP federato durante l'accesso utente con i criteri di individuazione dell'area di autenticazione principale](prevent-domain-hints-with-home-realm-discovery.md)
+
+### <a name="updated-articles"></a>Articoli aggiornati
+
+- [Pianificare Azure Active Directory la configurazione delle app personali](my-apps-deployment-plan.md)
+- [Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni](plan-an-application-integration.md)
+- [Integrazione con SharePoint (SAML)](application-proxy-integrate-with-sharepoint-server-saml.md)
+- [Eseguire la migrazione dell'autenticazione dell'applicazione a Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
+- [Usare il report attività dell'applicazione Active Directory Federation Services per eseguire la migrazione delle applicazioni ad Azure AD](migrate-adfs-application-activity.md)
+- [Pianificare una distribuzione di Single Sign-On](plan-sso-deployment.md)
+- [Esempi di Azure Active Directory PowerShell per la gestione delle applicazioni](app-management-powershell-samples.md)
+- [Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+- [Avvio rapido: Configurare l'accesso Single Sign-On (SSO) basato su SAML per un'applicazione nel tenant di Azure Active Directory (Azure AD)](add-application-portal-setup-sso.md)
+- [Gestione applicazioni Azure Active Directory: novità](whats-new-docs.md)
+- [Domande frequenti sul proxy di applicazione Active Directory (Azure AD)](application-proxy-faq.md)
+- [Risolvere i problemi di accesso a un'applicazione da Azure AD app personali](application-sign-in-other-problem-access-panel.md)
+- [Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Ottimizzare il flusso del traffico con Azure Active Directory Application Proxy](application-proxy-network-topology.md)
+- [Proxy dell'applicazione Azure AD: cronologia delle versioni](application-proxy-release-version-history.md)
+- [Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale](configure-authentication-for-federated-users-portal.md)
+- [Trasferimento dell'autenticazione dell'applicazione da Azure Active Directory Federation Services ad Azure Active Directory](migrate-adfs-apps-to-azure.md)
+
 
 ## <a name="february-2021"></a>2021 febbraio
 

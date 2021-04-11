@@ -1,7 +1,7 @@
 ---
 title: Novità di Azure Active Directory identità esterne
 description: Documentazione nuova e aggiornata per le identità esterne Azure Active Directory.
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,39 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: dda3f7c8f4a9a21e16ebab7d243a004c01a40eed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0654992831dcda65c3d5f53cc22aef0afd4d277
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453667"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449750"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Azure Active Directory identità esterne: novità
 
 Introduzione alle novità di Azure Active Directory documentazione di identità esterne. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità relative al servizio identità esterne, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="march-2021"></a>Marzo 2021
+
+### <a name="new-articles"></a>Nuovi articoli
+
+- [Provider di identità dell'account Microsoft (MSA) per le identità esterne (anteprima)](microsoft-account.md)
+
+### <a name="updated-articles"></a>Articoli aggiornati
+
+- [Aggiungere un connettore API a un flusso utente](self-service-sign-up-add-api-connector.md)
+- [Che cos'è l'accesso utente guest in Azure Active Directory B2B?](what-is-b2b.md)
+- [Proprietà di un utente di Collaborazione B2B di Azure Active Directory](user-properties.md)
+- [Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD](tutorial-bulk-invite.md)
+- [Aggiungere un flusso di lavoro di approvazione personalizzato all'iscrizione self-service](self-service-sign-up-add-approvals.md)
+- [Reimposta lo stato di riscatto per un utente Guest](reset-redemption-status.md)
+- [Usare i connettori API per personalizzare ed estendere l'iscrizione self-service](api-connectors-overview.md)
+- [Domande frequenti su Collaborazione B2B di Azure Active Directory](faq.md)
+- [Riscatto dell'invito di Collaborazione B2B di Azure Active Directory](redemption-experience.md)
+- [Provider di identità per le identità esterne](identity-providers.md)
+- [Aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)](self-service-sign-up-user-flow.md)
+- [Autenticazione del codice di accesso monouso tramite posta elettronica](one-time-passcode.md)
+- [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](add-users-administrator.md)
+
 
 ## <a name="february-2021"></a>2021 febbraio
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6ff057d99e29c7c6fe30e77f38a0bff265dbe7bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3cc9ad0c694be8f95ddcffbc3d952d59b83f89f3
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86998893"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077211"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Accesso all'ambiente cloud privato di CloudSimple e alle applicazioni da locale
 
@@ -43,7 +43,7 @@ Per configurare Active Directory locale come origine di identità nel cloud priv
 | 389 (TCP/UDP) | Rete di gestione del cloud privato | Controller di dominio di Active Directory locali     | Obbligatorio per la comunicazione LDAP dal server vCenter del cloud privato ai controller di dominio Active Directory per l'autenticazione utente.                |
 | 636 (TCP)     | Rete di gestione del cloud privato | Controller di dominio di Active Directory locali     | Necessaria per la comunicazione LDAP sicura (LDAPs) dal server vCenter del cloud privato ai controller di dominio Active Directory per l'autenticazione utente. |
 | 3268 (TCP)    | Rete di gestione del cloud privato | Server di catalogo globale di Active Directory locale | Obbligatorio per la comunicazione LDAP in una distribuzione di controller multidominio.                                                                        |
-| 3269 (TCP)    | Rete di gestione del cloud privato | Server di catalogo globale di Active Directory locale | Obbligatorio per la comunicazione LDAPs in una distribuzione di controller multidominio.                                                                       |                                           |
+| 3269 (TCP)    | Rete di gestione del cloud privato | Server di catalogo globale di Active Directory locale | Obbligatorio per la comunicazione LDAPs in una distribuzione di controller multidominio.                                                                       |
 
 ## <a name="common-ports-required-for-accessing-workload-virtual-machines"></a>Porte comuni necessarie per accedere alle macchine virtuali del carico di lavoro
 

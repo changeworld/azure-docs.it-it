@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 629459d22b18b326307b45bb512d16622808b533
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c10963d28e0d2ecee73150e8b5af89cee96d28b2
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562631"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077007"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Individuazione, valutazione e analisi delle dipendenze-domande comuni
 
@@ -85,6 +85,10 @@ La classificazione di attendibilità viene calcolata per le valutazioni basate s
 - Per le valutazioni di VM e AVS di Azure, sono stati creati pochi server dopo l'avvio dell'individuazione. Ad esempio, se si sta creando una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma sono stati creati pochi server nell'ambiente solo una settimana fa. In questo caso, i dati sulle prestazioni per i nuovi server non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa. [Scopri di più](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 
 - Per le valutazioni di Azure SQL, alcuni database o istanze di SQL sono stati creati dopo l'avvio dell'individuazione. Se, ad esempio, si sta creando una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma nell'ambiente sono state create alcune istanze o database SQL solo una settimana fa. In questo caso, i dati sulle prestazioni per i nuovi server non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà bassa. [Scopri di più](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+
+## <a name="-the-number-of-azure-vm-or-avs-assessments-on-the-discovery-and-assessment-tool-are-incorrect"></a>> il numero di macchine virtuali di Azure o di valutazione AVS sullo strumento di individuazione e valutazione non è corretto
+ Per correggere questo problema, fare clic sul numero totale di valutazioni per passare a tutte le valutazioni e ricalcolare la macchina virtuale di Azure o la valutazione AVS. Lo strumento di individuazione e valutazione indicherà quindi il numero corretto per tale tipo di valutazione.
+
 
 ## <a name="i-want-to-try-out-the-new-azure-sql-assessment"></a>Si vuole provare la nuova valutazione SQL di Azure
 L'individuazione e la valutazione di SQL Server istanze e database in esecuzione nell'ambiente VMware sono ora in anteprima. Introduzione a [questa esercitazione](tutorial-discover-vmware.md). Per provare questa funzionalità in un progetto esistente, assicurarsi di aver completato i [prerequisiti](how-to-discover-sql-existing-project.md) descritti in questo articolo.

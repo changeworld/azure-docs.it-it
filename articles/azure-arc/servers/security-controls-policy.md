@@ -1,15 +1,15 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per i server con abilitazione di Azure Arc (anteprima)
 description: Elenco di controlli di conformità alle normative di Criteri di Azure disponibili per i server con abilitazione di Azure Arc (anteprima) Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0348789ea31807a64249691a0f9037194016a903
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5f4f4b48d781ce34a922b0c2bd0594d1cc052c28
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105037844"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095706"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-enabled-servers"></a>Controlli di conformità alle normative di Criteri di Azure per i server con abilitazione di Azure Arc
 

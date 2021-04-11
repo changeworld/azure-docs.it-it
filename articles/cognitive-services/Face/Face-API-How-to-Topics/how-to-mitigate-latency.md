@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: v-jawe
-ms.openlocfilehash: 2c771509de5ac246bac0d8e006a5d0b884a410b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 412105e3262a3baf8780bd3bd1082508967ea486
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101706810"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012585"
 ---
 # <a name="how-to-mitigate-latency-when-using-the-face-service"></a>Procedura: attenuare la latenza quando si usa il servizio Face
 
@@ -86,6 +86,7 @@ Se il computer dispone di una connessione lenta al servizio viso, questo influir
 Soluzioni:
 - Quando si crea la sottoscrizione viso, assicurarsi di scegliere l'area geografica più vicina alla posizione in cui è ospitata l'applicazione.
 - Se è necessario chiamare più metodi del servizio, è consigliabile chiamarli in parallelo se ne è consentita la progettazione dell'applicazione. Per un esempio, vedere la sezione precedente.
+- Se le latenze più lunghe influiscano sull'esperienza utente, scegliere una soglia di timeout, ad esempio il numero massimo di 5s, prima di ritentare la chiamata API.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

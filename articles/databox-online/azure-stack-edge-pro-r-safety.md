@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: dacc9ecc28ffa482b60d1e48735fe3620b5b7558
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b3589349feed2e20711aa756d8be8ebc433ac0b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363067"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077602"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Istruzioni di sicurezza R per Pro Azure Stack Edge
 
@@ -37,7 +37,8 @@ Quando si configura e si esegue il dispositivo R Edge Pro Azure Stack Edge, è n
 | Icona | Descrizione |
 |:--- |:--- |
 | ![Leggere prima tutte le istruzioni](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Leggere prima tutte le istruzioni |
-| ![Icona di notifica](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTIFICA:** | Indica le informazioni considerate importanti, ma non correlate al rischio. || ![Simbolo di rischio](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Simbolo di rischio |
+| ![Icona di notifica](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTIFICA:** | Indica le informazioni considerate importanti, ma non correlate al rischio. |
+| ![Simbolo di rischio](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Simbolo di rischio |
 | ![Icona di suggerimento di pericolo](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Rischio di ribaltamento|
 | ![Icona di carico pesante](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Rischio elevato|
 | ![Icona di scossa elettrica](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Rischio di scosse elettriche |
@@ -45,7 +46,7 @@ Quando si configura e si esegue il dispositivo R Edge Pro Azure Stack Edge, è n
 | ![Icona di più fonti di alimentazione](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Più fonti di alimentazione. Scollegare tutti i cavi di alimentazione per rimuovere tutta la potenza dall'apparecchiatura. |
 | ![Icona punti di pizzico](./media/azure-stack-edge-pro-r-safety/icon-pinching-points.png)  | Sono presenti punti di pizzicotti. |
 | ![Icona componenti o superfici sensibili](./media/azure-stack-edge-pro-r-safety/icon-hot-component-surface.png)  | Indica componenti o superfici sensibili. |
-|
+
 
 ## <a name="handling-precautions-and-site-selection"></a>Gestione precauzioni e selezione sito
 

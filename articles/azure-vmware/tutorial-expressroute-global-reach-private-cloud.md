@@ -3,12 +3,12 @@ title: Esercitazione - Associare gli ambienti locali a un cloud privato
 description: Informazioni su come creare il peering di Copertura globale ExpressRoute a un cloud privato in una soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 59ddc2dd4aed850328807a4543d2fabd6f5a99f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 798b822989127ccbb00e971de2cc4147ac234259
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564501"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449563"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Esercitazione: Associare gli ambienti locali a un cloud privato
 
@@ -55,7 +55,7 @@ Ora che è stata creata una chiave di autorizzazione per il circuito ExpressRout
 1. Creare una connessione cloud locale. Eseguire una delle operazioni seguenti e quindi selezionare **Crea**:
 
    - Selezionare il **circuito ExpressRoute** dall'elenco oppure
-   - Se si dispone dell'ID circuito, incollarlo nel campo e specificare la chiave di autorizzazione.
+   - Se si dispone dell'ID circuito, incollarlo nel campo e specificare la chiave di autorizzazione appena creata.
 
    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Immettere l'ID ExpressRoute e la chiave di autorizzazione e quindi selezionare Crea.":::   
    

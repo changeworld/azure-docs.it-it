@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: ffea2d84f1a5149670976beef3b9af847ae31a35
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+manager: femila
+ms.openlocfilehash: 1f5e4cb0d2db30c6b07370be137506f3fe26837f
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582137"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505298"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Domande frequenti su Desktop virtuale Windows
 
@@ -139,7 +139,7 @@ Infine, se è stato abilitato il provider di risorse dall'account del proprietar
 
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Con quale frequenza è necessario attivare le VM per evitare problemi di registrazione?
 
-Dopo aver registrato una macchina virtuale in un pool di host nel servizio desktop virtuale di Windows, l'agente aggiorna periodicamente il token della macchina virtuale ogni volta che la macchina virtuale è attiva. Il certificato per il token di registrazione è valido per 90 giorni. A causa di questo limite di 90 giorni, è consigliabile avviare le VM ogni 90 giorni. Se la macchina virtuale viene riattivata entro questo limite di tempo, il token di registrazione non scadrà né diventerà non valido. Se la macchina virtuale è stata avviata dopo 90 giorni e si verificano problemi di registrazione, seguire le istruzioni riportate nella [Guida alla risoluzione dei problemi dell'agente desktop virtuale di Windows](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) per rimuovere la macchina virtuale dal pool host, reinstallare l'agente e registrarla nuovamente nel pool.
+Dopo aver registrato una macchina virtuale in un pool di host nel servizio desktop virtuale di Windows, l'agente aggiorna periodicamente il token della macchina virtuale ogni volta che la macchina virtuale è attiva. Il certificato per il token di registrazione è valido per 90 giorni. A causa di questo limite di 90 giorni, è consigliabile che le macchine virtuali siano online per 20 minuti ogni 90 giorni, in modo che il computer possa aggiornare i propri token e aggiornare l'agente e i componenti dello stack affiancato. Se la macchina virtuale viene riattivata entro questo limite di tempo, il token di registrazione non scadrà né diventerà non valido. Se la macchina virtuale è stata avviata dopo 90 giorni e si verificano problemi di registrazione, seguire le istruzioni riportate nella [Guida alla risoluzione dei problemi dell'agente desktop virtuale di Windows](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) per rimuovere la macchina virtuale dal pool host, reinstallare l'agente e registrarla nuovamente nel pool.
 
 ## <a name="can-i-set-availability-options-when-creating-host-pools"></a>È possibile impostare le opzioni di disponibilità durante la creazione di pool host?
 
@@ -151,8 +151,8 @@ L'opzione di disponibilità da usare per le VM dipende dalla posizione dell'imma
 
 | Opzione di disponibilità | Posizione dell'immagine | Pulsante di opzione Usa disco gestito (pulsante di opzione) |
 |---|---|---|
-| nessuno | Raccolta | Disabilitato con "Sì" come predefinito |
-| nessuno | Archiviazione BLOB | Abilitato con "No" come predefinito |
+| Nessuno | Raccolta | Disabilitato con "Sì" come predefinito |
+| Nessuno | Archiviazione BLOB | Abilitato con "No" come predefinito |
 | Zona di disponibilità | Raccolta (opzione di archiviazione BLOB disabilitata) | Disabilitato con "Sì" come predefinito |
 | Set di disponibilità con SKU gestito (disco gestito) | Raccolta | Disabilitato con "Sì" come predefinito |
 | Set di disponibilità con SKU gestito (disco gestito) | Archiviazione BLOB | Abilitato con "No" come predefinito |
