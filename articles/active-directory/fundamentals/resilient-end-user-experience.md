@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47a4a79fd423806693e86aef1edd132d844069e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cf49b1a2b7178800966342a3d52ed49450f3d97c
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557905"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226685"
 ---
 # <a name="resilient-end-user-experience"></a>Esperienza utente finale resiliente
 
@@ -42,7 +42,7 @@ Scegliere flussi utente predefiniti se i requisiti aziendali possono essere sodd
 
 Se si [scelgono criteri personalizzati](../../active-directory-b2c/custom-policy-get-started.md) a causa dei requisiti aziendali, assicurarsi di eseguire test a livello di criteri per funzionalità, prestazioni o scalabilità oltre al test a livello di applicazione.
 
-Vedere l'articolo che consente di [confrontare i flussi utente e i criteri personalizzati](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies) per la scelta.
+Vedere l'articolo che consente di [confrontare i flussi utente e i criteri personalizzati](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies) per la scelta.
 
 ## <a name="choose-multiple-idps"></a>Scegliere più IDP
 

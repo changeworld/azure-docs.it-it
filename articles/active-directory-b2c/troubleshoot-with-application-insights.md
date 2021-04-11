@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/10/2021
+ms.date: 04/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 435a0b85d205328d10f8762498c7a981d7ee45f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 074bffb8614be1f71ba1956fd5a238bc19354c58
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611828"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028744"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Raccogliere i log di Azure Active Directory B2C con Application Insights
 
@@ -31,6 +31,18 @@ I log attività dettagliati descritti in questa sezione devono essere abilitati 
 ## <a name="set-up-application-insights"></a>Configurare Application Insights
 
 Se non ne è già presente uno, creare un'istanza di Application Insights nella sottoscrizione.
+
+> [!TIP]
+> Per più tenant Azure AD B2C è possibile usare una singola istanza di Application Insights. Nella query è quindi possibile filtrare in base al tenant o al nome del criterio. Per ulteriori informazioni, [vedere i log in Application Insights](#see-the-logs-in-application-insights) esempi.
+
+Per usare un'istanza di uscita di Application Insights nella sottoscrizione, seguire questa procedura:
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene la sottoscrizione di Azure (non la directory di Azure ad B2C).
+1. Aprire la risorsa Application Insights creata in precedenza.
+1. Nella pagina **Overview (panoramica** ) e registrare la **chiave di strumentazione**
+
+Per creare un'istanza di Application Insights nella sottoscrizione, attenersi alla seguente procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e quindi selezionare la directory che contiene la sottoscrizione di Azure (non la directory di Azure ad B2C).
@@ -96,12 +108,59 @@ Di seguito è riportato un elenco di query che è possibile usare per visualizza
 
 | Query | Descrizione |
 |---------------------|--------------------|
-`traces` | Consente di visualizzare tutti i log generati da Azure AD B2C |
-`traces | where timestamp > ago(1d)` | Consente di visualizzare tutti i log generati da Azure AD B2C nell'ultimo giorno
+| `traces` | Ottenere tutti i log generati da Azure AD B2C |
+| `traces | where timestamp > ago(1d)` | Ottenere tutti i log generati da Azure AD B2C per l'ultimo giorno.|
+| `traces | where message contains "exception" | where timestamp > ago(2h)`|  Ottenere tutti i log con errori delle ultime due ore.|
+| `traces | where customDimensions.Tenant == "contoso.onmicrosoft.com" and customDimensions.UserJourney  == "b2c_1a_signinandup"` | Ottenere tutti i log generati dal tenant Azure AD B2C *contoso.onmicrosoft.com* e il percorso utente è *b2c_1a_signinandup*. |
+| `traces | where customDimensions.CorrelationId == "00000000-0000-0000-0000-000000000000"`| Ottenere tutti i log generati da Azure AD B2C per un ID correlazione. Sostituire l'ID di correlazione con l'ID di correlazione. | 
 
 Le voci possono essere lunghe. Per visualizzarle meglio è possibile esportarle in formato CSV.
 
 Per altre informazioni sull'esecuzione di query, vedere [Panoramica delle query di log in monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md).
+
+## <a name="see-the-logs-in-vs-code-extension"></a>Vedere i log nell'estensione VS Code
+
+Si consiglia di installare l' [estensione Azure ad B2C](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) per [vs code](https://code.visualstudio.com/). Con l'estensione Azure AD B2C, i log sono organizzati in base al nome del criterio, all'ID di correlazione (Application Insights presenta la prima cifra dell'ID di correlazione) e al timestamp del log. Questa funzionalità consente di trovare il log pertinente in base al timestamp locale e di visualizzare il percorso utente come eseguito da Azure AD B2C.
+
+> [!NOTE]
+> La community ha sviluppato l'estensione di Visual Studio Code per Azure AD B2C per aiutare gli sviluppatori di identità. L'estensione non è supportata da Microsoft e viene resa disponibile esclusivamente così com'è.
+
+### <a name="set-application-insights-api-access"></a>Impostare l'accesso all'API Application Insights
+
+Dopo aver configurato il Application Insights e aver configurato i criteri personalizzati, è necessario ottenere l' **ID api** Application Insights e creare la **chiave API**. Sia l'ID API che la chiave API vengono usati dall'estensione Azure AD B2C per leggere gli eventi di Application Insights (telemetria). Le chiavi API devono essere gestite come le password. Mantenerla segreta.
+
+> [!NOTE]
+> Application Insights chiave di strumentazione che la creazione precedente viene usata da Azure AD B2C per inviare le telemetrie al Application Insights. Usare la chiave di strumentazione solo nei criteri di Azure AD B2C e non nell'estensione di Visual Studio Code.
+
+Per ottenere Application Insights ID e la chiave:
+
+1. In portale di Azure aprire la risorsa Application Insights per l'applicazione.
+1. Selezionare **Impostazioni**, quindi selezionare **accesso all'API**.
+1. Copiare l' **ID applicazione**
+1. Selezionare **Crea chiave API**
+1. Controllare la casella **Leggi telemetria** .
+1. Copiare la **chiave** prima di chiudere il pannello Crea chiave API e salvarlo in un punto sicuro. Se si perde la chiave, è necessario crearne un'altra.
+
+    ![Screenshot che illustra come creare una chiave di accesso all'API.](./media/troubleshoot-with-application-insights/application-insights-api-access.png)
+
+### <a name="set-up-azure-ad-b2c-vs-code-extension"></a>Configurare Azure AD B2C estensione VS Code
+
+A questo punto, l'utente ha applicazione Azure ID e la chiave dell'API Insights, è possibile configurare l'estensione di Visual Studio Code per leggere i log. Azure AD B2C VS Code Extension fornisce due ambiti per le impostazioni:
+
+- **Impostazioni globali utente** : le impostazioni che si applicano a livello globale a qualsiasi istanza di vs code si apre.
+- **Impostazioni area di lavoro** : impostazioni archiviate nell'area di lavoro e applicabili solo quando l'area di lavoro viene aperta (usando vs Code **cartella aperta**).
+
+1. Da Esplora **traccia Azure ad B2C** fare clic sull'icona **delle impostazioni** .
+
+    ![Screenshot che illustra come selezionare le impostazioni di Application Insights.](./media/troubleshoot-with-application-insights/app-insights-settings.png)
+
+1. Fornire l' **ID** e la **chiave** di applicazione Azure Insights.
+1. Fare clic su **Save** (Salva).
+
+Dopo aver salvato le impostazioni, i log di Application Insights vengono visualizzati nella finestra **traccia Azure ad B2C (App Insights)** .
+
+![Screenshot dell'estensione Azure AD B2C per VSCODE, che presenta la traccia di applicazione Azure Insights.](./media/troubleshoot-with-application-insights/vscode-extension-application-insights-trace.png)
+
 
 ## <a name="configure-application-insights-in-production"></a>Configurare Application Insights nell'ambiente di produzione
 
@@ -128,12 +187,8 @@ Per migliorare le prestazioni dell'ambiente di produzione e migliorare l'esperie
    
 1. Caricare e testare i criteri.
 
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-La community ha sviluppato un visualizzatore di percorsi utente per supportare gli sviluppatori di identità. Legge l'istanza di Application Insights e restituisce una visualizzazione strutturata degli eventi di percorso utente. Ottenere il codice sorgente e distribuirlo nella soluzione.
-
-Il lettore di percorsi utente non è supportato da Microsoft e viene reso disponibile esclusivamente così com'è.
-
-È possibile trovare la versione del visualizzatore che legge gli eventi da Application Insights su GitHub, qui:
-
-[Azure-Samples/Active-Directory-B2C-Advanced-Policies](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
+- Informazioni su come [risolvere i problemi Azure ad B2C criteri personalizzati](troubleshoot-custom-policies.md)

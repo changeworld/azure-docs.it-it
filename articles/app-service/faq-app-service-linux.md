@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 6faec27bf368b3eb45e05a91307df6027bda93b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb5203629915914ab9af22d89e5f2865078a8e44
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100093999"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012608"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -144,6 +144,20 @@ Il sito SCM viene eseguito in un contenitore separato. Non è possibile controll
 
 No, la piattaforma gestisce l'interruzione HTTPS a livello dei server front-end condivisi.
 
+**È necessario usare la variabile di porta nel codice per i contenitori predefiniti?**
+
+No, la variabile di porta non è necessaria a causa del rilevamento automatico delle porte. Se non viene rilevata alcuna porta, il valore predefinito è 80.
+Per configurare manualmente una porta personalizzata, usare l'istruzione EXPOSE nell'Dockerfile e l'impostazione dell'app, WEBSITES_PORT con un valore di porta da associare al contenitore.
+
+**È necessario usare WEBSITES_PORT per i contenitori personalizzati?**
+
+Sì, questa operazione è necessaria per i contenitori personalizzati. Per configurare manualmente una porta personalizzata, usare l'istruzione EXPOSE nell'Dockerfile e l'impostazione dell'app, WEBSITES_PORT con un valore di porta da associare al contenitore.
+
+**È possibile usare ASPNETCORE_URLS nell'immagine Docker?**
+
+Sì, Sovrascrivi la variabile di ambiente prima dell'avvio dell'app .NET Core.
+ad esempio Nello script init.sh: Export ASPNETCORE_URLS = {your value}
+
 ## <a name="multi-container-with-docker-compose"></a>Più contenitori con Docker Compose
 
 **Come si configura Registro Azure Container da usare con più contenitori?**
@@ -206,3 +220,4 @@ Per le impostazioni dell'applicazione è possibile usare solo lettere (A-Z, a-z)
 - [Che cos'è il Servizio app di Azure in Linux?](overview.md#app-service-on-linux)
 - [Configurare gli ambienti di gestione temporanea nel servizio app di Azure](deploy-staging-slots.md)
 - [Distribuzione continua con app Web per contenitori](./deploy-ci-cd-custom-container.md)
+- [Cose da sapere: app Web e Linux](https://techcommunity.microsoft.com/t5/apps-on-azure/things-you-should-know-web-apps-and-linux/ba-p/392472)

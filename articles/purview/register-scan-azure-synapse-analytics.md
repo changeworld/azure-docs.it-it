@@ -1,22 +1,25 @@
 ---
-title: Come analizzare Azure sinapsi Analytics
-description: Questa guida descrive i dettagli su come eseguire l'analisi di Azure sinapsi Analytics.
+title: Come analizzare i pool SQL dedicati
+description: Questa guida descrive i dettagli su come eseguire l'analisi dei pool SQL dedicati.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 3111b3a102abd923169cf655f1d71e79b19f7d5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc82a03534c21b5622c78a3eda63fd92b640b07d
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598134"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028554"
 ---
-# <a name="register-and-scan-azure-synapse-analytics"></a>Registrare e analizzare analisi sinapsi di Azure
+# <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>Registrare e analizzare pool SQL dedicati (in precedenza SQL DW)
 
-Questo articolo illustra come registrare e analizzare un'istanza di Azure sinapsi Analytics (in precedenza SQL DW) in ambito di competenza.
+> [!NOTE]
+> Se si sta cercando di registrare e analizzare un database SQL dedicato in un'area di lavoro sinapsi, è necessario seguire le istruzioni riportate [qui](register-scan-synapse-workspace.md).
+
+Questo articolo illustra come registrare e analizzare un'istanza del pool SQL dedicato (in precedenza SQL DW) in ambito.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -93,7 +96,7 @@ Inoltre, è necessario creare un Azure AD utente in Azure sinapsi Analytics atte
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
 GO
 
-EXEC sp_addrolemember 'db_owner', [ServicePrincipalName]
+ALTER ROLE db_owner ADD MEMBER [ServicePrincipalName]
 GO
 ```
 
@@ -114,14 +117,14 @@ Quando il metodo di autenticazione selezionato è **l'autenticazione SQL**, è n
 1. Se l'insieme di credenziali delle chiavi non è ancora connesso a Purview, sarà necessario [creare una nuova connessione dell'insieme di credenziali delle chiavi](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Infine, [creare una nuova credenziale](manage-credentials.md#create-a-new-credential) usando la chiave per configurare l'analisi
 
-## <a name="register-an-azure-synapse-analytics-instance-formerly-sql-dw"></a>Registrare un'istanza di Azure sinapsi Analytics (in precedenza SQL DW)
+## <a name="register-a-sql-dedicated-pool-formerly-sql-dw"></a>Registrare un pool SQL dedicato (in precedenza SQL DW)
 
 Per registrare un nuovo server Azure sinapsi Analytics nella Data Catalog, seguire questa procedura:
 
 1. Passare all'account Purview
 1. Selezionare **Origini** nel riquadro di spostamento sinistro
 1. Selezionare **Registra**
-1. In **registra origini** selezionare **Azure sinapsi Analytics (in precedenza SQL DW)**
+1. In **origini registro** selezionare **pool dedicato SQL (in precedenza SQL DW)**
 1. Selezionare **Continua**
 
 Nella schermata **Register Sources (Azure sinapsi Analytics)** eseguire le operazioni seguenti:

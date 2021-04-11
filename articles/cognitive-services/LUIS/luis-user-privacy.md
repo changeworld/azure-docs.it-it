@@ -8,13 +8,13 @@ ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/10/2020
-ms.openlocfilehash: 0a2d0ce683261ca3460c7aeaa0d7a42152b81a1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2020
+ms.openlocfilehash: a7a7bbb8b911f86b81cdeafe3fe57e1fdf820681
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98680186"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228283"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Esportare ed eliminare i dati dei clienti in Language Understanding (LUIS) in Servizi cognitivi
 
@@ -85,7 +85,15 @@ Le risorse di creazione Stati Uniti (note anche come API programmatiche) sono os
 
 * Aree geografiche di Azure non supportate dalle aree di creazione dell'Europa o dell'Australia
 
-Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app verranno archiviate nel Stati Uniti geography di Azure per l'apprendimento attivo. 
+Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app verranno archiviate nel Stati Uniti geography di Azure per l'apprendimento attivo.
+
+### <a name="switzerland-north"></a>Svizzera settentrionale
+
+Le risorse di creazione Svizzera settentrionale (note anche come API programmatiche) sono ospitate nella geografia della Svizzera di Azure e supportano la distribuzione di endpoint nelle seguenti aree geografiche di Azure:
+
+* Svizzera 
+
+Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app vengono archiviate nella geografia della Svizzera di Azure per l'apprendimento attivo.
 
 ## <a name="disable-active-learning"></a>Disabilitare l'apprendimento attivo
 

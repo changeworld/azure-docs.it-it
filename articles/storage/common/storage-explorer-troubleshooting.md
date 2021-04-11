@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 15df9b38abe35fe3eefad2fa160e1c1f16fe7aa7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 593ccac7326a0a04884fe433cac85cb8eaf79319
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439460"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228232"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -289,20 +289,20 @@ Se si desidera mantenere le connessioni non danneggiate, è possibile utilizzare
 
 Dopo aver attraversato tutte le connessioni, per tutti i nomi delle connessioni che non sono stati aggiunti, è necessario cancellare i dati danneggiati (se presenti) e aggiungerli nuovamente utilizzando i passaggi standard in Storage Explorer:
 
-# <a name="windows"></a>[Windows](#tab/Windows)
+### <a name="windows"></a>[Windows](#tab/Windows)
 
 1. Nel menu **Start** cercare **Gestione credenziali** e aprirlo.
 2. Passare a **Windows credentials**.
 3. In **credenziali generiche** cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Eliminare queste voci e aggiungere di nuovo le connessioni.
 
-# <a name="macos"></a>[macOS](#tab/macOS)
+### <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Aprire Spotlight (Command + barra spaziatrice) e cercare **l'accesso Keychain**.
 2. Cercare le voci che contengono la `<connection_type_key>/<corrupted_connection_name>` chiave (ad esempio, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Eliminare queste voci e aggiungere di nuovo le connessioni.
 
-# <a name="linux"></a>[Linux](#tab/Linux)
+### <a name="linux"></a>[Linux](#tab/Linux)
 
 La gestione delle credenziali locali varia a seconda della distribuzione di Linux. Se la distribuzione di Linux non fornisce uno strumento GUI integrato per la gestione delle credenziali locali, è possibile installare uno strumento di terze parti per gestire le credenziali locali. Ad esempio, è possibile usare [cavalluccio](https://wiki.gnome.org/Apps/Seahorse/), uno strumento di interfaccia utente grafica open source per la gestione delle credenziali locali di Linux.
 
@@ -356,7 +356,7 @@ Storage Explorer richiede l'installazione di .NET Core nel sistema. Si consiglia
 > [!NOTE]
 > Storage Explorer versione 1.7.0 e versioni precedenti richiedono .NET Core 2,0. Se è installata una versione più recente di .NET Core, è necessario applicare una [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Se si esegue Storage Explorer 1.8.0 o versione successiva, è necessario almeno .NET Core 2,1.
 
-# <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
+### <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Scaricare il file Storage Explorer. tar. gz.
 2. Installare il [runtime di .NET Core](/dotnet/core/install/linux):
@@ -369,7 +369,7 @@ Storage Explorer richiede l'installazione di .NET Core nel sistema. Si consiglia
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
+### <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Scaricare il file Storage Explorer. tar. gz.
 2. Installare il [runtime di .NET Core](/dotnet/core/install/linux):
@@ -382,7 +382,7 @@ Storage Explorer richiede l'installazione di .NET Core nel sistema. Si consiglia
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
+### <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Scaricare il file Storage Explorer. tar. gz.
 2. Installare il [runtime di .NET Core](/dotnet/core/install/linux):
@@ -431,6 +431,98 @@ Se il pulsante **Apri in Esplora** sul portale di Azure non funziona, assicurars
 * Mozilla Firefox
 * Google Chrome
 * Microsoft Internet Explorer
+
+## <a name="gathering-logs"></a>Raccolta dei log
+
+Quando si segnala un problema a GitHub, potrebbe essere richiesto di raccogliere alcuni log per facilitare la diagnosi del problema.
+
+### <a name="storage-explorer-logs"></a>Log di Storage Explorer
+
+A partire dalla versione 1.16.0, Storage Explorer registra vari elementi nei propri registri applicazioni. È possibile accedere facilmente a questi log facendo clic su guida > aprire la directory dei log. Per impostazione predefinita, Storage Explorer registra a un livello di dettaglio basso. Per modificare il livello di dettaglio, aggiungere una variabile di ambiente con il nome `STG_EX_LOG_LEVEL` e uno dei valori seguenti:
+- `silent`
+- `critical`
+- `error`
+- `warning`
+- `info` (livello predefinito)
+- `verbose`
+- `debug`
+
+I log vengono suddivisi in cartelle per ogni sessione di Storage Explorer eseguita. Per tutti i file di log da condividere, è consigliabile inserirli in un archivio zip, con file provenienti da sessioni diverse in cartelle diverse.
+
+### <a name="authentication-logs"></a>Log di autenticazione
+
+Per i problemi relativi alla libreria di autenticazione di Storage Explorer o di accesso, probabilmente sarà necessario raccogliere i log di autenticazione. I log di autenticazione vengono archiviati in:
+- Windows: `C:\Users\<your username>\AppData\Local\Temp\servicehub\logs`
+- macOS e Linux `~/.ServiceHub/logs`
+
+In genere, è possibile eseguire la procedura seguente per raccogliere i log:
+
+1. Passare a impostazioni > accedi > controllare la registrazione di autenticazione dettagliata. Se Storage Explorer non riesce a essere avviato a causa di un problema con la relativa libreria di autenticazione, questa operazione verrà eseguita per l'utente.
+2. Chiudere Azure Storage Explorer.
+1. Facoltativo/consigliato: cancellare i log esistenti dalla `logs` cartella. Questa operazione consente di ridurre la quantità di informazioni che è necessario inviare.
+4. Aprire Storage Explorer e riprodurre il problema
+5. Chiudi Storage Explorer
+6. Zippare il contenuto della `log` cartella.
+
+### <a name="azcopy-logs"></a>Log AzCopy
+
+Se si verificano problemi durante il trasferimento dei dati, potrebbe essere necessario ottenere i log AzCopy. I log AzCopy possono essere facilmente trovati con due metodi diversi:
+- Per i trasferimenti non riusciti ancora nel log attività, fare clic su "Vai a AzCopy log file".
+- Per i trasferimenti non riusciti in passato, passare alla cartella AzCopy logs. Questa cartella si trova in:
+  - Windows: `C:\Users\<your username>\.azcopy`
+  - macOS e Linux ' ~/.azcopy
+
+### <a name="network-logs"></a>Log di rete
+
+Per alcuni problemi è necessario fornire i log delle chiamate di rete effettuate da Storage Explorer. In Windows è possibile eseguire questa operazione usando Fiddler.
+
+> [!NOTE]
+> Le tracce di Fiddler possono contenere password immesse o inviate nel browser durante la raccolta della traccia. Assicurarsi di leggere le istruzioni su come purificare una traccia di Fiddler. Non caricare tracce Fiddler in GitHub. Verrà indicato dove è possibile inviare in modo sicuro la traccia di Fiddler.
+
+Parte 1: installare e configurare Fiddler
+
+1. Installare Fiddler
+2. Avviare Fiddler
+3. Passa a strumenti > opzioni
+4. Fare clic sulla scheda HTTPS.
+5. Verificare che sia selezionata l'opzione Acquisisci connessione e decrittografia traffico HTTPS
+6. Fare clic sul pulsante azioni.
+7. Scegliere "attendibilità certificato radice" e quindi "Sì" nella finestra di dialogo successiva.
+8. Fare di nuovo clic sul pulsante azioni
+9. Scegliere "Esporta certificato radice sul desktop"
+10. Vai al desktop
+11. Trovare il file FiddlerRoot. cer
+12. Fare doppio clic per aprire
+13. Vai alla scheda "dettagli"
+14. Fare clic su "copia su file..."
+15. Nell'esportazione guidata scegliere le opzioni seguenti
+    - Base-64 codificato X. 509
+    - Per nome file, Sfoglia... per C:\Users \<your user dir> \AppData\Roaming\StorageExplorer\certs, è possibile salvarlo come qualsiasi nome file
+16. Chiudere la finestra del certificato
+17. Avvia Storage Explorer
+18. Passare a modifica > configurare il proxy
+19. Nella finestra di dialogo scegliere "Usa impostazioni proxy app" e impostare l'URL su http://localhost e la porta su 8888.
+20. Fare clic su OK.
+21. Riavviare Storage Explorer
+22. È consigliabile iniziare a visualizzare le chiamate di rete da un `storageexplorer:` processo in Fiddler
+
+Parte 2: riprodurre il problema
+1. Chiudi tutte le app diverse da Fiddler
+2. Deselezionare il registro Fiddler (icona X in alto a sinistra, accanto al menu Visualizza)
+3. Facoltativo/consigliato: impostare Fiddler per pochi minuti. se vengono visualizzate chiamate di rete, fare clic con il pulsante destro del mouse su di esse e scegliere ' Filtra ora ' >' Nascondi <process name> '
+4. Avvia Storage Explorer
+5. Riprodurre il problema
+6. Fai clic su file > Salva > tutte le sessioni..., Salva in un punto che non dimentichi
+7. Chiudere Fiddler e Storage Explorer
+
+Parte 3: purificare la traccia di Fiddler
+1. Fare doppio clic sulla traccia di Fiddler (file con estensione.)
+2. Premere `ctrl`+`f`
+3. Nella finestra di dialogo visualizzata verificare che siano impostate le opzioni seguenti: Search = requests and Responses, examine = Headers and bodies
+4. Cercare le password usate durante la raccolta della traccia Fiddler, le voci evidenziate, fare clic con il pulsante destro del mouse e scegliere Rimuovi > sessioni selezionate
+5. Se le password sono state immesse nel browser mentre si raccoglie la traccia ma non si trovano voci quando si usa Ctrl + f e non si vuole modificare le password o se si usano le password usate per gli altri account, è possibile semplicemente ignorare l'invio del file.... Migliore per essere sicuri di quanto mi dispiace. :)
+6. Salva di nuovo la traccia con un nuovo nome
+7. Facoltativo: eliminare la traccia originale
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 42098786bb92e98b89b1dbfba01a2e071398f460
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f19f43b89cd2527a67827d7434f2e054ee40001e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258542"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227382"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Esercitazione: Usare criteri di allocazione personalizzati con il servizio Device Provisioning
 
@@ -483,6 +483,17 @@ Per eliminare il gruppo di risorse per nome:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un esempio più approfondito di criterio di allocazione personalizzato, vedere [Come usare i criteri di allocazione personalizzati](how-to-use-custom-allocation-policies.md).
-* Per altre informazioni sulla ripetizione del provisioning, vedere [Concetti per la ripetizione del provisioning di dispositivo in hub IoT](concepts-device-reprovision.md).
-* Per altre informazioni sul deprovisioning, vedere [Come effettuare il deprovisioning di dispositivi di cui è stato effettuato il provisioning automatico in precedenza ](how-to-unprovision-devices.md).
+Per un esempio di criteri di allocazione personalizzati più approfonditi, vedere 
+
+> [!div class="nextstepaction"]
+> [Come usare i criteri di allocazione personalizzati](how-to-use-custom-allocation-policies.md)
+
+* Per ulteriori informazioni sul nuovo provisioning, vedere
+
+> [!div class="nextstepaction"]
+> [Concetti di reprovisioning di un dispositivo hub IoT](concepts-device-reprovision.md)
+
+* Per ulteriori informazioni sul deprovisioning, vedere
+
+> [!div class="nextstepaction"]
+> [Come eseguire il deprovisioning di dispositivi precedentemente sottoposti a provisioning automatico](how-to-unprovision-devices.md)

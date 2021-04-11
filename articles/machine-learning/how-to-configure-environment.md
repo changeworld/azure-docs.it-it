@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 11/16/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 7e493404e7a36b60e8f9e62cd4ac2f2b32845bb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 686274bc90f516f597a397a6b0270fb638e30c95
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102501618"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027711"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo Python per Azure Machine Learning
 
@@ -134,7 +134,12 @@ Per usare Visual Studio Code per lo sviluppo:
 1. Installare [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Installare l' [estensione Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md) (anteprima).
 
-Una volta installata l'estensione Visual Studio Code, è possibile gestire le [risorse Azure Machine Learning](how-to-manage-resources-vscode.md), [eseguire ed eseguire il debug degli esperimenti](how-to-debug-visual-studio-code.md)e distribuire i modelli sottoposti a [Training](tutorial-train-deploy-image-classification-model-vscode.md).
+Una volta installata l'estensione Visual Studio Code, usarla per:
+
+* [Gestire le risorse di Azure Machine Learning](how-to-manage-resources-vscode.md)
+* [Connettersi a un'istanza di calcolo Azure Machine Learning](how-to-set-up-vs-code-remote.md)
+* [Eseguire ed eseguire il debug di esperimenti](how-to-debug-visual-studio-code.md)
+* [Distribuire modelli](tutorial-train-deploy-image-classification-model-vscode.md)sottoposti a training.
 
 ## <a name="azure-machine-learning-compute-instance"></a><a id="compute-instance"></a>Istanza di calcolo Azure Machine Learning
 
@@ -151,7 +156,7 @@ Per altre informazioni sulle istanze di calcolo, inclusa la modalità di install
 
 Oltre a un server Jupyter Notebook e a JupyterLab, è possibile usare le istanze di calcolo nella [funzionalità notebook integrato all'interno di Azure Machine Learning Studio](how-to-run-jupyter-notebooks.md).
 
-È anche possibile usare l'estensione Azure Machine Learning Visual Studio Code per [configurare un'istanza di calcolo Azure machine learning come server di Jupyter notebook remoto](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server).
+È anche possibile usare l'estensione Azure Machine Learning Visual Studio Code per [connettersi a un'istanza di calcolo remota utilizzando vs code](how-to-set-up-vs-code-remote.md).
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Macchina virtuale di data science
 
@@ -174,7 +179,7 @@ Per utilizzare il Data Science VM come un ambiente di sviluppo:
 
     * Usare il portale di Azure per creare una [Ubuntu](data-science-virtual-machine/dsvm-ubuntu-intro.md) o [Windows](data-science-virtual-machine/provision-vm.md) DSVM.
     * [Creare una data Science VM usando i modelli ARM](data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
-    * Utilizzare l’interfaccia della riga di comando di Azure
+    * Usare l'interfaccia della riga di comando di Azure
 
         Per creare un Data Science VM Ubuntu, usare il comando seguente:
 

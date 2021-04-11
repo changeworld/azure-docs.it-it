@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3fd504ec36abae3f00cd2a7eb4e1f7b639be0cea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d15e2b8bfcddfd1f554ab2a27083fe5256e9e2b
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462678"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226329"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
@@ -94,19 +94,14 @@ Di seguito è riportato un esempio di query che specifica un valore per tutti e 
 
 Quando si esegue una query in base alle **relazioni** dei gemelli digitali, il linguaggio di query di Azure Digital Twins presenta una sintassi speciale.
 
-Il pull delle relazioni viene eseguito nell'ambito della query nella clausola `FROM`. Una differenza importante rispetto ai linguaggi di tipo SQL "classici" è che ogni espressione in questa `FROM` clausola non è una tabella, bensì che la `FROM` clausola esprime un'attraversamento di relazioni tra entità e viene scritta con una versione di dispositivi gemelli digitali di Azure di `JOIN` .
+Il pull delle relazioni viene eseguito nell'ambito della query nella clausola `FROM`. Diversamente dai linguaggi di tipo SQL "classici", ogni espressione in questa `FROM` clausola non è una tabella, bensì `FROM` esprime un attraversamento di relazioni tra entità. Per scorrere tra le relazioni, i dispositivi gemelli digitali di Azure usano una versione personalizzata di `JOIN` .
 
-Tenere presente che con le funzionalità del [modello](concepts-models.md) di Azure Digital Twins, le relazioni non esistono indipendentemente dai dispositivi gemelli. Il `JOIN` del linguaggio di query di Gemelli digitali di Azure è quindi leggermente diverso dal `JOIN` di SQL generale, perché in questo caso non è possibile eseguire in modo indipendente una query delle relazioni, che devono essere collegate a un gemello.
-Per integrare questa differenza, viene usata la parola chiave `RELATED` nella clausola `JOIN` per fare riferimento al set di relazioni di un gemello.
+Tenere presente che con le funzionalità del [modello](concepts-models.md) di Azure Digital Twins, le relazioni non esistono indipendentemente dai dispositivi gemelli. Ciò significa che non è possibile eseguire query in modo indipendente sulle relazioni e che devono essere collegate a un dispositivo gemello.
+Per gestire questa operazione, la parola chiave `RELATED` viene usata nella `JOIN` clausola per eseguire il pull del set di un determinato tipo di relazione proveniente dalla raccolta dei dispositivi gemelli. La query deve quindi filtrare la `WHERE` clausola che specifica i gemelli da usare nella query della relazione (usando i valori dei gemelli `$dtId` ).
 
-Nella sezione seguente vengono forniti alcuni esempi di questo aspetto.
+Nelle sezioni seguenti vengono illustrati alcuni esempi di questo aspetto.
 
-> [!TIP]
-> Dal punto di vista concettuale, questa funzionalità simula la funzionalità incentrata sui documenti di CosmosDB, dove `JOIN` può essere eseguita sugli oggetti figlio all'interno di un documento. CosmosDB utilizza la `IN` parola chiave per indicare che `JOIN` è progettata per scorrere gli elementi della matrice all'interno del documento di contesto corrente.
-
-### <a name="relationship-based-query-examples"></a>Esempi di query basate su relazioni
-
-Per ottenere un set di dati che includa relazioni, utilizzare una singola `FROM` istruzione seguita da N `JOIN` istruzioni, in cui le `JOIN` istruzioni esprimono le relazioni sul risultato di un' `FROM` istruzione o precedente `JOIN` .
+### <a name="basic-relationship-query"></a>Query di relazione di base
 
 Ecco una query di esempio basata sulle relazioni. Questo frammento di codice seleziona tutti i dispositivi gemelli digitali con una proprietà *ID* ' ABC ' e tutti i dispositivi gemelli digitali correlati a questi gemelli digitali tramite una relazione *Contains* .
 
@@ -114,6 +109,18 @@ Ecco una query di esempio basata sulle relazioni. Questo frammento di codice sel
 
 > [!NOTE]
 > Lo sviluppatore non deve correlare questo `JOIN` oggetto con un valore di chiave nella `WHERE` clausola o specificare un valore di chiave inline con la `JOIN` definizione. Questa correlazione viene calcolata automaticamente dal sistema, perché le proprietà della relazione identificano l'entità di destinazione.
+
+### <a name="query-by-the-source-or-target-of-a-relationship"></a>Eseguire una query in base all'origine o alla destinazione di una relazione
+
+È possibile usare la struttura della query di relazione per identificare un dispositivo gemello digitale che è l'origine o la destinazione di una relazione.
+
+Ad esempio, è possibile iniziare con un dispositivo gemello di origine e seguire le relazioni per trovare i gemelli di destinazione delle relazioni. Di seguito è riportato un esempio di una query che trova i gemelli di destinazione delle relazioni *feed* provenienti dal gemello di *origine-gemello*.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipSource":::
+
+È anche possibile iniziare con la destinazione della relazione e tracciare la relazione per trovare il gemello di origine. Di seguito è riportato un esempio di una query che trova il gemello di origine di una relazione di *feed* con il gemello *target-gemello*.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationshipTarget":::
 
 ### <a name="query-the-properties-of-a-relationship"></a>Eseguire una query sulle proprietà di una relazione
 
@@ -128,7 +135,9 @@ Nell'esempio precedente, si noti come *reportedCondition* è una proprietà dell
 
 ### <a name="query-with-multiple-joins"></a>Query con più JOIN
 
-`JOIN`In una singola query sono supportati fino a cinque istanze. In questo modo è possibile attraversare contemporaneamente più livelli di relazioni.
+`JOIN`In una singola query sono supportati fino a cinque istanze. In questo modo è possibile attraversare contemporaneamente più livelli di relazioni. 
+
+Per eseguire una query su più livelli di relazioni, utilizzare una singola `FROM` istruzione seguita da N `JOIN` istruzioni, in cui le `JOIN` istruzioni esprimono le relazioni sul risultato di un' `FROM` istruzione o precedente `JOIN` .
 
 Di seguito è riportato un esempio di query a più join, che consente di ottenere tutte le lampadine contenute nei pannelli di luce nelle stanze 1 e 2.
 

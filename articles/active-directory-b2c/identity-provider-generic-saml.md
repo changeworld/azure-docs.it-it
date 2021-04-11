@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a66486d791968f5752b96ed00374f8662b9c30fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 944eff6e76f4e5759f70105fe9d09aa61093917f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580046"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028299"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con il provider di identità SAML usando Azure Active Directory B2C
 
@@ -227,7 +227,7 @@ Aprire un browser e passare all'URL. Assicurarsi di digitare l'URL corretto e di
 1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
 1. In **criteri** selezionare **Framework esperienza di identità**
 1. Selezionare, ad esempio, i criteri di relying party `B2C_1A_signup_signin` .
-1. Per **applicazione** selezionare un'applicazione Web [registrata in precedenza](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
+1. Per **applicazione** selezionare un'applicazione Web [registrata in precedenza](tutorial-register-applications.md). L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Selezionare il pulsante **Esegui adesso** .
 1. Dalla pagina di iscrizione o accesso selezionare **Contoso** per accedere con l'account contoso.
 

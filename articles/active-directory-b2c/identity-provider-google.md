@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 7d5786c4188db63efc3012e565071f8fd410b92f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4dee196d3ff0796802d2552f073446ad6912663
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579961"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028265"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Google tramite Azure Active Directory B2C
 
@@ -181,7 +181,7 @@ Per consentire agli utenti di accedere con un account Google, è necessario defi
 ## <a name="test-your-custom-policy"></a>Testare i criteri personalizzati
 
 1. Selezionare, ad esempio, i criteri di relying party `B2C_1A_signup_signin` .
-1. Per **applicazione** selezionare un'applicazione Web [registrata in precedenza](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
+1. Per **applicazione** selezionare un'applicazione Web [registrata in precedenza](tutorial-register-applications.md). L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Selezionare il pulsante **Esegui adesso** .
 1. Dalla pagina di iscrizione o accesso selezionare **Google** per accedere con l'account Google.
 

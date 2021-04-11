@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 11/16/2020
-ms.openlocfilehash: cc844cbd2518bb131f6902d1da3e7653951224b5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 04/08/2021
+ms.openlocfilehash: 2dc50702113f591075b790878347c4ca47beec4e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102547850"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107027806"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integrazione git per Azure Machine Learning
 
@@ -25,6 +25,11 @@ Azure Machine Learning supporta completamente i repository Git per tenere tracci
 Quando si invia un processo a Azure Machine Learning, se i file di origine sono archiviati in un repository git locale, le informazioni sul repository vengono registrate come parte del processo di training.
 
 Poiché Azure Machine Learning tiene traccia delle informazioni da un repository git locale, non è associato ad alcun repository centrale specifico. Il repository può essere clonato da GitHub, GitLab, Bitbucket, Azure DevOps o da qualsiasi altro servizio compatibile con git.
+
+> [!TIP]
+> Usare Visual Studio Code per interagire con git tramite un'interfaccia utente grafica. Per connettersi a un'istanza di calcolo remota Azure Machine Learning usando Visual Studio Code, vedere [connettersi a un'istanza di calcolo Azure Machine Learning in Visual Studio Code (anteprima)](how-to-set-up-vs-code-remote.md)
+>
+> Per altre informazioni sulle funzionalità di controllo della versione di Visual Studio Code, vedere [uso del controllo della versione in vs code](https://code.visualstudio.com/docs/editor/versioncontrol) e uso di [GitHub in vs code](https://code.visualstudio.com/docs/editor/github).
 
 ## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Clonare i repository GIT nel file system dell'area di lavoro
 Azure Machine Learning fornisce un file system condiviso per tutti gli utenti nell'area di lavoro.

@@ -7,27 +7,28 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 02/19/2021
-ms.openlocfilehash: 0146e4fcaf70d37975dc587a266c47bf4b3f4601
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 80d1e4f39d69f761b801ccec834c0228057e4847
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461675"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448526"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox per Microsoft Azure
 
 > [!NOTE]
 > Per usare questa funzionalità, è necessario che l'organizzazione disponga di un [piano di supporto di Azure](https://azure.microsoft.com/support/plans/) con un livello minimo di **sviluppatore**.
 
-Customer Lockbox per Microsoft Azure fornisce un'interfaccia che consente ai clienti di esaminare e approvare oppure rifiutare le richieste di accesso ai loro dati. Viene usato nei casi in cui un tecnico Microsoft deve accedere ai dati dei clienti durante una richiesta di supporto.
+La maggior parte delle operazioni, del supporto e della risoluzione dei problemi eseguiti da personale e Sottoscrittore Microsoft non richiede l'accesso ai dati dei clienti. In rari casi in cui tale accesso è necessario, Customer Lockbox per Microsoft Azure fornisce un'interfaccia per consentire ai clienti di esaminare e approvare o rifiutare le richieste di accesso ai dati del cliente. Viene usato nei casi in cui un tecnico Microsoft deve accedere ai dati dei clienti, in risposta a un ticket di supporto avviato dal cliente o a un problema identificato da Microsoft.
 
 Questo articolo illustra come abilitare Customer Lockbox e come vengono avviate, rilevate e archiviate le richieste dell'archivio degli archivi per verifiche e controlli successivi.
 
 <a name='supported-services-and-scenarios-in-general-availability'></a><a name='supported-services-and-scenarios-in-preview'></a>
-## <a name="supported-services-and-scenarios-general-availability"></a>Servizi e scenari supportati (disponibilità generale)
+## <a name="supported-services-and-scenarios"></a>Scenari e servizi supportati
 
-I servizi seguenti sono ora disponibili a livello generale per Customer Lockbox:
+### <a name="general-availability"></a>Disponibilità generale
+I servizi seguenti sono disponibili a livello generale per Customer Lockbox:
 
 - Gestione API di Azure
 - Servizio app di Azure
@@ -49,6 +50,12 @@ I servizi seguenti sono ora disponibili a livello generale per Customer Lockbox:
 - Azure Synapse Analytics
 - Macchine virtuali in Azure (che riguardano l'accesso desktop remoto, l'accesso ai dump della memoria e i dischi gestiti)
 
+### <a name="public-preview"></a>Anteprima pubblica
+I servizi seguenti sono attualmente disponibili in anteprima per Customer Lockbox:
+
+- Azure Machine Learning
+- Azure Batch
+
 ## <a name="enable-customer-lockbox"></a>Abilita Customer Lockbox
 
 È ora possibile abilitare Customer Lockbox dal [modulo di amministrazione](https://aka.ms/customerlockbox/administration) nel pannello Customer Lockbox.  
@@ -66,7 +73,7 @@ La procedura seguente illustra un flusso di lavoro tipico per una richiesta di C
 
 3. Un tecnico del supporto di Azure esamina la richiesta di servizio e determina i passaggi successivi per risolvere il problema.
 
-4. Se il tecnico del supporto non riesce a risolvere il problema usando gli strumenti e la telemetria standard, il passaggio successivo consiste nel richiedere autorizzazioni elevate tramite un servizio di accesso JIT (just-in-Time). Questa richiesta può provenire dal tecnico del supporto originale o da un altro tecnico perché il problema viene inoltrato al team di Azure DevOps.
+4. Se il tecnico del supporto non riesce a risolvere il problema utilizzando gli strumenti standard e i dati generati dal servizio, il passaggio successivo consiste nel richiedere autorizzazioni elevate utilizzando un servizio di accesso JIT (just-in-Time). Questa richiesta può provenire dal tecnico del supporto originale o da un altro tecnico perché il problema viene inoltrato al team di Azure DevOps.
 
 5. Una volta inviata la richiesta di accesso da parte del tecnico di Azure, il servizio JIT valuta la richiesta tenendo conto dei fattori seguenti:
     - Ambito della risorsa
@@ -129,8 +136,10 @@ Ad esempio:
 
 Customer Lockbox richieste non vengono attivate negli scenari di supporto tecnico seguenti:
 
-- Un tecnico Microsoft deve eseguire un'attività che esula dalle procedure operative standard. Ad esempio, per recuperare o ripristinare i servizi in scenari imprevisti o imprevedibili.
-- Un tecnico Microsoft accede alla piattaforma Azure nell'ambito della risoluzione dei problemi e accede inavvertitamente ai dati dei clienti. Ad esempio, il team di rete di Azure esegue la risoluzione dei problemi che genera un'acquisizione di pacchetti in un dispositivo di rete. In questo scenario, se il cliente crittografa i dati mentre è in transito, il tecnico non potrà leggere i dati.
+- Scenari di emergenza che esulano dalle procedure operative standard. Ad esempio, un'interruzione del servizio principale richiede attenzione immediata per ripristinare o ripristinare i servizi in uno scenario imprevisto o imprevedibile. Questi eventi "Break Glass" sono rari e, nella maggior parte dei casi, non richiedono l'accesso ai dati dei clienti per la risoluzione.
+- Un ingegnere Microsoft accede alla piattaforma Azure come parte della risoluzione dei problemi e viene inavvertitamente esposto ai dati dei clienti. Ad esempio, il team di rete di Azure esegue la risoluzione dei problemi che genera un'acquisizione di pacchetti in un dispositivo di rete. È raro che tali scenari provochino l'accesso a quantità significative di dati del cliente. I clienti possono proteggere ulteriormente i dati tramite l'uso di in transito e della crittografia Rest.
+
+Anche le richieste di Customer Lockbox non vengono attivate da richieste legali esterne per i dati. Per informazioni dettagliate, vedere la discussione sulle [richieste governative per i dati](https://www.microsoft.com/trust-center/) nel centro protezione Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,18 +1,18 @@
 ---
 title: Espansione automatica dell'archiviazione-interfaccia della riga di comando di Azure-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive come configurare l'aumento automatico delle dimensioni dell'archiviazione usando l'interfaccia della riga di comando di Azure nel database di Azure per PostgreSQL-server singolo.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 8/7/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6b6f3875af4c7f0eace327d810c632a6bb217092
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e323dfd0449b0fb4ad5119955227a2aa9bea1031
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94534195"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551153"
 ---
 # <a name="auto-grow-azure-database-for-postgresql-storage---single-server-using-the-azure-cli"></a>Espandere automaticamente l'archiviazione per database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando di Azure
 Questo articolo descrive come configurare un database di Azure per l'archiviazione del server PostgreSQL in modo che cresca senza alcun effetto sul carico di lavoro.

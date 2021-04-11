@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/11/2021
-ms.openlocfilehash: bc8f7aa6827ce251799acd0673d43344c0833c3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28a647949fdb3ff4d8527268919dbd7e49b27ea4
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149325"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276655"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creare e alleghi un cluster di servizi Kubernetes di Azure
 
@@ -48,12 +48,8 @@ Azure Machine Learning possibile distribuire modelli di apprendimento automatico
 
 - Se si vuole usare un cluster del servizio contenitore di Azure privato (usando il collegamento privato di Azure), è necessario creare prima il cluster e quindi **collegarlo** all'area di lavoro. Per altre informazioni, vedere [creare un cluster di servizi Kubernetes di Azure privato](../aks/private-clusters.md).
 
-- Il nome di calcolo per il cluster AKS deve essere univoco all'interno dell'area di lavoro di Azure ML.
-    - Il nome è obbligatorio e deve avere una lunghezza compresa tra 3 e 24 caratteri.
-    - I caratteri validi sono lettere maiuscole e minuscole, cifre e il carattere.
-    - Il nome deve iniziare con una lettera.
-    - Il nome deve essere univoco in tutti i calcoli esistenti all'interno di un'area di Azure. Se il nome scelto non è univoco, verrà visualizzato un avviso.
-   
+- Il nome di calcolo per il cluster AKS deve essere univoco all'interno dell'area di lavoro di Azure ML. Può includere lettere, cifre e trattini. Deve iniziare con una lettera, terminare con una lettera o una cifra e avere una lunghezza compresa tra 3 e 24 caratteri.
+ 
  - Se si desidera distribuire modelli a nodi **GPU** o a nodi **FPGA** (o a qualsiasi SKU specifico), è necessario creare un cluster con lo SKU specifico. Non è disponibile alcun supporto per la creazione di un pool di nodi secondari in un cluster esistente e la distribuzione di modelli nel pool di nodi secondari.
  
 - Quando si crea o si connette un cluster, è possibile scegliere se creare il cluster per __sviluppo/test__ o __produzione__. Se si vuole creare un cluster AKS per __lo sviluppo__, __la convalida__ e il __test__ anziché la produzione, impostare lo __scopo del cluster__ su __dev-test__. Se non si specifica lo scopo del cluster, viene creato un cluster di __produzione__ . 

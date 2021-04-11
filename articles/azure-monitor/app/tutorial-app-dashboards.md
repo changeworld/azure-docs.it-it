@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 ms.custom: mvc, contperf-fy21q1
-ms.openlocfilehash: ebe34735a84e44526e6b96821a2a1da090884886
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 7bad0b17bb2fed9d9f54cdd44042ec88708f35fd
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383253"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103726"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creare dashboard personalizzati per gli indicatori KPI con Azure Application Insights
 
@@ -59,7 +59,7 @@ Un unico dashboard può contenere risorse da più applicazioni, gruppi di risors
 5. Individuare il riquadro **Markdown** e trascinarlo nel dashboard.  Questo riquadro consente di aggiungere testo formattato con sintassi markdown, ideale per aggiungere un testo descrittivo al dashboard. Per altre informazioni, vedere [Usare un riquadro markdown nei dashboard di Azure per visualizzare il contenuto personalizzato](../../azure-portal/azure-portal-markdown-tile.md).
 6. Aggiungere il testo alle proprietà del riquadro e ridimensionarlo nel canvas del dashboard.
 
-    [![Riquadro Modifica markdown](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/dashboard-edit-mode.png#lightbox)
+    [![Riquadro Modifica markdown](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/markdown.png#lightbox)
 
 7. Fare clic su **Fine personalizzazione** nella parte superiore della schermata per uscire dalla modalità di personalizzazione del riquadro.
 

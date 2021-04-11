@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 876fd8260b64fba4d3d34a766b4259323c660b76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94568eb5d64f07133ebb9992cdae59400830dd5e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94968078"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226889"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Esercitazione: Eseguire il provisioning del dispositivo in un hub IoT con il servizio Device Provisioning in hub IoT di Azure
 
@@ -98,7 +98,7 @@ In questa esercitazione sono state illustrate le procedure per:
 > * Avviare il dispositivo
 > * Verificare che il dispositivo sia registrato
 
-Passare all'esercitazione successiva per informazioni su come eseguire il provisioning di più dispositivi tra hub con bilanciamento del carico. 
+Passare all'esercitazione successiva per informazioni su come effettuare il provisioning di più dispositivi tra hub con carico bilanciato
 
 > [!div class="nextstepaction"]
 > [Eseguire il provisioning dei dispositivi in più hub IoT con bilanciamento del carico](./tutorial-provision-multiple-hubs.md)

@@ -14,18 +14,18 @@ ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cedadf6b6026c74e25e9c81feb7f8291058b6f69
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 7f8aa7e8cd38de37f5d3757804f7836612ad64cb
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961660"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227756"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorare le metriche di Servizi multimediali
 
 [!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
-[Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. Per una descrizione dettagliata di questa funzionalità e per comprendere il motivo per cui è consigliabile usare i log di diagnostica e le metriche di servizi multimediali di Azure, vedere [monitorare le metriche di servizi multimediali e i log di diagnostica](monitor-media-services-data-reference.md).
+[Monitoraggio di Azure](/azure/azure-monitor/overview) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. Per una descrizione dettagliata di questa funzionalità e per comprendere il motivo per cui è consigliabile usare i log di diagnostica e le metriche di servizi multimediali di Azure, vedere [monitorare le metriche di servizi multimediali e i log di diagnostica](monitor-media-services-data-reference.md).
 
 Monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query usando l'interfaccia della riga di comando di Azure. Questo articolo illustra come monitorare le metriche con i grafici portale di Azure e l'interfaccia della riga di comando di Azure.
 
@@ -69,8 +69,8 @@ Per ottenere altre metriche, sostituire "in uscita" con il nome della metrica a 
 
 ## <a name="see-also"></a>Vedi anche
 
-- [Metriche di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/data-platform.md)
-- [Creare, visualizzare e gestire gli avvisi delle metriche con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-metric.md).
+- [Metriche di Monitoraggio di Azure](/azure/azure-monitor/data-platform)
+- [Creare, visualizzare e gestire gli avvisi delle metriche con monitoraggio di Azure](/azure/azure-monitor/alerts/alerts-metric).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

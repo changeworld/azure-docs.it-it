@@ -6,12 +6,12 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bb5f7b5e8214bd3b04bd7b9544ab4bc589f6c4bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 955e6b22c22d9cbe5891bcd0109806cb9270a456
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896326"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168655"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Configurare la distribuzione continua con Chocolatey
 
@@ -47,7 +47,7 @@ Una delle funzionalità chiave di un modello di Resource Manager è la capacità
 
 ## <a name="quick-trip-around-the-diagram"></a>Descrizione rapida del diagramma
 
-A partire dall'alto, si scrive il codice, si compila e si eseguono i test e quindi si crea un pacchetto di installazione. Chocolatey può gestire diversi tipi di pacchetti di installazione, ad esempio MSI, MSU, ZIP. Se le funzionalità native di Chocolatey non sono del tutto soddisfacenti, si può sempre ricorrere alle potenzialità complete di PowerShell per eseguire l'installazione effettiva. Inserire il pacchetto in una posizione raggiungibile, come un repository di pacchetti. Questo esempio di utilizzo usa una cartella pubblica in un account di archiviazione BLOB di Azure, ma può trovarsi anche in un'altra posizione. Chocolatey funziona in modalità nativa con i server NuGet e alcuni altri per la gestione dei metadati dei pacchetti. [Questo articolo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descrive le opzioni. Questo esempio di utilizzo usa NuGet. Nuspec sono i metadati relativi ai pacchetti. Le informazioni NuSpec vengono compilate in un NuPkg e archiviate in un server NuGet. Quando la configurazione richiede un pacchetto in base al nome e fa riferimento a un server NuGet, la risorsa DSC di Chocolatey nella VM estrae il pacchetto e lo installa. È anche possibile richiedere una versione specifica di un pacchetto.
+A partire dall'alto, si scrive il codice, si compila e si eseguono i test e quindi si crea un pacchetto di installazione. Chocolatey può gestire diversi tipi di pacchetti di installazione, ad esempio MSI, MSU, ZIP. Se le funzionalità native di Chocolatey non sono del tutto soddisfacenti, si può sempre ricorrere alle potenzialità complete di PowerShell per eseguire l'installazione effettiva. Inserire il pacchetto in una posizione raggiungibile, ovvero un repository di pacchetti. Questo esempio di utilizzo usa una cartella pubblica in un account di archiviazione BLOB di Azure, ma può trovarsi anche in un'altra posizione. Chocolatey funziona in modalità nativa con i server NuGet e alcuni altri per la gestione dei metadati dei pacchetti. [Questo articolo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descrive le opzioni. Questo esempio di utilizzo usa NuGet. Nuspec sono i metadati relativi ai pacchetti. Le informazioni NuSpec vengono compilate in un NuPkg e archiviate in un server NuGet. Quando la configurazione richiede un pacchetto in base al nome e fa riferimento a un server NuGet, la risorsa DSC di Chocolatey nella VM estrae il pacchetto e lo installa. È anche possibile richiedere una versione specifica di un pacchetto.
 
 Nella parte in basso dell'immagine è presente un modello di Azure Resource Manager. In questo esempio di utilizzo l'estensione VM registra la macchina virtuale con il server di pull di State Configuration di Automazione di Azure come nodo. La configurazione viene archiviata due volte nel server di pull: una volta come testo normale e una volta compilata come file MOF. Nel portale di Azure il file MOF rappresenta una configurazione di nodi invece di una semplice configurazione. Poiché l'artefatto è associato a un nodo, quest'ultimo riconoscerà la propria configurazione. I dettagli che seguono illustrano come assegnare la configurazione di nodi al nodo.
 
@@ -73,8 +73,8 @@ Il codice sorgente completo per questo esempio di utilizzo si trova in [questo p
 Da una riga di comando di PowerShell (`Connect-AzAccount`) autenticata (la configurazione del server di pull può richiedere alcuni minuti):
 
 ```azurepowershell-interactive
-New-AzResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-New-AzAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+New-AzResourceGroup -Name MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES
+New-AzAutomationAccount -ResourceGroupName MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES -Name MY-AUTOMATION-ACCOUNT
 ```
 
 È possibile inserire l'account di Automazione in una qualsiasi delle aree seguenti (dette anche località): Stati Uniti orientali 2, Stati Uniti centro-meridionali, US Gov Virginia, Europa occidentale, Asia sud-orientale, Giappone orientale, India centrale e Australia sud-orientale, Canada centrale ed Europa settentrionale.
@@ -103,7 +103,7 @@ Un'altra tecnica aggiunta di recente al portale di Azure consente di inserire nu
 2. Installare il modulo di integrazione.
 
     ```azurepowershell-interactive
-    Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
+    Install-Module -Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
     ```
 
 3. Copiare la cartella del modulo da **c:\Programmi\WindowsPowerShell\Moduli\NOME-MODULO** in una cartella temporanea.
@@ -119,14 +119,14 @@ Un'altra tecnica aggiunta di recente al portale di Azure consente di inserire nu
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME -ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 L'esempio incluso esegue questi passaggi per cChoco e xNetworking. 
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>Passaggio 4: aggiungere la configurazione di nodi al server di pull
 
-Non è necessario eseguire operazioni speciali la prima volta che si importa la configurazione nel server di pull e si procede alla compilazione. Tutte le importazioni o compilazioni successive della stessa configurazione avranno esattamente lo stesso aspetto. Ogni volta che si aggiorna il pacchetto ed è necessario effettuarne il push all'ambiente di produzione, si eseguirà questo passaggio dopo avere verificato che il file di configurazione è corretto, inclusa la nuova versione del pacchetto. Ecco il file di configurazione **ISVBoxConfig.ps1**:
+Non è necessario eseguire operazioni speciali la prima volta che si importa la configurazione nel server di pull e si procede alla compilazione. Tutte le importazioni o compilazioni successive della stessa configurazione avranno esattamente lo stesso aspetto. Ogni volta che si aggiorna il pacchetto ed è necessario eseguirne il push nell'ambiente di produzione, eseguire questo passaggio dopo avere verificato che il file di configurazione sia corretto, inclusa la nuova versione del pacchetto. Ecco il file di configurazione **ISVBoxConfig.ps1**:
 
 ```powershell
 Configuration ISVBoxConfig
@@ -175,18 +175,18 @@ Ecco lo script **New-ConfigurationScript.ps1** (modificato per usare il modulo A
 
 ```powershell
 Import-AzAutomationDscConfiguration `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 `
-    -Published –Force
+    -Published -Force
 
 $jobData = Start-AzAutomationDscCompilationJob `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -ConfigurationName ISVBoxConfig
 
 $compilationJobId = $jobData.Id
 
 Get-AzAutomationDscCompilationJob `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -Id $compilationJobId
 ```
 
