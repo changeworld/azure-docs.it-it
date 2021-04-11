@@ -3,12 +3,12 @@ title: Annotazioni sulla versione per Application Insights | Documentazione Micr
 description: Aggiungere indicatori della distribuzione o della build ai grafici di Esplora metriche in Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 776efd56aaa523d1c2621c51cba0446a42bb7411
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9132e65e4705fd9125d97a5e095fe5f0850229a2
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461913"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011051"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotazioni sui grafici delle metriche in Application Insights
 
@@ -96,7 +96,10 @@ Per abilitare le annotazioni nella cartella di lavoro, passare a **Impostazioni 
 Selezionare un marcatore di annotazione per aprire i dettagli della versione, inclusi il richiedente, il ramo di controllo del codice sorgente, la pipeline di rilascio e l'ambiente.
 
 ## <a name="create-custom-annotations-from-powershell"></a>Creare annotazioni personalizzate da PowerShell
-È possibile usare lo script di PowerShell CreateReleaseAnnotation da GitHub per creare annotazioni da qualsiasi processo, senza usare Azure DevOps.
+È possibile usare lo script di PowerShell CreateReleaseAnnotation per creare annotazioni da qualsiasi processo, senza usare Azure DevOps.
+
+> [!IMPORTANT]
+> Se si usa PowerShell 7,1, aggiungere `-SkipHttpErrorCheck` alla fine della riga 26. Ad esempio: `$request = Invoke-WebRequest -Uri $fwLink -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore -SkipHttpErrorCheck`.
 
 1. Creare una copia locale di CreateReleaseAnnotation.ps1:
 
@@ -256,8 +259,8 @@ Selezionare un marcatore di annotazione per aprire i dettagli della versione, in
 
 È possibile modificare lo script, ad esempio per creare annotazioni per il passato.
 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare elementi di lavoro](./diagnostic-search.md#create-work-item)
 * [Automazione con PowerShell](./powershell.md)
-

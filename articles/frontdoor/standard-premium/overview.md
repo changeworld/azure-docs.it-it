@@ -8,12 +8,12 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 574340825567dcd512a5da1b311c57fe12954e34
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5c3ae5c7b1c45d170548f6fa00481094117e1737
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030546"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937363"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview"></a>Che cos'è Azure front door standard/Premium (anteprima)?
 
@@ -28,7 +28,7 @@ Con Azure front door standard/Premium è possibile trasformare le applicazioni c
 
 Azure front door standard/Premium funziona a livello 7 (livello HTTP/HTTPS) usando il protocollo anycast con Split TCP e la rete globale Microsoft per migliorare la connettività globale. In base al metodo di routing personalizzato che usa le regole impostate, è possibile assicurarsi che il front-end di Azure instraderà le richieste del client all'origine più veloce e più disponibile. Un'origine applicazione è un servizio con connessione Internet ospitato all'interno o all'esterno di Azure. Azure front door standard/Premium offre una gamma di metodi di routing del traffico e opzioni di monitoraggio dell'integrità delle origini per soddisfare diverse esigenze dell'applicazione e scenari di failover automatico. Simile a Gestione traffico, Frontdoor è resiliente agli errori, compreso gli errori di un'intera area di Azure.
 
-Il front-end di Azure protegge anche la tua app sui bordi con la protezione del firewall applicazione Web integrata, la protezione da bot e la protezione integrata Lay 3/Layer 4 Distributed Denial of Service (DDoS). Protegge inoltre i back-end privati con il servizio di collegamento privato. Il front-end di Azure ti offre la sicurezza migliore in pratica di Microsoft su scala globale.  
+Il front-end di Azure protegge anche l'app sui bordi con la protezione del firewall per le applicazioni Web, la protezione dei bot e la protezione integrata di livello 3/livello 4 distribuito. Protegge inoltre i back-end privati con il servizio di collegamento privato. Il front-end di Azure ti offre la sicurezza migliore in pratica di Microsoft su scala globale.  
 
 >[!NOTE]
 > Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari.

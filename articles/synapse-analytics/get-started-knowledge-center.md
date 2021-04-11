@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/16/2020
-ms.openlocfilehash: 59364a0a2c1d1e411f41dc35dee812c8e920b72d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/04/2021
+ms.openlocfilehash: a26f46da7b392bd3b4a49aacb360a4c6147f8d2c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98209203"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382641"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Esplorare il Knowledge Center di Synapse
 
@@ -47,6 +47,7 @@ Il **Knowledge Center** consente di eseguire tre operazioni:
 1. Fare clic su Esegui. Verrà eseguito solo il codice selezionato.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Caricamento di altri dati di NYC Taxi
+
 1. Visitare il **centro informazioni**, fare clic su **Esplora raccolta**.
 1. Selezionare la scheda **script SQL** nella parte superiore.
 1. Selezionare carica l'esempio di inserimento dati **del set di dati del taxi di New York** , fare clic su **continua**.
@@ -61,6 +62,6 @@ Il **Knowledge Center** consente di eseguire tre operazioni:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Introduzione ad Azure Synapse Analytics](get-started.md)
-* [Creare un'area di lavoro](quickstart-create-workspace.md)
-* [Usare i pool SQL serverless](quickstart-sql-on-demand.md)
+> [!div class="nextstepaction"]
+> [Aggiungere un amministratore](get-started-add-admin.md)
+
