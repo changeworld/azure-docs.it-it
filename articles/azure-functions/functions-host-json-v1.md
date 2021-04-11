@@ -4,10 +4,10 @@ description: Documentazione di riferimento per il file host.json di Funzioni di 
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 48dba50b384731befdc7fba7c418e542994cedd9
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102608955"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 1.x

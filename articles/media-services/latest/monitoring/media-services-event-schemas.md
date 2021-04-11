@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6b502690a62410f1e8d2950074e8b479f7dc7f88
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6b9d3f6973c210e7bd91c088ee7a276bfbcc48ce
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609739"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121983"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schemi di Griglia di eventi di Azure per gli eventi di Servizi multimediali
 
@@ -330,7 +330,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | encoderPort | string | Porta del codificatore da cui proviene il flusso. |
 | resultCode | string | Motivo per cui la connessione è stata rifiutata. I codici di risultato sono elencati nella tabella seguente. |
 
-È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](../live-event-error-codes.md).
+È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](../live-event-error-codes-reference.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -400,7 +400,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | encoderPort | string | Porta del codificatore da cui proviene il flusso. |
 | resultCode | string | Motivo di disconnessione del codificatore. La causa può essere una disconnessione normale o causata da un errore. I codici di risultato sono elencati nella tabella seguente. |
 
-È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](../live-event-error-codes.md).
+È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](../live-event-error-codes-reference.md).
 
 I codici di risultato della disconnessione normale sono:
 
@@ -676,4 +676,4 @@ Un evento presenta i seguenti dati di primo livello:
 
 - [EventGrid .NET SDK che include gli eventi per Servizi multimediali](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definizioni degli eventi di Servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Codici di errore dell'evento Live](../live-event-error-codes.md)
+- [Codici di errore dell'evento Live](../live-event-error-codes-reference.md)

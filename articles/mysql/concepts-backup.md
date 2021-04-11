@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.openlocfilehash: 883b76929ac3310dd3089ecb088a4691adbb4ca1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103010355"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Eseguire il backup e il ripristino in Database di Azure per MySQL
@@ -96,7 +96,7 @@ Il tempo stimato per il ripristino del server dipende da diversi fattori:
 ```sql
 select tab.table_schema as database_name, tab.table_name from information_schema.tables tab left join information_schema.table_constraints tco on tab.table_schema = tco.table_schema and tab.table_name = tco.table_name and tco.constraint_type = 'PRIMARY KEY' where tco.constraint_type is null and tab.table_schema not in('mysql', 'information_schema', 'performance_schema', 'sys') and tab.table_type = 'BASE TABLE' order by tab.table_schema, tab.table_name;
 ```
-Per un database di grandi dimensioni o molto attive, il ripristino potrebbe richiedere diverse ore. Se si verifica un'interruzione prolungata in un'area, è possibile che venga avviato un numero elevato di richieste di ripristino geografico per il ripristino di emergenza. Quando sono presenti molte richieste, il tempo di ripristino per i singoli database può aumentare. La maggior parte dei ripristini di database è terminata in meno di 12 ore.
+Per un database di grandi dimensioni o molto attive, il ripristino potrebbe richiedere diverse ore. Se si verifica un'interruzione prolungata in un'area, è possibile che venga avviato un numero elevato di richieste di ripristino geografico per il ripristino di emergenza. In presenza di numerose richieste, i tempi di recupero dei database in tale area possono aumentare. La maggior parte dei ripristini di database è terminata in meno di 12 ore.
 
 > [!IMPORTANT]
 > I server eliminati possono essere ripristinati solo entro **cinque giorni** dall'eliminazione dopo il quale vengono eliminati i backup. È possibile accedere al backup del database e ripristinarlo solo dalla sottoscrizione di Azure che ospita il server. Per ripristinare un server eliminato, vedere la [procedura documentata](howto-restore-dropped-server.md). Per proteggere le risorse del server, post-distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare [blocchi di gestione](../azure-resource-manager/management/lock-resources.md).

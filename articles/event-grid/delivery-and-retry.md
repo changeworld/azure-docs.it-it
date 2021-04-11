@@ -3,12 +3,12 @@ title: Recapito di Griglia di eventi di Azure e nuovi tentativi
 description: Viene descritto in che modo Griglia di eventi di Azure recapita gli eventi e come gestisce i messaggi non recapitati.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: e7fa627464ddb85ebded3ae99229b7fe8dd3fde3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e24b7540ea1ac41774e2c23781265f9a61940cb1
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629275"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276740"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -17,7 +17,7 @@ Questo articolo descrive in che modo Griglia di eventi di Azure gestisce gli eve
 Griglia di eventi fornisce il recapito durevole. Recapita ogni messaggio almeno **una volta** per ogni sottoscrizione. Gli eventi vengono inviati immediatamente all'endpoint registrato di ogni sottoscrizione. Se un endpoint non conferma la ricezione di un evento, Griglia di eventi esegue nuovi tentativi di recapito dell'evento.
 
 > [!NOTE]
-> Griglia di eventi non garantisce l'ordine di recapito degli eventi, quindi il Sottoscrittore può riceverli fuori dall'ordine. 
+> Griglia di eventi non garantisce l'ordine di recapito degli eventi, quindi i Sottoscrittori potrebbero riceverli fuori ordine. 
 
 ## <a name="batched-event-delivery"></a>Recapito di eventi in batch
 
@@ -55,11 +55,11 @@ Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure 
 
 ## <a name="retry-schedule-and-duration"></a>Pianificazione e durata della ripetizione
 
-Quando EventGrid riceve un errore per il tentativo di recapito di un evento, EventGrid decide se ritentare il recapito o i messaggi non recapitabili oppure eliminare l'evento in base al tipo di errore. 
+Quando EventGrid riceve un errore per il tentativo di recapito di un evento, EventGrid decide se ritentare il recapito, indicare il messaggio non recapitabile o eliminare l'evento in base al tipo di errore. 
 
-Se l'errore restituito dall'endpoint sottoscritto è un errore correlato alla configurazione che non può essere risolto con nuovi tentativi (ad esempio, se l'endpoint viene eliminato), EventGrid eseguirà l'evento come messaggio non recapitabile o eliminerà l'evento se non è configurata la lettera non recapitabile.
+Se l'errore restituito dall'endpoint sottoscritto è un errore correlato alla configurazione che non può essere risolto con nuovi tentativi (ad esempio, se l'endpoint viene eliminato), EventGrid eseguirà i messaggi non recapitabili sull'evento o eliminerà l'evento se non è stato configurato alcun messaggio non recapitabile.
 
-Di seguito sono riportati i tipi di endpoint per i quali non si verifica alcun nuovo tentativo:
+Nella tabella seguente vengono descritti i tipi di endpoint ed errori per i quali non si verifica alcun nuovo tentativo:
 
 | Tipo di endpoint | Codici di errore |
 | --------------| -----------|
@@ -67,7 +67,7 @@ Di seguito sono riportati i tipi di endpoint per i quali non si verifica alcun n
 | webhook | 400 richiesta non valida, entità richiesta 413 troppo grande, 403 non consentito, 404 non trovato, 401 non autorizzato |
  
 > [!NOTE]
-> Se Dead-Letter non è configurato per l'endpoint, gli eventi verranno eliminati quando si verificano gli errori precedenti. Prendere in considerazione la configurazione dei messaggi non recapitabili, se non si vuole che questi tipi di eventi vengano eliminati.
+> Se Dead-Letter non è configurato per un endpoint, gli eventi verranno eliminati quando si verificano gli errori precedenti. Provare a configurare Dead-Letter se non si vuole eliminare questi tipi di eventi.
 
 Se l'errore restituito dall'endpoint sottoscritto non è incluso nell'elenco precedente, EventGrid esegue il tentativo usando i criteri descritti di seguito:
 
@@ -89,7 +89,7 @@ Se l'endpoint risponde entro 3 minuti, griglia di eventi tenterà di rimuovere l
 
 Griglia di eventi aggiunge una piccola sequenza casuale a tutti i passaggi di ripetizione dei tentativi e può opportunisticamente ignorare alcuni tentativi se un endpoint è costantemente non integro, inattivo per un lungo periodo o sembra essere sovraccarico.
 
-Per il comportamento deterministico, impostare la durata dell'evento su Live e i tentativi di recapito massimi nei [criteri di ripetizione della sottoscrizione](manage-event-delivery.md).
+Per il comportamento deterministico, impostare i tentativi di recapito durata (TTL) evento e massimo nei criteri per i [tentativi di sottoscrizione](manage-event-delivery.md).
 
 Per impostazione predefinita, Griglia di eventi fa scadere tutti gli eventi che non vengono recapitati entro 24 ore. Quando si crea una sottoscrizione di eventi, è possibile [personalizzare i criteri di ripetizione](manage-event-delivery.md). È necessario specificare il numero massimo di tentativi di recapito (il valore predefinito è 30) e la durata (TTL) dell'evento (il valore predefinito è 1440 minuti).
 
@@ -111,11 +111,11 @@ Griglia di eventi invia un evento nel percorso dell'evento non recapitato quando
 
 La scadenza della durata (TTL) viene controllata solo al successivo tentativo di recapito pianificato. Quindi, anche se la durata (TTL) scade prima del successivo tentativo di recapito pianificato, la scadenza dell'evento viene verificata solo al momento del successivo recapito e successivamente a un messaggio non recapitabile. 
 
-Tra l'ultimo tentativo di recapitare un evento e il momento in cui questo viene recapitato alla posizione dei messaggi non recapitabili, trascorre un intervallo di cinque minuti. Tale intervallo è volto a ridurre il numero di operazioni nell'archiviazione BLOB. Se la posizione dei messaggi non recapitabili non è disponibile per quattro ore, l'evento viene eliminato.
+Tra l'ultimo tentativo di recapitare un evento e il momento in cui questo viene recapitato alla posizione dei messaggi non recapitabili, trascorre un intervallo di cinque minuti. Questo ritardo ha lo scopo di ridurre il numero di operazioni di archiviazione BLOB. Se la posizione dei messaggi non recapitabili non è disponibile per quattro ore, l'evento viene eliminato.
 
 Prima di impostare la posizione dei messaggi non recapitabili, è necessario avere un account di archiviazione con un contenitore. L'endpoint di questo contenitore deve essere specificato durante la creazione della sottoscrizione di eventi. Di seguito è indicato il formato dell'endpoint: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Si potrebbe voler ricevere una notifica quando un evento è stato inviato al percorso di messaggi non recapitabili. Per usare Griglia di eventi per rispondere a eventi non recapitati, [creare una sottoscrizione di eventi](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) per l'archivio BLOB di eventi non recapitabili. Ogni volta che l'archivio BLOB riceve un evento non recapitato, Griglia di eventi invia una notifica al gestore. Il gestore risponde con le azioni da eseguire per la riconciliazione degli eventi non recapitati. Per un esempio di impostazione di un percorso di messaggi non recapitabili e di criteri di ripetizione dei tentativi, vedere la pagina relativa ai [criteri di ripetizione e](manage-event-delivery.md)
+È possibile che si desideri ricevere una notifica quando un evento è stato inviato al percorso di un messaggio non recapitabile. Per usare Griglia di eventi per rispondere a eventi non recapitati, [creare una sottoscrizione di eventi](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) per l'archivio BLOB di eventi non recapitabili. Ogni volta che l'archivio BLOB riceve un evento non recapitato, Griglia di eventi invia una notifica al gestore. Il gestore risponde con le azioni da eseguire per la riconciliazione degli eventi non recapitati. Per un esempio di impostazione di un percorso di messaggi non recapitabili e di criteri di ripetizione dei tentativi, vedere la pagina relativa ai [criteri di ripetizione](manage-event-delivery.md)dei messaggi
 
 ## <a name="delivery-event-formats"></a>Formati degli eventi di recapito
 In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili in formati dello schema di recapito diversi, ovvero schema di griglia di eventi, schema CloudEvents 1,0 e schema personalizzato. Per altre informazioni su questi formati, vedere gli articoli dello schema [griglia di eventi](event-schema.md) e [eventi Cloud 1,0](cloud-event-schema.md) . 
@@ -288,7 +288,7 @@ Tutti gli altri codici non inclusi nel set precedente (200-204) vengono consider
 | 503 - Servizio non disponibile | Riprovare dopo 30 secondi o più |
 | Tutti gli altri | Riprovare dopo 10 secondi o più |
 
-## <a name="delivery-with-custom-headers"></a>Recapito con intestazioni personalizzate
+## <a name="custom-delivery-properties"></a>Proprietà di recapito personalizzate
 Le sottoscrizioni di eventi consentono di impostare intestazioni HTTP incluse in eventi recapitati. Questa funzionalità consente di impostare intestazioni personalizzate richieste da una destinazione. È possibile impostare un massimo di 10 intestazioni quando si crea una sottoscrizione di eventi. Ogni valore di intestazione non deve essere maggiore di 4.096 byte (4K). È possibile impostare intestazioni personalizzate per gli eventi che vengono recapitati alle destinazioni seguenti:
 
 - Webhook
@@ -296,7 +296,7 @@ Le sottoscrizioni di eventi consentono di impostare intestazioni HTTP incluse in
 - Hub eventi di Azure
 - Inoltrare connessioni ibride
 
-Per altre informazioni, vedere [recapito con intestazioni personalizzate](delivery-properties.md). 
+Per ulteriori informazioni, vedere [proprietà di recapito personalizzate](delivery-properties.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/09/2021
+ms.date: 03/29/2021
 ms.author: aahi
 keywords: text mining, analisi del sentiment, analisi del testo
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 7fcc030e3c63c24fa255e578c2d8aaf1b466e99c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b586478b6b3943fb0154ed6c50bade6fd8b08b76
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598967"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219502"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -26,6 +26,12 @@ L'API Analisi del testo è un servizio basato su cloud che offre funzionalità d
 L'API fa parte di [Servizi cognitivi di Azure](../index.yml), una raccolta di algoritmi di Machine Learning e intelligenza artificiale disponibili nel cloud per i progetti di sviluppo. È possibile usare queste funzionalità con l'API REST [versione 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) o [versione 3,1-Preview](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/)o la [libreria client](quickstarts/client-libraries-rest-api.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
+
+Questa documentazione contiene i seguenti tipi di articoli:
+* Le [guide introduttive](./quickstarts/client-libraries-rest-api.md) sono istruzioni dettagliate che consentono di effettuare chiamate al servizio e ottenere risultati in un breve periodo di tempo. 
+* Le [guide alle procedure](./how-tos/text-analytics-how-to-call-api.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.
+* I [concetti](text-analytics-user-scenarios.md) forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.
+* Le [esercitazioni](./tutorials/tutorial-power-bi-key-phrases.md) sono guide più lunghe che illustrano come usare questo servizio come componente in soluzioni aziendali più ampie.
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 

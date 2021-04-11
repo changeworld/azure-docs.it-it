@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/31/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0805ac84318a4fee98c30127ac80c0dac2b96309
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8774df6a2eee15f8b5a0c37362e5b20f14b07549
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558262"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167363"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configurare il passaggio di accesso temporaneo in Azure AD per registrare i metodi di autenticazione con password (anteprima)
 
@@ -57,7 +57,7 @@ Per configurare i criteri del metodo di autenticazione pass di accesso temporane
    | Uso monouso | Falso | True/false | Quando il criterio è impostato su false, i passaggi nel tenant possono essere utilizzati una o più volte durante la relativa validità (durata massima). Applicando monouso nei criteri di passaggio di accesso temporaneo, tutti i passaggi creati nel tenant verranno creati come monouso. |
    | Length | 8 | 8-48 caratteri | Definisce la lunghezza del codice di accesso. |
 
-## <a name="create-a-temporary-access-pass-in-the-azure-ad-portal"></a>Creare un passaggio di accesso temporaneo nel portale Azure AD
+## <a name="create-a-temporary-access-pass"></a>Creare una sessione di accesso temporanea
 
 Dopo aver abilitato un criterio, è possibile creare un passaggio di accesso temporaneo per un utente in Azure AD. Questi ruoli possono eseguire le azioni seguenti relative a un passaggio di accesso temporaneo.
 
@@ -66,9 +66,7 @@ Dopo aver abilitato un criterio, è possibile creare un passaggio di accesso tem
 - Gli amministratori dell'autenticazione possono creare, eliminare e visualizzare un passaggio di accesso temporaneo sui membri (eccetto se stessi)
 - L'amministratore globale può visualizzare i dettagli del passaggio di accesso temporaneo all'utente (senza leggere il codice).
 
-Per creare un passaggio di accesso temporaneo:
-
-1. Accedere al portale come amministratore globale, amministratore di autenticazione con privilegi o amministratore di autenticazione. 
+1. Accedere al portale di Azure come amministratore globale, amministratore di autenticazione con privilegi o amministratore di autenticazione. 
 1. Fare clic su **Azure Active Directory**, passare a utenti, selezionare un utente, ad esempio *Chris Green*, quindi scegliere **metodi di autenticazione**.
 1. Se necessario, selezionare l'opzione per **provare la nuova esperienza dei metodi di autenticazione utente**.
 1. Selezionare l'opzione per **aggiungere metodi di autenticazione**.
@@ -80,6 +78,30 @@ Per creare un passaggio di accesso temporaneo:
 1. Una volta aggiunti, vengono visualizzati i dettagli del passaggio di accesso temporaneo. Prendere nota del valore di pass di accesso temporaneo effettivo. Questo valore viene fornito all'utente. Non è possibile visualizzare questo valore dopo aver fatto clic su **OK**.
    
    ![Schermata dei dettagli del passaggio di accesso temporaneo](./media/how-to-authentication-temporary-access-pass/details.png)
+
+I comandi seguenti illustrano come creare e ottenere un passaggio di accesso temporaneo usando PowerShell:
+
+```powershell
+# Create a Temporary Access Pass for a user
+$properties = @{}
+$properties.isUsableOnce = $True
+$properties.startDateTime = '2021-03-11 06:00:00'
+$propertiesJSON = $properties | ConvertTo-Json
+
+New-MgUserAuthenticationTemporaryAccessPassMethod -UserId user2@contoso.com -BodyParameter $propertiesJSON
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM TAPRocks!
+
+# Get a user's Temporary Access Pass
+Get-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM
+
+```
 
 ## <a name="use-a-temporary-access-pass"></a>Usa un passaggio di accesso temporaneo
 
@@ -108,6 +130,13 @@ Non è possibile usare un passaggio di accesso temporaneo scaduto. Con i **metod
 1. Nel portale di Azure AD passare a **utenti**, selezionare un utente, ad esempio *toccare utente*, quindi scegliere **metodi di autenticazione**.
 1. Sul lato destro del metodo di autenticazione **pass di accesso temporaneo (anteprima)** visualizzato nell'elenco, selezionare **Elimina**.
 
+È anche possibile usare PowerShell:
+
+```powershell
+# Remove a user's Temporary Access Pass
+Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -TemporaryAccessPassAuthenticationMethodId c5dbd20a-8b8f-4791-a23f-488fcbde3b38
+```
+
 ## <a name="replace-a-temporary-access-pass"></a>Sostituisci un passaggio di accesso temporaneo 
 
 - Un utente può avere un solo passaggio di accesso temporaneo. Il codice di accesso può essere usato durante l'ora di inizio e di fine del passaggio di accesso temporaneo.
@@ -123,8 +152,8 @@ Tenere presenti queste limitazioni:
 
 - Quando si usa un passaggio di accesso temporaneo monouso per registrare un metodo senza password, ad esempio FIDO2 o l'accesso tramite telefono, l'utente deve completare la registrazione entro 10 minuti dall'accesso con il passaggio di accesso temporaneo monouso. Questa limitazione non si applica a un passaggio di accesso temporaneo che può essere utilizzato più di una volta.
 - Gli utenti guest non possono accedere con una sessione di accesso temporanea.
-- Gli utenti nell'ambito dei criteri di registrazione per la reimpostazione della password self-service (SSPR) saranno necessari per registrare uno dei metodi SSPR dopo aver eseguito l'accesso con un passaggio di accesso temporaneo. Se l'utente userà solo la chiave FIDO2, escluderli dal criterio SSPR o disabilitare i criteri di registrazione di SSPR. 
-- Non è possibile utilizzare un passaggio di accesso temporaneo con l'estensione server dei criteri di rete (NPS) e l'adapter Active Directory Federation Services (AD FS).
+- Gli utenti nell'ambito dei criteri di registrazione per la reimpostazione della password self-service (SSPR) *o* per [l'autenticazione a più fattori di Identity Protection](../identity-protection/howto-identity-protection-configure-mfa-policy.md) saranno necessari per registrare i metodi di autenticazione dopo aver eseguito l'accesso con un passaggio di accesso temporaneo. Gli utenti nell'ambito di questi criteri vengono reindirizzati alla [modalità di interrupt della registrazione combinata](concept-registration-mfa-sspr-combined.md#combined-registration-modes). Questa esperienza attualmente non supporta FIDO2 e la registrazione dell'accesso tramite telefono. 
+- Non è possibile utilizzare un passaggio di accesso temporaneo con l'estensione server dei criteri di rete (NPS) e la Active Directory Federation Services (AD FS), né durante Installazione di Windows/configurazione guidata e l'utilizzo automatico. 
 - Quando l'accesso SSO facile è abilitato nel tenant, agli utenti viene richiesto di immettere una password. Il collegamento **Usa il pass di accesso temporaneo, invece** , sarà disponibile per l'accesso dell'utente con un passaggio di accesso temporaneo.
 
   ![Screenshot dell'uso di un passaggio di accesso temporaneo](./media/how-to-authentication-temporary-access-pass/alternative.png)

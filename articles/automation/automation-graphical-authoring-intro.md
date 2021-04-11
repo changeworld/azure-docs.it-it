@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: bbac794263fec176e03c7148d860c479a2ed9d39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57d5627e45e79263408b9b5760c8332122ce8c91
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501229"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167397"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Creare runbook grafici in Automazione di Azure
 
@@ -328,19 +328,19 @@ Utilizzare [operatori di confronto](/powershell/module/microsoft.powershell.core
 Ad esempio, la condizione seguente determina se la macchina virtuale di un'attività denominata `Get-AzureVM` è attualmente è arrestata.
 
 ```powershell-interactive
-$ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+$ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped"
 ```
 
 La condizione seguente determina se la stessa macchina virtuale è in uno stato diverso da arrestata.
 
 ```powershell-interactive
-$ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+$ActivityOutput["Get-AzureVM"].PowerState -ne "Stopped"
 ```
 
 È possibile aggiungere più condizioni nel runbook usando un [operatore logico](/powershell/module/microsoft.powershell.core/about/about_logical_operators), ad esempio `-and` o `-or`. Ad esempio, la condizione seguente verifica se la stessa macchina virtuale dell'esempio precedente presenta lo stato Arrestata o Arresto in corso.
 
 ```powershell-interactive
-($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
+($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopping")
 ```
 
 ### <a name="use-hashtables"></a>Usare le tabelle hash

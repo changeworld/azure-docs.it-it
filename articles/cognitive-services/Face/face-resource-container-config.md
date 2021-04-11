@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5287fe6df4a2f0cb728bf0e705a4ce989ca38487
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "80878426"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934037"
 ---
 # <a name="configure-face-docker-containers"></a>Configurare i contenitori di Viso Docker
 
@@ -67,7 +67,7 @@ Le impostazioni di configurazione nella sezione `CloudAI` forniscono le opzioni 
 
 ### <a name="storage-scenario-settings"></a>Impostazioni di uno scenario di archiviazione
 
-Il contenitore Viso archivia BLOB, cache, metadati e dati della coda, a seconda di ciò che è stato archiviato. Ad esempio, gli indici di training e i risultati per un gruppo di persone di grandi dimensioni vengono archiviati come dati BLOB. Il contenitore Viso offre due scenari di archiviazione diversi durante l'interazione con e l'archiviazione di questi tipi di dati:
+Il contenitore Viso archivia BLOB, cache, metadati e dati della coda, a seconda di ciò che è stato archiviato. Ad esempio, gli indici di training e i risultati per un **LargePersonGroup** vengono archiviati come dati BLOB. Il contenitore Viso offre due scenari di archiviazione diversi durante l'interazione con e l'archiviazione di questi tipi di dati:
 
 * Memoria  
   Tutti i quattro tipi di dati vengono archiviati in memoria. Non vengono distribuiti, né risultano persistenti. Se il contenitore Viso viene arrestato o rimosso, tutti i dati in archiviazione per tale contenitore vengono eliminati.  

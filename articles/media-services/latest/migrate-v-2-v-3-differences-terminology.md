@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5c1fbaf9be4cb128f0e4390a8c97c6f0b9330ce2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 42c4c91b6715ffec4c734632c69623206bc6dbae
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559877"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076003"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Terminologia e modifiche di entità tra servizi multimediali V2 e V3
 
@@ -73,7 +73,7 @@ Esaminare le convenzioni di denominazione applicate alle risorse di servizi mult
 | **Encoding** <!--new row --> |||
 | Velocità in bit di codifica <!--new row --> | velocità in bit misurate in Kbps, ad esempio: 128 (Kbps)| bit al secondo, ad esempio: 128000 (bit/secondo)|
 | Codifica di DRM FairPlay <!--new row --> | In servizi multimediali V2 è possibile specificare il vettore di inizializzazione (IV). | In servizi multimediali V3 non è possibile specificare FairPlay IV.|
-| Codificatore Premium <!--new row --> | Codificatore Premium e indicizzatore legacy| Il [codificatore Premium](../previous/media-services-encode-asset.md) e i [processori legacy di analisi media](../previous/legacy-components.md) (Azure Media Services Indexer 2 Preview, visi redactor e così via) non sono accessibili tramite V3. È stato aggiunto il supporto per il mapping del canale audio al codificatore standard.  Vedere [audio nella documentazione di spavalderia per la codifica di servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | Vedere argomenti sulla codifica in [codifica basata sullo scenario](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
+| Codificatore Premium <!--new row --> | Codificatore Premium e indicizzatore legacy| Il [codificatore Premium](../previous/media-services-encode-asset.md) e i [processori legacy di analisi media](../previous/legacy-components.md) (Azure Media Services Indexer 2 Preview, visi redactor e così via) non sono accessibili tramite V3. È stato aggiunto il supporto per il mapping del canale audio al codificatore standard.  Vedere [audio nella documentazione di spavalderia per la codifica di servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  <br/> Vedere argomenti sulla codifica in [codifica basata sullo scenario](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
 | **Trasformazioni e processi** <!--new row -->|||
 | Elaborazione basata su processo HTTPS <!--new row --> |<!-- empty -->| Per l'elaborazione di processi basati su file, è possibile usare un URL HTTPS come input. Non è necessario che il contenuto sia già archiviato in Azure, né è necessario creare asset. |
 | Modelli ARM per i processi <!--new row --> | I modelli ARM non esistono nella versione V2. | Una trasformazione può essere usata per compilare configurazioni riutilizzabili, per creare modelli di Azure Resource Manager e isolare le impostazioni di elaborazione tra più clienti o tenant. |

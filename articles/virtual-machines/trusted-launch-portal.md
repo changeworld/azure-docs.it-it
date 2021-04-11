@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: dec9c7581bbcf55196b04e0a76e9e61f81a27244
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6499e4b3404a255025f88488e73da1efb6449296
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582069"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075952"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Distribuire una macchina virtuale con avvio attendibile abilitato (anteprima)
 
@@ -32,27 +32,30 @@ Il [lancio attendibile](trusted-launch.md) è un modo per migliorare la sicurezz
 Creare una macchina virtuale con avvio attendibile abilitato.
 
 1. Accedere al [portale](https://aka.ms/TL_preview) di Azure.
-1. Cercare le **macchine virtuali**.
-1. In **Servizi** selezionare **Macchine virtuali**.
-1. Nella pagina **macchine virtuali** selezionare **Aggiungi**, quindi selezionare **macchina virtuale**.
-1. In **Dettagli progetto** verificare che sia selezionata la sottoscrizione corretta.
-1. In **gruppo di risorse** selezionare **Crea nuovo** e digitare un nome per il gruppo di risorse oppure selezionare un gruppo di risorse esistente nell'elenco a discesa.
-1. In **Dettagli istanza** Digitare un nome per il nome della macchina virtuale e scegliere un'area che supporti l' [avvio attendibile](trusted-launch.md#public-preview-limitations).
-1. In **immagine** selezionare un' [immagine che supporti l'avvio attendibile](trusted-launch.md#public-preview-limitations). È possibile che venga visualizzata solo la versione di generazione 1 dell'immagine, ovvero OK, procedere al passaggio successivo.
-1. Passare alla scheda **Avanzate** selezionandola nella parte superiore della pagina.
-1. Scorrere verso il basso fino alla sezione **generazione VM** e quindi selezionare **generazione 2**.
-1. Sempre nella scheda **Avanzate** scorrere fino a **avvio attendibile**, quindi selezionare la casella di controllo **avvio attendibile** . Verranno visualizzate altre due opzioni: avvio protetto e vTPM. Selezionare le opzioni appropriate per la distribuzione.
+   > [!NOTE] 
+   > Il collegamento del portale è univoco per l'anteprima di avvio attendibile.
+   >  
+2. Cercare le **macchine virtuali**.
+3. In **Servizi** selezionare **Macchine virtuali**.
+4. Nella pagina **macchine virtuali** selezionare **Aggiungi**, quindi selezionare **macchina virtuale**.
+5. In **Dettagli progetto** verificare che sia selezionata la sottoscrizione corretta.
+6. In **gruppo di risorse** selezionare **Crea nuovo** e digitare un nome per il gruppo di risorse oppure selezionare un gruppo di risorse esistente nell'elenco a discesa.
+7. In **Dettagli istanza** Digitare un nome per il nome della macchina virtuale e scegliere un'area che supporti l' [avvio attendibile](trusted-launch.md#public-preview-limitations).
+8. In **immagine** selezionare un' [immagine che supporti l'avvio attendibile](trusted-launch.md#public-preview-limitations). È possibile che venga visualizzata solo la versione di generazione 1 dell'immagine, ovvero OK, procedere al passaggio successivo.
+9. Passare alla scheda **Avanzate** selezionandola nella parte superiore della pagina.
+10. Scorrere verso il basso fino alla sezione **generazione VM** e quindi selezionare **generazione 2**.
+11. Sempre nella scheda **Avanzate** scorrere fino a **avvio attendibile**, quindi selezionare la casella di controllo **avvio attendibile** . Verranno visualizzate altre due opzioni: avvio protetto e vTPM. Selezionare le opzioni appropriate per la distribuzione.
 
     :::image type="content" source="media/trusted-launch/trusted-launch-portal.png" alt-text="Screenshot che mostra le opzioni per l'avvio attendibile.":::
 
-1. Tornare alla scheda informazioni di **base** , in **immagine** e verificare che venga visualizzato il messaggio seguente: **questa immagine supporta l'anteprima di avvio attendibile. Configurare nella scheda Avanzate**. È ora possibile selezionare l'immagine di generazione 2.
+12. Tornare alla scheda informazioni di **base** , in **immagine** e verificare che venga visualizzato il messaggio seguente: **questa immagine supporta l'anteprima di avvio attendibile. Configurare nella scheda Avanzate**. È ora possibile selezionare l'immagine di generazione 2.
 
     :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="Screenshot che mostra il messaggio per confermare che si tratta di un'immagine Gen2 che supporta l'avvio attendibile.":::
 
-1.  Selezionare le dimensioni della macchina virtuale che supportano l'avvio attendibile. Vedere l'elenco delle [dimensioni supportate](trusted-launch.md#public-preview-limitations).
-1.  Immettere le informazioni sull' **account amministratore** e quindi le regole per le **porte in ingresso**.
-1.  Nella parte inferiore della pagina selezionare **Verifica + crea**
-1.  Nella pagina **creare una macchina virtuale** è possibile visualizzare i dettagli relativi alla VM che si sta per distribuire. Quando si è pronti, selezionare **Crea**.
+13. Selezionare le dimensioni della macchina virtuale che supportano l'avvio attendibile. Vedere l'elenco delle [dimensioni supportate](trusted-launch.md#public-preview-limitations).
+14. Immettere le informazioni sull' **account amministratore** e quindi le regole per le **porte in ingresso**.
+15. Nella parte inferiore della pagina selezionare **Verifica + crea**
+16. Nella pagina **creare una macchina virtuale** è possibile visualizzare i dettagli relativi alla VM che si sta per distribuire. Quando si è pronti, selezionare **Crea**.
 
     :::image type="content" source="media/trusted-launch/validation.png" alt-text="Sceenshot della pagina convalida, che mostra le opzioni di avvio attendibili, sono incluse.":::
 

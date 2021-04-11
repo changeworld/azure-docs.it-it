@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
 ms.date: 3/23/2021
-ms.openlocfilehash: eedbc46ee5feb0aa6f6a26c3f5b3c67ac8ca0a5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 259a8581d16f4fd6958a0d9ec2631f667d362b19
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044261"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579468"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Pianificare gli eventi di manutenzione di Azure nel database SQL di Azure e in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,7 +35,7 @@ L'evento di manutenzione può produrre riconfigurazioni singole o multiple, a se
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Come simulare un evento di manutenzione pianificata
 
-Assicurarsi che l'applicazione client sia resiliente agli eventi di manutenzione prima della distribuzione nell'ambiente di produzione contribuirà a ridurre il rischio di errori dell'applicazione e contribuirà alla disponibilità dell'applicazione per gli utenti finali. È possibile testare il comportamento dell'applicazione client durante gli eventi di manutenzione pianificata [avviando il failover manuale](https://aka.ms/mifailover-techblog) tramite PowerShell, l'interfaccia della riga di comando o l'API REST. Genererà un comportamento identico all'evento di manutenzione che porta la replica primaria offline.
+Assicurarsi che l'applicazione client sia resiliente agli eventi di manutenzione prima della distribuzione nell'ambiente di produzione contribuirà a ridurre il rischio di errori dell'applicazione e contribuirà alla disponibilità dell'applicazione per gli utenti finali. È possibile testare il comportamento dell'applicazione client durante gli eventi di manutenzione pianificata [verificando la resilienza degli errori dell'applicazione](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla#testing-application-fault-resiliency) tramite PowerShell, CLI o l'API REST. Vedere anche [avvio del failover manuale](https://aka.ms/mifailover-techblog) per istanza gestita. Genererà un comportamento identico all'evento di manutenzione che porta la replica primaria offline.
 
 ## <a name="retry-logic"></a>Logica di retry
 

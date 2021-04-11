@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8eddd5d346003af0c2b41d65fc0aa09c86f48c7
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93346775"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167448"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparare gli asset tecnici del modulo IoT Edge
 
@@ -39,14 +39,14 @@ Il modulo deve supportare tutte le piattaforme di livello 1 supportate da IoT Ed
 
 - Fornire un tag più recente e un tag di versione (ad esempio, 1.0.1) che sono tag del manifesto compilati con lo [strumento Manifesto di GitHub](https://github.com/estesp/manifest-tool).
 
-- Usare la scheda elenco offerte del [centro](https://partner.microsoft.com/dashboard/commercial-marketplace) per i partner per aggiungere un collegamento nella sezione **collegamenti utili** all' [Azure IOT Edge catalogo dei dispositivi certificato](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}/).
+- Usare la scheda elenco offerte del [centro](https://partner.microsoft.com/dashboard/commercial-marketplace) per i partner per aggiungere un collegamento nella sezione **collegamenti utili** all' [Azure IOT Edge catalogo dei dispositivi certificato](https://devicecatalog.azure.com/devices?certificationBadgeTypes=IoTEdgeCompatible).
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Subset di piattaforme di livello 1 supportate da IoT Edge
 
 Il modulo deve supportare un subset (almeno uno) di piattaforme di livello 1 supportate da IoT Edge (come registrato in [Azure IOT Edge supporto](../../iot-edge/support.md)). Un modulo che usa questa opzione di piattaforma deve:
 
 - Fornire un tag più recente e un tag di versione (ad esempio, 1.0.1) che sono tag del manifesto compilati con lo [strumento Manifesto](https://github.com/estesp/manifest-tool) di GitHub se è supportata più di una piattaforma. I tag di manifesto sono facoltativi se è supportata una sola piattaforma.
-- Usare la scheda elenco offerte del [centro](https://partner.microsoft.com/dashboard/commercial-marketplace) per i partner per aggiungere un collegamento nella sezione **collegamenti utili** ad almeno un dispositivo IOT Edge dal [Catalogo dei dispositivi Azure IOT Edge certificati](https://catalog.azureiotsolutions.com/).
+- Usare la scheda elenco offerte del [centro](https://partner.microsoft.com/dashboard/commercial-marketplace) per i partner per aggiungere un collegamento nella sezione **collegamenti utili** ad almeno un dispositivo IOT Edge dal [Catalogo dei dispositivi Azure IOT Edge certificati](https://devicecatalog.azure.com/).
 
 :::image type="content" source="media/iot-edge-module-technical-assets-offer-listing.png" alt-text="Si tratta di un'immagine della sezione relativa all'elenco di offerte nel centro per i partner":::
 
@@ -54,7 +54,7 @@ Il modulo deve supportare un subset (almeno uno) di piattaforme di livello 1 sup
 
 IoT Edge dimensioni del modulo, ad esempio CPU, RAM, archiviazione e GPU, nei dispositivi IoT Edge di destinazione devono soddisfare i requisiti seguenti:
 
-- Il modulo deve funzionare con almeno un dispositivo IoT Edge dal catalogo di [dispositivi Azure IOT Edge certificati](https://catalog.azureiotsolutions.com/).
+- Il modulo deve funzionare con almeno un dispositivo IoT Edge dal catalogo di [dispositivi Azure IOT Edge certificati](https://devicecatalog.azure.com/).
 
 - I requisiti hardware minimi devono essere documentati come ultimo paragrafo della descrizione dell'offerta (nella scheda elenco offerte del centro per i [partner](https://partner.microsoft.com/dashboard/commercial-marketplace)). È anche possibile elencare facoltativamente i requisiti hardware consigliati se differiscono in modo significativo. Aggiungere ad esempio la sezione seguente alla fine della descrizione dell'offerta:
 

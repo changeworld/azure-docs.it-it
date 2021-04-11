@@ -2,13 +2,13 @@
 title: 'Funzioni di modello: risorse'
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per recuperare i valori sulle risorse.
 ms.topic: conceptual
-ms.date: 02/10/2021
-ms.openlocfilehash: efd7c554e6da8b60d4834d1a1290407a6b9e94d4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/01/2021
+ms.openlocfilehash: caf95246e1a0e3954f8608f5c13b03e4390c36a2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544112"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219553"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -17,7 +17,6 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risor
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [pickZones](#pickzones)
-* [provider](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
@@ -539,94 +538,6 @@ L'output degli esempi precedenti restituisce tre matrici.
 > I cicli e copyIndex () non sono ancora implementati.  Vedere [cicli](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
 
 ---
-
-## <a name="providers"></a>provider
-
-`providers(providerNamespace, [resourceType])`
-
-Restituisce informazioni su un provider di risorse e i relativi tipi di risorse supportati. Se non si specifica un tipo di risorsa, la funzione restituisce tutti i tipi supportati per il provider di risorse.
-
-### <a name="parameters"></a>Parametri
-
-| Parametro | Obbligatoria | Tipo | Descrizione |
-|:--- |:--- |:--- |:--- |
-| providerNamespace |Sì |string |Spazio dei nomi del provider |
-| resourceType |No |string |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
-
-### <a name="return-value"></a>Valore restituito
-
-Ogni tipo supportato viene restituito nel formato seguente:
-
-```json
-{
-  "resourceType": "{name of resource type}",
-  "locations": [ all supported locations ],
-  "apiVersions": [ all supported API versions ]
-}
-```
-
-L'ordine della matrice dei valori restituiti non è garantito.
-
-### <a name="providers-example"></a>Esempio di provider
-
-Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) seguente mostra come usare la funzione provider:
-
-# <a name="json"></a>[JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "providerNamespace": {
-      "type": "string"
-    },
-    "resourceType": {
-      "type": "string"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "providerOutput": {
-      "type": "object",
-      "value": "[providers(parameters('providerNamespace'), parameters('resourceType'))]"
-    }
-  }
-}
-```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param providerNamespace string
-param resourceType string
-
-output providerOutput array = providers(providerNamespace, resourceType)
-```
-
----
-
-Per il provider di risorse **Microsoft** e il tipo di risorsa **siti**, l'esempio precedente restituisce un oggetto nel formato seguente:
-
-```json
-{
-  "resourceType": "sites",
-  "locations": [
-    "South Central US",
-    "North Europe",
-    "West Europe",
-    "Southeast Asia",
-    ...
-  ],
-  "apiVersions": [
-    "2016-08-01",
-    "2016-03-01",
-    "2015-08-01-preview",
-    "2015-08-01",
-    ...
-  ]
-}
-```
 
 ## <a name="reference"></a>reference
 

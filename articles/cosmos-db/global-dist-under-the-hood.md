@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 1b47ad27abbe59eceabd15d091f88f4659d8dad6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 592a9b89379094c88881c3c8485c7e38a1613b34
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102486387"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219485"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuzione globale dei dati con Azure Cosmos DB - informazioni sul funzionamento
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -61,7 +61,7 @@ Il servizio consente di configurare i database Cosmos con una singola area di sc
 
 ## <a name="conflict-resolution"></a>Risoluzione dei conflitti
 
-La progettazione per la propagazione degli aggiornamenti, la risoluzione dei conflitti e il rilevamento della causalità sono ispirate al lavoro preliminare sugli [algoritmi epidemici](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) e il sistema [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf). Mentre i kernel delle idee rimasti forniscono un pratico riferimento per la comunicazione relativa alla progettazione di sistema di Cosmos DB, sono stati anche sottoposti a una significativa trasformazione una volta applicati al sistema di Cosmos DB. Questa operazione era necessaria perché i sistemi precedenti sono stati progettati né con la governance delle risorse né con la scalabilità a cui Cosmos DB necessario operare, né per fornire le funzionalità (ad esempio, la coerenza di obsolescenza ristretta) e i contratti di contratto rigorosi e completi che Cosmos DB offrono ai clienti.  
+La progettazione per la propagazione degli aggiornamenti, la risoluzione dei conflitti e il rilevamento della causalità sono ispirate al lavoro preliminare sugli [algoritmi epidemici](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) e il sistema [Bayou](https://people.cs.umass.edu/~mcorner/courses/691M/papers/terry.pdf). Mentre i kernel delle idee rimasti forniscono un pratico riferimento per la comunicazione relativa alla progettazione di sistema di Cosmos DB, sono stati anche sottoposti a una significativa trasformazione una volta applicati al sistema di Cosmos DB. Questa operazione era necessaria perché i sistemi precedenti sono stati progettati né con la governance delle risorse né con la scalabilità a cui Cosmos DB necessario operare, né per fornire le funzionalità (ad esempio, la coerenza di obsolescenza ristretta) e i contratti di contratto rigorosi e completi che Cosmos DB offrono ai clienti.  
 
 Ricordare che un set di partizioni viene distribuito in più aree e segue il protocollo di replica di Cosmos DB (Scritture in più aree) per replicare i dati tra le partizioni fisiche che includono un set di partizioni specifico. Ogni partizione fisica (di un set di partizioni) in genere accetta le scritture e gestisce le letture dei client locali di una determinata area. Le scritture accettate da una partizione fisica all'interno di un'area vengono memorizzate in modo duraturo e rese altamente disponibili all'interno della partizione fisica prima di essere confermate al client. Si tratta di operazioni di scrittura provvisorie e vengono propagate alle altre partizioni fisiche all'interno del set di partizioni usando un canale antientropia. I client possono richiedere operazioni di scrittura provvisori o sulle quali è stato eseguito il commit, passando un'intestazione di richiesta. La propagazione antientropia (inclusa la frequenza della propagazione) è dinamica e basata sulla topologia del set di partizioni, la prossimità dell'area delle partizioni fisiche e il livello di coerenza configurato. All'interno di un set di partizioni, Cosmos DB segue uno schema di commit primario con una partizione arbiter selezionata dinamicamente. La selezione arbiter è dinamica ed è parte integrante della riconfigurazione del set di partizioni basata sulla topologia della sovrimpressione. Le operazioni di scrittura (inclusi multi-row/in batch gli aggiornamenti) in cui è stato eseguito il commit sono garantite per essere ordinate. 
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0dd5cf5209924972080af6d22429252338754de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 338de996b06769b9d2891c7208b9050cc3acc7ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491249"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167295"
 ---
 # <a name="create-modular-runbooks"></a>Creare runbook modulari
 
@@ -56,15 +56,15 @@ Quando un runbook chiama un runbook figlio grafico o del flusso di lavoro di Pow
 L'esempio seguente avvia un runbook figlio di test che accetta un oggetto complesso, un valore intero e un valore booleano. L'output del runbook figlio viene assegnato a una variabile. In questo caso, il runbook figlio è un runbook del flusso di lavoro PowerShell.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = PSWF-ChildRunbook -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 Ecco lo stesso esempio con un runbook PowerShell come elemento figlio.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = .\PS-ChildRunbook.ps1 -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 ## <a name="start-a-child-runbook-using-a-cmdlet"></a>Avviare un runbook figlio usando un cmdlet
@@ -84,7 +84,7 @@ I parametri per un runbook figlio avviato con un cmdlet vengono resi disponibili
 
 Il contesto della sottoscrizione potrebbe andare perso quando si avviano i runbook figlio come processi separati. Perché il runbook figlio possa eseguire i cmdlet del modulo Az per una sottoscrizione di Azure specifica, il runbook figlio deve eseguire l'autenticazione in tale sottoscrizione indipendentemente dal runbook padre.
 
-Se i processi nello stesso account di Automazione usano più sottoscrizioni, la selezione di una sottoscrizione in un processo può cambiare il contesto della sottoscrizione attualmente selezionata anche per altri processi. Per evitare questa situazione, usare `Disable-AzContextAutosave –Scope Process` all'inizio di ogni runbook. Questa azione salva solo il contesto dell'esecuzione del runbook.
+Se i processi nello stesso account di Automazione usano più sottoscrizioni, la selezione di una sottoscrizione in un processo può cambiare il contesto della sottoscrizione attualmente selezionata anche per altri processi. Per evitare questa situazione, usare `Disable-AzContextAutosave -Scope Process` all'inizio di ogni runbook. Questa azione salva solo il contesto dell'esecuzione del runbook.
 
 ### <a name="example"></a>Esempio
 
@@ -92,7 +92,7 @@ L'esempio seguente avvia un runbook figlio con parametri e quindi attende il suo
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext
-Disable-AzContextAutosave –Scope Process
+Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
@@ -108,11 +108,11 @@ $AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.Subscr
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
 Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
+    -AutomationAccountName 'MyAutomationAccount' `
+    -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
     -AzContext $AzureContext `
-    –Parameters $params –Wait
+    -Parameters $params -Wait
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

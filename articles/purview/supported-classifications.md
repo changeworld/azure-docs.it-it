@@ -6,20 +6,20 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 02/05/2021
-ms.openlocfilehash: 37df9a276339b80a81e6ac5d5db14872de9edff4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 4/1/2021
+ms.openlocfilehash: e1d3d495d958465e966701aa7ce91bc2706b48e0
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065855"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219587"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Classificazioni supportate in Azure competenza
 
 Questo articolo elenca le classificazioni di sistema supportate e definite in Azure (anteprima).
 
 
-- **Soglia di corrispondenza Distinct**: numero totale di valori di dati distinti che devono essere trovati in una colonna prima che lo scanner esegua il modello di dati. Per le regole di classificazione del sistema è necessario disporre di almeno 8 valori distinti in ogni colonna per sottoporli alla classificazione. Il sistema richiede questo valore per assicurarsi che la colonna contenga dati sufficienti affinché lo scanner lo classifichi in modo accurato. Una colonna contenente più righe che contengono tutti il valore 1, ad esempio, non sarà classificata. Anche le colonne che contengono una riga con un valore e il resto delle righe hanno valori null non vengono classificate. Se si specificano più modelli, questo valore viene applicato a ognuno di essi.
+- **Soglia di corrispondenza Distinct**: numero totale di valori di dati distinti che devono essere trovati in una colonna prima che lo scanner esegua il modello di dati. La soglia di corrispondenza DISTINCT non ha nulla a che fare con i criteri di ricerca, ma è un prerequisito per i criteri di ricerca. Per le regole di classificazione del sistema è necessario disporre di almeno 8 valori distinti in ogni colonna per sottoporli alla classificazione. Il sistema richiede questo valore per assicurarsi che la colonna contenga dati sufficienti affinché lo scanner lo classifichi in modo accurato. Una colonna contenente più righe che contengono tutti il valore 1, ad esempio, non sarà classificata. Anche le colonne che contengono una riga con un valore e il resto delle righe hanno valori null non vengono classificate. Se si specificano più modelli, questo valore viene applicato a ognuno di essi.
 
 - **Soglia di corrispondenza minima**: è la percentuale minima di corrispondenze del valore dei dati in una colonna che deve essere trovata dallo scanner per la classificazione da applicare. Il valore di classificazione del sistema è impostato su 60%.
 

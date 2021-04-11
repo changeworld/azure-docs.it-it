@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: de6a80f73a97a5732f00e10107fff2330038210a
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732565"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122017"
 ---
 # <a name="networking"></a>Rete
 
@@ -87,7 +87,7 @@ Ulteriori informazioni sulle regole di sicurezza in ingresso:
 
 * **Applicazione**. L'intervallo di porte dell'applicazione deve essere abbastanza grande da soddisfare il requisito di endpoint delle applicazioni. Questo intervallo deve essere esclusivo dall'intervallo di porte dinamico del computer, ad esempio l'intervallo ephemeralPorts impostato nella configurazione. Service Fabric usa queste porte ogni volta che sono necessarie nuove porte e si occupa dell'apertura del firewall per queste porte nei nodi.
 
-* **SMB**. Il protocollo SMB viene utilizzato dal servizio ImageStore per due scenari. Questa porta è necessaria per scaricare i pacchetti dal ImageStore dai nodi e per replicarli tra le repliche. 
+* **SMB**. Facoltativo, per impostazione predefinita la versione del runtime 7.1 + non usa SMB più. Il protocollo SMB viene utilizzato dal servizio ImageStore per due scenari. Questa porta è necessaria per scaricare i pacchetti dal ImageStore dai nodi e per replicarli tra le repliche. 
 
 * **RDP**. Facoltativo, se è necessario il protocollo RDP da Internet o VirtualNetwork per gli scenari JumpBox. 
 
