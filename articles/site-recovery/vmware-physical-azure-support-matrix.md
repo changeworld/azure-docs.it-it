@@ -4,10 +4,10 @@ description: Riepiloga il supporto per il ripristino di emergenza di macchine vi
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.openlocfilehash: c7f2d6ecd01959e239a1ab048018452b2ae5fc20
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103495216"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure

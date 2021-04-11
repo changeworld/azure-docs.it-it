@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3a09e3f2bf29c09066e9414f9aa02a7879375425
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c0108cf07f1c734ccf4b6e42c013f7237eb7daf2
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563532"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122068"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Guida alla migrazione basata sullo scenario per la creazione di pacchetti e la distribuzione
 
@@ -30,10 +30,10 @@ Modifiche sostanziali alla modalità di pubblicazione del contenuto nell'API V3.
 
 ## <a name="packaging-and-delivery-in-v3"></a>Creazione di pacchetti e recapito in V3
 
-1. Creare [criteri per chiavi](content-key-policy-concept.md)simmetriche.
+1. Creare [criteri per chiavi](drm-content-key-policy-concept.md)simmetriche.
 1. Creare [localizzatori di streaming](streaming-locators-concept.md).
 1. Ottenere i [percorsi di streaming](create-streaming-locator-build-url.md) 
-    1. Configurarlo per un [Dash](dynamic-packaging-overview.md#mpeg-dash-protocol) o un lettore [HLS](dynamic-packaging-overview.md#hls-protocol) .
+    1. Configurarlo per un [Dash](encode-dynamic-packaging-concept.md#mpeg-dash-protocol) o un lettore [HLS](encode-dynamic-packaging-concept.md#hls-protocol) .
 
 Per i passaggi specifici, vedere pubblicazione di concetti, esercitazioni e procedure guidate di seguito.
 
@@ -41,9 +41,9 @@ Per i passaggi specifici, vedere pubblicazione di concetti, esercitazioni e proc
 
 ### <a name="concepts"></a>Concetti
 
-- [Creazione dinamica dei pacchetti in Servizi multimediali versione 3](dynamic-packaging-overview.md)
+- [Creazione dinamica dei pacchetti in Servizi multimediali versione 3](encode-dynamic-packaging-concept.md)
 - [Filtri](filters-concept.md)
-- [Filtrare i manifesti usando Dynamic Packager](filters-dynamic-manifest-overview.md)
+- [Filtrare i manifesti usando Dynamic Packager](filters-dynamic-manifest-concept.md)
 - [Endpoint di streaming (Origin) in servizi multimediali di Azure](streaming-endpoint-concept.md)
 - [Flusso di contenuto con l'integrazione della rete CDN](scale-streaming-cdn.md)
 - [Localizzatori di streaming](streaming-locators-concept.md)
@@ -53,7 +53,7 @@ Per i passaggi specifici, vedere pubblicazione di concetti, esercitazioni e proc
 - [Gestire gli endpoint di streaming con servizi multimediali V3](manage-streaming-endpoints-howto.md)
 - [Esempio dell'interfaccia della riga di comando: Pubblicare un asset](cli-publish-asset.md)
 - [Creare un localizzatore di streaming e gli URL di compilazione](create-streaming-locator-build-url.md)
-- [Scaricare i risultati di un processo](download-results-howto.md)
+- [Scaricare i risultati di un processo](job-download-results-how-to.md)
 - [Segnala tracce audio descrittive](signal-descriptive-audio-howto.md)
 - [Azure Media Player installazione completa](../azure-media-player/azure-media-player-full-setup.md)
 - [Come usare il lettore di Video.js con servizi multimediali di Azure](how-to-video-js-player.md)

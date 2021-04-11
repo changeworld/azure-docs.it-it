@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
-ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a96e6b567c04f2e0561a0a754e854a0e2b1ad6b0
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94694994"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076259"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configurazione del servizio di bilanciamento del carico solo in uscita
 
@@ -278,7 +278,7 @@ Creare il pool di indirizzi back-end **myPublicBackendPool**:
     | Indirizzo IP front-end | Selezionare **LoadBalancerFrontEnd**.|
     | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su **15 minuti**.|
     | Reimpostazione TCP | Selezionare **Enabled**.|
-    | Pool back-end | Selezionare **myPublicBackendPool**.| |
+    | Pool back-end | Selezionare **myPublicBackendPool**.|
     | Allocazione porte -> Allocazione porte | Selezionare **Usa il numero predefinito di porte in uscita** |
 
 4. Selezionare **Aggiungi**.

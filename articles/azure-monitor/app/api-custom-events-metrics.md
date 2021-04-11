@@ -4,12 +4,12 @@ description: Inserire alcune righe di codice nell'app desktop o per dispositivi,
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d658d7e64f720a3fb700d157cd5194ff50a48c33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e866dc30d83f1b1f080a1be385026dcfbc77320
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471626"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122102"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -702,6 +702,9 @@ appInsights.setAuthenticatedUserContext(validatedId, accountId);
 In [Esplora metriche](../essentials/metrics-charts.md) è possibile creare un grafico che conta i valori **Utenti, Autenticati** e **Account utente**.
 
 È anche possibile [cercare](./diagnostic-search.md) punti dati client con account e nomi utente specifici.
+
+> [!NOTE]
+> La [Proprietà EnableAuthenticationTrackingJavaScript nella classe ApplicationInsightsServiceOptions](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) nel .NET Core SDK semplifica la configurazione JavaScript necessaria per inserire il nome utente come ID di autenticazione per ogni traccia inviata da Application Insights JavaScript SDK. Quando questa proprietà è impostata su true, il nome utente dell'utente nel ASP.NET Core viene stampato insieme ai dati di [telemetria lato client](asp-net-core.md#enable-client-side-telemetry-for-web-applications), pertanto l'aggiunta `appInsights.setAuthenticatedUserContext` manuale non sarebbe più necessaria perché è già stata inserita dall'SDK per ASP.NET Core. L'ID di autenticazione verrà inviato anche al server in cui l'SDK in .NET Core lo identificherà e lo userà per qualsiasi telemetria sul lato server, come descritto in informazioni di [riferimento sull'API JavaScript](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). Tuttavia, per le applicazioni JavaScript che non funzionano allo stesso modo di ASP.NET Core MVC (ad esempio app Web SPA), è comunque necessario aggiungere `appInsights.setAuthenticatedUserContext` manualmente.
 
 ## <a name="filtering-searching-and-segmenting-your-data-by-using-properties"></a><a name="properties"></a>Filtro, ricerca e segmentazione dei dati mediante le proprietà
 

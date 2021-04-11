@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: 315de18539bf083515658b40fa70f3c214d7c909
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/30/2021
+ms.openlocfilehash: a56a41b704b12da08cf86b450ac1c734409c8032
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97739740"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219315"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -80,7 +80,7 @@ Quando si usa un ISE con una rete virtuale di Azure, un problema di configurazio
 
 Per assicurarsi che l’ISE sia accessibile e che le app per la logica in tale ISE siano in grado di comunicare su ogni subnet della rete virtuale, [aprire le porte descritte in questa tabella per ogni subnet](#network-ports-for-ise). Se le porte obbligatorie non sono disponibili, l’ISE non funzionerà correttamente.
 
-* Se sono presenti più istanze dell’ISE che necessitano dell’accesso ad altri endpoint con restrizioni IP, distribuire un [Firewall di Azure](../firewall/overview.md) o un'[appliance virtuale di rete](../virtual-network/virtual-networks-overview.md#filter-network-traffic) nella rete virtuale e instradare il traffico in uscita attraverso il firewall o l'appliance virtuale di rete. È quindi possibile [configurare un indirizzo IP singolo, in uscita, pubblico, statico e prevedibile](connect-virtual-network-vnet-set-up-single-ip-address.md) che tutte le istanze dell’ISE nella rete virtuale possano usare per comunicare con i sistemi di destinazione. In questo modo, non è necessario configurare ulteriori aperture del firewall in questi sistemi di destinazione per ogni ISE.
+* Se sono presenti più istanze dell’ISE che necessitano dell’accesso ad altri endpoint con restrizioni IP, distribuire un [Firewall di Azure](../firewall/overview.md) o un'[appliance virtuale di rete](../virtual-network/virtual-networks-overview.md#filter-network-traffic) nella rete virtuale e instradare il traffico in uscita attraverso il firewall o l'appliance virtuale di rete. È quindi possibile [configurare un indirizzo IP singolo, in uscita, pubblico, statico e prevedibile](connect-virtual-network-vnet-set-up-single-ip-address.md) che tutte le istanze dell’ISE nella rete virtuale possano usare per comunicare con i sistemi di destinazione. In questo modo, non è necessario configurare aperture aggiuntive del firewall in questi sistemi di destinazione per ogni ISE.
 
    > [!NOTE]
    > È possibile usare questo approccio per un singolo ISE quando lo scenario richiede la limitazione del numero di indirizzi IP che richiedono l'accesso. Valutare se i costi aggiuntivi per il firewall o l'appliance di rete virtuale hanno senso per lo scenario. Altre informazioni su [Prezzi del servizio Firewall di Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
@@ -91,7 +91,7 @@ Per assicurarsi che l’ISE sia accessibile e che le app per la logica in tale I
 
   Quando si configurano [regole di sicurezza NSG](../virtual-network/network-security-groups-overview.md#security-rules), è necessario utilizzare *entrambi* i protocolli **TCP** e **UDP** oppure è possibile seleziona invece **Qualsiasi** in modo da non dover creare regole separate per ogni protocollo. Le regole di sicurezza NSG descrivono le porte che è necessario aprire per gli indirizzi IP che necessitano dell'accesso a tali porte. Assicurarsi che eventuali firewall, router o altri elementi presenti tra questi endpoint mantengano tali porte accessibili a tali indirizzi IP.
 
-* Se si configura il tunneling forzato tramite il firewall per reindirizzare il traffico associato a Internet, esaminare i [requisiti aggiuntivi per il tunneling forzato](#forced-tunneling).
+* Se si configura il tunneling forzato tramite il firewall per reindirizzare il traffico associato a Internet, esaminare i [requisiti del tunneling forzato](#forced-tunneling).
 
 <a name="network-ports-for-ise"></a>
 
@@ -108,9 +108,9 @@ Questa tabella descrive le porte necessarie all’ISE per essere accessibile e l
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Comunicazione tra subnet in una rete virtuale | Spazio degli indirizzi per la rete virtuale con subnet ISE | * | Spazio degli indirizzi per la rete virtuale con subnet ISE | * | Necessarie per il flusso del traffico *tra* le subnet nella rete virtuale. <p><p>**Importante**: Per il flusso del traffico tra i *componenti* in ogni subnet, assicurarsi di aprire tutte le porte all'interno di ogni subnet. |
 | Both: <p>Comunicazione con l'app per la logica <p><p>Cronologia di esecuzione dell'app per la logica| ISE interno: <br>**VirtualNetwork** <p><p>ISE esterno: **Internet** o vedere **Note** | * | **VirtualNetwork** | 443 | Invece di usare il tag del servizio **Internet**, è possibile specificare l'indirizzo IP di origine per questi elementi: <p><p>- Il computer o il servizio che chiama qualsiasi trigger o webhook di richiesta nell'app per la logica <p>- Il computer o il servizio da cui si vuole accedere alla cronologia di esecuzioni dell'app per la logica <p><p>**Importante**: La chiusura o il blocco di questa porta impedisce le chiamate alle app per la logica con trigger o webhook di richiesta. Viene impedito anche l'accesso a input e output per ogni passaggio nella cronologia di esecuzione. Tuttavia, non viene impedito l'accesso alla cronologia di esecuzioni dell'app per la logica.|
-| Progettazione app per la logica: proprietà dinamiche | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | Le richieste provengono dagli [indirizzi IP in ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) dell’endpoint di accesso di App per la logica per tale area. |
-| Distribuzione dei connettori | **AzureConnectors** | * | **VirtualNetwork** | 454 | Obbligatoria per distribuire e aggiornare i connettori. La chiusura o il blocco di questa porta causa l'esito negativo delle distribuzioni ISE e impedisce gli aggiornamenti e le correzioni del connettore. |
-| Controllo integrità della rete | **LogicApps** | * | **VirtualNetwork** | 454 | Le richieste provengono dagli [indirizzi IP in ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) e gli [indirizzi IP in uscita](../logic-apps/logic-apps-limits-and-config.md#outbound) dell’endpoint di accesso di App per la logica per tale area. |
+| Progettazione app per la logica: proprietà dinamiche | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | Le richieste provengono dagli [indirizzi IP in ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) dell’endpoint di accesso di App per la logica per tale area. <p><p>**Importante**: se si usa il cloud di Azure per enti pubblici, il tag del servizio **LogicAppsManagement** non funzionerà. Al contrario, è necessario fornire gli [indirizzi IP in ingresso](../logic-apps/logic-apps-limits-and-config.md#azure-government-inbound) delle app per la logica per Azure per enti pubblici. |
+| Controllo integrità della rete | **LogicApps** | * | **VirtualNetwork** | 454 | Le richieste provengono dagli [indirizzi IP in ingresso](../logic-apps/logic-apps-limits-and-config.md#inbound) e gli [indirizzi IP in uscita](../logic-apps/logic-apps-limits-and-config.md#outbound) dell’endpoint di accesso di App per la logica per tale area. <p><p>**Importante**: se si usa il cloud di Azure per enti pubblici, il tag del servizio **logica** non funzionerà. Al contrario, è necessario fornire gli indirizzi IP in [ingresso](../logic-apps/logic-apps-limits-and-config.md#azure-government-inbound) per le app per la logica e [gli indirizzi IP](../logic-apps/logic-apps-limits-and-config.md#azure-government-outbound) in uscita per Azure per enti pubblici. |
+| Distribuzione dei connettori | **AzureConnectors** | * | **VirtualNetwork** | 454 | Obbligatoria per distribuire e aggiornare i connettori. La chiusura o il blocco di questa porta causa l'esito negativo delle distribuzioni ISE e impedisce gli aggiornamenti e le correzioni del connettore. <p><p>**Importante**: se si usa il cloud di Azure per enti pubblici, il tag del servizio **AzureConnectors** non funzionerà. Al contrario, è necessario fornire gli [indirizzi IP in uscita del connettore gestito](../logic-apps/logic-apps-limits-and-config.md#azure-government-outbound) per Azure per enti pubblici. |
 | Dipendenza da Gestione del servizio app | **AppServiceManagement** | * | **VirtualNetwork** | 454, 455 ||
 | Comunicazione da Gestione traffico di Azure | **AzureTrafficManager** | * | **VirtualNetwork** | ISE interno: 454 <p><p>ISE esterno: 443 ||
 | Both: <p>Distribuzione dei criteri dei connettori <p>Gestione API - endpoint di gestione | **APIManagement** | * | **VirtualNetwork** | 3443 | Per la distribuzione dei criteri dei connettori, l’accesso alla porta è obbligatorio per distribuire e aggiornare i connettori. La chiusura o il blocco di questa porta causa l'esito negativo delle distribuzioni ISE e impedisce gli aggiornamenti e le correzioni del connettore. |
@@ -148,7 +148,7 @@ Se si configura o si usa il [tunneling forzato](../firewall/forced-tunneling.md)
 
 Se non si consente l'accesso per queste dipendenze, la distribuzione di ISE ha esito negativo e l'ISE distribuito smette di funzionare.
 
-* route definite dall'utente
+* Route definite dall'utente
 
   Per impedire il routing asimmetrico, è necessario definire una route per ogni indirizzo IP elencato di seguito con **Internet** come hop successivo.
   
@@ -193,7 +193,7 @@ Se non si consente l'accesso per queste dipendenze, la distribuzione di ISE ha e
    | **Nome dell'ambiente del servizio di integrazione** | Sì | <*Nome ambiente*> | Il nome dell'ISE, che può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`) e punti (`.`). |
    | **Posizione** | Sì | <*Azure-datacenter-region*> | L'area del datacenter di Azure in cui distribuire l'ambiente |
    | **SKU** | Sì | **Premium** o **Developer (nessun contratto di servizio)** | SKU ISE da creare e usare. Per le differenze tra questi SKU, vedere [SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: Questa opzione è disponibile solo in fase di creazione di ISE e non può essere modificata in un secondo momento. |
-   | **Capacità aggiuntiva** | Premium: <br>Sì <p><p>Developer: <br>Non applicabile | Premium: <br>da 0 a 10 <p><p>Developer: <br>Non applicabile | Numero di unità di elaborazione supplementari da usare per questa risorsa dell'ambiente del servizio di integrazione. Per aggiungere la capacità dopo la creazione, vedere [Aggiungere la capacità ISE](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
+   | **Capacità aggiuntiva** | Premium: <br>Sì <p><p>Developer: <br>Non applicabile | Premium: <br>da 0 a 10 <p><p>Developer: <br>Non applicabile | Numero di unità di elaborazione aggiuntive da usare per questa risorsa ISE. Per aggiungere la capacità dopo la creazione, vedere [Aggiungere la capacità ISE](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
    | **Endpoint di accesso** | Sì | **Interno** o **Esterno** | Tipo di endpoint di accesso da usare per l’ISE. Questi endpoint determinano se i trigger o webhook di richiesta nelle app per la logica nell’ISE possono ricevere chiamate dall'esterno della rete virtuale. <p><p>Se ad esempio si vogliono usare i trigger basati su webhook seguenti, assicurarsi di selezionare **External (esterno**): <p><p>-Azure DevOps <br>-Griglia di eventi di Azure <br>-Common Data Service <br>-Office 365 <br>-SAP (versione ISE) <p><p>La selezione influisce anche sul modo in cui è possibile visualizzare e accedere agli input e agli output nella cronologia di esecuzione delle app per la logica. Per altre informazioni, vedere [Accesso endpoint dell’ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: È possibile selezionare l'endpoint di accesso solo durante la creazione dell’ISE e non è possibile modificare questa opzione in un secondo momento. |
    | **Rete virtuale** | Sì | <*Azure-virtual-network-name*> | La rete virtuale di Azure in cui si desidera collegare l'ambiente in modo che le app per la logica in quell'ambiente possano accedere alla rete virtuale. Se non si dispone di una rete, [creare prima una rete virtuale di Azure](../virtual-network/quick-create-portal.md). <p><p>**Importante**: È possibile seguire questo collegamento *solo* quando si crea l'ISE. |
    | **Subnet** | Sì | <*subnet-resource-list*> | Un ISE richiede quattro subnet *vuote* , che sono necessarie per la creazione e la distribuzione di risorse in ISE e vengono usate dai componenti interni delle app per la logica, ad esempio i connettori e la memorizzazione nella cache per le prestazioni. <p>**Importante**: assicurarsi [di esaminare i requisiti della subnet prima di continuare con la procedura seguente per creare le subnet](#create-subnet). |
@@ -221,7 +221,7 @@ Se non si consente l'accesso per queste dipendenze, la distribuzione di ISE ha e
      > * 168.63.129.16/32
      > * 169.254.169.254/32
 
-   * Usa un `/27` nello spazio degli indirizzi perché ogni subnet richiede 32 indirizzi. Ad esempio, `10.0.0.0/27` ha 32 indirizzi perché 2<sup>(32-27)</sup> è 2<sup>5</sup> o 32. Altri indirizzi non offrono ulteriori vantaggi. Per altre informazioni sul calcolo degli indirizzi, vedere [Blocchi CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
+   * Usa un `/27` nello spazio degli indirizzi perché ogni subnet richiede 32 indirizzi. Ad esempio, `10.0.0.0/27` ha 32 indirizzi perché 2<sup>(32-27)</sup> è 2<sup>5</sup> o 32. Più indirizzi non forniranno vantaggi aggiuntivi. Per altre informazioni sul calcolo degli indirizzi, vedere [Blocchi CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    * Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md), è necessario [creare una tabella di route](../virtual-network/manage-route-table.md) con la route seguente e collegare tale tabella a ogni subnet usata dall’ISE:
 

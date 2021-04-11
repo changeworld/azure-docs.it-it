@@ -3,17 +3,18 @@ title: Schema del ruolo Servizi cloud di Azure (versione classica) | Microsoft D
 description: L'elemento Role di un file di configurazione del servizio specifica il numero di istanze del ruolo da distribuire per ogni ruolo, i valori di configurazione e le identificazioni personali del certificato.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 2dc8e14a4e4d8855abb615632bb7d43b9034d360
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd46a37ada1fb96797faee6c8491359561e065d7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743441"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934156"
 ---
 # <a name="azure-cloud-services-classic-config-role-schema"></a>Schema del ruolo di configurazione di servizi cloud di Azure (versione classica)
 

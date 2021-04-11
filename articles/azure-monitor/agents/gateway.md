@@ -5,18 +5,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: bae48dc78eb6973e5bce4d535091bc330c4c897f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c26a7f53609193bf373c3f7f9b1037405d4e518
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102509031"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122136"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
-
->[!NOTE]
->Quando Microsoft Operations Management Suite (OMS) passa a Microsoft Azure monitoraggio, la terminologia sta cambiando. Questo articolo si riferisce al gateway OMS come gateway di Azure Log Analytics. 
->
 
 Questo articolo descrive come configurare la comunicazione con automazione di Azure e monitoraggio di Azure usando il gateway Log Analytics quando i computer connessi direttamente o monitorati da Operations Manager non hanno accesso a Internet. 
 
@@ -89,6 +85,9 @@ Il gateway Log Analytics è disponibile nelle lingue seguenti:
 Il gateway Log Analytics supporta solo Transport Layer Security (TLS) 1,0, 1,1 e 1,2.  Non supporta Secure Sockets Layer (SSL).  Per garantire la sicurezza dei dati in transito per Log Analytics, configurare il gateway per l'uso di almeno TLS 1,2. Le versioni precedenti di TLS o SSL sono vulnerabili. Sebbene consentano attualmente la compatibilità con le versioni precedenti, evitarne l'uso.  
 
 Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12). 
+
+>[!NOTE]
+>Il gateway è un proxy di inoltro che non archivia i dati. Una volta stabilita la connessione con monitoraggio di Azure, l'agente segue lo stesso flusso di crittografia con o senza il gateway. I dati vengono crittografati tra il client e l'endpoint. Poiché il gateway è semplicemente un tunnel, non ha la possibilità di controllare gli elementi inviati.
 
 ### <a name="supported-number-of-agent-connections"></a>Numero di connessioni dell'agente supportate
 

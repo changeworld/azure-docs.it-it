@@ -8,13 +8,13 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 03/08/2021
 ms.openlocfilehash: 7acf7e8dc9f90c50f3c7d5555e6fe37260b35c93
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103022108"
 ---
-# <a name="notifying-microsoft-regarding-the-publisher-agreement"></a>Notifica a Microsoft riguardo al contratto per gli editori
+# <a name="notifying-microsoft-regarding-the-publisher-agreement"></a>Notifica a Microsoft riguardo al contratto per gli autori
 
 Utilizzare un ticket di supporto per inviare notifiche legali a Microsoft in merito al contratto Microsoft Publisher per garantire l'azione e il rilevamento appropriati.
 

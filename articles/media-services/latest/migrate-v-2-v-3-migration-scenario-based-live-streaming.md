@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 322a599d5ad02ddcf19c61261d968d098b6c9871
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 273a1b5986a72acc1d6725fbb3101c9c1df17e45
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563127"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122051"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Guida alla migrazione basata sullo scenario live streaming
 
@@ -35,12 +35,12 @@ Il portale di Azure supporta ora la configurazione e la gestione degli eventi li
 
 Testare la nuova modalità di distribuzione di eventi live con servizi multimediali prima di trasferire il contenuto dalla versione V2 alla versione V3. Di seguito sono riportate le funzionalità V3 da usare e considerate per la migrazione.
 
-- Creare un nuovo [evento Live](live-events-outputs-concept.md#live-events) V3 per la codifica. È possibile abilitare i [set di impostazioni di codifica 1080p e 720p](live-event-types-comparison.md#system-presets).
-- Usare l'entità di [output Live](live-events-outputs-concept.md#live-outputs) invece dei programmi
+- Creare un nuovo [evento Live](live-event-outputs-concept.md#live-events) V3 per la codifica. È possibile abilitare i [set di impostazioni di codifica 1080p e 720p](live-event-types-comparison-reference.md#system-presets).
+- Usare l'entità di [output Live](live-event-outputs-concept.md#live-outputs) invece dei programmi
 - Creare [localizzatori di streaming](streaming-locators-concept.md).
-- Prendere in considerazione la necessità di eseguire lo streaming live [HLS e Dash](dynamic-packaging-overview.md) .
-- Se è necessario avviare rapidamente eventi live, esplorare le nuove funzionalità della [modalità standby](live-events-outputs-concept.md#standby-mode) .
-- Se si vuole trascrivere l'evento Live mentre è in corso, esplorare la nuova funzionalità di [trascrizione in tempo reale](live-transcription.md) .
+- Prendere in considerazione la necessità di eseguire lo streaming live [HLS e Dash](encode-dynamic-packaging-concept.md) .
+- Se è necessario avviare rapidamente eventi live, esplorare le nuove funzionalità della [modalità standby](live-event-outputs-concept.md#standby-mode) .
+- Se si vuole trascrivere l'evento Live mentre è in corso, esplorare la nuova funzionalità di [trascrizione in tempo reale](live-event-live-transcription-how-to.md) .
 - È possibile creare eventi live 24x7x365 in V3 se è necessaria una durata di streaming maggiore.
 - USA [griglia di eventi](monitoring/monitor-events-portal-how-to.md) per monitorare gli eventi live.
 
@@ -50,22 +50,22 @@ Per i passaggi specifici, vedere Concetti, esercitazioni e procedure dettagliate
 
 ### <a name="concepts"></a>Concetti
 
-- [Streaming live con Servizi multimediali di Azure v3](live-streaming-overview.md)
-- [Eventi live e output live in Servizi multimediali](live-events-outputs-concept.md)
+- [Streaming live con Servizi multimediali di Azure v3](stream-live-streaming-concept.md)
+- [Eventi live e output live in Servizi multimediali](live-event-outputs-concept.md)
 - [Codificatori di streaming live locali verificati](recommended-on-premises-live-encoders.md)
-- [Usare gli output in tempo reale e di spostamento per creare la riproduzione video su richiesta](live-event-cloud-dvr.md)
-- [Trascrizione in tempo reale (anteprima)](live-transcription.md)
-- [Confronto tra tipi di eventi attivi](live-event-types-comparison.md)
-- [Stati degli eventi live e fatturazione](live-event-states-billing.md)
-- [Impostazioni di bassa latenza eventi Live](live-event-latency.md)
-- [Codici di errore dell'evento live di servizi multimediali](live-event-error-codes.md)
+- [Usare gli output in tempo reale e di spostamento per creare la riproduzione video su richiesta](live-event-cloud-dvr-time-how-to.md)
+- [Live-Event-Transcript-How-to (anteprima)](live-event-live-transcription-how-to.md)
+- [Confronto tra tipi di eventi attivi](live-event-types-comparison-reference.md)
+- [Stati degli eventi live e fatturazione](live-event-states-billing-concept.md)
+- [Impostazioni di bassa latenza eventi Live](live-event-latency-reference.md)
+- [Codici di errore dell'evento live di servizi multimediali](live-event-error-codes-reference.md)
 
 ### <a name="tutorials-and-quickstarts"></a>Esercitazioni e guide introduttive
 
 - [Esercitazione: flusso live con servizi multimediali](stream-live-tutorial-with-api.md)
-- [Creare un evento di streaming live di Servizi multimediali di Azure con OBS](live-events-obs-quickstart.md)
-- [Avvio rapido: Caricamento, codifica e streaming di contenuto con il portale](manage-assets-quickstart.md)
-- [Guida introduttiva: creare un flusso live di servizi multimediali di Azure con Wirecast](live-events-wirecast-quickstart.md)
+- [Creare un evento di streaming live di Servizi multimediali di Azure con OBS](live-event-obs-quickstart.md)
+- [Avvio rapido: Caricamento, codifica e streaming di contenuto con il portale](asset-create-asset-upload-portal-quickstart.md)
+- [Guida introduttiva: creare un flusso live di servizi multimediali di Azure con Wirecast](live-event-wirecast-quickstart.md)
 
 ## <a name="samples"></a>Esempi
 

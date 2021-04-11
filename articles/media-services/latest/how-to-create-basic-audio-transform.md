@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/18/2020
 ms.author: inhenkel
-ms.openlocfilehash: 80edac3106a79a706ee1ef18c48d41d1ad6c3eaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce0ed303790ad27c99864cc44ea85c96ac3ec468
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724592"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962238"
 ---
 # <a name="create-a-basic-audio-transform"></a>Creare una trasformazione audio di base
 
@@ -29,7 +29,7 @@ Questo articolo illustra come creare una trasformazione audio di base.  La modal
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Seguire la procedura disponibile in [Creare un account di Servizi multimediali](./create-account-howto.md) per creare l'account e il gruppo di risorse di Servizi multimediali necessari per creare un asset.
+Seguire la procedura disponibile in [Creare un account di Servizi multimediali](./account-create-how-to.md) per creare l'account e il gruppo di risorse di Servizi multimediali necessari per creare un asset.
 
 ## <a name="methods"></a>Metodi
 

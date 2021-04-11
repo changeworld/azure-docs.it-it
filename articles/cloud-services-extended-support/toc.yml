@@ -51,14 +51,26 @@
           href: schema-cscfg-role.md
         - name: Schema NetworkConfiguration
           href: schema-cscfg-networkconfiguration.md
-    - name: Domande frequenti
-      href: faq.md
 - name: Procedure
   items:
-    - name: Applica estensione Desktop remoto
-      href: enable-rdp.md
-    - name: Applica estensione WAD
-      href: enable-wad.md
+    - name: Eseguire la migrazione ai servizi cloud (supporto esteso)
+      items:
+        - name: Panoramica della migrazione
+          href: in-place-migration-overview.md
+        - name: Dettagli tecnici sulla migrazione
+          href: in-place-migration-technical-details.md
+        - name: Eseguire la migrazione usando il portale di Azure
+          href: in-place-migration-portal.md
+        - name: Eseguire la migrazione con PowerShell
+          href: in-place-migration-powershell.md
+        - name: Errori comuni e problemi noti
+          href: in-place-migration-common-errors.md
+    - name: Applica estensioni
+      items:
+        - name: Applica estensione Desktop remoto
+          href: enable-rdp.md
+        - name: Applica estensione WAD
+          href: enable-wad.md
     - name: Attivare gli avvisi
       href: enable-alerts.md
     - name: Configurare la scalabilità
@@ -67,6 +79,16 @@
       href: certificates-and-key-vault.md
     - name: Generare un modello ARM tramite il portale
       href: generate-template-portal.md
+    - name: Scambiare due servizi cloud
+      href: swap-cloud-service.md
+    - name: Sostituisci dettagli SKU
+      href: override-sku.md
+    - name: Risolvere problemi
+      items:
+        - name: Errore di avvio del ruolo
+          href: role-startup-failure.md
+        - name: Domande frequenti
+          href: faq.md
 - name: Esempi
   items:
     - name: Modelli di esempio
