@@ -2,7 +2,6 @@
 title: Assegnare i ruoli di Azure usando l'API REST-RBAC di Azure
 description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando l'API REST e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: active-directory
-documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
@@ -10,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: d012173adb5e238282e107b832ed9c6895237e48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a61f54530f25ac33c6ef097698198a11cf1275e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556074"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581445"
 ---
 # <a name="assign-azure-roles-using-the-rest-api"></a>Assegnare i ruoli di Azure usando l'API REST
 
@@ -109,6 +108,26 @@ Il testo seguente è un esempio di output:
     "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
     "type": "Microsoft.Authorization/roleAssignments",
     "name": "{roleAssignmentId1}"
+}
+```
+
+### <a name="new-service-principal"></a>Nuova entità servizio
+
+Se si crea una nuova entità servizio e si prova ad assegnare subito un ruolo a tale entità, in alcuni casi l'assegnazione di ruolo può avere esito negativo. Se, ad esempio, si crea una nuova identità gestita e si tenta di assegnare un ruolo a tale entità servizio, l'assegnazione del ruolo potrebbe non riuscire. Il motivo di questo errore è probabilmente un ritardo di replica. L'entità servizio viene creata in un'area. L'assegnazione di ruolo potrebbe tuttavia verificarsi in un'area diversa che non ha ancora replicato l'entità servizio.
+
+Per far fronte a questo scenario, è necessario impostare la proprietà `principalType` su `ServicePrincipal` quando si crea l'assegnazione di ruolo. È inoltre necessario impostare l'oggetto `apiVersion` dell'assegnazione di ruolo su `2018-09-01-preview` o versione successiva.
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2018-09-01-preview
+```
+
+```json
+{
+  "properties": {
+    "roleDefinitionId": "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+    "principalId": "{principalId}",
+    "principalType": "ServicePrincipal"
+  }
 }
 ```
 

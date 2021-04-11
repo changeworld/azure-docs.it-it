@@ -5,16 +5,16 @@ author: avirishuv
 ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
+ms.subservice: automatic-os-upgrade
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9194ab70e37c0659e77cbe9c10ffca10e1a76de8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684611"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011869"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure
 
@@ -79,7 +79,7 @@ Gli SKU di piattaforma seguenti sono attualmente supportati e altri vengono aggi
 ### <a name="service-fabric-requirements"></a>Requisiti di Service Fabric
 
 Se si usa Service Fabric, assicurarsi che siano soddisfatte le condizioni seguenti:
--   Service Fabric [livello di durabilità](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) è Silver o Gold e non Bronze.
+-   Service Fabric [livello di durabilità](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) è Silver o Gold e non Bronze (ad eccezione di NodeTypes solo senza stato, che supportano gli aggiornamenti automatici del sistema operativo).
 -   L'estensione Service Fabric nella definizione del modello del set di scalabilità deve avere TypeHandlerVersion 1,1 o versione successiva.
 -   Il livello di durabilità deve essere lo stesso in Service Fabric cluster e Service Fabric estensione nella definizione del modello del set di scalabilità.
 - Non è necessario un probe di integrità aggiuntivo o l'uso dell'estensione di integrità dell'applicazione.
@@ -163,7 +163,7 @@ Come procedura consigliata, creare un probe di bilanciamento del carico in modo 
 ```
 
 > [!NOTE]
-> Quando si usano gli aggiornamenti automatici del sistema operativo con Service Fabric, la nuova immagine del sistema operativo viene implementata in un dominio di aggiornamento alla volta per mantenere un'elevata disponibilità dei servizi in esecuzione in Service Fabric. Per usare gli aggiornamenti automatici del sistema operativo in Service Fabric, il cluster deve essere configurato per usare il livello di durabilità Silver o superiore. Per altre informazioni sulle caratteristiche di durabilità dei cluster di Service Fabric, vedere [questa documentazione](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
+> Quando si usano gli aggiornamenti automatici del sistema operativo con Service Fabric, la nuova immagine del sistema operativo viene implementata in un dominio di aggiornamento alla volta per mantenere un'elevata disponibilità dei servizi in esecuzione in Service Fabric. Per usare gli aggiornamenti automatici del sistema operativo in Service Fabric il nodo del cluster deve essere configurato in modo da usare il livello di durabilità Silver o versione successiva. Per il livello di durabilità bronzo, l'aggiornamento automatico del sistema operativo è supportato solo per NodeTypes senza stato. Per altre informazioni sulle caratteristiche di durabilità dei cluster di Service Fabric, vedere [questa documentazione](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Mantieni le credenziali aggiornate
 Se il set di scalabilità Usa credenziali per accedere a risorse esterne, ad esempio un'estensione della macchina virtuale configurata per l'uso di un token SAS per l'account di archiviazione, assicurarsi che le credenziali vengano aggiornate. Se le credenziali, inclusi i certificati e i token, sono scadute, l'aggiornamento avrà esito negativo e il primo batch di macchine virtuali verrà lasciato in uno stato di errore.

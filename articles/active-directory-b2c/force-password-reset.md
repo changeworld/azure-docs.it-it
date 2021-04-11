@@ -12,12 +12,12 @@ ms.date: 03/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0477153b466702bec0fa2d5221fee1e054d06314
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b6aae76b0b35f8195fb52b7fb11de43d8fa511ba
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033768"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028435"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Configurare un flusso di reimpostazione della password di forzatura in Azure Active Directory B2C
 
@@ -92,7 +92,7 @@ Per abilitare l'impostazione di **reimpostazione della password forzata** in un 
 1. Nel portale di Azure cercare e selezionare **Azure AD B2C**.
 1. In **Criteri** selezionare **Identity Experience Framework**.
 1. Selezionare il `B2C_1A_signup_signin_Custom_ForcePasswordReset` criterio per aprirlo. 
-1. Per **applicazione** selezionare un'applicazione Web [registrata in precedenza](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
+1. Per **applicazione** selezionare un'applicazione Web [registrata in precedenza](tutorial-register-applications.md). L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Selezionare il pulsante **Esegui adesso** .
 1. Accedere con l'account utente per il quale si reimposta la password.
 1. È ora necessario modificare la password per l'utente. Cambiare la password e selezionare **Continua**. Il token viene restituito a `https://jwt.ms` e dovrebbe essere visualizzato.

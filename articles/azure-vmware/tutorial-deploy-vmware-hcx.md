@@ -3,12 +3,12 @@ title: Esercitazione - Distribuire e configurare VMware HCX
 description: Informazioni su come distribuire e configurare una soluzione VMware HCX per il cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: ab59b4a29f8ba372c1892613d5e0461bf3fdc512
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ee451ce4be59c51299d66e4042ed344026100cf
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869090"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011001"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Distribuire e configurare VMware HCX
 
@@ -20,7 +20,7 @@ VMware HCX Advanced Connector è predistribuito nella soluzione Azure VMware. Su
 >Sebbene lo strumento VMware Configuration Maximum descriva le coppie di siti massime da 25 tra on-premises Connector e Cloud Manager, la licenza limita questa a tre per HCX Advanced e 10 per HCX Enterprise Edition.
 
 >[!NOTE]
->VMware HCX Enterprise è disponibile con la soluzione Azure VMware come servizio in anteprima. È gratuito e soggetto alle condizioni per un servizio in anteprima. Quando il servizio VMware HCX Enterprise diventerà disponibile a livello generale, si riceverà un preavviso di 30 giorni relativo al cambio di fatturazione. Si potrà anche disattivare o rifiutare esplicitamente il servizio. Non è previsto un percorso di downgrade semplice da VMware HCX Enterprise a VMware HCX Advanced. Se si decide di procedere al downgrade, sarà necessario ripetere la distribuzione, con conseguenti tempo di inattività.
+>VMware HCX Enterprise è disponibile con la soluzione Azure VMware come servizio in anteprima. È gratuito e soggetto alle condizioni per un servizio in anteprima. Quando il servizio VMware HCX Enterprise diventerà disponibile a livello generale, si riceverà un preavviso di 30 giorni relativo al cambio di fatturazione. Si potrà anche disattivare o rifiutare esplicitamente il servizio. Il downgrade da HCx Enterprise a HCX Advanced è possibile senza ridistribuzione, ma è necessario registrare un ticket di supporto per l'azione da eseguire. Se si pianifica un downgrade, assicurarsi che non siano pianificate migrazioni e che non siano in uso funzionalità come RAV, MON.
 
 Vedere innanzitutto le sezioni [Prima di iniziare](#before-you-begin), [Requisiti della versione software](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html) e [Prerequisiti](#prerequisites). 
 

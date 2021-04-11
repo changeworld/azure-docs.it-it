@@ -12,10 +12,10 @@ author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
 ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105628952"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza di calcolo Azure Machine Learning
@@ -157,14 +157,14 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     instance.start(wait_for_completion=True, show_output=True)
     ```
 
-* Riavvia
+* Riavvio
 
     ```python
     # restart() is used to restart the ComputeInstance
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* Elimina
+* Delete
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -191,7 +191,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
 
     Per altre informazioni, vedere [AZ ml computetarget Start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
 
-* Riavvia 
+* Riavvio 
 
     ```azurecli-interactive
     az ml computetarget restart computeinstance -n instance -v
@@ -199,7 +199,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
 
     Per altre informazioni, vedere [AZ ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
-* Elimina
+* Delete
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v

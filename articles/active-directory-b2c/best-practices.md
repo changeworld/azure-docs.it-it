@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: d8c0a5ce6f3befd41c0e1399363fd73726693837
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c8a9121d0e36eb51cd02c2c884ddcaa0dd79a79
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96750221"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226210"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Suggerimenti e procedure consigliate per Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Le procedure consigliate e le raccomandazioni seguenti illustrano alcuni aspetti
 
 | Procedura consigliata | Descrizione |
 |--|--|
-| Scegliere i flussi utente per la maggior parte degli scenari | Il Framework dell'esperienza di identità di Azure AD B2C rappresenta il livello di attendibilità principale del servizio. I criteri descrivono in modo completo le esperienze per le identità, ad esempio iscrizione, accesso o modifica del profilo. Per poter configurare le attività di gestione delle identità più comuni, il portale di Azure AD B2C include criteri predefiniti configurabili chiamati flussi utente. Con i flussi utente è possibile creare esperienze utente eccezionali in pochi minuti, con pochi clic. [Informazioni sul momento in cui usare i flussi utente rispetto ai criteri personalizzati](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
+| Scegliere i flussi utente per la maggior parte degli scenari | Il Framework dell'esperienza di identità di Azure AD B2C rappresenta il livello di attendibilità principale del servizio. I criteri descrivono in modo completo le esperienze per le identità, ad esempio iscrizione, accesso o modifica del profilo. Per poter configurare le attività di gestione delle identità più comuni, il portale di Azure AD B2C include criteri predefiniti configurabili chiamati flussi utente. Con i flussi utente è possibile creare esperienze utente eccezionali in pochi minuti, con pochi clic. [Informazioni sul momento in cui usare i flussi utente rispetto ai criteri personalizzati](user-flow-overview.md#comparing-user-flows-and-custom-policies).|
 | Registrazioni per l'app | Ogni applicazione (Web, nativa) e API da proteggere deve essere registrata in Azure AD B2C. Se un'app include sia una versione Web che una versione nativa di iOS e Android, è possibile registrarle come un'unica applicazione in Azure AD B2C con lo stesso ID client. Informazioni su come [registrare OIDC, SAML, Web e app native](./tutorial-register-applications.md?tabs=applications). Altre informazioni sui [tipi di applicazioni che è possibile usare in Azure ad B2C](./application-types.md). |
 | Passa a fatturazione utenti attivi mensili | Azure AD B2C è stato spostato da autenticazioni attive mensili a una fatturazione mensile di utenti attivi (MAU). La maggior parte dei clienti troverà questo modello economicamente conveniente. [Altre informazioni sulla fatturazione mensile degli utenti attivi](https://azure.microsoft.com/updates/mau-billing/). |
 

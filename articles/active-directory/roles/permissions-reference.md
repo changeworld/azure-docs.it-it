@@ -14,24 +14,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f467fc739b3120fd43bec4e21e1e336c1cdf186f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ad8466dca6634b0e72ef4a65acb537006dba3bda
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935414"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108541"
 ---
 # <a name="azure-ad-built-in-roles"></a>Ruoli predefiniti di Azure AD
 
 In Azure Active Directory (Azure AD), se un altro amministratore o un utente non amministratore deve gestire le risorse Azure AD, si assegna loro un ruolo Azure AD che fornisce le autorizzazioni necessarie. Ad esempio, è possibile assegnare ruoli per consentire l'aggiunta o la modifica di utenti, la reimpostazione delle password utente, la gestione delle licenze utente o la gestione dei nomi di dominio.
 
 Questo articolo elenca i Azure AD ruoli predefiniti che è possibile assegnare per consentire la gestione delle risorse Azure AD. Per informazioni su come assegnare i ruoli, vedere [assegnare Azure ad ruoli agli utenti](manage-roles-portal.md).
-
-## <a name="limit-use-of-global-administrator"></a>Limitare l'utilizzo dell'amministratore globale
-
-Gli utenti assegnati al ruolo di amministratore globale possono leggere e modificare tutte le impostazioni amministrative nell'organizzazione Azure AD. Per impostazione predefinita, quando un utente si iscrive a un servizio cloud Microsoft, viene creato un tenant di Azure AD e l'utente viene reso membro del ruolo di amministratore globale. Quando si aggiunge una sottoscrizione a un tenant esistente, non viene assegnato al ruolo di amministratore globale. Solo gli amministratori globali e gli amministratori dei ruoli con privilegi possono delegare ruoli di amministratore. Per ridurre il rischio per l'azienda, è consigliabile assegnare questo ruolo al numero minore possibile di persone nell'organizzazione.
-
-La procedura consigliata prevede di assegnare questo ruolo a meno di cinque utenti nell'organizzazione. Se nell'organizzazione esistono più di cinque amministratori assegnati al ruolo di amministratore globale, di seguito sono riportati alcuni modi per ridurne l'uso.
 
 ## <a name="all-roles"></a>Tutti i ruoli
 
@@ -771,6 +765,9 @@ Questo amministratore gestisce la federazione tra le organizzazioni Azure AD e i
 ## <a name="global-administrator"></a>Amministratore globale
 
 gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative in Azure Active Directory, nonché ai servizi che usano identità di Azure Active Directory come Centro sicurezza Microsoft 365, Centro conformità Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. Inoltre, gli amministratori globali possono [elevare l'accesso](../../role-based-access-control/elevate-access-global-admin.md) per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure. Ciò consente agli amministratori globali di ottenere l'accesso completo a tutte le risorse di Azure usando il rispettivo tenant Azure AD. La persona che si iscrive al Azure AD organizzazione diventa un amministratore globale. L'azienda può avere più di un amministratore globale. Gli amministratori globali possono reimpostare la password per qualsiasi utente e per tutti gli altri amministratori.
+
+> [!NOTE]
+> Come procedura consigliata, Microsoft consiglia di assegnare il ruolo di amministratore globale a meno di cinque utenti nell'organizzazione. Per ulteriori informazioni, vedere la pagina relativa alle [procedure consigliate per Azure ad Roles](best-practices.md).
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -1841,6 +1838,23 @@ Gli utenti con questo ruolo possono creare utenti e gestire tutti gli aspetti de
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare l'integrità dei servizi nell'interfaccia di amministrazione di Microsoft 365 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire richieste di servizio Microsoft 365 |
 > | microsoft.office365.webPortal/allEntities/standard/read | Leggere le proprietà di base per tutte le risorse nell'interfaccia di amministrazione di Microsoft 365 |
+
+## <a name="how-to-understand-role-permissions"></a>Come comprendere le autorizzazioni per i ruoli
+
+Lo schema per le autorizzazioni segue liberamente il formato REST di Microsoft Graph:
+
+`<namespace>/<entity>/<propertySet>/<action>`
+
+Ad esempio:
+
+`microsoft.directory/applications/credentials/update`
+
+| Elemento permission | Descrizione |
+| --- | --- |
+| namespace | Prodotto o servizio che espone l'attività ed è anteposto a `microsoft` . Ad esempio, tutte le attività in Azure AD utilizzano lo `microsoft.directory` spazio dei nomi. |
+| Entità | Funzionalità o componente logico esposto dal servizio in Microsoft Graph. Ad esempio, Azure AD espone utenti e gruppi, OneNote espone le note ed Exchange espone le cassette postali e i calendari. Esiste una `allEntities` parola chiave speciale per specificare tutte le entità in uno spazio dei nomi. Questa operazione viene spesso usata nei ruoli che concedono l'accesso a un intero prodotto. |
+| propertySet | Proprietà o aspetti specifici dell'entità per cui viene concesso l'accesso. Ad esempio, `microsoft.directory/applications/authentication/read` concede la possibilità di leggere l'URL di risposta, l'URL di disconnessione e la proprietà del flusso implicito nell'oggetto applicazione in Azure ad.<ul><li>`allProperties` designa tutte le proprietà dell'entità, incluse le proprietà con privilegi.</li><li>`standard` designa le proprietà comuni, ma esclude quelle con privilegi correlati all' `read` azione. Ad esempio, `microsoft.directory/user/standard/read` include la possibilità di leggere le proprietà standard come il numero di telefono pubblico e l'indirizzo di posta elettronica, ma non il numero di telefono secondario privato o l'indirizzo di posta elettronica usato per l'autenticazione a più fattori.</li><li>`basic` designa le proprietà comuni, ma esclude quelle con privilegi correlati all' `update` azione. Il set di proprietà che è possibile leggere può essere diverso da quello che è possibile aggiornare. Per questo motivo, sono `standard` disponibili `basic` parole chiave e.</li></ul> |
+| azione | Operazione concessa, in genere creazione, lettura, aggiornamento o eliminazione (CRUD). Esiste una `allTasks` parola chiave speciale per specificare tutte le funzionalità sopra indicate (creazione, lettura, aggiornamento ed eliminazione). |
 
 ## <a name="deprecated-roles"></a>Ruoli deprecati
 

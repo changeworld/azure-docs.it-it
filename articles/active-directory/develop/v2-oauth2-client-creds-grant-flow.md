@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/2/2020
+ms.date: 4/1/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 96f7d7c94ce908d953a6941bfa237fe8da1dc482
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b3e27f266551eb7425d4801d14261a5e428e4c2
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98752655"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168111"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity Platform e il flusso di credenziali client OAuth 2,0
 
@@ -25,7 +25,7 @@ La [concessione di credenziali client OAuth 2.0](https://tools.ietf.org/html/rfc
 
 Questo articolo descrive come programmare direttamente in base al protocollo nell'applicazione. Quando possibile, è consigliabile usare le librerie di autenticazione Microsoft (MSAL) supportate anziché [acquisire i token e chiamare le API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Vedere anche le [app di esempio che usano MSAL](sample-v2-code.md).
 
-Il flusso di concessione di credenziali client OAuth 2.0 permette a un servizio Web (client riservato) di usare le proprie credenziali per l'autenticazione in caso di chiamata a un altro servizio Web, invece di rappresentare un utente. In questo scenario il client è in genere un servizio Web di livello intermedio, un servizio daemon o un sito Web. Per un livello più elevato di sicurezza, Microsoft Identity Platform consente anche al servizio chiamante di usare un certificato (invece di un segreto condiviso) come credenziale.
+Il flusso di concessione di credenziali client OAuth 2.0 permette a un servizio Web (client riservato) di usare le proprie credenziali per l'autenticazione in caso di chiamata a un altro servizio Web, invece di rappresentare un utente. Per un livello più elevato di sicurezza, Microsoft Identity Platform consente anche al servizio chiamante di usare un certificato (invece di un segreto condiviso) come credenziale.  Poiché vengono utilizzate le credenziali delle applicazioni, queste credenziali devono essere mantenute sicure: _non pubblicare mai_ le credenziali nel codice sorgente, incorporarla nelle pagine Web o usarla in un'applicazione nativa ampiamente distribuita. 
 
 Nel flusso di credenziali client, le autorizzazioni vengono concesse direttamente all'applicazione stessa da un amministratore. Quando l'app presenta un token a una risorsa, la risorsa impone che l'app stessa disponga dell'autorizzazione per eseguire un'azione poiché non è presente alcun utente nell'autenticazione.  Questo articolo illustra i passaggi necessari per [autorizzare un'applicazione a chiamare un'API](#application-permissions), nonché come [ottenere i token necessari per chiamare tale API](#get-a-token).
 

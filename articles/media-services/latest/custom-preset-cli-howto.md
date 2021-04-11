@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a91123b22eaef4cbaf2e96c93200777c8a85abab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3977b02bffd49762bdcb69fa4940052518c9d25
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092390"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963479"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Come codificare con una trasformazione personalizzata-interfaccia della riga di comando di Azure
 
@@ -34,7 +34,7 @@ Quando si creano set di impostazioni personalizzati, si applicano le considerazi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
+[Creare un account di Servizi multimediali di Azure](./account-create-how-to.md).
 
 Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.
 

@@ -7,18 +7,18 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 12/02/2020
-ms.openlocfilehash: bcb7f2d008c54981223b4839f9a750e6ee9ac5cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc3566634948df3ce8ecb747148eb10f48bfc582
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97355147"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106888"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creare un'offerta Dynamics 365 for Operations
 
 Questo articolo descrive come creare una nuova offerta di Dynamics 365 per le operazioni. [Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) di Microsoft è un servizio ERP (Enterprise Resource Planning) che supporta finanza avanzata, operazioni, produzione e gestione della catena di approvvigionamento. Tutte le offerte per Dynamics 365 for Operations devono essere sottoposte al processo di certificazione.
 
-Prima di iniziare, [creare un account per il marketplace commerciale nel Centro per i partner](create-account.md) se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma del marketplace commerciale.
+Prima di iniziare, [creare un account per il marketplace commerciale nel Centro per i partner](../create-account.md) se non è ancora stato fatto. Assicurarsi che l'account sia registrato nel programma del marketplace commerciale.
 
 >[!NOTE]
 > Dopo la pubblicazione di un'offerta, le modifiche all'offerta verranno aggiornate solo nel centro per i partner e nel negozio online dopo aver inviato di nuovo l'offerta per la pubblicazione.

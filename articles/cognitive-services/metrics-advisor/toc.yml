@@ -5,15 +5,19 @@
   items:
     - name: Che cos'è Advisor metriche?
       href: overview.md
+    - name: Prezzi
+      href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Guide introduttive per la metrica di Advisor
   items:
-    - name: Usare il portale Web
+    - name: Portale Web
       href: quickstarts/web-portal.md
-    - name: Usare l'API REST o le librerie client
+    - name: API REST e librerie client
       href: quickstarts/rest-api-and-client-library.md
-- name: Procedure
+- name: Esempi
+  href: 'https://docs.microsoft.com/en-us/samples/browse/?products=azure&terms=metrics-advisor'
+- name: Guide pratiche
   items:
     - name: Eseguire l'onboarding dei dati
       href: how-tos/onboard-your-data.md
@@ -31,13 +35,13 @@
       href: how-tos/anomaly-feedback.md
     - name: Creare un grafo delle metriche
       href: how-tos/metrics-graph.md
-- name: Informazioni di riferimento
+- name: Concetti
   items:
-    - name: Glossario
+    - name: Termini chiave di Advisor metrica
       href: glossary.md
-    - name: Domande frequenti
-      href: faq.md
-    - name: API Advisor metriche
+- name: Riferimento
+  items:
+    - name: API REST di Advisor per le metriche
       href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
     - name: Informazioni di riferimento sull'interfaccia della riga di comando di Azure
       href: /cli/azure/cognitiveservices#az_cognitiveservices_list
@@ -45,12 +49,10 @@
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Risorse
   items:
+    - name: Supporto di area
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
-    - name: Prezzi
-      href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
-    - name: Disponibilità a livello di area
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Crittografia

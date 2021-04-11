@@ -2,18 +2,15 @@
 title: Configurare il failover/failback in un sito Hyper-V secondario con Azure Site Recovery
 description: Informazioni su come eseguire il failover di macchine virtuali Hyper-V in un sito locale secondario e il failback in un sito primario durante il ripristino di emergenza con Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72b23e37a365287cc8a850f960137fdb7ec08497
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74082591"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581125"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Failover e failback di macchine virtuali Hyper-V replicate in un sito locale secondario
 

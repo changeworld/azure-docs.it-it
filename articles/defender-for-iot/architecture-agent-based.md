@@ -1,16 +1,16 @@
 ---
-title: Architettura della soluzione basata su agenti
+title: Che cos'è l'architettura della soluzione basata su agenti
 description: Scopri di più su Azure Defender per l'architettura e il flusso di informazioni basate su agenti.
 ms.topic: overview
 ms.date: 1/25/2021
-ms.openlocfilehash: b04e8fa6225aef9f3c228a44631f117fedffccff
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e08c3f151c3d3bc4fe08e61d960874b07f5b63e8
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104784884"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383525"
 ---
-# <a name="agent-based-solution-for-device-builders"></a>Soluzione basata su agente per integratori di dispositivi
+# <a name="what-is-agent-based-solution-for-device-builders"></a>Che cos'è la soluzione basata su agenti per i generatori di dispositivi
 
 Questo articolo descrive l'architettura del sistema funzionale del Defender per la soluzione basata su agenti. Azure Defender per Internet delle cose offre due set di funzionalità che soddisfano le esigenze dell'ambiente, la soluzione senza agenti per le organizzazioni e la soluzione basata su agenti per i generatori di dispositivi.
 
@@ -34,7 +34,7 @@ Il servizio Defender per gli avvisi e le raccomandazioni per l'it (output della 
 
 :::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="Architettura di micro Agent.":::
 
-## <a name="see-also"></a>Vedi anche
+## <a name="next-steps"></a>Passaggi successivi
 
 [Domande frequenti su Defender](resources-frequently-asked-questions.md)
 

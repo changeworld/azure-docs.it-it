@@ -8,12 +8,12 @@ author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: db502f4652a6ae541a504249475898e3e771f90d
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ab7a0c3fa947fdf62672013b5a557d0447eb67c5
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563396"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106854"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Configurare la co-selling per un'offerta di Marketplace commerciale
 
@@ -38,7 +38,7 @@ L'opzione di co-selling è disponibile per i tipi di offerta seguenti.
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
 1. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview**.
     > [!TIP]
-    > Se il **Marketplace commerciale** non è visibile nel percorso di navigazione a sinistra, [creare un account Marketplace commerciale nel centro](./partner-center-portal/create-account.md) per i partner e assicurarsi che l'account sia registrato nel programma commerciale Marketplace.
+    > Se il **Marketplace commerciale** non è visibile nel percorso di navigazione a sinistra, [creare un account Marketplace commerciale nel centro](create-account.md) per i partner e assicurarsi che l'account sia registrato nel programma commerciale Marketplace.
 1. Nella scheda **Panoramica** selezionare l'offerta che si vuole co-vendere.
     > [!NOTE]
     > È possibile configurare la co-selling per una nuova offerta non ancora pubblicata o con un'offerta già pubblicata.

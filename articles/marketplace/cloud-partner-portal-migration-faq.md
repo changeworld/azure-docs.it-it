@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: e071692a1c6fe423b048dab884164d9b3c98f1fd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e606e21fe2b80683737970b92d57ce87b9103144
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102613613"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106871"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Domande frequenti sulla transizione dalla portale Cloud Partner al centro per i partner
 
@@ -24,7 +24,7 @@ Il portale Cloud Partner è passato al centro per i partner. Il centro per i par
 
 | Area | Modifiche |
 | --- | --- |
-| Account | Non è necessario creare un nuovo account del centro per i partner; è possibile usare le credenziali di portale Cloud Partner esistenti per accedere al centro per i partner, in cui si gestirà l'account, gli utenti, le autorizzazioni e la fatturazione. Il contratto di pubblicazione e le informazioni sul profilo della società vengono migrati al nuovo account del centro per i partner, insieme alle informazioni sul profilo di pagamento, agli account utente e alle autorizzazioni e alle offerte attive. Per altre informazioni, vedere [gestire l'account del Marketplace commerciale nel centro per i partner](partner-center-portal/manage-account.md). |
+| Account | Non è necessario creare un nuovo account del centro per i partner; è possibile usare le credenziali di portale Cloud Partner esistenti per accedere al centro per i partner, in cui si gestirà l'account, gli utenti, le autorizzazioni e la fatturazione. Il contratto di pubblicazione e le informazioni sul profilo della società vengono migrati al nuovo account del centro per i partner, insieme alle informazioni sul profilo di pagamento, agli account utente e alle autorizzazioni e alle offerte attive. Per altre informazioni, vedere [gestire l'account del Marketplace commerciale nel centro per i partner](manage-account.md). |
 | Offrire un'esperienza di gestione di pubblicazione e offerta | I dati dell'offerta sono stati spostati dal portale Cloud Partner al centro per i partner. Ora potrai accedere alle tue offerte nel centro per i partner, che offre un'esperienza utente migliorata e un'interfaccia intuitiva. Informazioni su come [aggiornare un'offerta esistente nel Marketplace commerciale](partner-center-portal/update-existing-offer.md). |
 | Disponibilità delle offerte nel Marketplace commerciale | Nessuna modifica. Se l'offerta è Live nel Marketplace commerciale, continuerà a essere attiva. |
 | Nuovi acquisti e distribuzioni | Nessuna modifica. I clienti possono continuare l'acquisto e la distribuzione delle offerte senza interruzioni. |

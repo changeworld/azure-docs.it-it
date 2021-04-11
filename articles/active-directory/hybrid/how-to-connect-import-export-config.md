@@ -11,12 +11,12 @@ ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e2bdaa2c7a7648124fbe0be60e5a0af2f83238f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98681956"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226514"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importare ed esportare le impostazioni di configurazione Azure AD Connect 
 
@@ -42,7 +42,7 @@ Per importare le impostazioni esportate in precedenza:
 1. Selezionare **Importa impostazioni di sincronizzazione**. Cercare il file di impostazioni JSON esportato in precedenza.
 1. Selezionare **Installa**.
 
-   ![Screenshot che mostra la schermata Installa componenti necessari](media/how-to-connect-import-export-config/import1.png)
+   ![Screenshot che mostra la schermata Installa componenti necessari](media/how-to-connect-import-export-config/import-1.png)
 
 > [!NOTE]
 > Eseguire l'override delle impostazioni in questa pagina come l'utilizzo di SQL Server anziché del database locale o l'utilizzo di un account del servizio esistente anziché di un valore VSA predefinito. Queste impostazioni non vengono importate dal file delle impostazioni di configurazione. Sono disponibili a scopo informativo e di confronto.
@@ -57,7 +57,7 @@ Ecco le uniche modifiche che possono essere apportate durante l'esperienza di in
 - **Credenziali della directory locale**: per ogni directory locale inclusa nelle impostazioni di sincronizzazione, è necessario fornire le credenziali per creare un account di sincronizzazione o fornire un account di sincronizzazione personalizzato creato in precedenza. Questa procedura è identica all'esperienza di installazione pulita, con l'eccezione che non è possibile aggiungere o rimuovere directory.
 - **Opzioni di configurazione**: come con un'installazione pulita, è possibile scegliere di configurare le impostazioni iniziali per stabilire se avviare la sincronizzazione automatica o abilitare la modalità di gestione temporanea. La differenza principale è che la modalità di gestione temporanea è intenzionalmente abilitata per impostazione predefinita per consentire il confronto dei risultati della configurazione e della sincronizzazione prima di esportare attivamente i risultati in Azure.
 
-![Screenshot che mostra la schermata Connetti le directory](media/how-to-connect-import-export-config/import2.png)
+![Screenshot che mostra la schermata Connetti le directory](media/how-to-connect-import-export-config/import-2.png)
 
 > [!NOTE]
 > Solo un server di sincronizzazione può trovarsi nel ruolo primario ed esportare attivamente le modifiche di configurazione in Azure. Tutti gli altri server devono essere posizionati in modalità di staging.
@@ -71,21 +71,27 @@ Per la migrazione è necessario eseguire uno script di PowerShell che estrae le 
 ### <a name="migration-process"></a>Processo di migrazione 
 Per eseguire la migrazione delle impostazioni:
 
-1. Avviare **AzureADConnect.msi** nel nuovo server di gestione temporanea e arrestare la pagina **iniziale** di Azure ad Connect.
+ 1. Avviare **AzureADConnect.msi** nel nuovo server di gestione temporanea e arrestare la pagina **iniziale** di Azure ad Connect.
 
-1. Copiare **MigrateSettings.ps1** dalla directory Microsoft Azure ad Connect\Tools in un percorso nel server esistente. Un esempio è C:\setup, in cui il programma di installazione è una directory creata nel server esistente.
+ 2. Copiare **MigrateSettings.ps1** dalla directory Microsoft Azure ad Connect\Tools in un percorso nel server esistente. Un esempio è C:\setup, in cui il programma di installazione è una directory creata nel server esistente.</br>
+     ![Screenshot che mostra le directory Azure AD Connect.](media/how-to-connect-import-export-config/migrate-1.png)
 
-   ![Screenshot che mostra le directory Azure AD Connect.](media/how-to-connect-import-export-config/migrate1.png)
+     >[!NOTE]
+     > Se viene visualizzato un messaggio: "Impossibile trovare un parametro posizionale che accetti l'argomento **true**.", come indicato di seguito:
+     >
+     >
+     >![Screenshot dell'errore ](media/how-to-connect-import-export-config/migrate-5.png) modificare il file di MigrateSettings.ps1 e rimuovere **$true** ed eseguire lo script: ![ screenshot per modificare la configurazione](media/how-to-connect-import-export-config/migrate-6.png)
+ 
 
-1. Eseguire lo script come illustrato qui e salvare l'intera directory di configurazione del server di livello inferiore. Copiare questa directory nel nuovo server di gestione temporanea. È necessario copiare l'intera cartella **esportata-ServerConfiguration-*** nel nuovo server.
 
-   ![Screenshot che mostra lo script in Windows PowerShell. ](media/how-to-connect-import-export-config/migrate2.png)
-    ![ Screenshot che mostra la copia della cartella Exported-ServerConfiguration-*.](media/how-to-connect-import-export-config/migrate3.png)
 
-1. Avviare **Azure ad Connect** facendo doppio clic sull'icona sul desktop. Accettare le condizioni di licenza software Microsoft e, nella pagina successiva, selezionare **Personalizza**.
-1. Selezionare la casella di controllo **Importa impostazioni di sincronizzazione** . Selezionare **Sfoglia** per visualizzare la cartella copiato-over esportated-ServerConfiguration-*. Selezionare il MigratedPolicy.jssu per importare le impostazioni migrate.
+ 3. Eseguire lo script come illustrato qui e salvare l'intera directory di configurazione del server di livello inferiore. Copiare questa directory nel nuovo server di gestione temporanea. È necessario copiare l'intera cartella **esportata-ServerConfiguration-*** nel nuovo server.
+     ![Screenshot che mostra lo script in Windows PowerShell. ](media/how-to-connect-import-export-config/migrate-2.png)![ Screenshot che mostra la copia della cartella Exported-ServerConfiguration-*.](media/how-to-connect-import-export-config/migrate-3.png)
 
-   ![Screenshot che mostra l'opzione Importa impostazioni di sincronizzazione.](media/how-to-connect-import-export-config/migrate4.png)
+ 4. Avviare **Azure ad Connect** facendo doppio clic sull'icona sul desktop. Accettare le condizioni di licenza software Microsoft e, nella pagina successiva, selezionare **Personalizza**.
+ 5. Selezionare la casella di controllo **Importa impostazioni di sincronizzazione** . Selezionare **Sfoglia** per visualizzare la cartella copiato-over esportated-ServerConfiguration-*. Selezionare il MigratedPolicy.jssu per importare le impostazioni migrate.
+
+     ![Screenshot che mostra l'opzione Importa impostazioni di sincronizzazione.](media/how-to-connect-import-export-config/migrate-4.png)
 
 ## <a name="post-installation-verification"></a>Verifica post-installazione 
 

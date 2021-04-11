@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
 ms.openlocfilehash: 21b4977102a484d8a3a680450a9cb6f77c7e3fbd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104722753"
 ---
 # <a name="use-javascript-sdk-in-nodejs-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Usare JavaScript SDK in Node.js per gestire gli ACL in Azure Data Lake Storage Gen2
@@ -229,6 +229,6 @@ await fileClient.setAccessControl(acl);
 
 - [Pacchetto (npm)](https://www.npmjs.com/package/@azure/storage-file-datalake)
 - [Esempi](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)
-- [Invia feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+- [Invia commenti e suggerimenti](https://github.com/Azure/azure-sdk-for-java/issues)
 - [Modello di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
 - [Elenchi di controllo di accesso (ACL) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

@@ -1,18 +1,15 @@
 ---
 title: Supporto per il ripristino di emergenza di macchine virtuali Hyper-V in Azure con Azure Site Recovery
 description: Questo articolo presenta un riepilogo dei componenti supportati e dei requisiti per il ripristino di emergenza di macchine virtuali Hyper-V in Azure con Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-ms.author: raynew
-ms.openlocfilehash: 8d748f93337a770e0d565bab79fdfb3625bda70d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 936950ef5dd2c1c7343e30536ab8836fcd198bd0
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735523"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580829"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 

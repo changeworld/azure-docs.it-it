@@ -7,19 +7,19 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.openlocfilehash: dbe5ebaef7821299dc871adfd1000a999ff6b995
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 160797367e2daf0cb6fe708d626cbf217c9992c8
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105639521"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448602"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>Guida introduttiva: connettere MXCHIP AZ3166 DevKit a IoT Central
 
 **Si applica a**: [sviluppo di dispositivi incorporati](about-iot-develop.md#embedded-device-development)<br>
 **Tempo di completamento totale**: 30 minuti
 
-[![Esplora il codice](media/common/browse-code-github.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
+[![Esplora il codice](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
 In questa esercitazione si userà Azure RTO per connettere un MXCHIP AZ3166 DevKit (in seguito, MXCHIP DevKit) ad Azure. L'articolo fa parte della serie [Introduzione allo sviluppo di dispositivi embedded Azure](quickstart-device-development.md). La serie introduce gli sviluppatori di dispositivi ad Azure RTO e Mostra come connettere diversi kit di valutazione del dispositivo ad Azure.
 

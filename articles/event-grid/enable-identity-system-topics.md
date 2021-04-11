@@ -3,12 +3,12 @@ title: Argomento abilitare l'identità gestita in un sistema di griglia di event
 description: Questo articolo descrive come abilitare l'identità del servizio gestito per un argomento di sistema di griglia di eventi di Azure.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 66b418787e5570dc5da06a5332dd834ccbfd4aef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d8219cf9cba4ce0a4fb5ddbcf695f1ec72de36fe
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630522"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280514"
 ---
 # <a name="assign-a-system-managed-identity-to-an-event-grid-system-topic"></a>Assegnare un'identità gestita dal sistema a un argomento di sistema di griglia di eventi
 Questo articolo illustra come abilitare l'identità gestita dal sistema per un argomento esistente del sistema di griglia di eventi. Per informazioni sulle identità gestite, vedere [che cosa sono le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).  
@@ -43,4 +43,4 @@ La procedura seguente illustra come abilitare l'identità gestita dal sistema pe
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Aggiungere l'identità a un ruolo appropriato, ad esempio il mittente dei dati del bus di servizio, nella destinazione, ad esempio una coda del bus di servizio. Per i passaggi dettagliati, vedere [aggiungere identità ai ruoli di Azure nelle destinazioni](add-identity-roles.md). 
+Aggiungere l'identità a un ruolo appropriato, ad esempio il mittente dei dati del bus di servizio, nella destinazione, ad esempio una coda del bus di servizio. Per i passaggi dettagliati, vedere [concedere a identità gestita l'accesso alla destinazione di griglia di eventi](add-identity-roles.md). 

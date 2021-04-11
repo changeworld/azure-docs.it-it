@@ -3,15 +3,15 @@ title: Pipeline di esecuzione Azure Machine Learning
 description: Informazioni su come eseguire le pipeline di Azure Machine Learning nelle pipeline di Azure Data Factory.
 ms.service: data-factory
 ms.topic: conceptual
-ms.author: daperlov
-author: djpmsft
+ms.author: weetok
+author: dcstwh
 ms.date: 07/16/2020
-ms.openlocfilehash: db1816baf0ebc476a132b344d8db3cdbdd170e50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0b941325d6bbabcb083b5f71a40c145d3ef48d0
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373930"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103471"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Eseguire pipeline di Azure Machine Learning in Azure Data Factory
 
@@ -55,6 +55,7 @@ mlPipelineId | ID della pipeline Azure Machine Learning pubblicata | Stringa (o 
 experimentname | Nome dell'esperimento di cronologia di esecuzione del Machine Learning esecuzione della pipeline | Stringa (o un'espressione con l'elemento resultType della stringa) | No
 mlPipelineParameters | Coppie chiave-valore da passare all'endpoint della pipeline di Azure Machine Learning pubblicati. Le chiavi devono corrispondere ai nomi dei parametri della pipeline definiti nella pipeline Machine Learning pubblicata | Oggetto con coppie chiave-valore (o espressione con oggetto resultType) | No
 mlParentRunId | ID esecuzione pipeline Azure Machine Learning padre | Stringa (o un'espressione con l'elemento resultType della stringa) | No
+dataPathAssignments | Dizionario usato per la modifica dei percorsi di DataPath in Azure Machine Learning. Abilita il passaggio dei percorsi di DataPath | Oggetto con coppie chiave-valore | No
 continueOnStepFailure | Indica se continuare l'esecuzione di altri passaggi nell'Machine Learning esecuzione della pipeline in caso di errore di un passaggio | boolean | No
 
 > [!NOTE]

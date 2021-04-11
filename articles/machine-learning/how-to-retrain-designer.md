@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 04/06/2020
+ms.date: 03/06/2021
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed5f59fc1d751f92a7c016aa3586497659f778fd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "97708467"
+ms.locfileid: "105962952"
 ---
 # <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>Usare i parametri della pipeline per ripetere il training dei modelli nella finestra di progettazione
 
@@ -120,3 +120,5 @@ Per eseguire una chiamata REST è necessaria un'intestazione di autenticazione d
 In questo articolo si è appreso come creare un endpoint della pipeline di training con parametri usando la finestra di progettazione.
 
 Per la procedura dettagliata completa per distribuire un modello per eseguire stime, vedere l'[esercitazione con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md) per eseguire il training e la distribuzione di un modello di regressione.
+
+Per informazioni su come pubblicare e inviare un'esecuzione all'endpoint della pipeline con SDK, vedere [questo articolo](how-to-deploy-pipelines.md).

@@ -9,12 +9,12 @@ ms.reviewer: ''
 ms.date: 03/08/2021
 author: ruixinxu
 ms.author: ruxu
-ms.openlocfilehash: 928e2ef8b373626a91a291b1798f3ebb7ef290e8
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 5258d8f16e288e7df7e1286eb1902cc6ba6d10f7
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105608834"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227722"
 ---
 # <a name="tutorial-build-machine-learning-applications-using-microsoft-machine-learning-for-apache-spark-preview"></a>Esercitazione: creare applicazioni di Machine Learning usando Microsoft Machine Learning per Apache Spark (anteprima)
 
@@ -23,7 +23,7 @@ Sinapsi Spark fornisce librerie MMLSpark predefinite, tra cui:
 
 - [Vowpal Wabbit](https://github.com/Azure/mmlspark/blob/master/docs/vw.md) -servizi di libreria per machine learning per abilitare l'analisi del testo, ad esempio l'analisi dei sentimenti nei Tweet.
 - [Servizi cognitivi in Spark](https://github.com/Azure/mmlspark/blob/master/docs/cogsvc.md) : per combinare la funzionalità dei servizi cognitivi di Azure nelle pipeline SparkML per derivare la progettazione di soluzioni per i servizi di modellazione dei dati cognitivi come il rilevamento delle anomalie.
-- [LightBGM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM è un Framework con boosting a gradienti che usa algoritmi di apprendimento basati su albero. È progettato per essere distribuito e più efficiente.
+- [LightGBM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM è un Framework con boosting a gradienti che usa algoritmi di apprendimento basati su albero. È progettato per essere distribuito e più efficiente.
 - Modelli KNN condizionali KNN-scalabili con query condizionali.
 - [Http in Spark](https://github.com/Azure/mmlspark/blob/master/docs/http.md) : consente l'orchestrazione di microservizi distribuiti nell'integrazione dell'accessibilità basata sul protocollo Spark e http.
 

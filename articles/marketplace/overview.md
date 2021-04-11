@@ -6,12 +6,12 @@ ms.author: mingshen
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: 099515eb1160b131f2d56fd02f300999d5ddfd16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de8e9060f8e7ccdcf38b9f0908dfb05063811817
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96780315"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103405"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Che cos'è il marketplace commerciale Microsoft?
 
@@ -82,5 +82,5 @@ Per informazioni più dettagliate su questi vantaggi, vedere [Vantaggi del marke
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere [Introduzione al marketplace commerciale di Microsoft](/learn/modules/intro-commercial-marketplace/) in Microsoft Learn.
-- Per i nuovi partner Microsoft interessati a pubblicare offerte nel marketplace commerciale, vedere [Creare un account Marketplace commerciale nel Centro per i partner](partner-center-portal/create-account.md).
+- Per i nuovi partner Microsoft interessati a pubblicare offerte nel marketplace commerciale, vedere [Creare un account Marketplace commerciale nel Centro per i partner](create-account.md).
 - Per altre informazioni sui rilasci recenti e futuri, partecipare alle conversazioni nella [community dei partner Microsoft](https://www.microsoftpartnercommunity.com/).
