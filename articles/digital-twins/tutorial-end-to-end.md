@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b7883d6c541558e26793f94e37014a20b14d761e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f1653158f7a181ad2d61bc726ba7765eab934341
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577256"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107466"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
@@ -426,7 +426,7 @@ Al termine dell'esercitazione, è possibile scegliere le risorse che si desidera
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **Se si vuole continuare a usare l'istanza di Azure Digital Twins configurata in questo articolo, ma si cancellano alcuni o tutti i modelli, i gemelli e le relazioni**, è possibile usare i comandi [AZ DT](/cli/azure/ext/azure-iot/dt) CLI in una finestra di [Azure cloud Shell](https://shell.azure.com) per eliminare gli elementi che si vuole rimuovere.
+* **Se si vuole continuare a usare l'istanza di Azure Digital Twins configurata in questo articolo, ma si cancellano alcuni o tutti i modelli, i gemelli e le relazioni**, è possibile usare i comandi [AZ DT](/cli/azure/dt) CLI in una finestra di [Azure cloud Shell](https://shell.azure.com) per eliminare gli elementi che si vuole rimuovere.
 
     Questa opzione non rimuoverà alcuna delle altre risorse di Azure create in questa esercitazione (hub degli elementi, app per funzioni di Azure e così via). È possibile eliminarli singolarmente usando i [comandi DT](/cli/azure/reference-index) appropriati per ogni tipo di risorsa.
 

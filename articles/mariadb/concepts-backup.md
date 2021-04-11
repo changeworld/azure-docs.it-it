@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 68605a22dd0d0b2b716b148399c8406a1ea8d89e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b46efa53bba3b845fa5837b91a3707f4a85d298e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98659938"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258776"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Eseguire il backup e il ripristino in Database di Azure per MariaDB
 
@@ -19,28 +19,42 @@ Database di Azure per MariaDB crea automaticamente backup del server e li archiv
 
 ## <a name="backups"></a>Backup
 
-Database di Azure per MariaDB crea backup completi, differenziali e del log delle transazioni. Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. Facoltativamente, è possibile configurare fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
+Il database di Azure per MariaDB esegue il backup dei file di dati e del log delle transazioni. Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. [Facoltativamente, è possibile configurarlo](howto-restore-server-portal.md#set-backup-configuration) fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
 
-Questi file di backup non sono esposti dall'utente e non possono essere esportati. Questi backup possono essere usati solo per le operazioni di ripristino nel database di Azure per MariaDB. Per copiare un database, è possibile usare [mysqldump](howto-migrate-dump-restore.md) .
+Questi file di backup non sono esposti dall'utente e non possono essere esportati. Questi backup possono essere usati solo per le operazioni di ripristino nel database di Azure per MySQL. Per copiare un database, è possibile usare [mysqldump](howto-migrate-dump-restore.md) .
 
-### <a name="backup-frequency"></a>Frequenza di backup
+Il tipo e la frequenza di backup variano a seconda dell'archiviazione back-end per i server.
 
-#### <a name="servers-with-up-to-4-tb-storage"></a>Server con un massimo di 4 TB di archiviazione
+### <a name="backup-type-and-frequency"></a>Tipo di backup e frequenza
 
-Per i server che supportano fino a 4 TB di spazio di archiviazione massimo, i backup completi vengono eseguiti una volta alla settimana. I backup differenziali si verificano due volte al giorno. I backup del log delle transazioni vengono eseguiti ogni cinque minuti.
+#### <a name="basic-storage-servers"></a>Server di archiviazione Basic
 
-#### <a name="servers-with-up-to-16-tb-storage"></a>Server con un massimo di 16 TB di archiviazione
-In un subset di [aree di Azure](concepts-pricing-tiers.md#storage), tutti i server di cui è stato effettuato il provisioning possono supportare fino a 16 TB di archiviazione. I backup su questi server di archiviazione di grandi dimensioni sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup dello snapshot successivi sono solo backup differenziali. 
+L'archiviazione di base è l'archivio back-end che supporta i [server di livello Basic](concepts-pricing-tiers.md). I backup nei server di archiviazione Basic sono basati su snapshot. Ogni giorno viene eseguito uno snapshot completo del database. Per i server di archiviazione di base non sono stati eseguiti backup differenziali e tutti i backup di snapshot sono solo backup completi del database.
 
-I backup differenziali degli snapshot vengono eseguiti almeno una volta al giorno. I backup differenziali degli snapshot non vengono eseguiti in base a una pianificazione fissa. I backup differenziali degli snapshot si verificano ogni 24 ore, a meno che il log delle transazioni (binlog in MariaDB) superi 50 GB dall'ultimo backup differenziale. In un giorno sono consentiti al massimo sei snapshot differenziali. 
+I backup del log delle transazioni vengono eseguiti ogni cinque minuti.
 
-I backup del log delle transazioni vengono eseguiti ogni cinque minuti. 
+#### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Server di archiviazione per utilizzo generico con archiviazione fino a 4 TB
+
+L'archiviazione per utilizzo generico è l'archiviazione back-end che supporta [per utilizzo generico](concepts-pricing-tiers.md) e il server di [livello con ottimizzazione](concepts-pricing-tiers.md) per la memoria Per i server con archiviazione per utilizzo generico fino a 4 TB, i backup completi si verificano una volta alla settimana. I backup differenziali si verificano due volte al giorno. I backup del log delle transazioni vengono eseguiti ogni cinque minuti. I backup nello spazio di archiviazione per utilizzo generico fino a un massimo di 4 TB non sono basati su snapshot e utilizzano la larghezza di banda IO al momento del backup. Per i database di grandi dimensioni (> 1 TB) nell'archiviazione da 4 TB, è consigliabile prendere in considerazione
+
+- Provisioning di più IOPs per tenere conto del backup di IOs o
+- In alternativa, eseguire la migrazione a una risorsa di archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione se l'infrastruttura di archiviazione sottostante è disponibile nelle [aree di Azure](./concepts-pricing-tiers.md#storage)preferite. Non sono previsti costi aggiuntivi per l'archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione. Per assistenza sulla migrazione a una risorsa di archiviazione da 16 TB, aprire un ticket di supporto da portale di Azure.
+
+#### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Server di archiviazione per utilizzo generico con archiviazione fino a 16 TB
+
+In un sottoinsieme di [aree di Azure](./concepts-pricing-tiers.md#storage), tutti i server di cui è stato effettuato il provisioning sono in grado di supportare l'archiviazione per utilizzo generico fino a 16 TB. In altre parole, l'archiviazione per utilizzo generico predefinito per tutte le [aree](concepts-pricing-tiers.md#storage) in cui è supportata è l'archiviazione fino a 16 TB. I backup in questi server di archiviazione da 16 TB sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup dello snapshot successivi sono solo backup differenziali.
+
+I backup differenziali degli snapshot vengono eseguiti almeno una volta al giorno. I backup differenziali degli snapshot non vengono eseguiti in base a una pianificazione fissa. I backup differenziali degli snapshot si verificano ogni 24 ore, a meno che il log delle transazioni (binlog in MariaDB) superi 50 GB dall'ultimo backup differenziale. In un giorno sono consentiti al massimo sei snapshot differenziali.
+
+I backup del log delle transazioni vengono eseguiti ogni cinque minuti.
+ 
 
 ### <a name="backup-retention"></a>Conservazione dei backup
 
 I backup vengono conservati in base all'impostazione del periodo di conservazione dei backup nel server. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. Il periodo di memorizzazione predefinito è 7 giorni. È possibile impostare il periodo di conservazione durante la creazione del server o in un secondo momento aggiornando la configurazione di backup usando [portale di Azure](howto-restore-server-portal.md#set-backup-configuration) o l' [interfaccia](howto-restore-server-cli.md#set-backup-configuration)della riga di comando 
 
 Il periodo di conservazione dei backup determina quanto è possibile tornare indietro nel tempo con un ripristino temporizzato, essendo il ripristino basato sui backup disponibili. Il periodo di conservazione dei backup può essere trattato anche come una finestra di ripristino da una prospettiva di ripristino. Tutti i backup necessari per eseguire un ripristino temporizzato entro il periodo di conservazione dei backup vengono conservati nell'archivio di backup. Se, ad esempio, il periodo di conservazione dei backup è impostato su 7 giorni, la finestra di ripristino viene considerata gli ultimi 7 giorni. In questo scenario vengono conservati tutti i backup necessari per ripristinare il server negli ultimi 7 giorni. Con un intervallo di conservazione dei backup di sette giorni:
+
 - I server con archiviazione fino a 4 TB manterranno fino a 2 backup completi del database, tutti i backup differenziali e i backup del log delle transazioni eseguiti dopo il primo backup completo del database.
 -   I server con archiviazione fino a 16 TB manterranno lo snapshot completo del database, tutti gli snapshot differenziali e i backup del log delle transazioni negli ultimi 8 giorni.
 

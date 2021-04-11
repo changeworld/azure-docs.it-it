@@ -3,20 +3,20 @@ title: Microsoft teams sul desktop virtuale Windows-Azure
 description: Come usare Microsoft teams sul desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 04/09/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 46796573e14dfc33d02d4faddd5504f3e8b7ee7b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+manager: femila
+ms.openlocfilehash: 0c528f183106472850d6b5d2a8b492ea8939eda6
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935721"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285259"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft teams sul desktop virtuale di Windows
 
 >[!IMPORTANT]
->L'ottimizzazione dei supporti per i team è supportata per gli ambienti Microsoft 365 Government (GCC) e GCC-High. L'ottimizzazione dei supporti per i team non è supportata per GCC-High o DoD.
+>L'ottimizzazione dei supporti per i team è supportata per gli ambienti Microsoft 365 Government (GCC) e GCC-High. L'ottimizzazione dei supporti per i team non è supportata per Microsoft 365 DoD.
 
 >[!NOTE]
 >L'ottimizzazione dei supporti per Microsoft teams è disponibile solo per il client desktop di Windows nei computer Windows 10. Per le ottimizzazioni dei supporti è necessario Windows desktop client versione 1.2.1026.0 o successiva.
@@ -148,11 +148,7 @@ L'utilizzo di team in un ambiente virtualizzato è diverso dall'utilizzo di team
 - L'app teams non supporta i pulsanti nascosti o i controlli LED con altri dispositivi.
 - La nuova esperienza di riunione (NME) non è attualmente supportata negli ambienti VDI.
 
-Per i team problemi noti che non sono correlati agli ambienti virtualizzati, vedere [team di supporto all'interno dell'organizzazione](/microsoftteams/known-issues)
-
-## <a name="uservoice-site"></a>Sito di UserVoice
-
-Inviare commenti e suggerimenti per Microsoft teams su desktop virtuale Windows nel sito teams [UserVoice](https://microsoftteams.uservoice.com/).
+Per i team problemi noti che non sono correlati agli ambienti virtualizzati, vedere [team di supporto dell'organizzazione](/microsoftteams/known-issues).
 
 ## <a name="collect-teams-logs"></a>Raccogli log dei team
 

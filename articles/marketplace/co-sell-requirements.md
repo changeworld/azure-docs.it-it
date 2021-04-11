@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: e67219e0b029ce401ffc05c009a5cc4a96680a9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28fdd8b10c7106380c296c8131ade909ee88d0f8
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593391"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107092"
 ---
 # <a name="co-sell-requirements"></a>Requisiti di co-selling
 
@@ -35,7 +35,7 @@ Per un'offerta per ottenere lo stato pronto per il co-selling, è necessario sod
 
 **Tutti i partner**:
 
-- Avere un ID MPN e un [account Marketplace commerciale attivo nel centro per i partner](./partner-center-portal/create-account.md).
+- Avere un ID MPN e un [account Marketplace commerciale attivo nel centro per i partner](create-account.md).
 - Assicurarsi di disporre di un [profilo di business](/partner-center/create-a-marketing-profile) completo nel centro per i partner. In qualità di partner Microsoft qualificato, il tuo profilo aziendale ti aiuta a presentare la tua attività ai clienti che cercano soluzioni e competenze esclusive per soddisfare le esigenze aziendali, ottenendo [riferimenti](/partner-center/referrals).
 - Completare la **co-selling con** la scheda Microsoft e pubblicare l'offerta nel Marketplace commerciale.
 - Fornire un contatto per le vendite per ogni co-selling geography idoneo e la fattura di materiali richiesta.
@@ -59,7 +59,7 @@ Sono disponibili modelli per semplificare la creazione di questi documenti. Per 
 
 ### <a name="publish-your-offer-live"></a>Pubblica l'offerta in tempo reale
 
-Per qualificarsi per lo stato pronto per il co-selling, l'offerta o la soluzione deve essere pubblicata in tempo reale in almeno uno dei negozi online del Marketplace commerciale: Azure Marketplace o Microsoft AppSource. Per informazioni sulla pubblicazione di offerte nel Marketplace commerciale, vedere la [Guida alla pubblicazione in base al tipo di offerta](publisher-guide-by-offer-type.md). Se non è ancora stata pubblicata un'offerta nel Marketplace commerciale, assicurarsi di disporre di un [account Marketplace commerciale](./partner-center-portal/create-account.md).
+Per qualificarsi per lo stato pronto per il co-selling, l'offerta o la soluzione deve essere pubblicata in tempo reale in almeno uno dei negozi online del Marketplace commerciale: Azure Marketplace o Microsoft AppSource. Per informazioni sulla pubblicazione di offerte nel Marketplace commerciale, vedere la [Guida alla pubblicazione in base al tipo di offerta](publisher-guide-by-offer-type.md). Se non è ancora stata pubblicata un'offerta nel Marketplace commerciale, assicurarsi di disporre di un [account Marketplace commerciale](create-account.md).
 
 ## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Requisiti per lo stato di incentivate di co-selling IP di Azure
 

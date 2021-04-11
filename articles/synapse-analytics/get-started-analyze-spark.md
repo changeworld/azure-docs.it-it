@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 0becbbdb68f75072e10a51f5a2eae95291b9ed77
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5d08bc216157fce9ad81eaf3c0f540c7a4d8c3f2
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108333"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259830"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizzare dati con Apache Spark
 
@@ -41,11 +41,7 @@ Un pool Spark senza server è un modo per indicare come un utente desidera lavor
 3. Creare una nuova cella di codice e incollare il codice seguente in tale cella.
     ```py
     %%pyspark
-    from azureml.opendatasets import NycTlcYellow
-
-    data = NycTlcYellow()
-    df = data.to_spark_dataframe()
-    # Display 10 rows
+    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet', format='parquet')
     display(df.limit(10))
     ```
 1. Nel menu **Connetti a** del notebook scegliere il pool di Spark **Spark1** senza server creato in precedenza.
@@ -60,7 +56,7 @@ Un pool Spark senza server è un modo per indicare come un utente desidera lavor
 
 I dati sono disponibili tramite il frame di **dati denominato data**. Caricarli in un database Spark denominato **nyctaxi**.
 
-1. Aggiungere un nuovo al notebook e quindi immettere il codice seguente:
+1. Aggiungere una nuova cella di codice al notebook e quindi immettere il codice seguente:
 
     ```py
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")

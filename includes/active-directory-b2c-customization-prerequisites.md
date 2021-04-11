@@ -4,12 +4,12 @@ ms.service: active-directory-b2c
 ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
-ms.openlocfilehash: e0115d5bb01db36845295e88d1111eb6a1d0279d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b51c8a1de78d1ef65f133985d0a91094ec31322f
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98947741"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107260694"
 ---
 ::: zone pivot="b2c-user-flow"
 
@@ -20,7 +20,7 @@ ms.locfileid: "98947741"
 
 ::: zone pivot="b2c-custom-policy"
 
-* Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](../articles/active-directory-b2c/custom-policy-get-started.md).
+* Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](../articles/active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 * Se non è già stato fatto, [registrare un'applicazione Web](../articles/active-directory-b2c/tutorial-register-applications.md)e [abilitare la concessione implicita token ID](../articles/active-directory-b2c/tutorial-register-applications.md#enable-id-token-implicit-grant).
 
 ::: zone-end

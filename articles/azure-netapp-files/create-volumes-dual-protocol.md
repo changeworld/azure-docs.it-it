@@ -12,19 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/28/2020
+ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 0079c123f908a38cc1e4923790439f18352bf3ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6a2d7ad92c209a93d740d60808c2cbd2f90c6b4
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100574633"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258419"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creazione di un volume a doppio protocollo (NFSv3 e SMB) per Azure NetApp Files
 
-Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1), SMB3 o il protocollo duale. Questo articolo illustra come creare un volume che usa il protocollo duale di NFSv3 e SMB con supporto per il mapping utente LDAP.  
+Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1), SMB3 o il protocollo duale. Questo articolo illustra come creare un volume che usa il protocollo duale di NFSv3 e SMB con supporto per il mapping utente LDAP. 
 
+Per creare volumi NFS, vedere [creare un volume NFS](azure-netapp-files-create-volumes.md). Per creare volumi SMB, vedere [creare un volume SMB](azure-netapp-files-create-volumes-smb.md). 
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 
@@ -39,7 +40,7 @@ Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1
 * Creare una zona di ricerca inversa nel server DNS, quindi aggiungere un record del puntatore (PTR) del computer host AD nella zona di ricerca inversa. In caso contrario, la creazione del volume con doppio protocollo avrà esito negativo.
 * Verificare che il client NFS sia aggiornato ed esegua gli aggiornamenti più recenti per il sistema operativo.
 * Verificare che il server LDAP di Active Directory (AD) sia attivo e in esecuzione nell'Active Directory. Questa operazione può essere eseguita installando e configurando il ruolo [Active Directory Lightweight Directory Services (ad LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) nel computer ad.
-* I volumi a doppio protocollo attualmente non supportano Azure Active Directory Domain Services (AADDS).  
+* I volumi a doppio protocollo attualmente non supportano Azure Active Directory Domain Services (AADDS). LDAP su TLS non deve essere abilitato se si usa AADDS.
 * La versione NFS utilizzata da un volume a doppio protocollo è NFSv3. Di conseguenza, si applicano le considerazioni seguenti:
     * Il protocollo Dual non supporta gli attributi estesi degli ACL `set/get` di Windows dai client NFS.
     * I client NFS non possono modificare le autorizzazioni per lo stile di sicurezza NTFS e i client Windows non possono modificare le autorizzazioni per i volumi a doppio protocollo di tipo UNIX.   
@@ -121,6 +122,17 @@ Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1
  
     Un volume eredita sottoscrizione, gruppo di risorse e attributi di posizione dal relativo pool di capacità. Per monitorare lo stato di distribuzione del volume, è possibile usare la scheda Notifiche.
 
+## <a name="allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume"></a>Consenti agli utenti NFS locali con LDAP di accedere a un volume con doppio protocollo 
+
+È possibile abilitare gli utenti client NFS locali non presenti nel server LDAP Windows per accedere a un volume con doppio protocollo con LDAP con gruppi estesi abilitati. A tale scopo, abilitare l'opzione **Consenti agli utenti NFS locali con LDAP** come indicato di seguito:
+
+1. Fare clic su **Active Directory connessioni**.  In una connessione Active Directory esistente, fare clic sul menu di scelta rapida (i tre punti `…` ) e selezionare **modifica**.  
+
+2. Nella finestra **Modifica impostazioni Active Directory** visualizzata selezionare l'opzione **Consenti utenti NFS locali con LDAP** .  
+
+    ![Screenshot che mostra l'opzione Consenti agli utenti NFS locali con LDAP](../media/azure-netapp-files/allow-local-nfs-users-with-ldap.png)  
+
+
 ## <a name="manage-ldap-posix-attributes"></a>Gestisci attributi POSIX LDAP
 
 È possibile gestire gli attributi POSIX, ad esempio UID, Home Directory e altri valori, usando lo snap-in MMC utenti e computer Active Directory.  Nell'esempio seguente viene illustrato l'editor di attributi Active Directory:  
@@ -129,9 +141,9 @@ Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1
 
 È necessario impostare gli attributi seguenti per gli utenti LDAP e i gruppi LDAP: 
 * Attributi obbligatori per gli utenti LDAP:   
-    `uid`: Alice, `uidNumber` : 139, `gidNumber` : 555, `objectClass` : posixAccount
+    `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: posixAccount`
 * Attributi obbligatori per i gruppi LDAP:   
-    `objectClass`: "posixGroup", `gidNumber` : 555
+    `objectClass: posixGroup`, `gidNumber: 555`
 
 ## <a name="configure-the-nfs-client"></a>Configurare il client NFS 
 
@@ -141,3 +153,4 @@ Per configurare il client NFS, seguire le istruzioni riportate in [configurare u
 
 * [Configurare un client NFS per Azure NetApp Files](configure-nfs-clients.md)
 * [Risolvere i problemi relativi ai volumi SMB o Dual Protocol](troubleshoot-dual-protocol-volumes.md)
+* [Risolvere i problemi del volume LDAP](troubleshoot-ldap-volumes.md)

@@ -2,18 +2,18 @@
 title: Servizi e schemi supportati per i log delle risorse di Azure
 description: Informazioni sui servizi e sullo schema di eventi supportati per i log delle risorse di Azure.
 ms.topic: reference
-ms.date: 09/01/2020
-ms.openlocfilehash: 661cba2d78dbb176bb04e6831cf8e045a285535e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/07/2020
+ms.openlocfilehash: 09415353d93313f1b3c4844202b59f577ef3838d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033096"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105766"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schema comune e specifico del servizio per i log delle risorse di Azure
 
 > [!NOTE]
-> I log delle risorse erano noti in precedenza come log di diagnostica. Il nome è stato modificato nel 2019 ottobre perché i tipi di log raccolti da monitoraggio di Azure sono stati spostati in modo da includere solo la risorsa di Azure. Inoltre, l'elenco delle categorie di log delle risorse che è possibile raccogliere in questo articolo. Sono state spostate in [categorie di log delle risorse](resource-logs-categories.md). 
+> I log delle risorse erano noti in precedenza come log di diagnostica. Il nome è stato modificato nel 2019 ottobre perché i tipi di log raccolti da monitoraggio di Azure sono stati spostati in modo da includere solo la risorsa di Azure. Inoltre, l'elenco delle categorie di log delle risorse che è possibile raccogliere in questo articolo. Sono ora disponibili nelle [categorie del log delle risorse](resource-logs-categories.md). 
 
 I [log delle risorse di monitoraggio di Azure](../essentials/platform-logs-overview.md) sono log emessi da servizi di Azure che descrivono il funzionamento di tali servizi o risorse. Tutti i log delle risorse disponibili tramite monitoraggio di Azure condividono uno schema di primo livello comune, con la flessibilità che consente a ogni servizio di emettere proprietà univoche per gli eventi.
 
@@ -65,6 +65,7 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Database di Azure per MySQL | [Log di diagnostica di database di Azure per MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Database di Azure per PostgreSQL | [Log di database di Azure per PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Registrazione diagnostica in Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Protezione DDoS | [Registrazione per la protezione DDoS di Azure standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Gemelli digitali di Azure | [Configurare la diagnostica di dispositivi gemelli digitali di Azure](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Hub eventi |[Log di hub eventi di Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Lo schema non è disponibile. |
@@ -76,13 +77,13 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Load Balancer |[Analisi dei log per il servizio di bilanciamento del carico di Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | App per la logica |[Schema di rilevamento personalizzato per le app per la logica B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Gruppi di sicurezza di rete |[Analisi dei log per i gruppi di sicurezza di rete](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| Protezione DDoS | [Registrazione per la protezione DDoS di Azure standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Power BI dedicato | [Registrazione per Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Servizi di ripristino | [Modello di dati per backup di Azure](../../backup/backup-azure-reports-data-model.md)|
 | Cerca |[Abilitazione e uso di Analisi del traffico di ricerca](../../search/search-traffic-analytics.md) |
 | Bus di servizio |[Log del bus di servizio di Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Database SQL | [Registrazione del database SQL di Azure](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Analisi di flusso |[Log di processo](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Archiviazione | [BLOB](/azure/storage/blobs/monitor-blob-storage-reference#resource-logs-preview), [file](/azure/storage/files/storage-files-monitoring-reference#resource-logs-preview), [Code](/azure/storage/queues/monitor-queue-storage-reference#resource-logs-preview),  [tabelle](/azure/storage/tables/monitor-table-storage-reference#resource-logs-preview) |
 | Gestione traffico | [Schema del log di gestione traffico](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Reti virtuali | Lo schema non è disponibile. |
 | Gateway di rete virtuale | Lo schema non è disponibile. |

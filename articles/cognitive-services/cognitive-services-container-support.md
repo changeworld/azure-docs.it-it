@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/16/2020
 ms.author: aahi
 keywords: locale, Docker, container, Kubernetes
-ms.openlocfilehash: 3b0a39e9d84a56bac3117df9279954e3756d465a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 007dfe6d67d504286b9546fe0139055b58dc700f
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065821"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285604"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenitori di Servizi cognitivi di Azure
 
@@ -76,7 +76,7 @@ I contenitori di servizi cognitivi di Azure forniscono il seguente set di conten
 
 | Servizio |  Contenitore | Descrizione | Disponibilità |
 |--|--|--|--|
-| [Visione artificiale][cv-containers] | **Lettura OCR** ([immagine](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Il contenitore OCR Read consente di estrarre testo stampato e scritto a mano da immagini e documenti con supporto per formati di file JPEG, PNG, BMP, PDF e TIFF. Per ulteriori informazioni, vedere la [documentazione relativa all'API di lettura](./computer-vision/concept-recognizing-text.md). | Anteprima gestita. [Richiedere l'accesso][request-access]. |
+| [Visione artificiale][cv-containers] | **Lettura OCR** ([immagine](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Il contenitore OCR Read consente di estrarre testo stampato e scritto a mano da immagini e documenti con supporto per formati di file JPEG, PNG, BMP, PDF e TIFF. Per ulteriori informazioni, vedere la [documentazione relativa all'API di lettura](./computer-vision/overview-ocr.md). | Anteprima gestita. [Richiedere l'accesso][request-access]. |
 | [Analisi spaziale][spa-containers] | **Analisi spaziale** ([immagine](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analizza i video di streaming in tempo reale per comprendere le relazioni spaziali tra persone, lo spostamento e le interazioni con gli oggetti in ambienti fisici. | Anteprima gestita. [Richiedere l'accesso][request-access]. |
 | [Viso][fa-containers] | **Viso** | Rileva i visi umani nelle immagini e identifica gli attributi, ad esempio i punti di riferimento del viso (come naso e occhi), il sesso, l'età e altre caratteristiche facciali con previsioni basate su computer. Oltre al rilevamento, Viso può verificare se due volti nella stessa immagine o in immagini diverse sono uguali mediante un punteggio di attendibilità oppure può confrontare i visi con un database per verificare se esistono già visi simili o identici. È anche possibile organizzare i visi simili in gruppi mediante caratteristiche condivise. | Non disponibile |
 | [Riconoscimento moduli][fr-containers] | **Riconoscimento modulo** | La comprensione dei moduli applica la tecnologia di machine learning per identificare ed estrarre le coppie chiave-valore e le tabelle dai moduli. | Non disponibile | 

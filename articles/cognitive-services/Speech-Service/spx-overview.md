@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: trbye
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8f1e5f38e97a1b51a2d919deebbdc452e9daf993
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddba62b37c200ade87dbb51042fe0cb084a9ef9a
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98539768"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106123"
 ---
 # <a name="what-is-the-speech-cli"></a>Che cos'è l'interfaccia della riga di comando per Voce?
 
@@ -36,7 +36,7 @@ Usare l'SDK di riconoscimento vocale nei casi seguenti:
 
 * Riconoscimento vocale: consente di convertire il testo vocale da file audio o direttamente da un microfono oppure di trascrivere una conversazione registrata.
 
-* Sintesi vocale: consente di convertire sintesi vocale usando input da file di testo o direttamente dalla riga di comando. Personalizzare le caratteristiche dell'output vocale usando le [configurazioni di SSML](speech-synthesis-markup.md)e le [voci standard o neurali](speech-synthesis-markup.md#standard-neural-and-custom-voices).
+* Sintesi vocale: consente di convertire sintesi vocale usando input da file di testo o direttamente dalla riga di comando. Personalizzare le caratteristiche dell'output vocale usando le [configurazioni di SSML](speech-synthesis-markup.md)e le [voci standard o neurali](speech-synthesis-markup.md#neural-and-custom-voices).
 
 * Traduzione vocale: consente di convertire l'audio in una lingua di origine in testo o audio in una lingua di destinazione.
 

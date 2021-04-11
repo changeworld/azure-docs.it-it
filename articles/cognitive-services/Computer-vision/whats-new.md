@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: f102bbe45fd5eea853ba63def4f1c1a92888ca46
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487101"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285944"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novità di Visione artificiale
 
@@ -40,7 +40,7 @@ L'anteprima pubblica dell'API v 3.2 di Visione artificiale, disponibile come ser
 * Estrai il testo solo per le pagine selezionate per un documento a più pagine.
 * Disponibile come [contenitore](./computer-vision-how-to-install-containers.md?tabs=version-3-2) non distribuibile per la distribuzione locale.
 
-[Altre](concept-recognizing-text.md) informazioni sull'API Read.
+Per altre informazioni, vedere la Guida alle procedure per l' [API Read](Vision-API-How-to-Topics/call-read-api.md) .
 
 > [!div class="nextstepaction"]
 > [Usare l'anteprima pubblica dell'API v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
@@ -48,11 +48,11 @@ L'anteprima pubblica dell'API v 3.2 di Visione artificiale, disponibile come ser
 
 ## <a name="january-2021"></a>Gennaio 2021
 
-### <a name="spatial-analysis-container-update"></a>Aggiornamento del contenitore Analisi spaziale
+### <a name="spatial-analysis-container-update"></a>Aggiornamento del contenitore di analisi spaziale
 
-È stata rilasciata una nuova versione del [contenitore Analisi spaziale](spatial-analysis-container.md) che include un nuovo set di funzionalità. Questo contenitore Docker consente di analizzare i video in streaming in tempo reale per comprendere le relazioni spaziali tra le persone e i loro movimenti negli ambienti fisici. 
+Una nuova versione del [contenitore di analisi spaziale](spatial-analysis-container.md) è stata rilasciata con un nuovo set di funzionalità. Questo contenitore Docker consente di analizzare i video in streaming in tempo reale per comprendere le relazioni spaziali tra le persone e i loro movimenti negli ambienti fisici. 
 
-* È ora possibile configurare le [operazioni di analisi spaziale](spatial-analysis-operations.md) per rilevare se una persona sta indossando una protezione facciale, ad esempio una mascherina. 
+* È ora possibile configurare [le operazioni di analisi spaziale](spatial-analysis-operations.md) per rilevare se una persona sta indossando una copertura protetta, ad esempio una maschera. 
     * È possibile abilitare un classificatore di mascherine per le operazioni `personcount`, `personcrossingline` e `personcrossingpolygon` configurando il parametro `ENABLE_FACE_MASK_CLASSIFIER`.
     * Gli attributi `face_mask` e `face_noMask` verranno restituiti come metadati con un punteggio di confidenza per ogni persona rilevata nel flusso video
 * L'operazione *personcrossingpolygon* è stata estesa per consentire il calcolo del tempo di permanenza di una persona in una zona. È possibile impostare il `type` parametro nella configurazione della zona per l'operazione su `zonedwelltime` e un nuovo evento di tipo *personZoneDwellTimeEvent* includerà il `durationMs` campo popolato con il numero di millisecondi impiegato dall'utente nella zona.
@@ -71,9 +71,9 @@ L'API Visione artificiale disponibile a livello generale è stato aggiornata all
 
 ## <a name="september-2020"></a>Settembre 2020
 
-### <a name="spatial-analysis-container-preview"></a>Anteprima del contenitore Analisi spaziale
+### <a name="spatial-analysis-container-preview"></a>Anteprima contenitore analisi spaziale
 
-Il [contenitore Analisi spaziale](spatial-analysis-container.md) è ora disponibile in anteprima. La funzionalità Analisi spaziale di Visione artificiale consente di analizzare i video in streaming in tempo reale per comprendere le relazioni spaziali tra le persone e i loro movimenti negli ambienti fisici. Analisi spaziale è un contenitore Docker che è possibile usare in locale. 
+Il [contenitore di analisi spaziale](spatial-analysis-container.md) è ora disponibile in anteprima. La funzionalità di analisi spaziale di Visione artificiale consente di analizzare i video in streaming in tempo reale per comprendere le relazioni spaziali tra gli utenti e il loro spostamento attraverso gli ambienti fisici. L'analisi spaziale è un contenitore Docker che è possibile usare in locale. 
 
 ### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>Aggiunta del riconoscimento ottico dei caratteri per il giapponese nell'API di lettura v3.1 (anteprima pubblica)
 Nell'API di lettura v3.1 (anteprima pubblica) di Visione artificiale sono state aggiunte queste funzionalità:
@@ -83,7 +83,7 @@ Nell'API di lettura v3.1 (anteprima pubblica) di Visione artificiale sono state 
 
 * Questa versione di anteprima dell'API di lettura supporta le lingue inglese, olandese, francese, tedesco, italiano, giapponese, portoghese, cinese semplificato e spagnolo.
 
-Per altre informazioni, vedere la [panoramica dell'API di lettura](concept-recognizing-text.md).
+Per altre informazioni, vedere la Guida alle procedure per l' [API Read](Vision-API-How-to-Topics/call-read-api.md) .
 
 > [!div class="nextstepaction"]
 > [Altre informazioni sull'API di lettura v3.1 (anteprima pubblica 2)](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
@@ -95,18 +95,20 @@ Nell'API di lettura v3.1 (anteprima pubblica) di Visione artificiale è stato ag
 
 * Questa versione di anteprima dell'API di lettura supporta le lingue inglese, olandese, francese, tedesco, italiano, portoghese, cinese semplificato e spagnolo.
 
-Per altre informazioni, vedere la [panoramica dell'API di lettura](concept-recognizing-text.md).
+Per altre informazioni, vedere la Guida alle procedure per l' [API Read](Vision-API-How-to-Topics/call-read-api.md) .
 
 > [!div class="nextstepaction"]
 > [Altre informazioni sull'API di lettura v3.1 (anteprima pubblica 1)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maggio 2020
-API Visione artificiale v3.0 è ora in stato di disponibilità generale, con aggiornamenti per [API di lettura](concept-recognizing-text.md):
+API Visione artificiale v 3.0 è stata immessa la disponibilità generale, con aggiornamenti per l'API di lettura:
 
 * supporto per inglese, olandese, francese, tedesco, italiano, portoghese e spagnolo
 * Miglioramento della precisione
 * Punteggio di attendibilità per ogni parola estratta
 * Nuovo formato di output
+
+Per altre informazioni, vedere [Cenni preliminari sull'OCR](overview-ocr.md) .
 
 ## <a name="march-2020"></a>Marzo 2020
 

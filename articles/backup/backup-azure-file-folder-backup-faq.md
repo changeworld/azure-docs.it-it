@@ -2,13 +2,13 @@
 title: Agente di Servizi di ripristino di Microsoft Azure (MARS) – domande frequenti
 description: Risolve le domande frequenti sul backup di file e cartelle con backup di Azure.
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 98f558c091f1680c165ee26ffb20a8022ab15520
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94917359"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107177"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Domande frequenti-agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -100,6 +100,10 @@ Questo avviso può essere visualizzato anche se sono stati configurati criteri d
 
 * Quando il server o le impostazioni sono state ripristinate in uno stato valido noto, le pianificazioni di backup possono non essere sincronizzate.
 * Se viene visualizzato questo avviso, [configurare](backup-azure-manage-windows-server.md) di nuovo il criterio di backup e quindi eseguire un backup su richiesta per risincronizzare il server locale con Azure.
+
+### <a name="i-see-a-few-jobs-are-stuck-in-the-in-progress-state-for-a-long-time-under-backup-jobs-in-the-azure-portal-how-can-i-resolve-these"></a>Si noterà che alcuni processi sono bloccati nello stato in corso per un lungo periodo di tempo nei processi di backup nel portale di Azure. Come posso risolverli?
+
+Questo problema può verificarsi se un processo non è stato completato a causa di motivi, ad esempio problemi di connettività di rete, arresto del computer o terminazione del processo. Non è richiesta alcuna azione da utente. Questi processi verranno automaticamente contrassegnati come **non riusciti** dopo 30 giorni. [Altre informazioni](backup-windows-with-mars-agent.md#run-an-on-demand-backup) su come eseguire un processo di backup su richiesta con l'agente Mars.
 
 ## <a name="manage-the-backup-cache-folder"></a>Gestire la cartella della cache di backup
 

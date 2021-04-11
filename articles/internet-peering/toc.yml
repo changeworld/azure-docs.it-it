@@ -20,6 +20,8 @@
       href: walkthrough-exchange-all.md
     - name: Procedura dettagliata per il partner del servizio di peering
       href: walkthrough-peering-service-all.md
+    - name: Procedura dettagliata per i partner di Communications Services
+      href: walkthrough-communications-services-partner.md
     - name: Associare l'ASN peer alla sottoscrizione di Azure
       items:
         - name: Portale

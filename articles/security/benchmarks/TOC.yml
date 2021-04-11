@@ -67,6 +67,8 @@
       href: ../../application-gateway/security-baseline.md
     - name: Baseline di sicurezza di Automazione
       href: ../../automation/security-baseline.md
+    - name: Azure Active Directory Baseline della sicurezza
+      href: ../../active-directory/fundamentals/security-baseline.md
     - name: Baseline di sicurezza di Azure Advisor
       href: ../../advisor/security-baseline.md
     - name: Baseline di sicurezza di Configurazione app di Azure

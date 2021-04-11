@@ -392,6 +392,8 @@
       items:
         - name: Analisi delle prestazioni
           href: search-performance-analysis.md
+        - name: Benchmark delle prestazioni
+          href: performance-benchmarks.md
         - name: Suggerimenti per migliorare le prestazioni
           href: search-performance-tips.md
         - name: Registrazione diagnostica

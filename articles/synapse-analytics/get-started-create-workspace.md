@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: a4fa902268d9a19cd0003a2fdaa4c5e58989a4ff
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: f186acbe030dcbb0c2bad22586a8b2a5d1aa520d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218941"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259796"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creazione di un'area di lavoro di Synapse
 
@@ -64,6 +64,16 @@ Dopo aver creato l'area di lavoro di Azure Synapse, è possibile aprire Synapse 
 
 * Aprire l'area di lavoro sinapsi nel [portale di Azure](https://portal.azure.com), nella sezione **Panoramica** dell'area di lavoro sinapsi selezionare **Apri** nella casella Apri sinapsi Studio.
 * Passare a `https://web.azuresynapse.net` e accedere alla propria area di lavoro.
+
+## <a name="place-sample-data-into-the-primary-storage-account"></a>Inserire i dati di esempio nell'account di archiviazione primario
+Per molti esempi in questa Guida introduttiva verrà usato un set di dati di esempio di una piccola riga di 100.000 righe di dati CAB CAB di NYX. Per iniziare, inserire l'account nell'account di archiviazione primario creato per l'area di lavoro.
+
+* Scaricare questo file nel computer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
+* In sinapsi Studio passare all'hub dati. 
+* Fare clic su **collegato**.
+* Nella categoria **Azure Data Lake storae Gen2** verrà visualizzato un elemento con un nome come area di **lavoro (Primary-contosolake)**
+* Fare clic sul contenitore denominato **Users (primario)**
+* Fare clic su **carica** e selezionare il `NYCTripSmall.parquet` file scaricato
 
 ## <a name="next-steps"></a>Passaggi successivi
 

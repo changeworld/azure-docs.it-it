@@ -11,14 +11,14 @@ manager: eliotgra
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6b33b866a10ad4a44cef14f3c86d8ca1f40c4750
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e58028495da409df00db8e25adf68945a008bc9e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94965375"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228300"
 ---
-# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisioning di dispositivi con il servizio Device Provisioning in hub IoT di Azure
+# <a name="what-is-azure-iot-hub-device-provisioning-service"></a>Cos'è il servizio Device Provisioning in hub IoT di Azure?
 Microsoft Azure include un ampio set di servizi cloud pubblici integrati per tutte le esigenze di soluzioni IoT. Il servizio Device Provisioning in hub IoT è un servizio helper per Hub IoT che consente di effettuare il provisioning JIT automatizzato nell'hub IoT corretto senza alcun intervento dell'utente. Consente di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.
 
 ## <a name="when-to-use-device-provisioning-service"></a>Quando usare il servizio Device Provisioning

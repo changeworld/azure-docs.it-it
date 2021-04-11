@@ -2148,8 +2148,6 @@
           href: bonusly-provisioning-tutorial.md
         - name: Box
           href: box-userprovisioning-tutorial.md
-        - name: Boxcryptor
-          href: boxcryptor-provisioning-tutorial.md
         - name: Bpanda
           href: bpanda-provisioning-tutorial.md
         - name: Brivo Onair Identity Connector

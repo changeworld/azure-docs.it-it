@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c6c376e44c6135a800e6f7e281f8ea85b828329a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a18d06e3a0324889a4cb9936fb339fd9d8f9b816
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443879"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222692"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Crittografare Azure Data Factory con le chiavi gestite dal cliente
 
@@ -137,6 +137,23 @@ Per modificare la chiave usata per la crittografia di Data Factory, è necessari
 ## <a name="disable-customer-managed-keys"></a>Disabilitare le chiavi gestite dal cliente
 
 Per impostazione predefinita, dopo aver abilitato la funzionalità relativa alla chiave gestita dal cliente, non è possibile rimuovere il passaggio di sicurezza aggiuntivo. Si prevede sempre una chiave fornita dal cliente per crittografare i dati e la factory.
+
+## <a name="customer-managed-key-and-continuous-integration-and-continuous-deployment"></a>Chiave gestita dal cliente e integrazione continua e distribuzione continua
+
+Per impostazione predefinita, la configurazione di CMK non è inclusa nel modello Factory Azure Resource Manager (ARM). Per includere le impostazioni di crittografia della chiave gestita dal cliente nel modello ARM per l'integrazione continua (CI/CD):
+
+1. Verificare che la factory sia in modalità git
+1. Passare alla sezione portale di gestione-chiave gestita dal cliente
+1. Selezionare l'opzione _Includi in modello ARM_
+
+  :::image type="content" source="media/enable-customer-managed-key/07-include-in-template.png" alt-text="Screenshot dell'impostazione della chiave gestita dal cliente nel modello ARM.":::
+
+Nel modello ARM verranno aggiunte le impostazioni seguenti. Queste proprietà possono essere parametrizzate in pipeline di integrazione e recapito continue modificando la [configurazione dei parametri di Azure Resource Manager](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template)
+
+  :::image type="content" source="media/enable-customer-managed-key/08-template-with-customer-managed-key.png" alt-text="Screenshot dell'impostazione della chiave gestita dal cliente nel modello Azure Resource Manager.":::
+
+> [!NOTE]
+> L'aggiunta dell'impostazione di crittografia ai modelli ARM aggiunge un'impostazione a livello di factory che sostituisce altre impostazioni a livello di Factory, ad esempio le configurazioni git, in altri ambienti. Se queste impostazioni sono abilitate in un ambiente con privilegi elevati, ad esempio UAT o PROD, fare riferimento ai [parametri globali in ci/CD](author-global-parameters.md#cicd).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

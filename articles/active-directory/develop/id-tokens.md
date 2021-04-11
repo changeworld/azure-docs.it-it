@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 21e0b800e06b7a5ad0351ff53d26a5e2cd2ba71c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cf7940af03c02d96f6ed2ca452322ad012bc6a2d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175389"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105358"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Token ID piattaforma Microsoft Identity
 
@@ -124,6 +124,12 @@ Per assicurarsi che le dimensioni del token non superino i limiti delle dimensio
   ...
 }
 ```
+
+## <a name="id-token-lifetime"></a>Durata token ID
+
+Per impostazione predefinita, un token ID è valido per 1 ora, dopo 1 ora, il client deve acquisire un nuovo token ID.
+
+È possibile regolare la durata di un token ID per controllare la frequenza con cui l'applicazione client scade la sessione dell'applicazione e la frequenza con cui è necessario che l'utente esegua di nuovo l'autenticazione (invisibile o interattiva). Per altre informazioni, vedere [durate dei token configurabili](active-directory-configurable-token-lifetimes.md).
 
 ## <a name="validating-an-id_token"></a>Convalida di un id_token
 

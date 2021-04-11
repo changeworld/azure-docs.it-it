@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: f41584194f8f5e8afde630405116b8b169cb5656
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: b2421c8b8c2d74649084f1cc8b75160857f40fc1
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91542037"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444327"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Esercitazione: Creare un tenant in Desktop virtuale Windows (versione classica)
 
@@ -81,8 +81,8 @@ Per assegnare il ruolo applicazione TenantCreator:
 
 2. All'interno di **Applicazioni aziendali** cercare **Desktop virtuale Windows**. Verranno visualizzate le due applicazioni per cui è stato fornito il consenso nella sezione precedente. Tra queste due app, selezionare **Desktop virtuale Windows**.
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot dei risultati della ricerca visualizzati per "Windows Virtual Desktop" ("Desktop virtuale Windows") in "Enterprise applications" ("Applicazioni aziendali"). L'app denominata "Desktop virtuale Windows" è evidenziata.](../media/tenant-enterprise-app.png)
+   > [!div class="mx-imgBorder&quot;]
+   > ![Screenshot dei risultati della ricerca visualizzati per &quot;Windows Virtual Desktop&quot; (&quot;Desktop virtuale Windows") in "Enterprise applications" ("Applicazioni aziendali"). L'app denominata "Desktop virtuale Windows" è evidenziata.](../media/tenant-enterprise-app.png)
 
 3. Selezionare **Utenti e gruppi**. Come si può vedere, l'amministratore che ha concesso il consenso per l'applicazione è già presente nell'elenco con il ruolo **Accesso predefinito**. Questo ruolo non è sufficiente per creare un tenant di Desktop virtuale Windows. Continuare a seguire queste istruzioni per aggiungere il ruolo **TenantCreator** a un utente.
 

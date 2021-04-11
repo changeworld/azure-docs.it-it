@@ -12,18 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: c673f7a9556193fb05e05ea372bfccd17cd3c5ed
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: eeeaf01dd20e5b309884a01f954ceca576cbcbb9
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868512"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259626"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
-Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1), SMB3 o il protocollo Dual (NFSv3 e SMB). L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool. Questo articolo illustra come creare un volume SMB3.
+Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1), SMB3 o il protocollo Dual (NFSv3 e SMB). L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool. 
+
+Questo articolo illustra come creare un volume SMB3. Per i volumi NFS, vedere [creare un volume NFS](azure-netapp-files-create-volumes.md). Per i volumi a doppio protocollo, vedere [creare un volume a doppio protocollo](create-volumes-dual-protocol.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 
@@ -128,10 +130,12 @@ L'accesso a un volume SMB viene gestito tramite le autorizzazioni.
 
 ### <a name="share-permissions"></a>Autorizzazioni di condivisione  
 
-Per impostazione predefinita, un nuovo volume dispone delle autorizzazioni di condivisione **Tutti/Controllo completo**. I membri del gruppo Domain Admins possono modificare le autorizzazioni di condivisione mediante Gestione computer nell'account computer usato per il volume Azure NetApp Files.
+Per impostazione predefinita, un nuovo volume dispone delle autorizzazioni di condivisione **Tutti/Controllo completo**. I membri del gruppo Domain Admins possono modificare le autorizzazioni di condivisione come indicato di seguito:  
 
-![Percorso di montaggio SMB](../media/azure-netapp-files/smb-mount-path.png) 
-![Impostare le autorizzazioni di condivisione](../media/azure-netapp-files/set-share-permissions.png) 
+1. Eseguire il mapping della condivisione a un'unità.  
+2. Fare clic con il pulsante destro del mouse sull'unità, scegliere **Proprietà**, quindi passare alla scheda **sicurezza** .
+
+[![Impostare le autorizzazioni di condivisione](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
 
 ### <a name="ntfs-file-and-folder-permissions"></a>Autorizzazioni per file e cartelle NTFS  
 

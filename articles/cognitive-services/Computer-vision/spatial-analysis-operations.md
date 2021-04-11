@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: bdcbb38a56e46d01a5580f6d32ef733df8911b67
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 4b4ee9d1e583241f8ec9b467ae9ddfdb1360fb52
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108337"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284703"
 ---
 # <a name="spatial-analysis-operations"></a>Operazioni di analisi spaziale
 
-L'analisi spaziale consente di analizzare video in streaming in tempo reale da dispositivi con videocamera. Per ogni dispositivo con videocamera configurato, le operazioni per l'analisi spaziale genereranno un flusso di output di messaggi JSON inviati all'istanza dell'hub IoT di Azure. 
+L'analisi spaziale consente di analizzare il video in streaming in tempo reale dai dispositivi della fotocamera. Per ogni dispositivo della fotocamera configurato, le operazioni per l'analisi spaziale genereranno un flusso di output di messaggi JSON inviati all'istanza dell'hub Azure. 
 
 Il contenitore di analisi spaziale implementa le operazioni seguenti:
 
@@ -107,16 +107,16 @@ Questo è un esempio dei parametri di DETECTOR_NODE_CONFIG per tutte le operazio
 ```json
 {
 "zones":[{
-    "name": "lobbycamera",
-    "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-    "events":[{
-        "type": "count",
-        "config":{
-            "trigger": "event",
+       "name": "lobbycamera",
+       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+       "events":[{
+              "type": "count",
+              "config":{
+                     "trigger": "event",
             "threshold": 16.00,
             "focus": "footprint"
       }
-    }]
+       }]
 }
 ```
 
@@ -231,17 +231,17 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
    "name": "lobbycamera",
    "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
    "events":[{
-    "type": "persondistance",
-    "config":{
-        "trigger": "event",
-        "output_frequency":1,
-        "minimum_distance_threshold":6.0,
-        "maximum_distance_threshold":35.0,
+       "type": "persondistance",
+       "config":{
+           "trigger": "event",
+           "output_frequency":1,
+           "minimum_distance_threshold":6.0,
+           "maximum_distance_threshold":35.0,
         "aggregation_method": "average"
            "threshold": 16.00,
            "focus": "footprint"
-            }
-    }]
+                   }
+          }]
    }]
 }
 ```
@@ -431,7 +431,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
             "face_nomask": 0.99
             }
             }
-    }
+       }
     ],
     "schemaVersion": "1.0"
 }
@@ -635,7 +635,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione con il 
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-        "durationMs": 7132.0
+              "durationMs": 7132.0
             },
             "zone": "queuecamera"
         }

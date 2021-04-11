@@ -1,14 +1,14 @@
 ---
 title: Pubblicare un'offerta di servizio gestito in Azure Marketplace
 description: Informazioni su come pubblicare un'offerta di servizio gestito che carica i clienti nel Faro di Azure.
-ms.date: 02/17/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: b906ba9961ae4f77ca16890fd0a9036123343111
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f59d9708925b52bcf9432663fe6d3137a54b37ad
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092143"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107449"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Pubblicare un'offerta di servizio gestito in Azure Marketplace
 
@@ -16,7 +16,7 @@ In questo articolo si apprenderà come pubblicare un'offerta di servizio gestito
 
 ## <a name="publishing-requirements"></a>Requisiti per la pubblicazione
 
-Per creare e pubblicare le offerte, è necessario disporre di un [account valido nel centro](../../marketplace/partner-center-portal/create-account.md) per i partner. Se non si dispone già di un account, il [processo di iscrizione](https://aka.ms/joinmarketplace) consentirà di creare un account nel centro per i partner e di iscriversi al programma Commercial Marketplace.
+Per creare e pubblicare le offerte, è necessario disporre di un [account valido nel centro](../../marketplace/create-account.md) per i partner. Se non si dispone già di un account, il [processo di iscrizione](https://aka.ms/joinmarketplace) consentirà di creare un account nel centro per i partner e di iscriversi al programma Commercial Marketplace.
 
 In base ai [requisiti di certificazione dell'offerta del servizio gestito](/legal/marketplace/certification-policies#700-managed-services), è necessario disporre di un livello di competenza della [piattaforma Cloud Silver o Gold](/partner-center/learn-about-competencies) oppure essere un [msp esperto di Azure](https://partner.microsoft.com/membership/azure-expert-msp) per pubblicare un'offerta di servizio gestito. È anche necessario [immettere una destinazione lead che creerà un record nel sistema CRM](../../marketplace/plan-managed-service-offer.md#customer-leads) ogni volta che un cliente distribuisce l'offerta.
 
@@ -26,13 +26,14 @@ La tabella seguente consente di determinare se eseguire l'onboarding dei clienti
 
 |**Considerazioni**  |**Offerta di servizio gestito**  |**Modelli di Gestione risorse di Azure**  |
 |---------|---------|---------|
-|Richiede l' [account del centro](../../marketplace/partner-center-portal/create-account.md) per i partner   |Sì         |No        |
+|Richiede l' [account del centro](../../marketplace/create-account.md) per i partner   |Sì         |No        |
 |Richiede il [livello di competenza Silver o Gold per la piattaforma cloud](/partner-center/learn-about-competencies) o [Azure Expert msp](https://partner.microsoft.com/membership/azure-expert-msp)      |Sì         |No         |
 |Disponibile per i nuovi clienti tramite Azure Marketplace     |Sì     |No       |
 |È possibile limitare l'offerta a clienti specifici     |Sì (solo con offerte private, che non possono essere usate con le sottoscrizioni stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP))         |Sì         |
 |Richiede l'accettazione del cliente in portale di Azure     |Sì     |No   |
 |Può usare l'automazione per caricare più sottoscrizioni, gruppi di risorse o clienti |No     |Sì    |
 |Accesso immediato ai nuovi ruoli predefiniti e alle funzionalità di Azure Lighthouse     |Non sempre (disponibile a livello generale dopo un certo ritardo)         |Sì         |
+|I clienti possono esaminare e accettare le offerte aggiornate nella portale di Azure | Sì | No |
 
 > [!NOTE]
 > Le offerte del servizio gestito potrebbero non essere disponibili in Azure per enti pubblici e in altri cloud nazionali.
@@ -62,6 +63,8 @@ Dopo che un cliente ha aggiunto l'offerta, potrà [delegare una o più sottoscri
 > La delega deve essere eseguita da un account non Guest nel tenant del cliente che ha un ruolo con l' `Microsoft.Authorization/roleAssignments/write` autorizzazione, ad esempio [owner](../../role-based-access-control/built-in-roles.md#owner), per la sottoscrizione da caricare (o che contiene i gruppi di risorse di cui è in corso l'onboarding). Per trovare gli utenti che possono delegare la sottoscrizione, un utente nel tenant del cliente può selezionare la sottoscrizione nella portale di Azure, aprire il **controllo di accesso (IAM)** e [visualizzare tutti gli utenti con il ruolo proprietario](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Quando il cliente delega una sottoscrizione (o uno o più gruppi di risorse all'interno di una sottoscrizione), il provider di risorse **Microsoft. ManagedServices** verrà registrato per tale sottoscrizione e gli utenti nel tenant potranno accedere alle risorse delegate in base alle autorizzazioni dell'offerta.
+
+Se si pubblica una versione aggiornata dell'offerta, il cliente potrà [esaminare le modifiche apportate all'portale di Azure e accettare la nuova versione](view-manage-service-providers.md#update-service-provider-offers).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

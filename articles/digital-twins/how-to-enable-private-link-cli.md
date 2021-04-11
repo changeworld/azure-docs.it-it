@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5bd7ffda508980a9a56d86037887fc53a0fed640
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4dab08983fc1348ca49e728a65d48aa65fe19a47
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102202944"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105715"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-cli"></a>Abilitare l'accesso privato con collegamento privato (anteprima): interfaccia della riga di comando di Azure
 
@@ -53,21 +53,21 @@ Per un elenco completo dei parametri obbligatori e facoltativi, oltre ad esempi 
 
 ### <a name="manage-private-endpoint-connections-on-the-instance"></a>Gestire le connessioni a endpoint privati nell'istanza
 
-Dopo la creazione di un endpoint privato per l'istanza di Azure Digital gemelli, è possibile usare i comandi di connessione dell'endpoint privato di [**rete AZ DT**](/cli/azure/ext/azure-iot/dt/network/private-endpoint/connection) per continuare a gestire le **connessioni** degli endpoint privati relativamente all'istanza. Alcune operazioni sono:
+Dopo la creazione di un endpoint privato per l'istanza di Azure Digital gemelli, è possibile usare i comandi di connessione dell'endpoint privato di [**rete AZ DT**](/cli/azure/dt/network/private-endpoint/connection) per continuare a gestire le **connessioni** degli endpoint privati relativamente all'istanza. Alcune operazioni sono:
 * Mostra una connessione all'endpoint privato
 * Impostare lo stato della connessione dell'endpoint privato
 * Eliminare la connessione all'endpoint privato
 * Elencare tutte le connessioni di endpoint privato per un'istanza
 
-Per ulteriori informazioni ed esempi, vedere la [documentazione di riferimento **AZ DT network private-endpoint**](/cli/azure/ext/azure-iot/dt/network/private-endpoint).
+Per ulteriori informazioni ed esempi, vedere la [documentazione di riferimento **AZ DT network private-endpoint**](/cli/azure/dt/network/private-endpoint).
 
 ### <a name="manage-other-private-link-information-on-an-azure-digital-twins-instance"></a>Gestire altre informazioni sui collegamenti privati in un'istanza di dispositivi gemelli digitali di Azure
 
-È possibile ottenere informazioni aggiuntive sullo stato del collegamento privato dell'istanza con i comandi di [**collegamento privato di rete AZ DT**](/cli/azure/ext/azure-iot/dt/network/private-link) . Alcune operazioni sono:
+È possibile ottenere informazioni aggiuntive sullo stato del collegamento privato dell'istanza con i comandi di [**collegamento privato di rete AZ DT**](/cli/azure/dt/network/private-link) . Alcune operazioni sono:
 * Elencare i collegamenti privati associati a un'istanza di Azure Digital Twins
 * Mostra un collegamento privato associato all'istanza
 
-Per ulteriori informazioni ed esempi, vedere la documentazione di riferimento per il [ **collegamento privato di rete AZ DT**](/cli/azure/ext/azure-iot/dt/network/private-link).
+Per ulteriori informazioni ed esempi, vedere la documentazione di riferimento per il [ **collegamento privato di rete AZ DT**](/cli/azure/dt/network/private-link).
 
 ## <a name="disable--enable-public-network-access-flags"></a>Disabilitare/abilitare i flag di accesso alla rete pubblica
 
@@ -77,9 +77,9 @@ Questo criterio consente di limitare l'accesso all'API solo alle connessioni di 
 
 Questo articolo illustra come aggiornare il valore del flag di rete usando l'interfaccia della riga di comando di [Azure](/cli/azure/) o lo [strumento di comando ARMClient](https://github.com/projectkudu/ARMClient). Per istruzioni su come eseguire questa operazione con il portale di Azure, vedere la [versione del portale](how-to-enable-private-link-portal.md) di questo articolo.
 
-### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+### <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
 
-Nell'interfaccia della riga di comando di Azure è possibile disabilitare o abilitare l'accesso alla rete pubblica aggiungendo un `--public-network-access` parametro al `az dt create` comando. Sebbene questo comando possa essere utilizzato anche per creare una nuova istanza di, è possibile utilizzarla per modificare le proprietà di un'istanza esistente fornendogli il nome di un'istanza già esistente. Per altre informazioni su questo comando, vedere la [documentazione di riferimento](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create) o le [istruzioni generali per la configurazione di un'istanza di dispositivi gemelli digitali di Azure](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
+Nell'interfaccia della riga di comando di Azure è possibile disabilitare o abilitare l'accesso alla rete pubblica aggiungendo un `--public-network-access` parametro al `az dt create` comando. Sebbene questo comando possa essere utilizzato anche per creare una nuova istanza di, è possibile utilizzarla per modificare le proprietà di un'istanza esistente fornendogli il nome di un'istanza già esistente. Per altre informazioni su questo comando, vedere la [documentazione di riferimento](/cli/azure/dt#az_dt_create) o le [istruzioni generali per la configurazione di un'istanza di dispositivi gemelli digitali di Azure](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
 
 Per **disabilitare** l'accesso alla rete pubblica per un'istanza di Azure Digital Twins, usare il `--public-network-access` parametro come segue:
 

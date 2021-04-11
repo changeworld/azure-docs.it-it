@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 1cdd3dba8203ce9e8daeaa963f1722389d89d19d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b61608c0cb53ab808c5d3d789ec5ddc318c6923d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563821"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106803"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>Prerequisiti per accedere ai dati di analisi a livello di codice
 
@@ -20,7 +20,7 @@ Prima di poter accedere ai dati di analisi del Marketplace commerciale a livello
 
 ## <a name="commercial-marketplace-enrollment"></a>Registrazione del Marketplace commerciale
 
-Per accedere ai dati di analisi del Marketplace commerciale a livello di codice, è necessario essere registrati nel programma commerciale Marketplace e avere un account del centro per i partner. Per informazioni, vedere [creare un account Marketplace commerciale nel centro per i partner](./partner-center-portal/create-account.md).
+Per accedere ai dati di analisi del Marketplace commerciale a livello di codice, è necessario essere registrati nel programma commerciale Marketplace e avere un account del centro per i partner. Per informazioni, vedere [creare un account Marketplace commerciale nel centro per i partner](create-account.md).
 
 ## <a name="create-azure-active-directory-application"></a>Creare un'applicazione Azure Active Directory
 

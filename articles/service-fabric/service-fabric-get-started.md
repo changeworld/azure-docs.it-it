@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 4568b791db07eaa7a513c42066b22df04b24cb6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d73c02b7fd5e40f3cc23f5b0eba1945cf3c8a40
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103010304"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258436"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 
@@ -62,8 +62,8 @@ Se è necessario solo l'SDK, è possibile installare questo pacchetto:
 
 Le versioni correnti sono:
 
-* SDK e strumenti Service Fabric 4.2.477
-* 7.2.477 runtime di Service Fabric
+* SDK e strumenti Service Fabric 5.0.514
+* 8.0.514 runtime di Service Fabric
 
 Per un elenco delle versioni supportate, vedere [Service Fabric versions](service-fabric-versions.md) (Versioni di Service Fabric)
 

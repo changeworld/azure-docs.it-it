@@ -12,18 +12,18 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: sintesi vocale
-ms.openlocfilehash: 1a7ff7befc1a5e82c5518cf103a81b35ec38c7db
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 73e37fde4b3c2dd1aeb6ab171c3726f1b4353949
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449359"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106089"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-In questa panoramica vengono illustrati i vantaggi e le funzionalità del servizio di sintesi vocale, che consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale. È possibile scegliere tra le voci standard e neurali oppure creare una voce personalizzata univoca per il prodotto o il marchio. sono disponibili più di 75 voci standard in più di 45 lingue e impostazioni locali e 5 voci neurali sono disponibili in un numero selezionato di lingue e impostazioni locali. Per un elenco completo delle voci, dei linguaggi e delle impostazioni locali supportate, vedere [linguaggi supportati](language-support.md#text-to-speech).
+In questa panoramica vengono illustrati i vantaggi e le funzionalità del servizio di sintesi vocale, che consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale. Usare le voci neurali simili a quelle umane oppure creare una voce personalizzata univoca per il prodotto o il marchio. Per un elenco completo delle voci, dei linguaggi e delle impostazioni locali supportate, vedere [linguaggi supportati](language-support.md#text-to-speech).
 
 Questa documentazione contiene i tipi di articolo seguenti:
 
@@ -42,8 +42,6 @@ Questa documentazione contiene i tipi di articolo seguenti:
 
 * Sintesi asincrona dell'audio lungo: usare l' [API Long audio](long-audio-api.md) per sintetizzare in modo asincrono i file da sintesi vocale più di 10 minuti (ad esempio, libri audio o lezioni). Diversamente dalla sintesi eseguita con l'SDK per il riconoscimento vocale o con l'API REST di sintesi vocale, le risposte non vengono restituite in tempo reale. Si prevede che le richieste vengano inviate in modo asincrono, viene eseguito il polling delle risposte e che l'audio sintetizzato viene scaricato quando reso disponibile dal servizio. Sono supportate solo le voci neurali personalizzate.
 
-* Voci standard: create con la sintesi parametrica statistica e/o le tecniche di sintesi della concatenazione. Queste voci sono molto comprensibili e sono naturali. È possibile abilitare facilmente le applicazioni in modo che parlino in più di 45 lingue, con una vasta gamma di opzioni vocali. Queste voci forniscono un'accuratezza della pronuncia elevata, incluso il supporto per le abbreviazioni, le espansioni di acronimo, le interpretazioni di data/ora, i politelefoni e altro ancora. Per un elenco completo delle voci standard, vedere [linguaggi supportati](language-support.md#text-to-speech).
-
 * Voci neurali: le reti neurali profonde vengono usate per superare i limiti della sintesi vocale tradizionale per quanto riguarda lo stress e l'intonazione nel linguaggio parlato. Le stime e la sintesi vocale di prosodia vengono eseguite simultaneamente e ciò comporta output più fluidi e con suono naturale. Le voci neurali possono essere usate per rendere le interazioni con chatbot e gli assistenti vocali più naturali e accattivanti, convertire testi digitali come e-book in Audiolibri e migliorare i sistemi di navigazione in auto. Con la prosodia naturale e una chiara articolazione di parole, le voci neurali riducono significativamente la fatica in ascolto quando si interagisce con i sistemi di intelligenza artificiale. Per un elenco completo delle voci neurali, vedere [linguaggi supportati](language-support.md#text-to-speech).
 
 * Modificare gli stili di pronuncia con SSML-Speech Synthesis Markup Language (SSML) è un linguaggio di markup basato su XML usato per personalizzare gli output di sintesi vocale. Con SSML è possibile modificare il pitch, aggiungere pause, migliorare la pronuncia, accelerare o rallentare la velocità di pronuncia, aumentare o diminuire il volume e attribuire più voci a un singolo documento. Vedere le [procedure](speech-synthesis-markup.md) per la regolazione degli stili di pronuncia.
@@ -51,7 +49,7 @@ Questa documentazione contiene i tipi di articolo seguenti:
 * Visemes- [visemes](how-to-speech-synthesis-viseme.md) è la chiave che si pone in un discorso osservato, inclusa la posizione dei labbri, la mascella e la lingua durante la produzione di un fonema particolare. Visemes hanno una forte correlazione con voci e fonemi. Usando gli eventi viseme nell'SDK vocale, è possibile generare dati di animazione facciali, che possono essere usati per animare i visi nelle comunicazioni di lettura del labbro, istruzione, intrattenimento e servizio clienti.
 
 > [!NOTE]
-> Viseme funziona solo per `en-US-AriaNeural` Voice per il momento.
+> Gli eventi viseme sono attualmente supportati solo per la `en-US-AriaNeural` voce.
 
 ## <a name="get-started"></a>Introduzione
 
@@ -66,7 +64,7 @@ Il codice di esempio per sintesi vocale è disponibile su GitHub. Questi esempi 
 
 ## <a name="customization"></a>Personalizzazione
 
-Oltre alle voci standard e neurali, è possibile creare e ottimizzare voci personalizzate specifiche per il prodotto o il marchio. Per iniziare sono disponibili solo alcuni file audio e le trascrizioni associate. Per altre informazioni, vedere [Introduzione alla voce personalizzata](how-to-custom-voice.md)
+Oltre alle voci neurali, è possibile creare e ottimizzare voci personalizzate specifiche per il prodotto o il marchio. Per iniziare sono disponibili solo alcuni file audio e le trascrizioni associate. Per altre informazioni, vedere [Introduzione alla voce personalizzata](how-to-custom-voice.md)
 
 ## <a name="pricing-note"></a>Nota sui prezzi
 

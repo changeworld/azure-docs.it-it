@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: reserved-instances
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/01/2021
+ms.date: 04/06/2021
 ms.author: yashar
-ms.openlocfilehash: 9270b7fb135eddd78a7aeb30cf88af4d704e176e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a6ddcef1493f15442a723bcc93850e6197db84d8
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030707"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285599"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate
 
@@ -39,6 +39,7 @@ Si acquista un'istanza di macchina virtuale riservata con le dimensioni Standard
 - Scenario 1: eseguire otto macchine virtuali con dimensioni Standard_DS1_v2 con un rapporto pari a 1. Lo sconto per la prenotazione si applica a tutte e otto le macchine virtuali.
 - Scenario 2: eseguire due macchine virtuali con dimensioni Standard_DS2_v2 con un rapporto pari a 2 ognuna. Eseguire anche una macchina virtuale con dimensioni Standard_DS3_v2 con un rapporto pari a 4. Il footprint complessivo è 2+2+4=8. Pertanto, lo sconto per la prenotazione si applica a tutte e tre le macchine virtuali.
 - Scenario 3: eseguire una macchina virtuale Standard_DS5_v2 con un rapporto di 16. Lo sconto per la prenotazione si applica a metà del costo di calcolo di tale macchina virtuale.
+- Scenario 4: eseguire un Standard_DS5_v2 con un rapporto di 16 e acquistare un'ulteriore prenotazione Standard_DS4_v2 con un rapporto di 8. Entrambe le prenotazioni combinano e applicano lo sconto all'intera VM.
 
 Le sezioni seguenti mostrano quali dimensioni sono incluse nello stesso gruppo di serie di dimensioni quando si acquista un'istanza di macchina virtuale riservata ottimizzata per la flessibilità di dimensioni dell'istanza.
 
