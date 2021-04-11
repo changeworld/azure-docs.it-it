@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: d5a013fc4e4ef931579da4fa13f400d5f4fcff0d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3c12068c6a2c75c7be8b5572b901a714d397b2ca
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030750"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209929"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
@@ -21,19 +21,16 @@ Questo articolo descrive come configurare [replica dei dati in ingresso](concept
 > Questo articolo contiene riferimenti al termine _slave_, un termine che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 >
 
-Per creare una replica nel servizio database di Azure per MySQL, [replica dei dati in ingresso](concepts-data-in-replication.md)  sincronizza i dati da un server MySQL di origine locale, in macchine virtuali (VM) o in servizi di database cloud. La replica dei dati in ingresso si basa sulla replica nativa di MySQL in base alla posizione di file di log binari (binlog). Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
+Per creare una replica nel servizio database di Azure per MySQL, [replica dei dati in ingresso](concepts-data-in-replication.md)  sincronizza i dati da un server MySQL di origine locale, in macchine virtuali (VM) o in servizi di database cloud. Replica dei dati in ingresso si basa sulla replica binaria (binlog) basata sul file di log o su gtid nativa in MySQL. Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
 
 Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitations-and-considerations) di replica dei dati prima di eseguire i passaggi descritti in questo articolo.
 
-## <a name="create-a-mysql-server-to-be-used-as-replica"></a>Creare un server MySQL da usare come replica
+## <a name="1-create-a-azure-database-for-mysql-single-server-to-be-used-as-replica"></a>1. creare un server singolo database di Azure per MySQL da usare come replica
 
-1. Creare un server di Database di Azure per MySQL
-
-   Creare un server MySQL, ad esempio "replica.mysql.database.azure.com". Per istruzioni su come creare il server, vedere [Creare un server di Database di Azure per MySQL usando il portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md). Questo è il server di "replica" per la replica dei dati in ingresso.
+1. Creare un nuovo server di database di Azure per MySQL singolo (ad esempio, "replica.mysql.database.azure.com". Per istruzioni su come creare il server, vedere [Creare un server di Database di Azure per MySQL usando il portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md). Questo è il server di "replica" per la replica dei dati in ingresso.
 
    > [!IMPORTANT]
-   > Il server di Database di Azure per MySQL deve essere creato con il piano tariffario per utilizzo generico o ottimizzato per la memoria.
-   >
+   > È necessario creare il database di Azure per il server MySQL nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria perché la replica dei dati è supportata solo in questi livelli.
 
 2. Creare gli stessi account utente e i privilegi corrispondenti
 
@@ -42,8 +39,12 @@ Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitat
 3. Aggiungere l'indirizzo IP del server di origine alle regole del firewall della replica.
 
    Aggiornare le regole firewall usando il [portale di Azure](howto-manage-firewall-using-portal.md) o l'[interfaccia della riga di comando di Azure](howto-manage-firewall-using-cli.md).
+   
+4. **Facoltativo** : se si vuole usare la [replica basata su gtid](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html) dal server di origine al server di replica di database di Azure per MySQL, è necessario abilitare i parametri del server seguenti nel database di Azure per il server MySQL, come illustrato nell'immagine del portale riportata di seguito.
 
-## <a name="configure-the-source-server"></a>Configurare il server di origine
+   :::image type="content" source="./media/howto-data-in-replication/enable-gtid.png" alt-text="Abilitare gtid nel database di Azure per il server MySQL":::
+
+## <a name="2-configure-the-source-mysql-server"></a>2. configurare il server MySQL di origine
 
 I passaggi seguenti consentono di preparare e configurare il server MySQL ospitato in locale, in una macchina virtuale o un servizio di database ospitato da altri provider di cloud per la replica dei dati in ingresso. Questo server è l'"origine" nella replica dei dati.
 
@@ -110,7 +111,6 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
        ```bash
        log-bin=mysql-bin.log
        ```
-     
    4. Riavviare il server di origine MySQL per rendere effettive le modifiche.
    5. Una volta riavviato il server, verificare che la registrazione binaria sia abilitata eseguendo la stessa query precedente:
    
@@ -125,6 +125,14 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    ```sql
    SET GLOBAL lower_case_table_names = 1;
    ```
+   **Facoltativo** : se si vuole usare la [replica basata su gtid](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), è necessario verificare se gtid è abilitato nel server di origine. È possibile eseguire il comando seguente sul server MySQL di origine per verificare se la modalità gtid è impostata su ON.
+   
+   ```sql
+   show variables like 'gtid_mode';
+   ```
+   >[!IMPORTANT]
+   > Tutti i server hanno gtid_mode impostato sul valore predefinito OFF. Non è necessario abilitare gtid nel server MySQL di origine in modo specifico per configurare la replica dei dati. Se gtid è già abilitato nel server di origine, è possibile usare facoltativamente la replica basata su gtid per configurare anche la replica dei dati con il server singolo di database di Azure per MySQL. È possibile usare la replica basata su file per configurare la replica dei dati per tutti i server indipendentemente dalla configurazione della modalità gtid nel server di origine.
+
 
 5. Creare un nuovo ruolo di replica e configurare le autorizzazioni
 
@@ -182,18 +190,22 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    ```sql
     show master status;
    ```
-
    I risultati verranno visualizzati in modo simile al seguente. Assicurarsi di annotare il nome del file binario, che verrà usato nei passaggi successivi.
 
    :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Risultati stato master":::
+   
 
-## <a name="dump-and-restore-source-server"></a>Dump e ripristino del server di origine
+## <a name="3-dump-and-restore-source-server"></a>3. dump e ripristino del server di origine
 
 1. Determinare quali database e tabelle si vuole replicare nel database di Azure per MySQL ed eseguire il dump dal server di origine.
 
     Per eseguire il dump dei database dal server master è possibile usare mysqldump. Per informazioni dettagliate, vedere [Dump e ripristino](concepts-migrate-dump-restore.md). Non è necessario eseguire il dump della libreria MySQL e della libreria di test.
 
-2. Impostazione del server di origine sulla modalità di lettura/scrittura.
+2. **Facoltativo** : se si vuole usare la [replica basata su gtid](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), è necessario identificare il gtid dell'ultima transazione eseguita nel database master. È possibile utilizzare il comando seguente per prendere nota del gtid dell'ultima transazione eseguita nel server master.
+   ```sql
+   show global variables like 'gtid_executed';
+   ```
+3. Impostazione del server di origine sulla modalità di lettura/scrittura.
 
    Al termine del dump del database, riportare il server MySQL di origine in modalità di lettura/scrittura.
 
@@ -205,8 +217,14 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 3. Ripristinare il file dump nel nuovo server.
 
    Ripristinare il file di dump nel server creato nel servizio Database di Azure per MySQL. Per informazioni su come ripristinare un file di dump in un server MySQL, vedere [Dump e ripristino](concepts-migrate-dump-restore.md). Se il file di dump ha grandi dimensioni, caricarlo in una macchina virtuale in Azure nella stessa area del server di replica. Ripristinare quindi il file nel server di Database di Azure per MySQL dalla macchina virtuale.
+   
+4. **Facoltativo** : si noti la gtid del server ripristinato nel database di Azure per MySQL per assicurarsi che sia uguale a master. È possibile usare il comando seguente per prendere nota della gtid del valore gtid eliminato nel database di Azure per il server di replica MySQL. Il valore di gtid_purged deve essere uguale a quello gtid_executed nel Master indicato nel passaggio 2 per il funzionamento della replica basata su gtid.
 
-## <a name="link-source-and-replica-servers-to-start-data-in-replication"></a>Collegare i server di origine e di replica per avviare Replica dei dati in ingresso
+   ```sql
+   show global variables like 'gtid_purged';
+   ```
+
+## <a name="4-link-source-and-replica-servers-to-start-data-in-replication"></a>4. Collegare i server di origine e di replica per avviare Replica dei dati in ingresso
 
 1. Impostazione del server di origine.
 
@@ -215,12 +233,17 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    Per collegare due server e avviare la replica, accedere al server di replica di destinazione nel servizio database di Azure per MySQL e impostare l'istanza esterna come server di origine. Questa operazione viene eseguita tramite la stored procedure `mysql.az_replication_change_master` nel server di Database di Azure per MySQL.
 
    ```sql
-   CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', <master_port>, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   ```
+   **Facoltativo** : se si vuole usare la [replica basata su gtid](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), è necessario usare il comando seguente per collegare i due server
+    ```sql
+   call mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', <master_port>, '<master_ssl_ca>');
    ```
 
    - master_host: nome host del server di origine
    - master_user: nome utente per il server di origine
    - master_password: password per il server di origine
+   - master_port: numero di porta su cui il server di origine è in ascolto delle connessioni. (3306 è la porta predefinita su cui è in ascolto MySQL)
    - master_log_file: nome del file di log binario da `show master status` in esecuzione
    - master_log_pos: posizione del file di log binario da `show master status` in esecuzione
    - master_ssl_ca: contesto del certificato della CA. Se non si usa SSL, passare una stringa vuota.
@@ -282,7 +305,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
    Se lo stato di `Slave_IO_Running` e è `Slave_SQL_Running` "Yes" e il valore di `Seconds_Behind_Master` è "0", la replica funziona correttamente. `Seconds_Behind_Master` indica il ritardo della replica. Se il valore non è "0", significa che la replica sta elaborando gli aggiornamenti.
 
-## <a name="other-stored-procedures"></a>Altre stored procedure
+## <a name="other-useful-stored-procedures-for-data-in-replication-operations"></a>Altre stored procedure utili per le operazioni di replica dei dati
 
 ### <a name="stop-replication"></a>Arrestare la replica
 
@@ -307,6 +330,19 @@ Per ignorare un errore di replica e consentire la continuazione della replica, u
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
+ **Facoltativo** : se si vuole usare la [replica basata su gtid](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), usare la stored procedure seguente per ignorare una transazione
+
+```sql
+call mysql. az_replication_skip_gtid_transaction(‘<transaction_gtid>’)
+```
+La procedura può ignorare la transazione per il gtid specificato. Se il formato gtid non è corretto o la transazione gtid è già stata eseguita, la procedura non verrà eseguita. Il gtid di una transazione può essere determinato analizzando il log binario per verificare gli eventi della transazione. MySQL fornisce un'utilità [mysqlbinlog](https://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html) per analizzare i log binari e visualizzarne il contenuto in formato testo, che può essere usato per identificare gtid della transazione.
+
+Se si desidera ignorare la transazione successiva dopo la posizione di replica corrente, utilizzare il comando seguente per identificare il gtid della transazione successiva, come illustrato di seguito.
+
+```sql
+SHOW BINLOG EVENTS [IN 'log_name'] [FROM pos][LIMIT [offset,] row_count]
+```
+  :::image type="content" source="./media/howto-data-in-replication/show-binary-log.png" alt-text="Mostra risultati dei log binari":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

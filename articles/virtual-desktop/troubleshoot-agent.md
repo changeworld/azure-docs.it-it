@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 86296385a0e657246e415f326261ce401e3cdeaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b47a205cac1717dfc66594f856fd9370a01a9ae3
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604186"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168213"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Risolvere i problemi comuni relativi all'agente desktop virtuale di Windows
 
@@ -106,7 +106,7 @@ Per risolvere questo problema, verificare che sia possibile raggiungere BrokerUR
    > ![Screenshot dell'accesso globale broker caricato non riuscito](media/unsuccessful-broker-global.png)
 
 8. Se la rete sta bloccando questi URL, sarà necessario sbloccare gli URL richiesti. Per ulteriori informazioni, vedere [elenco degli URL richiesti](safe-url-list.md).
-9. Se il problema persiste, assicurarsi che non siano presenti criteri di gruppo con crittografie che impediscano la connessione dell'agente alla connessione broker. Desktop virtuale Windows usa le stesse crittografie TLS 1,2 come [sportello anteriore di Azure](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). Per ulteriori informazioni, vedere [sicurezza della connessione](network-connectivity.md#connection-security).
+9. Se il problema persiste, assicurarsi che non siano presenti criteri di gruppo con crittografie che impediscano la connessione dell'agente alla connessione broker. Desktop virtuale Windows usa le stesse crittografie TLS 1,2 come [sportello anteriore di Azure](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). Per ulteriori informazioni, vedere [sicurezza della connessione](network-connectivity.md#connection-security).
 
 ## <a name="error-3703"></a>Errore: 3703
 

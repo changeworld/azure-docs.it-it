@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 0aee6030e5608b5413864d6a32dc8442dd346f42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68d90fa56d5dce902a44a32b322e582a81e419d5
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392783"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011638"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema e mapping dei tipi di dati nell'attività di copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -22,7 +22,7 @@ Questo articolo descrive il modo in cui l'attività di copia Azure Data Factory 
 
 ### <a name="default-mapping"></a>Mapping predefinito
 
-Per impostazione predefinita, l'attività di copia esegue il mapping dei dati di origine al sink in **base ai nomi delle colonne** in modo che siano sensibili Se il sink non esiste, ad esempio scrivendo nei file, i nomi dei campi di origine verranno resi persistenti come nomi di sink. Tale mapping predefinito supporta schemi flessibili e la deriva dello schema dall'origine al sink dall'esecuzione all'esecuzione. tutti i dati restituiti dall'archivio dati di origine possono essere copiati in sink.
+Per impostazione predefinita, l'attività di copia esegue il mapping dei dati di origine al sink in **base ai nomi delle colonne** in modo che siano sensibili Se il sink non esiste, ad esempio scrivendo nei file, i nomi dei campi di origine verranno resi persistenti come nomi di sink. Se il sink esiste già, deve contenere tutte le colonne copiate dall'origine. Tale mapping predefinito supporta schemi flessibili e la deriva dello schema dall'origine al sink dall'esecuzione all'esecuzione. tutti i dati restituiti dall'archivio dati di origine possono essere copiati in sink.
 
 Se l'origine è un file di testo senza riga di intestazione, il [mapping esplicito](#explicit-mapping) è necessario perché l'origine non contiene nomi di colonna.
 

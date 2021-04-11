@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: 0fc28a1f808eeb2977b1dcca5046ed29933b8aa8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0b7f0427708eece75b5d418b68dd1c7a2e90853f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98028795"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108694"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Domande frequenti su Video Indexer
 
@@ -59,7 +59,7 @@ No, Video Indexer offre l'integrazione di più modelli di Machine Learning in un
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>Quali formati multimediali sono supportati da Video Indexer?
 
-Video Indexer supporta i formati multimediali più comuni. Per altre informazioni, vedere l'elenco dei [formati standard di Azure Media Encoder](../latest/media-encoder-standard-formats.md).
+Video Indexer supporta i formati multimediali più comuni. Per altre informazioni, vedere l'elenco dei [formati standard di Azure Media Encoder](../latest/encode-media-encoder-standard-formats-reference.md).
 
 ### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>Come si carica un file multimediale in Video Indexer e quali sono le limitazioni?
 

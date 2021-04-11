@@ -3,15 +3,15 @@ title: Integra desktop virtuale di Windows con Azure Advisor-Azure
 description: Come usare Azure Advisor con la distribuzione di desktop virtuali Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 76b7f97b6020a3a0d5571a3a105d15f7d7893485
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: b141d3829e9d98cb793d2038e93331804d2e6b8f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89147535"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448288"
 ---
 # <a name="use-azure-advisor-with-windows-virtual-desktop"></a>Usare Azure Advisor con desktop virtuale di Windows
 
@@ -61,5 +61,3 @@ Quando si seleziona una categoria, si passerà alla relativa pagina di raccomand
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come risolvere le raccomandazioni, vedere [How to resolve Azure Advisor raccomandazioni](azure-advisor-recommendations.md).
-
-Per suggerimenti relativi a nuove raccomandazioni, pubblicare un post nel [forum Azure Advisor User Voice](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations).

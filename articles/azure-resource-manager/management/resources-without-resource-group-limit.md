@@ -3,12 +3,12 @@ title: Risorse senza limite di 800 conteggi
 description: Elenca i tipi di risorse di Azure che possono avere più di 800 istanze in un gruppo di risorse.
 ms.topic: conceptual
 ms.date: 01/08/2021
-ms.openlocfilehash: 6736118f0713a27a91618173e06423530e6f10cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05f96597fb572005f7f32599b19d62ff2cb311cc
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563114"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210177"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Risorse non limitate a 800 di istanze per gruppo di risorse
 
@@ -16,6 +16,10 @@ Per impostazione predefinita, è possibile distribuire fino a 800 istanze di un 
 
 Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rimuovere il limite dell'istanza 800. Questi tipi di risorse sono indicati in questo articolo.
 
+## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
+
+* smartDetectorAlertRules
+ 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 * automationAccounts

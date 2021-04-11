@@ -2,13 +2,13 @@
 title: What ' s New with Azure Arc Enabled Servers Agent
 description: Questo articolo contiene le note sulla versione per l'agente Azure Arc Enabled Server. Per molti dei problemi riepilogati sono disponibili collegamenti a ulteriori dettagli.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: acf606ed1ad0f54c983b14a0141d0dc11e2c45d9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/31/2021
+ms.openlocfilehash: ecff23225f4d482cc1e9a4f7b7724c8ffe0a1d73
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470507"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109068"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>What ' s New with Azure Arc Enabled Servers Agent
 
@@ -24,9 +24,9 @@ Versione 1,4
 
 ## <a name="new-feature"></a>Nuova funzionalità
 
-- Aggiunta del supporto per gli endpoint privati.
+- Aggiunto il supporto per gli endpoint privati, attualmente in anteprima limitata.
 - Elenco espanso dei codici di uscita per azcmagent.
-- I parametri di configurazione dell'agente possono ora essere letti da un file con il parametro--config.
+- I parametri di configurazione dell'agente possono ora essere letti da un file con il `--config` parametro.
 
 ## <a name="fixed"></a>Fisso
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: memildin
-ms.openlocfilehash: 085f3a5295d60b83536683a57a34b51abccd3067
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 88d0a3dcd89ea678d77bc558fc680630bc0f2309
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043020"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168179"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -38,7 +38,7 @@ Microsoft Defender for endpoint è una soluzione di sicurezza completa di endpoi
 | Stato della versione:                  | Disponibile a livello generale                                                                                                                                                                                                                                                                                      |
 | Prezzi:                        | Richiede [Azure Defender per server](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Piattaforme supportate:            |  • Macchine di Azure che eseguono Windows<br> • Computer Azure Arc che eseguono Windows|
-| Versioni supportate di Windows:  |  • **Disponibilità generale (GA):** rilevamento in Windows Server 2016, 2012 r2 e 2008 R2 SP1<br> • **Anteprima-** rilevamento in windows server 2019, [desktop virtuale Windows (Wvd)](../virtual-desktop/overview.md)e [Windows 10 Enterprise multisessione](../virtual-desktop/windows-10-multisession-faq.md) (in precedenza Enterprise for Virtual Desktops (EVD)|
+| Versioni supportate di Windows:  |  • **Disponibilità generale (GA):** rilevamento in Windows Server 2016, 2012 r2 e 2008 R2 SP1<br> • **Anteprima-** rilevamento in windows server 2019, [desktop virtuale Windows (Wvd)](../virtual-desktop/overview.md)e [Windows 10 Enterprise multisessione](../virtual-desktop/windows-10-multisession-faq.yml) (in precedenza Enterprise for Virtual Desktops (EVD)|
 | Sistemi operativi non supportati:  |  • Windows 10 (diverso da EVD o WVD)<br> • Linux|
 | Autorizzazioni e ruoli obbligatori: | Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione** o **collaboratore della sottoscrizione**|
 | Cloud:                         | ![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi                                                        |

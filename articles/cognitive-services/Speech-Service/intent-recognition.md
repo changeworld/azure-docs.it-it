@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: Riconoscimento delle finalità
-ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 532101c8cc307e6a5bb65022702b516c492a51fe
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95018702"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210366"
 ---
 # <a name="what-is-intent-recognition"></a>Che cos'è il riconoscimento preventivo?
 
@@ -33,7 +33,7 @@ Utilizzando il riconoscimento preventivo, le applicazioni, gli strumenti e i dis
 
 ## <a name="get-started"></a>Introduzione
 
-Per iniziare a usare il riconoscimento preventivo, vedere la [Guida introduttiva](quickstarts/intent-recognition.md) .
+Per iniziare a usare il riconoscimento preventivo, vedere la [Guida introduttiva](get-started-intent-recognition.md) .
 
 ## <a name="sample-code"></a>Codice di esempio
 
@@ -53,6 +53,6 @@ Codice di esempio per il riconoscimento preventivo:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Completa la [Guida introduttiva](quickstarts/intent-recognition.md) al riconoscimento preventivo
+* Completa la [Guida introduttiva](get-started-intent-recognition.md) al riconoscimento preventivo
 * [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](overview.md#try-the-speech-service-for-free)
 * [Ottenere Speech SDK](speech-sdk.md)

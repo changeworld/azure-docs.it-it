@@ -1,5 +1,5 @@
 ---
-title: Risoluzione degli errori di connessione in uscita intermittenti nel servizio app Azure
+title: Risoluzione degli errori di connessione in uscita intermittenti nel Servizio app di Azure
 description: Risolvere gli errori di connessione intermittenti e i problemi di prestazioni correlati nel servizio app Azure
 author: v-miegge
 manager: barbkess
@@ -8,13 +8,13 @@ ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
 ms.openlocfilehash: 2b4719561ad94d54267410d0af28db6ee8d82b00
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104799106"
 ---
-# <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Risoluzione degli errori di connessione in uscita intermittenti nel servizio app Azure
+# <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Risoluzione degli errori di connessione in uscita intermittenti nel Servizio app di Azure
 
 Questo articolo consente di risolvere gli errori di connessione intermittenti e i problemi di prestazioni correlati nel [servizio app Azure](./overview.md). In questo argomento vengono fornite ulteriori informazioni sulle metodologie per la risoluzione dei problemi relativi all'esaurimento delle porte SNAT (Source Address Network Translation). Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, contattare gli esperti di Azure nei [Forum MSDN Azure e stack overflow](https://azure.microsoft.com/support/forums/). In alternativa, archiviare un evento imprevisto del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottieni supporto**.
 

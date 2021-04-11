@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71a29a2a7e379e253b52813eb7a76f669abbf668
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8779ee2d3c4d83c06a2c1803e65219d43f0ef14
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653831"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275805"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Abilitare l'accesso con chiave di sicurezza senza password 
 
@@ -89,6 +89,8 @@ Per condividere commenti e suggerimenti o riscontrare problemi con questa funzio
 ### <a name="security-key-provisioning"></a>Provisioning delle chiavi di sicurezza
 
 Il provisioning e il deprovisioning dell'amministratore delle chiavi di sicurezza non sono disponibili.
+
+**Nota:** L'accesso memorizzato nella cache di FIDO2 ha esito negativo nel computer ibrido con Azure AD aggiunto alla versione WIN10 20H2 (quando non è disponibile il controller di dominio Questa operazione è attualmente in fase di analisi con la progettazione.
 
 ### <a name="upn-changes"></a>Modifiche dei nomi UPN
 

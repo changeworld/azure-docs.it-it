@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: d3d9f41876cf1310fe25a275624f609031c05b00
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ddb61a79e6af402b06fe8c18df8c62f9287437a3
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601882"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209715"
 ---
 # <a name="what-is-the-speech-service"></a>Informazioni sul Servizio di riconoscimento vocale
 
@@ -33,7 +33,7 @@ Le funzionalità seguenti fanno parte del servizio Voce. Per altre informazioni 
 | | [Conversazione per più dispositivi](multi-device-conversation.md) | Connessione di più dispositivi o client in una conversazione per l'invio di messaggi vocali o di testo, con il supporto semplificato per la trascrizione e la traduzione| Sì | No |
 | | [Trascrizione conversazione](./conversation-transcription.md) | Abilita il riconoscimento vocale in tempo reale, l'identificazione voce e la diarizzazione. È ideale per la trascrizione di riunioni dal vivo grazie alla capacità di distinguere i parlanti. | Sì | No |
 | | [Creare modelli conversione voce/testo personalizzati](#customize-your-speech-experience) | Se si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, linguistici e di pronuncia personalizzati destinati a un ambiente rumoroso o una terminologica specifica del settore. | No | [Sì](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| [Sintesi vocale](text-to-speech.md) | Sintesi vocale | Sintesi vocale converte il testo di input in una voce sintetizzata simile a quella di un essere umano usando [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). È possibile scegliere tra voci standard e voci neurali (vedere [Supporto per le lingue](language-support.md)). | [Sì](./speech-sdk.md) | [Sì](#reference-docs) |
+| [Sintesi vocale](text-to-speech.md) | Sintesi vocale | Sintesi vocale converte il testo di input in una voce sintetizzata simile a quella di un essere umano usando [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). Usare le voci neurali, che sono voci di tipo umano basate su reti neurali profonde. Vedere [supporto](language-support.md)per le lingue. | [Sì](./speech-sdk.md) | [Sì](#reference-docs) |
 | | [Creare voci personalizzate](#customize-your-speech-experience) | Creazione di caratteri voce personalizzati univoci per il proprio marchio o prodotto. | No | [Sì](#reference-docs) |
 | [Traduzione vocale](speech-translation.md) | Traduzione vocale | La traduzione vocale consente di attivare la traduzione vocale end-to-end in tempo reale e in più lingue in applicazioni, strumenti e dispositivi. È possibile usare questo servizio per il riconoscimento vocale e la traduzione vocale. | [Sì](./speech-sdk.md) | No |
 | [Assistenti vocali](voice-assistants.md) | Assistenti vocali | Gli assistenti vocali che usano il servizio Voce consentono agli sviluppatori di creare interfacce di conversazione naturali e simili a quelle umane per applicazioni ed esperienze. Il servizio di assistente vocale offre un'interazione rapida e affidabile tra un dispositivo e l'implementazione di un assistente che usa il canale Direct Line Speech di Bot Framework o il servizio integrato Comandi personalizzati per completare le attività. | [Sì](voice-assistants.md) | No |
@@ -105,7 +105,7 @@ Sono disponibili guide di avvio rapido nei linguaggi di programmazione più diff
 * [Guida di avvio rapido sul riconoscimento vocale](get-started-speech-to-text.md)
 * [Guida di avvio rapido sulla sintesi vocale](get-started-text-to-speech.md)
 * [Guida di avvio rapido sulla traduzione vocale](./get-started-speech-translation.md)
-* [Guida di avvio rapido sul riconoscimento delle finalità](quickstarts/intent-recognition.md)
+* [Guida di avvio rapido sul riconoscimento delle finalità](./get-started-intent-recognition.md)
 * [Guida di avvio rapido sul riconoscimento del parlante](./get-started-speaker-recognition.md)
 
 Dopo avere avuto la possibilità di familiarizzare con il servizio Voce, provare le esercitazioni che illustrano come risolvere diversi scenari.

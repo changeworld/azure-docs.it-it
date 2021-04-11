@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 0cd1f6210fbdb74e3fd511150157dccca3e92dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a765d689307b7f56e5100e75d9f7121e944cea14
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91932465"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168281"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Vantaggi dell'uso di Azure NetApp Files con Desktop virtuale Windows 
 
@@ -29,7 +29,7 @@ Azure NetApp Files è un servizio di archiviazione di file a prestazioni elevate
 
 ## <a name="sample-blueprints"></a>Progetti di esempio
 
-Nei progetti di esempio seguenti viene illustrata l'integrazione di desktop virtuale di Windows con Azure NetApp Files. In uno scenario basato su desktop in pool, gli utenti vengono indirizzati alla migliore sessione disponibile, ovvero l'host in [modalità larghezza-primo](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method), nel pool, usando le [macchine virtuali](../virtual-desktop/windows-10-multisession-faq.md#what-is-windows-10-enterprise-multi-session)con più sessioni. D'altra parte, i desktop personali sono riservati agli scenari in cui ogni utente dispone di una propria macchina virtuale.
+Nei progetti di esempio seguenti viene illustrata l'integrazione di desktop virtuale di Windows con Azure NetApp Files. In uno scenario basato su desktop in pool, gli utenti vengono indirizzati alla migliore sessione disponibile, ovvero l'host in [modalità larghezza-primo](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method), nel pool, usando le [macchine virtuali](../virtual-desktop/windows-10-multisession-faq.yml#what-is-windows-10-enterprise-multi-session)con più sessioni. D'altra parte, i desktop personali sono riservati agli scenari in cui ogni utente dispone di una propria macchina virtuale.
 
 ### <a name="pooled-desktop-scenario"></a>Scenario per desktop in pool
 

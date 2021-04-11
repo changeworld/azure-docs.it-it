@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9c8e971b4fda313ffede58455dd6d057d6848ce4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f21e4aa9bd46ed5524cf83d083a70b9b04f03056
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678130"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011137"
 ---
 # <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Domande frequenti su servizi meteorologici di Azure Maps (anteprima)
 
@@ -103,7 +103,7 @@ Sì. Oltre al radar in tempo reale e ai riquadri satellite, Azure Maps i clienti
 
 **Sono disponibili icone per le diverse condizioni meteorologiche?**
 
-Sì. [Qui](./weather-services-concepts.md#weather-icons)è possibile trovare le icone e i rispettivi codici. Si noti che solo alcune API del servizio meteo (anteprima), ad esempio  [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditionspreview), restituiscono *iconCode* nella risposta. Per altre informazioni, vedere l' [esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)Open Source WeatherConditions corrente.
+Sì. [Qui](./weather-services-concepts.md#weather-icons)è possibile trovare le icone e i rispettivi codici. Si noti che solo alcune API del servizio meteo (anteprima), ad esempio  [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions), restituiscono *iconCode* nella risposta. Per altre informazioni, vedere l' [esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)Open Source WeatherConditions corrente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

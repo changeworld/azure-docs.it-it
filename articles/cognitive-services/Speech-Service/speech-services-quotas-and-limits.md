@@ -1,25 +1,25 @@
 ---
-title: Quote e limiti di servizi vocali
+title: Quote e limiti del servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Riferimento rapido, descrizione dettagliata e procedure consigliate per le quote e i limiti di servizi vocali cognitivi di Azure
+description: Riferimento rapido, descrizione dettagliata e procedure consigliate per le quote e i limiti del servizio riconoscimento vocale cognitivo di Azure
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 04/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: 7ef6ed5293ec9ecf49c16f8dfb0b6604942408f0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f851d7999b063a2b1334564902d81343e3789439
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937057"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011174"
 ---
-# <a name="speech-services-quotas-and-limits"></a>Quote e limiti di servizi vocali
+# <a name="speech-service-quotas-and-limits"></a>Quote e limiti del servizio di riconoscimento vocale
 
-Questo articolo contiene un riferimento rapido e la **Descrizione dettagliata** delle quote e dei limiti di servizi vocali cognitivi di Azure per tutti i [piani tariffari](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Contiene anche alcune procedure consigliate per evitare la limitazione delle richieste. 
+Questo articolo contiene un riferimento rapido e la **Descrizione dettagliata** delle quote e dei limiti del servizio riconoscimento vocale di Azure per tutti i [piani tariffari](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Contiene anche alcune procedure consigliate per evitare la limitazione delle richieste. 
 
 ## <a name="quotas-and-limits-quick-reference"></a>Riferimento rapido a quote e limiti
 Passa a [quote e limiti di sintesi vocale](#text-to-speech-quotas-and-limits-per-speech-resource)
@@ -98,9 +98,13 @@ Nelle sezioni successive vengono descritti casi specifici di regolazione delle q
 Passa a sintesi [vocale. Aumento del limite di richieste simultanee di trascrizione per la voce personalizzata](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice)
 
 ### <a name="speech-to-text-increasing-online-transcription-concurrent-request-limit"></a>Riconoscimento vocale: aumento del limite di richieste simultanee di trascrizione online
-Per impostazione predefinita, il numero di richieste simultanee è limitato a 20 per ogni risorsa vocale (modello di base) o per endpoint personalizzato (modello personalizzato). Per il piano tariffario standard questa quantità può essere aumentata. Prima di inviare la richiesta, assicurarsi di avere acquisito familiarità con il materiale contenuto in [questa sezione](#detailed-description-quota-adjustment-and-best-practices) e con la conoscenza di queste [procedure consigliate](#general-best-practices-to-mitigate-throttling-during-autoscaling).
+Per impostazione predefinita, il numero di richieste simultanee è limitato a 100 per ogni risorsa vocale (modello di base) e a 20 per endpoint personalizzato (modello personalizzato). Per il piano tariffario standard questa quantità può essere aumentata. Prima di inviare la richiesta, assicurarsi di avere acquisito familiarità con il materiale contenuto in [questa sezione](#detailed-description-quota-adjustment-and-best-practices) e con la conoscenza di queste [procedure consigliate](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
-L'aumento del limite di richieste simultanee **non** influisce direttamente sui costi. Servizi vocali usa il modello "pagamento solo per le risorse usate". Il limite definisce il livello di scalabilità del servizio prima che venga avviata la limitazione delle richieste.
+>[!NOTE]
+> Se si usano modelli personalizzati, tenere presente che una risorsa vocale può essere associata a molti endpoint personalizzati che ospitano molte distribuzioni di modelli personalizzati. Ogni endpoint personalizzato ha il numero predefinito di limiti di richieste simultanee (20) impostati dalla creazione. Se è necessario regolarla, è necessario apportare **separatamente** la regolazione di ogni endpoint personalizzato. Si noti anche che il valore del numero di limiti di richieste simultanee per il modello di base di una risorsa vocale **non ha alcun** effetto sugli endpoint personalizzati associati a questa risorsa.
+
+
+L'aumento del limite di richieste simultanee **non** influisce direttamente sui costi. Il servizio riconoscimento vocale usa il modello "pagamento solo per le risorse usate". Il limite definisce il livello di scalabilità del servizio prima che venga avviata la limitazione delle richieste.
 
 I limiti delle richieste simultanee per i modelli di **base** e **personalizzati** devono essere modificati **separatamente**.
 
@@ -168,7 +172,7 @@ In genere, è consigliabile testare il carico di lavoro e i modelli di carico di
 ### <a name="text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice"></a>Sintesi vocale: aumento del limite di richieste simultanee di trascrizione per la voce personalizzata
 Per impostazione predefinita, il numero di richieste simultanee per un endpoint Voice personalizzato è limitato a 10. Per il piano tariffario standard questa quantità può essere aumentata. Prima di inviare la richiesta, assicurarsi di avere acquisito familiarità con il materiale contenuto in [questa sezione](#detailed-description-quota-adjustment-and-best-practices) e con la conoscenza di queste [procedure consigliate](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
-L'aumento del limite di richieste simultanee **non** influisce direttamente sui costi. Servizi vocali usa il modello "pagamento solo per le risorse usate". Il limite definisce il livello di scalabilità del servizio prima che venga avviata la limitazione delle richieste.
+L'aumento del limite di richieste simultanee **non** influisce direttamente sui costi. Il servizio riconoscimento vocale usa il modello "pagamento solo per le risorse usate". Il limite definisce il livello di scalabilità del servizio prima che venga avviata la limitazione delle richieste.
 
 Il valore esistente del parametro del limite della richiesta simultanea **non** è visibile tramite portale di Azure, strumenti Command-Line o richieste API. Per verificare il valore esistente, creare una richiesta di supporto di Azure.
 
