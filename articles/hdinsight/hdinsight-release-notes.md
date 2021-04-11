@@ -1,16 +1,16 @@
 ---
 title: Note sulla versione di Azure HDInsight
 description: Note sulla versione più recente di Azure HDInsight. Ottenere suggerimenti e dettagli sullo sviluppo per Hadoop, Spark, R Server, Hive e altro.
-ms.custom: hdinsightactive
+ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 324d8b4c9fc53ca24e62fe339065d4452577cb1f
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: a648ff3aa0c042aaefe16eaae0f9d73953241b3d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105607219"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065498"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Note sulla versione di Azure HDInsight
 
@@ -32,6 +32,20 @@ HDInsight ha aggiunto il supporto [Spark 3.0.0](https://spark.apache.org/docs/3.
 
 ### <a name="kafka-24-preview"></a>Kafka 2,4 Preview
 HDInsight ha aggiunto il supporto [Kafka 2.4.1](http://kafka.apache.org/24/documentation.html) a HDInsight 4,0 come funzionalità di anteprima.
+
+### <a name="eav4-series-support"></a>Supporto della serie Eav4
+HDInsight ha aggiunto il supporto della serie Eav4 in questa versione. Scopri di più sulla [serie Dav4 qui](../virtual-machines/eav4-easv4-series.md). La serie è stata resa disponibile nelle aree geografiche seguenti: 
+
+* Australia orientale
+* Brasile meridionale
+* Stati Uniti centrali
+* Asia orientale
+* Stati Uniti orientali
+* Giappone orientale
+* Asia sud-orientale
+* Regno Unito meridionale
+* Europa occidentale
+* Stati Uniti occidentali 2
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passaggio a set di scalabilità di macchine virtuali
 HDInsight usa ora macchine virtuali di Azure per eseguire il provisioning del cluster. Il servizio esegue gradualmente la migrazione ai [set di scalabilità di macchine virtuali di Azure](../virtual-machine-scale-sets/overview.md). L'intero processo può richiedere mesi. Dopo la migrazione delle aree e delle sottoscrizioni, i cluster HDInsight appena creati verranno eseguiti nei set di scalabilità di macchine virtuali senza azioni del cliente. Non è prevista alcuna modifica di rilievo.
@@ -55,11 +69,17 @@ Nelle versioni future verranno apportate le modifiche seguenti.
 ### <a name="os-version-upgrade"></a>Aggiornamento versione sistema operativo
 HDInsight aggiornerà la versione del sistema operativo da Ubuntu 16,04 a 18,04. L'aggiornamento viene completato prima del 2021 aprile.
 
-### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>HDInsight 3,6-fine del supporto del 30 2021 giugno
-HDInsight 3,6 sarà la fine del supporto. A partire dal 30 2021 giugno, i clienti non possono creare nuovi cluster HDInsight 3,6. I cluster esistenti verranno eseguiti così come sono, senza il supporto di Microsoft. Provare a migrare a HDInsight 4,0 per evitare potenziali interruzioni del sistema o del supporto.
+### <a name="basic-support-for-hdinsight-36-starting-july-1-2021"></a>Supporto Basic per HDInsight 3,6 a partire dal 1 ° luglio 2021
+A partire dal 1 ° luglio 2021, Microsoft offrirà [supporto Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) per determinati tipi di cluster HDInsight 3,6. Il piano di supporto Basic sarà disponibile fino al 3 aprile 2022. Verrà registrato automaticamente in supporto Basic a partire dal 1 ° luglio 2021. Non è richiesto alcun intervento da te per acconsentire esplicitamente. Vedere [la documentazione](hdinsight-36-component-versioning.md) per cui sono inclusi i tipi di cluster in supporto Basic. 
+
+Non è consigliabile compilare nuove soluzioni in HDInsight 3,6, bloccare le modifiche negli ambienti 3,6 esistenti. Si consiglia [di eseguire la migrazione dei cluster a HDInsight 4,0](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40). Altre informazioni sulle [novità in HDInsight 4,0](hdinsight-version-release.md#whats-new-in-hdinsight-40).
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 HDInsight continua a migliorare l'affidabilità e le prestazioni del cluster. 
 
 ## <a name="component-version-change"></a>Modifica della versione dei componenti
 Aggiunta del supporto per Spark 3.0.0 e Kafka 2.4.1 come anteprima. È possibile trovare le versioni dei componenti correnti per HDInsight 4,0 e HDInsight 3,6 in [questo documento](./hdinsight-component-versioning.md).
+
+## <a name="recommanded-features"></a>Funzionalità riordinate
+### <a name="service-tags"></a>Tag di servizio
+I tag di servizio semplificano la limitazione dell'accesso di rete ai servizi di Azure per macchine virtuali di Azure e reti virtuali di Azure. I tag del servizio nelle regole del gruppo di sicurezza di rete (NSG) consentono o rifiutano il traffico verso un servizio di Azure specifico. La regola può essere impostata globalmente o per area di Azure. Azure fornisce la manutenzione degli indirizzi IP sottostanti ogni tag. I tag del servizio HDInsight per i gruppi di sicurezza di rete (gruppi) sono gruppi di indirizzi IP per i servizi di gestione e integrità. Questi gruppi consentono di ridurre al minimo la complessità per la creazione delle regole di sicurezza. I clienti di HDInsight possono abilitare il tag del servizio tramite portale di Azure, PowerShell e l'API REST. Per altre informazioni, vedere [Tag del servizio del gruppo di sicurezza di rete (NSG) per Azure HDInsight](./hdinsight-service-tags.md).

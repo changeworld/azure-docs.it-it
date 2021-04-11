@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: b19a7c156abf32e2a0f6d70717145a6ed5ab42ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2f5d98dd9bf893065f2bf9c37cbec4384d0f7c94
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099676"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727141"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Punteggio di sicurezza nel Centro sicurezza di Azure
 
@@ -69,7 +69,7 @@ Il punteggio massimo per il controllo Applica gli aggiornamenti del sistema, è 
 |**Punteggio corrente del controllo di sicurezza**|<br>![Equazione per il calcolo del Punteggio di un controllo di sicurezza](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Ogni singolo controllo di sicurezza contribuisce a raggiungere il punteggio di sicurezza. Ogni risorsa interessata da una raccomandazione all'interno del controllo contribuisce al punteggio corrente del controllo. Il punteggio corrente per ogni controllo è una misura dello stato delle risorse *all'interno* del controllo.<br>![Descrizioni comando che mostrano i valori usati durante il calcolo del punteggio corrente del controllo di sicurezza](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In questo esempio, il punteggio massimo di 6 viene diviso per 78 perché questa è la somma delle risorse integre e non integre.<br>6 / 78 = 0,0769<br>Moltiplicando questo valore per il numero di risorse integre (4) si ottiene il punteggio corrente:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Punteggio di sicurezza**<br>Singola sottoscrizione|<br>![Equazione per il calcolo del Punteggio sicuro di una sottoscrizione](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Punteggio di sicurezza di una singola sottoscrizione con tutti i controlli abilitati](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In questo esempio, è presente una singola sottoscrizione con tutti i controlli di sicurezza disponibili (punteggio massimo potenziale di 60 punti). Il punteggio mostra 28 punti su 60 possibili e i restanti 32 punti vengono riflessi nei valori di "Incremento potenziale del punteggio" dei controlli di sicurezza.<br>![Elenco di controlli e incremento potenziale del punteggio](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Punteggio di sicurezza**<br>Più sottoscrizioni|<br>![Equazione per il calcolo del Punteggio sicuro per più sottoscrizioni](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>Quando si calcola il punteggio combinato per più sottoscrizioni, il Centro sicurezza include un *peso* per ogni sottoscrizione. I pesi relativi per le sottoscrizioni sono determinati dal centro sicurezza in base a fattori quali il numero di risorse.<br>Il punteggio corrente per ogni sottoscrizione viene calcolato in modo analogo a quello di una singola sottoscrizione, ma il peso viene applicato come illustrato nell'equazione.<br>Quando si visualizzano più sottoscrizioni, il punteggio di sicurezza valuta tutte le risorse all'interno dei criteri abilitati e raggruppa il loro effetto combinato sul punteggio massimo di ogni controllo di sicurezza.<br>![Punteggio di sicurezza di più sottoscrizioni con tutti i controlli abilitati](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Il punteggio combinato **non** è una media. Si tratta, piuttosto, della posizione valutata dello stato di tutte le risorse in tutte le sottoscrizioni.<br>Anche in questo caso, se si passa alla pagina Consigli e si aggiungono i punti potenziali disponibili, si noterà che si tratta della differenza tra il punteggio corrente (24) e il punteggio massimo disponibile (60).|
-||||
+
 
 ### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>Quali raccomandazioni sono incluse nei calcoli di valutazione sicura?
 

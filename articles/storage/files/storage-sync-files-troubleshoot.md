@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 4439346a065f17f5b2136f51fd5e8b990fa1b914
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f20ebfdf9bdd1272ac1cb16e1ad88b4cbc287e5d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491300"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727604"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -373,7 +373,7 @@ La tabella seguente contiene tutti i caratteri unicode che Sincronizzazione file
 ### <a name="common-sync-errors"></a>Errori di sincronizzazione comuni
 <a id="-2147023673"></a>**La sessione di sincronizzazione è stata annullata.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimale)** | -2147023673 | 
@@ -384,7 +384,7 @@ Le sessioni di sincronizzazione potrebbero non avvenire per vari motivi, tra cui
 
 <a id="-2147012889"></a>**Non è stato possibile stabilire una connessione al servizio.**    
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT (decimale)** | -2147012889 | 
@@ -395,7 +395,7 @@ Le sessioni di sincronizzazione potrebbero non avvenire per vari motivi, tra cui
 
 <a id="-2134376372"></a>**Una richiesta dell'utente è stata limitata dal servizio.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimale)** | -2134376372 |
@@ -406,7 +406,7 @@ Non è necessaria alcuna azione, il server tenterà nuovamente. Se l'errore pers
 
 <a id="-2134364043"></a>**La sincronizzazione è bloccata fino al completamento del rilevamento delle modifiche dopo il ripristino**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c83075 |
 | **HRESULT (decimale)** | -2134364043 |
@@ -417,7 +417,7 @@ Non è richiesta alcuna azione. Quando viene ripristinato un file o una condivis
 
 <a id="-2147216747"></a>**Sincronizzazione non riuscita perché il database di sincronizzazione è stato scaricato.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80041295 |
 | **HRESULT (decimale)** | -2147216747 |
@@ -428,7 +428,7 @@ Questo errore si verifica in genere quando un'applicazione di backup crea uno sn
 
 <a id="-2134364065"></a>**La sincronizzazione non può accedere alla condivisione file di Azure specificata nell'endpoint cloud.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (decimale)** | -2134364065 |
@@ -444,7 +444,7 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non ac
 
 <a id="-2134351804"></a>**Sincronizzazione non riuscita perché la richiesta non è autorizzata a eseguire questa operazione.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c86044 |
 | **HRESULT (decimale)** | -2134351804 |
@@ -460,7 +460,7 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non è
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**Non è stato possibile risolvere il nome dell'account di archiviazione usato.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80C83060 |
 | **HRESULT (decimale)** | -2134364064 |
@@ -477,7 +477,7 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non è
 
 <a id="-2134364022"></a><a id="storage-unknown-error"></a>**Si è verificato un errore sconosciuto durante l'accesso all'account di archiviazione.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8308a |
 | **HRESULT (decimale)** | -2134364022 |
@@ -489,7 +489,7 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non è
 
 <a id="-2134364014"></a>**La sincronizzazione non è riuscita perché l'account di archiviazione è bloccato.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c83092 |
 | **HRESULT (decimale)** | -2134364014 |
@@ -500,7 +500,7 @@ Questo errore si verifica perché l'account di archiviazione ha un [blocco risor
 
 <a id="-1906441138"></a>**La sincronizzazione non è riuscita a causa di un problema con il database di sincronizzazione.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (decimale)** | -1906441138 |
@@ -511,7 +511,7 @@ Questo errore si verifica quando è presente un problema con il database interno
 
 <a id="-2134364053"></a>**La versione dell'agente di Sincronizzazione file di Azure installata nel server non è supportata.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80C8306B |
 | **HRESULT (decimale)** | -2134364053 |
@@ -522,7 +522,7 @@ Questo errore si verifica se la versione dell'agente di Sincronizzazione file di
 
 <a id="-2134351810"></a>**È stato raggiunto il limite di archiviazione per le condivisioni file di Azure.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8603e |
 | **HRESULT (decimale)** | -2134351810 |
@@ -548,7 +548,7 @@ Se la condivisione è piena e non è impostata una quota, uno dei possibili meto
 
 <a id="-2134351824"></a>**Impossibile trovare la condivisione file di Azure.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c86030 |
 | **HRESULT (decimale)** | -2134351824 |
@@ -564,7 +564,7 @@ Se la condivisione file di Azure è stata eliminata, creare una nuova condivisio
 
 <a id="-2134364042"></a>**La sincronizzazione è in pausa durante la sospensione della sottoscrizione di Azure.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80C83076 |
 | **HRESULT (decimale)** | -2134364042 |
@@ -575,7 +575,7 @@ Questo errore si verifica quando viene sospesa la sottoscrizione di Azure. La si
 
 <a id="-2134375618"></a>**Per l'account di archiviazione sono configurati un firewall o reti virtuali.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8033e |
 | **HRESULT (decimale)** | -2134375618 |
@@ -586,7 +586,7 @@ Questo errore si verifica quando la condivisione file di Azure è inaccessibile 
 
 <a id="-2134375911"></a>**La sincronizzazione non è riuscita a causa di un problema con il database di sincronizzazione.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimale)** | -2134375911 |
@@ -602,7 +602,7 @@ Se il problema persiste per più di due ore, creare una richiesta di supporto pe
 
 <a id="-2146762487"></a>**Il server non è riuscito a stabilire una connessione sicura. Il servizio cloud ha ricevuto un certificato imprevisto.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (decimale)** | -2146762487 |
@@ -627,7 +627,7 @@ Impostando questo valore del Registro di sistema, l'agente di Sincronizzazione f
 
 <a id="-2147012894"></a>**Non è stato possibile stabilire una connessione al servizio.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80072ee2 |
 | **HRESULT (decimale)** | -2147012894 |
@@ -638,7 +638,7 @@ Impostando questo valore del Registro di sistema, l'agente di Sincronizzazione f
 
 <a id="-2134375680"></a>**La sincronizzazione non è riuscita a causa di un problema di autenticazione.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c80300 |
 | **HRESULT (decimale)** | -2134375680 |
@@ -649,7 +649,7 @@ Questo errore si verifica in genere perché l'ora del server non è corretta. Se
 
 <a id="-2134364040"></a>**Sincronizzazione non riuscita a causa della scadenza del certificato.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c83078 |
 | **HRESULT (decimale)** | -2134364040 |
@@ -673,7 +673,7 @@ Se il certificato di autenticazione client è scaduto, attenersi alla procedura 
 
 <a id="-2134375896"></a>**Sincronizzazione non riuscita a causa di un certificato di autenticazione non trovato.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c80228 |
 | **HRESULT (decimale)** | -2134375896 |
@@ -693,7 +693,7 @@ Per risolvere il problema, eseguire la procedura seguente:
 
 <a id="-2134364039"></a>**Sincronizzazione non riuscita a causa di un'identità autenticazione non trovata.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c83079 |
 | **HRESULT (decimale)** | -2134364039 |
@@ -704,14 +704,14 @@ Questo errore si verifica perché l'eliminazione dell'endpoint server non è riu
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Lo spazio su disco del volume in cui risiede l'endpoint server è insufficiente.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT (decimale)** | -1906441711 |
 | **Stringa di errore** | JET_errLogDiskFull |
 | **Rimedio necessario** | Sì |
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimale)** | -2134375654 |
@@ -722,7 +722,7 @@ Questo errore si verifica perché il volume è esaurito. Questo errore si verifi
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**Il servizio non è ancora pronto per la sincronizzazione con questo endpoint server.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimale)** | -2134364145 |
@@ -733,21 +733,21 @@ Questo errore si verifica perché l'endpoint cloud è stato creato con contenuto
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**Sincronizzazione non riuscita a causa di problemi con svariati file singoli.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (decimale)** | -2134375877 |
 | **Stringa di errore** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Rimedio necessario** | Sì |
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimale)** | -2134375908 |
 | **Stringa di errore** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Rimedio necessario** | Sì |
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimale)** | -2134375853 |
@@ -761,7 +761,7 @@ Le sessioni di sincronizzazione hanno esito negativo con uno di questi errori qu
 
 <a id="-2134376423"></a>**La sincronizzazione non è riuscita a causa di un problema con il percorso dell'endpoint server.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (decimale)** | -2134376423 |
@@ -772,7 +772,7 @@ Assicurarsi che il percorso esista, che si trovi in un volume NTFS locale e che 
 
 <a id="-2134375817"></a>**La sincronizzazione non è riuscita perché la versione del driver di filtro non è compatibile con la versione dell'agente**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (decimale)** | -2134375817 |
@@ -783,7 +783,7 @@ Questo errore si verifica perché la versione del driver cloud a livelli caricat
 
 <a id="-2134376373"></a>**Il servizio non è attualmente disponibile.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimale)** | -2134376373 |
@@ -794,7 +794,7 @@ Questo errore si verifica perché il servizio di Sincronizzazione file di Azure 
 
 <a id="-2146233088"></a>**Sincronizzazione non riuscita a causa di un'eccezione.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80131500 |
 | **HRESULT (decimale)** | -2146233088 |
@@ -805,7 +805,7 @@ Questo errore si verifica perché la sincronizzazione non è riuscita a causa di
 
 <a id="-2134364045"></a>**La sincronizzazione non è riuscita perché è stato eseguito il failover dell'account di archiviazione in un'altra area.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c83073 |
 | **HRESULT (decimale)** | -2134364045 |
@@ -816,7 +816,7 @@ Questo errore si verifica perché è stato eseguito il failover dell'account di 
 
 <a id="-2134375922"></a>**La sincronizzazione non è riuscita a causa di un problema temporaneo con il database di sincronizzazione.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimale)** | -2134375922 |
@@ -827,7 +827,7 @@ Questo errore si verifica a causa di un problema interno con il database di sinc
 
 <a id="-2134364024"></a>**Sincronizzazione non riuscita a causa di modifiche nel tenant di Azure Active Directory**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c83088 |
 | **HRESULT (decimale)** | -2134364024 | 
@@ -840,7 +840,7 @@ Dopo aver ottenuto la versione più recente dell'agente, è necessario concedere
 
 <a id="-2134364010"></a>**Sincronizzazione non riuscita a causa di un'eccezione del firewall e della rete virtuale non configurata**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c83096 |
 | **HRESULT (decimale)** | -2134364010 | 
@@ -851,7 +851,7 @@ Questo errore si verifica se le impostazioni del firewall e della rete virtuale 
 
 <a id="-2147024891"></a>**La sincronizzazione non è riuscita perché le autorizzazioni per la cartella System Volume Information non sono corrette.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80070005 |
 | **HRESULT (decimale)** | -2147024891 |
@@ -870,7 +870,7 @@ Per risolvere il problema, eseguire la procedura seguente:
 
 <a id="-2134375810"></a>**La sincronizzazione non è riuscita perché la condivisione file di Azure è stata eliminata e ricreata.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8027e |
 | **HRESULT (decimale)** | -2134375810 |
@@ -889,7 +889,7 @@ Per risolvere il problema, eliminare e ricreare il gruppo di sincronizzazione at
 
 <a id="-2145844941"></a>**Sincronizzazione non riuscita perché la richiesta HTTP è stata reindirizzata**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80190133 |
 | **HRESULT (decimale)** | -2145844941 |
@@ -900,7 +900,7 @@ Questo errore si verifica perché Sincronizzazione file di Azure non supporta il
 
 <a id="-2134364027"></a>**Si è verificato un timeout durante il trasferimento di dati offline, ma è ancora in corso.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c83085 |
 | **HRESULT (decimale)** | -2134364027 |
@@ -911,7 +911,7 @@ Questo errore si verifica quando un'operazione di inserimento di dati supera il 
 
 <a id="-2134375814"></a>**Sincronizzazione non riuscita perché il percorso dell'endpoint server non è stato trovato nel server.**  
 
-| | |
+| Errore | Codice |
 |-|-|
 | **HRESULT** | 0x80c8027a |
 | **HRESULT (decimale)** | -2134375814 |
