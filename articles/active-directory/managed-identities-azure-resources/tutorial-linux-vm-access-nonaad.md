@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 12/16/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb31d6e25ce1c1ff5c3e4dbabb4fa53da0bd2ef3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61673210dafbdbdbc56477ed58fb0cbe9335efcf
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093934"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012691"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Key Vault 
 
@@ -94,7 +94,15 @@ All'identità gestita usata dalla macchina virtuale deve essere concesso l'acces
 ## <a name="access-data"></a>Accedere ai dati
 
 Per completare questi passaggi, è necessario disporre di un client SSH.  Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](/windows/wsl/about). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
- 
+
+>[!IMPORTANT]
+> Tutti gli Azure SDK supportano la libreria Azure. Identity che semplifica l'acquisizione di token di Azure AD per accedere ai servizi di destinazione. Scopri di più sugli [SDK di Azure](https://azure.microsoft.com/downloads/) e sfrutta la libreria Azure. Identity.
+> - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet)
+> - [JAVA](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable)
+> - [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
+> - [Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python)
+
+
 1. Nel portale, passare a una macchina virtuale Linux e in **Panoramica** fare clic su **Connetti**. 
 2. **Connettersi** alla macchina virtuale usando un client SSH di propria scelta. 
 3. Nella finestra del terminale usare CURL per eseguire una richiesta all'endpoint locale delle identità gestite per le risorse di Azure per ottenere un token di accesso per Azure Key Vault.  

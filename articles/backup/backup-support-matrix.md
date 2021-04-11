@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2877b0085f31f39849e04678d5e0ddd65e3888e2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 349a48b6178d5e4618aa62d9f0c3a150fe561e05
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564467"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284392"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -151,8 +151,8 @@ Backup di Azure ha aggiunto la funzionalità di ripristino tra aree per rafforza
 
 | Tipo di gestione di backup | Supportato                                                    | Aree supportate |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Macchina virtuale di Azure               | Supportato per le macchine virtuali di Azure con dischi gestiti e non gestiti. Non supportata per le macchine virtuali classiche. | Disponibile in tutte le aree pubbliche di Azure e nelle aree sovrane ad eccezione di France Central, Australia centrale, Sudafrica settentrionale, Emirati Arabi Uniti settentrionali, Svizzera settentrionale, Germania centro-occidentale, Norvegia orientale. <br>Per informazioni sull'utilizzo in tali aree, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
-| SQL/SAP HANA | In anteprima                                                      | Disponibile in tutte le aree pubbliche di Azure e nelle aree sovrane ad eccezione di France Central, Australia centrale, Sudafrica settentrionale, Emirati Arabi Uniti settentrionali, Svizzera settentrionale, Germania centro-occidentale, Norvegia orientale. <br>Per informazioni sull'utilizzo in tali aree, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Macchina virtuale di Azure               | Supportato per le macchine virtuali di Azure con dischi gestiti e non gestiti. Non supportata per le macchine virtuali classiche. | Disponibile in tutte le aree pubbliche di Azure e nelle aree sovrane ad eccezione di France Central, Australia centrale, Sudafrica settentrionale, Emirati Arabi Uniti settentrionali, Svizzera settentrionale, Germania centro-occidentale, Norvegia orientale, UG IOWA e GA Virginia. <br>Per informazioni sull'utilizzo in tali aree, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| SQL/SAP HANA | In anteprima                                                      | Disponibile in tutte le aree pubbliche di Azure e nelle aree sovrane ad eccezione di France Central, Australia centrale, Sudafrica settentrionale, Emirati Arabi Uniti settentrionali, Svizzera settentrionale, Germania centro-occidentale, Norvegia orientale, UG IOWA e GA Virginia. <br>Per informazioni sull'utilizzo in tali aree, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | Agente MARS/locale  | No                                                           | N/D               |
 | AFS (condivisioni file di Azure)                 | No                                                           | N/D               |
 

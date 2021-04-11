@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a0e8a513023c093157a3f14a64de9f87de543ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd544b9eec0c1839ad94ede65e9d4ccde6df81dc
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009454"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063356"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usare la crittografia comune dinamica Widevine e/o PlayReady
 
@@ -46,9 +46,9 @@ Per altre informazioni, vedere gli articoli relativi all'integrazione con [Axino
 
 Servizi multimediali supporta più modalità di autenticazione degli utenti che richiedono le chiavi. I criteri di autorizzazione della chiave simmetrica possono avere una o più restrizioni di autorizzazione, ad esempio restrizione aperta o di tipo token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [Simple Web token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (SWT) e [JSON Web token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT). 
 
-Per altre informazioni, vedere [configurare i criteri di autorizzazione della chiave](media-services-protect-with-aes128.md#configure_key_auth_policy)simmetrica.
+Per altre informazioni, vedere [configurare i criteri di autorizzazione della chiave](media-services-portal-configure-content-key-auth-policy.md)simmetrica.
 
-Per sfruttare la crittografia dinamica, è necessario un asset contenente un set di file MP4 a bitrate multipli o di file di origine Smooth Streaming a bitrate multipli. È anche necessario configurare i criteri di distribuzione dell'asset, descritti più avanti in questo argomento. Quindi, in base al formato specificato nell'URL di streaming, il server di streaming on demand garantisce che il flusso venga distribuito nel protocollo scelto. Di conseguenza, si archiviano, e si pagano, file in un solo formato di archiviazione. Servizi multimediali crea e fornisce la risposta HTTP appropriata in base a ogni richiesta del client.
+Per sfruttare i vantaggi della crittografia dinamica, creare un asset che contenga un set di file MP4 a bitrate multipli o di file di origine Smooth Streaming a bitrate multipli. È anche necessario configurare i criteri di distribuzione dell'asset, descritti più avanti in questo argomento. Quindi, in base al formato specificato nell'URL di streaming, il server di streaming on demand garantisce che il flusso venga distribuito nel protocollo scelto. Di conseguenza, si archiviano, e si pagano, file in un solo formato di archiviazione. Servizi multimediali crea e fornisce la risposta HTTP appropriata in base a ogni richiesta del client.
 
 Questo articolo è utile per gli sviluppatori che lavorano ad applicazioni per la distribuzione di contenuto multimediale protetto tramite diverse tecnologie DRM, ad esempio PlayReady e Widevine. L'articolo illustra come configurare il servizio di distribuzione delle licenze PlayReady con criteri di autorizzazione, in modo che solo i client autorizzati possano ricevere licenze PlayReady o Widevine. Descrive anche come usare la crittografia dinamica con PlayReady o Widevine DRM tramite DASH.
 

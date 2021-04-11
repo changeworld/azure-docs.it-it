@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 39f628845bdc9d54b48b1c8037f4a506a9d5c00a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b15a336e97cad1fb03a63ec34f563a4453755ff
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89236647"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504193"
 ---
 # <a name="frequently-asked-questions-for-microsoft-azure-attestation"></a>Domande frequenti sull'attestazione Microsoft Azure
 
@@ -31,7 +31,7 @@ Servizio di memorizzazione nella cache di Azure PCK:
 
 ## <a name="is-sgx-attestation-supported-by-azure-attestation-in-non-azure-environments"></a>Attestazione SGX supportata dall'attestazione di Azure in ambienti non Azure
 
-L'attestazione di Azure dipende dalla linea di base di sicurezza indicata dal servizio di memorizzazione nella cache di Azure PCK per convalidare i tee. Il servizio di memorizzazione nella cache di Azure PCK è attualmente progettato per supportare solo nodi di calcolo riservati di Azure. 
+No. L'attestazione di Azure dipende dalla linea di base di sicurezza indicata dal servizio di memorizzazione nella cache di Azure PCK per convalidare i tee. Il servizio di memorizzazione nella cache di Azure PCK è attualmente progettato per supportare solo nodi di calcolo riservati di Azure. 
 
 ## <a name="what-validations-does-azure-attestation-perform-for-attesting-sgx-enclaves"></a>Quali convalide esegue l'attestazione di Azure per l'attestazione delle enclave SGX
 

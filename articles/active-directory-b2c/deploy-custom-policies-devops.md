@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 13f5f8da0bd58cef0974e8ea8f5f3c5172daa0ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ca4464f40c0807e51adffca8e3e68c622314de6
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928733"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256889"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuire criteri personalizzati con Azure Pipelines
 
@@ -34,7 +34,7 @@ Sono necessari tre passaggi principali per abilitare Azure Pipelines per gestire
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Azure ad B2C tenant](tutorial-create-tenant.md)e credenziali per un utente nella directory con il ruolo di [amministratore dei criteri B2C Framework dell'esperienza](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
-* [Criteri personalizzati](custom-policy-get-started.md) caricati nel tenant
+* [Criteri personalizzati](tutorial-create-user-flows.md?pivots=b2c-custom-policy) caricati nel tenant
 * [App di gestione](microsoft-graph-get-started.md) registrata nel tenant con i criteri di autorizzazione dell'API Microsoft Graph *. ReadWrite. TrustFramework*
 * [Pipeline di Azure](https://azure.microsoft.com/services/devops/pipelines/)e accesso a un [progetto Azure DevOps Services][devops-create-project]
 

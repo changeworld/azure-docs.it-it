@@ -8,19 +8,30 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c5381a93308b5b3c8988cb8e25df541af1043418
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: 44ba2e39de37703de66aefd1fe843d0ca5002b6b
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031308"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256974"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verifica della posta elettronica personalizzata con SendGrid
 
-Usare un indirizzo di posta elettronica personalizzato in Azure Active Directory B2C (Azure AD B2C) per inviare messaggi di posta elettronica personalizzati agli utenti che si iscrivono per l'uso delle applicazioni. Usando [DisplayControls](display-controls.md) (attualmente in anteprima) e il provider di posta elettronica di terze parti SendGrid, è possibile usare il proprio modello di posta elettronica e *da:* indirizzo e oggetto, nonché la localizzazione del supporto e le impostazioni della password monouso (OTP) personalizzate.
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Usare un indirizzo di posta elettronica personalizzato in Azure Active Directory B2C (Azure AD B2C) per inviare messaggi di posta elettronica personalizzati agli utenti che si iscrivono per l'uso delle applicazioni. Usando il provider di posta elettronica di terze parti SendGrid, è possibile usare un modello di posta elettronica personalizzato e *da:* indirizzo e soggetto, oltre che da supporto per la localizzazione e le impostazioni della password monouso (OTP).
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Per la verifica tramite posta elettronica personalizzata è necessario usare un provider di posta elettronica di terze parti, ad esempio [SendGrid](https://sendgrid.com), [Mailjet](https://Mailjet.com)o [SparkPost](https://sparkpost.com), un'API REST personalizzata o qualsiasi provider di posta elettronica basato su http (incluso il proprio). Questo articolo descrive la configurazione di una soluzione che usa SendGrid.
 
@@ -556,3 +567,5 @@ Dopo aver aggiunto le stringhe localizzate, rimuovere i metadati dei messaggi di
 
 - [Verifica della posta elettronica personalizzata-DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 - Per informazioni sull'uso di un'API REST personalizzata o di qualsiasi provider di posta elettronica SMTP basato su HTTP, vedere [definire un profilo tecnico RESTful in un Azure ad B2C criteri personalizzati](restful-technical-profile.md).
+
+::: zone-end

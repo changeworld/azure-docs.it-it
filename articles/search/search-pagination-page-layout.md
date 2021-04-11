@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 92db62622c37241a76d7847931df030162de8f00
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98209832"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504227"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Azure ricerca cognitiva
 
@@ -137,12 +137,16 @@ I servizi creati dopo il 15 luglio 2020 offriranno un'esperienza di evidenziazio
 
 Con il nuovo comportamento:
 
-* Verranno restituite solo le frasi che corrispondono alla query di frase completa. La query "Super Bowl" restituirà evidenziazioni come la seguente:
++ Verranno restituite solo le frasi che corrispondono alla query di frase completa. La frase della query "Super Bowl" restituirà evidenziazioni come la seguente:
 
-    ```html
-    '<em>super bowl</em> is super awesome with a bowl of chips'
-    ```
-  Si noti che il termine *ciotola di chip* non presenta alcuna evidenziazione perché non corrisponde alla frase completa.
+  ```json
+  "@search.highlights": {
+      "sentence": [
+          "The <em>super</em> <em>bowl</em> is super awesome with a bowl of chips"
+     ]
+  ```
+
+  Si noti che altre istanze di *Super* e *Bowl* non hanno alcuna evidenziazione, perché tali istanze non corrispondono alla frase completa.
 
 Quando si scrive codice client che implementa l'evidenziazione dei riscontri, tenere presente questa modifica. Si noti che questa operazione non avrà alcun effetto a meno che non si crei un servizio di ricerca completamente nuovo.
 

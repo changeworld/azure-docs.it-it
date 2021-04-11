@@ -2,13 +2,13 @@
 title: Panoramica di backup su disco di Azure
 description: Informazioni sulla soluzione di backup su disco di Azure.
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: 9449fdc57909cb143d381ae074913c79d24c8893
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.date: 04/09/2021
+ms.openlocfilehash: 42f37c1f500be719e0bd79bad41226ab3ab2d911
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107296"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285140"
 ---
 # <a name="overview-of-azure-disk-backup"></a>Panoramica di backup su disco di Azure
 
@@ -31,20 +31,20 @@ Il backup su disco di Azure è una soluzione coerente senza agenti e di arresto 
 
 La soluzione di backup su disco di Azure è utile negli scenari seguenti:
 
-- Necessità di backup frequenti al giorno senza l'applicazione in stato di riposo
-- App in esecuzione in uno scenario di cluster: i cluster di failover di Windows Server e Linux scrivono in dischi condivisi
-- Necessità specifica del backup senza agenti a causa di problemi di sicurezza o di prestazioni dell'applicazione
+- Necessità di backup frequenti al giorno senza che l'applicazione sia in stato di riposo.
+- App in esecuzione in uno scenario di cluster: i cluster di failover di Windows Server e Linux scrivono i dischi condivisi.
+- Necessità specifica del backup senza agenti a causa di problemi di sicurezza o di prestazioni sull'applicazione.
 - Il backup coerente con l'applicazione della macchina virtuale non è possibile perché le app line-of-business non supportano Servizio Copia Shadow del volume (VSS).
 
 Prendere in considerazione il backup del disco di Azure negli scenari in cui:
 
-- un'applicazione mission-critical viene eseguita in una macchina virtuale di Azure che richiede più backup al giorno per soddisfare l'obiettivo del punto di ripristino, ma senza alcun impatto sull'ambiente di produzione o sulle prestazioni dell'applicazione
-- il regolamento dell'organizzazione o del settore limita l'installazione degli agenti a causa di problemi di sicurezza
-- l'esecuzione di script pre o post personalizzati e la chiamata di Freeze e scongela in macchine virtuali Linux per ottenere un backup coerente con l'applicazione comporta un sovraccarico eccessivo della disponibilità del carico di lavoro di produzione
-- le applicazioni incluse in contenitori in esecuzione nel servizio Azure Kubernetes (cluster AKS) usano dischi gestiti come archivio permanente. Oggi è necessario eseguire il backup del disco gestito tramite gli script di automazione difficili da gestire.
-- un disco gestito contiene dati aziendali critici, usati come una condivisione di file o file di backup del database e si desidera ottimizzare i costi di backup senza investire nel backup delle macchine virtuali di Azure
-- Sono presenti molte macchine virtuali Linux e Windows su disco singolo (ovvero una macchina virtuale con un solo disco del sistema operativo e nessun disco dati collegato) che ospitano computer WebServer o senza stato o funge da ambiente di gestione temporanea con le impostazioni di configurazione dell'applicazione ed è necessaria una soluzione di backup conveniente per proteggere il disco del sistema operativo. Ad esempio, per attivare un backup su richiesta rapido prima di eseguire l'aggiornamento o l'applicazione di patch alla macchina virtuale
-- una macchina virtuale esegue una configurazione del sistema operativo non supportata dalla soluzione di backup delle VM di Azure (ad esempio, server Windows a 2008 32 bit)
+- Un'applicazione mission-critical viene eseguita in una macchina virtuale di Azure che richiede più backup al giorno per soddisfare l'obiettivo del punto di ripristino, ma senza alcun impatto sull'ambiente di produzione o sulle prestazioni dell'applicazione.
+- Il regolamento dell'organizzazione o del settore limita l'installazione degli agenti a causa di problemi di sicurezza.
+- L'esecuzione di script pre o post personalizzati e il richiamo del blocco e del scongelamento nelle macchine virtuali Linux per ottenere un backup coerente con l'applicazione comporta un sovraccarico eccessivo della disponibilità del carico di lavoro di produzione.
+- Le applicazioni incluse in contenitori in esecuzione nel servizio Azure Kubernetes (cluster AKS) usano dischi gestiti come archivio permanente. Attualmente, è necessario eseguire il backup del disco gestito tramite gli script di automazione difficili da gestire.
+- Un disco gestito contiene dati aziendali critici, usati come una condivisione di file o file di backup del database e si desidera ottimizzare i costi di backup senza investire nel backup delle macchine virtuali di Azure.
+- Sono presenti molte macchine virtuali Linux e Windows a disco singolo (ovvero una macchina virtuale con un solo disco del sistema operativo e nessun disco dati collegato) che ospitano il server Web, i computer senza stato o funge da ambiente di gestione temporanea con le impostazioni di configurazione dell'applicazione ed è necessaria una soluzione di backup conveniente per proteggere il disco del sistema operativo. Ad esempio, per attivare un backup su richiesta rapido prima di aggiornare o applicare patch alla macchina virtuale.
+- Una macchina virtuale esegue una configurazione del sistema operativo non supportata dalla soluzione di backup delle macchine virtuali di Azure, ad esempio un server Windows a 2008 32 bit.
 
 ## <a name="how-the-backup-and-restore-process-works"></a>Funzionamento del processo di backup e ripristino
 
@@ -54,7 +54,7 @@ Prendere in considerazione il backup del disco di Azure negli scenari in cui:
 
 - Per configurare il backup, passare all'insieme di credenziali per il backup, assegnare un criterio di backup, selezionare il disco gestito di cui deve essere eseguito il backup e fornire un gruppo di risorse in cui archiviare e gestire gli snapshot. Backup di Azure attiva automaticamente i processi di backup pianificati che creano uno snapshot incrementale del disco in base alla frequenza di backup. Gli snapshot meno recenti vengono eliminati in base alla durata di conservazione specificata dal criterio di backup.
 
-- Backup di Azure usa [snapshot incrementali](../virtual-machines/disks-incremental-snapshots.md#restrictions) del disco gestito. Gli snapshot incrementali rappresentano un backup temporizzato e conveniente di dischi gestiti fatturati per le modifiche delta apportate al disco dall'ultimo snapshot. Vengono sempre archiviati nella risorsa di archiviazione più economica, con archiviazione HDD standard indipendentemente dal tipo di archiviazione dei dischi padre. Il primo snapshot del disco occuperà le dimensioni usate del disco e gli snapshot incrementali consecutivi archiviano le modifiche delta sul disco dall'ultimo snapshot.
+- Backup di Azure usa [snapshot incrementali](../virtual-machines/disks-incremental-snapshots.md#restrictions) del disco gestito. Gli snapshot incrementali rappresentano un backup temporizzato e conveniente di dischi gestiti fatturati per le modifiche delta apportate al disco dall'ultimo snapshot. Questi vengono sempre archiviati nella risorsa di archiviazione più economica, ovvero l'archiviazione HDD standard indipendentemente dal tipo di archiviazione dei dischi padre. Il primo snapshot del disco occuperà le dimensioni usate del disco e gli snapshot incrementali consecutivi archiviano le modifiche delta sul disco dall'ultimo snapshot.
 
 - Dopo aver configurato il backup di un disco gestito, verrà creata un'istanza di backup all'interno dell'insieme di credenziali per il backup. Utilizzando l'istanza di backup, è possibile trovare l'integrità delle operazioni di backup, attivare i backup su richiesta ed eseguire operazioni di ripristino. È anche possibile visualizzare l'integrità dei backup tra più insiemi di credenziali e istanze di backup usando il centro di backup, che fornisce un unico riquadro di visualizzazione a cristalli.
 
@@ -62,12 +62,12 @@ Prendere in considerazione il backup del disco di Azure negli scenari in cui:
 
 - L'insieme di credenziali di backup usa l'identità gestita per accedere ad altre risorse di Azure. Per configurare il backup di un disco gestito e per eseguire il ripristino dal backup precedente, l'identità gestita dell'insieme di credenziali di backup richiede un set di autorizzazioni sul disco di origine, il gruppo di risorse snapshot in cui vengono creati e gestiti gli snapshot e il gruppo di risorse di destinazione in cui si desidera ripristinare il backup. È possibile concedere le autorizzazioni all'identità gestita usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Identità gestita è un'entità servizio di un tipo speciale che può essere usata solo con le risorse di Azure. Altre informazioni sulle [identità gestite](../active-directory/managed-identities-azure-resources/overview.md).
 
-- Attualmente backup su disco di Azure supporta il backup operativo di dischi gestiti e non copia i backup nell'archivio dell'insieme di credenziali di backup. Per un elenco dettagliato degli scenari supportati e non supportati e della disponibilità delle aree, vedere la [matrice di supporto](disk-backup-support-matrix.md).
+- Attualmente backup su disco di Azure supporta il backup operativo di dischi gestiti e non copia i backup nell'archivio dell'insieme di credenziali di backup. Per un elenco dettagliato degli scenari supportati e non supportati e della disponibilità delle aree, vedere la [matrice di supporto](disk-backup-support-matrix.md) .
 
 ## <a name="pricing"></a>Prezzi
 
-Backup di Azure offre una soluzione di gestione del ciclo di vita degli snapshot per proteggere i dischi di Azure. Gli snapshot del disco creati da backup di Azure vengono archiviati nel gruppo di risorse all'interno della sottoscrizione di Azure e comportano addebiti per l' **archiviazione di snapshot** . Per informazioni dettagliate sui prezzi degli snapshot, vedere [prezzi dei dischi gestiti](https://azure.microsoft.com/pricing/details/managed-disks/) . Poiché gli snapshot non vengono copiati nell'insieme di credenziali per il backup, backup di Azure non addebita una tariffa per l' **istanza protetta** e il costo di **archiviazione dei backup** non è applicabile. Gli snapshot incrementali occupano inoltre modifiche differenziali dall'ultimo snapshot e vengono sempre archiviati nell'archiviazione standard indipendentemente dal tipo di archiviazione dei dischi gestiti dall'elemento padre e vengono addebitati in base ai prezzi dell'archiviazione standard. In questo modo il backup dei dischi di Azure è una soluzione conveniente.
+Backup di Azure offre una soluzione di gestione del ciclo di vita degli snapshot per proteggere i dischi di Azure. Gli snapshot del disco creati da backup di Azure vengono archiviati nel gruppo di risorse all'interno della sottoscrizione di Azure e comportano addebiti per l' **archiviazione di snapshot** . Per informazioni dettagliate sui prezzi degli snapshot, vedere [prezzi dei dischi gestiti](https://azure.microsoft.com/pricing/details/managed-disks/) .<br></br>Poiché gli snapshot non vengono copiati nell'insieme di credenziali per il backup, backup di Azure non addebita una tariffa per l' **istanza protetta** e il costo di **archiviazione dei backup** non è applicabile. Inoltre, gli snapshot incrementali occupano le modifiche delta come ultimo snapshot e vengono sempre archiviati nell'archiviazione standard indipendentemente dal tipo di archiviazione dei dischi gestiti dall'elemento padre e vengono addebitati in base ai prezzi dell'archiviazione standard. In questo modo il backup dei dischi di Azure è una soluzione conveniente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Matrice di supporto per il backup di dischi di Azure](disk-backup-support-matrix.md)
+[Matrice di supporto per il backup di dischi di Azure](disk-backup-support-matrix.md)

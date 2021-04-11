@@ -3,12 +3,12 @@ title: Filtri eventi per Griglia di eventi di Azure
 description: Questo articolo illustra come filtrare gli eventi quando si crea una sottoscrizione di Griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: fa63296f97bfa888cb0f425d0c03a5e4a7e46525
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b5439b77b86d42d062cf9da66ce678f04f46f813
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419848"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256090"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi
 
@@ -454,7 +454,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="stringin"></a>StringIn
-L'operatore **stringin** controlla se il valore della **chiave** **corrisponde esattamente** a uno dei valori di **filtro** specificati. Nell'esempio seguente viene verificato se il valore dell' `key1` attributo nella `data` sezione è `exact` o `string` o `matches` . 
+L'operatore **stringin** controlla se il valore della **chiave** **corrisponde esattamente** a uno dei valori di **filtro** specificati. Nell'esempio seguente viene verificato se il valore dell' `key1` attributo nella `data` sezione è `contoso` o `fabrikam` o `factory` . 
 
 ```json
 "advancedFilters": [{

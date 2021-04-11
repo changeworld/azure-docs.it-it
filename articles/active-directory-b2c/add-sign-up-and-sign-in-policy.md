@@ -13,12 +13,12 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fbcdef0002a227d5319fc01e625146480e4c99fc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 047b295d68e872b4dc334e53b5b9da0ec07d5826
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043751"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257076"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Configurare un flusso di iscrizione e accesso in Azure Active Directory B2C
 
@@ -91,7 +91,7 @@ Il flusso utente di iscrizione e accesso consente di gestire le esperienze di is
 
 ## <a name="create-a-sign-up-and-sign-in-policy"></a>Creare criteri di iscrizione e di accesso
 
-I criteri personalizzati sono un set di file XML che vengono caricati nel tenant di Azure AD B2C per definire i percorsi utente. Sono disponibili Starter Pack con diversi criteri predefiniti, tra cui: iscrizione, accesso, reimpostazione della password e criteri di modifica del profilo. Per ulteriori informazioni, vedere [Introduzione ai criteri personalizzati in Azure ad B2C](custom-policy-get-started.md).
+I criteri personalizzati sono un set di file XML che vengono caricati nel tenant di Azure AD B2C per definire i percorsi utente. Sono disponibili Starter Pack con diversi criteri predefiniti, tra cui: iscrizione, accesso, reimpostazione della password e criteri di modifica del profilo. Per ulteriori informazioni, vedere [Introduzione ai criteri personalizzati in Azure ad B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 

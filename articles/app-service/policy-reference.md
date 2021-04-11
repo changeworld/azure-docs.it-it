@@ -1,15 +1,15 @@
 ---
 title: Definizioni di criteri predefiniti per il servizio app di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per il servizio app di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3d8b81950ac6befbcd4bd463c20ba648657e9ee1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e1f2277c36f89cd1d18d5edeaba2fd8e8c71004d
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105036740"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093801"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-service"></a>Definizioni predefinite di Criteri di Azure per il servizio app di Azure
 

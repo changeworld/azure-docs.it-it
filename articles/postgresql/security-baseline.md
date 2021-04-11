@@ -4,27 +4,26 @@ description: "Il database di Azure per PostgreSQL: la linea di base di sicurezza
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 04/08/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d1ff047c44833a94ae9db0a410f501a1f23a369f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33565567390a0612051eb774c098d83b361eca11
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100576230"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284330"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>Baseline della sicurezza di Azure per database di Azure per PostgreSQL-server singolo
 
-La linea di base sicurezza di Azure per database di Azure per PostgreSQL-server singolo contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
+Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure versione 1.0](../security/benchmarks/overview-v1.md) al database di Azure per PostgreSQL-singolo server. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili a database di Azure per PostgreSQL-singolo server. 
 
-La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](../security/benchmarks/overview.md), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
-
-Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md).
+> [!NOTE]
+> I **controlli** non applicabili a database di Azure per PostgreSQL-server singolo o per cui la responsabilità è Microsoft sono stati esclusi. Per informazioni sul modo in cui il database di Azure per PostgreSQL è completamente mappato al benchmark di sicurezza di Azure, vedere il **[file di mapping completo del database di Azure per PostgreSQL-singolo server](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/azure-database-for-postgresql-single-server-security-baseline-v1.1.xlsx)**.
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
 
@@ -40,9 +39,13 @@ In alternativa, è possibile usare gli endpoint servizio di rete virtuale per pr
 
 - [Come configurare le regole del firewall di database di Azure per PostgreSQL](howto-manage-firewall-using-portal.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: il [benchmark di sicurezza di Azure](/azure/governance/policy/samples/azure-security-benchmark) è l'iniziativa di criteri predefinita per il Centro sicurezza ed è la base per le [raccomandazioni del Centro sicurezza](/azure/security-center/security-center-recommendations). Le definizioni di criteri di Azure correlate a questo controllo sono abilitate automaticamente dal centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere un piano di [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
+
+**Definizioni predefinite di criteri di Azure-Microsoft. DBforPostgreSQL**:
+
+[!INCLUDE [Resource Policy for Microsoft.DBforPostgreSQL 1.1](../../includes/policy/standards/asb/rp-controls/microsoft.dbforpostgresql-1-1.md)]
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1,2: monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e interfacce di rete
 
@@ -54,17 +57,9 @@ In alternativa, è possibile usare gli endpoint servizio di rete virtuale per pr
 
 - [Come abilitare e usare Analisi del traffico](../network-watcher/traffic-analytics.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
 
-### <a name="13-protect-critical-web-applications"></a>1.3: proteggere le applicazioni Web critiche
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: negare le comunicazioni con indirizzi IP dannosi noti
 
@@ -76,9 +71,9 @@ Abilitare lo standard di Protezione DDoS nelle reti virtuali associate alle ista
 
 - [Come configurare la protezione DDoS](../ddos-protection/manage-ddos-protection.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="15-record-network-packets"></a>1,5: registrare i pacchetti di rete
 
@@ -88,9 +83,9 @@ Abilitare lo standard di Protezione DDoS nelle reti virtuali associate alle ista
 
 - [Come abilitare e usare Analisi del traffico](../network-watcher/traffic-analytics.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: distribuire sistemi di rilevamento intrusioni/intrusioni basati su rete (ID/IP)
 
@@ -98,17 +93,9 @@ Abilitare lo standard di Protezione DDoS nelle reti virtuali associate alle ista
 
 - [Come configurare Advanced Threat Protection per database di Azure per PostgreSQL](howto-database-threat-protection-portal.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
 
-### <a name="17-manage-traffic-to-web-applications"></a>1.7: gestire il traffico verso le applicazioni Web
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: ridurre al minimo la complessità e il sovraccarico amministrativo delle regole di sicurezza di rete
 
@@ -118,11 +105,11 @@ Nota: Database di Azure per PostgreSQL usa il tag di servizio "Microsoft.Sql".
 
 - [Per ulteriori informazioni sull'utilizzo dei tag di servizio](../virtual-network/service-tags-overview.md)
 
-- [Informazioni sull'utilizzo dei tag di servizio per database di Azure per PostgreSQL](concepts-data-access-and-security-vnet.md#terminology-and-description)
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
+- [Informazioni sull'utilizzo dei tag di servizio per database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet#terminology-and-description)
 
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: mantenere configurazioni di sicurezza standard per i dispositivi di rete
 
@@ -134,13 +121,13 @@ Nota: Database di Azure per PostgreSQL usa il tag di servizio "Microsoft.Sql".
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Esempi di criteri di Azure per la rete](../governance/policy/samples/index.md)
+- [Esempi di criteri di Azure per la rete](/azure/governance/policy/samples)
 
 - [Come creare un progetto di Azure](../governance/blueprints/create-blueprint-portal.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: documentare le regole di configurazione del traffico
 
@@ -148,37 +135,29 @@ Nota: Database di Azure per PostgreSQL usa il tag di servizio "Microsoft.Sql".
 
 Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate all'assegnazione di tag, ad esempio "Richiedi tag e il relativo valore", per garantire che tutte le risorse vengano create con tag e per notificare l'esistenza di risorse senza tag.
 
-È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni su risorse basate sui rispettivi tag.
+È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni sulle risorse in base ai tag.
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usare strumenti automatizzati per monitorare le configurazioni delle risorse di rete e rilevare le modifiche
 
 **Indicazioni**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate alle istanze di Database di Azure per PostgreSQL. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 - [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: registrazione e monitoraggio](../security/benchmarks/security-control-logging-monitoring.md).*
-
-### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usare origini di sincronizzazione ora approvate
-
-**Indicazioni**: Microsoft gestisce l'origine ora usata per le risorse di Azure, ad esempio Database di Azure per PostgreSQL per i timestamp nei log.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Microsoft
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 
@@ -190,9 +169,9 @@ Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: abilitare la registrazione di controllo per le risorse di Azure
 
@@ -204,29 +183,21 @@ Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate 
 
 - [Come configurare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
-
 **Responsabilità**: Customer
 
-### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: raccogliere i log di sicurezza dai sistemi operativi
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: configurare la conservazione dell'archiviazione dei log di sicurezza
 
 **Indicazioni**: In Monitoraggio di Azure, per l'area di lavoro Log Analytics usata per conservare i log di Database di Azure per PostgreSQL, impostare il periodo di conservazione in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione/memorizzazione a lungo termine.
 
-- [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
 
-- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
+- [Archiviazione dei log delle risorse in un account di archiviazione di Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage)
 
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: monitorare ed esaminare i log
 
@@ -238,9 +209,9 @@ Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate 
 
 - [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: abilitare gli avvisi per le attività anomale
 
@@ -258,35 +229,11 @@ Usare una qualsiasi delle definizioni di Criteri di Azure predefinite correlate 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
 
-### <a name="28-centralize-anti-malware-logging"></a>2.8: centralizzare la registrazione antimalware
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
-**Indicazioni**: non applicabile; Database di Azure per PostgreSQL non elabora o produce log correlati al software antimalware.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
-
-### <a name="29-enable-dns-query-logging"></a>2.9: abilitare la registrazione delle query DNS
-
-**Indicazioni**: non applicabile; Database di Azure per PostgreSQL non elabora o produce log correlati a DNS.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
-
-### <a name="210-enable-command-line-audit-logging"></a>2.10: abilitare la registrazione di controllo da riga di comando
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
-
-## <a name="identity-and-access-control"></a>Identità e controllo di accesso
+## <a name="identity-and-access-control"></a>Gestione delle identità e controllo di accesso
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: identità e controllo di accesso](../security/benchmarks/security-control-identity-access-control.md).*
 
@@ -298,27 +245,27 @@ Database di Azure per PostgreSQL non supporta il controllo degli accessi in base
 
 - [Informazioni sui ruoli personalizzati per la sottoscrizione di Azure](../role-based-access-control/custom-roles.md) 
 
-- [Informazioni sulle operazioni del provider di risorse per database di Azure per PostgreSQL](../role-based-access-control/resource-provider-operations.md#microsoftdbforpostgresql) 
+- [Informazioni sulle operazioni del provider di risorse per database di Azure per PostgreSQL](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbforpostgresql) 
 
-- [Informazioni sulla gestione dell'accesso per database di Azure per PostgreSQL](concepts-security.md#access-management)
-
-**Monitoraggio del Centro sicurezza di Azure**: Sì
+- [Informazioni sulla gestione dell'accesso per database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-security#access-management)
 
 **Responsabilità**: Customer
 
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
+
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: modificare le password predefinite, ove applicabile
 
-**Indicazioni**: Azure Active Directory e Database di Azure per PostgreSQL non hanno il concetto di password predefinite.
+**Linee guida**: Azure Active Directory (Azure ad) e database di Azure per PostgreSQL non hanno il concetto di password predefinite.
 
 Al momento della creazione dell'effettiva risorsa di Database di Azure per PostgreSQL, Azure forza la creazione di un utente amministratore con una password complessa. Tuttavia, una volta creata l'istanza di PostgreSQL, è possibile usare il primo account amministratore del server creato per creare altri utenti e concedere loro l'accesso amministrativo. Quando si creano questi account, assicurarsi di configurare una password complessa diversa per ogni account.
 
 - [Come creare account aggiuntivi per database di Azure per PostgreSQL](howto-create-users.md)
 
-- [Come aggiornare la password amministratore](howto-create-manage-server-portal.md#update-admin-password)
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
+- [Come aggiornare la password amministratore](https://docs.microsoft.com/azure/postgresql/howto-create-manage-server-portal#update-admin-password)
 
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: usare account amministrativi dedicati
 
@@ -326,59 +273,59 @@ Al momento della creazione dell'effettiva risorsa di Database di Azure per Postg
 
 - [Informazioni sull'identità e sull'accesso del Centro sicurezza di Azure](../security-center/security-center-identity-access.md) 
 
-- [Informazioni su come creare utenti amministratori in database di Azure per PostgreSQL](howto-create-users.md#the-server-admin-account)
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
+- [Informazioni su come creare utenti amministratori in database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-create-users#the-server-admin-account)
 
 **Responsabilità**: Customer
 
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
+
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: usare Azure Active Directory Single Sign-On (SSO)
 
-**Indicazioni**: l'accesso a Database di Azure per PostgreSQL è supportato sia con l'uso di nome utente e password configurati direttamente nel database, sia con l'uso di un'identità Azure Active Directory (AD) e di un token Azure AD per la connessione. Quando si usa un token Azure AD, sono supportati metodi diversi, ad esempio un utente Azure AD, un gruppo Azure AD o un'applicazione Azure AD che si connette al database.
+**Linee guida**: l'accesso a database di Azure per PostgreSQL è supportato sia con nome utente/password configurato direttamente nel database, sia con un'identità di Azure Active Directory (Azure ad) e utilizzando un token Azure ad per la connessione. Quando si usa un token Azure AD, sono supportati metodi diversi, ad esempio un utente Azure AD, un gruppo Azure AD o un'applicazione Azure AD che si connette al database.
 
-Separatamente, l'accesso al piano di controllo per PostgreSQL è disponibile tramite l'API REST e supporta SSO. Per l'autenticazione, impostare l'intestazione di autorizzazione per le richieste su un token JSON Web che è possibile ottenere da Azure Active Directory.
+Separatamente, l'accesso al piano di controllo per PostgreSQL è disponibile tramite l'API REST e supporta SSO. Per eseguire l'autenticazione, impostare l'intestazione di autorizzazione per le richieste su un token Web JSON ottenuto da Azure AD.
 
-- [Usare Azure Active Directory per l'autenticazione con database di Azure per PostgreSQL](howto-configure-sign-in-aad-authentication.md)
+- [Usare Azure AD per l'autenticazione con database di Azure per PostgreSQL](howto-configure-sign-in-aad-authentication.md)
 
 - [Informazioni sull'API REST di database di Azure per PostgreSQL](/rest/api/postgresql/)
 
 - [Informazioni su SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: usare l'autenticazione a più fattori per tutti gli accessi in base al Azure Active Directory
 
-**Indicazioni**: abilitare Azure Active Directory Multi-Factor Authentication (MFA) e seguire le raccomandazioni sulla gestione delle identità e degli accessi nel Centro sicurezza di Azure. Quando si usano token Azure AD per accedere al database, è possibile richiedere l'autenticazione a più fattori per gli accessi al database.
+**Linee guida**: abilitare l'autenticazione a più fattori di Azure Active Directory (Azure ad) e seguire le indicazioni sulla gestione delle identità e degli accessi nel centro sicurezza di Azure. Quando si usano token di Azure AD per accedere al database, è possibile richiedere l'autenticazione a più fattori per gli accessi al database.
 
-- [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Come abilitare l'autenticazione a più fattori in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Usare Azure Active Directory per l'autenticazione con database di Azure per PostgreSQL](howto-configure-sign-in-aad-authentication.md)
+- [Usare Azure AD per l'autenticazione con database di Azure per PostgreSQL](howto-configure-sign-in-aad-authentication.md)
 
 - [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3,6: usare workstation sicure gestite da Azure per le attività amministrative
 
-**Indicazioni**: usare workstation con accesso con privilegi insieme al servizio Multi-Factor Authentication (MFA) configurato per l'accesso e la configurazione delle risorse di Azure.
+**Linee guida**: usare workstation con accesso con privilegi (Paw) con l'autenticazione a più fattori configurata per l'accesso e la configurazione delle risorse di Azure. 
 
 - [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
+- [Come abilitare l'autenticazione a più fattori in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: registrare e inviare avvisi sulle attività sospette dagli account amministrativi
 
 **Indicazioni**: abilitare Advanced Threat Protection per Database di Azure per PostgreSQL per generare avvisi per le attività sospette.
 
-È inoltre possibile usare Azure Active Directory (AD) Privileged Identity Management (PIM) per la generazione di log e avvisi quando nell'ambiente si verifica un'attività sospetta o non sicura.
+Inoltre, è possibile usare Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per la generazione di log e avvisi quando si verifica un'attività sospetta o non sicura nell'ambiente.
 
 Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i report sul comportamento utente rischioso.
 
@@ -388,9 +335,9 @@ Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i repor
 
 - [Informazioni sui rilevamenti di rischi di Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: gestire le risorse di Azure solo dalle posizioni approvate
 
@@ -398,57 +345,57 @@ Usare i rilevamenti dei rischi di Azure AD per visualizzare gli avvisi e i repor
 
 - [Come configurare località denominate in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
-**Indicazioni**: usare Azure Active Directory (AD) come sistema di autenticazione e autorizzazione centrale. Azure AD protegge i dati usando la crittografia avanzata per i dati inattivi e in transito. Azure AD inoltre effettua il salting, esegue l'hashing e archivia in modo sicuro le credenziali utente.
+**Linee guida**: usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale. Azure AD protegge i dati usando la crittografia avanzata per i dati inattivi e in transito. Azure AD inoltre effettua il salting, esegue l'hashing e archivia in modo sicuro le credenziali utente.
 
 Per l'accesso a Database di Azure per PostgreSQL, è consigliabile usare Azure AD e usare un token Azure AD per connettersi. Quando si usa un token Azure AD, sono supportati metodi diversi, ad esempio un utente Azure AD, un gruppo Azure AD o un'applicazione Azure AD che si connette al database.
 
 Le credenziali di Azure AD possono essere usate anche per l'amministrazione a livello di piano di gestione (ad esempio, il portale di Azure) per controllare gli account amministratore PostgreSQL.
 
-- [Usare Azure Active Directory per l'autenticazione con database di Azure per PostgreSQL](howto-configure-sign-in-aad-authentication.md)
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
+- [Usare Azure AD per l'autenticazione con database di Azure per PostgreSQL](howto-configure-sign-in-aad-authentication.md)
 
 **Responsabilità**: Customer
 
-### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: controllare e riconciliare con regolarità l'accesso degli utenti
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
-**Indicazioni**: esaminare i log di Azure Active Directory per individuare gli account obsoleti, che possono includere quelli con ruoli amministrativi di Database di Azure per PostgreSQL. Usare inoltre le verifiche di accesso alle identità di Azure per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali che possono essere usate per accedere a Database di Azure per PostgreSQL e le assegnazioni di ruoli. È consigliabile verificare regolarmente l'accesso degli utenti, ad esempio ogni 90 giorni, per assicurarsi che solo gli utenti appropriati dispongano di accesso continuo.
+### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: controllare e riconciliare regolarmente l'accesso utente
 
-- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
+**Indicazioni**: esaminare i registri di Azure Active Directory (Azure ad) per individuare gli account obsoleti che possono includere quelli con i ruoli amministrativi di database di Azure per PostgreSQL. Usare inoltre le verifiche di accesso alle identità di Azure per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali che possono essere usate per accedere a Database di Azure per PostgreSQL e le assegnazioni di ruoli. È consigliabile verificare regolarmente l'accesso degli utenti, ad esempio ogni 90 giorni, per assicurarsi che solo gli utenti appropriati dispongano di accesso continuo.
+
+- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
 
 - [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
 - [Esaminare gli utenti di PostgreSQL e i ruoli assegnati](https://www.postgresql.org/docs/current/database-roles.html)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: il monitoraggio tenta di accedere alle credenziali disattivate
 
-**Indicazioni**: abilitare le impostazioni di diagnostica per Database di Azure per PostgreSQL e Azure Active Directory, inviando tutti i log a un'area di lavoro Log Analytics. Configurare gli avvisi desiderati, ad esempio per i tentativi di autenticazione non riusciti, all'interno di Log Analytics.
+**Linee guida**: abilitare le impostazioni di diagnostica per database di Azure per PostgreSQL e Azure Active Directory (Azure ad), inviando tutti i log a un'area di lavoro log Analytics. Configurare gli avvisi desiderati, ad esempio per i tentativi di autenticazione non riusciti, all'interno di Log Analytics.
 
 - [Come configurare e accedere ai log del server per database di Azure per PostgreSQL](howto-configure-server-logs-in-portal.md)
 
 - [Come configurare e accedere ai log di controllo per database di Azure per PostgreSQL](concepts-audit.md)
 
-- [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+- [Come integrare i log attività di Azure in Monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: deviazione dell'avviso sulla deviazione del comportamento di accesso dell'account
 
 **Indicazioni**: abilitare Advanced Threat Protection per Database di Azure per PostgreSQL per generare avvisi per le attività sospette.
 
-Usare le funzionalità di rilevamento di rischi e Identity Protection di Azure Active Directory per configurare risposte automatiche alle azioni sospette rilevate. È possibile abilitare le risposte automatiche tramite Azure Sentinel per implementare le risposte di sicurezza dell'organizzazione.
+Usare le funzionalità di protezione dell'identità e di rilevamento dei rischi di Azure Active Directory (Azure AD) per configurare risposte automatiche a azioni sospette rilevate. È possibile abilitare le risposte automatiche tramite Azure Sentinel per implementare le risposte di sicurezza dell'organizzazione.
 
 È anche possibile inserire i log in Azure Sentinel per un'analisi più approfondita.
 
@@ -460,23 +407,23 @@ Usare le funzionalità di rilevamento di rischi e Identity Protection di Azure A
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto
 
 **Indicazioni**: attualmente non disponibile; la funzionalità Customer Lockbox non è ancora supportata per Database di Azure per PostgreSQL.
 
-- [Elenco dei servizi Customer Lockbox supportati](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
-
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+- [Elenco dei servizi Customer Lockbox supportati](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilità**: Customer
 
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
+
 ## <a name="data-protection"></a>Protezione dei dati
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: mantenere un inventario delle informazioni riservate
 
@@ -484,9 +431,9 @@ Usare le funzionalità di rilevamento di rischi e Identity Protection di Azure A
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
@@ -502,9 +449,9 @@ Usare le funzionalità di rilevamento di rischi e Identity Protection di Azure A
 
 - [Come configurare le regole del firewall di database di Azure per PostgreSQL](concepts-firewall-rules.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non disponibile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: monitorare e bloccare il trasferimento non autorizzato di informazioni riservate
 
@@ -516,21 +463,25 @@ Microsoft gestisce l'infrastruttura sottostante per Database di Azure per Postgr
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
+**Responsabilità**: Condiviso
 
-**Responsibilità**: Condiviso
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: crittografare tutte le informazioni riservate in transito
 
 **Indicazioni**: Database di Azure per PostgreSQL supporta la connessione del server PostgreSQL alle applicazioni client tramite il protocollo Transport Layer Security (TLS), noto in precedenza come Secure Sockets Layer (SSL). L'imposizione di connessioni TSL tra il server di database e le applicazioni client garantisce la protezione da attacchi "man-in-the-middle" tramite la crittografia del flusso di dati tra il server e l'applicazione. Nel portale di Azure verificare che l'opzione "Imponi connessione SSL" sia abilitata, per impostazione predefinita, per tutte le istanze di Database di Azure per PostgreSQL.
 
-Attualmente le versioni di TLS supportate per Database di Azure per PostgreSQL sono TLS 1.0, TLS 1.1 e TLS 1.2.
+Attualmente le versioni di TLS supportate per database di Azure per PostgreSQL sono TLS 1,0, TLS 1,1, TLS 1,2.
 
 - [Come configurare la crittografia in transito per database di Azure per PostgreSQL](concepts-ssl-connection-security.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Condiviso
+
+**Monitoraggio del Centro sicurezza di Azure**: il [benchmark di sicurezza di Azure](/azure/governance/policy/samples/azure-security-benchmark) è l'iniziativa di criteri predefinita per il Centro sicurezza ed è la base per le [raccomandazioni del Centro sicurezza](/azure/security-center/security-center-recommendations). Le definizioni di criteri di Azure correlate a questo controllo sono abilitate automaticamente dal centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere un piano di [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
+
+**Definizioni predefinite di criteri di Azure-Microsoft. DBforPostgreSQL**:
+
+[!INCLUDE [Resource Policy for Microsoft.DBforPostgreSQL 4.4](../../includes/policy/standards/asb/rp-controls/microsoft.dbforpostgresql-4-4.md)]
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: usare uno strumento di individuazione attivo per identificare i dati sensibili
 
@@ -540,11 +491,11 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Responsabilità**: Condiviso
 
-**Responsibilità**: Condiviso
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse 
 
 **Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso al piano di controllo del database di Azure per PostgreSQL, ad esempio portale di Azure. Per l'accesso al piano dati (all'interno del database stesso), usare query SQL per creare gli utenti e configurare le autorizzazioni utente. Il controllo degli accessi in base al ruolo di Azure non influisce sulle autorizzazioni dell'utente
 
@@ -552,37 +503,9 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 - [Come configurare l'accesso utente con SQL per database di Azure per PostgreSQL](howto-create-users.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
 
-### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: usare la prevenzione della perdita dei dati basata su host per applicare il controllo di accesso
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-Microsoft gestisce l'infrastruttura sottostante per Database di Azure per PostgreSQL e ha implementato severi controlli per impedire la perdita o l'esposizione dei dati del cliente.
-
-- [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Microsoft
-
-### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: crittografare le informazioni riservate inattive
-
-**Indicazioni**: Il servizio Database di Azure per PostgreSQL usa il modulo crittografico convalidato FIPS 140-2 per la crittografia dei dati archiviati inattivi. I dati, inclusi i backup, vengono crittografati su disco, ad eccezione dei file temporanei creati durante l'esecuzione di query. Il servizio usa la crittografia AES a 256 bit inclusa nella crittografia di archiviazione di Azure e le chiavi vengono gestite dal sistema. La crittografia dell'archiviazione è sempre attiva e non può essere disabilitata.
-
-La crittografia dei dati con chiavi gestite dal cliente per Database di Azure per PostgreSQL - Server singolo consente di usare Bring Your Own Key (BYOK) per la protezione dei dati inattivi. A questo punto, è necessario richiedere l'accesso per usare questa funzionalità. A tale scopo, contattare:
-
-AskAzureDBforPostgreSQL@service.microsoft.com.
-
-- [Informazioni sulla crittografia dei dati inattivi per database di Azure per PostgreSQL](concepts-security.md)
-
-- [Informazioni sulla crittografia dei dati inattivi per database di Azure per PostgreSQL con chiavi gestite dal cliente](concepts-data-encryption-postgresql.md)
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Microsoft
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: registrare e inviare avvisi per le modifiche apportate alle risorse di Azure critiche
 
@@ -590,11 +513,11 @@ AskAzureDBforPostgreSQL@service.microsoft.com.
 
 - [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
 
-## <a name="vulnerability-management"></a>Gestione vulnerabilità
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
+
+## <a name="vulnerability-management"></a>Gestione delle vulnerabilità
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: gestione delle vulnerabilità](../security/benchmarks/security-control-vulnerability-management.md).*
 
@@ -608,43 +531,11 @@ Microsoft esegue la gestione delle vulnerabilità nei sistemi sottostanti che su
 
 - [Copertura delle funzionalità per i servizi PaaS di Azure nel centro sicurezza di Azure](../security-center/features-paas.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Responsabilità**: Condiviso
 
-**Responsibilità**: Condiviso
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
-### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: distribuire una soluzione di gestione delle patch automatizzata per il sistema operativo
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
-
-### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: distribuire la soluzione di gestione delle patch automatizzata per i titoli software di terze parti
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsibilità**: Non applicabile
-
-### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: confrontare le analisi di vulnerabilità back-to-back
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsibilità**: Non applicabile
-
-### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: usare un processo di classificazione dei rischi per classificare in ordine di priorità la correzione delle vulnerabilità individuate
-
-**Indicazioni**: Microsoft esegue la gestione delle vulnerabilità nei sistemi sottostanti che supportano Database di Azure per PostgreSQL.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Microsoft
-
-## <a name="inventory-and-asset-management"></a>Gestione di asset e inventario
+## <a name="inventory-and-asset-management"></a>Gestione asset e inventario
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: inventario e gestione delle risorse](../security/benchmarks/security-control-inventory-asset-management.md).*
 
@@ -658,9 +549,9 @@ Microsoft esegue la gestione delle vulnerabilità nei sistemi sottostanti che su
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: mantenere i metadati degli asset
 
@@ -668,9 +559,9 @@ Microsoft esegue la gestione delle vulnerabilità nei sistemi sottostanti che su
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: eliminare le risorse di Azure non autorizzate
 
@@ -682,17 +573,17 @@ Microsoft esegue la gestione delle vulnerabilità nei sistemi sottostanti che su
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6,4: definire e gestire l'inventario delle risorse di Azure approvate
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo e Azure in generale.
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: monitorare le risorse di Azure non approvate
 
@@ -708,57 +599,23 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 - [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
 
-### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: monitorare le applicazioni software non approvate nelle risorse di calcolo
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsibilità**: Non applicabile
-
-### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: rimuovere le risorse di Azure e le applicazioni software non approvate
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo e Azure in generale.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsibilità**: Non applicabile
-
-### <a name="68-use-only-approved-applications"></a>6.8: usare solo applicazioni approvate
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsibilità**: Non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: usare solo servizi di Azure approvati
 
 **Indicazioni**: usare Criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni dei criteri predefinite seguenti:
-
 - Tipi di risorse non consentiti
-
 - Tipi di risorse consentiti
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/built-in-policies#general)
 
 **Responsabilità**: Customer
 
-### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: gestire un inventario dei titoli software approvati
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: limitare la capacità degli utenti di interagire con Azure Resource Manager
 
@@ -766,25 +623,9 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 - [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
 
-### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: limitare la capacità degli utenti di eseguire gli script nelle risorse di calcolo
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
-
-### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: separare fisicamente o logicamente le applicazioni ad alto rischio
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
@@ -793,26 +634,16 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: definire configurazioni sicure per tutte le risorse di Azure
 
 **Indicazioni**: definire e implementare configurazioni di sicurezza standard per le istanze di Database di Azure per PostgreSQL con Criteri di Azure. Usare gli alias di Criteri di Azure nello spazio dei nomi "Microsoft.DBforPostgreSQL" per creare criteri personalizzati per controllare o applicare la configurazione di rete delle istanze di Database di Azure per PostgreSQL. È anche possibile usare le definizioni di criteri predefinite correlate alle istanze di Database di Azure per PostgreSQL, ad esempio:
-
 - Il criterio Imponi connessione TLS deve essere abilitato per i server di database PostgreSQL
-
 - L'impostazione di registrazione delle connessioni deve essere abilitata per i server di database PostgreSQL
 
 - [Come visualizzare gli alias dei criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
 
-### <a name="72-establish-secure-operating-system-configurations"></a>7.2: definire configurazioni sicure del sistema operativo
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsibilità**: Non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: garantire la sicurezza delle configurazioni delle risorse di Azure
 
@@ -822,37 +653,21 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 - [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
 
-### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: garantire la sicurezza delle configurazioni del sistema operativo
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsibilità**: Non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: archiviare in modo sicuro la configurazione delle risorse di Azure
 
 **Indicazioni**: se si usano definizioni di Criteri di Azure personalizzate per le istanze di Database di Azure per PostgreSQL e le risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
+- [Documentazione di Azure Repos](/azure/devops/repos/)
 
 **Responsabilità**: Customer
 
-### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: distribuire gli strumenti di gestione della configurazione per le risorse di Azure
 
@@ -860,17 +675,9 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
 
-### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: distribuire gli strumenti di gestione della configurazione per i sistemi operativi
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: implementare il monitoraggio della configurazione automatizzata per le risorse di Azure
 
@@ -878,17 +685,9 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
 
-### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: implementare il monitoraggio automatizzato della configurazione per i sistemi operativi
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsibilità**: Non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: gestire i segreti di Azure in modo sicuro
 
@@ -898,27 +697,29 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 - [Come creare una Key Vault](../key-vault/general/quick-create-portal.md)
 
-- [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/general/assign-access-policy-portal.md)
+- [Come eseguire l'autenticazione a Key Vault](../key-vault/general/authentication.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
+- [Come assegnare un criterio di accesso Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Responsabilità**: Customer
 
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
+
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: gestire le identità in modo sicuro e automatico
 
-**Indicazioni**: Il server Database di Azure per PostgreSQL supporta l'autenticazione di Azure Active Directory per accedere ai database.  Mentre si crea il server Database di Azure per PostgreSQL, si forniscono le credenziali per un utente amministratore. Questo amministratore può essere usato per creare altri utenti di database.  
+**Indicazioni**: database di Azure per il server PostgreSQL supporta l'autenticazione Azure Active Directory (Azure ad) per accedere ai database. Mentre si crea il server Database di Azure per PostgreSQL, si forniscono le credenziali per un utente amministratore. Questo amministratore può essere usato per creare altri utenti di database.
 
 Per le macchine virtuali di Azure o le applicazioni Web in esecuzione nel Servizio app di Azure in uso per accedere al server Database di Azure per PostgreSQL, usare l'identità del servizio gestita insieme ad Azure Key Vault per archiviare e recuperare le credenziali per tale server. Assicurarsi che l'eliminazione temporanea di Azure Key Vault sia abilitata.
 
-Usare le identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (AD). Le identità gestite consentono di eseguire l'autenticazione per qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire credenziali nel codice.
+Usare identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure AD. Le identità gestite consentono di eseguire l'autenticazione per qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire credenziali nel codice.
 
 - [Come configurare le identità gestite](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 - [Come eseguire l'integrazione con le identità gestite di Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: eliminare l'esposizione involontaria delle credenziali
 
@@ -926,23 +727,13 @@ Usare le identità gestite per fornire ai servizi di Azure un'identità gestita 
 
 - [Come impostare Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ## <a name="malware-defense"></a>Difesa da malware
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
-
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: usare il software antimalware gestito centralmente
-
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-Il software antimalware Microsoft è abilitato nell'host sottostante che supporta i servizi di Azure (ad esempio, Servizio app di Azure), ma non viene eseguito sui contenuti del cliente.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsibilità**: Microsoft
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: eseguire l'analisi preliminare dei file da caricare in risorse di Azure non di calcolo
 
@@ -950,21 +741,11 @@ Il software antimalware Microsoft è abilitato nell'host sottostante che support
 
 Eseguire l'analisi preliminare del contenuto da caricare in risorse di Azure non di calcolo, ad esempio Servizio app, Data Lake Storage, Archiviazione BLOB, Database di Azure per PostgreSQL e così via. Microsoft non è in grado di accedere ai dati in questi casi.
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Condiviso
 
-### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>Passaggio 8.3: assicurarsi che le firme e il software antimalware siano aggiornati
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
-**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
-
-il software antimalware Microsoft è abilitato nell'host sottostante che supporta i servizi di Azure (ad esempio, Database di Azure per PostgreSQL), ma non viene eseguito sui contenuti del cliente.
-
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
-**Responsabilità**: Microsoft
-
-## <a name="data-recovery"></a>Recupero dati
+## <a name="data-recovery"></a>Ripristino dei dati
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: ripristino dei dati](../security/benchmarks/security-control-data-recovery.md).*
 
@@ -976,9 +757,13 @@ il software antimalware Microsoft è abilitato nell'host sottostante che support
 
 - [Informazioni sulla configurazione iniziale di database di Azure per PostgreSQL](tutorial-design-database-using-azure-portal.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Condiviso
+
+**Monitoraggio del Centro sicurezza di Azure**: il [benchmark di sicurezza di Azure](/azure/governance/policy/samples/azure-security-benchmark) è l'iniziativa di criteri predefinita per il Centro sicurezza ed è la base per le [raccomandazioni del Centro sicurezza](/azure/security-center/security-center-recommendations). Le definizioni di criteri di Azure correlate a questo controllo sono abilitate automaticamente dal centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere un piano di [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
+
+**Definizioni predefinite di criteri di Azure-Microsoft. DBforPostgreSQL**:
+
+[!INCLUDE [Resource Policy for Microsoft.DBforPostgreSQL 9.1](../../includes/policy/standards/asb/rp-controls/microsoft.dbforpostgresql-9-1.md)]
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: eseguire backup completi del sistema ed eseguire il backup di tutte le chiavi gestite dal cliente
 
@@ -990,9 +775,13 @@ Se si usa Azure Key Vault per archiviare le credenziali per le istanze di Databa
 
 - [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-**Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
+**Responsabilità**: Condiviso
 
-**Responsibilità**: Condiviso
+**Monitoraggio del Centro sicurezza di Azure**: il [benchmark di sicurezza di Azure](/azure/governance/policy/samples/azure-security-benchmark) è l'iniziativa di criteri predefinita per il Centro sicurezza ed è la base per le [raccomandazioni del Centro sicurezza](/azure/security-center/security-center-recommendations). Le definizioni di criteri di Azure correlate a questo controllo sono abilitate automaticamente dal centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere un piano di [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
+
+**Definizioni predefinite di criteri di Azure-Microsoft. DBforPostgreSQL**:
+
+[!INCLUDE [Resource Policy for Microsoft.DBforPostgreSQL 9.2](../../includes/policy/standards/asb/rp-controls/microsoft.dbforpostgresql-9-2.md)]
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: convalidare tutti i backup, incluse le chiavi gestite dal cliente
 
@@ -1004,9 +793,9 @@ Testare periodicamente il ripristino delle istanze di Database di Azure per Post
 
 - [Come eseguire il backup di un server in database di Azure per PostgreSQL](howto-restore-server-portal.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantire la protezione dei backup e delle chiavi gestite dal cliente
 
@@ -1014,13 +803,13 @@ Testare periodicamente il ripristino delle istanze di Database di Azure per Post
 
 - [Informazioni su backup e ripristino nel database di Azure per PostgreSQL](concepts-backup.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: risposta agli eventi imprevisti](../security/benchmarks/security-control-incident-response.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Risposta agli eventi imprevisti](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare un piano di risposta agli eventi imprevisti
 
@@ -1034,19 +823,19 @@ Testare periodicamente il ripristino delle istanze di Database di Azure per Post
 
 - [Il cliente può inoltre sfruttare la guida alla gestione degli eventi imprevisti della sicurezza del computer NIST per facilitare la creazione di un piano di risposta agli eventi imprevisti](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: creare una procedura per l'assegnazione di punteggi e la classificazione in ordine di priorità per gli eventi imprevisti
 
-**Indicazioni**: il Centro sicurezza assegna un livello di gravità a ogni avviso per facilitare la classificazione in ordine di priorità degli avvisi da analizzare. Il livello di gravità è basato sul grado di attendibilità riscontrato dal Centro sicurezza nell'individuazione o nell'analisi usata per emettere l'avviso, nonché sul grado di fiducia con cui si ritiene che vi sia un intento dannoso dietro l'attività che ha portato all'avviso.
+**Indicazioni**: il Centro sicurezza assegna un livello di gravità a ogni avviso per facilitare la classificazione in ordine di priorità degli avvisi da analizzare. Il livello di gravità è basato sul livello di attendibilità del Centro sicurezza nell'individuazione o sulla metrica utilizzata per emettere l'avviso, nonché sul livello di confidenza causato da un intento dannoso dietro l'attività che ha portato all'avviso.
 
 Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o non di produzione) e creare un sistema di denominazione per identificare e classificare distintamente le risorse di Azure.
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testare le procedure di risposta per la sicurezza
 
@@ -1054,9 +843,9 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 - [Fare riferimento alla pubblicazione NIST, ovvero guida ai programmi di test, formazione ed esercitazione per i piani e le funzionalità IT](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: specificare i dettagli di contatto e configurare le notifiche di avviso per gli eventi imprevisti della sicurezza
 
@@ -1064,21 +853,21 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 - [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Sì
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporare gli avvisi di sicurezza nel sistema di risposta agli eventi imprevisti
 
-**Indicazioni**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi ad Azure Sentinel.
+**Indicazioni**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi di Azure Sentinel.
 
 - [Come configurare l'esportazione continua](../security-center/continuous-export.md)
 
 - [Come trasmettere gli avvisi in Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 
@@ -1086,9 +875,9 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 - [Come configurare l'automazione del flusso di lavoro e App per la logica](../security-center/workflow-automation.md)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Customer
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
@@ -1096,15 +885,17 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
-**Indicazioni**: seguire le regole Microsoft per assicurarsi che i propri test di penetrazione non violino i criteri Microsoft: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+**Indicazioni**: seguire le regole Microsoft per assicurarsi che i propri test di penetrazione non violino i criteri Microsoft: 
+
+https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
 - [È possibile trovare altre informazioni sulla strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitoraggio del Centro sicurezza di Azure**: Non applicabile
-
 **Responsabilità**: Condiviso
+
+**Monitoraggio del Centro sicurezza di Azure**: nessuno
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
-- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)
+- Vedere [Panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
+- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
