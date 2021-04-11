@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 59ff0ba854fa609e6d29f3473f662a89ab5f3dbc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 419d8d0cd20c13bffdd192060d81975ee94b47fe
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95555352"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125693"
 ---
 > [!NOTE]
 > Per le risorse non fisse aprire un ticket di supporto e richiedere l'aumento delle quote. Non creare altri account di Servizi multimediali di Azure per provare a ottenere limiti superiori.
@@ -66,9 +66,9 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 | --- | --- |
 | Eventi live <sup>(4)</sup> per account di Servizi multimediali |5|
 | Output live per evento live |3 <sup>(5)</sup> |
-| Durata max degli output live | [Dimensioni della finestra DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
+| Durata max degli output live | [Dimensioni della finestra DVR](../articles/media-services/latest/live-event-cloud-dvr-time-how-to.md) |
 
-<sup>4</sup> Per informazioni dettagliate sui limiti per gli eventi live, vedere [Confronto e limiti per i tipi di evento live](../articles/media-services/latest/live-event-types-comparison.md).
+<sup>4</sup> Per informazioni dettagliate sui limiti per gli eventi live, vedere [Confronto e limiti per i tipi di evento live](../articles/media-services/latest/live-event-types-comparison-reference.md).
 
 <sup>5</sup> Gli output live iniziano al momento della creazione e terminano quando vengono eliminati.
 

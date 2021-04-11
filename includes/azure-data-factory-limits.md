@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 10aa9b06af439fe701c53ef736ec691167560f95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96c67327a8272a02e677cc40b46c3177e470b684
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102109030"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125743"
 ---
 Azure Data Factory è un servizio multi-tenant che prevede i limiti predefiniti seguenti per fare in modo che le sottoscrizioni dei clienti siano protette da carichi di lavoro reciproci. Per aumentare i limiti fino al valore massimo consentito per la sottoscrizione, contattare il supporto tecnico.
 
@@ -49,6 +49,7 @@ Azure Data Factory è un servizio multi-tenant che prevede i limiti predefiniti 
 | Numero di flussi di dati simultanei per runtime di integrazione | 50 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Numero di sessioni di debug del flusso di dati simultanee per utente per ogni factory | 3 | 3 |
 | Limite TTL di Azure IR per Flusso di dati | 4 ore |  4 ore |
+| Limite dimensioni entità dei metadati in una factory | 2 GB | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 <sup>1</sup> L'unità di integrazione dei dati viene usata in un'operazione di copia da cloud a cloud. Per altre informazioni, vedere [Unità di integrazione dei dati (versione 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). Per informazioni sulla fatturazione, vedere [Prezzi di Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 

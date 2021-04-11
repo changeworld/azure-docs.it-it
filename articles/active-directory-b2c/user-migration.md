@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d2d4a61f653c5bedb31223d2eb3d37b92a076821
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e60b80a4ebeaef7d31d4c0c1d9d4bfc41ec3a56
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103010168"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256209"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Eseguire la migrazione di utenti ad Azure AD B2C
 
@@ -43,7 +43,7 @@ Usare il flusso di migrazione senza problemi se le password non crittografate ne
 - La password viene archiviata in un formato crittografato unidirezionale, ad esempio con una funzione hash.
 - La password viene archiviata dal provider di identità legacy in modo che non sia possibile accedere a. Ad esempio, quando il provider di identità convalida le credenziali chiamando un servizio Web.
 
-Il flusso di migrazione trasparente richiede ancora la pre-migrazione degli account utente, ma usa un [criterio personalizzato](custom-policy-get-started.md) per eseguire una query su un' [API REST](custom-policy-rest-api-intro.md) (creata) per impostare la password di ogni utente al primo accesso.
+Il flusso di migrazione trasparente richiede ancora la pre-migrazione degli account utente, ma usa un [criterio personalizzato](user-flow-overview.md) per eseguire una query su un' [API REST](custom-policy-rest-api-intro.md) (creata) per impostare la password di ogni utente al primo accesso.
 
 Il flusso di migrazione senza problemi comporta quindi due fasi: *pre-migrazione* e *set credentials*.
 

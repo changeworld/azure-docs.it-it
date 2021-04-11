@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/06/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 8946dfca9a416009effb45cad1e81348dd900f98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81953f573c47d229fcaccd7c11f62155acd2f119
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97968188"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063645"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Esercitazione: Trasformare i dati con Azure Stack Edge Pro per il flusso di distribuzione avanzata
 
@@ -140,7 +139,7 @@ Per la distribuzione avanzata di questa esercitazione, saranno necessarie due co
 
 4. Copiare e salvare la route di esempio. Si modificherà e si userà questa route di esempio in un secondo momento nell'hub IoT.
 
-    `"sampleroute": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
+    `"sampleroute&quot;: &quot;FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/modulename/inputs/input1\")"`
 
     ![Aggiunta di trigger 4](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-4.png)
 
@@ -218,7 +217,7 @@ In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edg
     È possibile sostituire *route* con questa stringa di route copiata in precedenza. In questo esempio immettere il nome della condivisione locale che eseguirà il push dei dati nella condivisione cloud. Sostituire `modulename` con il nome del modulo. Selezionare **Avanti**.
         
     ```
-    "route": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"
+    "route&quot;: &quot;FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"
     ```
 
     ![Sezione Specifica route](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-8.png)

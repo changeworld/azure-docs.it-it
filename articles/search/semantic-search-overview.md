@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 04/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: b5b33007f71cfc2a29005ce84f1fedba90dd1bf1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 04300b8d148bb22bf585aa81481c475b347ad462
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561968"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222045"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Ricerca semantica in Azure ricerca cognitiva
 
@@ -64,7 +64,7 @@ Le funzionalità semantiche sono disponibili tramite la [registrazione](https://
 
 La correzione ortografica è disponibile nelle stesse aree, ma non prevede restrizioni del livello. Se si dispone di un servizio esistente che soddisfa i criteri di livello e di area, è necessaria solo l'iscrizione.
 
-Tra l'anteprima di avvio del 2 marzo e il 1 ° aprile, la correzione ortografica e la classificazione semantica sono disponibili gratuitamente. Dopo il 1 ° aprile, i costi di calcolo per l'esecuzione di questa funzionalità diventeranno un evento fatturabile. Il costo previsto è circa USD $500 al mese per le query 250.000. È possibile trovare informazioni dettagliate sui costi documentate nella [pagina dei prezzi ricerca cognitiva](https://azure.microsoft.com/pricing/details/search/) e in [stima e gestione dei costi](search-sku-manage-costs.md).
+Tra l'anteprima di avvio del 2 marzo e la fine di aprile, la correzione ortografica e la classificazione semantica sono disponibili gratuitamente. Nel corso di aprile i costi di calcolo per l'esecuzione di questa funzionalità diventeranno un evento fatturabile. Il costo previsto è circa USD $500 al mese per le query 250.000. È possibile trovare informazioni dettagliate sui costi documentate nella [pagina dei prezzi ricerca cognitiva](https://azure.microsoft.com/pricing/details/search/) e in [stima e gestione dei costi](search-sku-manage-costs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

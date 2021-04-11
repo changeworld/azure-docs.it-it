@@ -1,19 +1,19 @@
 ---
 title: Livelli di accesso per archiviazione BLOB di Azure-accesso frequente, ad accesso sporadico e archivio
 description: Informazioni sui livelli di accesso ad accesso frequente, ad accesso sporadico e archivio per archiviazione BLOB di Azure. Esaminare gli account di archiviazione che supportano la suddivisione in livelli.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 0e2f3296eb6d4286bb4ef7081c1459109c40915f
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 957973cc4f53dba10ed9d635c8e3f69fd66ee33b
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105962306"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278423"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Livelli di accesso per archiviazione BLOB di Azure-accesso frequente, ad accesso sporadico e archivio
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fcc482e215e646fec20516f35641bd05398d2f2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cbe465c41363e8c0779440affeae78f999b4632d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928716"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257433"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gestire Azure AD B2C criteri personalizzati con Azure PowerShell
 
@@ -30,7 +30,7 @@ Azure PowerShell offre diversi cmdlet per la gestione dei criteri personalizzata
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Azure ad B2C tenant](tutorial-create-tenant.md)e credenziali per un utente nella directory con il ruolo di [amministratore dei criteri B2C Framework dell'esperienza](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
-* [Criteri personalizzati](custom-policy-get-started.md) caricati nel tenant
+* [Criteri personalizzati](tutorial-create-user-flows.md?pivots=b2c-custom-policy) caricati nel tenant
 * [Azure AD PowerShell per il **modulo di anteprima** Graph](/powershell/azure/active-directory/install-adv2)
 
 ## <a name="connect-powershell-session-to-b2c-tenant"></a>Connettere la sessione di PowerShell al tenant B2C

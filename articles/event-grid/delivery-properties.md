@@ -3,14 +3,14 @@ title: 'Griglia di eventi di Azure: impostare intestazioni personalizzate negli 
 description: Viene descritto come impostare le intestazioni personalizzate o le proprietà di recapito sugli eventi recapitati.
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: 6cc6874b7aba6e0696dec21de5b431ca18df3013
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: fb6f0de7919ed7cf9072c0fa35e8f9be5cb5e7db
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967592"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278287"
 ---
-# <a name="delivery-with-custom-headers"></a>Recapito con intestazioni personalizzate
+# <a name="custom-delivery-properties"></a>Proprietà di recapito personalizzate
 Le sottoscrizioni di eventi consentono di impostare intestazioni HTTP incluse in eventi recapitati. Questa funzionalità consente di impostare intestazioni personalizzate richieste da una destinazione. È possibile impostare un massimo di 10 intestazioni quando si crea una sottoscrizione di eventi. Ogni valore di intestazione non deve essere maggiore di 4.096 byte (4K).
 
 È possibile impostare intestazioni personalizzate per gli eventi che vengono recapitati alle destinazioni seguenti:

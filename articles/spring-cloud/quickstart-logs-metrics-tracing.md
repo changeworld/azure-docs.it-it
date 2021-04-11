@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 75c50e6342a00ef37215d9e961503dd7ffb0d205
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4cc7c91e8bbc959c15e18503a9f715d84d1472e1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104879340"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256175"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Avvio rapido: Monitoraggio di app Azure Spring Cloud con log, metriche e traccia
 
@@ -72,6 +72,8 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 1. Selezionare quindi `Run` per visualizzare i log. Per altre informazioni sulla scrittura di query, vedere la [ documentazione di Azure Log Analytics](../azure-monitor/logs/get-started-queries.md).
 
    [ ![Query di analisi dei log - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
+
+1. Per altre informazioni sul linguaggio di query usato in Log Analytics, vedere query di [log di monitoraggio di Azure](/azure/data-explorer/kusto/query/). Per eseguire query su tutti i log di Log Analytics da un client centralizzato, vedere [Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
 ## <a name="metrics"></a>Metriche
 
@@ -168,6 +170,8 @@ Per ottenere i log tramite Azure Toolkit for IntelliJ:
 1. Vengono visualizzati i log filtrati. Per altre informazioni sulla scrittura di query, vedere la [ documentazione di Azure Log Analytics](../azure-monitor/logs/get-started-queries.md).
 
    [ ![Query di log Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
+
+1. Per altre informazioni sul linguaggio di query usato in Log Analytics, vedere query di [log di monitoraggio di Azure](/azure/data-explorer/kusto/query/). Per eseguire query su tutti i log di Log Analytics da un client centralizzato, vedere [Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
 ## <a name="metrics"></a>Metriche
 

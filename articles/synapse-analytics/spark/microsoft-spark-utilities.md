@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b3bc99d4391e2079d1b0ecc39011f1b2afc4440
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100368660"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096037"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introduzione alle utilità di Microsoft Spark
 
@@ -25,9 +25,9 @@ Microsoft Spark Utilities (MSSparkUtils) è un pacchetto incorporato che consent
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configurare l'accesso a Azure Data Lake Storage Gen2 
 
-I notebook sinapsi usano il pass-through di Azure Active Directory (Azure AD) per accedere agli account di ADLS Gen2. Per accedere all'account o alla cartella di ADLS Gen2, è necessario essere un **collaboratore dati di archiviazione BLOB** . 
+I notebook sinapsi usano il pass-through di Azure Active Directory (Azure AD) per accedere agli account di ADLS Gen2. È necessario essere un **collaboratore dati BLOB di archiviazione** per accedere alla ADLS Gen2 account (o alla cartella). 
 
-Le pipeline sinapsi usano l'identità dell'area di lavoro (MSI) per accedere agli account di archiviazione. Per usare MSSparkUtils nelle attività della pipeline, l'identità dell'area di lavoro deve essere **collaboratore dati di archiviazione BLOB** per accedere alla ADLS Gen2 account (o alla cartella).
+Le pipeline sinapsi usano l'identità dell'area di lavoro (MSI) per accedere agli account di archiviazione. Per usare MSSparkUtils nelle attività della pipeline, l'identità dell'area di lavoro deve essere **collaboratore dati BLOB di archiviazione** per accedere alla ADLS Gen2 account (o alla cartella).
 
 Per assicurarsi che il Azure AD e l'identità del servizio gestito dell'area di lavoro abbiano accesso all'account ADLS Gen2, attenersi alla procedura seguente:
 1. Aprire il [portale di Azure](https://portal.azure.com/) e l'account di archiviazione a cui si vuole accedere. È possibile passare al contenitore specifico a cui si vuole accedere.

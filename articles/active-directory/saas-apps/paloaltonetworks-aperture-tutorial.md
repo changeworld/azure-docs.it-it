@@ -9,38 +9,37 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 7b4c8ab55a9b2afc9c1a215236fa1276a630a5cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42a6bc9bfb06f1c80b719bdda686ae111a8884ab
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963622"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Esercitazione: integrazione di Azure Active Directory con Palo Alto Networks - Aperture
 
-Questa esercitazione descrive come integrare Palo Alto Networks - Aperture con Azure Active Directory, ovvero Azure AD.
-L'integrazione di Palo Alto Networks - Aperture con Azure AD offre i vantaggi seguenti:
+In questa esercitazione si apprenderà come integrare Palo Alto Networks-aperture con Azure Active Directory (Azure AD). Quando si integra Palo Alto Networks-aperture con Azure AD, è possibile:
 
-* È possibile controllare in Azure AD chi può accedere a Palo Alto Networks - Aperture.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Palo Alto Networks - Aperture con gli account Azure AD personali.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Controllare in Azure AD chi ha accesso a Palo Alto Networks-aperture.
+* Consentire agli utenti di eseguire l'accesso automatico a Palo Alto Networks-aperture con i relativi account Azure AD.
+* Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Palo Alto Networks - Aperture, sono necessari gli elementi seguenti:
+Per iniziare, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di Palo Alto Networks - Aperture abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione abilitata per Palo Alto Networks-aperture Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Palo Alto Networks - Aperture supporta l'accesso SSO avviato da **SP** e **IDP**
+* Palo Alto Networks-aperture supporta SSO avviato da **SP** e **IDP** .
 
-## <a name="adding-palo-alto-networks---aperture-from-the-gallery"></a>Aggiunta di Palo Alto Networks - Aperture dalla raccolta
+## <a name="add-palo-alto-networks---aperture-from-the-gallery"></a>Aggiungere Palo Alto Networks-aperture dalla raccolta
 
 Per configurare l'integrazione di Palo Alto Networks - Aperture in Azure AD, è necessario aggiungere Palo Alto Networks - Aperture dalla raccolta all'elenco di app SaaS gestite.
 
@@ -59,10 +58,10 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Palo Alto Networks - Aperture, seguire questa procedura:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 2. **[Configurare l'accesso Single Sign-On di Palo Alto Networks - Aperture](#configure-palo-alto-networks---aperture-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    * **[Creare l'utente di test di Palo Alto Networks - Aperture](#create-palo-alto-networks---aperture-test-user)**: per avere una controparte di Britta Simon in Palo Alto Networks - Aperture collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare l'utente di test di Palo Alto Networks - Aperture](#create-palo-alto-networks---aperture-test-user)**: per avere una controparte di Britta Simon in Palo Alto Networks - Aperture collegata alla rappresentazione dell'utente in Azure AD.
 3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -77,15 +76,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Screenshot che mostra la sezione "Configurazione SAML di base" con le caselle di testo "Identificatore" e "URL di risposta" evidenziate e l'azione "Salva" selezionata.](common/idp-intiated.png)
-
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
-
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Palo Alto Networks - Aperture (SP)](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in`
 
@@ -130,15 +125,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Nella barra dei menu superiore fare clic su **SETTINGS** (IMPOSTAZIONI).
 
-    ![Scheda Settings (Impostazioni)](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_settings.png)
+    ![Scheda Settings (Impostazioni)](./media/paloaltonetworks-aperture-tutorial/settings.png)
 
 3. Passare alla sezione **APPLICATION** (APPLICAZIONE) e fare clic sul modulo **Authentication** (Autenticazione) dal menu a sinistra.
 
-    ![Scheda di autenticazione](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_auth.png)
+    ![Scheda di autenticazione](./media/paloaltonetworks-aperture-tutorial/authentication.png)
     
 4. Nella pagina **Authentication** (Autenticazione) seguire questa procedura:
     
-    ![Scheda Authentication (Autenticazione)](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
+    ![Scheda Authentication (Autenticazione)](./media/paloaltonetworks-aperture-tutorial/tab.png)
 
     a. Selezionare **Enable Single Sign-On(Supported SSP Providers are Okta, One login)** (Abilita Single Sign-On - provider supportati sono Okta e One login) nel campo **Single Sign-On**.
 

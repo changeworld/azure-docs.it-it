@@ -4,21 +4,19 @@ description: La linea di base di sicurezza del database SQL di Azure fornisce in
 author: msmbaldwin
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ca28c2a1943912ce6a244929e7438edd7680d131
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bf89830745207e264e3d8080ac84d1cac5ddb708
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565963"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079115"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Baseline della sicurezza di Azure per il database SQL di Azure
 
-Questa linea di base di sicurezza applica le indicazioni della [versione 1,0 del benchmark di sicurezza](../../security/benchmarks/overview.md) di Azure al database SQL di Azure. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili al database SQL di Azure. I **controlli** non applicabili al database SQL di Azure sono stati esclusi.
-
-Per informazioni sul modo in cui il database SQL di Azure è completamente mappato al benchmark di sicurezza di Azure, vedere il [file di mapping di base della sicurezza del database SQL](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)di Azure.
+Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure versione 1.0](../../security/benchmarks/overview-v1.md) al database SQL di Azure. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili al database SQL di Azure. I **controlli** non applicabili al database SQL di Azure, o per i quali la responsabilità è Microsoft, sono stati esclusi. Per informazioni sul modo in cui il database SQL di Azure è completamente mappato al benchmark di sicurezza di Azure, vedere il file di mapping di base per il [monitoraggio completo di Azure](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Sicurezza di rete
 
@@ -32,9 +30,9 @@ Per consentire al traffico di raggiungere il database SQL di Azure, usare i tag 
 
 Le regole di rete virtuale consentono al database SQL di Azure di accettare solo le comunicazioni inviate da subnet specifiche all'interno di una rete virtuale.
 
-- [Come configurare Collegamento privato per il database SQL di Azure](./private-endpoint-overview.md#how-to-set-up-private-link-for-azure-sql-database)
+- [Come configurare Collegamento privato per il database SQL di Azure](/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
 
-- [Come usare gli endpoint del servizio rete virtuale e le regole per i server di database](./vnet-service-endpoint-rule-overview.md)
+- [Come usare gli endpoint del servizio rete virtuale e le regole per i server di database](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
 
 **Responsabilità**: Customer
 
@@ -68,9 +66,9 @@ Per le macchine virtuali (VM) di Azure che si connetteranno all'istanza del serv
 
 **Linee guida**: abilitare protezione DDoS standard nelle reti virtuali associate alle istanze di SQL Server per la protezione da attacchi Denial of Service distribuiti. Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per negare le comunicazioni con indirizzi IP Internet notoriamente dannosi o non usati.
 
-- [Come configurare la protezione DDoS](../../ddos-protection/manage-ddos-protection.md)
+- [Come configurare la protezione DDoS](/azure/virtual-network/manage-ddos-protection)
 
-- [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../../security-center/azure-defender.md)
+- [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](/azure/security-center/security-center-alerts-data-services)
 
 **Responsabilità**: Customer
 
@@ -92,7 +90,7 @@ Per le macchine virtuali (VM) di Azure che si connetteranno all'istanza del serv
 
 **Linee guida**: abilitazione di Advanced Threat Protection (ATP) per il database SQL di Azure.  Gli utenti ricevono un avviso in caso di attività di database sospetta, potenziali vulnerabilità e attacchi SQL injection, nonché in caso di modelli di query e accesso ai database anomali. Advanced Threat Protection integra anche gli avvisi con il Centro sicurezza di Azure. 
 
-- [Comprendere e usare Advanced Threat Protection per il database SQL di Azure](./threat-detection-overview.md)
+- [Comprendere e usare Advanced Threat Protection per il database SQL di Azure](/azure/sql-database/sql-database-threat-detection-overview)
 
 **Responsabilità**: Customer
 
@@ -104,7 +102,7 @@ Per le macchine virtuali (VM) di Azure che si connetteranno all'istanza del serv
 
 Quando si usano gli endpoint di servizio per il database SQL di Azure, è necessario aprire indirizzi IP pubblici in uscita per database SQL di Azure: i gruppi di sicurezza di rete (gruppi) devono essere aperti agli IP del database SQL di Azure per consentire la connettività. A tale scopo, è possibile usare i tag del servizio NSG per il database SQL di Azure.
 
-- [Informazioni sui tag del servizio con gli endpoint di servizio per il database SQL di Azure](./vnet-service-endpoint-rule-overview.md#limitations)
+- [Informazioni sui tag del servizio con gli endpoint di servizio per il database SQL di Azure](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
 - [Comprendere e usare i tag di servizio](../../virtual-network/service-tags-overview.md)
 
@@ -136,7 +134,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni sulle risorse in base ai tag.
 
-- [Come creare e usare i tag](../../azure-resource-manager/management/tag-resources.md)
+- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Responsabilità**: Customer
 
@@ -146,9 +144,9 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate alle istanze del server di database SQL di Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
 
-- [Come creare avvisi in Monitoraggio di Azure](../../azure-monitor/alerts/alerts-activity-log.md)
+- [Come creare avvisi in Monitoraggio di Azure](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Responsabilità**: Customer
 
@@ -164,11 +162,11 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 Inoltre, è possibile trasmettere i dati di telemetria di diagnostica di Azure SQL in Analisi SQL di Azure, una soluzione cloud che monitora le prestazioni dei database SQL di Azure e delle istanze gestite di SQL di Azure su larga scala e tra più sottoscrizioni. Può aiutare a raccogliere e visualizzare le metriche sulle prestazioni del Database SQL di Azure e ha la funzionalità di intelligence integrata per la risoluzione dei problemi.
 
-- [Come configurare il controllo per il database SQL di Azure](./auditing-overview.md)
+- [Come configurare il controllo per il database SQL di Azure](/azure/sql-database/sql-database-auditing)
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md)
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](/azure/sql-database/sql-database-metrics-diag-logging)
 
-- [Come eseguire lo streaming di diagnostica in Analisi SQL di Azure](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-sql-analytics)
+- [Come eseguire lo streaming di diagnostica in Analisi SQL di Azure](/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics)
 
 **Responsabilità**: Customer
 
@@ -178,7 +176,7 @@ Inoltre, è possibile trasmettere i dati di telemetria di diagnostica di Azure S
 
 **Linee guida**: abilitare il controllo nell'istanza del server di database SQL di Azure e scegliere un percorso di archiviazione per i log di controllo (archiviazione di azure, log Analytics o hub eventi).
 
-- [Come abilitare il controllo per Azure SQL Server](./auditing-overview.md)
+- [Come abilitare il controllo per Azure SQL Server](/azure/sql-database/sql-database-auditing)
 
 **Responsabilità**: Customer
 
@@ -192,7 +190,7 @@ Inoltre, è possibile trasmettere i dati di telemetria di diagnostica di Azure S
 
 **Indicazioni**: quando si archiviano i log del database SQL di Azure in un'area di lavoro log Analytics, impostare il periodo di conservazione dei log in base alle normative di conformità dell'organizzazione.
 
-- [Come impostare i parametri di conservazione dei log](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Responsabilità**: Customer
 
@@ -206,7 +204,7 @@ Inoltre, è possibile trasmettere i dati di telemetria di diagnostica di Azure S
 
 **Linee guida**: analizzare e monitorare i log per i comportamenti anomali ed esaminare periodicamente i risultati. Usare la protezione avanzata dalle minacce del Centro sicurezza di Azure per segnalare attività insolite correlate all'istanza del database SQL di Azure. In alternativa, configurare gli avvisi in base ai valori delle metriche o alle voci del log attività di Azure correlate alle istanze del database SQL di Azure.
 
-- [Informazioni sulla protezione avanzata dalle minacce e sugli avvisi per Azure SQL Server](./threat-detection-overview.md)
+- [Informazioni sulla protezione avanzata dalle minacce e sugli avvisi per Azure SQL Server](/azure/sql-database/sql-database-threat-detection-overview)
 
 - [Come configurare gli avvisi personalizzati per il database SQL di Azure](alerts-insights-configure-portal.md)
 
@@ -218,7 +216,7 @@ Inoltre, è possibile trasmettere i dati di telemetria di diagnostica di Azure S
 
 **Linee guida**: usare il Centro sicurezza di Azure Advanced Threat Protection per i database SQL di Azure per il monitoraggio e l'invio di avvisi sulle attività anomale. Abilitare Azure Defender per SQL per i database SQL. Azure Defender per SQL include funzionalità per l'individuazione e la classificazione dei dati sensibili, l'emersione e la mitigazione di potenziali vulnerabilità del database e il rilevamento di attività anomale che potrebbero indicare una minaccia per il database.
 
-- [Informazioni sulla protezione avanzata dalle minacce e sugli avvisi per il database SQL di Azure](./threat-detection-overview.md)
+- [Informazioni sulla protezione avanzata dalle minacce e sugli avvisi per il database SQL di Azure](/azure/sql-database/sql-database-threat-detection-overview)
 
 - [Come abilitare Azure Defender per SQL per il database SQL di Azure](azure-defender-for-sql.md)
 
@@ -240,9 +238,9 @@ Inoltre, è possibile trasmettere i dati di telemetria di diagnostica di Azure S
 
 **Linee guida**: Azure Active Directory (Azure ad) include ruoli predefiniti che devono essere assegnati in modo esplicito e possono essere sottoposte a query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Responsabilità**: Customer
 
@@ -252,7 +250,7 @@ Inoltre, è possibile trasmettere i dati di telemetria di diagnostica di Azure S
 
 **Linee guida**: Azure Active Directory (Azure ad) non ha il concetto di password predefinite. Quando si esegue il provisioning di un'istanza del database SQL di Azure, è consigliabile scegliere di integrare l'autenticazione con Azure AD.
 
-- [Come configurare e gestire l'autenticazione Azure AD con SQL di Azure](/azure/azure-sql/database/authentication-aad-configure)
+- [Come configurare e gestire l'autenticazione Azure AD con SQL di Azure](/azure/sql-database/azure-sql/database/authentication-aad-configure)
 
 **Responsabilità**: Customer
 
@@ -298,11 +296,11 @@ Inoltre, è possibile trasmettere i dati di telemetria di diagnostica di Azure S
 
 Usare Advanced Threat Protection per il database SQL di Azure per rilevare attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database.
 
-- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../../active-directory/identity-protection/overview-identity-protection.md)
+- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
 - [Come monitorare l'identità degli utenti e l'attività di accesso nel centro sicurezza di Azure](../../security-center/security-center-identity-access.md)
 
-- [Esaminare Advanced Threat Protection e potenziali avvisi](./threat-detection-overview.md#alerts)
+- [Esaminare Advanced Threat Protection e potenziali avvisi](https://docs.microsoft.com/azure/azure-sql/database/threat-detection-overview#alerts)
 
 **Responsabilità**: Customer
 
@@ -360,7 +358,7 @@ Usare Advanced Threat Protection per il database SQL di Azure per rilevare attiv
 
 **Linee guida**: usare Azure Active Directory (Azure ad) la protezione delle identità e i rilevamenti di rischi per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. Inoltre, è possibile inserire dati in Sentinel di Azure per un'analisi più approfondita.
 
-- [Come visualizzare gli accessi ai rischi Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
+- [Come visualizzare gli accessi ai rischi Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
 - [Come configurare e abilitare i criteri di rischio di Identity Protection](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -386,7 +384,7 @@ Usare Advanced Threat Protection per il database SQL di Azure per rilevare attiv
 
 **Indicazioni**: usare i tag per rilevare più facilmente le risorse di Azure che memorizzano o elaborano informazioni riservate.
 
-- [Come creare e usare i tag](../../azure-resource-manager/management/tag-resources.md)
+- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Responsabilità**: Customer
 
@@ -400,13 +398,13 @@ Usare Advanced Threat Protection per il database SQL di Azure per rilevare attiv
 
 **Indicazioni**: implementare sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Le risorse devono essere separate da VNET/subnet, contrassegnate in modo appropriato e protette in un NSG o in un firewall di Azure. Le risorse che archiviano o elaborano dati sensibili devono essere isolate. USA collegamento privato; Distribuisci SQL Server di Azure all'interno della VNET e connettili privatamente usando endpoint privati.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](../../cost-management-billing/manage/create-subscription.md)
+- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
 
-- [Come creare gruppi di gestione](../../governance/management-groups/create-management-group-portal.md)
+- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
 
-- [Come creare e usare i tag](../../azure-resource-manager/management/tag-resources.md)
+- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Come configurare Collegamento privato per il database SQL di Azure](./private-endpoint-overview.md#how-to-set-up-private-link-for-azure-sql-database)
+- [Come configurare Collegamento privato per il database SQL di Azure](/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
 
 **Responsabilità**: Customer
 
@@ -418,7 +416,7 @@ Usare Advanced Threat Protection per il database SQL di Azure per rilevare attiv
 
 Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e si impegna per difendersi dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
-- [Come configurare il collegamento privato e gruppi per impedire il exfiltration dei dati nelle istanze del database SQL di Azure](./private-endpoint-overview.md)
+- [Come configurare il collegamento privato e gruppi per impedire il exfiltration dei dati nelle istanze del database SQL di Azure](/azure/sql-database/sql-database-private-endpoint-overview)
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../../security/fundamentals/protection-customer-data.md)
 
@@ -430,7 +428,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Indicazioni**: usare la funzionalità di individuazione e classificazione dei dati del database SQL di Azure. Individuazione e classificazione dei dati offre funzionalità avanzate incorporate nel database SQL di Azure per l'individuazione, la classificazione, l'assegnazione di etichette per &amp; la protezione dei dati sensibili nei database.
 
-- [Come usare l'individuazione e la classificazione dei dati per Azure SQL Server](./data-discovery-and-classification-overview.md)
+- [Come usare l'individuazione e la classificazione dei dati per Azure SQL Server](/azure/sql-database/sql-database-data-discovery-and-classification)
 
 **Responsabilità**: Customer
 
@@ -444,9 +442,9 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: usare Azure Active Directory (Azure ad) per l'autenticazione e il controllo dell'accesso alle istanze del database SQL di Azure.
 
-- [Come integrare SQL Server di Azure con Azure AD per l'autenticazione](./authentication-aad-overview.md)
+- [Come integrare SQL Server di Azure con Azure AD per l'autenticazione](/azure/sql-database/sql-database-aad-authentication)
 
-- [Come controllare l'accesso in Azure SQL Server](./logins-create-manage.md)
+- [Come controllare l'accesso in Azure SQL Server](/azure/sql-database/sql-database-control-access)
 
 **Responsabilità**: Customer
 
@@ -456,7 +454,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Indicazioni**: Transparent Data Encryption (Transparent Data Encryption) consente di proteggere il database SQL di Azure, l'istanza gestita di SQL di Azure e Azure Data Warehouse contro la minaccia di attività offline dannose mediante la crittografia dei dati inattivi. Esegue in tempo reale la crittografia e la decrittografia del database, dei backup associati e dei file di log delle transazioni inattivi, senza richiedere modifiche dell'applicazione. Per impostazione predefinita, Transparent Data Encryption è abilitato per tutti i nuovi database distribuiti nel database SQL e in SQL Istanza gestita. La chiave di crittografia Transparent Data Encryption può essere gestita da Microsoft o dal cliente.
 
-- [Come gestire Transparent Data Encryption e usare le proprie chiavi di crittografia](./transparent-data-encryption-tde-overview.md?tabs=azure-portal#manage-transparent-data-encryption)
+- [Come gestire Transparent Data Encryption e usare le proprie chiavi di crittografia](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal#manage-transparent-data-encryption)
 
 **Responsabilità**: Customer
 
@@ -470,7 +468,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione del database SQL di Azure e altre risorse critiche o correlate.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/alerts/alerts-activity-log.md)
+- [Come creare avvisi per gli eventi del log attività di Azure](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Responsabilità**: Customer
 
@@ -484,11 +482,11 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: abilitare Azure Defender per SQL per il database SQL di Azure e seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nei server SQL di Azure.
 
-- [Come eseguire valutazioni delle vulnerabilità nel database SQL di Azure](./sql-vulnerability-assessment.md)
+- [Come eseguire valutazioni delle vulnerabilità nel database SQL di Azure](/azure/sql-database/sql-vulnerability-assessment)
 
 - [Come abilitare Azure Defender per SQL](azure-defender-for-sql.md)
 
-- [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../../security-center/deploy-vulnerability-assessment-vm.md)
+- [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
 **Responsabilità**: Customer
 
@@ -502,7 +500,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: abilitare analisi periodiche ricorrenti per le istanze del database SQL di Azure. verrà configurata una valutazione della vulnerabilità per eseguire automaticamente un'analisi del database una volta alla settimana. Verrà inviato un riepilogo dei risultati di analisi agli indirizzi di posta elettronica forniti. Confrontare i risultati per verificare che le vulnerabilità siano state corrette.
 
-- [Come esportare un report di valutazione della vulnerabilità nel centro sicurezza di Azure](./sql-vulnerability-assessment.md#export-an-assessment-report)
+- [Come esportare un report di valutazione della vulnerabilità nel centro sicurezza di Azure](/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment)
 
 **Responsabilità**: Customer
 
@@ -512,7 +510,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Indicazioni**: usare le classificazioni di rischio predefinite (Punteggio sicuro) fornite dal centro sicurezza di Azure.
 
-- [Informazioni sul punteggio sicuro del Centro sicurezza di Azure](../../security-center/secure-score-security-controls.md)
+- [Informazioni sul punteggio sicuro del Centro sicurezza di Azure](/azure/security-center/security-center-secure-score)
 
 **Responsabilità**: Customer
 
@@ -534,7 +532,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 - [Come creare query con Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md)
 
@@ -546,7 +544,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 **Indicazioni**: applicare i tag alle risorse di Azure che contengono metadati per organizzarle in modo logico in categorie in una tassonomia.
 
-- [Come creare e usare i tag](../../azure-resource-manager/management/tag-resources.md)
+- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Responsabilità**: Customer
 
@@ -556,11 +554,11 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, laddove appropriato, per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](../../cost-management-billing/manage/create-subscription.md)
+- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
 
-- [Come creare gruppi di gestione](../../governance/management-groups/create-management-group-portal.md)
+- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
 
-- [Come creare e usare i tag](../../azure-resource-manager/management/tag-resources.md)
+- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Responsabilità**: Customer
 
@@ -594,7 +592,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 - [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](../../governance/policy/samples/built-in-policies.md#general)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Responsabilità**: Customer
 
@@ -640,9 +638,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate, usare Azure DevOps o Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentazione di Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
+- [Documentazione di Azure Repos](/azure/devops/repos/)
 
 **Responsabilità**: Customer
 
@@ -662,7 +660,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: sfruttare il Centro sicurezza di Azure per eseguire analisi di base per i database e i server SQL di Azure.
 
-- [Come correggere le raccomandazioni nel centro sicurezza di Azure](../../security-center/security-center-remediate-recommendations.md)
+- [Come correggere le raccomandazioni nel centro sicurezza di Azure](/azure/security-center/security-center-sql-service-recommendations)
 
 **Responsabilità**: Customer
 
@@ -672,7 +670,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: usare Azure Key Vault per archiviare le chiavi di crittografia per il database SQL di Azure Transparent Data Encryption (Transparent Data Encryption).
 
-- [Come proteggere i dati sensibili archiviati in Azure SQL Server e archiviare le chiavi di crittografia in Azure Key Vault](./always-encrypted-azure-key-vault-configure.md)
+- [Come proteggere i dati sensibili archiviati in Azure SQL Server e archiviare le chiavi di crittografia in Azure Key Vault](/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
 
 **Responsabilità**: Customer
 
@@ -726,7 +724,7 @@ Pre-analizza i contenuti caricati in risorse di Azure non di calcolo, ad esempio
 
 Per soddisfare i diversi requisiti di conformità, è possibile selezionare diversi periodi di conservazione per i backup settimanali, mensili e/o annuali. L'utilizzo delle risorse di archiviazione dipende dalla frequenza selezionata con cui vengono eseguiti backup e dal periodo di conservazione.
 
-- [Informazioni sui backup e sulla continuità aziendale con Azure SQL Server](./business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- [Informazioni sui backup e sulla continuità aziendale con Azure SQL Server](/azure/sql-database/sql-database-business-continuity)
 
 **Responsabilità**: Condiviso
 
@@ -742,9 +740,9 @@ Per soddisfare i diversi requisiti di conformità, è possibile selezionare dive
 
 Se si usano chiavi gestite dal cliente per Transparent Data Encryption, assicurarsi che venga eseguito il backup delle chiavi.
 
-- [Informazioni sui backup in Azure SQL Server](./automated-backups-overview.md?tabs=single-database)
+- [Informazioni sui backup in Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups?tabs=single-database)
 
-- [Come eseguire il backup di chiavi di Key Vault](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Come eseguire il backup di chiavi di Key Vault](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
 **Responsabilità**: Customer
 
@@ -758,9 +756,9 @@ Se si usano chiavi gestite dal cliente per Transparent Data Encryption, assicura
 
 **Linee guida**: garantire la possibilità di eseguire periodicamente il ripristino dei dati del contenuto all'interno di backup di Azure. Se necessario, testare il ripristino del contenuto a una VLAN isolata. Testare il ripristino delle chiavi gestite dal cliente sottoposte a backup.
 
-- [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
+- [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
-- [Come ripristinare i backup del database SQL di Azure con il ripristino temporizzato](./recovery-using-backups.md#point-in-time-restore)
+- [Come ripristinare i backup del database SQL di Azure con il ripristino temporizzato](/azure/sql-database/sql-database-recovery-using-backups#point-in-time-restore)
 
 **Responsabilità**: Customer
 
@@ -770,7 +768,7 @@ Se si usano chiavi gestite dal cliente per Transparent Data Encryption, assicura
 
 **Linee guida**: abilitare l'eliminazione temporanea in Azure Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
 
-- [Come abilitare l'eliminazione temporanea in Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Come abilitare l'eliminazione temporanea in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Responsabilità**: Customer
 
@@ -860,5 +858,5 @@ Se si usano chiavi gestite dal cliente per Transparent Data Encryption, assicura
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica di Azure Security Benchmark V2](../../security/benchmarks/overview.md)
-- Altre informazioni su [Baseline di sicurezza di Azure](../../security/benchmarks/security-baselines-overview.md)
+- Vedere [Panoramica di Azure Security Benchmark V2](/azure/security/benchmarks/overview)
+- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/18/2021
-ms.openlocfilehash: f4336350af92c27760369d668c6babddc4d4ea30
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 04/05/2021
+ms.openlocfilehash: 2debf7d350f4f1fde5e86a60ad03a6858bc02743
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462917"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490336"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -120,11 +120,13 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 | Fino al timeout | -Valore predefinito: PT1H (1 ora) | La quantità di tempo che il ciclo "until" può eseguire prima di uscire ed è specificato nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. <p><p>Per modificare questo limite, nella forma ciclo "until" selezionare **Modifica limiti** e specificare il valore per la proprietà **timeout** . |
 ||||
 
+<a name="concurrency-debatching"></a>
+
 ### <a name="concurrency-and-debatching"></a>Concorrenza e debatching
 
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
-| Concorrenza di trigger | Con concorrenza off: illimitato <p><p>Con la concorrenza on, che non è possibile annullare dopo l'abilitazione: <p><p>-Valore predefinito: 25 <br>-Min: 1 <br>-Max: 50 | Questo limite è il numero massimo di istanze di app per la logica che possono essere eseguite contemporaneamente o in parallelo. <p><p>**Nota**: quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi per le [matrici di debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Per modificare questo limite, vedere [modificare](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) in sequenza il limite di concorrenza per il trigger di modifica o le [istanze del trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Concorrenza di trigger | Con concorrenza off: illimitato <p><p>Con la concorrenza on, che non è possibile annullare dopo l'abilitazione: <p><p>-Valore predefinito: 25 <br>-Min: 1 <br>-Max: 100 | Questo limite è il numero massimo di istanze di app per la logica che possono essere eseguite contemporaneamente o in parallelo. <p><p>**Nota**: quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi per le [matrici di debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Per modificare questo limite, vedere [modificare](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) in sequenza il limite di concorrenza per il trigger di modifica o le [istanze del trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Numero massimo di esecuzioni in attesa | Con concorrenza off: <p><p>-Min: 1 <br>-Max: 50 <p><p>Con concorrenza su: <p><p>-Min: 10 più il numero di esecuzioni simultanee (concorrenza dei trigger) <br>-Max: 100 | Questo limite è il numero massimo di istanze di app per la logica che possono attendere l'esecuzione quando l'app per la logica sta già eseguendo il numero massimo di istanze simultanee. <p><p>Per modificare questo limite, vedere [limite di esecuzioni in attesa di modifiche](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Elementi SplitOn | Con concorrenza off: 100.000 <p><p>Con concorrenza in: 100 | Per i trigger che restituiscono una matrice, è possibile specificare un'espressione che usa una proprietà 'SplitOn' che [suddivide o esegue il debatch degli elementi della matrice in più istanze del flusso di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) per l'elaborazione, anziché usare un ciclo "Foreach". Questa espressione fa riferimento alla matrice da usare per la creazione e l'esecuzione di un'istanza del flusso di lavoro per ogni elemento della matrice. <p><p>**Nota**: quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi. |
 ||||

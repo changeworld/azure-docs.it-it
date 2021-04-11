@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: a8532f87c9360c0812fb1cfe24be6ca07615ea97
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: dec4eec16ba24baf31d911db882625479c33fb3b
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123388"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278627"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output live in Servizi multimediali
 
@@ -107,14 +107,14 @@ Se si vuole abilitare determinati IP sui firewall o si vuole vincolare gli input
 * Il nome dell'evento Live massimo è di 32 caratteri.
 * Il nome deve seguire questo modello [Regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$` .
 
-Vedere anche [convenzioni di denominazione degli endpoint di streaming](streaming-endpoint-concept.md#naming-convention).
+Vedere anche [convenzioni di denominazione degli endpoint di streaming](stream-streaming-endpoint-concept.md#naming-convention).
 
 > [!TIP]
 > Per garantire l'univocità del nome dell'evento Live, è possibile generare un GUID, quindi rimuovere tutti i trattini e le parentesi graffe (se presenti). La stringa sarà univoca in tutti gli eventi live e la relativa lunghezza verrà garantita 32.
 
 ## <a name="live-event-ingest-urls"></a>URL di inserimento eventi Live
 
-Una volta creato l'evento Live, è possibile ottenere gli URL di inserimento da fornire al codificatore locale. Questi URL vengono usati dal codificatore live per inserire un flusso live. Per altre informazioni, vedere [Codificatori di streaming live consigliati](recommended-on-premises-live-encoders.md).
+Una volta creato l'evento Live, è possibile ottenere gli URL di inserimento da fornire al codificatore locale. Questi URL vengono usati dal codificatore live per inserire un flusso live. Per altre informazioni, vedere [Codificatori di streaming live consigliati](encode-recommended-on-premises-live-encoders.md).
 
 >[!NOTE]
 > A partire dalla versione dell'API 2020-05-01, gli URL "Vanity" sono noti come nomi host statici (useStaticHostname: true)

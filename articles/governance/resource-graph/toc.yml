@@ -23,6 +23,9 @@
     - name: Eseguire la prima query - Go
       displayName: 'package, sdk, golang'
       href: ./first-query-go.md
+    - name: 'Eseguire la prima query: Java'
+      displayName: 'maven, zulu, mvn'
+      href: ./first-query-java.md
     - name: Eseguire la prima query - JavaScript
       displayName: 'library, node, arm-resourcegraph'
       href: ./first-query-javascript.md

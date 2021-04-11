@@ -2,14 +2,14 @@
 title: Matrice di supporto di backup di Azure per SQL Server backup in macchine virtuali di Azure
 description: Fornisce un riepilogo delle impostazioni e delle limitazioni di supporto durante l'esecuzione del backup SQL Server in macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7038b47bd4aba8f7747eef455f1e8dd3c77a695
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97734794"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257344"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matrice di supporto per il backup SQL Server in macchine virtuali di Azure
 
@@ -30,11 +30,10 @@ ms.locfileid: "97734794"
 |Impostazione  |Limite massimo |
 |---------|---------|
 |Numero di database che possono essere protetti in un server e in un insieme di credenziali    |   2000      |
-|Dimensioni del database supportate (oltre a questo, è possibile che si verifichino problemi di prestazioni)   |   2 TB      |
+|Dimensioni del database supportate (oltre a questo, è possibile che si verifichino problemi di prestazioni)   |   6 TB *      |
 |Numero di file supportati in un database    |   1000      |
 
->[!NOTE]
-> [Scaricare il pianificatore di risorse dettagliato](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) per calcolare il numero approssimativo di database protetti consigliati per ogni server in base alle risorse della macchina virtuale, alla larghezza di banda e ai criteri di backup.
+_* Il limite delle dimensioni del database dipende dalla velocità di trasferimento dei dati supportata e dalla configurazione del limite di tempo di backup. Non si tratta del limite rigido. [Altre informazioni](#backup-throughput-performance) sulle prestazioni della velocità effettiva di backup._
 
 * Il backup di SQL Server può essere configurato nel portale di Azure o in **PowerShell**. CLI non è supportato.
 * La soluzione è supportata in entrambe le tipologie di [distribuzione](../azure-resource-manager/management/deployment-models.md): macchine virtuali di Azure Resource Manager e macchine virtuali classiche.
@@ -93,6 +92,17 @@ Full | Principale
 Differenziale | Principale
 Log |  Secondari
 Completo solo copia |  Secondari
+
+## <a name="backup-throughput-performance"></a>Prestazioni della velocità effettiva del backup
+
+Backup di Azure supporta una velocità di trasferimento dati coerente di 200 Mbps per backup completi e differenziali di database SQL di grandi dimensioni (di 500 GB). Per sfruttare le prestazioni ottimali, verificare quanto segue:
+
+- La VM sottostante, che contiene l'istanza SQL Server, che ospita il database, è configurata con la velocità effettiva di rete necessaria. Se la velocità effettiva massima della VM è inferiore a 200 Mbps, backup di Azure non può trasferire i dati alla velocità ottimale.<br></br>Inoltre, il disco che contiene i file di database deve avere una velocità effettiva sufficiente per il provisioning. [Scopri di più](../virtual-machines/disks-performance.md) sulla velocità effettiva e sulle prestazioni dei dischi nelle macchine virtuali di Azure. 
+- I processi, che sono in esecuzione nella macchina virtuale, non utilizzano la larghezza di banda della VM. 
+- Le pianificazioni di backup sono distribuite in un subset di database. Più backup eseguiti simultaneamente in una macchina virtuale condividono la velocità di utilizzo della rete tra i backup. [Altre](faq-backup-sql-server.md#can-i-control-how-many-concurrent-backups-run-on-the-sql-server) informazioni su come controllare il numero di backup simultanei.
+
+>[!NOTE]
+> [Scaricare il pianificatore di risorse dettagliato](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) per calcolare il numero approssimativo di database protetti consigliati per ogni server in base alle risorse della macchina virtuale, alla larghezza di banda e ai criteri di backup.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

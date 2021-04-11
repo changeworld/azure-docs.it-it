@@ -2,19 +2,19 @@
 title: Copiare un BLOB con le API di archiviazione di Azure
 description: Informazioni su come copiare un BLOB usando le librerie client di archiviazione di Azure.
 services: storage
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 28b23555f97e58dde038c5e3e12a4b741b81776d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bfd471a880e167bb2cc92bc87925b4aac91f66af
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98059042"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278474"
 ---
 # <a name="copy-a-blob-with-azure-storage-client-libraries"></a>Copiare un BLOB con le librerie client di archiviazione di Azure
 

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/19/2021
+ms.date: 04/08/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 54900b7b9089d4a4c6cbc742ecf09aa19ff2a550
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ac9eaea70de67e67ef690c280b30bae22517ac21
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741957"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227994"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -111,7 +111,7 @@ Creare ora la macchina virtuale del carico di lavoro e inserirla nella subnet **
    |Resource group     |**Test-FW-RG**|
    |Nome macchina virtuale     |**Srv-Work**|
    |Region     |Come precedente|
-   |Immagine|Windows Server 2019 Datacenter|
+   |Immagine|Windows Server 2016 Datacenter|
    |Nome utente amministratore     |Digitare un nome utente|
    |Password     |Digitare una password|
 

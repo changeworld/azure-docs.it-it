@@ -80,7 +80,7 @@ Le guide pratiche contengono esempi di codice che illustrano come completare un'
 * [Codificare con HTTPS come input del processo - .NET](job-input-from-http-how-to.md)  
 * [Monitorare gli eventi - Portale](monitoring/monitor-events-portal-how-to.md)
 * [Crittografare in modo dinamico il contenuto con più tecnologie DRM - .NET](drm-protect-with-drm-tutorial.md) 
-* [Come codificare con una trasformazione personalizzata - CLI](encode-custom-preset-cli-how-to.md)
+* [Come codificare con una trasformazione personalizzata - CLI](transform-custom-preset-cli-how-to.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 

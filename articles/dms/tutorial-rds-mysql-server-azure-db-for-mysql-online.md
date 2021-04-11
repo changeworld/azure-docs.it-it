@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 06/09/2020
-ms.openlocfilehash: 3d200cd9bccecf03f5313058189e134082a1a357
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 13095824122f1d4b59ecde445efa1ea8bfa60dcd
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742620"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063577"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di Servizi Desktop remoto MySQL a Database di Azure per MySQL online con il Servizio Migrazione del database
 
 È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione di database da un'istanza di RDS MySQL a [Database di Azure per MySQL](../mysql/index.yml), mantenendo al tempo stesso online il database di origine durante la migrazione. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **Employees** da un'istanza di RDS MySQL a Database di Azure per MySQL usando l'attività di migrazione online nel Servizio Migrazione del database di Azure.
+
+> [!IMPORTANT]
+> Lo scenario di migrazione in linea "Servizi Desktop remoto MySQL a database di Azure per MySQL" viene sostituito con uno scenario di migrazione offline a prestazioni elevate e in parallelo a partire dal 1 ° giugno 2021. Per le migrazioni online, è possibile usare questa nuova offerta insieme alla [replica dei dati](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication). In alternativa, è possibile usare strumenti open source, ad esempio il [Dumper/il caricamento](https://centminmod.com/mydumper.html) , con la replica dei dati per le migrazioni online. 
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
