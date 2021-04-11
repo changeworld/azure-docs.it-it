@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2027e3555a7eb616ad024ec00bf6b0f8f452167c
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739335"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258521"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 
@@ -226,86 +226,11 @@ Usare l'attività di copia per organizzare i dati da uno qualsiasi degli altri c
 
 ### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>Il runtime di integrazione self-hosted è disponibile per i flussi di dati?
 
-Il runtime di integrazione self-hosted è un costrutto di pipeline ADF che è possibile usare con l'attività di copia per acquisire o spostare dati da e verso origini dati e sink locali o basati su VM. Organizzare prima i dati con una copia, quindi il flusso di dati per la trasformazione e quindi una copia successiva se è necessario spostare di nuovo i dati trasformati nell'archivio locale.
+Il runtime di integrazione self-hosted è un costrutto di pipeline ADF che è possibile usare con l'attività di copia per acquisire o spostare dati da e verso origini dati e sink locali o basati su VM. Le macchine virtuali usate per un runtime di integrazione self-hosted possono anche essere inserite all'interno della stessa VNET degli archivi dati protetti per l'accesso a tali archivi dati da ADF. Con i flussi di dati, si otterranno questi stessi risultati finali usando invece il Azure IR con VNET gestito.
 
 ### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>Il motore di calcolo del flusso di dati serve più tenant?
 
 I cluster non vengono mai condivisi. Garantiamo l'isolamento per ogni processo eseguito in esecuzioni di produzione. Nel caso di uno scenario di debug, una persona ottiene un cluster e tutti i bug verranno inviati a tale cluster, che vengono avviati dall'utente.
-
-## <a name="wrangling-data-flows"></a>Litigi dei flussi di dati
-
-### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Quali sono le aree supportate per la verifica del flusso di dati?
-
-La verifica del flusso di dati è attualmente supportata nelle data factory create nelle aree seguenti:
-
-* Australia orientale
-* Canada centrale
-* India centrale
-* Stati Uniti orientali
-* Stati Uniti orientali 2
-* Giappone orientale
-* Europa settentrionale
-* Asia sud-orientale
-* Stati Uniti centro-meridionali
-* Regno Unito meridionale
-* Stati Uniti centro-occidentali
-* Europa occidentale
-* Stati Uniti occidentali
-* Stati Uniti occidentali 2
-
-### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Quali sono le limitazioni e i vincoli relativi alla verifica del flusso di dati?
-
-I nomi dei set di dati possono contenere solo caratteri alfanumerici. Sono supportati gli archivi dati seguenti:
-
-* Set di dati DelimitedText nell'archivio BLOB di Azure con l'autenticazione della chiave dell'account
-* Set di dati DelimitedText in Azure Data Lake Storage Gen2 usando l'autenticazione con chiave account o entità servizio
-* Set di dati DelimitedText in Azure Data Lake Storage Gen1 usando l'autenticazione basata su entità servizio
-* Il database SQL di Azure e data warehouse usando l'autenticazione SQL. Vedere tipi SQL supportati di seguito. Non è disponibile alcun supporto di gestione temporanea o di gestione temporanea per data warehouse.
-
-A questo punto, il servizio collegato Key Vault integrazione non è supportato nella disputa dei flussi di dati.
-
-### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>Qual è la differenza tra il mapping e la disputa dei flussi di dati?
-
-I flussi di dati di mapping consentono di trasformare i dati su larga scala senza richiedere alcuna codifica. È possibile progettare un processo di trasformazione dei dati nell'area di disegno del flusso di dati costruendo una serie di trasformazioni. Iniziare con un numero qualsiasi di trasformazioni di origine seguite da passaggi di trasformazione dei dati. Completare il flusso di dati con un sink per inserire i risultati in una destinazione. Il flusso di dati di mapping è ideale per il mapping e la trasformazione dei dati con schemi noti e sconosciuti nei sink e nelle origini.
-
-La controversia dei flussi di dati consente di eseguire operazioni di preparazione ed esplorazione dei dati agile usando il Power Query Editor di mashup online su larga scala tramite l'esecuzione di Spark. Con l'incremento dei data Lake, a volte è sufficiente esplorare un set di dati o creare un set di dati nel Lake. Non è possibile eseguire il mapping a una destinazione nota. La disputa dei flussi di dati viene usata per scenari di analisi meno formali e basati su modelli.
-
-### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Qual è la differenza tra i flussi di dati di Power Platform e la controversia sui flussi di dati?
-
-I flussi di dati di Power Platform consentono agli utenti di importare e trasformare i dati da un'ampia gamma di origini dati nel Common Data Service e Azure Data Lake per compilare applicazioni PowerApps, Power BI report o automazione dei flussi. I flussi di dati di Power Platform usano le esperienze di preparazione dei dati Power Query stabilite, in modo analogo a Power BI ed Excel. I flussi di eventi di Power Platform consentono anche un facile riutilizzo all'interno di un'organizzazione e la gestione automatica dell'orchestrazione (ad esempio, l'aggiornamento automatico dei flussi di data che dipendono da un altro flusso di eventi quando ne viene aggiornato il precedente).
-
-Azure Data Factory (ADF) è un servizio di integrazione dei dati gestito che consente ai data Engineers e ai Data Integrator dei Data Integrator di creare flussi di lavoro di estrazione, trasformazione e caricamento (ETL) complessi e di estrazione, caricamento e trasformazione (ELT). La gestione del flusso di dati in ADF consente agli utenti di disporre di un ambiente senza server privo di codice che semplifica la preparazione dei dati nel cloud e si adatta alle dimensioni dei dati senza che sia necessaria alcuna gestione dell'infrastruttura. Usa la tecnologia di preparazione dei dati Power Query (usata anche in flussi di dati di Power Platform, Excel, Power BI) per preparare e modellare i dati. Progettato per gestire tutte le complessità e le difficoltà di ridimensionamento di Big Data integrazione, la gestione dei flussi di dati consente agli utenti di preparare rapidamente i dati su larga scala tramite l'esecuzione di Spark. Gli utenti possono creare pipeline di dati resilienti in un ambiente visivo accessibile con l'interfaccia basata su browser e consentire ad ADF di gestire le complessità dell'esecuzione di Spark. Creare pianificazioni per le pipeline e monitorare le esecuzioni del flusso di dati dal portale di monitoraggio di ADF. Gestisci con facilità i contratti di contratto di disponibilità dei dati con il monitoraggio e gli avvisi avanzati della disponibilità di ADF e sfrutta le funzionalità di integrazione e distribuzione continue predefinite per il salvataggio e la gestione dei flussi in un ambiente gestito. Definire avvisi e visualizzare i piani di esecuzione per verificare che la logica venga eseguita in modo pianificato quando si ottimizzano i flussi di dati.
-
-### <a name="supported-sql-types"></a>Tipi SQL supportati
-
-Il flusso di dati in corso supporta i tipi di dati seguenti in SQL. Si otterrà un errore di convalida per l'utilizzo di un tipo di dati che non è supportato.
-
-* short
-* double
-* real
-* float
-* char
-* NCHAR
-* varchar
-* NVARCHAR
-* numero intero
-* INT
-* bit
-* boolean
-* SMALLINT
-* TINYINT
-* bigint
-* long
-* text
-* Data
-* Datetime
-* datetime2
-* smalldatetime
-*  timestamp
-* UNIQUEIDENTIFIER
-* Xml
-
-Altri tipi di dati saranno supportati in futuro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Azure Data Lake Analytics
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Data Lake Analytics. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-lake-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bc3a1dc76d24937868d76a352ab62165bbfa74ef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e048c860b5762595fd2b98b26e75ac86b3ac4919
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105035312"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094601"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-analytics"></a>Definizioni predefinite di Criteri di Azure per Azure Data Lake Analytics
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 1bf9a2cf7af8b18994ef2473c11176b8aea74f6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e3538e90a6dea69c703f56871fde86a18557a022
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042726"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095170"
 ---
 # <a name="quotas-in-azure-static-web-apps-preview"></a>Quote in App Web statiche di Azure (anteprima)
 
@@ -29,7 +29,7 @@ Per App Web statiche di Azure (anteprima) sono disponibili le quote seguenti.
 | Dimensioni dell'app                    | 250 MB           |
 | Ambienti di pre-produzione | 3                |
 | Domini personalizzati              | 1                |
-| Autorizzazione<br><br>Con ruoli personalizzati e regole di gestione | Massimo 25 utenti finali invitati e ruoli assegnati |
+| Autorizzazione (con ruoli personalizzati e regole di routing) | Massimo 25 utenti finali che possono appartenere a ruoli personalizzati |
 | Funzioni di Azure             | Disponibile        |
 | Contratto di servizio                         | Nessuno             |
 

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dda58868432248fe93a9fbc83d1e538dfc9b61ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ef1a7f92fd31e8ae87a0ead6b5071d8240aa993e
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709447"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286403"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop"></a>Risolvere i problemi di monitoraggio di Azure per desktop virtuale Windows
 
@@ -81,4 +81,6 @@ Di seguito sono riportati i problemi e le limitazioni che sono consapevoli e che
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non si è certi di come interpretare i dati o si desidera ottenere altre informazioni sui termini comuni, consultare il [Glossario di monitoraggio di Azure per desktop virtuali Windows](azure-monitor-glossary.md). Per informazioni su come configurare e usare monitoraggio di Azure per desktop virtuale Windows, vedere [usare monitoraggio di Azure per desktop virtuale Windows per monitorare la distribuzione](azure-monitor.md).
+- Per iniziare, vedere [usare monitoraggio di Azure per desktop virtuale Windows per monitorare la distribuzione](azure-monitor.md).
+- Per stimare, misurare e gestire i costi di archiviazione dei dati, vedere [stimare i costi di monitoraggio di Azure](azure-monitor-costs.md).
+- Consulta il [Glossario](azure-monitor-glossary.md) per scoprire di più su termini e concetti correlati a monitoraggio di Azure per desktop virtuale di Windows.

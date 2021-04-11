@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e08fe67dece02b936aa3a22e9cac58d809f19f46
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99225344"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285684"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replica transazionale con Istanza gestita SQL di Azure (anteprima)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -154,7 +154,7 @@ In questa configurazione, un database nel database SQL di Azure o in Azure SQL I
 
 La [replica geografica attiva](../database/active-geo-replication-overview.md) non è supportata con una istanza gestita SQL che usa la replica transazionale. Anziché eseguire la replica geografica attiva, usare i [gruppi di failover automatico](../database/auto-failover-group-overview.md), ma si noti che la pubblicazione deve essere [eliminata manualmente](transact-sql-tsql-differences-sql-server.md#replication) dall'istanza gestita primaria e ricreata nel istanza gestita SQL secondario dopo il failover.
 
-Se la replica geografica è abilitata in un **server di pubblicazione** o in un **server di distribuzione** SQL istanza gestita in un gruppo di [failover](../database/auto-failover-group-overview.md), l'amministratore di SQL istanza gestita deve eliminare tutte le pubblicazioni nel database primario precedente e riconfigurarle sul nuovo database primario dopo un failover. In questo scenario sono necessarie le attività seguenti:
+Se un **server di pubblicazione** o un **server di distribuzione** SQL istanza gestita si trova in un [gruppo di failover](../database/auto-failover-group-overview.md), l'amministratore di SQL istanza gestita deve eliminare tutte le pubblicazioni nel database primario precedente e riconfigurarle nel nuovo database primario dopo un failover. In questo scenario sono necessarie le attività seguenti:
 
 1. Arrestare tutti i processi di replica in esecuzione nel database, se presenti.
 1. Eliminare i metadati della sottoscrizione dal server di pubblicazione eseguendo lo script seguente nel database del server di pubblicazione:

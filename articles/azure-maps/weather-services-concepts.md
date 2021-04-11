@@ -1,6 +1,6 @@
 ---
-title: Concetti relativi ai servizi meteorologici (anteprima) in Microsoft Azure Maps
-description: Informazioni sui concetti che si applicano a Microsoft Azure Maps Weather Services (anteprima).
+title: Concetti relativi ai servizi meteorologici in Microsoft Azure Maps
+description: Informazioni sui concetti che si applicano a Microsoft Azure Maps Weather Services.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,18 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76d4eb08ba9cc0394610fdd00f6faba02278e8e3
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96904738"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258011"
 ---
-# <a name="weather-services-preview-in-azure-maps"></a>Servizi meteorologici (anteprima) in mappe di Azure
-
-> [!IMPORTANT]
-> I servizi Meteo di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="weather-services-in-azure-maps"></a>Servizi Meteo in mappe di Azure
 
 Questo articolo presenta i concetti che si applicano ai [servizi meteorologici](/rest/api/maps/weather)di Azure maps. Si consiglia di eseguire questo articolo prima di iniziare con le API Meteo.
 

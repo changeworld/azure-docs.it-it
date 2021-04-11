@@ -3,12 +3,12 @@ title: Come proteggere la gerarchia di risorse - Governance di Azure
 description: Informazioni su come proteggere la gerarchia di risorse con le impostazioni di gerarchia che includono l'impostazione del gruppo di gestione predefinito.
 ms.date: 02/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0f0afb5401fc646d26598a211604790af191f156
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d13a0235152046eff2585da170d5fba0e9d3b09
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594587"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259082"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Come proteggere la gerarchia di risorse
 
@@ -50,7 +50,7 @@ Per configurare questa impostazione in portale di Azure, attenersi alla procedur
 
 ### <a name="set-default-management-group-with-rest-api"></a>Impostare un gruppo di gestione predefinito con l'API REST
 
-Per configurare questa impostazione con l'API REST, viene chiamato l'endpoint [delle impostazioni della gerarchia](/rest/api/resources/hierarchysettings) . A tale scopo, usare il formato di URI DELL'API REST e di richiesta seguente. Sostituire `{rootMgID}` con l'ID del gruppo di gestione radice e `{defaultGroupID}` con l'ID del gruppo di gestione che deve diventare il gruppo di gestione predefinito:
+Per configurare questa impostazione con l'API REST, viene chiamato l'endpoint [delle impostazioni della gerarchia](/rest/api/managementgroups/hierarchysettings) . A tale scopo, usare il formato di URI DELL'API REST e di richiesta seguente. Sostituire `{rootMgID}` con l'ID del gruppo di gestione radice e `{defaultGroupID}` con l'ID del gruppo di gestione che deve diventare il gruppo di gestione predefinito:
 
 - URI DELL'API REST
 
@@ -91,7 +91,7 @@ Per configurare questa impostazione in portale di Azure, attenersi alla procedur
 
 ### <a name="set-require-authorization-with-rest-api"></a>Impostare Richiedi autorizzazione con l'API REST
 
-Per configurare questa impostazione con l'API REST, viene chiamato l'endpoint [delle impostazioni della gerarchia](/rest/api/resources/hierarchysettings) . A tale scopo, usare il formato di URI DELL'API REST e di richiesta seguente. Si tratta di un valore _booleano_, è quindi necessario specificare **true** o **false**. Il valore **true** abilita questo metodo di protezione della gerarchia del gruppo di gestione:
+Per configurare questa impostazione con l'API REST, viene chiamato l'endpoint [delle impostazioni della gerarchia](/rest/api/managementgroups/hierarchysettings) . A tale scopo, usare il formato di URI DELL'API REST e di richiesta seguente. Si tratta di un valore _booleano_, è quindi necessario specificare **true** o **false**. Il valore **true** abilita questo metodo di protezione della gerarchia del gruppo di gestione:
 
 - URI DELL'API REST
 

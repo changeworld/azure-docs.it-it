@@ -2,13 +2,13 @@
 title: Formati di contenuto supportati
 description: Informazioni sui formati di contenuto supportati da Azure Container Registry, incluse le immagini del contenitore compatibili con Docker, i grafici Helm, le immagini OCI e gli artefatti OCI.
 ms.topic: article
-ms.date: 08/30/2019
-ms.openlocfilehash: b2a54c65d149a27ed9eae85c3308d657ed3471a3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/02/2021
+ms.openlocfilehash: 218d98f3f16e8d0ca76a24692afbb2b69606564b
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100008333"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223065"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formati di contenuto supportati in Registro Azure Container
 
@@ -34,7 +34,7 @@ Per ulteriori informazioni sugli artefatti OCI, vedere il repository [OCI Regist
 
 ## <a name="helm-charts"></a>Grafici Helm
 
-Azure Container Registry può ospitare repository per i [grafici Helm](https://helm.sh/), un formato di creazione di pacchetti usato per gestire e distribuire rapidamente le applicazioni per Kubernetes. Il [client Helm](https://docs.helm.sh/using_helm/#installing-helm) versione 2 (2.11.0 o versione successiva) è supportato.
+Azure Container Registry può ospitare repository per i [grafici Helm](https://helm.sh/), un formato di creazione di pacchetti usato per gestire e distribuire rapidamente le applicazioni per Kubernetes. È consigliabile usare [Helm client](https://docs.helm.sh/using_helm/#installing-helm) versione 3. Vedere [eseguire il push e il pull di grafici Helm in un registro contenitori di Azure](container-registry-helm-repos.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

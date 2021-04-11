@@ -3,19 +3,24 @@ title: Procedure consigliate per il servizio Azure Kubernetes
 description: Raccolta delle procedure consigliate per sviluppatori e operatori del cluster per la creazione e la gestione di applicazioni nel servizio Azure Kubernetes
 services: container-service
 ms.topic: article
-ms.date: 12/07/2018
-ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/09/2021
+ms.openlocfilehash: f4bd109ce6827de26b1649380b6f6a2ba7c10e17
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94686260"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105902"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Procedure consigliate per sviluppatori e operatori del cluster per la creazione e la gestione di applicazioni nel servizio Azure Kubernetes
 
-Per creare ed eseguire correttamente applicazioni nel servizio Azure Kubernetes, è importante comprendere e implementare alcune considerazioni fondamentali. Queste aree includono le funzionalità di multi-tenancy e pianificazione, la sicurezza di cluster e pod o la continuità aziendale e ripristino di emergenza. Le procedure consigliate descritte di seguito sono raggruppate in modo da aiutare gli operatori di cluster e gli sviluppatori a comprendere le considerazioni relative a ognuna di queste aree e a implementare le funzionalità appropriate.
+La compilazione e l'esecuzione di applicazioni in Azure Kubernetes Service (AKS) richiedono la comprensione e l'implementazione di alcune considerazioni chiave, tra cui:
+* Funzionalità di multi-tenant e utilità di pianificazione.
+* Sicurezza del cluster e del Pod.
+* Continuità aziendale e ripristino di emergenza. 
 
-Queste procedure consigliate e i relativi articoli concettuali sono stati scritti insieme al gruppo del prodotto, ai team di progettazione e ai team sul campo del servizio Azure Kubernetes, inclusi i Global Black Belt (GBB).
+
+Il gruppo di prodotti AKS, i team di progettazione e i team dei campi (incluse le cinture nere globali [GBBs]) hanno contribuito, hanno scritto e raggruppato le procedure consigliate e gli articoli concettuali seguenti. Lo scopo è quello di aiutare gli operatori e gli sviluppatori di cluster a comprendere le considerazioni precedenti e implementare le funzionalità appropriate.
+
 
 ## <a name="cluster-operator-best-practices"></a>Procedure consigliate per gli operatori di cluster
 

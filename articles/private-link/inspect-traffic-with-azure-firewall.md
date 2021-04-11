@@ -8,14 +8,17 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: c3218d8781377e76f05d10a8da2c954ac0b685a7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3059d88c9894ba50a608afaf1cb23367dfaf089c
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641992"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259456"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Usare il firewall di Azure per controllare il traffico destinato a un endpoint privato
+
+> [!NOTE]
+> Se si vuole proteggere il traffico verso endpoint privati nella rete WAN virtuale di Azure usando l'hub virtuale protetto, vedere [proteggere il traffico destinato agli endpoint privati nella rete WAN virtuale di Azure](../firewall-manager/private-link-inspection-secure-virtual-hub.md).
 
 Endpoint privato di Azure è il blocco predefinito fondamentale per il collegamento privato di Azure. Gli endpoint privati consentono alle risorse di Azure distribuite in una rete virtuale di comunicare privatamente con risorse di collegamento privato.
 

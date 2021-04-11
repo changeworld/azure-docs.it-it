@@ -43,6 +43,8 @@
       href: concepts-query-units.md
     - name: Integrazione con altri servizi
       href: concepts-integration.md
+    - name: Notifiche degli eventi
+      href: concepts-event-notifications.md
     - name: Route di eventi
       href: concepts-route-events.md
     - name: Sicurezza per le soluzioni di Gemelli digitali di Azure
@@ -91,8 +93,6 @@
           href: how-to-manage-twin.md
         - name: Gestire il grafo dei gemelli con relazioni
           href: how-to-manage-graph.md
-        - name: Interpretare i dati degli eventi
-          href: how-to-interpret-event-data.md
         - name: Configurare una funzione di Azure per l'elaborazione dei dati
           href: how-to-create-azure-function.md
         - name: Eseguire una query sul grafo dei gemelli

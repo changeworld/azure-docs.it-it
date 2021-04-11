@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81c026893c3185c6c9f960cdb6acb2d0c2d49cc4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1ea83dc62c2752e34584b89de2cdb6dbde3dfa0
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580352"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443919"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
@@ -71,7 +71,8 @@ Le distribuzioni di server Linux non approvate da Azure non supportano Crittogra
 | RedHat | RHEL 8-LVM | 8-LVM | RedHat: RHEL: 8-LVM: più recente | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 8,2 | 8.2 | RedHat: RHEL: 8.2: più recente | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 8.1 | 8.1 | RedHat: RHEL: 8.1: più recente | Disco del sistema operativo e dati (vedere la nota di seguito) |
-| RedHat | RHEL 7-LVM | 7-LVM | RedHat: RHEL: 7-LVM: 7.8.2020111201 | Disco del sistema operativo e dati (vedere la nota di seguito) |
+| RedHat | RHEL 7-LVM | 7-LVM | RedHat: RHEL: 7-LVM: 7.9.2020111202 | Disco del sistema operativo e dati (vedere la nota di seguito) |
+| RedHat | RHEL 7,9 | 7_9 | RedHat: RHEL: 7_9: versione più recente | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7,8 | 7.8 | RedHat: RHEL: 7.8: più recente | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
@@ -84,8 +85,9 @@ Le distribuzioni di server Linux non approvate da Azure non supportano Crittogra
 | OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic: CentOS-LVM: 8-LVM: più recente | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 8,2 | 8_2 | OpenLogic: CentOS: 8_2: più recente | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 8,1 | 8_1 | OpenLogic: CentOS: 8_1: più recente | Disco del sistema operativo e dati |
-| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic: CentOS-LVM: 7-LVM: 7.8.2020111100 | Disco del sistema operativo e dati |
-| OpenLogic | CentOS 7,8 | 7.8 | OpenLogic: CentOS: 7_8: più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic: CentOS-LVM: 7-LVM: 7.9.2021020400 | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 7,9 | 7_9 | OpenLogic: CentOS: 7_9: più recente | Disco del sistema operativo e dati |
+| OpenLogic | CentOS 7,8 | 7_8 | OpenLogic: CentOS: 7_8: più recente | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | Disco del sistema operativo e dati |

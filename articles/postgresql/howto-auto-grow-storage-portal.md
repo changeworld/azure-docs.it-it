@@ -1,17 +1,17 @@
 ---
 title: Aumento automatico delle dimensioni di archiviazione-portale di Azure-database di Azure per PostgreSQL-server singolo
 description: Questo articolo descrive come configurare l'aumento automatico delle dimensioni dell'archiviazione usando il portale di Azure nel database di Azure per PostgreSQL-server singolo
-author: rothja
-ms.author: jroth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/29/2019
-ms.openlocfilehash: 20c1d598cdb8bc68a3f2348547569a8f2719858c
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: dd6effff2fa38276729e2609e115ef72c7af4066
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551391"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228079"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Aumento automatico delle dimensioni di archiviazione usando il portale di Azure nel database di Azure per PostgreSQL-server singolo
 Questo articolo descrive come configurare un database di Azure per l'archiviazione del server PostgreSQL in modo che cresca senza alcun effetto sul carico di lavoro.

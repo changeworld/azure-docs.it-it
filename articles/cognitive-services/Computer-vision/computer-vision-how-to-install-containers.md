@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: locale, OCR, Docker, contenitore
-ms.openlocfilehash: 1c9e681e3c02cb65b2a54070cc778051a0e7ac53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53d59822b378a658f8b6c048de1a32db53a795d1
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102432554"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285723"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installare i contenitori Docker per l'OCR di lettura (anteprima) 
 
@@ -25,7 +25,7 @@ ms.locfileid: "102432554"
 
 I contenitori consentono di eseguire le API di Visione artificiale nell'ambiente in uso. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire Visione artificiale contenitori.
 
-Il contenitore OCR *Read* consente di estrarre testo stampato e scritto a mano da immagini e documenti con supporto per formati di file JPEG, PNG, BMP, PDF e TIFF. Per ulteriori informazioni, vedere la [documentazione relativa all'API di lettura](concept-recognizing-text.md#read-api).
+Il contenitore OCR *Read* consente di estrarre testo stampato e scritto a mano da immagini e documenti con supporto per formati di file JPEG, PNG, BMP, PDF e TIFF. Per ulteriori informazioni, vedere la [Guida alle procedure per l'API Read](Vision-API-How-to-Topics/call-read-api.md).
 
 ## <a name="read-32-preview-container"></a>Leggere 3,2-contenitore di anteprima
 
@@ -96,7 +96,7 @@ Sono disponibili le immagini del contenitore per la lettura.
 
 Usare il [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore.
 
-### <a name="docker-pull-for-the-read-container"></a>Pull Docker per il contenitore di lettura
+### <a name="docker-pull-for-the-read-ocr-container"></a>Pull Docker per il contenitore OCR di lettura
 
 # <a name="version-32-preview"></a>[Versione 3,2-Preview](#tab/version-3-2)
 
@@ -139,7 +139,7 @@ ApiKey={API_KEY}
 
 Questo comando:
 
-* Esegue il contenitore di lettura dall'immagine del contenitore.
+* Esegue il contenitore OCR di lettura dall'immagine del contenitore.
 * Alloca 8 core CPU e 18 gigabyte (GB) di memoria.
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
@@ -156,7 +156,7 @@ ApiKey={API_KEY}
 
 Questo comando:
 
-* Esegue il contenitore di lettura dall'immagine del contenitore.
+* Esegue il contenitore OCR di lettura dall'immagine del contenitore.
 * Alloca 8 core CPU e 16 gigabyte (GB) di memoria.
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
@@ -392,7 +392,7 @@ Quando il POST asincrono viene eseguito correttamente, restituisce un codice di 
 ---
 
 > [!IMPORTANT]
-> Se si distribuiscono più contenitori di lettura dietro un servizio di bilanciamento del carico, ad esempio in Docker Compose o Kubernetes, è necessario disporre di una cache esterna. Poiché il contenitore di elaborazione e il contenitore di richieste GET potrebbero non essere uguali, una cache esterna archivia i risultati e li condivide tra i contenitori. Per informazioni dettagliate sulle impostazioni della cache, vedere [configurare visione artificiale contenitori Docker](./computer-vision-resource-container-config.md).
+> Se si distribuiscono più contenitori OCR di lettura dietro a un servizio di bilanciamento del carico, ad esempio in Docker Compose o Kubernetes, è necessario disporre di una cache esterna. Poiché il contenitore di elaborazione e il contenitore di richieste GET potrebbero non essere uguali, una cache esterna archivia i risultati e li condivide tra i contenitori. Per informazioni dettagliate sulle impostazioni della cache, vedere [configurare visione artificiale contenitori Docker](./computer-vision-resource-container-config.md).
 
 ### <a name="synchronous-read"></a>Lettura sincrona
 
@@ -445,7 +445,7 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 * Visione artificiale fornisce un contenitore Linux per Docker, incapsulando Read.
 * Le immagini del contenitore vengono scaricate dal registro contenitori "anteprima contenitore" in Azure.
 * Le immagini dei contenitori vengono eseguite in Docker.
-* È possibile usare l'API REST o l'SDK per chiamare le operazioni nei contenitori di lettura specificando l'URI host del contenitore.
+* È possibile usare l'API REST o l'SDK per chiamare le operazioni in contenitori di OCR di lettura specificando l'URI host del contenitore.
 * Quando si crea un'istanza di un contenitore, è necessario specificare le informazioni di fatturazione.
 
 > [!IMPORTANT]
@@ -454,7 +454,7 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Rivedere [Configurare i contenitori](computer-vision-resource-container-config.md) per informazioni sulle impostazioni di configurazione.
-* Rivedere [Panoramica di Visione artificiale](overview.md) per altre informazioni sul riconoscimento di testo scritto a mano e stampato
-* Fare riferimento all'[API Visione artificiale](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) per informazioni dettagliate sui metodi supportati dal contenitore.
+* Per altre informazioni su come riconoscere il testo stampato e scritto a mano, vedere [Cenni preliminari sull'OCR](overview-ocr.md)
+* Vedere l' [API Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) per informazioni dettagliate sui metodi supportati dal contenitore.
 * Fare riferimento alle [domande frequenti](FAQ.md) per risolvere i problemi correlati alle funzionalità di Analisi del testo.
 * Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)

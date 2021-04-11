@@ -45,6 +45,9 @@ items:
       - name: 9 - Esplorare il Knowledge Center
         href: get-started-knowledge-center.md
         displayName: 'get, started'
+      - name: 10 aggiungere un amministratore
+        href: get-started-add-admin.md
+        displayName: 'get, started'
   - name: Area di lavoro
     items:
       - name: Avvi rapidi
@@ -565,6 +568,8 @@ items:
             href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
           - name: Monitorare Apache Spark metrica a livello di applicazione con Prometheus e Grafana
             href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
+          - name: Usare Log Analytics di Azure per raccogliere e visualizzare le metriche e i log (anteprima)
+            href: ./spark/apache-spark-azure-log-analytics.md
       - name: Concetti
         items:
           - name: Apache Spark

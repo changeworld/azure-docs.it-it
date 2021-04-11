@@ -8,20 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cc470d12377f50f9f9ae4b362bcabf3a5ce34e8f
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d61314dc89d341e376de7d3904568825ad3cfb04
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169284"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293873"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Informazioni sui servizi cloud di Azure (supporto esteso)
 
-> [!IMPORTANT]
-> Servizi cloud (supporto esteso) è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Servizi cloud (supporto esteso) è un nuovo modello di distribuzione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) per il prodotto [servizi cloud di Azure](https://azure.microsoft.com/services/cloud-services/) ed è attualmente disponibile in anteprima pubblica. Servizi cloud (supporto esteso) offre il vantaggio principale di fornire resilienza a livello di area insieme alla parità di funzionalità con i servizi cloud di Azure distribuiti con Azure Service Manager. Offre anche alcune funzionalità ARM, ad esempio controllo degli accessi in base al ruolo e controllo (RBAC), tag, criteri e supporta i modelli di distribuzione.  
+Servizi cloud (supporto esteso) è un nuovo modello di distribuzione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) per il prodotto [servizi cloud di Azure](https://azure.microsoft.com/services/cloud-services/) ed è ora disponibile a livello generale. Servizi cloud (supporto esteso) offre il vantaggio principale di fornire resilienza a livello di area insieme alla parità di funzionalità con i servizi cloud di Azure distribuiti con Azure Service Manager. Offre anche alcune funzionalità ARM, ad esempio controllo degli accessi in base al ruolo e controllo (RBAC), tag, criteri e supporta modelli di distribuzione.  
 
 Con questa modifica, il modello di distribuzione basato su Azure Service Manager per i servizi cloud verrà rinominato [servizi cloud (versione classica)](../cloud-services/cloud-services-choose-me.md). Si manterrà la possibilità di creare e distribuire rapidamente le applicazioni e i servizi Web e cloud. Potrai ridimensionare l'infrastruttura dei servizi cloud in base alla richiesta corrente e garantire che le prestazioni delle tue applicazioni possano restare al passo con la riduzione simultanea dei costi.  
 

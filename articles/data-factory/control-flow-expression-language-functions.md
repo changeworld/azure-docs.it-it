@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: e89cb847bcd5d0137354c07fe97148bcbeca2714
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: af365ef9b94702fa6634235a95a91297d6b7ae50
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786295"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107129"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
 
@@ -161,6 +161,30 @@ Nell'esempio seguente la pipeline accetta i parametri **inputPath** e **outputPa
     }
 }
 ```
+
+### <a name="replacing-special-characters"></a>Sostituzione di caratteri speciali
+
+L'editor di contenuto dinamico esegue automaticamente il escape dei caratteri, ad esempio virgolette doppie, barra rovesciata nel contenuto al termine della modifica. Ciò causa problemi se si desidera sostituire il feed di riga o la scheda utilizzando **\n**, **\t** nella funzione Replace (). È possibile modificare il contenuto dinamico nella visualizzazione codice per rimuovere l'oggetto aggiuntivo \ nell'espressione oppure seguire i passaggi seguenti per sostituire i caratteri speciali utilizzando il linguaggio delle espressioni:
+
+1. Codifica URL rispetto al valore stringa originale
+1. Sostituire la stringa con codifica URL, ad esempio il feed di riga (% 0A), il ritorno a capo (% 0D), la tabulazione orizzontale (%09).
+1. Decodifica URL
+
+Ad esempio, la variabile *CompanyName* con un carattere di nuova riga nel valore, Expression `@uriComponentToString(replace(uriComponent(variables('companyName')), '%0A', ''))` può rimuovere il carattere di nuova riga. 
+
+```json
+Contoso-
+Corporation
+```
+
+### <a name="escaping-single-quote-character"></a>Escape del carattere virgoletta singola
+
+Le funzioni di espressione utilizzano virgolette singole per i parametri del valore di stringa. Usare due virgolette singole per eseguire l'escape di un carattere ' nelle funzioni di stringa. Ad esempio, l'espressione `@concat('Baba', ''' ', 'book store')` restituirà il risultato seguente.
+
+```
+Baba's book store
+```
+
 ### <a name="tutorial"></a>Esercitazione
 Questa [esercitazione](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) illustra come passare i parametri tra una pipeline e un'attività, nonché tra le attività.
 

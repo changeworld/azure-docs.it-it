@@ -4,13 +4,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
-ms.date: 07/09/2020
-ms.openlocfilehash: f25c335c568c112c05f81df51d69e83aeff423e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/01/2021
+ms.openlocfilehash: 6529aa49d06e64947deb5ae54db0c39ad2575569
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96028555"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106288563"
 ---
 ## <a name="business-disaster-recovery"></a>BCDR (Business disaster recovery)
 
@@ -24,7 +24,7 @@ Le funzionalità aggiuntive di disponibilità elevata fornite tramite Azure (e d
 
 - **Failover**: Azure fornisce la [replica geografica e il bilanciamento del carico](/azure/architecture/resiliency/recovery-loss-azure-region).
 - Ripristino **dei dati** e **ripristino dell'archiviazione**: Azure offre [diverse opzioni per mantenere e ripristinare i dati](/azure/architecture/resiliency/recovery-data-corruption).
-- **Azure Site Recovery**: Azure fornisce le funzionalità di Site Recovery tramite [Azure Site Recovery](../articles/site-recovery/index.yml).
+- **Azure Site Recovery**: Azure fornisce funzionalità di ripristino tramite [Azure Site Recovery](../articles/site-recovery/index.yml).
 - **Backup** di Azure: [backup](../articles/backup/backup-architecture.md) di Azure supporta il backup sia in locale che nel cloud di macchine virtuali di Azure.
 
 Assicurarsi di abilitare le funzionalità di Azure pertinenti per fornire la disponibilità elevata globale tra aree per i dispositivi e gli utenti.
@@ -44,7 +44,7 @@ L'integrazione di Azure Time Series Insights con gli altri servizi offre opportu
 
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-Sono disponibili diversi modi per proteggere i dati, le app e i servizi Azure Time Series Insights in esecuzione, anche se sono stati interrotti. 
+Sono disponibili diversi modi per proteggere i dati, le app e i servizi Azure Time Series Insights in esecuzione, anche se sono stati interrotti.
 
 Tuttavia, è possibile determinare che è necessaria anche una copia di backup completa dell'ambiente Azure Time Series, per gli scopi seguenti:
 
@@ -63,12 +63,13 @@ Per creare un ambiente duplicato:
 Se si verifica un evento:
 
 1. Se l'area primaria è interessata da un evento imprevisto di emergenza, reindirizzare le operazioni all'ambiente di Azure Time Series Insights di backup.
+1. Poiché i numeri di sequenza dell'hub riavviano da 0 dopo il failover, ricreare l'origine evento in entrambe le aree/ambienti con gruppi di consumer diversi per evitare la creazione di eventi duplicati.
 1. Usare la seconda area per eseguire il backup e il ripristino di tutti i dati di telemetria e di query Azure Time Series Insights.
 
 > [!IMPORTANT]
 > Se si verifica un failover:
-> 
-> * Potrebbe verificarsi anche un ritardo.
-> * Potrebbe verificarsi un picco temporaneo nell'elaborazione del messaggio, perché le operazioni vengono reindirizzate.
-> 
+>
+> - Potrebbe verificarsi anche un ritardo.
+> - Potrebbe verificarsi un picco temporaneo nell'elaborazione del messaggio, perché le operazioni vengono reindirizzate.
+>
 > Per altre informazioni, vedere [attenuare la latenza in Azure Time Series Insights](../articles/time-series-insights/time-series-insights-environment-mitigate-latency.md).

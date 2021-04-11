@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9849648c8a0a76ff89a6f95e64eeade791e7135c
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 8804febe81afc79a4a7eadb56e8350e758ea38ba
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381775"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105511"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Distribuire un servizio cloud (supporto esteso) usando i modelli ARM
 
@@ -25,14 +25,12 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
 
 2. Creare un nuovo gruppo di risorse usando il [portale di Azure](../azure-resource-manager/management/manage-resource-groups-portal.md) o [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Questo passaggio è facoltativo se si usa un gruppo di risorse esistente.
 
-3. Creare un indirizzo IP pubblico e impostare la proprietà etichetta DNS dell'indirizzo IP pubblico. Servizi cloud (supporto esteso) supporta solo [Basic] ( https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) indirizzi IP pubblici dello SKU). Gli indirizzi IP pubblici con SKU standard non funzionano con i servizi cloud.
+3. Creare un indirizzo IP pubblico e impostare la proprietà etichetta DNS dell'indirizzo IP pubblico. Servizi cloud (supporto esteso) supporta solo indirizzi IP pubblici dello SKU [Basic](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) . Gli indirizzi IP pubblici con SKU standard non funzionano con i servizi cloud.
 Se si usa un indirizzo IP statico, è necessario farvi riferimento come IP riservato nel file di configurazione del servizio (con estensione cscfg). Se si usa un indirizzo IP esistente, ignorare questo passaggio e aggiungere le informazioni sull'indirizzo IP direttamente nelle impostazioni di configurazione del servizio di bilanciamento del carico del modello ARM.
-
-4. Creare un oggetto profilo di rete e associare l'indirizzo IP pubblico al front-end del servizio di bilanciamento del carico. La piattaforma Azure crea automaticamente una risorsa di bilanciamento del carico SKU "classica" nella stessa sottoscrizione della risorsa del servizio cloud. La risorsa del servizio di bilanciamento del carico è una risorsa di sola lettura in ARM. Tutti gli aggiornamenti alla risorsa sono supportati solo tramite i file di distribuzione del servizio cloud (. cscfg &. csdef)
  
-5. Creare un nuovo account di archiviazione usando il [portale di Azure](../storage/common/storage-account-create.md?tabs=azure-portal) o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Questo passaggio è facoltativo se si usa un account di archiviazione esistente.
+4. Creare un nuovo account di archiviazione usando il [portale di Azure](../storage/common/storage-account-create.md?tabs=azure-portal) o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Questo passaggio è facoltativo se si usa un account di archiviazione esistente.
 
-6. Caricare i file di definizione del servizio (. csdef) e di configurazione del servizio (. cscfg) nell'account di archiviazione usando il [portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Ottenere gli URI SAS di entrambi i file da aggiungere al modello ARM più avanti in questa esercitazione.
+5. Caricare i file di definizione del servizio (. csdef) e di configurazione del servizio (. cscfg) nell'account di archiviazione usando il [portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Ottenere gli URI SAS di entrambi i file da aggiungere al modello ARM più avanti in questa esercitazione.
 
 6. Opzionale Creare un insieme di credenziali delle chiavi e caricare i certificati.
 

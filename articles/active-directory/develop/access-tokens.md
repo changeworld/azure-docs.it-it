@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/18/2021
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 8630dd2fb1157fbeba99f2a06d73712ab46a63f4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f5a60f14799e872d835d651fc043edd27dfc6990
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035068"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105596"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft Identity Platform
 
@@ -176,6 +176,12 @@ Le identità Microsoft possono eseguire l'autenticazione in vari modi, che posso
 | `ngcmfa` | Equivalente a `mfa`, usata per il provisioning di determinati tipi di credenziali avanzate. |
 | `wiaormfa`| L'utente ha usato Windows o una credenziale di autenticazione a più fattori per l'autenticazione. |
 | `none` | Non è stata eseguita alcuna autenticazione. |
+
+## <a name="access-token-lifetime"></a>Durata dei token di accesso
+
+La durata predefinita di un token di accesso varia a seconda dell'applicazione client che richiede il token. Ad esempio, i client idonei per la valutazione dell'accesso continuo (CAE) che negoziano sessioni compatibili con CAE visualizzeranno la durata di un token di lunga durata (fino a 28 ore).  Quando il token di accesso scade, il client deve usare il token di aggiornamento per acquisire un nuovo token di aggiornamento e un token di accesso (in genere invisibile all'utente).
+
+È possibile regolare la durata di un token di accesso per controllare la frequenza con cui l'applicazione client scade la sessione dell'applicazione e la frequenza con cui l'utente deve eseguire di nuovo l'autenticazione (invisibile o interattiva). Per altre informazioni, vedere [durate dei token configurabili](active-directory-configurable-token-lifetimes.md).
 
 ## <a name="validating-tokens"></a>Convalida dei token
 

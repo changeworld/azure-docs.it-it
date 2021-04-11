@@ -4,14 +4,14 @@ description: Vengono descritti i diversi modelli di utilizzo della cache e viene
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 3ad252520ca0cf7acdb3c84ef1da87c8076f3172
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a22f4b257476e96c51ae491b8570e3798f7b3ab7
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775715"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259728"
 ---
 # <a name="understand-cache-usage-models"></a>Informazioni sui modelli di utilizzo della cache
 
@@ -39,7 +39,7 @@ I modelli di utilizzo incorporati nella cache HPC di Azure hanno valori diversi 
 
 ## <a name="choose-the-right-usage-model-for-your-workflow"></a>Scegliere il modello di utilizzo corretto per il flusso di lavoro
 
-È necessario scegliere un modello di utilizzo per ogni destinazione di archiviazione montata da NFS in uso. Le destinazioni di archiviazione BLOB di Azure hanno un modello di utilizzo incorporato che non può essere personalizzato.
+È necessario scegliere un modello di utilizzo per ogni destinazione di archiviazione del protocollo NFS da usare. Le destinazioni di archiviazione BLOB di Azure hanno un modello di utilizzo incorporato che non può essere personalizzato.
 
 I modelli di utilizzo della cache HPC consentono di scegliere come bilanciare la risposta rapida con il rischio di recuperare i dati obsoleti. Se si desidera ottimizzare la velocità per la lettura dei file, è possibile che non si sia interessati a verificare se i file nella cache vengono confrontati con i file back-end. D'altra parte, se si desidera assicurarsi che i file siano sempre aggiornati con l'archiviazione remota, scegliere un modello che controlli di frequente.
 
@@ -77,6 +77,29 @@ In questa tabella vengono riepilogate le differenze del modello di utilizzo:
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
 
 Per domande sul modello di utilizzo ottimale per il flusso di lavoro della cache HPC di Azure, contattare il rappresentante Azure o aprire una richiesta di supporto per assistenza.
+
+## <a name="know-when-to-remount-clients-for-nlm"></a>Informazioni sul momento in cui reinstallare i client per NLM
+
+In alcune situazioni, potrebbe essere necessario rimontare i client se si modifica il modello di utilizzo di una destinazione di archiviazione. Questa operazione è necessaria a causa del modo in cui diversi modelli di utilizzo gestiscono le richieste di gestione blocchi di rete (NLM).
+
+La cache HPC si trova tra i client e il sistema di archiviazione back-end. In genere, la cache passa le richieste di NLM al sistema di archiviazione back-end, ma in alcune situazioni la cache stessa riconosce la richiesta di NLM e restituisce un valore al client. Nella cache HPC di Azure questo problema si verifica solo quando si usa il modello di utilizzo **Read Heavy, rare scritture** (o in una destinazione di archiviazione BLOB standard, che non ha modelli di utilizzo configurabili).
+
+Si verifica un piccolo rischio di conflitto di file se si passa da un modello di utilizzo di **Scritture intenso** a un altro e viceversa. Non è possibile trasferire lo stato di NLM corrente dalla cache al sistema di archiviazione o viceversa. Lo stato di blocco del client non è quindi accurato.
+
+Rimontare i client per assicurarsi che dispongano di uno stato NLM preciso con il nuovo gestore blocchi.
+
+Se i client inviano una richiesta NLM quando il modello di utilizzo o l'archiviazione back-end non la supporta, riceveranno un errore.
+
+### <a name="disable-nlm-at-client-mount-time"></a>Disabilitare NLM al momento del montaggio del client
+
+Non è sempre facile sapere se i sistemi client invieranno richieste NLM.
+
+È possibile disabilitare NLM quando i client montano il cluster usando l'opzione ``-o nolock`` nel ``mount`` comando.
+
+Il comportamento esatto dell' ``nolock`` opzione dipende dal sistema operativo client, quindi controllare la documentazione di montaggio (Man 5 NFS) per il sistema operativo client. Nella maggior parte dei casi, il blocco viene spostato localmente nel client. Prestare attenzione se l'applicazione blocca i file tra più client.
+
+> [!NOTE]
+> ADLS-NFS non supporta NLM. È necessario disabilitare NLM con l'opzione di montaggio precedente quando si usa una destinazione di archiviazione ADLS-NFS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

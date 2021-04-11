@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 04/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: a8bd2ef1348692bf57f7e5cb7b6606cfcfd324fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b17cb6906a37d2cab4383fac18400b35dc8adb2f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905571"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223191"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>Esercitazione: Aggiungere l'autenticazione all'app Web in esecuzione nel Servizio app di Azure
 
@@ -41,7 +41,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per questa esercitazione è necessaria un'app Web distribuita nel servizio app. È possibile usare un'app Web esistente oppure è possibile seguire la guida di [avvio rapido per ASP.NET Core](quickstart-dotnetcore.md) per creare e pubblicare una nuova app Web nel servizio app.
 
-Sia che si usi un'app Web esistente o che se ne crei una nuova, prendere nota del nome dell'app Web e del nome del gruppo di risorse in cui è distribuita l'app Web. Questi nomi saranno necessari nel corso di questa esercitazione. In questa esercitazione i nomi di esempio nelle procedure e negli screenshot contengono *SecureWebApp*.
+Sia che si usi un'app Web esistente o che se ne crei una nuova, prendere nota del nome dell'app Web e del nome del gruppo di risorse in cui è distribuita l'app Web. Questi nomi saranno necessari nel corso di questa esercitazione. 
 
 ## <a name="configure-authentication-and-authorization"></a>Configurare l'autenticazione e l'autorizzazione
 
@@ -53,17 +53,19 @@ In **Gruppi di risorse** cercare e selezionare il gruppo di risorse desiderato. 
 
 :::image type="content" alt-text="Screenshot che mostra la selezione della pagina di gestione dell'app." source="./media/scenario-secure-app-authentication-app-service/select-app-service.png":::
 
-Nel menu sul lato sinistro dell'app selezionare **Autenticazione/Autorizzazione** e quindi abilitare l'autenticazione del servizio app selezionando **Sì**.
+Nel menu a sinistra dell'app selezionare **autenticazione** e quindi fare clic su **Aggiungi provider di identità**.
 
-In **Azione da eseguire quando la richiesta non è autenticata** selezionare **Accedi con Azure Active Directory**.
+Nella pagina **Aggiungi un provider di identità** selezionare **Microsoft** come provider di **identità** per accedere alle identità Microsoft e Azure ad.
 
-In **Provider di autenticazione** fare clic su **Azure Active Directory**. Selezionare **Rapida** e quindi accettare le impostazioni predefinite per creare una nuova app Active Directory. Selezionare **OK**.
+Per tipo di registrazione app **registrazione** app  >  selezionare **Crea una nuova registrazione** per l'app.
 
-:::image type="content" alt-text="Screenshot che mostra l'opzione di autenticazione rapida." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
+Per la **registrazione dell'app**  >  **tipi di conto supportati**, selezionare tenant **corrente-singolo tenant**.
 
-Nella pagina **Autenticazione/Autorizzazione** selezionare **Salva**.
+Nella sezione **impostazioni di autenticazione del servizio app** lasciare impostato **l'autenticazione** per **Richiedi autenticazione** e **richieste non autenticate** impostate su **http 302 trovato Reindirizzamento: consigliato per i siti Web**.
 
-Quando viene visualizzata la notifica con il messaggio `Successfully saved the Auth Settings for <app-name> App`, aggiornare la pagina del portale.
+Nella parte inferiore della pagina **Aggiungi un provider di identità** fare clic su **Aggiungi** per abilitare l'autenticazione per l'app Web.
+
+:::image type="content" alt-text="Screenshot che mostra la configurazione dell'autenticazione." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 A questo punto si dispone di un'app protetta tramite l'autenticazione e l'autorizzazione del servizio app.
 

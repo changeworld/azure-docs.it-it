@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: cf5772e9cf08eaa7f34acd59a9c96da6f20cd03d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 96c37ded2750ad3e4882b203d71c75c9f4608e9d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131412"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285910"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Tenere traccia del saldo dei crediti Azure per un Contratto del cliente Microsoft
 
@@ -368,7 +368,7 @@ La risposta API restituisce tutte le transazioni che hanno influito sul saldo de
 
 In un account di fatturazione per un Contratto del cliente Microsoft, per gestire le fatture e i metodi di pagamento si usano profili di fatturazione. Per ogni profilo di fatturazione viene generata una fattura mensile, per il cui pagamento si usano i metodi di pagamento.
 
-I crediti acquisiti vengono assegnati a un profilo di fatturazione. Quando viene generata una fattura per il profilo di fatturazione, i crediti vengono applicati automaticamente agli addebiti totali per calcolare l'importo da pagare. L'importo rimanente viene pagato con uno dei metodi di pagamento definiti, ad esempio assegno/bonifico o carta di credito.
+Si assegnano crediti acquisiti a un profilo di fatturazione. Quando viene generata una fattura per il profilo di fatturazione, i crediti vengono applicati automaticamente agli addebiti totali per calcolare l'importo da pagare. L'importo rimanente viene pagato con uno dei metodi di pagamento definiti, ad esempio assegno/bonifico o carta di credito.
 
 ## <a name="products-that-arent-covered-by-azure-credits"></a>Prodotti non coperti dai crediti Azure
 

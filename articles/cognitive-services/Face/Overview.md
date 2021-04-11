@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento facciale, riconoscimento volto, software di riconoscimento facciale, analisi del viso, corrispondenza dei volti, app di riconoscimento facciale, ricerca di volti per immagine, ricerca basata su riconoscimento facciale
-ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.openlocfilehash: 26076289d8c6659abdd55fa805c27b13690feccd
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95532257"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258742"
 ---
 # <a name="what-is-the-azure-face-service"></a>Che cos'è il servizio Viso di Azure?
 
@@ -29,12 +29,18 @@ Il servizio Viso di Azure offre algoritmi di intelligenza artificiale che rileva
 
 Il servizio Viso offre varie funzioni di analisi facciale, descritte nelle sezioni seguenti.
 
+Questa documentazione contiene i seguenti tipi di articoli:
+* Le [guide introduttive](./Quickstarts/client-libraries.md) sono istruzioni dettagliate che consentono di effettuare chiamate al servizio e ottenere risultati in un breve periodo di tempo. 
+* Le [guide alle procedure](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.
+* Gli [articoli concettuali](./concepts/face-detection.md) forniscono spiegazioni approfondite sulle funzionalità e sulle funzionalità del servizio.
+* Le [esercitazioni](./Tutorials/FaceAPIinCSharpTutorial.md) sono guide più lunghe che illustrano come usare questo servizio come componente in soluzioni aziendali più ampie.
+
 ## <a name="face-detection"></a>Rilevamento del viso
 
-Il servizio Viso rileva i visi umani in un'immagine e restituisce le coordinate del rettangolo delle posizioni corrispondenti. Facoltativamente, la funzionalità di rilevamento volto può estrarre una serie di attributi relativi al viso, come posizione della testa, sesso, età, emozione, barba/baffi e occhiali.
+L'API detect rileva i visi umani in un'immagine e restituisce le coordinate rettangolari delle rispettive posizioni. Facoltativamente, la funzionalità di rilevamento volto può estrarre una serie di attributi relativi al viso, come posizione della testa, sesso, età, emozione, barba/baffi e occhiali. Questi attributi sono stime generali, non classificazioni effettive. 
 
 > [!NOTE]
-> La funzionalità di rilevamento volto è disponibile anche tramite il [servizio Visione artificiale](../computer-vision/overview.md). Tuttavia, se si vogliono eseguire ulteriori operazioni con i dati relativi al viso, occorre usare questo servizio.
+> La funzionalità di rilevamento volto è disponibile anche tramite il [servizio Visione artificiale](../computer-vision/overview.md). Tuttavia, se si desidera eseguire ulteriori operazioni sui visi come identificare, verificare, trovare un tipo simile o gruppo, è necessario utilizzare questo servizio viso.
 
 ![Immagine di una donna e di un uomo, con rettangoli disegnati intorno ai visi e informazioni su età e sesso](./Images/Face.detection.jpg)
 
@@ -42,7 +48,19 @@ Per altre informazioni sul rilevamento del viso, vedere l'articolo che illustra 
 
 ## <a name="face-verification"></a>Verifica del viso
 
-L'API di verifica esegue un'autenticazione in base a due visi rilevati o da un viso rilevato con un oggetto persona. In pratica, valuta se due visi appartengano alla stessa persona. Questo è potenzialmente utile negli scenari di sicurezza. Per altre informazioni, vedere [Concetti relativi al riconoscimento del viso](concepts/face-recognition.md) o la documentazione di riferimento dell'[API di verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+L'API Verify si basa sul rilevamento e risolve la domanda "sono le due immagini della stessa persona?". La verifica è detta anche "corrispondenza uno-a-uno" perché l'immagine Probe viene confrontata con un solo modello registrato. La verifica può essere usata in scenari di verifica dell'identità o di controllo degli accessi per verificare che un'immagine corrisponda a un'immagine acquisita in precedenza, ad esempio da una foto di una scheda ID del governo emesso. Per altre informazioni, vedere [Concetti relativi al riconoscimento del viso](concepts/face-recognition.md) o la documentazione di riferimento dell'[API di verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+
+## <a name="face-identification"></a>Identificazione dei visi
+
+L'API di identificazione inizia inoltre con il rilevamento e risponde alla domanda: "è possibile rilevare che questo aspetto è stato associato a qualsiasi faccia registrata in un database?" Poiché è simile alla ricerca del riconoscimento della faccia, viene anche chiamato corrispondenza "uno-a-molti". Le corrispondenze candidate vengono restituite in base alla precisione con cui il modello di probe con la faccia rilevata corrisponde a ognuno dei modelli registrati.
+
+L'immagine seguente mostra un esempio di un database denominato `"myfriends"`. Ogni gruppo può contenere fino a 1 milione di oggetti persona diversi. Per ogni oggetto persona è possibile registrare fino a 248 visi.
+
+![Griglia con tre colonne per persone diverse, ognuna con tre righe di immagini dei visi](./Images/person.group.clare.jpg)
+
+Dopo la creazione e il training di un database, è possibile eseguire l'identificazione in base al gruppo con un nuovo viso rilevato. Se il viso viene identificato come una persona nel gruppo, viene restituito l'oggetto persona.
+
+Per altre informazioni, vedere [Concetti relativi al riconoscimento del viso](concepts/face-recognition.md) o la documentazione di riferimento dell'[API di identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 ## <a name="find-similar-faces"></a>Individuazione di visi simili
 
@@ -64,21 +82,6 @@ Per trovare quattro visi simili, la modalità **matchPerson** restituisce a e b,
 
 L'API di raggruppamento divide un set di visi sconosciuti in più gruppi basati sulla somiglianza. Ogni gruppo è un subset proprio indipendente del set di visi originale. Tutti i visi nello stesso gruppo appartengono probabilmente alla stessa persona. Possono essere presenti gruppi diversi per una singola persona, che si differenziano per un altro fattore, ad esempio l'espressione. Per altre informazioni, vedere [Concetti relativi al riconoscimento del viso](concepts/face-recognition.md) o la documentazione di riferimento dell'[API di raggruppamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-## <a name="person-identification"></a>Identificazione delle persone
-
-L'API di identificazione viene usata per identificare un viso rilevato confrontandolo con un database di persone (ricerca basata su riconoscimento facciale). Questa funzionalità può essere utile per l'aggiunta automatica di tag alle immagini nel software di gestione delle foto. È possibile creare questo database in anticipo e modificarlo nel tempo.
-
-L'immagine seguente mostra un esempio di un database denominato `"myfriends"`. Ogni gruppo può contenere fino a 1 milione di oggetti persona diversi. Per ogni oggetto persona è possibile registrare fino a 248 visi.
-
-![Griglia con tre colonne per persone diverse, ognuna con tre righe di immagini dei visi](./Images/person.group.clare.jpg)
-
-Dopo la creazione e il training di un database, è possibile eseguire l'identificazione in base al gruppo con un nuovo viso rilevato. Se il viso viene identificato come una persona nel gruppo, viene restituito l'oggetto persona.
-
-Per altre informazioni, vedere [Concetti relativi al riconoscimento del viso](concepts/face-recognition.md) o la documentazione di riferimento dell'[API di identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-
-## <a name="deploy-on-premises-using-docker-containers"></a>Distribuire in locale con i contenitori Docker
-
-[Usare il contenitore di Viso (anteprima)](face-how-to-install-containers.md) per distribuire le funzionalità dell'API in locale. Questo contenitore Docker consente di avvicinare il servizio ai dati per motivi di conformità, sicurezza o di altro tipo.
 
 ## <a name="sample-apps"></a>App di esempio
 

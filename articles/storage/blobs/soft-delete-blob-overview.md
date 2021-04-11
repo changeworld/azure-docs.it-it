@@ -6,19 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 29d9dd7757319e59fc12b42d89c2ce16dec71b8b
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: ef1ed584a609b2e4baa27111e47343df99146f5a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551068"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257501"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminazione temporanea per i BLOB
 
 L'eliminazione temporanea BLOB protegge un singolo BLOB, snapshot o versione da eliminazioni accidentali o sovrascritture mantenendo i dati eliminati nel sistema per un periodo di tempo specificato. Durante il periodo di memorizzazione, è possibile ripristinare un oggetto eliminato temporaneamente al relativo stato al momento dell'eliminazione. Una volta scaduto il periodo di conservazione, l'oggetto viene eliminato definitivamente.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="recommended-data-protection-configuration"></a>Configurazione della protezione dati consigliata
 
@@ -29,8 +31,6 @@ L'eliminazione temporanea dei BLOB fa parte di una strategia di protezione dei d
 - Eliminazione temporanea BLOB, per ripristinare un BLOB, uno snapshot o una versione che è stata eliminata. Per informazioni su come abilitare l'eliminazione temporanea del BLOB, vedere [abilitare e gestire l'eliminazione temporanea per i BLOB](soft-delete-blob-enable.md).
 
 Per ulteriori informazioni sulle raccomandazioni di Microsoft per la protezione dei dati, vedere [panoramica sulla protezione dei dati](data-protection-overview.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-blob-soft-delete-works"></a>Funzionamento dell'eliminazione temporanea BLOB
 
@@ -93,12 +93,14 @@ Per altre informazioni su come ripristinare oggetti eliminati temporaneamente, v
 
 ## <a name="blob-soft-delete-and-versioning"></a>Eliminazione temporanea e controllo delle versioni dei BLOB
 
-Se per un account di archiviazione sono abilitate le funzionalità di controllo delle versioni BLOB e eliminazione temporanea BLOB, la sovrascrittura di un BLOB crea automaticamente una nuova versione. La nuova versione non viene eliminata temporaneamente e non viene rimossa al termine del periodo di memorizzazione dell'eliminazione temporanea. Non vengono creati snapshot eliminati temporaneamente. Quando si elimina un BLOB, la versione corrente del BLOB diventa una versione precedente e la versione corrente viene eliminata. Non viene creata alcuna nuova versione e non vengono creati snapshot eliminati temporaneamente.
+Se per un account di archiviazione sono abilitate le funzionalità di controllo delle versioni BLOB e eliminazione temporanea BLOB, la sovrascrittura di un BLOB crea automaticamente una nuova versione. La nuova versione non viene eliminata temporaneamente e non viene rimossa al termine del periodo di memorizzazione dell'eliminazione temporanea. Non vengono creati snapshot eliminati temporaneamente. Quando si elimina un BLOB, la versione corrente del BLOB diventa una versione precedente e non è più disponibile una versione corrente. Non viene creata alcuna nuova versione e non vengono creati snapshot eliminati temporaneamente.
 
-L'abilitazione dell'eliminazione temporanea e del controllo delle versioni consente di proteggere le versioni BLOB dall'eliminazione. Quando l'eliminazione temporanea è abilitata, l'eliminazione di una versione crea una versione eliminata temporaneamente. È possibile usare l'operazione di **annullamento dell'eliminazione del BLOB** per ripristinare una versione eliminata temporaneamente, purché esista una versione corrente del BLOB. Se non è presente alcuna versione corrente, è necessario copiare una versione precedente nella versione corrente prima di chiamare l'operazione di **annullamento dell'eliminazione del BLOB** .
+L'abilitazione dell'eliminazione temporanea e del controllo delle versioni consente di proteggere le versioni BLOB dall'eliminazione. Quando l'eliminazione temporanea è abilitata, l'eliminazione di una versione crea una versione eliminata temporaneamente. È possibile usare l'operazione **Annulla eliminazione BLOB** per ripristinare le versioni eliminate temporaneamente durante il periodo di memorizzazione dell'eliminazione temporanea. L'operazione di **annullamento dell'eliminazione del BLOB** ripristina sempre tutte le versioni eliminate temporaneamente del BLOB. Non è possibile ripristinare una sola versione eliminata temporaneamente.
+
+Una volta trascorso il periodo di memorizzazione dell'eliminazione temporanea, eventuali versioni di BLOB eliminate temporaneamente vengono eliminate definitivamente.
 
 > [!NOTE]
-> La chiamata all'operazione **Undelete BLOB** su un BLOB eliminato quando è abilitato il controllo delle versioni consente di ripristinare le versioni o gli snapshot eliminati temporaneamente, ma non il BLOB di base. Per ripristinare il BLOB di base, innalzare di livello una versione precedente copiando il BLOB di base.
+> La chiamata all'operazione **Undelete BLOB** su un BLOB eliminato quando è abilitato il controllo delle versioni consente di ripristinare le versioni o gli snapshot eliminati temporaneamente, ma non il ripristino della versione corrente. Per ripristinare la versione corrente, alzare di livello una versione precedente copiando il valore nella versione corrente.
 
 Microsoft consiglia di abilitare il controllo delle versioni e l'eliminazione temporanea dei BLOB per gli account di archiviazione per la protezione dei dati ottimale. Per altre informazioni sull'uso combinato del controllo delle versioni e dell'eliminazione temporanea, vedere [controllo delle versioni dei BLOB e eliminazione](versioning-overview.md#blob-versioning-and-soft-delete)temporanea.
 

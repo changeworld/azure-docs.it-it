@@ -5,21 +5,39 @@
   href: overview.md
 - name: Gestione degli account
   items:
-    - name: Creare un nuovo account del Centro per i partner
-      href: partner-center-portal/create-account.md
-    - name: Gestire l'account
-      href: partner-center-portal/manage-account.md
-    - name: Trovare o creare un account aziendale della società
-      href: partner-center-portal/company-work-accounts.md
-    - name: Migrazione degli account dal Cloud Partner Portal al Centro per i partner
-      href: partner-center-portal/account-migration-from-cpp-to-pc.md
-    - name: Notifica a Microsoft
-      href: submit-legal-notice.md
+    - name: Gestione generale degli account
+      items:
+        - name: Creare un nuovo account del Centro per i partner
+          href: create-account.md
+        - name: Aggiungi nuovi editori
+          href: add-publishers.md
+        - name: Gestire l'account
+          href: manage-account.md
+        - name: Cambia account
+          href: switch-accounts.md
+        - name: Gestire i tenant
+          href: manage-tenants.md
+        - name: Trovare o creare un account aziendale della società
+          href: company-work-accounts.md
+        - name: Migrazione degli account dal Cloud Partner Portal al Centro per i partner
+          href: account-migration-from-cpp-to-pc.md
+        - name: Notifica a Microsoft
+          href: submit-legal-notice.md
+    - name: Gestire gli utenti
+      items:
+        - name: Aggiungere e gestire utenti
+          href: add-manage-users.md
+        - name: Assegnare ruoli utente
+          href: user-roles.md
+        - name: Gestire i gruppi
+          href: manage-groups.md
+        - name: Aggiungere e gestire applicazioni Azure AD
+          href: manage-aad-apps.md
 - name: Concetti
   items:
     - name: Opzioni di presentazione
       href: determine-your-listing-type.md
-    - name: Esecuzione di transazioni nel marketplace commerciale
+    - name: Funzionalità Transact
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
     - name: Offerte private
       href: private-offers.md
