@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 1/5/2021
 ms.author: kenwith
-ms.openlocfilehash: 187f4a1d524e0343130808aa4b4c18222fa982c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59d6044cf42109501941b3f4ff54375aed7fab7c
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259271"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504873"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Eliminare un'applicazione dal tenant di Azure Active Directory (Azure AD)
 
@@ -51,7 +51,7 @@ Per eliminare un'applicazione dal tenant di Azure AD:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questa serie di argomenti di avvio rapido, è consigliabile eliminare l'app per pulire il tenant di test. La procedura di eliminazione dell'app è stata descritta in questo argomento di avvio rapido.
+Al termine di questa serie introduttiva, provare a eliminare l'app per pulire il tenant di test. La procedura di eliminazione dell'app è stata descritta in questo argomento di avvio rapido.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

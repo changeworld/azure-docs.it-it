@@ -8,20 +8,20 @@ manager: dongli
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/2/2021
 ms.author: heikora
-ms.openlocfilehash: b8e02071eca139cde02a8bad1b0e0e443db6ab86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b82a732533c3d069b519b07c3209d4b96c472900
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103555496"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385026"
 ---
 # <a name="model-and-endpoint-lifecycle"></a>Ciclo di vita di modelli ed endpoint
 
-Riconoscimento vocale personalizzato utilizza sia *modelli di base* che *modelli personalizzati*. Ogni lingua dispone di uno o più modelli di base. In genere, quando un nuovo modello di riconoscimento vocale viene rilasciato al servizio di riconoscimento vocale normale, viene anche importato nel servizio Riconoscimento vocale personalizzato come nuovo modello di base. Sono aggiornati ogni 6-12 mesi. I modelli meno recenti diventano in genere meno utili nel tempo perché il modello più recente ha in genere una maggiore precisione.
-
-Al contrario, i modelli personalizzati vengono creati adattando un modello di base scelto con i dati provenienti dallo scenario specifico del cliente. È possibile usare un modello personalizzato specifico per un lungo periodo di tempo dopo averne uno che soddisfi le proprie esigenze. È tuttavia consigliabile eseguire periodicamente l'aggiornamento al modello di base più recente e ripetere il training nel tempo con dati aggiuntivi. 
+La nostra sintesi vocale standard (non personalizzata) si basa su modelli di intelligenza artificiale che chiamiamo modelli di base. Nella maggior parte dei casi, viene trainato un modello di base diverso per ogni lingua parlata supportata.  Il servizio di riconoscimento vocale viene aggiornato con nuovi modelli di base a intervalli di pochi mesi per migliorare l'accuratezza e la qualità.  
+Con Riconoscimento vocale personalizzato, i modelli personalizzati vengono creati adattando un modello di base scelto con i dati dello scenario specifico del cliente. Una volta creato un modello personalizzato, tale modello non verrà aggiornato o modificato, anche se il modello di base corrispondente da cui è stato adattato viene aggiornato nel servizio di riconoscimento vocale standard.  
+Questo criterio consente di usare un modello personalizzato specifico per un lungo periodo di tempo dopo avere un modello personalizzato che soddisfi le proprie esigenze.  Tuttavia, è consigliabile ricreare periodicamente il modello personalizzato in modo che sia possibile adattarsi al modello di base più recente per sfruttare i vantaggi offerti dall'accuratezza e dalla qualità migliorate.
 
 Altri termini chiave correlati al ciclo di vita del modello includono:
 
@@ -59,7 +59,7 @@ Di seguito è riportato un esempio di formato del riepilogo di training del mode
 
 È anche possibile controllare le date di scadenza tramite [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) le [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) API di riconoscimento vocale e personalizzate sotto la `deprecationDates` proprietà nella risposta JSON.
 
-Di seguito è riportato un esempio dei dati di scadenza della chiamata API GetModel. "DEPRECATIONDATES" Mostra: 
+Di seguito è riportato un esempio dei dati di scadenza della chiamata API GetModel. Il **DEPRECATIONDATES** Mostra la scadenza del modello: 
 ```json
 {
     "SELF": "HTTPS://WESTUS2.API.COGNITIVE.MICROSOFT.COM/SPEECHTOTEXT/V3.0/MODELS/{id}",
@@ -80,7 +80,7 @@ Di seguito è riportato un esempio dei dati di scadenza della chiamata API GetMo
     },
     "PROPERTIES": {
     "DEPRECATIONDATES": {
-        "ADAPTATIONDATETIME": "2022-01-15T00:00:00Z",     // last date this model can be used for adaptation
+        "ADAPTATIONDATETIME": "2022-01-15T00:00:00Z",     // last date the base model can be used for adaptation
         "TRANSCRIPTIONDATETIME": "2023-03-01T21:27:29Z"   // last date this model can be used for decoding
     }
     },
@@ -96,6 +96,13 @@ Di seguito è riportato un esempio dei dati di scadenza della chiamata API GetMo
 }
 ```
 Si noti che è possibile aggiornare il modello in un endpoint di riconoscimento vocale personalizzato senza tempi di inattività cambiando il modello usato dall'endpoint nella sezione distribuzione di speech studio o tramite l'API riconoscimento vocale personalizzato.
+
+## <a name="what-happens-when-models-expire-and-how-to-update-them"></a>Cosa accade quando i modelli scadono e come aggiornarli
+Che cosa accade quando un modello scade e come aggiornare il modello dipende dal modo in cui viene usato.
+### <a name="batch-transcription"></a>Trascrizione Batch
+Se un modello scade e viene usato con la trascrizione della trascrizione [batch](batch-transcription.md) , avrà esito negativo con un errore 4xx. Per evitare che questo aggiorni il `model` parametro nel codice JSON inviato nel corpo della richiesta **create trascrizione** per puntare a un modello di base più recente o a un modello personalizzato più recente. È anche possibile rimuovere la `model` voce da JSON per usare sempre il modello di base più recente.
+### <a name="custom-speech-endpoint"></a>Endpoint riconoscimento vocale personalizzato
+Se un modello scade usato da un [endpoint vocale personalizzato](how-to-custom-speech-train-model.md), il servizio eseguirà automaticamente il fallback all'uso del modello di base più recente per la lingua in uso. , si sta usando è possibile selezionare **distribuzione** nel menu **riconoscimento vocale personalizzato** nella parte superiore della pagina e quindi fare clic sul nome dell'endpoint per visualizzarne i dettagli. Nella parte superiore della pagina dei dettagli verrà visualizzato un pulsante **Aggiorna modello** che consente di aggiornare facilmente il modello usato da questo endpoint senza tempi di inattività. È anche possibile apportare questa modifica a livello di codice usando l'API REST del [**modello di aggiornamento**](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

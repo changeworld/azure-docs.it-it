@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/26/2021
+ms.date: 4/7/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0e1cfe0ae53d1e1b35c5ec29d6c11b0891137e6d
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 4c046129293fcfbcea8ecaf98da72b9126dd540a
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074404"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030339"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -26,6 +26,7 @@ Sono supportate le seguenti versioni di Sincronizzazione file di Azure Agent:
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Stato |
 |----|----------------------|--------------|------------------|
 | Versione V12- [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 26 marzo 2021 | Supporto per il volo |
+| V 11.3 versione- [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | 7 aprile 2021 | Supportato |
 | Versione 11.2- [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2 febbraio 2021 | Supportato |
 | Versione 11.1- [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | 4 novembre 2020 | Supportato |
 | Versione 10.1- [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | 5 giugno 2020 | Supportato-la versione dell'agente scadrà il 7 giugno 2021 |
@@ -76,6 +77,7 @@ Le note sulla versione seguenti sono relative alla versione 12.0.0.0 dell'agente
     - Miglioramento delle prestazioni di rilevamento delle modifiche per rilevare i file che sono stati modificati nella condivisione file di Azure.
     - Miglioramenti delle prestazioni per le sessioni di sincronizzazione della riconciliazione. 
     - Miglioramenti della sincronizzazione per ridurre ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED e ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED errori.
+    - Correzione di un bug che causava il danneggiamento dei dati se è abilitata la suddivisione in livelli nel cloud e i file a livelli vengono copiati con Robocopy con il parametro/B.
     - Correzione di un bug che può causare un errore di livello dei file nel server 2019 se la deduplicazione dei dati è abilitata nel volume.
     - Correzione di un bug che può causare la mancata compressione dei file da parte di AFSDiag se un file è più grande di 2GiB.
 
@@ -131,8 +133,12 @@ Gli elementi seguenti non vengono sincronizzati, ma il resto del sistema continu
 ### <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud
 - Se un file a più livelli viene copiato in un'altra posizione usando Robocopy, il file risultante non è suddiviso in livelli. L'attributo offline potrebbe essere impostato perché Robocopy include erroneamente tale attributo nelle operazioni di copia.
 - Quando si copiano file tramite robocopy, usare l'opzione /MIR per conservare i timestamp dei file. In questo modo i file meno recenti verranno archiviati a livelli prima dei file aperti più di recente.
-    > [!Warning]  
-    > L'opzione Robocopy/B non è supportata con Sincronizzazione file di Azure. L'uso dell'opzione Robocopy/B con un endpoint del server Sincronizzazione file di Azure come origine può causare il danneggiamento del file.
+
+## <a name="agent-version-11300"></a>Versione dell'agente 11.3.0.0
+Le note sulla versione seguenti sono relative alla versione 11.3.0.0 dell'agente Sincronizzazione file di Azure rilasciato il 7 aprile 2021. Queste note si aggiungono alle note sulla versione elencate per la versione 11.1.0.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Miglioramenti e problemi risolti 
+Correzione di un bug che causava il danneggiamento dei dati se è abilitata la suddivisione in livelli nel cloud e i file a livelli vengono copiati con Robocopy con il parametro/B.
 
 ## <a name="agent-version-11200"></a>Versione dell'agente 11.2.0.0
 Le note sulla versione seguenti sono relative alla versione 11.2.0.0 dell'agente Sincronizzazione file di Azure rilasciato il 2 febbraio 2021. Queste note si aggiungono alle note sulla versione elencate per la versione 11.1.0.0.

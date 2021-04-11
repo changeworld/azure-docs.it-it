@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 0c14b9a0c927ef9ed96853ddeed64b161df0d277
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c0ae5ae4a66ce55da40eae3959945c96013af3ea
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176706"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075645"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Guida di riferimento per gli avvisi di sicurezza
 
@@ -510,7 +510,7 @@ Le finalità della kill chain supportata dal Centro sicurezza si basano sulla [v
 | **Esfiltrazione**        | Per esfiltrazione si intendono le tecniche e gli attributi che consentono o contribuiscono alla rimozione di file e informazioni da una rete di destinazione da parte di un antagonista. Questa categoria copre anche le posizioni in un sistema o una rete in cui l'antagonista può cercare informazioni per l'esfiltrazione.                                                                                                                                                                                                                                                                                                                                  |
 | **Comando e controllo**   | La tattica di comando e controllo rappresenta il modo in cui gli antagonisti comunicano con i sistemi sotto il proprio controllo entro una rete di destinazione.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **Impatto**              | Gli eventi di impatto tentano principalmente di ridurre direttamente la disponibilità o l'integrità di un sistema, un servizio o una rete, inclusa la manipolazione dei dati per avere ripercussioni su un processo operativo o aziendale. Spesso si riferisce a tecniche quali ransomware, danneggiamento, manipolazione dei dati e così via.                                                                                                                                                                                                                                                                                                     |
-|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
+|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 
 
 > [!NOTE]
 > Per gli avvisi in anteprima: [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]

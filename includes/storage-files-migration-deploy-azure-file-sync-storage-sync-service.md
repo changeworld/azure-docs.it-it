@@ -1,18 +1,19 @@
 ---
-title: Distribuire un servizio di sincronizzazione archiviazione
-description: Distribuire la risorsa Sincronizzazione file di Azure cloud, un servizio di sincronizzazione archiviazione. Un blocco di testo comune, condiviso tra documenti di migrazione.
+title: includere file
+description: includere file
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
-ms.openlocfilehash: bd4af178d6e70d910d4643fc30c29fc8eb85303c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file
+ms.openlocfilehash: 1142082caef06dcc36dfd9b0aaddc44d13cf6cc8
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93043124"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075583"
 ---
 In questo passaggio sono necessarie le credenziali della sottoscrizione di Azure.
 

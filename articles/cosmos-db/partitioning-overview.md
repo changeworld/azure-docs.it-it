@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2021
-ms.openlocfilehash: ab1b7028ce5f1afef861e696c98f25b56e78ef36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 099c65143f29f4fdf341b52e5d80731f1bdb0808
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772468"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031002"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partizionamento e scalabilità orizzontale in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,9 +26,9 @@ In questo articolo viene illustrata la relazione tra partizioni logiche e fisich
 
 ## <a name="logical-partitions"></a>Partizioni logiche
 
-Una partizione logica è costituita da un set di elementi con la stessa chiave di partizione. Ad esempio, in un contenitore che contiene i dati relativi al cibo dietetico, tutti gli elementi contengono una `foodGroup` Proprietà. È possibile usare `foodGroup` come chiave di partizione per il contenitore. Gruppi di elementi con valori specifici per `foodGroup` , ad esempio `Beef Products` , `Baked Products` e `Sausages and Luncheon Meats` , formano partizioni logiche distinte. Non è necessario preoccuparsi di eliminare una partizione logica quando vengono eliminati i dati sottostanti.
+Una partizione logica è costituita da un set di elementi con la stessa chiave di partizione. Ad esempio, in un contenitore che contiene i dati relativi al cibo dietetico, tutti gli elementi contengono una `foodGroup` Proprietà. È possibile usare `foodGroup` come chiave di partizione per il contenitore. Gruppi di elementi con valori specifici per `foodGroup` , ad esempio `Beef Products` , `Baked Products` e `Sausages and Luncheon Meats` , formano partizioni logiche distinte.
 
-Una partizione logica definisce anche l'ambito delle transazioni del database. È possibile aggiornare gli elementi all'interno di una partizione logica utilizzando una [transazione con isolamento dello snapshot](database-transactions-optimistic-concurrency.md). Quando vengono aggiunti nuovi elementi a un contenitore, le nuove partizioni logiche vengono create in modo trasparente dal sistema.
+Una partizione logica definisce anche l'ambito delle transazioni del database. È possibile aggiornare gli elementi all'interno di una partizione logica utilizzando una [transazione con isolamento dello snapshot](database-transactions-optimistic-concurrency.md). Quando vengono aggiunti nuovi elementi a un contenitore, le nuove partizioni logiche vengono create in modo trasparente dal sistema. Non è necessario preoccuparsi di eliminare una partizione logica quando vengono eliminati i dati sottostanti.
 
 Non esiste alcun limite al numero di partizioni logiche nel contenitore. Ogni partizione logica può archiviare fino a 20 GB di dati. Le scelte valide per le chiavi di partizione hanno un'ampia gamma di valori possibili. Ad esempio, in un contenitore in cui tutti gli elementi contengono una `foodGroup` proprietà, i dati all'interno della `Beef Products` partizione logica possono aumentare fino a 20 GB. La [selezione di una chiave di partizione](#choose-partitionkey) con una vasta gamma di valori possibili garantisce che il contenitore possa essere ridimensionato.
 
@@ -38,7 +38,8 @@ Un contenitore viene ridimensionato distribuendo i dati e la velocità effettiva
 
 Il numero di partizioni fisiche nel contenitore dipende da quanto segue:
 
-* Il numero di velocità effettiva di cui è stato effettuato il provisioning (ogni singola partizione fisica può fornire una velocità effettiva massima di 10.000 unità richiesta al secondo).
+* Il numero di velocità effettiva di cui è stato effettuato il provisioning (ogni singola partizione fisica può fornire una velocità effettiva massima di 10.000 unità richiesta al secondo). Il limite di 10.000 UR/sec per le partizioni fisiche implica che le partizioni logiche hanno anche un limite di 10.000 UR/s, perché ogni partizione logica viene mappata a una sola partizione fisica.
+
 * Archiviazione dati totale (ogni singola partizione fisica può archiviare fino a 50 GB di dati).
 
 > [!NOTE]

@@ -1,14 +1,14 @@
 ---
 title: 'Guida introduttiva: Guida introduttiva'
-description: In questa Guida introduttiva si apprenderà come iniziare a comprendere il flusso di lavoro di base per Defender per la distribuzione di Internet delle cose.
+description: Questa Guida introduttiva illustra come iniziare a comprendere il flusso di lavoro di base per Defender per la distribuzione di Internet delle cose.
 ms.topic: quickstart
 ms.date: 2/18/2021
-ms.openlocfilehash: c6136d734570714b691a4ba3c2a72305c4c85590
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: aa26ea26a3fb0a08d931657cb7ad236c68972e2f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104784493"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384954"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Guida introduttiva: iniziare a usare Defender per l'it
 
@@ -20,7 +20,7 @@ Questo articolo fornisce una panoramica dei passaggi da eseguire per configurare
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-nessuno
+- nessuno
 
 ## <a name="permission-requirements"></a>Requisiti relativi alle autorizzazioni
 
@@ -60,11 +60,14 @@ La registrazione include:
 Per eseguire la registrazione:
 
 1. Passare al portale di Azure Defender per l'it.
+
 1. Selezionare **onboarding Subscription**.
+
 1. Nella pagina dei **prezzi** selezionare una sottoscrizione o crearne una nuova e aggiungere il numero di dispositivi di cui è stato eseguito il commit.
+
 1. Selezionare la scheda **download the on-premises Management Console** e salvare il file di attivazione scaricato. Questo file contiene i dispositivi aggregati di cui è stato eseguito il commit definiti. Il file verrà caricato nella console di gestione dopo l'accesso iniziale.
 
-Per informazioni su come offboard una sottoscrizione, vedere [offboard a Subscription](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
+Per informazioni su come offboard una sottoscrizione, vedere [offboard a Subscription](how-to-manage-subscriptions.md#offboard-a-subscription).
 
 ## <a name="install-and-set-up-the-on-premises-management-console"></a>Installare e configurare la console di gestione locale
 
@@ -87,6 +90,7 @@ Per installare e configurare:
 Eseguire l'onboarding di un sensore eseguendo la registrazione con Azure Defender per l'IT e scaricando un file di attivazione del sensore:
 
 1. Definire un nome di sensore e associarlo a una sottoscrizione.
+
 1. Scegliere una modalità di gestione dei sensori:
 
    - **Sensori connessi al cloud**: le informazioni rilevate dai sensori vengono visualizzate nella console del sensore. Inoltre, le informazioni sugli avvisi vengono fornite tramite un hub Internet e possono essere condivise con altri servizi di Azure, ad esempio Azure Sentinel.
@@ -102,9 +106,13 @@ Per altre informazioni, vedere [onboarding and Manage Sensors in the Defender fo
 Scaricare il pacchetto ISO dal portale di Azure Defender per l'it, installare il software e configurare il sensore.
 
 1. Selezionare **Introduzione** dal portale Defender for Internet.
+
 1. Selezionare **Configura sensore**.
+
 1. Scegliere una versione e selezionare **Scarica**.
+
 1. Installare il software del sensore. Per altre informazioni, vedere [Defender per l'installazione di](how-to-install-software.md)Internet.
+
 1. Attivare e configurare il sensore. Per altre informazioni, vedere [accedere e attivare un sensore](how-to-activate-and-set-up-your-sensor.md).
 
 ## <a name="connect-sensors-to-an-on-premises-management-console"></a>Connettere i sensori a una console di gestione locale

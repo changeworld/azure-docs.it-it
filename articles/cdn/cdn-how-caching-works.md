@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a4688c196551f3ab6b5713d8939f53af161d1e3
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010164"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505009"
 ---
 # <a name="how-caching-works"></a>Funzionamento della memorizzazione nella cache
 
@@ -75,6 +75,7 @@ La rete CDN di Azure supporta le seguenti intestazioni di direttive della cache 
 - Quando usato in una richiesta HTTP dal client al POP della rete CDN, per impostazione predefinita `Cache-Control` viene ignorato da tutti i profili di rete CDN.
 - Se usato in una risposta HTTP dal client al POP della rete CDN:
      - La **rete CDN Standard/Premium di Azure con tecnologia Verizon** e la **rete CDN Standard di Azure con tecnologia Microsoft** supportano tutte le direttive `Cache-Control`.
+     - La rete **CDN standard/Premium di Azure di Verizon** e la rete **CDN standard di Azure di Microsoft** rispetta i comportamenti di memorizzazione nella cache per le direttive Cache-Control in [RFC 7234-Hypertext Transfer Protocol (http/1.1): Caching (IETF.org)](https://tools.ietf.org/html/rfc7234#section-5.2.2.8).
      - La **rete CDN Standard/Premium di Azure con tecnologia Akamai** supporta solo le direttive `Cache-Control` seguenti e tutte le altre vengono ignorate:
          - `max-age`: una cache può archiviare il contenuto per il numero di secondi specificato, Ad esempio: `Cache-Control: max-age=5`. Questa direttiva specifica il tempo massimo per il quale il contenuto viene considerato aggiornato.
          - `no-cache`: il contenuto viene memorizzato nella cache, ma è necessario convalidarlo ogni volta prima di inviarlo dalla cache. Equivalente a `Cache-Control: max-age=0`.
@@ -127,7 +128,7 @@ La tabella seguente descrive il comportamento predefinito di memorizzazione nell
 |    | Microsoft: distribuzione Web generale | Verizon: distribuzione Web generale | Verizon: DSA | Akamai: distribuzione Web generale | Akamai: DSA | Akamai: download di file di grandi dimensioni | Akamai: streaming multimediale generale o di video on demand |
 |------------------------|--------|-------|------|--------|------|-------|--------|
 | **Rispetta origine**       | Sì    | Sì   | No   | Sì    | No   | Sì   | Sì    |
-| **Durata cache rete CDN** | 2 giorni |7 giorni | nessuno | 7 giorni | nessuno | 1 giorno | 1 anno |
+| **Durata cache rete CDN** | 2 giorni |7 giorni | Nessuno | 7 giorni | Nessuno | 1 giorno | 1 anno |
 
 **Honor origin** (Rispetta intestazioni origine): specifica se rispettare le intestazioni di direttive di memorizzazione nella cache supportate se presenti nella risposta HTTP del server di origine.
 

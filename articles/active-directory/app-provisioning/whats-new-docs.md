@@ -1,7 +1,7 @@
 ---
 title: Novità del provisioning dell'applicazione Azure Active Directory
 description: Documentazione nuova e aggiornata per il provisioning dell'applicazione Azure Active Directory.
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,27 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: abee58607a5492548e4d64f44c15fd365876f3f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bb8dfbaf7ee1758811016dd3ddf08367a44bfae
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453682"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443509"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory provisioning dell'applicazione: novità
 
 Ecco le novità della documentazione relativa al provisioning dell'applicazione Azure Active Directory. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità del servizio di provisioning, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="march-2021"></a>Marzo 2021
+
+### <a name="updated-articles"></a>Articoli aggiornati
+
+- [Sincronizzazione degli attributi di estensione per il provisioning delle app](user-provisioning-sync-attributes-for-mapping.md)
+- [Provisioning dell'applicazione in stato di quarantena](application-provisioning-quarantine-status.md)
+- [Gestione del provisioning degli account utente per le app aziendali nel portale di Azure](configure-automatic-user-provisioning-portal.md)
+- [Riferimento per la scrittura di espressioni per i mapping degli attributi in Azure AD](functions-for-customizing-application-data.md)
+- [Esercitazione: sviluppare un endpoint SCIM di esempio](use-scim-to-build-users-and-groups-endpoints.md)
+
 
 ## <a name="february-2021"></a>2021 febbraio
 
