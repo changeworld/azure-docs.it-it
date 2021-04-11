@@ -3,12 +3,12 @@ title: Procedure consigliate per i modelli
 description: Vengono descritti gli approcci consigliati per la creazione di modelli di Azure Resource Manager (modelli ARM). Offre suggerimenti per evitare problemi comuni quando si usano i modelli.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff2b9ecf0e4004aa6689294867f5ff93006211ec
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257998"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219944"
 ---
 # <a name="arm-template-best-practices"></a>Procedure consigliate per il modello ARM
 
@@ -160,7 +160,7 @@ Quando il modello funziona come previsto, è consigliabile continuare a usare la
 
 Non usare un parametro per la versione dell'API. Le proprietà e i valori delle risorse possono variare in base alla versione dell'API. Quando la versione dell'API è impostata su un parametro, IntelliSense negli editor di codice non può determinare lo schema corretto. Se si passa una versione dell'API che non corrisponde alle proprietà del modello, la distribuzione avrà esito negativo.
 
-Non usare le variabili per la versione dell'API. In particolare, non usare la [funzione Providers](template-functions-resource.md#providers) per ottenere dinamicamente le versioni dell'API durante la distribuzione. La versione dell'API recuperata in modo dinamico potrebbe non corrispondere alle proprietà del modello.
+Non usare le variabili per la versione dell'API. 
 
 ## <a name="resource-dependencies"></a>Dipendenze delle risorse
 

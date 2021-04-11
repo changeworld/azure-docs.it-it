@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 1eefb7097f672552956e90a19e0a7b411cae8a24
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 832cc1d4f9ec3cec4ada6e964e3ab2f6f023dd41
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455688"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554262"
 ---
-### <a name="standard-and-neural-voices"></a>Voci standard e neurali
+### <a name="neural-and-standard-voices"></a>Voci neurali e standard
 
-Usare questa tabella per determinare la **disponibilità delle voci standard** per area/endpoint:
+Usare questa tabella per determinare la **disponibilità di voci neurali e standard** per area/endpoint:
 
 | Region | Endpoint |
 |--------|----------|
@@ -34,26 +34,13 @@ Usare questa tabella per determinare la **disponibilità delle voci standard** p
 | Stati Uniti centro-meridionali | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Asia sud-orientale | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Regno Unito meridionale | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Stati Uniti centro-occidentali | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Europa occidentale | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Stati Uniti occidentali | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Stati Uniti occidentali 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
 > Le [voci in anteprima](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) sono disponibili solo nelle tre aree seguenti: Stati Uniti orientali, Europa occidentale e Asia sudorientale.
-
-Usare questa tabella per determinare la **disponibilità delle voci neurali** per area/endpoint:
-
-| Region | Endpoint |
-|--------|----------|
-| Australia orientale | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 
-| Canada centrale | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Stati Uniti orientali | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| India centrale | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Stati Uniti centro-meridionali | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Asia sud-orientale | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Regno Unito meridionale | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Europa occidentale | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Stati Uniti occidentali 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 ### <a name="custom-voices"></a>Voci personalizzate
 

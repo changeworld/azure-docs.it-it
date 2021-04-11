@@ -2,24 +2,19 @@
 title: Distribuzioni di Linux approvate in Azure
 description: Informazioni sulle distribuzioni di Linux approvate in Azure, che includono le linee guida per Ubuntu, CentOS, Oracle e SUSE.
 services: virtual-machines
-documentationcenter: ''
 author: danielsollondon
-manager: gwallace
-tags: azure-service-management,azure-resource-manager
-ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 01/03/2021
+ms.date: 04/06/2021
 ms.author: guybo
-ms.openlocfilehash: 091a06fd608763ac7265670733890e93bf71dde1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e602909467ca155beb010c5bdd61e6f6408dd12a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547408"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553788"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuzioni di Linux approvate in Azure
 
@@ -35,9 +30,9 @@ L'agente Linux di Azure è già preinstallato nelle immagini di Azure Marketplac
 
 | Distribuzione | Versione | Driver | Agente |
 | --- | --- | --- | --- |
-| CentOS di software Wave Rogue |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [download LIS](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: nel kernel |Pacchetto: in [repository](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) in "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| CentOS di Rogue Wave Software (in precedenza noto come OpenLogic) |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [download LIS](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: nel kernel |Pacchetto: in [repository](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) in "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS è ora la [fine del ciclo di vita](https://coreos.com/os/eol/) a partire dal 26 maggio 2020. |Non più disponibile | | |
-| Debian da Credativ |8. x, 9. x, 10. x |Nel kernel |Pacchetto: in repo sotto "waagent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Debian by credativ |8. x, 9. x, 10. x |Nel kernel |Pacchetto: in repo sotto "waagent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Pianale container Linux di Kinvolk| Pro, stabile, beta| Nel kernel | WA-Linux-Agent è già installato in/usr/share/OEM/bin/waagent |
 | Oracle Linux da Oracle |6.x, 7.x, 8.x |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | [Red Hat Enterprise Linux da Red Hat](../workloads/redhat/overview.md) |6.x, 7.x, 8.x |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |

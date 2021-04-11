@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: a2b001d34d265c8e7246b03875c32168f2c5c962
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ed3a11381285a9422380eb14ff301a2b9ea816a
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598899"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093555"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -51,11 +51,12 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
     * Nuovo `Date` tipo di entità.
     * Rilevamento dell'asserzione che sostituisce il rilevamento della negazione (disponibile solo in API v 3.1-Preview. 4).
     * Una nuova proprietà preferenziale `name` per le entità collegate normalizzate da diverse ontologie e sistemi di codifica (disponibili solo in API v 3.1-Preview. 4). 
-* Una nuova immagine contenitore con tag `3.0.015370001-onprem-amd64` e la nuova versione del modello `2021-03-01` è stata rilasciata nel repository di anteprima del contenitore. 
-* Il Analisi del testo per l'immagine del contenitore di integrità verrà spostato in un nuovo repository il mese successivo.  Verificare la presenza di una comunicazione tramite posta elettronica nella posizione della nuova Home page.
+* Una nuova immagine contenitore con tag `3.0.015490002-onprem-amd64` e la nuova versione del modello `2021-03-01` è stata rilasciata nel repository di anteprima del contenitore. 
+    * Questa immagine del contenitore non sarà più disponibile per il download da `containerpreview.azurecr.io` dopo il 26 aprile 2021.
+* Un nuovo Analisi del testo per l'immagine del contenitore di integrità con la stessa versione del modello è ora disponibile in `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare` . A partire dal 26 aprile, sarà possibile scaricare il contenitore solo da questo repository.
+
 > [!div class="nextstepaction"]
 > [Altre informazioni su Analisi del testo per l'integrità](how-tos/text-analytics-for-health.md)
->
 
 ### <a name="text-analytics-resource-portal-update"></a>Aggiornamento del portale delle risorse Analisi del testo
 * I **record di testo elaborati** sono ora disponibili come metrica nella sezione **monitoraggio** per la risorsa analisi del testo nel portale di Azure.  

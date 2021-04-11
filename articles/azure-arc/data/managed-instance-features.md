@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c42acb69e13cc1eb0fbba3fcafaec1451bc4d77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c3f973da688a20fa60f2fb649b2c8d689bc2a98
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97589220"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076650"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Funzionalità e funzionalità di Azure Arc abilitate per SQL Istanza gestita
 
@@ -117,19 +117,19 @@ Azure Arc Enabled SQL Istanza gestita condividere una codebase comune con la ver
 | Funzionalità | Istanza gestita di SQL con abilitazione di Azure Arc |
 |--|--|
 | JSON | Sì |
-| Archivio query | Sì |  |
-| Temporale | Sì |  |
-| Supporto XML nativo | Sì |  |
-| Indicizzazione XML | Sì |  |
-| Funzionalità MERGE e UPSERT | Sì |  |
-| Tipi di dati data e ora | Sì |  |
-| Supporto di internazionalizzazione | Sì |  |
+| Archivio query | Sì | 
+| Temporale | Sì | 
+| Supporto XML nativo | Sì | 
+| Indicizzazione XML | Sì | 
+| Funzionalità MERGE e UPSERT | Sì | 
+| Tipi di dati data e ora | Sì | 
+| Supporto di internazionalizzazione | Sì | 
 | Ricerca full-text e semantica | No |
-| Impostazione della lingua nelle query | Sì |  |
-| Service Broker (messaggistica) | Sì |  |
-| Transact-SQL - endpoint | Sì |  |
-| Grafico | Sì |  |
-| Machine Learning Services | No |  |
+| Impostazione della lingua nelle query | Sì | 
+| Service Broker (messaggistica) | Sì | 
+| Transact-SQL - endpoint | Sì | 
+| Grafico | Sì | 
+| Machine Learning Services | No |
 | PolyBase | No |
 
 

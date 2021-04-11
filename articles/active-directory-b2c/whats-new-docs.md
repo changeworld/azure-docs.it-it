@@ -1,7 +1,7 @@
 ---
 title: Novità di Azure Active Directory business-to-Customer (B2C)
 description: Documentazione nuova e aggiornata per la Azure Active Directory business-to-Customer (B2C).
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,37 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 3fcc4f01d926f5c624adabd51e6215e0106af1fa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7a2384a451d851d1bede24fc2dd73a386c019430
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557871"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443713"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: novità
 
 Introduzione alle novità di Azure Active Directory B2C documentazione. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità relative al servizio B2C, vedere Novità [di Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="march-2021"></a>Marzo 2021
+
+### <a name="new-articles"></a>Nuovi articoli
+
+- [Abilitare domini personalizzati per Azure Active Directory B2C](custom-domain.md)
+- [Esaminare i rischi con la protezione delle identità in Azure AD B2C](identity-protection-investigate-risk.md)
+- [Configurare l'iscrizione e l'accesso con un ID Apple usando Azure Active Directory B2C (anteprima)](identity-provider-apple-id.md)
+- [Configurare un flusso di reimpostazione della password di forzatura in Azure Active Directory B2C](force-password-reset.md)
+- [Esperienza di accesso incorporata](embedded-login.md)
+
+### <a name="updated-articles"></a>Articoli aggiornati
+
+- [Configurare l'iscrizione e l'accesso con un account Amazon tramite Azure Active Directory B2C](identity-provider-amazon.md)
+- [Configurare l'accesso con un provider SAML di Salesforce usando il protocollo SAML in Azure Active Directory B2C](identity-provider-salesforce-saml.md)
+- [Eseguire la migrazione di un'API Web basata su OWIN in b2clogin.com o in un dominio personalizzato](multiple-token-endpoints.md)
+- [Profili tecnici](technicalprofiles.md)
+- [Aggiungere l'accesso condizionale ai flussi utente in Azure Active Directory B2C](conditional-access-user-flow.md)
+- [Configurare un flusso di reimpostazione della password in Azure Active Directory B2C](add-password-reset-policy.md)
+- [RelyingParty](relyingparty.md)
+
 
 ## <a name="february-2021"></a>2021 febbraio
 

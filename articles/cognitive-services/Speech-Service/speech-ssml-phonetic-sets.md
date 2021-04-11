@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
-ms.openlocfilehash: 580de0112c99eef4ba22ba946f6a2b81bc326001
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e5480b7412291c427c5eaea94a63343f12c62cf
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102432044"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077517"
 ---
 # <a name="speech-service-phonetic-sets"></a>Set fonetici del servizio vocale
 
@@ -234,30 +234,30 @@ Il set di telefoni del servizio di riconoscimento vocale pone tuttavia stress do
 
 | `sapi` | `ipa` | Esempio 1 | Esempio 2 | Esempio 3 |
 |--|--|--|--|--|
-| b | `b` | **B**. |  | [<sup>1</sup>](#de-c-1) Pu **b** |  |
+| b | `b` | **B**. | | [<sup>1</sup>](#de-c-1) Pu **b** | 
 | c | `ç` | Ernie **ch** | mögli **ch** St | [<sup>2</sup>](#de-c-2)i **ch** |
-| d | `d` | **d** Anken | [<sup>3</sup>](#de-c-3) Len **d** l | [<sup>4</sup>](#de-c-4) Clau **d** e |  |
+| d | `d` | **d** Anken | [<sup>3</sup>](#de-c-3) Len **d** l | [<sup>4</sup>](#de-c-4) Clau **d** e | 
 | Jh | `ʤ` | **J** eff | Gemana **g** t | [<sup>5</sup>](#de-c-5) Chan **g** e |
-| f | `f` | **F** ahrtdauer | slustig Angri **FF** | abbruchrei **f** |  |
-| g | `g` | **g** UT |  | [<sup>6</sup>](#de-c-6) GRE **g** |  |
-| h | `h` | Ausanbau **H** |  |  |  |
-| y | `j` | **J** od | Reakt | Hu **i** |  |
-| k | `k` | OMA **K** | Aspe **k** t | FLEC **k** |  |
-| l | `l` | **l** au | ähne **l** n | zuvie **l** |  |
-| m | `m` | UT **M** | A **m** t | Leh **m** |  |
-| n | `n` | **n** Annulla | u **n** d | OK **n** |  |
-| ng | `ŋ` | [<sup>7</sup>](#de-c-7)**ng** Uyen | Schwa **NK** | R |  |
-| p | `p` | **P** Artner | abru **p** t | Ti **p** |  |
-| PF | `pf` | ERD di **PF** | Dam **PF** t | A **PF** |  |
-| r | `ʀ`, `r`, `ʁ` | AItro **R** | KNU **RR** t | Haa **r** |  |
-| s | `s` | taccato [<sup>8</sup>](#de-c-8)**S** | bi **s** t | mie **s** |  |
-| sh | `ʃ` | Gola **SCH** | mi **SCH** t | Lappi **SCH** |  |
-| u | `t` | **T** Raum | Raße S **t** | MU **t** |  |
-| ts | `ts` | UG **Z** | AR **z** t | Wit **z** |  |
-| ch | `tʃ` | Echien **tsch** | aufgepu **tsch** t | **tsch** bundesdeu |  |
-| v | `v` | **w** INKEN | Domande **e** risposte | [<sup>9</sup>](#de-c-9) Gr **oO** ve |  |
+| f | `f` | **F** ahrtdauer | slustig Angri **FF** | abbruchrei **f** |  
+| g | `g` | **g** UT |  [<sup>6</sup>](#de-c-6) GRE **g** |  |
+| h | `h` | Ausanbau **H** |  |  | 
+| y | `j` | **J** od | Reakt | Hu **i** | 
+| k | `k` | OMA **K** | Aspe **k** t | FLEC **k** | 
+| l | `l` | **l** au | ähne **l** n | zuvie **l** | 
+| m | `m` | UT **M** | A **m** t | Leh **m** | 
+| n | `n` | **n** Annulla | u **n** d | OK **n** | 
+| ng | `ŋ` | [<sup>7</sup>](#de-c-7)**ng** Uyen | Schwa **NK** | R | 
+| p | `p` | **P** Artner | abru **p** t | Ti **p** | 
+| PF | `pf` | ERD di **PF** | Dam **PF** t | A **PF** |
+| r | `ʀ`, `r`, `ʁ` | AItro **R** | KNU **RR** t | Haa **r** | 
+| s | `s` | taccato [<sup>8</sup>](#de-c-8)**S** | bi **s** t | mie **s** | 
+| sh | `ʃ` | Gola **SCH** | mi **SCH** t | Lappi **SCH** | 
+| u | `t` | **T** Raum | Raße S **t** | MU **t** | 
+| ts | `ts` | UG **Z** | AR **z** t | Wit **z** | 
+| ch | `tʃ` | Echien **tsch** | aufgepu **tsch** t | **tsch** bundesdeu | 
+| v | `v` | **w** INKEN | Domande **e** risposte | [<sup>9</sup>](#de-c-9) Gr **oO** ve | 
 | x | [<sup>10</sup>](#de-c-10) `x` ,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) Erach BA **ch** | Ma **ch** t mögli **ch** St | Schma **ch** ' i **ch** |
-| z | `z` | uPer **s** |  |  |  |
+| z | `z` | uPer **s** |  |  | 
 | zh | `ʒ` | **G** ENRE | B **re** ezinski | EDVI **g** e |
 
 <a id="de-c-1"></a>

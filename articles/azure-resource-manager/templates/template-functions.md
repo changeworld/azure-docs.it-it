@@ -3,12 +3,12 @@ title: Funzioni di modello
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per recuperare i valori, usare stringhe e numeri e recuperare le informazioni di distribuzione.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9ea21a57404f7de832fb307bdabeb47f8cf3f58
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707320"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220182"
 ---
 # <a name="arm-template-functions"></a>Funzioni modello ARM
 
@@ -176,7 +176,6 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risor
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
 * [pickZones](template-functions-resource.md#pickzones)
-* [provider](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
 * [resourceGroup](template-functions-resource.md#resourcegroup) : può essere usato solo nelle distribuzioni in un gruppo di risorse.
 * [resourceId](template-functions-resource.md#resourceid) : può essere usato in qualsiasi ambito, ma i parametri validi cambiano a seconda dell'ambito.

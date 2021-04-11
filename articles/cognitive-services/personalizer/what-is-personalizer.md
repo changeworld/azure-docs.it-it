@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizza esperienze, Personalizza esperienze di Azure, Machine Learning
-ms.openlocfilehash: 913b4d989865a50b23d58c5493368997248f8db8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b2577502907b69e134651c93ab7a98fc51e9aaa6
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928540"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169250"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
@@ -21,11 +21,14 @@ Personalizza esperienze di Azure è un servizio basato sul cloud che consente al
 > [!TIP]
 > Il contenuto è qualsiasi unità di informazioni, ad esempio testo, immagini, URL, messaggi di posta elettronica o qualsiasi altro elemento da selezionare e mostrare agli utenti.
 
-Prima di iniziare, è possibile provare [Personalizza esperienze con questa demo interattiva](https://personalizationdemo.azurewebsites.net/).
+Questa documentazione contiene i tipi di articolo seguenti:  
 
-<!--
-![What is personalizer animation](./media/what-is-personalizer.gif)
--->
+* Nelle [**guide introduttive**](quickstart-personalizer-sdk.md) vengono fornite istruzioni introduttive per l'esecuzione di richieste al servizio.  
+* Le [**guide alle procedure**](how-to-settings.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.  
+* I [**concetti**](how-personalizer-works.md) forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.  
+* Le [**esercitazioni**](tutorial-use-personalizer-web-app.md) sono guide più lunghe che illustrano come usare il servizio come componente in soluzioni aziendali più ampie.  
+
+Prima di iniziare, provare [a personalizzare con questa demo interattiva](https://personalizationdemo.azurewebsites.net/).
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>In che modo Personalizza esperienze seleziona l'elemento di contenuto migliore?
 
@@ -100,18 +103,6 @@ Poiché Personalizza esperienze usa informazioni collettive quasi in tempo reale
         * Immediatamente dopo aver mostrato il contenuto
         * Oppure più tardi in un sistema offline
     1. [Valutare il ciclo](concepts-offline-evaluation.md) con una valutazione offline dopo un periodo di utilizzo. La valutazione offline consente di testare e valutare l'efficacia del servizio Personalizza esperienze senza cambiare il codice o influire sull'esperienza utente.
-
-## <a name="complete-a-quickstart"></a>Completare una guida di avvio rapido
-
-Sono disponibili le guide di avvio rapido per C#, JavaScript e Python. Ognuna di esse è progettata per insegnare gli schemi progettuali di base e consentire all'utente di eseguire il codice in meno di 10 minuti. 
-
-* [Avvio rapido: Come usare la libreria client di Personalizza esperienze](./quickstart-personalizer-sdk.md)
-
-Una volta acquisita familiarità con il servizio Personalizza esperienze, è provare le esercitazioni e imparare a usare Personalizza esperienze in applicazioni Web, chatbot o notebook di Azure.
-
-* [Esercitazione: Usare Personalizza esperienze in un'app Web .NET](tutorial-use-personalizer-web-app.md)
-* [Esercitazione: Usare Personalizza esperienze in un chatbot .NET](tutorial-use-personalizer-chat-bot.md)
-* [Esercitazione: Usare Personalizza esperienze con un notebook di Azure](tutorial-use-azure-notebook-generate-loop-data.md)
 
 ## <a name="reference"></a>Informazioni di riferimento 
 

@@ -3,16 +3,16 @@ title: Configurare i componenti di rete NSX nella soluzione VMware di Azure
 description: Informazioni su come usare la console della soluzione VMware di Azure per configurare i segmenti di rete NSX-T.
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: 0478582a9bc4fb77a1784c27ec4f5c302d6b89fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a4702efe8ea26234d074f421d2e6eab871eba5f5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101716989"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105733098"
 ---
 # <a name="configure-nsx-network-components-in-azure-vmware-solution"></a>Configurare i componenti di rete NSX nella soluzione VMware di Azure
 
-Per impostazione predefinita, una soluzione VMware di Azure cloud privata viene fornita con NSX-T come rete definita dal software (SDDC). Viene eseguito il pre-provisioning con un gateway NSX-T di livello 0 in modalità attivo/attivo e un gateway NSX-T di primo livello predefinito in modalità attivo/standby.  Questi gateway consentono di connettere i segmenti (commutatori logici) e forniscono la connettività East-West e North-South. 
+Per impostazione predefinita, una soluzione VMware di Azure cloud privata viene fornita con NSX-T come rete definita dal software (SDDC). Viene eseguito il pre-provisioning con un gateway NSX-T di livello 0 in modalità **attivo/attivo** e un gateway NSX-t di primo livello predefinito in modalità attivo/standby.  Questi gateway consentono di connettere i segmenti (commutatori logici) e forniscono la connettività East-West e North-South. 
 
 Dopo la distribuzione del cloud privato della soluzione VMware di Azure, è possibile configurare gli oggetti NSX-T necessari dalla console della soluzione VMware di Azure in **rete del carico di lavoro**.  La console presenta la visualizzazione semplificata delle operazioni di NSX-T che un amministratore VMware necessita quotidianamente e destinate agli utenti che non hanno familiarità con NSX-T.  
 

@@ -1,18 +1,18 @@
 ---
 title: 'Criterio: Effetti di una definizione di criteri'
 description: Questo modello di Criteri di Azure fornisce un esempio di come usare i diversi effetti di una definizione di criteri.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fa95fdc793e7762c39525a83f38ae952f532a60
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92073037"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092841"
 ---
 # <a name="azure-policy-pattern-effects"></a>Modello di Criteri di Azure: effetti
 
-Criteri di Azure include una serie di [effetti](../concepts/effects.md) che determinano il modo in cui il servizio reagisce alle risorse non conformi. Alcuni effetti sono semplici e non richiedono proprietà aggiuntive nella definizione di criteri, mentre altri richiedono diverse proprietà.
+Criteri di Azure ha molti [effetti](../concepts/effects.md) che determinano il modo in cui il servizio reagisce alle risorse non conformi. Alcuni effetti sono semplici e non richiedono proprietà aggiuntive nella definizione di criteri, mentre altri richiedono diverse proprietà.
 
 ## <a name="sample-1-simple-effect"></a>Esempio 1. Effetto semplice
 

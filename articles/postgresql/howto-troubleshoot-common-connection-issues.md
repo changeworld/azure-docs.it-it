@@ -2,21 +2,22 @@
 title: Risolvere i problemi relativi alle connessioni-database di Azure per PostgreSQL-server singolo
 description: Informazioni su come risolvere i problemi di connessione al database di Azure per PostgreSQL-server singolo.
 keywords: connessione postgresql, stringa di connessione, problemi di connettività, errore temporaneo, errore di connessione
-author: niklarin
-ms.author: nlarin
+author: sunilagarwal
+ms.author: sunila
+ms.reviewer: ''
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fe8c4b751be174a91a0e2e94991bc63b4b1e5c7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96014619"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504244"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Risolvere i problemi di connessione al database di Azure per PostgreSQL-server singolo
 
-I problemi di connessione possono avere varie cause tra cui:
+I problemi di connessione possono essere causati da vari elementi, tra cui:
 
 * Impostazioni del firewall
 * Timeout della connessione
@@ -47,7 +48,7 @@ Gli errori temporanei si verificano quando si esegue la manutenzione, quando il 
 Se l'applicazione continua a non riuscire a connettersi a Database di Azure per PostgreSQL, il problema è in genere uno dei seguenti:
 
 * Configurazione del firewall del server: assicurarsi che il firewall del server di database di Azure per PostgreSQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
-* Configurazione del firewall client: il firewall del client deve consentire le connessioni al server di database. È necessario consentire gli indirizzi IP e le porte del server, nonché i nomi di applicazioni, ad esempio PostgreSQL, in alcuni firewall.
+* Configurazione del firewall client: il firewall del client deve consentire le connessioni al server di database. Gli indirizzi IP e le porte del server a cui non è possibile connettersi devono essere consentiti e i nomi delle applicazioni come PostgreSQL in alcuni firewall.
 * Errore dell'utente: è possibile che i parametri di connessione, ad esempio il nome del server nella stringa di connessione o un suffisso *\@ ServerName* mancante nel nome utente, non siano stati digitati.
 * Se il _server di errore non è configurato per consentire le connessioni IPv6_, si noti che il livello Basic non supporta gli endpoint del servizio VNet. È necessario rimuovere l'endpoint Microsoft. SQL dalla subnet che tenta di connettersi al server di base.
 * Se viene visualizzato l'errore _di connessione sslmode valore "* * *" non valido quando il supporto SSL non è compilato in_ errore, significa che il client PostgreSQL non supporta SSL. Probabilmente, il libpq sul lato client non è stato compilato con il flag "--with-OpenSSL". Provare a connettersi con un client PostgreSQL con supporto SSL. 

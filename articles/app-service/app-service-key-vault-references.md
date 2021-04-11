@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 69fc0d6f3c4e18b34555a099f4e28e278ca3bdad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0bba85cc99e1751f39172ac320fe721d6f02e87
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100635388"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076786"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usare i riferimenti Key Vault per il servizio app e funzioni di Azure
 
@@ -30,8 +30,19 @@ Per leggere i segreti da Key Vault, è necessario avere creato un insieme di cre
 
 1. Creare [criteri di accesso in Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) per l'identità di applicazione creata in precedenza. Abilitare l'autorizzazione per il segreto "Get" in questi criteri. Non configurare l'"applicazione autorizzata" o le impostazioni di `applicationId`, poiché questa operazione non è compatibile con un'identità gestita.
 
-   > [!IMPORTANT]
-   > I riferimenti Key Vault non sono attualmente in grado di risolvere i segreti archiviati in un insieme di credenziali delle chiavi con [restrizioni di rete](../key-vault/general/overview-vnet-service-endpoints.md) , a meno che l'app non sia ospitata in una [ambiente del servizio app](./environment/intro.md).
+### <a name="access-network-restricted-vaults"></a>Accedere agli insiemi di credenziali con restrizioni di rete
+
+> [!NOTE]
+> Le applicazioni basate su Linux non sono attualmente in grado di risolvere i segreti da un insieme di credenziali delle chiavi con restrizioni di rete, a meno che l'app non sia ospitata in un [ambiente del servizio app](./environment/intro.md).
+
+Se l'insieme di credenziali è configurato con [restrizioni di rete](../key-vault/general/overview-vnet-service-endpoints.md), sarà necessario assicurarsi che l'applicazione disponga di accesso alla rete.
+
+1. Verificare che nell'applicazione siano configurate le funzionalità di rete in uscita, come descritto in funzionalità di rete del [servizio app](./networking-features.md) e [Opzioni di rete di funzioni di Azure](../azure-functions/functions-networking-options.md).
+
+2. Assicurarsi che gli account di configurazione dell'insieme di credenziali per la rete o la subnet a cui l'app acceda.
+
+> [!IMPORTANT]
+> L'accesso a un insieme di credenziali tramite l'integrazione della rete virtuale non è attualmente compatibile con [gli aggiornamenti automatici per i segreti senza una versione specificata](#rotation).
 
 ## <a name="reference-syntax"></a>Sintassi del riferimento
 
@@ -56,6 +67,9 @@ In alternativa:
 ```
 
 ## <a name="rotation"></a>Rotazione
+
+> [!IMPORTANT]
+> [L'accesso a un insieme di credenziali tramite l'integrazione della rete virtuale](#access-network-restricted-vaults) non è attualmente compatibile con gli aggiornamenti automatici per i segreti senza una versione specificata.
 
 Se nella Guida di riferimento non è specificata una versione, l'app userà la versione più recente presente in Key Vault. Quando le versioni più recenti diventano disponibili, ad esempio con un evento di rotazione, l'app verrà aggiornata automaticamente e inizierà a usare la versione più recente nell'arco di un giorno. Eventuali modifiche di configurazione apportate all'app provocheranno un aggiornamento immediato alle versioni più recenti di tutti i segreti a cui si fa riferimento.
 

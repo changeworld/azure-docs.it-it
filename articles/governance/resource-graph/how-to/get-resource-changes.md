@@ -1,14 +1,14 @@
 ---
 title: Ottenere le modifiche delle risorse
 description: Informazioni su come capire quando una risorsa è stata modificata, ottenere un elenco delle proprietà modificate e valutare le differenze.
-ms.date: 01/27/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 5ad86ec2598cd7f24b8e0cd2208889bb7a088568
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 500a2d58c5fc9e1b63a544978c4b583eba60a63e
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594656"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219077"
 ---
 # <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
 
@@ -145,6 +145,10 @@ Ogni evento di modifica rilevato per **resourceId** presenta le proprietà segue
 - **beforeSnapshot**: contiene gli elementi **snapshotId** e **timestamp** dello snapshot della risorsa acquisito prima del rilevamento di una modifica.
 - **afterSnapshot**: contiene gli elementi **snapshotId** e **timestamp** dello snapshot della risorsa acquisito dopo il rilevamento di una modifica.
 - **changeType**: descrive il tipo di modifica rilevata per l'intero record delle modifiche tra **beforeSnapshot** e **afterSnapshot**. I valori possibili sono: _Create_, _Update_ e _Delete_. La matrice di proprietà **propertyChanges** è inclusa solo quando **changeType** è di tipo _Update_.
+
+  > [!IMPORTANT]
+  > La _creazione_ è disponibile solo per le risorse già esistenti ed eliminate negli ultimi 14 giorni.
+
 - **propertyChanges**: questa matrice di proprietà descrive in dettaglio tutte le proprietà delle risorse aggiornate tra **beforeSnapshot** e **afterSnapshot**:
   - **propertyName**: il nome della proprietà della risorsa modificata.
   - **changeCategory**: descrive la modifica apportata. I valori possibili sono: _System_ e _User_.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/04/2021
-ms.openlocfilehash: 85a3505dd347b96036c28c85c089afa04e3e3bd5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d4a801d0cf0a2355334272053ff86dd846b6bbf
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609829"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030305"
 ---
 # <a name="troubleshooting-sql-insights-preview"></a>Risoluzione dei problemi relativi a SQL Insights (anteprima)
 Per risolvere i problemi di raccolta dei dati in SQL Insights, verificare lo stato del computer di monitoraggio nella scheda **Gestisci profilo** . Questo avrà uno degli Stati seguenti:
@@ -171,10 +171,13 @@ InsightsMetrics
 ```
 
 ```
-Operation 
- | where OperationCategory == "WorkloadInsights" 
- | summarize Errors = countif(OperationStatus == 'Error') 
+WorkloadDiagnosticLogs
+| summarize Errors = countif(Status == 'Error')
 ```
+
+> [!NOTE]
+> Se non vengono visualizzati dati nel tipo di dati ' WorkloadDiagnosticLogs ', potrebbe essere necessario aggiornare il profilo di monitoraggio per archiviare questi dati.  In SQL Insights UX selezionare ' Gestisci profilo ', quindi selezionare ' modifica profilo ', quindi selezionare ' Aggiorna profilo di monitoraggio '.
+
 
 Per i casi comuni, sono disponibili informazioni sulla risoluzione dei problemi nella visualizzazione log: 
 

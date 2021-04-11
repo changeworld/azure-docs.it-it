@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: e646c3fd8422380a542f559b40b222033d5d74dc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9c0246d68de8c01b1779d5a95d405c61536f277e
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612067"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283050"
 ---
 <!--Feature availability in region-->
 ## <a name="germany"></a>Germania
@@ -17,9 +17,9 @@ ms.locfileid: "104612067"
 | Funzionalità | Germania settentrionale (pubblico) | Germania centro-occidentale (pubblico) |
 | --- | :---: | :---: |
 | [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Disponibilità generale di Azure EventGrid Germania settentrionale (pubblico)](../media/azure-clouds-regions/ga.svg) |![Disponibilità generale di Azure EventGrid Germania centro-occidentale (pubblico)](../media/azure-clouds-regions/ga.svg) |
-| [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![Disponibilità generale di Azure EventGrid Germania settentrionale (pubblico)](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale di Azure EventGrid Germania centro-occidentale (pubblico)](../media/azure-clouds-regions/ga.svg) |
-| [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset Germania settentrionale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |![AudioAnalyzerPreset Germania centro-occidentale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |
-| [StandardEncoderPreset](../encoding-concept.md) | ![StandardEncoderPreset Germania settentrionale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |![StandardEncoderPreset Germania centro-occidentale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |
-| [LiveEvents](../live-streaming-overview.md) | ![LiveEvents Germania settentrionale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |![LiveEvents Germania centro-occidentale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |
-| [StreamingEndpoints](../streaming-endpoint-concept.md) | ![Le entità streamingendpoint Germania settentrionale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |![Le entità streamingendpoint Germania centro-occidentale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |
-| [LiveTranscription](../live-transcription.md) |![LiveTranscription Germania settentrionale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |![LiveTranscription Germania centro-occidentale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |
+| [VideoAnalyzerPreset](../analyze-video-audio-files-concept.md) | | |
+| [AudioAnalyzerPreset](../analyze-video-audio-files-concept.md) | | |
+| [StandardEncoderPreset](../encode-concept.md) | ![StandardEncoderPreset Germania settentrionale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |![StandardEncoderPreset Germania centro-occidentale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |
+| [LiveEvents](../stream-live-streaming-concept.md) | ![LiveEvents Germania settentrionale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |![LiveEvents Germania centro-occidentale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |
+| [StreamingEndpoints](../stream-streaming-endpoint-concept.md) | ![Le entità streamingendpoint Germania settentrionale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |![Le entità streamingendpoint Germania centro-occidentale (Public) disponibilità generale](../media/azure-clouds-regions/ga.svg) |
+| [LiveTranscription](../live-event-live-transcription-how-to.md) |  | |

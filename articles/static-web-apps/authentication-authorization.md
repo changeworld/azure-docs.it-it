@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: ab41a336c32a1827c23f4c4619f47dc294a4d2ea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9c8dd723c9cde5c0534d9fd5ca4084c7ed15d213
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419287"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218635"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticazione e autorizzazione per App Web statiche di Azure (anteprima)
 
@@ -156,7 +156,13 @@ Se si sceglie di supportare più di un provider, è necessario esporre un colleg
 
 ### <a name="post-login-redirect"></a>Reindirizzamento dopo l'accesso
 
-Se si desidera che un utente torni a una pagina specifica dopo l'accesso, specificare un URL nel parametro della stringa di query `post_login_redirect_uri`.
+Se si desidera che un utente torni a una pagina specifica dopo l'accesso, fornire un URL completo nel `post_login_redirect_uri` parametro della stringa di query.
+
+Ad esempio:
+
+```html
+<a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
+```
 
 ## <a name="logout"></a>Logout
 

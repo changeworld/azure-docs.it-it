@@ -4,10 +4,10 @@ description: Questo articolo descrive come configurare il monitoraggio dei clust
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.openlocfilehash: 7c6ddd62bf06d313987289e444962378cea43fc8
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105627898"
 ---
 # <a name="configure-pv-monitoring-with-container-insights"></a>Configurare il monitoraggio PV con informazioni dettagliate sul contenitore
@@ -27,7 +27,7 @@ Altre informazioni sulla configurazione di metriche PV raccolte sono disponibili
 
 Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio PVs raccogliendo le informazioni seguenti a intervalli di 60 secondi e archiviarle nella tabella **KubePVInventory** .
 
-|Dati |origine dati| Tipo di dati| Campi|
+|Data |origine dati| Tipo di dati| Campi|
 |-----|-----------|----------|-------|
 |Inventario dei volumi permanenti in un cluster Kubernetes |API Kube |`KubePVInventory` |    PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, clustername, _ResourceId |
 
