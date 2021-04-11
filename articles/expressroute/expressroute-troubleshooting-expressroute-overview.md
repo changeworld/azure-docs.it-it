@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6213e17f1232bd505ba1edf185a851bf669b9809
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92204640"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553431"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
 Questo articolo fornisce informazioni sulla verifica e la risoluzione dei problemi di connettività di ExpressRoute. ExpressRoute estende una rete locale nel cloud Microsoft tramite una connessione privata, comunemente facilitata da un provider di connettività. La connettività ExpressRoute prevede tradizionalmente tre aree di rete distinte, come indicato di seguito:
@@ -88,7 +88,7 @@ Nelle informazioni di base di ExpressRoute *Stato circuito* indica lo stato del 
 Per consentire il funzionamento di un circuito ExpressRoute, *Stato circuito* deve essere impostato su *Abilitato* e *Stato provider* su *Provisioning eseguito*.
 
 > [!NOTE]
-> Dopo aver configurato un circuito ExpressRoute, se lo stato del *circuito* è inattivo, contattare [supporto tecnico Microsoft][Support]. D'altra parte, se lo stato del *provider* viene raggiunto senza provisioning, contattare il provider di servizi.
+> Dopo aver configurato un circuito ExpressRoute, se lo stato del *circuito* è bloccato in stato non abilitato, contattare [supporto tecnico Microsoft][Support]. D'altra parte, se lo *stato del provider* è bloccato nello stato senza provisioning, contattare il provider di servizi.
 >
 >
 
@@ -145,7 +145,7 @@ ServiceProviderProvisioningState : Provisioned
 ```
 
 > [!NOTE]
-> Dopo aver configurato un circuito ExpressRoute, se lo stato del *circuito* è inattivo, contattare [supporto tecnico Microsoft][Support]. D'altra parte, se lo stato del *provider* viene raggiunto senza provisioning, contattare il provider di servizi.
+> Dopo aver configurato un circuito ExpressRoute, se lo stato del *circuito* è bloccato in stato non abilitato, contattare [supporto tecnico Microsoft][Support]. D'altra parte, se lo *stato del provider* è bloccato nello stato senza provisioning, contattare il provider di servizi.
 >
 >
 

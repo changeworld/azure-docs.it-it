@@ -5,25 +5,28 @@ description: È possibile usare la propria chiave di crittografia per proteggere
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/23/2021
+ms.date: 03/30/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 72f7130aad12ee2b5d463195b0b5c7847022bdfd
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 07f8faf503bdea6be8263afa6240594956b61391
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645173"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059446"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chiavi gestite dal cliente per la crittografia di archiviazione di Azure
 
 È possibile usare la propria chiave di crittografia per proteggere i dati nell'account di archiviazione. Quando si specifica una chiave gestita dal cliente, tale chiave viene usata per proteggere e controllare l'accesso alla chiave che crittografa i dati. Le chiavi gestite dal cliente offrono maggiore flessibilità per gestire i controlli di accesso.
 
-Per archiviare le chiavi gestite dal cliente, è necessario usare Azure Key Vault o un modulo di protezione hardware (HSM) gestito da Azure Key Vault (anteprima). È possibile creare chiavi personalizzate e archiviarle nell'insieme di credenziali delle chiavi o nel modulo di protezione hardware gestito oppure è possibile usare le API Azure Key Vault per generare chiavi. L'account di archiviazione e l'insieme di credenziali delle chiavi o il modulo di protezione hardware gestito devono trovarsi nella stessa area e nello stesso tenant di Azure Active Directory (Azure AD), ma possono trovarsi in sottoscrizioni diverse.
+Per archiviare le chiavi gestite dal cliente, è necessario usare uno dei seguenti archivi chiavi di Azure:
 
-Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](../../key-vault/general/overview.md).
+- [Azure Key Vault](../../key-vault/general/overview.md)
+- [Modulo di protezione hardware (HSM) gestito Azure Key Vault (anteprima)](../../key-vault/managed-hsm/overview.md)
+
+È possibile creare chiavi personalizzate e archiviarle nell'insieme di credenziali delle chiavi o nel modulo di protezione hardware gestito oppure è possibile usare le API Azure Key Vault per generare chiavi. L'account di archiviazione e l'insieme di credenziali delle chiavi o il modulo di protezione hardware gestito devono trovarsi nella stessa area e nello stesso tenant di Azure Active Directory (Azure AD), ma possono trovarsi in sottoscrizioni diverse.
 
 > [!IMPORTANT]
 >

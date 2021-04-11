@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/30/2021
 ms.author: jgao
-ms.openlocfilehash: 9f4c21a4b7e58c4eed3a62ea844eb11ccf4ecb49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb5fc0b6b673f8a754d0d6bb6ff962697cd5f38b
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889383"
+ms.locfileid: "105967337"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Usare gli script di distribuzione nei modelli ARM
 
@@ -139,8 +139,8 @@ Dettagli sui valori delle proprietà:
 - `identity`: Per l'API dello script di distribuzione versione 2020-10-01 o successiva, un'identità gestita assegnata dall'utente è facoltativa, a meno che non sia necessario eseguire azioni specifiche di Azure nello script.  Per la versione API 2019-10-01-Preview, è necessaria un'identità gestita perché il servizio script di distribuzione lo usa per eseguire gli script. Attualmente è supportata solo l'Identità gestita assegnata dall'utente di Azure.
 - `kind`: specificare il tipo di script. Attualmente sono supportati gli script Azure PowerShell e dell'interfaccia della riga di comando di Azure. I valori sono **AzurePowerShell** e **AzureCLI**.
 - `forceUpdateTag`: La modifica di questo valore tra le distribuzioni di modelli forza la ripetizione dell'esecuzione dello script di distribuzione. Se si usano le `newGuid()` funzioni o `utcNow()` , entrambe le funzioni possono essere usate solo nel valore predefinito per un parametro. Per altre informazioni, vedere [Eseguire lo script più di una volta](#run-script-more-than-once).
-- `containerSettings`: Specificare le impostazioni per personalizzare l'istanza di contenitore di Azure.  `containerGroupName` per specificare il nome del gruppo di contenitori. Se non specificato, il nome del gruppo viene generato automaticamente.
-- `storageAccountSettings`: Specificare le impostazioni per l'uso di un account di archiviazione esistente. Se non è specificato, un account di archiviazione viene creato automaticamente. Vedere [Usare un account di archiviazione esistente](#use-existing-storage-account).
+- `containerSettings`: Specificare le impostazioni per personalizzare l'istanza di contenitore di Azure. Lo script di distribuzione richiede una nuova istanza di contenitore di Azure. Non è possibile specificare un'istanza di contenitore di Azure esistente. Tuttavia, è possibile personalizzare il nome del gruppo di contenitori usando `containerGroupName` . Se non specificato, il nome del gruppo viene generato automaticamente.
+- `storageAccountSettings`: Specificare le impostazioni per l'uso di un account di archiviazione esistente. Se `containerGroupName` viene omesso, viene creato automaticamente un account di archiviazione. Vedere [Usare un account di archiviazione esistente](#use-existing-storage-account).
 - `azPowerShellVersion`/`azCliVersion`: Specificare la versione del modulo da usare. Vedere un elenco di [versioni di Azure PowerShell supportate](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Vedere un elenco delle [versioni supportate dell'interfaccia](https://mcr.microsoft.com/v2/azure-cli/tags/list)della riga di comando di Azure.
 
   >[!IMPORTANT]

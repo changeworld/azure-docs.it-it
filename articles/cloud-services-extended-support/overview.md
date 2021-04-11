@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: ecf115b7ce902fcd8b50f0eca32ffda6ef47e068
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc470d12377f50f9f9ae4b362bcabf3a5ce34e8f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618475"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169284"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Informazioni sui servizi cloud di Azure (supporto esteso)
 
@@ -48,12 +48,9 @@ Le principali differenze tra i servizi cloud (versione classica) e i servizi clo
 - Tutte le risorse distribuite tramite il [Azure Resource Manager](../azure-resource-manager/templates/overview.md) devono trovarsi all'interno di una rete virtuale. Le reti virtuali e le subnet vengono create in Azure Resource Manager usando le API di Azure Resource Manager esistenti ed è necessario fare riferimento all'interno della sezione NetworkConfiguration del. cscfg quando si distribuiscono servizi cloud (supporto esteso).   
 
 - Ogni servizio cloud (supporto esteso) è una singola distribuzione indipendente. Servizi cloud (supporto esteso) non supporta più slot in un singolo servizio cloud.  
-    - La <sup>*</sup> funzionalità di scambio di indirizzi VIP può essere usata per scambiare tra due servizi cloud (supporto esteso). Per eseguire il test e la gestione temporanea di una nuova versione di un servizio cloud, distribuire un servizio cloud (supporto esteso) e contrassegnarlo come indirizzo VIP scambiabile con un altro servizio cloud (supporto esteso)  
+    - La funzionalità di scambio di indirizzi VIP può essere usata per scambiare tra due servizi cloud (supporto esteso). Per eseguire il test e la gestione temporanea di una nuova versione di un servizio cloud, distribuire un servizio cloud (supporto esteso) e contrassegnarlo come indirizzo VIP scambiabile con un altro servizio cloud (supporto esteso)  
 
 - L'etichetta Domain Name Service (DNS) è facoltativa per un servizio cloud (supporto esteso). In Azure Resource Manager, l'etichetta DNS è una proprietà della risorsa IP pubblica associata al servizio cloud. 
-
-
-<sup>*</sup> Lo scambio di indirizzi VIP per i servizi cloud (supporto esteso) non è disponibile durante l'anteprima pubblica.  
 
 ## <a name="migration-to-azure-resource-manager"></a>Migrazione a Azure Resource Manager
 

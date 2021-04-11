@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/28/2021
 ms.author: bwren
-ms.openlocfilehash: 64b794f4a749816af71f9c5f14dddf2bbcbc6512
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 975a3ea250307e445e9bf48abdc669f2b035038a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279613"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554043"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -494,7 +494,7 @@ Ecco alcuni suggerimenti utili per ridurre il volume dei log raccolti:
 | syslog                     | Modificare la [configurazione di Syslog](../agents/data-sources-syslog.md) per: <br> - Ridurre il numero di strutture raccolte <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* e *debug* |
 | AzureDiagnostics           | Modificare la [raccolta di log delle risorse](../essentials/diagnostic-settings.md#create-in-azure-portal) in: <br> - Ridurre il numero di risorse che inviano log a Log Analytics <br> - Raccogliere solo i log necessari |
 | Dati della soluzione da computer che non richiedono la soluzione | Usare il [targeting della soluzione](../insights/solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari |
-| Application Insights | Esaminare le opzioni per [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
+| Application Insights | Esaminare le opzioni per la [gestione di Application Insights volume di dati](../app/pricing.md#managing-your-data-volume) |
 | [SQL Analytics](../insights/azure-sql.md) | Usare [set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) per ottimizzare le impostazioni di controllo. |
 | Azure Sentinel | Esaminare le [origini dati Sentinel](../../sentinel/connect-data-sources.md) che sono state recentemente abilitate come origini di un volume di dati aggiuntivo. |
 

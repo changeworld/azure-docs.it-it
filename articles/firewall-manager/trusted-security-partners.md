@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 03/30/2021
 ms.author: victorh
-ms.openlocfilehash: e955c6b760c06ce802dfae0193d34954eab99892
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 622fde49a31105b2f66a678d3e55d48fabea9487
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731089"
+ms.locfileid: "105966912"
 ---
 # <a name="what-are-security-partner-providers"></a>Che cosa sono i provider del partner di sicurezza?
 
@@ -44,7 +44,8 @@ Sono supportati gli scenari indicati di seguito:
    VNet da ramo a Internet tramite un provider di partner per la sicurezza e l'altro traffico (spoke-to-spoke, spoke-to-Branch, da ramo a spoke) tramite il firewall di Azure.
 - Singolo provider nell'hub
 
-   - Tutto il traffico (da spoke a spoke, da spoke a ramo, da ramo a spoke, da VNet/ramo a Internet) protetto dal firewall di Azure
+   - Tutto il traffico (da spoke a spoke, da spoke a ramo, da ramo a spoke, da VNet/ramo a Internet) protetto dal firewall di Azure<br>
+      oppure
    - VNet/da ramo a Internet tramite il provider del partner di sicurezza
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Procedure consigliate per il filtraggio del traffico Internet in hub virtuali protetti

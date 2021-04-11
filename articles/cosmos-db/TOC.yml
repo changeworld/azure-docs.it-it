@@ -126,6 +126,8 @@
       items:
         - name: Conformità
           href: compliance.md
+        - name: Residenza dei dati
+          href: data-residency.md
     - name: Raccomandazioni automatiche
       href: automated-recommendations.md
 - name: API SQL/Core
@@ -755,6 +757,8 @@
                   href: troubleshoot-unauthorized.md
                 - name: Risoluzione dei problemi non consentito
                   href: troubleshoot-forbidden.md
+                - name: Risolvere i problemi della richiesta non valida
+                  href: troubleshoot-bad-request.md
                 - name: Problemi di disponibilità in ambienti composti da più aree
                   href: troubleshoot-sdk-availability.md
             - name: .NET
@@ -915,6 +919,8 @@
               href: sql-api-sdk-java-spark.md
             - name: Libreria di esecuzione bulk Java v2
               href: sql-api-sdk-bulk-executor-java.md
+        - name: Interfaccia della riga di comando di Azure
+          href: /cli/azure/cosmosdb
         - name: Node.js
           href: sql-api-sdk-node.md
         - name: Python
@@ -1411,6 +1417,8 @@
           href: how-to-restrict-user-data.md
         - name: Configurare le chiavi gestite dal cliente
           href: how-to-setup-cmk.md
+        - name: Usare un'identità gestita
+          href: how-to-setup-managed-identity.md
     - name: Soluzione pronta per l'azienda
       items:
         - name: Richiedere l'aumento della quota

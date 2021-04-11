@@ -2,17 +2,17 @@
 title: Riscrivere le intestazioni HTTP e l'URL con applicazione Azure gateway | Microsoft Docs
 description: Questo articolo fornisce una panoramica della riscrittura di intestazioni e URL HTTP in applicazione Azure gateway
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/16/2020
-ms.author: surmb
-ms.openlocfilehash: 81eaf95a4918590c6eaa2c17a45e6925a1a67992
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.author: azhussai
+ms.openlocfilehash: 7662ef5c2c3f5ed20069f64781d222ae44e52168
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726513"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384840"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Riscrivere le intestazioni HTTP e l'URL con il gateway applicazione
 
@@ -38,7 +38,7 @@ Per informazioni su come riscrivere le intestazioni di richiesta e risposta con 
 
 È possibile riscrivere tutte le intestazioni nelle richieste e nelle risposte, ad eccezione delle intestazioni di connessione e di aggiornamento. È anche possibile usare il gateway applicazione per creare intestazioni personalizzate e aggiungerle alle richieste e alle risposte instradate attraverso il gateway.
 
-### <a name="url-path-and-query-string-preview"></a>Percorso URL e stringa di query (anteprima)
+### <a name="url-path-and-query-string"></a>Percorso URL e stringa di query
 
 Con la funzionalità di riscrittura URL nel gateway applicazione, è possibile:
 
@@ -51,9 +51,6 @@ Con la funzionalità di riscrittura URL nel gateway applicazione, è possibile:
 Per informazioni su come riscrivere l'URL con il gateway applicazione usando portale di Azure, vedere [qui](rewrite-url-portal.md).
 
 ![Diagramma che descrive il processo di riscrittura di un URL con il gateway applicazione.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
-
->[!NOTE]
-> La funzionalità di riscrittura URL è in anteprima ed è disponibile solo per Standard_v2 e WAF_v2 SKU del gateway applicazione. Non è consigliato per l'uso nell'ambiente di produzione. Per ulteriori informazioni sulle anteprime, vedere [le condizioni per l'utilizzo qui](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="rewrite-actions"></a>Riscrivere le azioni
 
@@ -129,7 +126,20 @@ Il gateway applicazione supporta le variabili server seguenti:
 | ssl_enabled               | "On" se la connessione funziona in modalità TLS. In caso contrario, una stringa vuota. |
 | uri_path                  | Identifica la risorsa specifica nell'host a cui il client Web vuole accedere. Questa è la parte dell'URI della richiesta senza gli argomenti. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path valore sarà `/article.aspx` |
 
- 
+### <a name="mutual-authentication-server-variables-preview"></a>Variabili del server di autenticazione reciproca (anteprima)
+
+Il gateway applicazione supporta le variabili server seguenti per gli scenari di autenticazione reciproca. Usare queste variabili del server in modo analogo a quanto sopra con le altre variabili server. 
+
+|   Nome variabile    |                   Descrizione                                           |
+| ------------------------- | ------------------------------------------------------------ |
+| client_certificate        | Il certificato client in PEM è costituito da una connessione SSL stabilita. |
+| client_certificate_end_date| Data di fine del certificato client. |
+| client_certificate_fingerprint| Impronta digitale SHA1 del certificato client per una connessione SSL stabilita. |
+| client_certificate_issuer | Stringa "DN emittente" del certificato client per una connessione SSL stabilita. |
+| client_certificate_serial | Il numero di serie del certificato client per una connessione SSL stabilita.  |
+| client_certificate_start_date| Data di inizio del certificato client. |
+| client_certificate_subject| Stringa "Subject DN" del certificato client per una connessione SSL stabilita. |
+| client_certificate_verification| Risultato della verifica del certificato client: *Success*, *failed: <reason>* o *None* se non è presente un certificato. | 
 
 ## <a name="rewrite-configuration"></a>Riscrivere la configurazione
 
@@ -148,6 +158,17 @@ Un set di regole di riscrittura contiene:
       * **URL path**: valore in cui deve essere riscritto il percorso. 
       * **Stringa di query URL**: valore in cui deve essere riscritta la stringa di query. 
       * **Rivalutare il mapping dei percorsi**: usato per determinare se il mapping del percorso dell'URL deve essere valutato di nuovo. Se viene mantenuta deselezionata, il percorso dell'URL originale verrà usato per trovare la corrispondenza con il modello di percorso nella mappa del percorso URL. Se è impostato su true, il mapping del percorso URL verrà rivalutato per verificare la corrispondenza con il percorso riscritto. L'abilitazione di questa opzione consente di instradare la richiesta a un pool back-end diverso dopo la riscrittura.
+
+### <a name="using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku"></a>Utilizzo di riscrittura URL o riscrittura intestazione host con Web Application Firewall (WAF_v2 SKU)
+
+Quando si configura la riscrittura dell'URL o della riscrittura dell'intestazione host, la valutazione WAF viene eseguita dopo la modifica dei parametri dell'intestazione della richiesta o dell'URL (post-riscrittura). Quando si rimuove la configurazione URL Rewrite o l'intestazione host Rewrite nel gateway applicazione, la valutazione WAF verrà eseguita prima della riscrittura dell'intestazione (pre-riscrittura). Questo ordine garantisce che le regole WAF vengano applicate alla richiesta finale che verrebbe ricevuta dal pool back-end.
+
+Si immagini, ad esempio, di avere la regola di riscrittura dell'intestazione seguente per l'intestazione `"Accept" : "text/html"` , se il valore dell'intestazione `"Accept"` è uguale a `"text/html"` , quindi riscrivere il valore in `"image/png"` .
+
+Qui, con la sola riscrittura dell'intestazione configurata, la valutazione del WAF verrà eseguita in `"Accept" : "text/html"` . Tuttavia, quando si configura riscrittura URL o riscrittura intestazione host, la valutazione WAF verrà eseguita in `"Accept" : "image/png"` .
+
+>[!NOTE]
+> Si prevede che le operazioni di riscrittura URL causino un lieve aumento dell'utilizzo della CPU da parte del gateway applicazione WAF. È consigliabile monitorare la [metrica di utilizzo della CPU](high-traffic-support.md) per un breve periodo di tempo dopo l'abilitazione delle regole di riscrittura URL nel gateway applicazione WAF.
 
 ### <a name="common-scenarios-for-header-rewrite"></a>Scenari comuni per la riscrittura delle intestazioni
 

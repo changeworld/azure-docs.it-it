@@ -15,16 +15,16 @@ ms.custom: mvc
 ms.date: 04/05/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99db58e39377932608b1c78bac37003432aa4c04
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: c49ded056c642fa91331b7cc98d18da34d9c73a6
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106381906"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504354"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 
-Uno dei problemi a cui devono far fronte gli sviluppatori riguarda la gestione di segreti e credenziali per proteggere le comunicazioni tra servizi diversi. In Azure le identità gestite eliminano la necessità di gestire le credenziali fornendo un'identità per la risorsa di Azure in Azure AD che è possibile usare per ottenere i token di Azure Active Directory (Azure AD). Ciò consente anche di accedere ad [Azure Key Vault](../../key-vault/general/overview.md), in cui gli sviluppatori possono archiviare le credenziali in modo sicuro. Le identità gestite per le risorse di Azure risolvono questo problema fornendo servizi di Azure con un'identità gestita automaticamente in Azure AD.
+Un problema comune per gli sviluppatori è la gestione dei segreti e delle credenziali usati per proteggere le comunicazioni tra diversi componenti che costituiscono una soluzione. Le identità gestite eliminano la necessità per gli sviluppatori di gestire le credenziali. Le identità gestite forniscono un'identità per le applicazioni da usare quando si connettono a risorse che supportano l'autenticazione Azure Active Directory (Azure AD). Le applicazioni possono usare l'identità gestita per ottenere i token di Azure AD. Ad esempio, un'applicazione può usare un'identità gestita per accedere a risorse come [Azure Key Vault](../../key-vault/general/overview.md) in cui gli sviluppatori possono archiviare le credenziali in modo sicuro o accedere agli account di archiviazione.
 
 In quali casi è possibile usare un'identità gestita?
 
@@ -33,7 +33,7 @@ In quali casi è possibile usare un'identità gestita?
 Ecco alcuni vantaggi derivanti dall'uso delle identità gestite:
 
 - Non è necessario gestire le credenziali. Le credenziali non sono neanche accessibili.
-- È possibile usare le identità gestite per eseguire l'autenticazione a qualsiasi risorsa che supporta l'autenticazione Azure Active Directory, incluse le applicazioni.
+- È possibile usare le identità gestite per eseguire l'autenticazione a qualsiasi risorsa che supporta [l'autenticazione Azure Active Directory](../authentication/overview-authentication.md) , incluse le applicazioni.
 - Le identità gestite possono essere usate senza costi aggiuntivi.
 
 > [!NOTE]
@@ -62,7 +62,7 @@ La tabella seguente illustra le differenze tra i due tipi di identità gestite.
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Come usare le identità gestite per le risorse di Azure
 
-![Ecco alcuni esempi di come uno sviluppatore può usare le identità gestite per ottenere l'accesso a risorse dal codice senza gestire le informazioni sull'autenticazione](media/overview/azure-managed-identities-examples.png)
+![Ecco alcuni esempi di come uno sviluppatore può usare le identità gestite per ottenere l'accesso a risorse dal codice senza gestire le informazioni sull'autenticazione](media/overview/when-use-managed-identities.png)
 
 ## <a name="what-azure-services-support-the-feature"></a>Servizi di Azure che supportano questa funzionalità<a name="which-azure-services-support-managed-identity"></a>
 

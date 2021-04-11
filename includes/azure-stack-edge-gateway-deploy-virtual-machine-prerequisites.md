@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: e459ea1e9d8d7d51a62ba3ed1d2de8815a1b4222
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f166413507afb9aff814eaddaade099d2e34ae68
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105103989"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554435"
 ---
 Prima di poter distribuire le macchine virtuali nel dispositivo Azure Stack Edge, è necessario configurare il client per la connessione al dispositivo tramite Azure Resource Manager Azure PowerShell. Per istruzioni dettagliate, vedere [connettersi a Azure Resource Manager sul dispositivo Azure stack Edge](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).
 
@@ -23,9 +23,9 @@ Assicurarsi di poter usare la procedura seguente per accedere al dispositivo dal
 
 1. Per chiamare le API del dispositivo locale per l'autenticazione, immettere: 
 
-    `login-AzureRMAccount -EnvironmentName <Environment Name>`
+    `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
 
-    Per connettersi tramite Azure Resource Manager, specificare il nome utente *EdgeARMuser* e la password.
+    Per connettersi tramite Azure Resource Manager, specificare il nome utente *EdgeArmUser* e la password.
 
 1. Se il calcolo è stato configurato per Kubernetes, è possibile ignorare questo passaggio. In caso contrario, assicurarsi che sia stata abilitata un'interfaccia di rete per il calcolo eseguendo le operazioni seguenti: 
 

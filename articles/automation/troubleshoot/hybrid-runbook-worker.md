@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 565d801fb569f818613fd31b7492c0847eef9a7a
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580997"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169352"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Risolvere i problemi di un ruolo di lavoro ibrido per runbook
 
@@ -128,7 +128,7 @@ Le possibili cause sono le seguenti:
 #### <a name="resolution"></a>Risoluzione
 
 ##### <a name="mistyped-workspace-id-or-key"></a>Errore di digitazione di un ID o una chiave dell'area di lavoro
-Per verificare la presenza di errori di digitazione nell'ID o nella chiave dell'area di lavoro dell'agente, vedere [Aggiunta o rimozione di un'area di lavoro: Agente di Windows](../../azure-monitor/agents/agent-manage.md#windows-agent) per l'agente Windows o [Aggiunta o rimozione di un'area di lavoro: Agente di Linux](../../azure-monitor/agents/agent-manage.md#linux-agent) per l'agente di Linux. Assicurarsi di selezionare la stringa completa nel portale di Azure, quindi copiarla e incollarla con cautela.
+Per verificare se l'ID dell'area di lavoro o la chiave dell'area di lavoro dell'agente non è stata digitata in modo improprio, vedere [aggiunta o rimozione di un'area di lavoro-agente Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) per l'agente Windows o [aggiunta o rimozione di un'area di lavoro-agente Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) per l'agente Assicurarsi di selezionare la stringa completa nel portale di Azure, quindi copiarla e incollarla con cautela.
 
 ##### <a name="configuration-not-downloaded"></a>Configurazione non scaricata
 

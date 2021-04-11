@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: a794274248a12af97174dcc4e86bd4231e9d9dda
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0e1cfe0ae53d1e1b35c5ec29d6c11b0891137e6d
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727485"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074404"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -76,8 +76,8 @@ Le note sulla versione seguenti sono relative alla versione 12.0.0.0 dell'agente
     - Miglioramento delle prestazioni di rilevamento delle modifiche per rilevare i file che sono stati modificati nella condivisione file di Azure.
     - Miglioramenti delle prestazioni per le sessioni di sincronizzazione della riconciliazione. 
     - Miglioramenti della sincronizzazione per ridurre ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED e ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED errori.
-    - I file potrebbero non riuscire a livello nel server 2019 se la deduplicazione dei dati è abilitata nel volume.
-    - AFSDiag non riesce a comprimere i file se un file è più grande di 2GiB.
+    - Correzione di un bug che può causare un errore di livello dei file nel server 2019 se la deduplicazione dei dati è abilitata nel volume.
+    - Correzione di un bug che può causare la mancata compressione dei file da parte di AFSDiag se un file è più grande di 2GiB.
 
 ### <a name="evaluation-tool"></a>Strumento di valutazione
 Prima di distribuire la Sincronizzazione file di Azure, è opportuno valutare se è compatibile con il sistema tramite lo strumento di valutazione di Sincronizzazione file di Azure. Questo strumento è un cmdlet di Azure PowerShell che consente di rilevare potenziali problemi con il file system e il set di dati, ad esempio caratteri non supportati o versione del sistema operativo non supportata. Per istruzioni sull'installazione e l'utilizzo, vedere la sezione [Strumento di valutazione](./storage-sync-files-planning.md#evaluation-cmdlet) nella Guida alla pianificazione. 

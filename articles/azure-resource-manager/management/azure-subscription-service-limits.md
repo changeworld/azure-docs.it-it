@@ -2,13 +2,13 @@
 title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: 4dd62c926cce765ebc2b21378308650e313716ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 3ef3e6f3b67e8c92e0137f36e19c62cba79e1c14
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470997"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030823"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -34,9 +34,9 @@ Le [sottoscrizioni della versione di valutazione gratuita](https://azure.microso
 
 Alcuni limiti vengono gestiti a livello di area.
 
-Si considerino, ad esempio, le quote di vCPU. Per richiedere un aumento della quota con supporto per vCPU, è necessario decidere il numero di vCPU che si vuole usare in quali aree. Si crea quindi una richiesta specifica per le quote vCPU del gruppo di risorse di Azure per le quantità e le aree desiderate. Se è necessario usare 30 vCPU in Europa occidentale per eseguire l'applicazione, si richiede in modo specifico 30 vCPU in Europa occidentale. La quota di vCPU non è aumentata in nessun'altra area, ma la quota di 30 vCPU è solo in Europa occidentale.
+Si considerino, ad esempio, le quote di vCPU. Per richiedere un aumento della quota con supporto per vCPU, è necessario decidere il numero di vCPU che si vuole usare in quali aree. Viene quindi richiesto un aumento delle quote di vCPU per le quantità e le aree desiderate. Se è necessario usare 30 vCPU in Europa occidentale per eseguire l'applicazione, si richiede in modo specifico 30 vCPU in Europa occidentale. La quota di vCPU non è aumentata in nessun'altra area, ma la quota di 30 vCPU è solo in Europa occidentale.
 
-Di conseguenza, decidere quali quote del gruppo di risorse di Azure devono essere per il carico di lavoro in una qualsiasi area. Quindi richiedere tale quantità in ogni area in cui si vuole eseguire la distribuzione. Per informazioni su come determinare le quote correnti per aree specifiche, vedere risolvere gli [errori per le quote delle risorse](../templates/error-resource-quota.md).
+Di conseguenza, è necessario decidere quali sono le quote per il carico di lavoro in un'area. Quindi richiedere tale quantità in ogni area in cui si vuole eseguire la distribuzione. Per informazioni su come determinare le quote correnti per aree specifiche, vedere risolvere gli [errori per le quote delle risorse](../templates/error-resource-quota.md).
 
 ## <a name="general-limits"></a>Limiti generali
 

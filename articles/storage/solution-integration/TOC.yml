@@ -23,6 +23,8 @@
   items:
     - name: Panoramica dei partner convalidati
       href: .\validated-partners\data-management\partner-overview.md
+    - name: Confronto tra strumenti di migrazione
+      href: ./validated-partners/data-management/migration-tools-comparison.md
   expanded: false
 - name: Partner di archiviazione primari e secondari
   items:

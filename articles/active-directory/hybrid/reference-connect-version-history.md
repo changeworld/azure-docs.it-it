@@ -12,12 +12,12 @@ ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7269a2435715834a2c1e6723de3fdc6e72eaad5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c26c56940e95fe32b709aa01fbaa9e567e797197
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955449"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074540"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -57,8 +57,18 @@ Seguire questo collegamento per altre informazioni sull'[aggiornamento automatic
 >
 >Per informazioni sulla cronologia delle versioni per le versioni ritirate, vedere [Azure ad Connect versione archivio cronologia](reference-connect-version-history-archive.md) delle versioni
 
+## <a name="1640"></a>1.6.4.0
+
+### <a name="release-status"></a>Stato della versione
+3/31/2021: rilasciato solo per il download, non disponibile per l'aggiornamento automatico
+
+### <a name="bug-fixes"></a>Correzioni di bug
+- Questa versione corregge un bug nella versione 1.6.2.4, in cui, dopo l'aggiornamento a tale versione, la funzionalità Azure AD Connect Health non è stata registrata correttamente e non funziona. Ai clienti che hanno distribuito 1.6.2.4 di compilazione viene richiesto di aggiornare il server Azure AD Connect con questa build, che registrerà correttamente la funzionalità di integrità. 
 
 ## <a name="1624"></a>1.6.2.4
+>[!IMPORTANT]
+> Aggiornamento al 30 marzo 2021: è stato individuato un problema in questa compilazione. Dopo l'installazione di questa compilazione, i servizi di integrità non sono registrati. Si consiglia di non installare questa compilazione. A breve si rilascerà un hotfix.
+> Se questa compilazione è già stata installata, è possibile registrare manualmente i servizi di integrità usando il cmdlet, come illustrato in [questo articolo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#manually-register-azure-ad-connect-health-for-sync) .
 
 >[!NOTE]
 > - Questa versione verrà resa disponibile solo per il download.
@@ -66,7 +76,7 @@ Seguire questo collegamento per altre informazioni sull'[aggiornamento automatic
 > - Questa versione imposta come valore predefinito il server AADConnect sul nuovo endpoint V2. Si noti che questo endpoint non è supportato nel cloud nazionale tedesco, nel cloud nazionale cinese e nel cloud del governo degli Stati Uniti e, se è necessario distribuire questa versione in questi cloud, è necessario seguire [queste istruzioni](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) per tornare all'endpoint V1. In caso contrario, si verificano errori di sincronizzazione.
 
 ### <a name="release-status"></a>Stato della versione
-3/19/2021: rilasciato per il download
+3/19/2021: rilasciato per il download, non disponibile per l'aggiornamento automatico
 
 ### <a name="functional-changes"></a>Modifiche funzionali
 

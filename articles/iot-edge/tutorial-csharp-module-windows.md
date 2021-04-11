@@ -9,12 +9,13 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: 4e01b1ca9a3858ff31ad9b5da1d1159209c44330
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+monikerRange: =iotedge-2018-06
+ms.openlocfilehash: 84e5bbff11d0a5ff5d47ca43a3da54d1f1fb5555
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103464063"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218856"
 ---
 # <a name="tutorial-develop-c-iot-edge-modules-using-windows-containers"></a>Esercitazione: sviluppare moduli di IoT Edge C# con i contenitori di Windows
 
@@ -23,7 +24,7 @@ ms.locfileid: "103464063"
 Questo articolo illustra come usare Visual Studio per sviluppare codice C# e distribuirlo in un dispositivo Windows che esegue Azure IoT Edge.
 
 >[!NOTE]
->IoT Edge 1,1 LTS è il canale dell'ultimo rilascio che supporterà i contenitori di Windows. A partire dalla versione 1,2, i contenitori di Windows non sono supportati. Provare a usare o a passare a [IOT Edge per Linux in Windows](iot-edge-for-linux-on-windows.md) per eseguire IOT Edge nei dispositivi Windows.
+>IoT Edge 1,1 LTS è l'ultimo canale di rilascio che supporta i contenitori di Windows. A partire dalla versione 1,2, i contenitori di Windows non sono supportati. Provare a usare o a passare a [IOT Edge per Linux in Windows](iot-edge-for-linux-on-windows.md) per eseguire IOT Edge nei dispositivi Windows.
 
 È possibile usare i moduli di Azure IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore.
 

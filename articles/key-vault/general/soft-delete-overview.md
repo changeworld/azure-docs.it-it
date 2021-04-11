@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 7aeca89ed09182b7947b10f24c65b0cb58ed67ea
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6d691c4c510f5ff00c34d03b7b8d7a7bcaa53c3f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452136"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554094"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
@@ -20,7 +20,7 @@ ms.locfileid: "102452136"
 > È necessario abilitare immediatamente l'eliminazione temporanea sugli insiemi di credenziali delle chiavi. La possibilità di rifiutare esplicitamente l'eliminazione temporanea sarà presto deprecata. Vedi i dettagli completi [qui](soft-delete-change.md)
 
 > [!IMPORTANT]
-> L'insieme di credenziali eliminato temporaneamente Elimina le impostazioni per l'integrazione con i servizi di Key Vault, ad esempio le assegnazioni di ruoli RBAC di Azure, le sottoscrizioni di griglia di eventi e le impostazioni di diagnostica Dopo il ripristino delle impostazioni di Key Vault eliminate temporaneamente per i servizi integrati, sarà necessario ricrearle manualmente. 
+> L'insieme di credenziali eliminato temporaneamente Elimina le impostazioni per l'integrazione con i Servizi Key Vault ad esempio le assegnazioni di ruoli RBAC di Azure, le sottoscrizioni di griglia di eventi. Dopo il ripristino delle impostazioni di Key Vault eliminate temporaneamente per i servizi integrati, sarà necessario ricrearle manualmente. 
 
 La funzionalità di eliminazione temporanea di Key Vault consente di recuperare gli insiemi di credenziali eliminati ed eliminare gli oggetti dell'insieme di credenziali delle chiavi (ad esempio, chiavi, segreti e certificati), noti come soft-delete. In particolare, vengono affrontati gli scenari seguenti: questa garanzia offre le seguenti protezioni:
 

@@ -93,6 +93,9 @@
             - name: Go
               href: connect-go.md
               displayName: connect with go
+            - name: Rust
+              href: connect-rust.md
+              displayName: connect with rust
     - name: Esercitazioni
       items:
         - name: Progettare un database
@@ -558,11 +561,15 @@
       items:
         - name: Che cos'è Hyperscale (Citus)?
           href: hyperscale-overview.md
+        - name: Funzionalità in anteprima
+          href: hyperscale-preview-features.md
     - name: Guida introduttiva
       items:
         - name: Creare il gruppo di server
           items:
-            - name: Portale di Azure
+            - name: Livello Basic (anteprima)
+              href: quickstart-create-hyperscale-basic-tier.md
+            - name: Livello Standard
               href: quickstart-create-hyperscale-portal.md
               displayName: 'portal, create hyperscale'
     - name: Esercitazioni
@@ -581,6 +588,8 @@
           displayName: 'hyperscale, tutorial, real-time'
     - name: Concetti
       items:
+        - name: Livello Basic
+          href: concepts-hyperscale-tiers.md
         - name: Dati distribuiti
           items:
             - name: Nodi e tabelle
@@ -611,26 +620,26 @@
               displayName: 'backup, restore, outage, hyperscale'
             - name: Disponibilità elevata
               href: concepts-hyperscale-high-availability.md
+        - name: Replica
+          href: concepts-hyperscale-read-replicas.md
         - name: Monitorare e ottimizzare
           items:
             - name: Monitorare e ottimizzare
               href: concepts-hyperscale-monitoring.md
             - name: Log di controllo
               href: concepts-hyperscale-audit.md
+        - name: Archiviazione a colonne
+          href: concepts-hyperscale-columnar.md
         - name: Opzioni di configurazione
           href: concepts-hyperscale-configuration-options.md
+        - name: Limiti e limitazioni
+          href: concepts-hyperscale-limits.md
         - name: Pagare in anticipo la capacità riservata
           href: concepts-hyperscale-reserved-pricing.md
+        - name: Versioni di PostgreSQL
+          href: concepts-hyperscale-versions.md
         - name: Estensioni di PostgreSQL
           href: concepts-hyperscale-extensions.md
-    - name: Riferimento API
-      items:
-        - name: Funzioni dell'API SQL
-          href: reference-hyperscale-functions.md
-        - name: Parametri del server
-          href: reference-hyperscale-parameters.md
-        - name: Tabelle di sistema
-          href: reference-hyperscale-metadata.md
     - name: Guide pratiche
       items:
         - name: Dimensioni del gruppo di server
@@ -656,6 +665,11 @@
               href: howto-hyperscale-modify-distributed-tables.md
         - name: Disponibilità elevata
           href: howto-hyperscale-high-availability.md
+        - name: Replica
+          items:
+            - name: Portale di Azure
+              href: howto-hyperscale-read-replicas-portal.md
+              displayName: 'replication, read replica'
         - name: Monitorare
           items:
             - name: Creare avvisi relativi alle metriche
@@ -664,6 +678,8 @@
             - name: Accedere ai log del database
               href: howto-hyperscale-logging.md
               displayName: 'log, hyperscale'
+        - name: Aggiornamenti della versione principale
+          href: howto-hyperscale-upgrade.md
         - name: Risolvere problemi
           items:
             - name: Risolvere gli errori di connessione
@@ -671,6 +687,14 @@
               displayName: 'connection errors, hyperscale'
             - name: Query di diagnostica utili
               href: howto-hyperscale-useful-diagnostic-queries.md
+    - name: Riferimento API
+      items:
+        - name: Funzioni dell'API SQL
+          href: reference-hyperscale-functions.md
+        - name: Parametri del server
+          href: reference-hyperscale-parameters.md
+        - name: Tabelle di sistema
+          href: reference-hyperscale-metadata.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

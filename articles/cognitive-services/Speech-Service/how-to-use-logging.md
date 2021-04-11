@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f044596cf084e68b6c9ca10e3da4fbdf4c8c2062
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32715ad1a01366d7d56e6fa8129151b15c315e1d
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95026523"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504176"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Abilitare la registrazione nell'SDK di riconoscimento vocale
 
-La registrazione nel file è una funzionalità facoltativa per l'SDK di riconoscimento vocale. Durante la registrazione dello sviluppo fornisce informazioni e diagnostica aggiuntive dai componenti di base di Speech SDK. Può essere abilitata impostando la proprietà `Speech_LogFilename` su un oggetto di configurazione vocale sul percorso e il nome del file di log. La registrazione verrà attivata globalmente una volta che un riconoscimento viene creato da tale configurazione e non può essere disabilitato in seguito. Non è possibile modificare il nome di un file di log durante una sessione di registrazione in esecuzione.
+La registrazione nel file è una funzionalità facoltativa per l'SDK di riconoscimento vocale. Durante la registrazione dello sviluppo fornisce informazioni e diagnostica aggiuntive dai componenti di base di Speech SDK. Può essere abilitata impostando la proprietà `Speech_LogFilename` su un oggetto di configurazione vocale sul percorso e il nome del file di log. La registrazione viene gestita da una classe statica nella libreria nativa di Speech SDK. È possibile attivare la registrazione per qualsiasi istanza del sintetizzatore o del sintetizzatore di riconoscimento vocale. Tutte le istanze nello stesso processo scrivono le voci di log nello stesso file di log.
 
 > [!NOTE]
 > La registrazione è disponibile dalla versione dell'SDK vocale 1.4.0 in tutti i linguaggi di programmazione dell'SDK vocale supportati, ad eccezione di JavaScript.

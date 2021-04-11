@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 6861fd7a92c26fad883f14fb430a03b237c90122
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: ba730adaa1e3b111586012ba1849c6dc84d6db00
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609259"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553992"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Usare monitoraggio di Azure con l'area di lavoro di Azure sinapsi Analytics
 
@@ -103,10 +103,14 @@ Accedere al portale di Azure e selezionare **monitoraggio**  >  **avvisi** per c
 
 Ecco i log emessi dalle aree di lavoro di Azure sinapsi Analytics:
 
-| Nome tabella Log Analytics | Nome categoria log                 | Descrizione |
-|-------------------------------|-------------------------------------------------|-------------|
-| SynapseGatewayApiRequests     | GatewayApiRequests             | Richieste API del gateway di Azure sinapsi. |
-| SynapseRbacOperations         | SynapseRbacOperations          | Operazioni di controllo degli accessi in base al ruolo di Azure sinapsi (SRBAC). |
+| Nome tabella Log Analytics       | Nome categoria log              | Descrizione          |
+|--------------------------------|--------------------------------|----------------------|
+| SynapseGatewayApiRequests      | GatewayApiRequests             | Richieste API del gateway di Azure sinapsi. |
+| SynapseRbacOperations          | SynapseRbacOperations          | Operazioni di controllo degli accessi in base al ruolo di Azure sinapsi (SRBAC). |
+| SynapseBuiltinSqlReqsEnded     | BuiltinSqlReqsEnded            | Richieste chiuse del pool SQL senza server predefinite di sinapsi di Azure. |
+| SynapseIntegrationPipelineRuns | IntegrationPipelineRuns        | Viene eseguita la pipeline di integrazione di sinapsi di Azure. |
+| SynapseIntegrationActivityRuns | IntegrationActivityRuns        | Viene eseguita l'attività di integrazione di sinapsi di Azure. |
+| SynapseIntegrationTriggerRuns  | IntegrationTriggerRuns         | Viene eseguito il trigger di integrazione di sinapsi di Azure. |
 
 ### <a name="dedicated-sql-pool-logs"></a>Log del pool SQL dedicati
 

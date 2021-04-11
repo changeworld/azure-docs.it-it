@@ -8,18 +8,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/01/2020
-ms.openlocfilehash: 2e8e5a127741625fde7910aaabd421836148fc35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 7524644b34a6fd479c08b9ce6418c547c836add5
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95018668"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554026"
 ---
 # <a name="sentiment-analysis"></a>Analisi del sentiment
 Se l'analisi del sentiment è configurata, è inclusa nella risposta json LUIS. Per ulteriori informazioni sull'analisi del sentiment, vedere la documentazione [Analisi del testo](../text-analytics/index.yml).
 
 LUIS USA Analisi del testo V2. 
+
+Analisi del sentiment viene configurato quando si pubblica l'applicazione. Per altre informazioni [, vedere come pubblicare un'app](./luis-how-to-publish-app.md) .
 
 ## <a name="resolution-for-sentiment"></a>Risoluzione per i sentimenti
 

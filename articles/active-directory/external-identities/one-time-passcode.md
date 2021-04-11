@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30f22282b00a7ead2e19805f32d78338126e8087
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688468"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552751"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticazione del codice di accesso monouso tramite posta elettronica
 
@@ -64,7 +64,7 @@ Al momento dell'invito non è presente alcuna indicazione del fatto che l'utente
 ![Screenshot che mostra un utente con passcode monouso e il valore di origine Passcode monouso](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
-> Quando un utente riscatta un passcode monouso e in un secondo momento ottiene un account Microsoft, un account di Azure AD o un altro account federato, continuerà a essere autenticato con un passcode monouso. Se si vuole aggiornare il metodo di autenticazione di tale utente, è possibile eliminare l'account utente guest e invitarlo nuovamente.
+> Quando un utente riscatta un passcode monouso e in un secondo momento ottiene un account Microsoft, un account di Azure AD o un altro account federato, continuerà a essere autenticato con un passcode monouso. Se si desidera aggiornare il metodo di autenticazione dell'utente, è possibile [reimpostare lo stato di riscatto](reset-redemption-status.md).
 
 ### <a name="example&quot;></a>Esempio
 
@@ -76,7 +76,7 @@ A partire dall'ottobre 2021, la funzionalità di accesso monouso per il codice d
 
 > [!NOTE]
 >
-> Se è stata abilitata la funzionalità di accesso monouso per il messaggio di posta elettronica nel tenant e la si disattiva, gli utenti guest che hanno riscattato un codice di accesso monouso non saranno in grado di eseguire l'accesso. È possibile eliminare l'utente Guest e inserirlo di nuovo in modo che possa eseguire di nuovo l'accesso con un altro metodo di autenticazione.
+> Se è stata abilitata la funzionalità di accesso monouso per il messaggio di posta elettronica nel tenant e la si disattiva, gli utenti guest che hanno riscattato un codice di accesso monouso non saranno in grado di eseguire l'accesso. È possibile [reimpostare lo stato di riscatto](reset-redemption-status.md) per poter accedere di nuovo con un altro metodo di autenticazione.
 
 ### <a name="to-disable-the-email-one-time-passcode-feature"></a>Per disabilitare la funzionalità di accesso monouso per la posta elettronica
 

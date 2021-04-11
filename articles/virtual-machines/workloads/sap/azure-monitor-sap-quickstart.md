@@ -6,12 +6,12 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.date: 08/17/2020
-ms.openlocfilehash: d9febb4efba85d47abe1cc11a3cb52dc0393c036
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 02c0801aa0425db96a1e6f71f248c795e81b5ddf
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101672005"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554060"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Distribuire monitoraggio di Azure per le soluzioni SAP con portale di Azure
 
@@ -81,12 +81,23 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 1. Selezionare sistema operativo (Linux) nell'elenco a discesa 
 
-> [!IMPORTANT]
-> Per configurare il provider del sistema operativo (Linux), assicurarsi che Node_Exporter sia installato in ogni istanza di BareMetal. Per ulteriori informazioni, vedere [Node_Exporter](https://github.com/prometheus/node_exporter)
+>[!IMPORTANT]
+> Per configurare il provider del sistema operativo (Linux), verificare che sia installata la versione più recente di Node_Exporter in ogni host (BareMetal o VM) che si desidera monitorare. Utilizzare questo [collegamento] ( https://prometheus.io/download/#node_exporter) per trovare la versione più recente. Per ulteriori informazioni, vedere [Node_Exporter](https://github.com/prometheus/node_exporter)
 
 2. Immettere un nome, che sarà l'identificatore per l'istanza di BareMetal.
 3. Immettere l'endpoint dell'utilità di esportazione del nodo nel formato http://IP:9100/metrics .
-4. Al termine, selezionare **Aggiungi provider**. Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea**   per completare la distribuzione. 
+
+>[!IMPORTANT]
+> Usare l'indirizzo IP privato dell'host Linux. Assicurarsi che le risorse host e AMS si trovino nella stessa VNET. 
+
+>[!Note]
+> È necessario aprire la porta del firewall "9100" nell'host Linux.
+>Se si usa firewall-cmd: firewall-cmd--Permanent--Add-Port = 9100/TCP firewall-cmd--ricarica se si usa ufw: ufw Consenti il ricaricamento di ufw 9100/TCP
+
+>[!Tip]
+> Se l'host Linux è una macchina virtuale di Azure, assicurarsi che tutti i gruppi applicabili consentano il traffico in ingresso sulla porta 9100 da "VirtualNetwork" come origine.
+ 
+5. Al termine, selezionare **Aggiungi provider**. Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea**   per completare la distribuzione. 
 
 
 ### <a name="microsoft-sql-server-provider"></a>Provider Microsoft SQL Server

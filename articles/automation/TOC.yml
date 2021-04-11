@@ -116,7 +116,7 @@
           href: troubleshoot/shared-resources.md
     - name: Automazione dei processi
       items:
-        - name: Usare runbook e moduli in PowerShell Gallery
+        - name: USA manuali operativi e moduli esistenti
           href: automation-runbook-gallery.md
         - name: Informazioni sul flusso di lavoro di PowerShell
           href: automation-powershell-workflow.md

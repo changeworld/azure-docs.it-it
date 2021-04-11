@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: c4e70c7f74c202b7de44a259b8a680f57aeaa041
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e5a3459c0264d087759572bffc497430cdb69ac9
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645026"
+ms.locfileid: "105966946"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -213,14 +213,9 @@ Attualmente sono supportate le rettifiche di stile per le voci neurali seguenti:
 * `zh-CN-XiaoxuanNeural` (anteprima)
 * `zh-CN-XiaoruiNeural` (anteprima)
 
-L'intensità dello stile di pronuncia può essere modificata ulteriormente per adattarsi meglio al caso d'uso. È possibile specificare uno stile più solido o più flessibile con `styledegree` per rendere il discorso più espressivo o sommesso.
+L'intensità dello stile di pronuncia può essere modificata ulteriormente per adattarsi meglio al caso d'uso. È possibile specificare uno stile più solido o più flessibile con `styledegree` per rendere il discorso più espressivo o sommesso. Attualmente, le rettifiche di stile di lingua sono supportate per le voci neurali cinese (mandarino, semplificato).
 
-Attualmente sono supportate le rettifiche di stile per le voci neurali seguenti:
-* `zh-CN-XiaoxiaoNeural`
-
-Oltre a modificare gli stili di pronuncia e il grado di stile, è anche possibile modificare il `role` parametro in modo che la voce imita un'età e un sesso diversi. Ad esempio, una voce maschile può aumentare il pitch e modificare l'intonazione per imitare una voce femminile.
-
-Attualmente sono supportate le regolazioni per la riproduzione dei ruoli per le voci neurali seguenti:
+Oltre a modificare gli stili di pronuncia e il grado di stile, è anche possibile modificare il `role` parametro in modo che la voce imita un'età e un sesso diversi. Ad esempio, una voce maschile può aumentare il pitch e modificare l'intonazione per imitare una voce femminile, ma il nome della voce non verrà modificato. Attualmente, le regolazioni dei ruoli sono supportate per le voci neurali cinese (mandarino, semplificate):
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
@@ -238,15 +233,15 @@ Le modifiche sopra riportate vengono applicate a livello di frase, mentre gli st
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> Al momento, `styledegree` supporta solo zh-CN-XiaoxiaoNeural. `role` supporta solo zh-CN-XiaomoNeural e zh-CN-XiaoxuanNeural.
+> Al momento, `styledegree` supporta solo le voci neurali cinese (mandarino, semplificato). `role` supporta solo zh-CN-XiaomoNeural e zh-CN-XiaoxuanNeural.
 
 **Attributes (Attributi)**
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `style` | Specifica lo stile di pronuncia. Attualmente, gli stili di pronuncia sono specifici della voce. | Obbligatorio se si modifica lo stile di pronuncia per una voce neurale. Se `mstts:express-as` si usa, è necessario specificare lo stile. Se viene specificato un valore non valido, questo elemento verrà ignorato. |
-| `styledegree` | Specifica l'intensità dello stile di pronuncia. **Valori accettati**: da 0,01 a 2 inclusi. Il valore predefinito è 1, che indica l'intensità dello stile predefinito. L'unità minima è 0,01 che comporta una lieve tendenza per lo stile di destinazione. Un valore pari a 2 comporta un raddoppio dell'intensità dello stile predefinito.  | Facoltativo (al momento `styledegree` supporta solo zh-CN-XiaoxiaoNeural).|
-| `role` | Specifica la riproduzione del ruolo. La voce fungerà da età e sesso differenti.  | Facoltativo (al momento `role` supporta solo zh-CN-XiaomoNeural e zh-CN-XiaoxuanNeural).|
+| `styledegree` | Specifica l'intensità dello stile di pronuncia. **Valori accettati**: da 0,01 a 2 inclusi. Il valore predefinito è 1, che indica l'intensità dello stile predefinito. L'unità minima è 0,01 che comporta una lieve tendenza per lo stile di destinazione. Un valore pari a 2 comporta un raddoppio dell'intensità dello stile predefinito.  | Facoltativo (al momento, `styledegree` supporta solo le voci neurali cinese (mandarino, semplificato).|
+| `role` | Specifica la riproduzione del ruolo. La voce fungerà da età e sesso diversi, ma il nome della voce non verrà modificato.  | Facoltativo (al momento `role` supporta solo zh-CN-XiaomoNeural e zh-CN-XiaoxuanNeural).|
 
 Usare questa tabella per determinare quali stili di pronuncia sono supportati per ogni voce neurale.
 
@@ -322,17 +317,19 @@ Usare questa tabella per determinare quali stili di pronuncia sono supportati pe
 |                         | `style="angry"`           | Esprime un tono arrabbiato e infastidito, con un passo inferiore, un'intensità più elevata e una maggiore energia vocale. Il relatore si trova in uno stato di irato, non è più presente e si è offeso.       |
 |                         | `style="fearful"`         | Esprime un tono spaventato e nervoso, con un passo superiore, un'energia vocale più elevata e una velocità più veloce. Il relatore è in uno stato di tensione e disagio.                          |
 
-Usare questa tabella per determinare quali ruoli sono supportati per ogni voce neurale.
+Usare questa tabella per verificare i ruoli supportati e le relative definizioni.
 
-| Chiamata vocale                   | Ruolo                       | Descrizione                                                 |
-|-------------------------|----------------------------|-------------------------------------------------------------|
-| `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | La voce imita una giovane donna adulta.                 |
-|                         | `role="OlderAdultMale"`    | La voce imita un maschio adulto più vecchio.                   |
-|                         | `role="Girl"`              | La voce imita una ragazza.                               |
-|                         | `role="Boy"`               | La voce imita un ragazzo.                                |
-| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | La voce imita una giovane donna adulta.                 |
-|                         | `role="OlderAdultFemale"`  | La voce imita una donna adulta meno recente.                 |
-|                         | `role="OlderAdultMale"`    | La voce imita un maschio adulto più vecchio.                   |
+|Ruolo                     | Descrizione                |
+|-------------------------|----------------------------|
+|`role="Girl"`            | La voce imita una ragazza. |
+|`role="Boy"`             | La voce imita un ragazzo. |
+|`role="YoungAdultFemale"`| La voce imita una giovane donna adulta.|
+|`role="YoungAdultMale"`  | La voce imita un giovane uomo adulto.|
+|`role="OlderAdultFemale"`| La voce imita una donna adulta meno recente.|
+|`role="OlderAdultMale"`  | La voce imita un maschio adulto più vecchio.|
+|`role="SeniorFemale"`    | La voce imita a una donna senior.|
+|`role="SeniorMale"`      | La voce imita a un maschio senior.|
+
 
 **Esempio**
 

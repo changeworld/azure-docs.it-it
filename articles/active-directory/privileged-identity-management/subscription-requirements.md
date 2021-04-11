@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 08/06/2020
+ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c9cd1c55f1b0dde173a7ffbeac92e5518db81e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d0428f73c4df3d97002def03823ff8cced1d647
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88005804"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552632"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Requisiti di licenza per usare Privileged Identity Management
 
@@ -30,7 +30,7 @@ Per usare Azure Active Directory (Azure AD) e Privileged Identity Management (PI
 
 ## <a name="valid-licenses"></a>Licenze valide
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+Sarà necessario [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] usare PIM e tutte le impostazioni. Attualmente, è possibile definire l'ambito di una verifica di accesso alle entità servizio con accesso a Azure AD e ai ruoli delle risorse di Azure (anteprima) con un'edizione Azure Active Directory Premium P2 attiva nel tenant. Il modello di licenza per le entità servizio verrà finalizzato per la disponibilità generale di questa funzionalità e potrebbero essere necessarie licenze aggiuntive.
 
 ## <a name="licenses-you-must-have"></a>Licenze che è necessario avere
 
@@ -73,3 +73,5 @@ Se un Azure AD Premium P2, EMS E5 o una licenza di valutazione scade, Privileged
 - [Distribuire Privileged Identity Management](pim-deployment-plan.md)
 - [Iniziare a usare Privileged Identity Management](pim-getting-started.md)
 - [Ruoli che non è possibile gestire in Privileged Identity Management](pim-roles.md)
+- [Creare una verifica di accesso dei ruoli delle risorse di Azure in PIM](pim-resource-roles-start-access-review.md)
+- [Creare una verifica di accesso dei ruoli Azure AD in PIM](pim-how-to-start-security-review.md)

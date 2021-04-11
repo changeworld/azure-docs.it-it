@@ -1,6 +1,6 @@
 ---
 title: Assegnare un criterio di accesso Azure Key Vault (portale)
-description: Come usare il portale di Azure per assegnare un criterio di accesso Key Vault a un'entità servizio o a un'identità di applicazione.
+description: Come usare il portale di Azure per assegnare un criterio di accesso Key Vault a un'entità di sicurezza o un'identità dell'applicazione.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 910b8dae10036cc2e396be13495fd28363dc971d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a64a91e6f41f3fba7584630380ffb878979b4389
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934561"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968765"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite il portale di Azure
 
-Un criterio di accesso Key Vault determina se una determinata entità servizio, ovvero un'applicazione o un gruppo di utenti, può eseguire diverse operazioni su Key Vault [segreti](../secrets/index.yml), [chiavi](../keys/index.yml)e [certificati](../certificates/index.yml). È possibile assegnare i criteri di accesso usando il portale di Azure (questo articolo), l'interfaccia della riga di comando di [Azure](assign-access-policy-cli.md)o [Azure PowerShell](assign-access-policy-powershell.md).
+Un criterio di accesso Key Vault determina se un'entità di sicurezza specificata, ovvero un utente, un'applicazione o un gruppo di utenti, può eseguire diverse operazioni su Key Vault [segreti](../secrets/index.yml), [chiavi](../keys/index.yml)e [certificati](../certificates/index.yml). È possibile assegnare i criteri di accesso usando il portale di Azure (questo articolo), l'interfaccia della riga di comando di [Azure](assign-access-policy-cli.md)o [Azure PowerShell](assign-access-policy-powershell.md).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
@@ -37,15 +37,15 @@ Per ulteriori informazioni sulla creazione di gruppi in Azure Active Directory t
 
     ![Specifica delle autorizzazioni dei criteri di accesso](../media/authentication/assign-policy-portal-02.png)
 
-1. In **Seleziona entità** scegliere il collegamento **Nessuno selezionato** per aprire il riquadro di selezione **principale** . Immettere il nome dell'app o dell'entità servizio nel campo di ricerca, selezionare il risultato appropriato, quindi scegliere **Seleziona**.
+1. In **Seleziona entità** scegliere il collegamento **Nessuno selezionato** per aprire il riquadro di selezione **principale** . Immettere il nome dell'utente, dell'app o dell'entità servizio nel campo di ricerca, selezionare il risultato appropriato, quindi scegliere **Seleziona**.
 
-    ![Selezione dell'entità servizio per i criteri di accesso](../media/authentication/assign-policy-portal-03.png)
+    ![Selezione dell'entità di sicurezza per i criteri di accesso](../media/authentication/assign-policy-portal-03.png)
 
     Se si usa un'identità gestita per l'app, cercare e selezionare il nome dell'app stessa. Per altre informazioni sulle identità gestite e sulle entità servizio, vedere [Key Vault autenticazione-identità dell'app e entità servizio](authentication.md#app-identity-and-security-principals).
  
 1.  Tornare al riquadro **Aggiungi criteri di accesso** e selezionare **Aggiungi** per salvare i criteri di accesso.
 
-    ![Aggiunta dei criteri di accesso con l'entità servizio assegnata](../media/authentication/assign-policy-portal-04.png)
+    ![Aggiunta dei criteri di accesso all'entità di sicurezza assegnata](../media/authentication/assign-policy-portal-04.png)
 
 1. Tornare alla pagina **criteri di accesso** , verificare che il criterio di accesso sia elencato in **criteri di accesso correnti**, quindi selezionare **Salva**. I criteri di accesso non vengono applicati fino a quando non vengono salvati.
 

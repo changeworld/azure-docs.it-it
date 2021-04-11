@@ -3,14 +3,14 @@ title: Distribuire un ruolo di lavoro ibrido per runbook di Linux in Automazione
 description: Questo articolo descrive come installare un ruolo di lavoro ibrido per Runbook di automazione di Azure per eseguire manuali operativi in computer basati su Linux nel Data Center locale o nell'ambiente cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/06/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 21bb3a353874e401d86741584d102b5c217e69cc
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182333"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030050"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -106,6 +106,31 @@ I ruoli di lavoro ibridi per Runbook di Linux supportano un set limitato di tipi
 Per i requisiti di rete per il ruolo di lavoro ibrido per Runbook, vedere [configurazione della rete](automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="install-a-linux-hybrid-runbook-worker"></a>Installare un ruolo di lavoro ibrido per runbook di Linux
+
+Esistono due metodi per distribuire un ruolo di lavoro ibrido per Runbook. È possibile importare ed eseguire un Runbook dalla raccolta di Runbook nel portale di Azure oppure è possibile eseguire manualmente una serie di comandi di PowerShell per eseguire la stessa attività.
+
+### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importazione di un Runbook dalla raccolta di Runbook
+
+La procedura di importazione è descritta in dettaglio in [importare manuali operativi da GitHub con il portale di Azure](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). Il nome del Runbook da importare è **creare HybridWorker di automazione Linux**.
+
+Runbook utilizza i seguenti parametri.
+
+| Parametro | Stato | Descrizione |
+| ------- | ----- | ----------- |
+| `Location` | Obbligatorio | Percorso per l'area di lavoro Log Analytics. |
+| `ResourceGroupName` | Obbligatorio | Il gruppo di risorse per l'account di automazione. |
+| `AccountName` | Obbligatorio | Nome dell'account di automazione in cui verrà registrato il ruolo di lavoro ibrido per l'esecuzione. |
+| `CreateLA` | Obbligatorio | Se true, usa il valore di `WorkspaceName` per creare un'area di lavoro log Analytics. Se false, il valore di `WorkspaceName` deve fare riferimento a un'area di lavoro esistente. |
+| `LAlocation` | Facoltativo | Il percorso in cui verrà creata l'area di lavoro Log Analytics o in cui è già presente. |
+| `WorkspaceName` | Facoltativo | Nome dell'area di lavoro Log Analytics da creare o utilizzare. |
+| `CreateVM` | Obbligatorio | Se true, usare il valore di `VMName` come nome di una nuova macchina virtuale. Se false, usare `VMName` per trovare e registrare una macchina virtuale esistente. |
+| `VMName` | Facoltativo | Nome della macchina virtuale creata o registrata, a seconda del valore di `CreateVM` . |
+| `VMImage` | Facoltativo | Nome dell'immagine di macchina virtuale da creare. |
+| `VMlocation` | Facoltativo | Percorso della VM creata o registrata. Se questo percorso non è specificato, viene usato il valore di `LAlocation` . |
+| `RegisterHW` | Obbligatorio | Se true, registrare la macchina virtuale come ruolo di lavoro ibrido. |
+| `WorkerGroupName` | Obbligatorio | Nome del gruppo di lavoro ibrido. |
+
+### <a name="manually-run-powershell-commands"></a>Eseguire manualmente i comandi di PowerShell
 
 Per installare e configurare un ruolo di lavoro ibrido per Runbook di Linux, seguire questa procedura.
 

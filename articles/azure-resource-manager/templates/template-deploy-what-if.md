@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: 76469f8b74b119c07374232899302fe1d18fe463
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ff024ff97baa8a80ae6b1fcdafba010e482afd98
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731463"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074623"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operazione di simulazione della distribuzione del modello di Resource Manager
 
@@ -32,7 +32,7 @@ Per ulteriori informazioni sull'installazione dei moduli, vedere [Install Azure 
 
 ## <a name="install-azure-cli-module"></a>Installare il modulo CLI di Azure
 
-Per usare la simulazione nell'interfaccia della riga di comando di Azure, è necessaria la versione 2.5.0 o una versione successiva. Se necessario, [installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Per usare l'interfaccia della riga di comando di Azure, è necessario disporre dell'interfaccia della riga di comando di Azure 2.14.0 o versione successiva. Se necessario, [installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="see-results"></a>See results (Visualizza risultati)
 
@@ -117,10 +117,10 @@ Se si vogliono restituire i risultati senza colori, aprire il file di [configura
 
 Per l'API REST, usare:
 
-* [Distribuzioni-What If](/rest/api/resources/resources/deployments/whatif) per le distribuzioni di gruppi di risorse
-* [Distribuzioni-What If nell'ambito della sottoscrizione](/rest/api/resources/resources/deployments/whatifatsubscriptionscope) per le distribuzioni di sottoscrizioni
-* [Distribuzioni-What If nell'ambito del gruppo di gestione](/rest/api/resources/resources/deployments/whatifatmanagementgroupscope) per le distribuzioni di gruppi di gestione
-* [Distribuzioni: What If nell'ambito del tenant](/rest/api/resources/resources/deployments/whatifattenantscope) per le distribuzioni tenant.
+* [Distribuzioni-What If](/rest/api/resources/deployments/whatif) per le distribuzioni di gruppi di risorse
+* [Distribuzioni-What If nell'ambito della sottoscrizione](/rest/api/resources/deployments/whatifatsubscriptionscope) per le distribuzioni di sottoscrizioni
+* [Distribuzioni-What If nell'ambito del gruppo di gestione](/rest/api/resources/deployments/whatifatmanagementgroupscope) per le distribuzioni di gruppi di gestione
+* [Distribuzioni: What If nell'ambito del tenant](/rest/api/resources/deployments/whatifattenantscope) per le distribuzioni tenant.
 
 ## <a name="change-types"></a>Tipi di modifiche
 

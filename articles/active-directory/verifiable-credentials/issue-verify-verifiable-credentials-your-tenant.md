@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: emettere e verificare le credenziali verificabili usando il tenant (anteprima)'
+title: 'Esercitazione: emettere e verificare le credenziali verificabili usando il tenant di Azure (anteprima)'
 description: Modificare l'esempio di codice delle credenziali verificabile per lavorare con il tenant di Azure
 documentationCenter: ''
 author: barclayn
@@ -10,14 +10,14 @@ ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 95d3ab19565ed04d9bf7d59ba7262d40b4971d34
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: e4772b6701065a44416d849faa9a501bd7895f27
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170180"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553380"
 ---
-# <a name="tutorial-issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Esercitazione: emettere e verificare le credenziali verificabili usando il tenant (anteprima)
+# <a name="tutorial---issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>Esercitazione: emettere e verificare le credenziali verificabili usando il tenant (anteprima)
 
 > [!IMPORTANT]
 > Azure Active Directory credenziali verificabili è attualmente disponibile in anteprima pubblica.
@@ -66,7 +66,7 @@ Registrare un'applicazione denominata "app Wallet VC" in Azure AD e ottenere un 
 
    ![endpoint dell'emittente](media/issue-verify-verifable-credentials-your-tenant/application-endpoints.png)
 
-## <a name="set-up-your-node-app-with-access-to-key-vault"></a>Configurare l'app node con accesso a Key Vault
+## <a name="set-up-your-node-app-with-access-to-azure-key-vault"></a>Configurare l'app node con accesso a Azure Key Vault
 
 Per autenticare la richiesta di rilascio delle credenziali di un utente, il sito Web dell'autorità emittente USA le chiavi crittografiche in Azure Key Vault. Per accedere a Azure Key Vault, il sito Web necessita di un ID client e di un segreto client che possono essere usati per eseguire l'autenticazione a Azure Key Vault.
 
@@ -183,7 +183,7 @@ Ci sono alcuni altri valori che è necessario ottenere prima di poter apportare 
 
    ![identificatore di chiave di accesso](media/issue-verify-verifable-credentials-your-tenant/issuer-signing-key-ion.png)
 
-### <a name="did-document"></a>Documento DID 
+### <a name="did-document"></a>Documento DID
 
 1. Aprire [dif Ion Network Explorer](https://identity.foundation/ion/explorer/)
 
@@ -308,7 +308,7 @@ Ora che sono state rilasciate le credenziali verificabili dal nostro tenant con 
     
    ![nuova richiesta di autorizzazione](media/enable-your-tenant-verifiable-credentials/new-permission-request.png)
 
-8. Non sono state verificate correttamente le credenziali e il sito Web deve visualizzare il nome e il cognome dall'account utente del Azure AD. 
+8. Le credenziali sono state verificate correttamente e il sito Web deve visualizzare il nome e il cognome dall'account utente del Azure AD. 
 
 A questo punto è stata completata l'esercitazione e si è ufficialmente un esperto di credenziali verificato. L'app di esempio usa il fatto per il rilascio e la verifica, durante la scrittura delle attestazioni in una credenziale verificabile dal Azure AD. 
 
