@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e5a4cc2b964bcf4fa49d90c8b6d5aa546b7148a1
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798885"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107946"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identità del dispositivo e virtualizzazione desktop
 
@@ -94,6 +94,23 @@ Quando si distribuisce un'infrastruttura VDI non persistente, Microsoft consigli
 - Definire e implementare il processo per la [gestione dei dispositivi non aggiornati](manage-stale-devices.md).
    - Quando si ha una strategia per identificare i dispositivi non persistenti Azure AD ibrido aggiunti (ad esempio, usando il prefisso del nome visualizzato del computer), è necessario essere più aggressivi per la pulizia di questi dispositivi per assicurarsi che la directory non venga usata con molti dispositivi non aggiornati.
    - Per le distribuzioni VDI non persistenti in Windows correnti e di livello inferiore, è consigliabile eliminare i dispositivi con **ApproximateLastLogonTimestamp** di età superiore a 15 giorni.
+
+> [!NOTE]
+> Quando si usa l'infrastruttura VDI non persistente, se si vuole impedire lo stato di aggiunta di un dispositivo, verificare che sia impostata la chiave del registro di sistema seguente:  
+> `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001`    
+>
+> Verificare che sia in esecuzione Windows 10, versione 1803 o successiva.  
+>
+> Il roaming di tutti i dati nel percorso `%localappdata%` non è supportato. Se si sceglie di spostare il contenuto in `%localappdata%` , verificare che il contenuto delle seguenti cartelle e chiavi del registro di sistema **non lasci mai** il dispositivo in nessuna condizione. Ad esempio: gli strumenti di migrazione del profilo devono ignorare le cartelle e le chiavi seguenti:
+>
+> * `%localappdata%\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy`
+> * `%localappdata%\Packages\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy`
+> * `%localappdata%\Packages\<any app package>\AC\TokenBroker`
+> * `%localappdata%\Microsoft\TokenBroker`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\IdentityCRL`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
+>
+
 
 ### <a name="persistent-vdi"></a>VDI persistente
 

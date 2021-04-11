@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 8946f6e94dd26db45622bc7609fb2375d59bb57e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 677c5998d25205f8de9792888af2554674944798
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102455383"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107565"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Connettersi alle API di Servizi multimediali v3 - .NET
 
@@ -29,7 +29,7 @@ Questo articolo spiega come connettersi all'SDK .NET di Servizi multimediali di 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md). Assicurarsi di ricordare il nome del gruppo di risorse e quello dell'account di Servizi multimediali
+- [Creare un account di Servizi multimediali di Azure](./account-create-how-to.md). Assicurarsi di ricordare il nome del gruppo di risorse e quello dell'account di Servizi multimediali
 - Installare uno strumento da usare per lo sviluppo in .NET. I passaggi descritti in questo articolo mostrano come usare [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Per usare Visual Studio Code, vedere [Working with C#](https://code.visualstudio.com/docs/languages/csharp) (Uso di C#). In alternativa, è possibile usare un altro editor di codice.
 
 > [!IMPORTANT]
@@ -237,14 +237,14 @@ namespace ConsoleApp1
 
 - [Esercitazione: Caricare, codificare ed eseguire lo streaming dei video - .NET](stream-files-tutorial-with-api.md) 
 - [Esercitazione: Eseguire lo streaming live con Servizi multimediali v3 - .NET](stream-live-tutorial-with-api.md)
-- [Esercitazione: Analizzare i video con Servizi multimediali v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Esercitazione: Analizzare i video con Servizi multimediali v3 - .NET](analyze-videos-tutorial.md)
 - [Creare un input del processo da un file locale - .NET](job-input-from-local-file-how-to.md)
 - [Creare un input del processo da un URL HTTPS - .NET](job-input-from-http-how-to.md)
-- [Codificare con una trasformazione personalizzata - .NET](customize-encoder-presets-how-to.md)
-- [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi - .NET](protect-with-aes128.md)
-- [Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM - .NET](protect-with-drm.md)
-- [Ottenere una chiave di firma dai criteri esistenti - .NET](get-content-key-policy-dotnet-howto.md)
-- [Creare filtri con Servizi multimediali - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Codificare con una trasformazione personalizzata - .NET](encode-custom-presets-how-to.md)
+- [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi - .NET](drm-playready-license-template-concept.md)
+- [Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM - .NET](drm-protect-with-drm-tutorial.md)
+- [Ottenere una chiave di firma dai criteri esistenti - .NET](drm-get-content-key-policy-dotnet-how-to.md)
+- [Creare filtri con Servizi multimediali - .NET](filters-dynamic-manifest-dotnet-how-to.md)
 - [Esempi di video on-demand avanzato di Funzioni di Azure v2 con Servizi multimediali v3](https://aka.ms/ams3functions)
 
 ## <a name="see-also"></a>Vedere anche

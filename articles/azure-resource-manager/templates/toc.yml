@@ -366,9 +366,12 @@
   items:
     - name: Creare modelli
       items:
-        - name: Struttura del file modello
+        - name: Struttura JSON
           displayName: 'parameters,variables,resources,outputs,condition'
           href: template-syntax.md
+        - name: Struttura bicipite
+          displayName: 'parameters,variables,resources,outputs,condition'
+          href: bicep-file.md
         - name: Scrivere espressioni di modello
           href: template-expressions.md
         - name: Parametri

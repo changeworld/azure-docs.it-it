@@ -3,12 +3,12 @@ title: Introduzione
 description: Informazioni sulle funzionalità e i vantaggi della soluzione Azure VMware per distribuire e gestire i carichi di lavoro basati su VMware in Azure.
 ms.topic: overview
 ms.date: 03/24/2021
-ms.openlocfilehash: a75c04cf6b51068ef9867e3f9438b2820da703fe
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 32dd73108dc12d7d7acc605f43a0fbf6d2cf1cd7
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048817"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107988"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Che cos'è la soluzione Azure VMware?
 
@@ -19,11 +19,6 @@ La soluzione Azure VMware è una soluzione approvata da VMware con convalide e t
 Il diagramma mostra l'adiacenza tra cloud privati e reti virtuali in Azure, servizi di Azure e ambienti locali. L'accesso di rete da cloud privati a servizi di Azure o reti virtuali offre l'integrazione basata su contratti di servizio degli endpoint servizio di Azure. Copertura globale ExpressRoute connette l'ambiente locale al cloud privato della soluzione Azure VMware. 
 
 ![Immagine dell'adiacenza del cloud privato della soluzione Azure VMware ad Azure e all'ambiente locale](./media/adjacency-overview-drawing-final.png)
-
-## <a name="customer-communication"></a>Comunicazione con i clienti
-Problemi relativi al servizio, manutenzione pianificata, avvisi di integrità, notifiche di avvisi di sicurezza vengono pubblicate tramite l' **integrità del servizio** nel portale di Azure. È possibile eseguire azioni tempestive quando si configurano gli avvisi del log attività per queste notifiche. Per altre informazioni, vedere [creare avvisi di integrità del servizio usando il portale di Azure](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
-
-:::image type="content" source="media/service-health.png" alt-text="Screenshot delle notifiche sull'integrità del servizio":::
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Host, cluster e cloud privati
 
@@ -60,6 +55,9 @@ Nel cloud privato è possibile:
 
 I modelli di monitoraggio nella soluzione Azure VMware sono simili alle macchine virtuali di Azure nella piattaforma IaaS. Per altre informazioni e per le procedure, vedere [Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure](../azure-monitor/vm/monitor-vm-azure.md).
 
+## <a name="customer-communication"></a>Comunicazione con i clienti
+[!INCLUDE [customer-communications](includes/customer-communications.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Il passaggio successivo prevede l'approfondimento dei [Concetti principali sul cloud privato e sui cluster](concepts-private-clouds-clusters.md).
@@ -68,3 +66,5 @@ Il passaggio successivo prevede l'approfondimento dei [Concetti principali sul c
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
+
+

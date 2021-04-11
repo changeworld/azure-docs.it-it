@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 06/09/2019
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9408adfe33fc71707532f3bf5646f3727fd7dda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b70d08363db212e5039690ceaaef5dbb55bcd65f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98955055"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107274"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Sottoclip di un video durante la codifica con servizi multimediali-.NET
 
@@ -31,9 +31,9 @@ Nell'esempio C# seguente viene creato un processo che consente di tagliare un vi
 
 Per completare i passaggi descritti in questo argomento, è necessario:
 
-- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md)
+- [Creare un account di Servizi multimediali di Azure](./account-create-how-to.md)
 - Creare una trasformazione e un asset di input e output. Per informazioni su come creare asset di trasformazione e di input e output, vedere l'esercitazione [caricare, codificare e trasmettere in flusso i video usando .NET](stream-files-tutorial-with-api.md) .
-- Esaminare l'argomento relativo al [concetto di codifica](encoding-concept.md) .
+- Esaminare l'argomento relativo al [concetto di codifica](encode-concept.md) .
 
 ## <a name="example"></a>Esempio
 
@@ -92,4 +92,4 @@ private static async Task<Job> JobWithBuiltInStandardEncoderWithSingleClipAsync(
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Come codificare con una trasformazione personalizzata](customize-encoder-presets-how-to.md) 
+[Come codificare con una trasformazione personalizzata](encode-custom-presets-how-to.md) 

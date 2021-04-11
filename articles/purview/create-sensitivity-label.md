@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f6e2474a533f5619d5544b674a87b6412323cc3
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502447"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166735"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etichettare automaticamente i dati in ambito Azure
 
@@ -96,7 +96,7 @@ Per applicare le etichette di riservatezza MIP alle risorse di Azure in ambito A
 Estendendo le etichette di riservatezza di MIP con Azure, le organizzazioni possono ora individuare, classificare e ottenere informazioni approfondite su una vasta gamma di origini dati, riducendo al minimo i rischi di conformità.
 
 > [!NOTE]
-> Poiché Microsoft 365 e Azure sono servizi distinti, è possibile che vengano distribuiti in aree diverse. I nomi di etichetta e i nomi dei tipi di informazioni riservate personalizzate sono considerati dati del cliente e vengono conservati nella stessa posizione geografica per impostazione predefinita per proteggere la riservatezza dei dati e per evitare leggi GDPR.
+> Poiché Microsoft 365 e Azure sono servizi distinti, è possibile che vengano distribuiti in aree diverse. I nomi di etichetta e i nomi dei tipi di informazioni riservate personalizzate sono considerati dati del cliente e vengono conservati nella stessa posizione geografica per impostazione predefinita per proteggere la riservatezza dei dati e per conformarsi alle normative sulla privacy.
 >
 > Per questo motivo, le etichette e i tipi di informazioni riservate personalizzate non vengono condivisi in Azure per impostazione predefinita e richiedono il consenso per usarli in Azure.
 

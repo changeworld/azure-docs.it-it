@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: a21411e4d1ee30e4f79687bfc07a53575497ca1f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea7eda7e50e7d8733fd24a63d533272e5bca6bab
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562223"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166684"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -22,6 +22,21 @@ In questo articolo vengono fornite informazioni sulle versioni Azure Machine Lea
 
 __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggiornata copiando e incollando l'URL seguente nel lettore di feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## <a name="2021-03-31"></a>2021-03-31
+### <a name="azure-machine-learning-studio-notebooks-experience-march-update"></a>Esperienza di Azure Machine Learning Studio notebook (aggiornamento di marzo)
++ **Nuove funzionalità**
+  + Rendering CSV/TSV. Gli utenti saranno in grado di eseguire il rendering del file TSV/CSV in un formato griglia per semplificare l'analisi dei dati. 
+  + Autenticazione SSO per l'istanza di calcolo. Gli utenti possono ora autenticare facilmente le nuove istanze di calcolo direttamente nell'interfaccia utente del notebook, semplificando l'autenticazione e l'uso di Azure SDK direttamente in AzureML. 
+  + Metriche dell'istanza di calcolo. Gli utenti potranno visualizzare le metriche di calcolo, ad esempio l'utilizzo della CPU e la memoria tramite terminale.
+  + Dettagli del file. Gli utenti possono ora visualizzare i dettagli dei file, tra cui l'ora dell'Ultima modifica e le dimensioni del file, facendo clic sui 3 puntini accanto a un file.
+
++ **Correzioni di bug e miglioramenti**
+  + Tempi di caricamento delle pagine migliorati.
+  + Prestazioni migliorate.
+  + Maggiore affidabilità del kernel e della velocità.
+  + Ottenere una proprietà reale verticale spostando in modo permanente il riquadro dei file del notebook
+  + I collegamenti sono ora selezionabili nel terminale
+  + Miglioramento delle prestazioni di IntelliSense
 
 ## <a name="2021-03-08"></a>2021-03-08
 

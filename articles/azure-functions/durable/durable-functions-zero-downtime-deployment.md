@@ -7,10 +7,10 @@ ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 707d624c47c536e00e98910a8902772703733515
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102558764"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Distribuzione senza tempi di inattività per Durable Functions
@@ -60,42 +60,42 @@ Il diagramma seguente illustra la configurazione descritta degli slot di distrib
 
 ![Slot di distribuzione e account di archiviazione](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>host.jsesempi
+### <a name="hostjson-examples&quot;></a>host.jsesempi
 
 I frammenti JSON seguenti sono esempi di impostazioni della stringa di connessione nel *host.jssu* file.
 
-#### <a name="functions-20"></a>Funzioni 2,0
+#### <a name=&quot;functions-20&quot;></a>Funzioni 2,0
 
 ```json
 {
-  "version": 2.0,
-  "extensions": {
-    "durableTask": {
-      "hubName": "MyTaskHub",
-      "storageProvider": {
-        "connectionStringName": "DurableManagementStorage"
+  &quot;version&quot;: 2.0,
+  &quot;extensions&quot;: {
+    &quot;durableTask&quot;: {
+      &quot;hubName&quot;: &quot;MyTaskHub&quot;,
+      &quot;storageProvider&quot;: {
+        &quot;connectionStringName&quot;: &quot;DurableManagementStorage&quot;
       }
     }
   }
 }
 ```
 
-#### <a name="functions-1x"></a>Funzioni 1.x
+#### <a name=&quot;functions-1x&quot;></a>Funzioni 1.x
 
 ```json
 {
-  "durableTask": {
-    "azureStorageConnectionStringName": "DurableManagementStorage"
+  &quot;durableTask&quot;: {
+    &quot;azureStorageConnectionStringName&quot;: &quot;DurableManagementStorage&quot;
   }
 }
 ```
 
-### <a name="cicd-pipeline-configuration"></a>Configurazione della pipeline CI/CD
+### <a name=&quot;cicd-pipeline-configuration&quot;></a>Configurazione della pipeline CI/CD
 
 Configurare la pipeline CI/CD per la distribuzione solo quando l'app per le funzioni non dispone di istanze di orchestrazione in sospeso o in esecuzione. Quando si usa Azure Pipelines, è possibile creare una funzione che controlla le condizioni, come nell'esempio seguente:
 
 ```csharp
-[FunctionName("StatusCheck")]
+[FunctionName(&quot;StatusCheck")]
 public static async Task<IActionResult> StatusCheck(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
     [DurableClient] IDurableOrchestrationClient client,

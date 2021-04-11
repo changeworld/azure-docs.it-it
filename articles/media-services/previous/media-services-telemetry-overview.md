@@ -120,7 +120,7 @@ Proprietà|Valore|Esempi/note
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Tipo|Tipo|Canale
+Tipo|Tipo|Channel
 Nome|Nome|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2568fc2ea133a0cdd49e0a2577ce1e580056a74c
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104783133"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
@@ -78,8 +78,8 @@ Nell'elenco seguente vengono presentati i passaggi di base del processo. La solu
 
 * **Data Factory sposta i risultati finali in un terzo percorso,** per la distribuzione tramite un'app o per una successiva elaborazione con altri strumenti.
 
-## <a name="implementation-of-the-sample-solution"></a>Implementazione della soluzione di esempio
-La soluzione di esempio è volutamente semplice. È progettata per illustrare come usare Data Factory e Batch insieme ai set di dati di processo. La soluzione conta semplicemente il numero di occorrenze del termine di ricerca ("Microsoft") nei file di input organizzati in una serie temporale. Restituisce quindi il numero in file di output.
+## <a name="implementation-of-the-sample-solution&quot;></a>Implementazione della soluzione di esempio
+La soluzione di esempio è volutamente semplice. È progettata per illustrare come usare Data Factory e Batch insieme ai set di dati di processo. La soluzione conta semplicemente il numero di occorrenze del termine di ricerca (&quot;Microsoft") nei file di input organizzati in una serie temporale. Restituisce quindi il numero in file di output.
 
 **Tempo:** se si ha familiarità con le nozioni di base di Azure, Azure Data Factory e Azure Batch e sono stati completati i prerequisiti elencati di seguito, il completamento di questa soluzione richiede da una a due ore.
 

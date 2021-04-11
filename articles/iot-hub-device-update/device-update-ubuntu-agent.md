@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ee09928cab6419d799d06de9cf2f69987e42d157
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 751e9337d74210d238be079e8fcd1bb973937846
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644441"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936853"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Esercitazione 18,04 sull'aggiornamento del dispositivo per l'hub di Azure
 
@@ -19,7 +19,7 @@ L'aggiornamento del dispositivo per l'hub Internet supporta due forme di aggiorn
 
 Gli aggiornamenti basati su pacchetti sono aggiornamenti mirati che modificano solo un componente o un'applicazione specifica nel dispositivo. In questo modo si riduce il consumo di larghezza di banda e si riduce il tempo necessario per scaricare e installare l'aggiornamento. Gli aggiornamenti dei pacchetti consentono in genere un minor tempo di inattività per i dispositivi quando si applica un aggiornamento ed evitano il sovraccarico della creazione di immagini.
 
-Questa esercitazione illustra i passaggi per completare un aggiornamento basato su pacchetti end-to-end tramite l'aggiornamento del dispositivo per l'hub Internet. Per questa esercitazione viene usato un server Ubuntu 18,04 x64 che esegue Azure IoT Edge e l'agente del pacchetto di aggiornamento del dispositivo. L'esercitazione illustra l'aggiornamento di un pacchetto di esempio, ma l'uso di passaggi simili permette di aggiornare altri pacchetti, ad esempio Azure IoT Edge o il motore di contenitori usato.
+Questa esercitazione end-to-end illustra l'aggiornamento di Azure IoT Edge in Ubuntu server 18,04 x64 con l'agente del pacchetto di aggiornamento del dispositivo. Anche se nell'esercitazione viene illustrato l'aggiornamento di IoT Edge, è possibile aggiornare altri pacchetti, ad esempio il motore di contenitori usato.
 
 Gli strumenti e i concetti in questa esercitazione si applicano anche se si prevede di usare una configurazione della piattaforma del sistema operativo diversa. Completare questa introduzione a un processo di aggiornamento end-to-end, quindi scegliere la forma preferita di aggiornamento e piattaforma del sistema operativo per approfondire i dettagli.
 

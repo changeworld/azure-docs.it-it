@@ -10,10 +10,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 3b7f6f63953ba09e57e4586c698e16b9abb8aa1c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555279"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Crittografia dischi di Azure con Azure AD per macchine virtuali Windows (versione precedente)
@@ -64,7 +64,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per lo sc
 | subnetName | Nome della subnet nella rete virtuale a cui deve appartenere la scheda di interfaccia di rete della VM. |
 | AADClientID | ID client dell'applicazione Azure AD con le autorizzazioni per la scrittura di segreti nell'insieme di credenziali delle chiavi. |
 | AADClientSecret | Segreto client dell'applicazione Azure AD con le autorizzazioni per la scrittura di segreti nell'insieme di credenziali delle chiavi. |
-| keyVaultURL | URL dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` o l'interfaccia della riga di comando di Azure `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
+| keyVaultURL | URL dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -VaultName "MyKeyVault&quot; -ResourceGroupName &quot;MyKeyVaultResourceGroupName").VaultURI` o l'interfaccia della riga di comando di Azure `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
 | keyEncryptionKeyURL | URL della chiave di crittografia della chiave usata per crittografare la chiave BitLocker generata (facoltativo). </br> </br>KeyEncryptionKeyURL è un parametro facoltativo. È possibile specificare la chiave di crittografia della chiave (KEK) personalizzata per la protezione aggiuntiva della chiave DEK (segreto passphrase) nell'insieme di credenziali delle chiavi. |
 | keyVaultResourceGroup | Gruppo di risorse dell'insieme di credenziali delle chiavi. |
 | vmName | Nome della VM in cui deve essere eseguita l'operazione di crittografia. |
