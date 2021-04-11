@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/10/2020
 ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103564321"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapping di flussi di dati in Azure Data Factory
@@ -33,11 +33,11 @@ I flussi di dati vengono creati dal riquadro risorse Factory, ad esempio pipelin
 
 Questa azione consente di passare all'area di disegno del flusso di dati, in cui è possibile creare la logica di trasformazione. Selezionare **Aggiungi origine** per avviare la configurazione della trasformazione origine. Per ulteriori informazioni, vedere [trasformazione origine](data-flow-source.md).
 
-## <a name="authoring-data-flows"></a>Creazione di flussi di dati
+## <a name="authoring-data-flows&quot;></a>Creazione di flussi di dati
 
 Il mapping di un flusso di dati dispone di un'area di disegno univoca progettata per semplificare la creazione della logica di trasformazione. L'area di disegno del flusso di dati è suddivisa in tre parti: la barra superiore, il grafico e il pannello di configurazione. 
 
-![Screenshot mostra l'area di disegno del flusso di dati con la barra superiore, il grafico e il pannello di configurazione con etichetta.](media/data-flow/canvas-1.png "Canvas")
+![Screenshot mostra l'area di disegno del flusso di dati con la barra superiore, il grafico e il pannello di configurazione con etichetta.](media/data-flow/canvas-1.png &quot;Canvas")
 
 ### <a name="graph"></a>Grafico
 
@@ -63,11 +63,11 @@ La scheda **ottimizza** contiene le impostazioni per la configurazione degli sch
 
 ![Screenshot mostra la scheda Ottimizza, che include l'opzione di partizione, il tipo di partizione e il numero di partizioni.](media/data-flow/optimize.png)
 
-#### <a name="inspect"></a>Controllare
+#### <a name="inspect&quot;></a>Controllare
 
 La scheda **Controlla** fornisce una visualizzazione dei metadati del flusso di dati che si sta trasformando. È possibile visualizzare i conteggi delle colonne, le colonne modificate, le colonne aggiunte, i tipi di dati, l'ordine delle colonne e i riferimenti alle colonne. **Esaminare** è una visualizzazione di sola lettura dei metadati. Non è necessario che la modalità di debug sia abilitata per visualizzare i metadati nel riquadro di **controllo** .
 
-![Controllare](media/data-flow/inspect1.png "Controllare")
+![Controllare](media/data-flow/inspect1.png &quot;Controllare")
 
 Quando si modifica la forma dei dati tramite le trasformazioni, il flusso delle modifiche dei metadati verrà visualizzato nel riquadro **Controlla** . Se non è presente uno schema definito nella trasformazione origine, i metadati non saranno visibili nel riquadro **ispezione** . La mancanza di metadati è comune negli scenari di drifting dello schema.
 

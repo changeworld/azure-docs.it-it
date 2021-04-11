@@ -6,10 +6,10 @@ manager: gaggupta
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.openlocfilehash: a58ec80c13ee9ae0eceb019ab2fd7909fd6f369b
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889281"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicare le macchine virtuali di Azure in esecuzione nei gruppi di posizionamento di prossimità in un'altra area

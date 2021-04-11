@@ -9,20 +9,29 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b9de4ffe3011bbb8345a6a8c4a92ef5bd1d4559
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ac9cef77569dffe461f7711195c5638e831aa218
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728420"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110105"
 ---
 # <a name="calling-sdk-overview"></a>Panoramica dell'SDK chiamante
 
-Sono disponibili due famiglie separate di chiamate ad SDK per *client* e *servizi.* Gli SDK attualmente disponibili sono destinati all'esperienza degli utenti finali: siti Web e app native.
+L'SDK chiamante consente ai dispositivi degli utenti finali di guidare le esperienze di comunicazione vocale e video. Questa pagina fornisce descrizioni dettagliate delle funzionalità di chiamata, incluse le informazioni di supporto per piattaforma e browser. Per iniziare subito, consultare la pagina relativa alla [chiamata alle guide introduttive](../../quickstarts/voice-video-calling/getting-started-with-calling.md) o all' [esempio di chiamata a Hero](../../samples/calling-hero-sample.md). 
 
-Gli SDK del servizio non sono ancora disponibili e forniscono l'accesso ai piani dati vocali e video non elaborati, adatti per l'integrazione con i bot e altri servizi.
+Una volta avviata la fase di sviluppo, consultare la pagina relativa ai [problemi noti](../known-issues.md) per trovare i bug su cui si sta lavorando.
 
-## <a name="calling-sdk-capabilities"></a>Chiamata di funzionalità SDK
+Funzionalità principali dell'SDK chiamante:
+
+- **Indirizzamento** : i servizi di comunicazione di Azure forniscono [identità](../identity-model.md) generiche che vengono usate per indirizzare gli endpoint di comunicazione. I client usano queste identità per l'autenticazione al servizio e comunicano tra loro. Queste identità vengono usate per chiamare le API che consentono ai client di visualizzare gli utenti connessi a una chiamata (roster).
+- **Crittografia** : l'SDK chiamante crittografa il traffico e impedisce la manomissione in transito. 
+- **Gestione e supporto dei dispositivi** : l'SDK chiamante fornisce le funzionalità per l'associazione a dispositivi audio e video, codifica il contenuto per una trasmissione efficiente attraverso i DataPlan di comunicazione ed esegue il rendering del contenuto nei dispositivi e nelle visualizzazioni di output specificati. Le API sono fornite anche per la condivisione di applicazioni e schermate.
+- **PSTN** : l'SDK chiamante può ricevere e avviare chiamate vocali con il tradizionale sistema di telefonia a commutazione pubblica, [usando i numeri di telefono acquisiti nel portale di Azure](../../quickstarts/telephony-sms/get-phone-number.md) o a livello di codice.
+- **Riunioni dei team** : l'SDK chiamante può [partecipare alle riunioni](../../quickstarts/voice-video-calling/get-started-teams-interop.md) dei team e interagire con il dataplaning del team e del video. 
+- **Notifiche** : l'SDK chiamante fornisce API che consentono ai client di ricevere notifiche di una chiamata in ingresso. In situazioni in cui l'app non è in esecuzione in primo piano, sono disponibili modelli per [attivare le notifiche popup](../notifications.md) ("toast") per informare gli utenti finali di una chiamata in ingresso. 
+
+## <a name="detailed-capabilities"></a>Funzionalità dettagliate 
 
 L'elenco seguente presenta il set di funzionalità attualmente disponibili nei servizi di comunicazione di Azure che chiamano gli SDK.
 
@@ -33,30 +42,30 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nei s
 |                   | Alzare di livello una chiamata uno-a-uno con due utenti in una chiamata di gruppo con più di due utenti                                 | ✔️   | ✔️            | ✔️
 |                   | Partecipare a una chiamata di gruppo dopo che è stata avviata                                                                              | ✔️   | ✔️            | ✔️
 |                   | Invitare un altro utente VoIP a partecipare a una chiamata di gruppo in corso                                                       | ✔️   | ✔️            | ✔️
-|  Controllo della chiamata intermedia | Attivare/Disattivare il video                                                                                              | ✔️   | ✔️            | ✔️ 
-|                   | Attivare/Disattivare il microfono                                                                                                     | ✔️   | ✔️            | ✔️         
-|                   | Passare da una fotocamera all'altra                                                                                              | ✔️   | ✔️            | ✔️           
-|                   | Bloccare/Sbloccare chiamata locale                                                                                                  | ✔️   | ✔️            | ✔️           
-|                   | Altoparlante attivo                                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Scegliere l'altoparlante per le chiamate                                                                                            | ✔️   | ✔️            | ✔️           
-|                   | Scegliere il microfono per le chiamate                                                                                         | ✔️   | ✔️            | ✔️           
-|                   | Mostrare lo stato di un partecipante<br/>*Inattivo, Contenuto multimediale anticipato, Connessione in corso, Connesso, In attesa, In sala di attesa, Disconnesso*         | ✔️   | ✔️            | ✔️           
-|                   | Mostrare lo stato di una chiamata<br/>*Contenuto multimediale anticipato, In arrivo, Connessione in corso, Chiamata in corso, Connesso, In attesa, Disconnessione in corso, Disconnesso* | ✔️   | ✔️            | ✔️           
-|                   | Mostrare se un partecipante ha l'audio disattivato                                                                                      | ✔️   | ✔️            | ✔️           
-|                   | Mostrare il motivo per cui un partecipante ha abbandonato una chiamata                                                                       | ✔️   | ✔️            | ✔️     
-| Condivisione schermo    | Condividere l'intero schermo dall'applicazione                                                                 | ✔️   | ❌            | ❌           
-|                   | Condividere un'applicazione specifica (dall'elenco delle applicazioni in esecuzione)                                                | ✔️   | ❌            | ❌           
-|                   | Condividere una scheda del Web browser dall'elenco delle schede aperte                                                                  | ✔️   | ❌            | ❌           
-|                   | Il partecipante può visualizzare la condivisione dello schermo remoto                                                                            | ✔️   | ✔️            | ✔️         
-| Registro            | Elencare i partecipanti                                                                                                   | ✔️   | ✔️            | ✔️           
-|                   | Rimuovere un partecipante                                                                                                | ✔️   | ✔️            | ✔️         
-| PSTN              | Inserire una chiamata uno-a-uno con un partecipante PSTN                                                                     | ✔️   | ✔️            | ✔️   
+|  Controllo della chiamata intermedia | Attivare/Disattivare il video                                                                                              | ✔️   | ✔️            | ✔️
+|                   | Attivare/Disattivare il microfono                                                                                                     | ✔️   | ✔️            | ✔️
+|                   | Passare da una fotocamera all'altra                                                                                              | ✔️   | ✔️            | ✔️
+|                   | Bloccare/Sbloccare chiamata locale                                                                                                  | ✔️   | ✔️            | ✔️
+|                   | Altoparlante attivo                                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Scegliere l'altoparlante per le chiamate                                                                                            | ✔️   | ✔️            | ✔️
+|                   | Scegliere il microfono per le chiamate                                                                                         | ✔️   | ✔️            | ✔️
+|                   | Mostrare lo stato di un partecipante<br/>*Inattivo, Contenuto multimediale anticipato, Connessione in corso, Connesso, In attesa, In sala di attesa, Disconnesso*         | ✔️   | ✔️            | ✔️
+|                   | Mostrare lo stato di una chiamata<br/>*Contenuto multimediale anticipato, In arrivo, Connessione in corso, Chiamata in corso, Connesso, In attesa, Disconnessione in corso, Disconnesso* | ✔️   | ✔️            | ✔️
+|                   | Mostrare se un partecipante ha l'audio disattivato                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Mostrare il motivo per cui un partecipante ha abbandonato una chiamata                                                                       | ✔️   | ✔️            | ✔️
+| Condivisione schermo    | Condividere l'intero schermo dall'applicazione                                                                 | ✔️   | ❌            | ❌
+|                   | Condividere un'applicazione specifica (dall'elenco delle applicazioni in esecuzione)                                                | ✔️   | ❌            | ❌
+|                   | Condividere una scheda del Web browser dall'elenco delle schede aperte                                                                  | ✔️   | ❌            | ❌
+|                   | Il partecipante può visualizzare la condivisione dello schermo remoto                                                                            | ✔️   | ✔️            | ✔️
+| Registro            | Elencare i partecipanti                                                                                                   | ✔️   | ✔️            | ✔️
+|                   | Rimuovere un partecipante                                                                                                | ✔️   | ✔️            | ✔️
+| PSTN              | Inserire una chiamata uno-a-uno con un partecipante PSTN                                                                     | ✔️   | ✔️            | ✔️
 |                   | Inserire una chiamata di gruppo con partecipanti PSTN                                                                           | ✔️   | ✔️            | ✔️
 |                   | Alzare di livello una chiamata uno-a-uno con un partecipante PSTN in una chiamata di gruppo                                                 | ✔️   | ✔️            | ✔️
-|                   | Disconnettersi da una chiamata di gruppo come partecipante PSTN                                                                    | ✔️   | ✔️            | ✔️   
-| Generale           | Testare microfono, altoparlante e fotocamera con un servizio di test audio (disponibile chiamando 8:echo123)                   | ✔️   | ✔️            | ✔️ 
+|                   | Disconnettersi da una chiamata di gruppo come partecipante PSTN                                                                    | ✔️   | ✔️            | ✔️
+| Generale           | Testare microfono, altoparlante e fotocamera con un servizio di test audio (disponibile chiamando 8:echo123)                   | ✔️   | ✔️            | ✔️
 | Gestione dei dispositivi | Richiedi l'autorizzazione per l'uso di audio e/o video                                                                       | ✔️   | ✔️            | ✔️
-|                   | Ottenere l'elenco di fotocamere                                                                                                     | ✔️   | ✔️            | ✔️ 
+|                   | Ottenere l'elenco di fotocamere                                                                                                     | ✔️   | ✔️            | ✔️
 |                   | Imposta fotocamera                                                                                                          | ✔️   | ✔️            | ✔️
 |                   | Ottenere la fotocamera selezionata                                                                                                 | ✔️   | ✔️            | ✔️
 |                   | Ottenere l'elenco di microfoni                                                                                                 | ✔️   | ✔️            | ✔️
@@ -66,7 +75,7 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nei s
 |                   | Imposta altoparlante                                                                                                         | ✔️   | ✔️            | ✔️
 |                   | Ottieni altoparlante selezionato                                                                                                | ✔️   | ✔️            | ✔️
 | Rendering video   | Eseguire il rendering di un singolo video in molte posizioni (fotocamera locale o flusso remoto)                                                  | ✔️   | ✔️            | ✔️
-|                   | Imposta/Aggiorna modalità di ridimensionamento                                                                                           | ✔️   | ✔️            | ✔️ 
+|                   | Imposta/Aggiorna modalità di ridimensionamento                                                                                           | ✔️   | ✔️            | ✔️
 |                   | Rendering del flusso video remoto                                                                                          | ✔️   | ✔️            | ✔️
 
 ## <a name="calling-sdk-streaming-support"></a>Chiamata del supporto di streaming SDK
@@ -95,7 +104,7 @@ I timeout seguenti si applicano ai servizi di comunicazione che chiamano gli SDK
 
 La tabella seguente rappresenta il set di browser supportati attualmente disponibili. Sono supportate le ultime tre versioni del browser, se non diversamente specificato.
 
-| Piattaforma                         | Chrome | Safari  | Bordo (cromo) | 
+| Piattaforma                         | Chrome | Safari  | Bordo (cromo) |
 | -------------------------------- | -------| ------  | --------------  |
 | Android                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
@@ -103,9 +112,9 @@ La tabella seguente rappresenta il set di browser supportati attualmente disponi
 | Windows * * *                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
-* Le versioni di Safari 13.1 + sono supportate, 1:1 le chiamate non sono supportate in Safari. 
+* Le versioni di Safari 13.1 + sono supportate, 1:1 le chiamate non sono supportate in Safari.
 
-* * Safari 14 +/macOS 11 + necessario per il supporto video in uscita. 
+* * Safari 14 +/macOS 11 + necessario per il supporto video in uscita.
 
 La condivisione dello schermo in uscita è supportata solo sulle piattaforme desktop (Windows, macOS e Linux), indipendentemente dalla versione del browser e non è supportata in nessuna piattaforma per dispositivi mobili (Android, iOS, iPad e Tablet).
 

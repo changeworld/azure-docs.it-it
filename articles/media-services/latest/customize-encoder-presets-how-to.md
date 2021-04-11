@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: eb72c34489755dad17700a16a5109824ad892e83
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d6b147d4dc71e345022f9f9e8dc2776ca564183
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553273"
+ms.locfileid: "105962408"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Come codificare con una trasformazione personalizzata-.NET
 
@@ -34,7 +34,7 @@ Quando si creano set di impostazioni personalizzati, si applicano le considerazi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Creare un account di Servizi multimediali di Azure.](./create-account-howto.md)
+[Creare un account di Servizi multimediali di Azure.](./account-create-how-to.md)
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 

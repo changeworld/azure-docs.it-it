@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b55fe0bf404ecb8a81e3fe1975dfa9f5ba5dfb06
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91274234"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103352"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Gestione delle sessioni VPN da punto a sito
 
@@ -32,6 +32,8 @@ Per visualizzare e disconnettere una sessione nel portale:
    :::image type="content" source="./media/p2s-session-management/portal.png" alt-text="Esempio di portale":::
 1. È possibile visualizzare tutte le sessioni correnti nella finestra di vetro.
 1. Selezionare **"..."** per la sessione che si desidera disconnettere, quindi selezionare **Disconnetti**.
+
+Attualmente, non è possibile usare questa funzionalità nel portale per gli SKU VpnGw4 e VpnGw5. Se si dispone di uno di questi gateway, usare il metodo PowerShell descritto nella sezione successiva.
 
 ## <a name="powershell"></a>PowerShell
 

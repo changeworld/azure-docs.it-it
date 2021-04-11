@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 496a8dba9b9ea7fb82ad9016479154d6a61cb767
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c2d4181a80f48f5f6dd5775e6eb3bd172a65df8
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98703276"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209630"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -72,7 +72,7 @@ Per iniziare a usare SSPR, completare l'esercitazione seguente:
 
 ## <a name="require-users-to-register-when-they-sign-in"></a>Richiedere agli utenti di registrarsi all'accesso
 
-È possibile abilitare l'opzione per richiedere a un utente di completare la registrazione SSPR se accedono a qualsiasi applicazione usando Azure AD. Questo flusso di lavoro include le applicazioni seguenti:
+È possibile abilitare l'opzione per richiedere a un utente di completare la registrazione SSPR se usa l'autenticazione moderna o il Web browser per accedere a qualsiasi applicazione con Azure AD. Questo flusso di lavoro include le applicazioni seguenti:
 
 * Microsoft 365
 * Portale di Azure

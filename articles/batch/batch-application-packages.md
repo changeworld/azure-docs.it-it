@@ -7,12 +7,12 @@ ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
 - contperf-fy21q1
-ms.openlocfilehash: d0ed5cc47694d6576e6aea46b62dfab8ecb73459
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 17729b2b6a2c4faba0554339a382cad559e9894a
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045791"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210500"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
 
@@ -61,7 +61,7 @@ Con i pacchetti dell'applicazione non è necessario che l'attività di avvio del
 È possibile usare il [portale di Azure](https://portal.azure.com) o le API Management di Batch per gestire i pacchetti dell'applicazione nell'account Batch. Le sezioni seguenti illustrano come collegare un account di archiviazione e come aggiungere e gestire le applicazioni e i pacchetti dell'applicazione nella portale di Azure.
 
 > [!NOTE]
-> Sebbene sia possibile definire i valori dell'applicazione nella [Microsoft.Batrisorsa ch/batchAccounts](/templates/microsoft.batch/batchaccounts) di un [modello ARM](quick-create-template.md), non è attualmente possibile usare un modello ARM per caricare i pacchetti dell'applicazione da usare nell'account batch. È necessario caricarli nell'account di archiviazione collegato come descritto di [seguito](#add-a-new-application).
+> Sebbene sia possibile definire i valori dell'applicazione nella [Microsoft.Batrisorsa ch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts) di un [modello ARM](quick-create-template.md), non è attualmente possibile usare un modello ARM per caricare i pacchetti dell'applicazione da usare nell'account batch. È necessario caricarli nell'account di archiviazione collegato come descritto di [seguito](#add-a-new-application).
 
 ### <a name="link-a-storage-account"></a>Collegare un account di archiviazione
 

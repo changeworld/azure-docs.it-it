@@ -79,13 +79,12 @@
           href: tokens-overview.md
         - name: Richiedere il token di accesso
           href: access-tokens.md
-    - name: Chiavi dei criteri
-      href: policy-keys-overview.md
-    - name: Flussi degli utenti e criteri
+    - name: Esperienza utente
+      expanded: true
       items:
-        - name: Flussi degli utenti
+        - name: Flussi utente e criteri personalizzati
           href: user-flow-overview.md
-        - name: Criteri personalizzati
+        - name: Panoramica dei criteri personalizzati
           href: custom-policy-overview.md
     - name: Account utente
       href: user-overview.md
@@ -93,6 +92,8 @@
       href: user-profile-attributes.md
     - name: Identity Protection e Accesso condizionale
       href: conditional-access-identity-protection-overview.md
+    - name: Chiavi dei criteri
+      href: policy-keys-overview.md
 - name: Guide pratiche
   items:
     - name: Integrazione di app
@@ -268,8 +269,6 @@
           href: add-api-connector.md
     - name: Criteri personalizzati
       items:
-        - name: Panoramica dei criteri personalizzati
-          href: custom-policy-trust-frameworks.md
         - name: Introduzione ai criteri personalizzati
           href: custom-policy-get-started.md
         - name: Verifica personalizzata tramite posta elettronica
@@ -298,9 +297,8 @@
             - name: Raccogliere i log tramite Application Insights
               href: troubleshoot-with-application-insights.md
               displayName: 'troubleshooting, app insights'
-            - name: Convalida dei criteri
+            - name: Risoluzione dei problemi relativi ai criteri personalizzati
               href: troubleshoot-custom-policies.md
-              displayName: troubleshooting
         - name: Informazioni di riferimento
           items:
             - name: TrustFrameworkPolicy

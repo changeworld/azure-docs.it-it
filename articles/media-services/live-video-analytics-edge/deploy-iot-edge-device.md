@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2fdf95be0966702f58afbb9df8e09a1688f9b204
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718931"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961558"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -25,7 +25,7 @@ Questo articolo elenca i passaggi che consentono di distribuire analisi video in
 * [Creare e configurare l'hub Internet](../../iot-hub/iot-hub-create-through-portal.md)
 * [Registrare IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
 * [Installare il runtime Azure IoT Edge in sistemi Linux basati su Debian](../../iot-edge/how-to-install-iot-edge.md)
-* [Creare un account di Servizi multimediali di Azure](../latest/create-account-howto.md)
+* [Creare un account di Servizi multimediali di Azure](../latest/account-create-how-to.md)
 
     * Usare una di queste aree: Stati Uniti orientali 2, Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale, Regno Unito meridionale, Francia centrale, Francia meridionale, Svizzera settentrionale, Svizzera occidentale e Giappone occidentale.
     * Si consiglia di usare gli account di archiviazione GPv2 (General-Purpose v2)

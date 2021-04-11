@@ -10,10 +10,10 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.openlocfilehash: 456aaf20c0b6d198ae353490d961a69a319b6601
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105045111"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Gestire il servizio ricerca cognitiva di Azure con l'interfaccia della riga di comando di Azure
@@ -32,9 +32,9 @@ ms.locfileid: "105045111"
 > * [Restituisci informazioni sul servizio](#get-search-service-information)
 > * [Creare o eliminare un servizio](#create-or-delete-a-service)
 > * [Creazione di un servizio con un endpoint privato](#create-a-service-with-a-private-endpoint)
-> * [Rigenera chiavi API di amministrazione](#regenerate-admin-keys)
+> * [Rigenerare le chiavi API di amministrazione](#regenerate-admin-keys)
 > * [Creare o eliminare chiavi API di query](#create-or-delete-query-keys)
-> * [Scalabilità verticale con repliche e partizioni](#scale-replicas-and-partitions)
+> * [Aumentare o ridurre la quantità di repliche e partizioni](#scale-replicas-and-partitions)
 > * [Creare una risorsa di collegamento privato condiviso](#create-a-shared-private-link-resource)
 
 In alcuni casi, vengono poste domande sulle attività *non* presenti nell'elenco precedente. Attualmente, non è possibile usare il modulo **AZ Search** o l'API REST di gestione per modificare il nome, l'area o il livello del server. Le risorse dedicate vengono allocate quando viene creato un servizio. Di conseguenza, la modifica dell'hardware sottostante (tipo di percorso o nodo) richiede un nuovo servizio. Analogamente, non sono disponibili strumenti o API per il trasferimento di contenuto, ad esempio un indice, da un servizio a un altro.

@@ -4,10 +4,10 @@ description: Informazioni sulle regole di azione in monitoraggio di Azure e su c
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105036782"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)

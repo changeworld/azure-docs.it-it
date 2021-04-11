@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Previsione della domanda e AutoML'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come eseguire il training e la distribuzione di un modello di previsione della domanda con Machine Learning automatizzato in Azure Machine Learning Studio.
+description: Eseguire il training e distribuire un modello di previsione della domanda senza scrivere codice, usando l'interfaccia automatizzata di Machine Learning (Machine Learning) di Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,21 +11,18 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 2653161b5828d89858234a9ca98fe432e0eacb5c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a5f7c0cf95d62df2d06c91abd99a1827524d5d6b
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879361"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210551"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Esercitazione: Prevedere la domanda con Machine Learning automatizzato
 
+Informazioni su come creare un [modello di previsione delle serie temporali](concept-automated-ml.md#time-series-forecasting) senza scrivere una singola riga di codice usando Machine Learning automatizzato in Azure Machine Learning Studio. Questo modello prevede la richiesta di noleggio per un servizio bike sharing.  
 
-In questa esercitazione si usa Machine Learning automatizzato, o ML automatizzato, in Azure Machine Learning Studio per creare un modello di previsione delle serie temporali e prevedere la domanda di noleggio per un servizio di bike sharing.
-
-Per un esempio di modello di classificazione, vedere [Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
-
-In questa esercitazione si apprenderà come eseguire le attività seguenti:
+Non verrà scritto alcun codice in questa esercitazione, si userà l'interfaccia di studio per eseguire il training.  Si apprenderà come eseguire le attività seguenti:
 
 > [!div class="checklist"]
 > * Creare e caricare un set di dati.
@@ -34,13 +31,18 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 > * Esplorare i risultati dell'esperimento.
 > * Distribuire il modello migliore.
 
+Provare anche Machine Learning automatico per questi altri tipi di modelli:
+
+* Per un esempio senza codice di un modello di classificazione, vedere [esercitazione: creare un modello di classificazione con](tutorial-first-experiment-automated-ml.md)Machine Learning machine learning in Azure Machine Learning.
+* Per un esempio Code First di un modello di regressione, vedere l' [esercitazione: usare Machine Learning automatico per stimare le tariffe dei taxi](tutorial-auto-train-models.md).
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un'area di lavoro di Azure Machine Learning. Vedere [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md). 
 
 * Scaricare il file di dati [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
-## <a name="get-started-in-azure-machine-learning-studio"></a>Iniziare con Azure Machine Learning Studio
+## <a name="sign-in-to-the-studio"></a>Accedi a Studio
 
 Per questa esercitazione, viene creato un esperimento di ML automatizzato eseguito in Azure Machine Learning Studio, un'interfaccia Web consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti della materia con qualsiasi livello di competenza. Studio non è supportato nei browser Internet Explorer.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 07e43bdb0969c26120231013cc0c0354e6968ceb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 564f3127fc6901695890daa520152a7aa1a2337f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567951"
+ms.locfileid: "105962969"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Gap delle funzionalità tra servizi multimediali di Azure V2 e V3
 
@@ -42,7 +42,7 @@ L'API V3 presenta i gap di funzionalità seguenti con l'API v2. Alcune delle fun
     - È stato aggiunto il supporto per il mapping del canale audio al codificatore standard.  Vedere [audio nella documentazione di spavalderia per la codifica di servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).
     - Se si usano funzionalità avanzate o formati di output del prodotto concesso in licenza di terze parti, ad esempio MXF o ProRes, usare la soluzione Azure partner da Telestream, che sarà transazionale entro il tempo del ritiro V2. In alternativa, è possibile usare Imagine Communications o [Bitmovin](http://bitmovin.com).
 
-- La proprietà "set di disponibilità" nell'endpoint di streaming in V2 non è più supportata. Vedere il progetto di esempio e le linee guida per il recapito [VOD a disponibilità elevata](./media-services-high-availability-encoding.md) nell'API V3.
+- La proprietà "set di disponibilità" nell'endpoint di streaming in V2 non è più supportata. Vedere il progetto di esempio e le linee guida per il recapito [VOD a disponibilità elevata](./architecture-high-availability-encoding-concept.md) nell'API V3.
 
 - In servizi multimediali V3 non è possibile specificare FairPlay IV. Anche se non ha alcun effetto sui clienti che usano servizi multimediali per la creazione di pacchetti e la distribuzione di licenze, può trattarsi di un problema quando si usa un sistema DRM di terze parti per distribuire le licenze FairPlay (modalità ibrida).
 

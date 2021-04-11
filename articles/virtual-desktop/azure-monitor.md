@@ -3,15 +3,15 @@ title: Usare monitoraggio monitoraggio desktop virtuale di Windows-Azure
 description: Come usare monitoraggio di Azure per desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 03/31/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 1b93e0c0d61eaa390eda66da2a583a4f429ddd79
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+manager: femila
+ms.openlocfilehash: 7da35f77dd232e5f523e2bdc3f125c68015ab871
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709549"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448186"
 ---
 # <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment"></a>Usare monitoraggio di Azure per desktop virtuale Windows per monitorare la distribuzione
 
@@ -43,7 +43,7 @@ Chiunque monitora monitoraggio di Azure per desktop virtuale Windows per l'ambie
 
 È possibile aprire Monitoraggio di Azure per desktop virtuale Windows con uno dei metodi seguenti:
 
-- Passare a [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks).
+- Passare a [aka.ms/azmonwvdi](https://aka.ms/azmonwvdi).
 - Cercare e selezionare **desktop virtuale di Windows** dal portale di Azure, quindi selezionare **Insights (informazioni dettagliate**).
 - Cercare e selezionare **monitoraggio di Azure** dalla portale di Azure. Selezionare **Hub Insights** in **Insights**, quindi selezionare **desktop virtuale di Windows**.
 Una volta aperta la pagina, immettere la **sottoscrizione**, il **gruppo di risorse**, il **pool di host** e l'intervallo di **tempo** dell'ambiente che si desidera monitorare.
@@ -62,7 +62,7 @@ Per iniziare a usare monitoraggio di Azure per desktop virtuale di Windows, è n
 
 Se è la prima volta che si apre Monitoraggio di Azure per desktop virtuale Windows, è necessario configurare monitoraggio di Azure per l'ambiente di desktop virtuale di Windows. Per configurare le risorse:
 
-1. Aprire Monitoraggio di Azure per desktop virtuale Windows nel portale di Azure in [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), quindi selezionare **cartella di lavoro configurazione**.
+1. Aprire Monitoraggio di Azure per desktop virtuale Windows nel portale di Azure in [aka.ms/azmonwvdi](https://aka.ms/azmonwvdi), quindi selezionare **cartella di lavoro configurazione**.
 2. Selezionare un ambiente da configurare in **sottoscrizione**, **gruppo di risorse** e **pool di host**.
 
 La cartella di lavoro configurazione configura l'ambiente di monitoraggio e consente di controllare la configurazione al termine del processo di installazione. È importante controllare la configurazione se gli elementi nel dashboard non vengono visualizzati correttamente oppure quando il gruppo di prodotti pubblica gli aggiornamenti che richiedono nuove impostazioni.
@@ -193,4 +193,5 @@ Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativ
 Ora che è stato configurato monitoraggio di Azure per l'ambiente di desktop virtuale Windows, di seguito sono riportate alcune risorse che potrebbero essere utili per iniziare a monitorare l'ambiente:
 
 - Consulta il [Glossario](azure-monitor-glossary.md) per scoprire di più su termini e concetti correlati a monitoraggio di Azure per desktop virtuale di Windows.
+- Per stimare, misurare e gestire i costi di archiviazione dei dati, vedere [stimare i costi di monitoraggio di Azure](azure-monitor-costs.md).
 - Se si verifica un problema, consultare la [Guida alla risoluzione dei](troubleshoot-azure-monitor.md) problemi per informazioni e problemi noti.

@@ -3,14 +3,14 @@ title: Aggiungere identità gestite a un ruolo nella destinazione di griglia di 
 description: Questo articolo descrive come aggiungere identità gestite ai ruoli di Azure in destinazioni come il bus di servizio di Azure e hub eventi di Azure.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 1bcef878c982122d80980dd7194fae2de6fc8762
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 1578e4c24201614ce89351b3c3cee52a09cadc30
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105630453"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280480"
 ---
-# <a name="add-an-identity-to-azure-roles-on-azure-event-grid-destinations"></a>Aggiungere un'identità ai ruoli di Azure nelle destinazioni di griglia di eventi di Azure
+# <a name="grant-managed-identity-the-access-to-event-grid-destination"></a>Concessione dell'identità gestita per l'accesso alla destinazione di griglia di eventi
 Questa sezione descrive come aggiungere l'identità per un argomento di sistema, un argomento personalizzato o un dominio a un ruolo di Azure. 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -89,6 +89,6 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che è stata assegnata un'identità assegnata dal sistema all'argomento del sistema, all'argomento personalizzato o al dominio e l'identità è stata aggiunta ai ruoli appropriati sulle destinazioni, vedere [eventi Devlier che usano l'identità](managed-service-identity.md) per la distribuzione di eventi a destinazioni usando l'identità.
+Ora che è stata assegnata un'identità assegnata dal sistema all'argomento di sistema, a un argomento personalizzato o a un dominio e l'identità è stata aggiunta ai ruoli appropriati sulle destinazioni, vedere [recapitare gli eventi usando l'identità gestita](managed-service-identity.md) per la distribuzione di eventi a destinazioni usando l'identità.
 
 

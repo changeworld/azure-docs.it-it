@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 03/30/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d5749894fd277ff6a2f77e3db9721e6989d72ac
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211805"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109238"
 ---
 # <a name="managed-hsm-logging"></a>Registrazione del modulo di protezione hardware gestito 
 
@@ -74,9 +74,10 @@ az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource 
 Informazioni registrate:
 
 * Tutte le richieste API REST autenticate, incluse le richieste non riuscite a causa di autorizzazioni di accesso, errori di sistema o richieste non valide.
-* Operazioni sul modulo di protezione hardware gestito stesso, tra cui creazione, eliminazione e aggiornamento degli attributi, ad esempio i tag.
+* Operazioni del piano gestito sulla risorsa HSM gestita, incluse la creazione, l'eliminazione e l'aggiornamento degli attributi, ad esempio i tag.
 * Operazioni correlate al dominio di sicurezza, ad esempio inizializzazione e download, ripristino dell'inizializzazione e caricamento
 * Operazioni di backup e ripristino completo e ripristino selettivo del modulo di protezione hardware
+* Operazioni di gestione dei ruoli, ad esempio creare/visualizzare/eliminare assegnazioni di ruolo e creare/visualizzare/eliminare definizioni di ruolo personalizzate
 * Operazioni sulle chiavi, tra cui:
   * Creazione, modifica o eliminazione delle chiavi.
   * Firma, verifica, crittografia, decrittografia, wrapping e annullamento del wrapping delle chiavi, elenco delle chiavi.
@@ -121,30 +122,13 @@ I singoli BLOB vengono archiviati come testo in formato JSON. Ecco un esempio di
 ]
 ```
 
-La tabella seguente elenca i nomi dei campi e le descrizioni:
 
-| Nome campo | Descrizione |
-| --- | --- |
-| **TenantId** | ID tenant di Azure Active Directory della sottoscrizione in cui viene creato il modulo di protezione hardware gestito |
-| **time** |Data e ora in formato UTC. |
-| **resourceId** |ID della risorsa di Azure Resource Manager. Per i log del modulo di protezione hardware gestito, corrisponde sempre all'ID risorsa del modulo di protezione hardware gestito. |
-| **operationName** |Nome dell'operazione, come illustrato nella tabella seguente. |
-| **operationVersion** |Versione dell'API REST richiesta dal client. |
-| **category** |Tipo di risultato. Per i log del modulo di protezione hardware gestito, **AuditEvent** è il solo valore disponibile. |
-| **resultType** |Risultato della richiesta API REST. |
-| **properties** |Informazioni diverse in base all'operazione (**operationName**).|
-| **resultSignature** |Stato HTTP. |
-| **resultDescription** |Descrizione aggiuntiva del risultato, se disponibile. |
-| **durationMs** |Tempo impiegato per soddisfare la richiesta API REST, in millisecondi. Non include la latenza di rete, quindi il tempo misurato sul lato client potrebbe non corrispondere a questo valore. |
-| **callerIpAddress** |Indirizzo IP del client che ha eseguito la richiesta. |
-| **correlationId** |GUID facoltativo che il client può passare per correlare i log sul lato client con quelli sul lato servizio. |
-| **identity** |Identità del token presentato nella richiesta API REST. È in genere un "utente" o un'"entità servizio". |
-| **requestUri** | URI della richiesta dell'API REST |
-| **clientInfo** | 
 
 ## <a name="use-azure-monitor-logs"></a>Usare i log di Monitoraggio di Azure
 
-È possibile usare la soluzione Key Vault nei log di Monitoraggio di Azure per esaminare i log **AuditEvent** del modulo di protezione hardware gestito. Nei log di Monitoraggio di Azure è possibile usare le query di log per analizzare i dati e ottenere le informazioni necessarie. 
+È possibile usare la soluzione Key Vault nei log di Monitoraggio di Azure per esaminare i log **AuditEvent** del modulo di protezione hardware gestito. Nei log di Monitoraggio di Azure è possibile usare le query di log per analizzare i dati e ottenere le informazioni necessarie.
+
+Per altre informazioni, anche su come configurare la soluzione, vedere [Azure Key Vault nei log di Monitoraggio di Azure](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

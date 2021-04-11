@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/09/2021
 ms.author: jeedes
 ms.openlocfilehash: f7167df523ca6f84eacd92fc7af1011e8b3b00b6
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104950336"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-single-sign-on"></a>Esercitazione: Azure Active Directory l'integrazione dell'accesso Single Sign-on (SSO) con l'unica pietra miliare Sign-On

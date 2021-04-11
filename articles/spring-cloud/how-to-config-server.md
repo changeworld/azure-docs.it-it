@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: de113e3c005e11bd2bcd13ec6c1554664ba8fbaf
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 52b3d902b2cbfdacfe92117dcf0057dab1fe9a83
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877982"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012210"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurare un'istanza del server di configurazione Spring Cloud per il servizio
 
@@ -153,15 +153,15 @@ Ora che i file di configurazione sono stati salvati in un repository, è necessa
 
 8. Al termine della configurazione si dovrebbe ricevere una notifica.
 
-### <a name="enter-repository-information-directly-to-the-azure-portal"></a>Immettere le informazioni sul repository direttamente nel portale di Azure
+### <a name="enter-repository-information-directly-to-the-azure-portal&quot;></a>Immettere le informazioni sul repository direttamente nel portale di Azure
 
-#### <a name="default-repository"></a>Repository predefinito
+#### <a name=&quot;default-repository&quot;></a>Repository predefinito
 
 * **Repository pubblico**: Nella sezione **Repository predefinito** incollare l'URI del repository nella sezione **URI**.  Impostare **Etichetta** su **config**. Assicurarsi che l'impostazione di **Autenticazione** sia **Pubblica**, quindi selezionare **Applica** per terminare. 
 
 * **Repository privato**: Azure Spring Cloud supporta l'autenticazione basata su password/token di base e SSH.
 
-    * **Autenticazione di base**: Nella sezione **Repository predefinito** incollare l'URI del repository nella casella **URI** e quindi selezionare il pulsante **Autenticazione** (icona a forma di "matita"). Nel riquadro **Modifica autenticazione** selezionare **HTTP di base** nell'elenco a discesa **Tipo di autenticazione** e quindi immettere il nome utente e la password/token per concedere l'accesso ad Azure Spring Cloud. Fare clic su **OK** e su **Applica** per completare la configurazione dell'istanza del server di configurazione.
+    * **Autenticazione di base**: Nella sezione **Repository predefinito** incollare l'URI del repository nella casella **URI** e quindi selezionare il pulsante **Autenticazione** (icona a forma di &quot;matita"). Nel riquadro **Modifica autenticazione** selezionare **HTTP di base** nell'elenco a discesa **Tipo di autenticazione** e quindi immettere il nome utente e la password/token per concedere l'accesso ad Azure Spring Cloud. Fare clic su **OK** e su **Applica** per completare la configurazione dell'istanza del server di configurazione.
 
     ![Autenticazione di base del riquadro Modifica autenticazione](media/spring-cloud-tutorial-config-server/basic-auth.png)
     
@@ -242,9 +242,9 @@ Azure Spring Cloud può accedere ai repository Git pubblici, protetti da SSH o p
 
    ![Spring Cloud Config Server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
-## <a name="delete-your-app-configuration"></a>Eliminare la configurazione dell'app
+## <a name="delete-your-configuration"></a>Eliminare la configurazione
 
-Dopo aver salvato un file di configurazione, nella scheda **Configurazione** verrà visualizzato il pulsante **Delete app configuration** (Elimina configurazione app). Se si seleziona questo pulsante le impostazioni esistenti verranno cancellate completamente. Selezionare il pulsante se si vuole connettere l'istanza del server di configurazione a un'altra origine, ad esempio per passare da GitHub ad Azure DevOps.
+È possibile selezionare il pulsante **Reimposta** visualizzato nella scheda **server di configurazione** per cancellare completamente le impostazioni esistenti. Eliminare le impostazioni del server di configurazione se si vuole connettere l'istanza del server di configurazione a un'altra origine, ad esempio il passaggio da GitHub ad Azure DevOps.
 
 
 
