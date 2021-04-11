@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c64a4e06ed452c895c1bc2cf20adc2d9c0060c3
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508743"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219264"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Esercitazione: prerequisiti per la creazione di gruppi di disponibilità in SQL Server in macchine virtuali di Azure
 
@@ -69,11 +69,11 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
 
 Azure crea il gruppo di risorse e aggiunge un collegamento a quest'ultimo nel portale.
 
-## <a name="create-the-network-and-subnets"></a>Creare la rete e le subnet
+## <a name="create-the-network-and-subnet"></a>Creare la rete e la subnet
 
-Il passaggio successivo prevede la creazione di reti e di subnet nel gruppo di risorse di Azure.
+Il passaggio successivo consiste nel creare le reti e la subnet nel gruppo di risorse di Azure.
 
-La soluzione usa una rete virtuale con due subnet. Per altre informazioni sulle reti in Azure, vedere [Panoramica di Rete virtuale](../../../virtual-network/virtual-networks-overview.md).
+La soluzione USA una rete virtuale e una subnet. Per altre informazioni sulle reti in Azure, vedere [Panoramica di Rete virtuale](../../../virtual-network/virtual-networks-overview.md).
 
 Per creare la rete virtuale nel portale di Azure:
 
@@ -100,48 +100,13 @@ Per creare la rete virtuale nel portale di Azure:
 
    Lo spazio indirizzi e l'intervallo di indirizzi subnet possono essere diversi da quelli della tabella. A seconda della sottoscrizione, sul portale verrà suggerito uno spazio indirizzi disponibile e un intervallo di indirizzi subnet corrispondente. Se non è disponibile uno spazio indirizzi sufficiente, usare un'altra sottoscrizione.
 
-   L'esempio usa il nome di subnet **Admin**. Questa subnet verrà usata per i controller di dominio.
+   Nell'esempio viene usato il nome della subnet **admin**. Questa subnet è per i controller di dominio e le macchine virtuali SQL Server.
 
 5. Selezionare **Crea**.
 
    ![Configurare la rete virtuale](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
 In questo modo, si torna al dashboard del portale e Azure invia una notifica dopo la creazione della rete.
-
-### <a name="create-a-second-subnet"></a>Creare una seconda subnet
-
-La nuova rete virtuale dispone di una subnet, denominata **Admin**. I controller di dominio usano questa subnet. Le VM di SQL Server usano una seconda subnet denominata **SQL**. Per configurare questa subnet:
-
-1. Nel Dashboard selezionare il gruppo di risorse creato, **SQL-ha-RG**. Trovare la rete nel gruppo di risorse in **Risorse**.
-
-    Se **SQL-ha-RG** non è visibile, trovarlo selezionando **gruppi di risorse** e filtrando in base al nome del gruppo di risorse.
-
-2. Selezionare **AUTOhavnt** nell'elenco di risorse. 
-3. Nella rete virtuale **autoHAVNET**, in **Impostazioni** selezionare **Subnets**.
-
-    Si noti la subnet già creata.
-
-   ![Si noti la subnet già creata](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
-
-5. Per creare una seconda subnet, selezionare **+ subnet**.
-6. In **Aggiungi subnet** configurare la subnet digitando **sqlsubnet** in **Nome**. Azure specifica automaticamente un **Intervallo di indirizzi** valido. Verificare che questo intervallo di indirizzi includa almeno 10 indirizzi. In un ambiente di produzione potrebbero essere necessari più indirizzi.
-7. Selezionare **OK**.
-
-    ![Configura subnet](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
-
-La tabella seguente riepiloga le impostazioni di configurazione della rete:
-
-| **Campo** | valore |
-| --- | --- |
-| **Nome** |**autoHAVNET** |
-| **Spazio degli indirizzi** |Questo valore dipende dagli spazi indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.0.0/16. |
-| **Nome della subnet** |**admin** |
-| **Intervallo di indirizzi subnet** |Questo valore dipende dagli intervalli di indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.0.0/24 |
-| **Nome della subnet** |**sqlsubnet** |
-| **Intervallo di indirizzi subnet** |Questo valore dipende dagli intervalli di indirizzi disponibili nella sottoscrizione. Un valore tipico è 10.0.1.0/24 |
-| **Sottoscrizione** |Specificare la sottoscrizione da usare. |
-| **Gruppo di risorse** |**SQL-HA-RG** |
-| **Posizione** |Specificare la stessa località scelta per il gruppo di risorse. |
 
 ## <a name="create-availability-sets"></a>Creare set di disponibilità
 
@@ -164,7 +129,7 @@ Dopo avere creato i set di disponibilità, tornare al gruppo di risorse nel port
 
 ## <a name="create-domain-controllers"></a>Creare controller di dominio
 
-Dopo la creazione della rete, delle subnet e dei set di disponibilità, è possibile creare le macchine virtuali per i controller di dominio.
+Dopo aver creato la rete, la subnet e i set di disponibilità, si è pronti per creare le macchine virtuali per i controller di dominio.
 
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Creare le macchine virtuali per i controller di dominio
 

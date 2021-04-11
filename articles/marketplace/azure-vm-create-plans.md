@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/19/2020
-ms.openlocfilehash: c700cce5f50fda7f7a5773e07549e93da1c9f7a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/01/2021
+ms.openlocfilehash: b1111caf2eaab1114371cbfed1e929afcff20898
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956255"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219366"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Come creare piani per un'offerta di macchina virtuale
 
@@ -154,7 +154,9 @@ Le offerte private non sono supportate con le sottoscrizioni di Azure stabilite 
 
 Se la macchina virtuale è destinata a essere usata solo indirettamente quando un altro modello di soluzione o un'altra applicazione gestita le fanno riferimento, selezionare questa casella di controllo per pubblicare la macchina virtuale, ma non renderla visibile ai clienti che potrebbero cercarla o accedervi direttamente.
 
-I piani nascosti non supportano i collegamenti all'anteprima.
+Tutti i clienti di Azure possono distribuire l'offerta usando PowerShell o l'interfaccia della riga di comando.  Se si desidera rendere disponibile questa offerta a un set limitato di clienti, impostare il piano su **privato**. 
+
+I piani nascosti non generano collegamenti di anteprima. Tuttavia, è possibile eseguirne il test [seguendo questa procedura](azure-vm-create-faq.md#how-do-i-test-a-hidden-preview-image). 
 
 Selezionare **Salva bozza** prima di continuare con la scheda successiva nel menu piano di spostamento a sinistra, **configurazione tecnica**.
 

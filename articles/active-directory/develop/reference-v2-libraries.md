@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/29/2021
+ms.date: 03/30/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 590e57d587c8e6e254811892b5c5e740b511c302
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 321a5c473df30dd6f00bbcd1294d48ce8da34009
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104690654"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060381"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Librerie di autenticazione della piattaforma Microsoft Identity
 
@@ -29,7 +29,7 @@ Se si sceglie di scrivere manualmente l'implementazione a livello di protocollo 
 
 ## <a name="single-page-application-spa"></a>Applicazione a pagina singola (SPA)
 
-Un'applicazione a singola pagina viene eseguita interamente sull'area del browser e recupera i dati della pagina (HTML, CSS e JavaScript) in modo dinamico o in fase di caricamento dell'applicazione. Può chiamare API Web per interagire con le origini dati back-end.
+Un'applicazione a singola pagina viene eseguita interamente nel browser e recupera i dati della pagina (HTML, CSS e JavaScript) in modo dinamico o in fase di caricamento dell'applicazione. Può chiamare API Web per interagire con le origini dati back-end.
 
 Poiché il codice di una SPA viene eseguito interamente nel browser, viene considerato un *client pubblico* che non è in grado di archiviare i segreti in modo sicuro.
 
@@ -45,7 +45,7 @@ Poiché il codice di un'applicazione Web viene eseguito sul server Web, viene co
 
 ## <a name="desktop-application"></a>Applicazione desktop
 
-Un'applicazione desktop è in genere codice binario (compilato) che espone un'interfaccia utente ed è destinata all'esecuzione sul desktop di un utente.
+Un'applicazione desktop è in genere codice binario (compilato) che visualizza un'interfaccia utente ed è destinata all'esecuzione sul desktop di un utente.
 
 Poiché un'applicazione desktop viene eseguita sul desktop dell'utente, viene considerato un *client pubblico* che non è in grado di archiviare in modo sicuro i segreti.
 
@@ -53,7 +53,7 @@ Poiché un'applicazione desktop viene eseguita sul desktop dell'utente, viene co
 
 ## <a name="mobile-application"></a>Applicazione per dispositivi mobili
 
-Un'applicazione per dispositivi mobili è in genere codice binario (compilato) che espone un'interfaccia utente ed è destinata all'esecuzione sul dispositivo mobile di un utente.
+Un'applicazione per dispositivi mobili è in genere codice binario (compilato) che visualizza un'interfaccia utente ed è destinata all'esecuzione sul dispositivo mobile di un utente.
 
 Poiché un'applicazione per dispositivi mobili viene eseguita sul dispositivo mobile dell'utente, viene considerato un *client pubblico* che non è in grado di archiviare i segreti in modo sicuro.
 

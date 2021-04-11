@@ -4,10 +4,10 @@ description: Informazioni su come configurare Defender per gli agenti di sicurez
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: 5ac9a5cdb4cc13ed91c0e5e29447b9cdbe71bcce
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104784408"
 ---
 # <a name="tutorial-configure-security-agents"></a>Esercitazione: configurare gli agenti di sicurezza
@@ -120,7 +120,7 @@ I valori predefiniti sono disponibili nello schema appropriato in [GitHub](https
 
 |Nome evento| PropertyName | Valore predefinito| Evento snapshot| Stato dettagli  |
 |----------|-|---------|----|----|
-|Evento di diagnostica|eventPriorityDiagnostic| Off| Falso| Eventi di diagnostica correlati agli agenti. Utilizzare questo evento per la registrazione dettagliata.|
+|Evento di diagnostica|eventPriorityDiagnostic| Disattivato| Falso| Eventi di diagnostica correlati agli agenti. Utilizzare questo evento per la registrazione dettagliata.|
 |Errore di configurazione |eventPriorityConfigurationError |Basso |Falso |L'agente non è riuscito ad analizzare la configurazione. Verificare la configurazione in base allo schema.|
 |Statistiche eventi eliminati |eventPriorityDroppedEventsStatistics |Basso |Vero|Statistiche evento correlate agli agenti. |
 |Hardware connesso|eventPriorityConnectedHardware |Basso |Vero |Snapshot di tutti i componenti hardware connessi al dispositivo.|

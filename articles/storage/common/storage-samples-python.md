@@ -1,19 +1,19 @@
 ---
 title: Esempi di Archiviazione di Azure che usano Python | Microsoft Docs
 description: Visualizzare, scaricare ed eseguire codici di esempio e applicazioni per l'Archiviazione di Azure. Individuare esempi introduttivi per BLOB, code, tabelle e file usando le librerie client di archiviazione Python.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-python
-ms.openlocfilehash: f57fa1b668cacdaaceb2026f9e5d7fff0cc56d7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8e5a8593d5b473da8769c1fbeece8c9818e88fa
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92371359"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276689"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Esempi di Archiviazione di Azure con librerie client Python v12
 

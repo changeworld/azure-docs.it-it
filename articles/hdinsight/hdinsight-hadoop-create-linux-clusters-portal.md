@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
 ms.openlocfilehash: 98d18044693bc6f4d23e04e9403e71686df39451
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104872201"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creare cluster basati su Linux in HDInsight tramite il portale di Azure
@@ -142,7 +142,7 @@ Alcune delle icone della finestra sono illustrate di seguito:
 |Panoramica|Fornisce tutte le informazioni essenziali sul cluster. Ad esempio, il nome, il gruppo di risorse a cui appartiene, il percorso, il sistema operativo e l'URL per il dashboard del cluster.|
 |Dashboard del cluster|Indirizza l'utente al portale di Ambari associato al cluster.|
 |Accesso SSH + cluster|Fornisce le informazioni necessarie per accedere al cluster tramite SSH.|
-|Elimina|consente di eliminare il cluster HDInsight.|
+|Delete|consente di eliminare il cluster HDInsight.|
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 

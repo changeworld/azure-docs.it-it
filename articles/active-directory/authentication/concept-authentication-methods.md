@@ -12,10 +12,10 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ms.openlocfilehash: ee10aa7c461aca65f385c735f6e9aaa28af7f9e5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103471702"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
@@ -78,7 +78,7 @@ Tutti questi metodi di autenticazione possono essere configurati nella portale d
 
 Per altre informazioni sul funzionamento di ogni metodo di autenticazione, vedere gli articoli concettuali distinti seguenti:
 
-* [Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-overview)
+* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) (Configurare Windows Hello for Business)
 * [App Microsoft Authenticator](concept-authentication-authenticator-app.md)
 * [Chiave di sicurezza FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
 * [Token hardware OATH (anteprima)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)

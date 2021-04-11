@@ -1,19 +1,19 @@
 ---
 title: Esempi di Archiviazione di Azure che usano Java | Documentazione Microsoft
 description: Visualizzare, scaricare ed eseguire codici di esempio e applicazioni per l'Archiviazione di Azure. Individuare esempi introduttivi per BLOB, code, tabelle e file usando le librerie client di archiviazione Java.
-author: mhopkins-msft
+author: twooley
 ms.custom: devx-track-java
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 9e3cd6be0da7c6d9401945293283de874c7cd866
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a6a68a150bd474f40ffb1610ed7a310e4f30de9
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92359765"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276638"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Esempi di Archiviazione di Azure che usano le librerie client Java v12
 
