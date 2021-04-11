@@ -43,10 +43,10 @@
           displayName: 'azure stack, ash, windows, linux, hybrid, arc'
           href: quickstart-onboard-machines.md
         - name: Connettere account AWS
-          displayName: 'hybrid, multicloud, amazon, arc'
+          displayName: 'hybrid, multicloud, multi-cloud, amazon, arc'
           href: quickstart-onboard-aws.md
         - name: Connettere account GCP
-          displayName: 'hybrid, multicloud, google'
+          displayName: 'hybrid, multicloud, multi-cloud, google'
           href: quickstart-onboard-gcp.md
     - name: 6. Creare risposte automatiche agli avvisi
       displayName: 'Resource Manager, ARM'
@@ -198,6 +198,9 @@
         - name: Disabilitare specifici risultati sulle vulnerabilità delle immagini
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md#disable-specific-findings-preview
+        - name: Difendi i cluster Kubernetes abilitati per Azure Arc
+          displayName: 'k8s, containers, aks, hybrid, arc, azure arc, multicloud'
+          href: defender-for-kubernetes-azure-arc.md
         - name: Proteggere i carichi di lavoro Kubernetes
           displayName: 'k8s, containers, aks'
           href: kubernetes-workload-protections.md
@@ -312,6 +315,8 @@
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Valutazione e consigli per la protezione degli endpoint
       href: security-center-endpoint-protection.md
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/security
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

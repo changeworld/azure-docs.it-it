@@ -2,14 +2,14 @@
 title: Eseguire il backup di Database di Azure per PostgreSQL
 description: Informazioni sul backup di database di Azure per PostgreSQL con conservazione a lungo termine (anteprima)
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/06/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5eba9d78dda45197c0d1e92195980f3d731734a8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737573"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011715"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Backup del database di Azure per PostgreSQL con conservazione a lungo termine (anteprima)
 
@@ -29,7 +29,7 @@ Oltre alla conservazione a lungo termine, la soluzione presenta anche molte altr
 
 ## <a name="support-matrix"></a>Matrice di supporto
 
-|Supporto  |Dettagli  |
+|Supporto tecnico  |Dettagli  |
 |---------|---------|
 |Distribuzioni supportate   |  [Database di Azure per PostgreSQL - Server singolo](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
 |Aree di Azure supportate |  Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Brasile meridionale, Canada centrale, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Germania centro-occidentale, Svizzera settentrionale, Svizzera occidentale, Asia orientale, Asia orientale sud, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia centrale  |
@@ -135,10 +135,9 @@ Le istruzioni seguenti sono una guida dettagliata alla configurazione del backup
 
 1. Definire le impostazioni di **conservazione** . È possibile aggiungere una o più regole di conservazione. Ogni regola di conservazione presuppone gli input per backup specifici, l'archivio dati e la durata di conservazione per tali backup.
 
-1. È possibile scegliere di archiviare i backup in uno dei due archivi dati (o livelli): **Backup Data Store** (livello standard) o **archivio dati di archivio** (in anteprima). È possibile scegliere tra **due opzioni** di suddivisione in livelli per definire quando i backup sono suddivisi in livelli tra i due archivi dati:
+1. È possibile scegliere di archiviare i backup in uno dei due archivi dati (o livelli): **Backup Data Store** (livello standard) o **archivio dati di archivio** (in anteprima).
 
-    - Scegliere di copiare **immediatamente** se si preferisce una copia di backup sia negli archivi dati di backup che in quelli di archivio simultaneamente.
-    - Scegliere di spostarsi **in scadenza** se si preferisce spostare il backup nell'archivio dati di archiviazione alla scadenza nell'archivio dati di backup.
+   È possibile scegliere la **scadenza** per spostare il backup nell'archivio dati di archiviazione alla scadenza nell'archivio dati di backup.
 
 1. La **regola di conservazione predefinita** viene applicata in assenza di altre regole di conservazione e ha un valore predefinito di tre mesi.
 
@@ -197,7 +196,21 @@ Seguire questa guida dettagliata per attivare un ripristino:
 
     ![Ripristinare come file](./media/backup-azure-database-postgresql/restore-as-files.png)
 
+1. Se il punto di ripristino si trova nel livello archivio, è necessario reidratare il punto di ripristino prima di eseguire il ripristino.
+   
+   ![Impostazioni di reidratazione](./media/backup-azure-database-postgresql/rehydration-settings.png)
+   
+   Specificare i seguenti parametri aggiuntivi necessari per la riattivazione:
+   - **Priorità di reidratazione:** Il valore predefinito è **standard**.
+   - **Durata della reidratazione:** La durata massima della riattivazione è di 30 giorni e la durata minima della riattivazione è di 10 giorni. Il valore predefinito è **15**.
+   
+   Il punto di ripristino viene archiviato nell' **archivio dati di backup** per la durata di riattivazione specificata.
+
+
 1. Esaminare le informazioni e selezionare **Ripristina**. Verrà attivato un processo di ripristino corrispondente di cui è possibile tenere traccia nei **processi di backup**.
+
+>[!NOTE]
+>Il supporto dell'archivio per database di Azure per PostgreSQL è in versione di anteprima pubblica limitata.
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Autorizzazioni prerequisiti per la configurazione di backup e ripristino
 
@@ -220,7 +233,7 @@ Scegliere dall'elenco delle regole di conservazione definite nei criteri di back
 
 ### <a name="stop-protection"></a>Arresta protezione
 
-È possibile arrestare la protezione dati su un elemento di backup. Questa operazione eliminerà anche i punti di ripristino associati per tale elemento di backup. Non è ancora disponibile l'opzione per arrestare la protezione, mantenendo i punti di ripristino esistenti.
+È possibile arrestare la protezione dati su un elemento di backup. Questa operazione eliminerà anche i punti di ripristino associati per tale elemento di backup. Se i punti di ripristino non sono nel livello Archivio per almeno sei mesi, l'eliminazione dei punti di ripristino comporterà un costo di eliminazione anticipata. Non è ancora disponibile l'opzione per arrestare la protezione, mantenendo i punti di ripristino esistenti.
 
 ![Arresta protezione](./media/backup-azure-database-postgresql/stop-protection.png)
 

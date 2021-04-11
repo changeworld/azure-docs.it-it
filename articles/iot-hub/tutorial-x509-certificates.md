@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: cdc5b261abe91c31d31827aeab03c9e8838b2a91
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: fada68ba395b959e557542eb8c230561aad84214
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105630763"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384324"
 ---
 # <a name="tutorial-understanding-x509-public-key-certificates"></a>Esercitazione: informazioni sui certificati di chiave pubblica X. 509
 
@@ -106,6 +106,13 @@ Formato per un archivio chiavi privato definito da [RFC 5208](https://tools.ietf
 ### <a name="pkcs12-key-and-certificate"></a>Chiave e certificato PKCS # 12
 
 Formato complesso che consente di archiviare e proteggere una chiave e l'intera catena di certificati. Viene in genere usato con l'estensione pfx. PKCS # 12 è sinonimo del formato PFX.
+
+## <a name="for-more-information"></a>Per ulteriori informazioni
+
+Per altre informazioni, vedere i seguenti argomenti:
+
+* [La guida del laico al gergo dei certificati X. 509](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
+* [Comprensione concettuale dei certificati x.509 nel settore IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f9be9272a898ad48f3553d4c5e48952e1fcdde81
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ea51c1f7fcfce5b795965eab2f9c03a820a6ab03
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218639"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059361"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault-managed-hsm-preview"></a>Configurare la crittografia con chiavi gestite dal cliente archiviate nel modulo di protezione hardware Azure Key Vault gestito (anteprima)
 
@@ -65,7 +65,9 @@ az keyvault role assignment create \
 
 ## <a name="configure-encryption-with-a-key-in-the-managed-hsm"></a>Configurare la crittografia con una chiave nel modulo di protezione hardware gestito
 
-Infine, configurare la crittografia di archiviazione di Azure con chiavi gestite dal cliente per usare una chiave archiviata nel modulo di protezione hardware gestito. I tipi di chiave supportati includono chiavi RSA-HSM di dimensioni 2048, 3072 e 4096. Installare l'interfaccia della riga di comando di Azure 2.12.0 o versione successiva per configurare la crittografia per l'uso di una chiave gestita dal cliente in un modulo HSM gestito Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Infine, configurare la crittografia di archiviazione di Azure con chiavi gestite dal cliente per usare una chiave archiviata nel modulo di protezione hardware gestito. I tipi di chiave supportati includono chiavi RSA-HSM di dimensioni 2048, 3072 e 4096. Per informazioni su come creare una chiave in un modulo di protezione hardware gestito, vedere [creare una chiave HSM](../../key-vault/managed-hsm/key-management.md#create-an-hsm-key).
+
+Installare l'interfaccia della riga di comando di Azure 2.12.0 o versione successiva per configurare la crittografia per l'uso di una chiave gestita dal cliente in un modulo HSM gestito Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 Per aggiornare automaticamente la versione della chiave per una chiave gestita dal cliente, omettere la versione della chiave quando si configura la crittografia con chiavi gestite dal cliente per l'account di archiviazione. Chiamare [AZ storage account Update](/cli/azure/storage/account#az_storage_account_update) per aggiornare le impostazioni di crittografia dell'account di archiviazione, come illustrato nell'esempio seguente. Includere `--encryption-key-source parameter` e impostarlo su `Microsoft.Keyvault` per abilitare le chiavi gestite dal cliente per l'account. Ricordarsi di sostituire i valori segnaposto tra parentesi quadre con valori personalizzati.
 

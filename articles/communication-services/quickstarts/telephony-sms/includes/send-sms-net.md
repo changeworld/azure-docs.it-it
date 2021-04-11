@@ -10,12 +10,12 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
-ms.openlocfilehash: ff9d63459d0b645f14c62006a8f76f7dd4f986be
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 9282601391195ca3a47f277f05e9aa1ea0b211da
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644295"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958395"
 ---
 Per iniziare a usare i servizi di comunicazione di Azure, usare Communication Services C# SMS SDK per inviare messaggi SMS.
 
@@ -59,7 +59,7 @@ dotnet build
 Quando si è ancora nella directory dell'applicazione, installare il pacchetto SMS SDK per Azure Communication Services per .NET usando il `dotnet add package` comando.
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.4
+dotnet add package Azure.Communication.Sms --version 1.0.0
 ```
 
 Aggiungere una direttiva `using` all'inizio di **Program.cs** per includere lo spazio dei nomi `Azure.Communication`.

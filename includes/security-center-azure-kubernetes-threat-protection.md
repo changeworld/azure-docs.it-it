@@ -2,35 +2,37 @@
 author: memildin
 ms.author: memildin
 manager: rkarlin
-ms.date: 06/30/2020
+ms.date: 04/07/2021
 ms.topic: include
-ms.openlocfilehash: 4c09057f606423dc92b3364e502e632a385bf83f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 73886b966676af75cc74484ccdc0632f080b041a
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100007814"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029141"
 ---
-Il Centro sicurezza offre protezione dalle minacce in tempo reale per gli ambienti basati su contenitori e genera avvisi per le attività sospette. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
+Azure Defender fornisce la protezione dalle minacce in tempo reale per gli ambienti in contenitori e genera avvisi per le attività sospette. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.
 
-Il Centro sicurezza offre protezione dalle minacce a diversi livelli: 
+Azure Defender offre protezione dalle minacce a diversi livelli: 
 
-* **Livello di host (fornito da Azure Defender per server)** : usando lo stesso agente di Log Analytics usato dal Centro sicurezza in altre macchine virtuali, Azure Defender monitora i nodi del servizio Azure Kubernetes per Linux per rilevare attività sospette, come il rilevamento della shell Web e la connessione con indirizzi IP sospetti noti. L'agente monitora anche le analisi specifiche dei contenitori, come la creazione di contenitori con privilegi, l'accesso sospetto ai server API e la presenza di server SSH (Secure Shell) in esecuzione all'interno di un contenitore Docker.
+* **Livello host (fornito da Azure Defender per i server)** : usando lo stesso agente log Analytics usato dal centro sicurezza in altre macchine virtuali, Azure Defender monitora i nodi Kubernetes Linux per attività sospette, ad esempio il rilevamento della shell Web e la connessione con indirizzi IP sospetti noti. L'agente monitora anche le analisi specifiche dei contenitori, come la creazione di contenitori con privilegi, l'accesso sospetto ai server API e la presenza di server SSH (Secure Shell) in esecuzione all'interno di un contenitore Docker.
 
     Se si sceglie di non installare gli agenti negli host, si riceverà solo una parte dei vantaggi della protezione dalle minacce e degli avvisi di sicurezza. Si riceveranno comunque gli avvisi relativi all'analisi di rete e alle comunicazioni con server dannosi.
 
     >[!IMPORTANT]
     > Attualmente non è supportata l'installazione dell'agente di Log Analytics nei cluster di servizi Kubernetes di Azure in esecuzione nei set di scalabilità di macchine virtuali.
 
-    Per un elenco degli avvisi a livello di host del servizio Azure Kubernetes, vedere la [tabella di riferimento degli avvisi](../articles/security-center/alerts-reference.md#alerts-containerhost).
+    Per un elenco degli avvisi a livello di cluster, vedere la [tabella di riferimento degli avvisi](../articles/security-center/alerts-reference.md#alerts-containerhost).
 
 
-* **Livello di cluster del servizio Azure Kubernetes (fornito da Azure Defender per Kubernetes)** : la protezione dalle minacce a questo livello è basata sull'analisi dei log di controllo di Kubernetes. Per abilitare questo monitoraggio **senza agente**, abilitare Azure Defender. Per generare avvisi a questo livello, il Centro sicurezza monitora i servizi gestiti dal servizio Azure Kubernetes usando i log recuperati da quest'ultimo. Esempi di eventi a questo livello includono dashboard di Kubernetes esposti, creazione di ruoli con privilegi elevati e creazione di montaggi sensibili.
+* **Livello di cluster (fornito da Azure Defender per Kubernetes)** : a livello di cluster, la protezione dalle minacce si basa sull'analisi dei log di controllo di Kubernetes. Per abilitare questo monitoraggio **senza agente**, abilitare Azure Defender. Se il cluster è in locale o in un altro provider di servizi cloud, abilitare [Arc Enabled Kubernetes e l'estensione di Azure Defender](../articles/security-center/defender-for-kubernetes-azure-arc.md).
+
+    Per generare avvisi a questo livello, Azure Defender monitora i log del cluster. Esempi di eventi a questo livello includono dashboard di Kubernetes esposti, creazione di ruoli con privilegi elevati e creazione di montaggi sensibili.
 
     >[!NOTE]
-    > Il Centro sicurezza genera avvisi di sicurezza per le azioni e le distribuzioni del servizio Azure Kubernetes che si verificano dopo l'abilitazione dell'opzione Kubernetes nelle impostazioni della sottoscrizione. 
+    > Azure Defender genera avvisi di sicurezza per le azioni e le distribuzioni che si verificano dopo aver abilitato il piano Defender per Kubernetes sulla sottoscrizione. 
 
-    Per un elenco degli avvisi a livello di cluster del servizio Azure Kubernetes, vedere la [tabella di riferimento degli avvisi](../articles/security-center/alerts-reference.md#alerts-akscluster).
+    Per un elenco degli avvisi a livello di cluster, vedere la [tabella di riferimento degli avvisi](../articles/security-center/alerts-reference.md#alerts-akscluster).
 
 Inoltre, il team globale di ricercatori Microsoft che si occupano di sicurezza monitora costantemente il panorama delle minacce. Aggiungono avvisi e vulnerabilità specifici dei contenitori man mano che vengono individuati.
 

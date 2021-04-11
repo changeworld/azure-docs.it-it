@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 7d421cf20aa054fb3e1e4877ee610a284eeff7c9
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 6f08fa0b2126112fa17fd61be6f44bb5cc6d5396
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627056"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552156"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Come pianificare un'offerta SaaS per il Marketplace commerciale
 
-Questo articolo illustra le diverse opzioni e i requisiti per la pubblicazione di offerte Software as a Service (SaaS) nel Marketplace commerciale Microsoft. Le offerte SaaS consentono di distribuire e concedere in licenza soluzioni software ai clienti tramite sottoscrizioni online. Il server di pubblicazione SaaS gestisce e paga l'infrastruttura necessaria per supportare l'utilizzo dell'offerta da parte dei clienti. Questo articolo consente di preparare l'offerta per la pubblicazione nel Marketplace commerciale con il centro per i partner.
+Questo articolo illustra le diverse opzioni e i requisiti per la pubblicazione di offerte Software as a Service (SaaS) nel Marketplace commerciale Microsoft. SaaS offre la fornitura di soluzioni software e licenze per i clienti tramite sottoscrizioni online. Il server di pubblicazione SaaS gestisce e paga l'infrastruttura necessaria per supportare l'utilizzo dell'offerta da parte dei clienti. Questo articolo consente di preparare l'offerta per la pubblicazione nel Marketplace commerciale con il centro per i partner.
 
 ## <a name="listing-options"></a>Opzioni di presentazione
 
@@ -134,6 +134,28 @@ Se si sceglie di utilizzare il contratto standard, si ha la possibilità di aggi
 > [!NOTE]
 > Dopo la pubblicazione di un'offerta con il contratto standard per il Marketplace commerciale, non è possibile usare i termini e le condizioni personalizzati. Si tratta di uno scenario "or". È possibile offrire la propria soluzione in base al contratto standard o a termini e condizioni. Se si desidera modificare le condizioni del contratto standard, è possibile utilizzare le modifiche del contratto standard.
 
+
+## <a name="microsoft-365-integration"></a>Integrazione di Microsoft 365
+
+L'integrazione con Microsoft 365 consente all'offerta SaaS di offrire un'esperienza connessa tra più aree di Microsoft 365 app tramite componenti aggiuntivi gratuiti correlati come app team, componenti aggiuntivi per Office e soluzioni di SharePoint Framework. È possibile aiutare i clienti a individuare facilmente tutti i facet della soluzione E2E (servizio Web + componenti aggiuntivi correlati) e distribuirli in un unico processo fornendo le informazioni seguenti. 
+  - Se l'offerta SaaS si integra con Microsoft Graph, fornire l'ID app Azure Active Directory (AAD) usato dall'offerta SaaS per l'integrazione. Gli amministratori possono verificare le autorizzazioni di accesso necessarie per il corretto funzionamento dell'offerta SaaS, come impostato nell'ID app di AAD e concedere l'accesso se è necessaria l'autorizzazione di amministratore avanzato in fase di distribuzione. 
+    
+     Se si sceglie di vendere l'offerta tramite Microsoft, si tratta dello stesso ID app AAD che è stato registrato per l'uso nella pagina di destinazione per ottenere le informazioni di base sull'utente necessarie per completare l'attivazione della sottoscrizione dei clienti. Per istruzioni dettagliate, vedere la [pagina relativa alla creazione della pagina di destinazione per l'offerta SaaS transazionale nel Marketplace commerciale](azure-ad-transactable-saas-landing-page.md). 
+    
+   -    Fornire un elenco di componenti aggiuntivi correlati che funzionano con l'offerta SaaS che si vuole collegare. I clienti potranno individuare la tua soluzione E2E in AppSource e gli amministratori possono distribuire sia il sistema SaaS che tutti i componenti aggiuntivi correlati collegati nello stesso processo tramite Microsoft 365 interfaccia di amministrazione.
+    
+        Per collegare i componenti aggiuntivi correlati, è necessario fornire il collegamento AppSource del componente aggiuntivo. questo significa che il componente aggiuntivo deve essere pubblicato per la prima volta in AppSource. I tipi di componenti aggiuntivi supportati che è possibile collegare sono: app teams, componenti aggiuntivi per Office e soluzioni di SharePoint Framework (SPFx). Ogni componente aggiuntivo collegato deve essere univoco per un'offerta SaaS. 
+
+Per i prodotti collegati, la ricerca in AppSource restituirà un risultato che include sia SaaS che tutti i componenti aggiuntivi collegati. Il cliente può spostarsi tra le pagine dei dettagli del prodotto dell'offerta SaaS e i componenti aggiuntivi collegati. Gli amministratori IT possono esaminare e distribuire i componenti aggiuntivi SaaS e collegati all'interno dello stesso processo tramite un'esperienza integrata e connessa all'interno dell'interfaccia di amministrazione di Microsoft 365. Per altre informazioni, vedere [testare e distribuire app Microsoft 365-Microsoft 365 amministratore](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps).
+
+### <a name="microsoft-365-integration-support-limitations"></a>Limitazioni del supporto per l'integrazione Microsoft 365
+L'individuazione come una singola soluzione E2E è supportata in AppSource per tutti i casi, tuttavia, la distribuzione semplificata della soluzione E2E come descritto in precedenza tramite l'interfaccia di amministrazione di Microsoft 365 non è supportata per gli scenari seguenti:
+
+   - Lo stesso componente aggiuntivo è collegato a più di un'offerta SaaS.
+   - L'offerta SaaS è collegata ai componenti aggiuntivi, ma non si integra con Microsoft Graph e non viene fornito alcun ID app AAD.
+  - L'offerta SaaS è collegata ai componenti aggiuntivi, ma l'ID app AAD fornito per l'integrazione Microsoft Graph è condiviso tra più offerte SaaS.
+
+ 
 ## <a name="offer-listing-details"></a>Dettagli elenco offerte
 
 Quando si [Crea una nuova offerta SaaS](create-new-saas-offer.md) nel centro per i partner, si immetteranno testo, immagini, video facoltativi e altri dettagli nella pagina di presentazione dell' **offerta** . Si tratta delle informazioni che i clienti visualizzeranno quando scoprono l'inserzione dell'offerta nel Marketplace commerciale, come illustrato nell'esempio seguente.

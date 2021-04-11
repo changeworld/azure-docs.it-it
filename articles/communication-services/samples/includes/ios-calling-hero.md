@@ -2,28 +2,28 @@
 title: includere file
 description: includere file
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: f1d49aa0583f34327afff229b46d7a366202aded
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.author: dademath
+ms.openlocfilehash: 287520f2964fba7c3c3804853e9356a8c77b2d06
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105152822"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498829"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
 
 Il **gruppo di servizi di comunicazione di Azure che chiama l'esempio Hero per iOS** illustra come usare i servizi di comunicazione che chiamano iOS SDK per creare un'esperienza di chiamata di gruppo che includa voce e video. In questa Guida introduttiva di esempio si apprenderà come impostare ed eseguire l'esempio. Per il contesto viene fornita una panoramica dell'esempio.
 
 ## <a name="download-code"></a>Scaricare il codice
 
-Trovare il codice finalizzato per questa Guida introduttiva su [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
+Trovare il progetto per questo esempio in [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero). È possibile trovare una versione dell'esempio con [interoperabilità teams](../../concepts/teams-interop.md) in un [ramo](https://github.com/Azure-Samples/communication-services-ios-calling-hero/tree/feature/teams_interop)separato.
 
 ## <a name="overview"></a>Panoramica
 
@@ -33,7 +33,7 @@ L'esempio ha l'aspetto seguente:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.":::
 
-Quando si preme il pulsante "Avvia nuova chiamata", l'applicazione iOS crea una nuova chiamata e la aggiunge. L'applicazione consente di partecipare a una chiamata esistente di servizi di comunicazione di Azure specificando l'ID della chiamata esistente. È anche possibile partecipare a una riunione di team fornendo il collegamento di join presente nell'invito alla riunione.  Il collegamento di join ha il formato seguente: `https://teams.microsoft.com/l/meetup-join/` . Per ulteriori informazioni sull'interoperabilità dei team, visitare la [documentazione concettuale di interoperabilità teams](../../concepts/teams-interop.md).
+Quando si preme il pulsante "Avvia nuova chiamata", l'applicazione iOS crea una nuova chiamata e la aggiunge. L'applicazione consente di partecipare a una chiamata esistente di servizi di comunicazione di Azure specificando l'ID della chiamata esistente.
 
 Dopo aver partecipato a una chiamata, verrà richiesto di concedere all'applicazione l'autorizzazione per accedere alla fotocamera e al microfono. Verrà inoltre richiesto di specificare un nome visualizzato.
 

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5df7088551e7e7f616077342b762baca179f8640
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a71a53cd2aff16102a54f5a24063615e02d11872
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102123361"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169522"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usare i gruppi di cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)
 
@@ -63,6 +63,7 @@ Gli scenari seguenti non sono supportati in questo momento:
 - *Solo per i clienti con licenza Azure ad P2* Anche dopo l'eliminazione del gruppo, viene comunque visualizzato un membro idoneo del ruolo nell'interfaccia utente di PIM. Dal punto di vista funzionale non è presente alcun problema. si tratta semplicemente di un problema relativo alla cache nel portale di Azure.  
 - Usare il nuovo [centro di amministrazione di Exchange](https://admin.exchange.microsoft.com/) per le assegnazioni di ruolo tramite l'appartenenza al gruppo. Questa funzionalità non è ancora supportata dal vecchio centro di amministrazione di Exchange. I cmdlet di PowerShell per Exchange funzioneranno come previsto.
 - Azure Information Protection portale (il portale classico) non riconosce ancora l'appartenenza al ruolo tramite il gruppo. È possibile [eseguire la migrazione alla piattaforma Unified Sensitivity Labeling](/azure/information-protection/configure-policy-migrate-labels) e quindi usare Office 365 Security & Compliance Center per usare le assegnazioni di gruppo per gestire i ruoli.
+- Questa funzionalità non è ancora supportata dal [centro di amministrazione delle app](https://config.office.com/) . Assegnare gli utenti direttamente al ruolo di amministratore delle app di Office.
 
 Stiamo risolvendo questi problemi.
 

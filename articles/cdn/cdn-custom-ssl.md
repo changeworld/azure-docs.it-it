@@ -5,15 +5,15 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/26/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 275afc504a5e7b92ae3274c02372eee6b488c782
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6f77bac93b7bb5e3319409c01e328c73cd08a9a0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616401"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058953"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Esercitazione: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure
 
@@ -172,15 +172,18 @@ Concedere alla rete CDN di Azure l'autorizzazione ad accedere ai certificati (se
 
 3. In Tipo di gestione dei certificati selezionare **Usa certificato personale**. 
 
-    ![Configurare il certificato](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-configure-your-certificate.png" alt-text="Screenshot della configurazione del certificato per l'endpoint della rete CDN.":::
 
-4. Selezionare un insieme di credenziali delle chiavi, un certificato (segreto) e una versione del certificato.
+4. Selezionare un insieme di credenziali delle chiavi, un certificato/segreto e una versione del certificato/segreto.
 
     La rete CDN di Azure elenca le informazioni seguenti: 
     - Account Key Vault per l'ID sottoscrizione. 
-    - Certificati (segreti) nell'insieme di credenziali delle chiavi selezionato. 
-    - Versioni del certificato disponibili. 
+    - Certificati/segreti nell'insieme di credenziali delle chiavi selezionato. 
+    - Versioni del certificato/segreto disponibili.
  
+    > [!NOTE]
+    > Per fare in modo che il certificato venga ruotato automaticamente alla versione più recente quando nel Key Vault è disponibile una versione più recente del certificato, impostare la versione del certificato/segreto su "più recente". Se è selezionata una versione specifica, è necessario selezionare di nuovo la nuova versione manualmente per la rotazione del certificato. Per la distribuzione della nuova versione del certificato/segreto sono necessarie fino a 24 ore. 
+   
 5. Selezionare **Sì** per abilitare HTTPS.
   
 6. Quando si usa il certificato, la convalida del dominio non è obbligatoria. Continua ad [attendere la propagazione](#wait-for-propagation).
@@ -234,7 +237,7 @@ DigiCert invia un messaggio di verifica agli indirizzi di posta elettronica segu
 * **hostmaster@your-domain-name.com**  
 * **postmaster@your-domain-name.com**  
 
-Si dovrebbe ricevere un messaggio di posta elettronica in pochi minuti per approvare la richiesta. Nel caso in cui si stia usando un filtro per la posta indesiderata, aggiungere verification@digicert.com all'elenco Consenti. Se non si riceve un messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
+Si dovrebbe ricevere un messaggio di posta elettronica in pochi minuti per approvare la richiesta. Se si sta usando un filtro per la posta indesiderata, aggiungere verification@digicert.com al relativo oggetto allow. Se non si riceve un messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
     
 ![Messaggio di posta elettronica di convalida del dominio](./media/cdn-custom-ssl/domain-validation-email.png)
 

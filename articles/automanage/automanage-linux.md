@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: deanwe
 ms.openlocfilehash: 3aab43be49cb98fbe136e1f0216590785d650392
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104953250"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices---linux"></a>Procedure consigliate per la gestione delle macchine virtuali di Azure-Linux

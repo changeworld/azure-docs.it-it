@@ -1,20 +1,20 @@
 ---
 title: Origini eventi di inserimento di flussi-Azure Time Series Insights Gen2 | Microsoft Docs
 description: Informazioni sul flusso di dati in Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: deepakpalled
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: ec41f7503ec179cb1fa6172e94e613933f719c93
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4e22d93d3037c190193f53b7cfdbc87cff2da6ed
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953618"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504397"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Origini eventi Azure Time Series Insights Gen2
 
@@ -75,7 +75,7 @@ Quando si crea un'origine evento, è possibile specificare i dati preesistenti d
 
 - Seguire il principio dei privilegi minimi quando si forniscono stringhe di connessione all'origine evento. Per hub eventi, configurare un criterio di accesso condiviso con l'attestazione di *invio* e per l'hub Internet usare solo l'autorizzazione per la *connessione al servizio* .
 
-> [!CAUTION] 
+> [!CAUTION]
 > Se si elimina l'hub eventi o l'hub eventi e si ricrea una nuova risorsa con lo stesso nome, è necessario creare una nuova origine eventi e collegare il nuovo hub o hub eventi. I dati non verranno inseriti fino a quando non si completa questo passaggio.
 
 ## <a name="production-workloads"></a>Carichi di lavoro di produzione

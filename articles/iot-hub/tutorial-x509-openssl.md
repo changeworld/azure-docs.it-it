@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 0d083d856138d7895a6e03f4d290ef3c4ddebd05
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4379c8f43bbfa539179b821bf6b18a01518afad6
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630719"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384307"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>Esercitazione: uso di OpenSSL per creare certificati di test
 
@@ -101,6 +101,13 @@ authorityKeyIdentifier   = keyid:always
 basicConstraints         = critical,CA:true,pathlen:0
 extendedKeyUsage         = clientAuth,serverAuth
 keyUsage                 = critical,keyCertSign,cRLSign
+subjectKeyIdentifier     = hash
+
+[client_ext]
+authorityKeyIdentifier   = keyid:always
+basicConstraints         = critical,CA:false
+extendedKeyUsage         = clientAuth
+keyUsage                 = critical,digitalSignature
 subjectKeyIdentifier     = hash
 
 ```
@@ -244,13 +251,19 @@ A questo punto si dispone di un certificato CA radice e di un certificato CA sub
 
 1. Selezionare **genera codice di verifica**. Per altre informazioni, vedere [dimostrare il possesso di un certificato della CA](tutorial-x509-prove-possession.md).
 
-1. Copiare il codice di verifica negli Appunti. È necessario impostare il codice di verifica come soggetto del certificato. Se, ad esempio, il codice di verifica è BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, aggiungerlo come oggetto del certificato, come illustrato nel passaggio successivo.
+1. Copiare il codice di verifica negli Appunti. È necessario impostare il codice di verifica come soggetto del certificato. Se, ad esempio, il codice di verifica è BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, aggiungerlo come oggetto del certificato, come illustrato nel passaggio 9.
 
 1. Generare una chiave privata.
 
   ```bash
-    $ openssl req -new -key pop.key -out pop.csr
+    $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+  ```
 
+9. Generare una richiesta di firma del certificato (CSR) dalla chiave privata. Aggiungere il codice di verifica come oggetto del certificato.
+
+  ```bash
+  openssl req -new -key pop.key -out pop.csr
+  
     -----
     Country Name (2 letter code) [XX]:.
     State or Province Name (full name) []:.
@@ -267,16 +280,16 @@ A questo punto si dispone di un certificato CA radice e di un certificato CA sub
  
   ```
 
-9. Creare un certificato usando il file di configurazione dell'autorità di certificazione radice e CSR.
+10. Creare un certificato usando il file di configurazione dell'autorità di certificazione radice e CSR per il certificato di prova del possesso.
 
   ```bash
     openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
 
   ```
 
-10. Selezionare il nuovo certificato nella visualizzazione dei **Dettagli del certificato**
+11. Selezionare il nuovo certificato nella visualizzazione dei **Dettagli del certificato** . Per trovare il file PEM, passare alla cartella certs.
 
-11. Dopo il caricamento del certificato, selezionare **Verifica**. Lo stato del certificato della CA deve essere modificato in **verificato**.
+12. Dopo il caricamento del certificato, selezionare **Verifica**. Lo stato del certificato della CA deve essere modificato in **verificato**.
 
 ## <a name="step-8---create-a-device-in-your-iot-hub"></a>Passaggio 8: creare un dispositivo nell'hub Internet delle cose
 

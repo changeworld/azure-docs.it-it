@@ -2,20 +2,20 @@
 title: includere file
 description: includere file
 services: azure-communication-services
-author: mikben
-manager: mikben
+author: ddematheu2
+manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
-ms.openlocfilehash: bd8b37620336e595cdd95945fcf012f6b07e0afe
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
-ms.translationtype: HT
+ms.author: dademath
+ms.openlocfilehash: c6e8be5462e0caffec7a1c88dae54f3f818ec323
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "106072860"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106498839"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include-android-ios.md)]
 
@@ -24,7 +24,7 @@ Il gruppo di servizi **di comunicazione di Azure che chiama l'esempio Hero per A
 
 ## <a name="download-code"></a>Scaricare il codice
 
-Trovare il codice finalizzato per questa Guida introduttiva su [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero).
+Trovare il progetto per questo esempio in [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero). È possibile trovare una versione dell'esempio con [interoperabilità teams](../../concepts/teams-interop.md) in un [ramo](https://github.com/Azure-Samples/communication-services-android-calling-hero/tree/feature/teams_interop)separato.
 
 ## <a name="overview"></a>Panoramica
 

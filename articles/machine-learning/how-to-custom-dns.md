@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/12/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q3
-ms.openlocfilehash: c3f21471e486f88daf8d79b74633c076d27ac8e2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9021c3f70c9fc053998d1b31271a1ca3b0124b4d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557582"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169539"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Come usare l'area di lavoro con un server DNS personalizzato
 
-Quando si usa un'area di lavoro di Azure Machine Learning con un endpoint privato, esistono [diversi modi per gestire la risoluzione dei nomi DNS](../private-link/private-endpoint-dns.md). Per impostazione predefinita, Azure gestisce automaticamente la risoluzione dei nomi per l'area di lavoro e l'endpoint privato. Se invece si _Usa un server DNS personalizzato_ _, è necessario creare manualmente le voci DNS o usare i server d'inoltri condizionali per l'area di lavoro.
+Quando si usa un'area di lavoro di Azure Machine Learning con un endpoint privato, esistono [diversi modi per gestire la risoluzione dei nomi DNS](../private-link/private-endpoint-dns.md). Per impostazione predefinita, Azure gestisce automaticamente la risoluzione dei nomi per l'area di lavoro e l'endpoint privato. Se invece si __Usa un server DNS personalizzato__, è necessario creare manualmente le voci DNS o usare i server d'inoltri condizionali per l'area di lavoro.
 
 > [!IMPORTANT]
 > Questo articolo illustra solo come trovare il nome di dominio completo (FQDN) e gli indirizzi IP per queste voci, ma non fornisce informazioni sulla configurazione dei record DNS per questi elementi. Per informazioni su come aggiungere record, consultare la documentazione relativa al software DNS.
@@ -46,11 +46,12 @@ L'elenco seguente contiene i nomi di dominio completi (FQDN) usati dall'area di 
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
 
     > [!NOTE]
-    > Il nome dell'area di lavoro per questo FQDN può essere troncato. Il troncamento viene eseguito per contenere il nome FQDN minore o uguale a 63 caratteri.
+    > Il nome dell'area di lavoro per questo FQDN può essere troncato. Il troncamento viene eseguito per contenere `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 caratteri.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
-    > È possibile accedere alle istanze di calcolo solo dall'interno della rete virtuale.
+    > * È possibile accedere alle istanze di calcolo solo dall'interno della rete virtuale.
+    > * L'indirizzo IP per questo FQDN **non** è l'indirizzo IP dell'istanza di calcolo. Utilizzare invece l'indirizzo IP privato dell'endpoint privato dell'area di lavoro, ovvero l'indirizzo IP delle `*.api.azureml.ms` voci.
 
 ## <a name="azure-china-21vianet-regions"></a>Aree 21Vianet di Azure Cina
 
@@ -61,7 +62,7 @@ I nomi di dominio completi seguenti sono per le aree 21Vianet di Azure Cina:
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
 
     > [!NOTE]
-    > Il nome dell'area di lavoro per questo FQDN può essere troncato. Il troncamento viene eseguito per contenere il nome FQDN minore o uguale a 63 caratteri.
+    > Il nome dell'area di lavoro per questo FQDN può essere troncato. Il troncamento viene eseguito per contenere `ml-<workspace-name, truncated>-<region>-<workspace-guid>` 63 caratteri.
 * `<instance-name>.<region>.instances.ml.azure.cn`
 ## <a name="find-the-ip-addresses"></a>Trovare gli indirizzi IP
 
@@ -108,7 +109,7 @@ Le informazioni restituite da tutti i metodi sono le stesse. elenco di FQDN e in
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * Se si dispone di un'istanza di calcolo, usare `<instance-name>.<region>.instances.azureml.ms` , dove `<instance-name>` è il nome dell'istanza di calcolo. Usare l'indirizzo IP privato dell'endpoint privato dell'area di lavoro. Si noti che l'istanza di calcolo è accessibile solo dall'interno della rete virtuale.
+> * Se si dispone di un'istanza di calcolo, usare `<instance-name>.<region>.instances.azureml.ms` , dove `<instance-name>` è il nome dell'istanza di calcolo. Usare l'indirizzo IP privato dell'endpoint privato dell'area di lavoro. È possibile accedere all'istanza di calcolo solo dall'interno della rete virtuale.
 >
 > Per tutti questi indirizzi IP, usare lo stesso indirizzo delle `*.api.azureml.ms` voci restituite nei passaggi precedenti.
 

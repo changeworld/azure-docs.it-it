@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/22/2021
 ms.author: Zhchia
 ms.openlocfilehash: 19436b7faef081757e4500c76e7537ee78081bfa
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104950381"
 ---
 # <a name="tutorial-configure-travelperk-for-automatic-user-provisioning"></a>Esercitazione: configurare TravelPerk per il provisioning utenti automatico
@@ -59,7 +59,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 3. Fare clic su **Abilita API scim**
 
-   ![Abilita](./media/travelperk-provisioning-tutorial/configuration.png)
+   ![Abilitare](./media/travelperk-provisioning-tutorial/configuration.png)
 
 4. È anche possibile abilitare le approvazioni tramite SCIM. Le approvazioni consentono di impostare una governance aggiuntiva garantendo che i viaggi vengano approvati prima dai responsabili approvazione specificati. Per altre informazioni, vedere [qui](https://support.travelperk.com/hc/en-us/articles/360044168971-How-do-approval-processes-work-).
 
