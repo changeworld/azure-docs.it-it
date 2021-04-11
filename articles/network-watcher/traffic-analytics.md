@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 87dacd28223fd88866edb90266aa76fd3cdf86cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d877f666e03bbbe2b9d4f01bc9059b95f9a1f6b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095368"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385276"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -78,7 +78,8 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
       Stati Uniti orientali 2  
       Stati Uniti orientali 2 EUAP  
       Francia centrale  
-      Germania centro-occidentale Giappone orientale  
+      Germania centro-occidentale  
+      Giappone orientale  
       Giappone occidentale  
       Corea centrale  
       Corea meridionale  
@@ -130,9 +131,7 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
    :::column span="":::
       Stati Uniti orientali 2  
       Stati Uniti orientali 2 EUAP  
-      Francia centrale  
-      Germania centro-occidentale  
-      Giappone orientale  
+      Francia centrale Giappone orientale  
       Corea centrale  
       Stati Uniti centro-settentrionali  
       Europa settentrionale  

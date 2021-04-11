@@ -7,12 +7,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: adcefc21ac4fc8a00d97d5ac4352bad1287b60de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1950fa5269460bd3daeb671a37a072dc4f5f050
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517634"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385259"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Guida introduttiva: Creare una data factory di Azure e una pipeline usando l'API REST
 
@@ -37,7 +37,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 * Creare un **contenitore BLOB** in Archiviazione BLOB, creare una **cartella** di input nel contenitore e caricare alcuni file nella cartella. È possibile usare strumenti come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per connettersi ad archiviazione BLOB di Azure, creare un contenitore BLOB, caricare il file di input e verificare il file di output.
 * Installare **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Questa guida introduttiva usa PowerShell per richiamare le chiamate API REST.
 * **Creare un'applicazione in Azure Active Directory** seguendo [queste istruzioni](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Annotare i valori seguenti, da usare nei passaggi successivi: **ID applicazione**, **clientSecrets** e **ID tenant**. Assegnare l'applicazione al ruolo **Collaboratore**.
-
+>[!NOTE]
+>   Per i cloud sovrani è necessario usare gli endpoint specifici del cloud appropriati per ActiveDirectoryAuthority e ResourceManagerUrl (BaseUri). È possibile usare PowerShell per ottenere facilmente gli URL degli endpoint per diversi cloud eseguendo "Get-AzEnvironment | Format-List ", che restituirà un elenco di endpoint per ogni ambiente cloud.  
+>    
 ## <a name="set-global-variables"></a>Configurare le variabili globali
 
 1. Avviare **PowerShell**. Tenere aperto Azure PowerShell fino al termine di questa guida introduttiva. Se si chiude e si riapre, sarà necessario eseguire di nuovo questi comandi.

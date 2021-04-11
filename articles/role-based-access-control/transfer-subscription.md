@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 5a4be6052e72c27ad83b5af64f1acb3ad8d4e3be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5baf5f503542f31b26c4c210741f1ce986f6a549
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555907"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580110"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Trasferire una sottoscrizione di Azure a una directory Azure AD diversa
 
@@ -74,15 +74,15 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 | Identità gestite assegnate dal sistema | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario disabilitare e riabilitare le identità gestite. È necessario ricreare le assegnazioni di ruolo. |
 | Identità gestite assegnate dall'utente | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario eliminare, ricreare e collegare le identità gestite alla risorsa appropriata. È necessario ricreare le assegnazioni di ruolo. |
 | Insieme di credenziali chiave di Azure | Sì | Sì | [Elencare i criteri di accesso Key Vault](#list-key-vaults) | È necessario aggiornare l'ID tenant associato agli insiemi di credenziali delle chiavi. È necessario rimuovere e aggiungere nuovi criteri di accesso. |
-| Database SQL di Azure con Azure AD Integration Authentication abilitato | Sì | No | [Controllare i database SQL di Azure con l'autenticazione Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Database SQL di Azure con Azure AD Integration Authentication abilitato | Sì | No | [Controllare i database SQL di Azure con l'autenticazione Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) | Non è possibile trasferire un database SQL di Azure con Azure AD autenticazione abilitata in una directory diversa. Per altre informazioni, vedere [usare l'autenticazione Azure Active Directory](../azure-sql/database/authentication-aad-overview.md). | 
 | Archiviazione di Azure e Azure Data Lake Storage Gen2 | Sì | Sì |  | È necessario ricreare gli ACL. |
 | Azure Data Lake Storage Gen1 | Sì | Sì |  | È necessario ricreare gli ACL. |
 | File di Azure | Sì | Sì |  | È necessario ricreare gli ACL. |
-| Sincronizzazione file di Azure | Sì | Sì |  |  |
+| Sincronizzazione file di Azure | Sì | Sì |  | Il servizio di sincronizzazione archiviazione e/o l'account di archiviazione possono essere spostati in una directory diversa. Per ulteriori informazioni, vedere [domande frequenti sulla file di Azure](../storage/files/storage-files-faq.md#azure-file-sync) |
 | Azure Managed Disks | Sì | Sì |  |  Se si usano i set di crittografia del disco per crittografare Managed Disks con chiavi gestite dal cliente, è necessario disabilitare e riabilitare le identità assegnate dal sistema associate ai set di crittografia del disco. È necessario ricreare le assegnazioni di ruolo, ovvero concedere di nuovo le autorizzazioni necessarie per i set di crittografia del disco negli insiemi di credenziali delle chiavi. |
-| Servizio Azure Kubernetes | Sì | Sì |  |  |
+| Servizio Azure Kubernetes | Sì | No |  | Non è possibile trasferire il cluster AKS e le risorse associate in una directory diversa. Per altre informazioni, vedere [domande frequenti su Azure Kubernetes Service (AKS)](../aks/faq.md) |
 | Criteri di Azure | Sì | No | Tutti gli oggetti Criteri di Azure, tra cui definizioni personalizzate, assegnazioni, esenzioni e dati di conformità. | È necessario [esportare](../governance/policy/how-to/export-resources.md), importare e riassegnare le definizioni. Quindi, creare nuove assegnazioni di criteri ed eventuali [esenzioni](../governance/policy/concepts/exemption-structure.md)necessarie per i criteri. |
-| Servizi di dominio Azure Active Directory | Sì | No |  |  |
+| Servizi di dominio Azure Active Directory | Sì | No |  | Non è possibile trasferire un dominio gestito Azure AD Domain Services in una directory diversa. Per ulteriori informazioni, vedere [domande frequenti sui servizi di dominio Azure Active Directory (ad)](../active-directory-domain-services/faqs.md) . |
 | Registrazioni per l'app | Sì | Sì |  |  |
 
 > [!WARNING]

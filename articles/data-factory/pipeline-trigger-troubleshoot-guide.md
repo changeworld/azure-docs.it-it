@@ -3,16 +3,16 @@ title: Risolvere i problemi di orchestrazione e trigger della pipeline in Azure 
 description: Utilizzare metodi diversi per risolvere i problemi relativi ai trigger di pipeline in Azure Data Factory.
 author: ssabat
 ms.service: data-factory
-ms.date: 03/13/2021
+ms.date: 04/01/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 72f2a5eec25b9acc2aedd7b006fe3380141781c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 49205025e26f7c0eb609638e70a58c9c0c14748e
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563413"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385412"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Risolvere i problemi di orchestrazione e trigger della pipeline in Azure Data Factory
 
@@ -83,7 +83,26 @@ Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are 
 - Eseguire le pipeline in momenti di trigger diversi.
 - Creare un nuovo runtime di integrazione e suddividere le pipeline tra più runtime di integrazione.
 
-### <a name="how-to-perform-activity-level-errors-and-failures-in-pipelines"></a>Come eseguire errori ed errori a livello di attività nelle pipeline
+### <a name="a-pipeline-run-error-while-invoking-rest-api-in-a-web-activity"></a>Errore di esecuzione della pipeline durante la chiamata dell'API REST in un'attività Web
+
+**Problema**
+
+Messaggio di errore:
+
+`
+Operation on target Cancel failed: {“error”:{“code”:”AuthorizationFailed”,”message”:”The client ‘<client>’ with object id ‘<object>’ does not have authorization to perform action ‘Microsoft.DataFactory/factories/pipelineruns/cancel/action’ over scope ‘/subscriptions/<subscription>/resourceGroups/<resource group>/providers/Microsoft.DataFactory/factories/<data factory name>/pipelineruns/<pipeline run id>’ or the scope is invalid. If access was recently granted, please refresh your credentials.”}}
+`
+
+**Causa**
+
+Le pipeline possono usare l'attività Web per chiamare i metodi dell'API REST di ADF, se e solo se al membro Azure Data Factory viene assegnato il ruolo Collaboratore. Per prima cosa, è necessario configurare aggiungere il Azure Data Factory identità gestita al ruolo di sicurezza collaboratore. 
+
+**Risoluzione**
+
+Prima di usare l'API REST di Azure Data Factory nella scheda Impostazioni di un'attività Web, è necessario configurare la sicurezza. Azure Data Factory pipeline possono usare l'attività Web per chiamare i metodi dell'API REST di ADF, se e solo se l'identità gestita Azure Data Factory viene assegnata al ruolo *collaboratore*  . Per iniziare, aprire il portale di Azure e fare clic sul collegamento **tutte le risorse** nel menu a sinistra. Selezionare **Azure Data Factory**  per aggiungere l'identità gestita di ADF con ruolo Collaboratore facendo clic sul pulsante **Aggiungi** nella casella *Aggiungi un'assegnazione di ruolo* .
+
+
+### <a name="how-to-check-and-branch-on-activity-level-success-and-failure-in-pipelines"></a>Come controllare e creare rami in caso di esito positivo e negativo a livello di attività nelle pipeline
 
 **Causa**
 
@@ -115,7 +134,7 @@ Il grado di parallelismo in *foreach* è in realtà max degree of parallelism. N
 
 Fact noti su *foreach*
  * Foreach dispone di una proprietà denominata batch Count (n) in cui il valore predefinito è 20 e il valore max è 50.
- * Il numero di batch, n, viene usato per costruire n code. In seguito verranno illustrati alcuni dettagli sul modo in cui vengono costruite queste code.
+ * Il numero di batch, n, viene usato per costruire n code. 
  * Ogni coda viene eseguita in sequenza, ma è possibile disporre di più code eseguite in parallelo.
  * Le code vengono create in precedenza. Ciò significa che non è previsto il ribilanciamento delle code durante il Runtime.
  * In qualsiasi momento, è possibile elaborare al massimo un elemento per ogni coda. Ciò significa che al massimo n elementi elaborati in un determinato momento.
@@ -124,7 +143,8 @@ Fact noti su *foreach*
 **Risoluzione**
 
  * Non è consigliabile usare l'attività *sevariabile* all'interno *di per ogni* esecuzione in parallelo.
- * Tenendo in considerazione il modo in cui vengono costruite le code, il cliente può migliorare le prestazioni di foreach impostando più *foreach* , in cui ogni foreach avrà elementi con tempi di elaborazione simili. In questo modo, le esecuzioni lunghe verranno elaborate in parallelo piuttosto in sequenza.
+ * Tenendo in considerazione il modo in cui vengono costruite le code, il cliente può migliorare le prestazioni di foreach impostando multipli di *foreach* , in cui ogni *foreach* avrà elementi con tempi di elaborazione simili. 
+ * In questo modo, le esecuzioni lunghe verranno elaborate in parallelo piuttosto in sequenza.
 
  ### <a name="pipeline-status-is-queued-or-stuck-for-a-long-time"></a>Lo stato della pipeline è in coda o bloccato per molto tempo
  

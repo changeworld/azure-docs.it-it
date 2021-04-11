@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 81c28a3c64c81da8f6939d821c2bd61ba8617a7b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 318b7e8b35fa7cc56a86033a08e316257a488b6f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935244"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442695"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -82,7 +82,25 @@ No, attualmente non è possibile applicare gruppi di sicurezza di rete alla subn
 
 ### <a name="can-i-use-azure-rbac-with-azure-netapp-files"></a>È possibile usare il controllo degli accessi in base al ruolo con Azure NetApp Files
 
-Sì, Azure NetApp Files supporta le funzionalità RBAC di Azure.
+Sì, Azure NetApp Files supporta le funzionalità RBAC di Azure. Insieme ai ruoli predefiniti di Azure, è possibile [creare ruoli personalizzati](../role-based-access-control/custom-roles.md) per Azure NetApp files. 
+
+Per l'elenco completo delle autorizzazioni di Azure NetApp Files, vedere operazioni del provider di risorse di Azure per [`Microsoft.NetApp`](../role-based-access-control/resource-provider-operations.md#microsoftnetapp) .
+
+### <a name="are-azure-activity-logs-supported-on-azure-netapp-files"></a>I log attività di Azure sono supportati nei Azure NetApp Files?
+
+Azure NetApp Files è un servizio nativo di Azure. Vengono registrate tutte le API PUT, POST e DELETE rispetto a Azure NetApp Files. Ad esempio, i log mostrano attività quali chi ha creato lo snapshot, chi ha modificato il volume e così via.
+
+Per l'elenco completo delle operazioni API, vedere [Azure NetApp Files API REST](/rest/api/netapp/).
+
+### <a name="how-do-i-audit-file-access-on-azure-netapp-files-nfs-v3-and-v41-volumes"></a>Ricerca per categorie controllare l'accesso ai file nei volumi Azure NetApp Files NFS (v3 e v 4.1)?
+
+È possibile configurare i log di controllo sul lato client. Tutte le modifiche di lettura, scrittura e attributo vengono registrate. 
+
+### <a name="can-i-use-azure-policies-with-azure-netapp-files"></a>È possibile usare I criteri di Azure con Azure NetApp Files?
+
+Sì, è possibile creare [criteri personalizzati di Azure](../governance/policy/tutorials/create-custom-policy-definition.md). 
+
+Tuttavia, non è possibile creare criteri di Azure (criteri di denominazione personalizzati) nell'interfaccia Azure NetApp Files. Vedere [linee guida per la pianificazione di Azure NetApp files rete](azure-netapp-files-network-topologies.md#considerations).
 
 ## <a name="performance-faqs"></a>Domande frequenti sulle prestazioni
 

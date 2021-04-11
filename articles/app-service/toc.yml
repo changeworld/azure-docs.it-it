@@ -8,13 +8,11 @@
       href: environment/intro.md
     - name: Confrontare le opzioni di hosting
       href: /azure/architecture/guide/technology-choices/compute-decision-tree
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
-    - name: ASP.NET Core
-      href: quickstart-dotnetcore.md
     - name: ASP.NET
-      href: quickstart-dotnet-framework.md
+      href: quickstart-dotnetcore.md
     - name: Node.js
       href: quickstart-nodejs.md
     - name: PHP
@@ -187,6 +185,10 @@
               href: deploy-ci-cd-custom-container.md
             - name: Eseguire la distribuzione dall'archivio Git locale
               href: deploy-local-git.md
+            - name: Azioni di GitHub
+              href: deploy-github-actions.md
+            - name: Azioni di GitHub per i contenitori
+              href: deploy-container-github-action.md
             - name: Eseguire la distribuzione con un modello
               href: deploy-complex-application-predictably.md
         - name: Reimpostare le credenziali di distribuzione
@@ -215,8 +217,6 @@
               href: configure-authentication-provider-facebook.md
             - name: Eseguire l'autenticazione con Google
               href: configure-authentication-provider-google.md
-            - name: Eseguire l'autenticazione con l'account Microsoft
-              href: configure-authentication-provider-microsoft.md
             - name: Eseguire l'autenticazione con Twitter
               href: configure-authentication-provider-twitter.md
             - name: Eseguire l'autenticazione con un provider OpenID Connect (anteprima)
