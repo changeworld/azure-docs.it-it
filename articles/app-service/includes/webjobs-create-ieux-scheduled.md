@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ef0aa8ba1983ca30fd44c27fe570b6b5f51733a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5105df5793d37b166b017585a62c962933a0b019
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101745670"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081111"
 ---
 ## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a> Creare un processo Web pianificato
 
@@ -31,7 +31,7 @@ ms.locfileid: "101745670"
     
     | Impostazione      | Valore di esempio   |
     | ------------ | ----------------- | 
-    | <abbr title="Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da `-` e `_` .">Nome</a> | myScheduledWebJob |  |
+    | <abbr title="Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da `-` e `_` .">Nome</a> | myScheduledWebJob | 
     | <abbr title="File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script.">Caricamento file</abbr> | ConsoleApp.zip |
     | <abbr title="I tipi includono Continuous, attivato.">Tipo</abbr> | Attivato |
     | <abbr title="Per il corretto funzionamento della pianificazione, abilitare la funzionalità Sempre online. Sempre online è disponibile solo nei piani tariffari Basic, Standard e Premium.">Trigger</a> | Scheduled |

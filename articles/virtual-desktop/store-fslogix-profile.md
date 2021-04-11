@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2ec166c1df9727052d4980f5d5758ece8c499880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1f8a82eddfdc7a2a4899c4ee836687df26101bdc
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99526603"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221892"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opzioni di archiviazione per i contenitori del profilo FSLogix in desktop virtuale di Windows
 
@@ -44,6 +44,26 @@ Le tabelle seguenti confrontano le soluzioni di archiviazione offerte da archivi
 |Integrazione di Azure Active Directory|[Active Directory e Azure Active Directory Domain Services nativi](../storage/files/storage-files-active-directory-overview.md)|[Azure Active Directory Domain Services e Active Directory nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Active Directory nativo o solo supporto Azure Active Directory Domain Services|
 
 Una volta scelto il metodo di archiviazione, vedere [prezzi di desktop virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/) per informazioni sui piani tariffari.
+
+## <a name="azure-files-tiers"></a>Livelli di File di Azure
+
+File di Azure offre due livelli di archiviazione diversi, ovvero Premium e standard. Questi livelli consentono di personalizzare le prestazioni e i costi delle condivisioni file per soddisfare i requisiti dello scenario.
+
+- Le condivisioni file Premium sono supportate da unità SSD (Solid-State Drive) e vengono distribuite nel tipo di account di archiviazione filestorage. Le condivisioni file Premium offrono prestazioni elevate e bassa latenza per carichi di lavoro intensivi di input e output (i/o). 
+
+- Le condivisioni file standard sono supportate da unità disco rigido (HDD) e vengono distribuite nel tipo di account di archiviazione per utilizzo generico versione 2 (GPv2). Le condivisioni file standard offrono prestazioni affidabili per i carichi di lavoro di i/o meno sensibili alla variabilità delle prestazioni, ad esempio condivisioni file per utilizzo generico e ambienti di sviluppo/test. Le condivisioni file standard sono disponibili solo in un modello di fatturazione con pagamento in base al consumo.
+
+La tabella seguente elenca i consigli per il livello di prestazioni da usare in base al carico di lavoro. Questi consigli consentono di selezionare il livello di prestazioni che soddisfa gli obiettivi di prestazioni, il budget e le considerazioni regionali. Questi consigli sono stati basati sugli scenari di esempio di [Desktop remoto tipi di carico di lavoro](/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
+
+| Tipo di carico di lavoro | Livello file consigliato |
+|--------|-----------|
+| Luce (meno di 200 utenti) | Condivisioni file Standard |
+| Luce (più di 200 utenti) | Condivisioni file Premium o standard con più condivisioni file |
+|Medio|Condivisioni file Premium|
+|Pesante|Condivisioni file Premium|
+|Potenza|Condivisioni file Premium|
+
+Per ulteriori informazioni sulle prestazioni di File di Azure, vedere la pagina relativa alle [destinazioni di condivisione file e scalabilità file](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets). Per ulteriori informazioni sui prezzi, vedere [file di Azure prezzi](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

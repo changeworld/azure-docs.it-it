@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 0db6ed7566c53429f8b9798ac8cdafe76ca7bd5a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 889a04d68de45a6270ae0c38615d841a526ad86a
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052144"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490693"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configurare il monitoraggio in integrità Guest di VM Insights usando le regole di raccolta dati (anteprima)
 L' [integrità Guest di VM Insights](vminsights-health-overview.md) consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come è possibile modificare il monitoraggio predefinito tra più macchine virtuali usando le regole di raccolta dati.
@@ -48,9 +48,9 @@ Nella tabella seguente viene elencata la configurazione predefinita per ogni mon
 
 | Monitoraggio | Abilitato | Creazione di avvisi | Avviso | Critico | Frequenza di valutazione | Lookback | Tipo di valutazione | Esempio minimo | Numero massimo di campioni |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| Uso della CPU  | Vero | Falso | nessuno | \> 90%    | 60 secondi | 240 sec | Min | 2 | 3 |
-| Memoria disponibile | Vero | Falso | nessuno | \< 100 MB | 60 secondi | 240 sec | Max | 2 | 3 |
-| File system      | Vero | Falso | nessuno | \< 100 MB | 60 secondi | 120 sec | Max | 1 | 1 |
+| Uso della CPU  | Vero | Falso | Nessuno | \> 90%    | 60 secondi | 240 sec | Min | 2 | 3 |
+| Memoria disponibile | Vero | Falso | Nessuno | \< 100 MB | 60 secondi | 240 sec | Max | 2 | 3 |
+| File system      | Vero | Falso | Nessuno | \< 100 MB | 60 secondi | 120 sec | Max | 1 | 1 |
 
 
 ## <a name="overrides"></a>Override
@@ -175,17 +175,17 @@ Elenco di una o più stringhe che definiscono quali monitoraggi nella gerarchia 
 Nella tabella seguente sono elencati i nomi di monitoraggio attualmente disponibili.
 
 | Nome tipo | Nome | Descrizione |
-|:---|:---|:---|
-| root | root | Monitoraggio di primo livello che rappresenta l'integrità della macchina virtuale. | |
-| utilizzo CPU | utilizzo CPU | Monitoraggio dell'utilizzo della CPU. | |
-| dischi logici | dischi logici | Monitoraggio aggregato dello stato di integrità di tutti i dischi monitorati nella macchina virtuale Windows. | |
-| dischi logici\|* | dischi logici \| C:<br>dischi logici \| D: | Monitoraggio aggregato dello stato di rilevamento di un determinato disco nella macchina virtuale Windows. | 
-| \| * \| spazio libero su disco logico | dischi logici \| C: \| spazio libero<br>dischi logici \| D: \| spazio libero | Monitoraggio dello spazio libero su disco nella macchina virtuale Windows. |
+|:----------|:-----|:------------|
+| root | root | Monitoraggio di primo livello che rappresenta l'integrità della macchina virtuale. |
+| utilizzo CPU | utilizzo CPU | Monitoraggio dell'utilizzo della CPU. |
+| dischi logici | dischi logici | Monitoraggio aggregato dello stato di integrità di tutti i dischi monitorati nella macchina virtuale Windows. |
+| dischi logici\|\* | dischi logici \| C:<br>dischi logici \| D: | Monitoraggio aggregato dello stato di rilevamento di un determinato disco nella macchina virtuale Windows. |
+| \| \* \| spazio libero su disco logico | dischi logici \| C: \| spazio libero<br>dischi logici \| D: \| spazio libero | Monitoraggio dello spazio libero su disco nella macchina virtuale Windows. |
 | filesystems | filesystems | Monitoraggio aggregato dello stato di tutti i filesystem nella macchina virtuale Linux. |
-| filesystem\|* | filesystem\|/<br>filesystems \| /mnt | Monitoraggio aggregato dello stato di monitoraggio di un file System di una macchina virtuale Linux. | filesystems|/var/log |
-| \| * \| spazio disponibile per i filesystem | \| / \| spazio disponibile per i filesystem<br>\|/mnt \| di spazio disponibile per i filesystem | Monitoraggio dello spazio libero su disco nel file System della macchina virtuale Linux. | 
-| memoria | memoria | Monitoraggio aggregato dello stato della memoria della macchina virtuale. | |
-| memoria \| disponibile| memoria \| disponibile | Monitorare la memoria disponibile per il rilevamento della macchina virtuale. | |
+| filesystem\|\* | filesystem\|/<br>filesystems \| /mnt | Monitoraggio aggregato dello stato di monitoraggio di un file System di una macchina virtuale Linux. |
+| \| \* \| spazio disponibile per i filesystem | \| / \| spazio disponibile per i filesystem<br>\|/mnt \| di spazio disponibile per i filesystem | Monitoraggio dello spazio libero su disco nel file System della macchina virtuale Linux. |
+| memoria | memoria | Monitoraggio aggregato dello stato della memoria della macchina virtuale. |
+| memoria \| disponibile | memoria \| disponibile | Monitorare la memoria disponibile per il rilevamento della macchina virtuale. |
 
 
 ## <a name="alertconfiguration-element"></a>elemento alertConfiguration

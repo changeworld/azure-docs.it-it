@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 4c7c68bf690097004f2f3310a8d89ce954d7f87f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c98d88d66e89df3efe186212d8c004ec2a65158d
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612924"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106450215"
 ---
 | Risorsa | Limite | Note |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "98612924"
 | Numero di set di regole di riscrittura |400| |
 | Numero di configurazioni di intestazioni o URL per set di regole di riscrittura|40| |
 | Numero di condizioni per set di regole di riscrittura|40| |
-| Connessioni WebSocket simultanee |Gateway medio: 20.000<br> Gateway di grandi dimensioni: 50.000| |
+| Connessioni WebSocket simultanee |Gateway medio 20.000<sup>2</sup><br> Gateway di grandi dimensioni 50.000<sup>2</sup>| |
 | Lunghezza massima dell'URL|32 KB| |
 | Dimensioni massime delle intestazioni per HTTP/2 |4 KB| |
 | Dimensioni massime di caricamento file, Standard |2 GB | |
@@ -45,3 +45,5 @@ ms.locfileid: "98612924"
 | Numero massimo di esclusioni WAF per gateway applicazione|40||
 
 <sup>1</sup> Nel caso di SKU abilitati per WAF, è necessario limitare il numero di risorse a 40.
+
+<sup>2</sup> il limite è per istanza del gateway applicazione non per ogni risorsa del gateway applicazione.

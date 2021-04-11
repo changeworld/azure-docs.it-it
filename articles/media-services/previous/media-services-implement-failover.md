@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef4eb3eb55ec1f062efb0f8215a3619f526b1ad2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103011936"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063985"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementare lo streaming del failover con servizi multimediali V2
 
@@ -753,7 +753,7 @@ In questa sezione, si crea la possibilità di gestire la ridondanza.
 
 Nell'esempio riportato in questo argomento viene illustrato il Clear streaming. Se si vuole eseguire lo streaming protetto, è necessario eseguire alcune altre operazioni di configurazione, è necessario usare lo stesso **AssetDeliveryPolicy**, lo stesso **CONTENTKEYAUTHORIZATIONPOLICY** o l'URL del server di chiave esterna ed è necessario duplicare le chiavi simmetriche con lo stesso identificatore.
 
-Per altre informazioni sulla protezione del contenuto, vedere [usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md).
+Per altre informazioni sulla protezione del contenuto, vedere [usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-playready-license-template-overview.md).
 
 ## <a name="see-also"></a>Vedi anche
 

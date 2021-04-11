@@ -6,13 +6,13 @@ ms.author: sngun
 ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/19/2020
-ms.openlocfilehash: 2bea2324817986654de6689a2be15d0cbf999b38
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 98e849791acd71ea8bf3ac9cb1949da9f562e749
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98602145"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490829"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Pianificare e gestire i costi per Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +31,11 @@ Azure Cosmos DB supporta due tipi di modalità di capacità: la [velocità effet
 
 L'analisi dei costi in gestione costi supporta la maggior parte dei tipi di account Azure, ma non tutti. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Per visualizzare i dati sui costi, è necessario almeno l'accesso in lettura per un account Azure. Per informazioni sull'assegnazione dell'accesso ai dati di Gestione costi di Azure, vedere [Assegnare l'accesso ai dati](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## <a name="estimating-provisioned-throughput-costs-before-using-azure-cosmos-db"></a>Stima dei costi della velocità effettiva con provisioning prima di usare Azure Cosmos DB
+## <a name="estimate-costs-before-using-azure-cosmos-db"></a>Stimare i costi prima di usare Azure Cosmos DB
+
+Azure Cosmos DB è disponibile in due modalità di capacità diverse: velocità effettiva con provisioning e senza server. È possibile eseguire esattamente le stesse operazioni di database in entrambe le modalità, ma il modo in cui vengono fatturate queste operazioni è diverso.
+
+### <a name="estimate-provisioned-throughput-costs"></a>Stimare i costi della velocità effettiva con provisioning
 
 Se si prevede di usare Azure Cosmos DB in modalità di velocità effettiva con provisioning, usare il [calcolatore di capacità Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) per stimare i costi prima di creare le risorse in un account Azure Cosmos. Il calcolatore della capacità viene usato per ottenere una stima della velocità effettiva richiesta e del costo del carico di lavoro. Per ottimizzare i costi e le prestazioni, è essenziale configurare i database e i contenitori di Azure Cosmos con la quantità corretta di velocità effettiva con provisioning o [unità richiesta (UR/sec)](request-units.md)per il carico di lavoro. È necessario immettere i dettagli, ad esempio il tipo di API, il numero di aree, le dimensioni degli elementi, le richieste di lettura/scrittura al secondo, i dati totali archiviati per ottenere una stima dei costi. Per altre informazioni sul calcolatore della capacità, vedere l'articolo relativo alla [stima](estimate-ru-with-capacity-planner.md) .
 
@@ -39,7 +43,7 @@ Lo screenshot seguente mostra la velocità effettiva e la stima dei costi usando
 
 :::image type="content" source="./media/plan-manage-costs/capacity-calculator-cost-estimate.png" alt-text="Stima dei costi nel calcolatore di capacità Azure Cosmos DB":::
 
-## <a name="estimating-serverless-costs-before-using-azure-cosmos-db"></a><a id="estimating-serverless-costs"></a> Stima dei costi senza server prima di usare Azure Cosmos DB
+### <a name="estimate-serverless-costs"></a><a id="estimating-serverless-costs"></a> Stimare i costi senza server
 
 Se si prevede di usare Azure Cosmos DB in modalità senza server, è necessario stimare il numero di [unità richiesta](request-units.md) e GB di spazio di archiviazione che è possibile utilizzare su base mensile. È possibile stimare la quantità di unità richiesta necessaria valutando il numero di operazioni di database che verrebbero emesse in un mese e moltiplicando la quantità per il costo ur corrispondente. Nella tabella seguente sono elencati i costi delle unità richiesta stimati per le operazioni di database comuni:
 
@@ -58,6 +62,26 @@ Una volta calcolato il numero totale di unità richiesta e GB di spazio di archi
 
 > [!NOTE]
 > I costi indicati nell'esempio precedente sono solo a scopo dimostrativo. Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) .
+
+## <a name="understand-the-full-billing-model"></a>Informazioni sul modello di fatturazione completo
+
+Azure Cosmos DB viene eseguito nell'infrastruttura di Azure che accumula i costi quando si distribuiscono nuove risorse. È importante comprendere che potrebbero verificarsi altri costi aggiuntivi dell'infrastruttura.
+
+### <a name="how-youre-charged-for-azure-cosmos-db"></a>Come vengono addebitati i costi per Azure Cosmos DB
+
+Quando si crea o si usa Azure Cosmos DB risorse, è possibile che vengano addebitati i contatori seguenti:
+
+* **Operazioni di database** : l'addebito viene addebitato in base alle unità richiesta (UR/sec) sottoposte a provisioning o utilizzato:
+  * Velocità effettiva con provisioning standard (manuale): viene addebitata una tariffa oraria per le UR/s sottoposte a provisioning nel contenitore o nel database.
+  * Velocità effettiva con provisioning automatico: la fatturazione viene addebitata in base al numero massimo di ur/sec per cui il sistema è stato scalato fino a ogni ora.
+
+* **Archiviazione utilizzata** : viene addebitata in base alla quantità totale di spazio di archiviazione (in GB) utilizzata dai dati e dagli indici per un'ora specifica.
+
+Se si usano le funzionalità di Azure Cosmos DB come l'archiviazione di backup, l'archiviazione analitica, le zone di disponibilità e le Scritture in più aree, è previsto un addebito aggiuntivo. Alla fine del ciclo di fatturazione, vengono sommati gli addebiti per ogni misuratore. La fattura o la fattura Mostra una sezione per tutti i costi Azure Cosmos DB. È presente una voce separata per ogni contatore. Per altre informazioni, vedere l'articolo relativo al [modello di prezzi](how-pricing-works.md) .
+
+### <a name="using-azure-prepayment"></a>Uso del prepagamento di Azure
+
+È possibile pagare i costi di Azure Cosmos DB con il credito di prepagamento di Azure. Tuttavia, non è possibile usare il credito con pagamento anticipato di Azure per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
 
 ## <a name="review-estimated-costs-in-the-azure-portal"></a>Esaminare i costi stimati nel portale di Azure
 
@@ -79,7 +103,7 @@ Se la sottoscrizione di Azure ha un limite di spesa, Azure impedisce la spesa ri
 
 Quando si usano le risorse con Azure Cosmos DB, si incorrono i costi. I costi delle unità di utilizzo delle risorse variano in base a intervalli di tempo (secondi, minuti, ore e giorni) o all'utilizzo delle unità richiesta. Non appena viene avviato l'utilizzo di Azure Cosmos DB, i costi sono sostenuti ed è possibile visualizzarli nel riquadro [analisi costi](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) della portale di Azure.
 
-Quando si usa l'analisi dei costi, è possibile visualizzare i costi Azure Cosmos DB in grafici e tabelle per intervalli di tempo diversi. Alcuni esempi sono il giorno, l'attuale, il mese precedente e l'anno. È anche possibile visualizzare i costi rispetto ai budget e ai costi previsti. Passando a visualizzazioni più lunghe nel tempo è possibile identificare le tendenze di spesa e vedere dove potrebbero essersi verificate le eccedenze. Se sono stati creati budget, è anche possibile vedere dove sono stati superati. 
+Quando si usa l'analisi dei costi, è possibile visualizzare i costi Azure Cosmos DB in grafici e tabelle per intervalli di tempo diversi. Alcuni esempi sono il giorno, l'attuale, il mese precedente e l'anno. È anche possibile visualizzare i costi rispetto ai budget e ai costi previsti. Passando a visualizzazioni più lunghe nel tempo è possibile identificare le tendenze di spesa e vedere dove potrebbero essersi verificate le eccedenze. Se sono stati creati budget, è anche possibile vedere dove sono stati superati.
 
 Per visualizzare Azure Cosmos DB costi nell'analisi dei costi:
 
@@ -90,7 +114,7 @@ Per visualizzare Azure Cosmos DB costi nell'analisi dei costi:
 1. Per impostazione predefinita, i costi per tutti i servizi vengono visualizzati nel primo grafico ad anello. Selezionare l'area nel grafico con l'etichetta "Azure Cosmos DB".
 
 1. Per limitare i costi per un singolo servizio, ad esempio Azure Cosmos DB, selezionare **Aggiungi filtro** e quindi selezionare **nome servizio**. Quindi, scegliere **Azure Cosmos DB** dall'elenco. Ecco un esempio che mostra i costi solo per Azure Cosmos DB:
- 
+
    :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Monitorare i costi con il riquadro analisi costi":::
 
 Nell'esempio precedente viene visualizzato il costo corrente per Azure Cosmos DB per il mese di febbraio. I grafici contengono anche Azure Cosmos DB costi in base alla località e al gruppo di risorse.
@@ -105,14 +129,27 @@ I budget possono essere creati con filtri per risorse o servizi specifici in Azu
 
 È anche possibile [esportare i dati sui costi](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) in un account di archiviazione. Questa operazione è utile quando sono necessari o altri utenti per eseguire ulteriori analisi dei dati per i costi. Ad esempio, i team finanziari possono analizzare i dati usando Excel o Power BI. È possibile esportare i costi in base a una pianificazione giornaliera, settimanale o mensile e impostare un intervallo di date personalizzato. L'esportazione dei dati sui costi è la modalità consigliata per recuperare i set di dati di costo.
 
+## <a name="other-ways-to-manage-and-reduce-costs"></a>Altri modi per gestire e ridurre i costi
+
+Di seguito sono riportate alcune procedure consigliate che è possibile utilizzare per ridurre i costi:
+
+* [Ottimizzare il costo della velocità effettiva con provisioning](optimize-cost-throughput.md) : questo articolo descrive in dettaglio le procedure consigliate per ottimizzare il costo della velocità effettiva. Viene descritto quando effettuare il provisioning della velocità effettiva a livello di contenitore rispetto a livello di database in base al tipo di carico di lavoro.
+
+* [Ottimizza il costo della richiesta](optimize-cost-reads-writes.md) : questo articolo descrive il modo in cui le richieste di lettura e scrittura vengono convertite in unità richiesta e come ottimizzare il costo di tali richieste.
+
+* [Ottimizzare](optimize-cost-storage.md) i costi di archiviazione: i costi di archiviazione vengono addebitati in base al consumo. Informazioni su come ottimizzare i costi di archiviazione con le dimensioni degli elementi, i criteri di indicizzazione, usando funzionalità come il feed di modifiche e la durata (TTL).
+
+* [Ottimizzare i costi](optimize-cost-regions.md) per più aree: se si dispone di una o più aree di lettura sottoutilizzate, è possibile eseguire le operazioni per sfruttare al massimo le UR nelle aree di lettura usando il feed delle modifiche dall'area di lettura o spostarlo in un altro database secondario se utilizzato in modo eccessivo.
+
+* [Ottimizzare i costi di sviluppo e test](optimize-dev-test.md) : informazioni su come ottimizzare i costi di sviluppo usando l'emulatore locale, il Azure Cosmos dB livello gratuito, l'account Azure gratuito e altre opzioni.
+
+* [Ottimizzare i costi con la capacità riservata](cosmos-db-reserved-capacity.md) : informazioni su come usare la capacità riservata per risparmiare denaro eseguendo il commit di una prenotazione per le risorse Azure Cosmos DB per un anno o tre anni.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere gli articoli seguenti per altre informazioni sul funzionamento dei prezzi in Azure Cosmos DB:
 
 * [Modello di determinazione dei prezzi di Azure Cosmos DB](how-pricing-works.md)
-* [Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB](optimize-cost-throughput.md)
-* [Ottimizzare il costo delle query in Azure Cosmos DB](./optimize-cost-reads-writes.md)
-* [Ottimizzare i costi di archiviazione in Azure Cosmos DB](optimize-cost-storage.md)
 * Informazioni [su come ottimizzare l'investimento nel cloud con gestione costi di Azure](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 * Altre informazioni sulla gestione dei costi con l' [analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 * Informazioni su come [evitare costi imprevisti](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 03/31/2021
 ms.author: banders
-ms.openlocfilehash: 887b7013eb3060020a39d2df0082768b8185bdde
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4f7179a5ad35b4d3ca9a92119fb7b492e2aff779
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575467"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122527"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Introduzione all'account di fatturazione di Azure aggiornato
 
@@ -26,11 +26,11 @@ La gestione dei costi e delle fatture è uno dei componenti principali dell'espe
 
 Il diagramma seguente confronta l'account di fatturazione precedente e quello nuovo:
 
-![Diagramma che illustra il confronto tra la gerarchia di fatturazione nell'account precedente e in quello nuovo](./media/mosp-new-customer-experience/comparison-old-new-account.png)
+:::image type="content" source="./media/mosp-new-customer-experience/comparison-old-new-account.png" alt-text="Diagramma che mostra il confronto tra la gerarchia di fatturazione nel vecchio e il nuovo account." border="false" lightbox="./media/mosp-new-customer-experience/comparison-old-new-account.png":::
 
 Il nuovo account di fatturazione contiene uno o più profili di fatturazione che consentono di gestire le fatture e i metodi di pagamento. Ogni profilo di fatturazione contiene una o più sezioni della fattura che consentono di organizzare i costi per la fattura del profilo di fatturazione.
 
-![Diagramma che illustra la nuova gerarchia di fatturazione](./media/mosp-new-customer-experience/new-billing-account-hierarchy.png)
+:::image type="content" source="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png" alt-text="Diagramma che mostra la nuova gerarchia di fatturazione." border="false" lightbox="./media/mosp-new-customer-experience/new-billing-account-hierarchy.png":::
 
 I ruoli nell'account di fatturazione hanno il livello di autorizzazioni più elevato. Questi ruoli dovranno essere assegnati agli utenti che devono visualizzare le fatture e tenere traccia dei costi per l'intero account, ad esempio ai responsabili finanziari o IT di un'organizzazione o alla persona che ha effettuato l'iscrizione per un account. Per altre informazioni, vedere [Ruoli e attività dell'account di fatturazione](../manage/understand-mca-roles.md#billing-account-roles-and-tasks). Quando l'account viene aggiornato, all'utente con ruolo di amministratore account nell'account di fatturazione precedente viene assegnato un ruolo di proprietario per il nuovo account.
 
@@ -60,7 +60,21 @@ La nuova esperienza consente di gestire facilmente i costi e le fatture grazie a
 
 **Periodo di fatturazione mensile più prevedibile**: nel nuovo account, il periodo di fatturazione inizia il primo giorno del mese e termina l'ultimo giorno del mese, indipendentemente da quando viene effettuata l'iscrizione per l'uso di Azure. All'inizio di ogni mese verrà generata una fattura che conterrà tutti gli addebiti del mese precedente.
 
-**Ricevere una singola fattura mensile per più sottoscrizioni**: è possibile ricevere una fattura mensile per ogni sottoscrizione oppure una singola fattura per più sottoscrizioni.
+**Ottenere una singola fattura mensile per più sottoscrizioni** : nell'account esistente si ottiene una fattura per ogni sottoscrizione di Azure. Quando l'account viene aggiornato, il comportamento esistente viene mantenuto, ma è possibile consolidare gli addebiti delle sottoscrizioni in un'unica fattura. Dopo aver aggiornato l'account, attenersi alla procedura seguente per consolidare gli addebiti in una singola fattura:
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Cercare **Gestione dei costi e fatturazione**.  
+   ![Screenshot che illustra la ricerca di Gestione dei costi e fatturazione nel portale di Azure.](./media/mosp-new-customer-experience/billing-search-cost-management-billing.png)
+3. Selezionare **sottoscrizioni di Azure** dal lato sinistro della schermata. 
+4. La tabella elenca le sottoscrizioni di Azure a cui si sta pagando. Nella colonna profilo di fatturazione si troverà il profilo di fatturazione fatturato per la sottoscrizione. Gli addebiti per la sottoscrizione vengono visualizzati nella fattura del profilo di fatturazione. Per consolidare gli addebiti per tutte le sottoscrizioni in un'unica fattura, è necessario collegare tutte le sottoscrizioni a un unico profilo di fatturazione.  
+    :::image type="content" source="./media/mosp-new-customer-experience/list-azure-subscriptions.png" alt-text="Screenshot che mostra l'elenco delle sottoscrizioni di Azure." lightbox="./media/mosp-new-customer-experience/list-azure-subscriptions.png" :::
+5. Selezionare un profilo di fatturazione che si desidera utilizzare. 
+6. Selezionare una sottoscrizione non collegata al profilo di fatturazione scelto nel passaggio 5. Fare clic sui puntini di sospensione (tre punti) per la sottoscrizione. Selezionare **Cambia la sezione della fattura**.  
+    :::image type="content" source="./media/mosp-new-customer-experience/select-change-invoice-section.png" alt-text="Screenshot che mostra dove trovare l'opzione per modificare la sezione della fattura." lightbox="./media/mosp-new-customer-experience/select-change-invoice-section-zoomed-in.png" :::
+7. Selezionare il profilo di fatturazione scelto nel passaggio #5.  
+    :::image type="content" source="./media/mosp-new-customer-experience/change-invoice-section.png" alt-text="Screenshot che Mostra come modificare la sezione della fattura." lightbox="./media/mosp-new-customer-experience/change-invoice-section-zoomed-in.png" :::
+8. Selezionare **modifica**.
+9. Ripetere i passaggi 6-8 per tutte le altre sottoscrizioni. 
 
 **Ricevere una singola fattura mensile per le sottoscrizioni di Azure, i piani di supporto e i prodotti di Azure Marketplace**: si riceverà un'unica fattura mensile per tutti gli addebiti, che includerà gli addebiti per l'utilizzo delle sottoscrizioni di Azure, i piani di supporto e gli acquisti in Azure Marketplace.
 
@@ -98,6 +112,12 @@ Di seguito sono riportate le operazioni consigliate per prepararsi per la nuova 
 
 Nella nuova esperienza, la fattura verrà generata intorno al nono giorno del mese e conterrà tutti gli addebiti del mese precedente. Questa data potrebbe differire dalla data di generazione della fattura nell'account precedente. Se si condividono le fatture con altri, notificare il cambiamento della data.
 
+
+**Fatture nel primo mese dopo la migrazione**
+
+Il giorno in cui l'account viene aggiornato, gli addebiti non fatturati esistenti vengono finalizzati e si riceveranno le fatture per questi addebiti nel giorno in cui si ricevono in genere le fatture. Ad esempio, Giorgio ha due sottoscrizioni di Azure: Azure Sub 01 con ciclo di fatturazione dal quinto giorno del mese al quarto giorno del mese successivo e Azure Sub 02 con ciclo di fatturazione dal decimo giorno del mese al nono giorno del mese successivo. Giorgio ottiene le fatture per entrambe le sottoscrizioni di Azure in genere il quinto del mese. A questo punto, se l'account di John viene aggiornato il 4 aprile, verranno completati gli addebiti per Azure Sub 01 dal 5 marzo al 4 aprile e gli addebiti per Azure Sub 02 dal 10 marzo al 4 aprile. Giorgio riceverà due fatture, una per ogni sub del 5 aprile. Dopo l'aggiornamento dell'account, il ciclo di fatturazione di John sarà basato sul mese di calendario e coprirà tutti i costi addebitati dall'inizio di un mese di calendario fino alla fine del mese di calendario.  La fattura per gli addebiti del mese di calendario precedente è disponibile il 9 di ogni mese. Nell'esempio precedente Giorgio riceverà un'altra fattura il 5 maggio per il periodo di fatturazione del 5 aprile al 30 aprile. 
+
+
 **Nuove API di fatturazione e gestione dei costi**
 
 Se si usano API di Gestione dei costi e fatturazione per eseguire query e aggiornare i dati relativi alla fatturazione o ai costi, è necessario usare le nuove API. La tabella seguente riporta l'elenco delle API che non funzioneranno con il nuovo account di fatturazione e le modifiche da apportare nel nuovo account di fatturazione.
@@ -106,6 +126,7 @@ Se si usano API di Gestione dei costi e fatturazione per eseguire query e aggior
 |---------|---------|
 |[Account di fatturazione - Elenco](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | Nell'API di elenco degli account di fatturazione il valore di agreementType per l'account di fatturazione precedente è **MicrosoftOnlineServiceProgram**, mentre per il nuovo account di fatturazione il valore di agreementType sarà **MicrosoftCustomerAgreement**. Se è presente una dipendenza da agreementType, aggiornarne il valore. |
 |[Fatture - Elenco per sottoscrizione di fatturazione](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Questa API restituirà solo le fatture generate prima dell'aggiornamento dell'account. Per ottenere le fatture generate nel nuovo account di fatturazione, sarà necessario usare l'API illustrata in [Fatture - Elenco per account di fatturazione](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount). |
+
 
 ## <a name="cost-management-updates-after-account-update"></a>Aggiornamenti di Gestione costi dopo l'aggiornamento dell'account
 
@@ -141,7 +162,7 @@ Con l'account aggiornato, si riceve una singola fattura per tutti gli addebiti d
 
 Se ad esempio per l'account precedente il periodo di fatturazione era compreso tra il 24 novembre e il 23 dicembre, dopo l'aggiornamento il periodo diventa dal 1° novembre al 30 novembre, dal 1° dicembre al 31 dicembre e così via.
 
-:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Immagine che mostra un confronto tra i periodi di fatturazione precedenti e nuovi " lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Screenshot che mostra un confronto tra i periodi di fatturazione vecchi e nuovi." lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
 
 #### <a name="budgets"></a>Budget
 
@@ -156,7 +177,7 @@ Il nuovo account di fatturazione offre funzionalità di esportazione migliorate.
 
 Ad esempio, per un periodo di fatturazione compreso dal 23 dicembre al 22 gennaio, il file CSV esportato includerà i dati relativi a costi e utilizzo per tale periodo. Dopo l'aggiornamento, l'esportazione conterrà i dati per il mese di calendario, ad esempio dal 1° gennaio al 31 gennaio e così via.
 
-:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Immagine che mostra un confronto tra dati delle esportazioni precedenti e nuovi " lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
+:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Schermate che mostrano un confronto tra i dettagli di esportazione vecchi e nuovi." lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 

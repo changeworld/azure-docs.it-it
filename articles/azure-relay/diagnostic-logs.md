@@ -3,12 +3,12 @@ title: Log di diagnostica per le connessioni ibride
 description: Questo articolo illustra tutti i log di attività e diagnostica disponibili per Inoltro di Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 9b459750ad1445da89a8e89a10a35b878bfb64e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ca6dc95567a4867d3c58e0efad0fc74289e586c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100590877"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079098"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Abilitare i log di diagnostica per le connessioni ibride di Inoltro di Azure
 Quando si iniziano a usare le connessioni ibride di Inoltro di Azure, potrebbe essere utile monitorare l'apertura e la chiusura di listener e mittenti, nonché la modalità di creazione delle connessioni ibride e l'invio dei messaggi. Questo articolo include una panoramica dei log di attività e diagnostica forniti dal servizio Inoltro di Azure. 
@@ -80,29 +80,29 @@ Ecco un evento di connessioni ibride di esempio in formato JSON.
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>Eventi e operazioni acquisiti nei log di diagnostica
 
-| Operazione | Descrizione | 
-| --------- | ----------- | 
-| AuthorizationFailed | Autorizzazione non riuscita.|
-| InvalidSasToken | Il token di firma di accesso condiviso non è valido. | 
-| ListenerAcceptingConnection | Il listener accetta la connessione. |
-| ListenerAcceptingConnectionTimeout | Si è verificato un timeout del listener che accetta la connessione. |
-| ListenerAcceptingHttpRequestFailed | Si è verificato un errore del listener che accetta la richiesta HTTP a causa di un'eccezione. |
-| ListenerAcceptingRequestTimeout | Si è verificato un timeout del listener che accetta la richiesta. |  
-| ListenerClosingFromExpiredToken | Il listener verrà chiuso perché il token di sicurezza è scaduto. | 
-| ListenerRejectedConnection | Il listener ha rifiutato la connessione. |
-| ListenerReturningHttpResponse | Il listener restituisce una risposta HTTP. |  
-| ListenerReturningHttpResponseFailed | Il listener restituisce una risposta HTTP con un codice errore. | 
- ListenerSentHttpResponse | Il servizio Inoltro ha ricevuto una risposta HTTP dal listener. | 
-| ListenerUnregistered | La registrazione del listener è stata annullata. | 
-| ListenerUnresponsive | Il listener non risponde quando viene restituita una risposta. | 
-| MessageSendingToListener | Il messaggio verrà inviato al listener. |
-| MessageSentToListener | Il messaggio è stato inviato al listener. | 
-| NewListenerRegistered | È stato registrato un nuovo listener. |
-| NewSenderRegistering | È in corso la registrazione del nuovo mittente. | 
-| ProcessingRequestFailed | L'elaborazione di un'operazione di connessione ibrida non è riuscita. | 
-| SenderConnectionClosed | La connessione al mittente viene chiusa. |
-| SenderListenerConnectionEstablished | La connessione al mittente e al listener è stata stabilita. |
-| SenderSentHttpRequest | Il mittente ha inviato una richiesta HTTP. | 
+| Operazione                           | Descrizione                                                     |
+|-------------------------------------|-----------------------------------------------------------------|
+| AuthorizationFailed                 | Autorizzazione non riuscita.                                           |
+| InvalidSasToken                     | Il token di firma di accesso condiviso non è valido.                                              |
+| ListenerAcceptingConnection         | Il listener accetta la connessione.                           |
+| ListenerAcceptingConnectionTimeout  | Si è verificato un timeout del listener che accetta la connessione.                |
+| ListenerAcceptingHttpRequestFailed  | Si è verificato un errore del listener che accetta la richiesta HTTP a causa di un'eccezione. |
+| ListenerAcceptingRequestTimeout     | Si è verificato un timeout del listener che accetta la richiesta.                   |
+| ListenerClosingFromExpiredToken     | Il listener verrà chiuso perché il token di sicurezza è scaduto. |
+| ListenerRejectedConnection          | Il listener ha rifiutato la connessione.                       |
+| ListenerReturningHttpResponse       | Il listener restituisce una risposta HTTP.                     |
+| ListenerReturningHttpResponseFailed | Il listener restituisce una risposta HTTP con un codice errore. |
+| ListenerSentHttpResponse            | Il servizio Inoltro ha ricevuto una risposta HTTP dal listener.  |
+| ListenerUnregistered                | La registrazione del listener è stata annullata.                                   |
+| ListenerUnresponsive                | Il listener non risponde quando viene restituita una risposta.         |
+| MessageSendingToListener            | Il messaggio verrà inviato al listener.                              |
+| MessageSentToListener               | Il messaggio è stato inviato al listener.                                    |
+| NewListenerRegistered               | È stato registrato un nuovo listener.                                        |
+| NewSenderRegistering                | È in corso la registrazione del nuovo mittente.                                      |
+| ProcessingRequestFailed             | L'elaborazione di un'operazione di connessione ibrida non è riuscita.     |
+| SenderConnectionClosed              | La connessione al mittente viene chiusa.                                |
+| SenderListenerConnectionEstablished | La connessione al mittente e al listener è stata stabilita.    |
+| SenderSentHttpRequest               | Il mittente ha inviato una richiesta HTTP.                                |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

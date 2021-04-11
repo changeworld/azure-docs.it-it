@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 03/08/2021
+ms.date: 03/30/2021
 ms.author: alkohli
-ms.openlocfilehash: 0ad760caedffa97599548b8dd1b59a887b5690af
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 89e648099a5ac6d905f475319cc108dd0d05a6e9
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105105096"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081099"
 ---
 A seconda del sistema operativo del client, le procedure per connettersi in remoto al dispositivo sono diverse.
 
@@ -58,8 +58,15 @@ Per connettersi in remoto da un client Windows, seguire questa procedura.
 
     Se viene visualizzato un errore relativo alla relazione di trust, verificare se la catena di firma del certificato del nodo caricato nel dispositivo è installata anche sul client che accede al dispositivo.
 
+    Se non si usano i certificati (si consiglia di usare i certificati!), è possibile ignorare questo controllo usando le opzioni di sessione: `-SkipCACheck -SkipCNCheck -SkipRevocationCheck` .
+
+    ```powershell
+    $sessOptions = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck 
+    Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell -UseSSL -SessionOption $sessOptions    
+    ```
+
     > [!NOTE] 
-    > Quando si usa l' `-UseSSL` opzione, si esegue la comunicazione remota tramite PowerShell su *https*. Si consiglia di usare sempre *https* per connettersi in remoto tramite PowerShell. Anche se una sessione *http* non è il metodo di connessione più sicuro, è accettabile nelle reti attendibili.
+    > Quando si usa l' `-UseSSL` opzione, si esegue la comunicazione remota tramite PowerShell su *https*. Si consiglia di usare sempre *https* per connettersi in remoto tramite PowerShell. 
 
 6. Fornire la password quando richiesto. Usare la stessa password usata per accedere all'interfaccia utente Web locale. La password dell'interfaccia utente Web locale predefinita è *Password1*. Quando ci si connette correttamente al dispositivo usando PowerShell remoto, viene visualizzato l'output di esempio seguente:  
 
@@ -77,27 +84,30 @@ Per connettersi in remoto da un client Windows, seguire questa procedura.
     [10.100.10.10]: PS>
     ```
 
-### <a name="remotely-connect-from-a-linux-client"></a>Connettersi in remoto da un client Linux
+> [!IMPORTANT]
+> Nella versione corrente è possibile connettersi all'interfaccia di PowerShell del dispositivo solo tramite un client Windows. L' `-UseSSL` opzione non funziona con i client Linux.
 
-Nel client Linux che verrà usato per la connessione:
+<!--### Remotely connect from a Linux client-->
 
-- [Installare la versione più recente di PowerShell core per Linux](/powershell/scripting/install/installing-powershell-core-on-linux) da GitHub per ottenere la funzionalità di comunicazione remota SSH. 
-- [Installare solo il `gss-ntlmssp` pacchetto dal modulo NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Per i client Ubuntu, usare il comando seguente:
+<!--On the Linux client that you'll use to connect:
+
+- [Install the latest PowerShell Core for Linux](/powershell/scripting/install/installing-powershell-core-on-linux) from GitHub to get the SSH remoting feature. 
+- [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubuntu clients, use the following command:
     - `sudo apt-get install gss-ntlmssp`
 
-Per altre informazioni, vedere la [comunicazione remota di PowerShell su SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
+For more information, go to [PowerShell remoting over SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
-Per connettersi in remoto da un client NFS, attenersi alla seguente procedura.
+Follow these steps to remotely connect from an NFS client.
 
-1. Per aprire la sessione di PowerShell, digitare:
+1. To open PowerShell session, type:
 
     `pwsh`
  
-2. Per la connessione tramite il client remoto, digitare:
+2. For connecting using the remote client, type:
 
     `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
-    Quando richiesto, specificare la password usata per accedere al dispositivo.
+    When prompted, provide the password used to sign into your device.
  
 > [!NOTE]
-> Questa procedura non funziona in Mac OS.
+> This procedure does not work on Mac OS.-->

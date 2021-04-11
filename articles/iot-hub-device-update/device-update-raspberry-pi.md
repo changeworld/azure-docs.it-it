@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: b6a9fa3ac85460a46653c171198a2dfea8580f3a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 143a7c411bea6a451645c860b7b5d12d2aa8d9f5
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644488"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121337"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Esercitazione sull'aggiornamento del dispositivo per l'hub Azure. uso dell'immagine di riferimento di Raspberry Pi 3 B +
 
@@ -81,7 +81,7 @@ Leggere le condizioni di licenza prima di utilizzare l'agente. L'installazione e
 
 A questo punto, il dispositivo deve essere aggiunto all'hub Azure.  Dall'hub Azure, verrà generata una stringa di connessione per il dispositivo.
 
-1. Dal portale di Azure avviare l'hub di aggiornamento del dispositivo.
+1. Dal portale di Azure, avviare l'hub Azure.
 2. Creare un nuovo dispositivo.
 3. Sul lato sinistro della pagina passare a "esploratori" > "dispositivi Internet" > selezionare "nuovo".
 4. Specificare un nome per il dispositivo in "ID dispositivo". Verificare che sia selezionata l'opzione "genera chiavi automaticamente".
@@ -103,9 +103,9 @@ A questo punto, il dispositivo deve essere aggiunto all'hub Azure.  Dall'hub Azu
  
 Sostituire `<device connection string>` con la stringa di connessione
  ```markdown
-    echo "connection_string=<device connection string>" > adu-conf.txt  
-    echo "aduc_manufacturer=ADUTeam" >> adu-conf.txt
-    echo "aduc_model=RefDevice" >> adu-conf.txt
+    echo "connection_string=<device connection string>" > /adu/adu-conf.txt  
+    echo "aduc_manufacturer=ADUTeam" >> /adu/adu-conf.txt
+    echo "aduc_model=RefDevice" >> /adu/adu-conf.txt
    ```
 
 ## <a name="connect-the-device-in-device-update-iot-hub"></a>Connettere il dispositivo nell'hub degli aggiornamenti del dispositivo
@@ -127,9 +127,9 @@ Usare tale numero di versione nel passaggio importa aggiornamento seguente.
 
 1. Accedere a [portale di Azure](https://portal.azure.com) e passare all'hub Internet delle cose.
 
-2. Da "dispositivi Internet o" IoT Edge "nel riquadro di spostamento a sinistra trova il tuo dispositivo e passa al dispositivo gemello.
+2. Da "dispositivi Internet o" IoT Edge "nel riquadro di spostamento a sinistra trova il tuo dispositivo e passa al dispositivo gemello o al modulo gemello.
 
-3. Nel dispositivo gemello eliminare qualsiasi valore del tag di aggiornamento del dispositivo esistente impostando il valore su null.
+3. Nel modulo gemello del modulo Device Update Agent eliminare qualsiasi valore di tag di aggiornamento del dispositivo esistente impostando il valore su null. Se si usa l'identità del dispositivo con l'agente di aggiornamento del dispositivo, apportare queste modifiche nel dispositivo gemello.
 
 4. Aggiungere un nuovo valore del tag di aggiornamento del dispositivo come illustrato di seguito.
 

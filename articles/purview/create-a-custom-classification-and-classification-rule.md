@@ -6,13 +6,13 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/5/2021
-ms.openlocfilehash: 2966618619aa40ed60c2f3d0fb2c8e080d34a016
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 3/24/2021
+ms.openlocfilehash: 7d6baee49250509e50cdeeea8cf8ca6cec5b362d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617047"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222159"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classificazioni personalizzate in Azure competenza
 
@@ -28,7 +28,7 @@ Il Data Catalog di competenza di Azure fornisce un ampio set di classificazioni 
 
 ## <a name="steps-to-create-a-custom-classification"></a>Passaggi per la creazione di una classificazione personalizzata
 
-Per creare una classificazione personalizzata, procedere come segue:
+Per creare una classificazione personalizzata, attenersi alla procedura seguente:
 
 1. Dal catalogo selezionare **Management Center** dal menu a sinistra.
 
@@ -68,7 +68,7 @@ Questi dettagli includono il conteggio del numero di istanze, il nome formale, l
 
 ## <a name="custom-classification-rules"></a>Regole di classificazione personalizzate
 
-Il servizio Catalogo fornisce un set di regole di classificazione predefinite, che vengono utilizzate dallo scanner per rilevare automaticamente determinati tipi di dati. È anche possibile aggiungere regole di classificazione personalizzate per rilevare altri tipi di dati che potrebbero essere interessati a trovare tra i dati. Questa funzionalità può essere molto potente quando si \' tenta di trovare i dati all'interno del proprio data.
+Il servizio Catalogo fornisce un set di regole di classificazione predefinite, che vengono utilizzate dallo scanner per rilevare automaticamente determinati tipi di dati. È anche possibile aggiungere regole di classificazione personalizzate per rilevare altri tipi di dati che potrebbero essere interessati a trovare tra i dati. Questa funzionalità può essere utile quando si sta provando a trovare i dati all'interno del proprio data.
 
 Ad esempio, supponiamo \' che una società denominata Contoso disponga di ID dipendente standardizzati nell'intera azienda con il termine \" Employee \" seguito da un GUID per la creazione del dipendente {GUID}. Ad esempio, un'istanza di un ID dipendente ha un aspetto simile a `EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55` .
 
@@ -109,7 +109,7 @@ Per creare una regola di classificazione personalizzata:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Crea nuova regola regex" border="true":::
 
-1. Se si decide di generare un modello Regex suggerito, dopo il caricamento di un file selezionare uno dei modelli suggeriti e fare clic su **Aggiungi a modelli** per utilizzare i modelli di dati e di colonna suggeriti. È possibile modificare i modelli suggeriti o anche digitare i propri modelli senza caricare un file.
+1. Se si decide di generare un modello Regex suggerito, dopo il caricamento di un file selezionare uno dei modelli suggeriti e selezionare **Aggiungi a modelli** per utilizzare i modelli di dati e di colonna suggeriti. È possibile modificare i modelli suggeriti o anche digitare i propri modelli senza caricare un file.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Genera Regex suggerito" border="true":::
 
@@ -128,6 +128,14 @@ Per creare una regola di classificazione personalizzata:
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Verificare la regola prima della creazione" border="true":::
 
+1. Testare la regola di classificazione prima di completare il processo di creazione per convalidare l'applicazione dei tag agli asset. Le classificazioni nella regola verranno applicate ai dati di esempio caricati esattamente come in un'analisi. Ciò significa che tutte le classificazioni di sistema e la classificazione personalizzata verranno confrontate con i dati nel file.
+
+   I file di input possono includere file delimitati (CSV, PSV, SSV, TSV), JSON o contenuto XML. Il contenuto verrà analizzato in base all'estensione del file di input. I dati delimitati possono avere un'estensione di file che corrisponde a uno qualsiasi dei tipi indicati. Ad esempio, i dati TSV possono esistere in un file denominato MySampleData.csv. Il contenuto delimitato deve avere anche un minimo di 3 colonne.
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-screen.png" alt-text="Regola di test prima della creazione" border="true":::
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-uploaded-file-result-screen.png" alt-text="Visualizza le classificazioni applicate dopo il caricamento di un file di test" border="true":::
+
 ### <a name="creating-a-dictionary-rule"></a>Creazione di una regola del dizionario
 
 1. Se si crea una regola del dizionario, viene visualizzata la schermata seguente. Caricare un file contenente tutti i valori possibili per la classificazione che si sta creando in un'unica colonna.
@@ -136,9 +144,9 @@ Per creare una regola di classificazione personalizzata:
 
 1. Dopo la generazione del dizionario, è possibile modificare le soglie di corrispondenza e di corrispondenza minime e inviare la regola.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Regola del dizionario di competenza-regolazione della soglia di corrispondenza DISTINCT e della soglia di corrispondenza minima" border="true":::
+- **Soglia di corrispondenza Distinct**: numero totale di valori di dati distinti che devono essere trovati in una colonna prima che lo scanner esegua il modello di dati. La soglia di corrispondenza DISTINCT non ha nulla a che fare con i criteri di ricerca, ma è un prerequisito per i criteri di ricerca. Il valore suggerito è 8. Questo valore può essere regolato manualmente in un intervallo compreso tra 2 e 32. Il sistema richiede questo valore per assicurarsi che la colonna contenga dati sufficienti affinché lo scanner lo classifichi in modo accurato. Una colonna contenente più righe che contengono tutti il valore 1, ad esempio, non sarà classificata. Anche le colonne che contengono una riga con un valore e il resto delle righe hanno valori null non vengono classificate. Se si specificano più modelli, questo valore viene applicato a ognuno di essi.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Crea una regola del dizionario con segno di spunta generato dal dizionario." border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Creare una regola del dizionario con Dictionary-Generated segno di spunta." border="true":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

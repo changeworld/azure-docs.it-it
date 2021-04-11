@@ -190,7 +190,7 @@
           href: delivery-and-retry.md
         - name: Recapito eventi webhook
           href: webhook-event-delivery.md
-        - name: Proprietà recapito
+        - name: Proprietà di recapito personalizzate
           href: delivery-properties.md
     - name: Ripristino di emergenza
       items:
@@ -280,9 +280,9 @@
               href: enable-identity-custom-topics-domains.md
             - name: Abilitare l'identità gestita per un argomento di sistema
               href: enable-identity-system-topics.md
-            - name: Aggiungere identità ai ruoli di Azure nelle destinazioni
+            - name: Concessione dell'identità gestita per l'accesso alla destinazione di griglia di eventi
               href: add-identity-roles.md
-            - name: Creare sottoscrizioni di eventi che usano un'identità
+            - name: Creare una sottoscrizione di eventi che usa l'identità gestita
               href: managed-service-identity.md
         - name: Recapitare gli eventi in modo sicuro tramite un collegamento privato
           href: consume-private-endpoints.md

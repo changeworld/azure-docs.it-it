@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6303a94cec9efc01815b6dc6c697abdfe0f84227
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98597955"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220901"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Istanze riservate di VM per Azure EA
 
@@ -96,7 +96,7 @@ Negli scenari in cui i clienti con contratto Enterprise di Azure hanno usato tut
 
 ### <a name="reserved-instance-expiration"></a>Scadenza di un'istanza riservata
 
-Si riceveranno notifiche tramite posta elettronica 30 giorni prima della prenotazione e alla scadenza. Al termine della prenotazione, le macchine virtuali distribuite continueranno a essere eseguite e fatturate alla tariffa con pagamento in base al consumo. Per altre informazioni, vedere l'articolo relativo all'[offerta delle istanze di macchina virtuale riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Si riceveranno le notifiche tramite posta elettronica, prima di 1 30 giorni prima della scadenza della prenotazione e di un altro alla scadenza. Al termine della prenotazione, le macchine virtuali distribuite continueranno a essere eseguite e fatturate alla tariffa con pagamento in base al consumo. Per altre informazioni, vedere l'articolo relativo all'[offerta delle istanze di macchina virtuale riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

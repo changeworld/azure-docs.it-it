@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/18/2021
+ms.date: 04/08/2021
 ms.author: memildin
-ms.openlocfilehash: b9a93286b6a546160b6c621d084437f671eab4d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9e1b5d19acbc9bcee86c374a3f843530b8adc61
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773573"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103760"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Modifiche importanti che interesseranno il Centro sicurezza di Azure
 
@@ -28,59 +28,11 @@ Se si cercano le note sulla versione più recenti, vedere [Novità del Centro si
 
 | Modifica pianificata                                                                                                                                                        | Data stimata per la modifica |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | Marzo 2021                |
-| [Deprecazione di 11 avvisi di Azure Defender](#deprecation-of-11-azure-defender-alerts)                                                                                   | Marzo 2021                |
 | [21 raccomandazioni che passano tra i controlli di sicurezza](#21-recommendations-moving-between-security-controls)                                                           | Aprile 2021                |
-| [Altri due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti](#two-further-recommendations-from-apply-system-updates-security-control-being-deprecated)                                                                                         | Aprile 2021                |
-| [Le raccomandazioni di AWS verranno rilasciate per la disponibilità a livello generale (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | Aprile 2021                |
+| [Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | Aprile 2021                |
+| [Le raccomandazioni di AWS verranno rilasciate per la disponibilità a livello generale (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | 2021 **agosto**             |
 | [Miglioramenti alla raccomandazione di classificazione dei dati SQL](#enhancements-to-sql-data-classification-recommendation)                                                     | Q2 2021                   |
 |                                                                                                                                                                       |                           |
-
-
-### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti 
-
-**Data stimata per la modifica:** 2021 marzo
-
-Le due raccomandazioni seguenti sono state pianificate per essere deprecate nel 2021 febbraio:
-
-- **Per applicare gli aggiornamenti del sistema, è necessario riavviare i computer**. Questo potrebbe causare un lieve effetto sul punteggio sicuro.
-- **È necessario installare l'agente di monitoraggio nei computer**. Questa raccomandazione si riferisce solo ai computer locali e la relativa logica verrà trasferita a un'altra raccomandazione, **log Analytics problemi di integrità dell'agente devono essere risolti nei computer**. Questo potrebbe causare un lieve effetto sul punteggio sicuro.
-
-Si consiglia di controllare le configurazioni di esportazione continua e di automazione del flusso di lavoro per verificare se tali raccomandazioni sono incluse. Inoltre, tutti i dashboard o altri strumenti di monitoraggio che potrebbero utilizzarli devono essere aggiornati di conseguenza.
-
-Per ulteriori informazioni su questi consigli, vedere la pagina di riferimento relativa alle [raccomandazioni sulla sicurezza](recommendations-reference.md).
-
-### <a name="deprecation-of-11-azure-defender-alerts"></a>Deprecazione di 11 avvisi di Azure Defender
-
-**Data stimata per la modifica:** 2021 marzo
-
-Il mese prossimo, gli undici avvisi di Azure Defender elencati di seguito saranno deprecati.
-
-- I nuovi avvisi sostituiranno questi due avvisi e forniranno una copertura migliore:
-
-    | AlertType                | AlertDisplayName                                                         |
-    |--------------------------|--------------------------------------------------------------------------|
-    | ARM_MicroBurstDomainInfo | ANTEPRIMA: è stata rilevata l'esecuzione della funzione "Get-AzureDomainInfo" del Toolkit microrompi |
-    | ARM_MicroBurstRunbook    | ANTEPRIMA: è stata rilevata l'esecuzione della funzione "Get-AzurePasswords" del Toolkit microrompi  |
-    |                          |                                                                          |
-
-- Questi nove avvisi sono correlati a un connettore Azure Active Directory Identity Protection che è già stato deprecato:
-
-    | AlertType           | AlertDisplayName              |
-    |---------------------|-------------------------------|
-    | UnfamiliarLocation  | Proprietà di accesso insolite |
-    | AnonymousLogin      | Indirizzo IP anonimo          |
-    | InfectedDeviceLogin | Indirizzo IP collegato a malware     |
-    | ImpossibleTravel    | Trasferimento atipico               |
-    | MaliciousIP         | Indirizzo IP dannoso          |
-    | LeakedCredentials   | Credenziali perse            |
-    | PasswordSpray       | Spray password                |
-    | LeakedCredentials   | Intelligence per le minacce di Azure AD  |
-    | AADAI               | Azure AD AI                   |
-    |                     |                               |
- 
-
-
 
 
 ### <a name="21-recommendations-moving-between-security-controls"></a>21 raccomandazioni che passano tra i controlli di sicurezza 
@@ -98,7 +50,7 @@ Per informazioni sulle raccomandazioni disponibili in ogni controllo di sicurezz
 |||
 
 
-### <a name="two-further-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Altri due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti
+### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti
 
 **Data stimata per la modifica:** Aprile 2021
 
@@ -110,7 +62,7 @@ Le due raccomandazioni seguenti sono deprecate:
 
 ### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>Le raccomandazioni di AWS verranno rilasciate per la disponibilità a livello generale (GA)
 
-**Data stimata per la modifica:** Aprile 2021
+**Data stimata per la modifica:** 2021 agosto
 
 Il Centro sicurezza di Azure protegge i carichi di lavoro in Azure, Amazon Web Services (AWS) e Google Cloud Platform (GCP).
 
@@ -121,7 +73,7 @@ Con questa modifica, due set di raccomandazioni AWS vengono spostati in GA:
 - [Controlli di PCI DSS dell'hub di sicurezza](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
 - [Controlli di benchmark per le fondamenta dell'hub di sicurezza CIS AWS](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
 
-Quando si tratta di GA e le valutazioni vengono eseguite sulle risorse di AWS, i risultati influirà sul punteggio sicuro combinato per tutte le risorse cloud ibride e multipiattaforma. 
+Quando si tratta di GA e le valutazioni vengono eseguite sulle risorse di AWS, i risultati influirà sul punteggio sicuro combinato per tutte le risorse cloud ibride e multipiattaforma.
 
 
 

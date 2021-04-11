@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 7abaae033d2dbdb329a1f99d8f9845e5965d806c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 24c181c17e49fe5b7c3001c1cb2839bc957ef463
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101712318"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490489"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoraggio della connettività di rete con monitoraggio connessione
 
@@ -358,6 +358,8 @@ Per le reti le cui origini sono macchine virtuali di Azure, è possibile rilevar
     * Il tunnel tra due gateway è disconnesso o mancante.
     * Il secondo gateway non è stato trovato dal tunnel.
     * Non sono state trovate informazioni sul peering.
+> [!NOTE]
+> Se sono presenti 2 gateway connessi e uno di essi non si trova nella stessa area dell'endpoint di origine, CM lo identifica come ' nessuna route appresa ' per la visualizzazione topologia. La connettività non ha alcun effetto. Si tratta di un problema noto e la correzione è in corso. 
 * Route mancante in Microsoft Edge.
 * Il traffico è stato interrotto a causa di route di sistema o UDR.
 * BGP non è abilitato nella connessione gateway.

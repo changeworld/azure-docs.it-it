@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a87525248273db38e4e7bc8d1b59bbd9f99bb4c6
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: c334888f5b85b0d2211225282680d5f791b50793
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106991"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277879"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Disponibilità elevata con servizi multimediali e video on demand (VOD)
 
@@ -61,7 +61,7 @@ Questo diagramma di alto livello Mostra l'architettura dell'esempio fornito per 
 
 * [Creare](./account-create-how-to.md) due o più account di servizi multimediali di Azure. I due account devono trovarsi in aree diverse. Per altre informazioni, vedere [aree in cui viene distribuito il servizio servizi multimediali di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).
 * Caricare i file multimediali nella stessa area da cui si prevede di inviare il processo. Per altre informazioni su come avviare la codifica, vedere [creare un input del processo da un URL HTTPS](./job-input-from-http-how-to.md) o [creare un input del processo da un file locale](./job-input-from-local-file-how-to.md).
-* Se è necessario inviare nuovamente il [processo](./transforms-jobs-concept.md) a un'altra area, è possibile usare `JobInputHttp` o usare `Copy-Blob` per copiare i dati dal contenitore di asset di origine a un contenitore di asset nell'area alternativa.
+* Se è necessario inviare nuovamente il [processo](./transform-jobs-concept.md) a un'altra area, è possibile usare `JobInputHttp` o usare `Copy-Blob` per copiare i dati dal contenitore di asset di origine a un contenitore di asset nell'area alternativa.
 
 ### <a name="monitoring"></a>Monitoraggio
 
@@ -72,10 +72,10 @@ Questo diagramma di alto livello Mostra l'architettura dell'esempio fornito per 
 
     Per altre informazioni:
 
-    * Vedere l' [esempio di analisi audio](./transforms-jobs-concept.md) che Mostra come monitorare un processo con griglia di eventi di Azure, inclusa l'aggiunta di un fallback nel caso in cui i messaggi di griglia di eventi di Azure vengano ritardati per qualche motivo.
+    * Vedere l' [esempio di analisi audio](./transform-jobs-concept.md) che Mostra come monitorare un processo con griglia di eventi di Azure, inclusa l'aggiunta di un fallback nel caso in cui i messaggi di griglia di eventi di Azure vengano ritardati per qualche motivo.
     * Esaminare gli [schemi di griglia di eventi di Azure per gli eventi di servizi multimediali](./media-services-event-schemas.md).
 
-* Quando si crea un [processo](./transforms-jobs-concept.md):
+* Quando si crea un [processo](./transform-jobs-concept.md):
     * Selezionare in modo casuale un account dall'elenco degli account attualmente in uso (questo elenco conterrà normalmente entrambi gli account, ma se vengono rilevati problemi potrebbe contenere un solo account). Se l'elenco è vuoto, viene generato un avviso in modo che un operatore possa esaminarlo.
     * Creare un record per tenere traccia di ogni processo in corso e dell'area/account usato.
 * Quando il `JobStateChange` gestore riceve una notifica che un processo ha raggiunto lo stato pianificato, registra la data e l'ora in cui viene inserito lo stato pianificato e l'area o l'account usato.

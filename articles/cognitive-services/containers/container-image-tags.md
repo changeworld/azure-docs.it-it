@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 11/17/2020
+ms.date: 03/25/2020
 ms.author: aahi
-ms.openlocfilehash: 2ac8633e48c98b9e1d778ac1d07835683e00e1c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fecb84196ba736120273955b2c88af8cb4dadea
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102424479"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095816"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Tag di immagine del contenitore di servizi cognitivi di Azure e note sulla versione
 
@@ -1355,6 +1355,24 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 | `3.0-nl`   | Analisi del sentiment V3 (Olandese)                 |
 | `2.1`    | Analisi del sentiment v2      |
 
+
+## <a name="text-analytics-for-health"></a>Analisi del testo per la sanità
+
+Il [analisi del testo per][ta-he] l'immagine del contenitore di integrità si trova nel `mcr.microsoft.com` Syndicate del registro contenitori. Si trova all'interno del `azure-cognitive-services/textanalytics/` repository ed è denominato `healthcare` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare`
+
+Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/healthcare/tags/list)versione.
+
+
+Note sulla versione per `3.0.015490002-onprem-amd64` :
+
+* nuovo modello-versione `2021-03-01`
+* Contenitore rilasciato per la versione.
+
+| Tag immagine | Note                                         |
+|------------|:----------------------------------------------|
+| `latest`   |                                               |
+| `3.0.015490002-onprem-amd64`   |               |
+
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: ../face/face-how-to-install-containers.md
@@ -1369,3 +1387,4 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 [ta-kp]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-la]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-se]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+[ta-he]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare

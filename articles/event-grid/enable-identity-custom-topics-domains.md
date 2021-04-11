@@ -3,12 +3,12 @@ title: Abilitare l'identità gestita negli argomenti e nei domini personalizzati
 description: Questo articolo descrive come abilitare l'identità del servizio gestito per un argomento o un dominio personalizzato di griglia di eventi di Azure.
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 06fd4d6e472b33496e773596b0f3afc8e70be948
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b93fd44282d9e19e7111dd52c73d8d4c01c67a10
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630533"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278219"
 ---
 # <a name="assign-a-system-managed-identity-to-an-event-grid-custom-topic-or-domain"></a>Assegnare un'identità gestita dal sistema a un dominio o a un argomento personalizzato di griglia di eventi 
 Questo articolo illustra come abilitare un'identità gestita dal sistema per un argomento personalizzato di griglia di eventi o un dominio. Per informazioni sulle identità gestite, vedere [che cosa sono le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
@@ -59,4 +59,4 @@ Il comando per l'aggiornamento di un dominio esistente è simile (`az eventgrid 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Aggiungere l'identità a un ruolo appropriato, ad esempio il mittente dei dati del bus di servizio, nella destinazione, ad esempio una coda del bus di servizio. Per i passaggi dettagliati, vedere [aggiungere identità ai ruoli di Azure nelle destinazioni](add-identity-roles.md). 
+Aggiungere l'identità a un ruolo appropriato, ad esempio il mittente dei dati del bus di servizio, nella destinazione, ad esempio una coda del bus di servizio. Per i passaggi dettagliati, vedere [concedere a identità gestita l'accesso alla destinazione di griglia di eventi](add-identity-roles.md). 

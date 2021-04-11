@@ -8,14 +8,16 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 39c35bc90986126d099e68023e15b97c58d0ac26
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0e75d2b480a9cbfd2977d9d449c1ea12bdfe4920
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108187"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095612"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>Avvio rapido: Aggiungere l'app di chiamata a una riunione di Teams
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 > [!IMPORTANT]
 > Per abilitare o disabilitare l' [interoperabilità del tenant teams](../../concepts/teams-interop.md), completare [il modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
@@ -33,6 +35,14 @@ Inizia a usare i servizi di comunicazione di Azure connettendo la tua soluzione 
 ::: zone pivot="platform-ios"
 [!INCLUDE [Calling with iOS](./includes/teams-interop-ios.md)]
 ::: zone-end
+
+La funzionalità descritta in questo documento usa la versione disponibilità generale degli SDK di servizi di comunicazione. L'interoperabilità dei team richiede la versione beta degli SDK di servizi di comunicazione. Gli SDK beta possono essere esplorati nella [pagina note sulla versione](https://github.com/Azure/Communication/tree/master/releasenotes).
+
+Quando si esegue il passaggio "Installa pacchetto" con gli SDK beta, modificare la versione del pacchetto nella versione beta più recente specificando la versione `@1.0.0-beta.10` (versione al momento della stesura di questo articolo) nel `communication-calling` nome del pacchetto. Non è necessario modificare il `communication-common` comando del pacchetto. Ad esempio:
+
+```console
+npm install @azure/communication-calling@1.0.0-beta.10 --save
+```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
