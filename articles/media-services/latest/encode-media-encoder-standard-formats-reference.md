@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: eb1b39f268934a71acb05d99bbeecb1b27b27a77
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 2fe8f5d0acb2ab7e2f1c64dde1bedb19b96111e9
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111894"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492291"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Formati e codec standard del codificatore
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Questo articolo contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Per informazioni su come creare set di impostazioni personalizzati usando **StandardEncoderPreset**, vedere [Creare una trasformazione con un set di impostazioni personalizzato](encode-custom-presets-how-to.md).
+Questo articolo contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Per informazioni su come creare set di impostazioni personalizzati usando **StandardEncoderPreset**, vedere [Creare una trasformazione con un set di impostazioni personalizzato](transform-custom-presets-how-to.md).
 
 ## <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
 
@@ -103,4 +103,4 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare una trasformazione con un set di impostazioni personalizzato](encode-custom-presets-how-to.md)
+[Creare una trasformazione con un set di impostazioni personalizzato](transform-custom-presets-how-to.md)

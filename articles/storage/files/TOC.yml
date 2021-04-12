@@ -227,6 +227,10 @@
       items:
         - name: Eseguire la migrazione a condivisioni file di Azure
           href: storage-files-migration-overview.md
+        - name: Destinazione di una distribuzione solo cloud
+          items:
+            - name: Eseguire la migrazione da un NAS locale a condivisioni file di Azure con DataBox
+              href: storage-files-migration-nas-cloud-databox.md
         - name: Scegliere una distribuzione ibrida come destinazione
           items:
             - name: Eseguire la migrazione di dati in blocco a Sincronizzazione file di Azure con Azure Data Box
@@ -237,8 +241,6 @@
               href: storage-files-migration-nas-hybrid.md
             - name: Eseguire la migrazione da un server NAS locale a un file server ibrido con DataBox
               href: storage-files-migration-nas-hybrid-databox.md
-            - name: Eseguire la migrazione da un NAS locale a condivisioni file di Azure con DataBox
-              href: storage-files-migration-nas-cloud-databox.md
         - name: Da StorSimple
           items:
             - name: Guida alla migrazione di StorSimple 8100 e 8600

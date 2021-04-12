@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: azhussai
-ms.openlocfilehash: 7662ef5c2c3f5ed20069f64781d222ae44e52168
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 3e7bdc92dc6268c712eecbd69ff014e2229b3b84
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384840"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490965"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Riscrivere le intestazioni HTTP e l'URL con il gateway applicazione
 
@@ -158,6 +158,14 @@ Un set di regole di riscrittura contiene:
       * **URL path**: valore in cui deve essere riscritto il percorso. 
       * **Stringa di query URL**: valore in cui deve essere riscritta la stringa di query. 
       * **Rivalutare il mapping dei percorsi**: usato per determinare se il mapping del percorso dell'URL deve essere valutato di nuovo. Se viene mantenuta deselezionata, il percorso dell'URL originale verrà usato per trovare la corrispondenza con il modello di percorso nella mappa del percorso URL. Se è impostato su true, il mapping del percorso URL verrà rivalutato per verificare la corrispondenza con il percorso riscritto. L'abilitazione di questa opzione consente di instradare la richiesta a un pool back-end diverso dopo la riscrittura.
+
+## <a name="rewrite-configuration-common-pitfall"></a>Riscrittura del trabocchetto comune di configurazione
+
+* L'abilitazione della mappa del percorso ' rivalutazione ' non è consentita per le regole di routing delle richieste di base. Ciò consente di evitare un ciclo di valutazione infinito per una regola di routing di base.
+
+* È necessario che sia presente almeno una regola di riscrittura condizionale o una regola di riscrittura che non contenga ' rivalutazione percorso mappa ' abilitata per le regole di routing basate sul percorso per impedire il ciclo di valutazione infinito per una regola di routing basata sul percorso.
+
+* Le richieste in ingresso verranno terminate con un codice di errore 500 nel caso in cui venga creato un ciclo in modo dinamico in base agli input del client. Il gateway applicazione continuerà a gestire altre richieste senza alcuna riduzione in questo scenario.
 
 ### <a name="using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku"></a>Utilizzo di riscrittura URL o riscrittura intestazione host con Web Application Firewall (WAF_v2 SKU)
 

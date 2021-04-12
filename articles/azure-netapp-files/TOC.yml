@@ -91,6 +91,8 @@
           href: azure-netapp-files-configure-nfsv41-domain.md
         - name: Configurare la crittografia Kerberos NFSv 4.1
           href: configure-kerberos-encryption.md
+        - name: Configurare aggiunge LDAP con gruppi estesi per NFS
+          href: configure-ldap-extended-groups.md
         - name: Configurare un client NFS per Azure NetApp Files
           href: configure-nfs-clients.md
         - name: Configurare i criteri di esportazione per un volume NFS
@@ -137,6 +139,8 @@
           href: troubleshoot-nfsv41-kerberos-volumes.md
         - name: Risolvere i problemi relativi ai criteri dello snapshot
           href: troubleshoot-snapshot-policies.md
+        - name: Risolvere i problemi relativi ai volumi LDAP
+          href: troubleshoot-ldap-volumes.md
         - name: Risolvere gli errori relativi al provider di risorse
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Informazioni di riferimento

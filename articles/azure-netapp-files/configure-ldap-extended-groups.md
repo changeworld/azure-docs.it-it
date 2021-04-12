@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/08/2021
 ms.author: b-juche
-ms.openlocfilehash: 2031cbf07d700307ae1e11c516f9fc736bce5080
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 9edf8c6eca223ece8728f9868ee9fe310c517ca9
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106498981"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259711"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Configure aggiunge LDAP con gruppi estesi per l'accesso al volume NFS
 
@@ -69,9 +69,18 @@ Questo articolo illustra le considerazioni e i passaggi per abilitare LDAP con i
 
 2. I volumi LDAP richiedono una configurazione Active Directory per le impostazioni del server LDAP. Seguire le istruzioni riportate in [requisiti per le connessioni Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections) e [creare una connessione Active Directory](create-active-directory-connections.md#create-an-active-directory-connection) per configurare Active Directory connessioni sul portale di Azure.  
 
-3. Verificare che il Active Directory server LDAP sia attivo e in esecuzione nel Active Directory. Questa operazione può essere eseguita installando e configurando il ruolo [Active Directory Lightweight Directory Services (ad LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) nel computer ad.
+3. Verificare che il Active Directory server LDAP sia attivo e in esecuzione nel Active Directory. 
 
-4. Per gli utenti LDAP NFS è necessario che nel server LDAP siano presenti determinati attributi POSIX. Per impostare gli attributi necessari, vedere [gestire gli attributi di LDAP POSIX](create-volumes-dual-protocol.md#manage-ldap-posix-attributes) .  
+4. Per gli utenti LDAP NFS è necessario che nel server LDAP siano presenti determinati attributi POSIX. Impostare gli attributi per gli utenti LDAP e i gruppi LDAP come indicato di seguito: 
+
+    * Attributi obbligatori per gli utenti LDAP:   
+        `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: user`
+    * Attributi obbligatori per i gruppi LDAP:   
+        `objectClass: group`, `gidNumber: 555`
+
+    È possibile gestire gli attributi POSIX usando lo snap-in MMC utenti e computer Active Directory. Nell'esempio seguente viene illustrato l'editor di attributi Active Directory:  
+
+    ![Editor attributi Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
 5. Se si vuole configurare un client Linux integrato LDAP, vedere [configurare un client NFS per Azure NetApp files](configure-nfs-clients.md).
 

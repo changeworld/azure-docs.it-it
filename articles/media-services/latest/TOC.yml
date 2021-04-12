@@ -334,18 +334,43 @@
           href: asset-upload-media-how-to.md
         - name: Gestire più account di archiviazione
           href: storage-managing-multiple-storage-accounts-how-to.md
-    - name: Creare trasformazioni e processi
+    - name: Creare trasformazioni
       items:
-        - name: Creare trasformazioni
+        - name: Creare una trasformazione
           href: transform-create-transform-how-to.md
         - name: Creare una trasformazione audio di base con REST
           href: transform-create-basic-audio-how-to.md
         - name: Creare sprite di anteprima
           href: transform-create-thumbnail-sprites-how-to.md
+        - name: Unire due o più file video con .NET
+          href: transform-stitch-how-to.md
+        - name: Sottoclip di un video .NET
+          href: transform-subclip-video-dotnet-how-to.md
+          displayName: 'subclipping, clip, edit, trim, clipping'
+        - name: Sottoclip di un REST video
+          href: transform-subclip-video-rest-how-to.md
+          displayName: 'subclipping, clip, edit, trim, clipping'
+        - name: Personalizzare i set di impostazioni del codificatore .NET
+          href: transform-custom-presets-how-to.md
+        - name: Creare una sovrapposizione trasformazione .NET
+          href: transform-create-overlay-how-to.md
+        - name: Generare anteprime .NET
+          href: transform-generate-thumbnails-dotnet-how-to.md
+        - name: Ritagliare video con .NET
+          href: crop-howto.md
+        - name: Personalizzare l'interfaccia della riga di comando del codificatore
+          href: transform-custom-preset-cli-how-to.md
+        - name: Personalizzare REST per i set di impostazioni del codificatore
+          displayName: 'encode, encoding, custom, transform'
+          href: transform-custom-preset-rest-how-to.md
+        - name: Genera le anteprime REST
+          href: transform-generate-thumbnails-rest-how-to.md
         - name: Creare una trasformazione copyAllBitrateNonInterleaved con REST
           href: transform-create-copyallbitratenoninterleaved-how-to.md
         - name: Copia video senza codifica con REST
           href: transform-create-copy-video-audio-how-to.md
+    - name: Creare processi
+      items:
         - name: Creare processi con l'interfaccia della riga di comando
           href: job-create-cli-how-to.md
         - name: Creare un input del processo con un file locale e .NET
@@ -353,47 +378,10 @@
           href: job-input-from-local-file-how-to.md
         - name: Processi con più output di trasformazione
           href: job-multiple-transform-outputs-how-to.md
-        - name: Unire due o più file video con .NET
-          href: transform-stitch-how-to.md
-    - name: Codificare contenuti
-      items:
         - name: HTTPS come input del processo
           href: job-input-from-http-how-to.md
-        - name: File locale come input del processo
-          href: job-input-from-local-file-how-to.md
-        - name: Codificare con una trasformazione personalizzata
-          items:
-            - name: Con .NET
-              displayName: 'encode, encoding, custom, transform'
-              items:
-                - name: Personalizzare le impostazioni predefinite del codificatore
-                  href: encode-custom-presets-how-to.md
-                - name: Creare una trasformazione di sovrimpressione
-                  href: transform-create-overlay-how-to.md
-                - name: Generare anteprime con .NET
-                  href: transform-generate-thumbnails-dotnet-how-to.md
-                - name: Ritagliare video con .NET
-                  href: crop-howto.md
-            - name: Con l'interfaccia della riga di comando
-              displayName: 'encode, encoding, custom, transform'
-              href: encode-custom-preset-cli-how-to.md
-            - name: Con REST
-              displayName: 'encode, encoding, custom, transform'
-              href: encode-custom-preset-rest-how-to.md
-            - name: Generare anteprime con REST
-              href: transform-generate-thumbnails-rest-how-to.md
-            - name: Dimensionare le Media Reserved Units
-              href: media-reserved-units-cli-how-to.md
-        - name: Creare una clip video secondaria
-          items:
-            - name: Con .NET
-              href: transform-subclip-video-dotnet-how-to.md
-              displayName: 'subclipping, clip, edit, trim, clipping'
-            - name: Con REST
-              href: transform-subclip-video-rest-how-to.md
-              displayName: 'subclipping, clip, edit, trim, clipping'
-        - name: Codici di errore dei processi
-          href: job-error-codes-reference.md
+    - name: Scalabilità di media reserved unit
+      href: media-reserved-units-cli-how-to.md
     - name: Streaming live
       items:
         - name: Evento live con portale e Wirecast

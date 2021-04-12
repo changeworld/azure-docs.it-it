@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d155d0c4a18b254f66ff5fb58ea91dbee22d2c34
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 578befe3e26ebb42fa2172976e07d0a5836e3743
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496610"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107143"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Esercitazione: creare un grafico gemelli di Azure Digital con l'interfaccia della riga di comando di Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "103496610"
 
 In questa esercitazione verrà compilato un grafico in dispositivi gemelli digitali di Azure usando modelli, gemelli e relazioni. Lo strumento per questa esercitazione è il [set di comandi di Azure Digital gemelli per l'interfaccia della riga di comando di **Azure**](how-to-use-cli.md). 
 
-È possibile usare i comandi dell'interfaccia della riga di comando per eseguire azioni essenziali di Azure Digital Twins, ad esempio il caricamento di modelli, la creazione e la modifica di gemelli e la creazione di relazioni. Per visualizzare il set completo di comandi dell'interfaccia della riga di comando, è anche possibile consultare la [documentazione di riferimento per *AZ DT* Command Set](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest) .
+È possibile usare i comandi dell'interfaccia della riga di comando per eseguire azioni essenziali di Azure Digital Twins, ad esempio il caricamento di modelli, la creazione e la modifica di gemelli e la creazione di relazioni. Per visualizzare il set completo di comandi dell'interfaccia della riga di comando, è anche possibile consultare la [documentazione di riferimento per *AZ DT* Command Set](/cli/azure/dt) .
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -91,7 +91,7 @@ Dopo aver progettato i modelli, è necessario caricarli nell'istanza di Gemelli 
     
     Passare al *Room.js* nel file nel computer e selezionare "Apri". Ripetere quindi questo passaggio per *Floor.jsil*.
 
-1. Usare quindi il comando [**AZ DT Model create**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create) come illustrato di seguito per caricare il modello di *chat room* aggiornato nell'istanza di Azure Digital gemelli. Il secondo comando carica un altro modello, *floor*, che verrà usato anche nella sezione successiva per creare tipi diversi di dispositivi gemelli.
+1. Usare quindi il comando [**AZ DT Model create**](/cli/azure/dt/model#az_dt_model_create) come illustrato di seguito per caricare il modello di *chat room* aggiornato nell'istanza di Azure Digital gemelli. Il secondo comando carica un altro modello, *floor*, che verrà usato anche nella sezione successiva per creare tipi diversi di dispositivi gemelli.
 
     ```azurecli-interactive
     az dt model create -n <ADT_instance_name> --models Room.json
@@ -101,9 +101,9 @@ Dopo aver progettato i modelli, è necessario caricarli nell'istanza di Gemelli 
     L'output di ogni comando visualizzerà le informazioni sul modello caricato correttamente.
 
     >[!TIP]
-    >È anche possibile caricare contemporaneamente tutti i modelli all'interno di una directory usando l' `--from-directory` opzione per il comando Model create. Per altre informazioni, vedere [parametri facoltativi per *AZ DT Model create*](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create-optional-parameters).
+    >È anche possibile caricare contemporaneamente tutti i modelli all'interno di una directory usando l' `--from-directory` opzione per il comando Model create. Per altre informazioni, vedere [parametri facoltativi per *AZ DT Model create*](/cli/azure/dt/model#az_dt_model_create-optional-parameters).
 
-1. Verificare che i modelli siano stati creati con il comando [**AZ DT model list**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_list) , come illustrato di seguito. Verrà stampato un elenco di tutti i modelli che sono stati caricati nell'istanza di Azure Digital Twins con le informazioni complete. 
+1. Verificare che i modelli siano stati creati con il comando [**AZ DT model list**](/cli/azure/dt/model#az_dt_model_list) , come illustrato di seguito. Verrà stampato un elenco di tutti i modelli che sono stati caricati nell'istanza di Azure Digital Twins con le informazioni complete. 
 
     ```azurecli-interactive
     az dt model list -n <ADT_instance_name> --definition
@@ -129,7 +129,7 @@ Poiché i modelli non possono essere sovrascritti, ora verrà restituito un codi
 
 Ora che alcuni modelli sono stati caricati nell'istanza di Gemelli digitali di Azure, è possibile creare i [**gemelli digitali**](concepts-twins-graph.md) in base alle definizioni dei modelli. I gemelli digitali rappresentano le entità all'interno dell'ambiente aziendale, ad esempio i sensori di un'azienda agricola, le stanze di un edificio o i fari di un'auto. 
 
-Per creare un dispositivo gemello digitale, usare il comando [**AZ DT gemelle create**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_create) . È necessario fare riferimento al modello su cui si basa il gemello e facoltativamente definire i valori iniziali per tutte le proprietà nel modello. In questa fase non è necessario passare informazioni sulle relazioni.
+Per creare un dispositivo gemello digitale, usare il comando [**AZ DT gemelle create**](/cli/azure/dt/twin#az_dt_twin_create) . È necessario fare riferimento al modello su cui si basa il gemello e facoltativamente definire i valori iniziali per tutte le proprietà nel modello. In questa fase non è necessario passare informazioni sulle relazioni.
 
 1. Eseguire questo codice nel Cloud Shell per creare più dispositivi gemelli, in base al modello di *chat room* aggiornato in precedenza e a un altro modello *floor*. Tenere presente che *Room* include tre proprietà, quindi è possibile specificare argomenti con i valori iniziali per tali proprietà. L'inizializzazione dei valori delle proprietà è facoltativa in generale, ma sono necessari per questa esercitazione.
 
@@ -151,7 +151,7 @@ Per creare un dispositivo gemello digitale, usare il comando [**AZ DT gemelle cr
     
     L'output di ogni comando visualizzerà informazioni sul dispositivo gemello creato correttamente, incluse le proprietà per i dispositivi gemelli che sono stati inizializzati con loro.
 
-1. È possibile verificare che i gemelli siano stati creati con il comando [**AZ DT Twin query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_query) come illustrato di seguito. La query mostrata trova tutti i dispositivi gemelli digitali nell'istanza di Azure Digital gemelli.
+1. È possibile verificare che i gemelli siano stati creati con il comando [**AZ DT Twin query**](/cli/azure/dt/twin#az_dt_twin_query) come illustrato di seguito. La query mostrata trova tutti i dispositivi gemelli digitali nell'istanza di Azure Digital gemelli.
     
     ```azurecli-interactive
     az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
@@ -165,7 +165,7 @@ Per creare un dispositivo gemello digitale, usare il comando [**AZ DT gemelle cr
 
 È anche possibile modificare le proprietà di un gemello creato. 
 
-1. Eseguire questo comando [**AZ DT Twin Update**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_update) per modificare *room0* roomname da *room0* a *PresidentialSuite*:
+1. Eseguire questo comando [**AZ DT Twin Update**](/cli/azure/dt/twin#az_dt_twin_update) per modificare *room0* roomname da *room0* a *PresidentialSuite*:
 
     ```azurecli-interactive
     az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
@@ -183,7 +183,7 @@ Per creare un dispositivo gemello digitale, usare il comando [**AZ DT gemelle cr
 
     :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Screenshot di Cloud Shell che mostra il risultato del comando Update, che include un Roomname di PresidentialSuite." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
-1. È possibile verificare che l'aggiornamento sia stato eseguito correttamente eseguendo il comando [**AZ DT Twin Show**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_show) per visualizzare le informazioni di *room0*:
+1. È possibile verificare che l'aggiornamento sia stato eseguito correttamente eseguendo il comando [**AZ DT Twin Show**](/cli/azure/dt/twin#az_dt_twin_show) per visualizzare le informazioni di *room0*:
 
     ```azurecli-interactive
     az dt twin show -n <ADT_instance_name> --twin-id room0
@@ -197,7 +197,7 @@ Successivamente, è possibile creare **relazioni** tra questi gemelli, per conne
 
 I tipi di relazioni che è possibile creare da un gemello a un altro vengono definiti all'interno dei [modelli](#model-a-physical-environment-with-dtdl) caricati in precedenza. La [definizione del modello per *floor*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifica che i piani possono avere un tipo di relazione denominato *Contains*. In questo modo è possibile creare una relazione di tipo *Contains* da ogni singolo *piano* alla stanza corrispondente che contiene.
 
-Per aggiungere una relazione, usare il comando [**AZ DT Twin Relationship create**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_create) . Specificare il gemello da cui provengono la relazione, il tipo di relazione e il gemello a cui si connette la relazione. Infine, assegnare un ID univoco alla relazione. Se è stata definita una relazione con proprietà, è possibile inizializzare le proprietà della relazione anche in questo comando.
+Per aggiungere una relazione, usare il comando [**AZ DT Twin Relationship create**](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_create) . Specificare il gemello da cui provengono la relazione, il tipo di relazione e il gemello a cui si connette la relazione. Infine, assegnare un ID univoco alla relazione. Se è stata definita una relazione con proprietà, è possibile inizializzare le proprietà della relazione anche in questo comando.
 
 1. Eseguire il codice seguente per aggiungere una relazione di tipo *Contains* da ognuno *dei gemelli* di *piano* creato in precedenza nel dispositivo gemello corrispondente. Le relazioni sono denominate *relationship0* e *relationship1*.
 
@@ -240,7 +240,7 @@ I gemelli e le relazioni configurati in questa esercitazione formano il grafo co
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Eseguire una query sul grafo dei gemelli per rispondere alla domande sull'ambiente
 
-Una delle principali funzionalità di Gemelli digitali di Azure è la possibilità di eseguire [query](concepts-query-language.md) sul grafo dei gemelli in modo semplice ed efficiente per trovare le risposte alle domande sull'ambiente. Nell'interfaccia della riga di comando di Azure questa operazione viene eseguita con il comando [**AZ DT Twin query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_query) .
+Una delle principali funzionalità di Gemelli digitali di Azure è la possibilità di eseguire [query](concepts-query-language.md) sul grafo dei gemelli in modo semplice ed efficiente per trovare le risposte alle domande sull'ambiente. Nell'interfaccia della riga di comando di Azure questa operazione viene eseguita con il comando [**AZ DT Twin query**](/cli/azure/dt/twin#az_dt_twin_query) .
 
 Eseguire le query seguenti nell'Cloud Shell per rispondere ad alcune domande sull'ambiente di esempio.
 
@@ -308,7 +308,7 @@ Al termine dell'esercitazione, è possibile scegliere le risorse che si desidera
 
 * **Se si prevede di continuare con l'esercitazione successiva**, è possibile mantenere le risorse impostate qui e riusare l'istanza di Azure Digital Twins senza cancellare alcun elemento.
 
-* **Se si vuole continuare a usare l'istanza di Azure Digital gemelli, ma si cancellano tutti i modelli, i gemelli e le relazioni**, è possibile usare i comandi [**AZ DT Twin Relationship**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_delete)Delete, [**AZ DT gemell Delete**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_delete)e [**AZ DT Model Delete**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_delete) per cancellare rispettivamente le relazioni, i dispositivi gemelli e i modelli nell'istanza.
+* **Se si vuole continuare a usare l'istanza di Azure Digital gemelli, ma si cancellano tutti i modelli, i gemelli e le relazioni**, è possibile usare i comandi [**AZ DT Twin Relationship**](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_delete)Delete, [**AZ DT gemell Delete**](/cli/azure/dt/twin#az_dt_twin_delete)e [**AZ DT Model Delete**](/cli/azure/dt/model#az_dt_model_delete) per cancellare rispettivamente le relazioni, i dispositivi gemelli e i modelli nell'istanza.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

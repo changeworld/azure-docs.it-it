@@ -3,18 +3,18 @@ title: Amministrazione di Azure EA Portal
 description: Questo articolo illustra le attività comuni eseguite da un amministratore in Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/13/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 3ce13a103b605ea7b6066e8b2868fa974f4e64e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 8f643336d50f5ade145454d408599215ed6fd31e
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050567"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259439"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -36,7 +36,9 @@ Solo gli attuali amministratori dell'organizzazione di Azure possono creare altr
 
 ### <a name="create-another-enterprise-administrator"></a>Creare un altro amministratore dell'organizzazione
 
-Per aggiungere un altro amministratore dell'organizzazione:
+Usare una delle opzioni seguenti, in base alla situazione.
+
+#### <a name="if-youre-already-an-enterprise-administrator"></a>Se si è già un amministratore dell'organizzazione
 
 1. Accedere ad [Azure Enterprise Portal](https://ea.azure.com).
 1. Passare a **Gestisci** > **Dettagli della registrazione**.
@@ -44,7 +46,11 @@ Per aggiungere un altro amministratore dell'organizzazione:
 
 Assicurarsi di avere l'indirizzo di posta elettronica dell'utente e il metodo di autenticazione preferito, ad esempio un account aziendale o dell'istituto di istruzione oppure un account Microsoft.
 
-Se non si è l'amministratore dell'organizzazione, contattare un amministratore dell’organizzazione per chiedere di essere aggiunti a una registrazione. Dopo l'aggiunta in una registrazione, si riceverà un messaggio di posta elettronica di attivazione.
+#### <a name="if-youre-not-an-enterprise-administrator"></a>Se non si è un amministratore dell'organizzazione
+
+Se non si è un amministratore dell'organizzazione, contattare un amministratore dell'organizzazione per richiedere l'aggiunta di un utente a una registrazione. L'amministratore dell'organizzazione usa i passaggi precedenti per aggiungere l'utente come amministratore dell'organizzazione. Dopo l'aggiunta in una registrazione, si riceverà un messaggio di posta elettronica di attivazione.
+
+#### <a name="if-your-enterprise-administrator-cant-help-you"></a>Se l'amministratore dell'organizzazione non può aiutarsi
 
 Se l'amministratore dell'organizzazione non è in grado di offrire assistenza, creare una [richiesta di supporto per Azure Enterprise Portal](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Specificare le informazioni seguenti:
 

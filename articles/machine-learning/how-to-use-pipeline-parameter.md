@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 03/19/2021
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 09eabffb0e01ee6c5ea6b541378773a7d60397a3
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 30ae737a170c337fe6be51521aeb358cdcebd44b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106080458"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107338"
 ---
 # <a name="use-pipeline-parameters-in-the-designer-to-build-versatile-pipelines"></a>Usare i parametri della pipeline nella finestra di progettazione per creare pipeline versatili
 
@@ -95,9 +95,11 @@ Se si vuole inviare la pipeline con set di dati delle variabili, è necessario a
 
 È ora possibile specificare un set di dati diverso usando il parametro pipeline alla successiva esecuzione della pipeline.
 
-## <a name="attach-module-parameter-to-pipeline-parameter"></a>Connetti parametro modulo al parametro della pipeline 
+## <a name="attach-and-detach-module-parameter-to-pipeline-parameter"></a>Collegamento e scollegamento del parametro del modulo al parametro della pipeline 
 
-In questa sezione verrà illustrato come aggiungere il parametro Module al parametro pipeline.
+In questa sezione verrà illustrato come connettere e scollegare il parametro module nel parametro pipeline.
+
+### <a name="attach-module-parameter-to-pipeline-parameter"></a>Connetti parametro modulo al parametro della pipeline
 
 È possibile alleghi gli stessi parametri di modulo dei moduli duplicati allo stesso parametro della pipeline se si vuole modificare il valore in una sola volta quando si attiva l'esecuzione della pipeline.
 
@@ -115,10 +117,16 @@ Nell'esempio seguente è stato duplicato il modulo **Clean Missing data** . Per 
 
    ![Screenshot che illustra come aggiungere un parametro della pipeline](media/how-to-use-pipeline-parameter/attach-replace-value-to-pipeline-parameter.png)
 
-Il campo del valore di **sostituzione** è stato collegato al parametro della pipeline. Il **valore di sostituzione** nei moduli è non interoperabile.
+Il campo del valore di **sostituzione** è stato collegato al parametro della pipeline. 
+
+
+### <a name="detach-module-parameter-to-pipeline-parameter"></a>Scollega il parametro del modulo nel parametro della pipeline
+
+Dopo aver collegato il **valore di sostituzione** al parametro della pipeline, non è possibile eseguire questa operazione.
+
+È possibile scollegare il parametro del modulo nel parametro della pipeline facendo clic sui puntini di sospensione (**...**) accanto al parametro module, quindi selezionare **Disconnetti dal parametro della pipeline**.
 
  ![Screenshot che mostra la mancata azione dopo la connessione al parametro della pipeline](media/how-to-use-pipeline-parameter/non-actionable-module-parameter.png)
-
 
 ## <a name="update-and-delete-pipeline-parameters"></a>Aggiornare ed eliminare i parametri della pipeline
 
@@ -133,7 +141,7 @@ Usare la procedura seguente per aggiornare un parametro della pipeline del modul
 
 ### <a name="delete-a-dataset-pipeline-parameter"></a>Eliminare un parametro della pipeline del set di dati
 
-Per scollegare un parametro della pipeline del set di dati, attenersi alla procedura seguente:
+Per eliminare un parametro della pipeline del set di dati, attenersi alla procedura seguente:
 
 1. Selezionare il modulo del set di dati.
 1. Deselezionare l'opzione **Imposta come parametro della pipeline**.
@@ -147,22 +155,14 @@ Per eliminare un parametro della pipeline del modulo, attenersi alla procedura s
 
 1. Selezionare i puntini di sospensione (**..**.) accanto al parametro della pipeline.
 
-    Questa visualizzazione Mostra i moduli a cui è associato il parametro della pipeline. Per eliminare un parametro della pipeline, è necessario prima scollegarlo dai parametri del modulo.
+    Questa visualizzazione Mostra i moduli a cui è associato il parametro della pipeline.
 
-    ![Screenshot che mostra il parametro della pipeline corrente applicato a un modulo](media/how-to-use-pipeline-parameter/current-pipeline-parameter.png)
+    ![Screenshot che mostra il parametro della pipeline corrente applicato a un modulo](media/how-to-use-pipeline-parameter/delete-pipeline-parameter2.png)
 
-1. Nell'area di disegno selezionare un modulo a cui è ancora collegato il parametro della pipeline.
-1. Nel riquadro delle proprietà del modulo a destra individuare il campo a cui è associato il parametro della pipeline.
-1. MouseOver il campo collegato. Selezionare quindi i puntini di sospensione (**...**) visualizzati.
-1. Selezionare **Disconnetti dal parametro della pipeline**
-
-    ![Screenshot che mostra lo scollegamento dai parametri della pipeline](media/how-to-use-pipeline-parameter/detach-from-pipeline-parameter.png)
-
-1. Ripetere i passaggi precedenti fino a quando il parametro della pipeline non è stato scollegato da tutti i campi.
-1. Selezionare i puntini di sospensione (**..**.) accanto al parametro della pipeline.
 1. Selezionare **Delete Parameter** per eliminare il parametro pipeline.
 
-    ![Screenshot che mostra l'eliminazione dei parametri della pipeline](media/how-to-use-pipeline-parameter/delete-pipeline-parameter.png)
+    > [!NOTE]
+    > Se si elimina un parametro della pipeline, tutti i parametri del modulo collegati verranno scollegati e il valore dei parametri del modulo scollegato manterrà il valore del parametro della pipeline corrente.     
 
 ## <a name="trigger-a-pipeline-run-with-pipeline-parameters"></a>Attivare un'esecuzione della pipeline con i parametri della pipeline 
 

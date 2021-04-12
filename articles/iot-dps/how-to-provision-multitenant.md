@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: eebcfb98d4e155ca965b9e4c68a862afa08a46ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 04ab4ae4d3de6f33f800011b9b0802665d5fb16e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727431"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228317"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Come effettuare il provisioning per la multi-tenancy 
 
@@ -26,11 +26,12 @@ Questo articolo illustra come eseguire il provisioning sicuro di più dispositiv
 
 Questo articolo usa un esempio di dispositivo simulato proveniente da [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) per illustrare come effettuare il provisioning di dispositivi in uno scenario multi-tenant tra più aree geografiche. In questo articolo si eseguiranno i passaggi seguenti:
 
-* Usare l'interfaccia della riga di comando di Azure per creare due hub IoT a livello di area (**Stati Uniti occidentali** e **Stati Uniti orientali**)
-* Creare una registrazione multi-tenant
-* Usare l'interfaccia della riga di comando di Azure per creare due macchine virtuali Linux a livello di area che fungano da dispositivi nelle stesse aree (**Stati Uniti occidentali** e **Stati Uniti orientali**)
-* Configurare l'ambiente di sviluppo per Azure IoT C SDK in entrambe le macchine virtuali Linux
-* Simulare i dispositivi per verificare che sia stato effettuato il provisioning per lo stesso tenant nell'area più vicina.
+> [!div class="checklist"]
+> * Usare l'interfaccia della riga di comando di Azure per creare due hub IoT a livello di area (**Stati Uniti occidentali** e **Stati Uniti orientali**)
+> * Creare una registrazione multi-tenant
+> * Usare l'interfaccia della riga di comando di Azure per creare due macchine virtuali Linux a livello di area che fungano da dispositivi nelle stesse aree (**Stati Uniti occidentali** e **Stati Uniti orientali**)
+> * Configurare l'ambiente di sviluppo per Azure IoT C SDK in entrambe le macchine virtuali Linux
+> * Simulare i dispositivi per verificare che sia stato effettuato il provisioning per lo stesso tenant nell'area più vicina.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -417,8 +418,11 @@ Per eliminare il gruppo di risorse per nome:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> Per altre informazioni sul nuovo provisioning, vedere [concetti relativi al nuovo provisioning di dispositivi hub](concepts-device-reprovision.md)
+* Per ulteriori informazioni sul nuovo provisioning, vedere
 
 > [!div class="nextstepaction"]
-> Per altre informazioni sul deprovisioning, vedere [come eseguire il deprovisioning di dispositivi precedentemente sottoposti a provisioning automatico](how-to-unprovision-devices.md)
+> [Concetti di reprovisioning di un dispositivo hub IoT](concepts-device-reprovision.md)
+
+* Per ulteriori informazioni sul deprovisioning, vedere.
+> [!div class="nextstepaction"]
+> [Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico](how-to-unprovision-devices.md)

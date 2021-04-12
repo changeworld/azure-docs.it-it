@@ -1,33 +1,36 @@
 ---
 title: Sintassi della query di ricerca di grafi
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare la sintassi di query di ricerca in progettazione Azure Machine Learning per cercare i nodi in in Graph della pipeline.
+description: Informazioni su come usare la sintassi di query di ricerca in progettazione Azure Machine Learning per cercare nodi in Graph pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 8/24/2020
-ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: likebupt
+ms.author: keli19
+ms.date: 03/24/2021
+ms.openlocfilehash: 74cf0b897529e8bb198b6f82a57e187662a4a285
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93420768"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259226"
 ---
 # <a name="graph-search-query-syntax"></a>Sintassi della query di ricerca di grafi
 
-In questo articolo vengono fornite informazioni sulla sintassi di query di ricerca Graph in Azure Machine Learning. La funzionalità di ricerca Graph consente di cercare un nodo in base al nome e alle proprietà. 
+In questo articolo vengono fornite informazioni sulla funzionalità di ricerca Graph in Azure Machine Learning. 
 
- ![Schermata animata che mostra un'esperienza di ricerca di grafici di esempio](media/search/graph-search.gif)
+La ricerca Graph consente di spostarsi rapidamente in un nodo durante il debug o la creazione di una pipeline. È possibile digitare la parola chiave o la query nella casella di input della barra degli strumenti o nella scheda Cerca nel pannello sinistro per attivare la ricerca. Tutti i risultati corrispondenti verranno evidenziati in giallo nell'area di disegno e, se si seleziona un risultato nel riquadro sinistro, il nodo nell'area di disegno verrà evidenziato in rosso.
 
-La ricerca Graph supporta la ricerca di parole chiave full-text sul nome e sui commenti del nodo. È anche possibile filtrare sulla proprietà del nodo, ad esempio runStatus, Duration, computeTarget. La ricerca di parole chiave è basata sulla query Lucene. Una query di ricerca completa ha un aspetto simile al seguente:  
+![Screenshot che illustra l'esperienza di ricerca di un grafo di esempio](media/search/graph-search-0322.png)
 
-**[query Lucene | [query di filtro]** 
+La ricerca Graph supporta la ricerca di parole chiave full-text sul nome e sui commenti del nodo. È anche possibile filtrare in una proprietà del nodo, ad esempio runStatus, Duration, computeTarget. La ricerca di parole chiave è basata sulla query Lucene. Una query di ricerca completa ha un aspetto simile al seguente:  
+
+**[[query Lucene] | [query di filtro]]** 
 
 È possibile usare una query Lucene o un filtro. Per usare entrambi, usare il **|** separatore. La sintassi della query di filtro è più restrittiva della query Lucene. Quindi, se l'input del cliente può essere analizzato come entrambi, viene applicata la query del filtro.
 
+Ad esempio, per `data OR model | compute in {cpucluster}` cercare i nodi in cui il nome o il commento contiene `data` o `model` e COMPUTE è cpucluster.
  
 
 ## <a name="lucene-query"></a>Query Lucene
@@ -68,6 +71,8 @@ Le query di filtro usano il modello seguente:
 - compute
 - duration
 - riutilizzare
+- Pubblica
+- tags
 
 E usare gli operatori seguenti:
 

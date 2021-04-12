@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 27056f39885949d52c9fcc0d1472033cfc8f9aa0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c2de0c1b024d093bd0276a852d9b97ba3320f4b
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102554871"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286335"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Eseguire la migrazione a condivisioni file di Azure
 
@@ -83,7 +83,7 @@ Uno scenario senza collegamento non dispone ancora di una guida alla migrazione 
 | | Combinazione di strumenti:| Combinazione di strumenti: |
 | Windows Server 2012 R2 e versioni successive | <ul><li>[Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)</li><li>[Sincronizzazione file di Azure e Azure DataBox](storage-sync-offline-data-transfer.md)</li></ul> | <ul><li>Tramite RoboCopy in una condivisione file di Azure montata</li><li>Tramite Sincronizzazione file di Azure</li></ul> |
 | Windows Server 2012 e versioni precedenti | <ul><li>Tramite DataBox e Sincronizzazione file di Azure al sistema operativo server recente</li><li>Tramite il servizio migrazione archiviazione al server recente con Sincronizzazione file di Azure, quindi caricare</li></ul> | <ul><li>Tramite il servizio migrazione archiviazione al server recente con Sincronizzazione file di Azure</li><li>Tramite RoboCopy in una condivisione file di Azure montata</li></ul> |
-| Archiviazione collegata alla rete (NAS) | <ul><li>[Tramite caricamento Sincronizzazione file di Azure](storage-files-migration-nas-hybrid.md)</li><li>[Tramite DataBox + Sincronizzazione file di Azure](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>Tramite RoboCopy in una condivisione file di Azure montata</li></ul> |
+| Archiviazione collegata alla rete (NAS) | <ul><li>[Tramite caricamento Sincronizzazione file di Azure](storage-files-migration-nas-hybrid.md)</li><li>[Tramite DataBox + Sincronizzazione file di Azure](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>[Tramite DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>Tramite RoboCopy in una condivisione file di Azure montata</li></ul> |
 | Linux/Samba | <ul><li>[Sincronizzazione file di Azure e RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Tramite RoboCopy in una condivisione file di Azure montata</li></ul> |
 | Appliance cloud Microsoft Azure StorSimple 8100 o Appliance cloud StorSimple 8600 | <ul><li>[Tramite il servizio cloud di migrazione dei dati dedicato](storage-files-migration-storsimple-8000.md)</li></ul> | |
 | Appliance cloud StorSimple 1200 | <ul><li>[Tramite Sincronizzazione file di Azure](storage-files-migration-storsimple-1200.md)</li></ul> | |

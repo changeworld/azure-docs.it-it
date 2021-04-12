@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7d40dcf80d9ec566146bbe46bc2cb3c558584fcd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a03c3987c0cada69f6a7d47d7c1aa7cbf6d5015a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104775766"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258878"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
@@ -197,6 +197,8 @@ Si tratta di una panoramica generale dei passaggi. Questi passaggi possono cambi
    * Assegnare all'applicazione cache l'accesso all'account di archiviazione di Azure, come indicato nelle [autorizzazioni](#permissions)sopra riportate. Questa operazione può essere eseguita la prima volta che si crea una destinazione di archiviazione. Seguire la procedura descritta in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) per assegnare alla cache i ruoli di accesso necessari.
 
      Se non si è il proprietario dell'account di archiviazione, chiedere al proprietario di eseguire questo passaggio.
+
+Per altre informazioni sull'uso di destinazioni di archiviazione ADLS-NFS con la cache HPC di Azure, vedere [usare l'archivio BLOB montato su NFS con la cache HPC di Azure](nfs-blob-considerations.md).
 
 ## <a name="set-up-azure-cli-access-optional"></a>Configurare l'accesso dell'interfaccia della riga di comando di Azure (facoltativo)
 

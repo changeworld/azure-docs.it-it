@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d193d30428d24ccf65c3f70885192acad2fdc9f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99051110"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228329"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Come eseguire il provisioning dei dispositivi con i gruppi di registrazioni con chiavi simmetriche
 
@@ -30,6 +30,16 @@ Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è p
 > [!NOTE]
 > L'esempio usato in questo articolo è scritto in C. È disponibile anche un [esempio di chiave simmetrica per il provisioning dei dispositivi in C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) . Per usare questo esempio, scaricare o clonare il repository [Azure-Azure-Samples-CSharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e seguire le istruzioni inline nel codice di esempio. È possibile seguire le istruzioni riportate in questo articolo per creare un gruppo di registrazioni con chiavi simmetriche usando il portale e per trovare l'ambito ID e le chiavi primarie e secondarie del gruppo di registrazione necessarie per eseguire l'esempio. È anche possibile creare registrazioni singole usando l'esempio.
 
+## <a name="prerequisites"></a>Prerequisiti
+
+* Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
+
+I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
+
+* La versione più recente di [Git](https://git-scm.com/download/) installata.
+
 ## <a name="overview"></a>Panoramica
 
 Verrà definito un ID di registrazione univoco per ogni dispositivo in base alle informazioni che lo identificano. Ad esempio, l'indirizzo MAC o il numero di serie.
@@ -40,16 +50,6 @@ Il codice del dispositivo illustrato in questo articolo seguirà lo stesso model
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
-## <a name="prerequisites"></a>Prerequisiti
-
-* Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
-
-I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
-
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
-
-* La versione più recente di [Git](https://git-scm.com/download/) installata.
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Preparare un ambiente di sviluppo per Azure IoT C SDK
 
@@ -130,7 +130,7 @@ L'SDK include il codice di esempio per il dispositivo simulato. Il dispositivo s
     Aprire la registrazione e copiare il valore della **chiave primaria** generata. Questa chiave è la chiave master di gruppo.
 
 
-## <a name="choose-a-unique-registration-id-for-the-device"></a>Scegliere un ID di registrazione univoco per il dispositivo
+## <a name="choose-a-unique-registration-id-for-the-device&quot;></a>Scegliere un ID di registrazione univoco per il dispositivo
 
 È necessario definire un ID di registrazione univoco per identificare ogni dispositivo. È possibile usare l'indirizzo MAC, il numero di serie o informazioni univoche dal dispositivo. 
 
@@ -140,7 +140,7 @@ In questo esempio si usa una combinazione di indirizzo MAC e numero di serie che
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Creare ID di registrazione univoci per ogni dispositivo. I caratteri validi sono i caratteri alfanumerici minuscoli e il trattino ("-").
+Creare ID di registrazione univoci per ogni dispositivo. I caratteri validi sono i caratteri alfanumerici minuscoli e il trattino (&quot;-").
 
 
 ## <a name="derive-a-device-key"></a>Derivare una chiave di dispositivo 
@@ -283,6 +283,15 @@ Tenere presente che questa operazione lascia la chiave del dispositivo derivata 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni sul nuovo provisioning, vedere [concetti relativi al provisioning dei dispositivi dell'hub](concepts-device-reprovision.md) . 
-* [Guida introduttiva: eseguire il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
-* Per ulteriori informazioni sul deprovisioning, vedere [come eseguire il deprovisioning di dispositivi precedentemente sottoposti a provisioning automatico](how-to-unprovision-devices.md)
+* Per ulteriori informazioni sul nuovo provisioning, vedere
+
+> [!div class="nextstepaction"]
+> [Concetti di reprovisioning di un dispositivo hub IoT](concepts-device-reprovision.md)
+
+> [!div class="nextstepaction"]
+> [Guida introduttiva: eseguire il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
+
+* Per ulteriori informazioni sul deprovisioning, vedere.
+
+> [!div class="nextstepaction"]
+> [Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico](how-to-unprovision-devices.md)

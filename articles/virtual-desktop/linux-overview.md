@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 081eddc3e0f530b9bf00300b9805137953abbbdc
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+manager: femila
+ms.openlocfilehash: 25f89b91aeb6e721c91356ef13b456455d4d3c98
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222419"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106446061"
 ---
 # <a name="thin-client-support"></a>Supporto thin client
 

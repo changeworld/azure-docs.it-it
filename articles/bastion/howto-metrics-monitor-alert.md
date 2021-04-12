@@ -8,12 +8,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 03/12/2021
 ms.author: mialdrid
-ms.openlocfilehash: 3a5beba3938b5a845a378ede155f2f64e6baac7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4e03318fae8d8d3a8b4d29538cad49f9ef39593
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417944"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259116"
 ---
 # <a name="how-to-configure-monitoring-and-metrics-for-azure-bastion-using-azure-monitor"></a>Come configurare il monitoraggio e le metriche per Azure Bastion con monitoraggio di Azure
 
@@ -58,7 +58,7 @@ Azure Bastion include diverse metriche disponibili. Nella tabella seguente vengo
 
 #### <a name="used-cpu"></a><a name="used-cpu"></a>CPU utilizzata
 
-È possibile visualizzare l'utilizzo della CPU di Azure Bastion, suddiviso in ogni istanza Bastion. Il monitoraggio di questa metrica consente di misurare la disponibilità e la capacità delle istanze che includono Azure Bastion.
+È possibile visualizzare l'utilizzo della CPU di Azure Bastion, suddiviso in ogni istanza Bastion. Il monitoraggio di questa metrica consente di misurare la disponibilità e la capacità delle istanze che includono Azure Bastion
 
 :::image type="content" source="./media/metrics-monitor-alert/used-cpu.png" alt-text="Screenshot che mostra la CPU utilizzata.":::
 
@@ -73,6 +73,12 @@ Azure Bastion include diverse metriche disponibili. Nella tabella seguente vengo
 #### <a name="session-count"></a>Conteggio sessioni
 
 È possibile visualizzare il numero di sessioni attive per ogni istanza Bastion, aggregate in ogni tipo di sessione (RDP e SSH). Ogni Bastion di Azure può supportare una gamma di sessioni RDP e SSH attive. Il monitoraggio di questa metrica aiuta a comprendere se è necessario modificare il numero di istanze che eseguono il servizio Bastion. Per altre informazioni sul numero di sessioni che Azure Bastion può supportare, vedere le [domande frequenti su Azure Bastion](bastion-faq.md).
+
+I valori consigliati per la configurazione di questa metrica sono:
+
+* **Aggregazione:** AVG
+* **Granularità:** 5 o 15 minuti
+* Per ottenere un conteggio più accurato, è consigliabile suddividere le istanze.
 
 :::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="Screenshot che mostra il numero di sessioni.":::
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92803c1e3062fb9f093012db3e3637746dedf87f
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664249"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107041"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Piani tariffari di Database di Azure per MariaDB
 
@@ -46,9 +46,13 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 | Attributi di archiviazione   | Basic | Utilizzo generico | Con ottimizzazione per la memoria |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo di archiviazione | Archiviazione di base | Archiviazione per utilizzo generico | Archiviazione per utilizzo generico |
-| Dimensioni dello spazio di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
+| Dimensioni dello spazio di archiviazione | Da 5 GB a 1 TB | da 5 GB a 16 TB | da 5 GB a 16 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
 | Operazioni di I/O al secondo | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
+
+>[!IMPORTANT]
+> Lo spazio di archiviazione fino a 16TB e 20.000 IOPS è supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Brasile meridionale, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sudorientale, Stati Uniti occidentali 2, Stati Uniti centro-occidentali , Canada orientale e Canada centrale.
+> Tutte le altre aree supportano fino a 4 TB di spazio di archiviazione e fino a 6000 IOPS.
 
 È possibile aggiungere ulteriore capacità di archiviazione durante e dopo la creazione del server e consentire al sistema di aumentare automaticamente le dimensioni di archiviazione in base al consumo di spazio di archiviazione del carico di lavoro.
 
@@ -58,23 +62,6 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
 
 È possibile monitorare il consumo di I/O nel portale di Azure oppure usando i comandi dell'interfaccia della riga di comando di Azure. Le metriche rilevanti per il monitoraggio sono il [limite di archiviazione, la percentuale di archiviazione, lo spazio di archiviazione usato e la percentuale di io](concepts-monitoring.md).
-
-### <a name="large-storage-preview"></a>Archiviazione di grandi dimensioni (anteprima)
-
-Sono stati aumentati i limiti di archiviazione nei livelli per utilizzo generico e con ottimizzazione per la memoria. I server appena creati che scelgono esplicitamente l'anteprima possono eseguire il provisioning di un massimo di 16 TB di spazio di archiviazione. La scala IOPS a un rapporto 3:1 fino a 20.000 IOPS. Come per l'archiviazione attualmente disponibile a livello generale, è possibile aggiungere ulteriore capacità di archiviazione dopo la creazione del server e consentire al sistema di aumentare automaticamente lo spazio di archiviazione in base al consumo di spazio di archiviazione del carico di lavoro.
-
-| Attributi di archiviazione | Utilizzo generico | Con ottimizzazione per la memoria |
-|:-------------|:--------------------|:---------------------|
-| Tipo di archiviazione | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
-| Dimensioni dello spazio di archiviazione | da 32 GB a 16 TB| da 32 a 16 TB |
-| Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB |
-| Operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS| 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
-
-> [!IMPORTANT]
-> Archiviazione di grandi dimensioni è attualmente disponibile in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Brasile meridionale, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sud-orientale, Stati Uniti occidentali 2 e Canada Central.
->
-> Tutte le altre aree supportano fino a 4 TB di spazio di archiviazione e fino a 6000 IOPS.
->
 
 ### <a name="reaching-the-storage-limit"></a>Raggiungimento del limite di archiviazione
 

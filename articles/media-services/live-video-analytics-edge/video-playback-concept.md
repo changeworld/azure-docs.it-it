@@ -3,12 +3,12 @@ title: Riproduzione video-Azure
 description: Segnaposto
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 2020d64538b2fcc846ab9a146e2fc95325abd26b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: be42b39c167798e4e288c77dbd48a8734eb71fdf
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063373"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278593"
 ---
 # <a name="video-playback"></a>Riproduzione di video 
 
@@ -24,7 +24,7 @@ ms.locfileid: "106063373"
 
 ## <a name="streaming-endpoint"></a>endpoint di streaming 
 
-È possibile usare servizi multimediali di Azure per [trasmettere](terminology.md#streaming) l'asset ai lettori video usando protocolli di streaming multimediali basati su http di settore, come http live streaming (HLS) e MPEG-Dash. Questa conversione di file multimediali da contenuto registrato in formati di streaming viene gestita da un [endpoint di streaming](../latest/streaming-endpoint-concept.md), ovvero una risorsa di cui è necessario eseguire il provisioning nell'account del servizio multimediale di Azure.
+È possibile usare servizi multimediali di Azure per [trasmettere](terminology.md#streaming) l'asset ai lettori video usando protocolli di streaming multimediali basati su http di settore, come http live streaming (HLS) e MPEG-Dash. Questa conversione di file multimediali da contenuto registrato in formati di streaming viene gestita da un [endpoint di streaming](../latest/stream-streaming-endpoint-concept.md), ovvero una risorsa di cui è necessario eseguire il provisioning nell'account del servizio multimediale di Azure.
 
 ## <a name="streaming-policy"></a>Criteri di streaming 
 
@@ -34,11 +34,11 @@ Servizi multimediali di Azure offre diversi metodi per proteggere i flussi video
 * **Usare Advanced Encryption Standard (AES-128)** e implementare un metodo per fornire le chiavi per decrittografare il video solo per i visualizzatori autenticati.
 * **Usare i sistemi di Rights Management digitali (DRM)** : per controllare l'uso, la modifica e il recapito dei video ai dispositivi che applicano questi criteri.
 
-Per ottenere la protezione del contenuto, è possibile definire e creare un [criterio di flusso](../latest/streaming-policy-concept.md) nell'account del servizio multimediale e usarlo per lo streaming di tutti gli asset (presupponendo che tutti i flussi abbiano gli stessi requisiti per la sicurezza). È anche possibile usare uno dei criteri predefiniti, ad esempio Predefined_ClearStreamingOnly.
+Per ottenere la protezione del contenuto, è possibile definire e creare un [criterio di flusso](../latest/stream-streaming-policy-concept.md) nell'account del servizio multimediale e usarlo per lo streaming di tutti gli asset (presupponendo che tutti i flussi abbiano gli stessi requisiti per la sicurezza). È anche possibile usare uno dei criteri predefiniti, ad esempio Predefined_ClearStreamingOnly.
 
 ## <a name="streaming-locator"></a>Localizzatore di streaming  
 
-Dopo aver avviato un endpoint di streaming nell'account del servizio multimediale e aver definito i criteri di flusso, è possibile passare a trasmettere i supporti registrati da un asset tramite protocolli HLS o DASH. Per i lettori web e le app per dispositivi mobili è necessario un URL che punta al flusso HLS o DASH. È possibile compilare questo URL usando il [localizzatore di streaming](../latest/streaming-locators-concept.md). Come illustrato in questo articolo e illustrato nell'esempio [creare un localizzatore di streaming e URL di compilazione](../latest/create-streaming-locator-build-url.md) , l'URL di streaming è costituito dall'endpoint di streaming, dai criteri di streaming e dal localizzatore di streaming.
+Dopo aver avviato un endpoint di streaming nell'account del servizio multimediale e aver definito i criteri di flusso, è possibile passare a trasmettere i supporti registrati da un asset tramite protocolli HLS o DASH. Per i lettori web e le app per dispositivi mobili è necessario un URL che punta al flusso HLS o DASH. È possibile compilare questo URL usando il [localizzatore di streaming](../latest/stream-streaming-locators-concept.md). Come illustrato in questo articolo e illustrato nell'esempio [creare un localizzatore di streaming e URL di compilazione](../latest/create-streaming-locator-build-url.md) , l'URL di streaming è costituito dall'endpoint di streaming, dai criteri di streaming e dal localizzatore di streaming.
 
 ## <a name="content-recorded-using-file-sink"></a>Contenuto registrato con il sink di file  
 
