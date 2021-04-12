@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/21/2021
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 542b6580994a2054526f0ddbb3ad93dc27c28fcc
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773454"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107653"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Connettore Azure per le competenze per Amazon S3
 
@@ -38,6 +38,7 @@ Per ulteriori informazioni, vedere i limiti di competenza documentati in:
 
 - [Gestisci e aumenta le quote per le risorse con Azure competenza](how-to-manage-quotas.md)
 - [Origini dati e tipi di file supportati in Azure](sources-and-scans.md)
+- [Usare endpoint privati per l'account di competenza](catalog-private-link.md)
 ### <a name="storage-and-scanning-regions"></a>Aree di archiviazione e analisi
 
 La tabella seguente consente di eseguire il mapping delle aree in cui i dati vengono archiviati nell'area in cui verranno analizzati da Azure.
@@ -77,9 +78,13 @@ La tabella seguente consente di eseguire il mapping delle aree in cui i dati ven
 
 Assicurarsi di aver eseguito i prerequisiti seguenti prima di aggiungere i bucket di Amazon S3 come origini dati di competenza e di analizzare i dati S3.
 
-- È necessario essere un amministratore dell'origine dati di competenza di Azure.
-
-- Quando si aggiungono i bucket come risorse di competenza, saranno necessari i valori di [AWS ARN](#retrieve-your-new-role-arn), il [nome del bucket](#retrieve-your-amazon-s3-bucket-name)e talvolta l'ID dell' [account AWS](#locate-your-aws-account-id).
+> [!div class="checklist"]
+> * È necessario essere un amministratore dell'origine dati di competenza di Azure.
+> * [Crea un account di competenza](#create-a-purview-account) se non ne hai ancora uno
+> * [Creare una credenziale di competenza per l'analisi del bucket di AWS](#create-a-purview-credential-for-your-aws-bucket-scan)
+> * [Creare un nuovo ruolo AWS da usare con la competenza](#create-a-new-aws-role-for-purview)
+> * [Configurare l'analisi per i bucket di Amazon S3 crittografati](#configure-scanning-for-encrypted-amazon-s3-buckets), se pertinente
+> * Quando si aggiungono i bucket come risorse di competenza, saranno necessari i valori di [AWS ARN](#retrieve-your-new-role-arn), il [nome del bucket](#retrieve-your-amazon-s3-bucket-name)e talvolta l'ID dell' [account AWS](#locate-your-aws-account-id).
 
 ### <a name="create-a-purview-account"></a>Creare un account di competenza
 
@@ -92,7 +97,7 @@ Assicurarsi di aver eseguito i prerequisiti seguenti prima di aggiungere i bucke
 Questa procedura descrive come creare una nuova credenziale di competenza da usare durante l'analisi dei bucket di AWS.
 
 > [!TIP]
-> È anche possibile creare una nuova credenziale nel corso del processo, durante la [configurazione dell'analisi](#create-a-scan-for-your-amazon-s3-bucket). In tal caso, nel campo **Credential (credenziali** ) selezionare **New (nuovo**).
+> È anche possibile creare una nuova credenziale nel corso del processo, durante la [configurazione dell'analisi](#create-a-scan-for-one-or-more-amazon-s3-buckets). In tal caso, nel campo **Credential (credenziali** ) selezionare **New (nuovo**).
 >
 
 1. In ambito, passare al **centro di gestione** e in **sicurezza e accesso** Selezionare **credenziali**.
@@ -138,6 +143,13 @@ Per altre informazioni sulle credenziali di competenza, vedere la [documentazion
 1. Nell'area **creazione di un ruolo > associazione dei criteri di autorizzazione** filtrare le autorizzazioni visualizzate in **S3**. Selezionare **AmazonS3ReadOnlyAccess** e quindi fare clic su **Avanti: Tag**.
 
     ![Selezionare il criterio ReadOnlyAccess per il nuovo ruolo di analisi Amazon S3.](./media/register-scan-amazon-s3/aws-permission-role-amazon-s3.png)
+
+    > [!IMPORTANT]
+    > Il criterio **AmazonS3ReadOnlyAccess** fornisce le autorizzazioni minime necessarie per l'analisi dei bucket S3 e può includere anche altre autorizzazioni.
+    >
+    >Per applicare solo le autorizzazioni minime necessarie per l'analisi dei bucket, creare un nuovo criterio con le autorizzazioni elencate in [autorizzazioni minime per i criteri di AWS](#minimum-permissions-for-your-aws-policy), a seconda che si desideri eseguire la scansione di un singolo bucket o di tutti i bucket nell'account. 
+    >
+    >Applicare i nuovi criteri al ruolo anziché a **AmazonS3ReadOnlyAccess.**
 
 1. Nell'area **Aggiungi tag (facoltativo)** è possibile scegliere di creare un tag significativo per il nuovo ruolo. I tag utili consentono di organizzare, tenere traccia e controllare l'accesso per ogni ruolo creato dall'utente.
 
@@ -219,7 +231,7 @@ I bucket AWS supportano più tipi di crittografia. Per i bucket che usano la cri
 
 ### <a name="retrieve-your-new-role-arn"></a>Recuperare il nuovo ruolo ARN
 
-Dovrai registrare il tuo ruolo AWS e copiarlo in ambito durante la creazione di [un'analisi per il bucket di Amazon S3](#create-a-scan-for-your-amazon-s3-bucket).
+Dovrai registrare il tuo ruolo AWS e copiarlo in ambito durante la creazione di [un'analisi per il bucket di Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 **Per recuperare il ruolo ARN:**
 
@@ -229,11 +241,11 @@ Dovrai registrare il tuo ruolo AWS e copiarlo in ambito durante la creazione di 
 
     ![Copiare il valore di Role ARN negli Appunti.](./media/register-scan-amazon-s3/aws-copy-role-purview.png)
 
-1. Incollare questo valore in una posizione sicura, pronto per l'uso quando si [Crea un'analisi per il bucket Amazon S3](#create-a-scan-for-your-amazon-s3-bucket).
+1. Incollare questo valore in una posizione sicura, pronto per l'uso quando si [Crea un'analisi per il bucket Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 ### <a name="retrieve-your-amazon-s3-bucket-name"></a>Recuperare il nome del bucket Amazon S3
 
-È necessario il nome del bucket Amazon S3 per copiarlo in ambito durante la creazione di [un'analisi per il bucket Amazon S3](#create-a-scan-for-your-amazon-s3-bucket)
+È necessario il nome del bucket Amazon S3 per copiarlo in ambito durante la creazione di [un'analisi per il bucket Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 
 **Per recuperare il nome del bucket:**
 
@@ -270,6 +282,8 @@ Ad esempio:
 
 Utilizzare questa procedura se si dispone di un solo bucket S3 che si desidera registrare come origine dati o se si dispone di più bucket nell'account di AWS, ma non si desidera registrarli tutti nella propria competenza.
 
+**Per aggiungere il bucket**: 
+
 1. Avviare il portale di competenza usando il connettore di competenza dedicato per Amazon S3 URL. Questo URL è stato fornito dal team di gestione del prodotto del connettore Amazon S3 per la competenza.
 
     ![Avviare il portale di competenza.](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
@@ -293,12 +307,15 @@ Utilizzare questa procedura se si dispone di un solo bucket S3 che si desidera r
 
     Al termine, selezionare **fine** per completare la registrazione.
 
-Continuare con [creare un'analisi per il bucket Amazon S3.](#create-a-scan-for-your-amazon-s3-bucket)
+Continuare con [Create a Scan per uno o più bucket di Amazon S3.](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 
-## <a name="add-all-of-your-amazon-s3-buckets-as-purview-resources"></a>Aggiungi tutti i bucket di Amazon S3 come risorse di competenza
+## <a name="add-an-amazon-account-as-a-purview-resource"></a>Aggiungere un account Amazon come risorsa di competenza
 
-Utilizzare questa procedura se si dispone di più bucket S3 nell'account Amazon e si desidera registrare tutte le origini dati di competenza.
+Utilizzare questa procedura se si dispone di più bucket S3 nell'account Amazon e si desidera registrarli tutti come origini dati di competenza.
 
+Quando si [Configura l'analisi](#create-a-scan-for-one-or-more-amazon-s3-buckets), è possibile selezionare i bucket specifici che si desidera analizzare, se non si desidera analizzarli tutti insieme.
+
+**Per aggiungere l'account Amazon**:
 1. Avviare il portale di competenza usando il connettore di competenza dedicato per Amazon S3 URL. Questo URL è stato fornito dal team di gestione del prodotto del connettore Amazon S3 per la competenza.
 
     ![Avviare il connettore per Amazon S3 portale di competenza dedicato](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
@@ -322,9 +339,9 @@ Utilizzare questa procedura se si dispone di più bucket S3 nell'account Amazon 
 
     Al termine, selezionare **fine** per completare la registrazione.
 
-Continuare con [creare un'analisi per il bucket Amazon S3](#create-a-scan-for-your-amazon-s3-bucket).
+Continuare con [Create a Scan per uno o più bucket di Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
-## <a name="create-a-scan-for-your-amazon-s3-bucket"></a>Creare un'analisi per il bucket Amazon S3
+## <a name="create-a-scan-for-one-or-more-amazon-s3-buckets"></a>Creare un'analisi per uno o più bucket di Amazon S3
 
 Una volta aggiunti i bucket come origini dati di competenza, è possibile configurare un'analisi per l'esecuzione a intervalli pianificati o immediatamente.
 
@@ -340,9 +357,10 @@ Una volta aggiunti i bucket come origini dati di competenza, è possibile config
     |**Nome**     |  Immettere un nome significativo per l'analisi o usare il valore predefinito.       |
     |**Tipo** |Visualizzato solo se è stato aggiunto l'account AWS, con tutti i bucket inclusi. <br><br>Le opzioni correnti includono solo **tutte le**  >  **Amazzoni S3**. Rimanere sintonizzati per ottenere altre opzioni da selezionare perché la matrice di supporto di di competenza si espande. |
     |**Credenziali**     |  Selezionare una credenziale di competenza con l'ARN del ruolo. <br><br>**Suggerimento**: se si vuole creare una nuova credenziale in questo momento, selezionare **nuovo**. Per altre informazioni, vedere [creare credenziali di competenza per l'analisi del bucket di AWS](#create-a-purview-credential-for-your-aws-bucket-scan).     |
-    |     |         |
+    | **Amazon S3**    |   Visualizzato solo se è stato aggiunto l'account AWS, con tutti i bucket inclusi. <br><br>Selezionare uno o più bucket da analizzare oppure **selezionare tutti** per analizzare tutti i bucket nell'account.      |
+    | | |
 
-    La competenza verifica automaticamente che l'ARN del ruolo sia valido e che il bucket e l'oggetto all'interno del bucket siano accessibili e continuino se la connessione ha esito positivo.
+    La competenza verifica automaticamente che l'ARN del ruolo sia valido e che i bucket e gli oggetti all'interno dei bucket siano accessibili e continuino se la connessione ha esito positivo.
 
     > [!TIP]
     > Per immettere valori diversi e testare manualmente la connessione prima di continuare, selezionare **Test connessione** nella parte inferiore destra prima di selezionare **continua**.
@@ -396,6 +414,90 @@ Usare le altre aree di competenza per ottenere informazioni dettagliate sul cont
     Tutti i report di Insight Insight includono i risultati dell'analisi di Amazon S3, insieme al resto dei risultati delle origini dati di Azure. Quando pertinente, è stato aggiunto un altro tipo di asset **Amazon S3** alle opzioni di filtro dei report.
 
     Per ulteriori informazioni, vedere la pagina relativa [a Insights in Azure](concept-insights.md).
+
+## <a name="minimum-permissions-for-your-aws-policy"></a>Autorizzazioni minime per i criteri di AWS
+
+La procedura predefinita per la [creazione di un ruolo AWS](#create-a-new-aws-role-for-purview) da usare durante l'analisi dei bucket S3 usa il criterio **AmazonS3ReadOnlyAccess** .
+
+Il criterio **AmazonS3ReadOnlyAccess** fornisce le autorizzazioni minime necessarie per l'analisi dei bucket S3 e può includere anche altre autorizzazioni.
+
+Per applicare solo le autorizzazioni minime necessarie per l'analisi dei bucket, creare un nuovo criterio con le autorizzazioni elencate nelle sezioni seguenti, a seconda se si vuole eseguire la scansione di un singolo bucket o di tutti i bucket nell'account.
+
+Applicare i nuovi criteri al ruolo anziché a **AmazonS3ReadOnlyAccess.**
+
+### <a name="individual-buckets"></a>Singoli bucket
+
+Quando si analizzano singoli bucket S3, le autorizzazioni di AWS minime includono:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListBucket`
+
+Assicurarsi di definire la risorsa con il nome del bucket specifico. Ad esempio:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::<bucketname>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3::: <bucketname>/*"
+        }
+    ]
+}
+```
+
+### <a name="all-buckets-in-your-account"></a>Tutti i bucket nell'account
+
+Quando si esegue l'analisi di tutti i bucket nell'account AWS, le autorizzazioni di AWS minime includono:
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListAllMyBuckets`
+- `ListBucket`.
+
+Assicurarsi di definire la risorsa con un carattere jolly. Ad esempio:
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 12/04/2020
 ms.author: baanders
-ms.openlocfilehash: d93f484e318c10489eb1db3e9c65c6e0c7479c90
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 811e59e8fd2fea1d8ee90014d4a5ea11229eec63
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98859885"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257306"
 ---
 | Nome filtro | Descrizione | Filtra schema testo | Valori supportati | 
 | --- | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "98859885"
 | Schema dei dati | ID modello DTDL | `dataschema = '<model-dtmi-ID>'` | **Per la telemetria**: lo schema di dati è l'ID modello del dispositivo gemello o il componente che genera i dati di telemetria. Ad esempio: `dtmi:example:com:floor4;2` <br>**Per le notifiche (creazione/eliminazione)**: è possibile accedere allo schema dei dati nel corpo della notifica in `$body.$metadata.$model` . <br>**Per le notifiche (aggiornamento)**: è possibile accedere allo schema dei dati nel corpo della notifica in `$body.modelId`|
 | Tipo di contenuto | Tipo di contenuto del valore dati | `datacontenttype = '<contentType>'` | Il tipo di contenuto è `application/json` |
 | Versione spec | Versione dello schema di eventi in uso | `specversion = '<version>'` | La versione deve essere `1.0` . Indica la versione dello schema CloudEvents 1,0 |
-| Corpo della notifica | Fare riferimento a qualsiasi proprietà nel `data` campo di una notifica | `$body.<property>` | Vedere [*procedura: comprendere i dati degli eventi*](../articles/digital-twins/how-to-interpret-event-data.md) per esempi di notifiche. `data`È possibile fare riferimento a qualsiasi proprietà nel campo usando`$body`
+| Corpo della notifica | Fare riferimento a qualsiasi proprietà nel `data` campo di una notifica | `$body.<property>` | Vedere [*concetti: notifiche degli eventi*](../articles/digital-twins/concepts-event-notifications.md) per esempi di notifiche. `data`È possibile fare riferimento a qualsiasi proprietà nel campo usando`$body`
 
 I tipi di dati seguenti sono supportati come valori restituiti dai riferimenti ai dati precedenti:
 

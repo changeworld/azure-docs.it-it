@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b7b7f1c5fb0a7991707a26b4a7f54fb3ffaf7bab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: eff33a8670ee8eb9ee32655956ee0e913ddaa4c1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033521"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258130"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Abilitare l'autenticazione a più fattori in Azure Active Directory B2C
 
@@ -56,6 +56,6 @@ Un account utente viene creato nel tenant prima che venga eseguito il passaggio 
 
 ::: zone pivot="b2c-custom-policy"
 
-Per abilitare Multi-Factor Authentication ottenere gli Starter Pack per i criteri personalizzati da GitHub, aggiornare i file XML nello Starter Pack **SocialAndLocalAccountsWithMFA** con il nome del tenant di Azure ad B2C. **SocialAndLocalAccountsWithMFA** Abilita le opzioni di autenticazione sociale, locale e a più fattori. Per ulteriori informazioni, vedere [Introduzione ai criteri personalizzati in Active Directory B2C](custom-policy-get-started.md). 
+Per abilitare Multi-Factor Authentication ottenere gli Starter Pack per i criteri personalizzati da GitHub, aggiornare i file XML nello Starter Pack **SocialAndLocalAccountsWithMFA** con il nome del tenant di Azure ad B2C. **SocialAndLocalAccountsWithMFA** Abilita le opzioni di autenticazione sociale, locale e a più fattori. Per ulteriori informazioni, vedere [Introduzione ai criteri personalizzati in Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). 
 
 ::: zone-end

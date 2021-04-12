@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: dadca1fadef9d2967f20cae13e40d01de73d39e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b10d2e10f95470cadf67af762a0d7320bc09b7e0
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778339"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075696"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -500,16 +500,15 @@ Dettagli del disco | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesP
 
 Di seguito sono riportati i dati sulle prestazioni del server Linux raccolti dall'appliance e inviati ad Azure.
 
-**Dati** | **Comandi**
---- | ---
-Utilizzo di CPU | cat /proc/stat/| grep 'cpu' /proc/stat
-Utilizzo della memoria | free \| grep Mem \| awk '{print $3/$2 * 100.0}'
-Numero di schede di interfaccia di rete | lshw -class network \| grep eth[0-60] \| wc -l
-Dati ricevuti per ogni scheda di interfaccia di rete | cat /sys/class/net/eth$nic/statistics/rx_bytes
-Dati trasmessi per ogni scheda di interfaccia di rete | cat /sys/class/net/eth$nic/statistics/tx_bytes
-Numero di dischi | fdisk -l \| egrep 'Disk.*bytes' \| awk '{print $2}' \| cut -f1 -d ':'
-Dettagli del disco | cat /proc/diskstats
-
+| **Dati** | **Comandi** |
+| --- | --- |
+| Utilizzo della CPU | /proc/stat cat/proc/stat/ \| grep ' CPU ' |
+| Utilizzo della memoria | free \| grep Mem \| awk '{print $3/$2 * 100.0}' |
+| Numero di schede di interfaccia di rete | lshw -class network \| grep eth[0-60] \| wc -l |
+| Dati ricevuti per ogni scheda di interfaccia di rete | cat /sys/class/net/eth$nic/statistics/rx_bytes |
+| Dati trasmessi per ogni scheda di interfaccia di rete | cat /sys/class/net/eth$nic/statistics/tx_bytes |
+| Numero di dischi | Disco di fdisk-l \| egrep ". \* byte ' \| awk ' {print $2}' \| Cut-F1-d':' |
+| Dettagli del disco | cat /proc/diskstats |
 
 ## <a name="appliance-upgrades"></a>Aggiornamenti dell'appliance
 

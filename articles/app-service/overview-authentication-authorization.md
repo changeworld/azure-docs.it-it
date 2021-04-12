@@ -3,15 +3,15 @@ title: Autenticazione e autorizzazione
 description: Informazioni sul supporto integrato per l'autenticazione e l'autorizzazione nel servizio app Azure e funzioni di Azure e su come può aiutare a proteggere l'app da accessi non autorizzati.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 03/29/2021
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 35513abdfb61d889abdbd4af7125b1fbb556d7b8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1b6e600fcaf32a115af14be2444144fee099d635
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612756"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075339"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app Azure e funzioni di Azure
 
@@ -33,8 +33,7 @@ Il servizio app usa l'[identità federata](https://en.wikipedia.org/wiki/Federat
 
 | Provider | Endpoint di accesso | Guida How-To |
 | - | - | - |
-| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Accesso Azure AD del servizio app](configure-authentication-provider-aad.md) |
-| [Account Microsoft](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` | [Accesso all'account Microsoft del servizio app](configure-authentication-provider-microsoft.md) |
+| [Piattaforma di identità Microsoft](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [Accesso al servizio app Microsoft Identity Platform](configure-authentication-provider-aad.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [Accesso a Facebook del servizio app](configure-authentication-provider-facebook.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Account di accesso di Google per il servizio app](configure-authentication-provider-google.md) |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [Accesso a Twitter del servizio app](configure-authentication-provider-twitter.md) |
@@ -110,21 +109,17 @@ Per i browser client, il servizio app può indirizzare automaticamente tutti gli
 
 #### <a name="authorization-behavior"></a>Comportamento di autorizzazione
 
-Nel [portale di Azure](https://portal.azure.com)è possibile configurare l'autorizzazione del servizio app con diversi comportamenti quando la richiesta in ingresso non è autenticata.
+Nel [portale di Azure](https://portal.azure.com)è possibile configurare il servizio app con diversi comportamenti quando la richiesta in ingresso non è autenticata. I titoli seguenti descrivono le opzioni.
 
-![Screenshot che mostra l'elenco a discesa "azione da eseguire quando la richiesta non è autenticata"](media/app-service-authentication-overview/authorization-flow.png)
-
-I titoli seguenti descrivono le opzioni.
-
-**Consenti richieste anonime (nessuna azione)**
+**Consenti richieste non autenticate**
 
 Questa opzione rinvia l'autorizzazione del traffico non autenticato al codice dell'applicazione. Per le richieste autenticate, il servizio app passa anche le informazioni di autenticazione nelle intestazioni HTTP.
 
 Questa opzione offre maggiore flessibilità nella gestione delle richieste anonime. Ad esempio consente di [presentare più opzioni di accesso](app-service-authentication-how-to.md#use-multiple-sign-in-providers) agli utenti. Tuttavia richiede di scrivere codice.
 
-**Consentire solo le richieste autenticate**
+**Richiedi autenticazione**
 
-L'opzione è **accesso con \<provider>**. Il servizio app reindirizza tutte le richieste anonime a `/.auth/login/<provider>` per il provider scelto. Se la richiesta anonima proviene da un'app per dispositivi mobili nativa, verrà restituita la risposta `HTTP 401 Unauthorized`.
+Questa opzione rifiuterà il traffico non autenticato per l'applicazione. Questo rifiuto può essere un'azione di reindirizzamento a uno dei provider di identità configurati. In questi casi, un client browser viene reindirizzato a `/.auth/login/<provider>` per il provider scelto. Se la richiesta anonima proviene da un'app per dispositivi mobili nativa, verrà restituita la risposta `HTTP 401 Unauthorized`. È anche possibile configurare il rifiuto come `HTTP 401 Unauthorized` o `HTTP 403 Forbidden` per tutte le richieste.
 
 Con questa opzione non è necessario scrivere codice di autenticazione nell'app. È possibile gestire un livello di autorizzazione più specifico, ad esempio l'autorizzazione specifica dei ruoli, esaminando le attestazioni utente (vedere [Accedere alle attestazioni utente](app-service-authentication-how-to.md#access-user-claims)).
 

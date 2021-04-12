@@ -9,20 +9,51 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8100d9e12f107e0c4598876c46453b46c6ee4d0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ee652047a33d73ece2d7648905fa590d90b1fb2f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122001"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029506"
 ---
 # <a name="known-issues---azure-arc-enabled-data-services-preview"></a>Problemi noti-Azure Arc Enabled Data Services (anteprima)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+## <a name="march-2021"></a>Marzo 2021
+
+### <a name="data-controller"></a>Controller dati
+
+- È possibile creare un controller dati in modalità di connessione diretta con il portale di Azure. La distribuzione con altri strumenti di Azure Arc Enabled Data Services non è supportata. In particolare, non è possibile distribuire un controller dati in modalità di connessione diretta con uno qualsiasi degli strumenti seguenti in questa versione.
+   - Azure Data Studio
+   - Azure Data CLI (`azdata`)
+   - Strumenti nativi Kubernetes
+
+   [Distribuire il controller dati di Azure Arc | Modalità di connessione diretta](deploy-data-controller-direct-mode.md) spiega come creare il controller dati nel portale. 
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Iperscalabilità PostgreSQL abilitata per Azure Arc
+
+- Non è supportata la distribuzione di un gruppo di server con iperscalabilità di Azure Arc abilitato in un controller di dati Arc abilitato per la modalità di connessione diretta.
+- Il passaggio di un valore non valido al `--extensions` parametro durante la modifica della configurazione di un gruppo di server per consentire ad altre estensioni di reimpostare in modo errato l'elenco di estensioni abilitate è stato creato al momento della creazione del gruppo di server e impedisce all'utente di creare estensioni aggiuntive. L'unica soluzione disponibile quando si verifica questo problema consiste nell'eliminare il gruppo di server e ridistribuirlo.
+
 ## <a name="february-2021"></a>2021 febbraio
 
-- La modalità cluster connessa è disabilitata
+### <a name="data-controller"></a>Controller dati
+
+- La modalità del cluster di connessione diretta è disabilitata
+
+### <a name="azure-arc-enabled-postgresql-hyperscale"></a>Iperscalabilità PostgreSQL abilitata per Azure Arc
+
+- Il ripristino temporizzato non è supportato per l'archiviazione NFS.
+- Non è possibile abilitare e configurare l'estensione pg_cron nello stesso momento. Per questa operazione è necessario usare due comandi. Un comando per abilitarlo e un comando per configurarlo. 
+
+   Ad esempio:
+   ```console
+   § azdata arc postgres server edit -n myservergroup --extensions pg_cron 
+   § azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
+   ```
+
+   Il primo comando richiede il riavvio del gruppo di server. Quindi, prima di eseguire il secondo comando, verificare che lo stato del gruppo di server sia passato dall'aggiornamento alla fase di preparazione. Se si esegue il secondo comando prima del completamento del riavvio, l'operazione avrà esito negativo. In tal caso, è sufficiente attendere alcuni istanti ed eseguire di nuovo il secondo comando.
 
 ## <a name="introduced-prior-to-february-2021"></a>Introdotta prima del 2021 febbraio
 
@@ -43,12 +74,6 @@ ms.locfileid: "102122001"
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Deselezionare le caselle di controllo per ogni zona per specificare nessuna.":::
 
-### <a name="postgresql"></a>PostgreSQL
-
-- L'iperscalabilità di PostgreSQL abilitata per Azure Arc restituisce un messaggio di errore non accurato quando non è possibile eseguire il ripristino fino al punto nel tempo relativo indicato. Se, ad esempio, è stato specificato un punto nel tempo per il ripristino precedente rispetto a quello contenuto nei backup, il ripristino avrà esito negativo con un messaggio di errore simile al seguente: `ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}`
-Quando si verifica questo problema, riavviare il comando dopo aver indicato un punto nel tempo compreso nell'intervallo di date per cui si dispone di backup. Questo intervallo verrà determinato elencando i backup e esaminando le date in cui sono state eseguite.
-- Il ripristino temporizzato è supportato solo tra gruppi di server. Il server di destinazione di un'operazione di ripristino temporizzato non può essere il server da cui è stato richiesto il backup. Deve essere un gruppo di server diverso. Tuttavia, il ripristino completo è supportato per lo stesso gruppo di server.
-- Quando si esegue un ripristino completo, è necessario un ID di backup. Per impostazione predefinita, se non si indica un ID di backup verrà usato il backup più recente. Questa operazione non funziona in questa versione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

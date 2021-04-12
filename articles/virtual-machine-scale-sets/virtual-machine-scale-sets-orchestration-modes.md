@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 316f97480dfe7ee6481ef88faf265051a92024da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d9d9449e2a971a4247e507e0c022c8c5fb9956c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937261"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075407"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Anteprima: modalità di orchestrazione per i set di scalabilità di macchine virtuali in Azure 
 
@@ -306,7 +306,7 @@ Per un esempio completo, vedere [Guida introduttiva di Azure](https://github.com
 
 **In che modo la disponibilità con un'orchestrazione flessibile si confronta con i set di disponibilità o l'orchestrazione uniforme**
 
-|   | Orchestrazione flessibile  | Orchestrazione uniforme  | SET DI DISPONIBILITÀ  |
+| Attributo Availability  | Orchestrazione flessibile  | Orchestrazione uniforme  | SET DI DISPONIBILITÀ  |
 |-|-|-|-|
 | Distribuisci tra zone di disponibilità  | No  | Sì  | No  |
 | Garanzia di disponibilità del dominio di errore all'interno di un'area  | Sì, le istanze fino a 1000 possono essere distribuite in un massimo di 3 domini di errore nell'area. Il numero massimo di domini di errore varia in base all'area  | Sì, fino a 100 istanze  | Sì, fino a 200 istanze  |

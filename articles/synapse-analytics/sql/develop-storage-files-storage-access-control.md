@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: acfaa780f21f5264b546f97e9a3792aa43e9c30b
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552955"
+ms.locfileid: "107029744"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless in Azure Synapse Analytics
 
@@ -23,6 +23,13 @@ Una query del pool SQL serverless legge i file direttamente da Archiviazione di 
 - **Livello di servizio SQL**: l'utente deve avere l'autorizzazione per leggere i dati con una [tabella esterna](develop-tables-external-tables.md) o per eseguire la funzione `OPENROWSET`. Vedere altre informazioni sulle [autorizzazioni necessarie in questa sezione](develop-storage-files-overview.md#permissions).
 
 Questo articolo descrive i tipi di credenziali che è possibile usare e il modo in cui viene eseguita la ricerca di credenziali per gli utenti di SQL e Azure AD.
+
+## <a name="storage-permissions"></a>Autorizzazioni di archiviazione
+
+Un pool SQL senza server nell'area di lavoro di sinapsi Analytics può leggere il contenuto dei file archiviati in Azure Data Lake archiviazione. È necessario configurare le autorizzazioni per l'archiviazione per consentire a un utente che esegue una query SQL di leggere i file. Sono disponibili tre metodi per abilitare l'accesso ai file>
+- Il **[controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md)** consente di assegnare un ruolo ad alcuni Azure ad utente nel tenant in cui si trova la risorsa di archiviazione. I ruoli RBAC possono essere assegnati a Azure AD utenti. Un reader deve avere `Storage Blob Data Reader` un `Storage Blob Data Contributor` ruolo, o `Storage Blob Data Owner` . Un utente che scrive i dati nell'archiviazione di Azure deve avere un `Storage Blob Data Writer` `Storage Blob Data Owner` ruolo o. Si noti che `Storage Owner` il ruolo non implica anche l'uso di un utente `Storage Data Owner` .
+- Gli **elenchi di controllo di accesso (ACL)** consentono di definire un modello di autorizzazione con granularità fine nei file e nelle directory di archiviazione di Azure. L'ACL può essere assegnato a Azure AD utenti. Se i lettori vogliono leggere un file in un percorso in archiviazione di Azure, devono avere l'ACL Execute (X) in ogni cartella del percorso del file e l'ACL Read (R) nel file. [Altre informazioni su come impostare le autorizzazioni ACL nel livello di archiviazione](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls)
+- La **firma di accesso condiviso** consente a un lettore di accedere ai file nella risorsa di archiviazione Azure Data Lake usando il token temporale limitato. Il lettore non deve neanche essere autenticato come Azure AD utente. Il token di firma di accesso condiviso contiene le autorizzazioni concesse al lettore e il periodo in cui il token è valido. Il token di firma di accesso condiviso è la scelta ideale per l'accesso vincolato al tempo a tutti gli utenti che non devono necessariamente trovarsi nello stesso tenant Azure AD. Il token SAS può essere definito nell'account di archiviazione o in directory specifiche. Altre informazioni sulla [concessione di accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso](../../storage/common/storage-sas-overview.md).
 
 ## <a name="supported-storage-authorization-types"></a>Tipi di autorizzazione supportati per l'archiviazione
 
@@ -103,7 +110,7 @@ Per accedere a un account di archiviazione protetto da firewall, è possibile us
 
 #### <a name="user-identity"></a>Identità utente
 
-Per accedere all'account di archiviazione protetto da firewall tramite l'identità utente, è possibile usare il modulo Az.Storage di PowerShell.
+Per accedere allo spazio di archiviazione protetto con il firewall tramite l'identità dell'utente, è possibile usare portale di Azure interfaccia utente o il modulo di PowerShell AZ. storage.
 #### <a name="configuration-via-azure-portal"></a>Configurazione tramite portale di Azure
 
 1. Cercare l'account di archiviazione in portale di Azure.

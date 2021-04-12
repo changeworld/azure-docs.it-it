@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
-ms.openlocfilehash: 79599ce04b93409c67342be73cf88d5e20621c1d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 216c96579944661ecf248e4e8676ac45021c53e6
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182588"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293958"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -51,6 +51,8 @@ Per eseguire il mapping di un nome DNS personalizzato a un'app Web, il [piano di
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
+  > [!NOTE]
+  > Se si rimuove o si aggiunge un dominio personalizzato all'app Web, il sito verrà riavviato.
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.

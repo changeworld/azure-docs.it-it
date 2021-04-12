@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 33664c49c501071c44ac0f5b2486e687c822940d
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 9ae7e8c4544d2e8bd9dc4ff846aabb0c7f7f9358
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027602"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284256"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>Guida alla migrazione: Oracle al database SQL di Azure
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-Questa guida illustra [come eseguire la migrazione](https://azure.microsoft.com/migration/migration-journey) degli schemi Oracle al database SQL di Azure usando [SQL Server Migration](https://azure.microsoft.com/migration/migration-journey) Assistant per Oracle (SSMA per Oracle).
+Questa guida illustra [come eseguire la migrazione](https://azure.microsoft.com/migration/migration-journey) degli schemi Oracle al database SQL di Azure usando [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant per Oracle (SSMA per Oracle).
 
 Per altre guide alla migrazione, vedere [guide alla migrazione del database di Azure](https://docs.microsoft.com/data-migration).
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 82216abd13b6128be68e22a4ce2a0f6de9a6ce2f
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: f104b98c870fe6eee1d32fe656c0bba416cf3700
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227544"
+ms.locfileid: "107259745"
 ---
 # <a name="blob-versioning"></a>Controllo delle versioni dei BLOB
 
@@ -43,7 +43,7 @@ Il diagramma seguente illustra come vengono create le versioni durante le operaz
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagramma che illustra il funzionamento del controllo delle versioni dei BLOB":::
 
-Quando si elimina un BLOB con il controllo delle versioni abilitato, la versione corrente del BLOB viene eliminata. Tutte le versioni precedenti del BLOB vengono mantenute.
+Quando si elimina un BLOB con il controllo delle versioni abilitato, la versione corrente del BLOB diventa una versione precedente e non è più disponibile una versione corrente. Tutte le versioni precedenti del BLOB vengono mantenute.
 
 Le versioni BLOB non sono modificabili. Non è possibile modificare il contenuto o i metadati di una versione BLOB esistente.
 
@@ -133,7 +133,7 @@ Il diagramma seguente mostra in che modo la modifica di un BLOB dopo la disabili
 
 ## <a name="blob-versioning-and-soft-delete"></a>Controllo delle versioni dei BLOB e eliminazione temporanea
 
-Microsoft consiglia di abilitare il controllo delle versioni e l'eliminazione temporanea dei BLOB per gli account di archiviazione per la protezione dei dati ottimale. L'eliminazione temporanea protegge i BLOB, le versioni e gli snapshot da eliminazioni accidentali. Per altre informazioni sull'eliminazione temporanea dei BLOB, vedere [eliminazione temporanea per i BLOB di archiviazione di Azure](./soft-delete-blob-overview.md).
+Microsoft consiglia di abilitare il controllo delle versioni e l'eliminazione temporanea dei BLOB per gli account di archiviazione per la protezione dei dati ottimale. Per altre informazioni sull'eliminazione temporanea dei BLOB, vedere [eliminazione temporanea per i BLOB di archiviazione di Azure](./soft-delete-blob-overview.md).
 
 ### <a name="overwriting-a-blob"></a>Sovrascrittura di un BLOB
 
@@ -141,7 +141,7 @@ Se per un account di archiviazione sono abilitate le funzionalità di controllo 
 
 ### <a name="deleting-a-blob-or-version"></a>Eliminazione di un BLOB o di una versione
 
-Se per l'account di archiviazione sono abilitate sia il controllo delle versioni che l'eliminazione temporanea, quando si elimina un BLOB, la versione corrente del BLOB diventa una versione precedente e la versione corrente viene eliminata. Non viene creata alcuna nuova versione e non vengono creati snapshot eliminati temporaneamente. Il periodo di memorizzazione dell'eliminazione temporanea non è attivo per il BLOB eliminato.
+Se il controllo delle versioni e l'eliminazione temporanea sono entrambi abilitati per un account di archiviazione, quando si elimina un BLOB, la versione corrente del BLOB diventa una versione precedente. Non viene creata alcuna nuova versione e non vengono creati snapshot eliminati temporaneamente. Il periodo di memorizzazione dell'eliminazione temporanea non è attivo per il BLOB eliminato.
 
 L'eliminazione temporanea offre protezione aggiuntiva per l'eliminazione delle versioni BLOB. Quando si elimina una versione precedente del BLOB, tale versione viene eliminata temporaneamente. La versione eliminata temporaneamente viene mantenuta fino a quando non scade il periodo di conservazione dell'eliminazione temporanea, a quel punto viene eliminato definitivamente.
 

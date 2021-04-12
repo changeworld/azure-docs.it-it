@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: victorh
-ms.openlocfilehash: cfbd5301bc2b24c4d5614e5f88c6ae18d4affc66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8de0dd16c3b3b73b5d5e52017cf63b357654144f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721631"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030958"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Esercitazione: Creare e configurare un gateway applicazione per ospitare più siti Web usando il portale di Azure
 
@@ -25,7 +25,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare un gateway applicazione
 > * Creare macchine virtuali per i server back-end
 > * Creare pool back-end con i server back-end
-> * Creare i listener back-end
+> * Crea listener
 > * Creare le regole di routing
 > * Modificare il file degli host per la risoluzione dei nomi
 

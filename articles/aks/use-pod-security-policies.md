@@ -4,17 +4,17 @@ description: Informazioni su come controllare l'ammissione di pod usando PodSecu
 services: container-service
 ms.topic: article
 ms.date: 03/25/2021
-ms.openlocfilehash: d95cdb51136511bdd8529c829c3f680d19e14ba9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4e72bd28910f471656feb27d10c123930305494e
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611770"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031223"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere il cluster usando i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **La funzionalità descritta in questo documento, i criteri di sicurezza pod (anteprima), inizierà la deprecazione con Kubernetes versione 1,21, con la relativa rimozione nella versione 1,25.** Poiché Kubernetes si avvicina a questa attività cardine, la community di Kubernetes si impegna a documentare le alternative valide. L'annuncio di deprecazione precedente è stato eseguito nel momento in cui non era disponibile un'opzione valida per i clienti. Ora che la community di Kubernetes sta lavorando su un'alternativa, non è più necessario richiedere la deprecazione prima di Kubernetes.
+> **La funzionalità descritta in questo documento, i criteri di sicurezza pod (anteprima), inizierà la [deprecazione](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/) con Kubernetes versione 1,21, con la relativa rimozione nella versione 1,25.** Poiché Kubernetes si avvicina a questa attività cardine, la community di Kubernetes si impegna a documentare le alternative valide. L'annuncio di deprecazione precedente è stato eseguito nel momento in cui non era disponibile un'opzione valida per i clienti. Ora che la community di Kubernetes sta lavorando su un'alternativa, non è più necessario richiedere la deprecazione prima di Kubernetes. 
 >
 > Dopo la deprecazione di Criteri di sicurezza dei pod (anteprima), sarà necessario disabilitare la funzionalità in eventuali cluster esistenti che usano la funzionalità deprecata per eseguire aggiornamenti futuri del cluster e mantenere il supporto tecnico di Azure.
 

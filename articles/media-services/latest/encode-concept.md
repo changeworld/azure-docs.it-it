@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 225f1d311739bdafbe39971a2b4ac74917e770e9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: cd37175bd85e31ddc18c8267cdf01f7dc6249a0b
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279494"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491917"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codifica di video e audio con servizi multimediali
 
@@ -45,7 +45,7 @@ Per eseguire la codifica con servizi multimediali V3, è necessario creare una [
 
 Durante la codifica con Servizi multimediali si usano set di impostazioni per indicare al codificatore come elaborare i file multimediali di input. In servizi multimediali V3 si usa il codificatore standard per codificare i file. Ad esempio, è possibile specificare la risoluzione video e/o il numero di canali audio desiderati nel contenuto codificato.
 
-Si può iniziare rapidamente con uno dei set di impostazioni predefiniti basati sulle procedure consigliate del settore oppure si può compilare un set di impostazioni personalizzato per i requisiti di uno specifico scenario o dispositivo. Per altre informazioni, vedere l'articolo sulla [codifica con una trasformazione personalizzata](encode-custom-presets-how-to.md).
+Si può iniziare rapidamente con uno dei set di impostazioni predefiniti basati sulle procedure consigliate del settore oppure si può compilare un set di impostazioni personalizzato per i requisiti di uno specifico scenario o dispositivo. Per altre informazioni, vedere l'articolo sulla [codifica con una trasformazione personalizzata](transform-custom-presets-how-to.md).
 
 A partire da gennaio 2019, quando si esegue la codifica con il codificatore standard per produrre file MP4, viene generato un nuovo file con estensione MPI che viene aggiunto all'asset di output. Questo file MPI è progettato per migliorare le prestazioni per scenari di [creazione dinamica dei pacchetti](encode-dynamic-packaging-concept.md) e streaming.
 
@@ -136,9 +136,9 @@ Servizi multimediali supporta in modo completo la personalizzazione di tutti i v
 
 #### <a name="examples"></a>Esempio
 
-- [Personalizzare i set di impostazioni con .NET](encode-custom-presets-how-to.md)
-- [Personalizzare le impostazioni predefinite con l'interfaccia della riga di comando](encode-custom-preset-cli-how-to.md)
-- [Personalizzare i set di impostazioni con REST](encode-custom-preset-rest-how-to.md)
+- [Personalizzare i set di impostazioni con .NET](transform-custom-presets-how-to.md)
+- [Personalizzare le impostazioni predefinite con l'interfaccia della riga di comando](transform-custom-preset-cli-how-to.md)
+- [Personalizzare i set di impostazioni con REST](transform-custom-preset-rest-how-to.md)
 
 
 ## <a name="preset-schema"></a>Schema preimpostato
@@ -165,4 +165,4 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 * [Caricare, codificare e trasmettere in streaming con servizi multimediali](stream-files-tutorial-with-api.md).
 * [Codificare da un URL HTTPS usando i set di impostazioni predefiniti](job-input-from-http-how-to.md).
 * [Codificare un file locale usando i set di impostazioni predefiniti](job-input-from-local-file-how-to.md).
-* [Creare un set di impostazioni personalizzato per i requisiti specifici di uno scenario o un dispositivo](encode-custom-presets-how-to.md).
+* [Creare un set di impostazioni personalizzato per i requisiti specifici di uno scenario o un dispositivo](transform-custom-presets-how-to.md).

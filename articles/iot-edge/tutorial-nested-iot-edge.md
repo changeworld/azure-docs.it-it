@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: c1b30a1eafe9af92c1ef3f81773d213ccf96555c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 098c6ace2b673654d07bfa29147fda3cbbc59b76
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462032"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107551"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Esercitazione: Creare una gerarchia di dispositivi IoT Edge (Anteprima)
 
@@ -446,7 +446,7 @@ Una volta soddisfatte le configurazioni corrette per ogni dispositivo, si è pro
 
 ## <a name="deploy-modules-to-the-top-layer-device"></a>Distribuire i moduli nel dispositivo del livello superiore
 
-I moduli servono per completare la distribuzione e il runtime di IoT Edge ai dispositivi e definire ulteriormente la struttura della gerarchia. Il modulo proxy dell'API IoT Edge instrada in modo sicuro il traffico HTTP su una singola porta dai dispositivi di livello inferiore. Il modulo Docker Registry consente un repository di immagini Docker a cui i dispositivi di livello inferiore possono accedere eseguendo il routing delle immagini al dispositivo di livello superiore.
+I moduli servono per completare la distribuzione e il runtime di IoT Edge ai dispositivi e definire ulteriormente la struttura della gerarchia. Il modulo proxy API IoT Edge instrada in modo sicuro il traffico HTTP su una singola porta dai dispositivi di livello inferiore. Il modulo Docker Registry consente un repository di immagini Docker a cui i dispositivi di livello inferiore possono accedere eseguendo il routing delle immagini al dispositivo di livello superiore.
 
 Per distribuire i moduli nel dispositivo di livello superiore, è possibile usare l'portale di Azure o l'interfaccia della riga di comando di Azure.
 
@@ -623,7 +623,7 @@ Nel [portale di Azure](https://ms.portal.azure.com/):
 
 ---
 
-Se i passaggi precedenti sono stati completati correttamente, il **dispositivo di livello superiore** dovrebbe segnalare i quattro moduli: il modulo Proxy API IOT Edge, il modulo docker container Registry e i moduli di sistema, come **specificato nella distribuzione**. Potrebbero essere necessari alcuni minuti prima che il dispositivo riceva la nuova distribuzione e avvii i moduli. Aggiornare la pagina finché non viene visualizzato il modulo sensore di temperatura elencato come **segnalato dal dispositivo**. Una volta che i moduli sono stati segnalati dal dispositivo, si è pronti per continuare.
+Se i passaggi precedenti sono stati completati correttamente, il **dispositivo di livello superiore** dovrebbe segnalare i quattro moduli: il modulo Proxy API IOT Edge, il modulo docker container Registry e i moduli di sistema, come **specificato nella distribuzione**. Potrebbero essere necessari alcuni minuti prima che il dispositivo riceva la nuova distribuzione e avvii i moduli. Aggiornare la pagina fino a visualizzare i moduli IoTEdgeAPIProxy e Registry elencati come **segnalato dal dispositivo**. Una volta che i moduli sono stati segnalati dal dispositivo, si è pronti per continuare.
 
 ## <a name="deploy-modules-to-the-lower-layer-device"></a>Distribuire i moduli nel dispositivo del livello inferiore
 

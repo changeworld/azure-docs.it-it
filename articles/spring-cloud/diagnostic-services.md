@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c354435f689f5182dd368fd53fdab28f1ab63d48
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 68b9aee49e4cf7c02c07fc7dd90e9cc6065a443c
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218792"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259422"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizzare i log e le metriche con le impostazioni di diagnostica
 
@@ -110,7 +110,7 @@ Sono disponibili diversi metodi per visualizzare i log e le metriche, come descr
 > [!NOTE]
 > `==` fa distinzione tra maiuscole e minuscole, ma `=~` non lo è.
 
-Per altre informazioni sul linguaggio di query usato in Log Analytics, vedere query di [log di monitoraggio di Azure](/azure/data-explorer/kusto/query/).
+Per altre informazioni sul linguaggio di query usato in Log Analytics, vedere query di [log di monitoraggio di Azure](/azure/data-explorer/kusto/query/). Per eseguire query su tutti i log di Log Analytics da un client centralizzato, vedere [Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/query-monitor-data).
 
 ### <a name="use-your-storage-account"></a>Usare l'account di archiviazione
 

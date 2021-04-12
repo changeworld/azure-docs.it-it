@@ -4,14 +4,14 @@ description: Viene illustrato come configurare impostazioni aggiuntive per la ca
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 6e1e1283cb82dcb900da6473de65ef087a5cea82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b3996df3c75ff31d0825be1d332dbd055305963
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773233"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259762"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurare altre impostazioni della cache HPC di Azure
 
@@ -47,24 +47,26 @@ Per altre informazioni sulle impostazioni MTU nelle reti virtuali di Azure, vede
 
 ## <a name="customize-ntp"></a>Personalizzare NTP
 
-Per impostazione predefinita, la cache usa il server di tempo basato su Azure time.microsoft.com. Se si vuole che la cache usi un server NTP diverso, specificarlo nella sezione **configurazione NTP** . Usare un nome di dominio completo o un indirizzo IP.
+Per impostazione predefinita, la cache usa il server di tempo basato su Azure time.windows.com. Se si vuole che la cache usi un server NTP diverso, specificarlo nella sezione **configurazione NTP** . Usare un nome di dominio completo o un indirizzo IP.
 
 ## <a name="set-a-custom-dns-configuration"></a>Impostare una configurazione DNS personalizzata
 
 > [!CAUTION]
 > Non modificare la configurazione DNS della cache se non è necessario. Gli errori di configurazione possono avere conseguenze terribili. Se la configurazione non riesce a risolvere i nomi dei servizi di Azure, l'istanza della cache HPC diventerà irraggiungibile in modo permanente.
+>
+> Prima di provare a configurare una configurazione DNS personalizzata, contattare i rappresentanti di Azure.
 
 La cache HPC di Azure viene configurata automaticamente per l'uso del sistema DNS di Azure sicuro e comodo. Tuttavia, alcune configurazioni insolite richiedono che la cache usi un sistema DNS locale separato invece del sistema Azure. La sezione **configurazione DNS** della pagina **rete** viene utilizzata per specificare questo tipo di sistema.
 
 Contattare i rappresentanti di Azure o consultare il servizio Microsoft e il supporto tecnico per determinare se è necessario o meno usare una configurazione DNS della cache personalizzata.
 
-Se si configura un sistema DNS locale per la cache HPC di Azure da usare, è necessario assicurarsi che la configurazione sia in grado di risolvere i nomi degli endpoint di Azure per i servizi di Azure. È necessario configurare l'ambiente DNS personalizzato per l'invio di determinate richieste di risoluzione dei nomi a DNS di Azure o a un altro server in base alle esigenze.
+Se si configura un sistema DNS locale per la cache HPC di Azure da usare, è necessario assicurarsi che il server DNS locale sia in grado di risolvere direttamente i nomi degli endpoint di servizio di Azure. La cache HPC non funzionerà se il server DNS è limitato dalla risoluzione dei nomi pubblici.
 
 Verificare che la configurazione DNS possa risolvere correttamente questi elementi prima di usarla per una cache HPC di Azure:
 
 * ``*.core.windows.net``
 * Download dell'elenco di revoche di certificati (CRL) e servizi di verifica del protocollo di stato del certificato online (OCSP). Un elenco parziale viene fornito nell' [elemento regole del firewall](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) alla fine di questo [articolo di Azure TLS](../security/fundamentals/tls-certificate-changes.md), ma è necessario consultare un rappresentante tecnico Microsoft per comprendere tutti i requisiti.
-* Il nome di dominio completo del server NTP (time.microsoft.com o un server personalizzato)
+* Il nome di dominio completo del server NTP (time.windows.com o un server personalizzato)
 
 Se è necessario impostare un server DNS personalizzato per la cache, usare i campi specificati:
 

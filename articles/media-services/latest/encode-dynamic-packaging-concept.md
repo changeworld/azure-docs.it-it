@@ -9,12 +9,12 @@ ms.workload: media
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: a2f5e51af5e41bad4e88509d4440a8de2bc5525c
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c2ffda7400109e16cf1110a4e14ecbc3604a7ecf
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280429"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492308"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
 
@@ -96,7 +96,7 @@ Gli articoli seguenti illustrano alcuni esempi di [come codificare un video con 
 
 * [Eseguire la codifica da un URL HTTPS tramite i set di impostazioni predefiniti](job-input-from-http-how-to.md).
 * [Eseguire la codifica di un file locale tramite i set di impostazioni predefiniti](job-input-from-local-file-how-to.md).
-* [Creare un set di impostazioni personalizzato per i requisiti specifici di uno scenario o un dispositivo](encode-custom-presets-how-to.md).
+* [Creare un set di impostazioni personalizzato per i requisiti specifici di uno scenario o un dispositivo](transform-custom-presets-how-to.md).
 
 Consultare l'elenco di [codec e formati](encode-media-encoder-standard-formats-reference.md) del codificatore standard.
 

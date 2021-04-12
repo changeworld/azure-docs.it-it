@@ -9,12 +9,12 @@ ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: c830f9c7edb252508824b3a92bd31b6fad31395d
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: a43e734c0a5bfa7c3698dcde5cb5b17f15575d90
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170068"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222929"
 ---
 # <a name="how-to-customize-your-verifiable-credentials-preview"></a>Come personalizzare le credenziali verificabili (anteprima)
 
@@ -165,7 +165,7 @@ Per garantire l'interoperabilità delle proprie credenziali, è consigliabile co
 | `vc.type` | Matrice di stringhe che indica gli schemi che soddisfano le credenziali verificabili. |
 
 
-## <a name="input-type-self-attested-claims"></a>Tipo di input: attestazioni Self-Attested
+## <a name="input-type-self-attested-claims"></a>Tipo di input: attestazioni autocertificate
 
 Durante il flusso di rilascio, all'utente può essere richiesto di immettere alcune informazioni autocertificate. Al momento, l'unico tipo di input è "String". 
 ```json
@@ -263,7 +263,7 @@ Il file di visualizzazione presenta la struttura seguente.
 | `claims.{attribute}.type` | Indica il tipo di attributo. Attualmente è supportato solo ' String '. |
 | `claims.{attribute}.label` | Valore che deve essere utilizzato come etichetta per l'attributo, che verrà visualizzato in Authenticator. Questo potrebbe essere diverso dall'etichetta utilizzata nel file delle regole. Lunghezza massima consigliata di 40 caratteri. |
 
->[!note]
+>[!NOTE]
   >Se un'attestazione viene inclusa nel file delle regole e quindi omessa nel file di visualizzazione, esistono due tipi diversi di esperienza. In iOS, l'attestazione non verrà visualizzata nella sezione dettagli mostrata nell'immagine precedente, mentre in Android verrà visualizzata l'attestazione.  
 
 ## <a name="next-steps"></a>Passaggi successivi
