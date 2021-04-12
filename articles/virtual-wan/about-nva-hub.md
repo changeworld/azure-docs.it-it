@@ -7,18 +7,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
-ms.openlocfilehash: d5af0cc4eb72a2db850e19e47ed11cd9f6f4536e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e70b899ea0133704e4ecab42dd4c2a09bca41804
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061860"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226312"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Informazioni sull'appliance virtuale di rete in un hub WAN virtuale di Azure (anteprima)
 
 La rete WAN virtuale di Azure ha collaborato con i partner di rete per creare un'automazione che semplifica la connessione delle apparecchiature locali del cliente (CPE) a un gateway VPN di Azure nell'hub virtuale. Azure collabora con i partner di rete selezionati per consentire ai clienti di distribuire un'appliance virtuale di rete di terze parti direttamente nell'hub virtuale. Ciò consente ai clienti che desiderano connettere il proprio ramo CPE alla stessa appliance appliance virtuale di rete nell'hub virtuale, in modo che possano sfruttare le funzionalità di SD-WAN end-to-end proprietarie.
 
-Barracuda Networks e Cisco Systems sono i primi partner a fornire i appliance virtuali che possono essere distribuiti direttamente nell'hub WAN virtuale.  Vedere [Barracuda CLOUDGEN WAN](https://www.barracuda.com/products/cloudgenwan) e [Cisco Cloud OnRamp per più cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) per la rispettiva documentazione del prodotto. Azure collabora con altri partner, quindi aspettarsi che siano disponibili altre offerte.
+Barracuda Networks e Cisco Systems sono i primi partner a fornire i appliance virtuali che possono essere distribuiti direttamente nell'hub WAN virtuale.  Vedere [Barracuda CLOUDGEN WAN](https://www.barracuda.com/products/cloudgenwan), [Cisco Cloud OnRamp per più cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) e [VMware SD-WAN](https://kb.vmware.com/s/article/82746) per la rispettiva documentazione del prodotto. Azure collabora con altri partner, quindi aspettarsi che siano disponibili altre offerte.
 
 > [!NOTE]
 > Solo le offerte di appliance virtuale di rete disponibili per la distribuzione nell'hub WAN virtuale possono essere distribuite nell'hub WAN virtuale. Non possono essere distribuiti in una rete virtuale arbitraria in Azure.

@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: fec2695c9e196a652a4166161bf012b22b0d00e6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 928b1a6dcff7ad186bf5fe9ce07d1a886d429867
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579553"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933339"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Configurare LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 
@@ -298,6 +298,21 @@ Se è stata aggiunta una voce DNS al file hosts locale del computer per testare 
 1. Nel computer locale aprire il *Blocco note* come amministratore
 1. Individuare e aprire il file *C:\Windows\System32\drivers\etc\hosts*
 1. Eliminare la riga per il record aggiunto, ad esempio `168.62.205.103    ldaps.aaddscontoso.com`
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Se viene visualizzato un errore che informa che LDAP.exe non è in grado di connettersi, provare a usare i diversi aspetti della connessione: 
+
+1. Configurazione del controller di dominio
+1. Configurazione del client
+1. Rete
+1. Creazione della sessione TLS
+
+Per la corrispondenza del nome del soggetto del certificato, il controller di dominio userà Azure aggiunge il nome di dominio (non il nome di dominio Azure AD) per cercare il certificato nell'archivio certificati. Gli errori di ortografia, ad esempio, impediscono al controller di dominio di selezionare il certificato corretto. 
+
+Il client tenta di stabilire la connessione TLS utilizzando il nome specificato. Il traffico deve raggiungere fino a questo punto. Il controller di dominio invia la chiave pubblica del certificato di autenticazione server. Il certificato deve avere il giusto utilizzo nel certificato, il nome firmato nel nome del soggetto deve essere compatibile affinché il client consideri attendibile che il server è il nome DNS a cui ci si connette (ovvero, un carattere jolly funziona, senza errori di ortografia) e il client deve considerare attendibile l'autorità emittente. È possibile verificare la presenza di eventuali problemi nella catena nel registro di sistema in Visualizzatore eventi e filtrare gli eventi in cui l'origine è uguale a Schannel. Una volta che queste parti sono state inserite, formano una chiave di sessione.  
+
+Per altre informazioni, vedere [handshake TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

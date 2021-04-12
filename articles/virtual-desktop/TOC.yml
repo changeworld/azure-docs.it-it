@@ -214,6 +214,8 @@
       href: security-guide.md
     - name: Supporto di Linux
       href: linux-overview.md
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/ext/desktopvirtualization/desktopvirtualization
     - name: Stimare i costi di monitoraggio di Azure
       href: azure-monitor-costs.md
     - name: Impostazioni supportate del file RDP

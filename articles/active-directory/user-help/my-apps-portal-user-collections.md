@@ -1,5 +1,5 @@
 ---
-title: Raccolte (anteprima) nel portale app personali-Azure AD
+title: Organizzare le app in raccolte nel portale delle app personali-Azure AD
 description: Informazioni su come creare, modificare, eliminare, nascondere e mostrare raccolte di app in app personali.
 services: active-directory
 author: curtand
@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 04/07/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ac5dede27262d3ce8bc44b4b278ed623063f8e1
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100095121"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209664"
 ---
-# <a name="user-collections-preview-in-my-apps"></a>Raccolte utenti (anteprima) nelle app personali
+# <a name="organize-apps-using-collections-from-my-apps"></a>Organizza le app usando le raccolte di app personali
 
 Le mie app sono uno sportello unico per l'avvio e la gestione di tutte le app aziendali o dell'Istituto di istruzione. Crea raccolte per organizzare le tue app e semplificare l'individuazione delle app che ti servono.
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 In questo articolo si apprenderà come:
 
@@ -55,7 +53,7 @@ In questo articolo si apprenderà come:
 
     :::image type="content" source="media/my-apps-portal-user-collections/3-add-apps.png" alt-text="Aggiunta di app dall'elenco alla raccolta":::
 
-1. Di seguito è possibile riordinare o eliminare le app oppure selezionare **Aggiungi app** per selezionare altre app per la raccolta. Quando si è soddisfatti delle scelte, selezionare **Crea nuovo**.  
+1. Nel riquadro **Crea nuovo** è possibile riordinare o eliminare le app oppure selezionare **Aggiungi app** per selezionare altre app per la raccolta. Quando si è soddisfatti delle scelte, selezionare **Crea nuovo**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/4-create-button.png" alt-text="Selezionare il pulsante Crea nuovo per salvare la raccolta in app personali":::
 
@@ -87,7 +85,7 @@ In questo articolo si apprenderà come:
 
     :::image type="content" source="media/my-apps-portal-user-collections/9-manage-apps-again.png" alt-text="Usare il comando Gestisci per gestire le app":::
 
-1. Da qui è possibile impostare l'ordine in cui le raccolte vengono visualizzate in app personali. La raccolta in cima all'elenco corrisponde alla raccolta predefinita che viene visualizzata ogni volta che si passa a myapps.microsoft.com.  
+1. Da qui è possibile impostare l'ordine in cui le raccolte vengono visualizzate in app personali. La raccolta che si trova nella parte superiore dell'elenco corrisponde alla raccolta predefinita visualizzata ogni volta che si passa a myapps.microsoft.com.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/10-default-collection.png" alt-text="App personali contiene ora la nuova raccolta":::
 

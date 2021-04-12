@@ -4,12 +4,12 @@ description: Configurare un pool di risorse di calcolo dedicato (pool di agenti)
 ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: eeb9a71854f52da5c1a9f4befae93c377ad67b05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b1f077d6216443ad267f8620f87882439cb355c
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98920308"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284142"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Eseguire un'attività ACR in un pool di agenti dedicato
 
@@ -31,7 +31,7 @@ Questa funzionalità è disponibile per il livello di servizio **Premium** del r
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
 - I pool di agenti attività attualmente supportano i nodi Linux. I nodi di Windows non sono attualmente supportati.
-- I pool di agenti delle attività sono disponibili in anteprima nelle aree seguenti: Stati Uniti occidentali 2, Stati Uniti centro-meridionali, Stati Uniti orientali 2, Stati Uniti orientali, Stati Uniti centrali, US gov Arizona, US gov Texas e US gov Virginia.
+- I pool di agenti delle attività sono disponibili in anteprima nelle aree seguenti: Stati Uniti occidentali 2, Stati Uniti centro-meridionali, Stati Uniti orientali 2, Stati Uniti orientali, Stati Uniti centrali, Europa occidentale, Canada centrale, US gov Arizona, US gov Texas e US gov Virginia.
 - Per ogni registro di sistema, la quota predefinita totale vCPU (Core) è 16 per tutti i pool di agenti standard e è 0 per i pool di agenti isolati. Aprire una [richiesta di supporto][open-support-ticket] per l'allocazione aggiuntiva.
 - Attualmente non è possibile annullare un'attività eseguita in un pool di agenti.
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: ec835073a1fe447490f6965fe41478319a47f503
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c83f36216e7488df94c372234d0541a4ee9f99b5
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106837"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492223"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Connettività e concetti di rete per database di Azure per MySQL-server flessibile (anteprima)
 
@@ -118,7 +118,7 @@ Informazioni su come abilitare e gestire l'accesso pubblico (indirizzi IP consen
 ### <a name="troubleshooting-public-access-issues"></a>Risoluzione dei problemi di accesso pubblico
 Quando l'accesso al database Microsoft Azure per il servizio MySQL server non si comporta come previsto, tenere presente quanto segue:
 
-* **Le modifiche all'elenco di consentiti non sono state ancora applicate:** per rendere effettive le modifiche apportate alla configurazione del firewall del database di Azure per server MySQL possono essere necessari fino a cinque minuti.
+* Le **modifiche apportate all'oggetto allow non sono state ancora applicate:** Per rendere effettive le modifiche apportate alla configurazione del firewall del database di Azure per il server MySQL, è possibile che si verifichi un ritardo di cinque minuti.
 
 * **Autenticazione non riuscita:** Se un utente non dispone delle autorizzazioni per il database di Azure per il server MySQL o la password usata non è corretta, la connessione al database di Azure per il server MySQL viene negata. La creazione di un'impostazione del firewall fornisce solo ai client la possibilità di provare a connettersi al server. Ogni client deve comunque fornire le credenziali di sicurezza necessarie.
 
@@ -139,9 +139,23 @@ Esempio
 
 
 ## <a name="tls-and-ssl"></a>TLS e SSL
-Il server flessibile database di Azure per MySQL supporta la connessione delle applicazioni client al servizio MySQL usando Transport Layer Security (TLS). TLS è un protocollo standard del settore che garantisce connessioni di rete crittografate tra il server di database e le applicazioni client. TLS è un protocollo aggiornato di Secure Sockets Layer (SSL).
+Il server flessibile database di Azure per MySQL supporta la connessione delle applicazioni client al server MySQL mediante la crittografia di Secure Sockets Layer (SSL) con la crittografia TLS (Transport Layer Security). TLS è un protocollo standard del settore che garantisce connessioni di rete crittografate tra il server di database e le applicazioni client, consentendo di rispettare i requisiti di conformità.
 
-Il server flessibile database di Azure per MySQL supporta solo connessioni crittografate con Transport Layer Security (TLS 1,2). Tutte le connessioni in ingresso con TLS 1.0 e TLS 1.1 verranno rifiutate. Non è possibile disabilitare o modificare la versione di TLS per la connessione al server flessibile di database di Azure per MySQL. Per ulteriori informazioni, vedere la pagina relativa alla modalità di [connessione tramite SSL/TLS](how-to-connect-tls-ssl.md) . 
+Il server flessibile database di Azure per MySQL supporta connessioni crittografate con Transport Layer Security (TLS 1,2) per impostazione predefinita e tutte le connessioni in ingresso con TLS 1,0 e TLS 1,1 verranno negate per impostazione predefinita. È possibile configurare e modificare la configurazione crittografata dell'applicazione della connessione o della versione TLS sul server flessibile. 
+
+Di seguito sono riportate le diverse configurazioni delle impostazioni SSL e TLS che è possibile avere per il server flessibile:
+
+| Scenario   | Impostazioni parametro Server      | Descrizione                                    |
+|------------|--------------------------------|------------------------------------------------|
+|Disabilitare SSL (connessioni crittografate) | require_secure_transport = disattivato |Se l'applicazione legacy non supporta le connessioni crittografate al server MySQL, è possibile disabilitare l'imposizione delle connessioni crittografate al server flessibile impostando require_secure_transport = disattivato.|
+|Applicare SSL con la versione TLS < 1,2 | require_secure_transport = ON e tls_version = TLSV1 o TLSV 1.1| Se l'applicazione legacy supporta connessioni crittografate, ma richiede la versione TLS < 1,2, è possibile abilitare le connessioni crittografate, ma configurare il server flessibile per consentire le connessioni con la versione TLS (v 1.0 o v 1.1) supportata dall'applicazione|
+|Applicare SSL con la versione TLS = 1.2 (configurazione predefinita)|require_secure_transport = ON e tls_version = TLSV 1.2| Si tratta della configurazione consigliata e predefinita per server flessibili.|
+|Applicare SSL con la versione TLS = 1.3 (supportata con MySQL v 8.0 e versioni successive)| require_secure_transport = ON e tls_version = TLSV 1.3| Questa operazione è utile e consigliata per lo sviluppo di nuove applicazioni|
+
+> [!Note]
+> Le modifiche alla crittografia SSL nel server flessibile non sono supportate. Per impostazione predefinita, i pacchetti di crittografia FIPS vengono applicati quando tls_version è impostato su TLS versione 1,2. Per le versioni di TLS diverse dalla versione 1,2, la crittografia SSL è impostata sulle impostazioni predefinite che vengono fornite con l'installazione della community MySQL.
+
+Per ulteriori informazioni, vedere la pagina relativa alla modalità di [connessione tramite SSL/TLS](how-to-connect-tls-ssl.md) . 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

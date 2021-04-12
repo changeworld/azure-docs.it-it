@@ -2,14 +2,14 @@
 title: Simulare errori nei microservizi di Azure
 description: In questo articolo vengono illustrate le azioni di Testabilità trovate in Infrastruttura di servizi di Microsoft Azure.
 ms.topic: conceptual
-ms.date: 06/07/2017
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c57f54096a9593f5ab25a5722d3f2d2b9878b511
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9f8221d92ded33350b182cce5d28dd889beae4a5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100595025"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732874"
 ---
 # <a name="testability-actions"></a>Azioni di Testabilità
 Per simulare un'infrastruttura non affidabile, Azure Service Fabric offre agli sviluppatori la possibilità di simulare errori e transizioni di stato reali, esposti come azioni di testabilità. Le azioni sono le API di basso livello che causano una specifica fault injection, una transizione di stato o una convalida. La combinazione di queste azioni consente di scrivere scenari di test completi per i servizi.
@@ -34,6 +34,7 @@ Per una convalida migliore in termini di qualità, eseguire il carico di lavoro 
 | InvokeQuorumLoss |Inserisce una partizione del servizio con stato in una perdita di quorum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Normale |
 | MovePrimary |Sposta la replica primaria specificata di un servizio con stato nel nodo cluster specificato. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Normale |
 | MoveSecondary |Sposta la replica secondaria corrente di un servizio con stato a un nodo di cluster diverso. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Normale |
+| MoveInstance | Sposta l'istanza corrente di un servizio senza stato in un nodo del cluster diverso. | MoveInstanceAsync | Move-ServiceFabricInstance | Normale |
 | RemoveReplica |Simula un errore di replica tramite la rimozione di una replica da un cluster. In tal modo la replica verrà chiusa e passata al ruolo 'None', rimuovendo tutto lo stato dal cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Normale |
 | RestartDeployedCodePackage |Simula un errore di processo del pacchetto di codice mediante il riavvio di un pacchetto di codice distribuito in un nodo in un cluster. In questo modo, il processo del pacchetto di codice viene interrotto e verranno riavviate tutte le repliche del servizio utente ospitate nel processo. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Anomalo |
 | RestartNode |Simula un errore del nodo cluster Infrastruttura di servizi tramite il riavvio di un nodo. |RestartNodeAsync |Restart-ServiceFabricNode |Anomalo |

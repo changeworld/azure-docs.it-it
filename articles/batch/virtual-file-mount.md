@@ -4,12 +4,12 @@ description: Informazioni su come montare un file system virtuale in un pool Bat
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 03/26/2021
-ms.openlocfilehash: dc5fbdf9ca0df8362a8999856c3f7163dd5e59b9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dcd56a12d8728b83cdcb7cea4c16c4aedd4251a7
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626028"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105749"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montare un file system virtuale in un pool Batch
 
@@ -53,7 +53,7 @@ Gli esempi di codice seguenti illustrano il montaggio di diverse condivisioni fi
 
 ### <a name="azure-files-share"></a>Condivisione di File di Azure
 
-File di Azure è l'offerta standard di file system cloud di Azure. Per altre informazioni su come ottenere uno dei parametri dell'esempio di codice per la configurazione di montaggio, vedere l'articolo sull'[uso di una condivisione di File di Azure](../storage/files/storage-how-to-use-files-windows.md).
+File di Azure è l'offerta standard di file system cloud di Azure. Per altre informazioni su come ottenere uno dei parametri nell'esempio di codice per la configurazione di Mount, vedere [usare un file di Azure Share-SMB](../storage/files/storage-how-to-use-files-windows.md) o [usare una condivisione file di Azure con-NFS](../storage/files/storage-files-how-to-create-nfs-shares.md).
 
 ```csharp
 new PoolAddParameter

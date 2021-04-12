@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 4e8dce970c9e7cfb2aa7887cf1fb3ed6ef9030a1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735587"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Beta
@@ -190,14 +190,14 @@ In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On conced
 
     b. Selezionare **Attiva**.
 
-## <a name="configure-proxy-settings"></a>Configurare le impostazioni proxy
+## <a name="configure-proxy-settings&quot;></a>Configurare le impostazioni proxy
 Per configurare le impostazioni proxy in Internet Explorer, seguire questa procedura.
 
 1. Avviare **Internet Explorer**.
 
 2. Selezionare **Opzioni Internet** dal menu **Strumenti** per aprire la finestra di dialogo **Opzioni Internet**. 
     
-     ![Finestra di dialogo Opzioni Internet](./media/zscaler-beta-tutorial/ic769492.png "Opzioni Internet")
+     ![Finestra di dialogo Opzioni Internet](./media/zscaler-beta-tutorial/ic769492.png &quot;Opzioni Internet")
 
 3. Selezionare la scheda **Connessioni**. 
   

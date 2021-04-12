@@ -1,15 +1,15 @@
 ---
 title: Come creare criteri di Configurazione guest per Linux
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Linux.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 352c8b1936c38c9b5f706ac88bd4fd06e008b892
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d356960987ecfe9a1e1858a28b93060dbf4aa634
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99525348"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096564"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
@@ -90,9 +90,7 @@ DSC funge da wrapper per InSpec per standardizzare la modalità di esecuzione, i
 
 Il nome della configurazione personalizzata deve essere coerente ovunque. Il nome del file con estensione zip per il pacchetto di contenuto, il nome della configurazione nel file MOF e il nome dell'assegnazione Guest nel modello di Azure Resource Manager (modello ARM) devono essere uguali.
 
-I cmdlet di PowerShell facilitano la creazione del pacchetto.
-Non è necessaria alcuna cartella di livello radice o cartella delle versioni.
-Il formato del pacchetto deve essere un file ZIP. e non possono superare le dimensioni totali di 100 MB quando sono decompressi.
+I cmdlet di PowerShell facilitano la creazione del pacchetto. Non è necessaria alcuna cartella di livello radice o cartella delle versioni. Il formato del pacchetto deve essere un file ZIP. e non possono superare le dimensioni totali di 100 MB quando sono decompressi.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Configurazione personalizzata di Configurazione guest in Linux
 
@@ -211,7 +209,7 @@ Parametri del cmdlet `Publish-GuestConfigurationPackage`:
 - **Path**: percorso del pacchetto da pubblicare
 - **ResourceGroupName**: nome del gruppo di risorse in cui si trova l'account di archiviazione
 - **StorageAccountName**: nome dell'account di archiviazione in cui deve essere pubblicato il pacchetto
-- **StorageContainerName**: (valore predefinito: *guestconfiguration*) nome del contenitore di archiviazione nell'account di archiviazione
+- **StorageContainerName**: (valore predefinito: _guestconfiguration_) nome del contenitore di archiviazione nell'account di archiviazione
 - **Force**: sovrascrivere il pacchetto esistente nell'account di archiviazione con lo stesso nome
 
 L'esempio seguente pubblica il pacchetto nel nome del contenitore di archiviazione ' guestconfiguration '.
@@ -277,7 +275,7 @@ Con il criterio creato in Azure, l'ultimo passaggio consiste nell'assegnare la d
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Utilizzo di parametri nei criteri di Configurazione guest personalizzati
 
-Configurazione guest supporta l'override delle proprietà di una configurazione in fase di esecuzione. Ciò significa che i valori nel file MOF del pacchetto non devono essere considerati statici. I valori di sostituzione vengono forniti tramite Criteri di Azure e non influiscono sul modo in cui le configurazioni vengono create o compilate.
+Configurazione guest supporta l'override delle proprietà di una configurazione in fase di esecuzione. Ciò significa che i valori nel file MOF del pacchetto non devono essere considerati statici. I valori di sostituzione vengono forniti tramite criteri di Azure e non modificano la modalità di creazione o compilazione delle configurazioni.
 
 Con InSpec, i parametri vengono in genere gestiti come input in fase di esecuzione o come codice usando gli attributi. Configurazione guest offusca questo processo in modo che sia possibile fornire l'input quando viene assegnato un criterio. Un file degli attributi viene creato automaticamente all'interno del computer. Non è necessario creare e aggiungere un file nel progetto. Sono disponibili due passaggi per aggiungere parametri al progetto di controllo di Linux.
 
@@ -350,8 +348,7 @@ Se si vuole rilasciare un aggiornamento del criterio, apportare la modifica sia 
 > [!NOTE]
 > La `version` proprietà dell'assegnazione di configurazione Guest ha effetto solo sui pacchetti ospitati da Microsoft. La procedura consigliata per il controllo delle versioni del contenuto personalizzato consiste nell'includere la versione nel nome del file.
 
-In primo luogo, quando `New-GuestConfigurationPackage` si esegue, specificare un nome per il pacchetto che lo renda univoco rispetto alle versioni precedenti. È possibile includere un numero di versione nel nome, ad esempio `PackageName_1.0.0` .
-Il numero in questo esempio viene utilizzato solo per rendere univoco il pacchetto, non per specificare che il pacchetto deve essere considerato più recente o meno recente di altri pacchetti.
+In primo luogo, quando `New-GuestConfigurationPackage` si esegue, specificare un nome per il pacchetto che lo renda univoco rispetto alle versioni precedenti. È possibile includere un numero di versione nel nome, ad esempio `PackageName_1.0.0` . Il numero in questo esempio viene utilizzato solo per rendere univoco il pacchetto, non per specificare che il pacchetto deve essere considerato più recente o meno recente di altri pacchetti.
 
 In secondo luogo, aggiornare i parametri usati con il `New-GuestConfigurationPolicy` cmdlet attenendosi a ognuna delle spiegazioni riportate di seguito.
 

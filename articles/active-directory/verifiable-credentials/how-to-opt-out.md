@@ -1,5 +1,5 @@
 ---
-title: Rifiutare esplicitamente le credenziali verificabili (anteprima)
+title: Rifiutare esplicitamente le credenziali Azure Active Directory verificabili (anteprima)
 description: Informazioni su come rifiutare esplicitamente l'anteprima delle credenziali verificabili
 documentationCenter: ''
 author: barclayn
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 93c493a9b9941913da270fe763175240c8abf9f3
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d6e72b6d6f566fcf3f52e1c48ab6824c0e9a968e
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106170212"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222793"
 ---
 # <a name="opt-out-of-the-verifiable-credentials-preview"></a>Rifiutare esplicitamente le credenziali verificabili (anteprima)
 
@@ -62,7 +62,7 @@ Quando si sceglie di rifiutare esplicitamente il Azure Active Directory servizio
 
 Quando si verifica un rifiuto esplicito, non sarà possibile ripristinare il fatto o eseguire operazioni sul fatto. Questo passaggio è un'operazione unidirezionale ed è necessario acconsentire di nuovo. ciò comporta la creazione di un nuovo oggetto.  
 
-## <a name="effect-on-existing-verifiable-credentials"></a>Effetto sulle credenziali verificabili esistenti.
+## <a name="effect-on-existing-verifiable-credentials"></a>Effetti sulle credenziali verificabili esistenti
 
 Tutte le credenziali verificabili già eseguite continueranno a esistere. Non verranno invalidati in modo crittografico perché il fatto rimarrà risolvibile tramite ION.
 Tuttavia, quando le relying party chiamano l'API di stato, riceveranno sempre un messaggio di errore.

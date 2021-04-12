@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 04/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 9c928040aa2ff5a6ebfb7102c03450d3d7297b59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12d0997e677bcca423f32951e99a6202855104ad
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101686479"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030867"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Creare un controller di dati di Azure Arc nell'portale di Azure
 
@@ -26,24 +26,23 @@ ms.locfileid: "101686479"
 
 Molte delle esperienze di creazione per Azure Arc iniziano nella portale di Azure anche se la risorsa da creare o gestire è esterna all'infrastruttura di Azure. Il modello di esperienza utente in questi casi, soprattutto quando non esiste una connettività diretta tra Azure e l'ambiente, consiste nell'usare il portale di Azure per generare uno script che può quindi essere scaricato ed eseguito nel proprio ambiente per stabilire una connessione sicura ad Azure. Ad esempio, i server abilitati per Azure Arc seguono questo modello per [creare i server abilitati per Arc](../servers/onboard-portal.md).
 
-Per il momento, dato che l'anteprima supporta solo la modalità con connessione indiretta di Azure Arc Enabled Data Services, è possibile usare la portale di Azure per generare un notebook che può quindi essere scaricato ed eseguito in Azure Data Studio sul cluster Kubernetes. In futuro, quando è disponibile la modalità di connessione diretta, sarà possibile effettuare il provisioning del controller dati direttamente dalla portale di Azure. Altre informazioni sulle modalità di [connettività](connectivity.md).
+Quando si usa la modalità di connessione indiretta di Azure Arc Enabled Data Services, è possibile usare la portale di Azure per generare un notebook che può quindi essere scaricato ed eseguito in Azure Data Studio sul cluster Kubernetes. 
+
+Quando si usa la modalità di connessione diretta, è possibile effettuare il provisioning del controller dati direttamente dalla portale di Azure. Altre informazioni sulle modalità di [connettività](connectivity.md).
 
 ## <a name="use-the-azure-portal-to-create-an-azure-arc-data-controller"></a>Usare il portale di Azure per creare un controller di dati di Azure Arc
 
 Attenersi alla procedura seguente per creare un controller di dati di Azure ARC usando il portale di Azure e Azure Data Studio.
 
 1. Per prima cosa, accedere al [marketplace portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/azure%20arc%20data%20controller).  I risultati della ricerca nel Marketplace verranno filtrati per mostrare il "Azure Arc data controller".
-2. Se il primo passaggio non ha immesso i criteri di ricerca. Immettere nei risultati della ricerca, fare clic su "Azure Arc data controller".
-3. Selezionare il riquadro del controller di dati di Azure dal Marketplace.
-4. Fare clic sul pulsante **Crea**.
-5. Esaminare i requisiti per creare un controller di dati di Azure Arc e installare i prerequisiti software mancanti, ad esempio Azure Data Studio e kubectl.
-6. Fare clic sul pulsante **Dettagli controller dati** .
-7. Scegliere una sottoscrizione, un gruppo di risorse e una località di Azure esattamente come per qualsiasi altra risorsa da creare nel portale di Azure. In questo caso, il percorso di Azure selezionato sarà quello in cui verranno archiviati i metadati relativi alla risorsa.  La risorsa stessa verrà creata in base a qualsiasi infrastruttura scelta. Non è necessario che si trovi nell'infrastruttura di Azure.
-8. Immettere un nome per il controller dati.
-9. Selezionare la modalità di connettività per il controller dati. Altre informazioni sulle [modalità di connettività e sui requisiti](./connectivity.md). 
-
-   > [!NOTE] 
-   > Se si seleziona la modalità di connettività **diretta** , assicurarsi che le credenziali dell'entità servizio siano impostate tramite le variabili di ambiente, come descritto in [creare un'entità servizio](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal). 
+1. Se il primo passaggio non ha immesso i criteri di ricerca. Immettere nei risultati della ricerca, fare clic su "Azure Arc data controller".
+1. Selezionare il riquadro del controller di dati di Azure dal Marketplace.
+1. Fare clic sul pulsante **Crea**.
+1. Selezionare la modalità di connettività indiretta. Altre informazioni sulle [modalità di connettività e sui requisiti](./connectivity.md). 
+1. Esaminare i requisiti per creare un controller di dati di Azure Arc e installare i prerequisiti software mancanti, ad esempio Azure Data Studio e kubectl.
+1. Fare clic sul pulsante **Next: data controller Details** .
+1. Scegliere una sottoscrizione, un gruppo di risorse e una località di Azure esattamente come per qualsiasi altra risorsa da creare nel portale di Azure. In questo caso, il percorso di Azure selezionato sarà quello in cui verranno archiviati i metadati relativi alla risorsa.  La risorsa stessa verrà creata in base a qualsiasi infrastruttura scelta. Non è necessario che si trovi nell'infrastruttura di Azure.
+1. Immettere un nome per il controller dati.
 
 1. Selezionare un profilo di configurazione della distribuzione.
 1. Fare clic sul pulsante **Apri in Azure studio** .

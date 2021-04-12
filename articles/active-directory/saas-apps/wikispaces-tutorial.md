@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 877f589c19663503b9bb0b1627f1dffe0eba1a23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96302751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Esercitazione: Integrazione di Azure Active Directory con Wikispaces
@@ -176,17 +176,17 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-wikispaces-test-user"></a>Creare l'utente di test di Wikispaces
+### <a name="create-wikispaces-test-user&quot;></a>Creare l'utente di test di Wikispaces
 
 Per consentire agli utenti di Azure AD di accedere a Wikispaces, è necessario effettuarne il provisioning in Wikispaces. Nel caso di Wikispaces, il provisioning è un'attività manuale.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
+### <a name=&quot;to-provision-a-user-accounts-perform-the-following-steps&quot;></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
 
 1. Accedere al sito aziendale di **Wikispaces** come amministratore.
 
 2. Passare a **Membri**.
    
-    ![Members](./media/wikispaces-tutorial/ic787193.png "Members")
+    ![Members](./media/wikispaces-tutorial/ic787193.png &quot;Members")
 
 3. Fare clic su **Invita persone**.
    

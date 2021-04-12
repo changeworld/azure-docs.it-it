@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9434bd4042798dc05a33401e1884e11a73774936
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 21f31a21921953148ae0438cee04d846706161cc
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102448337"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382930"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con OpenID Connect tramite Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Per consentire agli utenti di accedere, il provider di identità richiederà agl
 
 ## <a name="scope"></a>Ambito
 
-Gli ambiti definiscono le informazioni e le autorizzazioni che si intende raccogliere dal proprio provider di identità personalizzato. Le richieste di OpenID Connect devono contenere il `openid` valore dell'ambito per ricevere il token ID dal provider di identità. Senza il token ID, gli utenti non sono in grado di accedere ad Azure Active Directory B2C usando il provider di identità personalizzato. È possibile aggiungere altri ambiti separati da spazio. Fare riferimento alla documentazione del provider di identità personalizzato per vedere quale potrebbero essere altri ambiti disponibili.
+Ambito consente di definire le informazioni e le autorizzazioni che si desidera raccogliere dal provider di identità, ad esempio `openid profile` . Per ricevere il token ID dal provider di identità, `openid` è necessario specificare l'ambito. Senza il token ID, gli utenti non sono in grado di accedere ad Azure Active Directory B2C usando il provider di identità personalizzato. È possibile aggiungere altri ambiti separati da spazio. Fare riferimento alla documentazione del provider di identità personalizzato per vedere quale potrebbero essere altri ambiti disponibili.
 
 ## <a name="response-type"></a>Tipo di risposta
 

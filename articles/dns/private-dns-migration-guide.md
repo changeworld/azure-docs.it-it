@@ -8,16 +8,16 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 3f0856f85e279f97934fff506a052c8fd214ff73
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 6bb828aaff0c1d026e977863a6e224aaea81b629
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105641218"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729236"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrazione di zone private legacy di DNS di Azure nel nuovo modello di risorsa
 
-Durante l'anteprima pubblica, le zone DNS private sono state create usando la risorsa "dnszones" con la proprietà "zoneType" impostata su "Private". Tali zone non saranno supportate dopo il 31 dicembre 2019 ed è necessario eseguirne la migrazione al modello di risorsa GA, che usa il tipo di risorsa "privateDnsZones" invece di "dnszones". Il processo di migrazione è semplice ed è disponibile uno script di PowerShell per automatizzarlo. Questa guida offre istruzioni dettagliate per la migrazione delle zone private di DNS di Azure al nuovo modello di risorsa.
+Durante l'anteprima pubblica, le zone DNS private sono state create usando la risorsa "dnszones" con la proprietà "zoneType" impostata su "private". Tali zone non saranno supportate dopo il 31 dicembre 2019 ed è necessario eseguirne la migrazione al modello di risorsa GA, che usa il tipo di risorsa "privateDnsZones" invece di "dnszones". Il processo di migrazione è semplice ed è disponibile uno script di PowerShell per automatizzarlo. Questa guida offre istruzioni dettagliate per la migrazione delle zone private di DNS di Azure al nuovo modello di risorsa.
 
 Per individuare le risorse dnszones che richiedono la migrazione, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 ```azurecli
@@ -46,7 +46,7 @@ Aprire una finestra di PowerShell con privilegi elevati (modalità di amministra
 install-script PrivateDnsMigrationScript
 ```
 
-Immettere "A" quando viene chiesto se installare lo script
+Immettere "A" quando viene richiesto di installare lo script
 
 ![Installazione dello script](./media/private-dns-migration-guide/install-migration-script.png)
 
@@ -67,7 +67,7 @@ PrivateDnsMigrationScript.ps1
 
 ### <a name="enter-the-subscription-id-and-sign-in-to-azure"></a>Immettere l'ID sottoscrizione e accedere ad Azure
 
-Verrà chiesto di immettere l'ID sottoscrizione che contiene le zone DNS private di cui si intende eseguire la migrazione. Verrà chiesto di accedere all'account Azure. Completare l'accesso in modo che lo script possa accedere alle risorse delle zone DNS private nella sottoscrizione.
+Verrà richiesto di immettere l'ID sottoscrizione contenente le zone DNS private di cui si intende eseguire la migrazione. Verrà richiesto di accedere al proprio account Azure. Completare l'accesso in modo che lo script possa accedere alle risorse delle zone DNS private nella sottoscrizione.
 
 ![Accedere ad Azure](./media/private-dns-migration-guide/login-migration-script.png)
 
@@ -81,7 +81,7 @@ Lo script ottiene l'elenco di tutte le zone DNS private nella sottoscrizione e c
 
 Dopo che le zone e i record sono stati copiati nel nuovo modello di risorsa, lo script chiede se passare la risoluzione DNS alle nuove zone DNS. Questo passaggio rimuove l'associazione tra le zone DNS private legacy e le reti virtuali. Quando la zona legacy viene scollegata dalle reti virtuali, le nuove zone DNS create nel passaggio precedente acquisiscono automaticamente la risoluzione DNS per le reti virtuali.
 
-Selezionare "A" per spostare la risoluzione DNS per tutte le reti virtuali.
+Selezionare "A" per cambiare la risoluzione DNS per tutte le reti virtuali.
 
 ![Passaggio della risoluzione dei nomi](./media/private-dns-migration-guide/switchresolution-migration-script.png)
 
@@ -91,16 +91,16 @@ Prima di procedere, verificare che la risoluzione DNS nelle zone DNS funzioni co
 
 ![Verificare la risoluzione dei nomi](./media/private-dns-migration-guide/verifyresolution-migration-script.png)
 
-Se si riscontra la mancata risoluzione delle query DNS, attendere qualche minuto e ripetere la query. Se le query DNS funzionano come previsto, immettere "Y" quando lo script chiede se rimuovere la rete virtuale dalla zona DNS privata.
+Se si riscontra la mancata risoluzione delle query DNS, attendere qualche minuto e ripetere la query. Se le query DNS funzionano come previsto, immettere ' Y ' quando lo script richiede di rimuovere la rete virtuale dalla zona DNS privata.
 
 ![Confermare la risoluzione dei nomi](./media/private-dns-migration-guide/confirmresolution-migration-script.png)
 
 >[!IMPORTANT]
->Se a causa di un motivo qualsiasi la risoluzione DNS sulle zone di cui è stata eseguita la migrazione non funziona, immettere "N" nel passaggio precedente perché lo script riporti la risoluzione DNS alle zone legacy. Creare un ticket di supporto per chiedere assistenza per la migrazione delle zone DNS.
+>Se per qualsiasi motivo la risoluzione DNS per le zone migrate non funziona come previsto, immettere ' n'nel passaggio precedente e lo script riporterà la risoluzione DNS nelle zone legacy. Creare un ticket di supporto per chiedere assistenza per la migrazione delle zone DNS.
 
 ## <a name="cleanup"></a>Pulizia
 
-Questo passaggio elimina le zone DNS legacy e deve essere eseguito solo dopo aver verificato che la risoluzione DNS funzioni come previsto. Verrà chiesto di eliminare ogni zona DNS privata. Immettere "Y" in ogni prompt dopo aver verificato il funzionamento della risoluzione DNS per le zone.
+Questo passaggio elimina le zone DNS legacy e deve essere eseguito solo dopo aver verificato che la risoluzione DNS funzioni come previsto. Verrà richiesto di eliminare ogni zona DNS privata. Immettere "Y" a ogni richiesta dopo aver verificato che la risoluzione DNS per tali zone funzioni correttamente.
 
 ![Eseguire la pulizia](./media/private-dns-migration-guide/cleanup-migration-script.png)
 
@@ -108,9 +108,9 @@ Questo passaggio elimina le zone DNS legacy e deve essere eseguito solo dopo ave
 
 Se si usa l'automazione, tra cui modelli, script di PowerShell o codice personalizzato sviluppato con SDK, è necessario aggiornare l'automazione in modo da usare il nuovo modello di risorsa per le zone DNS private. Di seguito vengono forniti i collegamenti alla nuova documentazione dell'interfaccia della riga di comando, di PowerShell e dell'SDK per DNS.
 * [API REST delle zone private di DNS di Azure](/rest/api/dns/privatedns/privatezones)
-* [Interfaccia della riga di comando per le zone private di DNS di Azure](/cli/azure/network/private-dns/link/vnet?view=azure-cli-latest)
+* [Interfaccia della riga di comando per le zone private di DNS di Azure](/cli/azure/network/private-dns/link/vnet)
 * [PowerShell per le zone private di DNS di Azure](/powershell/module/az.privatedns/)
-* [SDK per le zone private di DNS di Azure](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
+* [SDK per le zone private di DNS di Azure](/dotnet/api/overview/azure/privatedns/management)
 
 ## <a name="need-further-help"></a>Ulteriore assistenza
 

@@ -3,12 +3,12 @@ title: Esporta modello in portale di Azure
 description: Usare portale di Azure per esportare un modello di Azure Resource Manager dalle risorse nella sottoscrizione.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: ee97953a337bbb7cc9a8d1f042a3beae7bccdcae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3cc790b67b6076236a550c1fa202e0d173fb360e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96185692"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731939"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Esportazione di una singola e più risorse in un modello in portale di Azure
 
@@ -16,7 +16,7 @@ Per semplificare la creazione di modelli di Azure Resource Manager, è possibile
 
 Gestione risorse consente di selezionare una o più risorse da esportare in un modello. È possibile concentrarsi esattamente sulle risorse necessarie nel modello.
 
-Questo articolo illustra come esportare i modelli tramite il portale. È anche possibile usare l'interfaccia della riga di comando di [Azure](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)o l' [API REST](/rest/api/resources/resourcegroups/exporttemplate).
+Questo articolo illustra come esportare i modelli tramite il portale. È anche possibile usare l'interfaccia della riga di comando di [Azure](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)o l' [API REST](/rest/api/resources/resources/resourcegroups/exporttemplate).
 
 ## <a name="choose-the-right-export-option"></a>Scegliere l'opzione di esportazione corretta
 
@@ -123,7 +123,7 @@ Per esportare una risorsa:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come esportare modelli con l'interfaccia della riga di comando di [Azure](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)o l' [API REST](/rest/api/resources/resourcegroups/exporttemplate).
+- Informazioni su come esportare modelli con l'interfaccia della riga di comando di [Azure](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)o l' [API REST](/rest/api/resources/resources/resourcegroups/exporttemplate).
 - Per informazioni sulla sintassi del modello di Gestione risorse, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](template-syntax.md).
 - Per informazioni su come sviluppare modelli, vedere le [esercitazioni dettagliate](../index.yml).
 - Per visualizzare gli schemi del modello di Azure Resource Manager, vedere informazioni di [riferimento sui modelli](/azure/templates/).

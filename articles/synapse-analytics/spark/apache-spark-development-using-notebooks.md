@@ -11,10 +11,10 @@ ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
 ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612326"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creare, sviluppare e gestire notebook di sinapsi studio in Azure sinapsi Analytics
@@ -112,7 +112,7 @@ L'immagine seguente è un esempio di come è possibile scrivere una query PySpar
 
    ![Comandi Magic di sinapsi Spark](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
-### <a name="use-temp-tables-to-reference-data-across-languages"></a>Usare tabelle temporanee per fare riferimento ai dati tra linguaggi
+### <a name="use-temp-tables-to-reference-data-across-languages&quot;></a>Usare tabelle temporanee per fare riferimento ai dati tra linguaggi
 
 Non è possibile fare riferimento a dati o variabili direttamente tra linguaggi diversi in un notebook di Synapse Studio. In Spark è possibile fare riferimento a una tabella temporanea tra i vari linguaggi. Di seguito è riportato un esempio di come leggere un DataFrame `Scala` in `PySpark` e `SparkSQL` usando una tabella temporanea di Spark come soluzione alternativa.
 
@@ -120,7 +120,7 @@ Non è possibile fare riferimento a dati o variabili direttamente tra linguaggi 
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
+   val scalaDataFrame = spark.read.sqlanalytics(&quot;mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 

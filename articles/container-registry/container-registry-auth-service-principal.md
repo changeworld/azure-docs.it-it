@@ -2,17 +2,17 @@
 title: Eseguire l'autenticazione con l'entità servizio
 description: Consentire l'accesso alle immagini del registro contenitori privato usando un'entità servizio Azure Active Directory.
 ms.topic: article
-ms.date: 10/04/2019
-ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/15/2021
+ms.openlocfilehash: a32538e5fc5354427bafc5098634becdcedd1239
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86259146"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285536"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticazione al Registro Azure Container con entità servizio
 
-È possibile usare un'entità servizio Azure Active Directory (Azure AD) per fornire l'accesso `docker push` e `pull` dell'immagine del contenitore al registro contenitori. Se si usa un'entità servizio, è possibile fornire l'accesso ai servizi e alle applicazioni "headless".
+È possibile usare un'entità servizio Azure Active Directory (Azure AD) per fornire l'accesso push, pull o altro al registro contenitori. Se si usa un'entità servizio, è possibile fornire l'accesso ai servizi e alle applicazioni "headless".
 
 ## <a name="what-is-a-service-principal"></a>Che cos'è un'entità servizio?
 
@@ -52,7 +52,7 @@ Quando si dispone di un'entità servizio a cui è stato concesso l'accesso al re
 * **Nome utente** : ID dell'applicazione dell'entità servizio (noto anche come *ID client*)
 * **Password** : password dell'entità servizio (detta anche *segreto client*)
 
-Ogni valore è un GUID del form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . 
+Ogni valore ha il formato `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . 
 
 > [!TIP]
 > È possibile rigenerare la password di un'entità servizio eseguendo il comando [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset).
@@ -66,7 +66,7 @@ Ad esempio, usare le credenziali per eseguire il pull di un'immagine da un regis
 
 ### <a name="use-with-docker-login"></a>Usare con l'account di accesso di Docker
 
-È possibile eseguire `docker login` usando un'entità servizio. Nell'esempio seguente, l'ID applicazione dell'entità servizio viene passato nella variabile di ambiente `$SP_APP_ID` e la password nella variabile `$SP_PASSWD` . Per le procedure consigliate per gestire le credenziali Docker, vedere la Guida di riferimento al comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
+È possibile eseguire `docker login` usando un'entità servizio. Nell'esempio seguente, l'ID applicazione dell'entità servizio viene passato nella variabile di ambiente `$SP_APP_ID` e la password nella variabile `$SP_PASSWD` . Per le procedure consigliate per gestire le credenziali Docker, vedere le informazioni di riferimento sul comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
 
 ```bash
 # Log in to Docker with service principal credentials

@@ -4,16 +4,16 @@ description: Questo articolo fornisce indicazioni per la risoluzione dei problem
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: wenjiefu
-author: wenjiefu
+author: RodgeFu
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 2bc56d39de392c9e4c20c25b554e3bdeea048bfb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6eecedbc28bcb8bc0bd46534a2c2692636f6f2c1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100361877"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934003"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Risolvere i problemi di esecuzione del pacchetto in SSIS Integration Runtime
 
@@ -121,7 +121,10 @@ Questo errore si verifica quando SSIS Integration Runtime non è in grado di acc
 Una delle possibili cause è che il nome utente o la password con Azure AD Multi-Factor Authentication abilitato è configurato per l'autenticazione di Azure Analysis Services. Questa autenticazione non è supportata in SSIS Integration Runtime. Provare a usare un'entità servizio per l'autenticazione Azure Analysis Services:
 
 1. Preparare un'entità servizio come descritto in [automazione con entità servizio](../analysis-services/analysis-services-service-principal.md).
-2. In gestione connessione configurare **Usa nome utente e password specifici**: impostare **AppID** come nome utente e **clientSecret** come password.
+2. Nella gestione connessione configurare **Usa nome utente e password specifici:** set **app:*&lt; AppID &gt;* @* &lt; TenantId &gt;*** come nome utente e clientSecret come password. Di seguito è riportato un esempio di un nome utente formattato correttamente:
+ 
+   `app:12345678-9012-3456-789a-bcdef012345678@9abcdef0-1234-5678-9abc-def0123456789abc`
+1. In gestione connessione configurare **Usa nome utente e password specifici**: impostare **AppID** come nome utente e **clientSecret** come password.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Messaggio di errore: "l'origine ADONET non è riuscita ad acquisire la connessione {GUID} con il seguente messaggio di errore: accesso non riuscito per l'utente ' NT AUTHORITY\ANONYMOUS LOGON '" quando si usa un'identità gestita
 

@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 7f99c37cd9f029c7478d4102bd17c952ffd52f8c
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 36fb512181986fd04a95e72aa028b7c0253aa45f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044278"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731225"
 ---
 # <a name="service-fabric-releases"></a>Versioni Service Fabric
 
@@ -57,7 +57,7 @@ Siamo lieti di annunciare che la versione 7,2 del Service Fabric runtime ha iniz
 
 A causa della crisi COVID-19 attuale e prendendo in considerazione le problematiche affrontate dai clienti, viene reso disponibile 7,1, ma non vengono aggiornati automaticamente i cluster impostati per la ricezione di aggiornamenti automatici. Gli aggiornamenti automatici verranno sospesi fino a un ulteriore avviso per garantire che i clienti possano applicare gli aggiornamenti quando sono più appropriati, in modo da evitare rotture impreviste.
 
-Sarà possibile eseguire l'aggiornamento a 7,1 tramite il [portale di Azure](./service-fabric-cluster-upgrade-version-azure.md#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal) o tramite una distribuzione di [Azure Resource Manager](./service-fabric-cluster-upgrade-version-azure.md#set-the-upgrade-mode-using-a-resource-manager-template).
+Sarà possibile eseguire l'aggiornamento a 7,1 tramite il [portale di Azure](./service-fabric-cluster-upgrade-version-azure.md#manual-upgrades-with-azure-portal) o tramite una distribuzione di [Azure Resource Manager](./service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
 
 Service Fabric cluster con aggiornamenti automatici abilitati inizierà a ricevere automaticamente l'aggiornamento 7,1 dopo la ripresa della procedura di implementazione standard. Si fornirà un altro annuncio prima dell'avvio dell'implementazione standard sul [sito della community di Service Fabric Tech](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 Sono stati pubblicati anche aggiornamenti della data di fine del supporto per le versioni [principali, a](./service-fabric-versions.md#supported-versions)partire da 6,5 fino a 7,1. 

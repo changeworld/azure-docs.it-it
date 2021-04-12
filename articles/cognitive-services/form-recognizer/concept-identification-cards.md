@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 01a73e7940f88a3eb6e040f26d255448294cab18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed8516f9a898131338fb5b4d75e25cd774c5ab43
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467840"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285357"
 ---
 # <a name="form-recognizer-prebuilt-identification-card-id-model"></a>Modello di identificazione (ID) predefinito del riconoscimento moduli
 
-Il sistema di riconoscimento dei moduli di Azure può analizzare ed estrarre le informazioni da ID (Government Identification card) usando il modello di ID predefinito. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](../computer-vision/concept-recognizing-text.md) con funzionalità di riconoscimento ID per estrarre le informazioni chiave da passaporti in tutto il mondo e dalle licenze dei driver statunitensi (tutti gli stati 50 e D.C.). L'API IDs estrae le informazioni chiave da questi documenti di identità, ad esempio nome, cognome, data di nascita, numero di documento e altro ancora. Questa API è disponibile in formato Recognizer v 2.1 Preview come servizio cloud e come contenitore locale.
+Il sistema di riconoscimento dei moduli di Azure può analizzare ed estrarre le informazioni da ID (Government Identification card) usando il modello di ID predefinito. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](../computer-vision/overview-ocr.md) con funzionalità di riconoscimento ID per estrarre le informazioni chiave da passaporti in tutto il mondo e dalle licenze dei driver statunitensi (tutti gli stati 50 e D.C.). L'API IDs estrae le informazioni chiave da questi documenti di identità, ad esempio nome, cognome, data di nascita, numero di documento e altro ancora. Questa API è disponibile in formato Recognizer v 2.1 Preview come servizio cloud e come contenitore locale.
 
 ## <a name="what-does-the-id-service-do"></a>Che cosa fa il servizio ID? 
 

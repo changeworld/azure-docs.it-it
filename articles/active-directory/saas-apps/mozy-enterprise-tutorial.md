@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: dfeb99fdbd5cf2b0784982b385d46c3a16901ec8
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105567339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con Mozy Enterprise
@@ -120,13 +120,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mozy Enterprise, seguir
 
     c. URL di chiusura sessione
 
-### <a name="configure-mozy-enterprise-single-sign-on"></a>Configurare l'accesso Single Sign-On per Mozy Enterprise
+### <a name="configure-mozy-enterprise-single-sign-on&quot;></a>Configurare l'accesso Single Sign-On per Mozy Enterprise
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di Mozy Enterprise come amministratore.
 
 2. Nella sezione **Configuration** fare clic su **Authentication Policy**.
    
-    ![Screenshot che mostra l'opzione Authentication Policy selezionata da Configuration.](./media/mozy-enterprise-tutorial/ic777314.png "Authentication Policy")
+    ![Screenshot che mostra l'opzione Authentication Policy selezionata da Configuration.](./media/mozy-enterprise-tutorial/ic777314.png &quot;Authentication Policy")
 
 3. Nella sezione **Authentication Policy** seguire questa procedura:
    

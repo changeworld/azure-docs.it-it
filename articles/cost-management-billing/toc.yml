@@ -388,6 +388,8 @@
           href: ../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Informazioni di riferimento
   items:
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/billing
     - name: API REST di Gestione costi di Azure
       href: /rest/api/cost-management
     - name: API REST per l'utilizzo di Azure
