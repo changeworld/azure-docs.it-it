@@ -14,10 +14,10 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 8926e99db926fc8182e98509c3deff0ccc3d1612
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99576668"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
@@ -151,5 +151,5 @@ Per domande frequenti, vedere [domande frequenti sull'endpoint di servizio di re
 - [Proteggere un database SQL di Azure in una rete virtuale](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Proteggere un'analisi delle sinapsi di Azure in una rete virtuale](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integrazione di servizi di Azure nelle reti virtuali](virtual-network-for-azure-services.md)
-- [Criteri degli endpoint servizio di rete virtuale](./virtual-network-service-endpoint-policies-overview.md)
+- [Criteri dell'endpoint del servizio rete virtuale](./virtual-network-service-endpoint-policies-overview.md)
 - [Modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

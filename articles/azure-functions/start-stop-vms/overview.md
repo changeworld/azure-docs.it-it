@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: ''
 ms.date: 03/29/2021
-ms.openlocfilehash: aac50f085d3ad63fb0183c19cf7d9aaa679e3d04
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 44bfbaa8b18ebeab3b74bc696a16fc4cfb6c08ec
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111943"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220935"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>Panoramica di avvio/arresto di macchine virtuali V2 (anteprima)
 
@@ -95,7 +95,7 @@ La specifica di un elenco di macchine virtuali può essere usata quando è neces
 
 - All'account sono state concesse le autorizzazioni di [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) nella sottoscrizione.
 
-- Start/Stop VM V2 (anteprima) è disponibile in tutte le aree globali di Azure elencate nella pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) per funzioni di Azure. Per il cloud di Azure per enti pubblici, è disponibile solo nell'area Virginia del governo degli Stati Uniti.
+- Start/Stop VM V2 (anteprima) è disponibile in tutte le aree del cloud di Azure e del governo degli Stati Uniti elencate nella pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) per funzioni di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

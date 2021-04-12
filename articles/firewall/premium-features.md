@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 04/07/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8d0e86d95205acea2ac48ce027bcd118f4e3bf20
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: fdf0113d73b0b2e82ec889caf2a82c77bb7a040c
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967031"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226702"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Funzionalità di anteprima di Azure Firewall Premium
 
@@ -146,9 +146,8 @@ Azure Firewall Premium Preview presenta i seguenti problemi noti:
 |---------|---------|---------|
 |Controllo TLS supportato solo sulla porta HTTPS standard|Il controllo TLS supporta solo HTTPS/443. |Nessuna. Le altre porte saranno supportate in GA.|
 |Supporto di ESNI per la risoluzione FQDN in HTTPS|Il SNI crittografato non è supportato nell'handshake HTTPS.|Attualmente solo Firefox supporta ESNI tramite la configurazione personalizzata. La soluzione alternativa suggerita è disabilitare questa funzionalità.|
-|Certificati client (TLS)|I certificati client vengono utilizzati per creare un trust di identità reciproca tra il client e il server. I certificati client vengono usati durante una negoziazione TLS. Il firewall di Azure rinegozia una connessione con il server e non ha accesso alla chiave privata dei certificati client.|nessuno|
+|Certificati client (TLS)|I certificati client vengono utilizzati per creare un trust di identità reciproca tra il client e il server. I certificati client vengono usati durante una negoziazione TLS. Il firewall di Azure rinegozia una connessione con il server e non ha accesso alla chiave privata dei certificati client.|Nessuno|
 |QUIC/HTTP3|QUIC è la nuova versione principale di HTTP. Si tratta di un protocollo basato su UDP su 80 (piano) e 443 (SSL). L'ispezione FQDN/URL/TLS non sarà supportata.|Configurare il passaggio di UDP 80/443 come regole di rete.|
-|Hub sicuro e tunneling forzato non supportati in Premium|Attualmente lo SKU Premium del firewall non è supportato nelle distribuzioni di hub sicure e nelle configurazioni del tunnel forzato.|Correzione pianificata per GA.|
 Certificati firmati dal cliente non attendibili|I certificati firmati dal cliente non sono considerati attendibili dal firewall dopo la ricezione da un server Web basato su Intranet.|Correzione pianificata per GA.
 |Indirizzi IP di origine e di destinazione errati negli avvisi per gli IDP con ispezione TLS.|Quando si Abilita l'ispezione TLS e IDP emette un nuovo avviso, l'indirizzo IP di origine/destinazione visualizzato è errato (viene visualizzato l'indirizzo IP interno anziché l'indirizzo IP originale).|Correzione pianificata per GA.|
 |Indirizzo IP di origine errato negli avvisi con IDP per HTTP (senza ispezione TLS).|Quando è in uso il traffico HTTP in formato testo normale e IDP emette un nuovo avviso e la destinazione è un indirizzo IP pubblico, l'indirizzo IP di origine visualizzato è errato (viene visualizzato l'indirizzo IP interno anziché l'indirizzo IP originale).|Correzione pianificata per GA.|

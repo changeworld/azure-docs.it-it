@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: a60ee8faf8d19afba59e46c52aaba9395c3a5292
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105604448"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introduzione ad Android SDK per Mappe di Azure
@@ -118,7 +118,7 @@ Di seguito è riportato un esempio di mappe di Azure con la lingua impostata su 
 
 Un elenco completo delle lingue e delle visualizzazioni a livello di area supportate è disponibile [qui](supported-languages.md).
 
-## <a name="navigating-the-map"></a>Esplorazione della mappa
+## <a name="navigating-the-map&quot;></a>Esplorazione della mappa
 
 Esistono diversi modi in cui è possibile ingrandire, fare una panoramica, ruotare e inclinare la mappa. Di seguito vengono descritti tutti i diversi modi per esplorare la mappa.
 
@@ -141,16 +141,16 @@ Esistono diversi modi in cui è possibile ingrandire, fare una panoramica, ruota
 
 * Toccare la mappa con due dita e trascinarle insieme verso l'alto o verso il basso.
 
-## <a name="azure-government-cloud-support"></a>Supporto cloud di Azure per enti pubblici
+## <a name=&quot;azure-government-cloud-support&quot;></a>Supporto cloud di Azure per enti pubblici
 
 Azure Maps Android SDK supporta il cloud di Azure per enti pubblici. È possibile accedere al Android SDK mappe di Azure dallo stesso repository maven. Per connettersi alla versione cloud di Azure per enti pubblici della piattaforma Azure Maps è necessario eseguire le attività seguenti.
 
 Nella stessa posizione in cui sono specificati i dettagli di autenticazione di Azure Maps, aggiungere la seguente riga di codice per indicare alla mappa di usare il dominio Cloud Azure Maps Government.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
-AzureMaps.setDomain("atlas.azure.us");
+AzureMaps.setDomain(&quot;atlas.azure.us");
 ```
 
 ::: zone-end

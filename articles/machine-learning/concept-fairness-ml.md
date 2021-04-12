@@ -1,33 +1,27 @@
 ---
-title: Attenuare l'ingiustizia nei modelli di Machine Learning (anteprima)
+title: Equità di Machine Learning (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni sull'equità nei modelli di Machine Learning e sul modo in cui il pacchetto Fairlearn Python può aiutare a creare modelli più equi.
+description: Informazioni sull'equità di machine learning e sul modo in cui il pacchetto python Fairlearn consente di valutare e mitigare l'incorrettezza.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 01/26/2021
+ms.date: 04/02/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 276c91ad7fb5b09dbe18d989741f0f54b8b0eb09
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45c63780eac021301e5b01c0ff8abea7d704a4cf
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101659682"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220522"
 ---
-# <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>Attenuare l'ingiustizia nei modelli di Machine Learning (anteprima)
+# <a name="machine-learning-fairness-preview"></a>Equità di Machine Learning (anteprima)
 
-Informazioni sull'equità nell'apprendimento automatico e sul modo in cui il pacchetto python Open Source [Fairlearn](https://fairlearn.github.io/) consente di attenuare i problemi di non correttezza nei modelli di machine learning. Se non si sta tentando di comprendere i problemi di equità e di valutare l'equità quando si creano modelli di apprendimento automatico, è possibile creare modelli che producono risultati non corretti.
+Informazioni sull'equità di machine learning e su come il pacchetto python Open Source [Fairlearn](https://fairlearn.github.io/) consente di valutare e mitigare i problemi di non correttezza nei modelli di machine learning. 
 
-Il seguente riepilogo del [manuale dell'utente](https://fairlearn.github.io/main/user_guide/index.html) per il pacchetto open source Fairlearn descrive come usarlo per valutare l'equità dei sistemi di intelligenza artificiale che si stanno compilando.  Il pacchetto open source di Fairlearn può anche offrire opzioni che consentono di attenuare o ridurre i problemi di equità osservati.  Vedere le [procedure](how-to-machine-learning-fairness-aml.md) e i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) per abilitare la valutazione dell'equità dei sistemi di intelligenza artificiale durante il training in Azure Machine Learning.
-
-
-## <a name="what-is-fairness-in-machine-learning-models"></a>Che cosa è l'equità nei modelli di apprendimento automatico?
-
->[!NOTE]
-> L'equità è una sfida socio-tecnica. Molti aspetti dell'equità, come la giustizia e il processo equo, non vengono monitorati nelle metriche di equità quantitativa. Inoltre, molte metriche di equità quantitativa non possono essere soddisfatte contemporaneamente. L'obiettivo del pacchetto open source Fairlearn è consentire agli utenti di valutare le diverse strategie di riduzione e l'effetto. Infine, spetta agli utenti umani che compilano modelli di intelligenza artificiale e machine learning per creare compromessi appropriati per il proprio scenario.
+## <a name="what-is-machine-learning-fairness"></a>Che cos'è l'equità di Machine Learning?
 
 I sistemi di intelligenza artificiale e Machine Learning possono mostrare un comportamento iniquo. Un metodo per definire un comportamento iniquo è considerarne il danno o l'effetto sulle persone. Ci sono molti tipi di problemi che i sistemi di IA possono far sorgere. Per altre informazioni, vedere il [Keynote NeurIPS 2017 di Kate Crawford](https://www.youtube.com/watch?v=fMym_BKWQzk) .
 
@@ -42,6 +36,9 @@ Per ridurre i comportamenti iniqui nei sistemi di intelligenza artificiale, è n
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Valutazione e mitigazione dell'equità con Fairlearn
 
 Fairlearn è un pacchetto python open source che consente agli sviluppatori di sistemi di Machine Learning di valutare l'equità dei propri sistemi e di mitigare l'incorrettezza.
+
+>[!NOTE]
+> L'equità è una sfida socio-tecnica. Molti aspetti dell'equità, come la giustizia e il processo equo, non vengono monitorati nelle metriche di equità quantitativa. Inoltre, molte metriche di equità quantitativa non possono essere soddisfatte contemporaneamente. L'obiettivo del pacchetto open source Fairlearn è consentire agli utenti di valutare le diverse strategie di riduzione e l'effetto. Infine, spetta agli utenti umani che compilano modelli di intelligenza artificiale e machine learning per creare compromessi appropriati per il proprio scenario.
 
 Il pacchetto open source di Fairlearn include due componenti:
 
@@ -90,8 +87,6 @@ Il pacchetto open source Fairlearn supporta i tipi di vincoli di parità seguent
 |Probabilità equalizzate  | Diagnosticare i problemi di allocazione e di qualità del servizio | Classificazione binaria        |
 |Uguale opportunità | Diagnosticare i problemi di allocazione e di qualità del servizio | Classificazione binaria        |
 |Perdita del gruppo associato     |  Mitigare i problemi di qualità del servizio | Regressione |
-
-
 
 ### <a name="mitigation-algorithms"></a>Algoritmi di mitigazione
 
