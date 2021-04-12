@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 3487e735e48cb5067515762d6276429ca81e43fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 459658867a143a69850ce74b910fd5dc7e70d4b9
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008740"
+ms.locfileid: "105962986"
 ---
 # <a name="azure-media-services-legacy-components"></a>Componenti legacy di servizi multimediali di Azure
 
@@ -39,13 +39,13 @@ Gli Analisi Servizi multimediali processori di contenuti multimediali seguenti s
  
 | **Nome processore di contenuti multimediali** | **Data di ritiro** | **Note aggiuntive** |
 | --- | --- | ---|
-| Azure Media Indexer 2 | 1 ° gennaio 2020 | Questo processore di contenuti multimediali verrà sostituito dalla [modalità Basic di servizi multimediali V3 AudioAnalyzerPreset](../latest/analyzing-video-audio-files-concept.md). Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md). |
-| Azure Media Indexer | 1 marzo 2023 | Questo processore di contenuti multimediali verrà sostituito dalla [modalità Basic di servizi multimediali V3 AudioAnalyzerPreset](../latest/analyzing-video-audio-files-concept.md). Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md). |
+| Azure Media Indexer 2 | 1 ° gennaio 2020 | Questo processore di contenuti multimediali verrà sostituito dalla [modalità Basic di servizi multimediali V3 AudioAnalyzerPreset](../latest/analyze-video-audio-files-concept.md). Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md). |
+| Azure Media Indexer | 1 marzo 2023 | Questo processore di contenuti multimediali verrà sostituito dalla [modalità Basic di servizi multimediali V3 AudioAnalyzerPreset](../latest/analyze-video-audio-files-concept.md). Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md). |
 | Rilevamento movimento | 1 ° giugno 2020|Al momento non sono disponibili piani di sostituzione. |
 | Riepilogo video |1 ° giugno 2020|Al momento non sono disponibili piani di sostituzione.|
-| Riconoscimento ottico dei caratteri video | 1 ° giugno 2020 |Questo processore di contenuti multimediali è stato sostituito da [servizi multimediali di Azure video Indexer](../video-indexer/index.yml). Si consiglia inoltre di usare l' [API di servizi multimediali di Azure V3](../latest/analyzing-video-audio-files-concept.md). <br/>Vedere [confrontare i set di impostazioni e video indexer di servizi multimediali di Azure V3](../video-indexer/compare-video-indexer-with-media-services-presets.md). |
-| Face Detector | 1 ° giugno 2020 | Questo processore di contenuti multimediali è stato sostituito da [servizi multimediali di Azure video Indexer](../video-indexer/index.yml). Si consiglia inoltre di usare l' [API di servizi multimediali di Azure V3](../latest/analyzing-video-audio-files-concept.md). <br/>Vedere [confrontare i set di impostazioni e video indexer di servizi multimediali di Azure V3](../video-indexer/compare-video-indexer-with-media-services-presets.md). |
-| Content Moderator | 1 ° giugno 2020 |Questo processore di contenuti multimediali è stato sostituito da [servizi multimediali di Azure video Indexer](../video-indexer/index.yml). Si consiglia inoltre di usare l' [API di servizi multimediali di Azure V3](../latest/analyzing-video-audio-files-concept.md). <br/>Vedere [confrontare i set di impostazioni e video indexer di servizi multimediali di Azure V3](../video-indexer/compare-video-indexer-with-media-services-presets.md). |
+| Riconoscimento ottico dei caratteri video | 1 ° giugno 2020 |Questo processore di contenuti multimediali è stato sostituito da [servizi multimediali di Azure video Indexer](../video-indexer/index.yml). Si consiglia inoltre di usare l' [API di servizi multimediali di Azure V3](../latest/analyze-video-audio-files-concept.md). <br/>Vedere [confrontare i set di impostazioni e video indexer di servizi multimediali di Azure V3](../video-indexer/compare-video-indexer-with-media-services-presets.md). |
+| Face Detector | 1 ° giugno 2020 | Questo processore di contenuti multimediali è stato sostituito da [servizi multimediali di Azure video Indexer](../video-indexer/index.yml). Si consiglia inoltre di usare l' [API di servizi multimediali di Azure V3](../latest/analyze-video-audio-files-concept.md). <br/>Vedere [confrontare i set di impostazioni e video indexer di servizi multimediali di Azure V3](../video-indexer/compare-video-indexer-with-media-services-presets.md). |
+| Content Moderator | 1 ° giugno 2020 |Questo processore di contenuti multimediali è stato sostituito da [servizi multimediali di Azure video Indexer](../video-indexer/index.yml). Si consiglia inoltre di usare l' [API di servizi multimediali di Azure V3](../latest/analyze-video-audio-files-concept.md). <br/>Vedere [confrontare i set di impostazioni e video indexer di servizi multimediali di Azure V3](../video-indexer/compare-video-indexer-with-media-services-presets.md). |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

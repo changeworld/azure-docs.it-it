@@ -11,12 +11,12 @@ ms.date: 03/11/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4c7382f84522333b6aae0d79941aae8f2147a12f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b67f505a71d2af7950422a86ab45ef8aebb3bf4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81729153"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056437"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informazioni sui prezzi dell'hub IoT di Azure
 
@@ -33,9 +33,9 @@ ms.locfileid: "81729153"
 | Messaggi da cloud a dispositivo | Per i messaggi inviati correttamente è previsto un addebito in base a blocchi di 4 KB, ad esempio un messaggio di 6 KB viene addebitato come 2 messaggi. |
 | Caricamenti di file | Il trasferimento di file in Archiviazione di Azure non viene misurato dall'hub IoT. I messaggi di avvio e di completamento del trasferimento di file vengono addebitati come messaggi misurati in incrementi di 4 KB. Ad esempio, il trasferimento di un file di 10 MB viene addebitato come due messaggi, oltre al costo di archiviazione di Azure. |
 | Metodi diretti | Le richieste di metodo completate vengono addebitate in blocchi da 4 KB e le risposte vengono addebitate in blocchi da 4 KB come messaggi aggiuntivi. Le richieste ai dispositivi disconnessi vengono addebitate come messaggi in blocchi di 4 KB. Ad esempio, un metodo con un corpo di 4 KB che produce una risposta senza corpo dal dispositivo viene addebitato come due messaggi. Un metodo con corpo da 6 KB che dà come risultato una risposta da 1 KB dal dispositivo viene addebitato come due messaggi per la richiesta, con in più un altro messaggio per la risposta. |
-| Letture di dispositivi e moduli gemelli | Le letture del dispositivo gemello dal dispositivo o dal modulo e dal back-end della soluzione vengono addebitate come messaggi in blocchi di 512 byte. La lettura di un messaggio di 6 KB del dispositivo gemello, ad esempio, viene addebitata come 12 messaggi. |
-| Aggiornamenti di dispositivi e moduli gemelli (tag e proprietà) | Gli aggiornamenti del dispositivo gemello dal dispositivo o dal modulo e dal back-end della soluzione vengono addebitati come messaggi in blocchi di 512 byte. La lettura di un messaggio di 6 KB del dispositivo gemello, ad esempio, viene addebitata come 12 messaggi. |
-| Query su dispositivi e moduli gemelli | Le query vengono addebitate come messaggi in base alle dimensioni del risultato in blocchi di 512 byte. |
+| Letture di dispositivi e moduli gemelli | Le letture gemelle dal dispositivo o dal modulo e dal back-end della soluzione vengono addebitate come messaggi in blocchi da 4 KB. Ad esempio, la lettura di un dispositivo gemello da 8 KB viene addebitata come 2 messaggi. |
+| Aggiornamenti di dispositivi e moduli gemelli (tag e proprietà) | Gli aggiornamenti dei dispositivi gemelli dal dispositivo o dal modulo e dal back-end della soluzione vengono addebitati come messaggi in blocchi da 4 KB. Ad esempio, la lettura di un gemello da 12 KB viene addebitata come 3 messaggi. |
+| Query su dispositivi e moduli gemelli | Le query vengono addebitate come messaggi in base alle dimensioni del risultato in blocchi da 4 KB. |
 | Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | Nessun addebito. |
 | Operazioni dei processi per ogni dispositivo | Le operazioni dei processi, ad esempio gli aggiornamenti del dispositivo gemello e i metodi, vengono addebitati come messaggi normali. Un processo che esegue 1000 chiamate di metodo con richieste di 1 KB e risposte con corpo vuoto, ad esempio, viene addebitato come 1000 messaggi. |
 | Messaggi Keep-alive | Quando si usano i protocolli AMQP o MQTT, i messaggi scambiati per stabilire la connessione e quelli scambiati nella negoziazione non vengono addebitati. |

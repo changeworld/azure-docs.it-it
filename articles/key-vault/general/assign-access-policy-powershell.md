@@ -1,6 +1,6 @@
 ---
 title: Assegnare un criterio di accesso Azure Key Vault
-description: Come usare la portale di Azure, l'interfaccia della riga di comando di Azure o Azure PowerShell per assegnare un criterio di accesso Key Vault a un'entità servizio o a un'identità di applicazione.
+description: Come usare la portale di Azure, l'interfaccia della riga di comando di Azure o Azure PowerShell per assegnare un criterio di accesso Key Vault a un'entità di sicurezza o un'identità dell'applicazione.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4cf0393cdb0aae1b352b81df4893f874f34970cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4637715b2ba885d58ebb4c5f3ed40a79be2f815b
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97934535"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968731"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Assegnare un criterio di accesso Key Vault usando Azure PowerShell
 
-Un criterio di accesso Key Vault determina se una determinata entità servizio, ovvero un'applicazione o un gruppo di utenti, può eseguire diverse operazioni su Key Vault [segreti](../secrets/index.yml), [chiavi](../keys/index.yml)e [certificati](../certificates/index.yml). È possibile assegnare i criteri di accesso usando il [portale di Azure](assign-access-policy-portal.md), l'interfaccia della riga di comando di [Azure](assign-access-policy-cli.md)o Azure PowerShell (questo articolo).
+Un criterio di accesso Key Vault determina se un'entità di sicurezza specificata, ovvero un utente, un'applicazione o un gruppo di utenti, può eseguire diverse operazioni su Key Vault [segreti](../secrets/index.yml), [chiavi](../keys/index.yml)e [certificati](../certificates/index.yml). È possibile assegnare i criteri di accesso usando il [portale di Azure](assign-access-policy-portal.md), l'interfaccia della riga di comando di [Azure](assign-access-policy-cli.md)o Azure PowerShell (questo articolo).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 

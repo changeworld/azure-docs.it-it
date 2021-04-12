@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f22a55a65b7dc4fd4f714d880804e6fd65dbbe46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f5586b43143763ebf36adb15d96fdb2a91b5f5c
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101654375"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443475"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurare i token in Azure Active Directory B2C
 
@@ -228,6 +228,10 @@ L'elemento OutputClaim contiene gli attributi seguenti:
 - **AlwaysUseDefaultValue** -forza l'uso del valore predefinito.
 
 ::: zone-end
+
+## <a name="authorization-code-lifetime"></a>Durata del codice di autorizzazione
+
+Quando si usa il [flusso del codice di autorizzazione OAuth 2,0](authorization-code-flow.md), l'app può usare il codice di autorizzazione per richiedere un token di accesso per una risorsa di destinazione. I codici di autorizzazione sono di breve durata che scadono dopo circa 10 minuti. La durata del codice di autorizzazione non può essere configurata. Assicurarsi che l'applicazione riscatta i codici di autorizzazione entro 10 minuti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 273a1b5986a72acc1d6725fbb3101c9c1df17e45
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: d021267c38f0043d2361b1a6392fbacd0634a164
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122051"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279698"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Guida alla migrazione basata sullo scenario live streaming
 
@@ -37,7 +37,7 @@ Testare la nuova modalità di distribuzione di eventi live con servizi multimedi
 
 - Creare un nuovo [evento Live](live-event-outputs-concept.md#live-events) V3 per la codifica. È possibile abilitare i [set di impostazioni di codifica 1080p e 720p](live-event-types-comparison-reference.md#system-presets).
 - Usare l'entità di [output Live](live-event-outputs-concept.md#live-outputs) invece dei programmi
-- Creare [localizzatori di streaming](streaming-locators-concept.md).
+- Creare [localizzatori di streaming](stream-streaming-locators-concept.md).
 - Prendere in considerazione la necessità di eseguire lo streaming live [HLS e Dash](encode-dynamic-packaging-concept.md) .
 - Se è necessario avviare rapidamente eventi live, esplorare le nuove funzionalità della [modalità standby](live-event-outputs-concept.md#standby-mode) .
 - Se si vuole trascrivere l'evento Live mentre è in corso, esplorare la nuova funzionalità di [trascrizione in tempo reale](live-event-live-transcription-how-to.md) .
@@ -52,7 +52,7 @@ Per i passaggi specifici, vedere Concetti, esercitazioni e procedure dettagliate
 
 - [Streaming live con Servizi multimediali di Azure v3](stream-live-streaming-concept.md)
 - [Eventi live e output live in Servizi multimediali](live-event-outputs-concept.md)
-- [Codificatori di streaming live locali verificati](recommended-on-premises-live-encoders.md)
+- [Codificatori di streaming live locali verificati](encode-recommended-on-premises-live-encoders.md)
 - [Usare gli output in tempo reale e di spostamento per creare la riproduzione video su richiesta](live-event-cloud-dvr-time-how-to.md)
 - [Live-Event-Transcript-How-to (anteprima)](live-event-live-transcription-how-to.md)
 - [Confronto tra tipi di eventi attivi](live-event-types-comparison-reference.md)

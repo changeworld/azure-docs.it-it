@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: cshoe
-ms.openlocfilehash: b6779de0203246a60bdfa60ea110a0f0d5f26ff3
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 280c13fdee281acc4f805aba27a10277eb3988c2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106450"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218975"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configurare app Web statiche di Azure
 
@@ -39,6 +39,7 @@ Per informazioni dettagliate, vedere il file di [configurazione di esempio](#exa
 
 Le regole di route consentono di definire il modello di URL che consentono l'accesso all'applicazione sul Web. Le route sono definite come una matrice di regole di routing. Per esempi di utilizzo, vedere il [file di configurazione di esempio](#example-configuration-file) .
 
+- Le regole sono definite nella `routes` matrice, anche se è presente solo una route.
 - Le regole vengono eseguite nell'ordine in cui sono visualizzate nella matrice `routes`.
 - La valutazione delle regole viene arrestata in corrispondenza delle prime regole di routing non concatenate.
 - Si ha il controllo completo sui nomi di ruoli personalizzati.
@@ -50,7 +51,7 @@ Il file predefinito per il contenuto statico è il file *index.html* .
 
 ## <a name="defining-routes"></a>Definizione delle route
 
-Ogni regola è costituita da un modello di route, insieme a una o più proprietà della regola facoltative. Per esempi di utilizzo, vedere il [file di configurazione di esempio](#example-configuration-file) .
+Ogni regola è costituita da un modello di route, insieme a una o più proprietà della regola facoltative. Le regole di route sono definite nella `routes` matrice. Per esempi di utilizzo, vedere il [file di configurazione di esempio](#example-configuration-file) .
 
 | Proprietà regola  | Obbligatoria | Valore predefinito | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |

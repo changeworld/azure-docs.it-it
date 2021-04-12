@@ -2,16 +2,20 @@
 author: MikeRayMSFT
 ms.service: azure-arc
 ms.topic: include
-ms.date: 09/05/2020
-ms.author: mikera
-ms.openlocfilehash: 0939bc4212e500d5bbe818f61ca7f07e7e14f205
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/02/2021
+ms.author: mikeray
+ms.openlocfilehash: 0ccfb03f2d6754a393e432be51713dfc5379fe0e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97096433"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554350"
 ---
 > [!NOTE]
 > In quanto funzionalità di anteprima, la tecnologia presentata in questo articolo è soggetta alle [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
->Per informazioni sulle limitazioni correnti, vedere [Problemi noti](../articles/azure-arc/data/release-notes.md#known-issues) nelle note sulla versione.
+> Gli ultimi aggiornamenti sono disponibili nelle [Note sulla versione](../articles/azure-arc/data/release-notes.md).
+>
+> Per l'aggiornamento corrente, la distribuzione del controller di dati Arc in modalità di connettività diretta è supportata solo da portale di Azure.
+>
+> Per altre limitazioni e altre informazioni, vedere i [problemi noti](../articles/azure-arc/data/known-issues.md).

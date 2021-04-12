@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: d876a380bfc2d318cddc0964266cc3f0a870aa16
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a1abe79b4ab1caad04a088f659c0afceb2668eac
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102050988"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106922"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Creare e configurare un'area di lavoro Log Analytics in Monitoraggio di Azure usando PowerShell
 Questo articolo fornisce due esempi di codice che illustrano come creare e configurare un'area di lavoro Log Analytics in Monitoraggio di Azure.  
@@ -28,7 +28,7 @@ Lo script di esempio seguente crea un'area di lavoro senza configurazione dell'o
 
 ```powershell
 $ResourceGroup = "my-resource-group"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique in resource group - Get-Random helps with this for the example code
 $Location = "westeurope"
 
 # Create the resource group if needed
@@ -63,7 +63,7 @@ Lo script esegue le funzioni seguenti:
 
 ```powershell
 $ResourceGroup = "my-resource-group"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique in resource group - Get-Random helps with this for the example code
 $Location = "westeurope"
 
 # Create the resource group if needed
@@ -213,7 +213,7 @@ Nell'esempio precedente regexDelimiter è stato definito come "\\n" per la nuova
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 Quando si crea un'area di lavoro eliminata negli ultimi 14 giorni e in [stato di eliminazione temporanea](../logs/delete-workspace.md#soft-delete-behavior), l'operazione potrebbe avere risultati diversi a seconda della configurazione dell'area di lavoro:
 1. Se si specificano lo stesso nome dell'area di lavoro, gruppo di risorse, sottoscrizione e area dell'area di lavoro eliminata, l'area di lavoro verrà ripristinata, inclusi i dati, la configurazione e gli agenti connessi.
-2. Se si usa lo stesso nome dell'area di lavoro, ma un gruppo di risorse, una sottoscrizione o un'area diversa, si otterrà un errore *Il nome dell'area di lavoro 'workspace-name' non è univoco*, o dei *conflitti*. Per eseguire l'override dell'eliminazione temporanea ed eliminare definitivamente l'area di lavoro e creare una nuova area di lavoro con lo stesso nome, attenersi alla procedura seguente per ripristinare prima l'area di lavoro ed eseguire l'eliminazione permanente:
+2. Il nome dell'area di lavoro deve essere univoco per ogni gruppo di risorse. Se si usa un nome dell'area di lavoro già esistente, anche in caso di eliminazione temporanea nel gruppo di risorse, si otterrà un errore *il nome dell'area di lavoro ' workspace-name ' non è univoco o è* in *conflitto*. Per eseguire l'override dell'eliminazione temporanea ed eliminare definitivamente l'area di lavoro e creare una nuova area di lavoro con lo stesso nome, attenersi alla procedura seguente per ripristinare prima l'area di lavoro ed eseguire l'eliminazione permanente:
    * [Recuperare](../logs/delete-workspace.md#recover-workspace) l'area di lavoro
    * [Eliminare definitivamente](../logs/delete-workspace.md#permanent-workspace-delete) l'area di lavoro
    * Creare una nuova area di lavoro usando il nome della stessa area di lavoro

@@ -4,13 +4,13 @@ description: Questo argomento di avvio rapido illustra come creare un'app LUIS c
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/13/2020
-ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
-ms.translationtype: HT
+ms.date: 03/29/2021
+ms.openlocfilehash: e0972998fad647c1c70be814cb7c13f14a6e1141
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019161"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277029"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Guida introduttiva: Usare l'app di domotica predefinita
 
@@ -31,7 +31,7 @@ Nella finestra visualizzata immettere le informazioni seguenti:
 
 |Nome  |Descrizione  |
 |---------|---------|
-|AName     | Un nome per l'app, ad esempio "home automation".        |
+|AName     | Un nome per l'app. ad esempio "home automation".        |
 |culture     | La lingua compresa e parlata dall'app.   |
 |Descrizione | Una descrizione dell'app.
 |Risorsa Previsione | La risorsa di previsione che riceverà le query. |
@@ -220,7 +220,5 @@ Per ottenere una previsione di Language Understanding Intelligent Service (LUIS)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile chiamare l'endpoint dal codice:
-
 > [!div class="nextstepaction"]
-> [Chiamare un endpoint LUIS tramite codice](./luis-get-started-get-intent-from-rest.md)
+> [Sviluppo di app iterative per LUIS](./luis-concept-app-iteration.md)

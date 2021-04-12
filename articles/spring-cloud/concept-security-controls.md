@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 62a0bd19f6b10bbe6561f5587ed85d4d1e5880b3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1447e7eec9909c8af33005aab00c267e1a251720
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878623"
+ms.locfileid: "105966827"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Controlli di sicurezza per il servizio Azure Spring Cloud
 
@@ -34,7 +34,7 @@ Un controllo di sicurezza è una qualità o una funzionalità di un servizio di 
 
 | Controllo di sicurezza | Sì/No | Note | Documentazione |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Tag del servizio | Sì | Usare il tag del servizio **AzureSpringCloud** per definire i controlli di accesso alla rete in uscita nei [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md)per consentire il traffico verso le applicazioni cloud Spring di Azure.<br><br>*Nota:* Attualmente solo la nuova istanza del servizio cloud Spring di Azure creata dopo 2020/07/14 supporta il tag del servizio **AzureSpringCloud** . | [Tag di servizio](../virtual-network/service-tags-overview.md) |
+| Tag del servizio | Sì | Usare il tag del servizio **AzureSpringCloud** per definire i controlli di accesso alla rete in uscita nei [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md)per consentire il traffico verso le applicazioni cloud Spring di Azure. | [Tag di servizio](../virtual-network/service-tags-overview.md) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

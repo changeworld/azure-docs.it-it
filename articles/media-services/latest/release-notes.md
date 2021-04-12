@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: b7d99e3de8a796dea19f3a2ad7a03b98239981e2
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 796abf8506a832c4053b505e903bb24ef9d09004
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121099"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279035"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -150,7 +150,7 @@ Il set di impostazioni di analisi audio include ora un piano tariffario in modal
 
 I clienti che usano Indexer V1 e Indexer V2 devono eseguire la migrazione al set di impostazioni di base di analisi audio.
 
-Per ulteriori informazioni sulla modalità di base dell'analizzatore audio, vedere [analisi dei file audio e video](analyze-video-audio-files-concept.md).  Per informazioni sull'uso della modalità di base dell'analizzatore audio con l'API REST, vedere [come creare una trasformazione audio di base](how-to-create-basic-audio-transform.md).
+Per ulteriori informazioni sulla modalità di base dell'analizzatore audio, vedere [analisi dei file audio e video](analyze-video-audio-files-concept.md).  Per informazioni sull'uso della modalità di base dell'analizzatore audio con l'API REST, vedere [come creare una trasformazione audio di base](transform-create-basic-audio-how-to.md).
 
 ### <a name="live-events"></a>Eventi live
 
@@ -324,8 +324,8 @@ Questa funzionalità può essere usata con qualsiasi [Trasformazione](/rest/api/
 
 Ecco alcuni esempi:
 
-* [Creare una clip video secondaria con .NET](subclip-video-dotnet-howto.md)
-* [Creare una clip video secondaria con REST](subclip-video-rest-howto.md)
+* [Creare una clip video secondaria con .NET](transform-subclip-video-dotnet-how-to.md)
+* [Creare una clip video secondaria con REST](transform-subclip-video-rest-how-to.md)
 
 ## <a name="may-2019"></a>Maggio 2019
 
@@ -334,7 +334,7 @@ Ecco alcuni esempi:
 È ora possibile usare Monitoraggio di Azure per visualizzare i dati di telemetria emessi da Servizi multimediali.
 
 * Usare i log di diagnostica di Monitoraggio di Azure per monitorare le richieste inviate dall'endpoint di recapito delle chiavi di Servizi multimediali. 
-* Monitorare le metriche emesse dagli [endpoint di streaming](streaming-endpoint-concept.md) di Servizi multimediali.   
+* Monitorare le metriche emesse dagli [endpoint di streaming](stream-streaming-endpoint-concept.md) di Servizi multimediali.   
 
 Per altre informazioni, vedere [Monitorare log di diagnostica e metriche di Servizi multimediali](monitoring/monitor-media-services-data-reference.md).
 
