@@ -1,6 +1,6 @@
 ---
-title: Code coverage di Microsoft Azure Maps Weather Services (anteprima)
-description: Informazioni sulla copertura di Microsoft Azure Maps Weather Services (anteprima)
+title: Copertura dei servizi meteorologici di Microsoft Azure Maps
+description: Informazioni sulla copertura dei servizi meteorologici di Microsoft Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -9,19 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5ac209dc898c2d30f8d50a8989b188ef5a9f5046
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96905486"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257671"
 ---
-# <a name="azure-maps-weather-services-preview-coverage"></a>Code coverage di servizi meteo di Azure Maps (anteprima)
-
-> [!IMPORTANT]
-> I servizi Meteo di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+# <a name="azure-maps-weather-services-coverage"></a>Copertura di servizi meteo di Azure Maps
 
 Questo articolo fornisce informazioni sulla copertura per i [Servizi Meteo](/rest/api/maps/weather)di Azure maps. Azure Maps Weather Data Services restituisce dettagli quali riquadri radar, condizioni meteo correnti, previsioni meteorologiche e il meteo lungo una route.
 

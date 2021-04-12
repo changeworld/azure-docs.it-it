@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 81cabe8dea178b2988039640065cb0eabc3287af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ec8104a5fd8d1c524f75c7a5173015115d85a253
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470906"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064308"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud accessibili tramite il [protocollo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard del settore e il [protocollo NFS (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (anteprima). È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -183,6 +183,10 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     Se Backup di Azure è stato abilitato nelle condivisioni file gestite da sincronizzazione file, gli ACL dei file possono continuare a essere ripristinati come parte del flusso di lavoro di ripristino del backup. Questa operazione può essere eseguita per l'intera condivisione o per singoli file/directory.
 
     Se si usano gli snapshot come parte della soluzione di backup autogestita per le condivisioni file gestite da sincronizzazione file, gli ACL potrebbero non essere ripristinati correttamente negli ACL NTFS se gli snapshot sono stati eseguiti prima del 24 febbraio 2020. In tal caso, è consigliabile contattare il supporto di Azure.
+
+* <a id="afs-lastwritetime"></a>
+  **Sincronizzazione file di Azure Sincronizza LastWriteTime per le directory?**  
+    No, Sincronizzazione file di Azure non sincronizza LastWriteTime per le directory. Questo si verifica per motivi strutturali.
     
 ## <a name="security-authentication-and-access-control"></a>Sicurezza, autenticazione e controllo di accesso
 * <a id="ad-support"></a>

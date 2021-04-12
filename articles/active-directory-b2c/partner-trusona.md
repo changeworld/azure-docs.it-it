@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 99368da8b4018e93ad537e4722ffefd476e61291
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03ed6d53908b1daf8e027ee0143cc06d803a24cd
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99573688"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257824"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integrazione di Trusona con Azure Active Directory B2C
 
@@ -164,4 +164,4 @@ Per ulteriori informazioni, vedere gli articoli seguenti:
 
 - [Criteri personalizzati in AAD B2C](custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in AAD B2C](custom-policy-get-started.md?tabs=applications)
+- [Introduzione ai criteri personalizzati in AAD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

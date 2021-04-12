@@ -3,108 +3,131 @@ title: Concetti - Nozioni di base di Kubernetes per il servizio Azure Kubernetes
 description: Informazioni sui componenti di base del cluster e del carico di lavoro di Kubernetes e sulle loro relazioni con le funzionalità del servizio Azure Kubernetes
 services: container-service
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: 2a1718d906ab5f51ea71be9b304028576c9fffa0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/05/2020
+ms.openlocfilehash: 5e505ed44d221b20178ea5ffb1d9125fb2bddd4c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122443"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105936"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
-Quando lo sviluppo di applicazioni si sposta verso un approccio basato su contenitori, è importante la necessità di orchestrare e gestire le risorse. Kubernetes è la piattaforma leader che offre programmazione affidabile di carichi di lavoro applicativi dotati di tolleranza agli errori. Il servizio Azure Kubernetes è un'offerta Kubernetes gestita che semplifica ulteriormente lo sviluppo e la gestione di applicazioni basate su contenitori.
+Lo sviluppo di applicazioni continua a passare a un approccio basato su contenitori, aumentando la necessità di orchestrare e gestire le risorse. In qualità di piattaforma leader, Kubernetes offre una pianificazione affidabile dei carichi di lavoro delle applicazioni a tolleranza di errore. Azure Kubernetes Service (AKS), un'offerta Kubernetes gestita, semplifica ulteriormente la distribuzione e la gestione delle applicazioni basate su contenitori.
 
-Questo articolo presenta i componenti principali dell'infrastruttura Kubernetes, ad esempio il *piano di controllo*, i *nodi* e i *pool di nodi*. Sono presentate anche risorse del carico di lavoro come *pod*, *distribuzioni* e *set*, nonché la procedura per raggruppare risorse in *spazi dei nomi*.
+Questo articolo descrive:
+* Componenti principali dell'infrastruttura Kubernetes:
+    * *piano di controllo*
+    * *nodi*
+    * *pool di nodi*
+* Risorse del carico di lavoro: 
+    * *Baccelli*
+    * *distribuzioni*
+    * *imposta* 
+* Come raggruppare le risorse in *spazi dei nomi*.
 
 ## <a name="what-is-kubernetes"></a>Cos'è Kubernetes
 
-Kubernetes è una piattaforma in rapida evoluzione che gestisce applicazioni basate su contenitori e i componenti di rete e archiviazione associati. La piattaforma è incentrata sui carichi di lavoro applicativi e non sui componenti dell'infrastruttura sottostante. Kubernetes offre un approccio dichiarativo alle distribuzioni, supportato da una gamma completa di API per operazioni di gestione.
+Kubernetes è una piattaforma in rapida evoluzione che gestisce applicazioni basate su contenitori e i componenti di rete e archiviazione associati. Kubernetes si concentra sui carichi di lavoro dell'applicazione, non sui componenti dell'infrastruttura sottostanti. Kubernetes offre un approccio dichiarativo alle distribuzioni, supportato da una gamma completa di API per operazioni di gestione.
 
-È possibile compilare ed eseguire applicazioni basate su microservizi moderne e portabili che sfruttano la capacità di Kubernetes di orchestrare e gestire la disponibilità di tali componenti applicativi. Kubernetes supporta applicazioni sia con stato che senza stato mentre l'adozione delle applicazioni basate su microservizi da parte dei team aumenta.
+È possibile compilare ed eseguire applicazioni moderne, portatili e basate su microservizi, usando Kubernetes per orchestrare e gestire la disponibilità dei componenti dell'applicazione. Kubernetes supporta applicazioni sia con stato che senza stato mentre l'adozione delle applicazioni basate su microservizi da parte dei team aumenta.
 
 In quanto piattaforma aperta, Kubernetes consente di compilare le applicazioni con il linguaggio di programmazione, il sistema operativo, le librerie e il bus di messaggistica preferiti. Gli strumenti esistenti di integrazione continua e recapito continuo (CI/CD) possono integrarsi con Kubernetes per la pianificazione e la distribuzione delle versioni.
 
-Il servizio Azure Kubernetes è un servizio Kubernetes gestito che riduce la complessità delle attività di distribuzione e delle attività principali di gestione, tra cui il coordinamento degli aggiornamenti. Il piano di controllo AKS è gestito dalla piattaforma Azure e si paga solo per i nodi AKS che eseguono le applicazioni. AKS è basato sul motore del servizio Kubernetes di Azure Open Source ([AKS-Engine][aks-engine]).
+AKS fornisce un servizio Kubernetes gestito che riduce la complessità delle attività di distribuzione e di gestione di base, ad esempio il coordinamento degli aggiornamenti. La piattaforma Azure gestisce il piano di controllo AKS e paga solo per i nodi AKS che eseguono le applicazioni. AKS è basato sul motore del servizio Kubernetes di Azure open source, ovvero [AKS-Engine][aks-engine].
 
 ## <a name="kubernetes-cluster-architecture"></a>Architettura del cluster Kubernetes
 
 Un cluster Kubernetes è suddiviso in due componenti:
 
-- Il *piano di controllo* fornisce i servizi Kubernetes principali e l'orchestrazione dei carichi di lavoro dell'applicazione.
-- *Nodi* che eseguono i carichi di lavoro dell'applicazione.
+- *Piano di controllo*: fornisce i servizi Kubernetes principali e l'orchestrazione dei carichi di lavoro dell'applicazione.
+- *Nodi*: eseguire i carichi di lavoro dell'applicazione.
 
 ![Componenti del piano e del nodo di controllo Kubernetes](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
 ## <a name="control-plane"></a>Piano di controllo
 
-Quando si crea un cluster AKS, viene creato e configurato automaticamente un piano di controllo. Questo piano di controllo viene fornito come una risorsa di Azure gestita astratta dall'utente. Il piano di controllo non prevede alcun costo, bensì solo i nodi che fanno parte del cluster AKS. Il piano di controllo e le relative risorse si trovano solo nell'area in cui è stato creato il cluster.
+Quando si crea un cluster AKS, viene creato e configurato automaticamente un piano di controllo. Questo piano di controllo viene fornito gratuitamente come una risorsa di Azure gestita astratta dall'utente. Paghi solo per i nodi collegati al cluster AKS. Il piano di controllo e le relative risorse si trovano solo nell'area in cui è stato creato il cluster.
 
 Il piano di controllo include i componenti Kubernetes principali seguenti:
 
-- *kube-apiserver*: il server API indica il modo in cui le API Kubernetes sottostanti sono esposte. Questo componente fornisce l'interazione per gli strumenti di gestione, ad esempio `kubectl` o il dashboard di Kubernetes.
-- *etcd*: per mantenere lo stato della configurazione e del cluster Kubernetes, l'*etcd* con disponibilità elevata è un archivio di valori chiave all'interno di Kubernetes.
-- *kube-scheduler*: quando si creano o si ridimensionano applicazioni, l'Utilità di pianificazione determina quali nodi possono eseguire il carico di lavoro e li avvia.
-- *kube-controller-manager*: lo strumento di gestione del controller supervisiona molti controller più piccoli che eseguono azioni, ad esempio la replica di pod e la gestione delle operazioni dei nodi.
+| Componente | Descrizione |  
+| ----------------- | ------------- |  
+| *kube-apiserver*                                                                                 | Il server API è il modo in cui vengono esposte le API Kubernetes sottostanti. Questo componente fornisce l'interazione per gli strumenti di gestione, ad esempio `kubectl` o il dashboard di Kubernetes.                                                        |  
+| *ETCD* | Per mantenere lo stato del cluster e della configurazione di Kubernetes, il *ETCD* a disponibilità elevata è un archivio di valori chiave all'interno di Kubernetes.                                      |  
+| *kube-scheduler*                                                                            | Quando si creano o si ridimensionano le applicazioni, l'utilità di pianificazione determina quali nodi possono eseguire il carico di lavoro e avviarli.                                                                                    |  
+| *kube-controller-manager*                                                                            | Gestione controller controlla un numero di controller più piccoli che eseguono azioni come la replica di Pod e la gestione delle operazioni dei nodi.                                                                  |  
 
 AKS fornisce un piano di controllo a tenant singolo con un server API dedicato, un'utilità di pianificazione e così via. Si definiscono il numero e le dimensioni dei nodi e la piattaforma Azure configura la comunicazione protetta tra il piano di controllo e i nodi. L'interazione con il piano di controllo si verifica tramite le API Kubernetes, ad esempio `kubectl` o il dashboard di Kubernetes.
 
-Questo piano di controllo gestito significa che non è necessario configurare componenti come un archivio *ETCD* a disponibilità elevata, ma significa anche che non è possibile accedere direttamente al piano di controllo. Gli aggiornamenti a Kubernetes vengono orchestrati tramite l'interfaccia della riga di comando di Azure o portale di Azure, che aggiorna il piano di controllo e quindi i nodi. Per risolvere i problemi possibili, è possibile esaminare i log del piano di controllo tramite i log di monitoraggio di Azure.
+Sebbene non sia necessario configurare componenti (ad esempio un archivio *ETCD* a disponibilità elevata) con questo piano di controllo gestito, non è possibile accedere direttamente al piano di controllo. Gli aggiornamenti del piano e del nodo di controllo Kubernetes vengono orchestrati tramite l'interfaccia della riga di comando di Azure o portale di Azure Per risolvere i problemi possibili, è possibile esaminare i log del piano di controllo tramite i log di monitoraggio di Azure.
 
-Se è necessario configurare il piano di controllo in un modo particolare o se è necessario accedervi direttamente, è possibile distribuire il proprio cluster Kubernetes usando [AKS-Engine][aks-engine].
+Per configurare o accedere direttamente a un piano di controllo, distribuire il proprio cluster Kubernetes usando [AKS-Engine][aks-engine].
 
 Per le procedure consigliate associate, vedere procedure consigliate [per la sicurezza e gli aggiornamenti del cluster in AKS][operator-best-practices-cluster-security].
 
 ## <a name="nodes-and-node-pools"></a>Nodi e pool di nodi
 
-Per eseguire le applicazioni e i servizi di supporto, è necessario un *nodo* Kubernetes. Un cluster servizio Azure Kubernetes ha uno o più nodi, ovvero una macchina virtuale (VM) di Azure che esegue i componenti nodo e il runtime del contenitore di Kubernetes:
+Per eseguire le applicazioni e i servizi di supporto, è necessario un *nodo* Kubernetes. Un cluster AKS ha almeno un nodo, una macchina virtuale (VM) di Azure che esegue i componenti del nodo Kubernetes e il runtime del contenitore.
 
-- `kubelet`È l'agente Kubernetes che elabora le richieste di orchestrazione dal piano di controllo e la pianificazione dell'esecuzione dei contenitori richiesti.
-- La rete virtuale è gestita dal *kube-proxy* in ogni nodo. Il proxy instrada il traffico di rete e gestisce gli indirizzi IP per i servizi e i pod.
-- Il *runtime del contenitore* è il componente che consente alle applicazioni in contenitori di eseguire e interagire con risorse aggiuntive, ad esempio la rete virtuale e la risorsa di archiviazione. I cluster AKS che usano i pool di nodi Kubernetes versione 1,19 e sono più usati `containerd` come runtime del contenitore. I cluster AKS che usano Kubernetes prima della versione 1.19 per i pool di nodi usano [Moby](https://mobyproject.org/) (upstream Docker) come runtime del contenitore.
+| Componente | Descrizione |  
+| ----------------- | ------------- |  
+| `kubelet`                                                                                 | Agente Kubernetes che elabora le richieste di orchestrazione dal piano di controllo e pianifica l'esecuzione dei contenitori richiesti.                                                        |  
+| *Kube-proxy* | Gestisce la rete virtuale in ogni nodo. Il proxy instrada il traffico di rete e gestisce gli indirizzi IP per i servizi e i pod.                                      |  
+| *runtime del contenitore*                                                                            | Consente l'esecuzione di applicazioni in contenitori e l'interazione con risorse aggiuntive, ad esempio la rete virtuale e l'archiviazione. I cluster AKS che usano i pool di nodi Kubernetes versione 1.19 + usano `containerd` come runtime del contenitore. I cluster AKS che usano Kubernetes prima della versione 1,19 del pool di nodi per i pool di nodi usano [Moby](https://mobyproject.org/) (upstream Docker) come runtime del contenitore.                                                                                    |  
+
 
 ![Macchina virtuale di Azure e risorse di supporto per un nodo di Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-La dimensione della macchina virtuale di Azure per i nodi definisce il numero di CPU, la quantità di memoria e la dimensione e tipo della risorsa di archiviazione disponibile, ad esempio unità SSD a prestazioni elevate o HDD normale. Se si prevede di aver bisogno di applicazioni che richiedono grandi quantità di CPU e memoria o archiviazione a prestazioni elevate, pianificare di conseguenza la dimensione dei nodi. È anche possibile scalare il numero di nodi nel cluster AKS per soddisfare la domanda.
+Le dimensioni della macchina virtuale di Azure per i nodi definiscono le CPU, la memoria, le dimensioni e il tipo di archiviazione disponibili, ad esempio unità SSD a prestazioni elevate o HDD normale. Pianificare le dimensioni del nodo in modo da determinare se le applicazioni possono richiedere grandi quantità di CPU e memoria o archiviazione a prestazioni elevate. Scalare in orizzontale il numero di nodi nel cluster AKS per soddisfare la domanda.
 
-In AKS l'immagine della macchina virtuale per i nodi del cluster è attualmente basata su Ubuntu Linux o Windows Server 2019. Quando si crea un cluster AKS o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le Configura. Non è necessario eseguire alcuna configurazione manuale. I nodi agente vengono fatturati come macchine virtuali standard, quindi tutti gli sconti sulle dimensioni della macchina virtuale in uso (incluse le [prenotazioni di Azure][reservation-discounts]) vengono applicati automaticamente.
+In AKS l'immagine della macchina virtuale per i nodi del cluster si basa su Ubuntu Linux o Windows Server 2019. Quando si crea un cluster AKS o si aumenta il numero di nodi, la piattaforma Azure crea e configura automaticamente il numero di macchine virtuali richiesto. I nodi agente vengono fatturati come VM standard, quindi vengono applicati automaticamente eventuali sconti per le dimensioni delle VM (incluse le [prenotazioni di Azure][reservation-discounts]).
 
-Se è necessario usare un sistema operativo host diverso, un altro runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Se ad esempio si vuole usare un runtime del contenitore diverso da `containerd` o Moby, è possibile usare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
+Distribuire un cluster Kubernetes personalizzato con il [motore AKS][aks-engine] se si usa un sistema operativo host diverso, un runtime contenitore o inclusi pacchetti personalizzati diversi. Le funzionalità di `aks-engine` rilascio upstream e forniscono le opzioni di configurazione prima del supporto nei cluster AKS. Se quindi si vuole usare un runtime del contenitore diverso da `containerd` o [Moby](https://mobyproject.org/), è possibile eseguire `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
 
 ### <a name="resource-reservations"></a>Prenotazioni di risorse
 
-Le risorse del nodo vengono usate da AKS per rendere la funzione del nodo come parte del cluster. Questo utilizzo può creare una discrepanza tra le risorse totali del nodo e le risorse allocabili quando viene usato in AKS. Queste informazioni sono importanti da tenere presente quando si impostano le richieste e i limiti per i pod distribuiti dall'utente.
+AKS usa le risorse del nodo per aiutare la funzione node come parte del cluster. Questo utilizzo può creare una discrepanza tra le risorse totali del nodo e le risorse allocabili in AKS. Tenere presente queste informazioni durante l'impostazione delle richieste e dei limiti per i pod distribuiti dall'utente.
 
 Per trovare le risorse allocabili di un nodo, eseguire:
 ```kubectl
 kubectl describe node [NODE_NAME]
 ```
 
-Per mantenere le prestazioni e le funzionalità del nodo, le risorse vengono riservate in ogni nodo da AKS. Man mano che un nodo cresce più in risorse, la prenotazione delle risorse cresce a causa di una maggiore quantità di Pod distribuiti dall'utente che necessitano di gestione.
+Per mantenere le prestazioni e le funzionalità del nodo, AKS riserva risorse in ogni nodo. Man mano che un nodo cresce più in risorse, la prenotazione delle risorse cresce a causa di una maggiore necessità di gestione dei Pod distribuiti dall'utente.
 
 >[!NOTE]
 > Usando i componenti aggiuntivi di AKS, ad esempio container Insights (OMS), utilizzerà risorse del nodo aggiuntive.
 
 Sono riservati due tipi di risorse:
 
-- **CPU: la** CPU riservata dipende dal tipo di nodo e dalla configurazione del cluster, che può causare una CPU meno allocabile a causa dell'esecuzione di funzionalità aggiuntive
+- **CPU**  
+    La CPU riservata dipende dal tipo di nodo e dalla configurazione del cluster, che può causare una CPU meno allocabile a causa dell'esecuzione di funzionalità aggiuntive.
 
    | Core CPU nell'host | 1    | 2    | 4    | 8    | 16 | 32|64|
    |---|---|---|---|---|---|---|---|
    |Kube-riservato (millicore)|60|100|140|180|260|420|740|
 
-- **Memoria: la** memoria usata da AKS include la somma di due valori.
+- **Memoria**  
+    La memoria usata da AKS include la somma di due valori.
 
-   1. Il daemon kubelet viene installato in tutti i nodi dell'agente Kubernetes per gestire la creazione e la terminazione del contenitore. Per impostazione predefinita, in AKS questo daemon presenta la seguente regola di rimozione: *Memory. available<750Mi*, il che significa che un nodo deve sempre avere almeno 750 mi allocabile in ogni momento.  Quando un host è al di sotto di tale soglia di memoria disponibile, il kubelet terminerà uno dei pod in esecuzione per liberare memoria nel computer host e proteggerlo. Questa azione viene attivata quando la memoria disponibile diminuisce oltre la soglia 750Mi.
+   1. **`kubelet` DAEMON**   
+       Il `kubelet` daemon viene installato in tutti i nodi dell'agente Kubernetes per gestire la creazione e la terminazione del contenitore. 
+   
+        Per impostazione predefinita, in AKS, `kubelet` daemon dispone della *memoria. disponibile<* regola di rimozione 750Mi, garantendo che un nodo disponga sempre almeno di 750 allocabile in ogni momento. Quando un host è sotto la soglia di memoria disponibile, attiverà il `kubelet` trigger per terminare uno dei pod in esecuzione e liberare memoria nel computer host.
 
-   2. Il secondo valore è una frequenza regressiva per le prenotazioni di memoria per la corretta funzione del daemon kubelet (in base a Kube-reserved).
+   2. **Una velocità regressiva di prenotazione di memoria** per il daemon kubelet per la corretta funzione (*Kube-reserved*).
       - 25% dei primi 4 GB di memoria
       - 20% dei 4 GB di memoria successivi (fino a 8 GB)
       - 10% dei prossimi 8 GB di memoria (fino a 16 GB)
       - 6% dei 112 GB di memoria successivi (fino a 128 GB)
       - 2% di memoria superiore a 128 GB
 
-Le regole precedenti per l'allocazione di memoria e CPU vengono usate per rendere integri i nodi dell'agente, inclusi alcuni pod di sistema di hosting cruciali per l'integrità del cluster. Queste regole di allocazione fanno anche in modo che il nodo segnali una quantità di memoria e CPU meno allocabile di quanto normalmente se non facesse parte di un cluster Kubernetes. Non è possibile modificare le prenotazioni di risorse sopra indicate.
+Regole di allocazione di memoria e CPU:
+* Mantieni i nodi dell'agente integri, inclusi alcuni pod di sistema host critici per l'integrità del cluster. 
+* Fare in modo che il nodo segnali una quantità minore di memoria e CPU allocabile rispetto a quando non faceva parte di un cluster Kubernetes. 
+
+Non è possibile modificare le prenotazioni di risorse sopra indicate.
 
 Se, ad esempio, un nodo dispone di 7 GB, verrà segnalato il 34% della memoria non allocabile, inclusa la soglia di rimozione hardware 750Mi.
 
@@ -116,18 +139,20 @@ Per le procedure consigliate associate, vedere procedure consigliate [per le fun
 
 ### <a name="node-pools"></a>Pool di nodi
 
-I nodi della stessa configurazione sono raggruppati in *pool di nodi*. Un cluster Kubernetes contiene uno o più pool di nodi. Il numero e la dimensione iniziale dei nodi sono definiti quando si crea un cluster servizio Azure Kubernetes, infatti viene creato un *pool di nodi predefinito*. Questo pool di nodi predefinito in servizio Azure Kubernetes contiene le macchine virtuali sottostanti che eseguono i nodi dell'agente.
+I nodi della stessa configurazione sono raggruppati in *pool di nodi*. Un cluster Kubernetes contiene almeno un pool di nodi. Il numero e la dimensione iniziale dei nodi sono definiti quando si crea un cluster servizio Azure Kubernetes, infatti viene creato un *pool di nodi predefinito*. Questo pool di nodi predefinito in servizio Azure Kubernetes contiene le macchine virtuali sottostanti che eseguono i nodi dell'agente.
 
 > [!NOTE]
-> Per garantire il funzionamento affidabile del cluster, è consigliabile eseguire almeno 2 (due) nodi nel pool di nodi predefinito.
+> Per garantire un funzionamento affidabile del cluster, è consigliabile eseguire almeno due (2) nodi nel pool di nodi predefinito.
 
-Quando si ridimensiona o si aggiorna un cluster servizio Azure Kubernetes, l'azione viene eseguita sul pool di nodi predefinito. È anche possibile scegliere di ridimensionare o aggiornare un pool di nodi specifico. Per le operazioni di aggiornamento, i contenitori in esecuzione vengono pianificati in altri nodi del pool fino a quando non vengono aggiornati tutti i nodi.
+Si ridimensiona o si aggiorna un cluster AKS rispetto al pool di nodi predefinito. È possibile scegliere di ridimensionare o aggiornare un pool di nodi specifico. Per le operazioni di aggiornamento, i contenitori in esecuzione vengono pianificati in altri nodi del pool fino a quando non vengono aggiornati tutti i nodi.
 
 Per altre informazioni su come usare più pool di nodi in AKS, vedere [creare e gestire pool di nodi multipli per un cluster in AKS][use-multiple-node-pools].
 
 ### <a name="node-selectors"></a>Selettori di nodo
 
-In un cluster AKS che contiene più pool di nodi, potrebbe essere necessario indicare all'utilità di pianificazione Kubernetes il pool di nodi da usare per una determinata risorsa. I controller in ingresso, ad esempio, non devono essere eseguiti nei nodi di Windows Server. I selettori di nodo consentono di definire vari parametri, ad esempio il sistema operativo node, per controllare la posizione in cui deve essere pianificato un pod.
+In un cluster AKS con più pool di nodi, potrebbe essere necessario indicare all'utilità di pianificazione Kubernetes il pool di nodi da usare per una determinata risorsa. I controller in ingresso, ad esempio, non devono essere eseguiti nei nodi di Windows Server. 
+
+I selettori di nodo consentono di definire vari parametri, come il sistema operativo node, per controllare la posizione in cui deve essere pianificato un pod.
 
 Nell'esempio di base seguente viene pianificata un'istanza NGINX in un nodo Linux usando il selettore di nodo *"beta.kubernetes.io/OS": Linux*:
 
@@ -148,25 +173,32 @@ Per altre informazioni su come controllare dove sono pianificati i pod, vedere [
 
 ## <a name="pods"></a>Pod
 
-Kubernetes usa i *pod* per eseguire un'istanza dell'applicazione. Un pod rappresenta una singola istanza dell'applicazione. I pod hanno in genere un mapping 1:1 con i contenitori, anche se vi sono scenari avanzati in cui un pod può contenere più contenitori. I pod multi-contenitore sono pianificati insieme nello stesso nodo e consentono ai contenitori di condividere le risorse correlate.
+Kubernetes usa i *pod* per eseguire un'istanza dell'applicazione. Un pod rappresenta una singola istanza dell'applicazione. 
 
-Quando si crea un pod, è possibile definire *richieste di risorse* per richiedere una determinata quantità di risorse di CPU o di memoria. L'Utilità di pianificazione di Kubernetes tenta di pianificare i pod per l'esecuzione in un nodo con le risorse disponibili per soddisfare la richiesta. È anche possibile specificare limiti massimi per le risorse che impediscono a un pod dato di usare troppe risorse di calcolo del nodo sottostante. Una procedura consigliata consiste nell'includere limiti per le risorse per tutti i pod, per consentire all'l'Utilità di pianificazione di Kubernetes di capire quali risorse sono necessarie e consentite.
+I pod hanno in genere un mapping 1:1 con un contenitore. Negli scenari avanzati, un pod può contenere più contenitori. I pod a più contenitori sono pianificati insieme nello stesso nodo e consentono ai contenitori di condividere le risorse correlate.
+
+Quando si crea un pod, è possibile definire *richieste di risorse* per richiedere una determinata quantità di risorse di CPU o di memoria. L'utilità di pianificazione Kubernetes tenta di soddisfare la richiesta pianificando i pod da eseguire in un nodo con risorse disponibili. È anche possibile specificare limiti massimi per le risorse per impedire a un pod di consumare una quantità eccessiva di risorse di calcolo dal nodo sottostante. La procedura consigliata consiste nell'includere i limiti delle risorse per tutti i pod per consentire all'utilità di pianificazione Kubernetes di identificare le risorse necessarie e consentite.
 
 Per altre informazioni, vedere [Pod di Kubernetes][kubernetes-pods] e [Ciclo di vita dei pod di Kubernetes][kubernetes-pod-lifecycle].
 
-Un pod è una risorsa logica, i carichi di lavoro applicativi sono eseguiti nei contenitori. I pod sono in genere risorse temporanee ed eliminabili e i pod con pianificazione individuale perdono alcune delle funzionalità di disponibilità elevate e ridondanza offerte da Kubernetes. I pod vengono invece distribuiti e gestiti dai *controller* Kubernetes, ad esempio il controller di distribuzione.
+Un pod è una risorsa logica, ma i carichi di lavoro dell'applicazione vengono eseguiti nei contenitori. I pod sono in genere risorse monouso e effimere. I pod pianificati singolarmente mancano alcune delle funzionalità Kubernetes di disponibilità elevata e ridondanza. I pod vengono invece distribuiti e gestiti dai *controller* Kubernetes, ad esempio il controller di distribuzione.
 
 ## <a name="deployments-and-yaml-manifests"></a>Distribuzioni e manifesti YAML
 
-Una *distribuzione* rappresenta uno o più pod identici gestiti dal controller di distribuzione di Kubernetes. Una distribuzione specifica il numero di *repliche* (pod) da creare e l'Utilità di pianificazione di Kubernetes assicura che, in caso di problemi dei pod o dei nodi, vengano pianificati pod aggiuntivi su nodi integri.
+Una *distribuzione* rappresenta Pod identici gestiti dal controller di distribuzione Kubernetes. Una distribuzione definisce il numero di *repliche* pod da creare. L'utilità di pianificazione di Kubernetes garantisce che i pod aggiuntivi siano pianificati in nodi integri se i pod o i nodi riscontrano problemi.
 
-È possibile aggiornare le distribuzioni per modificare la configurazione dei pod, l'immagine del contenitore utilizzata o la risorsa di archiviazione collegata. Il controller di distribuzione svuota e termina un determinato numero di repliche, crea repliche dalla nuova definizione della distribuzione e continua il processo fino a quando non vengono aggiornate tutte le repliche della distribuzione.
+È possibile aggiornare le distribuzioni per modificare la configurazione dei pod, l'immagine del contenitore utilizzata o la risorsa di archiviazione collegata. Il controller di distribuzione:
+* Svuota e termina un determinato numero di repliche.
+* Crea le repliche dalla nuova definizione di distribuzione.
+* Continua il processo finché tutte le repliche nella distribuzione non vengono aggiornate.
 
-La maggior parte delle applicazioni senza stato in servizio Azure Kubernetes dovrebbe usare il modello di distribuzione anziché pianificare singoli pod. Kubernetes può monitorare l'integrità e lo stato delle distribuzioni per garantire che il numero di repliche richiesto si esegua all'interno del cluster. Quando si pianificano solo singoli Pod, i Pod non vengono riavviati se si verifica un problema e non vengono ripianificati in nodi integri se il nodo corrente rileva un problema.
+La maggior parte delle applicazioni senza stato in servizio Azure Kubernetes dovrebbe usare il modello di distribuzione anziché pianificare singoli pod. Kubernetes può monitorare l'integrità e lo stato della distribuzione per garantire che il numero di repliche necessario venga eseguito all'interno del cluster. Quando pianificati singolarmente, i Pod non vengono riavviati se si verifica un problema e non vengono ripianificati in nodi integri se il nodo corrente rileva un problema.
 
-Se un'applicazione richiede la disponibilità costante di un quorum specifico di istanze per consentire la presa di decisioni di gestione, è preferibile che il processo di aggiornamento non comprometta tale capacità. I *budget di interruzione dei pod* possono essere utilizzati per definire il numero di repliche di una distribuzione che possono essere arrestate durante un aggiornamento o un aggiornamento dei nodi. Se, ad esempio, si dispone di *cinque (5)* repliche nella distribuzione, è possibile definire un'alterazione del pod di *4* per consentire l'eliminazione o la ripianificazione di una sola replica alla volta. Come con i limiti delle risorse di pod, una procedura consigliata è definire i budget di interruzione dei pod nelle applicazioni che richiedono la presenza costante di un numero minimo di repliche.
+Non è necessario interferire con un processo di aggiornamento se l'applicazione richiede un numero minimo di istanze disponibili. I *budget di interruzione del Pod* definiscono il numero di repliche in una distribuzione che possono essere disattivate durante un aggiornamento del nodo o dell'aggiornamento. Se, ad esempio, si dispone di *cinque (5)* repliche nella distribuzione, è possibile definire un'interferenza pod di *4 (quattro)* per consentire l'eliminazione o la pianificazione di una sola replica alla volta. Come per i limiti delle risorse Pod, la procedura consigliata consiste nel definire i budget per l'interferenza dei Pod sulle applicazioni che richiedono che sia sempre presente un numero minimo di repliche.
 
-Le distribuzioni vengono in genere create e gestite con `kubectl create` o `kubectl apply`. Per creare una distribuzione si definisce un file manifesto nel formato YAML (YAML Ain't Markup Language). L'esempio seguente crea una distribuzione di base del server Web NGINX. La distribuzione specifica *tre (3)* repliche da creare e richiede che la porta *80* sia aperta nel contenitore. Richieste e limiti relativi alle risorse sono definiti anche per la CPU e la memoria.
+Le distribuzioni vengono in genere create e gestite con `kubectl create` o `kubectl apply`. Creare una distribuzione definendo un file manifesto nel formato YAML. 
+
+L'esempio seguente crea una distribuzione di base del server Web NGINX. La distribuzione specifica *tre (3)* repliche da creare e richiede che la porta *80* sia aperta nel contenitore. Richieste e limiti relativi alle risorse sono definiti anche per la CPU e la memoria.
 
 ```yaml
 apiVersion: apps/v1
@@ -197,38 +229,40 @@ spec:
             memory: 256Mi
 ```
 
-È possibile creare applicazioni più complesse includendo anche servizi come quelli di bilanciamento del carico all'interno del manifesto YAML.
+È possibile creare applicazioni più complesse includendo i servizi, ad esempio i servizi di bilanciamento del carico, all'interno del manifesto YAML.
 
 Per altre informazioni, vedere le [distribuzioni Kubernetes][kubernetes-deployments].
 
 ### <a name="package-management-with-helm"></a>Gestione dei pacchetti con Helm
 
-Un approccio comune alla gestione di applicazioni in Kubernetes è l'uso di [Helm][helm]. È possibile creare e usare *grafici* Helm pubblici esistente che contengono una versione pacchetto del codice applicativo e manifesti YAML di Kubernetes per distribuire le risorse. Questi grafici Helm possono essere archiviati in locale e spesso in un repository remoto, ad esempio un [repository per grafici Helm di Registro Azure Container][acr-helm].
+[Helm][helm] viene comunemente usato per gestire le applicazioni in Kubernetes. È possibile distribuire le risorse compilando e usando i *grafici* Helm pubblici esistenti che contengono una versione in pacchetto del codice dell'applicazione e i manifesti YAML di Kubernetes. È possibile archiviare i grafici Helm in locale o in un repository remoto, ad esempio un repository del [grafico Helm di Azure container Registry][acr-helm].
 
-Per usare Helm, installare il client Helm nel computer oppure usare il client Helm nella [Azure cloud Shell][azure-cloud-shell]. È possibile cercare o creare grafici Helm con il client e quindi installarli nel cluster Kubernetes. Per altre informazioni, vedere [Install existing Applications with Helm in AKS][aks-helm].
+Per usare Helm, installare il client Helm nel computer oppure usare il client Helm nella [Azure cloud Shell][azure-cloud-shell]. Cercare o creare grafici Helm, quindi installarli nel cluster Kubernetes. Per altre informazioni, vedere [Install existing Applications with Helm in AKS][aks-helm].
 
 ## <a name="statefulsets-and-daemonsets"></a>Oggetti StatefulSet e DaemonSet
 
-Il controller di distribuzione usa l'Utilità di pianificazione di Kubernetes per eseguire un determinato numero di repliche su qualsiasi nodo disponibile con le risorse disponibili. Questo approccio di usare le distribuzioni può essere sufficiente per le applicazioni senza stato, ma non per le applicazioni che richiedono una convenzione di denominazione o una risorsa di archiviazione permanente. Per le applicazioni che richiedono una replica per ogni nodo o per nodi selezionati di un cluster, il controller di distribuzione non esamina come le repliche sono distribuite tra i nodi.
+Usando l'utilità di pianificazione Kubernetes, il controller di distribuzione esegue le repliche in qualsiasi nodo disponibile con le risorse disponibili. Sebbene questo approccio possa essere sufficiente per le applicazioni senza stato, il controller di distribuzione non è ideale per le applicazioni che richiedono:
+* Convenzione di denominazione permanente o archiviazione. 
+* Una replica da esistere in ogni nodo selezionato all'interno di un cluster.
 
-Esistono due risorse di Kubernetes che consentono di gestire questi tipi di applicazioni:
+Due risorse di Kubernetes, tuttavia, consentono di gestire questi tipi di applicazioni:
 
-- Gli oggetti *StatefulSet* mantengono lo stato delle applicazioni oltre il ciclo di vita di un singolo pod, ad esempio la risorsa di archiviazione.
-- Gli oggetti *DaemonSet* assicurano che ci sia un'istanza in esecuzione in ogni nodo in una delle prime fasi del processo di bootstrap di Kubernetes.
+- *StatefulSets* mantiene lo stato delle applicazioni oltre un singolo ciclo di vita del Pod, ad esempio l'archiviazione.
+- *Gli elementi daemonset* assicurare un'istanza in esecuzione in ogni nodo, all'inizio del processo di bootstrap di Kubernetes.
 
 ### <a name="statefulsets"></a>Oggetti StatefulSet
 
-Molte applicazioni sviluppate attualmente sono senza stato, mentre gli oggetti *StatefulSet* possono essere usati per le applicazioni con stato, ad esempio le applicazioni che includono componenti di database. Un oggetto StatefulSet è simile a una distribuzione per il fatto che vengono creati e gestiti uno o più pod identici. Le repliche in un oggetto StatefulSet seguono un approccio sequenziale normale alla distribuzione, il ridimensionamento, gli aggiornamenti e la chiusura. Con StatefulSet (quando le repliche vengono ripianificate) la convenzione di denominazione, i nomi di rete e l'archiviazione vengono mantenuti.
+Lo sviluppo di applicazioni moderne spesso mira per le applicazioni senza stato. Per le applicazioni con stato, come quelle che includono i componenti del database, è possibile usare *StatefulSets*. Analogamente alle distribuzioni, un StatefulSet crea e gestisce almeno un pod identico. Le repliche in un StatefulSet seguono un normale approccio sequenziale per la distribuzione, la scalabilità, l'aggiornamento e la chiusura. La convenzione di denominazione, i nomi di rete e l'archiviazione vengono mantenuti quando le repliche vengono ripianificate con un StatefulSet.
 
-Si definisce l'applicazione nel formato YAML tramite `kind: StatefulSet` e poi il controller StatefulSet gestisce la distribuzione e la gestione delle repliche necessarie. I dati vengono scritti nella risorsa di archiviazione permanente fornita da Managed Disks di Azure o File di Azure. Con gli oggetti StatefulSet, la risorsa di archiviazione permanente sottostante rimane anche quando viene eliminato l'oggetto StatefulSet.
+Definire l'applicazione in formato YAML usando `kind: StatefulSet` . A questo punto, il controller StatefulSet gestisce la distribuzione e la gestione delle repliche richieste. I dati vengono scritti nella risorsa di archiviazione permanente fornita da Managed Disks di Azure o File di Azure. Con StatefulSets, l'archiviazione persistente sottostante rimane, anche quando il StatefulSet viene eliminato.
 
 Per altre informazioni, vedere [Oggetti StatefulSet di Kubernetes][kubernetes-statefulsets].
 
-Le repliche in un oggetto StatefulSet sono pianificate ed eseguire su tutti i nodi disponibili in un cluster servizio Azure Kubernetes. Se è necessario assicurarsi che almeno un pod del set venga eseguito in un nodo, è possibile usare un oggetto DaemonSet.
+Le repliche in un oggetto StatefulSet sono pianificate ed eseguire su tutti i nodi disponibili in un cluster servizio Azure Kubernetes. Per assicurarsi che almeno un pod nel set venga eseguito in un nodo, usare invece un DaemonSet.
 
 ### <a name="daemonsets"></a>Oggetti DaemonSet
 
-Per esigenze specifiche di raccolta di log o monitoraggio potrebbe essere necessario eseguire un pod specifico su tutti i nodi o su nodi selezionati. Un oggetto *DaemonSet* anche in questo caso viene usato per distribuire uno o più pod identici, ma il controller DaemonSet garantisce che ogni nodo specificato esegua un'istanza del pod.
+Per la raccolta o il monitoraggio di log specifici, potrebbe essere necessario eseguire un pod in tutti i nodi o selezionati. È possibile usare *DaemonSet* per distribuire uno o più POD identici, ma il controller DaemonSet garantisce che ogni nodo specificato esegua un'istanza del Pod.
 
 Il controller DaemonSet può pianificare i pod nei nodi in una delle prime fasi del processo di avvio del cluster, prima che sia avviata l'utilità di pianificazione predefinita di Kubernetes. Questa capacità garantisce che i pod di un oggetto DaemonSet vengono avviati prima che siano pianificati i pod tradizionali in una distribuzione o in un oggetto StatefulSet.
 
@@ -241,15 +275,18 @@ Per altre informazioni, vedere [Oggetti DaemonSet di Kubernetes][kubernetes-daem
 
 ## <a name="namespaces"></a>Spazi dei nomi
 
-Le risorse di Kubernetes, ad esempio i pod e le distribuzioni, vengono raggruppate logicamente in uno *spazio dei nomi*. Questi raggruppamenti consentono di dividere un cluster servizio Azure Kubernetes e limitare l'accesso per creare, visualizzare o gestire le risorse in modo logico. Ad esempio, è possibile creare spazi dei nomi per separare gruppi aziendali. Gli utenti possono interagire solo con le risorse all'interno degli spazi dei nomi assegnati.
+Le risorse di Kubernetes, ad esempio i pod e le distribuzioni, sono raggruppate logicamente in uno *spazio dei nomi* per dividere un cluster AKS e limitare l'accesso alle risorse per creare, visualizzare o gestire. Ad esempio, è possibile creare spazi dei nomi per separare i gruppi aziendali. Gli utenti possono interagire solo con le risorse all'interno degli spazi dei nomi assegnati.
 
 ![Spazi dei nomi di Kubernetes per dividere in modo logico risorse e applicazioni](media/concepts-clusters-workloads/namespaces.png)
 
 Quando si crea un cluster servizio Azure Kubernetes, sono disponibili gli spazi dei nomi seguenti:
 
-- *predefinito*: lo spazio dei nomi dove i pod e le distribuzioni vengono creati per impostazione predefinita se non ne viene specificato un altro. Negli ambienti più piccoli è possibile distribuire le applicazioni direttamente nello spazio dei nomi predefinito senza creare altre suddivisioni logiche. Quando si interagisce con l'API di Kubernetes, ad esempio `kubectl get pods`, viene usato lo spazio dei nomi predefinito se non ne viene specificato un altro.
-- *kube system*: lo spazio dei nomi in cui sono presenti le risorse principali, ad esempio le funzionalità di rete come DNS e proxy o il dashboard di Kubernetes. In genere non si distribuiscono le proprie applicazioni in questo spazio dei nomi.
-- *kube-public*: questo spazio dei nomi solitamente non viene usato ma può essere usato per le risorse che devono essere visibili nell'intero cluster ed essere visualizzate da tutti gli utenti.
+| Spazio dei nomi | Descrizione |  
+| ----------------- | ------------- |  
+| *default*                                                                                 | Quando i pod e le distribuzioni vengono creati per impostazione predefinita quando non viene specificato alcun valore. Negli ambienti più piccoli è possibile distribuire le applicazioni direttamente nello spazio dei nomi predefinito senza creare altre suddivisioni logiche. Quando si interagisce con l'API di Kubernetes, ad esempio `kubectl get pods`, viene usato lo spazio dei nomi predefinito se non ne viene specificato un altro.                                                        |  
+| *kube-system* | Dove si trovano le risorse principali, ad esempio le funzionalità di rete come DNS e proxy o il dashboard di Kubernetes. In genere non si distribuiscono le proprie applicazioni in questo spazio dei nomi.                                      |  
+| *kube-public*                                                                            | In genere non viene usato, ma può essere usato per visualizzare le risorse nell'intero cluster e può essere visualizzato da qualsiasi utente.                                                                                    |  
+
 
 Per altre informazioni, vedere [Spazi dei nomi di Kubernetes][kubernetes-namespaces].
 

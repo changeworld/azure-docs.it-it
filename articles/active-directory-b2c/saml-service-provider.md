@@ -13,12 +13,12 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 97718fef0aecd07dd364677ce1b72eb5bba78475
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 652bc9a236a4e4b9d3f99dab640919f2be985984
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384273"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257722"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -47,7 +47,7 @@ Le organizzazioni che utilizzano Azure AD B2C come soluzione di gestione delle i
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Completare la procedura descritta in [Introduzione ai criteri personalizzati in Azure AD B2C](custom-policy-get-started.md). Per i criteri personalizzati descritti nell'articolo, sono necessari i criteri personalizzati *SocialAndLocalAccounts* del pacchetto Starter.
+* Completare la procedura descritta in [Introduzione ai criteri personalizzati in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Per i criteri personalizzati descritti nell'articolo, sono necessari i criteri personalizzati *SocialAndLocalAccounts* del pacchetto Starter.
 * Conoscenza di base del protocollo SAML e della familiarità con l'implementazione SAML dell'applicazione.
 * Applicazione Web configurata come applicazione SAML. Per questa esercitazione, è possibile usare un'[applicazione di test SAML][samltest] fornita.
 

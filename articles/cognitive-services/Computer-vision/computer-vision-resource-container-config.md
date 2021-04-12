@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b421877b2a41074bf901817c7ad8922083c3e77
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611896"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285674"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configurare i contenitori Docker di lettura OCR
 
@@ -34,8 +34,8 @@ Il contenitore include anche le seguenti impostazioni di configurazione specific
 |Necessario|Impostazione|Scopo|
 |--|--|--|
 |No|ReadEngineConfig:ResultExpirationPeriod| solo contenitori v 2.0. Periodo di scadenza del risultato in ore. L'impostazione predefinita è 48 ore. L'impostazione specifica quando il sistema deve cancellare i risultati del riconoscimento. Se, ad esempio `resultExpirationPeriod=1` , il sistema cancella il risultato del riconoscimento 1 ora dopo il processo. Se `resultExpirationPeriod=0` , il sistema cancella il risultato del riconoscimento dopo che il risultato è stato recuperato.|
-|No|Cache: Redis| solo contenitori v 2.0. Abilita l'archiviazione Redis per l'archiviazione dei risultati. È *necessaria* una cache se più contenitori di lettura sono posizionati dietro un servizio di bilanciamento del carico.|
-|No|Coda: RabbitMQ|solo contenitori v 2.0. Abilita RabbitMQ per l'invio di attività. Questa impostazione è utile quando più contenitori di lettura sono posizionati dietro un servizio di bilanciamento del carico.|
+|No|Cache: Redis| solo contenitori v 2.0. Abilita l'archiviazione Redis per l'archiviazione dei risultati. È *necessaria* una cache se più contenitori OCR di lettura sono posizionati dietro un servizio di bilanciamento del carico.|
+|No|Coda: RabbitMQ|solo contenitori v 2.0. Abilita RabbitMQ per l'invio di attività. Questa impostazione è utile quando più contenitori OCR di lettura sono posizionati dietro un servizio di bilanciamento del carico.|
 |No|Coda: Azure: QueueVisibilityTimeoutInMilliseconds | solo contenitori V3. x. Tempo di invisibilità di un messaggio quando un altro thread di lavoro lo elabora. |
 |No|Archiviazione::D ocumentStore:: MongoDB|solo contenitori v 2.0. Abilita MongoDB per l'archiviazione dei risultati permanenti. |
 |No|Archiviazione: ObjectStore: AzureBlob: ConnectionString| solo contenitori V3. x. Stringa di connessione dell'archiviazione BLOB di Azure. |
@@ -119,7 +119,7 @@ Sostituire {_nome_argomento_} con i propri valori:
 
 ## <a name="container-docker-examples"></a>Esempi di contenitori Docker
 
-Gli esempi di Docker seguenti sono per il contenitore di lettura.
+Gli esempi di Docker seguenti sono per il contenitore OCR Read.
 
 
 # <a name="version-32-preview"></a>[Versione 3,2-Preview](#tab/version-3-2)

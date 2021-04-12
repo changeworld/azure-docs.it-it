@@ -1,16 +1,16 @@
 ---
-title: Come attivare azioni complesse con avvisi di Monitoraggio di Azure
+title: Attivare azioni complesse con gli avvisi di monitoraggio di Azure
 description: Informazioni su come creare un'azione dell'app per la logica per elaborare gli avvisi di Monitoraggio di Azure.
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: a1371e00a6d4c5db609466e25c9d94aad5e73398
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f1e81dca6926ae9f57e428eb1cef761c588a78b6
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045718"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029846"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Come attivare azioni complesse con avvisi di Monitoraggio di Azure
 
@@ -34,66 +34,66 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
 ## <a name="create-an-activity-log-alert-administrative"></a>Creare un avviso del log attività: amministrativo
 
-1. [Creare un'app per la logica](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
+1. [Creare un'app per la logica](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2.  Selezionare il trigger **Alla ricezione di una richiesta HTTP**.
+1.  Selezionare il trigger **Alla ricezione di una richiesta HTTP**.
 
 1. Nella finestra di dialogo **Alla ricezione di una richiesta HTTP**, selezionare **Usare il payload di esempio per generare lo schema**.
 
-    ![Screenshot che mostra la finestra di dialogo Alla ricezione di una richiesta HTTP con l'opzione Usare il payload di esempio per generare lo schema selezionata. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Screenshot che mostra la finestra di dialogo della richiesta di una T t e l'opzione Usa payload di esempio per generare lo schema selezionato. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-3.  Copiare e incollare il payload di esempio seguente nella finestra di dialogo:
+1.  Copiare e incollare il payload di esempio seguente nella finestra di dialogo:
 
     ```json
         {
-            "schemaId": "Microsoft.Insights/activityLogs",
-            "data": {
-                "status": "Activated",
-                "context": {
-                "activityLog": {
-                    "authorization": {
-                    "action": "microsoft.insights/activityLogAlerts/write",
-                    "scope": "/subscriptions/…"
+            "schemaId&quot;: &quot;Microsoft.Insights/activityLogs&quot;,
+            &quot;data&quot;: {
+                &quot;status&quot;: &quot;Activated&quot;,
+                &quot;context&quot;: {
+                &quot;activityLog&quot;: {
+                    &quot;authorization&quot;: {
+                    &quot;action&quot;: &quot;microsoft.insights/activityLogAlerts/write&quot;,
+                    &quot;scope&quot;: &quot;/subscriptions/…&quot;
                     },
-                    "channels": "Operation",
-                    "claims": "…",
-                    "caller": "logicappdemo@contoso.com",
-                    "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
-                    "description": "",
-                    "eventSource": "Administrative",
-                    "eventTimestamp": "2018-04-03T22:33:11.762469+00:00",
-                    "eventDataId": "ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0",
-                    "level": "Informational",
-                    "operationName": "microsoft.insights/activityLogAlerts/write",
-                    "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                    "resourceId": "/subscriptions/…",
-                    "resourceGroupName": "LOGICAPP-DEMO",
-                    "resourceProviderName": "microsoft.insights",
-                    "status": "Succeeded",
-                    "subStatus": "",
-                    "subscriptionId": "…",
-                    "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
-                    "resourceType": "microsoft.insights/activityLogAlerts"
+                    &quot;channels&quot;: &quot;Operation&quot;,
+                    &quot;claims&quot;: &quot;…&quot;,
+                    &quot;caller&quot;: &quot;logicappdemo@contoso.com&quot;,
+                    &quot;correlationId&quot;: &quot;91ad2bac-1afa-4932-a2ce-2f8efd6765a3&quot;,
+                    &quot;description&quot;: &quot;&quot;,
+                    &quot;eventSource&quot;: &quot;Administrative&quot;,
+                    &quot;eventTimestamp&quot;: &quot;2018-04-03T22:33:11.762469+00:00&quot;,
+                    &quot;eventDataId&quot;: &quot;ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0&quot;,
+                    &quot;level&quot;: &quot;Informational&quot;,
+                    &quot;operationName&quot;: &quot;microsoft.insights/activityLogAlerts/write&quot;,
+                    &quot;operationId&quot;: &quot;61f59fc8-1442-4c74-9f5f-937392a9723c&quot;,
+                    &quot;resourceId&quot;: &quot;/subscriptions/…&quot;,
+                    &quot;resourceGroupName&quot;: &quot;LOGICAPP-DEMO&quot;,
+                    &quot;resourceProviderName&quot;: &quot;microsoft.insights&quot;,
+                    &quot;status&quot;: &quot;Succeeded&quot;,
+                    &quot;subStatus&quot;: &quot;&quot;,
+                    &quot;subscriptionId&quot;: &quot;…&quot;,
+                    &quot;submissionTimestamp&quot;: &quot;2018-04-03T22:33:36.1068742+00:00&quot;,
+                    &quot;resourceType&quot;: &quot;microsoft.insights/activityLogAlerts&quot;
                 }
                 },
-                "properties": {}
+                &quot;properties&quot;: {}
             }
         }
     ```
 
-9. In **Progettazione app per la logica** viene visualizzata una finestra popup per ricordare che la richiesta inviata all'app per la logica deve impostare l'intestazione **Content-Type** su **application/json**. Chiudere la finestra popup. L'avviso di Monitoraggio di Azure imposta l'intestazione.
+1. In **progettazione app** per la logica viene visualizzata una finestra popup per ricordare che la richiesta inviata all'app per la logica deve impostare l'intestazione **Content-Type** su **Application/JSON**. Chiudere la finestra popup. L'avviso di Monitoraggio di Azure imposta l'intestazione.
 
-    ![Impostare l'intestazione Content-Type](media/action-groups-logic-app/content-type-header.png "Impostare l'intestazione Content-Type")
+    ![Impostare l'intestazione Content-Type](media/action-groups-logic-app/content-type-header.png &quot;Impostare l'intestazione Content-Type")
 
-10. Selezionare **+** **nuovo passaggio** , quindi scegliere **Aggiungi un'azione**.
+1. Selezionare **+** **nuovo passaggio** , quindi scegliere **Aggiungi un'azione**.
 
     ![Aggiungere un'azione](media/action-groups-logic-app/add-action.png "Aggiungere un'azione")
 
-11. Cercare e selezionare il connettore Microsoft Teams. Scegliere l'azione **Microsoft teams-post Message** .
+1. Cercare e selezionare il connettore Microsoft Teams. Scegliere l'azione **Microsoft teams-post Message** .
 
     ![Azioni Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Azioni Microsoft Teams")
 
-12. Configurare l'azione di Microsoft Teams. La **finestra di progettazione di app** per la logica richiede di eseguire l'autenticazione con l'account aziendale o dell'Istituto di istruzione. Scegliere l'**ID team** e l'**ID canale** per l'invio del messaggio.
+1. Configurare l'azione di Microsoft Teams. La **finestra di progettazione di app** per la logica richiede di eseguire l'autenticazione con l'account aziendale o dell'Istituto di istruzione. Scegliere l'**ID team** e l'**ID canale** per l'invio del messaggio.
 
 13. Configurare il messaggio utilizzando una combinazione di testo statico e riferimenti a \<fields\> nel contenuto dinamico. Copiare e incollare il testo seguente nel campo **Messaggio**:
 
@@ -111,9 +111,9 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
     ![Azione Microsoft teams: pubblica un messaggio](media/action-groups-logic-app/teams-action-post-message.png "Azione Microsoft teams: pubblica un messaggio")
 
-14. Nella parte superiore di **Progettazione app per la logica**, selezionare **Salva** per salvare l'app per la logica.
+1. Nella parte superiore di **Progettazione app per la logica**, selezionare **Salva** per salvare l'app per la logica.
 
-15. Aprire il gruppo di azioni esistente e aggiungere un'azione per fare riferimento all'app per la logica. Se non si dispone di un gruppo di azione esistente, vedere [creare e gestire gruppi di azioni nel portale di Azure](./action-groups.md) per crearne uno. Non dimenticare di salvare le modifiche.
+1. Aprire il gruppo di azioni esistente e aggiungere un'azione per fare riferimento all'app per la logica. Se non si dispone di un gruppo di azione esistente, vedere [creare e gestire gruppi di azioni nel portale di Azure](./action-groups.md) per crearne uno. Non dimenticare di salvare le modifiche.
 
     ![Aggiornare il gruppo di azioni](media/action-groups-logic-app/update-action-group.png "Aggiornare il gruppo di azioni")
 
@@ -178,7 +178,7 @@ Le voci di integrità dei servizi di Azure fanno parte del log attività. Il pro
 
       !["Condizione del payload di integrità del servizio"](media/action-groups-logic-app/service-health-payload-condition.png "Condizione del payload di integrità del servizio")
 
-   1. Nella condizione **È true** seguire le istruzioni nei passaggi da 11 a 13 in [Creare un avviso del log attività](#create-an-activity-log-alert-administrative) per aggiungere l'azione Microsoft Teams.
+   1. Se la condizione è **true** , seguire le istruzioni riportate nei passaggi da 11 a 13 di [creare un avviso del log attività](#create-an-activity-log-alert-administrative) per aggiungere l'azione Microsoft teams.
 
    1. Definire il messaggio usando una combinazione di HTML e contenuto dinamico. Copiare e incollare il contenuto seguente nel campo **Messaggio**. Sostituire i campi `[incidentType]`, `[trackingID]`, `[title]` e `[communication]` con tag di contenuto dinamico con lo stesso nome:
 
@@ -265,7 +265,7 @@ Il processo di creazione di un avviso per la metrica è simile alla [creazione d
        
        !["Condizione payload avvisi metrica"](media/action-groups-logic-app/metric-alert-payload-condition.png "Condizione payload avviso metrica")
 
-  1. Nella condizione **È true** aggiungere un ciclo **For each** e l'azione Microsoft Teams. Definire il messaggio usando una combinazione di HTML e contenuto dinamico.
+  1. Nella condizione **If true** aggiungere un ciclo **for each** e l'azione Microsoft teams. Definire il messaggio usando una combinazione di HTML e contenuto dinamico.
 
       !["La condizione di avviso metrica true Condition post azione](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Avviso di metrica-condizione true-azione post")
 

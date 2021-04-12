@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: d3cc8f36f05def18c16db0875cb712cdf5d165f9
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: b106c82e3755fbd0e02f12a769d80ce4761cf026
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121354"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285859"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 
@@ -358,6 +358,15 @@ Se si preferisce usare una soluzione di backup locale, è necessario eseguire i 
 
 > [!Note]  
 > Con la versione 9 dell'agente di Sincronizzazione file di Azure, gli snapshot VSS (inclusa la scheda Versioni precedenti) sono ora supportati nei volumi che hanno il cloud a livelli abilitato. Tuttavia, è necessario abilitare la compatibilità con le versioni precedenti tramite PowerShell. [Informazioni](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+
+## <a name="data-classification"></a>Classificazione dei dati
+Se è installato un software di classificazione dei dati, l'abilitazione della suddivisione in livelli nel cloud può comportare un aumento dei costi per due motivi:
+
+1. Con la suddivisione in livelli nel cloud abilitata, i file più caldi vengono memorizzati nella cache in locale e i file più interessanti sono suddivisi in livelli nella condivisione file di Azure nel cloud. Se la classificazione dei dati analizza regolarmente tutti i file nella condivisione file, i file a livelli nel cloud devono essere richiamati ogni volta che vengono analizzati. 
+
+2. Se il software di classificazione dei dati utilizza i metadati nel flusso di dati di un file, il file deve essere completamente richiamato affinché il software visualizzi la classificazione. 
+
+Questi aumenti sia per il numero di richiami che per la quantità di dati da richiamare possono aumentare i costi.
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf49b1a2b7178800966342a3d52ed49450f3d97c
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 53cdbfb3ba531330c37f86233cbed990da4efaf4
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226685"
+ms.locfileid: "107258385"
 ---
 # <a name="resilient-end-user-experience"></a>Esperienza utente finale resiliente
 
@@ -40,7 +40,7 @@ Per semplificare la configurazione delle attività di identità più comuni, Azu
 
 Scegliere flussi utente predefiniti se i requisiti aziendali possono essere soddisfatti. Dal momento che è stato testato da Microsoft, è possibile ridurre al minimo i test necessari per convalidare le funzionalità, le prestazioni e la scalabilità di questi flussi utente Identity a livello di criteri. È comunque necessario testare le applicazioni per le funzionalità, le prestazioni e la scalabilità.
 
-Se si [scelgono criteri personalizzati](../../active-directory-b2c/custom-policy-get-started.md) a causa dei requisiti aziendali, assicurarsi di eseguire test a livello di criteri per funzionalità, prestazioni o scalabilità oltre al test a livello di applicazione.
+Se si [scelgono criteri personalizzati](../../active-directory-b2c/user-flow-overview.md) a causa dei requisiti aziendali, assicurarsi di eseguire test a livello di criteri per funzionalità, prestazioni o scalabilità oltre al test a livello di applicazione.
 
 Vedere l'articolo che consente di [confrontare i flussi utente e i criteri personalizzati](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies) per la scelta.
 

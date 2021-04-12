@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: a0c3a3cbaa71d627f54550cf92c067afbb1eb3f0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d0fd9ab8286496b9801d6c10682761f1264e040a
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786210"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120912"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Attività ForEach in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,7 +79,7 @@ Attività | Le attività da eseguire. | Elenco di attività | Sì
 Se **isSequential** è impostato su false, l'attività esegue le iterazioni in parallelo con un massimo di 20 iterazioni simultanee. Questa impostazione deve essere usata con cautela. Se le iterazioni simultanee scrivono nella stessa cartella, ma in file diversi, non ci sono problemi. Se le iterazioni simultanee scrivono contemporaneamente in esattamente lo stesso file, questo approccio causa un errore. 
 
 ## <a name="iteration-expression-language"></a>Linguaggio delle espressioni di iterazione
-Nell'attività ForEach, fornire una matrice di cui eseguire un'iterazione per la proprietà **items**." Usare `@item()` per eseguire l'iterazione su un'unica enumerazione nell'attività ForEach. Ad esempio, se **items** è una matrice: [1, 2, 3], `@item()` restituisce 1 nella prima iterazione, 2 nella seconda iterazione e 3 nella terza iterazione.
+Nell'attività ForEach, fornire una matrice di cui eseguire un'iterazione per la proprietà **items**." Usare `@item()` per eseguire l'iterazione su un'unica enumerazione nell'attività ForEach. Ad esempio, se **items** è una matrice: [1, 2, 3], `@item()` restituisce 1 nella prima iterazione, 2 nella seconda iterazione e 3 nella terza iterazione. È inoltre possibile utilizzare l' `@range(0,10)` espressione Like per eseguire l'iterazione dieci volte a partire da 0 che termina con 9.
 
 ## <a name="iterating-over-a-single-activity"></a>Iterazione su una singola attività
 **Scenario:** copia dello stesso file di origine del BLOB di Azure in più file di destinazione nel BLOB di Azure.

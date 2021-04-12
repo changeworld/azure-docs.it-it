@@ -6,18 +6,18 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 751e9337d74210d238be079e8fcd1bb973937846
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6464ad632251053ac481fbd1f6a3e1197aa470df
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936853"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121303"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Esercitazione 18,04 sull'aggiornamento del dispositivo per l'hub di Azure
 
 L'aggiornamento del dispositivo per l'hub Internet supporta due forme di aggiornamenti, basati su immagini e basati su pacchetti.
 
-Gli aggiornamenti basati su pacchetti sono aggiornamenti mirati che modificano solo un componente o un'applicazione specifica nel dispositivo. In questo modo si riduce il consumo di larghezza di banda e si riduce il tempo necessario per scaricare e installare l'aggiornamento. Gli aggiornamenti dei pacchetti consentono in genere un minor tempo di inattività per i dispositivi quando si applica un aggiornamento ed evitano il sovraccarico della creazione di immagini.
+Gli aggiornamenti basati su pacchetti sono aggiornamenti mirati che modificano solo un componente o un'applicazione specifica nel dispositivo. Gli aggiornamenti basati su pacchetti comportano un consumo ridotto della larghezza di banda e consentono di ridurre il tempo necessario per scaricare e installare l'aggiornamento. Gli aggiornamenti dei pacchetti consentono in genere un minor tempo di inattività per i dispositivi quando si applica un aggiornamento ed evitano il sovraccarico della creazione di immagini.
 
 Questa esercitazione end-to-end illustra l'aggiornamento di Azure IoT Edge in Ubuntu server 18,04 x64 con l'agente del pacchetto di aggiornamento del dispositivo. Anche se nell'esercitazione viene illustrato l'aggiornamento di IoT Edge, è possibile aggiornare altri pacchetti, ad esempio il motore di contenitori usato.
 
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 ## <a name="prepare-a-device"></a>Preparare un dispositivo
 ### <a name="using-the-automated-deploy-to-azure-button"></a>Usare il pulsante Distribuisci automaticamente in Azure
 
-Per praticità, in questa esercitazione viene usato un modello di [Azure Resource Manager](../azure-resource-manager/templates/overview.md) basato su [cloud-init](../virtual-machines/linux/using-cloud-init.md)che consente di configurare rapidamente una macchina virtuale Ubuntu 18,04 LTS. Installa sia il runtime di Azure IoT Edge che l'agente del pacchetto di aggiornamento del dispositivo, quindi configura automaticamente il dispositivo con le informazioni di provisioning usando la stringa di connessione del dispositivo per un dispositivo IoT Edge (prerequisito) fornito dall'utente. In questo modo si evita di dover avviare una sessione SSH per completare la configurazione.
+Per praticità, in questa esercitazione viene usato un modello di [Azure Resource Manager](../azure-resource-manager/templates/overview.md) basato su [cloud-init](../virtual-machines/linux/using-cloud-init.md)che consente di configurare rapidamente una macchina virtuale Ubuntu 18,04 LTS. Installa sia il runtime di Azure IoT Edge che l'agente del pacchetto di aggiornamento del dispositivo, quindi configura automaticamente il dispositivo con le informazioni di provisioning usando la stringa di connessione del dispositivo per un dispositivo IoT Edge (prerequisito) fornito dall'utente. Il modello di Azure Resource Manager evita inoltre la necessità di avviare una sessione SSH per completare la configurazione.
 
 1. Per iniziare, fare clic sul pulsante seguente:
 
@@ -75,7 +75,7 @@ Per praticità, in questa esercitazione viene usato un modello di [Azure Resourc
 
 1. Verificare che la distribuzione sia stata completata correttamente. Attendere alcuni minuti dopo il completamento della distribuzione perché la post-installazione e la configurazione finiscano l'installazione di IoT Edge e l'agente di aggiornamento del pacchetto del dispositivo.
 
-   Una risorsa macchina virtuale deve essere stata distribuita nel gruppo di risorse selezionato.  Prendere nota del nome del computer, che deve essere nel formato `vm-0000000000000` . Prendere nota anche del valore di **Nome DNS** associato, che deve essere nel formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+   Una risorsa macchina virtuale deve essere stata distribuita nel gruppo di risorse selezionato.  Prendere nota del nome del computer nel formato `vm-0000000000000` . Prendere nota anche del valore di **Nome DNS** associato, che deve essere nel formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
     È possibile ottenere il valore di **Nome DNS** dalla sezione **Panoramica** della nuova macchina virtuale distribuita nel portale di Azure.
 
@@ -86,7 +86,7 @@ Per praticità, in questa esercitazione viene usato un modello di [Azure Resourc
    > Se si vuole eseguire SSH in questa macchina virtuale dopo l'installazione, usare il **nome DNS** associato con il comando: `ssh <adminUsername>@<DNS_Name>`
 
 ### <a name="optional-manually-prepare-a-device"></a>Opzionale Preparare manualmente un dispositivo
-I passaggi manuali seguenti per installare e configurare il dispositivo sono equivalenti a quelli automatizzati da questo [script cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt). Possono essere usati per preparare un dispositivo fisico.
+Analogamente ai passaggi automatizzati dallo [script cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt), di seguito sono riportati i passaggi manuali per installare e configurare il dispositivo. Questa procedura può essere usata per preparare un dispositivo fisico.
 
 1. Seguire le istruzioni per [installare il runtime di Azure IOT Edge](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true).
    > [!NOTE]
@@ -110,9 +110,9 @@ Leggere le condizioni di licenza prima di utilizzare un pacchetto. L'installazio
 
 1. Accedere a [portale di Azure](https://portal.azure.com) e passare all'hub Internet delle cose.
 
-2. Da "IoT Edge" nel riquadro di spostamento a sinistra trovare il dispositivo IoT Edge e passare al dispositivo gemello.
+2. Da "IoT Edge" nel riquadro di spostamento a sinistra trovare il dispositivo IoT Edge e passare al dispositivo gemello o al modulo gemello.
 
-3. Nel dispositivo gemello eliminare qualsiasi valore del tag di aggiornamento del dispositivo esistente impostando il valore su null.
+3. Nel modulo gemello del modulo Device Update Agent eliminare qualsiasi valore di tag di aggiornamento del dispositivo esistente impostando il valore su null. Se si usa l'identità del dispositivo con l'agente di aggiornamento del dispositivo, apportare queste modifiche nel dispositivo gemello.
 
 4. Aggiungere un nuovo valore del tag di aggiornamento del dispositivo come illustrato di seguito.
 
@@ -149,7 +149,7 @@ Con questo aggiornamento il `aziot-identity-service` e i pacchetti vengono aggio
 
 8. Selezionare "Invia" per avviare il processo di importazione.
 
-9. Viene avviato il processo di importazione e la schermata passa alla sezione "cronologia di importazione". Selezionare "Aggiorna" per visualizzare lo stato di avanzamento fino al completamento del processo di importazione. A seconda delle dimensioni dell'aggiornamento, l'operazione può essere completata in pochi minuti, ma potrebbe richiedere più tempo.
+9. Viene avviato il processo di importazione e la schermata passa alla sezione "cronologia di importazione". Selezionare "Aggiorna" per visualizzare lo stato di avanzamento fino al completamento del processo di importazione. A seconda delle dimensioni dell'aggiornamento, il processo di importazione può essere completato in pochi minuti, ma potrebbe richiedere più tempo.
 
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot che mostra la sequenza di importazione degli aggiornamenti." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
@@ -212,7 +212,7 @@ A questo punto è stato completato un aggiornamento end-to-end corretto con l'ag
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non è più necessario, eseguire la pulizia dell'account di aggiornamento del dispositivo, dell'istanza, dell'hub Internet e del dispositivo IoT Edge (se la macchina virtuale è stata creata tramite il pulsante Distribuisci in Azure). A tale scopo, passare a ogni singola risorsa e selezionare "Elimina". Si noti che è necessario pulire un'istanza di aggiornamento del dispositivo prima di pulire l'account di aggiornamento del dispositivo.
+Quando non è più necessario, eseguire la pulizia dell'account di aggiornamento del dispositivo, dell'istanza, dell'hub Internet e del dispositivo IoT Edge (se la macchina virtuale è stata creata tramite il pulsante Distribuisci in Azure). A tale scopo, passare a ogni singola risorsa e selezionare "Elimina". Prima di eseguire la pulizia dell'account di aggiornamento del dispositivo, è necessario pulire un'istanza di aggiornamento del dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

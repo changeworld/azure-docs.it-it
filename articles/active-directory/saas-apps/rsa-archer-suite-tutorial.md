@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 397d59c60ed90e0e25df671baa3d46660eff1d47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d96f1e0413dac8477e2fc40bf84e88318abf3f9d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181578"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284983"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con RSA Archer Suite
 
@@ -37,13 +37,13 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* RSA Archer Suite supporta l'accesso SSO avviato da **SP**
-* RSA Archer Suite supporta il provisioning utenti **JIT**
+* RSA Archer Suite supporta SSO avviato da **SP** .
+* RSA Archer Suite supporta il provisioning degli utenti **just-in-Time** .
 
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
 
-## <a name="adding-rsa-archer-suite-from-the-gallery"></a>Aggiunta di RSA Archer Suite dalla raccolta
+## <a name="add-rsa-archer-suite-from-the-gallery"></a>Aggiungere RSA Archer Suite dalla raccolta
 
 Per configurare l'integrazione di RSA Archer Suite in Azure AD, è necessario aggiungere RSA Archer Suite dalla raccolta all'elenco di app SaaS gestite.
 
@@ -53,7 +53,6 @@ Per configurare l'integrazione di RSA Archer Suite in Azure AD, è necessario ag
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **RSA Archer Suite** nella casella di ricerca.
 1. Selezionare **RSA Archer Suite** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-rsa-archer-suite"></a>Configurare e testare l'accesso SSO di Azure AD per RSA Archer Suite
 
@@ -74,7 +73,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina di integrazione dell'applicazione **RSA Archer Suite** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -141,7 +140,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nella pagina successiva seguire questa procedura.
 
-    ![Configurare l'accesso Single Sign-On di RSA Archer Suite SSO](./media/rsa-archer-suite-tutorial/configuring-saml-sso.png)
+    ![Configurare l'accesso Single Sign-On di RSA Archer Suite SSO](./media/rsa-archer-suite-tutorial/configuration.png)
 
     a. Passare alla scheda **Single Sign-on** e selezionare **SAML** dall'elenco a discesa **Single Sign-On Mode** (Modalità di accesso Single Sign-On).
 

@@ -2,13 +2,13 @@
 title: Eseguire il backup di più macchine virtuali di SQL Server dall'insieme di credenziali
 description: Questo articolo illustra come eseguire il backup di database di SQL Server in macchine virtuali di Azure con backup di Azure dall'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: 798dc81012ad968c3ecc287717240513a08a1349
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/07/2021
+ms.openlocfilehash: c03b833be6c5e4c352125f31ad8c5ed072674b49
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "105567212"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258470"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Eseguire il backup di più macchine virtuali SQL Server dall'insieme di credenziali di servizi di ripristino
 
@@ -23,10 +23,6 @@ In questo articolo si apprenderà come:
 > * Creare e configurare un insieme di credenziali.
 > * Individuare i database e configurare i backup.
 > * Configurare la protezione automatica per i database.
-
->[!NOTE]
->L'**eliminazione temporanea per SQL Server nella macchina virtuale di Azure e l'eliminazione temporanea per SAP HANA nei carichi di lavoro delle macchine virtuali di Azure** ora sono disponibili in anteprima.<br>
->Per iscriversi all'anteprima, scrivere all'indirizzo AskAzureBackupTeam@microsoft.com
 
 ## <a name="prerequisites"></a>Prerequisiti
 

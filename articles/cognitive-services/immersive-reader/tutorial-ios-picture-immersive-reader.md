@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Creare un'app iOS per l'avvio di una foto nello strumento di lettura immersiva (Swift)"
+title: "Esercitazione: creare un'app iOS che acquisisce una foto e la avvii nel lettore immersivo (SWIFT)"
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione si creerà da zero un'app iOS cui si aggiungerà la funzionalità di avvio di immagini nello strumento di lettura immersiva.
 services: cognitive-services
@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: d8ee6b2344f0c953233195a693e774e410a8a8ea
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
-ms.translationtype: HT
+ms.openlocfilehash: 23e9fd586882d25aed646b984e17c5885145ccff
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368203"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284635"
 ---
-# <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Esercitazione: Creare un'app iOS per l'avvio dello strumento di lettura immersiva con il contenuto di una foto (Swift)
+# <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Esercitazione: creare un'app iOS che avvii il lettore immersivo con contenuto da una foto (SWIFT)
 
 Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è uno strumento incluso che implementa tecniche comprovate per migliorare la comprensione della lettura.
 
-L'[API di lettura del servizio Visione artificiale in Servizi cognitivi](../computer-vision/concept-recognizing-text.md) rileva il contenuto di testo in un'immagine tramite i modelli di riconoscimento Microsoft più recenti e converte il testo identificato in flusso di caratteri leggibili dal computer.
+L'[API di lettura del servizio Visione artificiale in Servizi cognitivi](../computer-vision/overview-ocr.md) rileva il contenuto di testo in un'immagine tramite i modelli di riconoscimento Microsoft più recenti e converte il testo identificato in flusso di caratteri leggibili dal computer.
 
 In questa esercitazione si creerà da zero un'app iOS in cui si integrerà l'API di lettura e lo strumento di lettura immersiva tramite Immersive Reader SDK. Un esempio pratico completo di questa esercitazione è disponibile [qui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 

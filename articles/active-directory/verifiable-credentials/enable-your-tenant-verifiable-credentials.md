@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: configurare il Azure Active Directory per emettere credenziali verificabili (anteprima)'
+title: Esercitazione-configurare il Azure Active Directory per emettere credenziali verificabili (anteprima)
 description: In questa esercitazione si compila l'ambiente necessario per distribuire le credenziali verificabili nel tenant
 documentationCenter: ''
 author: barclayn
@@ -7,17 +7,17 @@ manager: daveba
 ms.service: identity
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 03/31/2021
+ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 08aaa49f73ed437e041ffb93dc9ef5be41e316ec
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: cd39f6c484ebe116918611bb1d543c1919a3cb0a
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106172025"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222946"
 ---
-# <a name="tutorial-configure-your-azure-active-directory-to-issue-verifiable-credentials-preview"></a>Esercitazione: configurare il Azure Active Directory per emettere credenziali verificabili (anteprima)
+# <a name="tutorial---configure-your-azure-active-directory-to-issue-verifiable-credentials-preview"></a>Esercitazione-configurare il Azure Active Directory per emettere credenziali verificabili (anteprima)
 
 In questa esercitazione viene compilato il lavoro svolto come parte dell'articolo [introduttivo e viene](get-started-verifiable-credentials.md) configurato il Azure Active Directory (Azure ad) con il proprio [identificatore decentralizzato](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (did). Viene usato l'identificatore decentralizzato per emettere una credenziale verificabile usando l'app di esempio e l'emittente. Tuttavia, in questa esercitazione viene comunque usato il tenant di Azure B2C di esempio per l'autenticazione.  Nell'esercitazione successiva verranno eseguiti altri passaggi per configurare l'app in modo che funzioni con la Azure AD.
 

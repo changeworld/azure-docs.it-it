@@ -1,20 +1,20 @@
 ---
-title: "Esercitazione: Introduzione alle credenziali verificabili tramite un'app di esempio (anteprima)"
+title: "Esercitazione: Introduzione a Azure Active Directory credenziali verificabili tramite un'app di esempio (anteprima)"
 description: In questa esercitazione si apprenderà come emettere credenziali verificabili usando l'app di esempio e il tenant di test
 ms.service: identity
 ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 03/31/2021
-ms.openlocfilehash: 4914df0df30ed990dd2c692f0f5b57586d2a75c6
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.date: 04/01/2021
+ms.openlocfilehash: deebaf31197d8b7335f887ae447f05add45278b2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106171993"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222886"
 ---
-# <a name="tutorial-get-started-with-verifiable-credentials-using-a-sample-app-preview"></a>Esercitazione: Introduzione alle credenziali verificabili tramite un'app di esempio (anteprima)
+#  <a name="tutorial---get-started-with-azure-active-directory-verifiable-credentials-using-a-sample-app-preview"></a>Esercitazione: Introduzione a Azure Active Directory credenziali verificabili tramite un'app di esempio (anteprima)
 
 In questa esercitazione verranno esaminati i passaggi necessari per emettere la prima credenziale verificabile, ovvero una scheda Expert Credential verificata. È quindi possibile usare questa scheda per dimostrare a un verificatore che si è esperti di credenziali verificate, padroneggiato nell'arte delle credenziali digitali. Introduzione a Azure Active Directory credenziali verificabili usando l'app di esempio delle credenziali verificabili per emettere le prime credenziali verificabili.
 

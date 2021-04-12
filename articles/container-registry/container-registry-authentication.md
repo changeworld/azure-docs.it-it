@@ -2,13 +2,13 @@
 title: Opzioni di autenticazione del registro
 description: Opzioni di autenticazione per un registro contenitori di Azure privato, incluso l'accesso con un'identità di Azure Active Directory, l'uso di entità servizio e l'uso di credenziali di amministratore facoltative.
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 5315c11e0f1e2c859384e3783ae4be5d709adb42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/15/2021
+ms.openlocfilehash: d12895502ecd30991fbef836903a8ceea445b770
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92148559"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285502"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Eseguire l'autenticazione con un Registro Azure Container
 
@@ -25,7 +25,7 @@ Nella tabella seguente sono elencati i metodi di autenticazione disponibili e gl
 | [Identità di Active Directory singola](#individual-login-with-azure-ad)                | `az acr login` nell'interfaccia della riga di comando di Azure                             | Push/pull interattivo da parte di sviluppatori e tester                                    | Sì                              | Il token AD deve essere rinnovato ogni 3 ore     |
 | [Entità servizio Active Directory](#service-principal)                  | `docker login`<br/><br/>`az acr login` nell'interfaccia della riga di comando di Azure<br/><br/> Impostazioni di accesso del registro di sistema nelle API o negli strumenti<br/><br/> [Kubernetes segreto pull](container-registry-auth-kubernetes.md)                                           | Push automatico dalla pipeline CI/CD<br/><br/> Pull automatico in Azure o servizi esterni  | Sì                              | La scadenza predefinita della password SP è 1 anno       |                                                           
 | [Eseguire l'integrazione con AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Connetti il registro di sistema durante la creazione o l'aggiornamento del cluster AKS  | Pull automatico nel cluster AKS                                                  | No, solo accesso pull             | Disponibile solo con il cluster AKS            |
-| [Identità gestita per le risorse di Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` nell'interfaccia della riga di comando di Azure                                       | Push automatico dalla pipeline CI/CD di Azure<br/><br/> Pull automatico nei servizi di Azure<br/><br/>   | Sì                              | Usare solo da servizi di Azure che [supportano identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
+| [Identità gestita per le risorse di Azure](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` nell'interfaccia della riga di comando di Azure                                       | Push automatico dalla pipeline CI/CD di Azure<br/><br/> Pull automatico nei servizi di Azure<br/><br/>   | Sì                              | Usare solo da servizi di Azure selezionati che [supportano identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
 | [Utente amministratore](#admin-account)                            | `docker login`                                          | Push/pull interattivo per singolo sviluppatore o tester<br/><br/>Distribuzione del portale dell'immagine dal registro di sistema al servizio app Azure o alle istanze di contenitore di Azure                      | No, sempre pull e Push Access  | Account singolo per registro di sistema, non consigliato per più utenti         |
 | [Token di accesso con ambito repository](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login` nell'interfaccia della riga di comando di Azure   | Push/pull interattivo nel repository per singolo sviluppatore o tester<br/><br/> Push/Pull automatico nel repository da un singolo sistema o dispositivo esterno                  | Sì                              | Attualmente non integrato con identità di Active Directory  |
 
@@ -65,11 +65,16 @@ Output Visualizza il token di accesso, abbreviato qui:
   "loginServer": "myregistry.azurecr.io"
 }
 ``` 
+Per l'autenticazione del registro di sistema, è consigliabile archiviare le credenziali del token in un luogo sicuro e seguire le procedure consigliate per gestire l' [accesso a Docker](https://docs.docker.com/engine/reference/commandline/login/). Ad esempio, archiviare il valore del token in una variabile di ambiente:
+
+```bash
+TOKEN=$(az acr login --name <acrName> --expose-token --output tsv --query accessToken)
+```
 
 Eseguire quindi `docker login` , passando `00000000-0000-0000-0000-000000000000` come nome utente e usando il token di accesso come password:
 
 ```console
-docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password eyJhbGciOiJSUzI1NiIs[...]24V7wA
+docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password $TOKEN
 ```
 
 ## <a name="service-principal"></a>Entità servizio
@@ -92,7 +97,7 @@ Per gli script dell'interfaccia della riga di comando per creare un'entità serv
 
 Ogni registro contenitori include un account utente amministratore che, per impostazione predefinita, è disabilitato. È possibile abilitare l'utente amministratore e gestirne le credenziali nel portale di Azure oppure tramite l'interfaccia della riga di comando o altri strumenti di Azure. L'account amministratore dispone di autorizzazioni complete per il registro di sistema.
 
-L'account amministratore è attualmente necessario per alcuni scenari per la distribuzione di un'immagine da un registro contenitori a determinati servizi di Azure. Ad esempio, l'account amministratore è necessario quando si distribuisce un'immagine contenitore nel portale da un registro direttamente a [istanze di contenitore di Azure](../container-instances/container-instances-using-azure-container-registry.md#deploy-with-azure-portal) o [ad app Web di Azure per contenitori](container-registry-tutorial-deploy-app.md).
+L'account amministratore è attualmente necessario per alcuni scenari per la distribuzione di un'immagine da un registro contenitori a determinati servizi di Azure. Ad esempio, l'account amministratore è necessario quando si usa il portale di Azure per distribuire un'immagine del contenitore da un registro direttamente in [istanze di contenitore di Azure](../container-instances/container-instances-using-azure-container-registry.md#deploy-with-azure-portal) o [app Web di Azure per contenitori](container-registry-tutorial-deploy-app.md).
 
 > [!IMPORTANT]
 > L'account amministratore è pensato per consentire l'accesso al registro a un singolo utente, principalmente a scopo di test. Non è consigliabile condividere le credenziali dell'account amministratore tra più utenti. Tutti gli utenti che si autenticano con l'account amministratore vengono visualizzati come un unico utente con accesso di tipo push e pull al registro. Se si modifica o si disattiva questo account, tutti gli utenti che ne usano le credenziali non potranno più accedere al registro. Negli scenari di tipo headless è consigliabile che gli utenti e le entità servizio abbiano una propria identità.

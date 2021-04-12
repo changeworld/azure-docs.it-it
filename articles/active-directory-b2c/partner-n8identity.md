@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fee7965e7834f0e05dba91f8652a0e155087b14
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96170923"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257875"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione dello strumento di amministrazione di TheAccessHub con Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Per iniziare, è necessario:
 
 - Opzionale Informazioni sulla connessione e le credenziali per i database o i protocolli LDAP (Lightweight Directory Access Protocol) di cui si desidera eseguire la migrazione dei dati del cliente.
 
-- Opzionale Configurato Azure AD B2C ambiente per l'uso di [criteri personalizzati](./custom-policy-get-started.md), se si vuole integrare lo strumento di amministrazione di TheAccessHub nel flusso dei criteri di iscrizione.
+- Opzionale Configurato Azure AD B2C ambiente per l'uso di [criteri personalizzati](./tutorial-create-user-flows.md?pivots=b2c-custom-policy), se si vuole integrare lo strumento di amministrazione di TheAccessHub nel flusso dei criteri di iscrizione.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -358,7 +358,7 @@ Per sincronizzare i dati da Azure AD B2C nello strumento di amministrazione di T
 
 ## <a name="configure-azure-ad-b2c-policies"></a>Configurare i criteri di Azure AD B2C
 
-Occasionalmente la sincronizzazione dello strumento di amministrazione di TheAccessHub è limitata alla capacità di Mantenete aggiornato lo stato con Azure AD B2C. Possiamo sfruttare l'API dello strumento di amministrazione di TheAccessHub e i criteri di Azure AD B2C per informare lo strumento di amministrazione di TheAccessHub delle modifiche appena si verificano. Questa soluzione richiede una conoscenza tecnica di [Azure ad B2C criteri personalizzati](./custom-policy-get-started.md). Nella sezione successiva verranno illustrati i passaggi dei criteri di esempio e un certificato sicuro per notificare allo strumento di amministrazione TheAccessHub i nuovi account nei criteri personalizzati Sign-Up.
+Occasionalmente la sincronizzazione dello strumento di amministrazione di TheAccessHub è limitata alla capacità di Mantenete aggiornato lo stato con Azure AD B2C. Possiamo sfruttare l'API dello strumento di amministrazione di TheAccessHub e i criteri di Azure AD B2C per informare lo strumento di amministrazione di TheAccessHub delle modifiche appena si verificano. Questa soluzione richiede una conoscenza tecnica di [Azure ad B2C criteri personalizzati](./user-flow-overview.md). Nella sezione successiva verranno illustrati i passaggi dei criteri di esempio e un certificato sicuro per notificare allo strumento di amministrazione TheAccessHub i nuovi account nei criteri personalizzati Sign-Up.
 
 ### <a name="create-a-secure-credential-to-invoke-theaccesshub-admin-tools-api"></a>Creare credenziali sicure per richiamare l'API dello strumento di amministrazione di TheAccessHub
 
@@ -386,7 +386,7 @@ Occasionalmente la sincronizzazione dello strumento di amministrazione di TheAcc
 
 5. Selezionare **download** per ottenere un file zip con criteri di base che aggiungono i clienti allo strumento di amministrazione di TheAccessHub quando i clienti si iscrivono.
 
-6. Seguire questa [esercitazione](./custom-policy-get-started.md) per iniziare a progettare criteri personalizzati in Azure ad B2C.
+6. Seguire questa [esercitazione](./tutorial-create-user-flows.md?pivots=b2c-custom-policy) per iniziare a progettare criteri personalizzati in Azure ad B2C.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -394,4 +394,4 @@ Per ulteriori informazioni, vedere gli articoli seguenti:
 
 - [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

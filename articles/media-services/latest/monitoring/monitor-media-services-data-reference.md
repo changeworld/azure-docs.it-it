@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 66fce608515d16c5418ddd18e00319a3cbf088f7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8908fd1acc64fb180121ac0b6a4dc38ce5a02572
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609089"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121167"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Riferimento ai dati di monitoraggio di servizi multimediali
 
@@ -44,7 +44,7 @@ Servizi multimediali supporta le metriche di monitoraggio per le risorse seguent
 |StreamingPolicyQuota|Streaming Policy quota (Quota criteri di streaming)|Quota dei criteri di streaming nell'account.|
 |StreamingPolicyQuotaUsedPercentage|Streaming Policy quota used percentage (Percentuale usata quota criteri di streaming)|Percentuale della quota dei criteri di flusso già utilizzata.|
 
-È anche necessario esaminare [le quote e i limiti dell'account](../limits-quotas-constraints.md).
+È anche necessario esaminare [le quote e i limiti dell'account](../limits-quotas-constraints-reference.md).
 
 ### <a name="streaming-endpoint"></a>Endpoint di streaming
 

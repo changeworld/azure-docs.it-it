@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 983cdab0c5f5b856537c661c7427a83099f30ed4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3cea15114e125951a8fbec73f965b272a4f8053d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181432"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284159"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registrare SQL Server VM con l'estensione SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ La registrazione con l' [estensione SQL Server agente IaaS](sql-server-iaas-agen
 
 La distribuzione di un'immagine SQL Server VM di Azure Marketplace tramite il portale di Azure registra automaticamente la macchina virtuale SQL Server con l'estensione. Tuttavia, se si sceglie di installare autonomamente SQL Server in una macchina virtuale di Azure o di effettuare il provisioning di una macchina virtuale di Azure da un disco rigido virtuale personalizzato, è necessario registrare la VM SQL Server con l'estensione SQL IaaS Agent per sbloccare i vantaggi e la gestibilità completi della funzionalità. 
 
-Per usare l'estensione SQL IaaS Agent, è innanzitutto necessario [registrare la sottoscrizione con il provider **Microsoft. SqlVirtualMachine**](#register-subscription-with-rp), che fornisce all'estensione SQL IaaS la possibilità di creare risorse all'interno della sottoscrizione specifica.
+Per usare l'estensione SQL IaaS Agent, è innanzitutto necessario [registrare la sottoscrizione con il provider **Microsoft. SqlVirtualMachine**](#register-subscription-with-resource-provider), che fornisce all'estensione SQL IaaS la possibilità di creare risorse all'interno della sottoscrizione specifica.
 
 > [!IMPORTANT]
 > L'estensione SQL IaaS Agent raccoglie i dati per lo scopo esplicito di fornire ai clienti vantaggi facoltativi quando si usa SQL Server all'interno di macchine virtuali di Azure. Microsoft non utilizzerà questi dati per i controlli delle licenze senza il consenso anticipato del cliente. Per ulteriori informazioni, vedere la [SQL Server supplemento sulla privacy](/sql/sql-server/sql-server-privacy#non-personal-data) .
@@ -50,9 +50,9 @@ Per registrare la macchina virtuale SQL Server con l'estensione, è necessario:
 - La versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) o [Azure PowerShell (minimo 5,0)](/powershell/azure/install-az-ps). 
 
 
-## <a name="register-subscription-with-rp"></a>Registrare la sottoscrizione con il provider di risorse
+## <a name="register-subscription-with-resource-provider"></a>Registrare la sottoscrizione con il provider di risorse
 
-Per registrare la macchina virtuale SQL Server con l'estensione SQL IaaS Agent, è necessario prima registrare la sottoscrizione con il provider **Microsoft. SqlVirtualMachine** . Ciò consente all'estensione di SQL IaaS Agent di creare risorse all'interno della sottoscrizione.  A tale scopo, è possibile usare la portale di Azure, l'interfaccia della riga di comando di Azure o Azure PowerShell.
+Per registrare la macchina virtuale SQL Server con l'estensione SQL IaaS Agent, è necessario prima registrare la sottoscrizione con il provider di risorse **Microsoft. SqlVirtualMachine** . Ciò consente all'estensione di SQL IaaS Agent di creare risorse all'interno della sottoscrizione.  A tale scopo, è possibile usare la portale di Azure, l'interfaccia della riga di comando di Azure o Azure PowerShell.
 
 ### <a name="azure-portal"></a>Portale di Azure
 

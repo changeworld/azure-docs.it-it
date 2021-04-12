@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per i servizi di rete di Azure
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per i servizi di rete di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: bd09fbbd818f40d11c6bada09b232308b9ebaac2
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: e097ff7ea49657588b6002bb18972e5b1086f3dc
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105031146"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096242"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-networking-services"></a>Controlli di conformità alle normative di Criteri di Azure per i servizi di rete di Azure
 

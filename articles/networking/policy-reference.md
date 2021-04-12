@@ -1,18 +1,18 @@
 ---
 title: Definizioni dei criteri predefiniti per i servizi di rete di Azure
 description: Elenca le definizioni dei criteri predefiniti di criteri di Azure per i servizi di rete di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: aa1c0a79351fb90056c31de2159e1b0cb1d59829
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7c27c2b9f6fc4804c691f33b164e2ad497149d4b
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105037913"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096190"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-networking-services"></a>Definizioni predefinite dei criteri di Azure per i servizi di rete di Azure
 

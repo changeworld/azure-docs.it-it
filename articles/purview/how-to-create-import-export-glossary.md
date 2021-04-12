@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/02/2020
-ms.openlocfilehash: 6f7f481ae0e0c75b14d894080f791161346cd93f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/02/2021
+ms.openlocfilehash: 6796a53ac05e8db606b29447a8792fa509c03d7e
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952406"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284090"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Come creare, importare ed esportare i termini di glossario
 
@@ -34,7 +34,7 @@ Per creare un nuovo termine del glossario, seguire questa procedura:
 
 5. Impostare lo **stato** per il termine. Per impostazione predefinita, i nuovi termini hanno lo stato **bozza** .
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/new-term-options.png" alt-text="Screenshot delle opzioni di stato." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/overview-tab.png" alt-text="Screenshot delle opzioni di stato.":::
 
    Questi indicatori di stato sono metadati associati al termine. Attualmente è possibile impostare lo stato seguente per ogni termine:
 
@@ -92,9 +92,10 @@ Si dovrebbe essere in grado di esportare i termini dal glossario, purché i term
 
 2. Selezionare **Esporta** per scaricare i termini selezionati.
 
- > [!Important]
-   > Se i termini in una gerarchia appartengono a modelli di termini diversi, è necessario suddividerli in diversi modi. File CSV per l'importazione. L'aggiornamento di un elemento padre di un termine, inoltre, non è attualmente supportato tramite il processo di importazione.
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot della pagina dei termini del glossario selezionare file per l'esportazione.":::
 
+   > [!Important]
+   > Se i termini in una gerarchia appartengono a modelli di termini diversi, è necessario suddividerli in diversi. File CSV per l'importazione. L'aggiornamento di un elemento padre di un termine, inoltre, non è attualmente supportato tramite il processo di importazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

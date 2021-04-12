@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f7357644639e1bdba07b9ad44533582fc66b600
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3f186ea4afd6a8bbf52f91e94f2976f244fc8dda
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102456075"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120861"
 ---
 # <a name="streaming-locators"></a>Localizzatori di streaming
 
@@ -29,7 +29,7 @@ Quando si crea un **localizzatore di streaming**, è necessario specificare un n
 
 * [Asset](assets-concept.md)
 * [Criteri di streaming](streaming-policy-concept.md)
-* [Criteri chiave simmetrica](content-key-policy-concept.md)
+* [Criteri chiave simmetrica](drm-content-key-policy-concept.md)
 
 È anche possibile specificare l'ora di inizio e di fine nel localizzatore di streaming, che consente all'utente di riprodurre il contenuto tra questi orari, ad esempio tra 5/1/2019 e 5/5/2019.  
 
@@ -37,7 +37,7 @@ Quando si crea un **localizzatore di streaming**, è necessario specificare un n
 
 * I **localizzatori di streaming** non sono aggiornabili. 
 * Le proprietà dei **localizzatori di streaming** di tipo Datetime sono sempre in formato UTC.
-* È necessario progettare un set limitato di criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming tutte le volte che si devono usare le stesse opzioni. Per altre informazioni, vedere [quote e limiti](limits-quotas-constraints.md).
+* È necessario progettare un set limitato di criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming tutte le volte che si devono usare le stesse opzioni. Per altre informazioni, vedere [quote e limiti](limits-quotas-constraints-reference.md).
 
 ## <a name="create-streaming-locators"></a>Creare localizzatori di streaming  
 
@@ -85,7 +85,7 @@ Vedere [filtri: associare i localizzatori di streaming](filters-concept.md#assoc
 
 ## <a name="filter-order-page-streaming-locator-entities"></a>Entità di filtro, ordine, indicatore di flusso di pagine
 
-Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali](entities-overview.md).
+Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali](filter-order-page-entitites-how-to.md).
 
 ## <a name="list-streaming-locators-by-asset-name"></a>Elencare i localizzatori di streaming per nome di asset
 
@@ -103,7 +103,7 @@ Per ottenere i localizzatori di streaming in base al nome dell'asset associato, 
 
 * [Asset](assets-concept.md)
 * [Criteri di streaming](streaming-policy-concept.md)
-* [Criteri chiave simmetrica](content-key-policy-concept.md)
+* [Criteri chiave simmetrica](drm-content-key-policy-concept.md)
 * [Esercitazione: caricare, codificare e trasmettere in streaming video con .NET](stream-files-tutorial-with-api.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

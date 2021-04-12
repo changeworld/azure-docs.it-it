@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9fbd137f8fa36a7b0526b25d664fceac795ecd81
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 09acdc0c4ea2dbe90c0b7b037b6aec501cc1dd55
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104879172"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223031"
 ---
 # <a name="tutorial-use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Esercitazione: Usare Circuit Breaker Dashboard con Azure Spring Cloud
 
@@ -20,7 +20,7 @@ ms.locfileid: "104879172"
 
 [Spring Cloud Netflix Turbine](https://github.com/Netflix/Turbine) è ampiamente usato per aggregare più flussi di metriche [Hystrix](https://github.com/Netflix/Hystrix) in modo da poter monitorare i flussi in un'unica vista usando il dashboard di Hystrix. Questa esercitazione illustra come usarli in Azure Spring Cloud.
 > [!NOTE]
-> Netflix Hystrix è ampiamente usato in molte app Spring Cloud esistenti, ma non è più in fase di sviluppo attivo. Se si sta sviluppando un nuovo progetto, usare al suo posto implementazioni di Spring Cloud Circuit Breaker come [resilience4j](https://github.com/resilience4j/resilience4j). A differenza del framework Turbine illustrato in questa esercitazione, il nuovo framework Spring Cloud Circuit Breaker unifica tutte le implementazioni della pipeline di dati di metriche in Micrometer. Il supporto di Micrometer in Azure Spring Cloud è ancora in fase di elaborazione, quindi non verrà trattato in questa esercitazione.
+> Netflix Hystrix è ampiamente usato in molte app Spring Cloud esistenti, ma non è più in fase di sviluppo attivo. Se si sta sviluppando un nuovo progetto, usare al suo posto implementazioni di Spring Cloud Circuit Breaker come [resilience4j](https://github.com/resilience4j/resilience4j). Diversamente dalla turbina illustrata in questa esercitazione, il nuovo framework Spring cloud Circuit Breaker unifica tutte le implementazioni della pipeline di dati di metrica in micrometrico, che è anche supportato da Azure Spring cloud. [Altre informazioni](https://docs.microsoft.com/azure/spring-cloud/how-to-circuit-breaker-metrics).
 
 ## <a name="prepare-your-sample-applications"></a>Preparare le applicazioni di esempio
 L'esempio è basato su una copia tramite fork da questo [repository](https://github.com/StackAbuse/spring-cloud/tree/master/spring-turbine).

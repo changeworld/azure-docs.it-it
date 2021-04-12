@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 19586c09cca9a0dc74ba9ee4ef9da459964f9b7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7484b49ed3c868a1ad3e0f97dffa346f350e127f
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599325"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106097969"
 ---
 > [!NOTE]
 > Per rilevare le informazioni di integrità protette (PHI), usare il `domain=phi` parametro e la versione del modello `2020-04-01` o versioni successive.
@@ -53,7 +53,7 @@ Questa categoria contiene l'entità seguente:
     :::column span="2":::
         **Dettagli**
 
-        Nomi delle persone. 
+        Nomi delle persone. Restituito anche con `domain=phi` .
 
         Per ottenere questa categoria di entità, aggiungere `Person` al `pii-categories` parametro. `Person` verrà restituito nella risposta dell'API se rilevato.
       
@@ -140,7 +140,7 @@ Questa categoria contiene l'entità seguente:
     :::column span="2":::
         **Dettagli**
 
-        Società, gruppi politici, bande musicali, sport clubs, enti governativi e organizzazioni pubbliche. Le nazionalità e le religioni non sono incluse in questo tipo di entità.
+        Società, gruppi politici, bande musicali, sport clubs, enti governativi e organizzazioni pubbliche. Le nazionalità e le religioni non sono incluse in questo tipo di entità. Restituito anche con `domain=phi` .
 
         Per ottenere questa categoria di entità, aggiungere `Organization` al `pii-categories` parametro. `Organization` verrà restituito nella risposta dell'API se rilevato.
       
@@ -241,7 +241,7 @@ Questa categoria contiene l'entità seguente:
     :::column span="2":::
         **Dettagli**
 
-        Indirizzo di posta elettronica completo.
+        Indirizzo di posta elettronica completo. Restituito anche con `domain=phi` .
 
         Per ottenere questa categoria di entità, aggiungere `Address` al `pii-categories` parametro. `Address` verrà restituito nella risposta dell'API se rilevato.
       
@@ -270,7 +270,7 @@ Questa categoria contiene l'entità seguente:
     :::column span="2":::
         **Dettagli**
 
-        Indirizzi di posta elettronica.
+        Indirizzi di posta elettronica. Restituito anche con `domain=phi` .
       
         Per ottenere questa categoria di entità, aggiungere `Email` al `pii-categories` parametro. `Email` verrà restituito nella risposta dell'API se rilevato.
 
@@ -298,7 +298,7 @@ Questa categoria contiene l'entità seguente:
     :::column span="2":::
         **Dettagli**
 
-        URL per siti Web. 
+        URL per siti Web. Restituito anche con `domain=phi` .
 
         Per ottenere questa categoria di entità, aggiungere `URL` al `pii-categories` parametro. `URL` verrà restituito nella risposta dell'API se rilevato.
       
@@ -327,7 +327,7 @@ Questa categoria contiene l'entità seguente:
     :::column span="2":::
         **Dettagli**
 
-        indirizzi IP di rete. 
+        Indirizzi IP di rete. Restituito anche con `domain=phi` .
 
         Per ottenere questa categoria di entità, aggiungere `IP` al `pii-categories` parametro. `IP` verrà restituito nella risposta dell'API se rilevato.
       
@@ -382,7 +382,7 @@ L'entità in questa categoria può includere le sottocategorie seguenti.
     :::column span="2":::
         **Dettagli**
 
-        Date calendario.
+        Date calendario. Restituito anche con `domain=phi` .
 
         Per ottenere questa categoria di entità, aggiungere `Date` al `pii-categories` parametro. `Date` verrà restituito nella risposta dell'API se rilevato.
       
@@ -436,7 +436,7 @@ L'entità in questa categoria può includere le sottocategorie seguenti.
     :::column span="2":::
         **Dettagli**
 
-        Età.
+        Età. 
 
         Per ottenere questa categoria di entità, aggiungere `Age` al `pii-categories` parametro. `Age` verrà restituito nella risposta dell'API se rilevato.
       

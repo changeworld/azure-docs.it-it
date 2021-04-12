@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 2e7e56616300566839fadef762c2165c8d989e6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0cb9e0da3ba5dd899cac56f393d7332bac6c597
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100570804"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258487"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Log di query lente nel database di Azure per MariaDB
 Nel Database di Azure per MariaDB, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
@@ -45,7 +45,7 @@ Per l'archiviazione del server locale è possibile elencare e scaricare i log di
 Log di diagnostica di monitoraggio di Azure consente di inviare tramite pipe log di query lente a log di monitoraggio di Azure (Log Analytics), archiviazione di Azure o hub eventi. Per ulteriori informazioni, vedere di [seguito](concepts-server-logs.md#diagnostic-logs) .
 
 ## <a name="local-server-storage-log-retention"></a>Conservazione dei log di archiviazione del server locale
-Quando si accede alla risorsa di archiviazione locale del server, i log sono disponibili per un massimo di sette giorni dalla loro creazione. Se le dimensioni totali dei log disponibili superano 7 GB, i file meno recenti vengono eliminati fino a quando non è disponibile dello spazio.
+Quando si accede alla risorsa di archiviazione locale del server, i log sono disponibili per un massimo di sette giorni dalla loro creazione. Se le dimensioni totali dei log disponibili superano 7 GB, i file meno recenti vengono eliminati fino a quando non è disponibile dello spazio. Il limite di archiviazione di 7 GB per i log del server è disponibile gratuitamente e non può essere esteso. 
 
 I log vengono ruotati ogni 24 ore o 7 GB, a seconda del valore raggiunto per primo.
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: 2ef5a3b162d62fa79ed01a156345070ee12b4862
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a5ee7e8de85a1a53359f651a74e2f9f5e51edb70
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105110679"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030781"
 ---
 # <a name="authorize-access-with-managed-identity-to-your-communication-resource-in-your-development-environment"></a>Autorizzare l'accesso con identità gestita alla risorsa di comunicazione nell'ambiente di sviluppo
 
@@ -78,6 +78,8 @@ Azure Identity SDK legge i valori da tre variabili di ambiente in fase di esecuz
 
 > [!IMPORTANT]
 > Dopo aver impostato le variabili di ambiente, chiudere e riaprire la finestra della console. Se si usa Visual Studio o un altro ambiente di sviluppo, potrebbe essere necessario riavviarlo per poter registrare le nuove variabili di ambiente.
+
+Una volta impostate queste variabili, dovrebbe essere possibile usare l'oggetto DefaultAzureCredential nel codice per l'autenticazione al client del servizio di propria scelta.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

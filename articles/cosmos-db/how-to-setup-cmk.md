@@ -4,20 +4,17 @@ description: Informazioni su come configurare le chiavi gestite dal cliente per 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 04/01/2021
 ms.author: thweiss
-ms.openlocfilehash: 3ee566a598ea7fdf060712c934305ef63467e548
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b1fc0b51c1cd2a99ec97bec9f588699a893ceca
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101656517"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222623"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurare le chiavi gestite dal cliente per l'account Azure Cosmos con Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
-
-> [!NOTE]
-> L'uso delle chiavi gestite dal cliente con l' [Archivio analitico](analytical-store-introduction.md) Azure Cosmos DB attualmente richiede una configurazione aggiuntiva per l'account. [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com)Per informazioni dettagliate, contattare.
 
 I dati archiviati nell'account Azure Cosmos vengono crittografati automaticamente e facilmente con le chiavi gestite da Microsoft (**chiavi gestite dal servizio**). Facoltativamente, è possibile scegliere di aggiungere un secondo livello di crittografia con **chiavi gestite dal cliente**.
 
@@ -51,7 +48,7 @@ Se si usa un'istanza di Azure Key Vault esistente, è possibile verificare che q
 - [Come usare la funzionalità di eliminazione temporanea con PowerShell](../key-vault/general/key-vault-recovery.md)
 - [Come usare la funzionalità di eliminazione temporanea con l'interfaccia della riga di comando di Azure](../key-vault/general/key-vault-recovery.md)
 
-## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Aggiungere un criterio di accesso all'istanza di Azure Key Vault
+## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a><a id="add-access-policy"></a> Aggiungere un criterio di accesso all'istanza di Azure Key Vault
 
 1. Dal portale di Azure passare all'istanza di Azure Key Vault che si intende usare per ospitare le chiavi di crittografia. Selezionare **Criteri di accesso** nel menu a sinistra:
 
@@ -63,7 +60,14 @@ Se si usa un'istanza di Azure Key Vault esistente, è possibile verificare che q
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Selezione delle autorizzazioni corrette":::
 
-1. In **Selezionare un'entità** selezionare **Nessuna selezione**. Cercare quindi l'entità di sicurezza **Azure Cosmos DB** e selezionarla (per facilitarne l'individuazione, è anche possibile eseguire la ricerca in base all'ID entità di sicurezza: `a232010e-820c-4083-83bb-3ace5fc29d0b` per tutte le aree di Azure ad eccezione delle aree di Azure per enti pubblici in cui l'ID entità di sicurezza è `57506a73-e302-42a9-b869-6f12d9ec29e9`). Scegliere infine **Seleziona** nella parte inferiore della schermata. Se l'entità di sicurezza **Azure Cosmos DB** non è presente nell'elenco, potrebbe essere necessario registrare nuovamente il provider di risorse **Microsoft.DocumentDB** come descritto nella sezione [Registrare il provider di risorse](#register-resource-provider) di questo articolo.
+1. In **Selezionare un'entità** selezionare **Nessuna selezione**.
+
+1. Cercare **Azure Cosmos DB** entità e selezionarla (per facilitarne l'individuazione, è anche possibile eseguire la ricerca in base all'ID entità: `a232010e-820c-4083-83bb-3ace5fc29d0b` per qualsiasi area di Azure, ad eccezione delle aree di Azure per enti pubblici, dove l'ID principale è `57506a73-e302-42a9-b869-6f12d9ec29e9` ). Se l'entità di sicurezza **Azure Cosmos DB** non è presente nell'elenco, potrebbe essere necessario registrare nuovamente il provider di risorse **Microsoft.DocumentDB** come descritto nella sezione [Registrare il provider di risorse](#register-resource-provider) di questo articolo.
+
+   > [!NOTE]
+   > Questa operazione registra il Azure Cosmos DB identità di primo entità nei criteri di accesso Azure Key Vault. Per sostituire l'identità della prima entità con l'identità gestita dell'account Azure Cosmos DB, vedere [uso di un'identità gestita nei criteri di accesso Azure Key Vault](#using-managed-identity).
+
+1. Scegliere **Seleziona** nella parte inferiore. 
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Selezionare l'entità di sicurezza Azure Cosmos DB":::
 
@@ -226,6 +230,34 @@ az cosmosdb show \
     --query keyVaultKeyUri
 ```
 
+## <a name="using-a-managed-identity-in-the-azure-key-vault-access-policy"></a><a id="using-managed-identity"></a> Uso di un'identità gestita nei criteri di accesso Azure Key Vault
+
+Questo criterio di accesso garantisce che sia possibile accedere alle chiavi di crittografia dall'account Azure Cosmos DB. Questa operazione viene eseguita concedendo l'accesso a un'identità Azure Active Directory (AD) specifica. Sono supportati due tipi di identità:
+
+- Per concedere l'accesso al servizio Azure Cosmos DB, è possibile usare l'identità del Azure Cosmos DB.
+- L' [identità gestita](how-to-setup-managed-identity.md) dell'account di Azure Cosmos DB può essere usata per concedere l'accesso all'account in modo specifico.
+
+Poiché un'identità gestita assegnata dal sistema può essere recuperata solo dopo la creazione dell'account, è comunque necessario creare inizialmente il proprio account usando l'identità della prima parte, come descritto in [precedenza](#add-access-policy). Quindi:
+
+1. Se questa operazione non è stata eseguita durante la creazione dell'account, [abilitare un'identità gestita assegnata dal sistema](how-to-setup-managed-identity.md) per l'account e copiare la `principalId` che è stata assegnata.
+
+1. Aggiungere un nuovo criterio di accesso all'account di Azure Key Vault, come descritto in [precedenza](#add-access-policy), ma usando il `principalId` copiato nel passaggio precedente anziché Azure Cosmos DB l'identità del primo gruppo.
+
+1. Aggiornare l'account Azure Cosmos DB per specificare che si vuole usare l'identità gestita assegnata dal sistema durante l'accesso alle chiavi di crittografia in Azure Key Vault. Questa operazione può essere eseguita specificando questa proprietà nel modello di Azure Resource Manager dell'account:
+
+   ```json
+   {
+       "type": " Microsoft.DocumentDB/databaseAccounts",
+       "properties": {
+           "defaultIdentity": "SystemAssignedIdentity",
+           // ...
+       },
+       // ...
+   }
+   ```
+
+1. Facoltativamente, è possibile rimuovere il Azure Cosmos DB identità di prima entità dal criterio di accesso Azure Key Vault.
+
 ## <a name="key-rotation"></a>Rotazione delle chiavi
 
 La rotazione della chiave gestita dal cliente usata dall'account Azure Cosmos può essere eseguita in due modi.
@@ -297,7 +329,7 @@ Questa funzionalità è attualmente disponibile solo per i nuovi account.
 
 ### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>È possibile usare chiavi gestite dal cliente insieme all' [Archivio analitico](analytical-store-introduction.md)Azure Cosmos DB?
 
-Sì, ma attualmente è necessaria una configurazione aggiuntiva per l'account. [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com)Per informazioni dettagliate, contattare.
+Sì, ma è necessario [usare l'identità gestita dell'account Azure Cosmos DB](#using-managed-identity) nei criteri di accesso Azure Key Vault prima di abilitare l'archivio analitico.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>È previsto un piano per supportare una maggiore granularità rispetto alle chiavi a livello di account?
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2058e5362a65b6cd5f3e5b7cb9c20ce32d020d30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84e6f76bcae55ed905e11c46df66478908529970
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928699"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258028"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di Experian con Azure Active Directory B2C
 
@@ -133,7 +133,7 @@ Nei [criteri personalizzati](https://github.com/azure-ad-b2c/partner-integration
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Parte 6: configurare i criteri di Azure AD B2C
 
-Fare riferimento a questo [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) per istruzioni su come configurare il tenant di Azure ad B2C e configurare i criteri.
+Fare riferimento a questo [documento](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) per istruzioni su come configurare il tenant di Azure ad B2C e configurare i criteri.
 
 >[!NOTE]
 >Questo criterio di esempio è basato sullo [Starter Pack per gli account locali](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
@@ -169,4 +169,4 @@ Per ulteriori informazioni, vedere gli articoli seguenti:
 
 - [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

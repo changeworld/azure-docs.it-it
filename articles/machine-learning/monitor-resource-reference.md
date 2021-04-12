@@ -9,13 +9,13 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
-ms.date: 10/02/2020
-ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: de4d934144d6721db8c00d7199061842e518e44f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521340"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031070"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitoraggio del riferimento ai dati di Azure Machine Learning
 
@@ -28,49 +28,62 @@ Questa sezione elenca tutte le metriche della piattaforma raccolte automaticamen
 **Modello**
 
 | Metrica | Unità | Descrizione |
-| ----- | ----- | ----- |
-| Distribuzione del modello non riuscita | Conteggio | Numero di distribuzioni di modelli non riuscite. |
-| Distribuzione modello avviata | Conteggio | Numero di distribuzioni di modelli avviate. |
-| Distribuzione del modello completata | Conteggio | Numero di distribuzioni di modelli completate correttamente. |
-| Registrazione modello non riuscita | Conteggio | Numero di registrazioni del modello non riuscite. |
-| Registrazione del modello completata | Conteggio | Numero di registrazioni del modello completate correttamente. |
+|--|--|--|
+| Model Register Succeeded (Registrazione di modelli riuscita) | Conteggio | Numero di registrazioni del modello riuscite in questa area di lavoro |
+| Model Register Failed (Registrazione di modelli non riuscita) | Conteggio | Numero di registrazioni del modello non riuscite in questa area di lavoro |
+| Model Deploy Started (Distribuzione di modelli avviata) | Conteggio | Numero di distribuzioni di modelli avviate in questa area di lavoro |
+| Model Deploy Succeeded (Distribuzione di modelli riuscita) | Conteggio | Numero di distribuzioni di modelli riuscite in questa area di lavoro |
+| Model Deploy Failed (Distribuzione di modelli non riuscita) | Conteggio | Numero di distribuzioni di modelli non riuscite in questa area di lavoro |
 
 **Quota**
 
 Le informazioni sulle quote sono destinate solo ai Azure Machine Learning di calcolo.
 
 | Metrica | Unità | Descrizione |
-| ----- | ----- | ----- |
-| Core attivi | Conteggio | Numero di core di calcolo attivi. |
-| Nodi attivi | Conteggio | Numero di nodi attivi. |
-| Core inattivi | Conteggio | Numero di core di calcolo inattivi. |
-| Nodi inattivi | Conteggio | Numero di nodi di calcolo inattivi. |
-| Uscita da Core | Conteggio | Numero di core in uscita. |
-| Uscita da nodi | Conteggio | Numero di nodi in uscita. |
-| Core con precedenza | Conteggio | Numero di core con precedenza. |
-| Nodi interrotti | Conteggio | Numero di nodi con precedenza. |
-| Percentuale di utilizzo della quota | Percentuale | Percentuale di quota utilizzata. |
-| Totale core | Conteggio | Core totali. |
-| Totale nodi | Conteggio | Nodi totali. |
-| Core inutilizzabili | Conteggio | Numero di core inutilizzabili. |
-| Nodi inutilizzabili | Conteggio | Numero di nodi inutilizzabili. |
+|--|--|--|
+| Totale nodi | Conteggio | Numero totale di nodi. Il totale include alcuni nodi attivi, nodi inattivi, nodi inutilizzabili, nodi con precedenza, lasciando nodi |
+| Active Nodes (Nodi attivi) | Conteggio | Numero di nodi attivi. Nodi che eseguono attivamente un processo. |
+| Idle Nodes (Nodi inattivi) | Conteggio | Numero di nodi inattivi. I nodi inattivi sono i nodi che non eseguono alcun processo, ma possono accettare un nuovo processo, se disponibile. |
+| Unusable Nodes (Nodi non utilizzabili) | Conteggio | Numero di nodi inutilizzabili. I nodi inutilizzabili non sono funzionali a causa di un problema irrisolvibile. Azure ricicla questi nodi. |
+| Preempted Nodes (Nodi superati) | Conteggio | Numero di nodi con precedenza. Questi nodi sono i nodi con priorità bassa che vengono sottratti dal pool di nodi disponibile. |
+| Leaving Nodes (Nodi di uscita) | Conteggio | Numero di nodi in uscita. Lasciando i nodi sono i nodi che hanno appena terminato l'elaborazione di un processo e passano allo stato inattivo. |
+| Core totali | Conteggio | Numero di core totali |
+| Active Cores (Core attivi) | Conteggio | Numero di core attivi |
+| Idle Cores (Core inattivi) | Conteggio | Numero di core inattivi |
+| Unusable Cores (Core non utilizzabili) | Conteggio | Numero di core inutilizzabili |
+| Preempted Cores (Core superati) | Conteggio | Numero di core con precedenza |
+| Leaving Cores (Core di uscita) | Conteggio | Numero di core in uscita |
+| Quota Utilization Percentage (Percentuale di utilizzo quota) | Conteggio | Percentuale di quota utilizzata |
 
 **Risorsa**
 
-| Metrica | Unità | Descrizione |
-| ----- | ----- | ----- |
-| CpuUtilization | Percentuale | Percentuale di utilizzo della CPU per un determinato nodo durante un'esecuzione o un processo. Questa metrica viene pubblicata solo quando un processo è in esecuzione in un nodo. Un processo può usare uno o più nodi. Questa metrica è pubblicata per ogni nodo. |
-| GpuUtilization | Percentuale | Percentuale di utilizzo della GPU per un determinato nodo durante un'esecuzione o un processo. Un nodo può avere una o più GPU. Questa metrica è pubblicata per ogni GPU per ogni nodo. |
+| Metrica| Unità | Descrizione |
+|--|--|--|
+| CpuUtilization | Conteggio | Percentuale di utilizzo in un nodo della CPU. L'utilizzo viene segnalato a intervalli di un minuto. |
+| GpuUtilization | Conteggio | Percentuale di utilizzo in un nodo GPU. L'utilizzo viene segnalato a intervalli di un minuto. |
+| GpuMemoryUtilization | Conteggio | Percentuale di utilizzo della memoria in un nodo GPU. L'utilizzo viene segnalato a intervalli di un minuto. |
+| GpuEnergyJoules | Conteggio | Energia di intervallo in Joule in un nodo GPU. L'energia viene segnalata a intervalli di un minuto. |
 
 **Esegui**
 
-Informazioni sulle esecuzioni di training.
+Informazioni sulle esecuzioni di training per l'area di lavoro.
 
 | Metrica | Unità | Descrizione |
-| ----- | ----- | ----- |
-| Esecuzioni completate | Conteggio | Numero di esecuzioni completate. |
-| Esecuzioni non riuscite | Conteggio | Numero di esecuzioni non riuscite. |
-| Esecuzioni avviate | Conteggio | Numero di esecuzioni avviate. |
+|--|--|--|
+| Esecuzioni annullate | Conteggio | Numero di esecuzioni annullate per questa area di lavoro. Il conteggio viene aggiornato quando un'esecuzione viene annullata correttamente. |
+| Annulla esecuzioni richieste | Conteggio | Numero di esecuzioni in cui è stato richiesto l'annullamento per questa area di lavoro. Il conteggio viene aggiornato quando è stata ricevuta una richiesta di annullamento per un'esecuzione. |
+| Esecuzioni completate | Conteggio | Il numero di esecuzioni è stato completato correttamente per questa area di lavoro. Il conteggio viene aggiornato quando un'esecuzione è stata completata e l'output è stato raccolto. |
+| Esecuzioni non riuscite | Conteggio | Numero di esecuzioni non riuscite per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione ha esito negativo. |
+| Finalizzazione delle esecuzioni | Conteggio | Numero di esecuzioni immesse per lo stato di completamento per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione è stata completata, ma la raccolta di output è ancora in corso. | 
+| Esecuzioni non rispondenti | Conteggio | Numero di esecuzioni non rispondenti per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione entra in uno stato che non risponde. |
+| Esecuzioni non avviate | Conteggio | Numero di esecuzioni in stato non avviato per questa area di lavoro. Il conteggio viene aggiornato quando viene ricevuta una richiesta per creare un'esecuzione, ma le informazioni di esecuzione non sono state ancora popolate. |
+| Preparazione delle esecuzioni | Conteggio | Numero di esecuzioni preparate per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione entra nello stato di preparazione mentre è in corso la preparazione dell'ambiente di esecuzione. |
+| Esecuzioni del provisioning | Conteggio | Numero di esecuzioni di cui viene eseguito il provisioning per questa area di lavoro. Il conteggio viene aggiornato quando un'esecuzione è in attesa della creazione o del provisioning di una destinazione di calcolo. |
+| Esecuzioni in coda | Conteggio | Numero di esecuzioni accodate per l'area di lavoro. Il conteggio viene aggiornato quando un'esecuzione viene accodata nella destinazione di calcolo. Può verificarsi durante l'attesa che i nodi di calcolo necessari siano pronti. |
+| Esecuzioni avviate | Conteggio | Numero di esecuzioni in esecuzione per l'area di lavoro. Il conteggio viene aggiornato quando viene avviata l'esecuzione delle risorse necessarie. |
+| Avvio delle esecuzioni | Conteggio | Numero di esecuzioni avviate per l'area di lavoro. Il conteggio viene aggiornato dopo la richiesta di creazione delle informazioni di esecuzione ed esecuzione, ad esempio l'ID esecuzione, è stato popolato |
+| Errors | Conteggio | Numero di errori di esecuzione in questa area di lavoro. Il conteggio viene aggiornato ogni volta che viene rilevato un errore durante l'esecuzione. |
+| Avvisi | Conteggio | Numero di avvisi di esecuzione in questa area di lavoro. Il conteggio viene aggiornato ogni volta che un'esecuzione rileva un avviso. |
 
 ## <a name="metric-dimensions"></a>Dimensioni metrica
 

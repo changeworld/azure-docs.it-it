@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 04/05/2021
 ms.author: banders
-ms.openlocfilehash: e7f5370e1e387947d196959fef31043ea8f4d3bd
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: d348eeb5cc789665d7e7004523b9feba0ea6e413
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102508521"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490557"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Assegnare ruoli ai nomi dell'entità servizio Contratto Enterprise di Azure
 
@@ -62,12 +62,14 @@ Per i passaggi successivi, si concede l'autorizzazione all'app Azure AD per eseg
 | Ruolo | Azioni consentite | ID di definizione del ruolo |
 | --- | --- | --- |
 | EnrollmentReader | Consente di visualizzare l'utilizzo e le tariffe per tutti gli account e le sottoscrizioni. Può visualizzare il saldo prepagato di Azure (in precedenza denominato impegno monetario) associato alla registrazione. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
+| Acquirente EA | Acquistare ordini di prenotazione e visualizzare le transazioni di prenotazione. Consente di visualizzare l'utilizzo e le tariffe per tutti gli account e le sottoscrizioni. Può visualizzare il saldo prepagato di Azure (in precedenza denominato impegno monetario) associato alla registrazione. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
 | DepartmentReader | Scaricare i dettagli di utilizzo per il reparto amministrato. Consente di visualizzare l'utilizzo e gli addebiti associati al reparto. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | SubscriptionCreator | Crea nuove sottoscrizioni nell'ambito dell'account specificato. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 
 - Un lettore di registrazione può essere assegnato a un SPN solo da un utente con ruolo di writer di registrazione.
 - Un lettore di reparto può essere assegnato a un SPN solo da un utente che dispone del ruolo di writer di registrazione o del ruolo di writer del reparto.
-- Un ruolo di autore della sottoscrizione può essere assegnato a un SPN solo da un utente che è il proprietario dell'account di registrazione.
+- Un ruolo di autore della sottoscrizione può essere assegnato a un SPN solo da un utente che è il proprietario dell'account di registrazione. Il ruolo non viene visualizzato nel portale EA. Viene creato solo tramite il metodo programmatico ed è solo per uso a livello di codice.
+- Il ruolo di acquisto EA non viene visualizzato nel portale EA. Viene creato solo tramite il metodo programmatico ed è solo per uso a livello di codice.
 
 ## <a name="assign-enrollment-account-role-permission-to-the-spn"></a>Assegnazione dell'autorizzazione per il ruolo dell'account di registrazione al nome SPN
 
@@ -120,6 +122,14 @@ Selezionare **Esegui** per avviare il comando.
 Una `200 OK` risposta indica che il nome SPN è stato aggiunto correttamente.
 
 A questo punto è possibile usare il nome SPN (App Azure AD con l'ID oggetto) per accedere alle API EA in modo automatico. Il nome SPN dispone del ruolo EnrollmentReader.
+
+## <a name="assign-ea-purchaser-role-permission-to-the-spn"></a>Assegnare l'autorizzazione del ruolo di acquisto EA al nome SPN 
+
+Per il ruolo di acquisto EA, usare la stessa procedura per il lettore di registrazione. Specificare l'oggetto `roleDefinitionId` , usando l'esempio seguente.
+
+`"/providers/Microsoft.Billing/billingAccounts/1111111/billingRoleDefinitions/ da6647fb-7651-49ee-be91-c43c4877f0c4"`
+
+ 
 
 ## <a name="assign-the-department-reader-role-to-the-spn"></a>Assegnare il ruolo di lettore del reparto al nome SPN
 

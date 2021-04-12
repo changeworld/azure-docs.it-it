@@ -1,22 +1,22 @@
 ---
-title: Raccolta delle metriche del circuito Resilience4J di Spring cloud
-description: Come raccogliere le metriche del circuito Resilience4J di Spring cloud.
+title: Raccolta delle metriche del circuito Resilience4J di Spring cloud con micrometrico
+description: Come raccogliere metriche del circuito Resilience4J di Spring cloud con micrometrico nel cloud Spring di Azure.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9fc8ccc5ba21f02885b2002d5040051baac92068
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0b24e8e07b4038d6def9945b7c347bb81ae5378b
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878048"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258181"
 ---
-# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>Raccolta delle metriche del circuito Resilience4J di Spring cloud (anteprima)
+# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Raccolta delle metriche del circuito Resilience4J di Spring cloud con micrometrico (anteprima)
 
-Questo documento illustra come raccogliere metriche del circuito Resilience4j di Spring cloud con Application Insights agente Java in-process.  Con questa funzionalità è possibile monitorare le metriche dell'interruttore resilience4j da Application Insights.
+Questo documento illustra come raccogliere metriche del circuito Resilience4j di Spring cloud con Application Insights agente Java in-process. Con questa funzionalità è possibile monitorare le metriche dell'interruttore resilience4j da Application Insights con micrometrico.
 
 Per illustrare il funzionamento, viene usato [Spring-cloud-Circuit-Breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) .
 

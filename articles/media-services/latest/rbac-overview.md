@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 7c9edce71e0d0565de80153bfd5b3d5f1edb2e8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c086fe6a47227901cd44c4684452c842df5286ae
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98955157"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064427"
 ---
 # <a name="azure-role-based-access-control-azure-rbac-for-media-services-accounts"></a>Controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gli account di servizi multimediali
 
@@ -50,4 +50,4 @@ Per altre informazioni, vedere gli articoli seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Sviluppo con le API di servizi multimediali V3](media-services-apis-overview.md)
-- [Ottenere i criteri della chiave simmetrica usando Media Services .NET](get-content-key-policy-dotnet-howto.md)
+- [Ottenere i criteri della chiave simmetrica usando Media Services .NET](drm-get-content-key-policy-dotnet-how-to.md)
