@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sui servizi meteorologici di Microsoft Azure Maps (anteprima)
-description: Risposte alle domande frequenti sui dati e sulle funzionalità di servizi meteorologici di Azure Maps (anteprima).
+title: Domande frequenti sui servizi meteo di Microsoft Azure Maps
+description: Risposte alle domande frequenti sui dati e sulle funzionalità di servizi meteorologici di Azure maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -8,18 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f21e4aa9bd46ed5524cf83d083a70b9b04f03056
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 440ff94f4d5f3514d97d3e76299b60e462cebff3
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011137"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257552"
 ---
-# <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Domande frequenti su servizi meteorologici di Azure Maps (anteprima)
-
-> [!IMPORTANT]
-> I servizi Meteo di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-maps-weather-services-frequently-asked-questions-faq"></a>Domande frequenti sui servizi meteo di Azure Maps
 
 Questo articolo risponde a domande comuni sui dati e sulle funzionalità di [servizi meteorologici](/rest/api/maps/weather) di Azure maps. Vengono trattati i seguenti argomenti:
 
@@ -55,7 +51,7 @@ Questi set di dati vengono esaminati in tempo reale per l'accuratezza del sistem
 
 Per formulare previsioni globali vengono usati numerosi sistemi di linee guida sulle previsioni meteorologiche. Oltre 150 modelli di previsione numerici vengono utilizzati ogni giorno, sia i set di impostazioni esterni sia quelli interni. Sono inclusi i modelli governativi come il centro europeo ECMWF e il sistema di previsione globale degli Stati Uniti (GFS). Inoltre, AccuWeather incorpora modelli proprietari ad alta risoluzione che downscaling previsioni a posizioni specifiche e a domini regionali strategici per prevedere il meteo con maggiore precisione. Gli algoritmi di fusione e ponderazione univoci di AccuWeather sono stati sviluppati negli ultimi decenni. Questi algoritmi usano in modo ottimale i numerosi input di previsione per fornire previsioni estremamente accurate.
 
-## <a name="weather-services-preview-coverage-and-availability"></a>Code coverage e disponibilità di servizi meteorologici (anteprima)
+## <a name="weather-services-coverage-and-availability"></a>Code coverage e disponibilità di servizi meteo
 
 **Quale tipo di copertura è possibile prevedere per paesi/aree geografiche diverse?**
 
@@ -77,11 +73,11 @@ Le API previsioni delle mappe di Azure vengono memorizzate nella cache per un ma
 
 ## <a name="developing-with-azure-maps-sdks"></a>Sviluppo con Azure Maps SDK
 
-**Azure Maps Web SDK supporta in modo nativo l'integrazione di servizi meteorologici (anteprima)?**
+**Azure Maps Web SDK supporta in modo nativo l'integrazione dei servizi meteo?**
 
 Azure Maps Web SDK fornisce un modulo dei servizi. Il modulo Services è una libreria helper che semplifica l'uso dei servizi REST di Maps di Azure nelle applicazioni Web o Node.js. utilizzando JavaScript o TypeScript. Per iniziare, vedere la [documentazione](./how-to-use-services-module.md).
 
-**Azure Maps Android SDK supporta in modo nativo l'integrazione di servizi meteorologici (anteprima)?**
+**Azure Maps Android SDK supporta in modo nativo l'integrazione dei servizi meteo?**
 
 Azure Maps Android SDK supporta i livelli di riquadri Mercator, che possono avere la notazione x/y/zoom, la notazione con chiave quad o la notazione del riquadro delimitatore EPSG 3857.
 
@@ -114,15 +110,15 @@ Se queste domande frequenti non rispondono alla domanda, è possibile contattare
 * Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nella [portale di Azure](https://portal.azure.com/)della scheda Guida selezionare il pulsante **Guida** e supporto e quindi selezionare **nuova richiesta di supporto**.
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) per inviare richieste di funzionalità.
 
-Informazioni su come richiedere dati meteorologici in tempo reale e previsione usando i servizi meteo di Azure Maps (anteprima):
+Informazioni su come richiedere dati meteorologici in tempo reale e previsione usando i servizi meteo di Azure Maps:
 > [!div class="nextstepaction"]
 > [Richiedi dati meteorologici in tempo reale ](how-to-request-weather-data.md)
 
-Articolo sui concetti relativi ai servizi meteorologici di Azure Maps (anteprima):
+Articolo sui concetti relativi ai servizi meteorologici di Azure Maps:
 > [!div class="nextstepaction"]
 > [Concetti dei servizi meteo](weather-coverage.md)
 
-Esplorare la documentazione dell'API servizi meteorologici di Azure Maps (anteprima):
+Esplora la documentazione dell'API Servizi Meteo di Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Servizi meteo di Mappe di Azure](/rest/api/maps/weather)

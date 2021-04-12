@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 47a32815ded5809edfde856a38c69ec7c6fd6fdf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4ab1a157cdf3ef5017b227cd090379dcab91997e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493357"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105931557"
 ---
 # <a name="azure-communication-services-ui-framework"></a>Framework dell'interfaccia utente di servizi di comunicazione Azure
 
@@ -25,11 +25,11 @@ Il Framework dell'interfaccia utente di servizi di comunicazione Azure semplific
 - **Componenti compositi** : questi componenti sono soluzioni chiavi in volta che implementano scenari di comunicazione comuni. È possibile aggiungere rapidamente esperienze di chiamata o chat video alle applicazioni. I compositi sono componenti open source compilati con componenti di base.
 - **Componenti di base** : questi componenti sono blocchi predefiniti open source che consentono di creare esperienze di comunicazione personalizzate. I componenti sono disponibili per le funzionalità di chiamata e di chat che possono essere combinate per le esperienze di compilazione. 
 
-Queste librerie client dell'interfaccia utente usano tutti [il linguaggio di progettazione e gli asset Microsoft Fluent](https://developer.microsoft.com/fluentui/) . L'interfaccia utente di Fluent fornisce un livello di base per il Framework dell'interfaccia utente che è stato testato per tutti i prodotti Microsoft.
+Questi SDK dell'interfaccia utente usano tutti [il linguaggio di progettazione e gli asset Microsoft Fluent](https://developer.microsoft.com/fluentui/) . L'interfaccia utente di Fluent fornisce un livello di base per il Framework dell'interfaccia utente che è stato testato per tutti i prodotti Microsoft.
 
 ## <a name="differentiating-components-and-composites"></a>**Differenziazione dei componenti e dei compositi**
 
-I **componenti di base** sono basati sulle librerie client principali dei servizi di comunicazione di Azure e implementano azioni di base, ad esempio l'inizializzazione delle librerie client di base, il rendering di video e la fornitura di controlli utente per muting, video on/off e così via. È possibile usare questi **componenti di base** per creare esperienze di layout personalizzate usando componenti di comunicazione precompilati e pronti per la produzione.
+I **componenti di base** sono basati su SDK principali di servizi di comunicazione di Azure e implementano azioni di base, ad esempio l'inizializzazione degli SDK principali, il rendering di video e la fornitura di controlli utente per la muting, il video on/off e così via. È possibile usare questi **componenti di base** per creare esperienze di layout personalizzate usando componenti di comunicazione precompilati e pronti per la produzione.
 
 :::image type="content" source="../media/ui-framework/component-overview.png" alt-text="Panoramica del componente per il Framework dell'interfaccia utente":::
 
@@ -39,19 +39,19 @@ I **componenti composti** combinano più **componenti di base** per creare esper
 
 ## <a name="what-ui-framework-is-best-for-my-project"></a>Quale Framework dell'interfaccia utente è migliore per il progetto?
 
-La comprensione di questi requisiti ti aiuterà a scegliere la libreria client appropriata:
+La comprensione di questi requisiti consente di scegliere l'SDK appropriato:
 
-- **Quanto si desidera personalizzare?** Le librerie client di Azure Communication Core non hanno un'esperienza utente e sono progettate in modo da poter compilare qualsiasi tipo di esperienza utente. I componenti del Framework dell'interfaccia utente forniscono risorse dell'interfaccia utente al costo della personalizzazione ridotta.
-- **Sono necessarie funzionalità per la riunione?** Il sistema di riunioni dispone di diverse funzionalità esclusive attualmente non disponibili nelle librerie client dei servizi di comunicazione di Azure principali, ad esempio sfondo sfocato e mano sollevata.
+- **Quanto si desidera personalizzare?** Gli SDK principali per la comunicazione di Azure non hanno un'esperienza utente e sono progettati in modo da poter compilare qualsiasi tipo di esperienza utente. I componenti del Framework dell'interfaccia utente forniscono risorse dell'interfaccia utente al costo della personalizzazione ridotta.
+- **Sono necessarie funzionalità per la riunione?** Il sistema di riunioni dispone di diverse funzionalità esclusive attualmente non disponibili negli SDK principali dei servizi di comunicazione di Azure, ad esempio sfondo sfocato e mano sollevata.
 - **Quali piattaforme sono destinate?** Diverse piattaforme hanno funzionalità diverse.
 
 Per informazioni dettagliate sulla disponibilità delle funzionalità nei vari [SDK di interfaccia utente](ui-sdk-features.md), vedere qui, ma sono riepilogati i compromessi chiave.
 
-|Libreria client/SDK|Complessità di implementazione|    Funzionalità di personalizzazione|  Chiamata| Chat| [Interoperabilità team](./../teams-interop.md)
+|SDK/SDK|Complessità di implementazione|   Funzionalità di personalizzazione|  Chiamata| Chat| [Interoperabilità team](./../teams-interop.md)
 |---|---|---|---|---|---|---|
 |Componenti compositi|Bassa|Bassa|✔|✔|✕
 |Componenti di base|Livello medio|Livello medio|✔|✔|✕
-|Librerie client Core|Alto|Alto|✔|✔ |✔
+|SDK di base|Alto|Alto|✔|✔ |✔
 
 ## <a name="cost"></a>Costo
 
@@ -78,7 +78,7 @@ Chat
 
 I componenti compositi e di base vengono inizializzati usando un token di accesso di servizi di comunicazione di Azure. I token di accesso devono essere acquistati da servizi di comunicazione di Azure tramite un servizio attendibile gestito dall'utente. Per altre informazioni, vedere [Guida introduttiva: creare token di accesso](../../quickstarts/access-tokens.md) e un [servizio attendibile](../../tutorials/trusted-service-tutorial.md) .
 
-Queste librerie client richiedono anche il contesto per la chiamata o la chat a cui verranno aggiunti. Analogamente ai token di accesso degli utenti, questo contesto deve essere divulgato ai client tramite il proprio servizio attendibile. L'elenco seguente riepiloga le funzioni di inizializzazione e di gestione delle risorse che è necessario rendere operativo.
+Questi SDK richiedono anche il contesto per la chiamata o la chat a cui verranno aggiunti. Analogamente ai token di accesso degli utenti, questo contesto deve essere divulgato ai client tramite il proprio servizio attendibile. L'elenco seguente riepiloga le funzioni di inizializzazione e di gestione delle risorse che è necessario rendere operativo.
 
 | Responsabilità di contoso                                 | Responsabilità del Framework dell'interfaccia utente                         |
 |----------------------------------------------------------|-----------------------------------------------------------------|

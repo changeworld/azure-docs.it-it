@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 84ac8e8309d9f1d0536d0f7a16ab9cd9f3c10a2c
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: c1322eac7fd5ec1ead09a7b0197db931f96f8d48
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284786"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073410"
 ---
 <a name="HOLTop"></a>
 
@@ -209,11 +209,10 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva si è appreso come usare la libreria Java OCR per eseguire le attività di base. Successivamente, esplorare la documentazione di riferimento per altre informazioni sulla libreria.
+In questa Guida introduttiva si è appreso come installare la libreria client OCR e usare l'API Read. Quindi, altre informazioni sulle funzionalità dell'API di lettura.
 
 > [!div class="nextstepaction"]
->[Guida di riferimento a OCR SDK (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
-
+>[Chiamare l'API di lettura](../../Vision-API-How-to-Topics/call-read-api.md)
 
 * [Panoramica dell'OCR](../../overview-ocr.md)
 * Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

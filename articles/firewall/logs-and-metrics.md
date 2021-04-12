@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/16/2021
+ms.date: 04/02/2021
 ms.author: victorh
-ms.openlocfilehash: 8922e6e0d5137a3a900e0f57f685d449c08b3f47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4514717274cfb66fbfc0eee25b09aa9e1234ffad
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596957"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280327"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Log e metriche di Firewall di Azure
 
@@ -181,6 +181,8 @@ Per il firewall di Azure sono disponibili le metriche seguenti:
     Unità: percentuale
 
    Quando si aggiungono altri indirizzi IP pubblici al firewall, sono disponibili più porte SNAT, cosa che ne riduce l'utilizzo. Inoltre, quando il firewall viene ridimensionato per diversi motivi, ad esempio in termini di CPU o velocità effettiva, diventano disponibili anche porte SNAT aggiuntive. Pertanto, una determinata percentuale di utilizzo delle porte SNAT può diventare inattiva senza aggiungere indirizzi IP pubblici, solo perché il servizio è stato scalato orizzontalmente. È possibile controllare direttamente il numero di indirizzi IP pubblici disponibili per aumentare le porte disponibili sul firewall. Tuttavia, non è possibile controllare direttamente il ridimensionamento del firewall.
+
+   Se il firewall è in esecuzione nell'esaurimento delle porte SNAT, è necessario aggiungere almeno cinque indirizzi IP pubblici. Questo aumenta il numero di porte SNAT disponibili. Per altre informazioni, vedere [funzionalità del firewall di Azure](features.md#multiple-public-ip-addresses).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

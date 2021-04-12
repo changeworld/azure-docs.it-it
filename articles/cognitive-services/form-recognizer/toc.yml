@@ -5,6 +5,10 @@
   items:
     - name: Informazioni su Riconoscimento modulo
       href: overview.md
+    - name: Lingue supportate
+      href: language-support.md
+    - name: Prezzi e limiti
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Novità
       href: whats-new.md
 - name: Avvi rapidi
@@ -91,15 +95,13 @@
   items:
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
-    - name: Prezzi e limiti
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Disponibilità a livello di area
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
-    - name: Lingue supportate
-      href: language-support.md
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Crittografia
       href: encrypt-data-at-rest.md
+    - name: Privacy e cookie
+      href: 'https://privacy.microsoft.com/en-US/privacystatement'

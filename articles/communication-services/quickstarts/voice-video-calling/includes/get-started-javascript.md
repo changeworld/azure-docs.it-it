@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 7d7b62d6587a568b74d142a2ee6a93587941559d
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: be6ff629a651af5cc06d7928c7972f07aa0fd6e2
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105645362"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107291419"
 ---
 Questa Guida introduttiva illustra come avviare una chiamata usando i servizi di comunicazione di Azure che chiamano SDK per JavaScript.
 
@@ -162,6 +162,6 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Aprire il browser e passare a http://localhost:8080/. Dovrebbe essere visualizzata la seguente schermata:
 
-:::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Screenshot dell'applicazione JavaScript completata.":::
+:::image type="content" source="../media/javascript/calling-javascript-app-2.png" alt-text="Screenshot dell'applicazione JavaScript completata.":::
 
 È possibile effettuare una chiamata VoIP in uscita fornendo un ID utente nel campo di testo e facendo clic sul pulsante **Start Call** (Avvia chiamata). Con la chiamata a `8:echo123` ci si connette a un Echo Bot, la scelta ideale per iniziare e per verificare che i dispositivi audio funzionino.

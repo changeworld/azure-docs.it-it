@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 6fd497e0bc0fd282d57779c483f1e39e8f5ab60a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 92b5283e5779cc79ce0a745190b57884a6ca0f7e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102505478"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056012"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurare il collegamento privato di Azure per un'area di lavoro Azure Machine Learning
 
@@ -175,7 +175,7 @@ Per informazioni sulle macchine virtuali di Azure, vedere la [documentazione rel
 In alcune situazioni, può essere utile consentire a un utente di connettersi all'area di lavoro protetta tramite un endpoint pubblico, anziché tramite il VNet. Dopo aver configurato un'area di lavoro con un endpoint privato, è possibile abilitare facoltativamente l'accesso pubblico all'area di lavoro. Questa operazione non comporta la rimozione dell'endpoint privato. Tutte le comunicazioni tra i componenti alla base di VNet sono ancora protette. Consente l'accesso pubblico solo all'area di lavoro, oltre all'accesso privato tramite il VNet.
 
 > [!WARNING]
-> Quando ci si connette tramite l'endpoint pubblico, alcune funzionalità di studio non riusciranno ad accedere ai dati. Questo problema si verifica quando i dati vengono archiviati in un servizio protetto dietro la VNet. Ad esempio un account di archiviazione di Azure.
+> Quando ci si connette tramite l'endpoint pubblico, alcune funzionalità di studio non riusciranno ad accedere ai dati. Questo problema si verifica quando i dati vengono archiviati in un servizio protetto dietro la VNet. Ad esempio un account di archiviazione di Azure. Si noti anche che la funzionalità Jupyter/JupyterLab/RStudio dell'istanza di calcolo e l'esecuzione di notebook non funzionano.
 
 Per abilitare l'accesso pubblico a un'area di lavoro privata abilitata per il collegamento, attenersi alla procedura seguente:
 
