@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
-ms.openlocfilehash: 994e5ae0647f350e0a64f35318bd5803f4ed79b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05ef67e3caafe2c10d02ee4ca2e3248b7ab6c188
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98894984"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120897"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Errori dell'endpoint di streaming (Origine)
 
@@ -143,24 +143,24 @@ Il formato del payload inviato dal client è in un formato non supportato.
 
 Per gli articoli e gli esempi di crittografia, vedere:
 
-- [Concetto: protezione del contenuto](content-protection-overview.md)
-- [Concetto: criteri chiave simmetrica](content-key-policy-concept.md)
+- [Concetto: protezione del contenuto](drm-content-protection-concept.md)
+- [Concetto: criteri chiave simmetrica](drm-content-key-policy-concept.md)
 - [Concetto: criteri di streaming](streaming-policy-concept.md)
-- [Esempio: proteggere con la crittografia AES](protect-with-aes128.md)
-- [Esempio: proteggere con DRM](protect-with-drm.md)
+- [Esempio: proteggere con la crittografia AES](drm-playready-license-template-concept.md)
+- [Esempio: proteggere con DRM](drm-protect-with-drm-tutorial.md)
 
 Per indicazioni sul filtro, vedere:
 
-- [Concetto: manifesti dinamici](filters-dynamic-manifest-overview.md)
+- [Concetto: manifesti dinamici](filters-dynamic-manifest-concept.md)
 - [Concetto: filtri](filters-concept.md)
 - [Esempio: creare filtri con le API REST](filters-dynamic-manifest-rest-howto.md)
-- [Esempio: creare filtri con .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Esempio: creare filtri con l'interfaccia della riga di comando](filters-dynamic-manifest-cli-howto.md)
+- [Esempio: creare filtri con .NET](filters-dynamic-manifest-dotnet-how-to.md)
+- [Esempio: creare filtri con l'interfaccia della riga di comando](filters-dynamic-manifest-cli-how-to.md)
 
 Per gli articoli e gli esempi Live, vedere:
 
-- [Concetto: Panoramica dello streaming live](live-streaming-overview.md)
-- [Concetto: eventi live e output Live](live-events-outputs-concept.md)
+- [Concetto: Panoramica dello streaming live](stream-live-streaming-concept.md)
+- [Concetto: eventi live e output Live](live-event-outputs-concept.md)
 - [Esempio: esercitazione per lo streaming live](stream-live-tutorial-with-api.md)
 
 ## <a name="416-range-not-satisfiable"></a>416 Impossibile attenersi all'intervallo richiesto
@@ -202,7 +202,7 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 - [Codici di errore di codifica](/rest/api/media/jobs/get#joberrorcode)
 - [Concetti relativi ai Servizi multimediali di Azure](concepts-overview.md)
-- [Quote e limiti](limits-quotas-constraints.md)
+- [Quote e limiti](limits-quotas-constraints-reference.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

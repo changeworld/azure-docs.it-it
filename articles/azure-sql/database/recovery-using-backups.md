@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
 ms.openlocfilehash: 0c3db3b3f22f9f2639012068924708537f9ada77
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98795324"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Ripristino usando i backup automatici del database: database SQL di Azure & SQL Istanza gestita
@@ -47,9 +47,9 @@ Il tempo di recupero per il ripristino di un database tramite i backup automatic
 - Larghezza di banda della rete se il ripristino si trova in un'area diversa.
 - Il numero di richieste simultanee di ripristino in corso di elaborazione nell'area di destinazione.
 
-Per un database di grandi dimensioni o molto attive, il ripristino potrebbe richiedere diverse ore. Se si verifica un'interruzione prolungata in un'area, è possibile che venga avviato un numero elevato di richieste di ripristino geografico per il ripristino di emergenza. Quando sono presenti molte richieste, il tempo di ripristino per i singoli database può aumentare. La maggior parte dei ripristini di database è terminata in meno di 12 ore.
+Per un database di grandi dimensioni o molto attive, il ripristino potrebbe richiedere diverse ore. Se si verifica un'interruzione prolungata in un'area, è possibile che venga avviato un numero elevato di richieste di ripristino geografico per il ripristino di emergenza. In presenza di numerose richieste, i tempi di recupero dei database in tale area possono aumentare. La maggior parte dei ripristini di database è terminata in meno di 12 ore.
 
-Per una singola sottoscrizione, esistono alcune limitazioni al numero di richieste di ripristino simultanee. Queste limitazioni si applicano a qualsiasi combinazione di ripristini temporizzati, ripristini geografici e ripristini dal backup con conservazione a lungo termine.
+Per una singola sottoscrizione sussistono alcune limitazioni al numero di richieste di ripristino simultanee. Queste limitazioni si applicano a qualsiasi combinazione di ripristini temporizzati, ripristini geografici e ripristini da backup con conservazione a lungo termine.
 
 | **Opzione di distribuzione** | **Numero massimo di richieste simultanee elaborate** | **Numero massimo di richieste simultanee inviate** |
 | :--- | --: | --: |

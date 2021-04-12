@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8e3b9636dfb900fa0e22bfea8bcd2d0c7edf0241
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 214deb290fc0c0992458c2806644e06ffa00b271
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596706"
+ms.locfileid: "105963445"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Esercitazione: Archiviare eventi di Servizi multimediali di Azure in Azure Log Analytics
 
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 > * Una [sottoscrizione di Azure](how-to-set-azure-subscription.md)
-> * Un account di [Servizi multimediali](create-account-howto.md) e un gruppo di risorse.
+> * Un account di [Servizi multimediali](account-create-how-to.md) e un gruppo di risorse.
 > * Un'installazione di [FFmpeg](https://ffmpeg.org/download.html) per il sistema operativo specifico.
 > * Un'area di lavoro di [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 

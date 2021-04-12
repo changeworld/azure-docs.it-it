@@ -5,32 +5,40 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 04/05/2021
 ms.author: duau
-ms.openlocfilehash: 7033ea6a1ba6d85f9aa15e14bb9577b2439c59a8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a5e01a4fc84f852b43e5a76114bebe145da10793
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105050565"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443590"
 ---
 # <a name="azure-expressroute-insights-using-network-insights"></a>Informazioni dettagliate su Azure ExpressRoute con Network Insights
 
 Questo articolo illustra in che modo Network Insights può aiutarti a visualizzare le metriche e le configurazioni di ExpressRoute in un'unica posizione. Con Network Insights è possibile visualizzare le mappe e i dashboard di integrità topologici contenenti informazioni importanti su ExpressRoute senza dover completare la configurazione aggiuntiva.
 
-:::image type="content" source="./media/expressroute-network-insights/monitor-landing-page.png" alt-text="Screenshot della pagina di destinazione di monitoraggio ExpressRoute." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
+:::image type="content" source="./media/expressroute-network-insights/network-monitor-page.png" alt-text="Screenshot della pagina di destinazione monitoraggio reti." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png":::
 
 ## <a name="visualize-functional-dependencies"></a>Visualizzare le dipendenze funzionali
 
-Per visualizzare questa soluzione, passare alla pagina *monitoraggio di Azure* , selezionare *reti*, quindi selezionare la scheda *circuiti ExpressRoute* . Quindi, selezionare il pulsante topologia per il circuito che si desidera visualizzare.
+1. Passare alla pagina *monitoraggio di Azure* e quindi selezionare *reti*.
 
-La visualizzazione delle dipendenze funzionali fornisce un quadro chiaro dell'installazione di ExpressRoute, delineando la relazione tra diversi componenti di ExpressRoute (peering, connessioni, gateway).
+    :::image type="content" source="./media/expressroute-network-insights/monitor-page.png" alt-text="Screenshot della pagina di destinazione del monitoraggio.":::
 
-:::image type="content" source="./media/expressroute-network-insights/topology-view.png" alt-text="Screenshot della visualizzazione topologia per informazioni dettagliate sulla rete." lightbox="./media/expressroute-network-insights/topology-view-expanded.png":::
+1. Selezionare la scheda *circuiti ExpressRoute* . 
 
-Posizionare il puntatore del mouse su qualsiasi componente della mappa della topologia per visualizzare le informazioni di configurazione. Ad esempio, passare il mouse su un componente peering ExpressRoute per visualizzare i dettagli, ad esempio la larghezza di banda del circuito e l'abilitazione del Copertura globale.
+1. Quindi, selezionare il pulsante topologia per il circuito che si desidera visualizzare.
 
-:::image type="content" source="./media/expressroute-network-insights/topology-hovered.png" alt-text="Screenshot del passaggio del mouse sulle risorse della visualizzazione topologia." lightbox="./media/expressroute-network-insights/topology-hovered-expanded.png":::
+   :::image type="content" source="./media/expressroute-network-insights/monitor-landing-page.png" alt-text="Screenshot della pagina di destinazione di monitoraggio ExpressRoute." lightbox="./media/expressroute-network-insights/monitor-landing-page-expanded.png"::: 
+
+1. La visualizzazione delle dipendenze funzionali fornisce un quadro chiaro dell'installazione di ExpressRoute, delineando la relazione tra diversi componenti di ExpressRoute (peering, connessioni, gateway).
+
+    :::image type="content" source="./media/expressroute-network-insights/topology-view.png" alt-text="Screenshot della visualizzazione topologia per informazioni dettagliate sulla rete." lightbox="./media/expressroute-network-insights/topology-view-expanded.png":::
+
+1. Posizionare il puntatore del mouse su qualsiasi componente della mappa della topologia per visualizzare le informazioni di configurazione. Ad esempio, passare il mouse su un componente peering ExpressRoute per visualizzare i dettagli, ad esempio la larghezza di banda del circuito e l'abilitazione del Copertura globale.
+
+    :::image type="content" source="./media/expressroute-network-insights/topology-hovered.png" alt-text="Screenshot del passaggio del mouse sulle risorse della visualizzazione topologia." lightbox="./media/expressroute-network-insights/topology-hovered-expanded.png":::
 
 ## <a name="view-a-detailed-and-pre-loaded-metrics-dashboard"></a>Visualizzare un dashboard dettagliato e precaricato delle metriche
 

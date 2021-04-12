@@ -3,12 +3,12 @@ title: Domande frequenti sul backup su disco di Azure
 description: Risposte alle domande frequenti su backup dischi di Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 7729bc1120fc0e2f4361739a8e05f3a82ccb4268
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 41f2862541d7cb0e3276b5fd24f39668d20fc0a3
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107313"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106956"
 ---
 # <a name="frequently-asked-questions-about-azure-disk-backup"></a>Domande frequenti sul backup su disco di Azure
 
@@ -73,10 +73,6 @@ Sì, è possibile ripristinare il disco in una sottoscrizione diversa da quella 
 ### <a name="can-i-back-up-multiple-disks-together"></a>È possibile eseguire il backup di più dischi insieme?
 
 No, gli snapshot temporizzati di più dischi collegati a una macchina virtuale non sono supportati. Per ulteriori informazioni, vedere [configurare il backup](backup-managed-disks.md#configure-backup) e per altre informazioni sulle limitazioni, fare riferimento alla [matrice di supporto](disk-backup-support-matrix.md).
-
-### <a name="what-are-my-options-to-back-up-disks-across-multiple-subscriptions"></a>Quali sono le opzioni disponibili per eseguire il backup dei dischi tra più sottoscrizioni?
-
-Attualmente, l'uso del portale di Azure per configurare il backup dei dischi è limitato a un massimo di 20 dischi dalla stessa sottoscrizione.
 
 ### <a name="what-is-a-target-resource-group"></a>Che cos'è un gruppo di risorse di destinazione?
 

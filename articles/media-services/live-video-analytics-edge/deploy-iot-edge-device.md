@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 2fdf95be0966702f58afbb9df8e09a1688f9b204
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 466cc236c1482b2ae6a31b40b6f3461a2c2fbfc1
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961558"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280293"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -38,7 +38,7 @@ Vedere [creare un ruolo di Azure Resource Manager personalizzato](create-custom-
 
 ### <a name="set-up-a-premium-streaming-endpoint"></a>Configurare un endpoint di streaming Premium
 
-Se si intende usare analisi video in tempo reale per registrare i video in modo continuo nel cloud e successivamente usare le [API di query](playback-recordings-how-to.md#query-api) prima di riprodurli, è consigliabile aggiornare il servizio multimediale per usare un [endpoint di streaming Premium](../latest/streaming-endpoint-concept.md#types).  
+Se si intende usare analisi video in tempo reale per registrare i video in modo continuo nel cloud e successivamente usare le [API di query](playback-recordings-how-to.md#query-api) prima di riprodurli, è consigliabile aggiornare il servizio multimediale per usare un [endpoint di streaming Premium](../latest/stream-streaming-endpoint-concept.md#types).  
 
 Si tratta di un passaggio facoltativo. A tale scopo, è possibile usare questo comando dell'interfaccia della riga di comando di Azure:
 
