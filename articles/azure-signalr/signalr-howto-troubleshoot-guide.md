@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
 ms.openlocfilehash: e26def56fbd03626c3efc660db57012ee1b767ea
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105048205"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guida alla risoluzione dei problemi comuni relativi al servizio Azure SignalR
@@ -112,7 +112,7 @@ ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
 [Problemi o commenti e suggerimenti sulla risoluzione dei problemi? Informare l'it.](https://aka.ms/asrs/survey/troubleshooting)
 
-## <a name="400-bad-request-returned-for-client-requests"></a>400 richiesta non valida restituita per le richieste client
+## <a name="400-bad-request-returned-for-client-requests"></a>Errore 400 Richiesta non valida restituito per le richieste del client
 
 ### <a name="root-cause"></a>Causa radice
 

@@ -43,7 +43,7 @@ Per completare l'esercitazione è necessario quanto segue.
 
 * Vedere l'articolo [Panoramica della protezione del contenuto](content-protection-overview.md).
 * Installare Visual Studio Code o Visual Studio.
-* [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
+* [Creare un account di Servizi multimediali di Azure](./account-create-how-to.md).
 * Ottenere le credenziali necessarie per usare le API di Servizi multimediali seguendo [Accedere alle API](./access-api-howto.md).
 
 ## <a name="download-code"></a>Scaricare il codice

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 16c3b59bcfa14cc02f13dadd726e0380d934598b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c8d625095fc979151ed904fb355b5953e41309b4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023810"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078707"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>Panoramica della valutazione (migrazione a Macchine virtuali di Azure)
 
@@ -33,6 +33,9 @@ Esistono tre tipi di valutazione che è possibile creare usando Azure Migrate: i
 **Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. È possibile valutare i server locali nell'ambiente [VMware](how-to-set-up-appliance-vmware.md) e [Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione alle macchine virtuali di Azure con questo tipo di valutazione.
 **SQL di Azure** | Valutazioni per la migrazione dei server SQL locali dall'ambiente VMware al database SQL di Azure o al Istanza gestita SQL di Azure.
 **Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> Se il numero di macchine virtuali di Azure o di valutazione AVS non è corretto nello strumento di individuazione e valutazione, fare clic sul numero totale di valutazioni per passare a tutte le valutazioni e ricalcolare la VM di Azure o le valutazioni AVS. Lo strumento di individuazione e valutazione indicherà quindi il numero corretto per tale tipo di valutazione. 
 
 Le valutazioni create con Azure Migrate sono uno snapshot temporizzato dei dati. Una valutazione della macchina virtuale di Azure offre due opzioni di criteri di ridimensionamento:
 

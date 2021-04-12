@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/21/2021
 ms.author: alkohli
 ms.openlocfilehash: 112c30fdd242c20f11c43f42ba54e3717e074bbb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101706037"
 ---
 Di seguito è riportato un elenco degli account di archiviazione e dei tipi di archiviazione supportati per un dispositivo Data Box. Per un elenco completo di tutte le funzionalità per tutti i tipi di account di archiviazione, vedere [tipi di account di archiviazione](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).

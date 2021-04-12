@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100593109"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creare flussi di lavoro di app per la logica da modelli predefiniti
@@ -97,9 +97,9 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
    > [!NOTE] 
    > Molti modelli includono connettori che potrebbero avere già compilato le proprietà obbligatorie. Alcuni modelli tuttavia possono comunque richiedere l'inserimento di valori per poter distribuire correttamente l'app per la logica. Se si tenta di eseguire la distribuzione senza completare i campi di proprietà mancanti, viene visualizzato un messaggio di errore. 
 
-## <a name="update-logic-apps-with-templates"></a>Aggiornare le app per la logica con i modelli
+## <a name="update-logic-apps-with-templates&quot;></a>Aggiornare le app per la logica con i modelli
 
-1. Nel [portale di Azure](https://portal.azure.com "Portale di Azure") individuare e aprire l'app per la logica in Progettazione app per la logica.
+1. Nel [portale di Azure](https://portal.azure.com &quot;Portale di Azure") individuare e aprire l'app per la logica in Progettazione app per la logica.
 
 2. Nella barra degli strumenti della finestra di progettazione scegliere **Modelli**. Questa azione elimina eventuali modifiche non salvate, quindi viene visualizzato un messaggio di avviso che richiede di confermare che si vuole continuare. Per confermare, scegliere **OK**. Ad esempio:
 

@@ -8,10 +8,10 @@ ms.date: 09/29/2020
 ms.author: yegu
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 19c54ad62e45ecf6e31b46d0291f61dca8e8d9b3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104722464"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Guida introduttiva: usare cache di Azure per Redis con un'app Web ASP.NET 
@@ -475,7 +475,7 @@ In caso contrario, se si è terminato il lavoro con l'applicazione di esempio de
 
 2. Nella casella **Filtra per nome** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources*. Nel gruppo di risorse, nell'elenco dei risultati, selezionare **...** e quindi **Elimina gruppo di risorse**.
 
-    ![Elimina](./media/cache-web-app-howto/cache-delete-resource-group.png)
+    ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Digitare il nome del gruppo di risorse per confermare e quindi selezionare **Elimina**.
 

@@ -57,4 +57,4 @@ Di seguito sono riportati gli scenari principali che potrebbero comportare il ma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come collegare un account di archiviazione all'account di Servizi multimediali, vedere [Creare un account](./create-account-howto.md).
+Per informazioni su come collegare un account di archiviazione all'account di Servizi multimediali, vedere [Creare un account](./account-create-how-to.md).
