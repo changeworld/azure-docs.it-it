@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: f6705b5f72aaa8f990aaf3b1daa33697b690d1f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8768acc8d4720a750c4c7f7e0f40340aeeff279d
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608885"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449053"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -309,7 +309,7 @@ Il [modello di modulo di protezione hardware Thales Luna 7 A790](https://cpl.tha
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>D: Quante chiavi possono essere supportate in HSM dedicato?
 
-Il numero massimo di chiavi è una funzione della memoria disponibile. Il modello SafeNet Luna 7 A790 in uso dispone di 32 MB di memoria. I numeri seguenti sono applicabili anche alle coppie di chiavi se si usano chiavi asimmetriche.
+Il numero massimo di chiavi è una funzione della memoria disponibile. Il modello di Thales Luna 7 A790 in uso ha 32 MB di memoria. I numeri seguenti sono applicabili anche alle coppie di chiavi se si usano chiavi asimmetriche.
 
 * RSA-2048 - 19.000
 * ECC-P256 - 91.000

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/23/2021
+ms.date: 4/6/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa025f7e21f76b4dde547ccabf675511e9156359
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb4e876b3fc679dd275f38168b99b9a3a718be58
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589328"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552674"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso delle restrizioni del tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -97,6 +97,8 @@ In questa sezione viene illustrata l'esperienza per utenti finali e amministrato
 
 Un utente di esempio si trova nella rete Contoso ma tenta di accedere online all'istanza Fabrikam di un'applicazione SaaS condivisa come Outlook. Se Fabrikam è un tenant non consentito per l'istanza Contoso, viene visualizzato un messaggio di rifiuto dell'accesso che indica che si sta tentando di accedere a una risorsa che appartiene a un'organizzazione non approvata dal reparto IT.
 
+![Messaggio di errore restrizioni tenant, da aprile 2021](./media/tenant-restrictions/error-message.png)
+
 ### <a name="admin-experience"></a>Esperienza amministratore
 
 La configurazione di Restrizioni del tenant viene eseguita nell'infrastruttura del proxy aziendale, ma gli amministratori possono accedere direttamente ai relativi report nel portale di Azure. Per visualizzare i report:
@@ -113,14 +115,14 @@ Il report può contenere informazioni limitate, ad esempio l'ID della directory 
 
 Come per gli altri report nel portale di Azure, è possibile usare i filtri per specificare l'ambito del report. È possibile usare filtri per intervalli di tempo, utenti, applicazioni, client o stati specifici. Se si seleziona il pulsante **Colonne** è possibile scegliere di visualizzare i dati con qualsiasi combinazione dei campi seguenti:
 
-- **Utente** : in questo campo possono essere rimosse informazioni personali, dove verranno impostate su `00000000-0000-0000-0000-000000000000` . 
+- **Utente** : questo campo può avere dati personali rimossi, in cui verrà impostato su `00000000-0000-0000-0000-000000000000` . 
 - **Applicazione**
 - **Status**
 - **Data**
 - **Data (UTC)** -dove UTC è Coordinated Universal Time
 - **Indirizzo IP**
 - **Client**
-- **Nome utente** : in questo campo possono essere rimosse informazioni personali, dove verranno impostate su `{PII Removed}@domain.com`
+- **Nome utente** : questo campo può includere dati personali rimossi, in cui verranno impostati `{PII Removed}@domain.com`
 - **Posizione**
 - **ID tenant di destinazione**
 
@@ -207,7 +209,7 @@ Alcune organizzazioni tentano di risolvere il problema bloccando il `login.live.
 
 ### <a name="configuration-for-consumer-apps"></a>Configurazione per le app consumer
 
-Mentre l' `Restrict-Access-To-Tenants` intestazione funziona come un elenco di consentiti, il blocco account Microsoft (MSA) funge da segnale Deny, indicando alla piattaforma account Microsoft di non consentire agli utenti di accedere alle applicazioni consumer. Per inviare questo segnale, l' `sec-Restrict-Tenant-Access-Policy` intestazione viene inserita nel traffico che visita `login.live.com` usando lo stesso proxy o firewall aziendale come [descritto in precedenza](#proxy-configuration-and-requirements). Il valore dell'intestazione deve essere `restrict-msa` . Quando l'intestazione è presente e un'app consumer tenta di accedere direttamente a un utente, l'accesso verrà bloccato.
+Mentre l' `Restrict-Access-To-Tenants` intestazione funziona come un oggetto Allow, il blocco account Microsoft (MSA) funge da segnale Deny, indicando al account Microsoft piattaforma di non consentire agli utenti di accedere alle applicazioni consumer. Per inviare questo segnale, l' `sec-Restrict-Tenant-Access-Policy` intestazione viene inserita nel traffico che visita `login.live.com` usando lo stesso proxy o firewall aziendale come [descritto in precedenza](#proxy-configuration-and-requirements). Il valore dell'intestazione deve essere `restrict-msa` . Quando l'intestazione è presente e un'app consumer tenta di accedere direttamente a un utente, l'accesso verrà bloccato.
 
 A questo punto, l'autenticazione per le applicazioni consumer non viene visualizzata nei [log di amministrazione](#admin-experience), perché login.Live.com è ospitato separatamente da Azure ad.
 

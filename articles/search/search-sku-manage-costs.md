@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2ab7a007a92bd2306a7a97781af5653f932d0b7
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98539553"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580610"
 ---
 # <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Come stimare e gestire i costi di un servizio ricerca cognitiva di Azure
 
@@ -64,7 +64,7 @@ L'addebito minimo è la prima unità di ricerca (una replica x una partizione) a
 
 Oltre al minimo, è possibile aggiungere repliche e partizioni indipendentemente l'una dall'altra. Gli aumenti incrementali della capacità con le repliche e le partizioni aumenteranno la fattura in base alla formula seguente: **(repliche x partizioni x frequenza di fatturazione)**, in cui la tariffa addebitata dipende dal piano tariffario selezionato.
 
-Quando si stima il costo di una soluzione di ricerca, tenere presente che i prezzi e la capacità non sono lineari (il raddoppio della capacità è maggiore del doppio del costo). Per un esempio di come funziona la formula, vedere [How to allocate repliche e partizioni](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
+Quando si stima il costo di una soluzione di ricerca, tenere presente che i prezzi e la capacità non sono lineari (raddoppiando la capacità più che raddoppia il costo sullo stesso livello). Inoltre, a un certo punto, il cambio a un livello superiore può offrire prestazioni migliori e più veloci a circa lo stesso punto di prezzo. Per altre informazioni e per un esempio, vedere [eseguire l'aggiornamento a un livello standard S2](search-performance-tips.md#tip-upgrade-to-a-standard-s2-tier).
 
 ### <a name="bandwidth-charges"></a>Tariffe per la larghezza di banda
 

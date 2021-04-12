@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d91bfee228b946ff564f6d080976f9ce5c12caa4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa449ad3d9a0e26bd0754a67581c8d63fa025e55
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102426264"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552309"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Esercitazione: abilitare il bot tramite l'SDK vocale
 
@@ -83,7 +83,7 @@ L'app client che verrà creata in questa esercitazione usa alcuni servizi di Azu
 Se si vuole usare un'area diversa per questa esercitazione, questi fattori possono limitare le scelte:
 
 * Assicurarsi di usare un' [area di Azure supportata](regions.md#voice-assistants).
-* Il canale di riconoscimento vocale della linea diretta usa il servizio di sintesi vocale, che include voci standard e neurali. Le voci neurali sono [limitate a specifiche aree di Azure](regions.md#standard-and-neural-voices).
+* Il canale per la sintesi vocale diretta usa il servizio di sintesi vocale, che include voci neurali e standard. Le voci neurali e standard sono tutte disponibili in queste [aree di Azure](regions.md#neural-and-standard-voices).
 
 Per altre informazioni sulle aree, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
@@ -328,7 +328,7 @@ Se viene ricevuto un messaggio di errore nella finestra principale dell'app, usa
 |Errore (AuthenticationFailure): l'aggiornamento di WebSocket non è riuscito con un errore di autenticazione (401). Verificare la chiave di sottoscrizione corretta (o il token di autorizzazione) e il nome dell'area| Nella pagina delle impostazioni dell'app verificare di aver immesso correttamente la chiave di sottoscrizione vocale e la relativa area.<br>Verificare che la chiave vocale e l'area della chiave siano state immesse correttamente. |
 |Errore (ConnectionFailure): la connessione è stata chiusa dall'host remoto. Codice di errore: 1011. Dettagli errore: non è stato possibile connettersi al bot prima di inviare un messaggio | Assicurarsi di aver [selezionato la casella "Abilita endpoint di streaming"](#register-the-direct-line-speech-channel) e/o i [ **socket Web** attivati in attivato](#enable-web-sockets) .<br>Verificare che il servizio app Azure sia in esecuzione. In caso contrario, provare a riavviare il servizio app.|
 |Errore (ConnectionFailure): la connessione è stata chiusa dall'host remoto. Codice di errore: 1002. Dettagli errore: il server ha restituito il codice di stato ' 503' quando era previsto il codice di stato ' 101' | Assicurarsi di aver [selezionato la casella "Abilita endpoint di streaming"](#register-the-direct-line-speech-channel) e/o i [ **socket Web** attivati in attivato](#enable-web-sockets) .<br>Verificare che il servizio app Azure sia in esecuzione. In caso contrario, provare a riavviare il servizio app.|
-|Errore (ConnectionFailure): la connessione è stata chiusa dall'host remoto. Codice di errore: 1011. Dettagli errore: il codice di stato della risposta non indica la riuscita: 500 (InternalServerError)| Il bot ha specificato una voce neurale nel campo dell'attività di output [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) , ma l'area di Azure associata alla chiave di sottoscrizione vocale non supporta le voci neurali. Vedere [le voci standard e neurali](./regions.md#standard-and-neural-voices).|
+|Errore (ConnectionFailure): la connessione è stata chiusa dall'host remoto. Codice di errore: 1011. Dettagli errore: il codice di stato della risposta non indica la riuscita: 500 (InternalServerError)| Il bot ha specificato una voce neurale nel campo dell'attività di output [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) , ma l'area di Azure associata alla chiave di sottoscrizione vocale non supporta le voci neurali. Vedere [voci neurali e standard](./regions.md#neural-and-standard-voices).|
 
 Se il problema non viene risolto nella tabella, vedere [Assistente vocale: domande frequenti](faq-voice-assistants.md). Se non si riesce ancora a risolvere il problema dopo aver seguito tutti i passaggi di questa esercitazione, immettere un nuovo problema nella pagina di  [GitHub per Voice Assistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
@@ -475,7 +475,7 @@ Se non si intende continuare a usare echo-bot distribuito in questa esercitazion
 ## <a name="see-also"></a>Vedi anche
 
 * Distribuzione in un' [area di Azure nelle vicinanze](https://azure.microsoft.com/global-infrastructure/locations/) per visualizzare il miglioramento del tempo di risposta del bot
-* Distribuzione in un' [area di Azure che supporta le voci TTS neurali di qualità elevata](./regions.md#standard-and-neural-voices)
+* Distribuzione in un' [area di Azure che supporta le voci TTS neurali di qualità elevata](./regions.md#neural-and-standard-voices)
 * Prezzi associati al canale vocale direct line:
   * [Prezzi del servizio bot](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Servizio di riconoscimento vocale](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)

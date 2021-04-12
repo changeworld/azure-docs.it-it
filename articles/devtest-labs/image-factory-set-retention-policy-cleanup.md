@@ -3,12 +3,12 @@ title: Configurare i criteri di conservazione in Azure DevTest Labs | Microsoft 
 description: Informazioni su come configurare un criterio di conservazione, pulire la factory e ritirare le immagini obsolete da DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e642d7dc0733e55caa4ed62e3382ef4422030f9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102550026"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727536"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configurare i criteri di conservazione in Azure DevTest Labs
 In questo articolo viene illustrata l'impostazione di un criterio di conservazione, la pulizia della Factory e il ritiro di immagini obsolete da tutti gli altri laboratori DevTest nell'organizzazione. 
@@ -66,5 +66,5 @@ Anche l'aggiunta di una nuova immagine alla Factory è semplice. Per includere u
 ## <a name="next-steps"></a>Passaggi successivi
 1. [Pianificare la compilazione o la versione](/azure/devops/pipelines/build/triggers?tabs=designer) per eseguire periodicamente la factory di immagini. Aggiorna regolarmente le immagini generate in base alle impostazioni predefinite.
 2. Crea più immagini d'oro per la tua Factory. È anche possibile [creare elementi per creare](devtest-lab-artifact-author.md) script per altre parti delle attività di configurazione della macchina virtuale e includere gli artefatti nelle immagini Factory.
-4. Creare una [compilazione o una versione separata](/azure/devops/pipelines/overview?view=azure-devops-2019) per eseguire lo script **DistributeImages** separatamente. È possibile eseguire questo script quando si apportano modifiche a Labs.jsin e si ottengono immagini copiate nei Lab di destinazione senza dover ricreare tutte le immagini.
+4. Creare una [compilazione o una versione separata](/azure/devops/pipelines/overview) per eseguire lo script **DistributeImages** separatamente. È possibile eseguire questo script quando si apportano modifiche a Labs.jsin e si ottengono immagini copiate nei Lab di destinazione senza dover ricreare tutte le immagini.
 

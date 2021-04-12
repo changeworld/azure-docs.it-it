@@ -3,12 +3,12 @@ title: Aggiornare la versione del cluster di Azure Service Fabric
 description: Informazioni sulle versioni del cluster in Azure Service Fabric, incluso un collegamento alle versioni più recenti dal Blog del team di Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 3e859a04ffb0b885aab0f31e83afad8380cbcc95
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1f06d7cb5f8fa1182969447168dfb4297473075a
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103010202"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257535"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Aggiornare la versione del cluster di Azure Service Fabric
 
@@ -85,14 +85,15 @@ Le versioni di Service Fabric nella tabella contengono le modifiche necessarie p
 
  | OS | Runtime Service Fabric corrente nel cluster | Versione CU/patch |
   | --- | --- |--- |
-  | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
-  | Windows | 7,2. * | 7,2. * |
-  | Linux Ubuntu 16.04 | 7,0. * | 7.0.472.1  |
+  | Windows | 7,2. * | 7.2.477.9590 |
+  | Windows | 8,0. * | 8.0.514.9590 |
   | Linux Ubuntu 16.04 | 7,1. * | 7.1.455.1  |
   | Linux Ubuntu 18,04 | 7,1. * | 7.1.455.1804 |
-  | Linux Ubuntu 16.04 | 7,2. * | 7,2. * |
-  | Linux Ubuntu 18,04 | 7,2. * | 7,2. * |
+  | Linux Ubuntu 16.04 | 7,2. * | 7.2.476.1 |
+  | Linux Ubuntu 18,04 | 7,2. * | 7.2.476.1804 |
+  | Linux Ubuntu 16.04 | 8,0. * | 8.0.513.1 |
+  | Linux Ubuntu 18,04 | 8,0. * | 8.0.513.1804 |
 
 ## <a name="supported-versions"></a>Versioni supportate
 
@@ -125,13 +126,14 @@ Nella tabella seguente sono elencate le versioni di Service Fabric e le date di 
 | 7.1.459.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 luglio 2021 |
 | 7.1.503.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 luglio 2021 |
 | 7.1.510.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 luglio 2021 |
-| 7.2.413.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
-| 7.2.432.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
-| 7.2.433.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
-| 7.2.445.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
-| 7.2.452.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
-| 7.2.457.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
-| 7.2.477.* | 7.0.478.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
+| 7.2.413.* | 7.0.470.* |Minore o uguale alla versione 4,2 |30 novembre, 2021 |
+| 7.2.432.* | 7.0.470.* |Minore o uguale alla versione 4,2 |30 novembre, 2021 |
+| 7.2.433.* | 7.0.470.* |Minore o uguale alla versione 4,2 |30 novembre, 2021 |
+| 7.2.445.* | 7.0.470.* |Minore o uguale alla versione 4,2 |30 novembre, 2021 |
+| 7.2.452.* | 7.0.470.* |Minore o uguale alla versione 4,2 |30 novembre, 2021 |
+| 7.2.457.* | 7.0.470.* |Minore o uguale alla versione 4,2 |30 novembre, 2021 |
+| 7.2.477.* | 7.0.478.* |Minore o uguale alla versione 4,2 |30 novembre, 2021 |
+| 8.0.514.* | 7.1.510.* |Minore o uguale alla versione 5,0 |Versione corrente, quindi nessuna data di fine |
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -141,11 +143,11 @@ Nella tabella seguente sono elencati i sistemi operativi supportati per le versi
 | --- | --- |
 | Windows Server 2012 R2 | Tutte le versioni |
 | Windows Server 2016 | Tutte le versioni |
-| Windows Server 1709 | 6.0 |
+| Windows Server 1709 | 6,0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 16.04 | 6,0 |
 | Linux Ubuntu 18,04 | 7.1 |
 
 ## <a name="supported-version-names"></a>Nomi di versione supportati
@@ -216,3 +218,4 @@ Nella tabella seguente sono elencati i nomi delle versioni di Service Fabric e i
 | 7,2 CU5 | 7.2.452.9590 | 7.2.454.1 |
 | 7,2 CU6 | 7.2.457.9590 | 7.2.456.1 |
 | 7,2 CU7 | 7.2.477.9590 | 7.2.476.1 |
+| 8,0 RTO | 8.0.514.9590 | 8.0.513.1 |

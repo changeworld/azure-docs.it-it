@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c63ee686ae218a696069465bb8d2d1d7413a998e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 62296acaba77017cd71227582447b9fa7c4f1934
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799089"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090240"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -257,13 +257,13 @@ WithParentActivityOrWindow(IWin32Window window)
 // Mac
 WithParentActivityOrWindow(NSWindow window)
 
-// .Net Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
+// .NET Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
 WithParentActivityOrWindow(object parent).
 ```
 
 Osservazioni:
 
-- In .NET Standard l'elemento `object` previsto è `Activity` in Android, `UIViewController` in iOS, `NSWindow` in MAC e `IWin32Window` o `IntPr` in Windows.
+- In .NET Standard, il previsto `object` si trova `Activity` su Android, `UIViewController` su iOS, `NSWindow` su Mac e `IWin32Window` o `IntPr` su Windows.
 - In Windows è necessario chiamare `AcquireTokenInteractive` dal thread di interfaccia utente in modo che il browser incorporato ottenga il contesto di sincronizzazione dell'interfaccia utente appropriato. Se la chiamata non viene effettuata dal thread di interfaccia utente potrebbero verificarsi errori durante la distribuzione dei messaggi con conseguenti scenari di inserimento nella coda di messaggi non recapitabili nell'interfaccia utente. Un modo per chiamare le librerie di autenticazione Microsoft (MSAL) dal thread di interfaccia utente, se non ci si trova già nel thread di interfaccia utente, consiste nell'usare `Dispatcher` in Windows Presentation Foundation (WPF).
 - Se si usa WPF, per ottenere una finestra da un controllo WPF, è possibile usare la classe `WindowInteropHelper.Handle`. La chiamata proviene quindi da un controllo WPF (`this`):
 
@@ -277,15 +277,26 @@ Osservazioni:
 
 `WithPrompt()` viene usato per controllare l'interattività con l'utente specificando una richiesta.
 
-![Immagine che mostra i campi nella struttura dei messaggi di richiesta. Questi valori costanti controllano l'interattività con l'utente definendo il tipo di messaggio di richiesta visualizzato dal metodo WithPrompt ().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
+![Immagine che mostra i campi nella struttura dei messaggi di richiesta. Questi valori costanti controllano l'interattività con l'utente definendo il tipo di messaggio di richiesta visualizzato dal metodo WithPrompt ().](https://user-images.githubusercontent.com/34331512/112267137-3f1c3a00-8c32-11eb-97fb-33604311329a.png)
 
 La classe definisce le costanti seguenti:
 
 - ``SelectAccount`` impone al servizio token di sicurezza di presentare la finestra di dialogo di selezione dell'account che contiene gli account per i quali l'utente dispone di una sessione. Questa opzione è utile quando gli sviluppatori di applicazioni desiderano consentire agli utenti di scegliere tra identità diverse. Questa opzione consente a MSAL di inviare ``prompt=select_account`` al provider di identità. Questa opzione è l'impostazione predefinita. Permette di fornire la migliore esperienza possibile in base alle informazioni disponibili, ad esempio l'account e la presenza di una sessione per l'utente. Non modificarla se non si ha un buon motivo per farlo.
 - ``Consent`` consente agli sviluppatori di applicazioni di forzare la richiesta di consenso da parte dell'utente, anche se il consenso è già stato concesso in precedenza. In questo caso, MSAL invia `prompt=consent` al provider di identità. Questa opzione può essere usata in alcune applicazioni incentrate sulla sicurezza, in cui la governance dell'organizzazione richiede che all'utente venga presentata la finestra di dialogo di consenso ogni volta che viene usata l'applicazione.
 - ``ForceLogin`` consente agli sviluppatori di applicazioni di richiedere all'utente le credenziali per il servizio, anche se questa richiesta utente potrebbe non essere necessaria. Questa opzione è utile per consentire all'utente di accedere di nuovo se l'acquisizione di un token ha esito negativo. In questo caso, MSAL invia `prompt=login` al provider di identità. Talvolta viene usata in applicazioni incentrate sulla sicurezza in cui la governance dell'organizzazione richiede all'utente di eseguire di nuovo l'accesso quando si passa a parti specifiche di un'applicazione.
+- ``Create`` attiva un'esperienza di iscrizione, che viene usata per le identità esterne, inviando `prompt=create` al provider di identità. Questa richiesta non deve essere inviata per le app Azure AD B2C. Per altre informazioni, vedere [aggiungere un flusso utente di iscrizione self-service a un'app](https://aka.ms/msal-net-prompt-create).
 - ``Never`` (solo per .NET 4.5 e WinRT) non presenterà alcuna richiesta all'utente, ma tenterà di usare il cookie archiviato nella visualizzazione Web incorporata nascosta. Per altre informazioni, vedere le visualizzazioni Web in MSAL.NET. L'uso di questa opzione potrebbe avere esito negativo. In tal caso, `AcquireTokenInteractive` genera un'eccezione per notificare che è necessaria un'interazione con l'interfaccia utente. Sarà necessario usare un altro parametro `Prompt`.
 - ``NoPrompt`` non invierà alcuna richiesta al provider di identità. Questa opzione è utile solo per i criteri di modifica del profilo di Azure Active Directory (Azure AD) B2C. Per altre informazioni, vedere [Specifiche di Azure AD B2C](https://aka.ms/msal-net-b2c-specificities).
+
+#### <a name="withuseembeddedwebview"></a>WithUseEmbeddedWebView
+
+Questo metodo consente di specificare se si vuole forzare l'uso di una WebView incorporata o di System WebView (se disponibile). Per altre informazioni, vedere [Utilizzo dei Web browser](msal-net-web-browsers.md).
+
+ ```csharp
+ var result = await app.AcquireTokenInteractive(scopes)
+                   .WithUseEmbeddedWebView(true)
+                   .ExecuteAsync();
+  ```
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 

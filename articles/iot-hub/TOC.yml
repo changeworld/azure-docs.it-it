@@ -394,26 +394,26 @@
               href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
             - name: Monitorare il sensore magnetico e inviare notifiche tramite posta elettronica con Funzioni di Azure
               href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
-        - name: Scenari IoT estesi
-          items:
-            - name: Gestire la messaggistica tra cloud e dispositivo con Azure IoT Tools per VS Code
-              href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-            - name: Gestire la messaggistica da dispositivo a cloud con Cloud Explorer per Visual Studio
-              href: iot-hub-visual-studio-cloud-device-messaging.md
-            - name: Visualizzazione dei dati in Power BI
-              href: iot-hub-live-data-visualization-in-power-bi.md
-            - name: Visualizzazione dei dati in un'app Web
-              href: iot-hub-live-data-visualization-in-web-apps.md
-            - name: Previsioni meteo con Azure Machine Learning
-              href: iot-hub-weather-forecast-machine-learning.md
-            - name: Gestione dei dispositivi con Azure IoT Tools per VS Code
-              href: iot-hub-device-management-iot-toolkit.md
-            - name: Gestione dei dispositivi con Cloud Explorer per Visual Studio
-              href: iot-hub-device-management-visual-studio.md
-            - name: Gestione dei dispositivi con l'estensione IoT per l'interfaccia della riga di comando di Azure
-              href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
-            - name: Monitoraggio remoto e notifiche con App per la logica
-              href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+    - name: Scenari IoT estesi
+      items:
+        - name: Gestire la messaggistica tra cloud e dispositivo con Azure IoT Tools per VS Code
+          href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
+        - name: Gestire la messaggistica da dispositivo a cloud con Cloud Explorer per Visual Studio
+          href: iot-hub-visual-studio-cloud-device-messaging.md
+        - name: Visualizzazione dei dati in Power BI
+          href: iot-hub-live-data-visualization-in-power-bi.md
+        - name: Visualizzazione dei dati in un'app Web
+          href: iot-hub-live-data-visualization-in-web-apps.md
+        - name: Previsioni meteo con Azure Machine Learning
+          href: iot-hub-weather-forecast-machine-learning.md
+        - name: Gestione dei dispositivi con Azure IoT Tools per VS Code
+          href: iot-hub-device-management-iot-toolkit.md
+        - name: Gestione dei dispositivi con Cloud Explorer per Visual Studio
+          href: iot-hub-device-management-visual-studio.md
+        - name: Gestione dei dispositivi con l'estensione IoT per l'interfaccia della riga di comando di Azure
+          href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
+        - name: Monitoraggio remoto e notifiche con App per la logica
+          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
     - name: Individuazione e risoluzione dei problemi
       items:
         - name: Disconnessione del dispositivo
@@ -547,8 +547,8 @@
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
         - name: Piattaforma iOS
           href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
-    - name: Catalogo dei dispositivi Azure Certified per IoT
-      href: 'https://catalog.azureiotsolutions.com/'
+    - name: Catalogo dei dispositivi Azure Certified
+      href: 'https://devicecatalog.azure.com/'
     - name: Centro per sviluppatori Azure IoT
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Richieste di dati del cliente

@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 875c046406b7989a39f09dde82640ed5567b6b3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d160738208bcef7b066567137a3c3a9738c26a5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101714868"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727009"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Eseguire la migrazione di Azure Data Lake Storage da Gen1 a Gen2
 
@@ -111,7 +111,7 @@ In questa tabella vengono confrontate le funzionalità di Gen1 a quella di Gen2.
 
 Scegliere un modello di migrazione, quindi modificare il modello in base alle esigenze.
 
-|||
+|Modello di migrazione | Dettagli |
 |---|---|
 |**Lift-and-Shift**|Modello più semplice. Ideale se le pipeline di dati possono permettersi tempi di inattività.|
 |**Copia incrementale**|Simile a *Lift-and-Shift*, ma con minor tempo di inattività. Ideale per grandi quantità di dati che importano più tempo per la copia.|

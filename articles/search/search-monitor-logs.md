@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3c8dd5cd9da2fd1e741635a6471c0662066d147e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f0d85f056cfaaa58fcc72eb9c2182b3e1a78affb
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709940"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581619"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Raccogliere e analizzare i dati di log per Azure ricerca cognitiva
 
-I log di diagnostica o operativi forniscono informazioni approfondite sulle operazioni dettagliate di Azure ricerca cognitiva e sono utili per il monitoraggio dei processi del servizio e del carico di lavoro. Internamente, Microsoft conserva le informazioni di sistema sul back-end per un breve periodo di tempo (circa 30 giorni), sufficiente per l'analisi e l'analisi, se si segnala un ticket di supporto. Tuttavia, se si desidera la proprietà su dati operativi, è necessario configurare un'impostazione di diagnostica per specificare la posizione in cui vengono raccolte le informazioni di registrazione.
+I log di diagnostica o operativi forniscono informazioni approfondite sulle operazioni dettagliate di Azure ricerca cognitiva e sono utili per il monitoraggio dell'integrità e dei processi dei servizi. Internamente, Microsoft conserva le informazioni di sistema sul back-end per un breve periodo di tempo (circa 30 giorni), sufficiente per l'analisi e l'analisi, se si segnala un ticket di supporto. Tuttavia, se si desidera la proprietà su dati operativi, è necessario configurare un'impostazione di diagnostica per specificare la posizione in cui vengono raccolte le informazioni di registrazione.
 
 La registrazione diagnostica viene abilitata tramite l'integrazione con [monitoraggio di Azure](../azure-monitor/index.yml). 
 

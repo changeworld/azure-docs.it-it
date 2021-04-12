@@ -6,14 +6,14 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 11/13/2020
+ms.date: 04/05/2021
 ms.author: punagpal
-ms.openlocfilehash: 3e293782e6f00852a51e0617a07eebd5d8c56261
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 0a382ad948e7fd2efc6ab59eb94da3d6cbb210d7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644852"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443773"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Avvio rapido: Distribuire il connettore Azure IoT per FHIR (anteprima) usando il portale di Azure
 
@@ -171,6 +171,11 @@ Distribuire il [modello di applicazione di monitoraggio pazienti continuo](../..
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Connettere i dati IoT al connettore Azure IoT per FHIR (anteprima)
 
 Una volta distribuita l'applicazione IoT Central, i due dispositivi simulati predefiniti inizieranno a generare dati di telemetria. Per questa esercitazione, verranno inseriti i dati di telemetria dal simulatore *Benda intelligente per i segni vitali* in FHIR tramite il connettore Azure IoT per FHIR. Per esportare i dati IoT nel connettore Azure IoT per FHIR, è opportuno [configurare l'esportazione dati continua in IoT Central](../../iot-central/core/howto-export-data.md). Prima di tutto è necessario creare una connessione alla destinazione e quindi creare un processo di esportazione dei dati per l'esecuzione continua: 
+
+> [!NOTE]
+> È possibile selezionare l' **esportazione dei dati** e l' **esportazione dei dati (legacy)** nelle impostazioni dell'app IOT Central per questa sezione.
+
+[![Impostazioni esportazione dati IoT Central](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png)](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png#lightbox)
 
 Creare una nuova destinazione:
 - Passare alla scheda **destinazioni** e creare una nuova destinazione.
