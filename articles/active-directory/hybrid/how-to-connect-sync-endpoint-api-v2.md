@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98937615"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API dell'endpoint Servizio di sincronizzazione Azure AD Connect v2 
@@ -113,11 +113,11 @@ Per aumentare il limite di appartenenza, è possibile usare i passaggi seguenti:
 
 7. Nella finestra popup della pagina **Descrizione** impostare la precedenza su un valore disponibile compreso tra 1 e 99 ![ screenshot che mostra la finestra "Modifica regola di sincronizzazione in uscita" con "precedenza" evidenziata.](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
-8. Nella pagina **Trasformazioni** aggiornare il valore **Origine** per la trasformazione dei **membri**, sostituendo "50000" con un valore compreso tra 50001 e 250000. Questa sostituzione aumenterà le dimensioni massime di appartenenza dei gruppi che verranno sincronizzati in Azure AD. Si consiglia di iniziare con un numero di 100.000 per comprendere l'effetto che la sincronizzazione di gruppi di grandi dimensioni avrà sulle prestazioni di sincronizzazione. 
+8. Nella pagina **Trasformazioni** aggiornare il valore **Origine** per la trasformazione dei **membri**, sostituendo "50000&quot; con un valore compreso tra 50001 e 250000. Questa sostituzione aumenterà le dimensioni massime di appartenenza dei gruppi che verranno sincronizzati in Azure AD. Si consiglia di iniziare con un numero di 100.000 per comprendere l'effetto che la sincronizzazione di gruppi di grandi dimensioni avrà sulle prestazioni di sincronizzazione. 
  
  **Esempio** 
  
- `IIF((ValueCount("member")> 75000),Error("Maximum Group member count exceeded"),IgnoreThisFlow)` 
+ `IIF((ValueCount(&quot;member")> 75000),Error("Maximum Group member count exceeded"),IgnoreThisFlow)` 
  
  ![Modifica regola di sincronizzazione](media/how-to-connect-sync-endpoint-api-v2/endpoint5.png)
 

@@ -1,78 +1,78 @@
 ---
-title: "Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes tramite l'interfaccia della riga di comando di Azure con nodi di confidential computing"
-description: In questa Guida introduttiva si apprenderà come creare un cluster AKS con nodi riservati e come distribuire un'app Hello World usando l'interfaccia della riga di comando di Azure.
+title: "Guida introduttiva: distribuire un cluster AKS con nodi di elaborazione riservati usando l'interfaccia della riga di comando di Azure"
+description: Informazioni su come creare un cluster Azure Kubernetes Service (AKS) con nodi riservati e distribuire un'app Hello World usando l'interfaccia della riga di comando di Azure.
 author: agowdamsft
 ms.service: container-service
 ms.subservice: confidential-computing
 ms.topic: quickstart
-ms.date: 03/18/2020
+ms.date: 04/08/2021
 ms.author: amgowda
 ms.custom: contentperf-fy21q3
-ms.openlocfilehash: 73770acefc8a153e4a2f2fde146f9afd4c319cd3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b012a8a5856b344b366f1ddd89fc5059a6f3c8ae
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933135"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283525"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-dcsv2-using-azure-cli"></a>Guida introduttiva: distribuire un cluster Azure Kubernetes Service (AKS) con nodi di calcolo riservati (DCsv2) usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>Guida introduttiva: distribuire un cluster AKS con nodi di elaborazione riservati usando l'interfaccia della riga di comando di Azure
 
-Questa guida di avvio rapido è rivolta agli sviluppatori o agli operatori cluster che vogliono creare rapidamente un cluster del servizio Azure Kubernetes e distribuire un'applicazione per monitorare le applicazioni usando il servizio Kubernetes gestito in Azure. È anche possibile eseguire il provisioning del cluster e aggiungere nodi di elaborazione riservati da portale di Azure.
+In questa Guida introduttiva si userà l'interfaccia della riga di comando di Azure per distribuire un cluster Azure Kubernetes Service (AKS) con nodi di calcolo riservati (DCsv2). Si eseguirà quindi una semplice applicazione Hello World in un'enclave. È anche possibile eseguire il provisioning di un cluster e aggiungere nodi di elaborazione riservati dalla portale di Azure, ma questa Guida introduttiva è incentrata sull'interfaccia della riga di comando
 
-## <a name="overview"></a>Panoramica
+AKS è un servizio Kubernetes gestito che consente agli sviluppatori o agli operatori di cluster di distribuire e gestire rapidamente i cluster. Per altre informazioni, vedere l' [Introduzione a AKS](../aks/intro-kubernetes.md) e la [Panoramica dei nodi riservati di AKS](confidential-nodes-aks-overview.md).
 
-In questa Guida introduttiva si apprenderà come distribuire un cluster Azure Kubernetes Service (AKS) con nodi di elaborazione riservati usando l'interfaccia della riga di comando di Azure ed eseguire una semplice applicazione Hello World in un'enclave. Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. Per altre informazioni, vedere l' [Introduzione a AKS](../aks/intro-kubernetes.md) e la [Panoramica dei nodi riservati AKS](confidential-nodes-aks-overview.md).
+Le funzionalità dei nodi di elaborazione riservati includono:
+
+- Nodi di lavoro Linux che supportano i contenitori Linux.
+- Macchina virtuale di seconda generazione (VM) con nodi VM Ubuntu 18,04.
+- CPU Intel SGX in grado di semplificare l'esecuzione dei contenitori nell'enclave protetta per la riservatezza, sfruttando la memoria cache della pagina (EPC) crittografata. Per altre informazioni, vedere [domande frequenti su Azure Confidential computing](./faq.md).
+- Driver Intel SGX DCAP preinstallato nei nodi di elaborazione riservati. Per altre informazioni, vedere [domande frequenti su Azure Confidential computing](./faq.md).
 
 > [!NOTE]
-> Le macchine virtuali DCsv2 con confidential computing usano hardware specializzato soggetto a prezzi maggiori e alla disponibilità a livello di area. Per altre informazioni sugli SKU disponibili e le aree supportate, vedere [Soluzioni nelle macchine virtuali di Azure](virtual-machine-solutions.md).
-
-### <a name="confidential-computing-node-features-dcsv2"></a>Funzionalità del nodo di computing riservato (DCsv2)
-
-1. Nodi di lavoro Linux che supportano i contenitori Linux.
-1. VM di generazione 2 con i nodi delle macchine virtuali Ubuntu 18,04.
-1. CPU basata su Intel SGX con memoria EPC (Encrypted Page Cache). Altre informazioni sono disponibili [qui](./faq.md).
-1. Supporto per Kubernetes versione 1.16 +.
-1. Driver Intel SGX DCAP pre-installato nei nodi AKS. Altre informazioni sono disponibili [qui](./faq.md).
+> Le macchine virtuali DCsv2 utilizzano hardware specializzato, soggetto a prezzi e disponibilità delle aree più elevati. Per altre informazioni, vedere gli [SKU disponibili e le aree supportate](virtual-machine-solutions.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva richiede:
 
-1. Una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-1. INTERFACCIA della riga di comando di Azure versione 2.0.64 o successiva installata e configurata nel computer di distribuzione (eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
-1. Almeno sei core **DCsv2** disponibili nella sottoscrizione per l'uso. Per impostazione predefinita, la quota di core VM per la sottoscrizione di Azure computing per Azure è di otto core. Se si prevede di effettuare il provisioning di un cluster che richiede più di otto core, seguire [queste](../azure-portal/supportability/per-vm-quota-requests.md) istruzioni per generare un ticket di aumento della quota.
+- Una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+- INTERFACCIA della riga di comando di Azure versione 2.0.64 o successiva installata e configurata nel computer di distribuzione. 
 
-## <a name="create-a-new-aks-cluster-with-confidential-computing-nodes-and-add-on"></a>Creare un nuovo cluster AKS con nodi di elaborazione riservati e componenti aggiuntivi
+  Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
+- Almeno sei core DCsv2 disponibili nella sottoscrizione. 
 
-Seguire le istruzioni seguenti per aggiungere nodi in grado di supportare l'elaborazione riservata con il componente aggiuntivo.
+  Per impostazione predefinita, la quota per l'elaborazione riservata per ogni sottoscrizione di Azure è di otto core VM. Se si prevede di eseguire il provisioning di un cluster che richiede più di otto core, seguire [queste istruzioni](../azure-portal/supportability/per-vm-quota-requests.md) per generare un ticket di aumento della quota.
+
+## <a name="create-an-aks-cluster-with-confidential-computing-nodes-and-add-on"></a>Creare un cluster AKS con nodi di calcolo riservati e componenti aggiuntivi
+
+Usare le istruzioni seguenti per creare un cluster AKS con il componente aggiuntivo Confidential computing abilitato, aggiungere un pool di nodi al cluster e verificare cosa è stato creato.
 
 ### <a name="create-an-aks-cluster-with-a-system-node-pool"></a>Creare un cluster AKS con un pool di nodi di sistema
 
-Se si ha già un cluster del servizio Azure Kubernetes che soddisfa i requisiti elencati sopra, [passare alla sezione relativa al cluster esistente](#existing-cluster) per aggiungere un nuovo pool di nodi di confidential computing.
+> [!NOTE]
+> Se si dispone già di un cluster AKS che soddisfa i criteri prerequisiti elencati in precedenza, [passare alla sezione successiva](#add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster) per aggiungere un pool di nodi di calcolo riservato.
 
-Per prima cosa, creare un gruppo di risorse per il cluster usando il comando [AZ Group create][az-group-create] . L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *westus2*:
+Per prima cosa, creare un gruppo di risorse per il cluster usando il comando [AZ Group create][az-group-create] . L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *westus2* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
 ```
 
-Creare ora un cluster AKS usando il comando [AZ AKS create][az-aks-create] :
+A questo punto, creare un cluster AKS con il componente aggiuntivo di elaborazione riservato abilitato, usando il comando [AZ AKS create][az-aks-create] :
 
 ```azurecli-interactive
 az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom
 ```
 
-Il precedente consente di creare un nuovo cluster AKS con un pool di nodi di sistema con il componente aggiuntivo abilitato. Aggiungere quindi un pool di nodi utente con funzionalità di elaborazione riservate al cluster AKS.
+### <a name="add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster"></a>Aggiungere un pool di nodi utente con funzionalità di elaborazione riservate al cluster AKS 
 
-### <a name="add-a-confidential-computing-node-pool-to-the-aks-cluster"></a>Aggiungere un pool di nodi di calcolo confidenziale al cluster AKS 
-
-Eseguire il comando seguente per aggiungere un pool di nodi utente di `Standard_DC2s_v2` dimensioni con tre nodi. È possibile scegliere un altro SKU dall'elenco supportato di [SKU e aree DCsv2](../virtual-machines/dcv2-series.md).
+Eseguire il comando seguente per aggiungere un pool di nodi utente di `Standard_DC2s_v2` dimensioni con tre nodi al cluster AKS. È possibile scegliere un altro SKU dall' [elenco delle aree e degli SKU DCsv2 supportati](../virtual-machines/dcv2-series.md).
 
 ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC2s_v2
 ```
 
-Dopo l'esecuzione, un nuovo pool di nodi con **DCsv2** deve essere visibile con il componente aggiuntivo per l'elaborazione riservata gli elementi daemonset (plug-in del [dispositivo SGX](confidential-nodes-aks-overview.md#sgx-plugin)).
+Dopo aver eseguito il comando, un nuovo pool di nodi con DCsv2 deve essere visibile con il componente aggiuntivo per l'elaborazione riservata gli elementi daemonset ([plug-in del dispositivo SGX](confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks)).
 
 ### <a name="verify-the-node-pool-and-add-on"></a>Verificare il pool di nodi e il componente aggiuntivo
 
@@ -82,7 +82,7 @@ Ottenere le credenziali per il cluster AKS usando il comando [AZ AKS Get-credent
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Verificare che i nodi siano creati correttamente e che i gli elementi daemonset correlati a SGX siano in esecuzione nei pool di nodi **DCsv2** usando il comando kubectl get Pod & nodes come illustrato di seguito:
+Usare il `kubectl get pods` comando per verificare che i nodi siano creati correttamente e che i gli elementi daemonset correlati a SGX siano in esecuzione nei pool di nodi DCsv2:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -90,13 +90,13 @@ $ kubectl get pods --all-namespaces
 kube-system     sgx-device-plugin-xxxx     1/1     Running
 ```
 
-Se l'output corrisponde a quello precedente, il cluster AKS è ora pronto per l'esecuzione di applicazioni riservate.
+Se l'output corrisponde al codice precedente, il cluster AKS è ora pronto per l'esecuzione di applicazioni riservate.
 
-Passare alla sezione [Hello World da enclave](#hello-world) Deployment per testare un'app in un'enclave. In alternativa, seguire le istruzioni seguenti per aggiungere altri pool di nodi in AKS (AKS supporta la combinazione di pool di nodi SGX e pool di nodi non SGX).
+È possibile passare alla sezione [Deploy Hello World from an isolated enclave](#hello-world) in questa Guida introduttiva per testare un'app in una enclave. In alternativa, usare le istruzioni seguenti per aggiungere altri pool di nodi in AKS. (AKS supporta la combinazione di pool di nodi SGX e pool di nodi non SGX).
 
 ## <a name="add-a-confidential-computing-node-pool-to-an-existing-aks-cluster"></a>Aggiungere un pool di nodi di calcolo riservati a un cluster AKS esistente<a id="existing-cluster"></a>
 
-Questa sezione presuppone che sia già in esecuzione un cluster AKS che soddisfi i criteri elencati nella sezione Prerequisiti (si applica al componente aggiuntivo).
+Questa sezione presuppone che sia già in esecuzione un cluster AKS che soddisfi i criteri prerequisiti elencati in precedenza in questa Guida introduttiva.
 
 ### <a name="enable-the-confidential-computing-aks-add-on-on-the-existing-cluster"></a>Abilitare il componente aggiuntivo Confidential computing AKS sul cluster esistente
 
@@ -106,18 +106,18 @@ Eseguire il comando seguente per abilitare il componente aggiuntivo Confidential
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
 
-### <a name="add-a-dcsv2-user-node-pool-to-the-cluster"></a>Aggiungere un pool di nodi utente **DCsv2** al cluster
+### <a name="add-a-dcsv2-user-node-pool-to-the-cluster"></a>Aggiungere un pool di nodi utente DCsv2 al cluster
 
 > [!NOTE]
-> Per usare la funzionalità di elaborazione riservata, il cluster AKS esistente deve avere almeno un pool di nodi basato su SKU della macchina virtuale **DCsv2** . Per altre informazioni sui controller di dominio di calcolo riservati-V2 VM SKU, vedere [SKU disponibili e aree supportate](virtual-machine-solutions.md).
+> Per usare la funzionalità di elaborazione riservata, il cluster AKS esistente deve avere almeno un pool di nodi basato su uno SKU di VM DCsv2. Per altre informazioni sugli SKU di VM DCs-V2 per l'elaborazione riservata, vedere gli [SKU disponibili e le aree supportate](virtual-machine-solutions.md).
 
-Eseguire il comando seguente per creare un nuovo pool di nodi:
+Eseguire il comando seguente per creare un pool di nodi:
 
 ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2
 ```
 
-Verificare che sia stato creato il nuovo pool di nodi con il nome confcompool1:
+Verificare che sia stato creato il nuovo pool di nodi con il nome *confcompool1* :
 
 ```azurecli-interactive
 az aks nodepool list --cluster-name myAKSCluster --resource-group myResourceGroup
@@ -125,13 +125,13 @@ az aks nodepool list --cluster-name myAKSCluster --resource-group myResourceGrou
 
 ### <a name="verify-that-daemonsets-are-running-on-confidential-node-pools"></a>Verificare che gli elementi daemonset siano in esecuzione nei pool di nodi riservati
 
-Accedere al cluster AKS esistente per eseguire la verifica seguente.
+Accedere al cluster AKS esistente per eseguire la verifica seguente:
 
 ```console
 kubectl get nodes
 ```
 
-L'output dovrebbe mostrare il pool di nodi confcompool1 appena aggiunto nel cluster del servizio Azure Kubernetes. È anche possibile visualizzare altri gli elementi daemonset.
+L'output dovrebbe mostrare il pool *confcompool1* appena aggiunto nel cluster AKS. È anche possibile visualizzare altri gli elementi daemonset.
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -139,10 +139,12 @@ $ kubectl get pods --all-namespaces
 kube-system     sgx-device-plugin-xxxx     1/1     Running
 ```
 
-Se l'output corrisponde a quello precedente, il cluster AKS è ora pronto per l'esecuzione di applicazioni riservate. Per distribuire un'applicazione di test, seguire le istruzioni riportate di seguito.
+Se l'output corrisponde al codice precedente, il cluster AKS è ora pronto per l'esecuzione di applicazioni riservate. 
 
-## <a name="hello-world-from-isolated-enclave-application"></a>Hello World da un'applicazione enclave isolata <a id="hello-world"></a>
-Creare un file denominato *hello-world-enclave.yaml* e incollare il manifesto YAML seguente. Questo codice applicativo di esempio basato su Open Enclave è disponibile nel [progetto Open Enclave](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). Per la distribuzione seguente si presuppone che sia stato distribuito l'addon "confcom".
+## <a name="deploy-hello-world-from-an-isolated-enclave-application"></a>Distribuire Hello World da un'applicazione enclave isolata <a id="hello-world"></a>
+A questo punto si è pronti per distribuire un'applicazione di test. 
+
+Creare un file denominato *Hello-World-enclave. YAML* e incollare il manifesto YAML seguente. È possibile trovare questo codice dell'applicazione di esempio nel [progetto Open enclave](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). Questa distribuzione presuppone che sia stato distribuito il componente aggiuntivo *confcom* .
 
 ```yaml
 apiVersion: batch/v1
@@ -162,12 +164,12 @@ spec:
         image: oeciteam/sgx-test:1.0
         resources:
           limits:
-            kubernetes.azure.com/sgx_epc_mem_in_MiB: 5 # This limit will automatically place the job into confidential computing node. Alternatively you can target deployment to nodepools
+            sgx.intel.com/epc: 5Mi # This limit will automatically place the job into a confidential computing node and mount the required driver volumes. Alternatively, you can target deployment to node pools with node selector.
       restartPolicy: Never
   backoffLimit: 0
   ```
 
-Usare ora il comando kubectl apply per creare un processo di esempio che verrà avviato in un'enclave protetta, come illustrato nell'output di esempio seguente:
+Usare ora il `kubectl apply` comando per creare un processo di esempio che verrà aperto in un'enclave protetta, come illustrato nell'output di esempio seguente:
 
 ```console
 $ kubectl apply -f hello-world-enclave.yaml
@@ -175,7 +177,7 @@ $ kubectl apply -f hello-world-enclave.yaml
 job "sgx-test" created
 ```
 
-È possibile verificare che il carico di lavoro abbia creato correttamente un ambiente TEE (Enclave) eseguendo i comandi seguenti:
+È possibile verificare che il carico di lavoro abbia creato correttamente un ambiente di esecuzione attendibile eseguendo i comandi seguenti:
 
 ```console
 $ kubectl get jobs -l app=sgx-test
@@ -200,15 +202,13 @@ Enclave called into host to print: Hello World!
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per rimuovere i pool di nodi associati o eliminare il cluster AKS, usare i comandi seguenti:
-
-### <a name="remove-the-confidential-computing-node-pool"></a>Rimuovere il pool di nodi di calcolo riservati
+Per rimuovere il pool di nodi di calcolo riservato creato in questa Guida introduttiva, usare il comando seguente: 
 
 ```azurecli-interactive
-az aks nodepool delete --cluster-name myAKSCluster --name myNodePoolName --resource-group myResourceGroup
+az aks nodepool delete --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup
 ```
 
-### <a name="delete-the-aks-cluster"></a>Eliminare il cluster AKS
+Per eliminare il cluster AKS, usare il comando seguente: 
 
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster
@@ -216,9 +216,9 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Eseguire le applicazioni Python, node e così via in modo riservato tramite contenitori riservati visitando [esempi di contenitori riservati](https://github.com/Azure-Samples/confidential-container-samples).
+* Eseguire Python, node o altre applicazioni tramite contenitori riservati usando gli esempi di contenitori [riservati in GitHub](https://github.com/Azure-Samples/confidential-container-samples).
 
-* Eseguire applicazioni con riconoscimento dell'enclave visitando [Esempi di contenitori con riconoscimento dell'enclave](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
+* Eseguire applicazioni compatibili con l'enclave usando gli [esempi di contenitori di Azure compatibili con l'enclave in GitHub](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
 
 <!-- LINKS -->
 [az-group-create]: /cli/azure/group#az_group_create

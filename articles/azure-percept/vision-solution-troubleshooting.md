@@ -5,14 +5,14 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/29/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e7351079e7325aa7750dc0d10f0923bc847ccc3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 78de5ef0ef77a181d4a2da91e4b468db1b47f208
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101663516"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074693"
 ---
 # <a name="vision-solution-troubleshooting"></a>Risoluzione dei problemi della soluzione
 
@@ -44,7 +44,7 @@ Vedere le linee guida seguenti per informazioni sulla risoluzione dei problemi r
 
 1. I moduli del dispositivo verranno elencati nella scheda **moduli** .
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-device-modules-inline.png" alt-text="Pagina Edge per il dispositivo selezionato che mostra il contenuto della scheda moduli." lightbox= "./media/vision-solution-troubleshooting/vision-device-modules.png":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-device-modules-inline.png" alt-text="IoT Edge pagina per il dispositivo selezionato che mostra il contenuto della scheda moduli." lightbox= "./media/vision-solution-troubleshooting/vision-device-modules.png":::
 
 ## <a name="delete-a-device"></a>Eliminare un dispositivo
 
@@ -56,17 +56,49 @@ Vedere le linee guida seguenti per informazioni sulla risoluzione dei problemi r
 
 1. Selezionare **IOT Edge** e selezionare la casella accanto all'ID del dispositivo di destinazione. Fare clic sull'icona del cestino per eliminare il dispositivo.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-delete-device.png" alt-text="Icona Elimina evidenziata nella Home page di Internet Edge.":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-delete-device.png" alt-text="Icona Elimina evidenziata in IoT Edge Home page.":::
 
 ## <a name="eye-module-troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi del modulo Eye
 
-Se si verifica un problema con **WebStreamModule**, assicurarsi che **azureeyemodule**, che esegue l'inferenza del modello di visione, sia in esecuzione. Per controllare lo stato di runtime, passare alla [portale di Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home) e passare a **tutte le risorse**  ->  **\<your IoT hub>**  ->  **IOT Edge**  ->  **\<your device ID>** . Fare clic sulla scheda **moduli** per visualizzare lo stato di runtime di tutti i moduli installati.
+### <a name="check-the-runtime-status-of-azureeyemodule"></a>Verificare lo stato di runtime di azureeyemodule
+
+Se si verifica un problema con **WebStreamModule**, verificare che **azureeyemodule**, che gestisce l'inferenza del modello di visione, sia in esecuzione. Per controllare lo stato di runtime, passare alla [portale di Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home) e passare a **tutte le risorse**  ->  **\<your IoT hub>**  ->  **IOT Edge**  ->  **\<your device ID>** . Fare clic sulla scheda **moduli** per visualizzare lo stato di runtime di tutti i moduli installati.
 
 :::image type="content" source="./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page-inline.png" alt-text="Schermata di stato di runtime del modulo del dispositivo." lightbox= "./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page.png":::
 
 Se lo stato di runtime di **azureeyemodule** non è elencato come **in esecuzione**, fare clic su **imposta moduli**  ->  **azureeyemodule**. Nella pagina **Impostazioni modulo** impostare **stato desiderato** su **in esecuzione** e fare clic su **Aggiorna**.
 
  :::image type="content" source="./media/vision-solution-troubleshooting/firmware-desired-status-stopped.png" alt-text="Schermata di configurazione dell'impostazione del modulo.":::
+
+### <a name="update-telemetryintervalneuralnetworkms"></a>Aggiornare TelemetryIntervalNeuralNetworkMs
+
+Se si verifica l'errore di limitazione dei conteggi seguente, sarà necessario aggiornare il valore TelemetryIntervalNeuralNetworkMs nelle impostazioni del dispositivo gemello del modulo azureeyemodule.
+
+|Messaggio di errore|
+|------|
+|Il numero totale di messaggi in IotHub ' xxxxxxxxx ' ha superato la quota allocata. Numero massimo di messaggi consentiti: "8000", numero di messaggi corrente: "xxxx". Le operazioni di invio e ricezione sono bloccate per questo hub fino al giorno UTC successivo. Prendere in considerazione la possibilità di aumentare le unità per questo hub per aumentare la quota.|
+
+TelemetryIntervalNeuralNetworkMs determina la frequenza di invio dei messaggi (in millisecondi) dalla rete neurale. Le sottoscrizioni di Azure hanno un numero limitato di messaggi al giorno, a seconda del livello di sottoscrizione. Se ci si trova bloccati perché sono stati inviati troppi messaggi, aumentare questo valore a un numero più alto. 12000 (vale a dire una volta ogni 12 secondi) fornirà un bel round 7200 di messaggi al giorno, che è al di sotto del limite del messaggio 8000 per la sottoscrizione gratuita.
+
+Per aggiornare il valore di TelemetryIntervalNeuralNetworkMs, seguire questa procedura:
+
+1. Accedere al [portale di Azure](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home) e aprire tutte le **risorse**.
+
+1. Nella pagina **tutte le risorse** fare clic sul nome dell'hub delle cose di cui è stato effettuato il provisioning in DevKit durante l'installazione.
+
+1. Sul lato sinistro della pagina hub Internet, fare clic su **IOT Edge** in **gestione automatica dei dispositivi**. Nella pagina dispositivi IoT Edge individuare l'ID del dispositivo devkit. Fare clic sull'ID del dispositivo DevKit per aprire la relativa pagina del dispositivo IoT Edge.
+
+1. Selezionare **azureeyemodule** nella scheda **moduli** .
+
+1. Nella pagina azureeyemodule aprire **Module Identity gemelle**.
+
+    :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="Screenshot della pagina del modulo." lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
+
+1. Scorrere fino a **Proprietà**. Si noti che le proprietà "Running" e "Logging" non sono attive in questo momento.
+
+    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="Screenshot delle proprietà del modulo gemello." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
+
+1. Aggiornare il valore di **TelemetryIntervalNeuralNetworkMs** come desiderato e fare clic sull'icona **Salva** .
 
 ## <a name="view-device-rtsp-video-stream"></a>Visualizzazione del flusso video RTSP del dispositivo
 

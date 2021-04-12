@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 04/09/2021
 ms.author: alkohli
-ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f4f7e5f69e6b496395b74dbdcd58b3ada0a7f349
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632034"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285200"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Sicurezza e protezione dei dati per Azure Stack Edge Pro R e Azure Stack Edge Mini R
 
@@ -100,17 +100,23 @@ I dati nei dischi sono protetti da due livelli di crittografia:
 > [!NOTE]
 > Il disco del sistema operativo ha la crittografia del software BitLocker XTS-AES-256 a livello singolo.
 
-Quando il dispositivo viene attivato, viene richiesto di salvare un file di chiave che contiene le chiavi di ripristino che consentono di ripristinare i dati nel dispositivo se il dispositivo non viene avviato. Il file contiene due chiavi:
+Prima di attivare il dispositivo, è necessario configurare la crittografia inattiva nel dispositivo. Si tratta di un'impostazione obbligatoria e, finché non viene configurata correttamente, non è possibile attivare il dispositivo. 
 
-- Una chiave recupera la configurazione del dispositivo nei volumi del sistema operativo.
-<!-- - Second key is to unlock the BitLocker on the data disks. -->
-- Il secondo tasto sblocca la crittografia hardware nei dischi dati.
+In fase di produzione del dispositivo, dopo la creazione delle immagini dei dispositivi, la crittografia BitLocker a livello di volume è abilitata. Dopo aver ricevuto il dispositivo, è necessario configurare la crittografia dei dati inattivi. Il pool di archiviazione e i volumi vengono ricreati ed è possibile fornire le chiavi BitLocker per abilitare la crittografia dei dati inattivi e quindi creare un altro livello di crittografia per i dati inattivi. 
+
+La chiave Encryption-at-Rest è una chiave codificata base 64 di 32 caratteri che viene fornita e questa chiave viene usata per proteggere la chiave di crittografia effettiva. Microsoft non ha accesso a questa chiave Encryption-at-rest che protegge i dati. La chiave viene salvata in un file nella pagina **Dettagli cloud** dopo l'attivazione del dispositivo.
+
+Quando il dispositivo viene attivato, viene richiesto di salvare il file di chiave che contiene le chiavi di ripristino che consentono di ripristinare i dati nel dispositivo se il dispositivo non viene avviato. Determinati scenari di ripristino richiederanno il file di chiave salvato. Il file di chiave contiene le chiavi di ripristino seguenti:
+
+- Chiave che sblocca il primo livello di crittografia.
+- Chiave che sblocca la crittografia hardware nei dischi dati.
+- Chiave che consente di ripristinare la configurazione del dispositivo nei volumi del sistema operativo.
+- Chiave che protegge i dati che passano attraverso il servizio di Azure.
 
 > [!IMPORTANT]
 > Salvare il file di chiave in una posizione sicura all'esterno del dispositivo stesso. Se il dispositivo non viene avviato e non si dispone della chiave, potrebbe causare la perdita di dati.
 
-- Determinati scenari di ripristino richiederanno il file di chiave salvato. 
-<!--- If a node isn't booting up, you will need to perform a node replacement. You will have the option to swap the data disks from the failed node to the new node. For a 4-node device, you won't need a key file. For a 1-node device, you will be prompted to provide a key file.-->
+
 
 #### <a name="restricted-access-to-data"></a>Accesso limitato ai dati
 
@@ -132,7 +138,6 @@ Quando il dispositivo viene sottoposto a un ripristino rigido, viene eseguita un
 ### <a name="protect-data-in-storage-accounts"></a>Proteggere i dati negli account di archiviazione
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
-
 - Ruotare e [sincronizzare regolarmente le chiavi dell'account di archiviazione](azure-stack-edge-gpu-manage-storage-accounts.md) per proteggere l'account di archiviazione da utenti non autorizzati.
 
 ## <a name="manage-personal-information"></a>Gestisci informazioni personali

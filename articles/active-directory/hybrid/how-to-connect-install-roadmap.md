@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae575aa6544a174a70eb8ea4749566e8660280e2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94873268"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Roadmap di installazione di Azure AD Connect e Azure AD Connect Health
@@ -77,7 +77,7 @@ La funzionalità di [prevenzione delle eliminazioni accidentali](how-to-connect-
 ### <a name="next-steps-to-configure-sync-features"></a>Configurare le funzionalità di sincronizzazione - Passaggi successivi
 |Argomento |Collegamento|  
 | --- | --- |
-|Configurare il filtro | [Sincronizzazione Azure AD Connect: configurare il filtro](how-to-connect-sync-configure-filtering.md)|
+|Configurare il filtro | [Servizio di sincronizzazione Azure AD Connect: Configurare il filtro](how-to-connect-sync-configure-filtering.md)|
 |Sincronizzazione dell'hash delle password | [Sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md)|
 |Autenticazione pass-through | [Autenticazione pass-through](how-to-connect-pta.md)
 |writeback delle password | [Introduzione alla gestione delle password](../authentication/tutorial-enable-sspr.md)|
