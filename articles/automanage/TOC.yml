@@ -8,13 +8,15 @@
 - name: Concetti
   expanded: true
   items:
-    - name: Gestione autogestita per Linux
+    - name: Gestione automatica per Linux
       href: automanage-linux.md
-    - name: Gestione autogestita per Windows Server
+    - name: Gestione automatica per Windows Server
       href: automanage-windows-server.md
       items:
-        - name: Danneggiata per le nuove macchine virtuali
+        - name: Hotpatch per le nuove macchine virtuali
           href: automanage-hotpatch.md
+    - name: Account di gestione automatica
+      href: automanage-account.md
 - name: Procedura
   expanded: true
   items:
@@ -22,11 +24,13 @@
       href: virtual-machines-custom-preferences.md
     - name: Abilitare nelle VM tramite Criteri di Azure
       href: virtual-machines-policy-enable.md
+    - name: Abilitare nelle macchine virtuali tramite un modello di Gestione delle funzionalità di Gestione delle macchine virtuali
+      href: arm-deploy.md
     - name: Risolvere gli errori di onboarding
       href: common-errors.md
     - name: Correggere un account di Gestione automatica danneggiato
       href: repair-automanage-account.md
-    - name: Spostare una macchina virtuale gestita in tutte le aree
+    - name: Spostare una macchina virtuale con gestione automatica tra aree
       href: move-automanaged-vms.md
 - name: Risorse
   expanded: true

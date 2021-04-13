@@ -4,15 +4,15 @@ description: Risolvere i problemi comuni in una distribuzione in Sincronizzazion
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 2/1/2021
+ms.date: 4/12/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f20ebfdf9bdd1272ac1cb16e1ad88b4cbc287e5d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 54a2493d930069142a8cd6965421dd588b8d76b8
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727604"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366301"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -47,16 +47,16 @@ Dopo aver creato un endpoint server in Windows Server 2012 R2, si verifica l'err
 unitàlettera:\ non accessibile.  
 Parametro non corretto.
 
-Per risolvere questo problema, installare [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) e riavviare il server. Se l'aggiornamento non viene installato perché è già installato un aggiornamento successivo, passare a Windows Update, installare gli ultimi aggiornamenti per Windows Server 2012 R2 e riavviare il server.
+Per risolvere questo problema, installare [KB2919355 e](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) riavviare il server. Se questo aggiornamento non viene installato perché è già installato un aggiornamento successivo, passare a Windows Update, installare gli aggiornamenti più recenti per Windows Server 2012 R2 e riavviare il server.
 
 <a id="server-registration-missing-subscriptions"></a>**La registrazione del server non elenca tutte le sottoscrizioni di Azure**  
 Quando si registra un server con ServerRegistration.exe, le sottoscrizioni risultano mancanti quando si fa clic sull'elenco a discesa delle sottoscrizioni di Azure.
 
-Questo problema si verifica perché ServerRegistration.exe recupererà solo le sottoscrizioni dai primi 5 Azure AD tenant. 
+Questo problema si verifica perché ServerRegistration.exe solo le sottoscrizioni dai primi 5 tenant Azure AD. 
 
-Per aumentare il limite del tenant di registrazione server nel server, creare un valore DWORD denominato ServerRegistrationTenantLimit in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync con un valore maggiore di 5.
+Per aumentare il limite di tenant di Registrazione server nel server, creare un valore DWORD denominato ServerRegistrationTenantLimit in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync con un valore maggiore di 5.
 
-È anche possibile aggirare questo problema usando i comandi di PowerShell seguenti per registrare il server:
+È anche possibile risolvere questo problema usando i comandi di PowerShell seguenti per registrare il server:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
@@ -141,7 +141,7 @@ Per determinare se il ruolo dell'account utente in uso dispone delle autorizzazi
     * In **Assegnazione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
     * In **Definizione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
 
-### <a name="server-endpoint-creation-and-deletion-errors"></a>Errori di creazione ed eliminazione dell'endpoint server
+### <a name="server-endpoint-creation-and-deletion-errors"></a>Errori di creazione ed eliminazione di endpoint server
 
 <a id="-2134375898"></a>**La creazione dell'endpoint del server ha esito negativo e viene restituito il messaggio di errore: "MgmtServerJobFailed" (codice errore: -2134375898 o 0x80c80226)**  
 Questo errore si verifica se il percorso dell'endpoint server si trova sul volume di sistema ed è abilitata la suddivisione in livelli nel cloud. La suddivisione in livelli cloud non è supportata nel volume di sistema. Per creare un endpoint server nel volume di sistema, disabilitare la suddivisione in livelli nel cloud durante la creazione dell'endpoint server.
@@ -173,7 +173,7 @@ Questo errore si verifica se il percorso dell'endpoint server contiene file a li
 <a id="-2134347757"></a>**L'eliminazione dell'endpoint del server ha esito negativo e viene restituito il messaggio di errore: "MgmtServerJobExpired" (codice errore: -2134347757 o 0x80c87013)**  
 Questo errore si verifica se il server è offline o non si dispone di connettività di rete. Se il server non è più disponibile, annullare la registrazione del server nel portale. In questo modo, si annullano gli endpoint server. Per eliminare gli endpoint server, seguire la procedura descritta in [Annullare la registrazione del server con Sincronizzazione file di Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
-### <a name="server-endpoint-health"></a>Integrità endpoint server
+### <a name="server-endpoint-health"></a>Integrità dell'endpoint server
 
 <a id="server-endpoint-provisioningfailed"></a>**Impossibile aprire la pagina delle proprietà dell'endpoint server o aggiornare i criteri di suddivisione in livelli nel cloud**  
 Questo problema può verificarsi se un'operazione di gestione nell'endpoint server ha esito negativo. Se la pagina delle proprietà dell'endpoint server non si apre nel portale di Azure, l'aggiornamento dell'endpoint server mediante i comandi di PowerShell dal server potrebbe risolvere il problema. 
@@ -201,15 +201,15 @@ Sul server che viene visualizzato come "Risulta offline" nel portale, esaminare 
 - Se **GetNextJob completato con lo stato: 0** è registrato, il server può comunicare con il servizio Sincronizzazione file di Azure. 
     - Aprire Gestione attività sul server e verificare che il processo di monitoraggio della sincronizzazione dell'archiviazione (AzureStorageSyncMonitor.exe) sia in esecuzione. Se il processo non è in esecuzione, provare a riavviare il server. Se il riavvio del server non risolve il problema, aggiornare all'ultima[versione dell'agente](./storage-files-release-notes.md) della Sincronizzazione file di Azure. 
 
-- Se **GetNextJob è stato completato con lo stato:-2134347756** viene registrato, il server non è in grado di comunicare con il servizio sincronizzazione file di Azure a causa di un firewall, un proxy o una configurazione dell'ordine del pacchetto di crittografia TLS. 
+- Se GetNextJob completato con **stato: -2134347756** viene registrato, il server non è in grado di comunicare con il servizio Sincronizzazione file di Azure a causa di una configurazione dell'ordine del firewall, del proxy o della suite di crittografia TLS. 
     - Se il server si trova dietro un firewall, verificare che la porta 443 in uscita sia consentita. Se il firewall limita il traffico a domini specifici, verificare che i domini elencati nella [documentazione](./storage-sync-files-firewall-and-proxy.md#firewall) del firewall siano accessibili.
     - Se il server si trova dietro un proxy, configurare le impostazioni del proxy a livello di computer o specifiche dell'app seguendo la procedura descritta nella [documentazione](./storage-sync-files-firewall-and-proxy.md#proxy) del proxy.
     - Usare il cmdlet Test-StorageSyncNetworkConnectivity per verificare la connettività di rete agli endpoint del servizio. Per altre informazioni, vedere [Testare la connettività di rete agli endpoint di servizio](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
-    - Se l'ordine del pacchetto di crittografia TLS è configurato nel server, è possibile usare i cmdlet di criteri di gruppo o TLS per aggiungere pacchetti di crittografia:
-        - Per usare i criteri di gruppo, vedere [configurazione dell'ordine dei pacchetti di crittografia TLS con criteri di gruppo](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
-        - Per usare i cmdlet TLS, vedere [Configuring TLS cipher Suite order by using TLS PowerShell cmdlets](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+    - Se l'ordine dei pacchetti di crittografia TLS è configurato nel server, è possibile usare criteri di gruppo o cmdlet TLS per aggiungere pacchetti di crittografia:
+        - Per usare Criteri di gruppo, vedere [Configuring TLS Cipher Suite Order by using Criteri di gruppo](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Per usare i cmdlet TLS, vedere [Configuring TLS Cipher Suite Order by using TLS PowerShell Cmdlets](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
-        Sincronizzazione file di Azure attualmente supporta i pacchetti di crittografia seguenti per il protocollo TLS 1,2:  
+        Sincronizzazione file di Azure attualmente supporta i pacchetti di crittografia seguenti per il protocollo TLS 1.2:  
         - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
         - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
         - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
@@ -356,9 +356,9 @@ Per visualizzare questi errori, eseguire lo script **FileSyncErrorsReport.ps1** 
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Il file non può essere sincronizzato perché è stato raggiunto il numero massimo di file in conflitto. Sincronizzazione file di Azure supporta 100 file in conflitto per file. Per altre informazioni sui conflitti di file, vedere le [domande frequenti](./storage-files-faq.md#afs-conflict-resolution) su Sincronizzazione file di Azure. | Per risolvere il problema, ridurre il numero di file in conflitto. Il file verrà sincronizzato quando il numero di file in conflitto sarà inferiore a 100. |
 
 #### <a name="handling-unsupported-characters"></a>Gestione dei caratteri non supportati
-Se lo script di **FileSyncErrorsReport.ps1** PowerShell Mostra gli errori di sincronizzazione per elemento a causa di caratteri non supportati (codice errore 0x8007007b o 0x80c80255), è necessario rimuovere o rinominare i caratteri in errore dai rispettivi nomi file. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. 
+Se lo script di PowerShell **FileSyncErrorsReport.ps1** mostra errori di sincronizzazione per elemento dovuti a caratteri non supportati (codice di errore 0x8007007b o 0x80c80255), è necessario rimuovere o rinominare i caratteri in errore dai rispettivi nomi di file. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. 
 > [!Note]  
-> È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-cmdlet) per identificare i caratteri non supportati. Se il set di dati contiene più file con caratteri non validi, usare lo script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) per rinominare i file che contengono caratteri non supportati.
+> È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-cmdlet) per identificare i caratteri non supportati. Se il set di dati contiene diversi file con caratteri non validi, usare lo script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) per rinominare i file che contengono caratteri non supportati.
 
 La tabella seguente contiene tutti i caratteri unicode che Sincronizzazione file di Azure non supporta ancora.
 
@@ -754,7 +754,7 @@ Questo errore si verifica perché l'endpoint cloud è stato creato con contenuto
 | **Stringa di errore** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Rimedio necessario** | Sì |
 
-Le sessioni di sincronizzazione hanno esito negativo con uno di questi errori quando sono presenti molti file che non riescono a eseguire la sincronizzazione con errori per elemento. Eseguire i passaggi illustrati nella [ricerca per categorie verificare se sono presenti file o cartelle specifici che non sono sincronizzati?](?tabs=portal1%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) sezione per risolvere gli errori per elemento. Per ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED di errore di sincronizzazione, aprire un caso di supporto.
+Le sessioni di sincronizzazione hanno esito negativo con uno di questi errori quando sono presenti molti file che non riescono a eseguire la sincronizzazione con errori per elemento. Eseguire i passaggi documentati nella sezione Ricerca per categorie verificare se sono presenti file o cartelle specifici che non sono [sincronizzati?](?tabs=portal1%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) per risolvere gli errori per ogni elemento. Per informazioni sull'ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED di sincronizzazione, aprire un caso di supporto.
 
 > [!NOTE]
 > Sincronizzazione file di Azure crea uno snapshot VSS temporaneo una volta al giorno nel server per sincronizzare i file con handle aperti.
@@ -909,7 +909,7 @@ Questo errore si verifica perché Sincronizzazione file di Azure non supporta il
 
 Questo errore si verifica quando un'operazione di inserimento di dati supera il timeout. Questo errore può essere ignorato se la sincronizzazione sta procedendo (AppliedItemCount è maggiore di 0). Vedere [Come monitorare lo stato di avanzamento di una sessione di sincronizzazione corrente?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-<a id="-2134375814"></a>**Sincronizzazione non riuscita perché il percorso dell'endpoint server non è stato trovato nel server.**  
+<a id="-2134375814"></a>**La sincronizzazione non è riuscita perché non è possibile trovare il percorso dell'endpoint server nel server.**  
 
 | Errore | Codice |
 |-|-|
@@ -918,12 +918,12 @@ Questo errore si verifica quando un'operazione di inserimento di dati supera il 
 | **Stringa di errore** | ECS_E_SYNC_ROOT_DIRECTORY_NOT_FOUND |
 | **Rimedio necessario** | Sì |
 
-Questo errore si verifica se la directory utilizzata come percorso dell'endpoint server è stata rinominata o eliminata. Se la directory è stata rinominata, rinominare la directory con il nome originale e riavviare il servizio dell'agente di sincronizzazione archiviazione (FileSyncSvc).
+Questo errore si verifica se la directory utilizzata come percorso dell'endpoint server è stata rinominata o eliminata. Se la directory è stata rinominata, rinominare la directory con il nome originale e riavviare il servizio Agente di sincronizzazione archiviazione (FileSyncSvc).
 
-Se la directory è stata eliminata, attenersi alla procedura seguente per rimuovere l'endpoint server esistente e creare un nuovo endpoint server usando un nuovo percorso:
+Se la directory è stata eliminata, seguire questa procedura per rimuovere l'endpoint server esistente e creare un nuovo endpoint server usando un nuovo percorso:
 
-1. Rimuovere l'endpoint server nel gruppo di sincronizzazione attenendosi ai passaggi descritti in [rimuovere un endpoint server](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
-2. Per creare un nuovo endpoint server nel gruppo di sincronizzazione, seguire i passaggi descritti in [aggiungere un endpoint server](./storage-sync-files-server-endpoint.md#add-a-server-endpoint).
+1. Rimuovere l'endpoint server nel gruppo di sincronizzazione seguendo la procedura descritta in [Rimuovere un endpoint server](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
+2. Creare un nuovo endpoint server nel gruppo di sincronizzazione seguendo la procedura descritta in [Aggiungere un endpoint server](./storage-sync-files-server-endpoint.md#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Normale procedura di risoluzione dei problemi
 <a id="troubleshoot-storage-account"></a>**Verificare l'esistenza dell'account di archiviazione.**  
@@ -1054,24 +1054,6 @@ if ($role -eq $null) {
 ```
 ---
 
-### <a name="how-do-i-prevent-users-from-creating-files-containing-unsupported-characters-on-the-server"></a>Come impedire agli utenti di creare i file contenenti caratteri non supportati nel server?
-È possibile usare [screening dei file di Gestione risorse File server](/windows-server/storage/fsrm/file-screening-management) per impedire ai file con caratteri non supportati nei nomi di essere creati nel server. È possibile eseguire questa operazione tramite PowerShell, poiché la maggior parte dei caratteri non supportati non è stampabile e pertanto è necessario prima di tutto eseguire il cast nelle rispettive rappresentazioni esadecimali come caratteri.
-
-Prima di tutto creare un gruppo di file di Gestione risorse file server usando il [cmdlet New-FsrmFileGroup](/powershell/module/fileserverresourcemanager/new-fsrmfilegroup). Questo esempio definisce il gruppo affinché contenga solo due dei caratteri non supportati, ma è possibile includere il numero dei caratteri in base alle esigenze nel gruppo di file.
-
-```powershell
-New-FsrmFileGroup -Name "Unsupported characters" -IncludePattern @(("*"+[char]0x00000090+"*"),("*"+[char]0x0000008F+"*"))
-```
-
-Dopo aver definito un gruppo di file di Gestione risorse file server, è possibile creare uno screening dei file di Gestione risorse file server usando il cmdlet New-FsrmFileScreen.
-
-```powershell
-New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported characters" -IncludeGroup "Unsupported characters"
-```
-
-> [!Important]  
-> Si noti che gli screening dei file devono essere usati solo per bloccare la creazione di caratteri non supportati da Sincronizzazione file di Azure. Se gli screening dei file vengono usati in altri scenari, la sincronizzazione tenterà continuamente di scaricare i file dalla condivisione file di Azure nel server e verrà bloccata a causa dello screening dei file, comportando un elevato traffico in uscita dei dati. 
-
 ## <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud 
 Nell'archiviazione a livelli nel cloud possono prendere forma due percorsi di errore:
 
@@ -1130,7 +1112,7 @@ Se non è possibile archiviare a livelli i file in File di Azure:
 
 | HRESULT | HRESULT (decimale) | Stringa di errore | Problema | Correzione |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | Il file non è stato in grado di eseguire il livello perché è in corso il caricamento iniziale. | Non è necessaria alcuna azione. Al termine del caricamento iniziale, il file verrà suddiviso in livelli. |
+| 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | Impossibile eseguire il livello del file perché è in corso il caricamento iniziale. | Non è necessaria alcuna azione. Il file verrà a livelli al termine del caricamento iniziale. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | La suddivisione in livelli del file non è riuscita perché il file è in uso. | Non è necessaria alcuna azione. Il file verrà archiviato a livelli quando non sarà più in uso. |
 | 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | La suddivisione in livelli del file non è riuscita perché il file è escluso dalla sincronizzazione. | Non è necessaria alcuna azione. I file nell'elenco di esclusione della sincronizzazione non possono essere archiviati a livelli. |
 | 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | La suddivisione in livelli del file non è riuscita perché il file non è stato trovato sul server. | Non è necessaria alcuna azione. Se l'errore persiste, controllare se il file esiste nel server. |
@@ -1152,8 +1134,8 @@ Se non è possibile archiviare a livelli i file in File di Azure:
 | 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | La suddivisione in livelli del file non è riuscita a causa di un problema di rete. | Non è necessaria alcuna azione. Se l'errore persiste, controllare la connettività di rete alla condivisione file di Azure. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | La suddivisione in livelli del file non è riuscita perché il file è stato modificato. | Non è necessaria alcuna azione. Il file verrà archiviato a livelli dopo che il file modificato è stato sincronizzato con la condivisione file di Azure. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | La suddivisione in livelli del file non è riuscita a causa di risorse del sistema insufficienti. | Se l'errore persiste, individuare l'applicazione o il driver in modalità kernel che esaurisce le risorse di sistema. |
-| 0x8e5e03fe | -1906441218 | JET_errDiskIO | Impossibile eseguire il livello del file a causa di un errore di I/O durante la scrittura nel database di suddivisione in livelli cloud. | Se l'errore è permanente, eseguire chkdsk sul volume e controllare l'hardware di archiviazione. |
-| 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | Impossibile eseguire il livello del file perché il database di suddivisione in livelli cloud non è in esecuzione. | Per risolvere questo problema, riavviare il servizio o il server di FileSyncSvc. Se l'errore è permanente, eseguire chkdsk sul volume e controllare l'hardware di archiviazione. |
+| 0x8e5e03fe | -1906441218 | JET_errDiskIO | Il file non è stato a livelli a causa di un errore di I/O durante la scrittura nel database cloud a livelli. | Se l'errore persiste, eseguire chkdsk nel volume e controllare l'hardware di archiviazione. |
+| 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | Il file non è stato a livelli perché il database a livelli cloud non è in esecuzione. | Per risolvere questo problema, riavviare il servizio o il server FileSyncSvc. Se l'errore persiste, eseguire chkdsk nel volume e controllare l'hardware di archiviazione. |
 
 
 
@@ -1295,7 +1277,7 @@ Se il problema non è risolto, eseguire lo strumento AFSDiag e inviare l'output 
 
 Per eseguire AFSDiag, seguire questa procedura.
 
-Per la versione dell'agente V11 e versioni successive:
+Per la versione dell'agente v11 e versioni successive:
 1. Aprire una finestra di PowerShell con privilegi elevati ed eseguire i comandi seguenti, premendo INVIO dopo ogni comando:
 
     > [!NOTE]
@@ -1310,7 +1292,7 @@ Per la versione dell'agente V11 e versioni successive:
 2. Riprodurre il problema. Al termine immettere **D**.
 3. Nella directory di output specificata verrà salvato un file con estensione zip contenente i log e i file di traccia. 
 
-Per Agent versione V10 e versioni precedenti:
+Per la versione dell'agente v10 e precedenti:
 1. Creare una directory in cui verranno salvati i risultati di AFSDiag, ad esempio C:\Output.
     > [!NOTE]
     >AFSDiag eliminerà tutto il contenuto nella directory di output prima di raccogliere i log. Specificare un percorso di output che non contenga dati.

@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/17/2020
 ms.author: msangapu
-ms.openlocfilehash: 80d295d017b11d86df7a3fe4c14afc7a5665cd96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dad7799cb5a7579b28847e3968b6b38f1f98298a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104612897"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327081"
 ---
 | Risorsa | Gratuito | Condiviso | Basic | Standard | Premium (v1-v3) | Isolato </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "104612897"
 | [Piano di servizio app](../articles/app-service/overview-hosting-plans.md) |10 per area |10 per gruppo di risorse. |100 per gruppo di risorse |100 per gruppo di risorse |100 per gruppo di risorse |100 per gruppo di risorse|
 | Tipo di istanza di calcolo |Condiviso |Condiviso |Dedicato<sup>3</sup> |Dedicato<sup>3</sup> |Dedicato<sup>3</sup></p> |Dedicato<sup>3</sup>|
 | [Aumento delle istanze](../articles/app-service/manage-scale-up.md) (numero massimo di istanze) |1 condivisa |1 condivisa |3 dedicati<sup>3</sup> |10 dedicati<sup>3</sup> | 20 dedicate per v1 e v2; 30 dedicate per v3.<sup>3</sup>|100 dedicati<sup>4</sup>|
-| Archiviazione<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> <br/><br/> Per dimensioni maggiori di 250 GB, inviare una richiesta di supporto. |1 TB<sup>5</sup> <br/><br/> La quota di archiviazione disponibile è di 999 GB. |
+| Archiviazione<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> |1 TB<sup>5</sup> <br/><br/> La quota di archiviazione disponibile è di 999 GB. |
 | Tempo di CPU (5 minuti)<sup>6</sup> |3 minuti |3 minuti |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a>|
 | Tempo di CPU (giorno)<sup>6</sup> |60 minuti |240 minuti |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |Senza limiti, pagamento con [tariffe](https://azure.microsoft.com/pricing/details/app-service/) standard</a> |
 | Memoria (1 ora) |1\.024 MB per ogni piano di servizio app |1\.024 MB per ogni app |N/D |N/D |N/D |N/D |
@@ -53,20 +53,20 @@ ms.locfileid: "104612897"
 
 <sup>3</sup> Le istanze dedicate possono essere di dimensioni diverse. Per altre informazioni, vedere [Prezzi del Servizio app](https://azure.microsoft.com/pricing/details/app-service/).
 
-sono consentite altre <sup>4</sup> richieste su richiesta.
+<sup>4</sup> Sono consentiti altri elementi su richiesta.
 
-<sup>5</sup> il limite di archiviazione è la dimensione totale del contenuto in tutte le app nello stesso piano di servizio app. La dimensione totale del contenuto di tutte le app in tutti i piani di servizio app in un singolo gruppo di risorse e area non può superare 500 GB. La quota file system per le app ospitate nel servizio app è determinata dall'aggregazione dei piani di servizio app creati in un'area e in un gruppo di risorse.
+<sup>5</sup> Il limite di archiviazione è la dimensione totale del contenuto in tutte le app nello stesso piano di servizio app. Le dimensioni totali del contenuto di tutte le app in tutti i piani di servizio app in un singolo gruppo di risorse e area non possono superare i 500 GB. La file system per le app ospitate nel servizio app è determinata dall'aggregazione dei piani di servizio app creati in un'area e in un gruppo di risorse.
 
 <sup>6</sup> Queste risorse sono vincolate dalle risorse fisiche delle istanze dedicate (dimensione dell'istanza e numero di istanze).
 
 <sup>7</sup> Se si ridimensiona a due istanze un'app nel livello Basic, sono presenti 350 connessioni simultanee per ognuna delle due istanze. Per il livello Standard e per i livelli superiori non esistono limiti teorici per i socket Web, ma altri fattori possono limitare il numero di socket Web. Ad esempio, il numero massimo di richieste simultanee consentite (definite da `maxConcurrentRequestsPerCpu`) è: 7.500 per macchina virtuale di piccole dimensioni, 15.000 per macchina virtuale media (7.500 x 2 core) e 75.000 per macchina virtuale di grandi dimensioni (18.750 x 4 core).
 
-<sup>8</sup> le connessioni IP massime sono per istanza e dipendono dalle dimensioni dell'istanza: 1.920 per l'istanza B1/S1/P1V3, 3.968 per l'istanza B2/S2/P2V3, 8.064 per l'istanza B3/S3/P3V3.
+<sup>8</sup> Le connessioni IP massime sono per istanza e dipendono dalle dimensioni dell'istanza: 1.920 per ogni istanza B1/S1/P1V3, 3.968 per istanza B2/S2/P2V3, 8.064 per istanza B3/S3/P3V3.
 
-<sup>9</sup> è possibile aumentare il limite di quota certificato del servizio app per sottoscrizione tramite una richiesta di supporto fino al limite massimo di 200.
+<sup>9</sup> Il certificato del servizio app di quota per sottoscrizione può essere aumentato tramite una richiesta di supporto fino a un limite massimo di 200.
 
-<sup>10</sup> servizio app isolato SKU possono essere con bilanciamento del carico interno (ILB) con Azure Load Balancer, quindi non esiste una connettività pubblica da Internet. Di conseguenza, alcune funzionalità di un servizio app isolato con carico interno bilanciato devono essere usate da macchine virtuali con accesso diretto all'endpoint di rete con bilanciamento del carico interno.
+<sup>10</sup> servizio app Isolato SKU possono essere con bilanciamento del carico interno (ILB) con Azure Load Balancer, quindi non esiste connettività pubblica da Internet. Di conseguenza, alcune funzionalità di un servizio app isolato con carico interno bilanciato devono essere usate da macchine virtuali con accesso diretto all'endpoint di rete con bilanciamento del carico interno.
 
-<sup>11</sup> eseguire i file eseguibili e/o gli script personalizzati su richiesta, in base a una pianificazione o in modo continuo come attività in background nell'istanza del servizio app. Always On è richiesto per l'esecuzione continua di Processi Web. Non esiste un limite predefinito per il numero di processi Web che possono essere eseguiti in un'istanza del servizio app. Esistono però limiti pratici che dipendono dalle operazioni che il codice dell'applicazione sta provando a eseguire.
+<sup>11 Eseguire</sup> file eseguibili e/o script personalizzati su richiesta, in base a una pianificazione o in modo continuo come attività in background all'interno dell'istanza del servizio app. Always On è richiesto per l'esecuzione continua di Processi Web. Non esiste un limite predefinito per il numero di processi Web che possono essere eseguiti in un'istanza del servizio app. Esistono però limiti pratici che dipendono dalle operazioni che il codice dell'applicazione sta provando a eseguire.
 
-<sup>12</sup> domini nudi non sono supportati. Vengono emessi solo certificati standard (non sono disponibili certificati con caratteri jolly). Offerta limitata a un solo certificato gratuito per dominio personalizzato.
+<sup>12</sup> I domini naked non sono supportati. Solo l'emissione di certificati standard (i certificati con caratteri jolly non sono disponibili). Offerta limitata a un solo certificato gratuito per dominio personalizzato.

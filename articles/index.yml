@@ -31,7 +31,7 @@ productDirectory:
   title: Esplorare i prodotti di Azure
   items:
     - title: Azure Percept
-      summary: Intelligence perimetrale dal silicio al servizio
+      summary: Intelligenza perimetrale dal silicio al servizio
       imageSrc: ./media/index/azure-percept.svg
       azureCategories:
         - iot
@@ -71,8 +71,8 @@ productDirectory:
         - ai-machine-learning
         - analytics
       url: /azure/databricks/
-    - title: Bot per lo stato
-      summary: Un servizio gestito progettato per lo sviluppo di assistenti sanitari virtuali.
+    - title: Bot per l'integrità
+      summary: Un servizio gestito creato appositamente per lo sviluppo di assistenti sanitari virtuali.
       imageSrc: media/index/health-bot-logo.svg
       azureCategories:
         - ai-machine-learning
@@ -409,7 +409,7 @@ productDirectory:
         - iot
       url: cosmos-db/index.yml
     - title: Azure Istanza gestita per Apache Cassandra
-      summary: Automatizzare la distribuzione e la scalabilità per i data center open source di Apache Cassandra gestiti
+      summary: Automatizzare la distribuzione e il ridimensionamento per data center Apache Cassandra open source gestiti
       imageSrc: ./media/index/managed-instance-apache-cassandra.svg
       azureCategories:
         - databases
@@ -468,8 +468,8 @@ productDirectory:
         - compute
         - containers
       url: aks/index.yml
-    - title: Quantum di Azure (anteprima)
-      summary: Esperienza quantistica su Azure
+    - title: Azure Quantum (anteprima)
+      summary: Sperimentare l'impatto quantistico oggi stesso in Azure
       imageSrc: ./media/index/quantum.svg
       azureCategories:
         - compute
@@ -714,12 +714,6 @@ productDirectory:
       azureCategories:
         - developer-tools
       url: 'https://code.visualstudio.com/docs'
-    - title: Visual Studio Codespaces (anteprima)
-      summary: Ambienti di sviluppo basati sul cloud accessibili ovunque
-      imageSrc: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-      azureCategories:
-        - developer-tools
-      url: /visualstudio/online/overview/what-is-vsonline
     - title: Application Insights
       summary: 'Visibilità completa su applicazioni, infrastruttura e rete'
       imageSrc: 'https://static.docs.com/ui/media/product/azure/application-insights.svg'
@@ -1097,8 +1091,8 @@ productDirectory:
         - migration
         - storage
       url: databox/index.yml
-    - title: Ancoraggi degli oggetti (anteprima)
-      summary: Allinea automaticamente e ancora il contenuto 3D agli oggetti nel mondo fisico
+    - title: Ancoraggi oggetti (anteprima)
+      summary: Allineare e ancorare automaticamente il contenuto 3D agli oggetti nel mondo fisico
       imageSrc: ./media/index/object-anchors.svg
       azureCategories:
         - mixed-reality
@@ -1205,7 +1199,7 @@ productDirectory:
         - networking
       url: load-balancer/index.yml
     - title: Server di route di Azure (anteprima)
-      summary: Semplificare la gestione delle appliance di rete
+      summary: Semplificare la gestione delle operazioni delle appliance di rete
       imageSrc: ./media/index/azure-route-server.svg
       azureCategories:
         - networking
@@ -1380,9 +1374,9 @@ additionalContent:
           url: /azure/china/
     - title: Soluzioni partner
       items:
-        - title: Soluzioni per partner Azure
+        - title: Soluzioni partner di Azure
           summary: Soluzioni partner integrate che è possibile usare in Azure per migliorare l'infrastruttura cloud.
           url: ./partner-solutions/overview.md
         - title: Marketplace commerciale
-          summary: Un marketplace online di applicazioni e servizi di partner di fornitori di software indipendenti (ISV).
+          summary: Un marketplace online di applicazioni e servizi di partner isv (Independent Software Vendor).
           url: ./marketplace/index.yml

@@ -10,25 +10,36 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 03/23/2021
-ms.openlocfilehash: fa21acc09858f4468e53788428e4928dc381a94e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: 1d58f79d0fe8accc728c4484dd5d92159836aa88
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107857"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305141"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limiti delle risorse per i pool elastici con il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Questo articolo fornisce i limiti dettagliati delle risorse per i pool elastici del database SQL di Azure e i database in pool usando il modello di acquisto vCore.
 
-Per i limiti del modello di acquisto DTU, vedere [limiti delle risorse DTU del database SQL-pool elastici](resource-limits-dtu-elastic-pools.md).
+* Per i limiti del modello di acquisto di DTU per database singoli in un server, vedere [Panoramica dei limiti delle risorse in un server](resource-limits-logical-server.md).
+* Per i limiti delle risorse del modello di acquisto di DTU per il database SQL di Azure, vedere [limiti delle risorse DTU i database singoli](resource-limits-dtu-single-databases.md) e i [limiti delle risorse DTU](resource-limits-dtu-elastic-pools.md).
+* Per i limiti delle risorse vCore, vedere [limiti delle risorse vCore-database SQL di Azure](resource-limits-vcore-single-databases.md) e [limiti delle risorse vCore-pool elastici](resource-limits-vcore-elastic-pools.md).
+* Per altre informazioni sui vari modelli di acquisto, vedere l'articolo sui [modelli di acquisto e i livelli di servizio](purchasing-models.md).
 
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [gestire lo spazio di file nel database SQL di Azure](file-space-manage.md).
 
-È possibile impostare il livello di servizio, le dimensioni di calcolo (obiettivo di servizio) e la quantità di risorse di archiviazione usando il [portale di Azure](elastic-pool-manage.md#azure-portal), [PowerShell](elastic-pool-manage.md#powershell), l'interfaccia della riga di comando di [Azure](elastic-pool-manage.md#azure-cli)o l' [API REST](elastic-pool-manage.md#rest-api).
+Ogni replica di sola lettura dispone di risorse proprie, ad esempio Vcore, memoria, IOPS dei dati, TempDB, ruoli di lavoro e sessioni. Ogni replica di sola lettura è soggetta ai limiti delle risorse descritti in dettaglio più avanti in questo articolo.
+
+È possibile impostare il livello di servizio, le dimensioni di calcolo (obiettivo di servizio) e la quantità di risorse di archiviazione utilizzando:
+
+* [Transact-SQL](elastic-pool-scale.md) tramite [ALTER database](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure portal](elastic-pool-manage.md#azure-portal)
+* [PowerShell](elastic-pool-manage.md#powershell)
+* [Interfaccia della riga di comando di Azure](elastic-pool-manage.md#azure-cli)
+* [REST API](elastic-pool-manage.md#rest-api)
 
 > [!IMPORTANT]
 > Per indicazioni e considerazioni sulla scalabilità, vedere [ridimensionare un pool elastico](elastic-pool-scale.md).
@@ -479,7 +490,7 @@ Se tutti i vCore in un pool elastico sono occupati, ogni database nel pool ricev
 |Memoria (GB)|9|18|27|36|
 |Numero massimo di database per pool <sup>1</sup>|50|100|100|100|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|
-|Archiviazione OLTP in memoria (GB)|1.7|3,7|5.9|8.2|
+|Archiviazione OLTP in memoria (GB)|1,7|3,7|5.9|8.2|
 |Dimensioni massime dei dati (GB)|768|768|768|768|
 |Dimensioni massime del log (GB)|230|230|230|230|
 |Dimensioni massime dati TempDB (GB)|64|128|192|256|

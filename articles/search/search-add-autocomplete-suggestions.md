@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6bc45bb6eec9dbf46e039dd1e2c32197820bb09d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b260793cc3c0b5ac3ffce8fac909e2db8991c713
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626708"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307810"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Aggiungere il completamento automatico e suggerimenti alle app client usando Azure ricerca cognitiva
 
@@ -67,7 +67,7 @@ Le risposte vengono modellate in base ai parametri della richiesta:
 
 + Per il completamento automatico, impostare [autocompleteMode](/rest/api/searchservice/autocomplete#query-parameters) per determinare se il completamento del testo viene eseguito in uno o due termini. 
 
-+ Per i suggerimenti, impostare [$Select](/rest/api/searchservice/suggestionse#query-parameters) per restituire campi che contengono valori univoci o differenzianti, ad esempio nomi e descrizioni. Evitare i campi che contengono valori duplicati, ad esempio una categoria o una città.
++ Per i suggerimenti, impostare [$Select](/rest/api/searchservice/suggestions#query-parameters) per restituire campi che contengono valori univoci o differenzianti, ad esempio nomi e descrizioni. Evitare i campi che contengono valori duplicati, ad esempio una categoria o una città.
 
 I seguenti parametri aggiuntivi si applicano sia al completamento automatico che ai suggerimenti, ma sono forse più necessari per i suggerimenti, soprattutto quando un suggerimento include più campi.
 

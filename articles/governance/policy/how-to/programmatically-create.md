@@ -3,12 +3,12 @@ title: Creare criteri a livello di programmazione
 description: Questo articolo illustra la creazione e la gestione a livello di codice dei criteri per Criteri di Azure con l’interfaccia della riga di comando di Azure, Azure PowerShell e l’API REST.
 ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: b4f15241799469da2e479cb758f648ec3131a149
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fb20509fe6d699050e0c98e82873ccdb6a0137b2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598491"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313692"
 ---
 # <a name="programmatically-create-policies"></a>Creare criteri a livello di programmazione
 
@@ -141,7 +141,7 @@ Usare la procedura seguente per creare una definizione dei criteri.
 
    Sostituire il precedente {subscriptionId} con l'ID della sottoscrizione o il {managementGroupId} con l'ID del [gruppo di gestione](../../management-groups/overview.md).
 
-   Per altre informazioni sulla struttura della query, vedere [Definizioni di Criteri di Azure: creazione o aggiornamento](/rest/api/resources/policydefinitions/createorupdate) e [Definizioni dei criteri: creazione o aggiornamento a livello di gruppo di gestione](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Per altre informazioni sulla struttura della query, vedere [Definizioni di Criteri di Azure: creazione o aggiornamento](/rest/api/policy/policydefinitions/createorupdate) e [Definizioni dei criteri: creazione o aggiornamento a livello di gruppo di gestione](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup)
 
 Usare la procedura seguente per creare un'assegnazione dei criteri e assegnare la definizione dei criteri a livello di gruppo di risorse.
 

@@ -1,48 +1,43 @@
 ---
-title: Configurare gli script di PowerShell per la connessione di desktop virtuale Windows MSIX-Azure
-description: Come creare script di PowerShell per la connessione all'app MSIX per desktop virtuale di Windows.
+title: Configurare Desktop virtuale Windows montaggio app MSIX script di PowerShell - Azure
+description: Come creare script di PowerShell per montaggio app MSIX desktop virtuale Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 224f2e773ecd42dcbdd356531d9ce94636de002f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 143f0a9d23cdc70425147faa95258ec753b92691
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448271"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365381"
 ---
-# <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Creare script di PowerShell per la connessione all'app MSIX (anteprima)
+# <a name="create-powershell-scripts-for-msix-app-attach"></a>Creare script di PowerShell per montaggio app MSIX
 
-> [!IMPORTANT]
-> La connessione all'app MSIX è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Questo argomento descrive come configurare gli script di PowerShell per la connessione all'app MSIX.
+Questo argomento illustra come configurare gli script di PowerShell per montaggio app MSIX.
 
 >[!IMPORTANT]
->Prima di iniziare, assicurarsi di compilare e inviare [il modulo](https://aka.ms/enablemsixappattach) per abilitare la connessione dell'app MSIX nella sottoscrizione. Se non si ha una richiesta approvata, la connessione all'app MSIX non funzionerà. L'approvazione delle richieste può richiedere fino a 24 ore durante i giorni lavorativi. Quando la richiesta è stata accettata e completata, si riceverà un messaggio di posta elettronica.
+>Prima di iniziare, assicurarsi di compilare e inviare [questo modulo](https://aka.ms/enablemsixappattach) per abilitare montaggio app MSIX nella sottoscrizione. Se non si ha una richiesta approvata, montaggio app MSIX non funzionerà. L'approvazione delle richieste può richiedere fino a 24 ore durante i giorni lavorativi. Quando la richiesta è stata accettata e completata, si otterrà un messaggio di posta elettronica.
 
 ## <a name="install-certificates"></a>Installare i certificati
 
-È necessario installare i certificati in tutti gli host di sessione nel pool host che ospiteranno le app dai pacchetti di associazione dell'app MSIX.
+È necessario installare i certificati in tutti gli host di sessione nel pool di host che ospiteranno le app dai pacchetti montaggio app MSIX distribuzione.
 
 Se l'app usa un certificato che non è pubblico o è autofirmato, di seguito viene illustrato come installarlo:
 
 1. Fare clic con il pulsante destro del mouse sul pacchetto e scegliere **Proprietà**.
 2. Nella finestra visualizzata, selezionare la scheda **Firme digitali**. Nella scheda deve essere presente un solo elemento nell'elenco, come illustrato nella figura seguente. Selezionare l'elemento per evidenziarlo, quindi selezionare **Dettagli**.
-3. Quando viene visualizzata la finestra Dettagli firma digitale, selezionare la scheda **generale** , selezionare **Visualizza certificato**, quindi selezionare **Installa certificato**.
+3. Quando viene visualizzata la finestra dei dettagli della firma digitale, selezionare la **scheda Generale,** quindi selezionare **Visualizza certificato** e infine Selezionare **Installa certificato.**
 4. Quando si apre il programma di installazione, selezionare **Computer locale** come percorso di archiviazione, quindi selezionare **Avanti**.
 5. Se il programma di installazione chiede se consentire all'app di apportare modifiche al dispositivo, selezionare **Sì**.
 6. Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi selezionare **Sfoglia**.
 7. Quando viene visualizzata la finestra Seleziona archivio certificati, selezionare **Persone attendibili**, quindi selezionare **OK**.
-8. Selezionare **Avanti** e **fine**.
+8. Selezionare **Avanti** e **Fine.**
 
-## <a name="enable-microsoft-hyper-v"></a>Abilita Microsoft Hyper-V
+## <a name="enable-microsoft-hyper-v"></a>Abilitare Microsoft Hyper-V
 
-È necessario abilitare Microsoft Hyper-V perché il `Mount-VHD` comando è necessario per eseguire il staging ed `Dismount-VHD` è necessario per eseguire la fase di destaging.
+Microsoft Hyper-V deve essere abilitato perché il `Mount-VHD` comando è necessario per lo stage ed è necessario per la `Dismount-VHD` destage.
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -62,7 +57,7 @@ La connessione all'app MSIX prevede quattro fasi distinte che devono essere eseg
 
 Ogni fase crea uno script di PowerShell. Gli script di esempio per ogni fase sono disponibili [qui](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
-### <a name="stage-powershell-script"></a>Script di PowerShell per stage
+### <a name="stage-powershell-script"></a>Eseguire lo script di PowerShell per lo stage
 
 Prima di aggiornare gli script di PowerShell, assicurarsi di disporre del GUID del volume nel disco rigido virtuale. Per ottenere il GUID del volume:
 
@@ -186,7 +181,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>Rimuovere la gestione temporanea di uno script di PowerShell
 
-Per questo script, sostituire il segnaposto per **$packageName** con il nome del pacchetto che si sta testando. In una distribuzione di produzione è preferibile eseguire questa operazione alla chiusura.
+Per questo script, sostituire il segnaposto per **$packageName** con il nome del pacchetto che si sta testando. In una distribuzione di produzione è meglio eseguire questa operazione all'arresto del sistema.
 
 ```powershell
 #MSIX app attach de staging sample

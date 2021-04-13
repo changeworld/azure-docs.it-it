@@ -2,9 +2,9 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni su macchine virtuali Linux
+    - name: Informazioni macchine virtuali Linux
       href: ./linux/overview.md
-    - name: Informazioni su macchine virtuali Windows
+    - name: Informazioni macchine virtuali Windows
       href: ./windows/overview.md
 - name: Avvi rapidi
   items:
@@ -97,7 +97,7 @@
       href: ./workloads/sap/get-started.md
     - name: Oracle
       href: ./workloads/oracle/oracle-database-quick-create.md
-    - name: Azure per i giochi
+    - name: Azure per giochi
       href: 'https://docs.microsoft.com/gaming/azure/'
     - name: Elasticsearch
       href: ./linux/tutorial-elasticsearch.md
@@ -172,7 +172,7 @@
               href: ev4-esv4-series.md
             - name: Serie M
               href: m-series.md
-            - name: Serie di memoria media Msv2 e Mdsv2
+            - name: Serie Msv2 e Mdsv2 Medium Memory
               href: msv2-mdsv2-series.md
             - name: Serie Mv2
               href: mv2-series.md
@@ -227,7 +227,7 @@
             - name: Configurare i driver per la GPU AMD
               displayName: 'AMD GPU drivers, AMD, GPU drivers, GPU'
               href: ./windows/n-series-amd-driver-setup.md
-        - name: Calcolo con accelerazione FPGA
+        - name: FPGA - calcolo accelerato
           items:
             - name: Panoramica
               displayName: 'FPGA, accelerated compute, compute, accelerated, gpu'
@@ -247,7 +247,7 @@
               href: hb-series.md
             - name: Serie HBv2
               href: hbv2-series.md
-            - name: Serie modello HBV3
+            - name: Serie HBv3
               href: hbv3-series.md
             - name: Serie HC
               href: hc-series.md
@@ -356,34 +356,34 @@
               items:
                 - name: Configurare la strategia di distribuzione in sequenza
                   href: ./linux/tutorial-devops-azure-pipelines-classic.md
-                - name: Configurare la strategia di distribuzione Canary
+                - name: Configurare la strategia di distribuzione di Canary
                   href: ./linux/tutorial-azure-devops-canary-strategy.md
-                - name: Configurare Blue-Green strategia di distribuzione
+                - name: Configurare Blue-Green di distribuzione
                   href: ./linux/tutorial-azure-devops-blue-green-strategy.md
                 - name: CI/CD con Azure Pipelines (YAML)
                   href: ./linux/tutorial-build-deploy-azure-pipelines.md
-            - name: Proteggere il server Web con TLS
+            - name: Proteggere il server Web con TLS\SSL
               href: ./linux/tutorial-secure-web-server.md
         - name: Windows
           items:
-            - name: Disco specializzato-portale
+            - name: Disco specializzato - Portale
               displayName: 'Create VM, Create'
               href: ./windows/create-vm-specialized-portal.md
-            - name: Disco specializzato-PowerShell
+            - name: Disco specializzato - PowerShell
               displayName: 'Create VM, Create'
               href: ./windows/create-vm-specialized.md
             - name: Modello ARM
               displayName: 'Create VM, Create, ARM'
               href: ./windows/ps-template.md
-            - name: Proteggere il server Web con TLS
+            - name: Proteggere il server Web con TLS\SSL
               href: ./windows/tutorial-secure-web-server.md
     - name: Connettersi alle macchine virtuali
       items:
         - name: Linux
           items:
-            - name: Creare e gestire le chiavi SSH localmente
+            - name: Creare e gestire le chiavi SSH in locale
               href: ./linux/create-ssh-keys-detailed.md
-            - name: Creare e gestire le chiavi SSH nel portale
+            - name: Creare e gestire chiavi SSH nel portale
               href: ssh-keys-portal.md
             - name: SSH in Linux o macOS
               href: ./linux/mac-create-ssh-keys.md
@@ -430,6 +430,10 @@
               href: ./extensions/features-windows.md
             - name: Agente di macchine virtuali Windows
               href: ./extensions/agent-windows.md
+        - name: Backup di Azure per SQL Server
+          items:
+            - name: Backup di Azure per SQL Server
+              href: ./extensions/backup-azure-sql-server-running-azure-vm.md
         - name: Azure Disk Encryption
           items:
             - name: Linux
@@ -446,10 +450,8 @@
             - name: Windows
               displayName: 'Azure Key Vault, key vault, encryption'
               href: ./extensions/key-vault-windows.md
-        - name: Backup di Azure per SQL Server
-          items:
-            - name: Backup di Azure per SQL Server
-              href: ./extensions/backup-azure-sql-server-running-azure-vm.md
+        - name: Criteri di Azure configurazione guest
+          href: ./extensions/guest-configuration.md
         - name: Custom Script
           items:
             - name: Linux - versione 2
@@ -563,7 +565,7 @@
           href: ./extensions/issues-using-vm-extensions-python-3.md
     - name: Virtualizzazione annidata
       href: 'https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization'
-    - name: Esegui la migrazione a Azure Resource Manager
+    - name: Eseguire la migrazione a Azure Resource Manager
       items:
         - name: Ritiro a partire dal 1° marzo 2023
           displayName: 'classic, migration, classic to ARM, CSES, Cloud Services'
@@ -594,7 +596,7 @@
           href: migration-classic-resource-manager-faq.md
 - name: Immagini
   items:
-    - name: Trovare immagini di Azure Marketplace
+    - name: Trovare Azure Marketplace immagini
       items:
         - name: CLI
           displayName: 'Images, imaging, marketplace, publisher, plan, offer, URN, purchase plan, terms'
@@ -605,17 +607,17 @@
         - name: Immagini client Windows
           displayName: 'Images, imaging, marketplace, Windows, Client'
           href: ./windows/client-images.md
-        - name: Diritti di hosting multi-tenant per Windows 10
+        - name: Diritti di hosting multi-Windows 10
           displayName: 'MTHR, multi-tenant, multitenant, hosting, rights'
           href: ./windows/windows-desktop-multitenant-hosting-deployment.md
-    - name: Immagini personalizzate Linux
+    - name: Immagini personalizzate linux
       items:
         - name: Panoramica
           displayName: 'Linux custom images, custom, image'
           href: ./linux/imaging.md
         - name: Provisioning di Linux
           href: ./linux/provisioning.md
-        - name: Requisiti specifici per la distribuzione di Linux
+        - name: Requisiti specifici della distribuzione Linux
           items:
             - name: Procedura generica
               displayName: 'Linux distribution specific requirements, generic'
@@ -803,7 +805,7 @@
           href: managed-disk-from-image-version.md
         - name: Informazioni sui piani di acquisto
           href: marketplace-images.md
-    - name: Generatore di immagini (anteprima)
+    - name: Image Builder (anteprima)
       items:
         - name: Panoramica
           displayName: 'Image builder, images, building'
@@ -940,7 +942,7 @@
         - name: Modalità di orchestrazione
           displayName: 'VMSS, flex, scale set, scale, virtual machine sacle set'
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-    - name: Informazioni sui riavvii delle VM
+    - name: Informazioni sul riavvio delle macchine virtuali
       href: understand-vm-reboots.md
     - name: Stati e fatturazione
       href: states-billing.md
@@ -1095,10 +1097,10 @@
         - name: Metriche correlate al disco
           href: disks-metrics.md
           displayname: 'Performance, cost, perf, disks, disk'
-        - name: Modelli di picchi di dischi
+        - name: Modelli di burst del disco
           href: disk-bursting.md
           displayname: 'Performance, cost, perf, disks, disk'
-        - name: Abilita espansione su richiesta
+        - name: Abilitare il bursting su richiesta
           href: disks-enable-bursting.md
           displayname: 'Performance, cost, perf, disks, disk'
         - name: Livelli di prestazioni dei dischi
@@ -1120,22 +1122,22 @@
       href: disks-scalability-targets.md
     - name: Backup e protezione dei dati
       items:
-        - name: Abilita snapshot incrementali
+        - name: Abilitare gli snapshot incrementali
           href: disks-incremental-snapshots.md
         - name: Backup di dischi di Azure
           items:
             - name: Panoramica
               displayName: 'Azure disk backup, backup'
               href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
-            - name: Configurare il backup dei dischi di Azure
+            - name: Configurare Backup su disco di Azure
               href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
-            - name: Ripristinare i dischi con il backup su disco di Azure
+            - name: Ripristinare dischi con Backup su disco di Azure
               href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
         - name: Backup e ripristino di emergenza per i dischi
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Snapshot di un disco-interfaccia della riga di comando
+        - name: Creare uno snapshot di un disco - Interfaccia della riga di comando
           href: ./linux/snapshot-copy-managed-disk.md
-        - name: Snapshot di un disco-PowerShell
+        - name: Creare uno snapshot di un disco - PowerShell
           href: ./windows/snapshot-copy-managed-disk.md
         - name: Eseguire il backup di dischi non gestiti
           href: ./linux/incremental-snapshots.md
@@ -1143,7 +1145,7 @@
       href: ephemeral-os-disks.md
     - name: Migrazione e conversione
       items:
-        - name: Converti un disco in un altro tipo di disco
+        - name: Convertire il disco in un altro tipo di disco
           items:
             - name: CLI
               displayName: Convert disk to another disk type
@@ -1187,7 +1189,7 @@
             - name: Portale di Azure
               displayName: 'add a data disk, data disk'
               href: ./windows/attach-managed-disk-portal.md
-            - name: Modificare la lettera di unità disco Temp
+            - name: Modificare la lettera di unità disco temporanea
               href: ./windows/change-drive-letter.md
     - name: Scollegare un disco
       items:
@@ -1212,9 +1214,9 @@
           href: using-managed-disks-template-deployments.md
         - name: Importare/esportare in modo sicuro un disco
           items:
-            - name: Configurare collegamenti privati per i dischi-interfaccia della riga di comando
+            - name: Configurare i collegamenti privati per i dischi - Interfaccia della riga di comando
               href: ./linux/disks-export-import-private-links-cli.md
-            - name: Configurare i collegamenti privati per i dischi-portale
+            - name: Configurare i collegamenti privati per i dischi - Portale
               href: disks-enable-private-links-for-import-export-portal.md
             - name: Caricare un VHD su disco - PowerShell
               href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
@@ -1230,13 +1232,13 @@
                   href: ./windows/download-vhd.md
         - name: Usare Storage Explorer per gestire i dischi
           href: disks-use-storage-explorer-managed-disks.md
-        - name: Scambiare il disco del sistema operativo-interfaccia della riga di comando
+        - name: Scambiare il disco del sistema operativo - Interfaccia della riga di comando
           href: ./linux/os-disk-swap.md
-        - name: Scambiare il disco del sistema operativo-PowerShell
+        - name: Scambiare il disco del sistema operativo - PowerShell
           href: ./windows/os-disk-swap.md
-        - name: Mappare il disco gestito al disco Guest-Linux
+        - name: Eseguire il mapping del disco gestito al disco guest - Linux
           href: ./linux/azure-to-guest-disk-mapping.md
-        - name: Mappare il disco gestito al disco Guest-Windows
+        - name: Eseguire il mapping del disco gestito al disco guest - Windows
           href: ./windows/azure-to-guest-disk-mapping.md
         - name: Archiviazione file
           items:
@@ -1356,7 +1358,7 @@
         - name: Panoramica
           displayName: Azure Policy
           href: security-policy.md
-        - name: Controlli per criterio
+        - name: Controlli in base ai criteri
           displayName: 'regulatory, compliance, standards, domains'
           href: security-controls-policy.md
         - name: Riferimento ai criteri
@@ -1403,7 +1405,7 @@
               href: ./windows/key-vault-setup.md
     - name: Attenuazione dell'esecuzione speculativa
       href: mitigate-se.md
-    - name: Aggiungere una VM Linux a Azure Active Directory
+    - name: Aggiungere una macchina virtuale Linux Azure Active Directory
       displayName: Azure AD
       items:
         - name: Red Hat Enterprise Linux
@@ -1435,7 +1437,7 @@
         - name: Azure SDK
           displayName: Configured managed identies
           href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
-    - name: Accesso Active Directory Linux
+    - name: Accesso a Linux Active Directory
       href: ./linux/login-using-aad.md
 - name: Aggiornamenti e manutenzione
   items:
@@ -1447,7 +1449,7 @@
         - name: Panoramica
           displayName: 'Automatic OS image upgrade, image, upgrade, OS'
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
-        - name: Controllo di manutenzione per l'aggiornamento dell'immagine del sistema operativo
+        - name: Controllo della manutenzione per l'aggiornamento dell'immagine del sistema operativo
           items:
             - name: Panoramica (anteprima)
               displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
@@ -1455,17 +1457,17 @@
             - name: PowerShell (anteprima)
               displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
               href: virtual-machine-scale-sets-maintenance-control-powershell.md
-    - name: Applicazione automatica delle patch Guest per macchine virtuali (anteprima)
+    - name: Applicazione automatica di patch guest alle macchine virtuali (anteprima)
       items:
         - name: Panoramica
           displayName: 'Automatic VM guest patching, guest, OS, patching'
           href: automatic-vm-guest-patching.md
-        - name: Danneggiata
+        - name: Hotpatch
           displayName: 'patching, patch, update'
           href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
-    - name: Aggiornamento dell'estensione automatica (anteprima)
+    - name: Aggiornamento automatico delle estensioni (anteprima)
       href: automatic-extension-upgrade.md
-    - name: Gestione aggiornamenti in automazione di Azure
+    - name: Gestione aggiornamenti in Automazione di Azure
       href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context
     - name: Manutenzione
       items:
@@ -1508,7 +1510,7 @@
             - name: Windows
               displayName: Scheduled events
               href: ./windows/scheduled-events.md
-        - name: Rilevare e aggiornare le macchine virtuali
+        - name: Tenere traccia e aggiornare le macchine virtuali
           items:
             - name: Linux
               displayName: 'update, track'
@@ -1521,7 +1523,7 @@
     - name: Panoramica
       displayName: 'Monitoring Overview, monitoring'
       href: ../azure-monitor/vm/monitor-vm-azure.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-    - name: Monitoraggio di macchine virtuali
+    - name: Monitoraggio delle macchine virtuali
       items:
         - name: Windows
           displayName: Monitoring VMs
@@ -1571,7 +1573,7 @@
                 - name: Dati JSON personalizzati
                   displayName: 'Data sources, log Analytics'
                   href: ../azure-monitor/agents/data-sources-json.md?context=/azure/virtual-machines/context/context
-                - name: raccolta dei dati sulle prestazioni
+                - name: raccogliere dati sulle prestazioni
                   displayName: 'Data sources, log Analytics'
                   href: ../azure-monitor/agents/data-sources-collectd.md?context=/azure/virtual-machines/context/context
                 - name: syslog
@@ -1677,7 +1679,7 @@
     - name: Panoramica
       displayName: Backup and recovery
       href: backup-recovery.md
-    - name: Rotture del servizio
+    - name: Interruzioni del servizio
       href: virtual-machines-disaster-recovery-guidance.md
     - name: Eseguire il backup delle VM
       items:
@@ -1726,7 +1728,7 @@
               href: ./windows/tutorial-disaster-recovery.md
         - name: Effettuare il failover di una macchina virtuale in un'altra area
           href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md
-        - name: Eseguire il failback di una macchina virtuale nell'area primaria
+        - name: Eseguire il fail back di una macchina virtuale nell'area primaria
           href: ../site-recovery/azure-to-azure-tutorial-failback.md
     - name: Spostare le VM ed eseguirne la migrazione
       items:
@@ -1798,17 +1800,17 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Esempi
       items:
-        - name: Repository di esempi dell'interfaccia della riga di comando
+        - name: Repo di esempi dell'interfaccia della riga di comando di Azure
           href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
-        - name: Repository di esempi di PowerShell
+        - name: Repo di esempi di PowerShell
           href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
-    - name: Comandi dell'interfaccia della riga di comando comuni
+    - name: Comandi comuni dell'interfaccia della riga di comando
       href: ./linux/cli-manage.md
     - name: Comandi comuni di PowerShell
       href: ./windows/ps-common-ref.md
-    - name: Comandi comuni di PowerShell per rete
+    - name: Comandi comuni di PowerShell per la rete
       href: ./windows/ps-common-network-ref.md
-    - name: Descrizione modello di macchina virtuale
+    - name: Descrizione del modello di macchina virtuale
       href: ./windows/template-description.md
     - name: Distribuzioni classiche
       items:

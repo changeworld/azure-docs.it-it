@@ -4,12 +4,12 @@ description: Questo articolo illustra come rinviare il recapito dei messaggi del
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e3a940f8aa9e72d9b09e9c0a3305521c6f17dfb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 997aab36652b08864892f1171e2b8588ec5f06b4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622046"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306110"
 ---
 # <a name="message-deferral"></a>Differimento di messaggi
 
@@ -22,7 +22,7 @@ Un semplice esempio illustrativo è dato da una sequenza di elaborazione degli o
 Il differimento consente di riordinare i messaggi, sostituendo l'ordine di arrivo con un ordine in cui possono essere elaborati, lasciando nell'archivio i messaggi per cui l'elaborazione deve essere posticipata.
 
 > [!NOTE]
-> I messaggi posticipati non verranno spostati automaticamente nella coda dei messaggi non recapitabili [dopo la scadenza](./service-bus-dead-letter-queues.md#exceeding-timetolive). Questo comportamento è da progettazione.
+> I messaggi posticipati non verranno spostati automaticamente nella coda dei messaggi non recapitabili [dopo la scadenza](./service-bus-dead-letter-queues.md#time-to-live). Questo comportamento è da progettazione.
 
 ## <a name="message-deferral-apis"></a>API di differimento di messaggi
 

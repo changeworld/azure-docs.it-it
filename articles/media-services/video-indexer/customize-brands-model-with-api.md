@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: c3056415d3432dbe64dd1f2bcf974a676bbf6c6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03c74e9108b27856259eb4f17d7ba521007c4fa3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97586058"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312961"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizzare un modello Marchi con l'API di Video Indexer
 
@@ -28,7 +28,7 @@ Video Indexer supporta il rilevamento del marchio dal parlato e dal testo visivo
 
 ## <a name="create-a-brand"></a>Creare un marchio
 
-L'API [Create a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) crea una nuova personalizzazione personalizzata e la aggiunge al modello Custom Brands per l'account specificato.
+L'API [Create a brand](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Brand) crea una nuova personalizzazione personalizzata e la aggiunge al modello Custom Brands per l'account specificato.
 
 > [!NOTE]
 > Impostando `enabled` (nel corpo) su true, il marchio viene inserito nell'elenco di *inclusione* per video Indexer da rilevare. `enabled`Se si imposta su false, il marchio viene inserito nell'elenco di *esclusione* , quindi video Indexer non lo rileva.
@@ -62,7 +62,7 @@ La risposta specifica informazioni sul marchio che è stato appena creato seguen
 
 ## <a name="delete-a-brand"></a>Eliminare un marchio
 
-L'API [Delete a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) rimuove un marchio dal modello Custom Brands per l'account specificato. L'account è specificato nel `accountId` parametro. Una volta chiamato correttamente, il marchio non sarà più presente negli elenchi di marchi *Include* oppure *Exclude*.
+L'API [Delete a brand](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Brand) rimuove un marchio dal modello Custom Brands per l'account specificato. L'account è specificato nel `accountId` parametro. Una volta chiamato correttamente, il marchio non sarà più presente negli elenchi di marchi *Include* oppure *Exclude*.
 
 ### <a name="response"></a>Risposta
 
@@ -70,7 +70,7 @@ Non viene restituito alcun contenuto quando il marchio viene eliminato correttam
 
 ## <a name="get-a-specific-brand"></a>Recuperare un marchio specifico
 
-L'API [Get a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) consente di cercare i dettagli di un marchio nel modello Custom Brands per l'account specificato usando l'ID del marchio.
+L'API [Get a brand](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brand) consente di cercare i dettagli di un marchio nel modello Custom Brands per l'account specificato usando l'ID del marchio.
 
 ### <a name="response"></a>Risposta
 
@@ -99,7 +99,7 @@ La risposta specifica informazioni sul marchio che è stato cercato (usando l'ID
 
 ## <a name="update-a-specific-brand"></a>Aggiornare un marchio specifico
 
-L'API [Update a brand](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) consente di cercare i dettagli di un marchio nel modello Custom Brands per l'account specificato usando l'ID del marchio.
+L'API [Update a brand](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Brand) consente di cercare i dettagli di un marchio nel modello Custom Brands per l'account specificato usando l'ID del marchio.
 
 ### <a name="response"></a>Risposta
 
@@ -125,7 +125,7 @@ La risposta specifica informazioni aggiornate sul marchio che è stato aggiornat
 
 ## <a name="get-all-of-the-brands"></a>Ottenere tutti i marchi
 
-L'API [Get All Brands](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) restituisce tutti i marchi nel modello Custom Brands per l'account specificato, indipendentemente dal fatto che il marchio debba essere incluso nell'elenco *Includi* o *Escludi* marchi.
+L'API [Get All Brands](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) restituisce tutti i marchi nel modello Custom Brands per l'account specificato, indipendentemente dal fatto che il marchio debba essere incluso nell'elenco *Includi* o *Escludi* marchi.
 
 ### <a name="response"></a>Risposta
 
@@ -165,7 +165,7 @@ La risposta restituisce un elenco di tutti i marchi nell'account e ognuno dei re
 
 ## <a name="get-brands-model-settings"></a>Ottenere le impostazioni del modello Marchi
 
-L'API [Get Brands Settings](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) restituisce le impostazioni del modello di marchi nell'account specificato. Le impostazioni del modello Marchi rappresentano se il rilevamento dal database di marchi di Bing è abilitato o meno. Se i marchi Bing non sono abilitati, Video Indexer rileverà solo i marchi del modello Custom Brands dell'account specificato.
+L'API [Get Brands Settings](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) restituisce le impostazioni del modello di marchi nell'account specificato. Le impostazioni del modello Marchi rappresentano se il rilevamento dal database di marchi di Bing è abilitato o meno. Se i marchi Bing non sono abilitati, Video Indexer rileverà solo i marchi del modello Custom Brands dell'account specificato.
 
 ### <a name="response"></a>Risposta
 
@@ -183,7 +183,7 @@ La risposta mostra se i marchi Bing sono abilitati seguendo il formato dell'esem
 
 ## <a name="update-brands-model-settings"></a>Aggiornare le impostazioni del modello Marchi
 
-L'API [Aggiorna marche](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) aggiorna le impostazioni del modello di marchi nell'account specificato. Le impostazioni del modello Marchi rappresentano se il rilevamento dal database di marchi di Bing è abilitato o meno. Se i marchi Bing non sono abilitati, Video Indexer rileverà solo i marchi del modello Custom Brands dell'account specificato.
+L'API [Aggiorna marche](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Brands-Model-Settings) aggiorna le impostazioni del modello di marchi nell'account specificato. Le impostazioni del modello Marchi rappresentano se il rilevamento dal database di marchi di Bing è abilitato o meno. Se i marchi Bing non sono abilitati, Video Indexer rileverà solo i marchi del modello Custom Brands dell'account specificato.
 
 Il `useBuiltIn` flag impostato su true significa che i marchi Bing sono abilitati. Se `useBuiltin` è false, i marchi Bing sono disabilitati.
 

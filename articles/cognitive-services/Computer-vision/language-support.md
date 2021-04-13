@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 774eb05ae43e393db3d11e8e21a427736614809b
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: a37b740333e599d19248ffa9b21be3e4d6fe78b3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285111"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306297"
 ---
 # <a name="language-support-for-computer-vision"></a>Supporto delle lingue per Visione artificiale
 
@@ -25,7 +25,7 @@ Alcune funzionalità di Visione artificiale supportano più lingue; le funzional
 
 Le API OCR di Visione artificiale supportano diverse lingue. Non è necessario specificare un codice di lingua. Per ulteriori informazioni, vedere [Panoramica del riconoscimento ottico dei caratteri (OCR)](overview-ocr.md) .
 
-|Linguaggio| Codice lingua | API OCR | Leggi 3.0/3.1 | Leggi versione 3.2 anteprima |
+|Linguaggio| Codice lingua | API OCR | Leggi 3.0/3.1 | Leggi v 3.2 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Afrikaans|`af`| | |✔ |
 |Albanese |`sq`| | |✔ |
@@ -46,7 +46,7 @@ Le API OCR di Visione artificiale supportano diverse lingue. Non è necessario s
 |Danese | `da` |✔ | |✔ |
 |Olandese | `nl` |✔ |✔ |✔ |
 |Inglese | `en` |✔ |✔ |✔ |
-|Estone  |`crh`| | |✔ |
+|Estone  |`et`| | |✔ |
 |Figiano |`fj`| | |✔ |
 |Filippino  |`fil`| | |✔ |
 |Finlandese | `fi` |✔ | |✔ |
