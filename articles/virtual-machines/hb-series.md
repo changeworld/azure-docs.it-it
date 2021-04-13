@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 92a46c7f9d7cf86787bb1707c41ae0e44c37fc60
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: db3a50108fb8c08371653c08164764cc0a3d492e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800908"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309748"
 ---
 # <a name="hb-series"></a>Serie HB
 
@@ -24,6 +24,7 @@ VM serie HB funzionalità 100 GB/sec Mellanox EDR InfiniBand. Queste VM sono con
 [ACU](acu.md): 199-216<br>
 [Archiviazione Premium](premium-storage-performance.md): supportata<br>
 [Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Dischi Ultra](disks-types.md#ultra-disk): supportati ([altre](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) informazioni su disponibilità, utilizzo e prestazioni) <br>
 [Live Migration](maintenance-and-updates.md): non supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
@@ -33,7 +34,7 @@ VM serie HB funzionalità 100 GB/sec Mellanox EDR InfiniBand. Queste VM sono con
 
 | Dimensione | vCPU | Processore | Memoria (GiB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Spazio di archiviazione temp (GiB) | Numero massimo di dischi dati | Numero massimo di schede Ethernet |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB60rs | 60 | AMD EPYC 7551 | 228 | 263 | 2.0 | 2.55 | 2.55 | 100 | Tutti | 700 | 4 | 8 |
+| Standard_HB60rs | 60 | AMD EPYC 7551 | 228 | 263 | 2,0 | 2.55 | 2.55 | 100 | Tutti | 700 | 4 | 8 |
 
 Ulteriori informazioni su:
 - [Architettura e topologia di VM](./workloads/hpc/hb-series-overview.md)

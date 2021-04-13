@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5e00ef81afc709a9072eedbb07983057f57eb08
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950595"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304300"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Inserire dati di telemetria dell'hub Internet in dispositivi gemelli digitali di Azure
 
@@ -45,7 +45,7 @@ Ogni volta che un evento di telemetria della temperatura viene inviato dal dispo
 
 In questa sezione si configurerà un dispositivo [gemello digitale](concepts-twins-graph.md) in Azure Digital gemelli che rappresenterà il dispositivo termostato e verrà aggiornato con le informazioni dell'hub Internet.
 
-Per creare un dispositivo gemello, è necessario innanzitutto caricare il [modello](concepts-models.md) del termostato nell'istanza, che descrive le proprietà di un termostato e verrà usato in un secondo momento per creare il dispositivo gemello. 
+Per creare un dispositivo gemello, è necessario innanzitutto caricare il [modello](concepts-models.md) del termostato nell'istanza, che descrive le proprietà di un termostato e verrà usato in un secondo momento per creare il dispositivo gemello.
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 

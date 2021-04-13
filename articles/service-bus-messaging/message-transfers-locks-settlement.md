@@ -2,20 +2,20 @@
 title: Trasferimenti di messaggi, blocchi e regolamento del bus di servizio di Azure
 description: Questo articolo fornisce una panoramica dei trasferimenti di messaggi del bus di servizio di Azure, dei blocchi e delle operazioni di regolamento.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 04/12/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fd71edd12e478bcd5f14815c105c14482cf7e2bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6fbbcbf4a1920ee0e66a956443dcfb8a6a17af43
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89020032"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306773"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Trasferimenti, blocchi e finalizzazione dei messaggi
 
 La funzionalità principale di un broker di messaggi come il bus di servizio è quella di accettare i messaggi in una coda o in un argomento e conservali rendendoli disponibili per un successivo recupero. *Invio* è il termine comunemente usato per il trasferimento di un messaggio in un broker di messaggi. *Ricezione* è il termine comunemente usato per il trasferimento di un messaggio in un client che esegue il recupero.
 
-Quando un client invia un messaggio, vuole in genere sapere se il messaggio è stato correttamente trasferito e accettato dal broker o se si è verificato qualche tipo di errore. Questo riconoscimento positivo o negativo permette al client e al broker di comprendere lo stato del trasferimento del messaggio ed è noto come *finalizzazione*.
+Quando un client invia un messaggio, vuole in genere sapere se il messaggio è stato correttamente trasferito e accettato dal broker o se si è verificato qualche tipo di errore. Questo riconoscimento positivo o negativo stabilisce il client e la comprensione del broker sullo stato di trasferimento del messaggio. Quindi, viene definito come *insediamento*.
 
 Analogamente, quando un broker trasferisce un messaggio a un client, il broker e il client vogliono sapere se il messaggio è stato elaborato correttamente e può quindi essere rimosso oppure se l'elaborazione o il recapito del messaggio non è riuscito e di conseguenza il messaggio deve essere recapitato di nuovo.
 
@@ -23,17 +23,17 @@ Analogamente, quando un broker trasferisce un messaggio a un client, il broker e
 
 Usando qualsiasi client API del bus di servizio supportato, le operazioni di invio nel bus di servizio vengono sempre finalizzate in modo esplicito, ovvero l'operazione API attende l'arrivo del risultato dell'accettazione dal bus di servizio e quindi completa l'operazione di invio.
 
-Se il messaggio viene rifiutato dal bus di servizio, il rifiuto contiene un indicatore di errore e il testo con un valore "tracking-id". Il rifiuto include anche informazioni relative al fatto che sia possibile o meno provare a eseguire di nuovo l'operazione con la possibilità di avere un esito positivo. Nel client queste informazioni vengono trasformate in un'eccezione, generata per il chiamante dell'operazione di invio. Se il messaggio è stato accettato, l'operazione viene completata automaticamente.
+Se il messaggio viene rifiutato dal bus di servizio, il rifiuto contiene un indicatore di errore e un testo con un **ID di rilevamento** . Il rifiuto include anche informazioni relative al fatto che sia possibile o meno provare a eseguire di nuovo l'operazione con la possibilità di avere un esito positivo. Nel client queste informazioni vengono trasformate in un'eccezione, generata per il chiamante dell'operazione di invio. Se il messaggio è stato accettato, l'operazione viene completata automaticamente.
 
-Quando si usa il protocollo AMQP, ovvero il protocollo esclusivo per il client .NET Standard e il client Java e che costituisce [un'opzione per il client .NET Framework](service-bus-amqp-dotnet.md), le operazioni di trasferimento e finalizzazione dei messaggi vengono inserite in pipeline e sono completamente asincrone ed è consigliabile usare le varianti di API del modello di programmazione asincrono.
+Quando si usa il protocollo AMQP, che è il protocollo esclusivo per i client di .NET Standard, Java, JavaScript, Python e go e [un'opzione per il client di .NET Framework](service-bus-amqp-dotnet.md), i trasferimenti di messaggi e gli stabilimenti sono pipeline e asincrona. Si consiglia di usare le varianti API del modello di programmazione asincrona.
 
 Un mittente può inviare diversi messaggi in transito in rapida successione senza dover attendere il riconoscimento di ogni messaggio, come avverrebbe invece con il protocollo SBMP o HTTP 1.1. Le operazioni di invio asincrone vengono completate man mano che i relativi messaggi vengono accettati e archiviati, nelle entità partizionate o quando le operazioni di invio a entità diverse si sovrappongono. Il completamento può avvenire anche fuori dall'ordine di invio originale.
 
-La strategia per gestire il risultato delle operazioni di invio può avere un impatto immediato e significativo sulle prestazioni dell'applicazione. Gli esempi di questa sezione sono scritti in C# e sono applicabili anche a Java Futures.
+La strategia per gestire il risultato delle operazioni di invio può avere un impatto immediato e significativo sulle prestazioni dell'applicazione. Gli esempi in questa sezione sono scritti in C# e si applicano ai futuri Java, ai mono Java, alle promesse JavaScript e ai concetti equivalenti in altri linguaggi.
 
 Se l'applicazione genera picchi di messaggi, illustrati qui con un ciclo semplice, e si attende il completamento di ogni operazione di invio prima di inviare il messaggio successivo, le API sincrone o asincrone hanno un funzionamento simile e l'invio di 10 messaggi viene completato solo dopo 10 round trip completi sequenziali per la finalizzazione.
 
-Presupponendo una latenza del round trip TCP di 70 millisecondi dovuta alla distanza tra un sito locale e il bus di servizio e consentendo solo 10 ms al bus di servizio per accettare e archiviare ogni messaggio, il ciclo seguente richiede almeno 8 secondi, senza contare il tempo di trasferimento del payload o i potenziali effetti di congestione della route:
+Con un presupposto di latenza del round trip TCP di 70 millisecondi da un sito locale a un bus di servizio e con soli 10 ms affinché il bus di servizio accetti e memorizzi ogni messaggio, il ciclo seguente richiede almeno 8 secondi, senza contare i tempi di trasferimento del payload o potenziali effetti della congestione della route:
 
 ```csharp
 for (int i = 0; i < 100; i++)
@@ -43,7 +43,7 @@ for (int i = 0; i < 100; i++)
 }
 ```
 
-Se l'applicazione avvia le 10 operazioni di invio asincrone in successione immediata e attende il rispettivo completamento separatamente, il tempo di round trip per tali 10 operazioni di invio si sovrappone. I 10 messaggi vengono trasferiti in successione immediata, potenzialmente anche condividendo frame TCP, e la durata complessiva del trasferimento dipende in gran parte dal tempo di rete necessario per trasferire i messaggi al broker.
+Se l'applicazione avvia le 10 operazioni di invio asincrone in successione immediata e attende il rispettivo completamento separatamente, il tempo di round trip per le 10 operazioni di invio si sovrappone. I 10 messaggi vengono trasferiti in successione immediata, potenzialmente anche condividendo frame TCP, e la durata complessiva del trasferimento dipende in gran parte dal tempo di rete necessario per trasferire i messaggi al broker.
 
 Basandosi sugli stessi presupposti illustrati per il ciclo precedente, il tempo di esecuzione totale sovrapposto per il ciclo seguente potrebbe rimanere ben sotto un secondo:
 
@@ -56,7 +56,7 @@ for (int i = 0; i < 100; i++)
 await Task.WhenAll(tasks);
 ```
 
-È importante notare che tutti i modelli di programmazione asincroni usano una forma di coda di lavoro nascosta basata sulla memoria che contiene le operazioni in sospeso. Quando [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) o **Send** (Java) restituisce un risultato, l'attività di invio viene inserita nella coda di lavoro, ma l'azione del protocollo viene avviata solo quando è il turno dell'attività di essere eseguita. Per il codice che tende a eseguire il push di picchi di messaggi e per i casi in cui l'affidabilità è importante, è necessario fare attenzione che non ci siano troppi messaggi "in corso" contemporaneamente, in quanto tutti i messaggi inviati occupano memoria fino a quando non sono effettivamente in transito.
+È importante notare che tutti i modelli di programmazione asincroni usano una forma di coda di lavoro nascosta basata sulla memoria che contiene le operazioni in sospeso. Quando l'API di invio restituisce, l'attività di invio viene accodata in tale coda di lavoro, ma l'azione del protocollo inizia solo dopo l'esecuzione dell'attività. Per il codice che tende a eseguire il push di picchi di messaggi e per i casi in cui l'affidabilità è importante, è necessario fare attenzione che non ci siano troppi messaggi "in corso" contemporaneamente, in quanto tutti i messaggi inviati occupano memoria fino a quando non sono effettivamente in transito.
 
 I semafori, come illustrato nel frammento di codice seguente in C#, sono oggetti di sincronizzazione che consentono, quando necessario, tale limitazione a livello di applicazione. Questo uso di un semaforo consente la presenza al massimo di 10 messaggi in corso contemporaneamente. Uno dei 10 blocchi tramite semaforo disponibili viene acquisito prima dell'invio e rilasciato al completamento dell'invio. L'undicesimo passaggio nel ciclo resta in attesa fino a quando uno degli invii precedenti viene completato e quindi rende disponibile il blocco:
 
@@ -91,29 +91,29 @@ Per le operazioni di ricezione, i client API del bus di servizio consentono due 
 
 ### <a name="receiveanddelete"></a>ReceiveAndDelete
 
-La modalità di [ricezione ed eliminazione](/dotnet/api/microsoft.servicebus.messaging.receivemode) indica al broker di considerare tutti i messaggi inviati al client ricevente come finalizzati quando inviati. Ciò significa che il messaggio è considerato utilizzato non appena il broker lo ha inviato in transito. Se il trasferimento del messaggio non riesce, il messaggio viene perso.
+La modalità di **ricezione e eliminazione** indica al broker di prendere in considerazione tutti i messaggi inviati al client ricevente come risolti quando vengono inviati. Ciò significa che il messaggio è considerato utilizzato non appena il broker lo ha inviato in transito. Se il trasferimento del messaggio non riesce, il messaggio viene perso.
 
 Il vantaggio di questa modalità è il fatto che il ricevitore non deve eseguire altre azioni sul messaggio e non viene rallentato dall'attesa del risultato della finalizzazione. Se i dati contenuti nei singoli messaggi hanno un valore basso e/o sono significativi solo per un tempo molto breve, questa modalità è una scelta ragionevole.
 
 ### <a name="peeklock"></a>PeekLock
 
-La modalità [blocco di visualizzazione](/dotnet/api/microsoft.servicebus.messaging.receivemode) indica al broker che il client ricevente richiede la finalizzazione esplicita dei messaggi ricevuti. Il messaggio viene reso disponibile per l'elaborazione da parte del ricevitore, mentre viene applicato un blocco esclusivo nel servizio in modo che altri ricevitori concorrenti non possano visualizzarlo. La durata del blocco viene definita inizialmente a livello di coda o di sottoscrizione e può essere estesa dal client proprietario del blocco, tramite l'operazione [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_).
+La modalità **blocco di visualizzazione** indica al broker che il client ricevente desidera risolvere i messaggi ricevuti in modo esplicito. Il messaggio viene reso disponibile per l'elaborazione da parte del ricevitore, mentre viene applicato un blocco esclusivo nel servizio in modo che altri ricevitori concorrenti non possano visualizzarlo. La durata del blocco viene inizialmente definita a livello di coda o di sottoscrizione e può essere estesa dal client proprietario del blocco. Per informazioni dettagliate sul rinnovo dei blocchi, vedere la sezione [renew Locks](#renew-locks) in questo articolo. 
 
 Quando un messaggio è bloccato, gli altri client che ricevono dalla stessa coda o sottoscrizione possono accettare i blocchi e recuperare i successivi messaggi disponibili non attivamente bloccati. Quando il blocco su un messaggio viene rilasciato in modo esplicito o scade, il messaggio ritorna all'inizio o in prossimità dell'inizio dell'ordine di recupero per essere recapitato nuovamente.
 
-Quando il messaggio viene rilasciato ripetutamente dai ricevitori o i ricevitori lasciano scadere il blocco per un numero definito di volte ([maxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount)), il messaggio viene rimosso automaticamente dalla coda o dalla sottoscrizione e inserito nella coda di messaggi non recapitabili associata.
+Quando il messaggio viene rilasciato ripetutamente dai ricevitori o lascia trascorrere il blocco per un numero definito di volte ([conteggio recapito massimo](service-bus-dead-letter-queues.md#maximum-delivery-count)), il messaggio viene rimosso automaticamente dalla coda o dalla sottoscrizione e inserito nella coda dei messaggi non recapitabili associata.
 
-Il client ricevente avvia la finalizzazione di un messaggio ricevuto con un riconoscimento positivo quando chiama il metodo [Complete](/dotnet/api/microsoft.servicebus.messaging.queueclient.complete#Microsoft_ServiceBus_Messaging_QueueClient_Complete_System_Guid_) a livello di API. Ciò indica al broker che il messaggio è stato elaborato correttamente e viene rimosso dalla coda o dalla sottoscrizione. Il broker risponde all'intenzione di finalizzazione del ricevitore indicando se la finalizzazione è stata possibile.
+Il client ricevente avvia lo stabilimento di un messaggio ricevuto con un riconoscimento positivo quando chiama l' `Complete` API per il messaggio. Indica al broker che il messaggio è stato elaborato correttamente e che il messaggio viene rimosso dalla coda o dalla sottoscrizione. Il broker risponde all'intenzione di finalizzazione del ricevitore indicando se la finalizzazione è stata possibile.
 
-Quando il client ricevente non riesce a elaborare un messaggio, ma vuole che il messaggio venga recapitato nuovamente, può chiedere esplicitamente che il messaggio venga rilasciato e sbloccato immediatamente chiamando [Abandon](/dotnet/api/microsoft.servicebus.messaging.queueclient.abandon) oppure può non fare niente e lasciare che il blocco scada.
+Quando il client ricevente non riesce a elaborare un messaggio, ma vuole che il messaggio venga recapitato nuovamente, può chiedere esplicitamente di rilasciare e sbloccare il messaggio immediatamente chiamando l' `Abandon` API per il messaggio o non può eseguire alcuna operazione e lasciare che il blocco sia trascorso.
 
-Se un client ricevente non riesce a elaborare un messaggio e sa che un nuovo tentativo di eseguire l'operazione e recapitare il messaggio non sarà di aiuto, può rifiutare il messaggio, che viene quindi spostato nella coda di messaggi non recapitabili, chiamando [DeadLetter](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter), che consente anche di impostare una proprietà personalizzata, incluso un codice motivo che può essere recuperato con il messaggio dalla coda di messaggi non recapitabili.
+Se un client ricevente non riesce a elaborare un messaggio e sa che la redistribuzione del messaggio e il nuovo tentativo di esecuzione dell'operazione non sono utili, può rifiutare il messaggio, che lo sposta nella coda dei messaggi non recapitabili chiamando l' `DeadLetter` API del messaggio, che consente anche di impostare una proprietà personalizzata, incluso un codice motivo che può essere recuperato con il messaggio dalla coda dei messaggi non recapita
 
-Un caso speciale di finalizzazione è il differimento, illustrato in un articolo separato.
+Un caso speciale di insediamento è il rinvio, descritto in un [articolo separato](message-deferral.md).
 
-Le operazioni **Complete** e **Deadletter**, come pure l'operazione **RenewLock**, potrebbero non riuscire a causa di problemi di rete, se il blocco applicato è scaduto o se ci sono altre condizioni sul lato del servizio che impediscono la finalizzazione. In uno degli ultimi casi, il servizio invia un riconoscimento negativo (NAK) che genera un'eccezione nei client API. Se il motivo è un'interruzione della connessione di rete, il blocco viene eliminato perché il bus di servizio non supporta il ripristino dei collegamenti AMQP esistenti in una connessione diversa.
+Le `Complete` `Deadletter` operazioni, o `RenewLock` possono avere esito negativo a causa di problemi di rete, se il blocco mantenuto è scaduto o se sono presenti altre condizioni sul lato del servizio che impediscono il regolamento. In uno degli ultimi casi, il servizio invia un riconoscimento negativo (NAK) che genera un'eccezione nei client API. Se il motivo è un'interruzione della connessione di rete, il blocco viene eliminato perché il bus di servizio non supporta il ripristino dei collegamenti AMQP esistenti in una connessione diversa.
 
-Se il metodo **Complete** ha esito negativo, cosa che accade in genere nelle fasi finali di gestione dei messaggi e in alcuni casi dopo alcuni minuti di lavoro di elaborazione, l'applicazione ricevente può decidere se mantenere lo stato del lavoro e ignorare lo stesso messaggio quando viene recapitato una seconda volta oppure se scartare il risultato del lavoro e riprovare quando il messaggio viene recapitato nuovamente.
+Se ha `Complete` esito negativo, che in genere si trova alla fine della gestione dei messaggi e, in alcuni casi, dopo i minuti di elaborazione, l'applicazione ricevente può decidere se mantenere lo stato del lavoro e ignorare lo stesso messaggio quando viene recapitato una seconda volta o se estrae il risultato del lavoro e i tentativi di recapito del messaggio.
 
 Il meccanismo tipico per l'identificazione di recapiti di messaggi duplicati consiste nel verificare il valore di message-id, che può e deve essere impostato dal mittente su un valore univoco, possibilmente allineato con un identificatore del processo di origine. Probabilmente, un pianificatore di processi imposta il valore di message-id sull'identificatore del processo che sta cercando di assegnare a un ruolo di lavoro con il ruolo di lavoro specificato e il ruolo di lavoro ignora la seconda occorrenza dell'assegnazione del processo, se tale processo è già stato eseguito.
 
@@ -125,10 +125,10 @@ Il meccanismo tipico per l'identificazione di recapiti di messaggi duplicati con
 >
 > Quando il blocco viene perso, il bus di servizio di Azure genera una LockLostException che verrà rilevata nel codice dell'applicazione client. In questo caso, la logica di ripetizione dei tentativi predefinita del client dovrebbe avviarsi automaticamente, quindi ripetere l'operazione.
 
+## <a name="renew-locks"></a>Rinnova blocchi
+Il valore predefinito per la durata del blocco è **30 secondi**. È possibile specificare un valore diverso per la durata del blocco a livello di coda o di sottoscrizione. Il client proprietario del blocco può rinnovare il blocco del messaggio usando i metodi sull'oggetto Receiver. È invece possibile usare la funzionalità di rinnovo automatico del blocco, in cui è possibile specificare la durata dell'intervallo di tempo per cui si vuole che il blocco venga rinnovato. 
+
 ## <a name="next-steps"></a>Passaggi successivi
-
-Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti:
-
-* [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
-* [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
-* [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Un caso speciale di insediamento è il rinvio. Per informazioni dettagliate, vedere il [rinvio del messaggio](message-deferral.md) . 
+- Per informazioni sui messaggi non recapitabili, vedere Code dei messaggi non [recapitabili](service-bus-dead-letter-queues.md).
+- Per altre informazioni sulla messaggistica del bus di servizio in generale, vedere [code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)

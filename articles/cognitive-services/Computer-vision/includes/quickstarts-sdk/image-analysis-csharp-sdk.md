@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: libreria client di analisi immagini per .NET'
-description: Questa Guida introduttiva illustra come iniziare a usare la libreria client di analisi immagini per .NET.
+title: 'Guida introduttiva: Libreria client di analisi delle immagini per .NET'
+description: In questa guida introduttiva è possibile iniziare a usare la libreria client di analisi delle immagini per .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,16 +9,16 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/29/2021
 ms.author: pafarley
-ms.openlocfilehash: 2b5828df0c0f29de04acfd87faf39c6392217ea7
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 407ef167ca05f08d349a017c60164e2fe67977a6
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073340"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327663"
 ---
 <a name="HOLTop"></a>
 
-Usare la libreria client di analisi immagini per analizzare un'immagine per tag, descrizione del testo, visi, contenuto per adulti e altro ancora.
+Usare la libreria client di analisi delle immagini per analizzare un'immagine per i tag, la descrizione del testo, i visi, il contenuto per adulti e altro ancora.
 
 [Documentazione di riferimento](/dotnet/api/overview/azure/cognitiveservices/client/computervision) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Esempi](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -40,7 +40,7 @@ Creare un'applicazione .NET Core con Visual Studio.
 
 ### <a name="install-the-client-library"></a>Installare la libreria client 
 
-Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Selezionare la versione `6.0.0-preview.1`, quindi **Installa**. 
+Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Selezionare la versione `7.0.0`, quindi **Installa**. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -71,7 +71,7 @@ Build succeeded.
 Nella directory dell'applicazione installare la libreria client di Visione artificiale per .NET con il comando seguente:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 ```
 
 ---
@@ -114,7 +114,7 @@ Le classi e le interfacce seguenti gestiscono alcune delle principali funzionali
 
 ## <a name="code-examples"></a>Esempi di codice
 
-Questi frammenti di codice illustrano come eseguire le attività seguenti con la libreria client di analisi immagini per .NET:
+Questi frammenti di codice illustrano come eseguire le attività seguenti con la libreria client di analisi delle immagini per .NET:
 
 * [Autenticare il client](#authenticate-the-client)
 * [Analizzare un'immagine](#analyze-an-image)
@@ -124,7 +124,7 @@ Questi frammenti di codice illustrano come eseguire le attività seguenti con la
 > [!NOTE]
 > Questa guida di avvio rapido presuppone che siano state [create variabili di ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint del servizio Visione artificiale, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
-In un nuovo metodo nella classe **Program** creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** con la chiave e usarlo con l'endpoint per creare un oggetto **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)** .
+In un nuovo metodo della classe Program creare **un'istanza** di un client con l'endpoint e la chiave. Creare un oggetto **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** con la chiave e usarlo con l'endpoint per creare un oggetto **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)** .
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
@@ -214,7 +214,7 @@ Il codice seguente stampa gli attributi di colore rilevati nell'immagine, ad ese
 
 ### <a name="get-domain-specific-content"></a>Ottenere contenuto specifico del dominio
 
-L'analisi delle immagini può utilizzare modelli specializzati per eseguire ulteriori analisi sulle immagini. Per altre informazioni, vedere [Contenuto specifico del dominio](../../concept-detecting-domain-content.md). 
+L'analisi delle immagini può usare modelli specializzati per eseguire ulteriori analisi sulle immagini. Per altre informazioni, vedere [Contenuto specifico del dominio](../../concept-detecting-domain-content.md). 
 
 Il codice seguente analizza i dati sulle celebrità rilevate nell'immagine.
 
@@ -260,11 +260,11 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva si è appreso come installare la libreria client di analisi immagini ed effettuare chiamate di base per l'analisi delle immagini. Quindi, vedere altre informazioni sulle funzionalità di analisi dell'API.
+In questa guida introduttiva si è appreso come installare la libreria client di Analisi immagini ed eseguire chiamate di analisi delle immagini di base. Successivamente, sono disponibili altre informazioni sulle funzionalità dell'API Analyze.
 
 
 > [!div class="nextstepaction"]
->[Chiamare l'API di analisi](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
+>[Chiamare l'API Analyze](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
 
 * [Panoramica dell'analisi delle immagini](../../overview-image-analysis.md)
 * Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

@@ -1,22 +1,22 @@
 ---
 title: "Avvio rapido: Aggiungere chiamate VoIP a un'app Web con Servizi di comunicazione di Azure"
-description: Questa esercitazione illustra come usare i servizi di comunicazione di Azure che chiamano l'SDK per JavaScript
+description: In questa esercitazione si apprenderà come usare Servizi di comunicazione di Azure Calling SDK per JavaScript
 author: ddematheu
 ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: be6ff629a651af5cc06d7928c7972f07aa0fd6e2
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: a93fe6c6203140bfed3771da8353ea7843b7694f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107291419"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327477"
 ---
-Questa Guida introduttiva illustra come avviare una chiamata usando i servizi di comunicazione di Azure che chiamano SDK per JavaScript.
+In questa guida introduttiva si apprenderà come avviare una chiamata usando Servizi di comunicazione di Azure Calling SDK per JavaScript.
 
 > [!NOTE]
-> Questo documento usa la versione 1.0.0-beta. 10 dell'SDK chiamante.
+> Questo documento usa la versione 1.0.0-beta.10 dell'SDK per chiamate.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -88,13 +88,13 @@ const hangUpButton = document.getElementById("hang-up-button");
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services che chiamano SDK:
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Servizi di comunicazione di Azure Calling SDK:
 
 | Nome                             | Descrizione                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | CallClient è il punto di ingresso principale dell'SDK chiamante.                                                                       |
+| CallClient                       | CallClient è il punto di ingresso principale dell'SDK per chiamate.                                                                       |
 | CallAgent                        | CallAgent si usa per avviare e gestire le chiamate.                                                                                            |
-| AzureCommunicationTokenCredential | La classe AzureCommunicationTokenCredential implementa l'interfaccia CommunicationTokenCredential utilizzata per creare un'istanza di CallAgent. |
+| AzureCommunicationTokenCredential | La classe AzureCommunicationTokenCredential implementa l'interfaccia CommunicationTokenCredential usata per creare un'istanza di CallAgent. |
 
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
@@ -165,3 +165,7 @@ Aprire il browser e passare a http://localhost:8080/. Dovrebbe essere visualizza
 :::image type="content" source="../media/javascript/calling-javascript-app-2.png" alt-text="Screenshot dell'applicazione JavaScript completata.":::
 
 È possibile effettuare una chiamata VoIP in uscita fornendo un ID utente nel campo di testo e facendo clic sul pulsante **Start Call** (Avvia chiamata). Con la chiamata a `8:echo123` ci si connette a un Echo Bot, la scelta ideale per iniziare e per verificare che i dispositivi audio funzionino.
+
+## <a name="sample-code"></a>Codice di esempio
+
+È possibile scaricare l'app di esempio da [GitHub.](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling)

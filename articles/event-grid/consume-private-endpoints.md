@@ -3,12 +3,12 @@ title: Recapitare gli eventi tramite il servizio di collegamento privato
 description: Questo articolo descrive come ovviare alla limitazione di non poter recapitare gli eventi usando il servizio di collegamento privato.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 9df78e1cc7734ba9e455ed686286658006f9445e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 75ae8ff2c341048c39156e43da3615788e9d0f0a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629292"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309432"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Recapitare gli eventi tramite il servizio di collegamento privato
 Attualmente non è possibile recapitare gli eventi usando [endpoint privati](../private-link/private-endpoint-overview.md). In altre condizioni, non è previsto alcun supporto se si dispone di requisiti di isolamento di rete rigorosi in cui il traffico degli eventi recapitati non deve lasciare lo spazio IP privato. 
@@ -36,7 +36,7 @@ Per recapitare gli eventi a hub eventi nello spazio dei nomi di hub eventi usand
 Per recapitare gli eventi alle code o agli argomenti del bus di servizio nello spazio dei nomi del bus di servizio usando l'identità gestita, seguire questa procedura:
 
 1. Abilitare l'identità assegnata dal sistema: [argomenti di sistema](enable-identity-system-topics.md), [argomenti personalizzati e domini](enable-identity-custom-topics-domains.md). 
-1. [Aggiungere l'identità al ruolo **mittente dati del bus di servizio di Azure**](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) nello spazio dei nomi del bus di servizio
+1. [Aggiungere l'identità al ruolo **mittente dati del bus di servizio di Azure**](../service-bus-messaging/service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) nello spazio dei nomi del bus di servizio
 1. [Abilitare l'impostazione **Consenti a servizi Microsoft attendibili di ignorare questo firewall** sullo spazio dei nomi del bus di servizio](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
 1. [Configurare la sottoscrizione di eventi](managed-service-identity.md) che usa una coda o un argomento del bus di servizio come endpoint per usare l'identità assegnata dal sistema.
 

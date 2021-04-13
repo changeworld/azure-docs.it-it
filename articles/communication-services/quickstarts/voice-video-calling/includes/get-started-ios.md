@@ -1,24 +1,24 @@
 ---
 title: "Avvio rapido: Aggiungere chiamate a un'app iOS con Servizi di comunicazione di Azure"
-description: Questa Guida introduttiva illustra come usare i servizi di comunicazione di Azure che chiamano SDK per iOS.
+description: In questa guida introduttiva si apprenderà come usare Servizi di comunicazione di Azure Calling SDK per iOS.
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 22c9d8f8bdf3e6195bf152fa0431ad5ce9bcdfeb
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: e1eed3f9449843e6c2dd8c77719402e709fdeb23
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "106072887"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327073"
 ---
-Questa Guida introduttiva illustra come avviare una chiamata usando i servizi di comunicazione di Azure che chiamano SDK per iOS.
+In questa guida introduttiva si apprenderà come avviare una chiamata usando Servizi di comunicazione di Azure Calling SDK per iOS.
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
 
 > [!NOTE]
-> Questo documento usa la versione 1.0.0-beta. 8 dell'SDK chiamante.
+> Questo documento usa la versione 1.0.0-beta.9 dell'SDK per chiamate.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,17 +39,17 @@ In Xcode creare un nuovo progetto iOS e selezionare il modello **Single View App
 
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>Installare il pacchetto e le dipendenze con CocoaPods
 
-1. Per creare un Podfile per l'applicazione, aprire il terminale e passare alla cartella del progetto ed eseguire ```pod init```
-3. Aggiungere il codice seguente a Podfile e salvare (assicurarsi che "target" corrisponda al nome del progetto):
+1. Per creare un podfile per l'applicazione, aprire il terminale, passare alla cartella del progetto ed eseguire ```pod init```
+3. Aggiungere il codice seguente al podfile e salvare (assicurarsi che "target" corrisponda al nome del progetto):
 
    ```
    platform :ios, '13.0'
    use_frameworks!
 
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.8'
-     pod 'AzureCommunication', '~> 1.0.0-beta.8'
-     pod 'AzureCore', '~> 1.0.0-beta.8'
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.9'
+     pod 'AzureCommunication', '~> 1.0.0-beta.9'
+     pod 'AzureCore', '~> 1.0.0-beta.9'
    end
    ```
 
@@ -121,11 +121,11 @@ struct ContentView: View {
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services che chiamano SDK:
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Servizi di comunicazione di Azure Calling SDK:
 
 | Nome                                  | Descrizione                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | CallClient è il punto di ingresso principale dell'SDK chiamante.|
+| CallClient | CallClient è il punto di ingresso principale dell'SDK per chiamate.|
 | CallAgent | CallAgent si usa per avviare e gestire le chiamate. |
 | CommunicationTokenCredential | CommunicationTokenCredential viene usato come credenziale del token per creare un'istanza di CallAgent.| 
 | CommunicationUserIdentifier | CommunicationUserIdentifier viene usato per rappresentare l'identità dell'utente che può essere una delle seguenti: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
@@ -173,7 +173,7 @@ func startCall()
         if granted {
             // start call logic
             let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(identifier: self.callee)]
-            self.call = self.callAgent?.call(participants: callees, options: StartCallOptions())
+            self.call = self.callAgent?.startCall(participants: callees, options: StartCallOptions())
         }
     }
 }
@@ -188,7 +188,7 @@ Implementare il metodo `endCall` per terminare la chiamata corrente quando viene
 ```swift
 func endCall()
 {    
-    self.call!.hangup(HangupOptions()) { (error) in
+    self.call!.hangUp(HangUpOptions()) { (error) in
         if (error != nil) {
             print("ERROR: It was not possible to hangup the call.")
         }

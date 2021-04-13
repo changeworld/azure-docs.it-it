@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 13ef91af5f7ed8398e3d23400fa5e9df467ce6bc
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 7c22381d547029aedc5965d07033e8800fcbddc3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210895"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313148"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -145,7 +145,7 @@ __Feed RSS__: è possibile ricevere una notifica quando questa pagina viene aggi
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Esperienza di Azure Machine Learning Studio notebook (aggiornamento di febbraio)
 + **Nuove funzionalità**
   + [Terminale nativo (GA)](./how-to-access-terminal.md). Gli utenti possono ora accedere a un terminale integrato e all'operazione git tramite il terminale integrato.
-  + [Frammenti di codice notebook (anteprima)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Gli estratti di codice comuni di Azure ML sono ora disponibili a portata di mano. Passare al pannello frammenti di codice, accessibile tramite la barra degli strumenti o attivare il menu frammenti di codice in-code con CTRL + barra spaziatrice.  
+  + Frammenti di codice notebook (anteprima). Gli estratti di codice comuni di Azure ML sono ora disponibili a portata di mano. Passare al pannello frammenti di codice, accessibile tramite la barra degli strumenti o attivare il menu frammenti di codice in-code con CTRL + barra spaziatrice.  
   + [Tasti di scelta rapida](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Parità completa con tasti di scelta rapida disponibili in Jupyter. 
   + Indica i parametri della cella. Mostra gli utenti quali celle di un notebook sono celle di parametri e possono eseguire notebook con parametri tramite [Papermill](https://github.com/nteract/papermill) nell'istanza di calcolo.
   + Gestione sessioni terminal e kernel: gli utenti saranno in grado di gestire tutti i kernel e le sessioni terminal in esecuzione sul proprio calcolo.

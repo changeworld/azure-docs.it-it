@@ -6,19 +6,19 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 34dddd8e5f3fb418fc7155630bf82a922e418402
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5fc1ab1b3dfbc324668873749c143846c2015cd4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97657091"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306280"
 ---
-# <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Ripristinare un database di Azure per il server MySQL eliminato
+# <a name="restore-a-deleted-azure-database-for-mysql-server"></a>Ripristinare un database di Azure per il server MySQL eliminato
 
-Quando un server viene eliminato, il backup del server di database può essere conservato fino a cinque giorni nel servizio. È possibile accedere al backup del database e ripristinarlo solo dalla sottoscrizione di Azure in cui risiedeva originariamente il server. È possibile seguire la procedura consigliata di seguito per ripristinare una risorsa di MySQL Server eliminata entro 5 giorni dal momento dell'eliminazione del server. I passaggi consigliati funzioneranno solo se il backup per il server è ancora disponibile e non è stato eliminato dal sistema. 
+Quando un server viene eliminato, il backup del server di database può essere conservato fino a cinque giorni nel servizio. È possibile accedere al backup del database e ripristinarlo solo dalla sottoscrizione di Azure in cui risiedeva originariamente il server. È possibile seguire la procedura consigliata seguente per ripristinare una risorsa di MySQL server eliminata entro 5 giorni dal momento dell'eliminazione del server. I passaggi consigliati funzioneranno solo se il backup per il server è ancora disponibile e non è stato eliminato dal sistema. 
 
 ## <a name="pre-requisites"></a>Prerequisiti
-Per ripristinare un database di Azure per il server MySQL, è necessario quanto segue:
+Per ripristinare un database di Azure per il server MySQL eliminato, è necessario quanto segue:
 - Nome della sottoscrizione di Azure che ospita il server originale
 - Percorso in cui è stato creato il server
 
@@ -42,7 +42,7 @@ Per ripristinare un database di Azure per il server MySQL, è necessario quanto 
  
      [![Creare un server con l'API REST](./media/howto-restore-dropped-server/create-server-from-rest-api.png)](./media/howto-restore-dropped-server/create-server-from-rest-api.png#lightbox)
   
- 6. Scorrere sotto la sezione corpo della richiesta e incollare il codice seguente sostituendo il "percorso del server eliminato", "submissionTimestamp" e "resourceId". Per "restorePointInTime", specificare il valore "submissionTimestamp" meno **15 minuti** per verificare che il comando non venga eliminato.
+ 6. Scorrere sotto la sezione corpo della richiesta e incollare quanto segue:
  
     ```json
     {
@@ -55,10 +55,14 @@ Per ripristinare un database di Azure per il server MySQL, è necessario quanto 
             }
     }
     ```
+7. Sostituire i valori seguenti nel corpo della richiesta precedente:
+   * "Percorso server eliminato" con l'area di Azure in cui è stato originariamente creato il server eliminato
+   * "submissionTimestamp" e "resourceId" con i valori acquisiti nel passaggio 3. 
+   * Per "restorePointInTime", specificare il valore "submissionTimestamp" meno **15 minuti** per verificare che il comando non venga eliminato.
+   
+8. Se viene visualizzato il codice di risposta 201 o 202, la richiesta di ripristino viene inviata correttamente. 
 
-7. Se viene visualizzato il codice di risposta 201 o 202, la richiesta di ripristino viene inviata correttamente. 
-
-8. La creazione del server può richiedere tempo a seconda delle dimensioni del database e delle risorse di calcolo di cui viene eseguito il provisioning nel server originale. Lo stato del ripristino può essere monitorato dal log attività filtrando 
+9. La creazione del server può richiedere tempo a seconda delle dimensioni del database e delle risorse di calcolo di cui viene eseguito il provisioning nel server originale. Lo stato del ripristino può essere monitorato dal log attività filtrando 
    - **Sottoscrizione** = sottoscrizione
    - **Tipo di risorsa** : database di Azure per i server MySQL (Microsoft. DBforMySQL/Servers) 
    - **Operazione** = aggiornamento del server MySQL creato

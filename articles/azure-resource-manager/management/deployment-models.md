@@ -2,13 +2,13 @@
 title: Resource Manager e distribuzione classica
 description: Vengono descritte le differenze tra il modello di distribuzione di Gestione risorse e il modello di distribuzione classico (o gestione dei servizi).
 ms.topic: conceptual
-ms.date: 02/06/2020
-ms.openlocfilehash: da260db84de0cc8bd092eb95491b7cc38df93a12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: c2009034c431e53d162cb0f2c1f0d9815c8d1942
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185845"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306935"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse
 
@@ -17,7 +17,7 @@ ms.locfileid: "96185845"
 
 In questo articolo si apprenderanno informazioni sui modelli di distribuzione classica e di Azure Resource Manager. I modelli di distribuzione classica e Resource Manager rappresentano due diversi modi di distribuire e gestire le soluzioni Azure. Vengono usati con due diversi set di API e le risorse distribuite possono contenere differenze significative. I due modelli non sono compatibili tra loro. Questo articolo ne descrive le differenze.
 
-Per semplificare la distribuzione e la gestione delle risorse, è consigliabile usare Resource Manager per tutte le nuove risorse e, se possibile, ridistribuire le risorse esistenti con Resource Manager.
+Per semplificare la distribuzione e la gestione delle risorse, è consigliabile usare Resource Manager per tutte le nuove risorse e, se possibile, ridistribuire le risorse esistenti con Resource Manager. Se sono stati usati i servizi cloud, è possibile eseguire la migrazione della soluzione ai [servizi cloud (supporto esteso)](../../cloud-services-extended-support/overview.md).
 
 Se non si ha familiarità con Gestione risorse, è consigliabile esaminare prima di tutto la terminologia definita nella [Panoramica di Azure Resource Manager](overview.md).
 
@@ -40,7 +40,7 @@ Quando è stato aggiunto Gestione risorse, tutte le risorse retroattive sono sta
 
 Tenere presenti tre scenari:
 
-1. Servizi cloud non supporta il modello di distribuzione Gestione risorse.
+1. [Servizi cloud (versione classica)](../../cloud-services/cloud-services-choose-me.md) non supporta il modello di distribuzione gestione risorse. [Servizi cloud (supporto esteso)](../../cloud-services-extended-support/overview.md) supporta il modello di distribuzione gestione risorse.
 2. Macchine virtuali, gli account di archiviazione e le reti virtuali supportano i modelli di distribuzione classica e di Resource Manager.
 3. Tutti gli altri servizi di Azure supportano il modello di Resource Manager.
 
@@ -95,7 +95,7 @@ Di seguito sono illustrati i componenti e le relative relazioni per la distribuz
 
 La soluzione classica per l'hosting di una macchina virtuale include:
 
-* Un servizio cloud obbligatorio che funge da contenitore per l'hosting di macchine virtuali (calcolo). Le macchine virtuali vengono fornite automaticamente con una scheda di interfaccia di rete e un indirizzo IP assegnato da Azure. Il servizio cloud contiene inoltre un'istanza del servizio di bilanciamento del carico esterno, un indirizzo IP pubblico ed endpoint predefiniti per consentire il traffico di desktop remoto e di PowerShell remoto per le macchine virtuali basate su Windows e il traffico Secure Shell (SSH) per le macchine virtuali basate su Linux.
+* Servizi cloud (versione classica) funge da contenitore per l'hosting di macchine virtuali (calcolo). Le macchine virtuali vengono fornite automaticamente con una scheda di interfaccia di rete e un indirizzo IP assegnato da Azure. Il servizio cloud contiene inoltre un'istanza del servizio di bilanciamento del carico esterno, un indirizzo IP pubblico ed endpoint predefiniti per consentire il traffico di desktop remoto e di PowerShell remoto per le macchine virtuali basate su Windows e il traffico Secure Shell (SSH) per le macchine virtuali basate su Linux.
 * Un account di archiviazione necessario che archivia i dischi rigidi virtuali per una macchina virtuale, inclusi il sistema operativo, i dischi temporanei e i dischi dati aggiuntivi (archiviazione).
 * Una rete virtuale facoltativa che funge da contenitore aggiuntivo, in cui è possibile creare una struttura subnettata e scegliere la subnet in cui si trova la macchina virtuale (rete).
 

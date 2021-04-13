@@ -10,24 +10,36 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/20/2019
-ms.openlocfilehash: c530d584282cebba78c095798944e48d7efe2c66
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: 3afc2a1e3b279e7c4fd350e96787454e01e01f79
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625633"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303220"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Limiti delle risorse per i singoli database che usano il modello di acquisto DTU-database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Questo articolo fornisce i limiti dettagliati delle risorse per i database singoli del database SQL di Azure usando il modello di acquisto DTU.
 
-Per i limiti delle risorse del modello di acquisto DTU per i pool elastici, vedere [limiti delle risorse DTU-pool elastici](resource-limits-dtu-elastic-pools.md). Per i limiti delle risorse vCore, vedere [limiti delle risorse vCore-database singoli](resource-limits-vcore-single-databases.md) e [limiti delle risorse vCore-pool elastici](resource-limits-vcore-elastic-pools.md). Per altre informazioni sui vari modelli di acquisto, vedere l'articolo sui [modelli di acquisto e i livelli di servizio](purchasing-models.md).
+* Per i limiti del modello di acquisto di DTU per database singoli in un server, vedere [Panoramica dei limiti delle risorse in un server](resource-limits-logical-server.md).
+* Per i limiti delle risorse del modello di acquisto di DTU per il database SQL di Azure, vedere [limiti delle risorse DTU i database singoli](resource-limits-dtu-single-databases.md) e i [limiti delle risorse DTU](resource-limits-dtu-elastic-pools.md).
+* Per i limiti delle risorse vCore, vedere [limiti delle risorse vCore-database SQL di Azure](resource-limits-vcore-single-databases.md) e [limiti delle risorse vCore-pool elastici](resource-limits-vcore-elastic-pools.md).
+* Per altre informazioni sui vari modelli di acquisto, vedere l'articolo sui [modelli di acquisto e i livelli di servizio](purchasing-models.md).
+
+Ogni replica di sola lettura dispone di risorse proprie, ad esempio DTU, Workers e Sessions. Ogni replica di sola lettura è soggetta ai limiti delle risorse descritti in dettaglio più avanti in questo articolo. 
+
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>Database singolo: dimensioni di archiviazione e di calcolo
 
-Le tabelle seguenti illustrano le risorse disponibili per un singolo database a ogni livello di servizio e nelle diverse dimensioni di calcolo. È possibile impostare il livello di servizio, le dimensioni di calcolo e lo spazio di archiviazione per un singolo database usando il [portale di Azure](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), l'[interfaccia della riga di comando di Azure](single-database-manage.md#the-azure-cli) o l'[API REST](single-database-manage.md#rest-api).
+Le tabelle seguenti illustrano le risorse disponibili per un singolo database a ogni livello di servizio e nelle diverse dimensioni di calcolo. È possibile impostare il livello di servizio, le dimensioni di calcolo e la quantità di risorse di archiviazione per un singolo database usando:
+
+* [Transact-SQL](single-database-manage.md#transact-sql-t-sql) tramite [ALTER database](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure portal](single-database-manage.md#the-azure-portal)
+* [PowerShell](single-database-manage.md#powershell)
+* [Interfaccia della riga di comando di Azure](single-database-manage.md#the-azure-cli)
+* [REST API](single-database-manage.md#rest-api)
 
 > [!IMPORTANT]
 > Per indicazioni e considerazioni sulla scalabilità, vedere [ridimensionare un singolo database](single-database-scale.md)

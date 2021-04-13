@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 4588eee721a58a7e4f3366d0d325b48de0f56ae5
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 267dc7c7d89bbecfbed127f4a46adb7cd9044bc4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259813"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309374"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analizzare i dati con pool SQL dedicati
 
@@ -99,7 +99,7 @@ Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibil
 
 1. In Synapse Studio passare all'hub **Data** (Dati).
 1. Passare a **SQLPOOL1** > **Tabelle**. 
-3. Fare clic con il pulsante destro del mouse sulla tabella **dbo.Trip** e selezionare **New SQL Script** > **Select TOP 100 Rows** (Nuovo script SQL > Seleziona prime 100 righe).
+3. Fare clic con il pulsante destro del mouse su **dbo. Tabella NYCTaxiTripSmall** e selezionare **nuovo script SQL**  >  **selezionare le prime 100 righe**.
 4. Attendere mentre viene creato ed eseguito un nuovo script SQL.
 5. Si noti che nella parte superiore dello script SQL la sezione **Connetti a** è impostata automaticamente sul pool SQL denominato **SQLPOOL1**.
 6. Sostituire il testo dello script SQL con il codice ed eseguirlo.
@@ -108,7 +108,7 @@ Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibil
     SELECT PassengerCount,
           SUM(TripDistanceMiles) as SumTripDistance,
           AVG(TripDistanceMiles) as AvgTripDistance
-    FROM  dbo.Trip
+    FROM  dbo.NYCTaxiTripSmall
     WHERE TripDistanceMiles > 0 AND PassengerCount > 0
     GROUP BY PassengerCount
     ORDER BY PassengerCount;

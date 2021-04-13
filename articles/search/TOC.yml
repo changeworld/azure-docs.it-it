@@ -420,7 +420,7 @@
               href: search-security-get-encryption-keys.md
         - name: Sicurezza in ingresso
           items:
-            - name: Chiavi di accesso API
+            - name: Autenticazione con chiave API
               href: search-security-api-keys.md
             - name: Configurare un firewall IP
               href: service-configure-firewall.md

@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/01/2021
+ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1ed9aef66e9e1a672274b814abbc4e83600761f5
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: e5034c228a354c98b5792492d484da9eb10b8cf2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028707"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310853"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Aggiornare il daemon di sicurezza e il runtime di IoT Edge
 
@@ -202,9 +202,10 @@ Di seguito sono riportate alcune delle differenze principali tra 1,2 e versioni 
 
 * Il nome del pacchetto è stato modificato da **iotedge** a **aziot-Edge**.
 * Il pacchetto **libiothsm-STD** non è più usato. Se è stato usato il pacchetto standard fornito come parte della versione IoT Edge, le configurazioni possono essere trasferite alla nuova versione. Se è stata usata un'implementazione diversa di libiothsm-STD, sarà necessario riconfigurare tutti i certificati forniti dall'utente come il certificato di identità del dispositivo, la CA del dispositivo e il bundle di attendibilità.
-* Un nuovo servizio di identità, **aziot-Identity-Service** , è stato introdotto come parte della versione 1,2. Questo servizio gestisce il provisioning e la gestione delle identità per IoT Edge e per altri componenti del dispositivo che devono comunicare con l'hub Internet, ad esempio l'aggiornamento del dispositivo dell'hub Azure. <!--TODO: add link to ADU when available -->
-* Il file di configurazione predefinito ha un nuovo nome e un nuovo percorso. `/etc/iotedge/config.yaml`In precedenza, le informazioni di configurazione del dispositivo sono ora previste per `/etc/aziot/config.toml` impostazione predefinita. Il `iotedge config import` comando può essere utilizzato per facilitare la migrazione delle informazioni di configurazione nel percorso e nella nuova sintassi precedenti.
-* I moduli che usano l'API del carico di lavoro IoT Edge per crittografare o decrittografare i dati persistenti non possono essere decrittografati dopo l'aggiornamento. IoT Edge genera dinamicamente una chiave di crittografia master e una chiave di crittografia per uso interno. Questa chiave non verrà trasferita al nuovo servizio. IoT Edge v 1.2 ne genererà uno nuovo.
+* Un nuovo servizio di identità, **aziot-Identity-Service** , è stato introdotto come parte della versione 1,2. Questo servizio gestisce il provisioning e la gestione delle identità per IoT Edge e per altri componenti del dispositivo che devono comunicare con l'hub Internet, ad esempio l' [aggiornamento dei dispositivi per l'hub](../iot-hub-device-update/understand-device-update.md)Internet.
+* Il file di configurazione predefinito ha un nuovo nome e un nuovo percorso. `/etc/iotedge/config.yaml`In precedenza, le informazioni di configurazione del dispositivo sono ora previste per `/etc/aziot/config.toml` impostazione predefinita. Il `iotedge config import` comando può essere usato per eseguire la migrazione delle informazioni di configurazione dalla posizione e dalla sintassi precedenti a quella nuova.
+  * Il comando Import non può rilevare o modificare le regole di accesso per un modulo TPM (Trusted Platform Module) del dispositivo. Se il dispositivo usa l'attestazione TPM, è necessario aggiornare manualmente il file/etc/udev/rules.d/tpmaccess.Rules per concedere l'accesso al servizio aziottpm. Per ulteriori informazioni, vedere [concedere l'accesso IOT Edge al TPM](how-to-auto-provision-simulated-device-linux.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm).
+* L'API del carico di lavoro nella versione 1,2 Salva i segreti crittografati in un nuovo formato. Se si esegue l'aggiornamento da una versione precedente alla versione 1,2, viene importata la chiave di crittografia master esistente. L'API del carico di lavoro può leggere i segreti salvati nel formato precedente usando la chiave di crittografia importata. Tuttavia, l'API del carico di lavoro non può scrivere segreti crittografati nel vecchio formato. Una volta che un segreto è stato nuovamente crittografato da un modulo, viene salvato nel nuovo formato. I segreti crittografati nella versione 1,2 sono illeggibili dallo stesso modulo nella versione 1,1. Se si salvano in modo permanente i dati crittografati in una cartella o un volume montato dall'host, creare sempre una copia di backup dei dati *prima* di eseguire l'aggiornamento per mantenere la possibilità di effettuare il downgrade, se necessario.
 
 Prima di automatizzare i processi di aggiornamento, verificare che funzioni nei computer di test.
 

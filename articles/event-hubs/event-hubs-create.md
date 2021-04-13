@@ -3,12 +3,12 @@ title: Avvio rapido di Azure - Creare un hub eventi tramite il portale di Azure
 description: Questa guida di avvio rapido illustra come creare un hub eventi di Azure con il portale di Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 6bd9d247db6cd5a956ff4bce9b70f1f8a5a7499a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bf83c53792c4934f43e0039d092bb3e36954bf7b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742042"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303118"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Avvio rapido: Creare un hub eventi con il portale di Azure
 Hub eventi di Azure è una piattaforma di streaming per Big Data e un servizio di inserimento eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -54,7 +54,7 @@ Uno spazio dei nomi di Hub eventi fornisce un contenitore con ambito univoco in 
    1. Selezionare il **gruppo di risorse** creato nel passaggio precedente.   
    1. Immettere un **nome** per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.  
    1. Selezionare una **località** per lo spazio dei nomi.
-   1. Scegliere il **piano tariffario** (Basic o Standard). Per informazioni su alcune differenze tra i livelli Basic e Standard, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/), [Differenze tra i livelli](event-hubs-faq.md#what-is-the-difference-between-event-hubs-basic-and-standard-tiers) e [Quote e limiti](event-hubs-quotas.md). 
+   1. Scegliere il **piano tariffario** (Basic o Standard). Per informazioni su alcune differenze tra i livelli Basic e Standard, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/), [Differenze tra i livelli](event-hubs-faq.yml#what-is-the-difference-between-event-hubs-basic-and-standard-tiers-) e [Quote e limiti](event-hubs-quotas.md). 
    1. Lasciare invariate le impostazioni di **Unità elaborate**. Le unità elaborate sono unità di capacità pre-acquistate. Per altre informazioni sulle unità elaborate, vedere [Scalabilità di Hub eventi](event-hubs-scalability.md#throughput-units).  
    1. Selezionare **Rivedi e crea** nella parte inferiore della pagina.
       

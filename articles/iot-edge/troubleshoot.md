@@ -8,12 +8,12 @@ ms.date: 04/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b82ad29b02e501d41653fd466e58218e35c3b93c
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 6fa49af946a1e5fc631eeb1ee9b9c7c99d3adff8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012170"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308269"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Risolvere i problemi del dispositivo IoT Edge
 
@@ -64,6 +64,18 @@ Lo strumento di risoluzione dei problemi esegue molti controlli ordinati nelle t
 * I *controlli di conformità* per la produzione cercano le procedure consigliate per la produzione, ad esempio lo stato dei certificati dell'autorità di certificazione (CA) del dispositivo e la configurazione del file di registro del modulo.
 
 Lo strumento di controllo IoT Edge utilizza un contenitore per eseguire la diagnostica. L'immagine del contenitore, `mcr.microsoft.com/azureiotedge-diagnostics:latest` , è disponibile tramite [Microsoft container Registry](https://github.com/microsoft/containerregistry). Se è necessario eseguire un controllo in un dispositivo senza accesso diretto a Internet, i dispositivi dovranno accedere all'immagine del contenitore.
+
+<!-- <1.2> -->
+:::moniker range=">=iotedge-2020-11"
+
+In uno scenario che usa dispositivi IoT Edge annidati, è possibile ottenere l'accesso all'immagine di diagnostica nei dispositivi figlio instradando il pull dell'immagine attraverso i dispositivi padre.
+
+```bash
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:1.2
+```
+
+<!-- </1.2> -->
+:::moniker-end
 
 Per informazioni su ognuno dei controlli diagnostici eseguiti da questo strumento, incluse le operazioni da eseguire se viene visualizzato un errore o un avviso, vedere [IOT Edge risolvere i problemi relativi ai controlli](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 

@@ -3,12 +3,12 @@ title: Hub eventi di Azure-eccezioni (legacy)
 description: Questo articolo fornisce un elenco delle eccezioni di messaggistica di Hub eventi di Azure e le relative azioni consigliate.
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: a76c98ec7d6d1f3370ed8787bf10d1d16a7baaa5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7c5016214bfa3e5813417177e5d113299e0284f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100390896"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311924"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Eccezioni di messaggistica di hub eventi-.NET (legacy)
 Questa sezione elenca le eccezioni .NET generate dalle API .NET Framework. 
@@ -142,4 +142,4 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](./event-hubs-about.md)
 * [Creare un hub eventi](event-hubs-create.md)
-* [Domande frequenti su Hub eventi](event-hubs-faq.md)
+* [Domande frequenti su Hub eventi](event-hubs-faq.yml)

@@ -10,30 +10,36 @@ ms.topic: reference
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
-ms.date: 03/30/2021
-ms.openlocfilehash: f3c20774accf9e0b589b898cb903d6da4516e553
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 04/09/2021
+ms.openlocfilehash: 906d34a91736d28f0da4a5ba34b7114fbe410adb
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058919"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306637"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limiti delle risorse per i pool elastici con il modello di acquisto DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Questo articolo fornisce i limiti dettagliati delle risorse per i database nel database SQL di Azure che si trovano all'interno di un pool elastico usando il modello di acquisto DTU.
 
-* Per i limiti delle risorse del modello di acquisto di DTU per il database SQL di Azure, vedere [limiti delle risorse DTU-database SQL di Azure](resource-limits-dtu-single-databases.md).
+* Per i limiti del modello di acquisto di DTU per database singoli in un server, vedere [Panoramica dei limiti delle risorse in un server](resource-limits-logical-server.md).
+* Per i limiti delle risorse del modello di acquisto di DTU per il database SQL di Azure, vedere [limiti delle risorse DTU i database singoli](resource-limits-dtu-single-databases.md) e i [limiti delle risorse DTU](resource-limits-dtu-elastic-pools.md).
 * Per i limiti delle risorse vCore, vedere [limiti delle risorse vCore-database SQL di Azure](resource-limits-vcore-single-databases.md) e [limiti delle risorse vCore-pool elastici](resource-limits-vcore-elastic-pools.md).
+* Per altre informazioni sui vari modelli di acquisto, vedere l'articolo sui [modelli di acquisto e i livelli di servizio](purchasing-models.md).
+
+Ogni replica di sola lettura dispone di risorse proprie, ad esempio DTU, Workers e Sessions. Ogni replica di sola lettura è soggetta ai limiti delle risorse descritti in dettaglio più avanti in questo articolo.
 
 ## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Pool elastico: dimensioni di archiviazione e di calcolo
 
 Per i pool elastici del database SQL di Azure, le tabelle seguenti illustrano le risorse disponibili a ogni livello di servizio e di calcolo. È possibile impostare il livello di servizio, le dimensioni di calcolo e la quantità di risorse di archiviazione utilizzando:
 
+* [Transact-SQL](elastic-pool-scale.md) tramite [ALTER database](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
 * [Azure portal](elastic-pool-manage.md#azure-portal)
 * [PowerShell](elastic-pool-manage.md#powershell)
 * [Interfaccia della riga di comando di Azure](elastic-pool-manage.md#azure-cli)
-* [API REST](elastic-pool-manage.md#rest-api).
+* [REST API](elastic-pool-manage.md#rest-api)
+
 
 > [!IMPORTANT]
 > Per indicazioni e considerazioni sulla scalabilità, vedere [ridimensionare un pool elastico](elastic-pool-scale.md)

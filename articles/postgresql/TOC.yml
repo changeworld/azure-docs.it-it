@@ -32,8 +32,6 @@
     - name: Criteri di controllo delle versioni
       href: concepts-version-policy.md
       displayName: 'version, postgresql'
-    - name: Raccomandazioni per le prestazioni
-      href: concepts-azure-advisor-recommendations.md
     - name: Problemi noti & limitazioni
       href: concepts-known-issues-limitations.md
       displayName: 'issues, limitations, postgresql'
@@ -217,6 +215,8 @@
             - name: Raccomandazioni per le prestazioni
               href: concepts-performance-recommendations.md
               displayName: 'query store, performance, optimize, recommendations'
+            - name: Raccomandazioni Azure Advisor
+              href: concepts-azure-advisor-recommendations.md
         - name: Sviluppo di app
           items:
             - name: Procedure consigliate

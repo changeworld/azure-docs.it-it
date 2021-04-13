@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5bd89a734a20c913bacca1f5531aa76d76418c80
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 26262f83e14602d6ea93f96ec47630ef870c357d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448220"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309306"
 ---
 # <a name="estimate-azure-monitor-costs"></a>Stimare i costi di monitoraggio di Azure
 
@@ -35,7 +35,7 @@ I set di impostazioni predefiniti per il monitoraggio di Azure per desktop virtu
 - Registri eventi di Windows dagli host della sessione
 - Diagnostica desktop virtuali Windows dall'infrastruttura del servizio
 
-I costi di inserimento e archiviazione dei dati dipendono dalle dimensioni dell'ambiente, dall'integrità e dall'utilizzo. Le stime di esempio che verranno usate in questo articolo per calcolare gli intervalli di costo che è possibile prevedere sono basate su macchine virtuali integre che eseguono la luce per l'utilizzo energetico, in base alle [linee guida per il dimensionamento delle macchine virtuali](/remote/remote-desktop-services/virtual-machine-recs), per calcolare una gamma di costi di inserimento e archiviazione dei dati che è possibile prevedere.
+I costi di inserimento e archiviazione dei dati dipendono dalle dimensioni dell'ambiente, dall'integrità e dall'utilizzo. Le stime di esempio che verranno usate in questo articolo per calcolare gli intervalli di costo che è possibile prevedere sono basate su macchine virtuali integre che eseguono la luce per l'utilizzo energetico, in base alle [linee guida per il dimensionamento delle macchine virtuali](/windows-server/remote/remote-desktop-services/virtual-machine-recs), per calcolare una gamma di costi di inserimento e archiviazione dei dati che è possibile prevedere.
 
 La VM di utilizzo leggero che verrà usata nell'esempio include i componenti seguenti:
 

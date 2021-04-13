@@ -12,22 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 04/09/2021
 ms.author: b-juche
-ms.openlocfilehash: 9edf8c6eca223ece8728f9868ee9fe310c517ca9
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 2546236399853f3ed6fad9e07e031edb568fbfe9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259711"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311533"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Configure aggiunge LDAP con gruppi estesi per l'accesso al volume NFS
 
-Quando si [Crea un volume NFS](azure-netapp-files-create-volumes.md), è possibile abilitare la funzionalità LDAP con gruppi estesi (opzione **LDAP** ) per il volume. Questa funzionalità consente di Active Directory utenti LDAP e gruppi estesi (fino a 1024 gruppi) per accedere al volume.  
+Quando si [Crea un volume NFS](azure-netapp-files-create-volumes.md), è possibile abilitare la funzionalità LDAP con gruppi estesi (opzione **LDAP** ) per il volume. Questa funzionalità consente di Active Directory utenti LDAP e gruppi estesi (fino a 1024 gruppi) per accedere al volume. È possibile usare la funzionalità LDAP con gruppi estesi con i volumi NFSv 4.1 e NFSv3. 
 
 Questo articolo illustra le considerazioni e i passaggi per abilitare LDAP con i gruppi estesi quando si crea un volume NFS.  
 
 ## <a name="considerations"></a>Considerazioni
+
+* LDAP con gruppi estesi è supportato solo con Active Directory Domain Services (aggiunge) o servizi di dominio Azure Active Directory (AADDS). OpenLDAP o altri servizi directory LDAP di terze parti non sono supportati. 
 
 * LDAP su TLS *non* deve essere abilitato se si usa Azure Active Directory Domain Services (AADDS).  
 
@@ -69,6 +71,9 @@ Questo articolo illustra le considerazioni e i passaggi per abilitare LDAP con i
 
 2. I volumi LDAP richiedono una configurazione Active Directory per le impostazioni del server LDAP. Seguire le istruzioni riportate in [requisiti per le connessioni Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections) e [creare una connessione Active Directory](create-active-directory-connections.md#create-an-active-directory-connection) per configurare Active Directory connessioni sul portale di Azure.  
 
+    > [!NOTE]
+    > Assicurarsi di aver configurato le impostazioni di connessione Active Directory. Verrà creato un account del computer nell'unità organizzativa (OU) specificata nelle impostazioni di connessione Active Directory. Le impostazioni vengono usate dal client LDAP per l'autenticazione con la Active Directory.
+
 3. Verificare che il Active Directory server LDAP sia attivo e in esecuzione nel Active Directory. 
 
 4. Per gli utenti LDAP NFS è necessario che nel server LDAP siano presenti determinati attributi POSIX. Impostare gli attributi per gli utenti LDAP e i gruppi LDAP come indicato di seguito: 
@@ -82,7 +87,7 @@ Questo articolo illustra le considerazioni e i passaggi per abilitare LDAP con i
 
     ![Editor attributi Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
-5. Se si vuole configurare un client Linux integrato LDAP, vedere [configurare un client NFS per Azure NetApp files](configure-nfs-clients.md).
+5. Se si vuole configurare un client Linux NFSv 4.1 integrato LDAP, vedere [configurare un client NFS per Azure NetApp files](configure-nfs-clients.md).
 
 6.  Seguire i passaggi in [creare un volume NFS per Azure NetApp files](azure-netapp-files-create-volumes.md) per creare un volume NFS. Durante il processo di creazione del volume, nella scheda **protocollo** abilitare l'opzione **LDAP** .   
 

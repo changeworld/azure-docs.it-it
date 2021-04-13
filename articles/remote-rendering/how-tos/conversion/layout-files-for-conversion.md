@@ -5,20 +5,23 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a094755dfb9381b1e4d6abdf1c0e6342d7427c1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91318076"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308440"
 ---
 # <a name="laying-out-files-for-conversion"></a>Disporre i file per la conversione
 
 Per elaborare correttamente un asset, il servizio di conversione deve essere in grado di trovare tutti i file di input.
 Sono costituiti dal file di asset principale convertito e in genere da altri file a cui fanno riferimento i percorsi all'interno del file di asset.
-Alla richiesta di conversione di un asset vengono assegnati due parametri che determinano il modo in cui il servizio di conversione trova questi file: `input.folderPath` (facoltativo) e `input.inputAssetPath` .
+Alla richiesta di conversione di un asset vengono assegnati due parametri che determinano il modo in cui il servizio di conversione trova questi file: `settings.inputLocation.blobPrefix` (facoltativo) e `settings.inputLocation.relativeInputAssetPath` .
 Sono completamente documentati nella pagina [API REST di conversione](conversion-rest-api.md) .
-Ai fini della definizione dei file, l'aspetto importante da notare è che il `folderPath` determina il set completo di file disponibili per il servizio di conversione durante l'elaborazione dell'asset.
+Ai fini della definizione dei file, l'aspetto importante da notare è che il `BlobPrefix` determina il set completo di file disponibili per il servizio di conversione durante l'elaborazione dell'asset.
+
+> [!Note]
+> Il servizio scaricherà tutti i file nell'input. Prefisso BLOB. Assicurarsi che i nomi di file e i percorsi non superino i [limiti di lunghezza del percorso di Windows](https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation) per evitare problemi nel servizio. 
 
 ## <a name="placing-files-so-they-can-be-found"></a>Inserimento di file in modo che possano essere trovati
 

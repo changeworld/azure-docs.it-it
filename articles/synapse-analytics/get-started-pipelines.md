@@ -10,25 +10,28 @@ ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 2ea7c3c440fcf95e4512464333efe8461788bceb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22631cfd872ed226fc78a97d38c423fbc300f78e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98219403"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304715"
 ---
 # <a name="integrate-with-pipelines"></a>Integrare con le pipeline
 
 In questa esercitazione si apprenderà come integrare pipeline e attività usando Synapse Studio. 
 
-## <a name="overview"></a>Panoramica
+## <a name="create-a-pipeline-and-add-a-notebook-activity"></a>Creare una pipeline e aggiungere un'attività del notebook
 
-È possibile integrare un'ampia gamma di attività in Azure Synapse.
+
 
 1. In Synapse Studio assare all'hub **Integrate** (Integrazione).
 1. Selezionare **+**  > **Pipeline** per creare una nuova pipeline. Fare clic sul nuovo oggetto pipeline per aprire Progettazione pipeline.
 1. In **attività** espandere la cartella **sinapsi** e trascinare un oggetto **notebook** nella finestra di progettazione.
-1. Selezionare la scheda **Impostazioni** delle proprietà dell'attività notebook. Usare l'elenco a discesa per selezionare un notebook dall'area di lavoro sinapsi corrente. 
+1. Selezionare la scheda **Impostazioni** delle proprietà dell'attività notebook. Usare l'elenco a discesa per selezionare un notebook dall'area di lavoro sinapsi corrente.
+
+## <a name="schedule-the-pipeline-to-run-every-hour"></a>Pianificare l'esecuzione della pipeline ogni ora
+
 1. Nella pipeline selezionare **Aggiungi trigger** > **Nuovo/Modifica**.
 1. In **Trigger** selezionare **Nuovo** e impostare **Ricorrenza** su "Ogni ora".
 1. Selezionare **OK**. 

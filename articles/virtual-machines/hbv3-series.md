@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: a03eac3969e8918c8da20b90d0dcf8b60b39b8ee
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 14c5484268940a927965acf798310c3bdccf17d3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800840"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309714"
 ---
 # <a name="hbv3-series"></a>Serie modello HBV3
 
@@ -23,6 +23,7 @@ Tutte le macchine virtuali della serie modello HBV3 includono 200 GB/sec HDR Inf
 
 [Archiviazione Premium](premium-storage-performance.md): supportata<br>
 [Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Dischi Ultra](disks-types.md#ultra-disk): supportati ([altre](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) informazioni su disponibilità, utilizzo e prestazioni) <br>
 [Live Migration](maintenance-and-updates.md): non supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>

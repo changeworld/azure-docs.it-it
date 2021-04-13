@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a03dab43c12b372fc52e7516821fe7aef22d2e16
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589541"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305243"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -184,7 +184,7 @@ Il codice precedente Disabilita il campionamento adattivo. Seguire la procedura 
 Usare i metodi di estensione di `TelemetryProcessorChainBuilder`, come illustrato di seguito, per personalizzare il comportamento della funzionalità di campionamento.
 
 > [!IMPORTANT]
-> Se si usa questo metodo per configurare il campionamento, assicurarsi di impostare la `aiOptions.EnableAdaptiveSampling` proprietà su `false` quando si chiama `AddApplicationInsightsTelemetry()` .
+> Se si usa questo metodo per configurare il campionamento, assicurarsi di impostare la `aiOptions.EnableAdaptiveSampling` proprietà su `false` quando si chiama `AddApplicationInsightsTelemetry()` . Dopo aver apportato questa modifica, è necessario seguire **esattamente** le istruzioni nel blocco di codice seguente per abilitare di nuovo il campionamento adattivo con le personalizzazioni disponibili. In caso contrario, può comportare l'inserimento di dati in eccesso. Testare sempre le impostazioni di campionamento successive alla modifica e impostare un [limite di dati giornaliero](pricing.md#set-the-daily-cap) appropriato per consentire il controllo dei costi.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility

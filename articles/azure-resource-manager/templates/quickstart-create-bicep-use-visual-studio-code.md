@@ -2,15 +2,15 @@
 title: Crea file bicipite-Visual Studio Code
 description: Usare Visual Studio Code e l'estensione bicipite per i file bicipite per la distribuzione delle risorse di Azure
 author: mumian
-ms.date: 03/26/2021
+ms.date: 04/12/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 4d1064351ddfacdebfa67fd9b2f517f592de3a7c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e82f047f553290c9121d91060c347c5b242c7ec2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612908"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306467"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Guida introduttiva: creare file bicipite con Visual Studio Code
 
@@ -51,6 +51,10 @@ La dichiarazione di risorsa è costituita da quattro componenti:
 - **nome simbolico** (STG): il nome simbolico è un identificatore per fare riferimento alla risorsa nel file bicipite. Non si tratta del nome della risorsa quando viene distribuito. Il nome della risorsa viene definito dalla proprietà **Name** .  Vedere il quarto componente in questo elenco.
 - **tipo di risorsa** ( Microsoft.Storage/storageAccounts@2019-06-01 ): è costituito dal provider di risorse (Microsoft. Storage), dal tipo di risorsa (storageAccounts) e da apiVersion (2019-06-01). Ogni provider di risorse pubblica le proprie versioni API, di conseguenza questo valore è specifico del tipo. Per altre risorse di Azure, vedere informazioni di [riferimento sui modelli ARM](/azure/templates/).
 - **Proprietà** (tutti gli elementi all'interno di = {...}): specificare le proprietà per il tipo di risorsa. Ogni risorsa ha una `name` Proprietà. Alla maggior parte delle risorse è assegnata anche una proprietà `location`, che consente di impostare l'area in cui viene distribuita la risorsa. Le altre proprietà variano in base al tipo di risorsa e alla versione dell'API.
+
+Per altre informazioni, vedere [struttura bicipite](./bicep-file.md).
+
+È presente un commento per la proprietà Name.  Usare `//` per i commenti a riga singola o `/* ... */` per i commenti su più righe
 
 ## <a name="completion-and-validation"></a>Completamento e convalida
 

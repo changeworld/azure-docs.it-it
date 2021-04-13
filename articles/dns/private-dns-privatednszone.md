@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 9/24/2019
+ms.date: 04/09/2021
 ms.author: rohink
-ms.openlocfilehash: 9eaa320e79f1d595303c6d9fe1399df12cb6c52b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e04d7525cbd0c707ba0050f31414c2472602d1b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94954410"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311414"
 ---
 # <a name="what-is-a-private-azure-dns-zone"></a>Che cos'è una zona DNS di Azure privata
 
@@ -21,16 +21,16 @@ DNS privato di Azure fornisce un servizio DNS protetto e affidabile per gestire 
 I record contenuti in una zona DNS privata non sono risolvibili da Internet. La risoluzione DNS in una zona DNS privata funziona solo dalle reti virtuali collegate.
 
 È possibile collegare una zona DNS privata a una o più reti virtuali creando [collegamenti alla rete virtuale](./private-dns-virtual-network-links.md).
-È anche possibile abilitare la funzionalità di [registrazione automatica](./private-dns-autoregistration.md) per gestire automaticamente il ciclo di vita dei record DNS per le macchine virtuali distribuite in una rete virtuale.
+È anche possibile abilitare la funzionalità di [registrazione](./private-dns-autoregistration.md) automatica per gestire automaticamente il ciclo di vita dei record DNS per le macchine virtuali che vengono distribuite in una rete virtuale.
 
 ## <a name="limits"></a>Limiti
 
-Per comprendere il numero di zone DNS private che è possibile creare in una sottoscrizione e il numero di set di record supportati in una zona DNS privata, vedere [limiti di DNS di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
+Per informazioni sul numero di zone DNS private che è possibile creare in una sottoscrizione e sul numero di set di record supportati in una zona DNS privata, vedere [limiti di DNS di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="restrictions"></a>Restrizioni
 
 * Le zone DNS private con etichetta singola non sono supportate. La zona DNS privata deve avere due o più etichette. Ad esempio, contoso.com ha due etichette separate da un punto. Una zona DNS privata può avere un massimo di 34 etichette.
-* Non è possibile creare deleghe di zona (record NS) in una zona DNS privata. Se si intende usare un dominio figlio, è possibile creare direttamente il dominio come zona DNS privata e collegarlo alla rete virtuale senza configurare una delega del server dei nomi dalla zona padre.
+* Non è possibile creare deleghe di zona (record NS) in una zona DNS privata. Se si intende usare un dominio figlio, è possibile creare direttamente il dominio come zona DNS privata. Quindi è possibile collegarlo alla rete virtuale senza configurare una delega del server dei nomi dalla zona padre.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -38,4 +38,4 @@ Per comprendere il numero di zone DNS private che è possibile creare in una sot
 
 * Consultare alcuni [scenari comuni sulle zone private](./private-dns-scenarios.md) che possono essere realizzati con le zone private in DNS di Azure.
 
-* Per domande e risposte comuni sulle zone private in DNS di Azure, tra cui i comportamenti specifici previsti per determinati tipi di operazioni, vedere [Domande frequenti su DNS privato](./dns-faq-private.md).
+* Per domande e risposte comuni sulle zone private in DNS di Azure, vedere [DNS privato domande frequenti](./dns-faq-private.md).

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 03/15/2021
-ms.openlocfilehash: dd5b857c274e757f70920f244786df61c2770085
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/10/2021
+ms.openlocfilehash: cee7993116e746c7b827faaf94724033501f1318
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561686"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309051"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -132,14 +132,17 @@ Ai flussi di dati viene addebitato il prezzo di Vcore-HRS, ovvero le dimensioni 
 
 ### <a name="time-to-live"></a>Durata (TTL)
 
-Per impostazione predefinita, ogni attività del flusso di dati avvia un nuovo cluster basato sulla configurazione IR. Il tempo di avvio del cluster richiede alcuni minuti e l'elaborazione dei dati non può essere avviata finché non viene completata. Se le pipeline contengono più flussi di dati **sequenziali** , è possibile abilitare un valore TTL (time to Live). La specifica di un valore di durata (TTL) mantiene attivo un cluster per un determinato periodo di tempo dopo il completamento dell'esecuzione. Se un nuovo processo inizia a usare il runtime di integrazione nel tempo TTL, riutilizzerà il cluster esistente e il tempo di avvio sarà notevolmente ridotto. Al termine del secondo processo, il cluster resterà attivo per il tempo TTL.
+Per impostazione predefinita, ogni attività del flusso di dati avvia un nuovo cluster Spark in base alla configurazione del Azure IR. Il tempo di avvio a freddo del cluster richiede alcuni minuti e l'elaborazione dei dati non può essere avviata finché non viene completata. Se le pipeline contengono più flussi di dati **sequenziali** , è possibile abilitare un valore TTL (time to Live). La specifica di un valore di durata (TTL) mantiene attivo un cluster per un determinato periodo di tempo dopo il completamento dell'esecuzione. Se un nuovo processo inizia a usare il runtime di integrazione nel tempo TTL, riutilizzerà il cluster esistente e il tempo di avvio sarà notevolmente ridotto. Al termine del secondo processo, il cluster resterà attivo per il tempo TTL.
 
-È possibile eseguire un solo processo in un singolo cluster alla volta. Se è presente un cluster disponibile, ma vengono avviati due flussi di dati, solo uno utilizzerà il cluster attivo. Il secondo processo creerà il proprio cluster isolato.
+È anche possibile ridurre al minimo il tempo di avvio dei cluster caldi impostando l'opzione "riutilizzo rapido" nel runtime di integrazione di Azure in proprietà flusso di dati. Se si imposta questa opzione su true, ADF non teardown il cluster esistente dopo ogni processo e utilizzerà invece il cluster esistente, mantenendo in sostanza l'ambiente di calcolo impostato nel Azure IR attivo per un periodo di tempo specificato nella durata (TTL). Questa opzione rende il tempo di avvio più breve per le attività del flusso di dati durante l'esecuzione da una pipeline.
 
-Se la maggior parte dei flussi di dati viene eseguita in parallelo, non è consigliabile abilitare la durata (TTL). 
+Tuttavia, se la maggior parte dei flussi di dati viene eseguita in parallelo, non è consigliabile abilitare la durata (TTL) per il runtime di integrazione usato per tali attività. È possibile eseguire un solo processo in un singolo cluster alla volta. Se è presente un cluster disponibile, ma vengono avviati due flussi di dati, solo uno utilizzerà il cluster attivo. Il secondo processo creerà il proprio cluster isolato.
 
 > [!NOTE]
 > La durata (TTL) non è disponibile quando si usa il runtime di integrazione per la risoluzione automatica
+ 
+> [!NOTE]
+> Il riutilizzo rapido dei cluster esistenti è una funzionalità del Azure Integration Runtime attualmente disponibile in anteprima pubblica
 
 ## <a name="optimizing-sources"></a>Ottimizzazione delle origini
 
@@ -304,9 +307,10 @@ Se i flussi di dati vengono eseguiti in parallelo, è consigliabile non abilitar
 
 ### <a name="execute-data-flows-sequentially"></a>Eseguire flussi di dati in sequenza
 
-Se si eseguono le attività del flusso di dati in sequenza, è consigliabile impostare una durata (TTL) nella configurazione del Azure IR. ADF riutilizzerà le risorse di calcolo con un conseguente tempo di avvio del cluster più rapido. Ogni attività sarà ancora isolata per ricevere un nuovo contesto Spark per ogni esecuzione.
+Se si eseguono le attività del flusso di dati in sequenza, è consigliabile impostare una durata (TTL) nella configurazione del Azure IR. ADF riutilizzerà le risorse di calcolo con un conseguente tempo di avvio del cluster più rapido. Ogni attività sarà ancora isolata per ricevere un nuovo contesto Spark per ogni esecuzione. Per ridurre ulteriormente il tempo tra le attività sequenziali, impostare la casella di controllo "riutilizzo rapido" nel Azure IR per indicare ad ADF di riutilizzare il cluster esistente.
 
-L'esecuzione sequenziale dei processi richiederà probabilmente il tempo più lungo per l'esecuzione end-to-end, ma fornisce una netta separazione delle operazioni logiche.
+> [!NOTE]
+> Il riutilizzo rapido dei cluster esistenti è una funzionalità del Azure Integration Runtime attualmente disponibile in anteprima pubblica
 
 ### <a name="overloading-a-single-data-flow"></a>Overload di un singolo flusso di dati
 

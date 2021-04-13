@@ -7,14 +7,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/06/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2f41034331ed21e194fc2b86c2902c5957333313
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 1fe5974bafddcb4e474ef59a062836e071ab9461
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010599"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304920"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Note sulla versione-Azure Arc Enabled Data Services (anteprima)
 
@@ -24,7 +24,7 @@ Questo articolo evidenzia funzionalità, funzionalità e miglioramenti rilasciat
 
 ## <a name="march-2021"></a>Marzo 2021
 
-La versione di marzo 2021 è stata introdotta il 6 aprile 2021.
+La versione di marzo 2021 è stata introdotta inizialmente il 5 aprile 2021 e le fasi finali della versione sono state completate il 9 aprile 2021.
 
 Esaminare i limiti di questa versione nei [problemi noti-Azure Arc Enabled Data Services (anteprima)](known-issues.md).
 
@@ -45,7 +45,9 @@ Entrambe le definizioni di risorse personalizzate (CRD) per PostgreSQL sono stat
 
 Si eliminerà il CRD precedente durante la pulizia delle installazioni precedenti. Vedere [pulitura dalle installazioni precedenti](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations).
 
-### <a name="azure-arc-enabled-managed-instance"></a>Istanza gestita di Azure Arc abilitata
+### <a name="azure-arc-enabled-sql-managed-instance"></a>Istanza gestita di SQL con abilitazione di Azure Arc
+
+- È ora possibile creare un'istanza gestita di SQL dalla portale di Azure in modalità di connessione diretta.
 
 - A questo punto è possibile ripristinare un database in SQL Istanza gestita con 3 repliche, che verrà automaticamente aggiunto al gruppo di disponibilità. 
 

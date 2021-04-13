@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 745cc7be37120cda27fe4d4077b9bda0fa07badf
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: dc20ca3f3cf6197f8a3ed3a7e0362046f129d369
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550779"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305872"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -239,7 +239,7 @@ Selezionare **Sì** se gli utenti devono eseguire l'autenticazione a più fattor
 
 ![Richiedi Multi-Factor Authentication per aggiungere i dispositivi](./media/azureadjoin-plan/03.png)
 
-**Raccomandazione:** Usare il registro azioni utente [o i dispositivi aggiunti](/conditional-access/concept-conditional-access-cloud-apps#user-actions) all'accesso condizionale per l'applicazione dell'autenticazione a più fattori per l'aggiunta di dispositivi.
+**Raccomandazione:** Usare il registro azioni utente [o i dispositivi aggiunti](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#user-actions) all'accesso condizionale per l'applicazione dell'autenticazione a più fattori per l'aggiunta di dispositivi.
 
 ## <a name="configure-your-mobility-settings"></a>Configurare le impostazioni di mobilità
 

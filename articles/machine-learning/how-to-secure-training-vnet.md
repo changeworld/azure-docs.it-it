@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 64015f1f2d6fc3438e55cbdc146ba83492b332e2
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 59b766cd5721a9a77b3506cc438ec267e5131979
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066093"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309453"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteggere un ambiente di training Azure Machine Learning con reti virtuali
 
@@ -44,7 +44,7 @@ Questo articolo illustra come proteggere le risorse di calcolo di training segue
 
 + Per distribuire le risorse in una rete virtuale o in una subnet, l'account utente deve avere le autorizzazioni per le azioni seguenti nel controllo degli accessi in base al ruolo di Azure (RBAC di Azure):
 
-    - "Microsoft. Network/virtualNetworks/join/Action" sulla risorsa di rete virtuale.
+    - "Microsoft. Network/virtualNetworks/*/Read" sulla risorsa di rete virtuale.
     - "Microsoft. Network/virtualNetworks/subnet/join/Action" sulla risorsa della subnet.
 
     Per altre informazioni sul controllo degli accessi in base al ruolo di Azure con la rete, vedere [ruoli predefiniti di rete](../role-based-access-control/built-in-roles.md#networking)
@@ -59,7 +59,7 @@ Per usare una [__destinazione di calcolo__ gestita di Azure Machine Learning](co
 > * La subnet specificata per il cluster di elaborazione o l'istanza di calcolo deve avere indirizzi IP non assegnati sufficienti per contenere il numero di macchine virtuali usate come destinazione. Se la subnet non ha abbastanza indirizzi IP non assegnati, verrà parzialmente allocato un cluster di elaborazione.
 > * Controllare se i criteri di sicurezza o i blocchi nel gruppo di risorse o nella sottoscrizione della rete virtuale limitano le autorizzazioni per gestire la rete virtuale. Se si prevede di proteggere la rete virtuale limitando il traffico, lasciare aperte alcune porte per il servizio dell'ambiente di calcolo. Per altre informazioni, vedere la sezione [Porte richieste](#mlcports).
 > * Se si prevede di inserire più istanze di calcolo o cluster di elaborazione in una sola rete virtuale, potrebbe essere necessario richiedere un aumento di quota per una o più risorse.
-> * Se anche gli account di archiviazione di Azure per l'area di lavoro sono protetti in una rete virtuale, è necessario che si trovino nella stessa rete virtuale e nella stessa subnet del Azure Machine Learning istanza di calcolo o del cluster. 
+> * Se anche gli account di archiviazione di Azure per l'area di lavoro sono protetti in una rete virtuale, è necessario che si trovino nella stessa rete virtuale e nella stessa subnet del Azure Machine Learning istanza di calcolo o del cluster. Configurare le impostazioni del firewall di archiviazione per consentire la comunicazione alla rete virtuale e al calcolo della subnet in. Si noti che selezionando la casella di controllo "Consenti ai servizi Microsoft attendibili di accedere a questo account" non è sufficiente per consentire la comunicazione dal calcolo.
 > * Per il corretto funzionamento della funzionalità Jupyter dell'istanza di calcolo, assicurarsi che la comunicazione con il Websocket non sia disabilitata. Assicurarsi che la rete consenta le connessioni WebSocket a *. instances.azureml.net e *. instances.azureml.ms. 
 > * Quando l'istanza di calcolo viene distribuita in un'area di lavoro di collegamento privato, è possibile accedervi solo dall'interno della rete virtuale. Se si usa un file host o DNS personalizzato, aggiungere una voce per `<instance-name>.<region>.instances.azureml.ms` con l'indirizzo IP privato dell'endpoint privato dell'area di lavoro. Per altre informazioni, vedere l'articolo [DNS personalizzato](./how-to-custom-dns.md) .
 > * La subnet usata per distribuire il cluster o l'istanza di calcolo non deve essere delegata ad altri servizi come ACI

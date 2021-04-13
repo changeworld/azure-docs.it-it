@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7596aa4cef6c4bc601c15018e8ede4265f395eb7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76990505"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312859"
 ---
 # <a name="manage-multiple-tenants"></a>Gestire più tenant
 
@@ -45,7 +45,7 @@ Quando si usa questa architettura, per ciascun tenant viene creato un account Vi
 * Più difficile da gestire a causa degli account multipli per ogni tenant (e i servizi multimediali associati) di Video Indexer.
 
 > [!TIP]
-> Creare un utente amministratore per il sistema nel [Portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/) e usare l'API di autorizzazione per fornire ai tenant il relativo [token di accesso dell'account](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token).
+> Creare un utente amministratore per il sistema nel [Portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/) e usare l'API di autorizzazione per fornire ai tenant il relativo [token di accesso dell'account](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token).
 
 ## <a name="single-video-indexer-account-for-all-users"></a>Account singolo di Video Indexer per tutti gli utenti
 
@@ -55,7 +55,7 @@ Quando si usa questa architettura, il cliente è responsabile per l'isolamento d
 
 Con questa opzione, i modelli di personalizzazione (utente, lingua e i marchi) possono essere condivisi o isolati tra tenant filtrando i modelli per ciascun tenant.
 
-Durante il [caricamento dei video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) è possibile specificare un attributo di partizione diverso per ciascun tenant. Ciò consente l'isolamento nella [API di ricerca](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Specificando l'attributo di partizione nella API di ricerca si otterranno solo i risultati della partizione specificata. 
+Durante il [caricamento dei video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) è possibile specificare un attributo di partizione diverso per ciascun tenant. Ciò consente l'isolamento nella [API di ricerca](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos). Specificando l'attributo di partizione nella API di ricerca si otterranno solo i risultati della partizione specificata. 
 
 ### <a name="considerations"></a>Considerazioni
 

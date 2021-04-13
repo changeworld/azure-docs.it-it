@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Vedere come creare, modificare ed eliminare un modello all'interno di dispositivi gemelli digitali di Azure.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 4/07/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 75911e91bb61b84d2e9315421f794739f2b5088b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c896e2aad7dae8d03b26e2a16ecb96224ab547b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953698"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303765"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
-È possibile gestire i [modelli](concepts-models.md) che l'istanza di Azure Digital gemelli sa usando le [**API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). 
+È possibile gestire i [modelli](concepts-models.md) dell'istanza di Azure Digital Twins usando le [**API di DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). 
 
 Le operazioni di gestione includono il caricamento, la convalida, il recupero e l'eliminazione di modelli. 
 

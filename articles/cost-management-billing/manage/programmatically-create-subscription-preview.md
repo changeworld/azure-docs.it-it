@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b524869998dd2464ed359ec61ce655a807899aaa
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 9f20659e772f6321f4d3953f0e55192c833e78b9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565717"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310596"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Creare sottoscrizioni di Azure a livello di codice con API in anteprima
 
@@ -365,7 +365,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 | `skuId` | Sì      | string | ID SKU che determina il tipo di piano di Azure. |
 | `owners`      | No       | string | ID oggetto di un'entità utente o servizio da aggiungere come proprietario con Controllo degli accessi in base al ruolo di Azure nella sottoscrizione al momento della creazione.  |
 | `costCenter` | No      | string | Centro di costo associato alla sottoscrizione. Viene visualizzato nel file CSV relativo all'utilizzo. |
-| `managementGroupId` | No      | string | ID del gruppo di gestione a cui verrà aggiunta la sottoscrizione. Per ottenere l'elenco dei gruppi di gestione, vedere [Gruppi di gestione - API Elenco](/rest/api/resources/managementgroups/list). Usare l'ID di un gruppo di gestione dall'API. |
+| `managementGroupId` | No      | string | ID del gruppo di gestione a cui verrà aggiunta la sottoscrizione. Per ottenere l'elenco dei gruppi di gestione, vedere [Gruppi di gestione - API Elenco](/rest/api/managementgroups/entities/list). Usare l'ID di un gruppo di gestione dall'API. |
 
 Nella risposta verrà restituito un oggetto `subscriptionCreationResult` per il monitoraggio. Al termine dell'operazione di creazione della sottoscrizione, l'oggetto `subscriptionCreationResult` restituisce un oggetto `subscriptionLink` che contiene l'ID della sottoscrizione.
 

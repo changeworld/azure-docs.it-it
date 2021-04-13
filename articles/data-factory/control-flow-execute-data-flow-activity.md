@@ -5,13 +5,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 01/03/2021
-ms.openlocfilehash: 0663690318773ccad3bddfaaa03e456c2f58895e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 3e48eee5bf36732edc4f897103cb72bbbe75a5c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100383382"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306314"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Attività flusso di dati in Azure Data Factory
 
@@ -76,9 +76,9 @@ Le proprietà conteggio core e tipo di calcolo possono essere impostate in modo 
 
 ### <a name="data-flow-integration-runtime"></a>Runtime di integrazione del flusso di dati
 
-Scegliere la Integration Runtime da usare per l'esecuzione dell'attività flusso di dati. Per impostazione predefinita, Data Factory utilizzerà il runtime di integrazione di Azure per la risoluzione automatica con quattro core del ruolo di lavoro e nessun TTL (time to Live). Questo IR ha un tipo di calcolo per utilizzo generico e viene eseguito nella stessa area della factory. È possibile creare runtime di integrazione di Azure personalizzati che definiscono aree specifiche, tipo di calcolo, conteggi core e TTL per l'esecuzione dell'attività flusso di dati.
+Scegliere la Integration Runtime da usare per l'esecuzione dell'attività flusso di dati. Per impostazione predefinita, Data Factory utilizzerà il runtime di integrazione di Azure per la risoluzione automatica con quattro core del ruolo di lavoro. Questo IR ha un tipo di calcolo per utilizzo generico e viene eseguito nella stessa area della factory. Per le pipeline operative, è consigliabile creare runtime di integrazione di Azure personalizzati che definiscono aree specifiche, tipo di calcolo, conteggi core e TTL per l'esecuzione dell'attività flusso di dati.
 
-Per le esecuzioni di pipeline, il cluster è un cluster di processi che richiede alcuni minuti per l'avvio prima dell'avvio dell'esecuzione. Se non viene specificato alcun valore TTL, questo tempo di avvio è necessario per ogni esecuzione della pipeline. Se si specifica un valore TTL, un pool di cluster caldo resterà attivo per il tempo specificato dopo l'ultima esecuzione, ottenendo tempi di avvio più brevi. Se, ad esempio, si dispone di un valore TTL di 60 minuti ed è necessario eseguirvi un flusso di dati una volta all'ora, il pool di cluster resterà attivo. Per altre informazioni, vedere [runtime di integrazione di Azure](concepts-integration-runtime.md).
+Un tipo di calcolo minimo di per utilizzo generico (ottimizzato per il calcolo è sconsigliato per carichi di lavoro di grandi dimensioni) con una configurazione di 8 + 8 (16 core totali) e 10 minuti è la raccomandazione minima per la maggior parte dei carichi di lavoro di produzione. Impostando una durata (TTL) ridotta, il Azure IR può gestire un cluster caldo che non influisce sui diversi minuti di avvio per un cluster a freddo. È possibile velocizzare ulteriormente l'esecuzione dei flussi di dati selezionando "riutilizzo rapido" nelle configurazioni del flusso di dati Azure IR. Per altre informazioni, vedere [runtime di integrazione di Azure](concepts-integration-runtime.md).
 
 ![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 04/12/2021
 ms.author: aahi
 keywords: locale, Docker, container, Kubernetes
-ms.openlocfilehash: 007dfe6d67d504286b9546fe0139055b58dc700f
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 45b1eb00b61c36e3a7a0f39bc41a9c1d053f3d8e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285604"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313743"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenitori di Servizi cognitivi di Azure
 
@@ -148,4 +148,4 @@ Installare ed esplorare le funzionalità fornite dai contenitori in Servizi cogn
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
 [ta-containers-health]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health
-[request-access]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u
+[request-access]: https://aka.ms/csgate

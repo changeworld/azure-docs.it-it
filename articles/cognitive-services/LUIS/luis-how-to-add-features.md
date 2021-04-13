@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1a0fb15be92e25b576cd29e671eed3c6a5b948f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95999927"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313267"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Usare le funzionalità per aumentare il segnale dell'elenco di parole
 
@@ -37,7 +37,7 @@ Esaminare i [concetti](luis-concept-feature.md) per comprendere quando e perché
 
     Dopo aver immesso i valori sufficienti per LUIS, vengono visualizzati i suggerimenti. È possibile **+ aggiungere tutti** i valori proposti oppure selezionare singoli termini.
 
-1. Se le frasi possono essere utilizzate interscambiabili, è necessario verificare che **tali valori siano interscambiabili** .
+1. Se le frasi possono essere utilizzate interscambiabili, è necessario verificare che **tali valori siano interscambiabili** . La funzionalità elenco di frasi intercambiabili funge da elenco di sinonimi per il training. L'elenco di frasi non intercambiabili funge da funzionalità separate per il training (ovvero le funzionalità sono simili, ma le finalità cambiano quando si scambiano le frasi).
 
 1. L'elenco di frasi può essere applicato all'intera app con l'impostazione **globale** o a un modello specifico (finalità o entità). Se si crea l'elenco di frasi, come _funzionalità_ di uno scopo o di un'entità, l'interruttore non è impostato per il livello globale. In questo caso, il significato dell'interruttore è che la funzionalità è locale solo per tale modello, pertanto _non è globale_ per l'applicazione.
 

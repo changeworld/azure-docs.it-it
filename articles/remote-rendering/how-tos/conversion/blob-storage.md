@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: d8a6fd458cdcf79cdeb693b25acf72d4ec48def7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 629b48a378dd029d9952270e3c71762a5bb7aa82
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507518"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306722"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Usare l'archiviazione BLOB di Azure per la conversione dei modelli
 
@@ -71,6 +71,9 @@ Per iniziare a convertire un modello, è necessario caricarlo, usando una delle 
 - [Uso delle API REST di archiviazione di Azure](/rest/api/storageservices/blob-service-rest-api)
 
 Per un esempio di come caricare i dati per la conversione, vedere Conversion.ps1 degli [script di esempio di PowerShell](../../samples/powershell-example-scripts.md#script-conversionps1).
+
+> [!Note]
+> Quando si carica un modello di input, prestare attenzione a evitare i nomi di file lunghi e/o le strutture di cartelle per evitare problemi di [limite di lunghezza del percorso di Windows](https://docs.mxicrosoft.com/windows/win32/fileio/maximum-file-path-limitation) nel servizio. 
 
 ## <a name="get-a-sas-uri-for-the-converted-model"></a>Ottenere un URI di firma di accesso condiviso per il modello convertito
 

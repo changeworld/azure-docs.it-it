@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/06/2021
+ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 50e29262b609887d91c43ea8f012fad0c7a35ee2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 879ca169604dcd61a79db4ec3ca937289dacdd9b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449274"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309859"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Guida introduttiva: Creare una data factory e una pipeline con Python
 
@@ -40,7 +40,7 @@ che inseriscono dati provenienti da archivi diversi. Le pipeline elaborano o tra
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (facoltativo).
 
-* [Un'applicazione in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Prendere nota dei valori seguenti da usare nei passaggi successivi: **ID applicazione**, **chiave di autenticazione** e **ID tenant**. Assegnare l'applicazione al ruolo **Collaboratore** seguendo le istruzioni riportate nello stesso articolo.
+* [Un'applicazione in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Prendere nota dei valori seguenti da usare nei passaggi successivi: **ID applicazione**, **chiave di autenticazione** e **ID tenant**. Assegnare l'applicazione al ruolo **Collaboratore** seguendo le istruzioni riportate nello stesso articolo. Prendere nota dei valori seguenti, come illustrato nell'articolo da usare nei passaggi successivi: **ID applicazione (ID entità servizio di seguito), chiave di autenticazione (segreto client di seguito) e ID tenant.**
 
 ## <a name="create-and-upload-an-input-file"></a>Creare e caricare un file di input
 
@@ -225,6 +225,9 @@ Definire un set di dati che rappresenta i dati di origine nel BLOB di Azure. Que
         rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 ```
+ > [!NOTE] 
+ > Per passare i parametri alla pipeline, aggiungerli alla stringa JSON params_for_pipeline illustrata di seguito nel formato **{"nomeparametro1": "ParameterValue1"}** per ogni parametro necessario nella pipeline. Per passare parametri a un flusso di file, creare un parametro della pipeline per conservare il nome/valore del parametro, quindi utilizzare il parametro della pipeline nel parametro Dataflow nel formato **@pipeline (). Parameters. ParameterName.**
+
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
 

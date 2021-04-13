@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 3a0b87f04e60fd56d543c7c7a752cd788e087c78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0f3b81ac12d0ae96dde0397bc01a4570d992ea9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727482"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310173"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Specifiche tecniche di Azure Stack Edge Mini R
 
@@ -24,31 +24,35 @@ I componenti hardware del dispositivo Mini R di Microsoft Azure Stack Edge rispe
 
 Il dispositivo Mini R Azure Stack Edge presenta le specifiche seguenti per le risorse di calcolo e di memoria:
 
-| Specifiche           | valore                  |
-|-------------------------|------------------------|
-| CPU    | CPU a 16 core, Intel Xeon-D 1577 |
-| Memoria              | 48 GB di RAM (2400 MT/s)                  |
+| Specifiche           | valore                           |
+|-------------------------|---------------------------------|
+| Tipo di CPU                | Intel Xeon-D 1577               |
+| CPU: non elaborata                | 16 core totali, 32 vCPU totali  |
+| CPU: utilizzabile             | 24 vCPU                        |
+| Tipo di memoria             | SODIMM da 16 GB 2400 MT/s          |
+| Memoria: non elaborata             | 48 GB di RAM (3 x 16 GB)           |
+| Memoria: utilizzabile          | 32 GB di RAM                       |
 
 
 ## <a name="compute-acceleration-specifications"></a>Specifiche di accelerazione di calcolo
 
 Un'unità di elaborazione della visione (VPU) è inclusa in ogni dispositivo Mini R Azure Stack Edge che Abilita Kubernetes, reti neurali profonde e applicazioni basate su computer.
 
-| Specifiche           | valore                  |
-|-------------------------|------------------------|
-| Scheda accelerazione calcolo         | Intel Movidius miriade X VPU <br> Per altre informazioni, vedere [Intel Movidius miriade X VPU](https://www.movidius.com/MyriadX) |
+| Specifiche             | valore                  |
+|---------------------------|------------------------|
+| Scheda accelerazione calcolo | Intel Movidius miriade X VPU <br> Per altre informazioni, vedere [Intel Movidius miriade X VPU](https://www.movidius.com/MyriadX) |
 
 
 ## <a name="storage-specifications"></a>Specifiche di archiviazione
 
 Il dispositivo Mini R Azure Stack Edge ha 1 disco dati e 1 disco di avvio (che funge da archivio del sistema operativo). La tabella seguente illustra i dettagli relativi alla capacità di archiviazione del dispositivo.
 
-|     Specifiche                          |     valore             |
-|--------------------------------------------|-----------------------|
-|    Numero di unità SSD     |    2 dischi da 1 TB <br> Un disco dati e un disco di avvio                  |
-|    Capacità della singola unità SSD                     |    1 TB               |
-|    Capacità totale (solo dati)              |    1 TB              |
-|    Capacità utilizzabile totale*                  |    ~ 750 GB        |
+|     Specifiche                          |     valore                                              |
+|--------------------------------------------|--------------------------------------------------------|
+|    Numero di unità SSD     |    2 dischi da 1 TB <br> Un disco dati e un disco di avvio |
+|    Capacità della singola unità SSD                     |    1 TB                                                |
+|    Capacità totale (solo dati)              |    1 TB                                                |
+|    Capacità utilizzabile totale*                  |    ~ 750 GB                                            |
 
 **Parte dello spazio è riservato per uso interno.*
 
@@ -85,9 +89,9 @@ Il dispositivo Mini R Azure Stack Edge include anche una batteria caricata dall'
 Per estendere l'uso del dispositivo tra gli addebiti, è possibile usare un tipo aggiuntivo di [batteria 2590](https://www.bren-tronics.com/bt-70791ck.html) insieme alla batteria di caricamento. Questa batteria deve essere conforme a tutte le normative di sicurezza, trasporto e ambiente applicabili al paese di uso.
 
 
-| Specifiche           | valore                      |
-|-------------------------|----------------------------|
-| Carica Capacità batteria | 73 WHr                    |
+| Specifiche            | valore                      |
+|--------------------------|----------------------------|
+| Carica Capacità batteria | 73 WH                     |
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Specifiche su peso e dimensioni dello chassis
 
@@ -99,18 +103,18 @@ La tabella seguente elenca le dimensioni del dispositivo e l'USP con la maiuscol
 
 |     Chassis     |     Millimetri     |     Pollici     |
 |-------------------|---------------------|----------------|
-|    Altezza:         |    68            |    2.68          |
-|    Larghezza          |    208          |      8,19          |
-|    Length          |   259           |    10,20          |
+|    Altezza:         |    68               |    2.68        |
+|    Larghezza          |    208              |      8,19      |
+|    Length          |   259              |    10,20       |
 
 
 ### <a name="enclosure-weight"></a>Peso chassis
 
 La tabella seguente elenca il peso del dispositivo, inclusa la batteria.
 
-|     Chassis                                 |     Peso          |
-|-----------------------------------------------|---------------------|
-|    Peso totale del dispositivo     |    7 kg.          |
+|     Chassis                     |     Peso          |
+|-----------------------------------|---------------------|
+|    Peso totale del dispositivo     |     7 lbs           |
 
 ## <a name="enclosure-environment-specifications"></a>Specifiche ambientali dello chassis
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 62296acaba77017cd71227582447b9fa7c4f1934
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: d45c40bb6878da80f68fff9642b55da68706743a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106090240"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305838"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -1012,7 +1012,7 @@ Questo flusso non è supportato in MSAL per macOS.
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Questo estratto viene dagli [esempi di sviluppo del nodo MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/username-password). Nel frammento di codice riportato di seguito, il nome utente e la password sono hardcoded solo a scopo illustrativo. Questa operazione deve essere evitata nell'ambiente di produzione. È invece consigliabile usare un'interfaccia utente di base per richiedere all'utente di immettere il nome utente e la password. 
+Questo estratto viene dagli [esempi di sviluppo del nodo MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/username-password). Nel frammento di codice riportato di seguito, il nome utente e la password sono hardcoded solo a scopo illustrativo. Questa operazione deve essere evitata nell'ambiente di produzione. È invece consigliabile usare un'interfaccia utente di base per richiedere all'utente di immettere il nome utente e la password. 
 
 ```JavaScript
 const msal = require("@azure/msal-node");
@@ -1255,7 +1255,7 @@ Questo flusso non si applica a macOS.
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Questo estratto viene dagli [esempi di sviluppo del nodo MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/device-code).
+Questo estratto viene dagli [esempi di sviluppo del nodo MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/device-code).
 
 ```JavaScript
 const msal = require('@azure/msal-node');
