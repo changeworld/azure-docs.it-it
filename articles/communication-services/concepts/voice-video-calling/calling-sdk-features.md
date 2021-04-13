@@ -1,7 +1,7 @@
 ---
-title: Panoramica di Azure Communication Services che chiama SDK
+title: Servizi di comunicazione di Azure panoramica di Calling SDK
 titleSuffix: An Azure Communication Services concept document
-description: Viene fornita una panoramica dell'SDK chiamante.
+description: Fornisce una panoramica dell'SDK per chiamate.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,31 +9,31 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ac9cef77569dffe461f7711195c5638e831aa218
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 28072184d47beb32dc03e0d6ba52328bfceb5b73
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110105"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364873"
 ---
-# <a name="calling-sdk-overview"></a>Panoramica dell'SDK chiamante
+# <a name="calling-sdk-overview"></a>Panoramica delle chiamate all'SDK
 
-L'SDK chiamante consente ai dispositivi degli utenti finali di guidare le esperienze di comunicazione vocale e video. Questa pagina fornisce descrizioni dettagliate delle funzionalità di chiamata, incluse le informazioni di supporto per piattaforma e browser. Per iniziare subito, consultare la pagina relativa alla [chiamata alle guide introduttive](../../quickstarts/voice-video-calling/getting-started-with-calling.md) o all' [esempio di chiamata a Hero](../../samples/calling-hero-sample.md). 
+L'SDK per chiamate consente ai dispositivi degli utenti finali di creare esperienze di comunicazione vocale e video. Questa pagina fornisce descrizioni dettagliate delle funzionalità di chiamata, incluse le informazioni sul supporto per piattaforma e browser. Per iniziare subito, vedere [](../../quickstarts/voice-video-calling/getting-started-with-calling.md) Avvio rapido per le chiamate o [Esempio di chiamata hero.](../../samples/calling-hero-sample.md) 
 
-Una volta avviata la fase di sviluppo, consultare la pagina relativa ai [problemi noti](../known-issues.md) per trovare i bug su cui si sta lavorando.
+Dopo aver avviato lo sviluppo, vedere la [pagina dei problemi noti](../known-issues.md) per individuare i bug su cui si sta lavorando.
 
-Funzionalità principali dell'SDK chiamante:
+Funzionalità principali dell'SDK per chiamate:
 
-- **Indirizzamento** : i servizi di comunicazione di Azure forniscono [identità](../identity-model.md) generiche che vengono usate per indirizzare gli endpoint di comunicazione. I client usano queste identità per l'autenticazione al servizio e comunicano tra loro. Queste identità vengono usate per chiamare le API che consentono ai client di visualizzare gli utenti connessi a una chiamata (roster).
-- **Crittografia** : l'SDK chiamante crittografa il traffico e impedisce la manomissione in transito. 
-- **Gestione e supporto dei dispositivi** : l'SDK chiamante fornisce le funzionalità per l'associazione a dispositivi audio e video, codifica il contenuto per una trasmissione efficiente attraverso i DataPlan di comunicazione ed esegue il rendering del contenuto nei dispositivi e nelle visualizzazioni di output specificati. Le API sono fornite anche per la condivisione di applicazioni e schermate.
-- **PSTN** : l'SDK chiamante può ricevere e avviare chiamate vocali con il tradizionale sistema di telefonia a commutazione pubblica, [usando i numeri di telefono acquisiti nel portale di Azure](../../quickstarts/telephony-sms/get-phone-number.md) o a livello di codice.
-- **Riunioni dei team** : l'SDK chiamante può [partecipare alle riunioni](../../quickstarts/voice-video-calling/get-started-teams-interop.md) dei team e interagire con il dataplaning del team e del video. 
-- **Notifiche** : l'SDK chiamante fornisce API che consentono ai client di ricevere notifiche di una chiamata in ingresso. In situazioni in cui l'app non è in esecuzione in primo piano, sono disponibili modelli per [attivare le notifiche popup](../notifications.md) ("toast") per informare gli utenti finali di una chiamata in ingresso. 
+- **Indirizzamento:** Servizi di comunicazione di Azure le [identità generiche](../identity-model.md) usate per risolvere gli endpoint di comunicazione. I client usano queste identità per eseguire l'autenticazione al servizio e comunicare tra loro. Queste identità vengono usate nelle API di chiamata che forniscono ai client visibilità su chi è connesso a una chiamata (elenco).
+- **Crittografia:** l'SDK per le chiamate crittografa il traffico e impedisce la manomissione in rete. 
+- **Gestione dei** dispositivi e supporti: l'SDK per le chiamate offre funzionalità per l'associazione a dispositivi audio e video, codifica il contenuto per una trasmissione efficiente sul piano dati delle comunicazioni ed esegue il rendering del contenuto nei dispositivi e nelle visualizzazioni di output specificati. Le API vengono fornite anche per la condivisione di schermate e applicazioni.
+- **PSTN:** l'SDK per le chiamate può ricevere e avviare chiamate vocali con il tradizionale sistema di telefonia commutato pubblicamente, usando i numeri di telefono acquisiti nel portale di Azure o a [livello](../../quickstarts/telephony-sms/get-phone-number.md) di codice.
+- **Teams Meetings:** l'SDK per le chiamate può partecipare [alle riunioni](../../quickstarts/voice-video-calling/get-started-teams-interop.md) di Teams e interagire con il piano dati vocale e video di Teams. 
+- **Notifiche:** l'SDK per le chiamate fornisce API che consentono ai client di ricevere una notifica di una chiamata in ingresso. Nelle situazioni in cui l'app non è in esecuzione in primo piano, sono disponibili modelli per l'invio di notifiche popup [("avvisi](../notifications.md) popup") per informare gli utenti finali di una chiamata in ingresso. 
 
 ## <a name="detailed-capabilities"></a>Funzionalità dettagliate 
 
-L'elenco seguente presenta il set di funzionalità attualmente disponibili nei servizi di comunicazione di Azure che chiamano gli SDK.
+L'elenco seguente presenta il set di funzionalità attualmente disponibili nel Servizi di comunicazione di Azure SDK di chiamata.
 
 | Gruppo di funzionalità | Funzionalità                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
@@ -42,7 +42,7 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nei s
 |                   | Alzare di livello una chiamata uno-a-uno con due utenti in una chiamata di gruppo con più di due utenti                                 | ✔️   | ✔️            | ✔️
 |                   | Partecipare a una chiamata di gruppo dopo che è stata avviata                                                                              | ✔️   | ✔️            | ✔️
 |                   | Invitare un altro utente VoIP a partecipare a una chiamata di gruppo in corso                                                       | ✔️   | ✔️            | ✔️
-|  Controllo della chiamata intermedia | Attivare/Disattivare il video                                                                                              | ✔️   | ✔️            | ✔️
+|  Controllo delle chiamate intermedie | Attivare/Disattivare il video                                                                                              | ✔️   | ✔️            | ✔️
 |                   | Attivare/Disattivare il microfono                                                                                                     | ✔️   | ✔️            | ✔️
 |                   | Passare da una fotocamera all'altra                                                                                              | ✔️   | ✔️            | ✔️
 |                   | Bloccare/Sbloccare chiamata locale                                                                                                  | ✔️   | ✔️            | ✔️
@@ -64,61 +64,61 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nei s
 |                   | Alzare di livello una chiamata uno-a-uno con un partecipante PSTN in una chiamata di gruppo                                                 | ✔️   | ✔️            | ✔️
 |                   | Disconnettersi da una chiamata di gruppo come partecipante PSTN                                                                    | ✔️   | ✔️            | ✔️
 | Generale           | Testare microfono, altoparlante e fotocamera con un servizio di test audio (disponibile chiamando 8:echo123)                   | ✔️   | ✔️            | ✔️
-| Gestione dei dispositivi | Richiedi l'autorizzazione per l'uso di audio e/o video                                                                       | ✔️   | ✔️            | ✔️
-|                   | Ottenere l'elenco di fotocamere                                                                                                     | ✔️   | ✔️            | ✔️
-|                   | Imposta fotocamera                                                                                                          | ✔️   | ✔️            | ✔️
+| Gestione dei dispositivi | Richiedere l'autorizzazione per l'uso di audio e/o video                                                                       | ✔️   | ✔️            | ✔️
+|                   | Ottenere l'elenco delle fotocamere                                                                                                     | ✔️   | ✔️            | ✔️
+|                   | Impostare la fotocamera                                                                                                          | ✔️   | ✔️            | ✔️
 |                   | Ottenere la fotocamera selezionata                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Ottenere l'elenco di microfoni                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Imposta microfono                                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Ottieni microfono selezionato                                                                                             | ✔️   | ✔️            | ✔️
-|                   | Ottenere l'elenco di altoparlanti                                                                                                   | ✔️   | ✔️            | ✔️
-|                   | Imposta altoparlante                                                                                                         | ✔️   | ✔️            | ✔️
-|                   | Ottieni altoparlante selezionato                                                                                                | ✔️   | ✔️            | ✔️
-| Rendering video   | Eseguire il rendering di un singolo video in molte posizioni (fotocamera locale o flusso remoto)                                                  | ✔️   | ✔️            | ✔️
-|                   | Imposta/Aggiorna modalità di ridimensionamento                                                                                           | ✔️   | ✔️            | ✔️
-|                   | Rendering del flusso video remoto                                                                                          | ✔️   | ✔️            | ✔️
+|                   | Ottenere l'elenco dei microfoni                                                                                                 | ✔️   | ❌           |❌  
+|                   | Impostare il microfono                                                                                                      | ✔️   | ❌           | ❌  
+|                   | Ottenere il microfono selezionato                                                                                             | ✔️   | ❌           | ❌  
+|                   | Ottenere l'elenco dei parlanti                                                                                                   | ✔️   | ❌           | ❌  
+|                   | Impostare l'altoparlante                                                                                                         | ✔️   | ❌           | ❌  
+|                   | Ottenere il parlante selezionato                                                                                                | ✔️   | ❌           | ❌  
+| Video Rendering   | Eseguire il rendering di un singolo video in più posizioni (fotocamera locale o flusso remoto)                                                  | ✔️   | ✔️            | ✔️
+|                   | Impostare/aggiornare la modalità di ridimensionamento                                                                                           | ✔️   | ✔️            | ✔️
+|                   | Eseguire il rendering del flusso video remoto                                                                                          | ✔️   | ✔️            | ✔️
 
-## <a name="calling-sdk-streaming-support"></a>Chiamata del supporto di streaming SDK
-Il servizio Communication Services chiamante SDK supporta le configurazioni di flusso seguenti:
+## <a name="calling-sdk-streaming-support"></a>Chiamata del supporto per lo streaming DELL'SDK
+Communication Services Calling SDK supporta le configurazioni di streaming seguenti:
 
 | Limite          |Web | Android/iOS|
 |-----------|----|------------|
-|**Numero di flussi in uscita che possono essere inviati contemporaneamente** |1 video o una condivisione schermo | 1 video + 1 condivisione dello schermo|
-|**Numero di flussi in entrata di cui è possibile eseguire il rendering simultaneamente** |1 video o una condivisione schermo| 6 video + 1 condivisione dello schermo |
+|**Numero di flussi in uscita che possono essere inviati contemporaneamente** |1 video o 1 condivisione dello schermo | 1 video + 1 condivisione dello schermo|
+|**Numero di flussi in entrata di cui è possibile eseguire il rendering simultaneamente** |1 video o 1 condivisione dello schermo| 6 video + 1 condivisione dello schermo |
 
-## <a name="calling-sdk-timeouts"></a>Timeout della chiamata di SDK
+## <a name="calling-sdk-timeouts"></a>Timeout della chiamata all'SDK
 
-I timeout seguenti si applicano ai servizi di comunicazione che chiamano gli SDK:
+I timeout seguenti si applicano agli SDK per chiamate di Servizi di comunicazione:
 
 | Azione           | Timeout in secondi |
 | -------------- | ---------- |
-| Riconnessione/rimozione del partecipante | 120 |
+| Partecipante di riconnessione/rimozione | 120 |
 | Aggiungere o rimuovere una nuova modalità da una chiamata (avvio/arresto di video o condivisione dello schermo) | 40 |
-| Timeout dell'operazione di trasferimento chiamate | 60 |
-| 1:1 timeout di definizione della chiamata | 85 |
-| Timeout stabilimento chiamata gruppo | 85 |
-| Timeout di definizione della chiamata PSTN | 115 |
-| Alza di livello la chiamata 1:1 al timeout di una chiamata di gruppo | 115 |
+| Timeout dell'operazione di trasferimento delle chiamate | 60 |
+| 1:1 Timeout di definizione della chiamata | 85 |
+| Timeout di definizione delle chiamate di gruppo | 85 |
+| Timeout di definizione delle chiamate PSTN | 115 |
+| Alzare di livello la chiamata 1:1 a un timeout di chiamata di gruppo | 115 |
 
-## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>JavaScript che chiama il supporto SDK dal sistema operativo e dal browser
+## <a name="javascript-calling-sdk-support-by-os-and-browser"></a>Supporto dell'SDK per chiamate JavaScript da parte del sistema operativo e del browser
 
-La tabella seguente rappresenta il set di browser supportati attualmente disponibili. Sono supportate le ultime tre versioni del browser, se non diversamente specificato.
+La tabella seguente rappresenta il set di browser supportati attualmente disponibili. Sono supportate le tre versioni più recenti del browser, se non diversamente indicato.
 
-| Piattaforma                         | Chrome | Safari  | Bordo (cromo) |
+| Piattaforma                         | Chrome | Safari*  | Edge (Chromium) |
 | -------------------------------- | -------| ------  | --------------  |
 | Android                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
-| macOS * * *                         |  ✔️    | ✔️**   | ❌             |
-| Windows * * *                       |  ✔️    | ❌     | ✔️             |
+| macOS***                         |  ✔️    | ✔️**   | ❌             |
+| Windows***                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
-* Le versioni di Safari 13.1 + sono supportate, 1:1 le chiamate non sono supportate in Safari.
+*Sono supportate le versioni 13.1 e successive di Safari, le chiamate 1:1 non sono supportate in Safari.
 
-* * Safari 14 +/macOS 11 + necessario per il supporto video in uscita.
+**Safari 14+/macOS 11+ necessario per il supporto video in uscita.
 
-La condivisione dello schermo in uscita è supportata solo sulle piattaforme desktop (Windows, macOS e Linux), indipendentemente dalla versione del browser e non è supportata in nessuna piattaforma per dispositivi mobili (Android, iOS, iPad e Tablet).
+La condivisione dello schermo in uscita è supportata solo nelle piattaforme desktop (Windows, macOS e Linux), indipendentemente dalla versione del browser, e non è supportata in alcuna piattaforma per dispositivi mobili (Android, iOS, iPad e tablet).
 
-Un'app iOS in Safari non può enumerare/selezionare i dispositivi MIC e speaker (ad esempio, Bluetooth); si tratta di una limitazione del sistema operativo e c'è sempre un solo dispositivo.
+Un'app iOS in Safari non può enumerare/selezionare i dispositivi microfono e altoparlante (ad esempio Bluetooth); si tratta di una limitazione del sistema operativo ed è sempre presente un solo dispositivo.
 
 
 ## <a name="calling-client---browser-security-model"></a>Client chiamante - modello di sicurezza del browser

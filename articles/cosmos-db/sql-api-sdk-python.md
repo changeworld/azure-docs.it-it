@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 470ae497acab4c75e83a13e485d1bcb118485ab9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ff551c5d677029f39d9a3db3a64f3d03e2c57eba
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799514"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366030"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Python SDK di Azure Cosmos DB per l'API SQL: note sulla versione e risorse
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,12 +30,13 @@ ms.locfileid: "104799514"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Connettore Spark](sql-api-sdk-java-spark.md)
+> * [Connettore OLTP Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Connettore OLTP Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provider di risorse REST](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](./sql-query-getting-started.md)
-> * [Executor in blocco-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor bulk - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
 | Pagina| Collegamento |
@@ -44,32 +45,32 @@ ms.locfileid: "104799514"
 |**Documentazione sull'API**|[Documentazione di riferimento delle API di Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
 |**Istruzioni per l'installazione dell'SDK**|[Istruzioni per l'installazione dell'SDK di Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Operazioni preliminari**|[Introduzione all'SDK di Python](create-sql-api-python.md)|
-|**Piattaforma attualmente supportata**|[Python 2,7](https://www.python.org/downloads/) e [Python 3.6 +](https://www.python.org/downloads/)|
+|**Piattaforma attualmente supportata**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.6+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Cronologia delle versioni
 
 ## <a name="420"></a>4.2.0
 
 **Correzioni di bug**
-- Correzione del bug per cui il token di continuazione non viene rispettato quando query_iterable viene usato per ottenere i risultati in base alla pagina.
-- Correzione del bug per cui i token delle risorse non vengono rispettati per le letture e le eliminazioni del documento. 
+- Correzione del bug per cui il token di continuazione non viene rispettato quando query_iterable viene usato per ottenere risultati in base alla pagina.
+- Correzione del bug per cui i token delle risorse non vengono rispettati per le operazioni di lettura ed eliminazione dei documenti. 
 
 **Nuove funzionalità**
 - Aggiunta del supporto per il passaggio `partitionKey` durante l'esecuzione di query sul feed di modifiche.
 
 ## <a name="410"></a>4.1.0
 
-- Aggiunta dell'avviso di deprecazione per la modalità di indicizzazione "Lazy". Il back-end non consente più la creazione di contenitori con questa modalità e li imposterà su coerente.
+- Aggiunta dell'avviso di deprecazione per la modalità di indicizzazione "differita". Il back-end non consente più la creazione di contenitori con questa modalità e li imposta invece come coerenti.
 
 **Nuove funzionalità**
-- È stata aggiunta la possibilità di impostare la durata (TTL) di archiviazione analitica quando si crea un nuovo contenitore.
+- Aggiunta della possibilità di impostare la durata (TTL) di archiviazione analitica durante la creazione di un nuovo contenitore.
 
 **Correzioni di bug**
-- Correzione del supporto per `dicts` come input per le api get_Client.
-- Correzione della compatibilità con Python 2/3 negli iteratori di query.
-- Errore di hint di tipo fixed.
-- Correzione del bug per cui le intestazioni delle opzioni non sono state aggiunte alla funzione upsert_item. 
-- Correzione dell'errore generato quando un ID non di stringa viene utilizzato in un elemento. Genera ora TypeError anziché AttributeError.
+- Correzione del supporto `dicts` per come input per get_client API.
+- Correzione della compatibilità 2/3 di Python negli iteratori di query.
+- Correzione dell'errore di hint di tipo.
+- Correzione del bug per cui le intestazioni delle opzioni non venivano aggiunte upsert_item funzione. 
+- Correzione dell'errore generato quando viene usato un ID non stringa in un elemento. Ora genera TypeError anziché AttributeError.
 
 
 ## <a name="400"></a>4.0.0
@@ -90,8 +91,8 @@ ms.locfileid: "104799514"
 * Aggiunta del supporto per query Distinct, Offset e Limit.
 * Contesto di esecuzione di query del documento predefinito ora usato per
 
-  * Query del feed delle modifiche
-  * query a partizione singola ( `partitionkey` , `partitionKeyRangeId` presente nelle opzioni)
+  * Query del feed di modifiche
+  * query a partizione singola ( `partitionkey` , è presente nelle `partitionKeyRangeId` opzioni)
   * Query non di tipo documento
 
 * Errori per le aggregazioni in più partizioni, con l'abilitazione della query tra partizioni impostata su true, ma nessuna parola chiave "value" presente
@@ -330,11 +331,11 @@ La versione 4.0.0b1 rappresenta il primo tentativo di creare una libreria client
 Microsoft invia una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata. Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente. È quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
 > [!WARNING]
-> Dopo il 31 agosto 2022, Azure Cosmos DB non effettuerà più correzioni di bug o fornirà supporto alle versioni 1. x e 2. x dell'API Azure Cosmos DB Python SDK per SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 1. x e 2. x dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB.
+> Dopo il 31 agosto 2022, Azure Cosmos DB non apportare più correzioni di bug o fornire supporto alle versioni 1.x e 2.x dell'API python SDK per SQL di Azure Cosmos DB. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 1.x e 2.x dell'SDK continueranno a essere servite dal Azure Cosmos DB servizio.
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [4.2.0](#420) |09 ottobre, 2020 |--- |
+| [4.2.0](#420) |09 ottobre 2020 |--- |
 | [4.1.0](#410) |10 agosto 2020 |--- |
 | [4.0.0](#400) |20 maggio 2020 |--- |
 | [3.0.2](#302) |15 novembre 2018 |--- |

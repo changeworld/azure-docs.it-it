@@ -10,25 +10,25 @@ ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 22631cfd872ed226fc78a97d38c423fbc300f78e
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 05c33db130bfa3fcc1a4f5d75935294fcc0ba1d7
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304715"
+ms.locfileid: "107365468"
 ---
 # <a name="integrate-with-pipelines"></a>Integrare con le pipeline
 
 In questa esercitazione si apprenderà come integrare pipeline e attività usando Synapse Studio. 
 
-## <a name="create-a-pipeline-and-add-a-notebook-activity"></a>Creare una pipeline e aggiungere un'attività del notebook
+## <a name="create-a-pipeline-and-add-a-notebook-activity"></a>Creare una pipeline e aggiungere un'attività notebook
 
 
 
 1. In Synapse Studio assare all'hub **Integrate** (Integrazione).
 1. Selezionare **+**  > **Pipeline** per creare una nuova pipeline. Fare clic sul nuovo oggetto pipeline per aprire Progettazione pipeline.
-1. In **attività** espandere la cartella **sinapsi** e trascinare un oggetto **notebook** nella finestra di progettazione.
-1. Selezionare la scheda **Impostazioni** delle proprietà dell'attività notebook. Usare l'elenco a discesa per selezionare un notebook dall'area di lavoro sinapsi corrente.
+1. In **Attività** espandere la **cartella Synapse** e trascinare un oggetto **Notebook** nella finestra di progettazione.
+1. Selezionare la **scheda Impostazioni** delle proprietà dell'attività Notebook. Usare l'elenco a discesa per selezionare qualsiasi notebook dall'area di lavoro synapse corrente.
 
 ## <a name="schedule-the-pipeline-to-run-every-hour"></a>Pianificare l'esecuzione della pipeline ogni ora
 
@@ -38,10 +38,11 @@ In questa esercitazione si apprenderà come integrare pipeline e attività usand
 1. Selezionare **Pubblica tutti**. 
 
 
-## <a name="monitor-pipeline"></a>Monitorare la pipeline
+## <a name="monitor-pipeline-execution"></a>Monitorare l'esecuzione della pipeline
 
-1. Dopo la pubblicazione della pipeline, per fare in modo che la pipeline venga eseguita immediatamente senza attendere l'ora successiva, selezionare **Aggiungi**  >  **trigger trigger**.
-1. In sinapsi Studio passare all'hub **monitoraggio** e selezionare **esecuzioni pipeline** per monitorare lo stato di esecuzione della pipeline.
+1. Dopo aver pubblicato la pipeline, per eseguire la pipeline immediatamente, senza attendere l'ora successiva, selezionare **Aggiungi trigger**  >  **trigger ora**.
+1. In Synapse Studio passare all'hub **Monitoraggio.**
+1. Selezionare **Esecuzioni pipeline per** monitorare lo stato di avanzamento dell'esecuzione della pipeline.
 
 
 

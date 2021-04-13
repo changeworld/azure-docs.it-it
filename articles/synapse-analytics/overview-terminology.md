@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 11/18/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 828f37030ae567cacbaad25849b7ba24c561c20c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b4b4e227a0bdfc449c73541dec5d13c1c6697bc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98132767"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313063"
 ---
 # <a name="azure-synapse-analytics-terminology"></a>Terminologia di Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Un'area di lavoro può contenere un numero indefinito di **servizi collegati**, 
 
 **Synapse SQL** offre la possibilità di eseguire analisi basate su T-SQL nell'area di lavoro di Synapse. Synapse SQL ha due modelli di utilizzo: dedicato e serverless.  Per il modello dedicato, usare **pool SQL dedicati**. Un'area di lavoro può contenere un numero qualsiasi di questi pool. Per il modello serverless, usare i **pool SQL serverless**. Ogni area di lavoro dispone di uno di questi pool.
 
-All'interno di Synapse Studio è possibile usare i pool SQL creando ed eseguendo **script SQL**.
+All'interno di sinapsi studio è possibile usare i pool SQL eseguendo gli **script SQL**.
 
 ## <a name="apache-spark-for-synapse"></a>Apache Spark per Synapse
 
@@ -50,7 +50,7 @@ Le pipeline rappresentano il metodo con cui Azure Synapse fornisce integrazione 
 
 * Le **pipeline** sono un raggruppamento logico di attività che insieme svolgono una funzione.
 * Le **attività** definiscono le azioni all'interno di una pipeline da eseguire sui dati, ad esempio la copia, l'esecuzione di un notebook o uno script SQL.
-* I **flusso di dati** sono un tipo specifico di attività che offrono un'esperienza senza codice per eseguire trasformazioni sui dati dietro le quinte con Synapse Spark.
+* I **flussi di dati** sono un tipo specifico di attività che fornisce un'esperienza senza codice per la trasformazione dei dati che usa sinapsi Spark sotto le quinte.
 * **Trigger**: esegue una pipeline. Può essere eseguito manualmente o automaticamente (pianificazione, finestra a cascata o basata su eventi).
 * **Set di dati di integrazione**: vista denominata di dati che semplicemente punta o fa riferimento ai dati da usare come input e output di un'attività. Appartiene a un servizio collegato.
 

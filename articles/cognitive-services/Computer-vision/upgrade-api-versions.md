@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: cfc9745fc4684a7b0d8f7da7e63149a6fe50f6d2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
-ms.translationtype: HT
+ms.openlocfilehash: 7a05b04872b4f957e879d93972edc45e2932d059
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331839"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364091"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Eseguire l'aggiornamento da Read v2.x a Read v3.x
 
-Questa guida illustra come eseguire l'aggiornamento del contenitore esistente o del codice dell'API cloud da Read v2.x a Read v3.0 e all'anteprima di v3.1.
+Questa guida illustra come aggiornare il codice dell'API cloud o del contenitore esistente da Read v2.x a Read v3.x.
 
 ## <a name="determine-your-api-path"></a>Determinare il percorso dell'API
 Usare la tabella seguente per determinare la **stringa di versione** nel percorso dell'API in base alla versione di Read 3.x a cui si esegue la migrazione.
@@ -32,7 +32,7 @@ Usare la tabella seguente per determinare la **stringa di versione** nel percors
 |Contenitore | Read 3.0-preview o Read 3.1-preview | **v3.0** o **v3.1-preview.2** rispettivamente |
 
 
-Usare quindi le sezioni seguenti per limitare le operazioni e sostituire la **stringa di versione** nel percorso dell'API con il valore dalla tabella. Per le versioni cloud e contenitore di **Read v3.2-preview** , ad esempio, aggiornare il percorso dell'API a **https://{endpoint}/vision/v3.2-preview.1/read/analyze[?language]** .
+Usare quindi le sezioni seguenti per limitare le operazioni e sostituire la **stringa di versione** nel percorso dell'API con il valore dalla tabella. Per le versioni cloud e contenitore di **Read v3.2-preview**, ad esempio, aggiornare il percorso dell'API a **https://{endpoint}/vision/v3.2-preview.1/read/analyze[?language]** .
 
 ## <a name="servicecontainer"></a>Servizio/Contenitore
 
@@ -40,15 +40,15 @@ Usare quindi le sezioni seguenti per limitare le operazioni e sostituire la **st
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/ **v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/< **stringa di versione** >/read/analyze[?language]|
+|https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/<**stringa di versione**>/read/analyze[?language]|
     
-È disponibile un nuovo parametro facoltativo _language_ . Se non si conosce la lingua del documento o se il documento è multilingue, non includere questo parametro. 
+È disponibile un nuovo parametro facoltativo _language_. Se non si conosce la lingua del documento o se il documento è multilingue, non includere questo parametro. 
 
 ### `Get Read Results`
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/ **v2.0/read/operations** /{operationId}     |https://{endpoint}/vision/< **stringa di versione** >/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/<**stringa di versione**>/read/analyzeResults/{operationId}|
 
 ### <a name="get-read-operation-result-status-flag"></a>Flag di stato `Get Read Operation Result`
 
@@ -174,21 +174,21 @@ Nella versione 3.0 è stato modificato:
 ## <a name="service-only"></a>Solo servizio
 
 ### `Recognize Text`
-`Recognize Text` è un'operazione di *anteprima* che sarà *deprecata in tutte le versioni dell'API Visione artificiale* . È necessario eseguire la migrazione da `Recognize Text` a `Read` (versione 3.0) o `Batch Read File` (versioni 2.0 e 2.1). È consigliata la versione 3.0 di `Read`, perché include modelli più recenti e migliori per il riconoscimento del testo e funzionalità aggiuntive. Per eseguire l'aggiornamento da `Recognize Text` a `Read`:
+`Recognize Text` è un'operazione di *anteprima* che sarà *deprecata in tutte le versioni dell'API Visione artificiale*. È necessario eseguire la migrazione da `Recognize Text` a `Read` (versione 3.0) o `Batch Read File` (versioni 2.0 e 2.1). È consigliata la versione 3.0 di `Read`, perché include modelli più recenti e migliori per il riconoscimento del testo e funzionalità aggiuntive. Per eseguire l'aggiornamento da `Recognize Text` a `Read`:
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/ **v2.0/recognizeText[?mode]**|https://{endpoint}/vision/< **stringa di versione** >/read/analyze[?language]|
+|https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/<**stringa di versione**>/read/analyze[?language]|
     
 Il parametro _mode_ non è supportato in `Read`. Sia il testo stampato che quello scritto a mano saranno supportati automaticamente.
     
-Nella versione 3.0 è disponibile un nuovo parametro facoltativo _language_ . Se non si conosce la lingua del documento o se il documento è multilingue, non includere questo parametro. 
+Nella versione 3.0 è disponibile un nuovo parametro facoltativo _language_. Se non si conosce la lingua del documento o se il documento è multilingue, non includere questo parametro. 
 
 ### `Get Recognize Text Operation Result`
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/ **v2.0/textOperations/** {operationId}|https://{endpoint}/vision/< **stringa di versione** >/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/**v2.0/textOperations/** {operationId}|https://{endpoint}/vision/<**stringa di versione**>/read/analyzeResults/{operationId}|
 
 ### <a name="get-recognize-text-operation-result-status-flags"></a>Flag di stato `Get Recognize Text Operation Result`
 Quando la chiamata a `Get Recognize Text Operation Result` ha esito positivo, restituisce un campo di stringa di stato nel corpo JSON. 
@@ -213,7 +213,7 @@ L'API versione 3.0 introduce inoltre i miglioramenti seguenti, che è possibile 
 * `angle` indica l'orientamento generale del testo in senso orario, misurato in gradi tra -180 e 180.
 * `width` e `"height"` forniscono le dimensioni del documento e `"unit"` fornisce l'unità di tali dimensioni (pixel o pollici, a seconda del tipo di documento).
 * `page` indica che sono supportati i documenti con più pagine
-* `language` indica la lingua di input del documento (dal parametro facoltativo _language_ ).
+* `language` indica la lingua di input del documento (dal parametro facoltativo _language_).
 
 
 Nella versione 2.x il formato di output è il seguente: 
@@ -312,4 +312,4 @@ In v3.x è stata apportata una modifica:
 
 |Read 2.0 |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/ **v2.0/read/core/Analyze**     |https://{endpoint}/vision/< **stringa di versione** >/read/syncAnalyze[?language]|
+|https://{endpoint}/vision/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/<**stringa di versione**>/read/syncAnalyze[?language]|

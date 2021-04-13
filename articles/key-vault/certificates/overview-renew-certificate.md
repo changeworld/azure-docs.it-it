@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: ffa130c0598d2405469d272a3ac6852f281ed965
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0492575bef93a1b08d48475c3ab32ecbc7becd6e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726363"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364295"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Rinnovare i certificati di Azure Key Vault
 
@@ -74,15 +74,15 @@ Azure Key Vault gestisce anche il rinnovo automatico dei certificati autofirmati
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 * Se lo stato del certificato rilasciato è *Disabilitato* nel portale di Azure, passare a **Operazione relativa al certificato** per visualizzare il messaggio di errore del certificato.
-* Tipo di errore "il CSR usato per ottenere il certificato è già stato usato. Provare a generare un nuovo certificato con un nuovo CSR ".
-  Passare alla sezione "criteri avanzati" del certificato e verificare se l'opzione **"Riutilizza chiave al rinnovo"** è disattivata.
+* Tipo di errore "La richiesta csr usata per ottenere il certificato è già stata usata. Provare a generare un nuovo certificato con una nuova richiesta csr."
+  Passare alla sezione "Criteri avanzati" del certificato e verificare se **l'opzione "Riutilizza chiave** al rinnovo" è disattivata.
 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 **Come si può testare la funzionalità di rotazione automatica del certificato?**
 
-Creare un certificato con validità pari a **1 mese** e quindi impostare l'azione della durata per la rotazione su **1%** . Questa impostazione ruoterà il certificato ogni 7,2 ore.
+Creare un certificato autofirmato con una validità di **1** mese e quindi impostare l'azione di durata per la rotazione su **1%.** Dovrebbe essere possibile visualizzare la cronologia delle versioni del certificato creata nei prossimi giorni.
   
 **I tag verranno replicati dopo il rinnovo automatico del certificato?**
 

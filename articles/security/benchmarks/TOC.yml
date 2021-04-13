@@ -139,6 +139,8 @@
       href: ../../azure-monitor/security-baseline.md
     - name: Baseline di sicurezza di Azure Migrate
       href: ../../migrate/security-baseline.md
+    - name: Linea di base sicurezza del servizio peering di Azure
+      href: ../../peering-service/security-baseline.md
     - name: Baseline di sicurezza di Criteri di Azure
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Baseline di sicurezza di collegamento privato di Azure

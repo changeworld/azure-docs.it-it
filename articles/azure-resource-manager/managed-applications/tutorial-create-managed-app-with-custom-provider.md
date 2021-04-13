@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 50a65583c41dd94b174a33432afcf42b31e67df0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 228d1a8bcd97daebae873de4c69cbec238e0c995
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96437049"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312536"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Esercitazione: Creare un'applicazione gestita con azioni e risorse personalizzate
 
@@ -349,7 +349,7 @@ Dopo la distribuzione dell'istanza di applicazione del catalogo di servizi, sono
 
 ## <a name="looking-for-help"></a>Assistenza
 
-In caso di domande sulle applicazioni gestite di Azure, provare a inviarle a [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managedapps). È possibile che siano già state fornite risposte a domande simili, quindi verificare prima di pubblicarle. Aggiungere il tag `azure-managedapps` per ottenere una risposta rapida.
+In caso di domande sulle applicazioni gestite di Azure, è possibile provare a [stack overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) con tag Azure-Managed-app o [Microsoft Q&a](https://docs.microsoft.com/answers/topics/azure-managed-applications.html) con tag Azure-Managed-Application. È possibile che siano già state fornite risposte a domande simili, quindi verificare prima di pubblicarle. Usare i rispettivi tag per una risposta più rapida. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

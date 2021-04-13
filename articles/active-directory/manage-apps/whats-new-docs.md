@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: 81898875af85becf1766f02a5b7e077cb388a173
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: f83aa7368ec5ac06f2c5a5ebe121c7ce87f93bd1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450039"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304733"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestione applicazioni Azure Active Directory: novità
 
@@ -40,7 +40,7 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 - [Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 - [Avvio rapido: Configurare l'accesso Single Sign-On (SSO) basato su SAML per un'applicazione nel tenant di Azure Active Directory (Azure AD)](add-application-portal-setup-sso.md)
 - [Gestione applicazioni Azure Active Directory: novità](whats-new-docs.md)
-- [Domande frequenti sul proxy di applicazione Active Directory (Azure AD)](application-proxy-faq.md)
+- [Domande frequenti sul proxy di applicazione Active Directory (Azure AD)](application-proxy-faq.yml)
 - [Risolvere i problemi di accesso a un'applicazione da Azure AD app personali](application-sign-in-other-problem-access-panel.md)
 - [Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Ottimizzare il flusso del traffico con Azure Active Directory Application Proxy](application-proxy-network-topology.md)
@@ -75,7 +75,7 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 - [Procedure consigliate per la gestione delle applicazioni](application-management-fundamentals.md)
 - [Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni](plan-an-application-integration.md)
 - [Cos'è la gestione delle applicazioni?](what-is-application-management.md)
-- [Domande frequenti sul proxy di applicazione Active Directory (Azure AD)](application-proxy-faq.md)
+- [Domande frequenti sul proxy di applicazione Active Directory (Azure AD)](application-proxy-faq.yml)
 - [Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md)
 - [Sviluppare app line-of-business per Azure Active Directory](../develop/v2-overview.md)
@@ -83,7 +83,7 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 - [Informazioni sull'accesso collegato](configure-linked-sign-on.md)
 - [Informazioni Single Sign-On basate su password](configure-password-single-sign-on-non-gallery-applications.md)
 - [Informazioni Single Sign-On basate su SAML](configure-saml-single-sign-on.md)
-- [Risolvere i problemi comuni relativi all'aggiunta o alla rimozione di un'applicazione Azure Active Directory](troubleshoot-adding-apps.md)
+- [Risolvere i problemi comuni di aggiunta o rimozione di un'applicazione da Azure Active Directory](troubleshoot-adding-apps.md)
 - [Visualizzazione di app con il tenant di Azure AD per la gestione delle identità](application-types.md)
 - [Informazioni sul modo in cui gli utenti vengono assegnati alle app in Azure Active Directory](ways-users-get-assigned-to-applications.md)
 - [Avvio rapido: Eliminare un'applicazione dal tenant di Azure Active Directory (Azure AD)](delete-application-portal.md)
@@ -141,7 +141,7 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 - [Avvio rapido: Aggiungere un'applicazione al tenant di Azure Active Directory (Azure AD)](add-application-portal.md)
-- [Risolvere i problemi comuni relativi all'aggiunta o alla rimozione di un'applicazione Azure Active Directory](troubleshoot-adding-apps.md)
+- [Risolvere i problemi comuni di aggiunta o rimozione di un'applicazione da Azure Active Directory](troubleshoot-adding-apps.md)
 - [Gestione del consenso alle applicazioni e valutazione delle richieste di consenso](manage-consent-requests.md)
 - [Visualizzazione di app con il tenant di Azure AD per la gestione delle identità](application-types.md)
 - [Informazioni sul modo in cui gli utenti vengono assegnati alle app in Azure Active Directory](ways-users-get-assigned-to-applications.md)

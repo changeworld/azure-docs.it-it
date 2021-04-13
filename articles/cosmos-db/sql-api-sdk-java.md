@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 12/18/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: f18458d0c2ce857ba71463a14844414e631a73ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6644f495f28fb76503948c18354a5af0fcf832e5
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104595701"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364754"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java di Azure Cosmos DB per API SQL: note sulla versione e risorse
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +29,8 @@ ms.locfileid: "104595701"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Connettore Spark](sql-api-sdk-java-spark.md)
+> * [Connettore OLTP Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Connettore OLTP Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provider di risorse REST](/rest/api/cosmos-db-resource-provider/)
@@ -58,13 +59,13 @@ Si tratta di Azure Cosmos DB Sync Java SDK v2 per API SQL, che supporta operazio
 * Correzione di un bug nella gestione di una query tramite l'interoperabilità del servizio.
 
 ### <a name="260"></a><a name="2.6.0"></a>2.6.0
-* È stato aggiunto il supporto per l'esecuzione di query sul feed delle modifiche dal punto nel tempo.
+* Aggiunta del supporto per l'esecuzione di query sul feed di modifiche da un momento all'altro.
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
-* Corregge il problema della cache della partizione primaria nella query DocumentCollection.
+* Correzione del problema della cache della partizione primaria nella query documentCollection.
 
 ### <a name="250"></a><a name="2.5.0"></a>2.5.0
-* Aggiunta del supporto per la configurazione personalizzata dei tentativi 449.
+* Aggiunta del supporto per la configurazione personalizzata di ripetizione dei tentativi 449.
 
 ### <a name="247"></a><a name="2.4.7"></a>2.4.7
 * È stato corretto un problema di timeout del pool di connessioni.
@@ -270,16 +271,16 @@ Si tratta di Azure Cosmos DB Sync Java SDK v2 per API SQL, che supporta operazio
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata. Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
 > [!WARNING]
-> Dopo il 30 maggio 2020, Azure Cosmos DB non effettueranno più correzioni di bug, aggiungono nuove funzionalità e forniranno il supporto per le versioni 1. x di Azure Cosmos DB Java SDK per l'API SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 1.x dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB.
+> Dopo il 30 maggio 2020, Azure Cosmos DB non apporta più correzioni di bug, aggiunge nuove funzionalità e fornisce supporto alle versioni 1.x di Azure Cosmos DB Java SDK per l'API SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 1.x dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB.
 >
-> Dopo il 29 febbraio 2016, Azure Cosmos DB non effettueranno più correzioni di bug, aggiungono nuove funzionalità e forniranno il supporto per le versioni 0. x dell'API Azure Cosmos DB Java SDK per SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 0. x dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB.
+> Dopo il 29 febbraio 2016, Azure Cosmos DB non apporta più correzioni di bug, aggiunge nuove funzionalità e fornisce supporto alle versioni 0.x di Azure Cosmos DB Java SDK per l'API SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 0.x dell'SDK continueranno a essere servite dal Azure Cosmos DB servizio.
 
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
 | [2.6.1](#2.6.1) |17 dicembre 2020 |--- |
 | [2.6.0](#2.6.0) |16 luglio 2020 |--- |
-| [2.5.1](#2.5.1) |03 giugno 2020 |--- |
+| [2.5.1](#2.5.1) |3 giugno 2020 |--- |
 | [2.5.0](#2.5.0) |12 maggio 2020 |--- |
 | [2.4.7](#2.4.7) |20 febbraio 2020 |--- |
 | [2.4.6](#2.4.6) |24 gennaio 2020 |--- |

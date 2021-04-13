@@ -2,24 +2,26 @@
 title: Risorse senza limite di 800 conteggi
 description: Elenca i tipi di risorse di Azure che possono avere più di 800 istanze in un gruppo di risorse.
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.openlocfilehash: 05f96597fb572005f7f32599b19d62ff2cb311cc
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.date: 04/12/2021
+ms.openlocfilehash: d132773ff35d53dc373c759326efc8179f4993d6
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210177"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366539"
 ---
-# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Risorse non limitate a 800 di istanze per gruppo di risorse
+# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Risorse non limitate a 800 istanze per gruppo di risorse
 
-Per impostazione predefinita, è possibile distribuire fino a 800 istanze di un tipo di risorsa in ogni gruppo di risorse. Tuttavia, alcuni tipi di risorse sono esenti dal limite dell'istanza 800. Questo articolo elenca i tipi di risorse di Azure che possono avere più di 800 istanze in un gruppo di risorse. Tutti gli altri tipi di risorse sono limitati a 800 istanze.
+Per impostazione predefinita, è possibile distribuire fino a 800 istanze di un tipo di risorsa in ogni gruppo di risorse. Tuttavia, alcuni tipi di risorse sono esentati dal limite di 800 istanze. Questo articolo elenca i tipi di risorse di Azure che possono avere più di 800 istanze in un gruppo di risorse. Tutti gli altri tipi di risorse sono limitati a 800 istanze.
 
-Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rimuovere il limite dell'istanza 800. Questi tipi di risorse sono indicati in questo articolo.
+Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rimuovere il limite di 800 istanze. Questi tipi di risorse sono riportati in questo articolo.
+
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
+* resourceHealthAlertRules
 * smartDetectorAlertRules
- 
+
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 * automationAccounts
@@ -34,7 +36,7 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices: per impostazione predefinita, limitato a 800 istanze. Il limite può essere aumentato contattando il supporto tecnico.
+* botServices: per impostazione predefinita, è limitato a 800 istanze. Tale limite può essere aumentato contattando il supporto tecnico.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -44,7 +46,7 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 * galleries/images/versions
 * images
 * snapshots
-* virtualMachineScaleSets: per impostazione predefinita, limitato a 800 istanze. Il limite può essere aumentato contattando il supporto tecnico.
+* virtualMachineScaleSets: per impostazione predefinita, è limitato a 800 istanze. Tale limite può essere aumentato contattando il supporto tecnico.
 * virtualMachines
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -54,15 +56,15 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 * registries/buildTasks
-* registri/buildTasks/listSourceRepositoryProperties
+* registries/buildTasks/listSourceRepositoryProperties
 * registries/buildTasks/steps
-* registri/buildTasks/Steps/listBuildArguments
+* registries/buildTasks/steps/listBuildArguments
 * registries/eventGridFilters
 * registries/replications
 * registries/tasks
 * registries/webhooks
 
-## <a name="microsoftd365customerinsights"></a>Microsoft. D365CustomerInsights
+## <a name="microsoftd365customerinsights"></a>Microsoft.D365CustomerInsights
 
 * instances
 
@@ -72,13 +74,14 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
-* flexibleServers
+* server flessibili
 * servers
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 * flexibleServers
 * serverGroups
+* serverGroupsv2
 * servers
 * serversv2
 
@@ -111,7 +114,7 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 * computer: supporta fino a 5.000 istanze
-* estensioni: supporta un numero illimitato di istanze di estensione della macchina virtuale
+* machines/extensions: supporta un numero illimitato di istanze di estensioni di macchina virtuale
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
@@ -130,9 +133,10 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 * netAppAccounts
 * netAppAccounts/capacityPools
-* netAppAccounts/capacityPools/volumi
-* netAppAccounts/capacityPools/Volumes/mountTargets
-* netAppAccounts/capacityPools/volumi/snapshot
+* netAppAccounts/capacityPools/volumes
+* netAppAccounts/capacityPools/volumes/mountTargets
+* netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/volumeGroups
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -164,11 +168,11 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 * privateDnsZones/SOA
 * privateDnsZones/SRV
 * privateDnsZones/TXT
-* privateDnsZones/tutti
+* privateDnsZones/all
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses: per impostazione predefinita, limitato a 800 istanze. Il limite può essere aumentato contattando il supporto tecnico.
+* publicIPAddresses: per impostazione predefinita, è limitato a 800 istanze. Tale limite può essere aumentato contattando il supporto tecnico.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -179,11 +183,12 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections: per impostazione predefinita, limitato a 800 istanze. Il limite può essere aumentato contattando il supporto tecnico.
+* workspaceCollections: per impostazione predefinita, è limitato a 800 istanze. Tale limite può essere aumentato contattando il supporto tecnico.
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
-* capacità: per impostazione predefinita, limitata a 800 istanze. Il limite può essere aumentato contattando il supporto tecnico.
+* autoScaleVCores: per impostazione predefinita, è limitato a 800 istanze. Tale limite può essere aumentato contattando il supporto tecnico.
+* capacità: per impostazione predefinita, limitato a 800 istanze. Tale limite può essere aumentato contattando il supporto tecnico.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
@@ -197,13 +202,13 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 * spazi dei nomi
 
-## <a name="microsoftsingularity"></a>Microsoft. Singularity
+## <a name="microsoftsingularity"></a>Microsoft.Singularity
 
 * account
-* account/accountQuotaPolicies
-* account/groupPolicies
-* account/processi
-* account/storageContainers
+* accounts/accountQuotaPolicies
+* accounts/groupPolicies
+* accounts/jobs
+* accounts/storageContainers
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -220,4 +225,4 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un elenco completo di quote e limiti, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-subscription-service-limits.md).
+Per un elenco completo di quote e limiti, vedere Sottoscrizione di Azure e [limiti, quote e vincoli del servizio.](azure-subscription-service-limits.md)

@@ -1,5 +1,5 @@
 ---
-title: Usare identità gestite in una macchina virtuale per acquisire il token di accesso-Azure AD
+title: Usare le identità gestite in una macchina virtuale per acquisire il token di accesso - Azure AD
 description: Istruzioni dettagliate ed esempi per l'utilizzo di identità gestite per risorse di Azure in una macchina virtuale per acquisire un token di accesso OAuth.
 services: active-directory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 541f76ad825f492679530902c571096ca4b01902
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ee7739d9dbfd34190dc1e856b98fdd21be15743
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98726232"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364941"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Come usare le identità gestite per risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso 
 
@@ -79,23 +79,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | Un campo di intestazione della richiesta HTTP, richiesto dalle identità gestite per risorse di Azure come mitigazione degli attacchi SSRF (Server Side Request Forgery). Questo valore deve essere impostato su "true", usando tutte lettere minuscole. |
 | `object_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore object_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
 | `client_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore client_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
-| `mi_res_id` | Opzionale Parametro della stringa di query, che indica il mi_res_id (ID risorsa di Azure) dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente. |
-
-Richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale delle identità gestite per risorse di Azure *(la cui deprecazione è pianificata per il gennaio 2019)*:
-
-```http
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
-Metadata: true
-```
-
-| Elemento | Descrizione |
-| ------- | ----------- |
-| `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
-| `http://localhost:50342/oauth2/token` | L'endpoint delle identità gestite per risorse di Azure, dove 50342 è la porta predefinita ed è configurabile. |
-| `resource` | Parametro della stringa di query, che indica l'URI ID app della risorsa di destinazione. Viene visualizzato anche nell'attestazione `aud` (audience, destinatari) del token emesso. In questo esempio viene richiesto un token per accedere ad Azure Resource Manager, con l'URI di ID app `https://management.azure.com/`. |
-| `Metadata` | Un campo di intestazione della richiesta HTTP, richiesto dalle identità gestite per risorse di Azure come mitigazione degli attacchi SSRF (Server Side Request Forgery). Questo valore deve essere impostato su "true", usando tutte lettere minuscole.|
-| `object_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore object_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
-| `client_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore client_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
+| `mi_res_id` | (Facoltativo) Parametro della stringa di query che indica mi_res_id (ID risorsa di Azure) dell'identità gestita per cui si vuole il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente. |
 
 Risposta di esempio:
 
@@ -342,11 +326,12 @@ echo The managed identities for Azure resources access token is $access_token
 
 ## <a name="token-caching"></a>Memorizzazione nella cache dei token
 
-Mentre il sottosistema delle identità gestite per risorse di Azure (servizio metadati dell'istanza/estensione della macchina virtuale per le identità gestite per risorse di Azure) memorizza i token nella cache, è consigliabile implementare la memorizzazione nella cache del token anche nel codice. Di conseguenza è necessario prepararsi per gli scenari in cui la risorsa indica che il token è scaduto. 
+Anche se il sottosistema delle identità gestite per le risorse di Azure memorizza i token nella cache, è anche consigliabile implementare la memorizzazione nella cache dei token nel codice. Di conseguenza è necessario prepararsi per gli scenari in cui la risorsa indica che il token è scaduto. 
 
 Le chiamate in transito ad Azure AD vengono generate solo quando:
-- si verifica il mancato riscontro nella cache a causa dell'assenza di token nella cache del sottosistema delle identità gestite per risorse di Azure
-- il token memorizzato nella cache è scaduto
+
+- La mancata memorizzazione nella cache si verifica a causa di nessun token nelle identità gestite per la cache del sottosistema risorse di Azure.
+- Il token memorizzato nella cache è scaduto.
 
 ## <a name="error-handling"></a>Gestione degli errori
 
@@ -365,19 +350,19 @@ Se si verifica un errore, il corpo della risposta HTTP corrispondente contiene d
 | Elemento | Descrizione |
 | ------- | ----------- |
 | error   | Identificatore dell'errore. |
-| error_description | Descrizione dettagliata dell'errore. **Le descrizioni degli errori possono cambiare in qualsiasi momento. Non scrivere codice che si dirama in base ai valori nella descrizione dell'errore.**|
+| error_description | Descrizione dettagliata dell'errore. **Le descrizioni degli errori possono cambiare in qualsiasi momento. Non scrivere codice che dirama in base ai valori nella descrizione dell'errore.**|
 
 ### <a name="http-response-reference"></a>Riferimenti per la risposta HTTP
 
 Questa sezione illustra le possibili risposte di errore. Uno stato di tipo "200 OK" costituisce una risposta con esito positivo e il token di accesso è contenuto nei dati JSON del corpo della risposta, nell'elemento access_token.
 
-| Codice di stato | Errore | Descrizione dell'errore | Soluzione |
+| Codice stato | Errore | Descrizione dell'errore | Soluzione |
 | ----------- | ----- | ----------------- | -------- |
-| 400 - Richiesta non valida | invalid_resource | AADSTS50001: l'applicazione denominata *\<URI\>* non è stata trovata nel tenant denominato *\<TENANT-ID\>* . Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che la richiesta di autenticazione sia stata inviata al tenant sbagliato.\ | (Solo Linux) |
+| 400 - Richiesta non valida | invalid_resource | AADSTS50001: l'applicazione denominata non è stata *\<URI\>* trovata nel tenant denominato *\<TENANT-ID\>* . Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che la richiesta di autenticazione sia stata inviata al tenant sbagliato.\ | (Solo Linux) |
 | 400 - Richiesta non valida | bad_request_102 | L'intestazione dei metadati richiesta non è stata specificata. | Il campo di intestazione della richiesta `Metadata` non è presente nella richiesta oppure non è formattato correttamente. Il valore deve essere specificato come `true`, usando tutte lettere minuscole. Per un esempio, vedere "Richiesta di esempio" nella sezione REST precedente.|
 | 401 - Non autorizzato | unknown_source | Origine sconosciuta *\<URI\>* | Verificare che l'URI della richiesta HTTP GET sia formattato correttamente. La parte `scheme:host/resource-path` deve essere specificata come `http://localhost:50342/oauth2/token`. Per un esempio, vedere "Richiesta di esempio" nella sezione REST precedente.|
 |           | invalid_request | Nella richiesta manca un parametro obbligatorio oppure la richiesta include un valore di parametro non valido, contiene uno stesso parametro più volte o non è formata in modo corretto. |  |
-|           | unauthorized_client | Il client non è autorizzato a richiedere un token di accesso con questo metodo. | Causata da una richiesta che non ha usato il loopback locale per chiamare l'estensione o in una macchina virtuale che non ha identità gestite per le risorse di Azure configurate correttamente. Per informazioni sulla configurazione della macchina virtuale, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md). |
+|           | unauthorized_client | Il client non è autorizzato a richiedere un token di accesso con questo metodo. | Causata da una richiesta in una macchina virtuale che non dispone di identità gestite per le risorse di Azure configurate correttamente. Per informazioni sulla configurazione della macchina virtuale, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md). |
 |           | access_denied | Il proprietario della risorsa o il server di autorizzazione ha rifiutato la richiesta. |  |
 |           | unsupported_response_type | Il server di autorizzazione non supporta l'acquisizione di un token di accesso con questo metodo. |  |
 |           | invalid_scope | L'ambito richiesto non è valido, è sconosciuto o ha un formato non valido. |  |

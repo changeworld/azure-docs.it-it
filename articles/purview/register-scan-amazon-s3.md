@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 542b6580994a2054526f0ddbb3ad93dc27c28fcc
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: a0559028192b0a99aeffd45a3b2896f9c9d159be
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107653"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310198"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Connettore Azure per le competenze per Amazon S3
 
@@ -116,9 +116,30 @@ Questa procedura descrive come creare una nuova credenziale di competenza da usa
 
     Selezionare **Crea** al termine della creazione delle credenziali.
 
-Per altre informazioni sulle credenziali di competenza, vedere la [documentazione di anteprima pubblica di Azure](manage-credentials.md).
+1. Se non è ancora stato fatto, copiare e incollare i valori di ID **account Microsoft** e **ID esterno** da usare quando si [Crea un nuovo ruolo AWS per](#create-a-new-aws-role-for-purview)ambito, che è il passaggio successivo.
+
+Per altre informazioni sulle credenziali di competenza, vedere [credenziali per l'autenticazione di origine in Azure](manage-credentials.md).
 
 ### <a name="create-a-new-aws-role-for-purview"></a>Creare un nuovo ruolo AWS per la competenza
+
+Per questa procedura è necessario immettere i valori per l'ID dell'account di Azure e l'ID esterno durante la creazione del ruolo AWS.
+
+Se non si dispone di questi valori, è necessario individuarli per primi nelle [credenziali di competenza](#create-a-purview-credential-for-your-aws-bucket-scan).
+
+**Per individuare l'ID dell'account Microsoft e l'ID esterno**:
+
+1. In ambito, passare alla pagina relativa alla  >  **sicurezza e** alle  >  **credenziali** di accesso del centro di gestione.
+
+1. Selezionare le credenziali [create per l'analisi del bucket di AWS](#create-a-purview-credential-for-your-aws-bucket-scan), quindi fare clic su **modifica** nella barra degli strumenti.
+
+1. Nel riquadro **Modifica credenziali** visualizzato a destra copiare i valori di ID **account Microsoft** e **ID esterno** in un file separato o renderli utili per incollare il campo pertinente in AWS.
+
+    Ad esempio:
+
+    [![Individuare i valori id account Microsoft e ID esterno. ](./media/register-scan-amazon-s3/locate-account-id-external-id.png)](./media/register-scan-amazon-s3/locate-account-id-external-id.png#lightbox)
+
+
+**Per creare il ruolo AWS per la competenza**:
 
 1.  Aprire la console di **Amazon Web Services** e in **sicurezza, identità e conformità** Selezionare **IAM**.
 
@@ -129,12 +150,8 @@ Per altre informazioni sulle credenziali di competenza, vedere la [documentazion
     |Campo  |Descrizione  |
     |---------|---------|
     |**ID account**     |    Immettere l'ID dell'account Microsoft. ad esempio `615019938638`     |
-    |**ID esterno**     |   In Opzioni selezionare **Richiedi ID esterno**, quindi immettere l'ID esterno nel campo designato. <br>ad esempio `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`    <br><br>Questo ID esterno è reperibile.  |
+    |**ID esterno**     |   In Opzioni selezionare **Richiedi ID esterno**, quindi immettere l'ID esterno nel campo designato. <br>ad esempio `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`     |
     | | |
-
-    > [!NOTE]
-    > È possibile trovare i valori per l' **ID dell'account Microsoft** e l' **ID esterno** nell'area relativa alle credenziali del **centro di gestione**  >   , in cui sono state [create le credenziali di competenza](#create-a-purview-credential-for-your-aws-bucket-scan).
-    >
 
     Ad esempio:
 

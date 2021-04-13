@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: f18977bb92b37546d5980134cba858b1f76b464c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b88a7e6a9851018fce255fac0e39a30563b9bf4
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720016"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363836"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analizzare i dati in un account di archiviazione
 
@@ -45,10 +45,10 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 È possibile analizzare i dati nell'account ADLS Gen2 predefinito dell'area di lavoro oppure collegare un account di archiviazione BLOB o ADLS Gen2 all'area di lavoro tramite "**Gestisci**" > "**Servizi collegati**" > "**Nuovo**" (la procedura seguente fa riferimento all'account ADLS Gen2 primario).
 
 1. In Synapse Studio passare all'hub **Data** (Dati) e quindi selezionare **Linked** (Collegati).
-1. Passare ad **Archivio Azure Data Lake Gen2**  >  **area di lavoro (Primary-contosolake)**.
+1. Passare a **Azure Data Lake Storage Gen2**  >  **myworkspace (Primario - contosolake)**.
 1. Selezionare **utenti (Primario)** . Verrà visualizzata la cartella **NYCTaxi**. All'interno dovrebbero essere visibili due cartelle denominate **PassengerCountStats_csvformat** e **PassengerCountStats_parquetformat**.
 1. Aprire la cartella **PassengerCountStats_parquetformat**. All'interno sarà presente un file parquet con nome come `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`.
-1. Fare clic con il pulsante destro del mouse su **. parquet**, scegliere **nuovo notebook**, quindi selezionare **carica in dataframe**. Viene creato un nuovo notebook con una cella simile alla seguente:
+1. Fare clic con il pulsante destro del mouse su **.parquet,** scegliere **Nuovo notebook,** **quindi selezionare Carica nel dataframe.** Viene creato un nuovo notebook con una cella simile alla seguente:
 
     ```py
     %%pyspark
@@ -57,8 +57,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
     display(df.limit(10))
     ```
 
-1. Connettersi al pool Spark denominato **Spark1**. Eseguire la cella.
-1. Fare clic di nuovo sulla cartella **utenti** . Fare di nuovo clic con il pulsante destro del mouse sul file con **estensione parquet** , quindi selezionare **nuovo script SQL**  >  **Seleziona le prime 100 righe**. Verrà creato uno script SQL simile al seguente:
+1. Connettersi al pool Spark denominato **Spark1.** Eseguire la cella.
+1. Selezionare di nuovo la **cartella users.** Fare di nuovo clic con il pulsante destro del mouse sul file con estensione **parquet** e quindi scegliere **Nuovo script SQL** SELECT TOP  >  **100 rows**. Verrà creato uno script SQL simile al seguente:
 
     ```sql
     SELECT 
@@ -69,7 +69,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
     ) AS [result]
     ```
 
-    Nella finestra script verificare che il campo **Connetti a** sia impostato sul pool SQL senza server **incorporato** .
+    Nella finestra dello script assicurarsi che il **campo Connetti** a sia impostato sul pool SQL **serverless** predefinito.
 
 1. Eseguire lo script.
 

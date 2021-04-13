@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 04/12/2021
 ms.author: victorh
-ms.openlocfilehash: adbc2a9eb6cd3b054df84911604143ddb711ad20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e08be08f2d898b017bb34ed38c9c3a69ee0582fa
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499136"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312978"
 ---
 # <a name="azure-firewall-active-ftp-support"></a>Supporto FTP attivo del firewall di Azure
 
@@ -20,6 +20,12 @@ Con FTP attivo, il server FTP avvia la connessione dati alla porta dati client F
 
 Per impostazione predefinita, il supporto FTP attivo è disabilitato nel firewall di Azure per la protezione da attacchi di rimbalzo FTP tramite il `PORT` comando FTP. Tuttavia, è possibile abilitare il FTP attivo quando si esegue la distribuzione usando Azure PowerShell, l'interfaccia della riga di comando di Azure o un modello ARM di Azure.
 
+Per supportare l'FTP in modalità attiva, è necessario aprire le seguenti porte TCP:
+
+- Porta 21 del server FTP da qualsiasi posizione (il client avvia la connessione)
+- Porta 21 del server FTP alle porte > 1023 (il server risponde alla porta di controllo del client)
+- Porta 20 del server FTP alle porte > 1023 nei client (il server avvia la connessione dati alla porta dati del client)
+- Porta 20 del server FTP dalle porte > 1023 nei client (il client invia ACK alla porta dati del server)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

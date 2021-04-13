@@ -4,13 +4,13 @@ description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 03/15/2021
-ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 85be4100d62971ef7f69840ae3e9b117fbc3c047
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466498"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305226"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di Monitoraggio di Azure 
 
@@ -91,9 +91,10 @@ Se si sta cercando di generare un avviso per una metrica specifica ma non è pos
 Se si sta cercando di avvisare su [valori di dimensione specifici di una metrica](./alerts-metric-overview.md#using-dimensions), ma questi valori non sono stati trovati, tenere presente quanto segue:
 
 1. La visualizzazione dei valori delle dimensioni nell'elenco **Valori delle dimensioni** potrebbe richiedere alcuni minuti
-1. I valori delle dimensioni visualizzati si basano sui dati delle metriche raccolti l'ultimo giorno
-1. Se il valore della dimensione non è ancora stato emesso o non è visualizzato, è possibile usare l'opzione "Aggiungi valore personalizzato" per aggiungere un valore di dimensione personalizzato
-1. Se si vuole avvisare tutti i valori possibili di una dimensione (compresi i valori futuri), scegliere l'opzione ' Seleziona tutti i valori correnti e futuri '
+2. I valori delle dimensioni visualizzati si basano sui dati delle metriche raccolti l'ultimo giorno
+3. Se il valore della dimensione non è ancora stato emesso o non è visualizzato, è possibile usare l'opzione "Aggiungi valore personalizzato" per aggiungere un valore di dimensione personalizzato
+4. Se si vuole avvisare tutti i valori possibili di una dimensione (compresi i valori futuri), scegliere l'opzione ' Seleziona tutti i valori correnti e futuri '
+5. Per impostazione predefinita, le dimensioni delle metriche personalizzate delle risorse Application Insights sono disattivate. Per attivare la raccolta di dimensioni per queste metriche personalizzate, vedere [qui](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>Regole di avviso delle metriche ancora definite in una risorsa eliminata 
 

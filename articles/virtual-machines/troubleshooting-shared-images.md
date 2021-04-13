@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 015fa201fe1c31dde2e30c2fe689ac13452b1b01
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9652e940674ec7580b006cd38df2a7d17014f939
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607593"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309986"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Risolvere i problemi delle raccolte di immagini condivise in Azure
 
@@ -303,6 +303,14 @@ Se si verificano problemi durante l'esecuzione di operazioni su raccolte di imma
 **Motivo**: la definizione dell'immagine usata per distribuire la macchina virtuale non contiene alcuna versione di immagine inclusa nella versione più recente.  
 **Soluzione temporanea**: verificare che sia presente almeno una versione dell'immagine con ' Escludi dall'ultima ' impostata su false. 
 
+**Messaggio**: *l'immagine della raccolta/subscriptions/<SubscriptionID \> /resourceGroups/<resourceGroup \> /providers/Microsoft.Compute/galleries/<galleryname \> /images/<ImageName \> /Versions/<versionNumber \> non è disponibile nell'area <area \> geografica. Contattare l'immagine Owner per eseguire la replica in questa area oppure modificare l'area richiesta.*  
+**Motivo**: la versione selezionata per la distribuzione non esiste o non dispone di una replica nell'area indicata.  
+**Soluzione temporanea**: verificare che il nome della risorsa immagine sia corretto e che esista almeno una replica nell'area indicata. 
+
+**Messaggio**: *l'immagine della raccolta/subscriptions/<SubscriptionID \> /resourceGroups/<resourceGroup \> /providers/Microsoft.Compute/galleries/<galleryname \> /images/<ImageName \> non è disponibile nell'area <area \> geografica. Contattare l'immagine Owner per eseguire la replica in questa area oppure modificare l'area richiesta.*  
+**Motivo**: la definizione dell'immagine selezionata per la distribuzione non contiene versioni di immagini incluse nell'ultima versione e anche nell'area indicata.  
+**Soluzione temporanea**: verificare che sia presente almeno una versione dell'immagine nell'area in cui l'impostazione ' Escludi dall'ultimo ' è impostata su false. 
+
 **Messaggio**: *il client dispone dell'autorizzazione per eseguire l'azione ' Microsoft. Compute/Galleries/images/Versions/Read ' nell'ambito <ResourceId \> , tuttavia il tenant corrente <tenantID \> non è autorizzato ad accedere alla sottoscrizione collegata <subscriptionID \> .*  
 **Motivo**: la macchina virtuale o il set di scalabilità è stato creato tramite un'immagine sig in un altro tenant. Si è tentato di apportare una modifica alla macchina virtuale o al set di scalabilità, ma non si è autorizzati ad accedere alla sottoscrizione che possiede l'immagine.  
 **Soluzione temporanea**: contattare il proprietario della sottoscrizione della versione dell'immagine per concedere l'accesso in lettura alla versione dell'immagine.
@@ -318,10 +326,6 @@ Se si verificano problemi durante l'esecuzione di operazioni su raccolte di imma
 **Messaggio**: *manca il parametro obbligatorio ' osProfile ' (null).*  
 **Motivo**: la VM viene creata da un'immagine generalizzata e manca il nome utente, la password o le chiavi SSH dell'amministratore. Poiché le immagini generalizzate non conservano il nome utente, la password o le chiavi SSH dell'amministratore, questi campi devono essere specificati durante la creazione di una macchina virtuale o di un set di scalabilità.  
 **Soluzione alternativa**: specificare il nome utente, la password o le chiavi SSH dell'amministratore oppure usare una versione di immagine specializzata.
-
-**Messaggio**: *non è possibile creare la versione dell'immagine della raccolta da: <ResourceId \> poiché lo stato del sistema operativo nell'immagine della raccolta padre (' Specialized ') non è' generalizzato '.*  
-**Causa**: la versione dell'immagine viene creata da un'origine generalizzata, ma la relativa definizione padre è specializzata.  
-**Soluzione temporanea**: creare la versione dell'immagine usando un'origine specializzata o usare una definizione padre generalizzata.
 
 **Messaggio**: *non è possibile aggiornare il set di scalabilità di macchine virtuali <vmssName \> perché lo stato corrente del sistema operativo del set di scalabilità di macchine virtuali è generalizzato, che è diverso da quello dell'immagine della raccolta aggiornata, che è specializzato.*  
 **Causa**: l'immagine di origine corrente per il set di scalabilità è un'immagine di origine generalizzata, ma è in fase di aggiornamento con un'immagine di origine specializzata. L'immagine di origine corrente e la nuova immagine di origine per un set di scalabilità devono essere dello stesso stato.  

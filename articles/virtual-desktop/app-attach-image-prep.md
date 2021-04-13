@@ -1,36 +1,32 @@
 ---
-title: Windows Virtual Desktop prepara MSIX app alleghi immagine anteprima-Azure
-description: Come creare un'immagine di alconnessione app MSIX per un pool host di desktop virtuali Windows.
+title: Windows Virtual Desktop prepare montaggio app MSIX image - Azure
+description: Come creare un'montaggio app MSIX per un pool di host di Desktop virtuale Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a2d909d04c38a7d6bad42020175cbbbfcfd7bf9f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 443f117907381862639564dfbf9752562f4a3564
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448356"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363666"
 ---
-# <a name="prepare-an-msix-image-for-windows-virtual-desktop"></a>Preparare un'immagine MSIX per desktop virtuale Windows
+# <a name="prepare-an-msix-image-for-windows-virtual-desktop"></a>Preparare un'immagine MSIX per Desktop virtuale Windows
 
-> [!IMPORTANT]
-> La connessione all'app MSIX è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+montaggio app MSIX è una soluzione di applicazione a più livelli che consente di collegare dinamicamente le app da un pacchetto MSIX a una sessione utente. Il sistema di pacchetti MSIX separa le app dal sistema operativo, semplificando la creazione di immagini per le macchine virtuali. I pacchetti MSIX offrono anche un maggiore controllo sulle app a cui gli utenti possono accedere nelle proprie macchine virtuali. È anche possibile separare le app dall'immagine master e assegnarle agli utenti in un secondo momento.
 
-La connessione all'app MSIX (anteprima) è una soluzione di applicazione a più livelli che consente di alleghi dinamicamente le app da un pacchetto MSIX a una sessione utente. Il sistema di pacchetti MSIX separa le app dal sistema operativo, semplificando la creazione di immagini per le macchine virtuali. I pacchetti MSIX offrono inoltre un maggiore controllo sulle app a cui gli utenti possono accedere nelle proprie macchine virtuali. È anche possibile separare le app dall'immagine master e assegnarle agli utenti in un secondo momento.
+## <a name="create-a-vhd-or-vhdx-package-for-msix"></a>Creare un pacchetto VHD O VHDX per MSIX
 
-## <a name="create-a-vhd-or-vhdx-package-for-msix"></a>Creare un pacchetto VHD o VHDX per MSIX
-
-I pacchetti MSIX devono trovarsi in un formato VHD o VHDX per funzionare correttamente. Ciò significa che, per iniziare, è necessario creare un pacchetto VHD o VHDX.
+I pacchetti MSIX devono essere in formato VHD o VHDX per funzionare correttamente. Questo significa che, per iniziare, è necessario creare un disco rigido virtuale o un pacchetto VHDX.
 
 >[!NOTE]
->Se non è già stato fatto, assicurarsi di abilitare Hyper-V seguendo le istruzioni riportate in [installare Hyper-v in Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+>Se non è già stato fatto, assicurarsi di abilitare Hyper-V seguendo le istruzioni in [Installare Hyper-V in Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
 
-Per creare un pacchetto VHD o VHDX per MSIX:
+Per creare un pacchetto VHD O VHDX per MSIX:
 
-1. Aprire prima di tutto PowerShell.
+1. Aprire prima PowerShell.
 2. Eseguire quindi il cmdlet seguente per creare un disco rigido virtuale:
 
     ```powershell
@@ -38,7 +34,7 @@ Per creare un pacchetto VHD o VHDX per MSIX:
     ```
 
     >[!NOTE]
-    > Verificare che il disco rigido virtuale sia sufficientemente grande da poter disporre del pacchetto MSIX espanso.
+    > Assicurarsi che il disco rigido virtuale sia sufficientemente grande da contenere il pacchetto MSIX espanso.
 
 3. Eseguire il cmdlet seguente per montare il disco rigido virtuale appena creato:
 
@@ -52,7 +48,7 @@ Per creare un pacchetto VHD o VHDX per MSIX:
     $disk = Initialize-Disk -Passthru -Number $vhdObject.Number
     ```
 
-5. Eseguire questo cmdlet per creare una nuova partizione per il disco rigido virtuale inizializzato:
+5. Eseguire quindi questo cmdlet per creare una nuova partizione per il disco rigido virtuale inizializzato:
 
     ```powershell
     $partition = New-Partition -AssignDriveLetter -UseMaximumSize -DiskNumber $disk.Number
@@ -64,11 +60,11 @@ Per creare un pacchetto VHD o VHDX per MSIX:
     Format-Volume -FileSystem NTFS -Confirm:$false -DriveLetter $partition.DriveLetter -Force
     ```
 
-7. Infine, creare una cartella padre nel disco rigido virtuale montato. Questo passaggio è necessario perché il pacchetto MSIX deve avere una cartella padre per il corretto funzionamento. Non è importante il nome della cartella padre, purché esista la cartella padre.
+7. Infine, creare una cartella padre nel disco rigido virtuale montato. Questo passaggio è necessario perché il pacchetto MSIX deve avere una cartella padre per funzionare correttamente. Non è importante quale sia il nome della cartella padre, purché la cartella padre esista.
 
 ## <a name="expand-msix"></a>Espandere MSIX
 
-Successivamente, sarà necessario espandere l'immagine MSIX "decomprimendo" i relativi file nel disco rigido virtuale.
+Successivamente, sarà necessario espandere l'immagine MSIX "decomprimendo" i file nel disco rigido virtuale.
 
 Per espandere l'immagine MSIX:
 
@@ -80,34 +76,34 @@ Per espandere l'immagine MSIX:
 
 4. Aprire un prompt dei comandi come amministratore e passare alla cartella in cui è stato scaricato e decompresso lo strumento msixmgr.
 
-5. Eseguire il cmdlet seguente per decomprimere il MSIX nel disco rigido virtuale creato nella sezione precedente.
+5. Eseguire il cmdlet seguente per decomprimere MSIX nel disco rigido virtuale creato nella sezione precedente.
 
     ```powershell
     msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder you created earlier>" -applyacls
     ```
 
-    Il messaggio seguente dovrebbe essere visualizzato al termine dell'operazione di decompressione:
+    Al termine della decompressione verrà visualizzato il messaggio seguente:
 
-    > Gli ACL sono stati decompressi e applicati per il pacchetto: <package name> . msix
+    > Decompressione e applicazione degli elenchi di controllo di accesso per il pacchetto: <package name> msix
 
     >[!NOTE]
-    > Se si usano pacchetti di Microsoft Store for business o Education nella rete o nei dispositivi non connessi a Internet, è necessario scaricare e installare le licenze dei pacchetti dalla Microsoft Store per eseguire le app. Per ottenere le licenze, vedere [usare i pacchetti offline](app-attach.md#use-packages-offline).
+    > Se si usano pacchetti da Microsoft Store per le aziende o Education nella rete o nei dispositivi non connessi a Internet, è necessario scaricare e installare le licenze dei pacchetti dal Microsoft Store per eseguire le app. Per ottenere le licenze, vedere [Usare i pacchetti offline.](app-attach.md#use-packages-offline)
 
-6. Passare al disco rigido virtuale montato e aprire la cartella dell'app per verificare che il contenuto del pacchetto sia presente.
+6. Passare al disco rigido virtuale montato e aprire la cartella dell'app per assicurarsi che il contenuto del pacchetto sia presente.
 
 7. Smontare il disco rigido virtuale.
 
 ## <a name="upload-msix-image-to-share"></a>Caricare l'immagine MSIX da condividere
 
-Dopo aver creato il pacchetto MSIX, è necessario caricare il file VHD, VHDX o CIM risultante in una condivisione in cui le macchine virtuali degli utenti possono accedervi.
+Dopo aver creato il pacchetto MSIX, è necessario caricare il file VHD, VHDX o CIM risultante in una condivisione a cui possono accedere le macchine virtuali degli utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Porre le domande della community su questa funzionalità nel [desktop virtuale di Windows TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Porre le domande della community su questa funzionalità nella [techCommunity di Desktop virtuale Windows.](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
 
 È anche possibile lasciare feedback per Desktop virtuale Windows nell'[hub di commenti e suggerimenti per Desktop virtuale Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
-Di seguito sono riportati alcuni altri articoli che possono risultare utili:
+Di seguito sono riportati altri articoli che possono risultare utili:
 
-- [Glossario per il fissaggio dell'app MSIX](app-attach-glossary.md)
-- [Domande frequenti sull'aggiunta di app MSIX](app-attach-faq.md)
+- [montaggio app MSIX glossario](app-attach-glossary.md)
+- [montaggio app MSIX domande frequenti](app-attach-faq.md)

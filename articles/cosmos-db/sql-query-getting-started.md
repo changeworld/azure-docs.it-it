@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 04/09/2021
 ms.author: tisande
-ms.openlocfilehash: d5d5bc0a108cd08283ea29ce3bdc2de49310c5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad43d83782a2c7e9eb5cc20128be89a45f0213d1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499561"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312179"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introduzione alle query SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ Il resto di questo documento illustra come iniziare a scrivere query SQL in Azur
 
 ## <a name="upload-sample-data"></a>Carica dati di esempio
 
-Nell'account di Cosmos DB dell'API SQL aprire il [Esplora dati](./data-explorer.md) per creare un contenitore denominato `Families` . Al termine della creazione, utilizzare il browser strutture di dati per trovarlo e aprirlo. Nel `Families` contenitore viene visualizzata l' `Items` opzione immediatamente sotto il nome del contenitore. Aprire questa opzione. verrà visualizzato un pulsante, sulla barra dei menu al centro della schermata, per creare un "nuovo elemento". Questa funzionalità verrà usata per creare gli elementi JSON seguenti.
+Nell'account di Cosmos DB dell'API SQL aprire il [Esplora dati](./data-explorer.md) per creare un contenitore denominato `Families` . Dopo aver creato il contenitore, usare il browser strutture di dati per trovarlo e aprirlo. Nel `Families` contenitore viene visualizzata l' `Items` opzione immediatamente sotto il nome del contenitore. Aprire questa opzione. verrà visualizzato un pulsante, sulla barra dei menu al centro della schermata, per creare un "nuovo elemento". Questa funzionalità verrà usata per creare gli elementi JSON seguenti.
 
 ### <a name="create-json-items"></a>Crea elementi JSON
 

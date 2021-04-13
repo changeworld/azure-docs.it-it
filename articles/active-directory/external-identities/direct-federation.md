@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff8ac540459ad79a8980542254cc15518959b5c0
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 830119a5b3a7781e8b12e3d4df870f539a2cd63a
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552292"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364907"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federazione diretta con Active Directory Federation Services (AD FS) e provider di terze parti per utenti guest (anteprima)
 
@@ -33,24 +33,24 @@ Dopo aver configurato la federazione diretta con un'organizzazione, tutti i nuov
  - Se si configura la federazione diretta con un'organizzazione partner, si invitano utenti guest e quindi l'organizzazione partner passa successivamente ad Azure AD, gli utenti guest che hanno già riscattato gli inviti continueranno a usare la federazione diretta, fintanto che esistono i criteri di federazione diretti nel tenant.
  - Se si elimina la federazione diretta con un'organizzazione partner, gli utenti guest che attualmente usano la federazione diretta non potranno più eseguire l'accesso.
 
-In uno di questi scenari, è possibile aggiornare il metodo di autenticazione di un utente Guest [reimpostando lo stato di riscatto](reset-redemption-status.md).
+In uno di questi scenari è possibile aggiornare il metodo di autenticazione di un utente guest [reimpostando il relativo stato di riscatto](reset-redemption-status.md).
 
 La federazione diretta è associata agli spazi dei nomi di dominio, ad esempio contoso.com e fabrikam.com. Quando si stabilisce una configurazione di federazione diretta con Active Directory Federation Services o un provider di identità di terze parti, le organizzazioni associano uno o più spazi dei nomi di dominio a questi provider di identità. 
 
 ## <a name="end-user-experience"></a>Esperienza utente finale 
-Con la federazione diretta, gli utenti guest possono accedere al tenant di Azure AD usando il proprio account aziendale. Quando accedono alle risorse condivise e viene richiesto di eseguire l'accesso, gli utenti di federazione diretta vengono reindirizzati al proprio provider di identità. Dopo aver eseguito l'accesso, vengono reindirizzati ad Azure AD per accedere alle risorse. I token di aggiornamento degli utenti di federazione diretta sono validi per 12 ore, ovvero il valore di [lunghezza predefinita per il token di aggiornamento pass-through](../develop/active-directory-configurable-token-lifetimes.md#exceptions) in Azure AD. Se per il provider di identità federato ha abilitato l'accesso Single Sign-On, l'utente userà l'esperienza di accesso SSO e non verrà visualizzato alcun messaggio di richiesta di accesso dopo l'autenticazione iniziale.
+Con la federazione diretta, gli utenti guest possono accedere al tenant di Azure AD usando il proprio account aziendale. Quando accedono alle risorse condivise e viene richiesto di eseguire l'accesso, gli utenti di federazione diretta vengono reindirizzati al proprio provider di identità. Dopo aver eseguito l'accesso, vengono reindirizzati ad Azure AD per accedere alle risorse. I token di aggiornamento degli utenti di federazione diretta sono validi per 12 ore, ovvero il valore di [lunghezza predefinita per il token di aggiornamento pass-through](../develop/active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties) in Azure AD. Se per il provider di identità federato ha abilitato l'accesso Single Sign-On, l'utente userà l'esperienza di accesso SSO e non verrà visualizzato alcun messaggio di richiesta di accesso dopo l'autenticazione iniziale.
 
 ## <a name="sign-in-endpoints"></a>Endpoint di accesso
 
-Gli utenti guest di federazione diretta possono ora accedere alle app multi-tenant o Microsoft di terze parti usando un [endpoint comune](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in altre parole, un URL di app generale che non include il contesto del tenant). Durante il processo di accesso, l'utente Guest sceglie le **Opzioni di accesso** e quindi seleziona **Accedi a un'organizzazione**. L'utente digita quindi il nome dell'organizzazione e continua ad accedere con le proprie credenziali.
+Gli utenti guest di federazione diretta possono ora accedere alle app multi-tenant o Microsoft first-party usando un [endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) comune, ovvero un URL generale dell'app che non include il contesto del tenant. Durante il processo di accesso, l'utente guest sceglie Opzioni di accesso **e** quindi seleziona **Accedi a un'organizzazione.** L'utente quindi digitare il nome dell'organizzazione e continua l'accesso usando le proprie credenziali.
 
-Gli utenti guest di federazione diretta possono anche usare gli endpoint dell'applicazione che includono le informazioni del tenant, ad esempio:
+Gli utenti guest di federazione diretta possono anche usare endpoint dell'applicazione che includono le informazioni sul tenant, ad esempio:
 
   * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
   * `https://portal.azure.com/<your tenant ID>`
 
-È anche possibile assegnare agli utenti guest di Federazione direttamente un collegamento diretto a un'applicazione o a una risorsa includendo, ad esempio, le informazioni sul tenant `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` .
+È anche possibile assegnare agli utenti guest della federazione diretta un collegamento diretto a un'applicazione o a una risorsa includendo le informazioni sul tenant, ad esempio `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` .
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -88,8 +88,8 @@ Sì. Se il dominio non è stato verificato e il tenant non ha subito un'[acquisi
 Quando viene stabilita la federazione diretta con un'organizzazione partner, ha la precedenza sull'autenticazione con passcode monouso tramite posta elettronica per i nuovi utenti guest di tale organizzazione. Se un utente guest ha riscattato un invito usando l'autenticazione con passcode monouso prima della configurazione della federazione diretta, continuerà a usare l'autenticazione con passcode monouso. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>La federazione diretta consente di risolvere i problemi di accesso causati da tenancy parzialmente sincronizzata?
 No, in questo scenario è consigliabile usare la funzionalità di [passcode monouso tramite posta elettronica](one-time-passcode.md). Una "tenancy parzialmente sincronizzata" indica un tenant Azure AD partner in cui le identità utente locali non sono completamente sincronizzate nel cloud. Un utente guest la cui identità non esiste ancora nel cloud, ma che tenta di riscattare l'invito B2B non riuscirà a eseguire l'accesso. La funzionalità passcode monouso consente a questo utente guest di eseguire l'accesso. La funzionalità di federazione diretta aiuta a risolvere i problemi relativi a scenari in cui l'utente guest dispone di account aziendale gestito dal provider di identità personale, ma l'organizzazione non ha alcuna presenza in Azure AD.
-### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Quando la Federazione diretta è configurata con un'organizzazione, è necessario inviare ogni Guest e riscattare un singolo invito?
-La configurazione della Federazione diretta non comporta la modifica del metodo di autenticazione per gli utenti guest che hanno già riscattato un invito da parte dell'utente. È possibile aggiornare il metodo di autenticazione di un utente Guest [reimpostando lo stato di riscatto](reset-redemption-status.md).
+### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Dopo aver configurato la federazione diretta con un'organizzazione, ogni guest deve essere inviato e riscattato un singolo invito?
+La configurazione della federazione diretta non modifica il metodo di autenticazione per gli utenti guest che hanno già riscattato un invito da parte dell'utente. È possibile aggiornare il metodo di autenticazione di un utente guest [reimpostando il relativo stato di riscatto](reset-redemption-status.md).
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Passaggio 1: Configurare il provider di identità dell'organizzazione partner
 In primo luogo, l'organizzazione partner deve configurare il provider di identità con le attestazioni e i trust di relying party necessari. 
 
@@ -157,7 +157,7 @@ Si procederà ora alla configurazione della federazione con il provider di ident
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). Nel riquadro sinistro selezionare **Azure Active Directory**. 
 2. Selezionare **Identità esterne** > **Tutti i provider di identità**.
-3. Selezionare **nuovo IDP SAML/WS-Fed**.
+3. Selezionare **New SAML/WS-Fed IdP (Nuovo IdP SAML/WS-Fed).**
 
     ![Screenshot che mostra il pulsante per l'aggiunta di un nuovo provider di identità SAML o WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 
@@ -212,7 +212,7 @@ A questo punto, testare la configurazione della federazione diretta invitando un
 
 
 ## <a name="how-do-i-remove-direct-federation"></a>Come si rimuove la federazione diretta?
-È possibile rimuovere la configurazione di federazione diretta. In tal caso, gli utenti guest della federazione che hanno già riscattato gli inviti non potranno più eseguire l'accesso. È tuttavia possibile concedere loro l'accesso alle risorse [reimpostando lo stato di riscatto](reset-redemption-status.md). Per rimuovere la federazione diretta con un provider di identità nel portale di Azure AD:
+È possibile rimuovere la configurazione di federazione diretta. In tal caso, gli utenti guest della federazione che hanno già riscattato gli inviti non potranno più eseguire l'accesso. È tuttavia possibile concedere nuovamente l'accesso alle risorse [reimpostando il relativo stato di riscatto](reset-redemption-status.md). Per rimuovere la federazione diretta con un provider di identità nel portale di Azure AD:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). Nel riquadro sinistro selezionare **Azure Active Directory**. 
 2. Selezionare **Identità esterne**.
@@ -234,4 +234,4 @@ Per rimuovere la federazione diretta con un provider di identità usando PowerSh
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sull' [esperienza di riscatto degli inviti](redemption-experience.md) quando gli utenti esterni possono accedere con diversi provider di identità.
+Altre informazioni sull'esperienza [di riscatto dell'invito](redemption-experience.md) quando gli utenti esterni effettuano l'accesso con diversi provider di identità.

@@ -1,6 +1,6 @@
 ---
-title: Eseguire il backup dei dischi delle VM sul dispositivo GPU Azure Stack Edge Pro tramite PowerShell
-description: Viene descritto come eseguire il backup dei dati nei dischi delle macchine virtuali in esecuzione sul dispositivo GPU Azure Stack Edge Pro.
+title: Eseguire il backup di dischi di macchine virtuali Azure Stack Edge Pro dispositivo GPU tramite PowerShell
+description: Descrive come eseguire il backup dei dati nei dischi delle macchine virtuali in esecuzione nel Azure Stack Edge Pro GPU.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,46 +8,46 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: ea860f58caba25ef3027fbf7bc4728355a7ca1bc
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 5fad2a9e1789b98ac541e8a0d95c77131905544d
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107315508"
+ms.locfileid: "107364729"
 ---
-# <a name="back-up-vm-disks-on-azure-stack-edge-pro-gpu-via-azure-powershell"></a>Eseguire il backup dei dischi delle macchine virtuali in Azure Stack GPU Pro Edge tramite Azure PowerShell
+# <a name="back-up-vm-disks-on-azure-stack-edge-pro-gpu-via-azure-powershell"></a>Eseguire il backup dei dischi delle macchine virtuali Azure Stack Edge Pro GPU tramite Azure PowerShell
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Questo articolo descrive come creare backup di dischi di macchine virtuali in Azure Stack dispositivo GPU Pro Edge con Azure PowerShell.
+Questo articolo descrive come creare backup di dischi di macchine virtuali Azure Stack Edge Pro dispositivo GPU usando Azure PowerShell.
 
 > [!IMPORTANT]
-> Questa procedura deve essere usata per le macchine virtuali arrestate. Per eseguire il backup delle macchine virtuali in esecuzione, è consigliabile usare uno strumento di backup di terze parti.
+> Questa procedura deve essere usata per le macchine virtuali arrestate. Per eseguire il backup di macchine virtuali in esecuzione, è consigliabile usare uno strumento di backup di terze parti.
 
 ## <a name="workflow"></a>Flusso di lavoro
 
-I passaggi seguenti riepilogano il flusso di lavoro di alto livello per eseguire il backup di un disco della macchina virtuale nel dispositivo:
+I passaggi seguenti riepilogano il flusso di lavoro di alto livello per eseguire il backup di un disco vm nel dispositivo:
 
 1. Arrestare la VM.
-1. Eseguire uno snapshot del disco della macchina virtuale.
-1. Copiare lo snapshot in un account di archiviazione locale come VHD.
+1. Creare uno snapshot del disco della macchina virtuale.
+1. Copiare lo snapshot in un account di archiviazione locale come disco rigido virtuale.
 1. Caricare il disco rigido virtuale in una destinazione esterna.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di eseguire il backup di macchine virtuali, verificare quanto segue:
+Prima di eseguire il backup delle macchine virtuali, assicurarsi che:
 
-- È possibile accedere a un client che verrà usato per connettersi al dispositivo.
-    - Il client esegue un [sistema operativo supportato](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
-    - Il client è configurato per connettersi alla Azure Resource Manager locale del dispositivo in base alle istruzioni riportate in [connettersi a Azure Resource Manager per il dispositivo](azure-stack-edge-gpu-connect-resource-manager.md).
+- Si ha accesso a un client che verrà utilizzato per connettersi al dispositivo.
+    - Il client esegue un [sistema operativo supportato.](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device)
+    - Il client è configurato per connettersi al Azure Resource Manager locale del dispositivo in base alle istruzioni riportate in Connettersi a Azure Resource Manager [per il dispositivo.](azure-stack-edge-gpu-connect-resource-manager.md)
 
-## <a name="verify-connection-to-local-azure-resource-manager"></a>Verificare la connessione al Azure Resource Manager locale
+## <a name="verify-connection-to-local-azure-resource-manager"></a>Verificare la connessione al Azure Resource Manager
 
 [!INCLUDE [azure-stack-edge-gateway-verify-azure-resource-manager-connection](../../includes/azure-stack-edge-gateway-verify-azure-resource-manager-connection.md)]
 
 ## <a name="back-up-a-vm-disk"></a>Eseguire il backup di un disco della macchina virtuale
 
-1. Ottenere un elenco delle macchine virtuali in esecuzione nel dispositivo. Identificare la macchina virtuale che si desidera arrestare.
+1. Ottenere un elenco delle macchine virtuali in esecuzione nel dispositivo. Identificare la macchina virtuale che si vuole arrestare.
 
     ```powershell
     Get-AzureRMVM
@@ -93,7 +93,7 @@ Prima di eseguire il backup di macchine virtuali, verificare quanto segue:
     È anche possibile arrestare la macchina virtuale dal portale di Azure.
  
 
-2. Eseguire uno snapshot del disco della macchina virtuale e salvare lo snapshot in un gruppo di risorse locale. È possibile usare questa procedura per i dischi dati e del sistema operativo.
+2. Creare uno snapshot del disco della macchina virtuale e salvarlo in un gruppo di risorse locale. È possibile usare questa procedura sia per i dischi del sistema operativo che per i dischi dati.
 
    1. Ottenere l'elenco dei dischi nel dispositivo o in un gruppo di risorse specifico. Prendere nota del nome del disco di cui eseguire il backup.
 
@@ -109,7 +109,7 @@ Prima di eseguire il backup di macchine virtuali, verificare quanto segue:
         myasetestvm1_disk1_0ed91809927f4023b7aceb6eeca51c05
         PS C:\Users\user>
         ```
-   1. Creare un gruppo di risorse locale che funge da destinazione per lo snapshot della macchina virtuale.
+   1. Creare un gruppo di risorse locale da utilizzare come destinazione per lo snapshot della macchina virtuale.
 
         ```powershell
         PS C:\Users\user> New-AzureRmResourceGroup -ResourceGroupName myaserg3 -Location dbelocal
@@ -132,14 +132,14 @@ Prima di eseguire il backup di macchine virtuali, verificare quanto segue:
       $DestinationRG = <Snapshot destination resource group>
       ```
 
-   3. Impostare la configurazione dello snapshot ed eseguire lo snapshot.
+   3. Impostare la configurazione dello snapshot e creare lo snapshot.
 
         ```powershell
         $Disk = Get-AzureRmDisk -ResourceGroupName $DiskResourceGroup -DiskName $DiskName
         $SnapshotConfig = New-AzureRmSnapshotConfig -SourceUri $Disk.Id -CreateOption Copy -Location 'dbelocal'
         $Snapshot = New-AzureRmSnapshot -Snapshot $SnapshotConfig -SnapshotName $SnapshotName -ResourceGroupName $DestinationRG
         ```
-        Verificare che lo snapshot venga creato nel gruppo di risorse di destinazione.
+        Verificare che lo snapshot sia stato creato nel gruppo di risorse di destinazione.
 
         ```powershell
         Get-AzureRMSnapshot -ResourceGroupName $DestinationRG
@@ -205,7 +205,7 @@ Prima di eseguire il backup di macchine virtuali, verificare quanto segue:
     PS C:\Users\user>
     ```
 
-1. Creare un contenitore nell'account di archiviazione locale che è stato creato. 
+1. Creare un contenitore nell'account di archiviazione locale creato. 
 
     ```powershell
     $keys = Get-AzureRmStorageAccountKey -ResourceGroupName $StorageAccountRG -Name $StorageAccountName
@@ -255,7 +255,7 @@ Prima di eseguire il backup di macchine virtuali, verificare quanto segue:
     PS C:\Users\user>
     ```    
 
-    È anche possibile usare Azure Storage Explorer per [creare un account di archiviazione locale](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#create-a-storage-account) e quindi [creare un contenitore nell'account di archiviazione locale](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload) del dispositivo. 
+    È anche possibile usare Azure Storage Explorer creare [un account](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#create-a-storage-account) di archiviazione locale e quindi creare un contenitore nell'account [di archiviazione](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload) locale nel dispositivo. 
 
 
 
@@ -305,9 +305,13 @@ Prima di eseguire il backup di macchine virtuali, verificare quanto segue:
     PS C:\Users\user>
     ```
 
-## <a name="download-vhd-to-external-target"></a>Scarica VHD in destinazione esterna
+    È anche possibile usare Storage Explorer per verificare che lo snapshot sia stato copiato correttamente nell'account di archiviazione.
 
-Per spostare i backup in una posizione esterna, è possibile usare Azure Storage Explorer o AzCopy.
+    ![Storage Explorer il backup nel contenitore nell'account di archiviazione locale](media/azure-stack-edge-gpu-back-up-virtual-machine-disks/back-up-virtual-machine-disk-1.png)
+
+## <a name="download-vhd-to-external-target"></a>Scaricare il disco rigido virtuale in una destinazione esterna
+
+Per spostare i backup in un percorso esterno, è possibile usare Azure Storage Explorer o AzCopy.
 
 - Usare il comando AzCopy seguente per scaricare il disco rigido virtuale in una destinazione esterna.
 
@@ -315,8 +319,8 @@ Per spostare i backup in una posizione esterna, è possibile usare Azure Storage
     azcopy copy "https://<local storage account name>.blob.<device name>.<DNS domain>/<container name>/<filename><SAS query string>" <destination target>
     ```
 
-- Per configurare e usare Azure Storage Explorer con Azure Stack Edge, vedere le istruzioni contenute in [usare Storage Explorer per il caricamento](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload).
+- Per configurare e usare le Azure Storage Explorer con Azure Stack Edge, vedere le istruzioni in Usare Storage Explorer [per il caricamento.](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire le macchine virtuali nel dispositivo GPU Azure stack Edge Pro usando i modelli](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
+[Distribuire macchine virtuali nel dispositivo Azure Stack Edge Pro GPU usando i modelli](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).

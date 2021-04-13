@@ -1,22 +1,22 @@
 ---
-title: Spring data Azure Cosmos DB V3 per le risorse e le note sulla versione dell'API SQL
-description: Informazioni sull'API Spring data Azure Cosmos DB V3 per SQL, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB SQL Async Java SDK.
+title: Note sulla versione e risorse di Spring Data Azure Cosmos DB v3 per l'API SQL
+description: Informazioni sull'API Spring Data Azure Cosmos DB v3 per SQL, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra ogni versione di SQL Async Java SDK Azure Cosmos DB SQL.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 03/15/2021
-ms.author: kuthapar
+ms.date: 04/06/2021
+ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 536c0ab78a4b7e08abb1532635aff722df9e15cd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 594d38425be0304a9f7737bdfba60b29187a2e2d
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563107"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363513"
 ---
-# <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring data Azure Cosmos DB V3 per l'API Core (SQL): Note sulla versione e risorse
+# <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>API Spring Data Azure Cosmos DB v3 for Core (SQL): note sulla versione e risorse
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -30,7 +30,8 @@ ms.locfileid: "105563107"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Connettore Spark](sql-api-sdk-java-spark.md)
+> * [Connettore OLTP Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Connettore OLTP Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provider di risorse REST](/rest/api/cosmos-db-resource-provider/)
@@ -38,19 +39,19 @@ ms.locfileid: "105563107"
 > * [Esecuzione bulk - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
-Spring data Azure Cosmos DB versione 3 per core (SQL) consente agli sviluppatori di usare Azure Cosmos DB nelle applicazioni Spring. Spring data Azure Cosmos DB espone l'interfaccia Spring data per la modifica di database e raccolte, l'utilizzo di documenti e l'emissione di query. Entrambe le API Sync e async (Reactive) sono supportate nello stesso artefatto Maven. 
+Spring Data Azure Cosmos DB versione 3 per Core (SQL) consente agli sviluppatori di usare Azure Cosmos DB nelle applicazioni Spring. Spring Data Azure Cosmos DB l'interfaccia Spring Data per la modifica di database e raccolte, l'uso di documenti e l'emissione di query. Entrambe le API Sync e Async (Reattive) sono supportate nello stesso artefatto Maven. 
 
 > [!IMPORTANT]
-> Spring data Azure Cosmos DB presenta una dipendenza dal framework Spring data.
+> Spring Data Azure Cosmos DB ha una dipendenza dal framework Spring Data.
 > 
-> Azure-Spring-data-Cosmos versioni da 3.0.0 a 3.4.0 supportano Spring data Versions 2,2 e 2,3.
+> Le versioni di azure-spring-data-cosmos da 3.0.0 a 3.4.0 supportano spring data versioni 2.2 e 2.3.
 > 
-> Azure-Spring-data-Cosmos versioni 3.5.0 e versioni successive supportano Spring data Versions 2.4.3 e versioni successive.
+> azure-spring-data-cosmos versioni 3.5.0 e successive supportano spring data versioni 2.4.3 e successive.
 >
 
-[Spring Framework](https://spring.io/projects/spring-framework) è un modello di programmazione e configurazione che semplifica lo sviluppo di applicazioni Java. Spring semplifica il "plumbing" delle applicazioni usando l'inserimento di dipendenze. Molti sviluppatori come Spring perché rendono più semplice la creazione e il test di applicazioni. [Spring boot](https://spring.io/projects/spring-boot) estende questa gestione del plumbing con un occhio verso lo sviluppo di applicazioni Web e microservizi. [Spring data](https://spring.io/projects/spring-data) è un modello di programmazione e un Framework per l'accesso a archivi dati come Azure Cosmos DB dal contesto di un'applicazione Spring o Spring boot. 
+[Spring Framework è](https://spring.io/projects/spring-framework) un modello di programmazione e configurazione che semplifica lo sviluppo di applicazioni Java. Spring semplifica il "plumbing" delle applicazioni usando l'inserimento delle dipendenze. Molti sviluppatori come Spring rendono più semplice la compilazione e il test di applicazioni. [Spring Boot](https://spring.io/projects/spring-boot) estende questa gestione dell'impianto plumbing con attenzione allo sviluppo di applicazioni Web e microservizi. [Spring Data](https://spring.io/projects/spring-data) è un modello di programmazione e un framework per l'accesso agli archivi dati come Azure Cosmos DB dal contesto di un'applicazione Spring o Spring Boot dati. 
 
-È possibile usare Spring data Azure Cosmos DB nelle applicazioni [cloud della primavera di Azure](https://azure.microsoft.com/services/spring-cloud/) .
+È possibile usare Spring Data Azure Cosmos DB nelle applicazioni [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) applicazioni.
 
 > [!IMPORTANT]  
 > Queste note sulla versione sono relative alla versione 3 di Spring Data Azure Cosmos DB. È possibile trovare [qui le note sulla versione per la versione 2](sql-api-sdk-java-spring-v2.md). 
@@ -65,9 +66,9 @@ Spring data Azure Cosmos DB versione 3 per core (SQL) consente agli sviluppatori
 
 ## <a name="get-started-fast"></a>Introduzione rapida
 
-  Per iniziare subito a usare Spring data Azure Cosmos DB, seguire la [Guida introduttiva a Spring boot](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). L'approccio di Spring boot Starter è il modo consigliato per iniziare a usare Spring data Azure Cosmos DB Connector.
+  Iniziare a utilizzare Spring Data Azure Cosmos DB seguendo la guida [Spring Boot Starter.](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) L Spring Boot starter è il modo consigliato per iniziare a usare il connettore Spring Data Azure Cosmos DB.
 
-  In alternativa, è possibile aggiungere la dipendenza Spring data Azure Cosmos DB al `pom.xml` file come illustrato di seguito:
+  In alternativa, è possibile aggiungere la dipendenza Spring Data Azure Cosmos DB al file come `pom.xml` illustrato di seguito:
 
   ```xml
   <dependency>
@@ -84,18 +85,18 @@ Spring data Azure Cosmos DB versione 3 per core (SQL) consente agli sviluppatori
 |**Download dell'SDK**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-cosmos) |
 |**Documentazione sull'API** | [Documentazione di riferimento API Java](/java/api/com.azure.spring.data.cosmos) |
 |**Contribuire all'SDK** | [Repository centrale di Azure SDK per Java in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) | 
-|**Operazioni preliminari** | [Guida introduttiva: creare un'app Spring data Azure Cosmos DB per gestire Azure Cosmos DB dati dell'API SQL](./create-sql-api-spring-data.md) <br> [Repository GitHub con codice di avvio rapido](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) | 
-|**Esempi di codice di base** | [Azure Cosmos DB: Spring data Azure Cosmos DB esempi per l'API SQL](sql-api-spring-data-sdk-samples.md) <br> [Repository GitHub con codice di esempio](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples)|
-| **Suggerimenti per incrementare le prestazioni**| [Suggerimenti sulle prestazioni per Java SDK v4 (applicabile ai dati di Spring)](performance-tips-java-sdk-v4-sql.md)| 
-| **Risoluzione dei problemi** | [Risoluzione dei problemi di Java SDK v4 (applicabile ai dati di Spring)](troubleshoot-java-sdk-v4-sql.md) | 
+|**Operazioni preliminari** | [Guida introduttiva: Creare un'app Spring Data Azure Cosmos DB per gestire Azure Cosmos DB dati dell'API SQL](./create-sql-api-spring-data.md) <br> [Repository GitHub con codice di avvio rapido](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) | 
+|**Esempi di codice di base** | [Azure Cosmos DB: Esempi di Spring Data Azure Cosmos DB per l'API SQL](sql-api-spring-data-sdk-samples.md) <br> [Repository GitHub con codice di esempio](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples)|
+| **Suggerimenti per incrementare le prestazioni**| [Suggerimenti sulle prestazioni per Java SDK v4 (applicabile a Spring Data)](performance-tips-java-sdk-v4-sql.md)| 
+| **Risoluzione dei problemi** | [Risolvere i problemi relativi a Java SDK v4 (applicabile a Spring Data)](troubleshoot-java-sdk-v4-sql.md) | 
 | **Workshop e laboratori su Azure Cosmos DB** |[Home page dei workshop per Cosmos DB](https://aka.ms/cosmosworkshop)
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Spring data Azure Cosmos DB supporta Java JDK 8 e Java JDK 11.
-* Spring data 2,3 è attualmente supportata, Spring data 2,4 non è attualmente supportata.
+* Spring Data Azure Cosmos DB supporta Java JDK 8 e Java JDK 11.
+* Spring Data 2.3 è attualmente supportato, Spring Data 2.4 non è attualmente supportato.
 
 ## <a name="faq"></a>Domande frequenti
 
@@ -105,8 +106,8 @@ Spring data Azure Cosmos DB versione 3 per core (SQL) consente agli sviluppatori
 
 Altre informazioni su [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-Scopri di più sul [framework Spring](https://spring.io/projects/spring-framework).
+Altre informazioni su [Spring Framework.](https://spring.io/projects/spring-framework)
 
-Scopri di più su [Spring boot](https://spring.io/projects/spring-boot).
+Altre informazioni su [Spring Boot](https://spring.io/projects/spring-boot).
 
-Scopri di più sui [dati primaverili](https://spring.io/projects/spring-data).
+Altre informazioni su [Spring Data.](https://spring.io/projects/spring-data)

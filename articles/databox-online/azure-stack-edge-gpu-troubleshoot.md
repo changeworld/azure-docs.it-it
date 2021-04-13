@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: c6f7182fe058bacb1236ff10dfc1553d23a7e1f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 87e75d771c2cc269eaae81c2433f445eb65a17a9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645257"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314151"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Risolvere i problemi relativi al dispositivo GPU Azure Stack Edge Pro 
 
@@ -146,7 +146,7 @@ Di seguito sono riportati gli errori che possono verificarsi durante la configur
 |Add-AzureRmEnvironment: si è verificato un errore durante l'invio della richiesta.<br>Alla riga: 1 carattere: 1<br>+ Add-AzureRmEnvironment-Name AZ3-ARMEndpoint " https://management.dbe ...|Questo errore indica che il dispositivo Azure Stack Edge Pro non è raggiungibile o configurato in modo corretto. Verificare che il dispositivo perimetrale e il client siano configurati correttamente. Per informazioni aggiuntive, vedere la riga relativa ai **problemi generali** in questa tabella.|
 |Il servizio ha restituito un errore. Controllare InnerException per altri dettagli: la connessione sottostante è stata chiusa: Impossibile stabilire una relazione di trust per il canale sicuro SSL/TLS. |   Questo errore è probabilmente causato da uno o più passaggi di Bring your own certificate in modo errato. [Qui](./azure-stack-edge-gpu-connect-resource-manager.md#step-2-create-and-install-certificates)è possibile trovare informazioni aggiuntive. |
 |L'operazione ha restituito un codice di stato ' ServiceUnavailable ' non valido <br> Il codice di stato della risposta non indica esito positivo: 503 (servizio non disponibile). | Questo errore potrebbe essere dovuto a una di queste condizioni.<li>ArmStsPool è in stato interrotto.</li><li>Uno dei siti Web del servizio token di sicurezza/Azure Resource Manager è inattivo.</li><li>La risorsa cluster Azure Resource Manager è inattiva.</li><br><strong>Nota:</strong> Il riavvio dell'appliance potrebbe risolvere il problema, ma è necessario raccogliere il pacchetto per il supporto in modo che sia possibile eseguirne il debug.|
-|AADSTS50126: nome utente o password non valida.<br>ID traccia: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>ID correlazione: 1b9752c4-8cbf-4304-A714-8a16527410f4<br>Timestamp: 2019-11-15 09:21:57Z: il server remoto ha restituito un errore: (400) richiesta non valida.<br>Alla riga: 1 carattere: 1 |Questo errore potrebbe essere dovuto a una di queste condizioni.<li>Per un nome utente e una password non validi, verificare che il cliente abbia modificato la password da portale di Azure attenendosi [alla procedura seguente](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password) e quindi usando la password corretta.<li>Per un ID tenant non valido, l'ID tenant è un GUID fisso e deve essere impostato su `c0257de7-538f-415c-993a-1b87a031879d`</li>|
+|AADSTS50126: nome utente o password non valida.<br>ID traccia: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>ID correlazione: 1b9752c4-8cbf-4304-A714-8a16527410f4<br>Timestamp: 2019-11-15 09:21:57Z: il server remoto ha restituito un errore: (400) richiesta non valida.<br>Alla riga: 1 carattere: 1 |Questo errore potrebbe essere dovuto a una di queste condizioni.<li>Per un nome utente e una password non validi, verificare che il cliente abbia modificato la password da portale di Azure attenendosi [alla procedura seguente](/azure/databox-online/azure-stack-edge-gpu-set-azure-resource-manager-password) e quindi usando la password corretta.<li>Per un ID tenant non valido, l'ID tenant è un GUID fisso e deve essere impostato su `c0257de7-538f-415c-993a-1b87a031879d`</li>|
 |Connect-AzureRmAccount: AADSTS90056: la risorsa è disabilitata o non esiste. Controllare il codice dell'app per verificare di avere specificato l'URL della risorsa esatta cui si sta tentando di accedere.<br>ID traccia: e19bdbc9-5dc8-4a74-85c3-ac6abdfda115<br>ID correlazione: 75c8ef5a-830e-48B5-B039-595a96488ff9 timestamp: 2019-11-18 07:00:51Z: il server remoto ha restituito un errore: (400) non valido |Gli endpoint della risorsa utilizzati nel `Add-AzureRmEnvironment` comando non sono corretti.|
 |Non è possibile ottenere gli endpoint dal cloud.<br>Assicurarsi di disporre di una connessione di rete. Dettagli errore: HTTPSConnectionPool (host =' Management. dbg-of4k6suvm.microsoftdatabox.com ', Port = 30005): numero massimo di tentativi superato con URL:/Metadata/Endpoints? API-Version = 2015-01-01 (causata da SSLError (SSLError ("handshake errato: Error ([(' routine SSL ',' tls_process_server_certificate ',' certificate Verify failed ')],)",),)) |Questo errore viene visualizzato principalmente in un ambiente Mac/Linux ed è dovuto ai problemi seguenti:<li>Un certificato di formato PEM non è stato aggiunto all'archivio certificati Python.</li> |
 

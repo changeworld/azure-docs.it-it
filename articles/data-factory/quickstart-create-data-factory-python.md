@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 879ca169604dcd61a79db4ec3ca937289dacdd9b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 534b5b3aca86cc2f6d7ee2d703939420f80abb8e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309859"
+ms.locfileid: "107365094"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Guida introduttiva: Creare una data factory e una pipeline con Python
 
@@ -34,13 +34,13 @@ che inseriscono dati provenienti da archivi diversi. Le pipeline elaborano o tra
 
 * Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.6 +](https://www.python.org/downloads/).
+* [Python 3.6+](https://www.python.org/downloads/).
 
 * [Un account di archiviazione di Azure](../storage/common/storage-account-create.md).
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (facoltativo).
 
-* [Un'applicazione in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Prendere nota dei valori seguenti da usare nei passaggi successivi: **ID applicazione**, **chiave di autenticazione** e **ID tenant**. Assegnare l'applicazione al ruolo **Collaboratore** seguendo le istruzioni riportate nello stesso articolo. Prendere nota dei valori seguenti, come illustrato nell'articolo da usare nei passaggi successivi: **ID applicazione (ID entità servizio di seguito), chiave di autenticazione (segreto client di seguito) e ID tenant.**
+* [Un'applicazione in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Creare l'applicazione seguendo i passaggi descritti in questo collegamento e assegnare l'applicazione al ruolo  **Collaboratore** seguendo le istruzioni nello stesso articolo. Prendere nota dei valori seguenti, come illustrato nell'articolo da usare nei passaggi successivi: ID applicazione (ID entità servizio di seguito), chiave di autenticazione (segreto client di seguito) e **ID tenant.**
 
 ## <a name="create-and-upload-an-input-file"></a>Creare e caricare un file di input
 
@@ -66,7 +66,7 @@ che inseriscono dati provenienti da archivi diversi. Le pipeline elaborano o tra
     pip install azure-mgmt-datafactory
     ```
 
-    [Python SDK per data factory](https://github.com/Azure/azure-sdk-for-python) supporta Python 2,7 e 3.6 +.
+    [Python SDK per Data Factory](https://github.com/Azure/azure-sdk-for-python) supporta Python 2.7 e 3.6+.
 
 4. Per installare il pacchetto Python per l'autenticazione di identità di Azure, eseguire questo comando:
 
@@ -75,7 +75,7 @@ che inseriscono dati provenienti da archivi diversi. Le pipeline elaborano o tra
     ```
     > [!NOTE] 
     > Il pacchetto "azure-identity" potrebbe avere conflitti con "azure-cli" in alcune dipendenze comuni. Se si verifica un problema di autenticazione, rimuovere "azure-cli" e le relative dipendenze oppure usare un computer pulito senza installare il pacchetto "azure-cli" per renderlo funzionante.
-    > Per i cloud sovrani è necessario usare le costanti specifiche del cloud appropriate.  Vedere [connettersi a tutte le aree usando le librerie di Azure per Python multicloud | Microsoft Docs per istruzioni per la connessione con Python in cloud sovrani.](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain)
+    > Per i cloud sovrani, è necessario usare le costanti specifiche del cloud appropriate.  Vedere Connettersi [a tutte le aree usando le librerie di Azure per Python multi-cloud | Microsoft Docs istruzioni per connettersi a Python nei cloud sovrani.](https://docs.microsoft.com/azure/developer/python/azure-sdk-sovereign-domain)
     
     
 ## <a name="create-a-data-factory-client"></a>Creare un client di data factory
@@ -225,8 +225,6 @@ Definire un set di dati che rappresenta i dati di origine nel BLOB di Azure. Que
         rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 ```
- > [!NOTE] 
- > Per passare i parametri alla pipeline, aggiungerli alla stringa JSON params_for_pipeline illustrata di seguito nel formato **{"nomeparametro1": "ParameterValue1"}** per ogni parametro necessario nella pipeline. Per passare parametri a un flusso di file, creare un parametro della pipeline per conservare il nome/valore del parametro, quindi utilizzare il parametro della pipeline nel parametro Dataflow nel formato **@pipeline (). Parameters. ParameterName.**
 
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
@@ -243,6 +241,13 @@ Aggiungere il codice seguente al metodo **Main** per creare una **pipeline con u
     copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
+    
+    #Note1: To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format { “ParameterName1” : “ParameterValue1” } for each of the parameters needed in the pipeline.
+    #Note2: To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format @pipeline().parameters.parametername.
+    
+    p_name = 'copyPipeline'
+    params_for_pipeline = {}
+
     p_name = 'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)

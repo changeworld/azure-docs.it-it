@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 777fc60f76692734ea34ff3cdf8f6bc6e5e8316b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07af586bac71ee9b33ef314756454cb3c52ec912
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97615712"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305923"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso della condizione location in un criterio di accesso condizionale 
 
@@ -32,39 +32,37 @@ Le organizzazioni possono usare questo percorso di rete per attività comuni com
 
 Il percorso di rete è determinato dall'indirizzo IP pubblico fornito da un client per Azure Active Directory. Per impostazione predefinita, i criteri di accesso condizionale si applicano a tutti gli indirizzi IPv4 e IPv6. 
 
-> [!TIP]
-> Gli intervalli IPv6 sono supportati solo nell'interfaccia **[location denominata (anteprima)](#preview-features)** . 
-
 ## <a name="named-locations"></a>Posizioni specifiche
 
-Le località sono indicate nel portale di Azure in **Azure Active Directory**  >  **sicurezza**  >  **accesso condizionale**  >  **località denominate**. Questi percorsi di rete denominati possono includere percorsi come intervalli di rete della sede centrale dell'organizzazione, intervalli di reti VPN o intervalli che si desidera bloccare. 
+Le località sono indicate nel portale di Azure in **Azure Active Directory**  >  **sicurezza**  >  **accesso condizionale**  >  **località denominate**. Questi percorsi di rete denominati possono includere percorsi come intervalli di rete della sede centrale dell'organizzazione, intervalli di reti VPN o intervalli che si desidera bloccare. Le località denominate possono essere definite da intervalli di indirizzi IPv4/IPv6 o da paesi/aree geografiche. 
 
 ![Località denominate nel portale di Azure](./media/location-condition/new-named-location.png)
 
-Per configurare un percorso, è necessario specificare almeno un **nome** e l'intervallo di indirizzi IP. 
+### <a name="ip-address-ranges"></a>Intervalli di indirizzi IP
 
-Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. È possibile configurare i percorsi in base alle limitazioni seguenti:
+Per definire una località denominata in base agli intervalli di indirizzi IPv4/IPv6, è necessario specificare un **nome** e un intervallo IP. 
 
-- Una località denominata con un massimo di 1200 intervalli IPv4.
-- Un massimo di 90 posizioni specifiche, ognuna con un intervallo IP assegnato.
-
-> [!TIP]
-> Gli intervalli IPv6 sono supportati solo nell'interfaccia **[location denominata (anteprima)](#preview-features)** . 
+Le località denominate definite dagli intervalli di indirizzi IPv4/IPv6 sono soggette alle limitazioni seguenti: 
+- Configurare fino a 195 località denominate
+- Configurare fino a 2000 intervalli IP per località denominata
+- Sono supportati gli intervalli sia IPv4 che IPv6
+- È possibile configurare gli intervalli di indirizzi IP privati connot
+- Il numero di indirizzi IP contenuti in un intervallo è limitato. Quando si definisce un intervallo IP, sono consentite solo le maschere CIDR maggiori di/8. 
 
 ### <a name="trusted-locations"></a>Percorsi attendibili
 
-Quando si crea un percorso di rete, un amministratore ha la possibilità di contrassegnare un percorso come percorso attendibile. 
+Gli amministratori possono designare le località denominate definite dagli intervalli di indirizzi IP in posizioni denominate attendibili. 
 
 ![Percorsi attendibili nella portale di Azure](./media/location-condition/new-trusted-location.png)
 
-Questa opzione può includere i criteri di accesso condizionale in cui è possibile, ad esempio, richiedere la registrazione per l'autenticazione a più fattori da un percorso di rete attendibile. Inoltre, il calcolo del rischio è Azure AD Identity Protection, abbassando il rischio di accesso degli utenti quando provengono da una località contrassegnata come attendibile.
+Gli accessi provenienti da percorsi denominati attendibili migliorano l'accuratezza del calcolo del rischio di Azure AD Identity Protection, abbassando il rischio di accesso degli utenti quando eseguono l'autenticazione da una località contrassegnata come attendibile. Inoltre, i percorsi denominati attendibili possono essere assegnati ai criteri di accesso condizionale. Ad esempio, potrebbe essere necessario limitare la registrazione di autenticazione a più fattori solo ai percorsi denominati attendibili. 
 
 ### <a name="countries-and-regions"></a>Paesi e aree geografiche
 
-Alcune organizzazioni possono scegliere di definire interi paesi o aree geografiche per i confini IP come località denominate per i criteri di accesso condizionale. Questi percorsi possono essere usati quando si blocca il traffico non necessario quando si conoscono utenti validi che non proverranno mai da una località come la Corea del Nord. Questi mapping dell'indirizzo IP al paese vengono aggiornati periodicamente. 
+Alcune organizzazioni possono scegliere di limitare l'accesso a determinati paesi o aree geografiche usando l'accesso condizionale. Oltre a definire le località denominate in base agli intervalli IP, gli amministratori possono definire località denominate in base al paese o alle regioni. Quando un utente accede, Azure AD risolve l'indirizzo IPv4 dell'utente in un paese o in un'area geografica e il mapping viene aggiornato periodicamente. Le organizzazioni possono utilizzare località denominate definite da paesi per bloccare il traffico proveniente dai paesi in cui non fanno attività, ad esempio la Corea del Nord. 
 
 > [!NOTE]
-> Non è possibile eseguire il mapping degli intervalli di indirizzi IPv6 ai paesi. Solo gli indirizzi IPv4 vengono mappati ai paesi.
+> Non è possibile eseguire il mapping degli accessi dagli indirizzi IPv6 a paesi o aree geografiche e sono considerati aree sconosciute. È possibile eseguire il mapping solo di indirizzi IPv4 a paesi o aree geografiche.
 
 ![Creare una nuova località basata su paese o area geografica nella portale di Azure](./media/location-condition/new-named-location-country-region.png)
 
@@ -91,33 +89,6 @@ Per le applicazioni per dispositivi mobili e desktop, che hanno durate di sessio
 
 Se entrambi i passaggi danno esito negativo, l'utente non viene più considerato come su un indirizzo IP attendibile.
 
-## <a name="preview-features"></a>Funzionalità di anteprima
-
-Oltre alla funzionalità di località denominata disponibile a livello generale, esiste anche una località denominata (anteprima). È possibile accedere all'anteprima del percorso denominato usando il banner nella parte superiore del pannello della località denominata corrente.
-
-![Prova l'anteprima dei percorsi denominati](./media/location-condition/preview-features.png)
-
-Con l'anteprima della località denominata, è possibile
-
-- Configurare fino a 195 località denominate
-- Configurare fino a 2000 intervalli IP per località denominata
-- Configurare gli indirizzi IPv6 insieme agli indirizzi IPv4
-
-Sono stati anche aggiunti altri controlli per ridurre la modifica della configurazione non consentita.
-
-- Non è più possibile configurare gli intervalli di indirizzi IP privati
-- Il numero di indirizzi IP che è possibile includere in un intervallo è limitato. Quando si configura un intervallo IP, saranno consentite solo le maschere CIDR maggiori di/8.
-
-Con l'anteprima sono ora disponibili due opzioni di creazione: 
-
-- **Località paesi**
-- **Percorso degli intervalli IP**
-
-> [!NOTE]
-> Non è possibile eseguire il mapping degli intervalli di indirizzi IPv6 ai paesi. Solo gli indirizzi IPv4 vengono mappati ai paesi.
-
-![Interfaccia di anteprima località denominate](./media/location-condition/named-location-preview.png)
-
 ## <a name="location-condition-in-policy"></a>Condizione del percorso nei criteri
 
 Quando si configura la condizione per la posizione, è possibile distinguere tra:
@@ -143,7 +114,7 @@ Con questa opzione è possibile selezionare una o più posizioni specifiche. Per
 
 ## <a name="ipv6-traffic"></a>Traffico IPv6
 
-Per impostazione predefinita, i criteri di accesso condizionale si applicano a tutto il traffico IPv6. Con l' [anteprima del percorso denominato](#preview-features), è possibile escludere intervalli di indirizzi IPv6 specifici da un criterio di accesso condizionale. Questa opzione è utile nei casi in cui non si desidera che i criteri vengano applicati per intervalli IPv6 specifici. Ad esempio, se si desidera non applicare un criterio per gli utilizzi nella rete aziendale e la rete aziendale è ospitata in intervalli IPv6 pubblici.  
+Per impostazione predefinita, i criteri di accesso condizionale si applicano a tutto il traffico IPv6. È possibile escludere intervalli di indirizzi IPv6 specifici da un criterio di accesso condizionale se non si desidera che i criteri vengano applicati per intervalli IPv6 specifici. Ad esempio, se si desidera non applicare un criterio per gli utilizzi nella rete aziendale e la rete aziendale è ospitata in intervalli IPv6 pubblici.  
 
 ### <a name="when-will-my-tenant-have-ipv6-traffic"></a>Quando il tenant avrà il traffico IPv6?
 

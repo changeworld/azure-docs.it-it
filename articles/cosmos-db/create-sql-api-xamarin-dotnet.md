@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/09/2020
+ms.date: 03/07/2021
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f02a0673a3fae33f935ae9a9cbf94f101b25c39f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 2a940f4bb519332e147577e4a9172406c401d152
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449784"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365740"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Compilare un'app ToDo con Xamarin usando un account API SQ di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,6 +24,7 @@ ms.locfileid: "106449784"
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
 > * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Connettore Spark v3](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -96,18 +97,18 @@ Tornare al portale di Azure per recuperare le informazioni sulla chiave API e co
 
 2. In Visual Studio aprire **ToDoItems.Core/Helpers/APIKeys.cs**.
 
-3. Nel portale di Azure copiare il valore di **URI** usando il pulsante di copia e impostarlo come valore della variabile `CosmosEndpointUrl` in APIKeys.cs.
+3. Nel portale di Azure, usando il pulsante copia, copiare il valore **uri** e impostare il valore della variabile `CosmosEndpointUrl` in APIKeys.cs.
 
     ```csharp
     //#error Enter the URL of your Azure Cosmos DB endpoint here
-    public static readonly string CosmosEndpointUrl = "[URI Copied from Azure Portal]";
+    public static readonly string CosmosEndpointUrl = "[URI Copied from Azure portal]";
     ```
 
-4. Nel portale di Azure copiare il valore di **CHIAVE PRIMARIA** usando il pulsante di copia e impostarlo come valore della variabile `Cosmos Auth Key` in APIKeys.cs.
+4. Nel portale di Azure, usando il pulsante copia, copiare il valore **DI CHIAVE** PRIMARIA e impostare il valore di `Cosmos Auth Key` in APIKeys.cs.
 
     ```csharp
     //#error Enter the read/write authentication key of your Azure Cosmos DB endpoint here
-    public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure Portal";
+    public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure portal";
     ```
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
@@ -144,9 +145,9 @@ Il codice nella soluzione ToDoItems contiene:
 
     `CreateDocumentQuery<T>` accetta un URI che punta al contenitore creato nella sezione precedente. È anche possibile specificare operatori LINQ come una clausola `Where`. In questo caso vengono restituiti solo gli elementi ToDo non completati.
 
-    La funzione `CreateDocumentQuery<T>` viene eseguita in modo sincrono e restituisce `IQueryable<T>`. Il metodo `AsDocumentQuery` tuttavia converte `IQueryable<T>` in un oggetto `IDocumentQuery<T>` che può essere eseguito in modalità sincrona, evitando quindi di bloccare il thread dell'interfaccia utente per le applicazioni per dispositivi mobili.
+    La funzione `CreateDocumentQuery<T>` viene eseguita in modo sincrono e restituisce `IQueryable<T>`. Tuttavia, il `AsDocumentQuery` metodo converte in `IQueryable<T>` un oggetto , che può essere eseguito in modo `IDocumentQuery<T>` asincrono. evitando quindi di bloccare il thread dell'interfaccia utente per le applicazioni per dispositivi mobili.
 
-    La funzione `IDocumentQuery<T>.ExecuteNextAsync<T>` recupera la pagina di risultati da Azure Cosmos DB, che viene verificata da `HasMoreResults` per controllare se sono presenti altri risultati da restituire.
+    La funzione recupera la pagina di risultati da Azure Cosmos DB, che esaminerà per verificare se devono essere `IDocumentQuery<T>.ExecuteNextAsync<T>` `HasMoreResults` restituiti risultati aggiuntivi.
 
 > [!TIP]
 > Diverse funzioni che operano su contenitori e documenti di Azure Cosmos accettano come parametro un URI che specifica l'indirizzo del contenitore o del documento. L'URI viene creato tramite la classe `URIFactory`. Gli URI per i database, i contenitori e i documenti possono essere tutti creati con questa classe.
@@ -188,7 +189,7 @@ La procedura seguente illustrerà come eseguire l'app tramite il debugger di Vis
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Avvio del debug in Visual Studio per Mac":::
 
-3. Quando il simulatore di iOS o l'emulatore di Android completa l'avvio, l'app mostrerà due schede nella parte inferiore dello schermo per iOS e nella parte superiore dello schermo per Android. La prima scheda mostra gli elementi ToDo non ancora completati e la seconda gli elementi ToDo completati.
+3. Al termine dell'avvio del simulatore iOS o dell'emulatore Android, l'app visualizza due schede nella parte inferiore della schermata per iOS e nella parte superiore della schermata per Android. Il primo mostra gli elementi ToDo, che non sono completati, il secondo mostra gli elementi ToDo, che vengono completati.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Schermata di avvio dell'app ToDo":::
 
@@ -214,7 +215,7 @@ La procedura seguente illustrerà come eseguire l'app tramite il debugger di Vis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido si è appreso come creare un account Azure Cosmos, come creare un contenitore con Esplora dati e come creare e distribuire un'app Xamarin. È ora possibile importare dati aggiuntivi nell'account Azure Cosmos.
+In questo argomento di avvio rapido si è appreso come creare un account Azure Cosmos, come creare un contenitore con Esplora dati e come creare e distribuire un'app Xamarin. È ora possibile importare altri dati nell'account Azure Cosmos.
 
 > [!div class="nextstepaction"]
 > [Importare dati in Azure Cosmos DB](import-data.md)

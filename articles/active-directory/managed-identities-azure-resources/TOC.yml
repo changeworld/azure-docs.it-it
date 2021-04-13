@@ -94,8 +94,6 @@
           href: how-to-use-vm-sign-in.md
         - name: Uso con Azure SDK
           href: how-to-use-vm-sdk.md
-        - name: Smettere di usare l'estensione di macchina virtuale e iniziare a usare Azure IMDS
-          href: howto-migrate-vm-extension.md
     - name: Assegnare l'accesso tramite identità gestita a un'altra risorsa di Azure
       items:
         - name: Portale

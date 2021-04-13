@@ -3,7 +3,7 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Panoramica di Visione artificiale
+    - name: Visione artificiale panoramica
       href: overview.md
     - name: Lingue supportate
       href: language-support.md
@@ -11,13 +11,13 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
     - name: Novità
       href: whats-new.md
-    - name: Domande frequenti Visione artificiale
+    - name: Visione artificiale domande frequenti
       href: FAQ.md
 - name: Riconoscimento ottico dei caratteri (OCR)
   items:
-    - name: Panoramica dell'OCR
+    - name: Panoramica di OCR
       href: overview-ocr.md
-    - name: Guida introduttiva OCR
+    - name: Guida introduttiva a OCR
       href: quickstarts-sdk/client-library.md
     - name: Esempi
       href: /samples/browse/?products=azure&terms=computer-vision
@@ -34,7 +34,7 @@
               displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
             - name: Configurare i contenitori
               href: computer-vision-resource-container-config.md
-            - name: Eseguire la migrazione a V3 del contenitore OCR di lettura
+            - name: Eseguire la migrazione alla versione 3 del contenitore OCR di lettura
               href: read-container-migration-guide.md
               displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
             - name: Usare con Kubernetes e Jenkins
@@ -44,18 +44,16 @@
               maintainContext: true
               href: ../containers/azure-container-instance-recipe.md
               displayName: 'container instances, container, containers, images'
-            - name: Tutti i contenitori di servizi cognitivi
+            - name: Tutti i contenitori di Servizi cognitivi
               href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
     - name: Riferimento
       items:
-        - name: API REST OCR versione 3.2 anteprima
-          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
-        - name: API REST OCR v 3.1
+        - name: API REST OCR v3.2
+          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005'
+        - name: API REST OCR v3.1
           href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005'
-        - name: API REST OCR v 2.1
+        - name: API REST OCR v2.1
           href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641'
-        - name: API REST OCR v 1.0
-          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
         - name: .NET
           href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
         - name: Node.js
@@ -74,7 +72,7 @@
   items:
     - name: Panoramica dell'analisi delle immagini
       href: overview-image-analysis.md
-    - name: Avvio rapido di analisi immagini
+    - name: Guida introduttiva all'analisi delle immagini
       href: quickstarts-sdk/image-analysis-client-library.md
     - name: Esempi
       items:
@@ -84,7 +82,7 @@
           href: /samples/browse/?products=azure&terms=computer-vision
     - name: Guide pratiche
       items:
-        - name: Chiamare l'API di analisi immagini
+        - name: Chiamare l'API di analisi delle immagini
           href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
         - name: Analizzare video in tempo reale
           href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
@@ -120,14 +118,12 @@
           href: Tutorials/storage-lab-tutorial.md
     - name: Riferimento
       items:
-        - name: API REST di analisi immagini versione 3.2 anteprima
-          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
-        - name: API REST di analisi immagini v 3.1
+        - name: API REST di analisi delle immagini v3.2
+          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b'
+        - name: API REST di analisi delle immagini v3.1
           href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005'
-        - name: API REST di analisi immagini versione 2.1
+        - name: API REST di analisi delle immagini v2.1
           href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641'
-        - name: API REST di analisi immagini v 1.0
-          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
         - name: .NET
           href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
         - name: Node.js
@@ -150,7 +146,7 @@
       items:
         - name: Nota sulla trasparenza
           items:
-            - name: Casi d'uso di analisi spaziale
+            - name: Casi d'uso dell'analisi spaziale
               href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/cognitive-services/computer-vision/context/context
             - name: Caratteristiche e limitazioni
               href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
@@ -166,7 +162,7 @@
           href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/computer-vision/context/context
     - name: Guide pratiche
       items:
-        - name: Usare il contenitore di analisi spaziale
+        - name: Usare il contenitore Analisi spaziale
           items:
             - name: Configurare il computer host ed eseguire il contenitore
               href: spatial-analysis-container.md
@@ -180,7 +176,7 @@
               href: spatial-analysis-zone-line-placement.md
             - name: Posizionamento della fotocamera
               href: spatial-analysis-camera-placement.md
-            - name: Tutti i contenitori di servizi cognitivi
+            - name: Tutti i contenitori di Servizi cognitivi
               href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
 - name: Guide pratiche
   items:
@@ -194,7 +190,7 @@
   items:
     - name: Supporto di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: INFORMAZIONI sui moduli
+    - name: Moduli LEARN
       href: /learn/paths/explore-computer-vision-microsoft-azure/
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context

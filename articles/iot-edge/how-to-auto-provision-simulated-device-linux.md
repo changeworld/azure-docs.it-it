@@ -4,27 +4,22 @@ description: Usare un TPM simulato in una macchina virtuale Linux per testare il
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 6/30/2020
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5beb3c750f99b8fe314fabbc2ff6109bfa6bc67c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: ca16099cffc22a19c2ee35b00ae6f1bcbe2977a7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106166599"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312400"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge con un TPM in Linux
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Questo articolo illustra come testare il provisioning automatico in un dispositivo IoT Edge Linux usando un Trusted Platform Module (TPM). È possibile effettuare automaticamente il provisioning di Azure IoT Edge dispositivi con il [servizio Device provisioning](../iot-dps/index.yml). Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica sul [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) prima di continuare.
-
-:::moniker range=">=iotedge-2020-11"
-> [!NOTE]
-> Attualmente, il provisioning automatico con l'autenticazione TPM non è supportato nella versione IoT Edge 1,2.
-:::moniker-end
 
 Le attività sono le seguenti:
 
@@ -34,7 +29,7 @@ Le attività sono le seguenti:
 1. Installare il runtime IoT Edge e connettere il dispositivo all'hub IoT.
 
 > [!TIP]
-> Questo articolo descrive come testare il provisioning DPS usando un simulatore TPM, ma la maggior parte di esso si applica a hardware TPM fisico, ad esempio [Infineon OPTIGA &trade; TPM](https://devicecatalog.azure.com/devices/3f52cdee-bbc4-d74e-6c79-a2546f73df4e), un dispositivo Azure Certified for Internet.
+> Questo articolo descrive come testare il provisioning DPS usando un simulatore TPM, ma la maggior parte di esso si applica a hardware TPM fisico, ad esempio [Infineon OPTIGA &trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), un dispositivo Azure Certified for Internet.
 >
 > Se si usa un dispositivo fisico, è possibile passare alla sezione recuperare le [informazioni di provisioning da un dispositivo fisico](#retrieve-provisioning-information-from-a-physical-device) in questo articolo.
 
@@ -191,6 +186,9 @@ Seguire i passaggi in [installare il runtime di Azure IOT Edge](how-to-install-i
 
 Una volta installato il runtime nel dispositivo, configurare il dispositivo con le informazioni usate per connettersi al servizio Device provisioning e all'hub Internet.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. Verificare l' **ambito ID** DPS e l' **ID registrazione** dispositivo raccolti nelle sezioni precedenti.
 
 1. Aprire il file di configurazione nel dispositivo IoT Edge.
@@ -216,11 +214,52 @@ Una volta installato il runtime nel dispositivo, configurare il dispositivo con 
    # dynamic_reprovisioning: false
    ```
 
-   Facoltativamente, usare le `always_reprovision_on_startup` `dynamic_reprovisioning` linee o per configurare il comportamento del nuovo provisioning del dispositivo. Se un dispositivo è impostato per eseguire un nuovo provisioning all'avvio, tenterà sempre di eseguire il provisioning con DPS prima e quindi di eseguire il fallback al backup del provisioning in caso di errore. Se un dispositivo è impostato in modo da eseguire un nuovo provisioning dinamico, IoT Edge verrà riavviato ed eseguito un nuovo provisioning se viene rilevato un evento di reprovisioning. Per altre informazioni, vedere [concetti relativi al nuovo provisioning dei dispositivi dell'hub](../iot-dps/concepts-device-reprovision.md).
-
 1. Aggiornare i valori di `scope_id` e `registration_id` con le informazioni sul dispositivo e sul DPS.
 
+1. Facoltativamente, usare le `always_reprovision_on_startup` `dynamic_reprovisioning` linee o per configurare il comportamento del nuovo provisioning del dispositivo. Se un dispositivo è impostato per eseguire un nuovo provisioning all'avvio, tenterà sempre di eseguire il provisioning con DPS prima e quindi di eseguire il fallback al backup del provisioning in caso di errore. Se un dispositivo è impostato in modo da eseguire un nuovo provisioning dinamico, IoT Edge verrà riavviato ed eseguito un nuovo provisioning se viene rilevato un evento di reprovisioning. Per altre informazioni, vedere [concetti relativi al nuovo provisioning dei dispositivi dell'hub](../iot-dps/concepts-device-reprovision.md).
+
+1. Salvare e chiudere il file.
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Verificare l' **ambito ID** DPS e l' **ID registrazione** dispositivo raccolti nelle sezioni precedenti.
+
+1. Aprire il file di configurazione nel dispositivo IoT Edge.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. Trovare la sezione configurazioni di provisioning del file. Rimuovere il commento dalle righe per il provisioning del TPM e verificare che le altre righe di provisioning siano impostate come commento.
+
+   ```toml
+   # DPS provisioning with TPM
+   [provisioning]
+   source = "dps"
+   global_endpoint = "https://global.azure-devices-provisioning.net"
+   id_scope = "<SCOPE_ID>"
+   
+   [provisioning.attestation]
+   method = "tpm"
+   registration_id = "<REGISTRATION_ID>"
+   ```
+
+1. Aggiornare i valori di `id_scope` e `registration_id` con le informazioni sul dispositivo e sul DPS.
+
+1. Facoltativamente, trovare la sezione modalità di riprovision automatico del file. Usare il `auto_reprovisioning_mode` parametro per configurare il comportamento di nuovo provisioning del dispositivo in `Dynamic` , `AlwaysOnStartup` o `OnErrorOnly` . Per altre informazioni, vedere [concetti relativi al nuovo provisioning dei dispositivi dell'hub](../iot-dps/concepts-device-reprovision.md).
+
+1. Salvare e chiudere il file.
+:::moniker-end
+<!-- end 1.2 -->
+
 ## <a name="give-iot-edge-access-to-the-tpm"></a>Concedere l'accesso IoT Edge al TPM
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 Il runtime di IoT Edge deve accedere al TPM per effettuare automaticamente il provisioning del dispositivo.
 
@@ -272,9 +311,68 @@ Il runtime di IoT Edge deve accedere al TPM per effettuare automaticamente il pr
    ```
 
    Se si riscontra che non state applicate le autorizzazioni corrette, provare a riavviare la macchina per aggiornare udev.
+:::moniker-end
+<!-- end 1.1 -->
 
-## <a name="restart-the-iot-edge-runtime"></a>Riavviare il runtime IoT Edge
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Il runtime di IoT Edge si basa su un servizio TPM che l'accesso del broker a un TPM del dispositivo. Questo servizio deve accedere al TPM per effettuare automaticamente il provisioning del dispositivo.
 
+È possibile concedere l'accesso al TPM eseguendo l'override delle impostazioni di sistema in modo che il `aziottpm` servizio disponga dei privilegi radice. Se non si vuole elevare i privilegi di servizio, è possibile usare la procedura seguente per concedere manualmente l'accesso al modulo TPM.
+
+1. Trovare il percorso file al modulo hardware TPM sul dispositivo e salvarlo come variabile locale.
+
+   ```bash
+   tpm=$(sudo find /sys -name dev -print | fgrep tpm | sed 's/.\{4\}$//')
+   ```
+
+2. Creare una nuova regola che consentirà l'accesso del runtime IoT Edge a tpm0.
+
+   ```bash
+   sudo touch /etc/udev/rules.d/tpmaccess.rules
+   ```
+
+3. Aprire il file delle regole.
+
+   ```bash
+   sudo nano /etc/udev/rules.d/tpmaccess.rules
+   ```
+
+4. Copiare le informazioni di accesso seguenti nel file di regole.
+
+   ```input
+   # allow aziottpm access to tpm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
+   ```
+
+5. Salvare e chiudere il file.
+
+6. Attivare il sistema udev per valutare la nuova regola.
+
+   ```bash
+   /bin/udevadm trigger $tpm
+   ```
+
+7. Verificare che la regola sia stata applicata.
+
+   ```bash
+   ls -l /dev/tpm0
+   ```
+
+   L'output con esito positivo viene visualizzato come segue:
+
+   ```output
+   crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpm0
+   ```
+
+   Se si riscontra che non state applicate le autorizzazioni corrette, provare a riavviare la macchina per aggiornare udev.
+:::moniker-end
+<!-- end 1.2 -->
+
+## <a name="restart-iot-edge-and-verify-successful-installation"></a>Riavviare IoT Edge e verificare che l'installazione sia riuscita
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Riavviare il runtime IoT Edge in modo che accetti tutte le modifiche alla configurazione apportate nel dispositivo.
 
    ```bash
@@ -287,6 +385,12 @@ Verificare che il runtime IoT Edge sia in esecuzione.
    sudo systemctl status iotedge
    ```
 
+Esaminare i log del daemon.
+
+```cmd/sh
+journalctl -u iotedge --no-pager --no-full
+```
+
 Se vengono visualizzati errori di provisioning, è possibile che le modifiche di configurazione non abbiano ancora avuto effetto. Provare a riavviare di nuovo il daemon IoT Edge.
 
    ```bash
@@ -294,22 +398,40 @@ Se vengono visualizzati errori di provisioning, è possibile che le modifiche di
    ```
 
 In alternativa, provare a riavviare la macchina virtuale per verificare se le modifiche diventano effettive al nuovo avvio.
+:::moniker-end
+<!-- end 1.1 -->
 
-## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Applicare le modifiche di configurazione apportate al dispositivo.
 
-Se il runtime viene avviato correttamente, è possibile accedere all'hub IoT e verificare se è stato eseguito il provisioning automatico del nuovo dispositivo. Il dispositivo è ora è pronto per l'esecuzione di moduli IoT Edge.
+   ```bash
+   sudo iotedge config apply
+   ```
 
-Verificare lo stato del daemon IoT Edge.
+Verificare che il runtime IoT Edge sia in esecuzione.
 
-```cmd/sh
-systemctl status iotedge
-```
+   ```bash
+   sudo iotedge system status
+   ```
 
 Esaminare i log del daemon.
 
-```cmd/sh
-journalctl -u iotedge --no-pager --no-full
-```
+   ```cmd/sh
+   sudo iotedge system logs
+   ```
+
+Se vengono visualizzati errori di provisioning, è possibile che le modifiche di configurazione non abbiano ancora avuto effetto. Provare a riavviare il daemon IoT Edge.
+
+   ```bash
+   sudo systemctl daemon-reload
+   ```
+
+In alternativa, provare a riavviare la macchina virtuale per verificare se le modifiche diventano effettive al nuovo avvio.
+:::moniker-end
+<!-- end 1.2 -->
+
+Se il runtime viene avviato correttamente, è possibile accedere all'hub IoT e verificare se è stato eseguito il provisioning automatico del nuovo dispositivo. Il dispositivo è ora è pronto per l'esecuzione di moduli IoT Edge.
 
 Elencare i moduli in esecuzione.
 

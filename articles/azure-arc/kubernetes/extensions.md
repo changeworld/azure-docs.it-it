@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Distribuire e gestire il ciclo di vita delle estensioni in Azure Arc abilitato Kubernetes
-ms.openlocfilehash: 63fb14818d148dcc579300fdb4c89d636b47fd05
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 854d7418515d7927a3c0b4b8790ed4770af555ab
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106451155"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312621"
 ---
 # <a name="kubernetes-cluster-extensions"></a>Estensioni del cluster Kubernetes
 
@@ -51,7 +51,7 @@ Una panoramica concettuale di questa funzionalità è disponibile nell'articolo 
 | Estensione | Descrizione |
 | --------- | ----------- |
 | [Monitoraggio di Azure](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Offre visibilità sulle prestazioni dei carichi di lavoro distribuiti nel cluster Kubernetes. Raccoglie le metriche di utilizzo della memoria e della CPU da controller, nodi e contenitori. |
-| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Raccoglie i dati dei log di controllo dai nodi del piano di controllo del cluster Kubernetes. Fornisce indicazioni e avvisi di minaccia basati sui dati raccolti. |
+| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Raccoglie informazioni correlate alla sicurezza, ad esempio i dati dei log di controllo dal cluster Kubernetes. Fornisce indicazioni e avvisi di minaccia basati sui dati raccolti. |
 
 ## <a name="usage-of-cluster-extensions"></a>Utilizzo delle estensioni del cluster
 
@@ -235,31 +235,6 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
   }
 ]
 ```
-
-### <a name="update-an-existing-extension-instance"></a>Aggiornare un'istanza di estensione esistente
-
-Aggiornare un'istanza di estensione in un cluster con `k8s-extension update` , passando i valori da aggiornare.  Questo comando Aggiorna solo le `auto-upgrade-minor-version` `release-train` proprietà, e `version` . Ad esempio:
-
-- **Aggiorna il training della versione:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --release-train Preview
-    ```
-
-- **Disabilitare l'aggiornamento automatico e aggiungere un'istanza di estensione a una versione specifica:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version false --version 2.2.2
-    ```
-
-- **Attivare l'aggiornamento automatico per l'istanza di estensione:**
-
-    ```azurecli
-    az k8s-extension update --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <clusterName> --resource-group <resourceGroupName> --auto-upgrade-minor-version true
-    ```
-
-> [!NOTE]
-> Il `version` parametro può essere impostato solo quando `--auto-upgrade-minor-version` è impostato su `false` .
 
 ### <a name="delete-extension-instance"></a>Elimina istanza di estensione
 

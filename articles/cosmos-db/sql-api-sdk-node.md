@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 8408cdada40bd3595f9bf7cf2c6a2de90040ec0b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a3e21abe2f4ed24726256689af16b48ed6721ce8
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217262"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366148"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK per l'API SQL: note sulla versione e risorse
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +29,8 @@ ms.locfileid: "102217262"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Connettore Spark](sql-api-sdk-java-spark.md)
+> * [Connettore OLTP Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Connettore OLTP Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provider di risorse REST](/rest/api/cosmos-db-resource-provider/)
@@ -61,7 +62,7 @@ ms.locfileid: "102217262"
 * È stato corretto il bug che si verificava quando l'utente specificava opzioni di ripetizione dei tentativi parziali
 
 ### <a name="303"></a><a name="3.0.3"></a>3.0.3
-* Impedisci a Webpack di risolvere i moduli chiamati con require
+* Impedire a webpack di risolvere i moduli chiamati con require
 
 ### <a name="302"></a><a name="3.0.2"></a>3.0.2
 * È stato risolto un bug sospeso da tempo in cui le unità riservate risultavano sempre 0 per le query di aggregazione
@@ -187,7 +188,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>Esperienza browser migliorata
-Sebbene fosse possibile usare l'SDK v2 nel browser, non era un'esperienza ottimale. È necessario compilare più librerie node.js predefinite e usare un bundler come Webpack o pacchetto. Con l'SDK V3 l'esperienza d'uso del browser risulta considerevolmente migliorata.
+Sebbene fosse possibile usare l'SDK v2 nel browser, non era un'esperienza ottimale. Era necessario eseguire il polyfill di node.js librerie predefinite e usare un bundler come webpack o Bundle. Con l'SDK V3 l'esperienza d'uso del browser risulta considerevolmente migliorata.
 
 * Sono stati sostituiti alcuni elementi interni request con fetch (n. 245)
 * È stato rimosso l'utilizzo del buffer (n. 330)

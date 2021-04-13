@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 826bd22375fb6649bf4edbbeca88aed64cfe7245
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e42096fc32a504ae329d3b179004b6a123de4469
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312128"
+ms.locfileid: "107365638"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novità di Visione artificiale
 
@@ -23,57 +23,57 @@ Ecco cosa c'è di nuovo nel servizio. Le novità possono essere note sulla versi
 
 ## <a name="april-2021"></a>Aprile 2021
 
-### <a name="computer-vision-v32-ga"></a>Visione artificiale v 3.2 GA
+### <a name="computer-vision-v32-ga"></a>Visione artificiale versione 3.2 ga
 
-Il API Visione artificiale v 3.2 è ora disponibile a livello generale con i seguenti aggiornamenti:
-* Modello di Tag Image migliorato: analizza il contenuto visivo e genera tag rilevanti in base a oggetti, azioni e contenuto visualizzati nell'immagine. Questa operazione è disponibile tramite l' [API Tag Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f200). Per altre informazioni, vedere la [Guida alle procedure](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) per l'analisi delle immagini e la [Panoramica](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) .
-* Aggiornamento del modello di moderazione dei contenuti: rileva la presenza di contenuto per adulti e fornisce flag per filtrare le immagini che contengono contenuto visivo adulto, audace e cruento. Questa operazione è disponibile tramite l' [API di analisi](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b). Per altre informazioni, vedere la [Guida alle procedure](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) per l'analisi delle immagini e la [Panoramica](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) .
-* [OCR (lettura) disponibile per le lingue 73](./language-support.md#optical-character-recognition-ocr) , incluse le lingue cinese semplificato e tradizionale, giapponese, coreano e latino.
-* [OCR (Read)](./overview-ocr.md) , disponibile anche come [contenitore](./computer-vision-how-to-install-containers.md?tabs=version-3-2) non distribuibile per la distribuzione locale.
+L Visione artificiale aPI v3.2 è ora disponibile a livello generale con gli aggiornamenti seguenti:
+* Modello di assegnazione di tag alle immagini migliorato: analizza il contenuto visivo e genera tag pertinenti in base a oggetti, azioni e contenuto visualizzati nell'immagine. Questa funzionalità è disponibile tramite [l'API Tag Image.](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200) Per altre informazioni, [vedere la guida e la](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) panoramica sull'analisi delle immagini. [](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis)
+* Modello di moderazione del contenuto aggiornato: rileva la presenza di contenuto per adulti e fornisce flag per filtrare le immagini contenenti contenuto visivo per adulti, racy e gory. Questa funzionalità è disponibile tramite [l'API Analyze.](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) Per altre informazioni, [vedere la guida e la](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) panoramica sull'analisi delle immagini. [](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis)
+* [OCR (Lettura) disponibile per 73 lingue,](./language-support.md#optical-character-recognition-ocr) tra cui cinese semplificato e tradizionale, giapponese, coreano e latino.
+* [OCR (Lettura)](./overview-ocr.md) disponibile anche come [contenitore senza distribuzione](./computer-vision-how-to-install-containers.md?tabs=version-3-2) per la distribuzione locale.
 
 > [!div class="nextstepaction"]
-> [Vedere Visione artificiale v 3.2 GA](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
+> [Vedere Visione artificiale versione 3.2 ga](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
 ## <a name="march-2021"></a>Marzo 2021
 
-### <a name="computer-vision-32-public-preview-update"></a>Aggiornamento dell'anteprima pubblica di Visione artificiale 3,2
+### <a name="computer-vision-32-public-preview-update"></a>Visione artificiale 3.2 Anteprima pubblica
 
-L'anteprima pubblica di API Visione artificiale v 3.2 è stata aggiornata. La versione di anteprima include tutte le funzionalità Visione artificiale insieme alle API di lettura e analisi aggiornate.
-
-> [!div class="nextstepaction"]
-> [Vedere Visione artificiale versione 3.2 Public Preview 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
-
-## <a name="february-2021"></a>2021 febbraio
-
-### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Leggere l'anteprima pubblica dell'API v 3.2 con supporto OCR per le lingue 73
-L'anteprima pubblica dell'API v 3.2 di Visione artificiale, disponibile come servizio cloud e contenitore Docker, include gli aggiornamenti seguenti:
-* [OCR per le lingue 73](./language-support.md#optical-character-recognition-ocr) , incluse le lingue cinese semplificato e tradizionale, giapponese, coreano e latino.
-* Ordine di lettura naturale per l'output della riga di testo (solo lingue latine)
-* Classificazione dello stile di grafia per le righe di testo insieme a un punteggio di confidenza (solo lingue latine).
-* Estrai il testo solo per le pagine selezionate per un documento a più pagine.
-* Disponibile come [contenitore](./computer-vision-how-to-install-containers.md?tabs=version-3-2) non distribuibile per la distribuzione locale.
-
-Per altre informazioni, vedere la Guida alle procedure per l' [API Read](Vision-API-How-to-Topics/call-read-api.md) .
+L Visione artificiale appaltatura pubblica dell'API v3.2 è stata aggiornata. La versione di anteprima include tutte Visione artificiale funzionalità e le API di lettura e analisi aggiornate.
 
 > [!div class="nextstepaction"]
-> [Usare l'anteprima pubblica dell'API v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+> [Vedere Visione artificiale 3.2 anteprima pubblica 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+
+## <a name="february-2021"></a>Febbraio 2021
+
+### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Leggere l'anteprima pubblica dell'API v3.2 con supporto OCR per 73 lingue
+Visione artificiale'anteprima pubblica dell'API di lettura v3.2, disponibile come servizio cloud e contenitore Docker, include questi aggiornamenti:
+* [OCR per 73 lingue, tra](./language-support.md#optical-character-recognition-ocr) cui cinese semplificato e tradizionale, giapponese, coreano e latino.
+* Ordine di lettura naturale per l'output della riga di testo (solo lingue latini)
+* Classificazione dello stile di scrittura manuale per le righe di testo insieme a un punteggio di attendibilità (solo lingue latini).
+* Estrarre il testo solo per le pagine selezionate per un documento a più pagine.
+* Disponibile come [contenitore distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) per la distribuzione locale.
+
+Per altre [informazioni, vedere la guida alla procedura per](Vision-API-How-to-Topics/call-read-api.md) leggere l'API.
+
+> [!div class="nextstepaction"]
+> [Usare l'API di lettura v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 
 ## <a name="january-2021"></a>Gennaio 2021
 
-### <a name="spatial-analysis-container-update"></a>Aggiornamento del contenitore di analisi spaziale
+### <a name="spatial-analysis-container-update"></a>Aggiornamento del contenitore analisi spaziale
 
-Una nuova versione del [contenitore di analisi spaziale](spatial-analysis-container.md) è stata rilasciata con un nuovo set di funzionalità. Questo contenitore Docker consente di analizzare i video in streaming in tempo reale per comprendere le relazioni spaziali tra le persone e i loro movimenti negli ambienti fisici. 
+È stata rilasciata una nuova versione [del contenitore Analisi](spatial-analysis-container.md) spaziale con un nuovo set di funzionalità. Questo contenitore Docker consente di analizzare i video in streaming in tempo reale per comprendere le relazioni spaziali tra le persone e i loro movimenti negli ambienti fisici. 
 
-* È ora possibile configurare [le operazioni di analisi spaziale](spatial-analysis-operations.md) per rilevare se una persona sta indossando una copertura protetta, ad esempio una maschera. 
+* [Le operazioni di analisi](spatial-analysis-operations.md) spaziale possono ora essere configurate per rilevare se una persona indossa un viso di protezione, ad esempio una maschera. 
     * È possibile abilitare un classificatore di mascherine per le operazioni `personcount`, `personcrossingline` e `personcrossingpolygon` configurando il parametro `ENABLE_FACE_MASK_CLASSIFIER`.
     * Gli attributi `face_mask` e `face_noMask` verranno restituiti come metadati con un punteggio di confidenza per ogni persona rilevata nel flusso video
-* L'operazione *personcrossingpolygon* è stata estesa per consentire il calcolo del tempo di permanenza di una persona in una zona. È possibile impostare il `type` parametro nella configurazione della zona per l'operazione su `zonedwelltime` e un nuovo evento di tipo *personZoneDwellTimeEvent* includerà il `durationMs` campo popolato con il numero di millisecondi impiegato dall'utente nella zona.
-* **Modifica di rilievo**: l'evento *personZoneEvent* è stato rinominato in *personZoneEnterExitEvent*. Questo evento viene generato dall'operazione *personcrossingpolygon* quando una persona immette o esce dalla zona e fornisce informazioni direzionali con il lato numerato della zona che è stata superata.
-* L'URL del video può essere specificato come "parametro privato/offuscato" in tutte le operazioni. L'offuscamento è ora facoltativo e funzionerà solo se `KEY` e `IV` vengono fornite come variabili di ambiente.
-* La taratura è abilitata per impostazione predefinita per tutte le operazioni. Impostare `do_calibration: false` per disabilitarlo.
-* Aggiunto il supporto per la ritaratura automatica (disabilitato per impostazione predefinita) tramite il `enable_recalibration` parametro. per informazioni dettagliate, vedere [operazioni di analisi spaziale](./spatial-analysis-operations.md)
-* Parametri di calibrazione della fotocamera per il `DETECTOR_NODE_CONFIG` . Per informazioni dettagliate, vedere [operazioni di analisi spaziale](./spatial-analysis-operations.md) .
+* *L'operazione personcrossingpolygon* è stata estesa per consentire il calcolo del tempo trascorso da una persona in una zona. È possibile impostare il parametro nella configurazione della zona per l'operazione su e un nuovo evento di tipo `type` `zonedwelltime` *personZoneDwellTimeEvent* includerà il campo popolato con il numero di millisecondi trascorsi dalla persona nella `durationMs` zona.
+* **Modifica di rilievo:** *l'evento personZoneEvent* è stato rinominato *in personZoneEnterExitEvent*. Questo evento viene generato dall'operazione *personcrossingpolygon* quando una persona entra o esce dalla zona e fornisce informazioni direzionali con il lato numerato della zona attraversata.
+* L'URL video può essere specificato come "Parametro privato/offuscato" in tutte le operazioni. L'offuscamento è ora facoltativo e funzionerà solo se `KEY` e vengono forniti come variabili di `IV` ambiente.
+* La calibrazione è abilitata per impostazione predefinita per tutte le operazioni. Impostare `do_calibration: false` l'oggetto per disabilitarlo.
+* Aggiunta del supporto per la ricalibrazione automatica (per impostazione predefinita disabilitata) tramite il parametro , vedere Operazioni di analisi `enable_recalibration` [spaziale](./spatial-analysis-operations.md) per informazioni dettagliate
+* Parametri di calibrazione della fotocamera per `DETECTOR_NODE_CONFIG` . Per informazioni [dettagliate, vedere Operazioni di analisi](./spatial-analysis-operations.md) spaziale.
 
 
 ## <a name="october-2020"></a>Ottobre 2020
@@ -84,9 +84,9 @@ L'API Visione artificiale disponibile a livello generale è stato aggiornata all
 
 ## <a name="september-2020"></a>Settembre 2020
 
-### <a name="spatial-analysis-container-preview"></a>Anteprima contenitore analisi spaziale
+### <a name="spatial-analysis-container-preview"></a>Anteprima del contenitore Analisi spaziale
 
-Il [contenitore di analisi spaziale](spatial-analysis-container.md) è ora disponibile in anteprima. La funzionalità di analisi spaziale di Visione artificiale consente di analizzare i video in streaming in tempo reale per comprendere le relazioni spaziali tra gli utenti e il loro spostamento attraverso gli ambienti fisici. L'analisi spaziale è un contenitore Docker che è possibile usare in locale. 
+Il [contenitore Analisi spaziale](spatial-analysis-container.md) è ora disponibile in anteprima. La funzionalità analisi spaziale di Visione artificiale consente di analizzare i video in streaming in tempo reale per comprendere le relazioni spaziali tra le persone e il loro movimento negli ambienti fisici. Analisi spaziale è un contenitore Docker che è possibile usare in locale. 
 
 ### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>Aggiunta del riconoscimento ottico dei caratteri per il giapponese nell'API di lettura v3.1 (anteprima pubblica)
 Nell'API di lettura v3.1 (anteprima pubblica) di Visione artificiale sono state aggiunte queste funzionalità:
@@ -96,7 +96,7 @@ Nell'API di lettura v3.1 (anteprima pubblica) di Visione artificiale sono state 
 
 * Questa versione di anteprima dell'API di lettura supporta le lingue inglese, olandese, francese, tedesco, italiano, giapponese, portoghese, cinese semplificato e spagnolo.
 
-Per altre informazioni, vedere la Guida alle procedure per l' [API Read](Vision-API-How-to-Topics/call-read-api.md) .
+Per altre [informazioni, vedere la guida alle informazioni sulle API](Vision-API-How-to-Topics/call-read-api.md) di lettura.
 
 > [!div class="nextstepaction"]
 > [Altre informazioni sull'API di lettura v3.1 (anteprima pubblica 2)](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
@@ -108,20 +108,20 @@ Nell'API di lettura v3.1 (anteprima pubblica) di Visione artificiale è stato ag
 
 * Questa versione di anteprima dell'API di lettura supporta le lingue inglese, olandese, francese, tedesco, italiano, portoghese, cinese semplificato e spagnolo.
 
-Per altre informazioni, vedere la Guida alle procedure per l' [API Read](Vision-API-How-to-Topics/call-read-api.md) .
+Per altre [informazioni, vedere la guida alle informazioni sulle API](Vision-API-How-to-Topics/call-read-api.md) di lettura.
 
 > [!div class="nextstepaction"]
 > [Altre informazioni sull'API di lettura v3.1 (anteprima pubblica 1)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maggio 2020
-API Visione artificiale v 3.0 è stata immessa la disponibilità generale, con aggiornamenti per l'API di lettura:
+Visione artificiale'API v3.0 ha immesso disponibilità generale, con aggiornamenti per l'API di lettura:
 
 * supporto per inglese, olandese, francese, tedesco, italiano, portoghese e spagnolo
 * Miglioramento della precisione
 * Punteggio di attendibilità per ogni parola estratta
 * Nuovo formato di output
 
-Per altre informazioni, vedere [Cenni preliminari sull'OCR](overview-ocr.md) .
+Per altre [informazioni, vedere la panoramica di OCR.](overview-ocr.md)
 
 ## <a name="march-2020"></a>Marzo 2020
 
