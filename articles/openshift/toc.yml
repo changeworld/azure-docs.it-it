@@ -26,15 +26,17 @@
           href: howto-create-private-cluster-4x.md
         - name: Configurare l'inoltro DNS
           href: dns-forwarding.md
+        - name: Limitare il traffico in uscita
+          href: howto-restrict-egress.md
     - name: Archiviazione
       items:
-        - name: Crittografare PVC con la chiave gestita dal cliente (anteprima)
+        - name: Crittografare i PVC con la chiave gestita dal cliente (anteprima)
           href: howto-encrypt-data-disks.md
         - name: Creare una StorageClass di File di Azure
           href: howto-create-a-storageclass.md
         - name: Usare il registro contenitori predefinito
           href: built-in-container-registry.md
-        - name: Usare il registro contenitori di Azure
+        - name: Usare il Registro Azure Container
           href: howto-use-acr-with-aro.md
     - name: Sicurezza e autenticazione
       items:

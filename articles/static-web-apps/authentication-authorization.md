@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 9c8dd723c9cde5c0534d9fd5ca4084c7ed15d213
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 29821733b73717634aa8f0ab72270f058ffd3ddc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218635"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309391"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticazione e autorizzazione per App Web statiche di Azure (anteprima)
 
@@ -24,7 +24,7 @@ App Web statiche di Azure semplifica l'esperienza di autenticazione grazie alla 
 - Google<sup>1</sup>
 - Twitter
 
-Gli [inviti](#invitations) specifici del provider associano gli utenti ai ruoli e agli utenti autorizzati viene concesso l'accesso alle [route](routes.md) dalle regole definite nel file _routes.json_.
+Gli [inviti](#invitations) specifici del provider associano gli utenti ai ruoli e agli utenti autorizzati viene concesso l'accesso alle [Route](routes.md) in base alle regole definite nel _staticwebapp.config.jssu_ file.
 
 Tutti i provider di autenticazione sono abilitati per impostazione predefinita. Per limitare un provider di autenticazione, [bloccare l'accesso](#block-an-authorization-provider) con una regola di route personalizzata.
 
@@ -32,18 +32,18 @@ Gli argomenti su autenticazione e autorizzazione si sovrappongono in modo signif
 
 ## <a name="roles"></a>Ruoli
 
-Ogni utente che accede a un'app Web statica appartiene a uno o più ruoli.  Esistono due ruoli predefiniti a cui gli utenti possono appartenere:
+Ogni utente che accede a un'app Web statica appartiene a uno o più ruoli. Esistono due ruoli predefiniti a cui gli utenti possono appartenere:
 
 - **anonymous**: Tutti gli utenti appartengono automaticamente al ruolo _anonymous_.
 - **authenticated**: Tutti gli utenti connessi appartengono al ruolo _authenticated_.
 
-Oltre ai ruoli predefiniti, è possibile creare nuovi ruoli, assegnarli agli utenti tramite inviti e farvi riferimento nel file _routes.json_.
+Oltre ai ruoli predefiniti, è possibile creare nuovi ruoli, assegnarli agli utenti tramite inviti e farvi riferimento nel _staticwebapp.config.jssu_ file.
 
 ## <a name="role-management"></a>Gestione dei ruoli
 
 ### <a name="add-a-user-to-a-role"></a>Aggiungere un utente a un ruolo
 
-Per aggiungere utenti al sito Web, è possibile generare inviti che consentono di associare gli utenti a ruoli specifici. I ruoli vengono definiti e mantenuti nel file _routes.json_.
+Per aggiungere utenti al sito Web, è possibile generare inviti che consentono di associare gli utenti a ruoli specifici. I ruoli vengono definiti e mantenuti nel _staticwebapp.config.jssu_ file.
 
 <a name="invitations" id="invitations"></a>
 
@@ -53,25 +53,25 @@ Gli inviti sono specifici dei singoli provider di autorizzazioni, quindi occorre
 
 <a name="provider-user-details" id="provider-user-details"></a>
 
-| Provider di autorizzazione | Espone:  |
-| ---------------------- | ----------------- |
-| Azure Active Directory | Indirizzo di posta elettronica     |
-| Facebook               | Indirizzo di posta elettronica     |
-| GitHub                 | username          |
-| Google<sup>1</sup>     | Indirizzo di posta elettronica     |
-| Twitter                | username          |
+| Provider di autorizzazione | Espone: |
+| ---------------------- | ---------------- |
+| Azure Active Directory | Indirizzo di posta elettronica    |
+| Facebook               | Indirizzo di posta elettronica    |
+| GitHub                 | username         |
+| Google<sup>1</sup>     | Indirizzo di posta elettronica    |
+| Twitter                | username         |
 
 1. Nel [portale di Azure](https://portal.azure.com) passare alla risorsa App Web statiche.
 1. In _Impostazioni_ fare clic sulla scheda **Gestione ruoli**.
 1. Fare clic sul pulsante **Invita**.
 1. Selezionare un _Provider di autorizzazione_ dall'elenco di opzioni.
 1. Aggiungere il nome utente o l'indirizzo di posta elettronica del destinatario nella casella _Dettagli dell'invitato_.
-    - Per GitHub e Twitter, immettere il nome utente. Per tutti gli altri, immettere l'indirizzo di posta elettronica del destinatario.
+   - Per GitHub e Twitter, immettere il nome utente. Per tutti gli altri, immettere l'indirizzo di posta elettronica del destinatario.
 1. Selezionare il dominio del sito statico dall'elenco a discesa _Dominio_.
-    - Il dominio selezionato è il dominio che verrà visualizzato nell'invito. Se al sito è associato un dominio personalizzato, è probabile che si desideri scegliere il dominio personalizzato.
+   - Il dominio selezionato è il dominio che verrà visualizzato nell'invito. Se al sito è associato un dominio personalizzato, è probabile che si desideri scegliere il dominio personalizzato.
 1. Aggiungere un elenco delimitato da virgole di nomi di ruolo nella casella _Ruolo_.
 1. Immettere il numero massimo di ore di validità per l'invito.
-    - Il limite massimo consentito è 168 ore, ovvero 7 giorni.
+   - Il limite massimo consentito è 168 ore, ovvero 7 giorni.
 1. Fare clic sul pulsante **Genera**.
 1. Copiare il collegamento dalla casella _Collegamento di invito_.
 1. Inviare tramite posta elettronica il collegamento di invito per l'utente a cui si sta concedendo l'accesso all'app.

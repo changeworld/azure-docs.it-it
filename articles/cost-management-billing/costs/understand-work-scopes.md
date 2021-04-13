@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 729444b1d1ccf55f34e54a4b59508131458c472b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 693045d094ddbf5ad6df81eca8cd16d9cac62fe4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054805"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308609"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -42,7 +42,7 @@ Azure supporta tre ambiti per la gestione delle risorse. Ogni ambito supporta la
 
 - [**Gruppi di gestione**](../../governance/management-groups/overview.md): contenitori gerarchici fino a otto livelli per l'organizzazione delle sottoscrizioni di Azure.
 
-    Tipo di risorsa: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    Tipo di risorsa: [Microsoft.Management/managementGroups](/rest/api/managementgroups/)
 
 - **Sottoscrizioni**: contenitori principali per le risorse di Azure.
 

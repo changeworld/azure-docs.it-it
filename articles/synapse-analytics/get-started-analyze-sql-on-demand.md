@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: c8a0ad3eb578280ea29d94dfbb5e74d873568541
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 7c228bfe5897b45e6345234f2ed8e0f5cfbec73a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259643"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312791"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>Analizzare i dati con un pool SQL senza server
 
@@ -27,9 +27,8 @@ I pool SQL senza server consentono di usare SQL senza la necessità di riservare
 
 Ogni area di lavoro viene fornita con un pool SQL senza server preconfigurato denominato **predefinito**. 
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>Analizzare i dati del set di dati NYC Taxi nell'archiviazione BLOB con un pool SQL serverless
+## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>Analizzare i dati dei taxi di NYC con un pool SQL senza server
 
-In questa sezione si userà un pool SQL senza server per analizzare i dati dei taxi di NYC in un account di archiviazione BLOB di Azure.
 
 1. In sinapsi Studio passare all'hub **sviluppo**
 1. Creare un nuovo script SQL.

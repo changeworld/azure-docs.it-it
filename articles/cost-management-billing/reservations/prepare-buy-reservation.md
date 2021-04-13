@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: a70d434b06fd19071f3576f9333579e0bd2b85e7
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 13a9e3ad1dcdfa230d757230e3fdea91e4ee9d23
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574975"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310394"
 ---
 # <a name="buy-a-reservation"></a>Acquistare una prenotazione
 
@@ -35,8 +35,8 @@ Come ambito di una prenotazione è possibile definire una sottoscrizione o grupp
 
 Sono disponibili tre opzioni per definire l'ambito di una prenotazione, a seconda delle esigenze:
 
-- **Ambito gruppo di risorse singolo**: lo sconto per la prenotazione si applica alle risorse corrispondenti incluse solo nel gruppo di risorse selezionato.
-- **Ambito sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.
+- **Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.
+- **Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.
 - **Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione.
     - Per i clienti con contratto Enterprise Agreement, il contesto di fatturazione è la registrazione. L'ambito condiviso della prenotazione include più tenant di Active Directory in una registrazione.
     - Per i clienti con Contratto del cliente Microsoft, l'ambito di fatturazione corrisponde al profilo di fatturazione.
@@ -44,9 +44,9 @@ Sono disponibili tre opzioni per definire l'ambito di una prenotazione, a second
 
 Per l'applicazione degli sconti sull'utilizzo di risorse, Azure elabora la prenotazione nell'ordine seguente:
 
-1. Prenotazioni con ambito costituito da un gruppo di risorse
-2. Prenotazioni con ambito singolo
-3. Prenotazioni con ambito condiviso
+1. Prenotazioni con un singolo ambito del gruppo di risorse
+2. Prenotazioni con un singolo ambito di sottoscrizione
+3. Prenotazioni con un ambito condiviso (più sottoscrizioni), descritte in precedenza
 
 Dopo aver acquistato una prenotazione, è sempre possibile aggiornare l'ambito. A tale scopo, passare alla prenotazione, fare clic su **Configurazione** e ridefinire l'ambito della prenotazione. La ridefinizione dell'ambito di una prenotazione non è una transazione commerciale. Il periodo di prenotazione non cambia. Per altre informazioni sull'aggiornamento dell'ambito, vedere [Aggiornare l'ambito dopo l'acquisto di una prenotazione](manage-reserved-vm-instance.md#change-the-reservation-scope).
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: aa1b861555cff65c9e432ea711af3f7c6e410625
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3b323bf920bd884e821d03bf2def37471775e720
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109166"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312706"
 ---
 # <a name="azure-stack-edge-pro-r-technical-specifications"></a>Specifiche tecniche di Azure Stack Edge Pro R
 
@@ -24,41 +24,44 @@ I componenti hardware del dispositivo R Azure Stack Edge Pro rispettano le speci
 
 Il dispositivo R Pro Azure Stack Edge presenta le specifiche seguenti per le risorse di calcolo e di memoria:
 
-| Specifiche       | valore                  |
-|---------------------|------------------------|
-| CPU    | 2 X CPU Intel Xeon Silver 4114<br>20 core fisici (10 per CPU)<br>40 core logici (vCPU) (20 per CPU)  |
-| Memoria              | 256 GB di RAM (2666 MT/s)     |
-
+| Specifiche  | valore                                             |
+|----------------|---------------------------------------------------|
+| Tipo di CPU       | CPU Dual Intel Xeon Silver 4114                   |
+| CPU: non elaborata       | 20 core totali, 40 vCPU totali                    |
+| CPU: utilizzabile    | 32 vCPU                                          |
+| Tipo di memoria    | Dell compatibile con 16 GB RDIMM, 2666 MT/s, doppio rango |
+| Memoria: non elaborata    | 256 GB di RAM (16 x 16 GB)                           |
+| Memoria: utilizzabile | 230 GB DI RAM                                        |
 
 ## <a name="compute-acceleration-specifications"></a>Specifiche di accelerazione di calcolo
 
 Una GPU (Graphics Processing Unit) è inclusa in tutti i dispositivi che consentono scenari Kubernetes, Deep Learning e machine learning.
 
-| Specifiche           | valore                  |
+| Specifiche           | valore                      |
 |-------------------------|----------------------------|
-| GPU   | Una GPU nVidia T4 <br> Per ulteriori informazioni, vedere [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| 
+| GPU   | Una GPU nVidia T4 <br> Per ulteriori informazioni, vedere [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
 
 ## <a name="power-supply-unit-specifications"></a>Specifiche per le unità di alimentazione
 
 Il dispositivo R Pro Azure Stack Edge dispone di due unità di alimentazione (PSU) 100-240 V con ventilatori a prestazioni elevate. Le due unità forniscono una configurazione di alimentazione ridondante. In caso di guasto di un'unità, il dispositivo continua a funzionare normalmente con l'altra fino alla sostituzione del modulo guasto. La tabella seguente contiene le specifiche tecniche delle unità di alimentazione.
 
-| Specifiche           | PSU 550 W                  |
-|-------------------------|----------------------------|
-| Potenza massima in uscita    | 550 W                      |
-| Dissipazione termica (valore massimo)                   | 2891 BTU/HR                |
-| Frequenza               | 50/60 Hz                   |
-| Selezione intervallo di voltaggio | Con intervallo automatico: 115-230 V AC |
-| Collegabile "hot"           | Sì                        |
+| Specifiche              | PSU 550 W                  |
+|----------------------------|----------------------------|
+| Potenza massima in uscita       | 550 W                      |
+| Dissipazione termica (valore massimo) | 2891 BTU/HR                |
+| Frequenza                  | 50/60 Hz                   |
+| Selezione intervallo di voltaggio    | Con intervallo automatico: 115-230 V AC |
+| Collegabile "hot"              | Sì                        |
 
 ## <a name="network-specifications"></a>Specifiche di rete
 
-Il dispositivo R Azure Stack Edge Pro ha quattro interfacce di rete, PORT1-PORT4. 
+Il dispositivo R Azure Stack Edge Pro ha quattro interfacce di rete, PORT1-PORT4.
 
 
-|Specifiche  |Descrizione                              |
+|Specifiche         |Descrizione                       |
 |----------------------|----------------------------------|
-|Interfacce di rete    |**2 x 1 GbE RJ45** <br> La porta 1 viene utilizzata come interfaccia di gestione per l'installazione iniziale ed è statica per impostazione predefinita. Al termine dell'installazione iniziale, è possibile usare l'interfaccia per i dati con qualsiasi indirizzo IP. Tuttavia, in caso di reimpostazione, l'interfaccia torna all'indirizzo IP statico. <br>L'altra porta di interfaccia 2 è configurabile dall'utente, può essere usata per il trasferimento dei dati ed è DHCP per impostazione predefinita.     |
-|Interfacce di rete    |**2 x 25 GbE SFP28** <br> Queste interfacce dati porta 3 e porta 4 possono essere configurate come DHCP (impostazione predefinita) o static.            |
+|Interfacce di rete    |**2 x 1 GbE RJ45** <br> La porta 1 viene utilizzata come interfaccia di gestione per l'installazione iniziale ed è statica per impostazione predefinita. Al termine dell'installazione iniziale, è possibile usare l'interfaccia per i dati con qualsiasi indirizzo IP. Tuttavia, in caso di reimpostazione, l'interfaccia viene ripristinata con l'indirizzo IP statico. <br>L'altra interfaccia, la porta 2, che è configurabile dall'utente, può essere usata per il trasferimento dei dati ed è DHCP per impostazione predefinita. |
+|Interfacce di rete    |**2 x 25 GbE SFP28** <br> Queste interfacce dati sulla porta 3 e sulla porta 4 possono essere configurate come DHCP (impostazione predefinita) o static. |
 
 Il dispositivo R Azure Stack Edge Pro dispone dei seguenti componenti hardware di rete:
 
@@ -69,16 +72,16 @@ Il dispositivo R Azure Stack Edge Pro dispone dei seguenti componenti hardware d
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
 | Model    | ConnectX®-4 Lx EN network interface card                      |
-| Model Description               | 25GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
+| Model Description               | 25 GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
 | Device Part Number (XR2) | MCX4421A-ACAN  |
 | PSID (R640)           | MT_2420110034                         |-->
 <!-- confirm w/ Ravi what is this-->
 
-Per un elenco completo dei cavi, dei commutatori e dei ricetrasmettitori supportati per queste schede di rete, vedere la pagina relativa ai [prodotti compatibili con la scheda di rete Mellanox Dual Port 25 ConnectX-4 Channel](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
+Per un elenco completo di cavi, commutatori e ricetrasmettitori supportati per queste schede di rete, vedere [prodotti compatibili con la scheda di rete Mellanox Dual Port 25 ConnectX-4 Channel](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
 
 ## <a name="storage-specifications"></a>Specifiche di archiviazione
 
-I dispositivi R Azure Stack Edge Pro hanno 8 dischi dati e 2 M. 2 dischi SATA usati come dischi del sistema operativo. Per altre informazioni, vedere [M. 2 dischi SATA](https://en.wikipedia.org/wiki/M.2).
+I dispositivi R Pro Azure Stack Edge hanno otto dischi dati e due dischi SATA M. 2 che fungeranno da dischi del sistema operativo. Per altre informazioni, vedere [M. 2 dischi SATA](https://en.wikipedia.org/wiki/M.2).
 
 #### <a name="storage-for-1-node-device"></a>Archiviazione per un dispositivo a 1 nodo
 
@@ -89,7 +92,7 @@ Nella tabella seguente sono riportati i dettagli relativi alla capacità di arch
 |    Numero di unità SSD     |    8                  |
 |    Capacità della singola unità SSD                     |    8 TB               |
 |    Capacità totale                          |    64 TB              |
-|    Capacità utilizzabile totale*                  |    ~ 42 TB          |
+|    Capacità utilizzabile totale*                  |    ~ 42 TB            |
 
 **Parte dello spazio è riservato per uso interno.*
 
@@ -148,7 +151,7 @@ Il peso del dispositivo dipende dalla configurazione dello chassis.
 
 |     Chassis                                 |     Peso          |
 |-----------------------------------------------|---------------------|
-|    Peso totale del dispositivo a 1 nodo + caso robusto con estremità finali     |    ~ 114 lbs.          |
+|    Peso totale del dispositivo a 1 nodo + caso robusto con estremità finali     |    circa 114 lbs          |
 
 <!--#### For the 4-node system
 

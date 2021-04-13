@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a6af8f4600544007a9ecb4fcff5ac9016fd7dfbf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c37f6d89d5ebd3e18177db8add048739a62c883f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640346"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307946"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creare e usare OPENROWSET con il pool SQL serverless in Azure Synapse Analytics
 
@@ -138,9 +138,9 @@ Se si specifica l'elemento unstructured_data_path come cartella, una query del p
 È possibile impostare il pool SQL serverless in modo da attraversare le cartelle specificando /* alla fine del percorso, come nell'esempio seguente: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> A differenza di Hadoop e PolyBase, il pool SQL serverless non restituisce le sottocartelle, a meno che non si specifichi /** alla fine del percorso. Inoltre, a differenza di Hadoop e PolyBase, il pool SQL serverless restituisce i file il cui nome inizia con un carattere di sottolineatura (_) o un punto (.).
+> A differenza di Hadoop e PolyBase, il pool SQL serverless non restituisce le sottocartelle, a meno che non si specifichi /** alla fine del percorso.
 
-Nell'esempio seguente, se unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, una query del pool SQL serverless restituirà le righe di mydata.txt e _hidden.txt. Non restituirà mydata2.txt e mydata3.txt perché si trovano in una sottocartella.
+Nell'esempio seguente, se il unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , una query del pool SQL senza server restituirà righe da mydata.txt. Non restituirà mydata2.txt e mydata3.txt perché si trovano in una sottocartella.
 
 ![Dati ricorsivi per tabelle esterne](./media/develop-openrowset/folder-traversal.png)
 

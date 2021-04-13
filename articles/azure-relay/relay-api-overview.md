@@ -4,12 +4,12 @@ description: Questo articolo fornisce una panoramica delle API di inoltro di Azu
 ms.topic: article
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 98bbb1ecc7e870ff9b7687284e7087d44375d275
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 391bd74f2bce8721b6d6359f3990af494277aa45
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88935722"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312995"
 ---
 # <a name="available-relay-apis"></a>API di Inoltro disponibili
 
@@ -49,4 +49,4 @@ Informazioni dettagliate su questi moduli sono disponibili nel repository GitHub
 
 Per altre informazioni sul servizio di inoltro di Azure, vedere i collegamenti seguenti:
 * [Che cos'è Inoltro di Azure?](relay-what-is-it.md)
-* [Domande frequenti sul servizio di inoltro](relay-faq.md)
+* [Domande frequenti sul servizio di inoltro](relay-faq.yml)

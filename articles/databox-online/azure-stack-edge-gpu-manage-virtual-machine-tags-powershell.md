@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 566ca1598857f67e25faea9f19d134c4a91bfb18
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: be4348359e6b53c3e7454e9ab7c1af8ce8a7020a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106556183"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305557"
 ---
 # <a name="manage-vm-tags-on-azure-stack-edge-via-azure-powershell"></a>Gestire i tag delle macchine virtuali in Azure Stack Edge tramite Azure PowerShell
 
@@ -36,17 +36,7 @@ Prima di poter distribuire una macchina virtuale nel dispositivo tramite PowerSh
 
 ## <a name="verify-connection-to-local-azure-resource-manager"></a>Verificare la connessione al Azure Resource Manager locale
 
-Assicurarsi che sia possibile usare i passaggi seguenti per accedere al dispositivo dal client.
-
-Verificare che il client sia in grado di connettersi al Azure Resource Manager locale. 
-
-1. Chiamare le API del dispositivo locale per l'autenticazione:
-
-    ```powershell
-    login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d  
-    ```
-
-1. Specificare il nome utente `EdgeArmUser` e la password per la connessione tramite Azure Resource Manager. Se non si richiama la password, [reimpostare la password per Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) e usare questa password per accedere.
+[!INCLUDE [azure-stack-edge-gateway-verify-azure-resource-manager-connection](../../includes/azure-stack-edge-gateway-verify-azure-resource-manager-connection.md)]
 
 
 ## <a name="add-a-tag-to-a-vm"></a>Aggiungere un tag a una macchina virtuale

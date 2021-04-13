@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 1070a4c8daecfedae513f2fd8738c27abfb33078
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f55c3a1f699f8a087eb97eaba347a3f21c124cc9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200573"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307317"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Configurare il modulo proxy API per lo scenario della gerarchia del gateway (anteprima)
 
@@ -34,7 +34,7 @@ Il modulo proxy API può abilitare molti scenari per le gerarchie del gateway, t
 
 ## <a name="deploy-the-proxy-module"></a>Distribuire il modulo proxy
 
-Il modulo proxy API è disponibile in Microsoft Container Registry (di Microsoft): `mcr.microsoft.com/azureiotedge-api-proxy:latest` .
+Il modulo proxy API è disponibile in Microsoft Container Registry (di Microsoft): `mcr.microsoft.com/azureiotedge-api-proxy:1.0` .
 
 È anche possibile distribuire il modulo proxy API direttamente da Azure Marketplace: [proxy api IOT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview).
 

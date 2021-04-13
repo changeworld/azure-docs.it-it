@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b450ecc8aff379dbdb8d58f9b7609cf730ad27
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 87b9371bfe3b0bd8ff8b3bd509cc1431f0c2e1c6
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731667"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305770"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: Domande frequenti
 
@@ -90,7 +90,7 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
    **Passaggio 1. Ottenere l'elenco delle foreste di Active Directory in cui è stata abilitato l'accesso SSO facile**
 
    1. Prima, scaricare e installare [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Passare alla cartella `$env:programfiles\Microsoft Azure Active Directory Connect`.
    3. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
    4. Eseguire PowerShell come amministratore. In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Il comando dovrebbe far sì che venga visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore globale del tenant.
    5. Chiamare `Get-AzureADSSOStatus | ConvertFrom-Json`. ll comando consente di visualizzare l'elenco di foreste di Active Directory, ovvero l'elenco "Domini", in cui è stata abilitata questa funzionalità.
@@ -135,7 +135,7 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
    Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
 
    1. Prima, scaricare e installare [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Passare alla cartella `$env:ProgramFiles\Microsoft Azure Active Directory Connect`.
    3. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
    4. Eseguire PowerShell come amministratore. In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Il comando dovrebbe far sì che venga visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore globale del tenant.
    5. Chiamare `Enable-AzureADSSO -Enable $false`.
@@ -150,7 +150,7 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
    Seguire le attività da 1 a 4 se l'accesso Single Sign-On facile è stato disabilitato tramite Azure AD Connect. Se invece l'accesso Single Sign-On facile è stato disabilitato tramite PowerShell, passare all'attività 5.
 
    1. Prima, scaricare e installare [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Passare alla cartella `$env:ProgramFiles\Microsoft Azure Active Directory Connect`.
    3. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
    4. Eseguire PowerShell come amministratore. In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Il comando dovrebbe far sì che venga visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore globale del tenant.
    5. Chiamare `Get-AzureADSSOStatus | ConvertFrom-Json`. ll comando consente di visualizzare l'elenco di foreste di Active Directory, ovvero l'elenco "Domini", in cui è stata abilitata questa funzionalità.

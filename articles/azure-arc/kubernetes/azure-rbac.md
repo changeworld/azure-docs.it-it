@@ -7,16 +7,16 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Usare il controllo degli accessi in base al ruolo di Azure per i controlli di autorizzazione in Azure Arc Kubernetes
-ms.openlocfilehash: bd8029cb2772a6f6bd9821abe6acf69c9c08599d
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 0ee5f86ce12a39d86754d2e6e88263d8a03a012b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106451107"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304206"
 ---
-# <a name="azure-rbac-for-azure-arc-enabled-kubernetes-clusters"></a>Controllo degli accessi in base al ruolo di Azure per Azure Arc abilitato in Kubernetes
+# <a name="integrate-azure-active-directory-with-azure-arc-enabled-kubernetes-clusters"></a>Integrare Azure Active Directory con i cluster Kubernetes abilitati per Azure Arc
 
-I tipi di oggetto Kubernetes [ClusterRoleBinding e Rolet](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) consentono di definire l'autorizzazione in Kubernetes in modo nativo. Con il controllo degli accessi in base al ruolo di Azure è possibile usare Azure Active Directory e assegnazioni di ruolo in Azure per controllare i controlli di autorizzazione nel cluster. Ciò implica che è ora possibile usare le assegnazioni di ruolo di Azure per controllare in modo granulare Chi può leggere, scrivere ed eliminare gli oggetti Kubernetes, ad esempio distribuzione, Pod e servizio
+I tipi di oggetto Kubernetes [ClusterRoleBinding e Rolet](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) consentono di definire l'autorizzazione in Kubernetes in modo nativo. Con questa funzionalità è possibile usare Azure Active Directory e assegnazioni di ruolo in Azure per controllare i controlli di autorizzazione nel cluster. Ciò implica che è ora possibile usare le assegnazioni di ruolo di Azure per controllare in modo granulare Chi può leggere, scrivere ed eliminare gli oggetti Kubernetes, ad esempio distribuzione, Pod e servizio
 
 Una panoramica concettuale di questa funzionalità è disponibile in controllo degli accessi in base al ruolo di Azure [Kubernetes](conceptual-azure-rbac.md) .
 
@@ -274,10 +274,10 @@ I proprietari della risorsa Kubernetes abilitata per Azure Arc possono usare ruo
 
 | Ruolo | Descrizione |
 |---|---|
-| Visualizzatore Azure Arc Kubernetes | Consente l'accesso in sola lettura per visualizzare la maggior parte degli oggetti in uno spazio dei nomi. Questo ruolo non consente la visualizzazione dei segreti. Questo è dovuto al fatto `read` che l'autorizzazione per i segreti consente l'accesso alle `ServiceAccount` credenziali nello spazio dei nomi, che a sua volta consente l'accesso all'API usando tale `ServiceAccount` (una forma di escalation dei privilegi). |
-| Azure Arc Kubernetes writer | Consente l'accesso in lettura/scrittura alla maggior parte degli oggetti in uno spazio dei nomi. Questo ruolo non consente la visualizzazione o la modifica di ruoli o associazioni di ruolo. Tuttavia, questo ruolo consente l'accesso ai segreti e l'esecuzione di pod come qualsiasi `ServiceAccount` nello spazio dei nomi, quindi può essere usato per ottenere i livelli di accesso all'API di qualsiasi `ServiceAccount` nello spazio dei nomi. |
-| Amministratore di Azure Arc Kubernetes | Consente l'accesso dell'amministratore. Progettato per essere concesso all'interno di uno spazio dei nomi utilizzando un oggetto Role. Se utilizzato in un oggetto RoleGroup, consente l'accesso in lettura/scrittura alla maggior parte delle risorse in uno spazio dei nomi, inclusa la possibilità di creare ruoli e associazioni di ruolo all'interno dello spazio dei nomi. Questo ruolo non consente l'accesso in scrittura alla quota di risorse o allo spazio dei nomi stesso. |
-| Amministrazione cluster Azure Arc Kubernetes | Consente l'accesso con privilegi avanzati per eseguire qualsiasi azione su qualsiasi risorsa. Quando viene usato in un ClusterRoleBinding, fornisce il controllo completo su tutte le risorse nel cluster e in tutti gli spazi dei nomi. Quando viene usato in un oggetto Role, fornisce il controllo completo su ogni risorsa nello spazio dei nomi dell'associazione di ruoli, incluso lo spazio dei nomi stesso.|
+| [Visualizzatore Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-viewer) | Consente l'accesso in sola lettura per visualizzare la maggior parte degli oggetti in uno spazio dei nomi. Questo ruolo non consente la visualizzazione dei segreti. Questo è dovuto al fatto `read` che l'autorizzazione per i segreti consente l'accesso alle `ServiceAccount` credenziali nello spazio dei nomi, che a sua volta consente l'accesso all'API usando tale `ServiceAccount` (una forma di escalation dei privilegi). |
+| [Azure Arc Kubernetes writer](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-writer) | Consente l'accesso in lettura/scrittura alla maggior parte degli oggetti in uno spazio dei nomi. Questo ruolo non consente la visualizzazione o la modifica di ruoli o associazioni di ruolo. Tuttavia, questo ruolo consente l'accesso ai segreti e l'esecuzione di pod come qualsiasi `ServiceAccount` nello spazio dei nomi, quindi può essere usato per ottenere i livelli di accesso all'API di qualsiasi `ServiceAccount` nello spazio dei nomi. |
+| [Amministratore di Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-admin) | Consente l'accesso dell'amministratore. Progettato per essere concesso all'interno di uno spazio dei nomi utilizzando un oggetto Role. Se utilizzato in un oggetto RoleGroup, consente l'accesso in lettura/scrittura alla maggior parte delle risorse in uno spazio dei nomi, inclusa la possibilità di creare ruoli e associazioni di ruolo all'interno dello spazio dei nomi. Questo ruolo non consente l'accesso in scrittura alla quota di risorse o allo spazio dei nomi stesso. |
+| [Amministrazione cluster Azure Arc Kubernetes](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-cluster-admin) | Consente l'accesso con privilegi avanzati per eseguire qualsiasi azione su qualsiasi risorsa. Quando viene usato in un ClusterRoleBinding, fornisce il controllo completo su tutte le risorse nel cluster e in tutti gli spazi dei nomi. Quando viene usato in un oggetto Role, fornisce il controllo completo su ogni risorsa nello spazio dei nomi dell'associazione di ruoli, incluso lo spazio dei nomi stesso.|
 
 È possibile creare assegnazioni di ruolo nell'ambito del cluster Kubernetes abilitato per l'arco nel pannello `Access Control (IAM)` della risorsa cluster in portale di Azure. È anche possibile usare i comandi dell'interfaccia della riga di comando di Azure come illustrato di seguito:
 

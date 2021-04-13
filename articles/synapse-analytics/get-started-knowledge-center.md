@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: a26f46da7b392bd3b4a49aacb360a4c6147f8d2c
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 92d1534b5dd0233ce88b81d605c6502b67a121df
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382641"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307895"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Esplorare il Knowledge Center di Synapse
 
 Questa esercitazione descrive come usare il Knowledge Center di Synapse Studio.
 
-## <a name="getting-to-the-knowledge-center"></a>Accesso al Knowledge Center
+## <a name="introduction-to-the-knowledge-center"></a>Introduzione al Knowledge Center
 
 È possibile trovare il Knowledge Center in Synapse Studio in due modi:
 
@@ -30,16 +30,19 @@ Questa esercitazione descrive come usare il Knowledge Center di Synapse Studio.
 
 Scegliere uno dei due metodi e aprire il **Knowledge Center**.
 
-## <a name="overview"></a>Panoramica
-
-Il **Knowledge Center** consente di eseguire tre operazioni:
+Una volta visibile, si noterà che il **centro informazioni** consente di eseguire tre operazioni:
 * **Use samples immediately** (Usa immediatamente gli esempi). Per un esempio rapido del funzionamento di Synapse, scegliere questa opzione.
 * **Esplora raccolta**. Questa opzione consente di collegare i set di dati di esempio e di aggiungere il codice di esempio sotto forma di script SQL, notebook e pipeline.
 * **Tour sinapsi Studio**. Questa opzione consente di esplorare rapidamente gli elementi di base di Synapse Studio. È utile se non si è mai usato Synapse Studio prima.
 
-## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Esplorare l'archivio BLOB con il pool SQL serverless
+## <a name="exploring-use-samples-immediately"></a>Esplorazione: usare immediatamente gli esempi
 
-1. Visitare il **centro informazioni**, fare clic su **usa immediatamente gli esempi**.
+Questa sezione contiene tre elementi:
+* Esplorare i dati di esempio con Spark
+* Eseguire query sui dati con SQL
+* Creare una tabella esterna con SQL
+
+1. Nel **centro informazioni** fare clic su **usa immediatamente gli esempi**.
 1. Selezionare **query data con SQL**.
 1. Fare clic su **USA esempio**.
 1. Viene aperto un nuovo script SQL di esempio.

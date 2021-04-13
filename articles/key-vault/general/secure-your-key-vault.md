@@ -1,6 +1,6 @@
 ---
 title: Proteggere l'accesso a un insieme di credenziali delle chiavi
-description: Modello di accesso per Azure Key Vault, inclusi Active Directory l'autenticazione e gli endpoint delle risorse.
+description: Il modello di accesso per Azure Key Vault, tra cui l'autenticazione di Active Directory e gli endpoint delle risorse.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 94034edfa1a5c6ffccd022b4cbf7bae42cc0bae3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b1ec89db7bc12ffbd21c6e302e065449eba3ac20
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212468"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366488"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -26,7 +26,7 @@ Per altre informazioni sul servizio Key Vault, vedere [Informazioni su Azure Key
 
 L'accesso a un insieme di credenziali delle chiavi è controllato tramite due interfacce: il **piano di gestione** e il **piano dati**. Il piano di gestione consente di gestire l'insieme di credenziali delle chiavi stesso. Le operazioni in questo piano includono la creazione e l'eliminazione di insiemi di credenziali delle chiavi, il recupero delle proprietà dell'insieme di credenziali delle chiavi e l'aggiornamento dei criteri di accesso. Il piano dati consente di lavorare con i dati archiviati in un insieme di credenziali delle chiavi. È possibile aggiungere, eliminare e modificare chiavi, segreti e certificati.
 
-Entrambi i piani utilizzano [Azure Active Directory (Azure ad)](../../active-directory/fundamentals/active-directory-whatis.md) per l'autenticazione. Per l'autorizzazione, il piano di gestione usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) e il piano dati usa un [criterio di accesso di Key Vault](./assign-access-policy-portal.md) e il controllo degli accessi Key Vault in base al ruolo [di Azure](./rbac-guide.md)
+Entrambi i piani usano Azure Active Directory [(Azure AD) per](../../active-directory/fundamentals/active-directory-whatis.md) l'autenticazione. Per l'autorizzazione, il piano di gestione usa il controllo degli accessi in base al ruolo di Azure e il piano dati usa i criteri di accesso [Key Vault](./assign-access-policy-portal.md) e il controllo degli accessi in base al ruolo di [Azure](../../role-based-access-control/overview.md) per Key Vault operazioni del piano [dati.](./rbac-guide.md)
 
 Per accedere a un insieme di credenziali delle chiavi in uno dei piani, tutti i chiamanti (utenti o applicazioni) devono disporre di autenticazione e autorizzazione appropriate. L'autenticazione stabilisce l'identità del chiamante. L'autorizzazione determina le operazioni che il chiamante può eseguire. L'autenticazione con Key Vault funziona in combinazione con [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), che è responsabile dell'autenticazione dell'identità di una determinata **entità di sicurezza**.
 
@@ -36,17 +36,17 @@ Un'entità di sicurezza è un oggetto che rappresenta un utente, un gruppo, un s
 
 * L'entità di sicurezza di un **gruppo** identifica un set di utenti creati in Azure Active Directory. Tutti i ruoli o le autorizzazioni assegnati al gruppo vengono concessi a tutti gli utenti all'interno del gruppo.
 
-* Un' **entità servizio** è un tipo di entità di sicurezza che identifica un'applicazione o un servizio, ovvero un frammento di codice anziché un utente o un gruppo. L'ID oggetto di un'entità servizio è noto come **ID client** e funge da nome utente. Il **segreto client** o il **certificato** dell'entità servizio funge da password. Molti servizi di Azure supportano l'assegnazione di [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) con la gestione automatica dell' **ID client** e del **certificato**. L'identità gestita è l'opzione più sicura e consigliata per l'autenticazione in Azure.
+* **Un'entità servizio** è un tipo di entità di sicurezza che identifica un'applicazione o un servizio, ovvero una parte di codice anziché un utente o un gruppo. L'ID oggetto di un'entità servizio è noto come **ID client** e funge da nome utente. Il segreto client o il certificato **dell'entità** servizio **funge** da password. Molti servizi di Azure supportano l'assegnazione di [identità gestita con](../../active-directory/managed-identities-azure-resources/overview.md) la gestione automatizzata dell'ID client **e** del **certificato**. L'identità gestita è l'opzione più sicura e consigliata per l'autenticazione in Azure.
 
-Per ulteriori informazioni sull'autenticazione per Key Vault, vedere [eseguire l'autenticazione a Azure Key Vault](authentication.md)
+Per altre informazioni sull'autenticazione Key Vault, vedere [Eseguire l'autenticazione Azure Key Vault](authentication.md)
 
-## <a name="key-vault-authentication-options"></a>Opzioni di autenticazione Key Vault
+## <a name="key-vault-authentication-options"></a>Key Vault di autenticazione
 
-Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Tutti i chiamanti in entrambi i piani devono essere registrati in questo tenant ed eseguire l'autenticazione per accedere all'insieme di credenziali delle chiavi. In entrambi i casi, le applicazioni possono accedere a Key Vault in tre modi:
+Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Tutti i chiamanti in entrambi i piani devono essere registrati in questo tenant ed eseguire l'autenticazione per accedere all'insieme di credenziali delle chiavi. In entrambi i casi, le applicazioni possono accedere Key Vault in tre modi:
 
-- **Solo applicazione**: l'applicazione rappresenta un'entità servizio o un'identità gestita. Questa identità è lo scenario più comune per le applicazioni che devono periodicamente accedere a certificati, chiavi o segreti dall'insieme di credenziali delle chiavi. Per il corretto funzionamento di questo scenario, `objectId` è necessario specificare l'oggetto dell'applicazione nei criteri di accesso `applicationId` e _non_ deve essere specificato o deve essere `null` .
-- **Solo utente**: l'utente accede all'insieme di credenziali delle chiavi da qualsiasi applicazione registrata nel tenant. Azure PowerShell e il portale di Azure sono esempi di questo tipo di accesso. Per il corretto funzionamento di questo scenario, `objectId` è necessario specificare il parametro dell'utente nei criteri di accesso `applicationId` e _non_ deve essere specificato o deve essere `null` .
-- **Application-Plus-User** (noto anche come _identità composta_): l'utente deve accedere all'insieme di credenziali delle chiavi da un'applicazione specifica _e_ l'applicazione deve usare il flusso di autenticazione (OBO) per rappresentare l'utente. Per il corretto funzionamento di questo scenario `applicationId` , `objectId` è necessario specificare sia che nei criteri di accesso. `applicationId`Identifica l'applicazione richiesta e `objectId` identifica l'utente. Attualmente questa opzione non è disponibile per il piano dati Azure RBAC (anteprima).
+- **Solo applicazione: l'applicazione** rappresenta un'entità servizio o un'identità gestita. Questa identità è lo scenario più comune per le applicazioni che devono accedere periodicamente a certificati, chiavi o segreti dall'insieme di credenziali delle chiavi. Per il funzionamento di questo scenario, l'oggetto dell'applicazione deve essere specificato nei criteri di accesso e non deve essere `objectId` specificato o deve essere `applicationId`  `null` .
+- **Solo utente:** l'utente accede all'insieme di credenziali delle chiavi da qualsiasi applicazione registrata nel tenant. Azure PowerShell e il portale di Azure sono esempi di questo tipo di accesso. Per il funzionamento di questo scenario, l'oggetto dell'utente deve essere specificato nei criteri di accesso e non deve essere `objectId` specificato o deve essere `applicationId`  `null` .
+- **Application-plus-user** (a volte definito identità _composta):_ l'utente deve accedere  all'insieme di credenziali delle chiavi da un'applicazione specifica e l'applicazione deve usare il flusso di autenticazione on-behalf-of (OBO) per rappresentare l'utente. Per il funzionamento di questo scenario, `applicationId` è necessario specificare sia che nei criteri di `objectId` accesso. identifica `applicationId` l'applicazione richiesta e identifica `objectId` l'utente. Questa opzione non è attualmente disponibile per il controllo degli accessi in base al ruolo di Azure del piano dati.
 
 In tutti i tipi di accesso, l'applicazione esegue l'autenticazione con Azure AD. L'applicazione usa qualsiasi [metodo di autenticazione supportato](../../active-directory/develop/authentication-vs-authorization.md) in base al tipo di applicazione. L'applicazione acquisisce un token per una risorsa del piano per la concessione dell'accesso. La risorsa è un endpoint nel piano dati o di gestione, in base all'ambiente di Azure. L'applicazione usa il token e invia una richiesta API REST all'insieme di credenziali delle chiavi. Per altre informazioni, vedere l'[intero flusso di autenticazione](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -58,28 +58,28 @@ Il modello con un singolo meccanismo di autenticazione per entrambi i piani pres
 
 ## <a name="resource-endpoints"></a>Endpoint delle risorse
 
-Le applicazioni accedono ai piani tramite endpoint. I controlli di accesso per i due piani funzionano in maniera indipendente. Per concedere a un'applicazione l'accesso per usare le chiavi in un insieme di credenziali delle chiavi, l'accesso al piano dati viene concesso usando un criterio di accesso Key Vault o il controllo degli accessi in base al ruolo di Azure Per concedere a un utente l'accesso in lettura a Key Vault proprietà e tag, ma non l'accesso ai dati (chiavi, segreti o certificati), si concede l'accesso al piano di gestione con il controllo degli accessi in base al ruolo
+Le applicazioni accedono ai piani tramite endpoint. I controlli di accesso per i due piani funzionano in maniera indipendente. Per concedere a un'applicazione l'accesso per l'uso delle chiavi in un insieme di credenziali delle chiavi, si concede l'accesso al piano dati usando un criterio di accesso Key Vault o il controllo degli accessi in base al ruolo di Azure. Per concedere a un utente l'accesso in lettura Key Vault proprietà e tag, ma non ai dati (chiavi, segreti o certificati), si concede l'accesso al piano di gestione con il controllo degli accessi in base al ruolo di Azure.
 
 La tabella seguente illustra gli endpoint per il piano dati e di gestione.
 
 | Piano di&nbsp;accesso | Endpoint di accesso | Operazioni | Meccanismo di controllo&nbsp;di accesso |
 | --- | --- | --- | --- |
 | Piano di gestione | **Globale:**<br> management.azure.com:443<br><br> **21Vianet per Azure Cina:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> management.microsoftazure.de:443 | Creare, leggere, aggiornare ed eliminare insiemi di credenziali delle chiavi<br><br>Impostare i criteri di accesso dell'insieme di credenziali delle chiavi<br><br>Impostare tag per l'insieme di credenziali delle chiavi | Controllo degli accessi in base al ruolo di Azure |
-| Piano dati | **Globale:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.net:443<br><br> **21Vianet per Azure Cina:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.cn:443<br><br> **Azure US Gov:**<br> &lt;nome-insiemecredenziali&gt;.vault.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> &lt;nome-insiemecredenziali&gt;.vault.microsoftazure.de:443 | Chiavi: crittografia, decrittografia, wrapKey, unwrapKey, firma, verifica, recupero, elenco, creazione, aggiornamento, importazione, eliminazione, ripristino, backup, ripristino, eliminazione<br><br> Certificati: managecontacts, getissuers, listissuers, seemittenti, deleteissuers, manageissuers, Get, List, create, Import, Update, DELETE, Recover, backup, Restore, Purge<br><br>  Segreti: Get, List, set, DELETE, Recover, backup, Restore, Purge | Criteri di accesso Key Vault o RBAC di Azure (anteprima)|
+| Piano dati | **Globale:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.net:443<br><br> **21Vianet per Azure Cina:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.cn:443<br><br> **Azure US Gov:**<br> &lt;nome-insiemecredenziali&gt;.vault.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> &lt;nome-insiemecredenziali&gt;.vault.microsoftazure.de:443 | Chiavi: encrypt, decrypt, wrapKey, unwrapKey, sign, verify, get, list, create, update, import, delete, recover, backup, restore, purge<br><br> Certificati: managecontacts, getissuers, listissuers, setissuers, deleteissuers, manageissuers, get, list, create, import, update, delete, recover, backup, restore, purge<br><br>  Segreti: get, list, set, delete, recover, backup, restore, purge | Key Vault di accesso o controllo degli accessi in base al ruolo di Azure |
 
-## <a name="management-plane-and-azure-rbac"></a>Piano di gestione e RBAC di Azure
+## <a name="management-plane-and-azure-rbac"></a>Piano di gestione e controllo degli accessi in base al ruolo di Azure
 
-Nel piano di gestione si usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) per autorizzare le operazioni che possono essere eseguite da un chiamante. Nel modello di controllo degli accessi in base al ruolo di Azure ogni sottoscrizione di Azure ha un'istanza di Azure AD. È possibile concedere l'accesso a utenti, gruppi e applicazioni da questa directory. Viene concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager.
+Nel piano di gestione si usa il controllo degli accessi in base al ruolo di [Azure](../../role-based-access-control/overview.md) per autorizzare le operazioni che un chiamante può eseguire. Nel modello di Controllo degli accessi in base al ruolo di Azure ogni sottoscrizione di Azure ha un'istanza di Azure AD. È possibile concedere l'accesso a utenti, gruppi e applicazioni da questa directory. Viene concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager.
 
-Creare un insieme di credenziali delle chiavi in un gruppo di risorse e gestire l'accesso usando Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. Si concede l'accesso a un livello di ambito specifico assegnando i ruoli di Azure appropriati. Per concedere l'accesso a un utente per gestire gli insiemi di credenziali delle chiavi, assegnare un ruolo di [collaboratore Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) predefinito all'utente in un ambito specifico. I livelli di ambito seguenti possono essere assegnati a un ruolo di Azure:
+Creare un insieme di credenziali delle chiavi in un gruppo di risorse e gestire l'accesso usando Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. Per concedere l'accesso a un livello di ambito specifico, assegnare i ruoli di Azure appropriati. Per concedere l'accesso a un utente per gestire gli insiemi di credenziali delle chiavi, assegnare un ruolo predefinito Key Vault [Collaboratore](../../role-based-access-control/built-in-roles.md#key-vault-contributor) all'utente in un ambito specifico. I livelli di ambito seguenti possono essere assegnati a un ruolo di Azure:
 
-- **Sottoscrizione**: un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e le risorse all'interno della sottoscrizione.
-- **Gruppo di risorse**: un ruolo di Azure assegnato a livello di gruppo di risorse si applica a tutte le risorse nel gruppo di risorse.
-- **Risorsa specifica**: un ruolo di Azure assegnato a una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
+- **Sottoscrizione:** un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e le risorse all'interno di tale sottoscrizione.
+- **Gruppo di risorse:** un ruolo di Azure assegnato a livello di gruppo di risorse si applica a tutte le risorse in tale gruppo di risorse.
+- **Risorsa specifica:** un ruolo di Azure assegnato per una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
 
 Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le specifiche esigenze, è possibile definire un ruolo personalizzato. Per altre informazioni, vedere [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md). 
 
-È necessario disporre `Microsoft.Authorization/roleAssignments/write` `Microsoft.Authorization/roleAssignments/delete` delle autorizzazioni e, ad esempio [amministratore accesso utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator) o [proprietario](../../role-based-access-control/built-in-roles.md#owner)
+È necessario disporre delle `Microsoft.Authorization/roleAssignments/write` autorizzazioni e , ad esempio Amministratore accesso `Microsoft.Authorization/roleAssignments/delete` [utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator) o [Proprietario](../../role-based-access-control/built-in-roles.md#owner)
 
 > [!IMPORTANT]
 > Se un utente ha le autorizzazioni `Contributor` per un piano di gestione di un insieme di credenziali delle chiavi, l'utente può concedere a se stesso l'accesso al piano dati impostando criteri di accesso dell'insieme di credenziali delle chiavi. È necessario controllare attentamente chi ha accesso al ruolo `Contributor` per gli insiemi di credenziali delle chiavi. Assicurarsi che solo gli utenti autorizzati possano accedere e gestire gli insiemi di credenziali delle chiavi, le chiavi, i segreti e i certificati.
@@ -92,30 +92,30 @@ Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le speci
 
 È possibile concedere l'accesso a un utente, un gruppo o un'applicazione per eseguire operazioni specifiche relative a segreti o chiavi in un insieme di credenziali delle chiavi. Key Vault supporta fino a 1.024 voci di criteri di accesso per un insieme di credenziali delle chiavi. Per concedere a più utenti l'accesso al piano dati, creare un gruppo di sicurezza di Azure AD e aggiungere gli utenti a tale gruppo.
 
-È possibile visualizzare l'elenco completo delle operazioni di insieme di credenziali e segrete qui: [Key Vault riferimento all'operazione](/rest/api/keyvault/#vault-operations)
+È possibile visualizzare l'elenco completo delle operazioni dell'insieme di credenziali e dei segreti [qui: informazioni di Key Vault operazioni](/rest/api/keyvault/#vault-operations)
 
-<a id="key-vault-access-policies"></a> I criteri di accesso Key Vault concedono le autorizzazioni separatamente a chiavi, segreti e certificati.  Le autorizzazioni di accesso per chiavi, segreti e certificati vengono definite a livello di insieme di credenziali. 
+<a id="key-vault-access-policies"></a> Key Vault criteri di accesso concedono le autorizzazioni separatamente a chiavi, segreti e certificati.  Le autorizzazioni di accesso per chiavi, segreti e certificati vengono definite a livello di insieme di credenziali. 
 
-Per altre informazioni sull'uso dei criteri di accesso di Key Vault, vedere [assegnare un criterio di accesso key Vault](assign-access-policy-portal.md)
+Per altre informazioni sull'uso dei criteri di accesso dell'insieme di credenziali delle chiavi, [vedere Assegnare un criterio Key Vault di accesso](assign-access-policy-portal.md)
 
 > [!IMPORTANT]
 > I criteri di accesso dell'insieme di credenziali delle chiavi si applicano a livello di insieme di credenziali. Quando a un utente viene concessa l'autorizzazione per creare ed eliminare chiavi, può eseguire tali operazioni su tutte le chiavi dell'insieme di credenziali.
 I criteri di accesso dell'insieme di credenziali delle chiavi non supportano le autorizzazioni granulari a livello di oggetto, ad esempio una chiave, un segreto o un certificato specifico. 
 >
 
-## <a name="data-plane-and-azure-rbac-preview"></a>Piano dati e RBAC di Azure (anteprima)
+## <a name="data-plane-and-azure-rbac"></a>Piano dati e controllo degli accessi in base al ruolo di Azure
 
-Il controllo degli accessi in base al ruolo di Azure è un modello di autorizzazione alternativo per controllare l'accesso al piano dati Azure Key Vault, che può essere abilitato nei singoli insiemi di credenziali delle chiavi. Il modello di autorizzazione RBAC di Azure è esclusivo e una volta impostato, i criteri di accesso dell'insieme di credenziali diventano inattivi. Azure Key Vault definisce un set di ruoli predefiniti di Azure che comprende i set comuni di autorizzazioni utilizzate per accedere a chiavi, segreti o certificati.
+Il controllo degli accessi in base al ruolo di Azure è un modello di autorizzazione alternativo per controllare l'accesso Azure Key Vault piano dati, che può essere abilitato nei singoli insiemi di credenziali delle chiavi. Il modello di autorizzazione controllo degli accessi in base al ruolo di Azure è esclusivo e, dopo l'impostazione, i criteri di accesso all'insieme di credenziali diventano inattivi. Azure Key Vault definisce un set di ruoli predefiniti di Azure che includono set comuni di autorizzazioni usate per accedere a chiavi, segreti o certificati.
 
-Quando un ruolo di Azure viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. L'ambito di accesso può essere limitato al livello della sottoscrizione, al gruppo di risorse, all'insieme di credenziali delle chiavi o a una chiave, un segreto o un certificato. Un Azure AD entità di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o un' [identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Quando un ruolo di Azure viene assegnato a un'Azure AD di sicurezza, Azure concede l'accesso a tali risorse per tale entità di sicurezza. L'ambito dell'accesso può essere quello della sottoscrizione, del gruppo di risorse, dell'insieme di credenziali delle chiavi o di una singola chiave, segreto o certificato. Un'Azure AD di sicurezza può essere un utente, un gruppo, un'entità servizio dell'applicazione o [un'identità gestita per le risorse di Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
-I vantaggi principali dell'uso dell'autorizzazione RBAC di Azure sui criteri di accesso dell'insieme di credenziali sono la gestione centralizzata del controllo degli accessi e la relativa integrazione con [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) Privileged Identity Management fornisce l'attivazione del ruolo basata sul tempo e sull'approvazione per attenuare i rischi di autorizzazioni di accesso eccessive, inutili o usate in modo improprio per le risorse di importanza strategica.
+I vantaggi principali dell'uso dell'autorizzazione controllo degli accessi in base al ruolo di Azure sui criteri di accesso dell'insieme di credenziali sono la gestione centralizzata del controllo di accesso e la relativa integrazione [con Privileged Identity Management (PIM).](../../active-directory/privileged-identity-management/pim-configure.md) Privileged Identity Management fornisce l'attivazione del ruolo basata sul tempo e sull'approvazione per attenuare i rischi di autorizzazioni di accesso eccessive, inutili o usate in modo improprio per le risorse di importanza strategica.
 
-Per altre informazioni sul piano dati Key Vault con il controllo degli accessi in base al ruolo di Azure, vedere [Key Vault chiavi, certificati e segreti con un controllo di accesso in base al ruolo di Azure](rbac-guide.md)
+Per altre informazioni sul piano Key Vault dati con il controllo degli accessi in base al ruolo di Azure, vedere Key Vault [chiavi,](rbac-guide.md) certificati e segreti con un controllo degli accessi in base al ruolo di Azure
 
 ## <a name="firewalls-and-virtual-networks"></a>Firewall e reti virtuali
 
-Per un ulteriore livello di sicurezza, è possibile configurare i firewall e le regole della rete virtuale. È possibile configurare reti virtuali e firewall di Key Vault per negare l'accesso al traffico da tutte le reti, incluso il traffico Internet, per impostazione predefinita. È possibile concedere l'accesso al traffico da [reti virtuali di Azure](../../virtual-network/virtual-networks-overview.md) specifiche e da intervalli di indirizzi IP Internet pubblici, consentendo di creare un limite di rete sicuro per le applicazioni.
+Per un ulteriore livello di sicurezza, è possibile configurare firewall e regole di rete virtuale. È possibile configurare reti virtuali e firewall di Key Vault per negare l'accesso al traffico da tutte le reti, incluso il traffico Internet, per impostazione predefinita. È possibile concedere l'accesso al traffico da reti virtuali di [Azure](../../virtual-network/virtual-networks-overview.md) specifiche e intervalli di indirizzi IP Internet pubblici, consentendo di creare un limite di rete sicuro per le applicazioni.
 
 Di seguito sono riportati alcuni esempi di uso degli endpoint del servizio:
 
@@ -123,14 +123,14 @@ Di seguito sono riportati alcuni esempi di uso degli endpoint del servizio:
 * Si vuole bloccare l'accesso all'insieme di credenziali delle chiavi in modo che solo l'applicazione o un breve elenco di host designati possano connettesi all'insieme di credenziali delle chiavi.
 * Si ha un'applicazione in esecuzione nella rete virtuale di Azure e la rete virtuale è bloccata per tutto il traffico in ingresso e in uscita. L'applicazione deve comunque connettersi a Key Vault per recuperare segreti o certificati o usare le chiavi di crittografia.
 
-Per altre informazioni su Key Vault firewall e sulle reti virtuali, vedere [configurare i firewall e le reti virtuali Azure Key Vault](network-security.md)
+Per altre informazioni su Key Vault firewall e le reti virtuali, vedere [Configurare Azure Key Vault firewall e reti virtuali](network-security.md)
 
 > [!NOTE]
 > I firewall di Key Vault e le regole di rete virtuale si applicano solo al piano dati di Key Vault. Le operazioni del piano di controllo Key Vault, ad esempio le operazioni di creazione, eliminazione e modifica, l'impostazione di criteri di accesso, la configurazione del firewall e delle regole di rete virtuale, non sono interessate dai firewall e dalle regole di rete virtuale.
 
-## <a name="private-endpoint-connection"></a>Connessione all'endpoint privato
+## <a name="private-endpoint-connection"></a>Connessione endpoint privato
 
-Se è necessario bloccare completamente Key Vault l'esposizione al pubblico, è possibile usare un [endpoint privato di Azure](../../private-link/private-endpoint-overview.md) . Un endpoint privato di Azure è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
+In caso di necessità di bloccare completamente Key Vault'esposizione al pubblico, è possibile usare un endpoint privato di [Azure.](../../private-link/private-endpoint-overview.md) Un endpoint privato di Azure è un'interfaccia di rete che connette privatamente e in modo sicuro a un servizio basato su Collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile connettersi a un'istanza di una risorsa di Azure, garantendo il massimo livello di granularità nel controllo di accesso.
 
 Scenari comuni per l'uso del collegamento privato per i servizi di Azure:
 
@@ -148,13 +148,13 @@ Per altre informazioni sugli endpoint privati, vedere [Key Vault con collegament
 
 ## <a name="example"></a>Esempio
 
-In questo esempio si sta sviluppando un'applicazione che usa un certificato per TLS/SSL, archiviazione di Azure per archiviare i dati e una chiave RSA a 2.048 bit per la crittografia dei dati in archiviazione di Azure. L'applicazione viene eseguita in una macchina virtuale di Azure (o un set di scalabilità di macchine virtuali). È possibile usare un insieme di credenziali delle chiavi per archiviare i segreti dell'applicazione. È possibile archiviare il certificato bootstrap usato dall'applicazione per l'autenticazione con Azure AD.
+In questo esempio si sta sviluppando un'applicazione che usa un certificato per TLS/SSL, Archiviazione di Azure per archiviare i dati e una chiave RSA a 2.048 bit per crittografare i dati in Archiviazione di Azure. L'applicazione viene eseguita in una macchina virtuale di Azure (o un set di scalabilità di macchine virtuali). È possibile usare un insieme di credenziali delle chiavi per archiviare i segreti dell'applicazione. È possibile archiviare il certificato bootstrap usato dall'applicazione per l'autenticazione con Azure AD.
 
 È necessario l'accesso alle chiavi e ai segreti seguenti:
 - **Certificato TLS/SSL**: Usato per TLS/SSL.
 - **Chiave di archiviazione**: usata per accedere all'account di archiviazione.
-- **Chiave RSA a 2.048 bit**: usata per la chiave di crittografia dei dati a wrapping/Unwrap mediante archiviazione di Azure.
-- **Identità gestita dall'applicazione**: usata per l'autenticazione con Azure ad. Dopo aver concesso l'accesso Key Vault, l'applicazione può recuperare la chiave di archiviazione e il certificato.
+- **Chiave RSA a 2.048 bit:** usata per eseguire il wrapping/annullamento del wrapping della chiave di crittografia dei dati Archiviazione di Azure.
+- **Identità gestita dell'applicazione:** usata per l'autenticazione con Azure AD. Dopo aver concesso l'Key Vault, l'applicazione può recuperare la chiave di archiviazione e il certificato.
 
 È necessario definire i ruoli seguenti per specificare chi può gestire, distribuire e controllare l'applicazione:
 - **Team responsabile della sicurezza**: personale IT che lavora nell'ufficio del responsabile della sicurezza o collaboratori analoghi. Il team responsabile della sicurezza si occupa della salvaguardia di segreti. I segreti possono includere certificati TLS/SSL, chiavi RSA per la crittografia, stringhe di connessione e chiavi dell'account di archiviazione.
@@ -170,27 +170,27 @@ C'è un altro ruolo che non rientra nell'ambito dell'applicazione: l'amministrat
 - Attivare la registrazione per gli insiemi di credenziali delle chiavi.
 - Aggiungere chiavi e segreti.
 - Creare i backup delle chiavi per il ripristino di emergenza.
-- Impostare Key Vault criteri di accesso e assegnare i ruoli per concedere le autorizzazioni a utenti e applicazioni per operazioni specifiche.
+- Impostare Key Vault criteri di accesso e assegnare ruoli per concedere autorizzazioni a utenti e applicazioni per operazioni specifiche.
 - Aggiornare periodicamente chiavi e segreti.
 
 **Sviluppatori e operatori**
-- Ottenere i riferimenti dal team di sicurezza per i certificati bootstrap e TLS/SSL (identificazioni personali), la chiave di archiviazione (URI del segreto) e la chiave RSA (URI chiave) per l'incapsulamento/unwrapping.
-- Sviluppare e distribuire l'applicazione per accedere ai certificati e ai segreti a livello di codice.
+- Ottenere i riferimenti dal team di sicurezza per i certificati bootstrap e TLS/SSL (identificazioni personali), la chiave di archiviazione (URI segreto) e la chiave RSA (URI della chiave) per il wrapping o l'annullamento del wrapping.
+- Sviluppare e distribuire l'applicazione per accedere a certificati e segreti a livello di codice.
 
 **Revisori**
 - Esaminare i log di Key Vault per verificare che chiavi e segreti siano usati in modo appropriato e conformemente agli standard di sicurezza dei dati.
 
 Nella tabella seguente sono riepilogate le autorizzazioni di accesso per i ruoli e l'applicazione.
 
-| Ruolo | Autorizzazioni del piano di gestione | Autorizzazioni del piano dati-criteri di accesso all'insieme di credenziali | Autorizzazioni del piano dati-RBAC di Azure  |
+| Ruolo | Autorizzazioni del piano di gestione | Autorizzazioni del piano dati - Criteri di accesso dell'insieme di credenziali | Autorizzazioni del piano dati - Controllo degli accessi in base al ruolo di Azure  |
 | --- | --- | --- | --- |
-| Team responsabile della sicurezza | [Collaboratore di Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificati: tutte le operazioni <br> Chiavi: tutte le operazioni <br> Segreti: tutte le operazioni | [Amministratore Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-administrator) |
+| Team responsabile della sicurezza | [Collaboratore di Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificati: tutte le operazioni <br> Chiavi: tutte le operazioni <br> Segreti: tutte le operazioni | [Key Vault amministratore](../../role-based-access-control/built-in-roles.md#key-vault-administrator) |
 | Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: Questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | nessuno | nessuno |
-| Revisori | nessuno | Certificati: elenco <br> Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. | [Lettore di Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-reader) |
-| Account di archiviazione di Azure | nessuno | Chiavi: Get, List, wrapKey, unwrapKey <br> | [Utente crittografia servizio Key Vault Crypto](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user) |
-| Applicazione | nessuno | Segreti: Get, List <br> Certificati: Get, List | [Lettore di Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-reader), [Key Vault utente segreto](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user) |
+| Revisori | nessuno | Certificati: elenco <br> Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. | [Key Vault lettore](../../role-based-access-control/built-in-roles.md#key-vault-reader) |
+| Account di archiviazione di Azure | nessuno | Chiavi: get, list, wrapKey, unwrapKey <br> | [Key Vault utente crittografia del servizio Crypto](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user) |
+| Applicazione | nessuno | Segreti: get, list <br> Certificati: get, list | [Key Vault reader](../../role-based-access-control/built-in-roles.md#key-vault-reader), Key Vault [Secret User](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user) |
 
-Oltre alle autorizzazioni per l'insieme di credenziali delle chiavi, i tre i ruoli dei team devono poter accedere ad altre risorse. Per distribuire le macchine virtuali (o la funzionalità app Web del servizio app Azure), gli sviluppatori e gli operatori necessitano dell'accesso deploy. I revisori necessitano dell'accesso in lettura all'account di archiviazione in cui vengono archiviati i log dell'insieme di credenziali delle chiavi.
+Oltre alle autorizzazioni per l'insieme di credenziali delle chiavi, i tre i ruoli dei team devono poter accedere ad altre risorse. Per distribuire macchine virtuali (o la funzionalità App Web di Servizio app di Azure), sviluppatori e operatori devono distribuire l'accesso. I revisori necessitano dell'accesso in lettura all'account di archiviazione in cui vengono archiviati i log dell'insieme di credenziali delle chiavi.
 
 Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere più complessi. È possibile modificare le autorizzazioni per l'insieme di credenziali delle chiavi in base alle esigenze. In questo esempio si presuppone che il team responsabile della sicurezza fornisca i riferimenti a chiavi e segreti (URI e identificazioni personali) usati dal personale DevOps nelle applicazioni. Sviluppatori e operatori non necessitano di alcun accesso al piano dati. In questo articolo è stato analizzato in particolare come proteggere l'insieme di credenziali delle chiavi.
 
@@ -209,10 +209,10 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 
 [Eseguire l'autenticazione con Azure Key Vault](authentication.md)
 
-[Assegnare un criterio di accesso Key Vault](assign-access-policy-portal.md)
+[Assegnare un criterio Key Vault di accesso](assign-access-policy-portal.md)
 
-[Assegnare il ruolo di Azure per accedere a chiavi, segreti e certificati](rbac-guide.md)
+[Assegnare il ruolo di Azure per l'accesso a chiavi, segreti e certificati](rbac-guide.md)
 
-[Configurare i firewall e le reti virtuali Key Vault](network-security.md)
+[Configurare Key Vault firewall e reti virtuali](network-security.md)
 
-[Stabilire una connessione di collegamento privata a Key Vault](private-link-service.md)
+[Stabilire una connessione di collegamento privato a Key Vault](private-link-service.md)

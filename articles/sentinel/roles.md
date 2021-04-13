@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 04/11/2021
 ms.author: yelevin
-ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b64adbb63efaa4ce4781474f732bc9509d51029e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772553"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310326"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorizzazioni in Azure Sentinel
 
@@ -31,8 +31,6 @@ Usare il controllo degli accessi in base al ruolo di Azure per creare e assegnar
 ## <a name="roles-for-working-in-azure-sentinel"></a>Ruoli per l'uso in Sentinel di Azure
 
 ### <a name="azure-sentinel-specific-roles"></a>Ruoli specifici di Azure Sentinel
-
-Sono disponibili tre ruoli predefiniti Sentinel di Azure.
 
 **Tutti i ruoli predefiniti di Sentinel di Azure concedono l'accesso in lettura ai dati nell'area di lavoro di Azure Sentinel.**
 
@@ -54,19 +52,21 @@ Sono disponibili tre ruoli predefiniti Sentinel di Azure.
 
 È possibile che agli utenti con requisiti specifici del processo siano assegnati ruoli aggiuntivi o autorizzazioni specifiche per completare le attività.
 
-- Uso dei PlayBook per automatizzare le risposte alle minacce
+- **Uso dei PlayBook per automatizzare le risposte alle minacce**
 
     Azure Sentinel USA **PlayBook** per la risposta automatica alle minacce. I PlayBook sono basati sulle **app** per la logica di Azure e sono una risorsa di Azure separata. Potrebbe essere necessario assegnare a membri specifici del team delle operazioni di sicurezza la possibilità di usare app per la logica per le operazioni di orchestrazione, automazione e risposta (SOAR) di sicurezza. È possibile usare il ruolo [collaboratore app](../role-based-access-control/built-in-roles.md#logic-app-contributor) per la logica per assegnare autorizzazioni esplicite per l'uso di PlayBook.
 
-- Connessione di origini dati ad Azure Sentinel
+- **Connessione di origini dati ad Azure Sentinel**
 
     Per aggiungere **connettori dati**, è necessario assegnare le autorizzazioni di scrittura utente nell'area di lavoro di Azure Sentinel. Si notino anche le autorizzazioni aggiuntive necessarie per ogni connettore, come elencato nella pagina del connettore pertinente.
 
-- Utenti guest che assegnano eventi imprevisti
+- **Utenti guest che assegnano eventi imprevisti**
 
-    Se un utente guest deve essere in grado di assegnare gli eventi imprevisti, oltre al ruolo Risponditore sentinella di Azure, è necessario che all'utente sia assegnato anche il ruolo di [lettore di directory](../active-directory/roles/permissions-reference.md#directory-readers). Si noti che questo ruolo *non* è un ruolo di Azure, ma un ruolo **Azure Active Directory** e che questo ruolo è assegnato per impostazione predefinita a utenti regolari (non Guest). 
+    Se un utente guest deve essere in grado di assegnare gli eventi imprevisti, oltre al ruolo Risponditore sentinella di Azure, è necessario che all'utente sia assegnato anche il ruolo di [lettore di directory](../active-directory/roles/permissions-reference.md#directory-readers). Si noti che questo ruolo *non* è un ruolo di Azure, ma un ruolo **Azure Active Directory** e che questo ruolo è assegnato per impostazione predefinita a utenti regolari (non Guest).
 
-Per un confronto affiancato, vedere la [tabella seguente](#roles-and-allowed-actions).
+- **Creazione ed eliminazione di cartelle di lavoro**
+
+    Affinché un utente possa creare ed eliminare una cartella di lavoro di Azure Sentinel, l'utente dovrà anche essere assegnato con il ruolo monitoraggio di Azure del [collaboratore al monitoraggio](../role-based-access-control/built-in-roles.md#monitoring-contributor). Questo ruolo non è necessario per l' *utilizzo* di cartelle di lavoro, ma solo per la creazione e l'eliminazione.
 
 ### <a name="other-roles-you-might-see-assigned"></a>Altri ruoli che potrebbero essere stati assegnati
 
@@ -74,21 +74,23 @@ Quando si assegnano ruoli di Azure specifici di Azure Sentinel, è possibile che
 
 - **Ruoli di Azure:** [proprietario](../role-based-access-control/built-in-roles.md#owner), [collaboratore](../role-based-access-control/built-in-roles.md#contributor)e [lettore](../role-based-access-control/built-in-roles.md#reader). I ruoli di Azure concedono l'accesso a tutte le risorse di Azure, tra cui Log Analytics aree di lavoro e risorse di Azure Sentinel.
 
-- **Ruoli di log Analytics:** [log Analytics collaboratore](../role-based-access-control/built-in-roles.md#log-analytics-contributor) e [lettore di log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics ruoli concedono l'accesso alle aree di lavoro Log Analytics. 
+- **Ruoli di log Analytics:** [log Analytics collaboratore](../role-based-access-control/built-in-roles.md#log-analytics-contributor) e [lettore di log Analytics](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics ruoli concedono l'accesso alle aree di lavoro Log Analytics.
 
 Ad esempio, un utente a cui viene assegnato il ruolo di **lettore Sentinel di Azure** , ma non il ruolo **collaboratore sentinella di Azure** , potrà comunque modificare gli elementi in Sentinel di Azure se è stato assegnato il ruolo **collaboratore** a livello di Azure. Se pertanto si desidera concedere le autorizzazioni a un utente solo in Sentinel di Azure, è necessario rimuovere attentamente le autorizzazioni precedenti di questo utente, assicurandosi di non interrompere l'accesso necessario a un'altra risorsa.
 
-## <a name="roles-and-allowed-actions"></a>Ruoli e azioni consentite
+## <a name="azure-sentinel-roles-and-allowed-actions"></a>Ruoli di Azure Sentinel e azioni consentite
 
-La tabella seguente riepiloga i ruoli e le azioni consentite in Azure Sentinel. 
+La tabella seguente riepiloga i ruoli di Sentinel di Azure e le relative azioni consentite in Sentinel di Azure.
 
-| Ruolo | Creare ed eseguire playbook| Creare e modificare cartelle di lavoro, regole analitiche e altre risorse di Azure Sentinel | Gestire gli eventi imprevisti (Ignora, assegna e così via) | Visualizzare dati, eventi imprevisti, cartelle di lavoro e altre risorse di Azure Sentinel |
+| Ruolo | Creare ed eseguire playbook| Creare e modificare le regole analitiche e altre risorse di Azure Sentinel [*](#workbooks) | Gestire gli eventi imprevisti (Ignora, assegna e così via) | Visualizzare dati, eventi imprevisti, cartelle di lavoro e altre risorse di Azure Sentinel |
 |---|---|---|---|---|
 | Ruolo con autorizzazioni di lettura di Azure Sentinel | -- | -- | -- | &#10003; |
 | Risponditore di Azure Sentinel | -- | -- | &#10003; | &#10003; |
 | Collaboratore di Azure Sentinel | -- | &#10003; | &#10003; | &#10003; |
 | Collaboratore Sentinel di Azure + collaboratore app per la logica | &#10003; | &#10003; | &#10003; | &#10003; |
+| | | | | |
 
+<a name=workbooks></a>* Per la creazione e l'eliminazione di cartelle di lavoro è necessario il ruolo di [collaboratore monitoraggio](../role-based-access-control/built-in-roles.md#monitoring-contributor) aggiuntivo. Per ulteriori informazioni, vedere [ruoli e autorizzazioni aggiuntivi](#additional-roles-and-permissions).
 ## <a name="custom-roles-and-advanced-azure-rbac"></a>Ruoli personalizzati e controllo degli accessi in base al ruolo avanzato di Azure
 
 - **Ruoli personalizzati**. Oltre a, o invece di usare i ruoli predefiniti di Azure, è possibile creare ruoli personalizzati di Azure per Sentinel di Azure. I ruoli personalizzati di Azure per Sentinel di Azure vengono creati nello stesso modo in cui si creano altri [ruoli personalizzati di Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), in base a [autorizzazioni specifiche per Sentinel di Azure](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e ad [Azure log Analytics risorse](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).

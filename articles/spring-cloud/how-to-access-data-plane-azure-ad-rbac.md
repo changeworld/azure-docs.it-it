@@ -8,12 +8,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 16433d5b148d7bc441e375591c64af497cd7b8de
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 90ee39039b0734bf434e7339a973358989c08175
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505333"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311363"
 ---
 # <a name="access-config-server-and-service-registry"></a>Accesso al server di configurazione e al registro del servizio
 
@@ -47,15 +47,15 @@ Dopo l'assegnazione del ruolo di lettore dati della molla cloud di Azure, i clie
     ```
 2. Comporre l'endpoint. Sono supportati gli endpoint predefiniti del server Spring cloud config e del registro di sistema Spring Cloud Service gestiti dal cloud Spring di Azure. Per altre informazioni, vedere [endpoint pronti](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints)per la produzione. I clienti possono anche ottenere un elenco completo degli endpoint supportati del server Spring cloud config e del registro di sistema del servizio cloud Spring gestito dal cloud Spring di Azure accedendo agli endpoint:
 
-    * *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/*
-    * *https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/* 
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/'*
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/'* 
 
 >[!NOTE]
 > Se si usa Azure per la Cina, sostituire `*.azuremicroservices.io` con `*.microservices.azure.cn` , [altre informazioni](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 3. Accedere all'endpoint composto con il token di accesso. Inserire il token di accesso in un'intestazione per fornire l'autorizzazione.  È supportato solo il metodo "GET".
 
-    Ad esempio, accedere a un endpoint come *https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health* per visualizzare lo stato di integrità di Eureka.
+    Ad esempio, accedere a un endpoint come *' https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health '* per vedere lo stato di integrità di Eureka.
 
     Se la risposta è *401 non autorizzata*, verificare che il ruolo sia stato assegnato correttamente.  Saranno necessari alcuni minuti per rendere effettivo il ruolo o verificare che il token di accesso non sia scaduto.
 
@@ -63,5 +63,5 @@ Dopo l'assegnazione del ruolo di lettore dati della molla cloud di Azure, i clie
 * [Autenticazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)
 * [Endpoint pronti per la produzione](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Creare ruoli e autorizzazioni](how-to-permissions.md)

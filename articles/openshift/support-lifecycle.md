@@ -5,13 +5,13 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 08/11/2020
-ms.openlocfilehash: fca01c77a1ff47cbeee167eb408ed9f29a1307bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/06/2021
+ms.openlocfilehash: 35cbaf2b6d2618d116d2dd322ae5ac28f578cecc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634329"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303543"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Ciclo di vita del supporto per Azure Red Hat OpenShift 4
 
@@ -33,7 +33,7 @@ Ogni numero nella versione indica la compatibilità generale con la versione pre
 * **Versione secondaria**: rilasciata approssimativamente ogni tre mesi. Gli aggiornamenti delle versioni secondarie possono includere funzionalità aggiuntive, miglioramenti, deprecazioni, rimozioni, correzioni di bug, miglioramenti della sicurezza e altri miglioramenti.
 * **Patch**: in genere rilasciate ogni settimana o in base alle esigenze. Gli aggiornamenti della versione patch possono includere correzioni di bug, miglioramenti della sicurezza e altri miglioramenti.
 
-I clienti devono puntare a eseguire la versione secondaria più recente della versione principale che sta eseguendo. Se, ad esempio, il cluster di produzione è 4,4 e 4,5 è la versione secondaria disponibile a livello generale più recente per la serie 4, è consigliabile eseguire l'aggiornamento a 4,5 non appena possibile.
+I clienti devono puntare a eseguire la versione secondaria più recente della versione principale che sta eseguendo. Se, ad esempio, il cluster di produzione è 4,4 e 4,5 è la versione secondaria disponibile a livello generale più recente per la serie 4, è consigliabile eseguire l'aggiornamento a 4,5 non appena possibile. 
 
 ### <a name="upgrade-channels"></a>Aggiornare i canali
 
@@ -100,18 +100,22 @@ Vedere la guida seguente per la [cronologia delle versioni precedenti di Red Hat
 |4.3|Gennaio 2020|Aprile 2020| Agosto 2020|
 |4.4|Maggio 2020|Luglio 2020|4.6 GA|
 |4.5|Luglio 2020| Novembre 2020|4,7 GA
-|4.6|Ottobre 2020| 2021 febbraio|4,8 GA|
+|4,6|Ottobre 2020| 2021 febbraio|4,8 GA|
 
 ## <a name="faq"></a>Domande frequenti
 
 **Cosa accade quando un utente aggiorna un cluster OpenShift con una versione secondaria non supportata?**
 
-Se si utilizza la versione N-2 o precedente, significa che l'utente non è supportato e verrà richiesto di effettuare l'aggiornamento. Quando l'aggiornamento dalla versione N-2 a N-1 ha esito positivo, si torna all'interno dei criteri di supporto. Ad esempio:
+Se si utilizza la versione N-2 o precedente, significa che l'utente non è supportato e verrà richiesto di effettuare l'aggiornamento per continuare a ricevere supporto. Quando l'aggiornamento dalla versione N-2 a N-1 ha esito positivo, si torna all'interno del supporto. L'aggiornamento dalla versione N-3 o versione precedente a una versione supportata può risultare complesso e in alcuni casi non possibile. È consigliabile lasciare il cluster nella versione più recente di OpenShift per evitare potenziali problemi di aggiornamento. Ad esempio:
 * Se la versione più recente supportata di Azure Red Hat OpenShift è 4.4. z e l'utente si trova in 4.3. z o versioni precedenti, l'utente non è supportato.
-* Quando l'aggiornamento da 4.3. z a 4.4. z o versione successiva ha esito positivo, si torna all'interno dei criteri di supporto.
+* Quando l'aggiornamento da 4.3. z a 4.4. z o versione successiva ha esito positivo, si torna all'interno dei criteri di supporto. 
 
 Il ripristino di una versione precedente del cluster o di un rollback non è supportato. È supportato solo l'aggiornamento a una versione più recente.
 
 **Cosa significa "all'esterno del supporto"?**
 
-"All'esterno del supporto" significa che la versione in esecuzione è esterna all'elenco delle versioni supportate e potrebbe essere necessario aggiornare il cluster a una versione supportata quando viene richiesto il supporto, a meno che non si rientri nel periodo di tolleranza di 30 giorni dopo la deprecazione della versione. Inoltre, Azure Red Hat OpenShift non esegue alcuna garanzia di runtime o SLA per i cluster al di fuori dell'elenco delle versioni supportate alla fine del periodo di tolleranza di 30 giorni.
+Se il cluster ARO esegue una versione di OpenShift che non si trova nell'elenco versioni supportate o usa una [configurazione cluster](https://docs.microsoft.com/azure/openshift/support-policies-v4)non supportata, il cluster è "esterno al supporto". Di conseguenza:
+- Quando si apre un ticket di supporto per il cluster, verrà richiesto di aggiornare il cluster a una versione supportata. prima di ricevere supporto, a meno che non ci si trovi entro il periodo di tolleranza di 30 giorni al termine del supporto della versione. 
+- Eventuali garanzie di runtime o SLA per i cluster all'esterno del supporto vengono annullate.
+- I cluster all'esterno del supporto verranno corretti solo in base al massimo sforzo.
+- I cluster esterni al supporto tecnico non verranno monitorati.

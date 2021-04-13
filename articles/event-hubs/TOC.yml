@@ -206,7 +206,7 @@
         - name: Connettere Akka Streams a un hub eventi
           href: event-hubs-kafka-akka-streams-tutorial.md
         - name: Domande frequenti - Hub eventi per Kafka
-          href: apache-kafka-frequently-asked-questions.md
+          href: apache-kafka-frequently-asked-questions.yml
     - name: Gestire e monitorare
       items:
         - name: Monitorare Hub eventi con Monitoraggio di Azure
@@ -315,7 +315,7 @@
     - name: Sviluppare le proprie competenze con Microsoft Learn
       href: /learn/browse/?products=azure-event-hubs
     - name: Domande frequenti
-      href: event-hubs-faq.md
+      href: event-hubs-faq.yml
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Prezzi

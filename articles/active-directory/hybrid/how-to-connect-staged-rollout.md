@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67018a2ec6b9239661a7022ad7fb9eeb6c9a5f64
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 756e5e96a8040fb3d93273a5521236d46879e60d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385582"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306382"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Eseguire la migrazione all'autenticazione cloud con implementazione a fasi
 
@@ -92,7 +92,7 @@ Per l'implementazione a fasi non sono supportati gli scenari riportati di seguit
 - Join ibrido di Windows 10 o Azure AD aggiunta del token di aggiornamento primario per tutte le versioni, quando l'UPN locale dell'utente non è instradabile. Questo scenario esegue il fallback all'endpoint WS-Trust durante la modalità di implementazione temporanea, ma smette di funzionare quando la migrazione di gestione temporanea è completa e l'accesso utente non è più basato sul server federativo.
 
   >[!NOTE]
-  >È comunque necessario eseguire il passaggio finale dall'autenticazione federata all'autenticazione cloud usando Azure AD Connect o PowerShell. L'implementazione temporanea non cambia i domini da federati a gestiti.  Per ulteriori informazioni sul dominio cutover, vedere [eseguire la migrazione dalla Federazione alla sincronizzazione degli hash delle password](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) e [migrare dalla Federazione all'autenticazione pass-through](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+  >È comunque necessario eseguire il passaggio finale dall'autenticazione federata all'autenticazione cloud usando Azure AD Connect o PowerShell. L'implementazione temporanea non cambia i domini da federati a gestiti.  Per ulteriori informazioni sul dominio cutover, vedere [eseguire la migrazione dalla Federazione alla sincronizzazione degli hash delle password](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) ed [eseguire la migrazione dalla Federazione all'autenticazione pass-through](plan-migrate-adfs-pass-through-authentication.md#step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso).
   
 ## <a name="get-started-with-staged-rollout"></a>Introduzione all'implementazione a fasi
 

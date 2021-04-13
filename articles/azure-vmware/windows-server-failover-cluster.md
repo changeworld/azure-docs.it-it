@@ -1,18 +1,21 @@
 ---
-title: Cluster di failover di Windows Server in Azure rete VSAN soluzione VMware con dischi condivisi nativi
-description: Configurare Windows Server failover cluster (WSFC) in una soluzione VMware di Azure e sfruttare le soluzioni che richiedono la funzionalità WSFC.
+title: Configurare il cluster di failover di Windows Server nella soluzione VMware di Azure rete VSAN
+description: Configurare Windows Server failover cluster (WSFC) nella soluzione VMware di Azure rete VSAN con i dischi condivisi nativi.
 ms.topic: how-to
-ms.date: 03/09/2021
-ms.openlocfilehash: 8162e15675d8bbde9267126c785f152d1cb860bd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: f1bc8199eb0d3317e4b6e07a6a297b4ebfe95cc8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562240"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308685"
 ---
-# <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Cluster di failover di Windows Server in Azure rete VSAN soluzione VMware con dischi condivisi nativi
+# <a name="configure-windows-server-failover-cluster-on-azure-vmware-solution-vsan"></a>Configurare il cluster di failover di Windows Server nella soluzione VMware di Azure rete VSAN
 
-Questo articolo illustra la procedura dettagliata per la configurazione di Windows Server failover cluster in una soluzione VMware di Azure. L'implementazione in questo articolo è per il modello di prova e per scopi pilota. È consigliabile usare una configurazione cluster-in-a-Box (CIB) fino a quando non sono disponibili criteri di posizionamento.
+Questo articolo illustra come configurare un cluster di failover di Windows Server in una soluzione VMware di Azure rete VSAN con dischi condivisi nativi. 
+
+>[!IMPORTANT]
+>L'implementazione in questo articolo è per il modello di prova e per scopi pilota. È consigliabile usare una configurazione cluster-in-a-Box (CIB) fino a quando i criteri di posizionamento non diventano disponibili.
 
 Windows Server failover cluster (WSFC), noto in precedenza come servizio cluster di servizi Microsoft (MSCS), è una funzionalità del sistema operativo Windows Server. WSFC è una funzionalità cruciale per l'azienda e per molte applicazioni è necessario. WSFC, ad esempio, è necessario per le configurazioni seguenti:
 
@@ -43,7 +46,7 @@ La soluzione VMware di Azure fornisce il supporto nativo per WSFC virtualizzato.
 
 Il diagramma seguente illustra l'architettura dei nodi virtuali WSFC in un cloud privato della soluzione VMware di Azure. Mostra la posizione in cui risiede la soluzione VMware di Azure, inclusi i server virtuali WSFC (casella rossa), in relazione alla piattaforma Azure più ampia. Questo diagramma illustra una tipica architettura hub-spoke, ma è possibile una configurazione simile con l'uso della rete WAN virtuale di Azure. Entrambi offrono tutti i valori che possono essere portati da altri servizi di Azure.
 
-[![Diagramma che illustra l'architettura dei nodi virtuali WSFC in un cloud privato della soluzione VMware di Azure.](media/windows-server-failover-cluster/windows-server-failover-architecture.png)](media/windows-server-failover-cluster/windows-server-failover-architecture.png#lightbox)
+:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Diagramma dell'architettura dei nodi virtuali del cluster di failover di Windows Server in un cloud privato della soluzione VMware di Azure." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
 
 ## <a name="supported-configurations"></a>Configurazioni supportate
 
@@ -77,7 +80,7 @@ Attualmente sono supportate le configurazioni seguenti:
 | --- | --- |
 | Tipo di controller SCSI | SAS per la logica LSI |
 | Modalità disco | Le macchine |
-| Condivisione bus SCSI | nessuno |
+| Condivisione bus SCSI | Nessuno |
 | Modificare le impostazioni avanzate per un controller SCSI virtuale che ospita il dispositivo di avvio. | Aggiungere le impostazioni avanzate seguenti a ogni nodo WSFC:<br /> scsiX. returnNoConnectDuringAPD = "TRUE"<br />scsiX. returnBusyOnNoConnectStatus = "FALSE"<br />Dove X è il numero ID del controller bus SCSI del dispositivo di avvio. Per impostazione predefinita, X è impostato su 0. |
 
 ### <a name="wsfc-node---shared-disks-configuration-parameters"></a>Nodo WSFC-parametri di configurazione dei dischi condivisi
