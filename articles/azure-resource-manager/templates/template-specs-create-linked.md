@@ -3,12 +3,12 @@ title: Creare una specifica di modello con i modelli collegati
 description: Informazioni su come creare una specifica di modello con i modelli collegati.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: 31764b9adb1d0fc28a170fa2e6b5073812533083
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1c757895faee208590b638094591d246bf605d8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889842"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310615"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Esercitazione: creare una specifica di modello con i modelli collegati (anteprima)
 
@@ -27,7 +27,7 @@ Creare il modello principale e il modello collegato.
 
 Per collegare un modello, aggiungere una [risorsa distribuzioni](/azure/templates/microsoft.resources/deployments) al modello principale. Nella `templateLink` Proprietà specificare il percorso relativo del modello collegato in base al percorso del modello padre.
 
-Il modello collegato viene chiamato **linkedTemplate.json** e viene archiviato in una sottocartella denominata **artefatti** nel percorso in cui è archiviato il modello principale.  È possibile usare uno dei valori seguenti per relativePath:
+Il modello collegato viene chiamato **linkedTemplate.json** e viene archiviato in una sottocartella denominata **artefatti** nel percorso in cui è archiviato il modello principale.  Per relativePath è possibile usare uno dei valori seguenti:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`

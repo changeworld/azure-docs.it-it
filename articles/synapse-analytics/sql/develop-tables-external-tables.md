@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 78e4b35feb4e830a9f4335614a55d49ca90cd791
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1977663f4661fca316e4839671abd76e07b5acda
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667632"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304801"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Usare tabelle esterne con Synapse SQL
 
@@ -339,9 +339,9 @@ Specifica la cartella o il percorso e il nome del file per i dati effettivi in A
 Se si specifica un percorso (LOCATION) di cartella, una query del pool SQL serverless eseguirà la selezione nella tabella esterna e recupererà i file dalla stessa.
 
 > [!NOTE]
-> A differenza di Hadoop e PolyBase, il pool SQL serverless non restituisce le sottocartelle. Restituisce i file il cui nome file inizia con un carattere di sottolineatura (_) o un punto (.).
+> A differenza di Hadoop e PolyBase, il pool SQL serverless non restituisce le sottocartelle, a meno che non si specifichi /** alla fine del percorso.
 
-In questo esempio, se LOCATION='/webdata/', una query del pool SQL serverless restituirà le righe dai file mydata.txt e _hidden.txt. Non restituirà mydata2.txt e mydata3.txt perché si trovano in una sottocartella.
+In questo esempio, se LOCATION ='/WebData/', una query del pool SQL senza server, restituirà righe da mydata.txt. Non restituirà mydata2.txt e mydata3.txt perché si trovano in una sottocartella.
 
 ![Dati ricorsivi per tabelle esterne](./media/develop-tables-external-tables/folder-traversal.png)
 

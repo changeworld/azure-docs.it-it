@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 03/30/2020
-ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 0da1fd7b98b86ebd75926cc8a2d2bb5294d048ca
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98247183"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308138"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Usare un endpoint HTTPS per gestire i lead del marketplace commerciale
 
@@ -31,13 +31,13 @@ Questo articolo illustra come creare un nuovo flusso in Power Automate per gener
 
     ![Accedere a Flussi personali](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. In **+ Nuovo** selezionare **+ Istantaneo - Da modello vuoto**.
+1. In **+ nuovo** selezionare **+ flusso cloud istantaneo**.
 
-    ![Flussi personali + Flusso automatizzato da modello vuoto](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    ![Flussi personali + Flusso automatizzato da modello vuoto](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png)
 
 1. Assegnare un nome al flusso, quindi in **Scegliere come attivare questo flusso** selezionare **Alla ricezione di una richiesta HTTP**.
 
-    ![Pulsante Ignora nella finestra di creazione di un flusso automatizzato](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
+    ![Pulsante Ignora nella finestra di creazione di un flusso automatizzato](./media/commercial-marketplace-lead-management-instructions-https/https-my-flows-pick-request-trigger.png)
 
 1. Fare clic sul passaggio del flusso per espanderlo.
 
@@ -132,14 +132,18 @@ Questo articolo illustra come creare un nuovo flusso in Power Automate per gener
     ```
 
 >[!NOTE]
->A questo punto della configurazione è possibile selezionare di connettersi a un sistema CRM o di configurare una notifica tramite posta elettronica. Seguire le istruzioni rimanenti in base alla scelta effettuata.
+>A questo punto della configurazione è possibile scegliere di connettersi a un sistema CRM o di configurare una notifica di posta elettronica. Seguire le istruzioni rimanenti in base alla scelta effettuata.
 
 ### <a name="connect-to-a-crm-system"></a>Connettersi a un sistema CRM
 
 1. Selezionare **+ nuovo passaggio**.
-1. Scegliere un sistema CRM a scelta cercandolo tramite **Cerca connettori e azioni**. Selezionarlo nella scheda **Azioni** con l'azione per creare un nuovo record. La schermata seguente mostra l'azione **Crea un nuovo record (Dynamics 365)** come esempio.
+1. Scegliere un sistema CRM a scelta cercandolo tramite **Cerca connettori e azioni**. La schermata seguente mostra come esempio creare un nuovo record (Common Data Service).
 
     ![Crea un nuovo record](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
+
+1. Selezionare la **scheda azioni** con l'azione per **creare un nuovo record**.
+
+    ![Selezionare Crea un nuovo record](./media/commercial-marketplace-lead-management-instructions-https/select-create-new-record.png)
 
 1. Specificare il **Nome organizzazione** associato al sistema CRM. Selezionare **Lead** nell'elenco a discesa **Nome entità**.
 

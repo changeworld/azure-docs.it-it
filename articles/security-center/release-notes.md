@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/11/2021
 ms.author: memildin
-ms.openlocfilehash: 81f741fd9b0e3d40eb0027a5cbe0ba4b7113bbea
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 3e4dddf61656ea38bac406366bf993788fd34943
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107027619"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303152"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -28,26 +28,22 @@ Per informazioni sulle modifiche *pianificate* che saranno presto disponibili ne
 ## <a name="april-2021"></a>Aprile 2021
 
 Gli aggiornamenti del mese di aprile includono quanto segue:
-- [Quattro nuove raccomandazioni correlate alla configurazione Guest (anteprima)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Le immagini del registro contenitori con pull di recente sono ora sottoposte a scansione settimanale (disponibilità generale)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Usare Azure Defender per Kubernetes per proteggere le distribuzioni Kubernetes ibride e cloud (anteprima)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [Quattro nuove raccomandazioni correlate alla configurazione Guest (anteprima)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Suggerimenti di CMK spostati nel controllo di sicurezza delle procedure consigliate](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 avvisi di Azure Defender deprecati](#11-azure-defender-alerts-deprecated)
 - [Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" sono stati deprecati](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 
-### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quattro nuove raccomandazioni correlate alla configurazione Guest (anteprima)
+### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Le immagini del registro contenitori con pull di recente sono ora sottoposte a scansione settimanale (disponibilità generale)
 
-L' [estensione di configurazione Guest](../governance/policy/concepts/guest-configuration.md) di Azure viene segnalata al centro sicurezza per garantire la protezione avanzata delle impostazioni in-Guest delle macchine virtuali. L'estensione non è necessaria per i server abilitati per Arc perché è inclusa nell'agente del computer connesso ad Arc. L'estensione richiede un'identità gestita dal sistema nel computer.
+Azure Defender per i registri contenitori include uno scanner di vulnerabilità incorporato. Questo scanner analizza immediatamente tutte le immagini da inserire nel registro di sistema e le immagini estratte negli ultimi 30 giorni.
 
-Sono state aggiunte quattro nuove raccomandazioni al centro sicurezza per sfruttare al meglio questa estensione.
+Ogni giorno vengono individuate nuove vulnerabilità. Con questo aggiornamento, le immagini del contenitore estratte dai registri negli ultimi 30 giorni verranno sottoposte a **scansione** ogni settimana. In questo modo si garantisce che le nuove vulnerabilità individuate vengano identificate nelle immagini.
 
-- Due consigli richiedono di installare l'estensione e l'identità gestita dal sistema necessaria:
-    - **L'estensione di configurazione Guest deve essere installata nei computer**
-    - **L'estensione di configurazione Guest delle macchine virtuali deve essere distribuita con identità gestita assegnata dal sistema**
+L'analisi viene addebitata in base alle singole immagini, quindi non sono previsti costi aggiuntivi per queste ripetizioni.
 
-- Quando l'estensione viene installata e in esecuzione, inizierà a controllare i computer e verrà richiesto di proteggere le impostazioni, ad esempio la configurazione del sistema operativo e le impostazioni dell'ambiente. Questi due consigli richiederanno di proteggere i computer Windows e Linux, come descritto di seguito:
-    - **Windows Defender exploit Guard deve essere abilitato nei computer**
-    - **L'autenticazione nei computer Linux deve richiedere chiavi SSH**
-
-Per altre informazioni, vedere informazioni sulla [configurazione Guest di criteri di Azure](../governance/policy/concepts/guest-configuration.md).
+Per ulteriori informazioni su questo scanner, vedere [l'articolo relativo all'uso di Azure Defender per registri contenitori per l'analisi delle vulnerabilità](defender-for-container-registries-usage.md).
 
 
 ### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Usare Azure Defender per Kubernetes per proteggere le distribuzioni Kubernetes ibride e cloud (anteprima)
@@ -69,6 +65,40 @@ Questa integrazione tra il Centro sicurezza di Azure, Azure Defender e Azure Arc
 Per altre informazioni, vedere l'articolo relativo all' [uso di Azure Defender per Kubernetes con i cluster Kubernetes locali e multicloud](defender-for-kubernetes-azure-arc.md).
 
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Raccomandazione del Centro sicurezza di Azure per la distribuzione dell'estensione Azure Defender per i cluster Kubernetes abilitati per Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+
+### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quattro nuove raccomandazioni correlate alla configurazione Guest (anteprima)
+
+L' [estensione di configurazione Guest](../governance/policy/concepts/guest-configuration.md) di Azure viene segnalata al centro sicurezza per garantire la protezione avanzata delle impostazioni in-Guest delle macchine virtuali. L'estensione non è necessaria per i server abilitati per Arc perché è inclusa nell'agente del computer connesso ad Arc. L'estensione richiede un'identità gestita dal sistema nel computer.
+
+Sono state aggiunte quattro nuove raccomandazioni al centro sicurezza per sfruttare al meglio questa estensione.
+
+- Due consigli richiedono di installare l'estensione e l'identità gestita dal sistema necessaria:
+    - **L'estensione di configurazione Guest deve essere installata nei computer**
+    - **L'estensione di configurazione Guest delle macchine virtuali deve essere distribuita con identità gestita assegnata dal sistema**
+
+- Quando l'estensione viene installata e in esecuzione, inizierà a controllare i computer e verrà richiesto di proteggere le impostazioni, ad esempio la configurazione del sistema operativo e le impostazioni dell'ambiente. Questi due consigli richiederanno di proteggere i computer Windows e Linux, come descritto di seguito:
+    - **Windows Defender exploit Guard deve essere abilitato nei computer**
+    - **L'autenticazione nei computer Linux deve richiedere chiavi SSH**
+
+Per altre informazioni, vedere informazioni sulla [configurazione Guest di criteri di Azure](../governance/policy/concepts/guest-configuration.md).
+
+### <a name="cmk-recommendations-moved-to-best-practices-security-control"></a>Suggerimenti di CMK spostati nel controllo di sicurezza delle procedure consigliate
+
+Il programma di sicurezza di ogni organizzazione include i requisiti di crittografia dei dati. Per impostazione predefinita, i dati dei clienti di Azure vengono crittografati a riposo con chiavi gestite dal servizio. Tuttavia, le chiavi gestite dal cliente (CMK) sono in genere necessarie per soddisfare gli standard di conformità normativi. CMK consente di crittografare i dati con una chiave di [Azure Key Vault](../key-vault/general/overview.md) creata e di proprietà dell'utente. Questo offre il controllo completo e la responsabilità del ciclo di vita delle chiavi, tra cui la rotazione e la gestione.
+
+I controlli di sicurezza del Centro sicurezza di Azure sono gruppi logici di raccomandazioni sulla sicurezza correlate e riflettono le superfici di attacco vulnerabili. Ogni controllo ha un numero massimo di punti che è possibile aggiungere al Punteggio sicuro se si aggiornano tutte le raccomandazioni elencate nel controllo per tutte le risorse. Il controllo di sicurezza **implementa procedure consigliate** per la sicurezza è pari a zero punti. Quindi, le raccomandazioni in questo controllo non influiscono sul punteggio sicuro.
+
+I consigli elencati di seguito vengono spostati nel controllo di sicurezza **implementa procedure consigliate** per la sicurezza per riflettere meglio la natura facoltativa. Questo spostamento garantisce che queste raccomandazioni siano nel controllo più appropriato per soddisfare l'obiettivo.
+
+- Gli account Azure Cosmos DB devono usare chiavi gestite dal cliente per la crittografia dei dati inattivi
+- Le aree di lavoro di Azure Machine Learning devono essere crittografate con una chiave gestita dal cliente
+- Gli account di servizi cognitivi devono abilitare la crittografia dei dati con una chiave gestita dal cliente (CMK)
+- I registri contenitori devono essere crittografati con una chiave gestita dal cliente
+- Le istanze gestite di SQL devono usare chiavi gestite dal cliente per la crittografia dei dati inattivi
+- I server SQL devono usare chiavi gestite dal cliente per la crittografia dei dati inattivi
+- Gli account di archiviazione devono usare la chiave gestita dal cliente per la crittografia
+
+Per informazioni sulle raccomandazioni disponibili in ogni controllo di sicurezza, vedere [Controlli di sicurezza e relative raccomandazioni](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
 
 ### <a name="11-azure-defender-alerts-deprecated"></a>11 avvisi di Azure Defender deprecati

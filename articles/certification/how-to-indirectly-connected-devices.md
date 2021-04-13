@@ -7,16 +7,16 @@ ms.author: cbroad
 ms.date: 02/23/2021
 ms.topic: how-to
 ms.service: certification
-ms.openlocfilehash: da3110b562bc5ddbd37657f31cbdd3790a13b897
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 3a4fd2838c0ddf6d7d03d68f105fc59471b77dea
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969294"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304478"
 ---
 # <a name="device-bundles-and-indirectly-connected-devices"></a>Bundle del dispositivo e dispositivi connessi indirettamente
 
-Per supportare i dispositivi che interagiscono con Azure tramite un dispositivo, le offerte SaaS o PaaS, il portale https://www.certify.azure.com) di invio (e il catalogo dei dispositivi) ( https://devicecatalog.azure.com) Abilita i concetti di aggregazione e dipendenze per promuovere e abilitare queste combinazioni di dispositivi accesso al programma Azure Certified Device.
+Per supportare i dispositivi che interagiscono con Azure tramite un dispositivo, le offerte SaaS o PaaS, il portale https://certify.azure.com/) di invio (e il catalogo dei dispositivi) ( https://devicecatalog.azure.com) Abilita i concetti di aggregazione e dipendenze per promuovere e abilitare queste combinazioni di dispositivi accesso al programma Azure Certified Device.
 
 A seconda della linea di prodotti e dei servizi offerti, la situazione potrebbe richiedere una combinazione di questi passaggi:
 

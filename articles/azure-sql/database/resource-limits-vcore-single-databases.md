@@ -10,22 +10,33 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/23/2021
-ms.openlocfilehash: a3cd68b610b0e0db05f60450009bc83a80c3037b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/09/2021
+ms.openlocfilehash: 7f96e6638bd021777d2f4bb888ef70c49c42c716
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107602"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313794"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Questo articolo fornisce i limiti dettagliati delle risorse per i singoli database nel database SQL di Azure usando il modello di acquisto vCore.
 
-Per i limiti del modello di acquisto di DTU per database singoli in un server, vedere [Panoramica dei limiti delle risorse in un server](resource-limits-logical-server.md).
+* Per i limiti del modello di acquisto di DTU per database singoli in un server, vedere [Panoramica dei limiti delle risorse in un server](resource-limits-logical-server.md).
+* Per i limiti delle risorse del modello di acquisto di DTU per il database SQL di Azure, vedere [limiti delle risorse DTU i database singoli](resource-limits-dtu-single-databases.md) e i [limiti delle risorse DTU](resource-limits-dtu-elastic-pools.md).
+* Per i limiti delle risorse vCore, vedere [limiti delle risorse vCore-database SQL di Azure](resource-limits-vcore-single-databases.md) e [limiti delle risorse vCore-pool elastici](resource-limits-vcore-elastic-pools.md).
+* Per altre informazioni sui vari modelli di acquisto, vedere l'articolo sui [modelli di acquisto e i livelli di servizio](purchasing-models.md).
 
-È possibile impostare il livello di servizio, le dimensioni di calcolo (obiettivo di servizio) e la quantità di spazio di archiviazione per un singolo database usando il [portale di Azure](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), l'interfaccia della riga di comando di [Azure](single-database-manage.md#the-azure-cli)o l' [API REST](single-database-manage.md#rest-api).
+Ogni replica di sola lettura dispone di risorse proprie, ad esempio Vcore, memoria, IOPS dei dati, TempDB, ruoli di lavoro e sessioni. Ogni replica di sola lettura è soggetta ai limiti delle risorse descritti in dettaglio più avanti in questo articolo.
+
+È possibile impostare il livello di servizio, le dimensioni di calcolo (obiettivo di servizio) e la quantità di spazio di archiviazione per un singolo database usando:
+
+* [Transact-SQL](single-database-manage.md#transact-sql-t-sql) tramite [ALTER database](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure portal](single-database-manage.md#the-azure-portal)
+* [PowerShell](single-database-manage.md#powershell)
+* [Interfaccia della riga di comando di Azure](single-database-manage.md#the-azure-cli)
+* [REST API](single-database-manage.md#rest-api)
 
 > [!IMPORTANT]
 > Per indicazioni e considerazioni sulla scalabilità, vedere [ridimensionare un singolo database](single-database-scale.md).
@@ -629,7 +640,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |vCore|2|4|6|8|
 |Memoria (GB)|9|18|27|36|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|
-|Archiviazione OLTP in memoria (GB)|1.7|3,7|5.9|8.2|
+|Archiviazione OLTP in memoria (GB)|1,7|3,7|5.9|8.2|
 |Dimensioni massime dei dati (GB)|768|768|768|768|
 |Dimensioni massime del log (GB)|230|230|230|230|
 |Dimensioni massime dati TempDB (GB)|64|128|192|256|

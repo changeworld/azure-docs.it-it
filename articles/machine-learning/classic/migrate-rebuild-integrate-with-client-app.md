@@ -3,17 +3,17 @@ title: 'ML Studio (versione classica): eseguire la migrazione a endpoint della p
 description: Integrare gli endpoint della pipeline con le applicazioni client in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: bf0624e0667c9fc6998fb28898a3376ca409180d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc7e222d400c2ded602e3d26d504896302fff014
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103565244"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311788"
 ---
 # <a name="consume-pipeline-endpoints-from-client-applications"></a>Utilizzare gli endpoint della pipeline dalle applicazioni client
 

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 01/14/2020
+ms.date: 04/12/2021
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 48de06d28442b4d05cd3a7ab287732c0999e434c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9e87796c3557f21bb6192c7d7d0c0925d08d786
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101659699"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311754"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprendimento avanzato e Machine Learning in Azure Machine Learning
 
@@ -99,7 +99,7 @@ Con la trasformazione dei dati appropriata, una rete neurale può comprendere il
 
 L'analisi del testo basata su metodi di apprendimento avanzato comporta l'analisi di grandi quantità di dati di testo (ad esempio, documenti medici o ricevute di spese), il riconoscimento dei modelli e la creazione di informazioni organizzate e concise.
 
-Le aziende usano l'apprendimento avanzato per eseguire analisi del testo per rilevare il trading di insider e la conformità alle normative governative. Un altro esempio comune è la frode delle assicurazioni: l'analisi del testo è stata spesso usata per analizzare grandi quantità di documenti per riconoscere le probabilità che un reclamo assicurativo sia illecito. 
+Le aziende usano l'apprendimento avanzato per eseguire analisi del testo per rilevare il trading di insider e la conformità alle normative governative. Un altro esempio comune è la frode delle assicurazioni: l'analisi del testo è stata spesso usata per analizzare grandi quantità di documenti per riconoscere le probabilità che un reclamo assicurativo sia illecito.
 
 ## <a name="artificial-neural-networks"></a>Reti neurali artificiali
 
@@ -111,15 +111,33 @@ Le sezioni seguenti illustrano le più diffuse tipologie di reti neurali artific
 
 La rete neurale feedforward è il tipo più semplice di rete neurale artificiale. In una rete feedforward, le informazioni si spostano in una sola direzione dal livello di input al livello di output. Feedforward neural network trasforma un input inserendolo in una serie di livelli nascosti. Ogni livello è costituito da un set di neuroni e ogni livello è completamente connesso a tutti i neuroni nel livello precedente. L'ultimo livello completamente connesso, ovvero il livello di output, rappresenta le stime generate.
 
-### <a name="recurrent-neural-network"></a>Rete neurale ricorrente
+### <a name="recurrent-neural-network-rnn"></a>Rete neurale ricorrente (RNN)
 
 Le reti neurali ricorrenti sono una rete neurale artificiale ampiamente utilizzata. Queste reti salvano l'output di un livello e lo reinviano al livello di input per consentire la stima del risultato del livello. Le reti neurali ricorrenti hanno ottime capacità di apprendimento. Sono ampiamente usati per attività complesse come la previsione delle serie temporali, la grafia di apprendimento e il riconoscimento del linguaggio.
 
-### <a name="convolutional-neural-network"></a>Rete neurale di convoluzione
+### <a name="convolutional-neural-network-cnn"></a>Rete neurale di convoluzione (CNN)
 
 Una rete neurale di convoluzione è una rete neurale artificiale particolarmente efficace e presenta un'architettura univoca. I livelli sono organizzati in tre dimensioni: larghezza, altezza e profondità. I neuroni di un livello non si connettono a tutti i neuroni nel livello successivo, ma solo a una piccola area dei neuroni del livello. L'output finale viene ridotto a un singolo vettore di punteggi di probabilità, organizzati lungo la dimensione di profondità. 
 
 Le reti neurali di convoluzione sono state usate in aree quali il riconoscimento video, il riconoscimento delle immagini e i sistemi di raccomandazione.
+
+### <a name="generative-adversarial-network-gan"></a>Rete antagonista generativa (GAN)
+
+Le reti antagoniste generative sono modelli generativi formati per creare contenuti realistici, ad esempio immagini. È costituito da due reti note come generatore e discriminatore. Entrambe le reti vengono sottoposte a training simultaneamente. Durante il training, il generatore utilizza un rumore casuale per creare nuovi dati sintetici che somigliano strettamente ai dati reali. Il discriminatore preleva l'output dal generatore come input e utilizza dati reali per determinare se il contenuto generato è reale o sintetico. Ogni rete è in competizione tra loro. Il generatore sta provando a generare contenuto sintetico non distinguibile dal contenuto reale e il discriminatore sta provando a classificare correttamente gli input come reali o sintetici. L'output viene quindi usato per aggiornare i pesi di entrambe le reti per aiutarli a raggiungere meglio i rispettivi obiettivi.
+
+Le reti antagoniste generative vengono usate per risolvere i problemi, ad esempio la conversione di immagini e la progressione dell'età.
+
+### <a name="transformers"></a>Convertitori
+
+I trasformatori sono un'architettura di modello adatta per la risoluzione di problemi contenenti sequenze come testo o dati di serie temporali. Sono costituiti da [livelli codificatore e decodificatore](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)#Encoder). Il codificatore accetta un input e ne esegue il mapping a una rappresentazione numerica che contiene informazioni quali context. Il decodificatore usa le informazioni del codificatore per produrre un output, ad esempio il testo tradotto. Ciò che rende le trasformazioni diverse dalle altre architetture che contengono codificatori e decodificatori sono i sottolivelli di attenzione. L'attenzione è l'idea di concentrarsi su parti specifiche di un input in base all'importanza del contesto in relazione ad altri input in una sequenza. Ad esempio, quando si riepiloga un articolo di notizie, non tutte le frasi sono rilevanti per descrivere l'idea principale. Concentrandosi sulle parole chiave in tutto l'articolo, il riepilogo può essere eseguito in una singola frase, ovvero nel titolo.
+
+I trasformatori sono stati usati per risolvere i problemi di elaborazione del linguaggio naturale, ad esempio la traduzione, la generazione di testo, la risposta alle domande e il riepilogo del testo.
+
+Di seguito sono riportate alcune implementazioni di trasformatori ben note:
+
+- Rappresentazioni del codificatore bidirezionale da transformatori (BERT)
+- Transformer pre-training generativa 2 (GPT-2)
+- Transformer pre-training generatore 3 (GPT-3)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

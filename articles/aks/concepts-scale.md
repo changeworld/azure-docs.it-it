@@ -4,12 +4,12 @@ description: Informazioni sul ridimensionamento nel servizio Azure Kubernetes, t
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b72ed7cefc6a16eb484e1337dbd64e5f069a2201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6d2121403361c4225a7e0e64411875d83d93194
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94686039"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305736"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
@@ -26,7 +26,7 @@ Questo articolo introduce i principali concetti utili per gestire il ridimension
 
 È possibile ridimensionare manualmente le repliche (pod) e i nodi per verificare come risponde l'applicazione a una modifica delle risorse disponibili e dello stato. Il ridimensionamento manuale delle risorse consente anche di definire una quantità specifica di risorse da usare per mantenere un costo fisso, ad esempio il numero di nodi. Per eseguire manualmente la scalabilità, è necessario definire la replica o il numero di nodi. L'API Kubernetes pianifica quindi la creazione di Pod aggiuntivi o lo svuotamento dei nodi in base alla replica o al numero di nodi.
 
-Quando si ridimensionano i nodi, l'API Kubernetes chiama l'API di calcolo di Azure pertinente collegata al tipo di calcolo usato dal cluster. Ad esempio, per i cluster basati su un set di scalabilità di macchine virtuali, la logica per la selezione dei nodi da rimuovere è determinata dall'API dei set di scalabilità di macchine virtuali. Per altre informazioni sulla modalità di selezione dei nodi per la rimozione in una scala ridotta, vedere le [domande frequenti su vmss](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
+Quando si ridimensionano i nodi, l'API Kubernetes chiama l'API di calcolo di Azure pertinente collegata al tipo di calcolo usato dal cluster. Ad esempio, per i cluster basati su un set di scalabilità di macchine virtuali, la logica per la selezione dei nodi da rimuovere è determinata dall'API dei set di scalabilità di macchine virtuali. Per altre informazioni sulla modalità di selezione dei nodi per la rimozione in una scala ridotta, vedere le [domande frequenti su vmss](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#if-i-reduce-my-scale-set-capacity-from-20-to-15--which-vms-are-removed-).
 
 Per informazioni introduttive sul ridimensionamento manuale di pod e nodi, vedere [Ridimensionare le applicazioni nel servizio Azure Kubernetes][aks-scale].
 

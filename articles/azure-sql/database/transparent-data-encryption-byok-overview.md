@@ -8,16 +8,16 @@ ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 098d874d7de85aa7c66f92703eea9b4d12cee8df
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101691247"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305294"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption con chiave gestita dal cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -86,13 +86,13 @@ Se la registrazione è abilitata, i revisori possono usare Monitoraggio di Azure
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Requisiti per la configurazione della protezione TDE
 
-- La chiave di protezione TDE può essere solo una chiave RSA o HSM RSA asimmetrica. Le lunghezze supportate per le chiavi sono di 2048 e 3072 byte.
+- La chiave di protezione TDE può essere solo una chiave RSA o HSM RSA asimmetrica. Le lunghezze di chiave supportate sono 2048 e 3072 byte.
 
 - La data di attivazione della chiave (se impostata) deve essere una data e un'ora nel passato. La data di scadenza (se impostata) deve essere una data e un'ora future.
 
 - La chiave deve avere lo stato *Abilitato*.
 
-- Se si importa una chiave esistente nel Key Vault, assicurarsi di specificarla nei formati di file supportati (pfx, byok o backup).
+- Se si sta importando una chiave esistente nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di file supportati ( `.pfx` , `.byok` o `.backup` ).
 
 > [!NOTE]
 > Azure SQL ora supporta l'uso di una chiave RSA archiviata in un modulo di protezione hardware gestito come protezione Transparent Data Encryption. Questa funzionalità è in **anteprima pubblica**. Azure Key Vault HSM gestito è un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard, che consente di proteggere le chiavi crittografiche per le applicazioni cloud, usando la HSM convalidata FIPS 140-2 Level 3. Altre informazioni sulle [HSM gestite](../../key-vault/managed-hsm/index.yml).
@@ -116,7 +116,7 @@ Se la registrazione è abilitata, i revisori possono usare Monitoraggio di Azure
 
 - Se la chiave viene generata nel Key Vault, creare un backup della chiave prima di usare la chiave in AKV per la prima volta. Il backup può essere ripristinato solo in Azure Key Vault. Altre informazioni sul comando [Backup-AzKeyVaultKey](/powershell/module/az.keyvault/backup-azkeyvaultkey).
 
-- Creare un nuovo backup ogni volta che vengono apportate modifiche alla chiave (ad esempio, attributi chiavi, tag, ACL).
+- Creare un nuovo backup ogni volta che vengono apportate modifiche alla chiave (ad esempio, attributi chiave, tag, ACL).
 
 - **Mantenere le versioni precedenti** della chiave nell'insieme di credenziali delle chiavi durante la rotazione delle chiavi in modo tale da poter ripristinare i backup del database meno recenti. Quando viene modificata la protezione TDE per un database, i backup precedenti del database **non vengono aggiornati** per l'uso della protezione TDE più recente. In fase di ripristino ogni backup richiede la protezione TDE usata per la crittografia al momento della creazione. Le rotazioni delle chiavi possono essere eseguite seguendo le istruzioni riportate in [Ruotare la protezione di Transparent Data Encryption con PowerShell](transparent-data-encryption-byok-key-rotation.md).
 
@@ -131,11 +131,11 @@ Quando Transparent Data Encryption è configurata per l'uso di una chiave gestit
 > [!NOTE]
 > Se il database è inaccessibile a causa di un'interruzione di rete intermittente, non sarà necessario eseguire alcuna azione e i database torneranno online automaticamente.
 
-Dopo il ripristino dell'accesso alla chiave, per riportare online il database sono necessari passaggi e tempo aggiuntivi, che possono variare in base al tempo trascorso senza accesso alla chiave e alle dimensioni del database:
+Dopo il ripristino dell'accesso alla chiave, per riportare online il database sono necessari tempi e passaggi aggiuntivi, che possono variare in base al tempo trascorso senza l'accesso alla chiave e alla dimensione dei dati nel database:
 
-- Se l'accesso alla chiave viene ripristinato entro 8 ore, il database verrà riparato automaticamente entro un'ora.
+- Se l'accesso alla chiave viene ripristinato entro 8 ore, il database verrà risanato entro l'ora successiva.
 
-- Se l'accesso alla chiave viene ripristinato dopo più di 8 ore, la riparazione automatica non è possibile e la restituzione del database richiede passaggi aggiuntivi nel portale e può richiedere una quantità di tempo significativa a seconda delle dimensioni del database. Quando il database è di nuovo online, le impostazioni a livello di server configurate in precedenza, ad esempio la configurazione del [gruppo di failover](auto-failover-group-overview.md), la cronologia dei ripristini temporizzati e i tag, **andranno persi**. È pertanto consigliabile implementare un sistema di notifica che consenta di identificare e risolvere entro 8 ore i problemi di accesso alla chiave sottostanti.
+- Se l'accesso alla chiave viene ripristinato dopo più di 8 ore, la correzione automatica non è possibile e la restituzione del database richiede passaggi aggiuntivi nel portale e può richiedere una quantità di tempo significativa a seconda delle dimensioni del database. Quando il database è di nuovo online, le impostazioni a livello di server configurate in precedenza, ad esempio la configurazione del [gruppo di failover](auto-failover-group-overview.md), la cronologia dei ripristini temporizzati e i tag, **andranno persi**. È pertanto consigliabile implementare un sistema di notifica che consenta di identificare e risolvere entro 8 ore i problemi di accesso alla chiave sottostanti.
 
 Di seguito è riportata una visualizzazione dei passaggi aggiuntivi necessari nel portale per riportare online un database inaccessibile.
 
@@ -164,7 +164,7 @@ Per monitorare lo stato del database e abilitare gli avvisi per la perdita dell'
 
 - [Integrità risorse di Azure](../../service-health/resource-health-overview.md). Un database non accessibile che ha perso l'accesso alla protezione TDE viene visualizzato come "Non disponibile" dopo che è stata negata la prima connessione al database.
 - [Log attività](../../service-health/alerts-activity-log-service-notifications-portal.md). Quando si verifica un errore durante l'accesso alla protezione TDE nel Key Vault gestito dal cliente, vengono aggiunte voci al log attività.  La creazione di avvisi per questi eventi consente di ripristinare l'accesso appena possibile.
-- [Gruppi di azioni](../../azure-monitor/alerts/action-groups.md). È possibile definire gruppi di azioni per inviare notifiche e avvisi in base alle preferenze, ad esempio Posta elettronica/SMS/Push/Messaggio vocale, App per la logica, Webhook, Gestione dei servizi IT o Runbook di Automazione.
+- I [gruppi di azioni](../../azure-monitor/alerts/action-groups.md) possono essere definiti per inviare notifiche e avvisi in base alle proprie preferenze, ad esempio posta elettronica/SMS/push/voce, app per la logica, webhook, ITSM o Runbook di automazione.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Backup e ripristino di database con Transparent Data Encryption gestita dal cliente
 
@@ -175,7 +175,7 @@ Per ripristinare un backup crittografato con la protezione TDE del Key Vault, as
 > [!IMPORTANT]
 > In qualsiasi momento potrebbe non essere presente più di una protezione TDE impostata per un server. Si tratta della chiave contrassegnata con "Imposta la chiave predefinita come protezione TDE predefinita" nel pannello del portale di Azure. È possibile tuttavia collegare più chiavi aggiuntive a un server senza contrassegnarle come protezione TDE. Queste chiavi non vengono usate per la protezione della chiave DEK, ma possono essere usate durante il ripristino da un backup, se il file di backup è crittografato con la chiave con l'identificazione personale corrispondente.
 
-Se la chiave necessaria per il ripristino di un backup non è più disponibile per il server di destinazione, nel tentativo di ripristino viene restituito il messaggio di errore seguente: "il server di destinazione non `<Servername>` ha accesso a tutti gli URI AKV creati tra \<Timestamp #1> e \<Timestamp #2> . Ripetere l'operazione dopo il ripristino di tutti gli URI AKV".
+Se la chiave necessaria per il ripristino di un backup non è più disponibile per il server di destinazione, nel tentativo di ripristino viene restituito il messaggio di errore seguente: "il server di destinazione non `<Servername>` ha accesso a tutti gli URI AKV creati tra \<Timestamp #1> e \<Timestamp #2> . Ripetere l'operazione dopo il ripristino di tutti gli URI AKV ".
 
 Per attenuarlo, eseguire il cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) per il server di destinazione o [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) per l'istanza gestita di destinazione per restituire l'elenco delle chiavi disponibili e identificare quelle mancanti. Per garantire che tutti i backup possano essere ripristinati, verificare che il server di destinazione per il ripristino abbia accesso a tutte le chiavi necessarie. Le chiavi non devono essere contrassegnate come protezione TDE.
 
@@ -185,7 +185,7 @@ Considerazione aggiuntiva per i file di log: i file di log di cui è stato esegu
 
 ## <a name="high-availability-with-customer-managed-tde"></a>Disponibilità elevata con Transparent Data Management gestita dal cliente
 
-Anche nei casi in cui non è stata configurata alcuna ridondanza geografica per il server, si consiglia di configurare il server per l'uso di due diversi Key Vault in due aree diverse con lo stesso materiale della chiave. La chiave nell'insieme di credenziali delle chiavi secondario nell'altra area non deve essere contrassegnata come protezione Transparent Data Encryption e non è consentita. Se si verifica un'interruzione che interessano l'insieme di credenziali delle chiavi primarie e solo successivamente, il sistema passa automaticamente all'altra chiave collegata con la stessa identificazione personale nell'insieme di credenziali delle chiavi secondario, se esistente. Si noti che questa opzione non si verifica se la protezione Transparent Data Encryption è inaccessibile a causa di diritti di accesso revocati o perché la chiave o l'insieme di credenziali delle chiavi è stato eliminato, in quanto può indicare che il cliente ha intenzionalmente voluto limitare l'accesso alla chiave da parte del server. Per fornire lo stesso materiale della chiave a due insiemi di credenziali delle chiavi in aree diverse è possibile creare la chiave al di fuori dell'insieme di credenziali delle chiavi e importarli in entrambi gli insiemi di credenziali delle chiavi. 
+Anche nei casi in cui non è stata configurata alcuna ridondanza geografica per il server, si consiglia di configurare il server per l'uso di due diversi Key Vault in due aree diverse con lo stesso materiale della chiave. La chiave nell'insieme di credenziali delle chiavi secondario nell'altra area non deve essere contrassegnata come protezione Transparent Data Encryption e non è consentita. Se si verifica un'interruzione che interessano l'insieme di credenziali delle chiavi primarie e solo successivamente, il sistema passa automaticamente all'altra chiave collegata con la stessa identificazione personale nell'insieme di credenziali delle chiavi secondario, se esistente. Si noti che il passaggio non si verifica se la protezione TDE non è accessibile a causa di diritti di accesso revocati o perché la chiave o il Key Vault è stato eliminato. Ciò potrebbe indicare che il cliente ha intenzionalmente voluto limitare l'accesso alla chiave da parte del server. Per fornire lo stesso materiale della chiave a due insiemi di credenziali delle chiavi in aree diverse è possibile creare la chiave al di fuori dell'insieme di credenziali delle chiavi e importarli in entrambi gli insiemi di credenziali delle chiavi. 
 
 In alternativa, può essere eseguita generando la chiave usando l'insieme di credenziali delle chiavi primarie nella stessa area del server e clonando la chiave in un insieme di credenziali delle chiavi in un'area di Azure diversa. Usare il cmdlet [backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) per recuperare la chiave in formato crittografato dall'insieme di credenziali delle chiavi primarie e quindi usare il cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) e specificare un insieme di credenziali delle chiavi nella seconda area per clonare la chiave. In alternativa, usare la portale di Azure per eseguire il backup e il ripristino della chiave. L'operazione di backup/ripristino delle chiavi è consentita solo tra insiemi di credenziali delle chiavi nella stessa sottoscrizione di Azure e in [geografia di Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
@@ -193,7 +193,7 @@ In alternativa, può essere eseguita generando la chiave usando l'insieme di cre
 
 ## <a name="geo-dr-and-customer-managed-tde"></a>Ripristino di emergenza geografico e Transparent Data Encryption gestita dal cliente
 
-In entrambi gli scenari di [replica geografica attiva](active-geo-replication-overview.md) e [gruppi di failover](auto-failover-group-overview.md), ogni server implicato richiede un Key Vault separato che deve trovarsi nella stessa area di Azure del server. Il cliente è responsabile di mantenere la coerenza del materiale della chiave nei Key Vault in modo che la replica geografica secondaria sia sincronizzata e possa essere eseguita usando la stessa chiave del Key Vault locale se il database primario diventa inaccessibile a causa di un'interruzione nell'area e dell'attivazione di un failover. È possibile configurare fino a quattro repliche secondarie e il concatenamento (database secondari di database secondari) non è supportato.
+Negli scenari di [replica geografica attiva](active-geo-replication-overview.md) e di [gruppi di failover](auto-failover-group-overview.md) , ogni server richiesto richiede un insieme di credenziali delle chiavi separato, che deve essere collocato con il server nella stessa area di Azure. Il cliente è responsabile di mantenere la coerenza del materiale della chiave nei Key Vault in modo che la replica geografica secondaria sia sincronizzata e possa essere eseguita usando la stessa chiave del Key Vault locale se il database primario diventa inaccessibile a causa di un'interruzione nell'area e dell'attivazione di un failover. È possibile configurare fino a quattro repliche secondarie e il concatenamento (database secondari di database secondari) non è supportato.
 
 Per evitare problemi durante la creazione o durante la replica geografica a causa di un materiale della chiave incompleto, è importante attenersi alle regole seguenti durante la configurazione di Transparent Data Encryption gestita dal cliente:
 
@@ -205,7 +205,7 @@ Per evitare problemi durante la creazione o durante la replica geografica a caus
 
 ![Gruppi di failover e ripristino di emergenza geografico](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
-Per testare un failover, seguire la procedura descritta in [Panoramica della replica geografica attiva](active-geo-replication-overview.md). Il failover di test deve essere eseguito a intervalli regolari per verificare che il database SQL abbia mantenuto le autorizzazioni di accesso a entrambi gli insiemi di credenziali delle chiavi.
+Per testare un failover, seguire la procedura descritta in [Panoramica della replica geografica attiva](active-geo-replication-overview.md). Il failover di test deve essere eseguito regolarmente per verificare che il database SQL abbia mantenuto le autorizzazioni di accesso a entrambi gli insiemi di credenziali delle chiavi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

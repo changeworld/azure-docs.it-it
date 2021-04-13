@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: jgao
-ms.openlocfilehash: fb5fc0b6b673f8a754d0d6bb6ff962697cd5f38b
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 3240cce34a6fa645986a58ab43b28ad38485e97b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967337"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308966"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Usare gli script di distribuzione nei modelli ARM
 
@@ -140,7 +140,7 @@ Dettagli sui valori delle proprietà:
 - `kind`: specificare il tipo di script. Attualmente sono supportati gli script Azure PowerShell e dell'interfaccia della riga di comando di Azure. I valori sono **AzurePowerShell** e **AzureCLI**.
 - `forceUpdateTag`: La modifica di questo valore tra le distribuzioni di modelli forza la ripetizione dell'esecuzione dello script di distribuzione. Se si usano le `newGuid()` funzioni o `utcNow()` , entrambe le funzioni possono essere usate solo nel valore predefinito per un parametro. Per altre informazioni, vedere [Eseguire lo script più di una volta](#run-script-more-than-once).
 - `containerSettings`: Specificare le impostazioni per personalizzare l'istanza di contenitore di Azure. Lo script di distribuzione richiede una nuova istanza di contenitore di Azure. Non è possibile specificare un'istanza di contenitore di Azure esistente. Tuttavia, è possibile personalizzare il nome del gruppo di contenitori usando `containerGroupName` . Se non specificato, il nome del gruppo viene generato automaticamente.
-- `storageAccountSettings`: Specificare le impostazioni per l'uso di un account di archiviazione esistente. Se `containerGroupName` viene omesso, viene creato automaticamente un account di archiviazione. Vedere [Usare un account di archiviazione esistente](#use-existing-storage-account).
+- `storageAccountSettings`: Specificare le impostazioni per l'uso di un account di archiviazione esistente. Se `storageAccountName` viene omesso, viene creato automaticamente un account di archiviazione. Vedere [Usare un account di archiviazione esistente](#use-existing-storage-account).
 - `azPowerShellVersion`/`azCliVersion`: Specificare la versione del modulo da usare. Vedere un elenco di [versioni di Azure PowerShell supportate](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Vedere un elenco delle [versioni supportate dell'interfaccia](https://mcr.microsoft.com/v2/azure-cli/tags/list)della riga di comando di Azure.
 
   >[!IMPORTANT]
@@ -245,7 +245,7 @@ Il modello seguente mostra come passare i valori tra due `deploymentScripts` ris
 Nella prima risorsa si definisce una variabile denominata, che `$DeploymentScriptOutputs` viene usata per archiviare i valori di output. Per accedere al valore di output da un'altra risorsa all'interno del modello, usare:
 
 ```json
-reference('<ResourceName>').output.text
+reference('<ResourceName>').outputs.text
 ```
 
 ## <a name="work-with-outputs-from-cli-script"></a>Usare gli output dello script dell'interfaccia della riga di comando

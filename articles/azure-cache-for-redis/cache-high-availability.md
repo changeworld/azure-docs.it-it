@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: ad6696fc4fe2af7047c25a3a9c260d3b12588ee2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69dec2ce00b263f3536e30ba0a5376e6d922b79c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102203301"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308354"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Disponibilità elevata per cache di Azure per Redis
 
@@ -21,9 +21,9 @@ Cache di Azure per Redis implementa la disponibilità elevata usando più macchi
 
 | Opzione | Descrizione | Disponibilità | Standard | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
-| [Replica standard](#standard-replication)| Configurazione replicata a doppio nodo in un singolo data center con failover automatico | 99,9% |✔|✔|-|
-| [Ridondanza della zona](#zone-redundancy) | Configurazione replicata a più nodi in AZs, con failover automatico | 99,95% (livello Premium), 99,99% (livelli Enterprise) |-|Anteprima|Anteprima|
-| [Replica geografica](#geo-replication) | Istanze della cache collegate in due aree, con failover controllato dall'utente | 99,999% (livello Enterprise) |-|✔|Anteprima|
+| [Replica standard](#standard-replication)| Configurazione replicata a doppio nodo in un singolo data center con failover automatico | 99,9% (vedere [i dettagli](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |✔|✔|-|
+| [Ridondanza della zona](#zone-redundancy) | Configurazione replicata a più nodi in AZs, con failover automatico | Fino al 99,99% (vedere [i dettagli](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|Anteprima|Anteprima|
+| [Replica geografica](#geo-replication) | Istanze della cache collegate in due aree, con failover controllato dall'utente | Fino al 99,999% (vedere [i dettagli](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)) |-|✔|Anteprima|
 
 ## <a name="standard-replication"></a>Replica standard
 

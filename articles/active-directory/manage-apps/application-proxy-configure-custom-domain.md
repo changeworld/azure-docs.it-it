@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 49edab5ed20749cb705d160e5cdc46a16bdee951
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dadb23b9a8d00d484a9c42db9007d8c5b94b4c78
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258032"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306790"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurare domini personalizzati con Azure AD Application Proxy
 
@@ -90,7 +90,7 @@ Per pubblicare l'app tramite Application Proxy con un dominio personalizzato:
    
    ![Fare clic per caricare un certificato](./media/application-proxy-configure-custom-domain/certificate.png)
    
-7. Nella pagina **Certificato SSL** individuare e selezionare il file di certificato PFX. Immettere la password per il certificato e selezionare **Carica certificato**. Per altre informazioni sui certificati, vedere la sezione [Certificati per domini personalizzati](#certificates-for-custom-domains). Se il certificato non è valido o si è verificato un problema con la password, verrà visualizzato un messaggio di errore. Le [domande frequenti sul proxy di applicazione](application-proxy-faq.md#application-configuration) contengono alcune procedure di risoluzione dei problemi che è possibile provare.
+7. Nella pagina **Certificato SSL** individuare e selezionare il file di certificato PFX. Immettere la password per il certificato e selezionare **Carica certificato**. Per altre informazioni sui certificati, vedere la sezione [Certificati per domini personalizzati](#certificates-for-custom-domains). Se il certificato non è valido o si è verificato un problema con la password, verrà visualizzato un messaggio di errore. Le [domande frequenti sul proxy di applicazione](application-proxy-faq.yml#application-configuration) contengono alcune procedure di risoluzione dei problemi che è possibile provare.
    
    ![Caricamento del certificato](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    

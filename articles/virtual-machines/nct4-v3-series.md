@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: d73bd81f15263c79e16b574eb961d4ae0ac61175
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e10177de1a40bf7ece7acde43a91686bd4c98e5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417808"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306450"
 ---
 # <a name="ncast4_v3-series"></a>Serie NCasT4_v3 
 
@@ -23,12 +23,13 @@ Le macchine virtuali serie NCasT4_v3 sono basate su GPU [NVIDIA Tesla T4](https:
 [ACU](acu.md): 230-260<br>
 [Archiviazione Premium](premium-storage-performance.md): supportata<br>
 [Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
+[Dischi Ultra](disks-types.md#ultra-disk): supportati ([altre](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) informazioni su disponibilità, utilizzo e prestazioni) <br>
 [Live Migration](maintenance-and-updates.md): non supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 [Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 [Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): non supportati <br>
-Interconnessione NVIDIA NVLink: supportata<br>
+Interconnessione NVIDIA NVLink: non supportata<br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |

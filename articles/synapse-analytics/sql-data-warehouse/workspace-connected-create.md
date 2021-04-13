@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 769ca4cf0ecbdba5fd80d977eb69c8a4f58df55f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 605f495fbc5913663499f5411abcaa531cea97ee
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98071188"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312213"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Abilitazione delle funzionalità dell'area di lavoro sinapsi per un pool SQL dedicato (in precedenza SQL DW)
 
@@ -24,6 +24,7 @@ Tutti gli utenti di SQL data warehouse possono ora accedere e usare un'istanza d
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di abilitare le funzionalità dell'area di lavoro sinapsi nella data warehouse, è necessario assicurarsi di disporre di quanto segue:
 - Diritti per creare e gestire le risorse SQL ospitate nel server logico SQL.
+- Autorizzazioni di scrittura per l'host SQL Server. 
 - Diritti per la creazione di risorse di Azure sinapsi.
 - Un amministratore Azure Active Directory identificato nel server logico
 

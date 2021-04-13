@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e8192c5c6734009f69e3f741531251dd85675b47
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449450"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305600"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Esercitazione: sviluppare e pianificare il provisioning per un endpoint SCIM
 
@@ -62,7 +62,7 @@ Lo standard SCIM definisce uno schema per la gestione di utenti e gruppi.
 Lo schema utente **principale** richiede solo tre attributi (tutti gli altri attributi sono facoltativi):
 
 - `id`, identificatore definito del provider di servizi
-- `externalId`, identificatore definito dal client
+- `userName`, un identificatore univoco per l'utente (in genere viene eseguito il mapping al nome dell'entità utente Azure AD)
 - `meta`, metadati di sola *lettura* gestiti dal provider di servizi
 
 Oltre allo schema utente **principale** , lo standard scim definisce un'estensione utente **aziendale** con un modello per l'estensione dello schema utente per soddisfare le esigenze dell'applicazione. 

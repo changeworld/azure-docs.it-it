@@ -3,12 +3,12 @@ title: Impostazioni delle porte di Inoltro di Azure | Documentazione Microsoft
 description: Questo articolo include una tabella che descrive la configurazione necessaria per i valori di porta per il servizio di inoltro di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 97640debe81041ff7e2b082c6a9ac606d6088664
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 81551055d967babaac6f12c3a23ce6b1e78afbd5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85314274"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314168"
 ---
 # <a name="azure-relay-port-settings"></a>Impostazioni delle porte di inoltro di Azure
 
@@ -42,4 +42,4 @@ Connessioni ibride Usa WebSocket sulla porta 443 con TLS come meccanismo di tras
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul servizio di inoltro di Azure, vedere i collegamenti seguenti:
 * [Che cos'è Inoltro di Azure?](relay-what-is-it.md)
-* [Domande frequenti sul servizio di inoltro](relay-faq.md)
+* [Domande frequenti sul servizio di inoltro](relay-faq.yml)

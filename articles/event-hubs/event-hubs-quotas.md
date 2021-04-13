@@ -3,12 +3,12 @@ title: Quote e limiti - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce i limiti e le quote per hub eventi di Azure. Ad esempio, numero di spazi dei nomi per sottoscrizione, numero di hub eventi per ogni spazio dei nomi.
 ms.topic: article
 ms.date: 03/31/2021
-ms.openlocfilehash: 9e32b8e7e43e8396c1606c80dd27c68563cdbf03
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: bd80cd5056ef662ba505e04e9af8f2e975b052be
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107071"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310785"
 ---
 # <a name="azure-event-hubs-quotas-and-limits"></a>Quote e limiti di Hub eventi di Azure
 
@@ -22,4 +22,4 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](./event-hubs-about.md)
 * [Aumento automatico di Hub eventi](event-hubs-auto-inflate.md)
-* [Domande frequenti su Hub eventi](event-hubs-faq.md)
+* [Domande frequenti su Hub eventi](event-hubs-faq.yml)

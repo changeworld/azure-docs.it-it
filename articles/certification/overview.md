@@ -1,32 +1,32 @@
 ---
 title: Panoramica del programma Azure Certified Device
-description: Panoramica del programma Azure Certified Device per i nostri partner e clienti
-author: nikuntjo
+description: Panoramica del programma Azure Certified Device per i partner e i clienti. Usare queste risorse per avviare il processo di certificazione del dispositivo. Informazioni su come certificare il dispositivo, dai requisiti dei dispositivi per la pubblicazione del dispositivo.
+author: nkuntjoro
 ms.author: nikuntjo
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 04/09/2021
 ms.custom: template-overview
 ms.service: certification
-ms.openlocfilehash: 8f264c233a0e7cd14469a3931153decfe886061a
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: b9d599542a53e3d809748b72028512c66409b4ec
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969883"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307708"
 ---
-# <a name="what-is-azure-certified-device"></a>Informazioni sul dispositivo Azure Certified
+# <a name="what-is-the-azure-certified-device-program"></a>Che cos'è il programma Azure Certified Device?
 
-Grazie per il tuo interesse per il programma Azure Certified Device. Questo programma è il tuo unico punto di forza per distinguere, promuovere e trovare in modo semplice i dispositivi creati per l'esecuzione in Azure. Dalle fotocamere intelligenti ai sensori connessi all'infrastruttura perimetrale, questo programma di certificazione dei dispositivi per i dispositivi avanzati consente ai generatori di dispositivi di aumentare la visibilità del prodotto e di risparmiare tempo nella creazione di soluzioni.
+Grazie per il tuo interesse per il programma Azure Certified Device. Questo programma è uno sportello unico che consente di distinguere facilmente, promuovere e trovare i dispositivi creati per l'esecuzione in Azure. Dalle fotocamere intelligenti ai sensori connessi all'infrastruttura perimetrale, questo programma di certificazione dei dispositivi per i dispositivi avanzati consente ai generatori di dispositivi di aumentare la visibilità del prodotto e di risparmiare tempo nella creazione di soluzioni.
 
 ## <a name="our-certification-promise"></a>La nostra promessa di certificazione
 
 Il programma Azure Certified Device garantisce ai clienti soluzioni ottimali in Azure. Si tratta di un programma che usa strumenti, servizi e un catalogo per condividere le conoscenze del settore con la community di generatori all'interno dell'ecosistema Internet per aiutare i compilatori e i clienti.
 
-I tre principi del programma sono:
+Durante il processo di certificazione dei dispositivi, i tre principi del programma sono:
 
 - **Fornire fiducia ai clienti:** I clienti possono acquistare con fiducia i dispositivi certificati di Azure che portano a Microsoft Promise.
 
-- **Clienti matchmaking con i dispositivi appropriati:** I creatori di dispositivi possono distinguersi con la certificazione che evidenzia le proprie funzionalità esclusive e i clienti possono trovare facilmente i prodotti che soddisfano le proprie esigenze.
+- **Clienti matchmaking con i dispositivi appropriati:** I creatori di dispositivi possono distinguersi dalla certificazione che evidenzia le proprie funzionalità esclusive e i clienti possono trovare facilmente i dispositivi completi che soddisfano le proprie esigenze.
 
 - **Promozione dei dispositivi certificati:** I creatori di dispositivi ottengono maggiore visibilità, contatti con i clienti e utilizzo del marchio Microsoft Azure Certified Device.
 
@@ -34,12 +34,12 @@ I tre principi del programma sono:
 
 Il programma Azure Certified Device serve due destinatari diversi.
 
-1. **Generatori di dispositivi**: è possibile distinguere facilmente le funzionalità del dispositivo Internet delle cose e accedere a un pubblico in tutto il mondo, cercando di acquistare in modo affidabile i dispositivi creati per l'esecuzione in Azure. Usare il catalogo dei dispositivi Azure Certified per aumentare la visibilità del prodotto e connettersi con i clienti certificando il dispositivo.
-1.  **Generatori di soluzioni**: trova e acquista in tutta sicurezza i dispositivi creati per l'esecuzione in Azure, sapendo che soddisfano funzionalità specifiche. Cerca e seleziona con facilità il dispositivo certificato appropriato per la tua soluzione Internet delle cose nel [Catalogo dei dispositivi Azure Certified](https://devicecatalog.azure.com/).
+1. **Generatori** di dispositivi: è possibile compilare dispositivi Internet? Puoi distinguere con facilità le funzionalità dei tuoi dispositivi e ottenere l'accesso a un pubblico mondiale che cerca di acquistare in modo affidabile i dispositivi compilati per l'esecuzione in Azure. Usare il catalogo dei dispositivi Azure Certified per aumentare la visibilità del prodotto e connettersi ai clienti mediante la certificazione del dispositivo e mostrare che soddisfa i requisiti specifici dei dispositivi.
+1.  **Generatori di soluzioni**: chiedono cosa sono i dispositivi qualificati? Trova e acquista in tutta sicurezza i dispositivi creati per l'esecuzione in Azure, sapendo che soddisfano i requisiti specifici degli utenti. Cerca e seleziona con facilità il dispositivo certificato appropriato per la tua soluzione Internet delle cose nel [Catalogo dei dispositivi Azure Certified](https://devicecatalog.azure.com/).
 
-## <a name="our-certification-programs"></a>Programmi di certificazione
+## <a name="our-certification-programs-and-iot-device-requirements"></a>I nostri programmi di certificazione e i requisiti dei dispositivi.
 
-Sono ora disponibili quattro diverse certificazioni. Ogni certificazione è incentrata sulla distribuzione di un valore cliente diverso. A seconda del tipo di dispositivo e del pubblico di destinazione, è possibile scegliere le certificazioni più idonee per l'applicazione. Selezionare i titoli di ogni programma per ulteriori informazioni sui requisiti del programma.
+Sono ora disponibili quattro diverse certificazioni. Ogni certificazione è incentrata sulla distribuzione di un valore cliente diverso. A seconda del tipo di dispositivo e del pubblico di destinazione, è possibile scegliere le certificazioni più idonee per l'applicazione. Selezionare i titoli di ogni programma per ottenere altre informazioni sul programma e sui requisiti per l'it.
 
 | Programma di certificazione         |  Panoramica                      |
 ------------------------------|-------------------------------------------------|
@@ -50,21 +50,22 @@ Sono ora disponibili quattro diverse certificazioni. Ogni certificazione è ince
 
 ## <a name="how-to-certify-your-device"></a>Come certificare il dispositivo
 
-La certificazione di un dispositivo prevede quattro passaggi principali nel [portale per i dispositivi certificati di Azure](https://certify.azure.com):
+La certificazione di un dispositivo prevede diversi passaggi principali nel [portale per i dispositivi certificati di Azure](https://certify.azure.com):
 
-1. Creazione del progetto
-1. Fornire informazioni sulle funzionalità hardware
-1. Convalida della funzionalità del dispositivo
-1. Invio e completamento del processo di Revisione
+1. Selezionare la certificazione corretta per il dispositivo in base ai requisiti del dispositivo.
+1. Creare il progetto nel portale per i [dispositivi Azure Certified](https://certify.azure.com).
+1. Aggiungere i dettagli del dispositivo, incluse le informazioni sulle funzionalità hardware, per iniziare il processo di certificazione del dispositivo.
+1. Convalida funzionalità del dispositivo
+1. Inviare e completare il processo di Revisione
 
-Dopo aver ottenuto la certificazione del dispositivo, è possibile eseguire facoltativamente due delle attività seguenti: 
+Dopo aver ottenuto la certificazione del dispositivo, è possibile eseguire facoltativamente due delle attività seguenti:
 
 1. Pubblicazione nel catalogo di dispositivi certificati Azure (facoltativo)
 1. Aggiornamento del progetto dopo l'approvazione/pubblicazione (facoltativo)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Pronti per iniziare a usare il tuo percorso di certificazione? Per iniziare a certificare il dispositivo, vedere le risorse seguenti.
+Pronti per iniziare a usare il tuo percorso di certificazione? Per avviare il processo di certificazione dei dispositivi, vedere le risorse seguenti.
 
 - [Avvio del processo di certificazione](tutorial-00-selecting-your-certification.md)
 - Per altre domande o commenti e suggerimenti, contattare [il team del dispositivo Azure Certified](mailto:iotcert@microsoft.com).

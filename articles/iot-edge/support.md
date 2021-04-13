@@ -4,16 +4,16 @@ description: Informazioni sui sistemi operativi in grado di eseguire il daemon e
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/11/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0bd6a8af4850f3a0519bac7644100c2dcf883635
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: b60deee6ccb95245839ee740c2b237b98315d483
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031171"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313199"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemi supportati da Azure IoT Edge
 
@@ -171,9 +171,15 @@ I sistemi elencati nella tabella seguente sono considerati compatibili con Azure
 
 Gli asset e le note sulla versione di IoT Edge sono disponibili nella pagina delle [versioni di azure-iotedge](https://github.com/Azure/azure-iotedge/releases). Questa sezione offre informazioni tratte dalle note sulla versione, consentendo di visualizzare più facilmente i componenti di ciascuna versione.
 
-I componenti di IoT Edge possono essere installati o aggiornati singolarmente e sono compatibili con i componenti di versioni precedenti. La tabella seguente elenca i componenti inclusi in ogni versione:
+La tabella seguente elenca i componenti inclusi in ogni versione a partire da 1.2.0. I componenti elencati in questa tabella possono essere installati o aggiornati singolarmente e sono compatibili con le versioni precedenti.
 
-| Versione | Daemon di sicurezza | Hub di Edge<br>Agente IoT Edge | Libiothsm | Moby |
+| Versione | aziot-Edge | edgeHub<br>edgeAgent | aziot-Identity-Service |
+| ------- | ---------- | -------------------- | ---------------------- |
+| **1,2** | 1.2.0      | 1.2.0                | 1.2.0                  |
+
+La tabella seguente elenca i componenti inclusi in ogni versione fino alla versione 1,1 LTS. I componenti elencati in questa tabella possono essere installati o aggiornati singolarmente e sono compatibili con le versioni precedenti.
+
+| Versione | iotedge | edgeHub<br>edgeAgent | libiothsm | Moby |
 |--|--|--|--|--|
 | **1,1 LTS**<sup>1</sup> | 1.1.0<br>1.1.1 | 1.1.0<br>1.1.1 | 1.1.0<br>1.1.1 |   |
 | **1.0.10** | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br>1.0.10.3<br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 |  |
@@ -192,7 +198,8 @@ IoT Edge USA Microsoft. Azure. Devices. Client SDK. Per altre informazioni, vede
 
 | Versione IoT Edge | Versione di Microsoft. Azure. Devices. Client SDK |
 |------------------|--------------------------------------------|
-| 1,1 (LTS)      | 1.28.0                                     |
+| 1.2.0            | 1.33.4-NestedEdge
+| 1,1 (LTS)        | 1.28.0                                     |
 | 1.0.10           | 1.28.0                                     |
 | 1.0.9            | 1.21.1                                     |
 | 1.0.8            | 1.20.3                                     |

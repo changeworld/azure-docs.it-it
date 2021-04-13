@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: bbe36e072d10b81c421331b2212d8b161afd2693
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fdc299ef1945e3ee0810f1c314fc07edfb4f4873
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87098157"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313301"
 ---
-# <a name="microsoftcommonarmapicontrol-ui-element"></a>Elemento Microsoft. Common. ArmApiControl dell'interfaccia utente
+# <a name="microsoftsolutionsarmapicontrol-ui-element"></a>Elemento Microsoft. Solutions. ArmApiControl dell'interfaccia utente
 
 ArmApiControl consente di ottenere risultati da un'operazione API Azure Resource Manager. Usare i risultati per popolare il contenuto dinamico in altri controlli.
 
@@ -46,7 +46,14 @@ L'output del controllo non viene visualizzato all'utente. Il risultato dell'oper
 ## <a name="remarks"></a>Commenti
 
 - La `request.method` proprietà specifica il metodo HTTP. `GET` `POST` Sono consentiti solo o.
-- La `request.path` proprietà specifica il percorso relativo dell'URL. Può trattarsi di un percorso statico oppure può essere costruito in modo dinamico facendo riferimento ai valori di output degli altri controlli.
+- La `request.path` proprietà specifica un URL che deve essere un percorso relativo di un endpoint ARM. Può trattarsi di un percorso statico oppure può essere costruito in modo dinamico facendo riferimento ai valori di output degli altri controlli.
+
+  Ad esempio, una chiamata ARM nel `Microsoft.Network/expressRouteCircuits` provider di risorse:
+
+  ```json
+  "path": "<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2020-05-01"
+  ```
+
 - La proprietà `request.body` è facoltativa. Usarlo per specificare un corpo JSON che viene inviato con la richiesta. Il corpo può essere contenuto statico o costruito in modo dinamico facendo riferimento ai valori di output di altri controlli.
 
 ## <a name="example"></a>Esempio
@@ -81,5 +88,5 @@ Per un esempio dell'uso di ArmApiControl per verificare la disponibilità di un 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
-* Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).
+- Per un'introduzione alla creazione delle definizioni dell'interfaccia utente, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).
+- Per una descrizione delle proprietà comuni negli elementi dell'interfaccia utente, vedere [Elementi di CreateUiDefinition](create-uidefinition-elements.md).

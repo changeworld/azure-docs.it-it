@@ -7,12 +7,12 @@ ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5ab729f5aa94c7137203c25319a5b830448d00a7
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: d545610b8fa13d0c0f8b91bf92107d53b81454c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968204"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313845"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Esenzione di risorse e consigli dal punteggio sicuro 
 
@@ -34,7 +34,7 @@ In questi casi, è possibile creare un'esenzione per un Consiglio per:
 |---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stato della versione:                  | Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Prezzi:                        | Si tratta di una funzionalità di criteri di Azure Premium offerta per i clienti di Azure Defender senza costi aggiuntivi. Per gli altri utenti, potrebbero essere applicati addebiti in futuro.                                                                                                                                                                 |
-| Autorizzazioni e ruoli obbligatori: | **Proprietario della sottoscrizione** o **collaboratore dei criteri** per creare un'esenzione<br>Per creare una regola, è necessario disporre delle autorizzazioni per modificare i criteri in criteri di Azure.<br>Per altre informazioni, vedere [autorizzazioni RBAC di Azure in criteri di Azure](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
+| Autorizzazioni e ruoli obbligatori: | **Collaboratore criteri** **proprietario** o risorse per creare un'esenzione<br>Per creare una regola, è necessario disporre delle autorizzazioni per modificare i criteri in criteri di Azure.<br>Per altre informazioni, vedere [autorizzazioni RBAC di Azure in criteri di Azure](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
 | Limitazioni                    | Le esenzioni possono essere create solo per le raccomandazioni incluse nell'iniziativa predefinita del Centro sicurezza, nel benchmark di sicurezza di Azure o in una qualsiasi delle iniziative standard di normative fornite. I consigli generati da iniziative personalizzate non possono essere esentati. Altre informazioni sulle relazioni tra [criteri, iniziative e raccomandazioni](security-policy-concept.md). |
 | Cloud:                         | ![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |

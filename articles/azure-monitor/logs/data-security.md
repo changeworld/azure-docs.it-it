@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: 8f193cface177e6be6343f28ef4dc27c2d6c6a7b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f8fa0344a6959025856f002e1de4eb8700c32da5
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030903"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311312"
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
 Scopo di questo documento è fornire informazioni specifiche per Log Analytics, una funzionalità di Monitoraggio di Azure, che integrino le informazioni disponibili nel [Centro protezione di Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -103,7 +103,7 @@ Log Analytics dispone di un processo di gestione degli eventi imprevisti a cui a
   * Gli operatori che usano il servizio Microsoft Azure hanno l'obbligo di sostenere una formazione aggiuntiva in relazione alla loro possibilità di accedere ai sistemi riservati che ospitano i dati dei clienti.
   * Il personale di risposta di sicurezza Microsoft riceve una formazione specializzata per i ruoli ricoperti
 
-In caso di perdita di dati di un cliente, viene inviata una notifica a tale cliente nell'arco di un giorno. Con il servizio non si è tuttavia mai verificata alcuna perdita di dati. 
+Sebbene sia molto raro, Microsoft invierà una notifica a ogni cliente entro un giorno se si verifica una perdita significativa di dati del cliente. 
 
 Per altre informazioni sulle modalità di risposta agli eventi imprevisti in merito alla sicurezza di Microsoft, vedere [Risposta di Microsoft Azure Security nel cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
 

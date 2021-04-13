@@ -2,13 +2,13 @@
 title: Creare il file di parametri
 description: Creare il file di parametri per passare i valori durante la distribuzione di un modello di Azure Resource Manager
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: d557bcdfe246dc2c9bfccde17b7f9590c2686358
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89276644"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312043"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creare il file di parametri di Resource Manager
 
@@ -210,6 +210,8 @@ Per altre informazioni, vedere [distribuire le risorse con i modelli ARM e Azure
 
 > [!NOTE]
 > Non è possibile usare un file di parametri con il pannello modello personalizzato nel portale.
+
+Se si usa il [progetto gruppo di risorse di Azure in Visual Studio](create-visual-studio-deployment-project.md), assicurarsi che l' **azione di compilazione** del file di parametri sia impostata su **contenuto**.
 
 ## <a name="file-name"></a>Nome file
 

@@ -3,12 +3,12 @@ title: Panoramica di Hub eventi dedicato - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce una panoramica dell'hub eventi di Azure dedicato, che offre distribuzioni a tenant singolo di hub eventi.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 721acf354c7d14c1362b4f760982af37d59115f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe63b074bfdd01191d81dfb7024af5532a87a12f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715616"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310768"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Panoramica di Hub eventi dedicato
 
@@ -71,4 +71,4 @@ Per ulteriori informazioni sui Hub eventi Dedicato, contattare il rappresentante
 
 - [Creare un cluster di hub eventi tramite il portale di Azure](https://aka.ms/eventhubsclusterquickstart) 
 - [Tariffe di Hub eventi dedicato](https://azure.microsoft.com/pricing/details/event-hubs/). Per informazioni aggiuntive sulla capacità di Hub eventi dedicato, contattare il rappresentante di vendita Microsoft o il Supporto tecnico Microsoft.
-- Le [Domande frequenti si Hub eventi](event-hubs-faq.md) contengono informazioni sui prezzi e risposte ad alcune domande frequenti sugli Hub eventi.
+- Le [Domande frequenti si Hub eventi](event-hubs-faq.yml) contengono informazioni sui prezzi e risposte ad alcune domande frequenti sugli Hub eventi.

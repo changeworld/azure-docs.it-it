@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a1e6d2f4fc0444be364ce3c07c14f6408b3f19fe
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 21db7ed0cf13a3ed282929b09847c6c3ba8a36ed
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446911"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307249"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configurare un proxy di Centro distribuzione chiavi Kerberos (anteprima)
 
@@ -29,7 +29,7 @@ Sono disponibili due componenti per il servizio desktop virtuale di Windows che 
 - Il feed nel client desktop virtuale di Windows che fornisce agli utenti un elenco dei desktop o delle applicazioni disponibili a cui hanno accesso. Questo processo di autenticazione si verifica in Azure Active Directory, il che significa che questo componente non è l'obiettivo di questo articolo.
 - Sessione RDP risultante dall'utente che seleziona una di queste risorse disponibili. Questo componente usa l'autenticazione Kerberos e richiede un proxy KDC per gli utenti remoti.
 
-In questo articolo viene illustrato come configurare il feed nel client desktop virtuale di Windows nell'portale di Azure. Per informazioni su come configurare il ruolo Gateway Desktop remoto, vedere [distribuire il ruolo Gateway Desktop remoto](/windows-server/remote/rd-gateway-role).
+In questo articolo viene illustrato come configurare il feed nel client desktop virtuale di Windows nell'portale di Azure. Per informazioni su come configurare il ruolo Gateway Desktop remoto, vedere [distribuire il ruolo Gateway Desktop remoto](/azure/virtual-desktop/rd-gateway-role).
 
 ## <a name="requirements"></a>Requisiti
 

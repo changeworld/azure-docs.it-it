@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/07/2021
 ms.author: terrylan
-ms.openlocfilehash: be270383b868abb7e2865920f4a3852e2f6210dc
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 3ea3c2bcb878dbd8a712e6076dda09853f55e297
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031391"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310343"
 ---
 # <a name="end-to-end-security-in-azure"></a>Sicurezza end-to-end in Azure
 Uno dei motivi migliori per usare Azure per le proprie applicazioni e i propri servizi consiste nella possibilità di sfruttare una vasta gamma di strumenti e funzionalità per la sicurezza. Questi strumenti e queste funzionalità consentono di creare soluzioni sicure sulla piattaforma Azure protetta. Microsoft Azure garantisce la riservatezza, l'integrità e la disponibilità dei dati dei clienti, assicurando anche al tempo stesso una rendicontazione trasparente.
@@ -63,8 +63,8 @@ Il programma di [benchmark di sicurezza di Azure](../benchmarks/introduction.md)
 | [Protezione DDoS di Azure Standard](../../ddos-protection/ddos-protection-overview.md) | Fornisce funzionalità avanzate di mitigazione DDoS per la difesa da attacchi DDoS. Viene ottimizzata automaticamente per aiutare a proteggere le risorse di Azure specifiche in una rete virtuale. |
 | [Frontdoor di Azure](../../frontdoor/front-door-overview.md) | Un punto di ingresso globale e scalabile che usa la rete Microsoft globale perimetrale per creare applicazioni Web veloci, sicure e scalabili. |
 | [Firewall di Azure](../../firewall/overview.md) | Servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure. È un firewall con stato completo distribuito come servizio con disponibilità elevata e scalabilità cloud senza limiti. |
-| [Azure Key Vault](../../key-vault/general/overview.md) | Servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure. È un firewall con stato completo distribuito come servizio con disponibilità elevata e scalabilità cloud senza limiti. |
-| [Key Vault gestiti HSDM (anteprima)](../../key-vault/managed-hsm/overview.md) | Un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard che consente di proteggere le chiavi crittografiche per le applicazioni cloud, usando FIPS 140-2 livello 3 convalidato HSM. |
+| [Azure Key Vault](../../key-vault/general/overview.md) | Archivio di segreti protetti per token, password, certificati, chiavi API e altri segreti. Key Vault possibile utilizzare anche per creare e controllare le chiavi di crittografia utilizzate per crittografare i dati. |
+| [Key Vault HSM gestito (anteprima)](../../key-vault/managed-hsm/overview.md) | Un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard che consente di proteggere le chiavi crittografiche per le applicazioni cloud, usando FIPS 140-2 livello 3 convalidato HSM. |
 | [Collegamento privato di Azure](../../private-link/private-link-overview.md) | Consente di accedere ai servizi PaaS di Azure, ad esempio archiviazione di Azure e database SQL, e ai servizi di proprietà/partner del cliente ospitati in Azure tramite un endpoint privato nella rete virtuale. |
 | [Gateway applicazione di Azure](../../application-gateway/overview.md) | Un servizio di bilanciamento del carico del traffico Web avanzato che consente di gestire il traffico per le applicazioni Web. Il gateway applicazione consente di prendere decisioni relative al routing basate su altri attributi di una richiesta HTTP, ad esempio il percorso dell'URI o le intestazioni host. |
 | [Bus di servizio di Azure](../../service-bus-messaging/service-bus-messaging-overview.md) | Un broker di messaggi Enterprise completamente gestito con code di messaggi e argomenti di pubblicazione-sottoscrizione. Il bus di servizio viene usato per separare le applicazioni e i servizi tra loro. |

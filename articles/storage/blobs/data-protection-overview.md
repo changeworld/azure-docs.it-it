@@ -5,17 +5,17 @@ description: Le opzioni di protezione dei dati disponibili per l'archiviazione B
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/22/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
 ms.subservice: common
-ms.openlocfilehash: afd98e629500bc90cc9ddd1ed4ab2472f733e845
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 90c83397089b77d30694041a37debc0731ea2a38
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104803715"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304257"
 ---
 # <a name="data-protection-overview"></a>Panoramica della protezione dei dati
 
@@ -30,7 +30,7 @@ Se si sta cercando la copertura per la protezione dei dati di base per l'account
 - Configurare un blocco Azure Resource Manager sull'account di archiviazione per proteggere l'account dall'eliminazione o dalle modifiche di configurazione. [Ulteriori informazioni...](../common/lock-account-resource.md)
 - Abilitare l'eliminazione temporanea del contenitore per l'account di archiviazione per ripristinare un contenitore eliminato e il relativo contenuto. [Ulteriori informazioni...](soft-delete-container-enable.md)
 - Salvare lo stato di un BLOB a intervalli regolari:
-  - Per i carichi di lavoro di archiviazione BLOB, abilitare il controllo delle versioni dei BLOB per salvare automaticamente lo stato dei dati ogni volta che un BLOB viene eliminato o sovrascritto. [Ulteriori informazioni...](versioning-enable.md)
+  - Per i carichi di lavoro di archiviazione BLOB, abilitare il controllo delle versioni BLOB per salvare automaticamente lo stato dei dati ogni volta che un BLOB viene sovrascritto. [Ulteriori informazioni...](versioning-enable.md)
   - Per carichi di lavoro Azure Data Lake Storage, è possibile eseguire snapshot manuali per salvare lo stato dei dati in un determinato momento. [Ulteriori informazioni...](snapshots-overview.md)
 
 Queste opzioni, oltre ad altre opzioni di protezione dei dati per altri scenari, sono descritte più dettagliatamente nella sezione seguente.
@@ -46,7 +46,7 @@ La tabella seguente riepiloga le opzioni disponibili in archiviazione di Azure p
 | Impedire l'eliminazione o la modifica di un account di archiviazione. | Blocco Azure Resource Manager<br />[Ulteriori informazioni...](../common/lock-account-resource.md) | Bloccare tutti gli account di archiviazione con un blocco Azure Resource Manager per impedire l'eliminazione dell'account di archiviazione. | Protegge l'account di archiviazione da eliminazioni o modifiche di configurazione.<br /><br />Non protegge i contenitori o i BLOB nell'account da essere eliminati o sovrascritti. | Sì |
 | Impedire che un contenitore e i relativi BLOB vengano eliminati o modificati per un intervallo che si controlla. | Criteri di immutabilità in un contenitore<br />[Ulteriori informazioni...](storage-blob-immutable-storage.md) | Impostare i criteri di immutabilità in un contenitore per proteggere i documenti aziendali critici, ad esempio per soddisfare i requisiti di conformità legali o normativi. | Protegge un contenitore e i relativi BLOB da tutte le eliminazioni e sovrascritture.<br /><br />Quando è attivo un criterio di conservazione basato sul tempo e bloccato, l'account di archiviazione viene protetto anche dall'eliminazione. I contenitori per i quali non sono stati impostati criteri di immutabilità non sono protetti dall'eliminazione. | Sì, in anteprima |
 | Ripristinare un contenitore eliminato entro un intervallo specificato. | Eliminazione temporanea del contenitore (anteprima)<br />[Ulteriori informazioni...](soft-delete-container-overview.md) | Abilitare l'eliminazione temporanea del contenitore per tutti gli account di archiviazione, con un intervallo di conservazione minimo di 7 giorni.<br /><br />Abilitare il controllo delle versioni dei BLOB e l'eliminazione temporanea dei BLOB insieme all'eliminazione temporanea del contenitore per proteggere i singoli BLOB in un contenitore.<br /><br />Archiviare i contenitori che richiedono periodi di conservazione diversi in account di archiviazione separati. | Un contenitore eliminato e il relativo contenuto possono essere ripristinati entro il periodo di memorizzazione.<br /><br />È possibile ripristinare solo le operazioni a livello di contenitore (ad esempio, [Delete Container](/rest/api/storageservices/delete-container)). L'eliminazione temporanea del contenitore non consente di ripristinare un singolo BLOB nel contenitore se il BLOB viene eliminato. | Sì, in anteprima |
-| Salva automaticamente lo stato di un BLOB in una versione precedente quando viene sovrascritto o eliminato. | Controllo delle versioni dei BLOB<br />[Ulteriori informazioni...](versioning-overview.md) | Abilitare il controllo delle versioni dei BLOB, insieme all'eliminazione temporanea del contenitore e all'eliminazione temporanea dei BLOB, per gli account di archiviazione in cui è necessaria una protezione ottimale per i dati BLOB.<br /><br />Archiviare i dati BLOB che non richiedono il controllo delle versioni in un account separato per limitare i costi. | Ogni operazione di sovrascrittura o eliminazione di BLOB crea una nuova versione. Un BLOB può essere ripristinato da una versione precedente se il BLOB viene eliminato o sovrascritto. | No |
+| Salva automaticamente lo stato di un BLOB in una versione precedente quando viene sovrascritto. | Controllo delle versioni dei BLOB<br />[Ulteriori informazioni...](versioning-overview.md) | Abilitare il controllo delle versioni dei BLOB, insieme all'eliminazione temporanea del contenitore e all'eliminazione temporanea dei BLOB, per gli account di archiviazione in cui è necessaria una protezione ottimale per i dati BLOB.<br /><br />Archiviare i dati BLOB che non richiedono il controllo delle versioni in un account separato per limitare i costi. | Ogni operazione di scrittura BLOB crea una nuova versione. Se la versione corrente è stata eliminata o sovrascritta, è possibile ripristinare la versione corrente di un BLOB da una versione precedente. | No |
 | Ripristinare una versione BLOB o BLOB eliminata entro un intervallo specificato. | Eliminazione temporanea BLOB<br />[Ulteriori informazioni...](soft-delete-blob-overview.md) | Abilitare l'eliminazione temporanea BLOB per tutti gli account di archiviazione, con un intervallo di conservazione minimo di 7 giorni.<br /><br />Abilitare il controllo delle versioni BLOB e l'eliminazione temporanea del contenitore insieme all'eliminazione temporanea BLOB per la protezione ottimale dei dati BLOB.<br /><br />Archiviare BLOB che richiedono periodi di conservazione diversi in account di archiviazione separati. | È possibile ripristinare una versione BLOB o BLOB eliminata entro il periodo di memorizzazione. | No |
 | Ripristinare un set di BLOB in blocchi a un momento precedente. | Ripristino temporizzato<br />[Ulteriori informazioni...](point-in-time-restore-overview.md) | Per eseguire il ripristino temporizzato per ripristinare uno stato precedente, progettare l'applicazione in modo da eliminare singoli BLOB in blocchi anziché eliminare i contenitori. | Un set di BLOB in blocchi può essere ripristinato allo stato in un momento specifico nel passato.<br /><br />Vengono ripristinate solo le operazioni eseguite sui BLOB in blocchi. Qualsiasi operazione eseguita su contenitori, BLOB di pagine o BLOB di Accodamento non viene ripristinata. | No |
 | Salvare manualmente lo stato di un BLOB in un determinato momento. | Snapshot BLOB<br />[Ulteriori informazioni...](snapshots-overview.md) | Consigliato come alternativa al controllo delle versioni dei BLOB quando il controllo delle versioni non è appropriato per lo scenario, a causa di costi o altre considerazioni oppure quando per l'account di archiviazione è abilitato uno spazio dei nomi gerarchico. | Un BLOB può essere ripristinato da uno snapshot se il BLOB viene sovrascritto. Se il BLOB viene eliminato, vengono eliminati anche gli snapshot. | Sì, in anteprima |

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3c938e7fe180e6a9cf08031a2a4565486f3f77a9
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: d86cc6af34036f5bd638b4fc78abdb54d71e6859
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504635"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306518"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limiti della velocità effettiva di inserimento dei flussi
 
@@ -59,7 +59,7 @@ Quando si pianifica la Azure Time Series Insights ambiente Gen2, è importante p
 
 Una *partizione* è una sequenza ordinata di eventi contenuta in un hub. Il numero di partizioni viene impostato durante la fase di creazione dell'hub e non può essere modificato.
 
-Per le procedure consigliate di partizionamento degli hub eventi, vedere [Quante partizioni sono necessarie?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+Per le procedure consigliate di partizionamento degli hub eventi, vedere [Quante partizioni sono necessarie?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-)
 
 > [!NOTE]
 > Per la maggior parte degli hub Internet usati con Azure Time Series Insights Gen2 sono necessarie solo quattro partizioni.

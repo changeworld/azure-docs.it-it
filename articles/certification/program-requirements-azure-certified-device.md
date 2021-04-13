@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Azure Certified Device Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 948fe25da8468e887693fe8c9f75f675dfbea858
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 497ffa4b3026491d6aa95df87708b3b1f2f1619e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969265"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308286"
 ---
 # <a name="azure-certified-device-requirements"></a>Requisiti per i dispositivi certificati Azure 
 (noto in precedenza come hub Internet)
@@ -40,7 +40,7 @@ Promessa della certificazione dei dispositivi certificati di Azure:
 | **Si applica a**          | Dispositivo foglia/dispositivo perimetrale                                      |
 | **Sistema operativo**                  | Agnostico                                                     |
 | **Tipo di convalida**     | Automatizzata                                                    |
-| **Convalida**          | Il dispositivo deve inviare qualsiasi schema di telemetria all'hub Internet. Microsoft fornisce il [flusso di lavoro del portale](https://certify.azure.come) per eseguire i test. Da dispositivo a cloud (obbligatorio): **1.** Verifica che il dispositivo sia in grado di inviare messaggi a AICS Managed Internet Hub **2.** L'utente deve specificare il numero e la frequenza dei messaggi. **3.** AICS convalida i dati di telemetria ricevuti dall'istanza dell'hub |
+| **Convalida**          | Il dispositivo deve inviare qualsiasi schema di telemetria all'hub Internet. Microsoft fornisce il [flusso di lavoro del portale](https://certify.azure.com/) per eseguire i test. Da dispositivo a cloud (obbligatorio): **1.** Verifica che il dispositivo sia in grado di inviare messaggi a AICS Managed Internet Hub **2.** L'utente deve specificare il numero e la frequenza dei messaggi. **3.** AICS convalida i dati di telemetria ricevuti dall'istanza dell'hub |
 | **Risorse**           | [Procedura di certificazione](./overview.md) (con tutte le risorse aggiuntive) |
 
 **Necessaria DPS: lo scopo del test è verificare che il dispositivo implementi e supporti il servizio Device provisioning in hub Internet con uno dei tre metodi di attestazione**

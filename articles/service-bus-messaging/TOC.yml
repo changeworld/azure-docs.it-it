@@ -92,12 +92,20 @@
   items:
     - name: 'Code, argomenti e sottoscrizioni del bus di servizio'
       href: service-bus-queues-topics-subscriptions.md
+    - name: Sessioni di messaggistica
+      href: message-sessions.md
     - name: Filtri e azioni per gli argomenti
       href: topic-filters.md
     - name: Messaggistica Premium
       href: service-bus-premium-messaging.md
     - name: Confronto tra code di Azure e code del bus di servizio
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
+    - name: 'Trasferimenti, blocchi e finalizzazione dei messaggi'
+      href: message-transfers-locks-settlement.md
+    - name: Coda di messaggi non recapitabili
+      href: service-bus-dead-letter-queues.md
+    - name: Contatori di messaggi
+      href: message-counters.md
     - name: Ottimizzare le prestazioni
       href: service-bus-performance-improvements.md
     - name: Federazione
@@ -162,16 +170,12 @@
           href: service-bus-filter-examples.md
         - name: Gestione dei messaggi
           items:
-            - name: 'Code, argomenti e sottoscrizioni del bus di servizio'
-              href: service-bus-queues-topics-subscriptions.md
             - name: 'Entità Java Message Service (JMS) 2,0'
               href: java-message-service-20-entities.md
             - name: Java Message Service (JMS) Developer guide.md
               href: jms-developer-guide.md
             - name: 'Messaggi, payload e serializzazione'
               href: service-bus-messages-payloads.md
-            - name: 'Trasferimenti, blocchi e finalizzazione dei messaggi'
-              href: message-transfers-locks-settlement.md
             - name: Timestamp e sequenze di messaggi
               href: message-sequencing.md
             - name: Scadenza dei messaggi (durata)
@@ -180,8 +184,6 @@
           href: service-bus-migrate-standard-premium.md
         - name: Code e argomenti partizionati
           href: service-bus-partitioning.md
-        - name: Sessioni di messaggistica
-          href: message-sessions.md
         - name: AMQP
           items:
             - name: Panoramica di AMQP
@@ -198,14 +200,10 @@
               href: service-bus-amqp-troubleshoot.md
         - name: Funzionalità avanzate
           items:
-            - name: Coda di messaggi non recapitabili
-              href: service-bus-dead-letter-queues.md
             - name: Prelettura dei messaggi
               href: service-bus-prefetch.md
             - name: Rilevamento di messaggi duplicati
               href: duplicate-detection.md
-            - name: Contatori di messaggi
-              href: message-counters.md
             - name: Differimento di messaggi
               href: message-deferral.md
             - name: Esplorazione dei messaggi

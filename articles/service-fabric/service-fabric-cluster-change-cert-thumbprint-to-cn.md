@@ -3,12 +3,12 @@ title: Aggiornare un cluster per l'uso del nome comune del certificato
 description: Informazioni su come convertire un certificato del cluster di Service Fabric di Azure da dichiarazioni basate su identificazione personale a nomi comuni.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: f719b1eb39da776827c6babec61e9e6701bb4602
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daf8d55e156f30b1f9e9ec5c50d60714e6f17884
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97900791"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308014"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Convertire i certificati del cluster da dichiarazioni basate su identificazione personale a nomi comuni
 
@@ -45,7 +45,7 @@ A scopo di test, un certificato autofirmato *può* essere dichiarato da CN, ma s
 
 ## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Caricare il certificato e installarlo nel set di scalabilità
 
-In Azure, il meccanismo consigliato per ottenere e provisioning dei certificati riguarda Azure Key Vault e i relativi strumenti. È necessario eseguire il provisioning di un certificato che corrisponde alla dichiarazione del certificato cluster in ogni nodo dei set di scalabilità di macchine virtuali che costituiscono il cluster. Per altre informazioni, vedere [segreti nei set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm).
+In Azure, il meccanismo consigliato per ottenere e provisioning dei certificati riguarda Azure Key Vault e i relativi strumenti. È necessario eseguire il provisioning di un certificato che corrisponde alla dichiarazione del certificato cluster in ogni nodo dei set di scalabilità di macchine virtuali che costituiscono il cluster. Per altre informazioni, vedere [segreti nei set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-securely-ship-a-certificate-to-the-vm-).
 
 È importante installare i certificati cluster correnti e di destinazione nelle macchine virtuali di ogni tipo di nodo del cluster prima di apportare modifiche alle dichiarazioni di certificato del cluster. Il percorso di rilascio del certificato per il provisioning in un nodo Service Fabric viene discusso in modo approfondito nel [percorso di un certificato](cluster-security-certificate-management.md#the-journey-of-a-certificate).
 

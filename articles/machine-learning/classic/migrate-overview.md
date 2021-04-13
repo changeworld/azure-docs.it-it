@@ -3,17 +3,17 @@ title: 'ML Studio (classico): eseguire la migrazione a Azure Machine Learning'
 description: Eseguire la migrazione da studio (classico) a Azure Machine Learning per una piattaforma di data science modernizzata.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: 7cdf016d7de66c33973ec7818fa92df28c4639dd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fafb9f7e84263c33cf1b15a52742ec9cd0380a40
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566956"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311856"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Eseguire la migrazione ad Azure Machine Learning
 

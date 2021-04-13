@@ -10,16 +10,16 @@ ms.date: 04/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f104b98c870fe6eee1d32fe656c0bba416cf3700
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 268de3e8ea168ac721362d42149389b9f37c86fe
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259745"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305056"
 ---
 # <a name="blob-versioning"></a>Controllo delle versioni dei BLOB
 
-È possibile abilitare il controllo delle versioni dell'archiviazione BLOB per gestire automaticamente le versioni precedenti di un oggetto.  Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati.
+È possibile abilitare il controllo delle versioni dell'archiviazione BLOB per gestire automaticamente le versioni precedenti di un oggetto. Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -35,21 +35,21 @@ Per ulteriori informazioni sulle raccomandazioni di Microsoft per la protezione 
 
 ## <a name="how-blob-versioning-works"></a>Funzionamento del controllo delle versioni dei BLOB
 
-Una versione acquisisce lo stato di un BLOB in un determinato momento. Quando è abilitata la funzionalità di controllo delle versioni dei BLOB per un account di archiviazione, archiviazione di Azure crea automaticamente una nuova versione di un BLOB ogni volta che il BLOB viene modificato.
+Una versione acquisisce lo stato di un BLOB in un determinato momento. Ogni versione è identificata con un ID versione. Quando si Abilita il controllo delle versioni dei BLOB per un account di archiviazione, archiviazione di Azure crea automaticamente una nuova versione con un ID univoco quando viene creato un BLOB e ogni volta che il BLOB viene successivamente modificato.
 
-Quando si crea un BLOB con il controllo delle versioni abilitato, il nuovo BLOB è la versione corrente del BLOB (o il BLOB di base). Se successivamente si modifica il BLOB, archiviazione di Azure crea una versione che acquisisce lo stato del BLOB prima della modifica. Il BLOB modificato diventa la nuova versione corrente. Viene creata una nuova versione ogni volta che si modifica il BLOB.
+Un ID versione può identificare la versione corrente o una versione precedente. Un BLOB può avere una sola versione corrente alla volta.
+
+Quando si crea un nuovo BLOB, esiste una sola versione e tale versione è la versione corrente. Quando si modifica un BLOB esistente, la versione corrente diventa una versione precedente. Viene creata una nuova versione per acquisire lo stato aggiornato e la nuova versione è la versione corrente. Quando si elimina un BLOB, la versione corrente del BLOB diventa una versione precedente e non è più disponibile una versione corrente. Tutte le versioni precedenti del BLOB vengono mantenute.
 
 Il diagramma seguente illustra come vengono create le versioni durante le operazioni di scrittura e come una versione precedente può essere promossa come versione corrente:
 
 :::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagramma che illustra il funzionamento del controllo delle versioni dei BLOB":::
 
-Quando si elimina un BLOB con il controllo delle versioni abilitato, la versione corrente del BLOB diventa una versione precedente e non è più disponibile una versione corrente. Tutte le versioni precedenti del BLOB vengono mantenute.
-
 Le versioni BLOB non sono modificabili. Non è possibile modificare il contenuto o i metadati di una versione BLOB esistente.
 
 La presenza di un numero elevato di versioni per BLOB può aumentare la latenza per le operazioni di elenco BLOB. Microsoft consiglia di mantenere meno di 1000 versioni per BLOB. È possibile utilizzare la gestione del ciclo di vita per eliminare automaticamente le versioni precedenti. Per altre informazioni sulla gestione del ciclo di vita, vedere [ottimizzare i costi automatizzando i livelli di accesso all'archivio BLOB di Azure](storage-lifecycle-management-concepts.md).
 
-Il controllo delle versioni dei BLOB è disponibile per gli account per utilizzo generico V2, BLOB in blocchi e archiviazione BLOB. Gli account di archiviazione con uno spazio dei nomi gerarchico abilitato per l'uso con Azure Data Lake Storage Gen2 non sono attualmente supportati.
+Il controllo delle versioni dei BLOB è disponibile per gli account di archiviazione BLOB di uso generico V2, Premium in blocchi Premium e legacy. Gli account di archiviazione con uno spazio dei nomi gerarchico abilitato per l'uso con Azure Data Lake Storage Gen2 non sono attualmente supportati.
 
 La versione 2019-10-10 e successive dell'API REST di archiviazione di Azure supporta il controllo delle versioni dei BLOB.
 
@@ -58,9 +58,9 @@ La versione 2019-10-10 e successive dell'API REST di archiviazione di Azure supp
 
 ### <a name="version-id"></a>ID versione
 
-Ogni versione del BLOB è identificata da un ID versione. Il valore dell'ID versione è il timestamp in corrispondenza del quale il BLOB è stato aggiornato. L'ID versione viene assegnato al momento della creazione della versione.
+Ogni versione del BLOB è identificata da un ID versione univoco. Il valore dell'ID versione è il timestamp in corrispondenza del quale il BLOB è stato aggiornato. L'ID versione viene assegnato al momento della creazione della versione.
 
-È possibile eseguire operazioni di lettura o eliminazione su una versione specifica di un BLOB specificando il relativo ID versione. Se si omette l'ID versione, l'operazione viene eseguita sulla versione corrente (il BLOB di base).
+È possibile eseguire operazioni di lettura o eliminazione su una versione specifica di un BLOB specificando il relativo ID versione. Se si omette l'ID versione, l'operazione interagisce con la versione corrente.
 
 Quando si chiama un'operazione di scrittura per creare o modificare un BLOB, archiviazione di Azure restituisce l'intestazione *x-ms-version-ID* nella risposta. Questa intestazione contiene l'ID versione per la versione corrente del blob creato dall'operazione di scrittura.
 
@@ -70,11 +70,9 @@ L'ID versione rimane invariato per la durata della versione.
 
 Quando si attiva il controllo delle versioni dei BLOB, ogni operazione di scrittura in un BLOB crea una nuova versione. Le operazioni di scrittura includono [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), [Copy Blob](/rest/api/storageservices/copy-blob)e [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata).
 
-Se l'operazione di scrittura crea un nuovo BLOB, il BLOB risultante è la versione corrente del BLOB. Se l'operazione di scrittura modifica un BLOB esistente, i nuovi dati vengono acquisiti nel BLOB aggiornato, ovvero la versione corrente, e archiviazione di Azure crea una versione che salva lo stato precedente del BLOB.
+Se l'operazione di scrittura crea un nuovo BLOB, il BLOB risultante è la versione corrente del BLOB. Se l'operazione di scrittura modifica un BLOB esistente, la versione corrente diventa una versione precedente e viene creata una nuova versione corrente per acquisire il BLOB aggiornato.
 
-Per semplicità, i diagrammi illustrati in questo articolo visualizzano l'ID versione come valore intero semplice. In realtà, l'ID versione è un timestamp. La versione corrente è mostrata in blu e le versioni precedenti sono visualizzate in grigio.
-
-Il diagramma seguente mostra come le operazioni di scrittura influiscono sulle versioni dei BLOB. Quando viene creato un BLOB, il BLOB è la versione corrente. Quando viene modificato lo stesso BLOB, viene creata una nuova versione per salvare lo stato precedente del BLOB e il BLOB aggiornato diventa la versione corrente.
+Il diagramma seguente mostra come le operazioni di scrittura influiscono sulle versioni dei BLOB. Per semplicità, i diagrammi illustrati in questo articolo visualizzano l'ID versione come valore intero semplice. In realtà, l'ID versione è un timestamp. La versione corrente è mostrata in blu e le versioni precedenti sono visualizzate in grigio.
 
 :::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagramma che illustra come le operazioni di scrittura influiscono sui BLOB con versione.":::
 
@@ -300,7 +298,7 @@ La tabella seguente descrive il comportamento di fatturazione per un BLOB elimin
 | Se l'eliminazione e il controllo delle versioni del BLOB sono entrambi abilitati | Tutte le versioni esistenti alla lunghezza del contenuto completa indipendentemente dal livello. |
 | Se l'eliminazione temporanea BLOB è abilitata ma il controllo delle versioni è disabilitato | Tutti gli snapshot di eliminazione temporanea esistenti alla lunghezza del contenuto completa indipendentemente dal livello. |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md)
 - [Creazione di uno snapshot di un BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

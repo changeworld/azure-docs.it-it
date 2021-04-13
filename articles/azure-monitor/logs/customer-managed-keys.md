@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 9fdaf42f18c320bf841e710b7066451fca24eaae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fdd62ebfe992398d33d2851a1aa1c66497296b5d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030988"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311193"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -59,7 +59,7 @@ Sono applicabili le regole seguenti:
 - Gli account di archiviazione del cluster Log Analytics generano una chiave di crittografia univoca per ogni account di archiviazione, noto come AEK.
 - L'AEK viene usato per derivare chiavi DEK, ovvero le chiavi usate per crittografare ogni blocco di dati scritti su disco.
 - Quando si configura la chiave in Key Vault e vi si fa riferimento nel cluster, archiviazione di Azure invia le richieste al Azure Key Vault per eseguire il wrapping e annullare il wrapping dell'AEK per eseguire operazioni di crittografia e decrittografia dei dati.
-- La KEK non lascia mai il Key Vault e, nel caso di una chiave HSM, non lascia mai l'hardware.
+- La KEK non lascia mai il Key Vault.
 - Archiviazione di Azure usa l'identità gestita associata alla risorsa *cluster* per l'autenticazione e l'accesso ai Azure Key Vault tramite Azure Active Directory.
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Procedura di provisioning delle chiavi Customer-Managed
@@ -169,6 +169,9 @@ Selezionare la versione corrente della chiave in Azure Key Vault per ottenere i 
 
 Aggiornare KeyVaultProperties nel cluster con i dettagli dell'identificatore di chiave.
 
+>[!NOTE]
+>La rotazione della chiave supporta due modalità: la rotazione automatica o l'aggiornamento della versione della chiave esplicita, vedere [rotazione della chiave](#key-rotation) per determinare l'approccio migliore.
+
 L'operazione è asincrona e può richiedere del tempo per il completamento.
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
@@ -266,7 +269,9 @@ L'archiviazione del cluster controlla periodicamente il Key Vault per tentare di
 
 ## <a name="key-rotation"></a>Rotazione delle chiavi
 
-La rotazione della chiave gestita dal cliente richiede un aggiornamento esplicito al cluster con la nuova versione della chiave in Azure Key Vault. [Aggiornare il cluster con i dettagli dell'identificatore di chiave](#update-cluster-with-key-identifier-details). Se non si aggiorna la nuova versione della chiave nel cluster, l'archiviazione del cluster Log Analytics continuerà a usare la chiave precedente per la crittografia. Se si disabilita o si elimina la chiave precedente prima di aggiornare la nuova chiave nel cluster, si otterrà lo stato di [revoca della chiave](#key-revocation) .
+La rotazione della chiave prevede due modalità: 
+- Rotazione automatica: quando si aggiorna il cluster con ```"keyVaultProperties"``` ```"keyVersion"``` la proprietà omette o la si imposta su, lo ```""``` spazio di archiviazione autoamatically le versioni più recenti.
+- Aggiornamento della versione chiave esplicita: quando si aggiorna il cluster e si specifica la versione della chiave nella ```"keyVersion"``` proprietà, tutte le nuove versioni chiave richiedono un aggiornamento esplicito ```"keyVaultProperties"``` nel cluster, vedere [aggiornare il cluster con i dettagli dell'identificatore di chiave](#update-cluster-with-key-identifier-details). Se si genera una nuova versione della chiave in Key Vault ma non la si aggiorna nel cluster, l'archiviazione del cluster Log Analytics continuerà a usare la chiave precedente. Se si disabilita o si elimina la chiave precedente prima di aggiornare la nuova chiave nel cluster, si otterrà lo stato di [revoca della chiave](#key-revocation) .
 
 Tutti i dati rimarranno accessibili dopo l'operazione di rotazione della chiave perché i dati vengono sempre crittografati con la chiave di crittografia dell'account (AEK), mentre la chiave AEK viene ora crittografata con la nuova versione della chiave di crittografia della chiave (KEK) in Key Vault.
 

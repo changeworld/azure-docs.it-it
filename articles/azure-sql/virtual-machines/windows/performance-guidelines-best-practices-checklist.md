@@ -15,12 +15,12 @@ ms.date: 03/25/2021
 ms.author: mathoma
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
-ms.openlocfilehash: 0b88884576a47db871c78b874104d4973ee9ba9a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 84f2f4f679de80cd9b5fc986d40e084bae8a4cad
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572382"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313760"
 ---
 # <a name="checklist-performance-best-practices-for-sql-server-on-azure-vms"></a>Elenco di controllo: procedure consigliate per le prestazioni per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ Vi è in genere un compromesso tra l'ottimizzazione per i costi e l'ottimizzazio
 
 Di seguito è riportato un elenco rapido delle procedure consigliate per le dimensioni delle VM per l'esecuzione di SQL Server in una macchina virtuale di Azure: 
 
-- Usare le dimensioni delle macchine virtuali con 4 o più vCPU come [Standard_M8-4ms](/../../virtual-machines/m-series), il [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series)o il [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) o superiore. 
+- Usare le dimensioni delle macchine virtuali con 4 o più vCPU come [Standard_M8-4ms](../../../virtual-machines/m-series.md), il [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series)o il [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) o superiore. 
 - Usare le dimensioni delle macchine virtuali con ottimizzazione per la [memoria](../../../virtual-machines/sizes-memory.md) per ottimizzare le prestazioni dei carichi di lavoro SQL Server. 
 - [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), serie [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) , [M-](../../../virtual-machines/m-series.md)e la serie [Mv2](../../../virtual-machines/mv2-series.md) offrono il rapporto ottimale tra memoria e vCore richiesto per i carichi di lavoro OLTP. Entrambe le VM serie M offrono il rapporto massimo tra memoria e vCore richiesto per i carichi di lavoro mission-critical e sono ideali anche per carichi di lavoro data warehouse. 
 - Prendere in considerazione un rapporto più elevato tra memoria e vCore per carichi di lavoro mission-critical e data warehouse. 

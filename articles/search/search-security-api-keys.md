@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
-ms.openlocfilehash: 8b2e85744923fb2e7e474e049df1536aebc56f3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: 6954ce289cb3cf219f8c4024a112411fd60d70e0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99536934"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310666"
 ---
-# <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Creare e gestire le chiavi API per un servizio ricerca cognitiva di Azure
+# <a name="create-and-manage-api-keys-for-authentication-to-azure-cognitive-search"></a>Creare e gestire le chiavi API per l'autenticazione in Azure ricerca cognitiva
 
-Per tutte le richieste a un servizio di ricerca è necessaria una chiave API di sola lettura generata in modo specifico per il servizio. La chiave API è l'unico meccanismo per autenticare le richieste in ingresso all'endpoint del servizio di ricerca ed è necessario per ogni richiesta. 
+Quando ci si connette a un servizio di ricerca, tutte le richieste devono includere una chiave API di sola lettura generata in modo specifico per il servizio. La chiave API è l'unico meccanismo per autenticare le richieste in ingresso all'endpoint del servizio di ricerca ed è necessario per ogni richiesta. 
 
 + Nelle [soluzioni Rest](search-get-started-rest.md), `api-key` viene in genere specificato in un'intestazione di richiesta
 
@@ -97,7 +97,7 @@ La sicurezza delle chiavi viene garantita limitando l'accesso tramite il portale
 
 I membri dei ruoli seguenti possono visualizzare e ricreare una chiave: proprietario, collaboratore, [collaboratore Servizio di ricerca](../role-based-access-control/built-in-roles.md#search-service-contributor)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Sicurezza in Azure ricerca cognitiva](search-security-overview.md)
 + [Controllo degli accessi in base al ruolo di Azure in Azure ricerca cognitiva](search-security-rbac.md)

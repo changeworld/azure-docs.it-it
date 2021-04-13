@@ -2,13 +2,13 @@
 title: Regole di azione per gli avvisi di monitoraggio di Azure
 description: Informazioni sulle regole di azione in monitoraggio di Azure e su come configurarle e gestirle.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/08/2021
+ms.openlocfilehash: df71883d04106dd341af4571c13cc55f35a1ecc3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105036782"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304818"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -67,7 +67,7 @@ I filtri disponibili sono:
 
 * **Gravità**  
 Questa regola si applica solo agli avvisi con i livelli di gravità selezionati.  
-Ad esempio, **Severity = Sev1** significa che la regola si applica solo agli avvisi con gravità Sev1.
+Ad esempio, **Severity = "Sev1"** indica che la regola si applica solo agli avvisi con gravità Sev1.
 * **Monitorare il servizio**  
 Questa regola si applica solo agli avvisi provenienti dai servizi di monitoraggio selezionati.  
 Ad esempio, **Monitor Service = "backup di Azure"** significa che la regola verrà applicata solo agli avvisi di backup (provenienti da backup di Azure).
@@ -79,15 +79,22 @@ Questa regola si applica solo agli avvisi provenienti da una regola di avviso sp
 Ad esempio, la regola di **avviso ID = "/subscriptions/SubId1/resourceGroups/RG1/Providers/Microsoft.Insights/metricalerts/API-latency"** indica che questa regola verrà applicata solo agli avvisi provenienti dalla regola di avviso della metrica "latenza API".  
 _Nota: è possibile ottenere l'ID corretto della regola di avviso elencando le regole di avviso dall'interfaccia della riga di comando oppure aprendo una regola di avviso specifica nel portale, facendo clic su "proprietà" e copiando il valore "ID risorsa"._
 * **Condizione di monitoraggio**  
-Questa regola si applica solo agli eventi di avviso con la condizione di monitoraggio specificata, **attivata** o **risolta**.
+Questa regola si applica solo agli eventi di avviso con la condizione di monitoraggio specificata, ovvero **"attivato"** o **"risolto"**.
 * **Descrizione**  
 Questa regola si applica solo agli avvisi che contengono una stringa specifica nel campo Descrizione avviso. Il campo contiene la descrizione della regola di avviso.  
-La descrizione, ad esempio, **contiene "prod"** indica che la regola corrisponderà solo agli avvisi che contengono la stringa "prod" nella descrizione.
+Ad esempio, la **Descrizione contiene "prod"** significa che la regola corrisponderà solo agli avvisi che contengono la stringa "prod" nella descrizione.
 * **Contesto avviso (payload)**  
 Questa regola si applica solo agli avvisi che contengono uno o più valori specifici nei campi del contesto dell'avviso.  
 Ad esempio, il **contesto dell'avviso (payload) contiene "computer-01"** significa che la regola si applica solo agli avvisi il cui payload contiene la stringa "computer-01".
 
-Se si impostano più filtri in una regola, tutti si applicano. Se ad esempio si imposta il **tipo di risorsa ' = macchine virtuali** e **gravità' = Sev0**, la regola verrà applicata solo agli avvisi Sev0 sulle macchine virtuali.
+> [!NOTE]
+> Ogni filtro può includere fino a cinque valori.  
+> Ad esempio, un filtro sul servizio di monitoraggio può includere fino a cinque nomi di servizio di monitoraggio.
+
+
+
+
+Se si impostano più filtri in una regola, tutti si applicano. Se ad esempio si imposta **Resource Type = "Virtual Machines"** e **Severity = "Sev0"**, la regola verrà applicata solo agli avvisi Sev0 sulle macchine virtuali.
 
 ![Filtri delle regole azione](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
