@@ -13,14 +13,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/01/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: dd000ca36bb0ad586b973b2bcdc638d8992b1a73
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2610ed46d707af6acfb1b6004df4367add94391
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668640"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305158"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Disponibilità elevata del sistema di SAP HANA con scalabilità orizzontale in Red Hat Enterprise Linux 
 
@@ -215,7 +215,6 @@ Per la configurazione presentata in questo documento, distribuire sette macchine
       1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, **hana-lb**).
       1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**, **hana-backend** e **hana-hp**).
       1. Selezionare **Porte a disponibilità elevata**.
-      1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
       1. Selezionare **OK**.
 

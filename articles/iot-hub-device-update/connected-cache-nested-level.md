@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7facb74cd407c576b2a7b119f19427dcd185f04e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e9749dfd7b28551a4fc2e7c6ba70ba9cce4e5a69
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568818"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307300"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Esempio di scenario di distribuzione dell'anteprima di Microsoft Connected cache: gateway Azure IoT Edge annidato a due livelli con proxy non autenticato in uscita
 
@@ -70,7 +70,7 @@ Il diagramma seguente illustra lo scenario in cui un Azure IoT Edge Gateway come
 ## <a name="child-gateway-configuration"></a>Configurazione del gateway figlio
 
 >[!Note]
->Se sono stati replicati i contenitori usati nella configurazione nel proprio registro privato, sarà necessario apportare una modifica alle impostazioni di configurazione. toml e alle impostazioni di runtime nella distribuzione del modulo. Per altre informazioni, vedere [esercitazione-creare una gerarchia di dispositivi IOT Edge-Azure IOT Edge](../iot-edge/tutorial-nested-iot-edge.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-the-lower-layer-device) per altri dettagli.
+>Se sono stati replicati i contenitori usati nella configurazione nel proprio registro privato, sarà necessario apportare una modifica alle impostazioni di configurazione. toml e alle impostazioni di runtime nella distribuzione del modulo. Per ulteriori informazioni, vedere [connessione a downstream IOT Edge Devices-Azure IOT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-lower-layer-devices) .
 
 1. Modificare il percorso dell'immagine per l'agente perimetrale, come illustrato nell'esempio seguente:
 

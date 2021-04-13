@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 993baa521530ffa6a702f8324a1691850687c366
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a08d82103986435593cd73a0728e7426f205a90d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668691"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307538"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -171,7 +171,6 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
          1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **NW1-lb**
          1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **NW1-frontend**. **NW-backend** e **NW1-HP**)
          1. Selezionare **Porte a disponibilità elevata**.
-         1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
          1. Fare clic su OK.
          * Ripetere i passaggi precedenti per creare una regola di bilanciamento del carico per NW2

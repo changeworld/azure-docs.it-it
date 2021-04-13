@@ -260,6 +260,8 @@
               href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
             - name: Crea Commuter virtuale
               href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
+            - name: Eseguire il backup dei dischi delle macchine virtuali
+              href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
         - name: Gestire i certificati
           items:
             - name: Requisiti

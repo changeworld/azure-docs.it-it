@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 12/10/2020
-ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 53f300adb57eb17e704e7e3323b9829c485bb87a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103564321"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308983"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapping di flussi di dati in Azure Data Factory
 
@@ -96,66 +96,6 @@ La modalità di debug consente di visualizzare in modo interattivo i risultati d
 Il mapping del flusso di dati si integra con le funzionalità di monitoraggio Azure Data Factory esistenti. Per informazioni su come comprendere l'output del monitoraggio del flusso di dati, vedere [monitoraggio dei flussi di dati del mapping](concepts-data-flow-monitoring.md).
 
 Il team Azure Data Factory ha creato una [Guida all'ottimizzazione delle prestazioni](concepts-data-flow-performance.md) che consente di ottimizzare il tempo di esecuzione dei flussi di dati dopo aver compilato la logica di business.
-
-## <a name="available-regions"></a>Aree disponibili
-
-= = = = = = = I flussi di dati di mapping sono disponibili nelle aree seguenti del file ADF:
-
-| Area di Azure | Flussi di dati in ADF |
-| ------------ | ----------------- |
-|  Australia centrale | |
-| Australia centrale 2 | |
-| Australia orientale | ✓ |
-| Australia sud-orientale   | ✓ |
-| Brasile meridionale  | ✓ |
-| Canada centrale | ✓ |
-| India centrale | ✓ |
-| Stati Uniti centrali    | ✓ |
-| Cina orientale |      |
-| Cina orientale 2  |   |
-| Cina non a livello di area | |
-| Cina settentrionale |     |
-| Cina settentrionale 2 | |
-| Asia orientale | ✓ |
-| Stati Uniti orientali   | ✓ |
-| Stati Uniti orientali 2 | ✓ |
-| Francia centrale | ✓ |
-| Francia meridionale  | |
-| Germania centrale (sovrano) | |
-| Germania (non a livello di area) (sovrano) | |
-| Germania settentrionale (pubblico) | |
-| Germania nord-orientale (sovrano) | |
-| Germania centro-occidentale (pubblico) |  |
-| Giappone orientale | ✓ |
-| Giappone occidentale |  |
-| Corea centrale | ✓ |
-| Corea meridionale | |
-| Stati Uniti centro-settentrionali  | ✓ |
-| Europa settentrionale  | ✓ |
-| Norvegia orientale | |
-| Norvegia occidentale | |
-| Sudafrica settentrionale    | ✓ |
-| Sudafrica occidentale |  |
-| Stati Uniti centro-meridionali  | |
-| India meridionale | |
-| Asia sud-orientale    | ✓ |
-| Svizzera settentrionale |   |
-| Svizzera occidentale | |
-| Emirati Arabi Uniti centrali | |
-| Emirati Arabi Uniti settentrionali |  |
-| Regno Unito meridionale  | ✓ |
-| Regno Unito occidentale |     |
-| US DoD (area centrale) | |
-| US DoD (area orientale) | |
-| US Gov Arizona |      |
-| US Gov (non a livello di area) | |
-| US Gov Texas | |
-| US Gov Virginia |     |
-| Stati Uniti centro-occidentali |     |
-| Europa occidentale   | ✓ |
-| India occidentale | |
-| Stati Uniti occidentali   | ✓ |
-| Stati Uniti occidentali 2 | ✓ |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

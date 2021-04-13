@@ -4,12 +4,12 @@ description: I dati non vengono visualizzati in Azure Application Insights Rispo
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: fbf53f6d4a928215d25874f4e405147c73cbf81f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3b550e434db5b616ffedef7ebe9891b36fa431a2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056573"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311227"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET/.NET Core
 
@@ -28,6 +28,10 @@ ms.locfileid: "106056573"
 *Si verifica una perdita di dati nell'app console o nell'app Web quando l'app viene arrestata.*
 
 * Il canale SDK mantiene i dati di telemetria nel buffer e li invia in batch. Se l'applicazione è in fase di arresto, potrebbe essere necessario chiamare [Flush()](api-custom-events-metrics.md#flushing-data) in modo esplicito. Il comportamento di `Flush()` dipende dal [canale](telemetry-channels.md#built-in-telemetry-channels) effettivo usato.
+
+## <a name="request-count-collected-by-application-insights-sdk-does-not-match-the-iis-log-count-for-my-application"></a>Il numero di richieste raccolte da Application Insights SDK non corrisponde al numero di log di IIS per l'applicazione
+
+Internet Information Services (IIS) esegue il conteggio di tutte le richieste che raggiungono IIS e, intrinsecamente, potrebbero differire dalla richiesta totale che raggiunge un'applicazione. A causa di questo problema, non è garantito che il numero di richieste raccolto dagli SDK corrisponda al numero totale di log IIS. 
 
 ## <a name="no-data-from-my-server"></a>Non sono disponibili dati dal server
 *L'app è stata installata nel server Web e ora non vengono visualizzati i dati di telemetria. Nel computer di sviluppo funzionava correttamente.*

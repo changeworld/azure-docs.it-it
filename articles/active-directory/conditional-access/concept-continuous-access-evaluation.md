@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ee161944a48135778d12942964a88455ab756e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: d707106d66c77ad1f3a1156906add8bb85fd0ce0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055774"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305974"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -142,7 +142,7 @@ Da questa pagina, facoltativamente è possibile limitare gli utenti e i gruppi c
 Per CAE sono disponibili solo informazioni dettagliate sulle località denominate basate su IP. Non sono disponibili informazioni approfondite sulle altre impostazioni di località, ad esempio gli [IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips) a più fattori o i percorsi basati su paesi. Quando l'utente deriva da un indirizzo IP attendibile dell'autenticazione a più fattori o da percorsi attendibili che includono indirizzi IP attendibili a più fattori o località del paese, CAE non verrà applicato dopo lo spostamento dell'utente in un percorso diverso. In questi casi, viene emesso un token CAE di 1 ora senza controllo di imposizione dell'IP immediato.
 
 > [!IMPORTANT]
-> Quando si configurano i percorsi per la valutazione dell'accesso continuo, usare solo la [condizione di percorso di accesso condizionale basato su IP](../conditional-access/location-condition.md#preview-features) e configurare tutti gli indirizzi IP, **inclusi IPv4 e IPv6**, che possono essere visualizzati dal provider di identità e dal provider di risorse. Non usare le condizioni di località del paese o la funzionalità indirizzi IP attendibili disponibile nella pagina delle impostazioni del servizio Azure AD Multi-Factor Authentication.
+> Quando si configurano i percorsi per la valutazione dell'accesso continuo, usare solo la [condizione di percorso di accesso condizionale basato su IP](../conditional-access/location-condition.md) e configurare tutti gli indirizzi IP, **inclusi IPv4 e IPv6**, che possono essere visualizzati dal provider di identità e dal provider di risorse. Non usare le condizioni di località del paese o la funzionalità indirizzi IP attendibili disponibile nella pagina delle impostazioni del servizio Azure AD Multi-Factor Authentication.
 
 ### <a name="ip-address-configuration"></a>Configurazione dell'indirizzo IP
 

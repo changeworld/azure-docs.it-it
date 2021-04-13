@@ -4,12 +4,12 @@ description: Questo articolo descrive l'host del processore di eventi in Hub eve
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: de5d8f0f8bf9f64a473b18a50434cac83e8e38c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d97b446993d3f0a280c1f4fadb237726ac09228a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622063"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313420"
 ---
 # <a name="event-processor-host"></a>Host processore di eventi
 > [!NOTE]
@@ -199,5 +199,5 @@ Ora che si ha familiarità con l'host processore di eventi, vedere gli articoli 
     - [JavaScript](event-hubs-node-get-started-send.md)
 * [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
 * [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
-* [Domande frequenti su Hub eventi](event-hubs-faq.md)
+* [Domande frequenti su Hub eventi](event-hubs-faq.yml)
 * [Esempi di Hub eventi su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)

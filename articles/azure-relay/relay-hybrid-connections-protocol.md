@@ -3,12 +3,12 @@ title: Guida al protocollo per le connessioni ibride di inoltro di Azure | Micro
 description: Questo articolo descrive le interazioni lato client con l'inoltro di Connessioni ibride per la connessione dei client nei ruoli listener e mittente
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 36321f88de173a37c9aa6615c4c0f2b29aec9f20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95eb6a66ac7580f115c85ddb258768b9eef62321
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97976963"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314219"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocollo per le connessioni ibride di inoltro di Azure
 
@@ -498,7 +498,7 @@ Se si verifica un errore, il servizio può rispondere come segue. Per determinar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Domande frequenti sul servizio di inoltro](relay-faq.md)
+* [Domande frequenti sul servizio di inoltro](relay-faq.yml)
 * [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
 * [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione a Node](relay-hybrid-connections-node-get-started.md)

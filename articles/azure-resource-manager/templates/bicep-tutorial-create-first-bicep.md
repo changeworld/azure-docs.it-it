@@ -2,16 +2,16 @@
 title: 'Esercitazione: creare & distribuire file Azure Resource Manager bicipite'
 description: Creare il primo file bicipite per la distribuzione delle risorse di Azure. Nell'esercitazione vengono fornite informazioni sulla sintassi dei file bicipite e su come distribuire un account di archiviazione.
 author: mumian
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ffd8a97d797144d458e7ec5836042cc6d8d8193
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104594275"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306680"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Esercitazione: creare e distribuire il primo file Azure Resource Manager bicipite
 
@@ -57,7 +57,7 @@ Si è pronti per iniziare a conoscere il bicipite.
 
     ```bicep
     resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-      name: '{provide-unique-name}'
+      name: '{provide-unique-name}'  // must be globally unique
       location: 'eastus'
       sku: {
         name: 'Standard_LRS'
@@ -85,6 +85,10 @@ Si è pronti per iniziare a conoscere il bicipite.
         Se si visualizza una versione precedente dell'API, ad esempio [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), si noterà che è disponibile un set più piccolo di proprietà.
 
         Se si decide di modificare la versione dell'API per una risorsa, assicurarsi di valutare le proprietà della versione e di regolare correttamente il file bicipite.
+
+    Per altre informazioni, vedere [struttura bicipite](./bicep-file.md).
+
+    È presente un commento per la proprietà Name.  Usare `//` per i commenti a riga singola o `/* ... */` per i commenti su più righe
 
 1. Sostituire `{provide-unique-name}` includendo le parentesi graffe `{}` con un nome di account di archiviazione univoco.
 

@@ -3,15 +3,15 @@ title: Avvia connessione macchina virtuale-Azure
 description: Come configurare la funzionalità Avvia macchina virtuale in connessione.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/31/2021
+ms.date: 04/10/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d9ce9811cd660c9a9b1fcb6f9e24cadd65d3c2bc
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d3ef8e3656051c4a99ab52a7b52a0d623fdf9ce2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445602"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303960"
 ---
 # <a name="start-virtual-machine-on-connect-preview"></a>Avvia macchina virtuale in connessione (anteprima)
 
@@ -35,8 +35,7 @@ I client desktop remoto seguenti supportano la funzionalità Avvia macchina virt
 
 È possibile verificare la presenza di annunci sugli aggiornamenti e sul supporto client nel [Forum della community della tecnologia](https://aka.ms/wvdtc).
 
->[!IMPORTANT]
->La funzionalità Avvia macchina virtuale in fase di connessione supporta attualmente solo PowerShell e l'API REST, non il portale di Azure. Per ulteriori informazioni, vedere [creare o aggiornare un pool di host](/rest/api/desktopvirtualization/hostpools/createorupdate).
+Il cloud di Azure per enti pubblici attualmente non supporta l'avvio di una macchina virtuale in Connect.
 
 ## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Creare un ruolo personalizzato per avviare una macchina virtuale in Connect
 
@@ -115,6 +114,24 @@ Avvio della macchina virtuale in Connect è un'impostazione del pool host. Se si
 
 >[!IMPORTANT]
 > Questa funzionalità può essere configurata solo nei pool host esistenti. Questa funzionalità non è disponibile quando si crea un nuovo pool host.
+
+### <a name="use-the-azure-portal"></a>Usare il portale di Azure
+
+Per usare il portale di Azure per configurare la macchina virtuale di avvio in Connect:
+
+1. Aprire il browser e passare al [portale di Azure](https://portal.azure.com/?feature.startVMonConnect=true#home). Si consiglia di aprire il portale di Azure in una finestra InPrivate.
+
+2. Nella portale di Azure passare a **desktop virtuale di Windows**.
+
+3. Selezionare **pool host**, quindi individuare il pool host che contiene i desktop personali a cui è stato assegnato il ruolo.
+
+   >[!NOTE]
+   > Il pool host in cui si configura questa funzionalità deve avere desktop personali con assegnazioni di ruolo dirette. Se i desktop nel pool host non sono configurati correttamente, il processo di configurazione non funzionerà.
+
+4. Nel pool host selezionare **Proprietà**. In **Avvia macchina virtuale in connessione** selezionare **Sì**, quindi selezionare **Salva** per applicare immediatamente l'impostazione.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot del Finestra Proprietà. L'opzione avvia VM on Connect è evidenziata in rosso.](media/properties-start-vm-on-connect.png)
 
 ### <a name="use-powershell"></a>Usare PowerShell
 

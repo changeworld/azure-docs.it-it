@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
-ms.openlocfilehash: 19c39632a1ed040636372d6bad53bf6859960b94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6aa960eb7aed7a579c3fc95748b6e32601201a61
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732038"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305124"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Inviare dati dall'estensione diagnostica di Microsoft Azure a hub eventi di Azure
 L'estensione Diagnostica di Azure è un agente di Monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali di Azure e di altre risorse di calcolo. Questo articolo descrive come inviare i dati dall'estensione di diagnostica di Azure (WAD) a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) in modo da poter inoltrare a posizioni esterne ad Azure.
@@ -177,7 +177,7 @@ Nell'esempio seguente l'attributo **sinks** viene applicato direttamente a tre c
 
 * [Panoramica di Hub eventi](../../event-hubs/event-hubs-about.md)
 * [Creare un hub eventi](../../event-hubs/event-hubs-create.md)
-* [Domande frequenti su Hub eventi](../../event-hubs/event-hubs-faq.md)
+* [Domande frequenti su Hub eventi](../../event-hubs/event-hubs-faq.yml)
 
 <!-- Images. -->
 [0]: ../../event-hubs/media/event-hubs-streaming-azure-diags-data/dashboard.png

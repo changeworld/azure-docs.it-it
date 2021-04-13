@@ -3,12 +3,12 @@ title: Eccezioni del servizio di inoltro di Azure e relativa risoluzione | Micro
 description: Elenco di eccezioni del servizio di inoltro di Azure e azioni consigliate per la risoluzione.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 44eeba6eb7b8cfd4e81a923c2d9a3155f1709f2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f9fe2e8aac826bd63d9842bd3380be10e1b87e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625149"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313947"
 ---
 # <a name="azure-relay-exceptions"></a>Eccezioni del servizio di inoltro di Azure
 
@@ -80,7 +80,7 @@ Questo errore può essere dovuto a due cause comuni:
     In alcuni casi per il servizio di inoltro potrebbero verificarsi ritardi nell'elaborazione delle richieste. Questo può accadere, ad esempio, durante i periodi di traffico elevato. In questi casi, ritentare l'operazione dopo un ritardo fino a quando l'operazione non ha esito positivo. Se la stessa operazione ha ancora esito negativo dopo diversi tentativi, visitare il [sito sullo stato dei servizi Azure](https://azure.microsoft.com/status/) per verificare se esistono casi noti di interruzioni del servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Domande frequenti sul servizio di inoltro di Azure](relay-faq.md)
+* [Domande frequenti sul servizio di inoltro di Azure](relay-faq.yml)
 * [Creare uno spazio dei nomi di inoltro](relay-create-namespace-portal.md)
 * [Introduzione al servizio di inoltro di Azure e .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione al servizio di inoltro di Azure e al nodo](relay-hybrid-connections-node-get-started.md)

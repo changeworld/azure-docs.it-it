@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 7fb25892dc71c0bb4e73101e180a58be6c0c1195
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 8dee8e8175c97faf4877a57ac6cea821964910dc
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276808"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313233"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -85,8 +85,8 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Berlino** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Germania settentrionale | 10 G | Equinix, NTT Global datacenters EMEA|
 | **Bogota** | [BG1 Equinix](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 4 | n/d | 10 G | Equinix |
 | **Busan** | [LG CNS](https://www.lgcns.com/En/Service/DataCenter) | 2 | Corea meridionale | n/d | LG CNS |
-| **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia centrale | 10 G, 100 G | CDC |
-| **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia centrale 2| 10 G, 100 G | CDC, Equinix |
+| **Canberra** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Australia centrale | 10 G, 100 G | CDC |
+| **Canberra2** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Australia centrale 2| 10 G, 100 G | CDC, Equinix |
 | **Città del Capo** | [Teraco CT1](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | Sudafrica occidentale | 10 G | BCX, Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Tata Communications | 2 | India meridionale | 10 G | BSNL, Global CloudXchange (GCX), SIFY, Tata Communications, VodafoneIdea |
 | **Chennai2** | Airtel | 2 | India meridionale | 10 G | Airtel |

@@ -6,18 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 53edd3ec9a8d30d0c25f994db4a8b6f0199c2169
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7f09e744dfdd7be73c62c70bcfa91804f14aaa68
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105558415"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313675"
 ---
 # <a name="azure-customer-usage-attribution"></a>Attribuzione dell'utilizzo dei clienti di Azure
 
-L'attribuzione dell'utilizzo del cliente associa l'utilizzo dalle risorse di Azure nelle sottoscrizioni dei clienti create durante la distribuzione dell'IP con l'utente come partner. La creazione di queste associazioni nei sistemi Microsoft interni offre maggiore visibilità sul footprint di Azure che esegue il proprio software. Per [applicazione Azure offerte nel Marketplace commerciale](#commercial-marketplace-azure-apps), questa funzionalità di rilevamento ti aiuta a allinearti ai team di vendita Microsoft e a ottenere credito per i programmi partner Microsoft.
+L'attribuzione dell'utilizzo del cliente associa l'utilizzo dalle risorse di Azure nelle sottoscrizioni dei clienti create durante la distribuzione dell'IP con l'utente come partner. La creazione di queste associazioni nei sistemi Microsoft interni offre maggiore visibilità sul footprint di Azure che esegue il proprio software. Per [applicazione Azure offerte nel Marketplace commerciale](#commercial-marketplace-azure-apps), questa funzionalità di rilevamento ti aiuta a allinearti ai team di vendita Microsoft e a ottenere credito per i programmi partner Microsoft. L'attribuzione dell'utilizzo del cliente non è applicabile alle [offerte di macchine virtuali di Azure nel Marketplace commerciale](./azure-vm-create.md). Per le offerte di macchine virtuali non è necessario alcun editore del Marketplace per garantire che il consumo di Azure venga registrato nelle sottoscrizioni dei clienti finali.
 
 L'attribuzione dell'utilizzo da parte dei clienti supporta tre opzioni di distribuzione:
 

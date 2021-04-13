@@ -3,12 +3,18 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Che cos'è il rilevamento delle anomalie?
+    - name: Che cos'è il rilevatore di anomalie (MultiVariante)?
+      href: overview-multivariate.md
+    - name: Che cos'è il rilevatore di anomalie (univariato)?
       href: overview.md
     - name: Prezzi e limiti
       href: 'https://aka.ms/adpricing'
-- name: Avvio rapido del rilevamento anomalie
-  href: ./quickstarts/client-libraries.md
+- name: Guide introduttive per il rilevamento di anomalie
+  items:
+    - name: Librerie client multivariate
+      href: ./quickstarts/client-libraries-multivariate.md
+    - name: Librerie client univariate
+      href: ./quickstarts/client-libraries.md
 - name: Esempi
   items:
     - name: Demo interattiva
@@ -39,10 +45,18 @@
               href: how-to/deploy-anomaly-detection-on-container-instances.md
 - name: Concetti
   items:
-    - name: Procedure consigliate per l'API del rilevamento anomalie
+    - name: Procedure consigliate per l'API di rilevamento anomalie (MultiVariante)
+      href: concepts/best-practices-multivariate.md
+    - name: Procedure consigliate per l'API di rilevamento anomalie (univariato)
       href: concepts/anomaly-detection-best-practices.md
+    - name: Architettura di manutenzione predittiva (multivariate)
+      href: concepts/multivariate-architecture.md
+    - name: Risoluzione dei problemi relativi a MultiVariante
+      href: concepts/troubleshoot.md
     - name: Rilevamento di anomalie di rete neurale (SR) e convoluzione
       href: 'https://arxiv.org/abs/1906.03821'
+    - name: Rilevamento di anomalie serie temporali multivariate tramite la rete Graph attention
+      href: 'https://arxiv.org/abs/2009.02040'
 - name: Esercitazioni
   items:
     - name: Visualizzare le anomalie in batch con Power BI

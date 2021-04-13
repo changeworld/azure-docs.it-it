@@ -3,21 +3,21 @@ title: 'Esercitazione: Aggiungere un dominio personalizzato alla configurazione 
 description: In questa esercitazione, si apprenderà come eseguire l'onboarding a un dominio personalizzato per la Frontdoor di Azure.
 services: frontdoor
 documentationcenter: ''
-author: duongau
+author: jessie-jyy
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2020
-ms.author: duau
-ms.openlocfilehash: e1540602bae0779d69c0cb4bb59e93b810b52904
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.date: 04/12/2021
+ms.author: yuajia
+ms.openlocfilehash: 7e2f05a7d911ce2b311a423994d2b459de0fa269
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550762"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308864"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Esercitazione: Aggiungere un dominio personalizzato alla frontdoor
 
@@ -40,9 +40,9 @@ In questa esercitazione verranno illustrate le procedure per:
 
 * Prima di poter completare i passaggi di questa esercitazione, è necessario creare una frontdoor. Per altre informazioni, vedere [Avvio rapido: Creare una frontdoor](quickstart-create-front-door.md).
 
-* Se non si dispone già di un dominio personalizzato, è prima necessario acquistarne uno con un provider di dominio. Ad esempio, vedere [Acquistare un nome di dominio personalizzato](../app-service/manage-custom-dns-buy-domain.md).
+* Se non si dispone già di un dominio personalizzato, è necessario prima acquistarne uno con un provider di dominio. Ad esempio, vedere [Acquistare un nome di dominio personalizzato](../app-service/manage-custom-dns-buy-domain.md).
 
-* Se si usa Azure per ospitare i [domini DNS](../dns/dns-overview.md), è necessario delegare il DNS (Domain Name System) del provider di dominio a un DNS di Azure. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](../dns/dns-delegate-domain-azure-dns.md). In caso contrario, se si usa un provider di dominio per gestire il dominio DNS, continuare con [Creare un record DNS CNAME](#create-a-cname-dns-record).
+* Se si usa Azure per ospitare i [domini DNS](../dns/dns-overview.md), è necessario delegare il DNS (Domain Name System) del provider di dominio a un DNS di Azure. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](../dns/dns-delegate-domain-azure-dns.md). In caso contrario, se si usa un provider di dominio per gestire il dominio DNS, continuare a [creare un record DNS CNAME](#create-a-cname-dns-record).
 
 
 ## <a name="create-a-cname-dns-record"></a>Creare un record DNS CNAME
@@ -54,9 +54,9 @@ Un dominio personalizzato e il relativo sottodominio possono essere associati a 
 
 ## <a name="map-the-temporary-afdverify-subdomain"></a>Eseguire il mapping del sottodominio afdverify temporaneo
 
-Quando si esegue il mapping di un dominio esistente in fase di produzione, è necessario tenere presenti alcune considerazioni speciali. Mentre si sta registrando il dominio personalizzato nel portale di Azure, può verificarsi un breve tempo di inattività per il dominio. Per evitare l'interruzione del traffico Web, eseguire prima il mapping del dominio personalizzato allhost front-end predefinito della frontdoor con il sottodominio afdverify di Azure per creare un mapping CNAME temporaneo. Con questo metodo, gli utenti possono accedere al dominio senza interruzioni durante l'esecuzione del mapping DNS.
+Quando si esegue il mapping di un dominio esistente in fase di produzione, è necessario tenere presenti alcune considerazioni speciali. Durante la registrazione del dominio personalizzato nella portale di Azure, è possibile che si verifichi un breve periodo di inattività del dominio. Per evitare l'interruzione del traffico Web, eseguire prima il mapping del dominio personalizzato allhost front-end predefinito della frontdoor con il sottodominio afdverify di Azure per creare un mapping CNAME temporaneo. Con questo metodo, gli utenti possono accedere al dominio senza interruzioni durante l'esecuzione del mapping DNS.
 
-In caso contrario, se si usa per la prima volta il dominio personalizzato in cui non è in esecuzione traffico di produzione, è possibile eseguire il mapping diretto del dominio personalizzato alla frontdoor. Continuare con [Eseguire il mapping del dominio personalizzato permanente](#map-the-permanent-custom-domain).
+In caso contrario, se si usa il dominio personalizzato per la prima volta e non è in esecuzione alcun traffico di produzione, è possibile eseguire il mapping diretto del dominio personalizzato all'sportello anteriore. continuare a eseguire [il mapping del dominio personalizzato permanente](#map-the-permanent-custom-domain).
 
 Per creare un record CNAME con il sottodominio afdverify:
 
@@ -109,7 +109,7 @@ Dopo avere registrato il dominio personalizzato, è possibile aggiungerlo alla f
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e passare alla frontdoor contenente l'host di front-end di cui si vuole eseguire il mapping a un dominio personalizzato.
     
-2. Nella pagina **Finestra di progettazione frontdoor**, fare clic su '+' per aggiungere un dominio personalizzato.
+2. Nella pagina **progettazione porta anteriore** selezionare "+" per aggiungere un dominio personalizzato.
     
 3. Specificare un **dominio personalizzato**. 
 
@@ -126,14 +126,14 @@ Dopo avere registrato il dominio personalizzato, è possibile aggiungerlo alla f
 
 ## <a name="verify-the-custom-domain"></a>Verificare il dominio personalizzato
 
-Dopo aver completato la registrazione del dominio personalizzato, verificare che il dominio personalizzato faccia riferimento all’host di front-end della frontdoor predefinito.
+Dopo aver completato la registrazione del dominio personalizzato, verificare che il dominio personalizzato faccia riferimento all'host front-end front door predefinito.
  
 Nel browser passare all'indirizzo del file usando il dominio personalizzato. Se il dominio personalizzato è robotics.contoso.com, ad esempio, l'URL del file memorizzato nella cache sarà simile al seguente: http:\//robotics.contoso.com/my-public-container/my-file.jpg. Verificare che il risultato è lo stesso come quando si accede alla frontdoor direttamente alla *&lt;frontdoor host&gt;* .azurefd.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Eseguire il mapping del dominio personalizzato permanente
 
-Se si è verificato che il mapping del sottodominio afdverify alla frontdoor è stato eseguito correttamente (o se si usa un nuovo dominio personalizzato non in produzione), è possibile eseguire il mapping del dominio personalizzato direttamente all’host di front-end della frontdoor predefinito.
+Se è stato verificato che è stato eseguito il mapping del sottodominio afdverify al proprio sportello anteriore (o se si usa un nuovo dominio personalizzato che non è in produzione), è possibile eseguire il mapping del dominio personalizzato direttamente all'host front-end della porta anteriore predefinito.
 
 Per creare un record CNAME per il dominio personalizzato:
 
@@ -157,7 +157,7 @@ Per creare un record CNAME per il dominio personalizzato:
 
 5. Se si è creato in precedenza un record CNAME del sottodominio afdverify temporaneo, eliminarlo. 
 
-6. Se si usa questo dominio personalizzato nell'ambiente di produzione per la prima volta, seguire i passaggi illustrati in [Associare il dominio personalizzato alla frontdoor](#associate-the-custom-domain-with-your-front-door) e [Verificare il dominio personalizzato](#verify-the-custom-domain).
+6. Se si usa questo dominio personalizzato in produzione per la prima volta, seguire i passaggi per [associare il dominio personalizzato all'ingresso](#associate-the-custom-domain-with-your-front-door) e [verificare il dominio personalizzato](#verify-the-custom-domain).
 
 La procedura per il registrar GoDaddy, ad esempio, è la seguente:
 
@@ -187,17 +187,18 @@ La procedura per il registrar GoDaddy, ad esempio, è la seguente:
 
 8. Selezionare **Delete** (Elimina) per eliminare il record CNAME.
 
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Nei passaggi precedenti è stato aggiunto un dominio personalizzato a una frontdoor. Se non si vuole più associare la frontdoor a un dominio personalizzato, è possibile rimuovere il dominio personalizzato eseguendo questi passaggi:
+Nei passaggi precedenti è stato aggiunto un dominio personalizzato a una frontdoor. Se non si vuole più associare la porta anteriore a un dominio personalizzato, è possibile rimuovere il dominio personalizzato eseguendo questi passaggi:
  
-1. Nella finestra di progettazione della frontdoor, selezionare il dominio personalizzato che si vuole rimuovere.
+1. Passare al provider DNS, eliminare il record CNAME per il dominio personalizzato o aggiornare il record CNAME per il dominio personalizzato a un endpoint non front-end.
 
-2. Fare clic su Elimina dal menu di scelta rapida per il dominio personalizzato.  
+    > [!Important]
+    > Per evitare che le voci DNS in sospeso e i rischi per la sicurezza che creano, a partire dal 9 aprile 2021, la porta anteriore di Azure richiede la rimozione dei record CNAME negli endpoint front-end prima che le risorse possano essere eliminate. Le risorse includono domini personalizzati, endpoint di front-end o gruppi di risorse di Azure in cui sono abilitati i domini personalizzati della porta anteriore.
 
-   Il dominio personalizzato viene dissociato dell'endpoint.
+2. Nella finestra di progettazione della frontdoor, selezionare il dominio personalizzato che si vuole rimuovere.
 
+3. Selezionare **Elimina** dal menu di scelta rapida per il dominio personalizzato. Il dominio personalizzato verrà ora dissociato dall'endpoint.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

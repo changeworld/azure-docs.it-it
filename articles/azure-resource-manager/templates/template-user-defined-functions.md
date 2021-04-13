@@ -2,13 +2,13 @@
 title: Funzioni definite dall'utente nei modelli
 description: Viene descritto come definire e usare funzioni definite dall'utente in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
-ms.date: 02/11/2021
-ms.openlocfilehash: 9c7480958e6315c8aea1fd8d12613bcf9d606723
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 802ac6e1c70db8caa58aecde3efe814430c79682
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100379625"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307776"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funzioni definite dall'utente nel modello ARM
 
@@ -107,6 +107,7 @@ Quando si crea una funzione definita dall'utente, è necessario tenere presente 
 * La funzione può usare solo i parametri definiti in essa. Quando si usa la funzione [Parameters](template-functions-deployment.md#parameters) in una funzione definita dall'utente, si è limitati ai parametri della funzione.
 * La funzione non può chiamare altre funzioni definite dall'utente.
 * La funzione non può utilizzare la funzione [Reference](template-functions-resource.md#reference) o una delle funzioni [elenco](template-functions-resource.md#list) .
+* La funzione non può usare la funzione [dateTimeAdd](template-functions-date.md#datetimeadd) .
 * I parametri della funzione non possono avere valori predefiniti.
 
 ## <a name="next-steps"></a>Passaggi successivi

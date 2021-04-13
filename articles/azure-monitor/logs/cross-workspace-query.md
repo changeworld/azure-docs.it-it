@@ -4,13 +4,13 @@ description: Questo articolo illustra come eseguire query sulle risorse di più 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
-ms.openlocfilehash: 57ed43b25c9031138a91f0870d316e1ae7a07a5b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/11/2021
+ms.openlocfilehash: e007f5af214dcfa475eb59a5981bc580b9499915
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030968"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314236"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Eseguire query di log in monitoraggio di Azure che si estendono su più aree di lavoro e app
 
@@ -27,7 +27,7 @@ Esistono due metodi per eseguire query sui dati archiviati in più aree di lavor
 ## <a name="cross-resource-query-limits"></a>Limiti di query tra risorse 
 
 * Il numero di risorse Application Insights e le aree di lavoro Log Analytics che è possibile includere in una singola query sono limitate a 100.
-* Le query su più risorse non sono supportate Progettazione visualizzazioni. È possibile creare una query in Log Analytics e aggiungerla al dashboard di Azure per [visualizzare una query di log](../visualize/tutorial-logs-dashboards.md). 
+* Le query su più risorse non sono supportate Progettazione visualizzazioni. È possibile creare una query in Log Analytics e aggiungerla al dashboard di Azure per [visualizzare una query di log](../visualize/tutorial-logs-dashboards.md) o includere nelle [cartelle di lavoro](../visualize/workbooks-overview.md)di.
 * Le query tra risorse negli avvisi del log sono supportate solo nell' [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules)corrente. Se si usa l'API legacy Log Analytics Alerts, sarà necessario [passare all'API corrente](../alerts/alerts-log-api-switch.md).
 
 
@@ -41,6 +41,9 @@ Esistono vari modi per identificare un'area di lavoro:
 
 * Nome risorsa - Un nome dell'area di lavoro leggibile dall'utente, spesso definito genericamente *nome del componente*. 
 
+    >[!Note]
+    >Poiché i nomi di app e aree di lavoro non sono univoci, questo identificatore potrebbe essere ambiguo. Quando sono presenti più istanze del nome della risorsa, il riferimento deve essere per nome completo, ID risorsa o ID risorsa di Azure.
+
     `workspace("contosoretail-it").Update | count`
 
 * Nome completo-è il nome completo dell'area di lavoro, composto dal nome della sottoscrizione, dal gruppo di risorse e dal nome del componente nel formato seguente: *subscriptionname/resourceGroup/ComponentName*. 
@@ -48,8 +51,7 @@ Esistono vari modi per identificare un'area di lavoro:
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
-    >Poiché i nomi delle sottoscrizioni di Azure non sono univoci, questo identificatore potrebbe essere ambiguo. 
-    >
+    >Poiché i nomi delle sottoscrizioni di Azure non sono univoci, questo identificatore potrebbe essere ambiguo.
 
 * ID area di lavoro - L'ID dell'area di lavoro è l'identificatore univoco e non modificabile assegnato a ogni area di lavoro rappresentato come identificatore univoco globale (GUID).
 

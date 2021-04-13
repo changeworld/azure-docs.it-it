@@ -321,7 +321,7 @@
 - name: Informazioni di riferimento
   items:
     - name: Domande frequenti sul proxy app
-      href: application-proxy-faq.md
+      href: application-proxy-faq.yml
     - name: Domande frequenti sui certificati di gestione delle app
       href: application-management-certs-faq.md
     - name: Cronologia delle versioni del proxy di applicazione

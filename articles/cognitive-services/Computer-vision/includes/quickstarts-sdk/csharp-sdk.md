@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: libreria client per il riconoscimento ottico dei caratteri per .NET'
-description: In questa Guida introduttiva si inizia con la libreria client per il riconoscimento ottico dei caratteri per .NET.
+title: 'Guida introduttiva: Libreria client per il riconoscimento ottico dei caratteri per .NET'
+description: In questa guida introduttiva è possibile iniziare a usare la libreria client di riconoscimento ottico dei caratteri per .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 410ced99b1c5053c084921edf4d9bbde1a9443c4
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 538b3ce5a268464b9f014dd00b924875824cab3b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073332"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107327024"
 ---
 <a name="HOLTop"></a>
 
@@ -41,7 +41,7 @@ Creare un'applicazione .NET Core con Visual Studio.
 
 ### <a name="install-the-client-library"></a>Installare la libreria client 
 
-Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Selezionare la versione `6.0.0-preview.1`, quindi **Installa**. 
+Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Selezionare la versione `7.0.0`, quindi **Installa**. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -72,7 +72,7 @@ Build succeeded.
 Nella directory dell'applicazione installare la libreria client di Visione artificiale per .NET con il comando seguente:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 ```
 
 ---
@@ -82,16 +82,16 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 
 Dalla directory del progetto aprire il file *Program.cs* nell'ambiente di sviluppo integrato o nell'editor preferito.
 
-### <a name="find-the-subscription-key-and-endpoint"></a>Trovare la chiave e l'endpoint della sottoscrizione
+### <a name="find-the-subscription-key-and-endpoint"></a>Trovare la chiave di sottoscrizione e l'endpoint
 
-Accedere al portale di Azure. Se la risorsa Visione artificiale creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. È possibile trovare la chiave e l'endpoint della sottoscrizione nella pagina **chiave ed endpoint** della risorsa in **Gestione risorse**. 
+Accedere al portale di Azure. Se la risorsa Visione artificiale creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. È possibile trovare la chiave di sottoscrizione e l'endpoint nella pagina della chiave e **dell'endpoint** della risorsa in **Gestione risorse.** 
 
-Nella classe **Program** dell'applicazione creare le variabili per la chiave e l'endpoint della sottoscrizione visione artificiale. Incollare la chiave e l'endpoint della sottoscrizione nel codice seguente, dove indicato. Il formato dell'endpoint del Visione artificiale è `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/` .
+Nella classe Program  dell'applicazione creare le variabili per la chiave di sottoscrizione Visione artificiale'endpoint. Incollare la chiave di sottoscrizione e l'endpoint nel codice seguente, dove indicato. L Visione artificiale endpoint ha il formato `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/` .
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_using_and_vars)]
 
 > [!IMPORTANT]
-> Ricordarsi di rimuovere la chiave di sottoscrizione dal codice al termine dell'operazione senza pubblicarla. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, ad esempio [Azure Key Vault](../../../../key-vault/general/overview.md).
+> Ricordarsi di rimuovere la chiave di sottoscrizione dal codice al termine e di non pubblicarla mai pubblicamente. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, ad esempio [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 Nel metodo `Main` dell'applicazione aggiungere le chiamate per i metodi usati in questa guida di avvio rapido. Verranno create in seguito.
 
@@ -120,7 +120,7 @@ Questi frammenti di codice illustrano come eseguire le attività seguenti con la
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-In un nuovo metodo nella classe **Program** creare un'istanza di un client con l'endpoint e la chiave di sottoscrizione. Creare un oggetto **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** con la chiave di sottoscrizione e usarlo con l'endpoint per creare un oggetto **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)** .
+In un nuovo metodo della classe **Program** creare un'istanza di un client con l'endpoint e la chiave di sottoscrizione. Creare un **[oggetto ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** con la chiave di sottoscrizione e usarlo con l'endpoint per creare un **[oggetto ComputerVisionClient.](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)**
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
@@ -129,7 +129,7 @@ In un nuovo metodo nella classe **Program** creare un'istanza di un client con l
 
 ## <a name="read-printed-and-handwritten-text"></a>Leggere il testo stampato e scritto a mano
 
-Il servizio OCR può leggere il testo visibile in un'immagine e convertirlo in un flusso di caratteri. Per altre informazioni sul riconoscimento del testo, vedere Panoramica del [riconoscimento ottico dei caratteri (OCR)](../../overview-ocr.md) . Il codice in questa sezione usa la versione più recente [di visione artificiale SDK per leggere 3,0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1) e definisce un metodo, `BatchReadFileUrl` , che usa l'oggetto client per rilevare ed estrarre il testo nell'immagine.
+Il servizio OCR può leggere il testo visibile in un'immagine e convertirlo in un flusso di caratteri. Per altre informazioni sul riconoscimento del testo, vedere Panoramica del riconoscimento ottico dei [caratteri (OCR).](../../overview-ocr.md) Il codice in questa sezione usa la versione più recente di Visione artificiale SDK per [Read 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) e definisce un metodo, , che usa l'oggetto client per rilevare ed estrarre testo `BatchReadFileUrl` nell'immagine.
 
 > [!TIP]
 > È anche possibile estrarre il testo da un'immagine locale. Vedere i metodi [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient), ad esempio **ReadInStreamAsync**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).
@@ -183,10 +183,10 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva si è appreso come installare la libreria client OCR e usare l'API Read. Quindi, altre informazioni sulle funzionalità dell'API di lettura.
+In questa guida introduttiva si è appreso come installare la libreria client OCR e usare l'API Di lettura. Successivamente, sono disponibili altre informazioni sulle funzionalità dell'API di lettura.
 
 > [!div class="nextstepaction"]
 >[Chiamare l'API di lettura](../../Vision-API-How-to-Topics/call-read-api.md)
 
-* [Panoramica dell'OCR](../../overview-ocr.md)
+* [Panoramica di OCR](../../overview-ocr.md)
 * Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

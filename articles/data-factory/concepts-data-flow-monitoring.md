@@ -3,17 +3,16 @@ title: Monitoraggio dei flussi di dati di mapping
 description: Come monitorare visivamente i flussi di dati di mapping in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/22/2020
-ms.openlocfilehash: 9ca5ea5cdebe297af5081ae6e219935c56ba942e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/11/2021
+ms.openlocfilehash: 82aba428627cba1a3df26fc67c5da0cde52d368c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96004874"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309068"
 ---
 # <a name="monitor-data-flows"></a>Monitorare i flussi di dati
 
@@ -77,9 +76,15 @@ Ogni fase di trasformazione include il tempo totale necessario per completare la
 }
 ```
 
-### <a name="post-processing-time"></a>Tempo di post-elaborazione
+### <a name="sink-processing-time"></a>Tempo di elaborazione sink
 
 Quando si seleziona un'icona di trasformazione del sink nella mappa, il pannello scorrevole a destra indicherà un ulteriore punto dati denominato "tempo di elaborazione post" nella parte inferiore. Questa è la quantità di tempo impiegato per l'esecuzione del processo nel cluster Spark *dopo che* i dati sono stati caricati, trasformati e scritti. Questa volta può includere la chiusura dei pool di connessioni, l'arresto del driver, l'eliminazione di file, l'Unione di file e così via. Quando si eseguono azioni nel flusso, ad esempio "spostare file" e "output in un singolo file", è probabile che venga visualizzato un aumento del valore del tempo di elaborazione successivo.
+
+* Durata della fase di scrittura: tempo di scrittura dei dati in un percorso di gestione temporanea per sinapsi SQL
+* Tabella operazione SQL Duration: tempo impiegato per lo trasferimento dei dati dalle tabelle temporanee alla tabella di destinazione
+* Durata pre-SQL & durata post SQL: tempo impiegato per l'esecuzione di comandi pre/post SQL
+* Durata dei comandi pre & durata dei comandi post: tempo impiegato per l'esecuzione di eventuali operazioni pre/post per origine/sink basati su file. Ad esempio spostare o eliminare file dopo l'elaborazione.
+* Durata merge: il tempo impiegato per l'Unione del file, i file di Unione vengono usati per i sink basati su file durante la scrittura in un singolo file o quando viene usato "nome file come dati di colonna". Se in questa metrica viene impiegato un tempo significativo, è consigliabile evitare di usare queste opzioni.
   
 ## <a name="error-rows"></a>Righe di errore
 

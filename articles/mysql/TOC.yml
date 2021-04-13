@@ -376,6 +376,8 @@
         - name: Raccomandazioni per le prestazioni
           href: concepts-performance-recommendations.md
           displayName: recommendation
+        - name: Raccomandazioni Azure Advisor
+          href: concepts-azure-advisor-recommendations.md
     - name: Procedure consigliate
       items:
         - name: Procedure consigliate per il monitoraggio

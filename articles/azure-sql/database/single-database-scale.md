@@ -10,19 +10,26 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 02/22/2021
-ms.openlocfilehash: c5b6509cabd743a01a085639a7b76d764555a9f8
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 04/09/2021
+ms.openlocfilehash: 47686f457e2579ca8a643de6671c886effefa6f1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106654"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313522"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
 Questo articolo descrive come ridimensionare le risorse di calcolo e di archiviazione disponibili per un database SQL di Azure nel livello di calcolo di cui è stato effettuato il provisioning. In alternativa, il [livello di calcolo senza server](serverless-tier-overview.md) fornisce scalabilità automatica di calcolo e fatture al secondo per il calcolo usato.
 
-Dopo aver selezionato inizialmente il numero di Vcore o DTU, è possibile ridimensionare un singolo database in modo dinamico in base all'esperienza effettiva usando il [portale di Azure](single-database-manage.md#the-azure-portal), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/db#az-sql-db-update)o l' [API REST](/rest/api/sql/databases/update).
+Dopo aver selezionato inizialmente il numero di Vcore o DTU, è possibile ridimensionare un singolo database in modo dinamico in base all'esperienza effettiva utilizzando:
+
+* [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure portal](single-database-manage.md#the-azure-portal)
+* [PowerShell](/powershell/module/az.sql/set-azsqldatabase)
+* [Interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update)
+* [REST API](/rest/api/sql/databases/update)
+
 
 Il video seguente mostra come modificare in modo dinamico il livello di servizio e le dimensioni di calcolo per aumentare le DTU disponibili per un singolo database.
 
@@ -125,7 +132,7 @@ Viene addebitata ogni ora di esistenza di un database usando il livello di servi
 
 ### <a name="vcore-based-purchasing-model"></a>Modello di acquisto basato su vCore
 
-- È possibile eseguire il provisioning dell'archiviazione fino al limite massimo di dimensioni di archiviazione dati con incrementi di 1 GB. L'archiviazione dei dati minima configurabile è di 1 GB. Vedere le pagine relative al limite delle risorse per [database singoli](resource-limits-vcore-single-databases.md) e [pool elastici](resource-limits-vcore-elastic-pools.md) per i limiti di dimensioni massime per l'archiviazione dei dati in ogni obiettivo di servizio.
+- È possibile eseguire il provisioning dell'archiviazione fino al limite massimo di dimensioni di archiviazione dati con incrementi di 1 GB. L'archiviazione dei dati minima configurabile è di 1 GB. Per i limiti di dimensioni massime per l'archiviazione dei dati in ogni obiettivo di servizio, vedere le pagine relative al limite delle risorse per i [limiti delle risorse per i singoli database usando il modello di acquisto vCore](resource-limits-vcore-single-databases.md) e i [limiti delle risorse per i singoli database usando il modello](resource-limits-dtu-single-databases.md)
 - È possibile eseguire il provisioning dell'archiviazione dei dati per un singolo database aumentando o diminuendo le dimensioni massime usando il [portale di Azure](https://portal.azure.com), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/db#az-sql-db-update)o l' [API REST](/rest/api/sql/databases/update). Se il valore delle dimensioni massime viene specificato in byte, deve essere un multiplo di 1 GB (1073741824 byte).
 - La quantità di dati che può essere archiviata nei file di dati di un database è limitata dalle dimensioni massime di archiviazione dati configurate. Oltre a tale archiviazione, il database SQL di Azure alloca automaticamente il 30% di spazio di archiviazione da usare per il log delle transazioni.
 - Il database SQL di Azure alloca automaticamente 32 GB per vCore per il `tempdb` database. `tempdb` si trova nell'archivio SSD locale in tutti i livelli di servizio.

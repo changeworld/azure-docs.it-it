@@ -64,9 +64,9 @@
     - name: Elenco di controllo relativo alla sicurezza
       href: steps-secure-identity.md
     - name: Scegliere l'accesso senza password
-      href: ../../active-directory/authentication/concept-authentication-passwordless.md
+      href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Authentication
-      href: /azure/architecture/framework/security/design-identity-authentication?toc=azure/security/fundamentals/toc.json&bc=azure/security/breadcrumb/toc.json
+      href: /azure/architecture/framework/security/design-identity-authentication?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Sicurezza di rete
   items:
     - name: Panoramica della sicurezza
@@ -80,7 +80,7 @@
     - name: Acquisizione di sottodomini e DNS tralasciati
       href: subdomain-takeover.md
     - name: Architettura di rete ibrida sicura
-      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Sicurezza IaaS
   items:
     - name: Antimalware Microsoft
@@ -120,7 +120,7 @@
         - name: Elenco di controllo relativo alla sicurezza
           href: database-security-checklist.md
     - name: Guida alla sicurezza di Archiviazione
-      href: ../../storage/blobs/security-recommendations.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ftoc.json
+      href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Customer Lockbox
       href: customer-lockbox-overview.md
     - name: Baseline di sicurezza di Customer Lockbox

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 399cf8087d39f78184cfdae4b9f0e34efecaea66
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 6dbb1b46aef40986fc2d601aee152aed02591ac0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491601"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312604"
 ---
 # <a name="connect-to-azure-database-for-mysql---flexible-server-with-encrypted-connections"></a>Connettersi a database di Azure per MySQL-server flessibile con connessioni crittografate
 
@@ -26,7 +26,7 @@ Di seguito sono riportate le diverse configurazioni delle impostazioni SSL e TLS
 
 | Scenario   | Impostazioni parametro Server      | Descrizione                                    |
 |------------|--------------------------------|------------------------------------------------|
-|Disabilitare SSL (connessioni crittografate) | require_secure_transport = disattivato |Se l'applicazione legacy non supporta le connessioni crittografate al server MySQL, è possibile disabilitare l'imposizione delle connessioni crittografate al server flessibile impostando require_secure_transport = disattivato.|
+|Disabilitare l'imposizione SSL | require_secure_transport = disattivato |Se l'applicazione legacy non supporta le connessioni crittografate al server MySQL, è possibile disabilitare l'imposizione delle connessioni crittografate al server flessibile impostando require_secure_transport = disattivato.|
 |Applicare SSL con la versione TLS < 1,2 | require_secure_transport = ON e tls_version = TLSV1 o TLSV 1.1| Se l'applicazione legacy supporta connessioni crittografate, ma richiede la versione TLS < 1,2, è possibile abilitare le connessioni crittografate, ma configurare il server flessibile per consentire le connessioni con la versione TLS (v 1.0 o v 1.1) supportata dall'applicazione|
 |Applicare SSL con la versione TLS = 1.2 (configurazione predefinita)|require_secure_transport = ON e tls_version = TLSV 1.2| Si tratta della configurazione consigliata e predefinita per server flessibili.|
 |Applicare SSL con la versione TLS = 1.3 (supportata con MySQL v 8.0 e versioni successive)| require_secure_transport = ON e tls_version = TLSV 1.3| Questa operazione è utile e consigliata per lo sviluppo di nuove applicazioni|
@@ -44,7 +44,7 @@ In questo articolo verrà spiegato come:
 * Verificare lo stato della crittografia per la connessione
 * Connettersi al server flessibile con connessioni crittografate usando diversi framework applicazione
 
-## <a name="disable-ssl-on-your-flexible-server"></a>Disabilitare SSL nel server flessibile
+## <a name="disable-ssl-enforcement-on-your-flexible-server"></a>Disabilitare l'imposizione SSL nel server flessibile
 Se l'applicazione client non supporta le connessioni crittografate, sarà necessario disabilitare l'imposizione delle connessioni crittografate nel server flessibile. Per disabilitare l'imposizione delle connessioni crittografate, è necessario impostare require_secure_transport parametro Server su disattivato, come illustrato nello screenshot e salvare la configurazione del parametro Server per renderla effettiva. require_secure_transport è un **parametro dinamico del server** che diventa effettivo immediatamente e non richiede il riavvio del server per rendere effettivo.
 
 > :::image type="content" source="./media/how-to-connect-tls-ssl/disable-ssl.png" alt-text="Screenshot che illustra come disabilitare SSL con database di Azure per il server flessibile MySQL.":::

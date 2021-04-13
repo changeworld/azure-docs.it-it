@@ -126,8 +126,6 @@
       href: disaster-recovery.md
     - name: Configurare il proxy KDC
       href: key-distribution-center-proxy.md
-    - name: Configurare il ruolo Gateway Desktop remoto
-      href: rd-gateway-role.md
     - name: Avvia macchina virtuale alla connessione
       items:
         - name: Configurare avvia macchina virtuale alla connessione

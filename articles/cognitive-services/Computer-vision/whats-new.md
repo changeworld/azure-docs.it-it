@@ -10,16 +10,29 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: f102bbe45fd5eea853ba63def4f1c1a92888ca46
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 826bd22375fb6649bf4edbbeca88aed64cfe7245
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285944"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312128"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novità di Visione artificiale
 
 Ecco cosa c'è di nuovo nel servizio. Le novità possono essere note sulla versione, video, post di blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere aggiornati sul servizio.
+
+## <a name="april-2021"></a>Aprile 2021
+
+### <a name="computer-vision-v32-ga"></a>Visione artificiale v 3.2 GA
+
+Il API Visione artificiale v 3.2 è ora disponibile a livello generale con i seguenti aggiornamenti:
+* Modello di Tag Image migliorato: analizza il contenuto visivo e genera tag rilevanti in base a oggetti, azioni e contenuto visualizzati nell'immagine. Questa operazione è disponibile tramite l' [API Tag Image](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f200). Per altre informazioni, vedere la [Guida alle procedure](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) per l'analisi delle immagini e la [Panoramica](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) .
+* Aggiornamento del modello di moderazione dei contenuti: rileva la presenza di contenuto per adulti e fornisce flag per filtrare le immagini che contengono contenuto visivo adulto, audace e cruento. Questa operazione è disponibile tramite l' [API di analisi](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b). Per altre informazioni, vedere la [Guida alle procedure](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) per l'analisi delle immagini e la [Panoramica](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-image-analysis) .
+* [OCR (lettura) disponibile per le lingue 73](./language-support.md#optical-character-recognition-ocr) , incluse le lingue cinese semplificato e tradizionale, giapponese, coreano e latino.
+* [OCR (Read)](./overview-ocr.md) , disponibile anche come [contenitore](./computer-vision-how-to-install-containers.md?tabs=version-3-2) non distribuibile per la distribuzione locale.
+
+> [!div class="nextstepaction"]
+> [Vedere Visione artificiale v 3.2 GA](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
 
 ## <a name="march-2021"></a>Marzo 2021
 

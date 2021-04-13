@@ -8,16 +8,16 @@ ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
-author: jaszymas
-ms.author: jaszymas
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 37931aee24e2dbcab03bca400d58f236601c87e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bcfc0c7e24c83f5388e49af397d66f2bad7aa9f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93321432"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310938"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Ruotare la protezione Transparent Data Encryption (Transparent Data Encryption)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: f76d3b81c2d5425f7bb91c5c86a79faa097794e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36d6af7fb42bc1b705b44bdae6f24b454bfd242f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96435001"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312434"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testare l'interfaccia del portale per le applicazioni gestite di Azure
 
@@ -18,7 +18,7 @@ Dopo aver [creato il createUiDefinition.jsnel file](create-uidefinition-overview
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un file **createUiDefinition.json**. Se non si dispone di questo file, copiare il [file di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
+* Un file **createUiDefinition.json**. Se non si dispone di questo file, copiare il [file di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/demos/100-marketplace-sample/createUiDefinition.json).
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

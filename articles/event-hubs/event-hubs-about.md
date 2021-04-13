@@ -3,12 +3,12 @@ title: Che cos'è l'hub di eventi di Azure? - un servizio di inserimento di Big 
 description: Informazioni su Hub eventi di Azure, un servizio di Big Data streaming che inserisce milioni di eventi al secondo.
 ms.topic: overview
 ms.date: 01/13/2021
-ms.openlocfilehash: 36eeb38d9ed1696c9524ae9b346065756ce49c46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35e89f60e93ec759d852641653ad138d7672cc37
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98195764"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303050"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Hub eventi di Azure - Piattaforma di streaming di Big Data e servizio di inserimento di eventi
 Hub eventi di Azure è una piattaforma di streaming di Big Data e un servizio di inserimento di eventi. È in grado di ricevere ed elaborare milioni di eventi al secondo. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione.
@@ -92,4 +92,4 @@ Per iniziare a usare gli Hub eventi, vedere le esercitazioni per **inviare e ric
 Per ulteriori informazioni su Hub eventi, vedere i seguenti articoli:
 
 - [Panoramica delle funzionalità di Hub eventi](event-hubs-features.md)
-- [Domande frequenti](event-hubs-faq.md)
+- [Domande frequenti](event-hubs-faq.yml)

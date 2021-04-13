@@ -1,14 +1,14 @@
 ---
 title: Come proteggere la gerarchia di risorse - Governance di Azure
 description: Informazioni su come proteggere la gerarchia di risorse con le impostazioni di gerarchia che includono l'impostazione del gruppo di gestione predefinito.
-ms.date: 02/05/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d13a0235152046eff2585da170d5fba0e9d3b09
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 11c20ccf5aff74d810533cd56e0a7b116f2dc64b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259082"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303645"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Come proteggere la gerarchia di risorse
 
@@ -110,6 +110,28 @@ Per configurare questa impostazione con l'API REST, viene chiamato l'endpoint [d
   ```
 
 Per disattivare l'impostazione, usare lo stesso endpoint e impostare **requireAuthorizationForGroupCreation** sul valore **false**.
+
+## <a name="powershell-sample"></a>Esempio PowerShell
+
+PowerShell non dispone di un comando ' AZ ' per impostare il gruppo di gestione predefinito o l'impostazione richiede l'autorizzazione, ma come soluzione alternativa è possibile sfruttare l'API REST con l'esempio di PowerShell seguente:
+
+```powershell
+$root_management_group_id = "Enter the ID of root management group"
+$default_management_group_id = "Enter the ID of default management group (or use the same ID of the root management group)"
+
+$body = '{
+     "properties": {
+          "defaultManagementGroup": "/providers/Microsoft.Management/managementGroups/' + $default_management_group_id + '",
+          "requireAuthorizationForGroupCreation": true
+     }
+}'
+
+$token = (Get-AzAccessToken).Token
+$headers = @{"Authorization"= "Bearer $token"; "Content-Type"= "application/json"}
+$uri = "https://management.azure.com/providers/Microsoft.Management/managementGroups/$root_management_group_id/settings/default?api-version=2020-02-01"
+
+Invoke-RestMethod -Method PUT -Uri $uri -Headers $headers -Body $body
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,13 +2,13 @@
 title: Griglia di eventi di Azure-Guida alla risoluzione dei problemi
 description: Questo articolo fornisce un elenco di codici di errore, messaggi di errore, descrizioni e azioni consigliate.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 79533918ccc6995f459b39f058de9e01091c0958
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 4647039f67cf84a5471dc7b3f38ca754ca9eecb0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94592992"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310870"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Risolvere gli errori di griglia di eventi di Azure
 Questa guida alla risoluzione dei problemi fornisce le informazioni seguenti: 
@@ -30,7 +30,7 @@ Questa guida alla risoluzione dei problemi fornisce le informazioni seguenti:
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. Conflict <br/>409 | Un argomento con il nome specificato esiste già. Scegliere un nome di argomento diverso.   | Il nome dell'argomento personalizzato deve essere univoco in una singola area di Azure per garantire una corretta operazione di pubblicazione. Lo stesso nome può essere usato in diverse aree di Azure. | Scegliere un nome diverso per l'argomento. |
 | HttpStatusCode. Conflict <br/> 409 | Il dominio con l'oggetto specificato esiste già. Scegliere un nome di dominio diverso. | Il nome di dominio deve essere univoco in una singola area di Azure per garantire un'operazione di pubblicazione corretta. Lo stesso nome può essere usato in diverse aree di Azure. | Scegliere un nome diverso per il dominio. |
-| HttpStatusCode. Conflict<br/>409 | È stato raggiunto il limite di quota. Per altre informazioni su questi limiti, vedere [limiti di griglia di eventi di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Ogni sottoscrizione di Azure ha un limite al numero di risorse di griglia di eventi di Azure che può usare. Alcune o tutte le quote sono state superate e non è stato possibile creare altre risorse. |    Controllare l'uso delle risorse correnti ed eliminare eventuali non necessarie. Se è ancora necessario aumentare la quota, inviare un messaggio di posta elettronica a [aeg@microsoft.com](mailto:aeg@microsoft.com) con il numero esatto di risorse necessarie. |
+| HttpStatusCode. Conflict<br/>409 | È stato raggiunto il limite di quota. Per altre informazioni su questi limiti, vedere [limiti di griglia di eventi di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Ogni sottoscrizione di Azure ha un limite al numero di risorse di griglia di eventi di Azure che può usare. Alcune o tutte le quote sono state superate e non è stato possibile creare altre risorse. | Controllare l'uso delle risorse correnti ed eliminare eventuali non necessarie. Se non è possibile eliminare risorse, creare un'altra sottoscrizione di Azure e creare risorse di griglia di eventi in tale sottoscrizione. |
 
 ## <a name="error-code-403"></a>Codice errore: 403
 
