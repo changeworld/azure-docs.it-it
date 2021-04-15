@@ -1,5 +1,5 @@
 ---
-title: 'Gateway VPN di Azure: Panoramica-configurazioni del gateway a disponibilità elevata'
+title: 'Gateway VPN di Azure: Panoramica - Configurazioni del gateway a disponibilità elevata'
 description: Questo articolo offre una panoramica delle opzioni di configurazione a disponibilità elevata con gateway VPN di Azure.
 services: vpn-gateway
 author: yushwang
@@ -7,20 +7,20 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 48756b43e64576a5dd38467bb1dd97e91c168a06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d193850461eeaa5041e1cfd6d64def503ad676d4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91360855"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374761"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Connettività cross-premise e da rete virtuale a rete virtuale a disponibilità elevata
 Questo articolo offre una panoramica delle opzioni di configurazione a disponibilità elevata per la connettività cross-premise e da rete virtuale a rete virtuale con gateway VPN di Azure.
 
 ## <a name="about-azure-vpn-gateway-redundancy"></a><a name = "activestandby"></a>Informazioni sulla ridondanza dei gateway VPN di Azure
-Ogni gateway VPN di Azure è costituito da due istanze in una configurazione di tipo attivo-standby. In caso di interruzione imprevista o di manutenzione pianificata nell'istanza attiva, l'istanza di standby assume automaticamente il controllo (failover) e riprende le connessioni VPN S2S o da rete virtuale a rete virtuale. Il passaggio causerà una breve interruzione. In caso di manutenzione pianificata, la connettività dovrebbe essere ripristinata entro 10-15 secondi. Per problemi imprevisti, il ripristino della connessione richiederà più tempo, approssimativamente da 1 minuto a 1 minuto e mezzo nel peggiore dei casi. Per le connessioni client VPN P2S al gateway, le connessioni P2S verranno interrotte e gli utenti dovranno riconnettersi dai computer client.
+Ogni gateway VPN di Azure è costituito da due istanze in una configurazione di tipo attivo-standby. In caso di interruzione imprevista o di manutenzione pianificata nell'istanza attiva, l'istanza di standby assume automaticamente il controllo (failover) e riprende le connessioni VPN S2S o da rete virtuale a rete virtuale. Il passaggio causerà una breve interruzione. In caso di manutenzione pianificata, la connettività dovrebbe essere ripristinata entro 10-15 secondi. Per i problemi non pianificati, il ripristino della connessione sarà più lungo, circa 1-3 minuti nel peggiore dei casi. Per le connessioni client VPN P2S al gateway, le connessioni P2S verranno interrotte e gli utenti dovranno riconnettersi dai computer client.
 
-![Il diagramma mostra un sito locale con subnet I P private e la versione locale V P N connessa a un gateway Azure V P N attivo per connettersi a subnet ospitate in Azure, con un gateway di standby disponibile.](./media/vpn-gateway-highlyavailable/active-standby.png)
+![Il diagramma mostra un sito locale con subnet I P private e V P N locale connessi a un gateway N di Azure V P attivo per connettersi alle subnet ospitate in Azure, con un gateway di standby disponibile.](./media/vpn-gateway-highlyavailable/active-standby.png)
 
 ## <a name="highly-available-cross-premises-connectivity"></a>Connettività cross-premise a disponibilità elevata
 Per offrire una maggiore disponibilità per le connessioni cross premise, sono disponibili alcune opzioni:
@@ -49,7 +49,7 @@ In questa configurazione, il gateway VPN di Azure è comunque in modalità attiv
 ### <a name="active-active-azure-vpn-gateway"></a>Gateway VPN di Azure di tipo attivo-attivo
 È ora possibile creare un gateway VPN di Azure in una configurazione di tipo attivo-attivo, in cui entrambe le istanze delle VM del gateway stabiliscono tunnel VPN S2S con il dispositivo VPN locale, come illustrato nel diagramma seguente:
 
-![Il diagramma mostra un sito locale con subnet I P private e la versione locale V P N connessa a due gateway Azure V P N attivo per connettersi a subnet ospitate in Azure.](./media/vpn-gateway-highlyavailable/active-active.png)
+![Il diagramma mostra un sito locale con subnet I P private e V P N locale connessi a due gateway N di Azure V P attivi per connettersi alle subnet ospitate in Azure.](./media/vpn-gateway-highlyavailable/active-active.png)
 
 In questa configurazione, ogni istanza del gateway di Azure avrà un indirizzo IP pubblico univoco e stabilirà un tunnel VPN S2S IPsec/IKE con il dispositivo VPN locale specificato nella connessione e nel gateway di rete locale. Si noti che entrambi i tunnel VPN sono di fatto parte della stessa connessione. È comunque necessario configurare il dispositivo VPN locale in modo che accetti o stabilisca due tunnel VPN S2S con i due indirizzi IP pubblici del gateway VPN di Azure.
 

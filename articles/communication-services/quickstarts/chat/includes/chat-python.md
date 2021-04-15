@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: bcbf2137e578f703cf70b1b47952736aa50f7f17
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 31704e705b828cc0070e3b79f5d527cfa9deb0c3
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106178355"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386826"
 ---
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
@@ -61,7 +61,7 @@ pip install azure-communication-chat
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Azure Communication Services Chat SDK per Python.
+Le classi e le interfacce seguenti gestiscono alcune delle principali funzionalità di Servizi di comunicazione di Azure Chat SDK per Python.
 
 | Nome                                  | Descrizione                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -72,7 +72,7 @@ Le classi e le interfacce seguenti gestiscono alcune delle principali funzionali
 
 Per creare un client di chat, si useranno l''endpoint di Servizi di comunicazione e il `Access Token` generato nell'ambito dei passaggi preliminari. Vedere altre informazioni sui [token di accesso utente](../../access-tokens.md).
 
-Questa Guida introduttiva non illustra la creazione di un livello di servizio per gestire i token per l'applicazione di chat, sebbene sia consigliabile. Per ulteriori informazioni sull' [architettura di chat](../../../concepts/chat/concepts.md) , vedere la documentazione seguente
+Questa guida introduttiva non illustra la creazione di un livello di servizio per gestire i token per l'applicazione di chat, anche se è consigliabile. Per informazioni più dettagliate sull'architettura di [Chat,](../../../concepts/chat/concepts.md) vedere la documentazione seguente
 
 ```console
 pip install azure-communication-identity
@@ -90,13 +90,11 @@ chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"
 Usare il metodo `create_chat_thread` per creare un thread di chat.
 
 - Usare `topic` per specificare un argomento per il thread. L'argomento può essere aggiornato dopo la creazione del thread di chat usando la funzione `update_thread`.
-- Usare `thread_participants` per elencare il `ChatThreadParticipant` da aggiungere al thread di chat. `ChatThreadParticipant` accetta il tipo `CommunicationUserIdentifier` come `user`, che corrisponde a quello ottenuto in [Creare un utente](../../access-tokens.md#create-an-identity).
+- Usare `thread_participants` per elencare il `ChatParticipant` da aggiungere al thread di chat. `ChatParticipant` accetta il tipo `CommunicationUserIdentifier` come `user`, che corrisponde a quello ottenuto in [Creare un utente](../../access-tokens.md#create-an-identity).
 
-`CreateChatThreadResult` è il risultato restituito dalla creazione di un thread, è possibile usarlo per recuperare l'oggetto `id` del thread di chat che è stato creato. Questa operazione `id` può quindi essere utilizzata per recuperare un `ChatThreadClient` oggetto utilizzando il `get_chat_thread_client` metodo. `ChatThreadClient` può essere usato per eseguire altre operazioni di chat in questo thread di chat.
+`CreateChatThreadResult` è il risultato restituito dalla creazione di un thread ed è possibile usarlo per recuperare `id` l'oggetto del thread di chat creato. Può `id` quindi essere usato per recuperare un oggetto usando il metodo `ChatThreadClient` `get_chat_thread_client` . `ChatThreadClient` può essere usato per eseguire altre operazioni di chat in questo thread di chat.
 
 ```python
-from azure.communication.chat import ChatThreadParticipant
-
 topic="test topic"
 
 create_chat_thread_result = chat_client.create_chat_thread(topic)
@@ -104,7 +102,7 @@ chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_resul
 ```
 
 ## <a name="get-a-chat-thread-client"></a>Ottenere un client di thread di chat
-Il metodo `get_chat_thread_client` restituisce un client di thread per un thread già esistente. Può essere usato per eseguire operazioni nel thread creato: aggiungere partecipanti, inviare messaggi e così via. thread_id è l'ID univoco del thread di chat esistente.
+Il metodo `get_chat_thread_client` restituisce un client di thread per un thread già esistente. Può essere usato per eseguire operazioni sul thread creato: aggiungere partecipanti, inviare messaggi e thread_id è l'ID univoco del thread di chat esistente.
 
 `ChatThreadClient` può essere usato per eseguire altre operazioni di chat in questo thread di chat.
 
@@ -114,11 +112,11 @@ chat_thread_client = chat_client.get_chat_thread_client(thread_id)
 ```
 
 
-## <a name="list-all-chat-threads"></a>Elenca tutti i thread di chat
+## <a name="list-all-chat-threads"></a>Elencare tutti i thread di chat
 Il `list_chat_threads` metodo restituisce un iteratore di tipo `ChatThreadItem` . Può essere usato per elencare tutti i thread di chat.
 
-- Consente `start_time` di specificare il primo punto nel tempo in cui ottenere i thread della chat fino a.
-- Consente `results_per_page` di specificare il numero massimo di thread di chat restituiti per pagina.
+- Usare `start_time` per specificare il primo momento in cui ottenere i thread di chat.
+- Usare `results_per_page` per specificare il numero massimo di thread di chat restituiti per pagina.
 
 Un iteratore di `[ChatThreadItem]` è la risposta restituita dall'elenco dei thread
 
@@ -137,13 +135,13 @@ for chat_thread_item_page in chat_threads.by_page():
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Inviare un messaggio a un thread di chat
 
-Usare il `send_message` metodo per inviare un messaggio a un thread di chat appena creato, identificato da thread_id.
+Usare `send_message` il metodo per inviare un messaggio a un thread di chat appena creato, identificato da thread_id.
 
 - Usare `content` per fornire il contenuto del messaggio di chat.
-- Utilizzare `chat_message_type` per specificare il tipo di contenuto del messaggio. I valori possibili sono ' text ' è html '; Se non viene specificato, viene assegnato il valore predefinito ' text '.
+- Usare `chat_message_type` per specificare il tipo di contenuto del messaggio. I valori possibili sono 'text' e 'html'. se non viene specificato il valore predefinito 'text'.
 - Usare `sender_display_name` per specificare il nome visualizzato del mittente.
 
-`SendChatMessageResult` indica che la risposta restituita dall'invio di un messaggio contiene un ID, ovvero l'ID univoco del messaggio.
+`SendChatMessageResult` è la risposta restituita dall'invio di un messaggio, che contiene un ID, ovvero l'ID univoco del messaggio.
 
 ```python
 from azure.communication.chat import ChatMessageType
@@ -167,8 +165,8 @@ print("Message sent: id: ", send_message_result_w_enum.id)
 
 È possibile recuperare i messaggi di chat eseguendo il polling del metodo `list_messages` a intervalli specificati.
 
-- Consente `results_per_page` di specificare il numero massimo di messaggi da restituire per ogni pagina.
-- Consente `start_time` di specificare il momento in cui recuperare i messaggi.
+- Utilizzare `results_per_page` per specificare il numero massimo di messaggi da restituire per ogni pagina.
+- Usare `start_time` per specificare il primo momento in cui ottenere i messaggi.
 
 Un iteratore di `[ChatMessage]` è la risposta restituita dall'elenco dei messaggi
 
@@ -187,12 +185,12 @@ for chat_message_page in chat_messages.by_page():
 
 `list_messages` restituisce tipi diversi di messaggi che possono essere identificati da `ChatMessage.type`. 
 
-Per altre informazioni sui tipi di messaggio, vedere i [tipi di messaggio](../../../concepts/chat/concepts.md#message-types).
+Altre informazioni sui tipi di messaggio sono disponibili qui: [Tipi di messaggio.](../../../concepts/chat/concepts.md#message-types)
 
-## <a name="send-read-receipt"></a>Invia ricevuta di lettura
-Il `send_read_receipt` metodo può essere usato per inserire un evento di conferma di lettura in un thread, per conto di un utente.
+## <a name="send-read-receipt"></a>Inviare la conferma di lettura
+Il `send_read_receipt` metodo può essere usato per pubblicare un evento di conferma di lettura in un thread, per conto di un utente.
 
-- Consente `message_id` di specificare l'ID dell'ultimo messaggio letto dall'utente corrente.
+- Consente `message_id` di specificare l'ID del messaggio più recente letto dall'utente corrente.
 
 ```python
 content='hello world'
@@ -204,15 +202,15 @@ chat_thread_client.send_read_receipt(message_id=send_message_result.id)
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Aggiungere un utente come partecipante al thread di chat
 
-Dopo aver creato un thread di chat, è possibile aggiungere e rimuovere utenti. Aggiungendo utenti, si concede loro l'accesso per poter inviare messaggi al thread di chat e aggiungere o rimuovere altri partecipanti. Prima di chiamare il metodo `add_participants`, verificare di avere acquisito un nuovo token di accesso e un'identità per tale utente. L'utente dovrà usare il token di accesso per inizializzare il client di chat.
+Dopo aver creato un thread di chat, è possibile aggiungere e rimuovere utenti. Aggiungendo gli utenti, è possibile concedere loro l'accesso per poter inviare messaggi al thread di chat e aggiungere/rimuovere altri partecipanti. Prima di chiamare il metodo `add_participants`, verificare di avere acquisito un nuovo token di accesso e un'identità per tale utente. L'utente dovrà usare il token di accesso per inizializzare il client di chat.
 
-È possibile aggiungere uno o più utenti al thread di chat usando il `add_participants` metodo, purché sia disponibile un nuovo token di accesso e l'identificazione sia disponibile per tutti gli utenti.
+È possibile aggiungere uno o più utenti al thread di chat usando il metodo , purché il nuovo token di accesso e l'identificazione `add_participants` siano disponibili per tutti gli utenti.
 
-Viene restituito un `list(tuple(ChatThreadParticipant, CommunicationError))`. Quando il partecipante viene aggiunto correttamente, è previsto un elenco vuoto. Se si verifica un errore durante l'aggiunta del partecipante, l'elenco viene popolato con i partecipanti non riusciti insieme all'errore rilevato.
+Viene restituito un `list(tuple(ChatParticipant, CommunicationError))`. Quando il partecipante viene aggiunto correttamente, è previsto un elenco vuoto. In caso di errore durante l'aggiunta del partecipante, l'elenco viene popolato con i partecipanti non riusciti insieme all'errore rilevato.
 
 ```python
 from azure.communication.identity import CommunicationIdentityClient
-from azure.communication.chat import ChatThreadParticipant
+from azure.communication.chat import ChatParticipant
 from datetime import datetime
 
 # create 2 users
@@ -225,14 +223,14 @@ new_users = [identity_client.create_user() for i in range(2)]
 # user_id = 'some user id'
 # user_display_name = "Wilma Flinstone"
 # new_user = CommunicationUserIdentifier(user_id)
-# participant = ChatThreadParticipant(
+# participant = ChatParticipant(
 #     user=new_user,
 #     display_name=user_display_name,
 #     share_history_time=datetime.utcnow())
 
 participants = []
 for _user in new_users:
-  chat_thread_participant = ChatThreadParticipant(
+  chat_thread_participant = ChatParticipant(
     user=_user,
     display_name='Fred Flinstone',
     share_history_time=datetime.utcnow()
@@ -255,21 +253,21 @@ if retry:
 ```
 
 
-## <a name="list-thread-participants-in-a-chat-thread"></a>Elenca i partecipanti ai thread in un thread di chat
+## <a name="list-thread-participants-in-a-chat-thread"></a>Elencare i partecipanti a un thread di chat
 
 Analogamente all'aggiunta di un partecipante, è anche possibile elencare i partecipanti da un thread.
 
-Utilizzare `list_participants` per recuperare i partecipanti del thread.
-- Usare `results_per_page` , facoltativo, il numero massimo di partecipanti da restituire per ogni pagina.
-- Usare `skip` , facoltativo, per ignorare i partecipanti fino a una posizione specificata in risposta.
+Usare `list_participants` per recuperare i partecipanti del thread.
+- Usare `results_per_page` , facoltativo, Numero massimo di partecipanti da restituire per pagina.
+- Usare `skip` , facoltativo, per ignorare i partecipanti fino a una posizione specificata nella risposta.
 
-Un iteratore di `[ChatThreadParticipant]` è la risposta restituita dall'elenco dei partecipanti
+Un iteratore di `[ChatParticipant]` è la risposta restituita dall'elenco dei partecipanti
 
 ```python
 chat_thread_participants = chat_thread_client.list_participants()
 for chat_thread_participant_page in chat_thread_participants.by_page():
     for chat_thread_participant in chat_thread_participant_page:
-        print("ChatThreadParticipant: ", chat_thread_participant)
+        print("ChatParticipant: ", chat_thread_participant)
 ```
 
 ## <a name="run-the-code"></a>Eseguire il codice
