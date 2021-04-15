@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 04/08/2021
 ms.author: banders
-ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ff53131f3078b33b7e7d853c1fca891b0b86d792
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050444"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484600"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termini presenti nella fattura del Contratto del cliente Microsoft in Azure
 
@@ -22,13 +22,25 @@ Questo articolo si applica a un account di fatturazione di Azure per un Contratt
 
 La fattura contiene un riepilogo degli addebiti e le istruzioni per il pagamento. È disponibile per il download in formato PDF (Portable Document Format) dal [Portale di Azure](https://portal.azure.com/). In alternativa, è possibile riceverla tramite posta elettronica. Per altre informazioni, vedere [Visualizzare e scaricare la fattura di Microsoft Azure](download-azure-invoice.md).
 
-Per informazioni sulla fattura e su come analizzarne gli addebiti, vedere il video sulla [fatturazione del contratto clienti Microsoft](https://www.youtube.com/watch?v=e2LGZZ7GubA) .
+Guardare il video [Informazioni Contratto del cliente Microsoft fattura](https://www.youtube.com/watch?v=e2LGZZ7GubA) per informazioni sulla fattura e su come analizzarne gli addebiti.
 
 >[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
 
 ## <a name="billing-period"></a>Periodo di fatturazione
 
 La fattura viene emessa mensilmente. È possibile individuare il giorno del mese in cui si riceveranno le fatture controllando la *data della fattura* nelle proprietà del profilo di fatturazione nel [portale di Azure](https://portal.azure.com/). Gli addebiti maturati tra la fine del periodo di fatturazione e la data della fattura saranno inclusi nella fattura del mese successivo, perché rientrano nel periodo di fatturazione successivo. Le date di inizio e di fine del periodo di fatturazione per ogni fattura sono elencate nel documento PDF della fattura sopra **Riepilogo fatturazione**.
+
+Se si esegue la migrazione da un EA a un Contratto del cliente Microsoft, si continuano a ricevere fatture per l'EA fino alla data di migrazione. La nuova fattura per il Contratto del cliente Microsoft viene generata il quinto giorno del mese dopo la migrazione. La prima fattura mostra un addebito parziale dalla data di migrazione. Le fatture successive vengono generate ogni mese e mostrano tutti gli addebiti per ogni mese.
+
+### <a name="changes-for-pay-as-you-go-subscriptions"></a>Modifiche per le sottoscrizioni con pagamento in base al go
+
+Quando una sottoscrizione viene transizione, trasferita o annullata, l'ultima fattura generata contiene gli addebiti per il ciclo di fatturazione precedente e il nuovo ciclo di fatturazione incompleto.
+
+Ad esempio:
+
+Si supponga che il ciclo di fatturazione della sottoscrizione con pagamento in base al go sia dal giorno 8 al giorno 7 di ogni mese. La sottoscrizione è stata trasferita a un Contratto del cliente Microsoft il 16 novembre. L'ultima fattura con pagamento in base al carico ha addebiti per l'8 ottobre 2020 fino al 7 novembre 2020. Include anche gli addebiti per il nuovo ciclo di fatturazione parziale per il Contratto del cliente Microsoft dall'8 novembre 2020 al 16 novembre 2020. Di seguito è riportata un'immagine di esempio.
+
+:::image type="content" source="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" alt-text="Immagine di esempio di una fattura che mostra l'ultimo ciclo di fatturazione." lightbox="./media/mca-understand-your-invoice/last-invoice-billing-cycle.png" :::
 
 ## <a name="invoice-terms-and-descriptions"></a>Termini presenti nella fattura e descrizioni
 

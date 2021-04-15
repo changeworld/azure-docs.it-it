@@ -1,22 +1,22 @@
 ---
 title: Definizioni dei criteri predefiniti per i servizi di rete di Azure
-description: Elenca le definizioni dei criteri predefiniti di criteri di Azure per i servizi di rete di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/31/2021
+description: Elenca Criteri di Azure definizioni di criteri predefiniti per i servizi di rete di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+ms.date: 04/14/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7c27c2b9f6fc4804c691f33b164e2ad497149d4b
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: ad39c73e84f0143cc8216a71db5d69fb157ad5c6
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096190"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107496988"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-networking-services"></a>Definizioni predefinite dei criteri di Azure per i servizi di rete di Azure
+# <a name="azure-policy-built-in-definitions-for-azure-networking-services"></a>Criteri di Azure definizioni incorporate per i servizi di rete di Azure
 
-Questa pagina è un indice delle definizioni dei criteri predefiniti di [criteri di Azure](../governance/policy/overview.md) per i servizi di rete di Azure. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
+Questa pagina è un indice delle [Criteri di Azure](../governance/policy/overview.md) di criteri predefiniti per i servizi di rete di Azure. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
 Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 

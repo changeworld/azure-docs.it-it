@@ -1,7 +1,7 @@
 ---
-title: Operazioni get per la conversione di documenti
+title: Operazioni get per la traduzione di documenti
 titleSuffix: Azure Cognitive Services
-description: Il metodo Get Operations restituisce un elenco di richieste batch inviate e lo stato di ogni richiesta.
+description: Il metodo delle operazioni get restituisce un elenco di richieste batch inviate e lo stato per ogni richiesta.
 services: cognitive-services
 author: jann-skotdal
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/25/2021
 ms.author: v-jansk
-ms.openlocfilehash: c42f3081a831c267c7bc605267b99e2a916ea3d8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fd7cee564aa3a00e21d1e707d08a18115d519925
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105613024"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484677"
 ---
-# <a name="document-translation-get-operations"></a>Conversione di documenti: operazioni Get
+# <a name="document-translation-get-operations"></a>Traduzione di documenti: operazioni get
 
-Il metodo Get Operations restituisce un elenco di richieste batch inviate e lo stato di ogni richiesta. Questo elenco contiene solo le richieste batch inviate dall'utente (in base alla sottoscrizione). Lo stato di ogni richiesta è ordinato in base all'ID.
+Il metodo Get Operations restituisce un elenco di richieste batch inviate e lo stato per ogni richiesta. Questo elenco contiene solo le richieste batch inviate dall'utente (in base alla sottoscrizione). Lo stato di ogni richiesta è ordinato in base all'ID.
 
-Se il numero di richieste supera il limite di paging, viene utilizzato il paging lato server. Le risposte impaginate indicano un risultato parziale e includono un token di continuazione nella risposta. L'assenza di un token di continuazione significa che non è disponibile alcuna pagina aggiuntiva.
+Se il numero di richieste supera il limite di paging, viene usato il paging sul lato server. Le risposte impaginate indicano un risultato parziale e includono un token di continuazione nella risposta. L'assenza di un token di continuazione significa che non sono disponibili altre pagine.
 
-$top e $skip parametri di query possono essere utilizzati per specificare un numero di risultati da restituire e un offset per la raccolta.
+$top e $skip parametri di query possono essere usati per specificare un numero di risultati da restituire e un offset per la raccolta.
 
-Il server rispetta i valori specificati dal client. Tuttavia, i client devono essere preparati a gestire le risposte che contengono una dimensione di pagina diversa o contengono un token di continuazione.
+Il server rispetta i valori specificati dal client. Tuttavia, i client devono essere preparati a gestire le risposte che contengono dimensioni di pagina diverse o che contengono un token di continuazione.
 
-Quando vengono inclusi sia $top che $skip, il server deve prima applicare $skip e quindi $top sulla raccolta. 
+Quando sono $top e $skip, il server deve prima applicare $skip e quindi $top alla raccolta. 
 
 > [!NOTE]
-> Se il server non è in grado di rispettare $top e/o $skip, il server deve restituire un errore al client in modo da informarlo anziché ignorare semplicemente le opzioni di query. In questo modo si riduce il rischio che il client faccia supposizioni sui dati restituiti.
+> Se il server non può rispettare $top e/o $skip, il server deve restituire un errore al client che ne informa anziché semplicemente ignorare le opzioni di query. In questo modo si riduce il rischio che il client assunsi presupposti sui dati restituiti.
 
 ## <a name="request-url"></a>URL richiesta
 
@@ -43,8 +43,8 @@ Informazioni su come trovare il [nome di dominio personalizzato](../get-started-
 
 > [!IMPORTANT]
 >
-> * **Tutte le richieste API al servizio di traduzione documenti richiedono un endpoint del dominio personalizzato**.
-> * Non è possibile usare l'endpoint trovato nelle chiavi di risorsa portale di Azure e nella pagina dell' _endpoint_ né nell'endpoint di conversione globale, `api.cognitive.microsofttranslator.com` per eseguire richieste HTTP alla conversione dei documenti.
+> * **Tutte le richieste API al servizio Traduzione documenti richiedono un endpoint di dominio personalizzato.**
+> * Non è possibile usare l'endpoint presente nella pagina delle chiavi e _dell'endpoint_ della risorsa portale di Azure, né l'endpoint del traduttore globale, per effettuare richieste `api.cognitive.microsofttranslator.com` HTTP alla traduzione dei documenti.
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
@@ -52,8 +52,8 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 |Query parameter (Parametro di query)|Obbligatoria|Descrizione|
 |--- |--- |--- |
-|$skip|Falso|Ignorare le voci $skip nella raccolta. Quando vengono specificati sia $top che $skip, $skip viene applicato per primo.|
-|$top|Falso|Prendere le voci $top nella raccolta. Quando vengono specificati sia $top che $skip, $skip viene applicato per primo.|
+|$skip|Falso|Ignorare le $skip nella raccolta. Quando vengono $top e $skip, $skip viene applicato per primo.|
+|$top|Falso|Accetta le $top nella raccolta. Quando vengono specificati $top e $skip, $skip viene applicato per primo.|
 
 ## <a name="request-headers"></a>Intestazioni della richiesta
 
@@ -69,49 +69,49 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 |Codice di stato|Descrizione|
 |--- |--- |
-|200|OK. La richiesta è stata completata e restituisce lo stato di tutte le operazioni. HeadersRetry-after: integerETag: stringa|
+|200|OK. Richiesta riuscita e restituisce lo stato di tutte le operazioni. HeadersRetry-After: integerETag: string|
 |400|Richiesta non valida. Richiesta non valida. Controllare i parametri di input.|
-|401|Non autorizzato. Verificare le credenziali.|
+|401|Non autorizzato. Controllare le credenziali.|
 |500|Errore interno del server.|
 |Altri codici di stato|<ul><li>Numero eccessivo di richieste</li><li>Server temporaneo non disponibile</li></ul>|
 
 ## <a name="get-operations-response"></a>Ottenere la risposta delle operazioni
 
-### <a name="successful-get-operations-response"></a>Risposta operazioni get riuscita
+### <a name="successful-get-operations-response"></a>Risposta alle operazioni get riuscite
 
 Le informazioni seguenti vengono restituite in una risposta con esito positivo.
 
 |Nome|Tipo|Descrizione|
 |--- |--- |--- |
 |id|string|ID dell'operazione.|
-|createdDateTimeUtc|string|Data/ora di creazione dell'operazione.|
+|createdDateTimeUtc|string|Data e ora di creazione dell'operazione.|
 |lastActionDateTimeUtc|string|Data e ora in cui lo stato dell'operazione è stato aggiornato.|
-|status|string|Elenco di stati possibili per il processo o il documento: <ul><li>Cancellati</li><li>Cancelling</li><li>Non riuscito</li><li>NotStarted</li><li>In esecuzione</li><li>Completato</li><li>ValidationFailed</li></ul>|
+|status|string|Elenco di possibili stati per il processo o il documento: <ul><li>Cancellati</li><li>Cancelling</li><li>Non riuscito</li><li>NotStarted</li><li>In esecuzione</li><li>Completato</li><li>ValidationFailed</li></ul>|
 |riepilogo|StatusSummary[]|Riepilogo contenente i dettagli elencati di seguito.|
-|Riepilogo. totale|numero intero|Conteggio dei documenti totali.|
-|Riepilogo. operazione non riuscita|numero intero|Conteggio dei documenti non riuscito.|
-|Riepilogo. operazione riuscita|numero intero|Conteggio dei documenti tradotti correttamente.|
-|Riepilogo. in corso|numero intero|Conteggio dei documenti in corso.|
-|Riepilogo. notYetStarted|numero intero|Conteggio dei documenti non ancora avviati.|
-|Riepilogo. annullato|numero intero|Conteggio dei documenti annullati.|
-|Riepilogo. totalCharacterCharged|numero intero|Numero totale di caratteri addebitati.|
+|summary.total|numero intero|Conteggio dei documenti totali.|
+|summary.failed|numero intero|Conteggio dei documenti non riuscito.|
+|summary.success|numero intero|Numero di documenti tradotti correttamente.|
+|summary.inProgress|numero intero|Conteggio dei documenti in corso.|
+|summary.notYetStarted|numero intero|Numero di documenti non ancora avviati.|
+|summary.cancelled|numero intero|Numero di documenti annullati.|
+|summary.totalCharacterCharged|numero intero|Numero totale di caratteri addebitati.|
 
-###<a name="error-response"></a>Risposta di errore
+### <a name="error-response"></a>Risposta di errore
 
 |Nome|Tipo|Descrizione|
 |--- |--- |--- |
 |codice|string|Enumerazioni contenenti codici di errore di alto livello. Valori possibili:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Non autorizzata</li></ul>|
-|message|string|Ottiene il messaggio di errore di alto livello.|
-|target|string|Ottiene l'origine dell'errore. Ad esempio, sarebbe "Documents" o "Document ID" nel caso di un documento non valido.|
-|innerError|InnerErrorV2|Nuovo formato di errore interno, che è conforme alle linee guida dell'API servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, Message e optional Properties Target, Details (key value pair), Inner Error (può essere annidato).|
-|innerError. code|string|Ottiene la stringa di errore del codice.|
-|innerError. Message|string|Ottiene il messaggio di errore di alto livello.|
+|message|string|Ottiene un messaggio di errore di alto livello.|
+|target|string|Ottiene l'origine dell'errore. Ad esempio, sarebbe "documenti" o "ID documento" nel caso di un documento non valido.|
+|innerError|InnerErrorV2|Nuovo formato di errore interno, conforme alle linee guida dell'API Servizi cognitivi. Contiene le proprietà obbligatorie ErrorCode, message e optional properties target, details(coppia chiave-valore), inner error (può essere annidato).|
+|innerError.code|string|Ottiene la stringa di errore del codice.|
+|innerError.message|string|Ottiene il messaggio di errore di alto livello.|
 
 ## <a name="examples"></a>Esempio
 
-### <a name="example-successful-response"></a>Esempio di risposta riuscita
+### <a name="example-successful-response"></a>Esempio di risposta con esito positivo
 
-Di seguito è riportato un esempio di una risposta con esito positivo.
+Di seguito è riportato un esempio di risposta con esito positivo.
 
 ```JSON
 {
@@ -137,7 +137,7 @@ Di seguito è riportato un esempio di una risposta con esito positivo.
 
 ### <a name="example-error-response"></a>Risposta di errore di esempio
 
-Di seguito è riportato un esempio di una risposta di errore. Lo schema per altri codici di errore è lo stesso.
+Di seguito è riportato un esempio di risposta di errore. Lo schema per altri codici di errore è lo stesso.
 
 Codice di stato: 500
 
@@ -157,7 +157,7 @@ Codice di stato: 500
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'uso della traduzione dei documenti e della libreria client, seguire la Guida introduttiva.
+Seguire la guida introduttiva per altre informazioni sull'uso della traduzione dei documenti e della libreria client.
 
 > [!div class="nextstepaction"]
-> [Introduzione alla traduzione dei documenti](../get-started-with-document-translation.md)
+> [Introduzione alla traduzione di documenti](../get-started-with-document-translation.md)

@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 86f7bbbb52b1596e20fb1f3a67e42b2dd27c501a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.custom: contperf-fy21q2, devx-track-azurecli
+ms.openlocfilehash: 9b73eeccad6d17df8c711671c56fbb7cee20b17a
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103012609"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484728"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guida introduttiva: Esplorare e analizzare i costi con l'analisi dei costi
 
@@ -68,9 +68,9 @@ La visualizzazione dell'analisi dei costi iniziale include le aree seguenti.
 
 ### <a name="understand-forecast"></a>Informazioni sulle previsioni
 
-In base all'utilizzo recente, le previsioni sui costi mostrano una proiezione dei costi stimati per il periodo di tempo selezionato. Se un budget viene configurato nell'analisi dei costi, è possibile visualizzare quando è probabile che la spesa prevista superi la soglia del budget. Il modello di previsione può prevedere i costi futuri per un massimo di un anno. Selezionare filtri per visualizzare il costo granulare previsto per la dimensione selezionata.
+In base all'utilizzo recente, le previsioni dei costi mostrano una proiezione dei costi stimati per il periodo di tempo selezionato. Se un budget è configurato nell'analisi dei costi, è possibile visualizzare quando la spesa prevista supera probabilmente la soglia del budget. Il modello di previsione può stimare i costi futuri per un massimo di un anno. Selezionare i filtri per visualizzare il costo previsto granulare per la dimensione selezionata.
 
-Il modello di previsione è basato su un modello di regressione Time Series. Richiede almeno 10 giorni di dati recenti relativi a costi e utilizzo per poter fare una previsione accurata dei costi. Per poter eleborare un modello di previsione per un determinato periodo di tempo, è necessario disporre di dati di training relativi a un periodo di tempo della stessa durata. Ad esempio, per una proiezione di tre mesi sono necessari almeno tre mesi di dati recenti relativi a costi e utilizzo.
+Il modello di previsione è basato su un modello di regressione della serie temporale. Richiede almeno 10 giorni di dati recenti relativi a costi e utilizzo per poter fare una previsione accurata dei costi. Per poter eleborare un modello di previsione per un determinato periodo di tempo, è necessario disporre di dati di training relativi a un periodo di tempo della stessa durata. Ad esempio, per una proiezione di tre mesi sono necessari almeno tre mesi di dati recenti relativi a costi e utilizzo.
 
 ## <a name="customize-cost-views"></a>Personalizzare le visualizzazioni dei costi
 
