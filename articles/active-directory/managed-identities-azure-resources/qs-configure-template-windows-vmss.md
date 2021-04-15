@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 377bbb9ce111f3cf2daf8426e128186711c30e5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e948b96022972dcf702ac5a4d8be85c9afe16e7
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587452"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365978"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurare le identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali di Azure tramite un modello
 
@@ -29,6 +29,7 @@ ms.locfileid: "97587452"
 Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.
 
 Questo articolo illustra come eseguire le seguenti operazioni di identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali di Azure mediante il modello di distribuzione Azure Resource Manager:
+
 - Abilitare e disabilitare l'identità gestita assegnata dal sistema in un set di scalabilità di macchine virtuali di Azure
 - Aggiungere e rimuovere un'identità gestita assegnata dall'utente in un set di scalabilità di macchine virtuali di Azure
 
@@ -60,7 +61,7 @@ Indipendentemente dall'opzione scelta, la sintassi dei modelli è la stessa dura
 
 In questa sezione si abiliterà e disabiliterà l'identità gestita assegnata dal sistema tramite un modello di Azure Resource Manager.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Abilitare l'identità gestita assegnata dal sistema durante la creazione di un set di scalabilità di macchine virtuali o per un set di scalabilità di macchine virtuali esistente
+### <a name="enable-system-assigned-managed-identity-during-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Abilitare l'identità gestita assegnata dal sistema durante la creazione di un set di scalabilità di macchine virtuali o di un set di scalabilità di macchine virtuali esistente
 
 1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali.
 2. Per abilitare l'identità gestita assegnata dal sistema, caricare il modello in un editor, individuare la risorsa `Microsoft.Compute/virtualMachinesScaleSets` interessata nella sezione risorse e aggiungere la proprietà `identity` allo stesso livello della proprietà `"type": "Microsoft.Compute/virtualMachinesScaleSets"`. Usare la sintassi seguente:
@@ -70,10 +71,6 @@ In questa sezione si abiliterà e disabiliterà l'identità gestita assegnata da
        "type": "SystemAssigned"
    }
    ```
-
-> [!NOTE]
-> È facoltativamente possibile effettuare il provisioning delle identità gestite per le risorse di Azure dell'estensione set di scalabilità di macchine virtuali specificandolo nell'elemento `extensionProfile` del modello. Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.  Per altre informazioni, vedere [Eseguire la migrazione dall'estensione macchina virtuale al servizio metadati dell'istanza di Azure per l'autenticazione](howto-migrate-vm-extension.md).
-
 
 4. Al termine, le sezioni seguenti dovrebbero essere aggiunte alla sezione risorse del modello e dovrebbero avere un aspetto simile a questo:
 
@@ -92,23 +89,7 @@ In questa sezione si abiliterà e disabiliterà l'identità gestita assegnata da
                 //other resource provider properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
+        
                 }
             }
         }
@@ -194,13 +175,10 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
        }
 
    }
-   ```
-> [!NOTE]
-> È facoltativamente possibile effettuare il provisioning delle identità gestite per le risorse di Azure dell'estensione set di scalabilità di macchine virtuali specificandolo nell'elemento `extensionProfile` del modello. Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.  Per altre informazioni, vedere [Eseguire la migrazione dall'estensione macchina virtuale al servizio metadati dell'istanza di Azure per l'autenticazione](howto-migrate-vm-extension.md).
 
-3. Al termine il modello dovrebbe essere simile al seguente:
+3. When you are done, your template should look similar to the following:
 
-   **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**   
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**   
 
    ```json
    "resources": [
@@ -220,23 +198,6 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
                 }
             }
         }
@@ -263,29 +224,12 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
-                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)    
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "ManagedIdentityWindowsExtension",
-                                "properties": {
-                                  "publisher": "Microsoft.ManagedIdentity",
-                                  "type": "ManagedIdentityExtensionForWindows",
-                                  "typeHandlerVersion": "1.0",
-                                  "autoUpgradeMinorVersion": true,
-                                  "settings": {
-                                      "port": 50342
-                                  }
-                                }
-                            }
-                        ]
-                    }
                 }
             }
         }
     ]
    ```
-   ### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Rimuovere un'identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali di Azure
+### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Rimuovere un'identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali di Azure
 
 Se è disponibile un set di scalabilità di macchine virtuali per cui non è più necessaria un'identità gestita assegnata dall'utente:
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
-ms.openlocfilehash: 23c0787b45a6e3f52dae58c24a33e00437f1e09c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99b6e06b817f98e64968615b5e652b707268fe78
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577190"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364499"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Libreria dell'esecuzione bulk .NET: informazioni sul download 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +29,8 @@ ms.locfileid: "104577190"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Connettore Spark](sql-api-sdk-java-spark.md)
+> * [Connettore OLTP Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Connettore OLTP Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provider di risorse REST](/rest/api/cosmos-db-resource-provider/)
@@ -37,7 +38,7 @@ ms.locfileid: "104577190"
 > * [Esecuzione bulk - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
-| | Collegamenti/Note |
+| | Collegamento/note |
 |---|---|
 | **Descrizione**| La libreria dell'esecuzione bulk consente alle applicazioni client di eseguire operazioni in blocco su account di Azure Cosmos DB. Questa libreria rende disponibili gli spazi dei nomi BulkImport, BulkUpdate e BulkDelete. Il modulo BulkImport può inserire in blocco i documenti in maniera ottimizzata, in modo che la velocità effettiva di cui è stato eseguito il provisioning per una raccolta venga utilizzata nella misura massima consentita. Il modulo BulkUpdate può aggiornare in blocco i dati esistenti nei contenitori di Azure Cosmos come patch. Il modulo BulkDelete può eliminare in blocco i documenti in maniera ottimizzata, in modo che la velocità effettiva di cui è stato eseguito il provisioning per una raccolta venga utilizzata nella misura massima consentita.|
 |**Download dell'SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
@@ -81,7 +82,7 @@ ms.locfileid: "104577190"
 
 ### <a name="189"></a><a name="1.8.9"></a>1.8.9
 
-* Correzione di un problema relativo a BulkDeleteAsync quando i valori con virgolette precedute sono passati come parametri di input.
+* Risolto un problema con BulkDeleteAsync quando i valori con virgolette precedute da caratteri di escape venivano passati come parametri di input.
 
 ### <a name="188"></a><a name="1.8.8"></a>1.8.8
 

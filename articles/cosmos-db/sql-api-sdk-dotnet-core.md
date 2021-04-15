@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 783cfc75fea1575c6404477581bd5e2c8b668959
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fffd661b4bf535b19ec32cf8b14e3fff1c036a88
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577122"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364389"
 ---
-# <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK v2 per l'API SQL: risorse e note sulla versione
+# <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK v2 per l'API SQL: note sulla versione e risorse
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -29,7 +29,8 @@ ms.locfileid: "104577122"
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Connettore Spark](sql-api-sdk-java-spark.md)
+> * [Connettore OLTP Spark 3](sql-api-sdk-java-spark-v3.md)
+> * [Connettore OLTP Spark 2](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
 > * [Provider di risorse REST](/azure/azure-resource-manager/management/azure-services-resource-providers)
@@ -51,7 +52,7 @@ ms.locfileid: "104577122"
 > [!NOTE]
 > Se si usa .NET Core, vedere la versione 3.x più recente di [.NET SDK](sql-api-sdk-dotnet-standard.md), destinata a .NET Standard.
 
-Le seguenti versioni secondarie degli SDK .NET sono disponibili nella versione 2. x. x:
+Le seguenti versioni secondarie degli SDK .NET sono disponibili nella versione 2.x.x:
 
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v2/changelog.md)]
 

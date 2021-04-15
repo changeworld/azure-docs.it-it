@@ -1,33 +1,33 @@
 ---
 title: Tag delle immagini di contenitori in Servizi cognitivi
 titleSuffix: Azure Cognitive Services
-description: Elenco completo di tutti i tag dell'immagine del contenitore di servizi cognitivi.
+description: Elenco completo di tutti i tag immagine del contenitore servizio cognitivo.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 03/25/2020
+ms.date: 04/12/2021
 ms.author: aahi
-ms.openlocfilehash: 3fecb84196ba736120273955b2c88af8cb4dadea
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 80b1af824f1c7bd47f16723f839141c4bed756df
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095816"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364992"
 ---
-# <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Tag di immagine del contenitore di servizi cognitivi di Azure e note sulla versione
+# <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Servizi cognitivi di Azure tag dell'immagine del contenitore e note sulla versione
 
-Servizi cognitivi di Azure offre molte immagini del contenitore. I registri dei contenitori e i repository corrispondenti variano tra le immagini del contenitore. Ogni nome dell'immagine del contenitore offre più tag. Un tag dell'immagine del contenitore è un meccanismo di controllo delle versioni dell'immagine del contenitore. Questo articolo è destinato a essere usato come riferimento completo per l'elenco di tutte le immagini del contenitore di servizi cognitivi e dei relativi tag disponibili.
+Servizi cognitivi di Azure offre molte immagini del contenitore. I registri dei contenitori e i repository corrispondenti variano a seconda delle immagini del contenitore. Ogni nome di immagine del contenitore offre più tag. Un tag di immagine del contenitore è un meccanismo di controllo delle versioni dell'immagine del contenitore. Questo articolo è destinato a essere usato come riferimento completo per elencare tutte le immagini del contenitore servizi cognitivi e i relativi tag disponibili.
 
 > [!TIP]
-> Quando si usa [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) , prestare particolare attenzione alle maiuscole e minuscole del registro contenitori, al repository, al nome dell'immagine del contenitore e al tag corrispondente, poiché fanno **distinzione tra maiuscole** e minuscole.
+> Quando si usa , prestare particolare attenzione alle maiuscole e minuscole del registro contenitori, del repository, del nome dell'immagine del contenitore e del tag corrispondente, in quanto fanno distinzione tra maiuscole [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) **e minuscole.**
 
 ## <a name="anomaly-detector"></a>Rilevamento anomalie
 
-L'immagine del contenitore del [rilevatore di anomalie][ad-containers] è disponibile nel `mcr.microsoft.com` Syndicate del registro contenitori. Si trova all'interno del `azure-cognitive-services/decision` repository ed è denominato `anomaly-detector` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector` .
+[L Rilevamento anomalie'immagine][ad-containers] del contenitore è disponibile nel registro `mcr.microsoft.com` contenitori. Si trova all'interno `azure-cognitive-services/decision` del repository ed è denominato `anomaly-detector` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector` .
 
-Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/decision/anomaly-detector/tags/list)versione.
+Per questa immagine del contenitore sono disponibili i tag seguenti. È anche possibile trovare un elenco completo dei [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/decision/anomaly-detector/tags/list)
 
 # <a name="latest-version"></a>[Versione più recente](#tab/current)
 
@@ -44,43 +44,49 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 
 ---
 
-## <a name="read-ocr-optical-character-recognition"></a>Lettura OCR (riconoscimento ottico di caratteri)
+## <a name="read-ocr-optical-character-recognition"></a>Lettura OCR (riconoscimento ottico dei caratteri)
 
-Il [visione artificiale][cv-containers] l'immagine del contenitore OCR è disponibile nel `mcr.microsoft.com` Syndicate del registro contenitori. Si trova all'interno del `azure-cognitive-services` repository ed è denominato `read` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/vision/read` .
+[L Visione artificiale][cv-containers] del contenitore read OCR è disponibile nel registro `mcr.microsoft.com` contenitori. Si trova all'interno `azure-cognitive-services` del repository ed è denominato `read` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/vision/read` .
 
-Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/vision/read/tags/list)versione.
+Per questa immagine del contenitore sono disponibili i tag seguenti. È anche possibile trovare un elenco completo dei [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/vision/read/tags/list)
 
 # <a name="latest-version"></a>[Versione più recente](#tab/current)
 
-Note sulla versione per `3.2-preview.2` :
-* Versione non libera
-* Parametro ReadingOrder per scegliere tra l'ordine delle righe di testo nella risposta JSON
-* Registrazione avanzata
-* Aggiornamenti rapidi al modello CJK
+Note sulla versione per `3.2` :
 
-| Tag immagine                    | Note |
+* Il contenitore OCR di lettura è ora disponibile a livello generale.
+
+| Tag di immagine                    | Note |
 |-------------------------------|:------|
-|3.2.2.014850001-49e0eac6-amd64-anteprima                     |       |
+| `3.2`                     |       |
 
 # <a name="previous-versions"></a>[Versioni precedenti](#tab/previous)
 
+
+Note sulla versione per `3.2-preview.2` :
+
+* Versione senza distribuzione
+* Parametro ReadingOrder per scegliere tra l'ordine delle righe di testo nella risposta JSON
+* Registrazione avanzata
+* Hotfix per il modello CJK
+* 
 Note sulla versione per `v2.0.013250001-amd64-preview` :
 
 * Ridurre ulteriormente l'utilizzo della memoria per il contenitore.
-* La cache esterna è necessaria per la configurazione di più POD. Ad esempio, configurare Redis per la memorizzazione nella cache.
-* Corretti i risultati mancanti quando la cache Redis è configurata e `ResultExpirationPeriod` è impostata su 0.
-* Rimuovere la limitazione delle dimensioni del corpo della richiesta di 26MB. Il contenitore è ora in grado di accettare >file 26MB.
-* Aggiungere il timestamp e la versione di build alla registrazione della console.
+* La cache esterna è necessaria per la configurazione di più pod. Ad esempio, configurare Redis per la memorizzazione nella cache.
+* Correzione dei risultati mancanti quando cache Redis è impostata su `ResultExpirationPeriod` 0.
+* Rimuovere il limite di dimensioni del corpo della richiesta di 26 MB. Il contenitore può ora accettare >file da 26 MB.
+* Aggiungere timestamp e versione della build alla registrazione della console.
 
 Note sulla versione per `1.1.013050001-amd64-preview`
 
-* Aggiunta `ReadEngineConfig:ResultExpirationPeriod` della configurazione di inizializzazione del contenitore per specificare quando il sistema deve pulire i risultati del riconoscimento. 
+* Aggiunta della `ReadEngineConfig:ResultExpirationPeriod` configurazione di inizializzazione del contenitore per specificare quando il sistema deve pulire i risultati del riconoscimento. 
     * L'impostazione è in ore e il valore predefinito è 48 ore.
     * L'impostazione può ridurre l'utilizzo della memoria per l'archiviazione dei risultati, soprattutto quando si usa l'archiviazione in memoria del contenitore.
-    * Esempio 1. ReadEngineConfig: ResultExpirationPeriod = 1, il sistema cancellerà il risultato del riconoscimento 1 ora dopo il processo.
-    * Se questa configurazione è impostata su 0, il sistema cancellerà il risultato del riconoscimento dopo che il risultato è stato recuperato.
+    * Esempio 1. ReadEngineConfig:ResultExpirationPeriod=1. Il sistema cancella il risultato del riconoscimento 1 ora dopo il processo.
+    * Se questa configurazione è impostata su 0, il sistema cancella il risultato del riconoscimento dopo il recupero del risultato.
 
-* Correzione di un errore interno del server 500 quando al sistema viene passato un formato di immagine non valido. Verrà ora restituito un errore 400:
+* Correzione di un errore interno del server 500 quando un formato di immagine non valido viene passato al sistema. Verrà ora restituito un errore 400:
 
     ```json
     {
@@ -93,6 +99,7 @@ Note sulla versione per `1.1.013050001-amd64-preview`
 
 | Tag immagine                    | Note |
 |-------------------------------|:------|
+| `3.2.2.014850001-49e0eac6-amd64-preview` |       |
 | `2.0.013250001-amd64-preview` |       |
 | `1.1.013050001-amd64-preview` |       |
 | `1.1.011580001-amd64-preview` |       |
@@ -104,9 +111,9 @@ Note sulla versione per `1.1.013050001-amd64-preview`
 
 ## <a name="form-recognizer"></a>Riconoscimento modulo
 
-L'immagine del contenitore del [riconoscitore del modulo][fr-containers] è disponibile nel `mcr.microsoft.com` Syndication del registro contenitori. Si trova all'interno del `azure-cognitive-services/custom-form` repository ed è denominato `labeltool` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool` .
+[L riconoscimento modulo'immagine][fr-containers] del contenitore è disponibile nel registro `mcr.microsoft.com` contenitori. Si trova all'interno `azure-cognitive-services/custom-form` del repository ed è denominato `labeltool` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool` .
 
-Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/custom-form/labeltool/tags/list)versione.
+Per questa immagine del contenitore sono disponibili i tag seguenti. È anche possibile trovare un elenco completo di [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/custom-form/labeltool/tags/list)
 
 # <a name="latest-version"></a>[Versione più recente](#tab/current)
 
@@ -127,9 +134,9 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 
 ## <a name="language-understanding-luis"></a>Language Understanding (LUIS)
 
-L'immagine del contenitore [Luis][lu-containers] si trova nel `mcr.microsoft.com` Syndicate del registro contenitori. Si trova all'interno del `azure-cognitive-services/language` repository ed è denominato `luis` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/language/luis` .
+L'immagine del contenitore [LUIS][lu-containers] è disponibile nel registro `mcr.microsoft.com` contenitori. Si trova all'interno `azure-cognitive-services/language` del repository ed è denominato `luis` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/language/luis` .
 
-Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/language/luis/tags/list)versione.
+Per questa immagine del contenitore sono disponibili i tag seguenti. È anche possibile trovare un elenco completo dei [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/language/luis/tags/list)
 
 # <a name="latest-version"></a>[Versione più recente](#tab/current)
 
@@ -141,7 +148,7 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 
 # <a name="previous-version"></a>[Versione precedente](#tab/previous)
 
-| Tag immagine                    | Note |
+| Tag di immagine                    | Note |
 |-------------------------------|:------|
 | `1.1.012130003-amd64-preview` |       |
 
@@ -149,7 +156,7 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 
 ## <a name="custom-speech-to-text"></a>Riconoscimento vocale personalizzato
 
-L'immagine del contenitore [da riconoscimento vocale personalizzato a testo][sp-cstt] è disponibile nel Syndicate del `mcr.microsoft.com` Registro contenitori. Si trova all'interno del `azure-cognitive-services/speechservices/` repository ed è denominato `custom-speech-to-text` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text` . È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-speech-to-text/tags/list)versione.
+[L Riconoscimento vocale personalizzato del contenitore da Riconoscimento vocale personalizzato][sp-cstt] a testo è disponibile nel `mcr.microsoft.com` syndicate del registro contenitori. Si trova all'interno `azure-cognitive-services/speechservices/` del repository ed è denominato `custom-speech-to-text` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text` . È anche possibile trovare un elenco completo dei [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-speech-to-text/tags/list)
 
 
 # <a name="latest-version"></a>[Versione più recente](#tab/current)
@@ -161,7 +168,7 @@ Nota sulla versione per `2.10.0-amd64` :
 
 Si noti che a causa degli elenchi di frasi inclusi, le dimensioni di questa immagine del contenitore sono aumentate.
 
-| Tag immagine                    | Note | Digest                                                                   |
+| Tag di immagine                    | Note | Digest                                                                   |
 |-------------------------------|:------|:-------------------------------------------------------------------------|
 | `latest`                      |       | `sha256:944f051e3b90aa8eb8a37a4d4a18d4e13dbb49f9fe6d5ced61a0f99b3b3e312c`|
 | `2.10.0-amd64`                |       | `sha256:944f051e3b90aa8eb8a37a4d4a18d4e13dbb49f9fe6d5ced61a0f99b3b3e312c`|
@@ -172,8 +179,8 @@ Si noti che a causa degli elenchi di frasi inclusi, le dimensioni di questa imma
 Nota sulla versione per `2.9.0-amd64` :
 
 **Funzionalità**
-* Ulteriori dettagli sull'errore per i problemi durante il recupero di modelli personalizzati in base all'ID.
-* Per impostazione predefinita, l'ipotesi è supportata nei risultati della conversazione.
+* Altri dettagli sull'errore per i problemi durante il recupero di modelli personalizzati in base all'ID.
+* L'ipotesi è supportata nei risultati della conversazione per impostazione predefinita.
 
 Nota sulla versione per `2.7.0-amd64` :
 
@@ -185,45 +192,45 @@ Si noti che a causa degli elenchi di frasi inclusi, le dimensioni di questa imma
 Nota sulla versione per `2.6.0-amd64` :
 
 **Funzionalità**
-* Supporto per l'phrase V2 
+* Supporto per phraselist v2 
 * Gli elenchi di frasi sono supportati nelle impostazioni locali seguenti:
-    * it-au
-    * en-CA
-    * en-GB
-    * it-in
+    * en-au
+    * en-ca
+    * en-gb
+    * en-in
     * it-it
     * zh-cn
-* Supporto per il download personalizzato del modello di base. 
+* Supporto per il download del modello di base personalizzato. 
     * Usare `BaseModelLocale=<locale>` con il `docker run` comando
-* Migrazione completa a .NET 3,1
+* Migrazione completa a .NET 3.1
 
 **Correzioni**
-* È stato risolto un problema per cui il Punteggio di confidenza era sempre 1 in modalità di programmazione
-* Migrazione all'API TextAnalytics 3,0
+* Risolto un problema a causa del quale il punteggio di attendibilità era sempre 1 in modalità diarizzazione
+* Migrazione all'API TextAnalytics 3.0
 
 Si noti che a causa degli elenchi di frasi inclusi, le dimensioni di questa immagine del contenitore sono aumentate.
 
 Nota sulla versione per `2.5.0-amd64` :
 
 **Funzionalità**
-* Supporto della pronuncia personalizzata nei modelli personalizzati
-* Supportare Azure e il Cloud Azure per enti pubblici degli Stati Uniti
+* Supportare la pronuncia personalizzata nei modelli personalizzati
+* Supporto di Azure e Azure US Government Cloud
 
 **Correzioni**
-* Correzione del problema di esecuzione come utente non radice in modalità di Diarizzazione
+* Correzione del problema dell'esecuzione come utente non radice in modalità diarizzazione
 
 | Tag immagine                    | Note               |
 |-------------------------------|:--------------------|
 | `2.9.0-amd64`                 |                     |
 | `2.7.0-amd64`                 |                     |
 | `2.6.0-amd64`                 |                     |
-| `2.5.0-amd64`                 |   1 ° versione GA    |
+| `2.5.0-amd64`                 |   Prima versione disponibile a livello di codice a livello di codice    |
 
 ---
 
 ## <a name="custom-text-to-speech"></a>Sintesi vocale personalizzata
 
-L'immagine del contenitore [di sintesi vocale personalizzato][sp-ctts] è disponibile nel `mcr.microsoft.com` Syndicate del registro contenitori. Si trova all'interno del `azure-cognitive-services/speechservices/` repository ed è denominato `custom-text-to-speech` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` . È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-text-to-speech/tags/list)versione.
+[L'immagine del contenitore di sintesi][sp-ctts] vocale personalizzata è disponibile nel registro `mcr.microsoft.com` contenitori. Si trova all'interno `azure-cognitive-services/speechservices/` del repository ed è denominato `custom-text-to-speech` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` . È anche possibile trovare un elenco completo di [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-text-to-speech/tags/list)
 
 
 # <a name="latest-version"></a>[Versione più recente](#tab/current)
@@ -233,7 +240,7 @@ Nota sulla versione per `1.12.0-amd64` :
 **Funzionalità**
 * Eseguire l'aggiornamento ai modelli più recenti.
 
-| Tag immagine                    | Note | Digest                                                                   |
+| Tag di immagine                    | Note | Digest                                                                   |
 |-------------------------------|:------|:-------------------------------------------------------------------------|
 | `latest`                      |       | `sha256:82806245b8ccce808523c4276d8f447c8429db8b04ff26bdbc4d36ba6a704db4` |
 | `1.12.0-amd64`                |       | `sha256:82806245b8ccce808523c4276d8f447c8429db8b04ff26bdbc4d36ba6a704db4` |
@@ -244,7 +251,7 @@ Nota sulla versione per `1.12.0-amd64` :
 Nota sulla versione per `1.11.0-amd64` :
 
 **Funzionalità**
-* Ulteriori dettagli sull'errore per i problemi durante il recupero di modelli personalizzati in base all'ID.
+* Altri dettagli sull'errore per i problemi durante il recupero di modelli personalizzati in base all'ID.
 
 Nota sulla versione per `1.9.0-amd64` :
 
@@ -253,27 +260,27 @@ Versione mensile regolare
 Nota sulla versione per `1.8.0-amd64` :
 
 **Funzionalità**
-* Migrazione completa a .NET 3,1
+* Migrazione completa a .NET 3.1
 
 Nota sulla versione per `1.7.0-amd64` :
 
 **Funzionalità**
-* Migrazione parziale a .NET 3,1
+* Migrazione parziale a .NET 3.1
 
-| Tag immagine                    | Note               |
+| Tag di immagine                    | Note               |
 |-------------------------------|:--------------------|
 | `1.11.0-amd64`                |                     |
 | `1.9.0-amd64`                 |                     |
 | `1.8.0-amd64`                 |                     |
-| `1.7.0-amd64`                 |   1 ° versione GA    |
+| `1.7.0-amd64`                 |   Prima versione disponibile a livello di ga    |
 
 ---
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
-L'immagine del contenitore [di sintesi vocale][sp-stt] è reperibile nel Syndicate del `mcr.microsoft.com` Registro contenitori. Si trova all'interno del `azure-cognitive-services/speechservices/` repository ed è denominato `speech-to-text` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` . È possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list)versione.
+[L'immagine del contenitore Speech-to-text][sp-stt] è disponibile nel `mcr.microsoft.com` syndicate del registro contenitori. Si trova all'interno `azure-cognitive-services/speechservices/` del repository ed è denominato `speech-to-text` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` . È possibile trovare un elenco completo dei [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list)
 
-Poiché il 2.5.0 di riconoscimento vocale v, le immagini sono supportate nell'area *Virginia del governo degli Stati Uniti* . Usare l'endpoint di fatturazione di Virginia per il *governo degli Stati Uniti* e le chiavi API quando si usa questa area.
+A partire da Speech-to-text v2.5.0, le immagini sono supportate nell'area *Us Government Virginia.* Usare l'endpoint *di fatturazione us government Virginia* e le chiavi API quando si usa questa area.
 
 # <a name="latest-version"></a>[Versione più recente](#tab/current)
 
@@ -289,9 +296,9 @@ Si noti che a causa degli elenchi di frasi inclusi, le dimensioni di questa imma
 | `latest`                      | Immagine del contenitore con le `en-US` impostazioni locali.                                                             |
 | `2.10.0-amd64-<locale>`       | Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio, `2.10.0-amd64-en-us`.|
 
-Per questo contenitore sono disponibili le impostazioni locali seguenti.
+In questo contenitore sono disponibili le impostazioni locali seguenti.
 
-| Impostazioni locali per v 2.10.0          | Note                                    | Digest                                                                    |
+| Impostazioni locali per la versione 2.10.0          | Note                                    | Digest                                                                    |
 |-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
 | `ar-ae`                     | Immagine del contenitore con le `ar-AE` impostazioni locali. | `sha256:f81f6c53e8ca9c3ae10c335ad45054cea571eca2f4ab32e44e13445936ce3f17` |
 | `ar-bh`                     | Immagine del contenitore con le `ar-BH` impostazioni locali. | `sha256:da276dc1b481c002a9b3d2944e190af799175b5a2eabafab87153e22529bdab1` |
@@ -305,26 +312,26 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 | `ar-sa`                     | Immagine del contenitore con le `ar-SA` impostazioni locali. | `sha256:f81f6c53e8ca9c3ae10c335ad45054cea571eca2f4ab32e44e13445936ce3f17` |
 | `ar-sy`                     | Immagine del contenitore con le `ar-SY` impostazioni locali. | `sha256:5af93722e70e445b3a4102bf621e6d5bb5854bcc99f60d4590e23fc24e50297e` |
 | `bg-bg`                     | Immagine del contenitore con le `bg-BG` impostazioni locali. | `sha256:a9402f03b02150288d51e03ec97b8efb98ad6c444df3ab50a3b4ce1129d02d86` |
-| `ca-es`                     | Immagine del contenitore con le `ca-ES` impostazioni locali. | `sha256:122df16df46a84a14b28e4ff406a047947fdc10a65b40482438beee55579f687` |
-| `cs-cz`                     | Immagine del contenitore con le `cs-CZ` impostazioni locali. | `sha256:7b7d7ef798a0210b8c33a3a201ba149e1264cc7ac6ddaf986721d86e91e5e444` |
-| `da-dk`                     | Immagine del contenitore con le `da-DK` impostazioni locali. | `sha256:ba8dd6564939eda7b81b1a4c13ad31672927528dd146698fce10c12d21f647a9` |
-| `de-de`                     | Immagine del contenitore con le `de-DE` impostazioni locali. | `sha256:d0fa9bc409238ebdab0a15174b3169c99cbad42323087ea589bb7812a0550149` |
-| `el-gr`                     | Immagine del contenitore con le `el-GR` impostazioni locali. | `sha256:4c4a115ae8daf53e344c1c4f838ebc68c3de2dae4d1f1aceb021425807d96ac0` |
-| `en-au`                     | Immagine del contenitore con le `en-AU` impostazioni locali. | `sha256:f18c31f2bc9e655b93f71049b40dae2213c7417169f7a4e42f603d5891857b2a` |
-| `en-ca`                     | Immagine del contenitore con le `en-CA` impostazioni locali. | `sha256:67f02cdb2285c2891aff8ff8d35ee20bad11f2d1cc1d67c461185466edefa5d6` |
-| `en-gb`                     | Immagine del contenitore con le `en-GB` impostazioni locali. | `sha256:ed606155b5f9b6c6dd68c0c1f5e48a0735bc4a5ded872655c0ef7de2bf084312` |
-| `en-hk`                     | Immagine del contenitore con le `en-HK` impostazioni locali. | `sha256:2fb6a64aaea5efdb2cac8bda2c7d437638fca93aa24268a45f2a395285e022df` |
-| `en-ie`                     | Immagine del contenitore con le `en-IE` impostazioni locali. | `sha256:9ddb64e481cec6449dfc48091092247fa401fcd48ab1d955c5186565f903bd34` |
-| `en-in`                     | Immagine del contenitore con le `en-IN` impostazioni locali. | `sha256:060a87ae817a82486966a4f10d1e872d30370ea58e297ca4c2018d0e034bfbe5` |
-| `en-nz`                     | Immagine del contenitore con le `en-NZ` impostazioni locali. | `sha256:ece4299bd7f02fe4403b53320cf55bb2e3ab65da3d94bfea09124c14955a3de3` |
-| `en-ph`                     | Immagine del contenitore con le `en-PH` impostazioni locali. | `sha256:6b47286a882122de8114942d426cbb8b4f1aded318032317b03a6b68237372e0` |
-| `en-sg`                     | Immagine del contenitore con le `en-SG` impostazioni locali. | `sha256:41fa2caec6a732736f75b682e0410b89ba5e12307cd6e2652986a2676a5dd560` |
-| `en-us`                     | Immagine del contenitore con le `en-US` impostazioni locali. | `sha256:80ae57602d8e66c6ed0366327a87c0ed5717b44c596b981a2b5be09c7f5a4c8a` |
-| `en-za`                     | Immagine del contenitore con le `en-ZA` impostazioni locali. | `sha256:705c125e5105b6eed37d745e2092d55ca8b6ccff22f4eeac9c2df958f36c72e9` |
-| `es-ar`                     | Immagine del contenitore con le `es-AR` impostazioni locali. | `sha256:67f794f16fdac457f0e0a84192e588611adb43777635b14706754c19fd90b130` |
-| `es-bo`                     | Immagine del contenitore con le `es-BO` impostazioni locali. | `sha256:94f755e70043dbe011424a0f756970f1d01ec51cb95a469531e3a6b0aa84aed1` |
-| `es-cl`                     | Immagine del contenitore con le `es-CL` impostazioni locali. | `sha256:c42eb56cbb48e0957f73793f83435c705ed0f857579acb020394025abdd760e2` |
-| `es-co`                     | Immagine del contenitore con le `es-CO` impostazioni locali. | `sha256:7cfacb01fdb80bd1b5e68d16f9e2741237ae4ec1a41a9121aed1be2622fc9f3f` |
+| `ca-es`                     | Immagine del contenitore con le impostazioni `ca-ES` locali. | `sha256:122df16df46a84a14b28e4ff406a047947fdc10a65b40482438beee55579f687` |
+| `cs-cz`                     | Immagine del contenitore con le impostazioni `cs-CZ` locali. | `sha256:7b7d7ef798a0210b8c33a3a201ba149e1264cc7ac6ddaf986721d86e91e5e444` |
+| `da-dk`                     | Immagine del contenitore con le impostazioni `da-DK` locali. | `sha256:ba8dd6564939eda7b81b1a4c13ad31672927528dd146698fce10c12d21f647a9` |
+| `de-de`                     | Immagine del contenitore con le impostazioni `de-DE` locali. | `sha256:d0fa9bc409238ebdab0a15174b3169c99cbad42323087ea589bb7812a0550149` |
+| `el-gr`                     | Immagine del contenitore con le impostazioni `el-GR` locali. | `sha256:4c4a115ae8daf53e344c1c4f838ebc68c3de2dae4d1f1aceb021425807d96ac0` |
+| `en-au`                     | Immagine del contenitore con le impostazioni `en-AU` locali. | `sha256:f18c31f2bc9e655b93f71049b40dae2213c7417169f7a4e42f603d5891857b2a` |
+| `en-ca`                     | Immagine del contenitore con le impostazioni `en-CA` locali. | `sha256:67f02cdb2285c2891aff8ff8d35ee20bad11f2d1cc1d67c461185466edefa5d6` |
+| `en-gb`                     | Immagine del contenitore con le impostazioni `en-GB` locali. | `sha256:ed606155b5f9b6c6dd68c0c1f5e48a0735bc4a5ded872655c0ef7de2bf084312` |
+| `en-hk`                     | Immagine del contenitore con le impostazioni `en-HK` locali. | `sha256:2fb6a64aaea5efdb2cac8bda2c7d437638fca93aa24268a45f2a395285e022df` |
+| `en-ie`                     | Immagine del contenitore con le impostazioni `en-IE` locali. | `sha256:9ddb64e481cec6449dfc48091092247fa401fcd48ab1d955c5186565f903bd34` |
+| `en-in`                     | Immagine del contenitore con le impostazioni `en-IN` locali. | `sha256:060a87ae817a82486966a4f10d1e872d30370ea58e297ca4c2018d0e034bfbe5` |
+| `en-nz`                     | Immagine del contenitore con le impostazioni `en-NZ` locali. | `sha256:ece4299bd7f02fe4403b53320cf55bb2e3ab65da3d94bfea09124c14955a3de3` |
+| `en-ph`                     | Immagine del contenitore con le impostazioni `en-PH` locali. | `sha256:6b47286a882122de8114942d426cbb8b4f1aded318032317b03a6b68237372e0` |
+| `en-sg`                     | Immagine del contenitore con le impostazioni `en-SG` locali. | `sha256:41fa2caec6a732736f75b682e0410b89ba5e12307cd6e2652986a2676a5dd560` |
+| `en-us`                     | Immagine del contenitore con le impostazioni `en-US` locali. | `sha256:80ae57602d8e66c6ed0366327a87c0ed5717b44c596b981a2b5be09c7f5a4c8a` |
+| `en-za`                     | Immagine del contenitore con le impostazioni `en-ZA` locali. | `sha256:705c125e5105b6eed37d745e2092d55ca8b6ccff22f4eeac9c2df958f36c72e9` |
+| `es-ar`                     | Immagine del contenitore con le impostazioni `es-AR` locali. | `sha256:67f794f16fdac457f0e0a84192e588611adb43777635b14706754c19fd90b130` |
+| `es-bo`                     | Immagine del contenitore con le impostazioni `es-BO` locali. | `sha256:94f755e70043dbe011424a0f756970f1d01ec51cb95a469531e3a6b0aa84aed1` |
+| `es-cl`                     | Immagine del contenitore con le impostazioni `es-CL` locali. | `sha256:c42eb56cbb48e0957f73793f83435c705ed0f857579acb020394025abdd760e2` |
+| `es-co`                     | Immagine del contenitore con le impostazioni `es-CO` locali. | `sha256:7cfacb01fdb80bd1b5e68d16f9e2741237ae4ec1a41a9121aed1be2622fc9f3f` |
 | `es-cr`                     | Immagine del contenitore con le `es-CR` impostazioni locali. | `sha256:7dbe5becdf4f3264764eb596d61781a2b2ee54bf9552bbb8f4db5e7fcf75d8f8` |
 | `es-cu`                     | Immagine del contenitore con le `es-CU` impostazioni locali. | `sha256:a1064b4498b7c5972a8a79ea84b78c2e1e7698c039eab49fd08963d11798ac61` |
 | `es-do`                     | Immagine del contenitore con le `es-DO` impostazioni locali. | `sha256:03cd0f0bae11df645dff52b15746e31493522db5399a18878df765b6aace0a80` |
@@ -345,26 +352,26 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 | `et-ee`                     | Immagine del contenitore con le `et-EE` impostazioni locali. | `sha256:2de931f1e6f38cdc2f54a08bc1e64a13876326d57784f0ad1c50384381790b05` |
 | `fi-fi`                     | Immagine del contenitore con le `fi-FI` impostazioni locali. | `sha256:47c1b3cceb8a6f0b2ea16160ba8c503d39ac77f44c254dc880b5e17d2aba4a4c` |
 | `fr-ca`                     | Immagine del contenitore con le `fr-CA` impostazioni locali. | `sha256:bf40fbfce8241e14656df47178d7b57f19022cc6b2598de5b337c6710eba99b6` |
-| `fr-fr`                     | Immagine del contenitore con le `fr-FR` impostazioni locali. | `sha256:93e0d58ed07d637c3e394ce80ee93524697063cb693da2aed9013660b2543702` |
-| `ga-ie`                     | Immagine del contenitore con le `ga-IE` impostazioni locali. | `sha256:1d239549ecf7f6bef5f9d258f5fd34f81fb0e5fff89c66dfec769e912b1cbf7b` |
-| `gu-in`                     | Immagine del contenitore con le `gu-IN` impostazioni locali. | `sha256:596f42a366a61d1cf05dedb81a4f373cfae2dc04e8bec3479bfec121417dd4fb` |
-| `hi-in`                     | Immagine del contenitore con le `hi-IN` impostazioni locali. | `sha256:fcdad9382db8fc7ff0a7ad59fa9fd4cd319ca258edff869b66d76031bcfee640` |
-| `hr-hr`                     | Immagine del contenitore con le `hr-HR` impostazioni locali. | `sha256:533a6420a4a98d4a2c947d26511e90651fc341c96b90a02615b38ce2a799f058` |
-| `hu-hu`                     | Immagine del contenitore con le `hu-HU` impostazioni locali. | `sha256:ec6b95c03d9d5030457c4a9e1fd8e07fbae24ec50b0bb3b2a95eadcd81a1d136` |
-| `it-it`                     | Immagine del contenitore con le `it-IT` impostazioni locali. | `sha256:67cc80b8159122c530913505fed0f7bc4edfd3d77b25bc34b6c6157d57178728` |
-| `ja-jp`                     | Immagine del contenitore con le `ja-JP` impostazioni locali. | `sha256:2b1f3b4220f8a7a44c8339e4c6a4b9a55f7583b5540f045997c9cab8364facb2` |
-| `ko-kr`                     | Immagine del contenitore con le `ko-KR` impostazioni locali. | `sha256:4703fd5e1c5020d5c58b1adde30e5209b1e6f21d0636bac11013dcf8da9340d3` |
-| `lt-lt`                     | Immagine del contenitore con le `lt-LT` impostazioni locali. | `sha256:58c2bb9cf2ead05fc77b3962ee7cef0e0eec33e32697757f65ae8925d55f87b8` |
-| `lv-lv`                     | Immagine del contenitore con le `lv-LV` impostazioni locali. | `sha256:dcdeed91559fb7e1b7d2ea70215ec373a59afa6b67468d13316af109314ca384` |
-| `mr-in`                     | Immagine del contenitore con le `mr-IN` impostazioni locali. | `sha256:06745d241654571428c219c38cd43b56e92b97eeb5aa6656ac726da79460afc1` |
-| `mt-mt`                     | Immagine del contenitore con le `mt-MT` impostazioni locali. | `sha256:3c85f1057b5942c5d2094055e7b9ecc6ef995905bbdabfad48bfefb805f436cf` |
-| `nb-no`                     | Immagine del contenitore con le `nb-NO` impostazioni locali. | `sha256:313f2fb20b8c2a18bd6ce5e7877899310575d390a2c3c54cd2519d0538393201` |
-| `nl-nl`                     | Immagine del contenitore con le `nl-NL` impostazioni locali. | `sha256:7c897fdb38661eb60f576c0a1a9d69bab9e44e7a70e8136fa3d12531cde0e4d7` |
-| `pl-pl`                     | Immagine del contenitore con le `pl-PL` impostazioni locali. | `sha256:9bf17aa5d4c577a440c770b6a63b66037a201cbea0202af4856257fde0548f0e` |
-| `pt-br`                     | Immagine del contenitore con le `pt-BR` impostazioni locali. | `sha256:08f0bb7f1454c5d6c740d218013f47c54bed17701e05c239364f5b2eba07692e` |
-| `pt-pt`                     | Immagine del contenitore con le `pt-PT` impostazioni locali. | `sha256:0643e1c342cf6d526620a46b3435c130702b9320a6075ede1351810956ed6ae9` |
-| `ro-ro`                     | Immagine del contenitore con le `ro-RO` impostazioni locali. | `sha256:139f83900395a0d1af99dc90e661238ca2fa0bc06c74cbac28631ba0399345bf` |
-| `ru-ru`                     | Immagine del contenitore con le `ru-RU` impostazioni locali. | `sha256:1c38423ccd1b8042d43eabe013f5b6989556610ada803b4367848b58c4832a76` |
+| `fr-fr`                     | Immagine del contenitore con le impostazioni `fr-FR` locali. | `sha256:93e0d58ed07d637c3e394ce80ee93524697063cb693da2aed9013660b2543702` |
+| `ga-ie`                     | Immagine del contenitore con le impostazioni `ga-IE` locali. | `sha256:1d239549ecf7f6bef5f9d258f5fd34f81fb0e5fff89c66dfec769e912b1cbf7b` |
+| `gu-in`                     | Immagine del contenitore con le impostazioni `gu-IN` locali. | `sha256:596f42a366a61d1cf05dedb81a4f373cfae2dc04e8bec3479bfec121417dd4fb` |
+| `hi-in`                     | Immagine del contenitore con le impostazioni `hi-IN` locali. | `sha256:fcdad9382db8fc7ff0a7ad59fa9fd4cd319ca258edff869b66d76031bcfee640` |
+| `hr-hr`                     | Immagine del contenitore con le impostazioni `hr-HR` locali. | `sha256:533a6420a4a98d4a2c947d26511e90651fc341c96b90a02615b38ce2a799f058` |
+| `hu-hu`                     | Immagine del contenitore con le impostazioni `hu-HU` locali. | `sha256:ec6b95c03d9d5030457c4a9e1fd8e07fbae24ec50b0bb3b2a95eadcd81a1d136` |
+| `it-it`                     | Immagine del contenitore con le impostazioni `it-IT` locali. | `sha256:67cc80b8159122c530913505fed0f7bc4edfd3d77b25bc34b6c6157d57178728` |
+| `ja-jp`                     | Immagine del contenitore con le impostazioni `ja-JP` locali. | `sha256:2b1f3b4220f8a7a44c8339e4c6a4b9a55f7583b5540f045997c9cab8364facb2` |
+| `ko-kr`                     | Immagine del contenitore con le impostazioni `ko-KR` locali. | `sha256:4703fd5e1c5020d5c58b1adde30e5209b1e6f21d0636bac11013dcf8da9340d3` |
+| `lt-lt`                     | Immagine del contenitore con le impostazioni `lt-LT` locali. | `sha256:58c2bb9cf2ead05fc77b3962ee7cef0e0eec33e32697757f65ae8925d55f87b8` |
+| `lv-lv`                     | Immagine del contenitore con le impostazioni `lv-LV` locali. | `sha256:dcdeed91559fb7e1b7d2ea70215ec373a59afa6b67468d13316af109314ca384` |
+| `mr-in`                     | Immagine del contenitore con le impostazioni `mr-IN` locali. | `sha256:06745d241654571428c219c38cd43b56e92b97eeb5aa6656ac726da79460afc1` |
+| `mt-mt`                     | Immagine del contenitore con le impostazioni `mt-MT` locali. | `sha256:3c85f1057b5942c5d2094055e7b9ecc6ef995905bbdabfad48bfefb805f436cf` |
+| `nb-no`                     | Immagine del contenitore con le impostazioni `nb-NO` locali. | `sha256:313f2fb20b8c2a18bd6ce5e7877899310575d390a2c3c54cd2519d0538393201` |
+| `nl-nl`                     | Immagine del contenitore con le impostazioni `nl-NL` locali. | `sha256:7c897fdb38661eb60f576c0a1a9d69bab9e44e7a70e8136fa3d12531cde0e4d7` |
+| `pl-pl`                     | Immagine del contenitore con le impostazioni `pl-PL` locali. | `sha256:9bf17aa5d4c577a440c770b6a63b66037a201cbea0202af4856257fde0548f0e` |
+| `pt-br`                     | Immagine del contenitore con le impostazioni `pt-BR` locali. | `sha256:08f0bb7f1454c5d6c740d218013f47c54bed17701e05c239364f5b2eba07692e` |
+| `pt-pt`                     | Immagine del contenitore con le impostazioni `pt-PT` locali. | `sha256:0643e1c342cf6d526620a46b3435c130702b9320a6075ede1351810956ed6ae9` |
+| `ro-ro`                     | Immagine del contenitore con le impostazioni `ro-RO` locali. | `sha256:139f83900395a0d1af99dc90e661238ca2fa0bc06c74cbac28631ba0399345bf` |
+| `ru-ru`                     | Immagine del contenitore con le impostazioni `ru-RU` locali. | `sha256:1c38423ccd1b8042d43eabe013f5b6989556610ada803b4367848b58c4832a76` |
 | `sk-sk`                     | Immagine del contenitore con le `sk-SK` impostazioni locali. | `sha256:2b33e5d5ae0cc46bd9a4ae860fe22f088903d4978b287df4eff6ae63b91566f3` |
 | `sl-si`                     | Immagine del contenitore con le `sl-SI` impostazioni locali. | `sha256:40a667412882bfe8073abf376fe94378d7c364e7b22aee410d7b6e99d65e55be` |
 | `sv-se`                     | Immagine del contenitore con le `sv-SE` impostazioni locali. | `sha256:d55464b46585fcfd86c420a30d11b10f3b5c9c0d70390b75f40fe9dbbeeefa99` |
@@ -382,28 +389,28 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 Nota sulla versione per `2.9.0-amd64-<locale>` :
 
 **Funzionalità**
-* Ulteriori dettagli sull'errore per i problemi durante il recupero di modelli personalizzati in base all'ID.
-* Per impostazione predefinita, l'ipotesi è supportata nei risultati della conversazione.
+* Altri dettagli sull'errore per i problemi durante il recupero di modelli personalizzati in base all'ID.
+* L'ipotesi è supportata nei risultati della conversazione per impostazione predefinita.
 
 Nota sulla versione per `2.7.0-amd64-<locale>` :
 
 **Funzionalità**
 * Supporto per le nuove impostazioni locali seguenti:
-    * AR-BH, AR-IQ, AR-Jo, AR-lb, AR-OM, ar-SY
+    * ar-bh, ar-iq, ar-jo, ar-lb, ar-om, ar-sy
     * bg-bg
     * el-gr
-    * en-HK, en-IE, en-pH, en-SG, en-za
-    * es-AR, es-Bo, es-CL, es-CO, es-CR, es-cu, es-do, es-EC, es-gt, es-PA, es-PE, es-PR, es-py, es-SV, es-US, es-uy, es-ve
+    * en-hk, en-ie, en-ph, en-sg, en-za
+    * es-ar, es-bo, es-cl, es-co, es-cr, es-cu, es-do, es-ec, es-gt, es-pa, es-pe, es-pr, es-py, es-sv, es-us, es-uy, es-ve
     * et-ee
     * ga-ie
     * hr-hr
     * hu-hu
-    * lt-lt
+    * Lt-lt
     * lv-lv
     * mt-mt
     * ro-ro
     * sk-sk
-    * SL-SL
+    * sl-sl
 * La punteggiatura è abilitata per impostazione predefinita.
 
 Si noti che a causa degli elenchi di frasi inclusi, le dimensioni di questa immagine del contenitore sono aumentate. 
@@ -411,31 +418,31 @@ Si noti che a causa degli elenchi di frasi inclusi, le dimensioni di questa imma
 Nota sulla versione per `2.6.0-amd64-<locale>` :
 
 **Funzionalità**
-* Aggiornamento ai modelli più recenti e migrazione completa a .NET 3,1
-* Supporto per l'phrase V2
+* Aggiornamento ai modelli più recenti e migrazione completa a .NET 3.1
+* Supporto per phraselist v2
 * Gli elenchi di frasi sono supportati nelle impostazioni locali seguenti:
-    * it-au
-    * en-CA
-    * en-GB
-    * it-in
+    * en-au
+    * en-ca
+    * en-gb
+    * en-in
     * it-it
     * zh-cn
 * Supporto per le nuove impostazioni locali `cs-CZ` 
-    * Le lettere maiuscole e punteggiatura non sono attualmente supportate.
+    * L'uso di maiuscole e minuscole e la punteggiatura non sono attualmente supportati.
 
 **Correzioni**
-* Corregge un problema per cui i punteggi di confidenza sono sempre 1 in modalità di pubblicazione
-* Migrated use the TextAnalytics 3,0 API
+* Correzione di un problema a causa del quale i punteggi di attendibilità erano sempre 1 in modalità diarizzazione
+* La migrazione usa l'API TextAnalytics 3.0
 
 Si noti che a causa degli elenchi di frasi inclusi, le dimensioni di questa immagine del contenitore sono aumentate. 
 
 Nota sulla versione per `2.5.0-amd64-<locale>` :
 
 **Funzionalità**
-* Supporto per il cloud di Azure per il governo degli Stati Uniti
+* Supporto per il cloud di Azure US Government
 
 **Correzioni**
-* Corregge un problema relativo all'esecuzione come utente non root in modalità di pubblicazione
+* Correzione di un problema relativo all'esecuzione come utente non radice in modalità Diarization
 
 | Tag immagine                  | Note                                    |
 |-----------------------------|:-----------------------------------------|
@@ -445,9 +452,9 @@ Nota sulla versione per `2.5.0-amd64-<locale>` :
 | `2.5.0-amd64-<locale>`      | Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio, `2.5.0-amd64-en-us`. |
 
 
-Per questo contenitore sono disponibili le impostazioni locali seguenti.
+In questo contenitore sono disponibili le impostazioni locali seguenti.
 
-| Impostazioni locali per v 2.9.0           | Note                                    | Digest                                                                    |
+| Impostazioni locali per la versione 2.9.0           | Note                                    | Digest                                                                    |
 |-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
 | `ar-ae`                     | Immagine del contenitore con le `ar-AE` impostazioni locali. | `sha256:08885bedb2993daf0c918ecdc6ec775f7982ffa5ca561e80ab9b8a103cde8194` |
 | `ar-bh`                     | Immagine del contenitore con le `ar-BH` impostazioni locali. | `sha256:41e7942e4026beaad93e50f199a6a2d855f77c74e60bc9636bf2bf2c7d3bd482` |
@@ -461,26 +468,26 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 | `ar-sa`                     | Immagine del contenitore con le `ar-SA` impostazioni locali. | `sha256:08885bedb2993daf0c918ecdc6ec775f7982ffa5ca561e80ab9b8a103cde8194` |
 | `ar-sy`                     | Immagine del contenitore con le `ar-SY` impostazioni locali. | `sha256:00f3d1fd6ccb857ccef8a72322336e7a097d04027411f0dcc5499b44229fb470` |
 | `bg-bg`                     | Immagine del contenitore con le `bg-BG` impostazioni locali. | `sha256:aa6ae12f786dcaa028e5867abba198effed875b6bc4cbafd4be37349e95dceef` |
-| `ca-es`                     | Immagine del contenitore con le `ca-ES` impostazioni locali. | `sha256:515a940ccd76ef1926bab3ad259e1cc7ac2bd90bb3860d28f83d0f6324b3f0fe` |
-| `cs-cz`                     | Immagine del contenitore con le `cs-CZ` impostazioni locali. | `sha256:03f6242d73de64c3eb3347400ea6e7408a8816bd96f3d6368ea2a8193accd457` |
-| `da-dk`                     | Immagine del contenitore con le `da-DK` impostazioni locali. | `sha256:ed6714e804ff2d1bbd41512c78906ad9b8827dfdfed0076a271817e075c2ec40` |
-| `de-de`                     | Immagine del contenitore con le `de-DE` impostazioni locali. | `sha256:386f2bb4c4b6ba797919ddcb5bbc9942bf8a03e774f9b01438f9bae0928414ef` |
-| `el-gr`                     | Immagine del contenitore con le `el-GR` impostazioni locali. | `sha256:28696d10c78404fec033794e6e6ae0bfd92b0dab5cf7eb1d24cc2cdfbfcb646d` |
-| `en-au`                     | Immagine del contenitore con le `en-AU` impostazioni locali. | `sha256:dd9ce70f83767a5bdc52fd62b96e09ce6f79ecc1903ed8e116753099b06b03cd` |
-| `en-ca`                     | Immagine del contenitore con le `en-CA` impostazioni locali. | `sha256:70095cf952565256f3a0927358d0fd802d28fe1c3b89b26ead31ba1127cd0b06` |
-| `en-gb`                     | Immagine del contenitore con le `en-GB` impostazioni locali. | `sha256:836bc38328636799ec9c8717618d51ab8b50ea2f0dc9663f342c4454938c9b23` |
-| `en-hk`                     | Immagine del contenitore con le `en-HK` impostazioni locali. | `sha256:eda3702d95d4ae3b64ceb93bda42e8522776e141a18b2a3dde3bc3fcf0e9a2b8` |
-| `en-ie`                     | Immagine del contenitore con le `en-IE` impostazioni locali. | `sha256:bfc2126fffb947bf10ac379efb70db3d2c7ee2c16dd541a5b86e03e73d7d477c` |
-| `en-in`                     | Immagine del contenitore con le `en-IN` impostazioni locali. | `sha256:5660d02eabf4e1e9f58e7993ed7e5917b1990b41ed35a484a715d7265400cd0b` |
-| `en-nz`                     | Immagine del contenitore con le `en-NZ` impostazioni locali. | `sha256:891c1805fd8011865de7371ffd4bde85d879341f2100e8053bbbc722d7c792bc` |
-| `en-ph`                     | Immagine del contenitore con le `en-PH` impostazioni locali. | `sha256:21d6d46398f940a769241fdfffec5658356e54b4127b44efe5e061724f7a7681` |
-| `en-sg`                     | Immagine del contenitore con le `en-SG` impostazioni locali. | `sha256:6f473b8ba56bad098c21a0c0496cb312dafcfb83dc1a2e1aff21011f6b39321d` |
-| `en-us`                     | Immagine del contenitore con le `en-US` impostazioni locali. | `sha256:20aa22d24e35f7d92ceac96d2cbab8ce46ee0ed7bb601f18fa867f1bd0bcf5ab` |
-| `en-za`                     | Immagine del contenitore con le `en-ZA` impostazioni locali. | `sha256:5e5ad2b016a1ceac500813e0a68ff4108ddf5a4ca98cb0aed4930b6d1e8920dd` |
-| `es-ar`                     | Immagine del contenitore con le `es-AR` impostazioni locali. | `sha256:b372d9e32e7b518bb9949d8db459bd4e300304e53aed1342aba65a054d4a4c25` |
-| `es-bo`                     | Immagine del contenitore con le `es-BO` impostazioni locali. | `sha256:d3538f3834c554ebebbdfe75e261a06f104dfa27143353601c3a6a3d41025129` |
-| `es-cl`                     | Immagine del contenitore con le `es-CL` impostazioni locali. | `sha256:0bb100ef5313b182a59c08949e4baf1086bde2c1a6bca3324c4e052f465f7632` |
-| `es-co`                     | Immagine del contenitore con le `es-CO` impostazioni locali. | `sha256:cdab27080ef3ded55dcf89cf85bc2ae16de1372f84a42d836ff5f20612b68a61` |
+| `ca-es`                     | Immagine del contenitore con le impostazioni `ca-ES` locali. | `sha256:515a940ccd76ef1926bab3ad259e1cc7ac2bd90bb3860d28f83d0f6324b3f0fe` |
+| `cs-cz`                     | Immagine del contenitore con le impostazioni `cs-CZ` locali. | `sha256:03f6242d73de64c3eb3347400ea6e7408a8816bd96f3d6368ea2a8193accd457` |
+| `da-dk`                     | Immagine del contenitore con le impostazioni `da-DK` locali. | `sha256:ed6714e804ff2d1bbd41512c78906ad9b8827dfdfed0076a271817e075c2ec40` |
+| `de-de`                     | Immagine del contenitore con le impostazioni `de-DE` locali. | `sha256:386f2bb4c4b6ba797919ddcb5bbc9942bf8a03e774f9b01438f9bae0928414ef` |
+| `el-gr`                     | Immagine del contenitore con le impostazioni `el-GR` locali. | `sha256:28696d10c78404fec033794e6e6ae0bfd92b0dab5cf7eb1d24cc2cdfbfcb646d` |
+| `en-au`                     | Immagine del contenitore con le impostazioni `en-AU` locali. | `sha256:dd9ce70f83767a5bdc52fd62b96e09ce6f79ecc1903ed8e116753099b06b03cd` |
+| `en-ca`                     | Immagine del contenitore con le impostazioni `en-CA` locali. | `sha256:70095cf952565256f3a0927358d0fd802d28fe1c3b89b26ead31ba1127cd0b06` |
+| `en-gb`                     | Immagine del contenitore con le impostazioni `en-GB` locali. | `sha256:836bc38328636799ec9c8717618d51ab8b50ea2f0dc9663f342c4454938c9b23` |
+| `en-hk`                     | Immagine del contenitore con le impostazioni `en-HK` locali. | `sha256:eda3702d95d4ae3b64ceb93bda42e8522776e141a18b2a3dde3bc3fcf0e9a2b8` |
+| `en-ie`                     | Immagine del contenitore con le impostazioni `en-IE` locali. | `sha256:bfc2126fffb947bf10ac379efb70db3d2c7ee2c16dd541a5b86e03e73d7d477c` |
+| `en-in`                     | Immagine del contenitore con le impostazioni `en-IN` locali. | `sha256:5660d02eabf4e1e9f58e7993ed7e5917b1990b41ed35a484a715d7265400cd0b` |
+| `en-nz`                     | Immagine del contenitore con le impostazioni `en-NZ` locali. | `sha256:891c1805fd8011865de7371ffd4bde85d879341f2100e8053bbbc722d7c792bc` |
+| `en-ph`                     | Immagine del contenitore con le impostazioni `en-PH` locali. | `sha256:21d6d46398f940a769241fdfffec5658356e54b4127b44efe5e061724f7a7681` |
+| `en-sg`                     | Immagine del contenitore con le impostazioni `en-SG` locali. | `sha256:6f473b8ba56bad098c21a0c0496cb312dafcfb83dc1a2e1aff21011f6b39321d` |
+| `en-us`                     | Immagine del contenitore con le impostazioni `en-US` locali. | `sha256:20aa22d24e35f7d92ceac96d2cbab8ce46ee0ed7bb601f18fa867f1bd0bcf5ab` |
+| `en-za`                     | Immagine del contenitore con le impostazioni `en-ZA` locali. | `sha256:5e5ad2b016a1ceac500813e0a68ff4108ddf5a4ca98cb0aed4930b6d1e8920dd` |
+| `es-ar`                     | Immagine del contenitore con le impostazioni `es-AR` locali. | `sha256:b372d9e32e7b518bb9949d8db459bd4e300304e53aed1342aba65a054d4a4c25` |
+| `es-bo`                     | Immagine del contenitore con le impostazioni `es-BO` locali. | `sha256:d3538f3834c554ebebbdfe75e261a06f104dfa27143353601c3a6a3d41025129` |
+| `es-cl`                     | Immagine del contenitore con le impostazioni `es-CL` locali. | `sha256:0bb100ef5313b182a59c08949e4baf1086bde2c1a6bca3324c4e052f465f7632` |
+| `es-co`                     | Immagine del contenitore con le impostazioni `es-CO` locali. | `sha256:cdab27080ef3ded55dcf89cf85bc2ae16de1372f84a42d836ff5f20612b68a61` |
 | `es-cr`                     | Immagine del contenitore con le `es-CR` impostazioni locali. | `sha256:e4ea51ffa38f347adc7c0642d50237cfa045683f52b5e3e726e4c28688231d35` |
 | `es-cu`                     | Immagine del contenitore con le `es-CU` impostazioni locali. | `sha256:f81c0b7f774d64e673a1311d00604f5e4837fdba4d8fb4a2ab0c8bb8b7fde87d` |
 | `es-do`                     | Immagine del contenitore con le `es-DO` impostazioni locali. | `sha256:78035c54e649e34cd8276a402f9c9845e13bc40503da6c2f631698a16a049c67` |
@@ -501,26 +508,26 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 | `et-ee`                     | Immagine del contenitore con le `et-EE` impostazioni locali. | `sha256:310abdc1a8490990a99ce061f04c9d49cafb7a452fbfdc2790de6f60e1505c6c` |
 | `fi-fi`                     | Immagine del contenitore con le `fi-FI` impostazioni locali. | `sha256:8f209d30b2d148224b296c2d2c204b5970fbe7aaf5eb3289cf8b6644bfd78373` |
 | `fr-ca`                     | Immagine del contenitore con le `fr-CA` impostazioni locali. | `sha256:11b718d4b86d606b198e47deaa25f6ce164cfc53267048e3d2dbe1bc8500cc5a` |
-| `fr-fr`                     | Immagine del contenitore con le `fr-FR` impostazioni locali. | `sha256:7a4264a0e9560e6aa3fdee80c3e3f55a0e26cddce8ebbeb7a9c87693ab451a25` |
-| `ga-ie`                     | Immagine del contenitore con le `ga-IE` impostazioni locali. | `sha256:bbc764ac08b2ef10ac58a8f9534d4d375109fdf16ab75c8cdbf2d57aa692d3e2` |
-| `gu-in`                     | Immagine del contenitore con le `gu-IN` impostazioni locali. | `sha256:2d0a83b7bcf1cfc50cf013c95442519e5236a146b7968e75e129b3a5c33ad3a1` |
-| `hi-in`                     | Immagine del contenitore con le `hi-IN` impostazioni locali. | `sha256:f0ee8f259035ac5dd9ef38807495d0f8d989ddbb8eacf83893f1fea22265e6b4` |
-| `hr-hr`                     | Immagine del contenitore con le `hr-HR` impostazioni locali. | `sha256:6101ecac9f5f35c1ea1b8cd8e52fdbbc1be2582e4f3e385c16509fd95a002217` |
-| `hu-hu`                     | Immagine del contenitore con le `hu-HU` impostazioni locali. | `sha256:9e94c4d6fff73058ce4eef609b8404430a429c6961648655c915cb2fac10656f` |
-| `it-it`                     | Immagine del contenitore con le `it-IT` impostazioni locali. | `sha256:44986ad44bb53eaf350e0865e62ea5ba7f37d1f5b52e388f61f56fd7afe8ff32` |
-| `ja-jp`                     | Immagine del contenitore con le `ja-JP` impostazioni locali. | `sha256:6b7aaa828d1b2d2fce1831e540e08ba60307088b90ca32e96fd002a67aff926b` |
-| `ko-kr`                     | Immagine del contenitore con le `ko-KR` impostazioni locali. | `sha256:1abeda544a7579daac7f8b8f8d34a2cc63b4bd3631e474315d424973ae024ab0` |
-| `lt-lt`                     | Immagine del contenitore con le `lt-LT` impostazioni locali. | `sha256:455da50a7db591df7be69d7cd361a77734b9249101d8cf86b807f0350b5167ef` |
-| `lv-lv`                     | Immagine del contenitore con le `lv-LV` impostazioni locali. | `sha256:676e17b6223e35d1897b46536e6f523e1d18b78f834b62ec00bb126ad3a2e71a` |
-| `mr-in`                     | Immagine del contenitore con le `mr-IN` impostazioni locali. | `sha256:dbfb97e52dc4b4c71dec1a9e622714f004b1e59d7900260e09a85bf15912fccd` |
-| `mt-mt`                     | Immagine del contenitore con le `mt-MT` impostazioni locali. | `sha256:19f7f644ae3a0639fdcc53acc065d0e534b74c07f8c095418d4d4d444c566bf1` |
-| `nb-no`                     | Immagine del contenitore con le `nb-NO` impostazioni locali. | `sha256:d3a13ab6fa2eb5d5ca0e3281b1092452650e9ede8749f6edcab990e3bbb8d198` |
-| `nl-nl`                     | Immagine del contenitore con le `nl-NL` impostazioni locali. | `sha256:7ad5e61f9a72c600bdc79e4c04ac63c239951ac4c0d44e02fe0607a6aff356cc` |
-| `pl-pl`                     | Immagine del contenitore con le `pl-PL` impostazioni locali. | `sha256:fe6a4812534d704b145b84fd8857fb3d9052f67fcbbd5d490c5902082e295195` |
-| `pt-br`                     | Immagine del contenitore con le `pt-BR` impostazioni locali. | `sha256:adcd34941d4ace7db01bd476d61c9bbafe071419932b4cfae5231cf202af3a14` |
-| `pt-pt`                     | Immagine del contenitore con le `pt-PT` impostazioni locali. | `sha256:0534a7e4b391f1ee666b248a274879c081496ed4939b0ad33154d8a96fd67f94` |
-| `ro-ro`                     | Immagine del contenitore con le `ro-RO` impostazioni locali. | `sha256:091ea4a31652ff9dbc6259636f6c12b0ceb79a269e2cf3cdec677a1914b6a64e` |
-| `ru-ru`                     | Immagine del contenitore con le `ru-RU` impostazioni locali. | `sha256:5eef3ae8afb445e60bb913edd6eed1415abb0bfbc439978f69f4cba7b61c8e6e` |
+| `fr-fr`                     | Immagine del contenitore con le impostazioni `fr-FR` locali. | `sha256:7a4264a0e9560e6aa3fdee80c3e3f55a0e26cddce8ebbeb7a9c87693ab451a25` |
+| `ga-ie`                     | Immagine del contenitore con le impostazioni `ga-IE` locali. | `sha256:bbc764ac08b2ef10ac58a8f9534d4d375109fdf16ab75c8cdbf2d57aa692d3e2` |
+| `gu-in`                     | Immagine del contenitore con le impostazioni `gu-IN` locali. | `sha256:2d0a83b7bcf1cfc50cf013c95442519e5236a146b7968e75e129b3a5c33ad3a1` |
+| `hi-in`                     | Immagine del contenitore con le impostazioni `hi-IN` locali. | `sha256:f0ee8f259035ac5dd9ef38807495d0f8d989ddbb8eacf83893f1fea22265e6b4` |
+| `hr-hr`                     | Immagine del contenitore con le impostazioni `hr-HR` locali. | `sha256:6101ecac9f5f35c1ea1b8cd8e52fdbbc1be2582e4f3e385c16509fd95a002217` |
+| `hu-hu`                     | Immagine del contenitore con le impostazioni `hu-HU` locali. | `sha256:9e94c4d6fff73058ce4eef609b8404430a429c6961648655c915cb2fac10656f` |
+| `it-it`                     | Immagine del contenitore con le impostazioni `it-IT` locali. | `sha256:44986ad44bb53eaf350e0865e62ea5ba7f37d1f5b52e388f61f56fd7afe8ff32` |
+| `ja-jp`                     | Immagine del contenitore con le impostazioni `ja-JP` locali. | `sha256:6b7aaa828d1b2d2fce1831e540e08ba60307088b90ca32e96fd002a67aff926b` |
+| `ko-kr`                     | Immagine del contenitore con le impostazioni `ko-KR` locali. | `sha256:1abeda544a7579daac7f8b8f8d34a2cc63b4bd3631e474315d424973ae024ab0` |
+| `lt-lt`                     | Immagine del contenitore con le impostazioni `lt-LT` locali. | `sha256:455da50a7db591df7be69d7cd361a77734b9249101d8cf86b807f0350b5167ef` |
+| `lv-lv`                     | Immagine del contenitore con le impostazioni `lv-LV` locali. | `sha256:676e17b6223e35d1897b46536e6f523e1d18b78f834b62ec00bb126ad3a2e71a` |
+| `mr-in`                     | Immagine del contenitore con le impostazioni `mr-IN` locali. | `sha256:dbfb97e52dc4b4c71dec1a9e622714f004b1e59d7900260e09a85bf15912fccd` |
+| `mt-mt`                     | Immagine del contenitore con le impostazioni `mt-MT` locali. | `sha256:19f7f644ae3a0639fdcc53acc065d0e534b74c07f8c095418d4d4d444c566bf1` |
+| `nb-no`                     | Immagine del contenitore con le impostazioni `nb-NO` locali. | `sha256:d3a13ab6fa2eb5d5ca0e3281b1092452650e9ede8749f6edcab990e3bbb8d198` |
+| `nl-nl`                     | Immagine del contenitore con le impostazioni `nl-NL` locali. | `sha256:7ad5e61f9a72c600bdc79e4c04ac63c239951ac4c0d44e02fe0607a6aff356cc` |
+| `pl-pl`                     | Immagine del contenitore con le impostazioni `pl-PL` locali. | `sha256:fe6a4812534d704b145b84fd8857fb3d9052f67fcbbd5d490c5902082e295195` |
+| `pt-br`                     | Immagine del contenitore con le impostazioni `pt-BR` locali. | `sha256:adcd34941d4ace7db01bd476d61c9bbafe071419932b4cfae5231cf202af3a14` |
+| `pt-pt`                     | Immagine del contenitore con le impostazioni `pt-PT` locali. | `sha256:0534a7e4b391f1ee666b248a274879c081496ed4939b0ad33154d8a96fd67f94` |
+| `ro-ro`                     | Immagine del contenitore con le impostazioni `ro-RO` locali. | `sha256:091ea4a31652ff9dbc6259636f6c12b0ceb79a269e2cf3cdec677a1914b6a64e` |
+| `ru-ru`                     | Immagine del contenitore con le impostazioni `ru-RU` locali. | `sha256:5eef3ae8afb445e60bb913edd6eed1415abb0bfbc439978f69f4cba7b61c8e6e` |
 | `sk-sk`                     | Immagine del contenitore con le `sk-SK` impostazioni locali. | `sha256:98709e9349d889b57933317005af42770e47ce8178a7d9c737d9fbdd81148478` |
 | `sl-si`                     | Immagine del contenitore con le `sl-SI` impostazioni locali. | `sha256:3a9139334c4780dc6f6a9b0f15fba5292e16ecf1f5d45fe49a9c8ef3b0e110b3` |
 | `sv-se`                     | Immagine del contenitore con le `sv-SE` impostazioni locali. | `sha256:b29b2a65d83c20d65ba4e4fbca66f9fc07e536e161f90448c2bb360eb8de1e55` |
@@ -532,7 +539,7 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 | `zh-hk`                     | Immagine del contenitore con le `zh-HK` impostazioni locali. | `sha256:5a3251ad6df9565d44dd422de4fa0d83a9b50c8a80ec15213403482940d2b2fc` |
 | `zh-tw`                     | Immagine del contenitore con le `zh-TW` impostazioni locali. | `sha256:2c45dd90b0c19d7f12b1be44d3e85fe2603cea2389c2877b79d6de351839cf6a` |
 
-| Impostazioni locali per v 2.7.0           | Note                                    | Digest                                                                   |
+| Impostazioni locali per la versione 2.7.0           | Note                                    | Digest                                                                   |
 |-----------------------------|:-----------------------------------------|:-------------------------------------------------------------------------|
 | `ar-ae`                     | Immagine del contenitore con le `ar-AE` impostazioni locali. | `sha256:c8e99e71e6740cf671f3bf79de8b7dd890122cb674eedd2440e71e7cbc4c66b` |
 | `ar-bh`                     | Immagine del contenitore con le `ar-BH` impostazioni locali. | `sha256:5a2c140661f50d0c95587121ec1ab8895289f4dda5b3ad14074413e869e6bd4` |
@@ -543,26 +550,26 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 | `ar-lb`                     | Immagine del contenitore con le `ar-LB` impostazioni locali. | `sha256:20e5c9105e86625c72de54290a6eb07630d35c3760f729c4b855e3661583dfe` |
 | `ar-om`                     | Immagine del contenitore con le `ar-OM` impostazioni locali. | `sha256:97f1b44f2cbb837a2ef86441a0a52a07f706240edb6ef6618ee4db8cbbe1c19` |
 | `ar-qa`                     | Immagine del contenitore con le `ar-QA` impostazioni locali. | `sha256:c8e99e71e6740cf671f3bf79de8b7dd890122cb674eedd2440e71e7cbc4c66b` |
-| `ar-sa`                     | Immagine del contenitore con le `ar-SA` impostazioni locali. | `sha256:c8e99e71e6740cf671f3bf79de8b7dd890122cb674eedd2440e71e7cbc4c66b` |
-| `ar-sy`                     | Immagine del contenitore con le `ar-SY` impostazioni locali. | `sha256:51980a2e2c3dd3548deedcedaf5fc688db602a5eced1a4b7df7d10750393623` |
-| `bg-bg`                     | Immagine del contenitore con le `bg-BG` impostazioni locali. | `sha256:1c1acf0fbb353ebb04692f37eb4d4cdf0b4e309720dd7e709001dada0d1ea81` |
-| `ca-es`                     | Immagine del contenitore con le `ca-ES` impostazioni locali. | `sha256:c60baa0007f61c7652b97b49645215de63411125d627c974c09222e316df204` |
-| `cs-cz`                     | Immagine del contenitore con le `cs-CZ` impostazioni locali. | `sha256:3fa09fc3a6bde6b77df2444aae8fc78b5f25fb9010171d1682db116ea5801f5` |
-| `da-dk`                     | Immagine del contenitore con le `da-DK` impostazioni locali. | `sha256:4b26dbba50c2771943880b68e0e4ea0713d0e3bb8bad884454849bccc9e94a3` |
-| `de-de`                     | Immagine del contenitore con le `de-DE` impostazioni locali. | `sha256:5109ed80b1fecf4db0328adcd50528d0aa9e726b5fc84587c40aaea4e91256d` |
-| `el-gr`                     | Immagine del contenitore con le `el-GR` impostazioni locali. | `sha256:fc8b466c588bf097efac2b79454d5ac0df5c6990398f07ede9be7e1d536e4bd` |
-| `en-au`                     | Immagine del contenitore con le `en-AU` impostazioni locali. | `sha256:3461892a27fc3eb3f9610b2def00bc15f380c6b9797c90ceca19e6abb55f6a6` |
-| `en-ca`                     | Immagine del contenitore con le `en-CA` impostazioni locali. | `sha256:a0509be39785f1e869bd96ab10e7c07d3f4e61c9aa17ff5900076e7bd64ba11` |
-| `en-gb`                     | Immagine del contenitore con le `en-GB` impostazioni locali. | `sha256:1b976fc7ac109e61dcf74af3652c12535e3db92931d2d0bb2ea59bd46f9efed` |
-| `en-hk`                     | Immagine del contenitore con le `en-HK` impostazioni locali. | `sha256:0b1e1df101f978869c98f6e50632712016b8311fc89b334e7f44e968d64bf2f` |
-| `en-ie`                     | Immagine del contenitore con le `en-IE` impostazioni locali. | `sha256:c5ba0d3c7219ce39f0b918a51a7cae8a65c277f564279cad920e068725aa39f` |
-| `en-in`                     | Immagine del contenitore con le `en-IN` impostazioni locali. | `sha256:e907f07be498f024103f6fe6abffa23e242bf3585724741b29a2f3f41d0899c` |
-| `en-nz`                     | Immagine del contenitore con le `en-NZ` impostazioni locali. | `sha256:66845f6ce20ae71d609867c6eb4772366ce042499e4bcdce4c1b579daf7fad7` |
-| `en-ph`                     | Immagine del contenitore con le `en-PH` impostazioni locali. | `sha256:e7874653bf66b1a1ab344b3391eb8767be34260b7f11b62fd057cbe17b805b2` |
-| `en-sg`                     | Immagine del contenitore con le `en-SG` impostazioni locali. | `sha256:827cdb158280e6f4037f4815410c7aa78abf9c6467876c1504aecfef787bdd7` |
-| `en-us`                     | Immagine del contenitore con le `en-US` impostazioni locali. | `sha256:248d17340055e3e137219ddc234c605e6a53ceead136ea55c9697c352da6a8d` |
-| `en-za`                     | Immagine del contenitore con le `en-ZA` impostazioni locali. | `sha256:a8abc99f498db7088bb25acec47da81e90b6a5eaa1c6f78e0f9a314d839d0ae` |
-| `es-ar`                     | Immagine del contenitore con le `es-AR` impostazioni locali. | `sha256:edf78429630851b6eb01f54f8a8a1aeeda9971c6a834403a204662eda22b3b9` |
+| `ar-sa`                     | Immagine del contenitore con le impostazioni `ar-SA` locali. | `sha256:c8e99e71e6740cf671f3bf79de8b7dd890122cb674eedd2440e71e7cbc4c66b` |
+| `ar-sy`                     | Immagine del contenitore con le impostazioni `ar-SY` locali. | `sha256:51980a2e2c3dd3548deedcedaf5fc688db602a5eced1a4b7df7d10750393623` |
+| `bg-bg`                     | Immagine del contenitore con le impostazioni `bg-BG` locali. | `sha256:1c1acf0fbb353ebb04692f37eb4d4cdf0b4e309720dd7e709001dada0d1ea81` |
+| `ca-es`                     | Immagine del contenitore con le impostazioni `ca-ES` locali. | `sha256:c60baa0007f61c7652b97b49645215de63411125d627c974c09222e316df204` |
+| `cs-cz`                     | Immagine del contenitore con le impostazioni `cs-CZ` locali. | `sha256:3fa09fc3a6bde6b77df2444aae8fc78b5f25fb9010171d1682db116ea5801f5` |
+| `da-dk`                     | Immagine del contenitore con le impostazioni `da-DK` locali. | `sha256:4b26dbba50c2771943880b68e0e4ea0713d0e3bb8bad884454849bccc9e94a3` |
+| `de-de`                     | Immagine del contenitore con le impostazioni `de-DE` locali. | `sha256:5109ed80b1fecf4db0328adcd50528d0aa9e726b5fc84587c40aaea4e91256d` |
+| `el-gr`                     | Immagine del contenitore con le impostazioni `el-GR` locali. | `sha256:fc8b466c588bf097efac2b79454d5ac0df5c6990398f07ede9be7e1d536e4bd` |
+| `en-au`                     | Immagine del contenitore con le impostazioni `en-AU` locali. | `sha256:3461892a27fc3eb3f9610b2def00bc15f380c6b9797c90ceca19e6abb55f6a6` |
+| `en-ca`                     | Immagine del contenitore con le impostazioni `en-CA` locali. | `sha256:a0509be39785f1e869bd96ab10e7c07d3f4e61c9aa17ff5900076e7bd64ba11` |
+| `en-gb`                     | Immagine del contenitore con le impostazioni `en-GB` locali. | `sha256:1b976fc7ac109e61dcf74af3652c12535e3db92931d2d0bb2ea59bd46f9efed` |
+| `en-hk`                     | Immagine del contenitore con le impostazioni `en-HK` locali. | `sha256:0b1e1df101f978869c98f6e50632712016b8311fc89b334e7f44e968d64bf2f` |
+| `en-ie`                     | Immagine del contenitore con le impostazioni `en-IE` locali. | `sha256:c5ba0d3c7219ce39f0b918a51a7cae8a65c277f564279cad920e068725aa39f` |
+| `en-in`                     | Immagine del contenitore con le impostazioni `en-IN` locali. | `sha256:e907f07be498f024103f6fe6abffa23e242bf3585724741b29a2f3f41d0899c` |
+| `en-nz`                     | Immagine del contenitore con le impostazioni `en-NZ` locali. | `sha256:66845f6ce20ae71d609867c6eb4772366ce042499e4bcdce4c1b579daf7fad7` |
+| `en-ph`                     | Immagine del contenitore con le impostazioni `en-PH` locali. | `sha256:e7874653bf66b1a1ab344b3391eb8767be34260b7f11b62fd057cbe17b805b2` |
+| `en-sg`                     | Immagine del contenitore con le impostazioni `en-SG` locali. | `sha256:827cdb158280e6f4037f4815410c7aa78abf9c6467876c1504aecfef787bdd7` |
+| `en-us`                     | Immagine del contenitore con le impostazioni `en-US` locali. | `sha256:248d17340055e3e137219ddc234c605e6a53ceead136ea55c9697c352da6a8d` |
+| `en-za`                     | Immagine del contenitore con le impostazioni `en-ZA` locali. | `sha256:a8abc99f498db7088bb25acec47da81e90b6a5eaa1c6f78e0f9a314d839d0ae` |
+| `es-ar`                     | Immagine del contenitore con le impostazioni `es-AR` locali. | `sha256:edf78429630851b6eb01f54f8a8a1aeeda9971c6a834403a204662eda22b3b9` |
 | `es-bo`                     | Immagine del contenitore con le `es-BO` impostazioni locali. | `sha256:5832b44f1da2f6b9a097c99babfbc370d8d0eabe1ff8daabec2c3f482dc9d63` |
 | `es-cl`                     | Immagine del contenitore con le `es-CL` impostazioni locali. | `sha256:409a712b96235e154472134f96ff9272265f1e5b555e00ad03c2260b0781009` |
 | `es-co`                     | Immagine del contenitore con le `es-CO` impostazioni locali. | `sha256:99792bc083dc16e0edf15491e6a840d786c9140b747551563a8d98f66f0b415` |
@@ -583,26 +590,26 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 | `es-us`                     | Immagine del contenitore con le `es-US` impostazioni locali. | `sha256:99f2743725bb71e25543484f49bcfde14584ccbbaaa912678938d69d965075a` |
 | `es-uy`                     | Immagine del contenitore con le `es-UY` impostazioni locali. | `sha256:a3e11c16a97a1ae76408d812b2fee1e4b3ba07160bbcb62a22814523568ee5d` |
 | `es-ve`                     | Immagine del contenitore con le `es-VE` impostazioni locali. | `sha256:8cb431aafd84263ead8de946377c1d3f2ddfa7e172b8a4c5aa7ba477c5b41f0` |
-| `et-ee`                     | Immagine del contenitore con le `et-EE` impostazioni locali. | `sha256:943e7cf894e9d75341a58993104824c1c8cd8da1322cc5a732e9d53882c6523` |
-| `fi-fi`                     | Immagine del contenitore con le `fi-FI` impostazioni locali. | `sha256:35658e9dce796cb96a1371f250398e86351ea1b5ada080da7ce8471b30c7cae` |
-| `fr-ca`                     | Immagine del contenitore con le `fr-CA` impostazioni locali. | `sha256:62256cad671e8baa03fdd4c5f4eca7d5c5effedd64cafd9020ba72c9c4210e0` |
-| `fr-fr`                     | Immagine del contenitore con le `fr-FR` impostazioni locali. | `sha256:b385993232d9daa327d1a7b067268927b17f36eed3e8d423748794544c62746` |
-| `ga-ie`                     | Immagine del contenitore con le `ga-IE` impostazioni locali. | `sha256:ab9abdb993b0f7487edda8200f1393ac44ba4888c0f444a02afb6c85ca3e393` |
-| `gu-in`                     | Immagine del contenitore con le `gu-IN` impostazioni locali. | `sha256:328e69488f2948722d7ccc97e266071f61a8c9f65cd671688490955806526de` |
-| `hi-in`                     | Immagine del contenitore con le `hi-IN` impostazioni locali. | `sha256:b9b0bfec80aa53d06ea2cbd9097f753ec5caaf00ac2f00321ae7ad916fd7fa6` |
-| `hr-hr`                     | Immagine del contenitore con le `hr-HR` impostazioni locali. | `sha256:ab849cd2eeea682f8958bba8986fe90f0f7bb3b447512a10cf464e8e1ce4ea5` |
-| `hu-hu`                     | Immagine del contenitore con le `hu-HU` impostazioni locali. | `sha256:30f239b155d91523442cf74a1f2732304fa2b50ae7b786833bb6a020b982621` |
-| `it-it`                     | Immagine del contenitore con le `it-IT` impostazioni locali. | `sha256:288f95413870eb9d33bf1dabfa6fbd6b55b0faa52e4d5face3171d1dd4ddbdd` |
-| `ja-jp`                     | Immagine del contenitore con le `ja-JP` impostazioni locali. | `sha256:e3ab37a80c215dec565eca212f57eb81887fc2894452868dff92e3bd42c4bb9` |
-| `ko-kr`                     | Immagine del contenitore con le `ko-KR` impostazioni locali. | `sha256:c1208b8459333b606af516cd7806e9d4d5e002247bb1225e1f246563b356890` |
-| `lt-lt`                     | Immagine del contenitore con le `lt-LT` impostazioni locali. | `sha256:8dec331161d3c29fc65ba6651fcc6cfe69fa314519f408b5f9f8eb27da09830` |
-| `lv-lv`                     | Immagine del contenitore con le `lv-LV` impostazioni locali. | `sha256:7cf31282910b339666bb2b0a555caa7fc6ae414eea4423a41f35c3527f83235` |
-| `mr-in`                     | Immagine del contenitore con le `mr-IN` impostazioni locali. | `sha256:9cb012bd58ef7723d4905d6fa3c1fde96e33c354b3d96d4e3ff69cf6e1bfe3a` |
-| `mt-mt`                     | Immagine del contenitore con le `mt-MT` impostazioni locali. | `sha256:a0094c032ea555b168ec5751ab3257337d902d526e9ae335671fb751a352378` |
-| `nb-no`                     | Immagine del contenitore con le `nb-NO` impostazioni locali. | `sha256:6bbc326e20a6a785b1ca33143b42a060858efb67b863a267d6efb7aebb48f87` |
-| `nl-nl`                     | Immagine del contenitore con le `nl-NL` impostazioni locali. | `sha256:94b4ddf4cc80fa666e422f8416aea3f98ebe4842dfe9b1f4bfea7c47eb61127` |
-| `pl-pl`                     | Immagine del contenitore con le `pl-PL` impostazioni locali. | `sha256:58e5f78bf772c3c8cbd5f0c5d6e67f5348e04e3f893d84738a2a3e964bab256` |
-| `pt-br`                     | Immagine del contenitore con le `pt-BR` impostazioni locali. | `sha256:f500ef956bd28807f40df1f9f0520e437c5084f61a3be6d1379e746887d5b7c` |
+| `et-ee`                     | Immagine del contenitore con le impostazioni `et-EE` locali. | `sha256:943e7cf894e9d75341a58993104824c1c8cd8da1322cc5a732e9d53882c6523` |
+| `fi-fi`                     | Immagine del contenitore con le impostazioni `fi-FI` locali. | `sha256:35658e9dce796cb96a1371f250398e86351ea1b5ada080da7ce8471b30c7cae` |
+| `fr-ca`                     | Immagine del contenitore con le impostazioni `fr-CA` locali. | `sha256:62256cad671e8baa03fdd4c5f4eca7d5c5effedd64cafd9020ba72c9c4210e0` |
+| `fr-fr`                     | Immagine del contenitore con le impostazioni `fr-FR` locali. | `sha256:b385993232d9daa327d1a7b067268927b17f36eed3e8d423748794544c62746` |
+| `ga-ie`                     | Immagine del contenitore con le impostazioni `ga-IE` locali. | `sha256:ab9abdb993b0f7487edda8200f1393ac44ba4888c0f444a02afb6c85ca3e393` |
+| `gu-in`                     | Immagine del contenitore con le impostazioni `gu-IN` locali. | `sha256:328e69488f2948722d7ccc97e266071f61a8c9f65cd671688490955806526de` |
+| `hi-in`                     | Immagine del contenitore con le impostazioni `hi-IN` locali. | `sha256:b9b0bfec80aa53d06ea2cbd9097f753ec5caaf00ac2f00321ae7ad916fd7fa6` |
+| `hr-hr`                     | Immagine del contenitore con le impostazioni `hr-HR` locali. | `sha256:ab849cd2eeea682f8958bba8986fe90f0f7bb3b447512a10cf464e8e1ce4ea5` |
+| `hu-hu`                     | Immagine del contenitore con le impostazioni `hu-HU` locali. | `sha256:30f239b155d91523442cf74a1f2732304fa2b50ae7b786833bb6a020b982621` |
+| `it-it`                     | Immagine del contenitore con le impostazioni `it-IT` locali. | `sha256:288f95413870eb9d33bf1dabfa6fbd6b55b0faa52e4d5face3171d1dd4ddbdd` |
+| `ja-jp`                     | Immagine del contenitore con le impostazioni `ja-JP` locali. | `sha256:e3ab37a80c215dec565eca212f57eb81887fc2894452868dff92e3bd42c4bb9` |
+| `ko-kr`                     | Immagine del contenitore con le impostazioni `ko-KR` locali. | `sha256:c1208b8459333b606af516cd7806e9d4d5e002247bb1225e1f246563b356890` |
+| `lt-lt`                     | Immagine del contenitore con le impostazioni `lt-LT` locali. | `sha256:8dec331161d3c29fc65ba6651fcc6cfe69fa314519f408b5f9f8eb27da09830` |
+| `lv-lv`                     | Immagine del contenitore con le impostazioni `lv-LV` locali. | `sha256:7cf31282910b339666bb2b0a555caa7fc6ae414eea4423a41f35c3527f83235` |
+| `mr-in`                     | Immagine del contenitore con le impostazioni `mr-IN` locali. | `sha256:9cb012bd58ef7723d4905d6fa3c1fde96e33c354b3d96d4e3ff69cf6e1bfe3a` |
+| `mt-mt`                     | Immagine del contenitore con le impostazioni `mt-MT` locali. | `sha256:a0094c032ea555b168ec5751ab3257337d902d526e9ae335671fb751a352378` |
+| `nb-no`                     | Immagine del contenitore con le impostazioni `nb-NO` locali. | `sha256:6bbc326e20a6a785b1ca33143b42a060858efb67b863a267d6efb7aebb48f87` |
+| `nl-nl`                     | Immagine del contenitore con le impostazioni `nl-NL` locali. | `sha256:94b4ddf4cc80fa666e422f8416aea3f98ebe4842dfe9b1f4bfea7c47eb61127` |
+| `pl-pl`                     | Immagine del contenitore con le impostazioni `pl-PL` locali. | `sha256:58e5f78bf772c3c8cbd5f0c5d6e67f5348e04e3f893d84738a2a3e964bab256` |
+| `pt-br`                     | Immagine del contenitore con le impostazioni `pt-BR` locali. | `sha256:f500ef956bd28807f40df1f9f0520e437c5084f61a3be6d1379e746887d5b7c` |
 | `pt-pt`                     | Immagine del contenitore con le `pt-PT` impostazioni locali. | `sha256:c841d2dbe5f40adf6039242c106985febb1a44212feb55d9769fe31134ec116` |
 | `ro-ro`                     | Immagine del contenitore con le `ro-RO` impostazioni locali. | `sha256:93271c39c0a134e987a069c2a65289acff9869ae0d90fdcb39928c9ef0fd86b` |
 | `ru-ru`                     | Immagine del contenitore con le `ru-RU` impostazioni locali. | `sha256:8d6b3c600e56cc96813b8c14b7916c5539a20ba561dc1c6d5bbef6285d6eef6` |
@@ -617,7 +624,7 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 | `zh-hk`                     | Immagine del contenitore con le `zh-HK` impostazioni locali. | `sha256:7a2903462b67336a6ce4c8e2faac42052f0a4392d1d5eb3839758cc8d0429f1` |
 | `zh-tw`                     | Immagine del contenitore con le `zh-TW` impostazioni locali. | `sha256:30fd2b3660e047d24a46fbba14ba282f15bc0339ec93f49afd0d02ff4069146` |
 
-| Impostazioni locali per v 2.6.0           | Note                                    |
+| Impostazioni locali per la versione 2.6.0           | Note                                    |
 |-----------------------------|:-----------------------------------------|
 | `ar-ae`                     | Immagine del contenitore con le `ar-AE` impostazioni locali. |
 | `ar-eg`                     | Immagine del contenitore con le `ar-EG` impostazioni locali. |
@@ -625,26 +632,26 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 | `ar-qa`                     | Immagine del contenitore con le `ar-QA` impostazioni locali. |
 | `ar-sa`                     | Immagine del contenitore con le `ar-SA` impostazioni locali. |
 | `ca-es`                     | Immagine del contenitore con le `ca-ES` impostazioni locali. |
-| `cs-cz`                     | Immagine del contenitore con le `cs-CZ` impostazioni locali. |
-| `da-dk`                     | Immagine del contenitore con le `da-DK` impostazioni locali. |
-| `de-de`                     | Immagine del contenitore con le `de-DE` impostazioni locali. |
-| `en-au`                     | Immagine del contenitore con le `en-AU` impostazioni locali. |
-| `en-ca`                     | Immagine del contenitore con le `en-CA` impostazioni locali. |
-| `en-gb`                     | Immagine del contenitore con le `en-GB` impostazioni locali. |
-| `en-in`                     | Immagine del contenitore con le `en-IN` impostazioni locali. |
-| `en-nz`                     | Immagine del contenitore con le `en-NZ` impostazioni locali. |
-| `en-us`                     | Immagine del contenitore con le `en-US` impostazioni locali. |
-| `es-es`                     | Immagine del contenitore con le `es-ES` impostazioni locali. |
-| `es-mx`                     | Immagine del contenitore con le `es-MX` impostazioni locali. |
-| `fi-fi`                     | Immagine del contenitore con le `fi-FI` impostazioni locali. |
-| `fr-ca`                     | Immagine del contenitore con le `fr-CA` impostazioni locali. |
-| `fr-fr`                     | Immagine del contenitore con le `fr-FR` impostazioni locali. |
-| `gu-in`                     | Immagine del contenitore con le `gu-IN` impostazioni locali. |
-| `hi-in`                     | Immagine del contenitore con le `hi-IN` impostazioni locali. |
-| `it-it`                     | Immagine del contenitore con le `it-IT` impostazioni locali. |
-| `ja-jp`                     | Immagine del contenitore con le `ja-JP` impostazioni locali. |
-| `ko-kr`                     | Immagine del contenitore con le `ko-KR` impostazioni locali. |
-| `mr-in`                     | Immagine del contenitore con le `mr-IN` impostazioni locali. |
+| `cs-cz`                     | Immagine del contenitore con le impostazioni `cs-CZ` locali. |
+| `da-dk`                     | Immagine del contenitore con le impostazioni `da-DK` locali. |
+| `de-de`                     | Immagine del contenitore con le impostazioni `de-DE` locali. |
+| `en-au`                     | Immagine del contenitore con le impostazioni `en-AU` locali. |
+| `en-ca`                     | Immagine del contenitore con le impostazioni `en-CA` locali. |
+| `en-gb`                     | Immagine del contenitore con le impostazioni `en-GB` locali. |
+| `en-in`                     | Immagine del contenitore con le impostazioni `en-IN` locali. |
+| `en-nz`                     | Immagine del contenitore con le impostazioni `en-NZ` locali. |
+| `en-us`                     | Immagine del contenitore con le impostazioni `en-US` locali. |
+| `es-es`                     | Immagine del contenitore con le impostazioni `es-ES` locali. |
+| `es-mx`                     | Immagine del contenitore con le impostazioni `es-MX` locali. |
+| `fi-fi`                     | Immagine del contenitore con le impostazioni `fi-FI` locali. |
+| `fr-ca`                     | Immagine del contenitore con le impostazioni `fr-CA` locali. |
+| `fr-fr`                     | Immagine del contenitore con le impostazioni `fr-FR` locali. |
+| `gu-in`                     | Immagine del contenitore con le impostazioni `gu-IN` locali. |
+| `hi-in`                     | Immagine del contenitore con le impostazioni `hi-IN` locali. |
+| `it-it`                     | Immagine del contenitore con le impostazioni `it-IT` locali. |
+| `ja-jp`                     | Immagine del contenitore con le impostazioni `ja-JP` locali. |
+| `ko-kr`                     | Immagine del contenitore con le impostazioni `ko-KR` locali. |
+| `mr-in`                     | Immagine del contenitore con le impostazioni `mr-IN` locali. |
 | `nb-no`                     | Immagine del contenitore con le `nb-NO` impostazioni locali. |
 | `nl-nl`                     | Immagine del contenitore con le `nl-NL` impostazioni locali. |
 | `pl-pl`                     | Immagine del contenitore con le `pl-PL` impostazioni locali. |
@@ -660,33 +667,33 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 | `zh-hk`                     | Immagine del contenitore con le `zh-HK` impostazioni locali. |
 | `zh-tw`                     | Immagine del contenitore con le `zh-TW` impostazioni locali. |
 
-| Impostazioni locali per v 2.5.0           | Note                                    |
+| Impostazioni locali per la versione 2.5.0           | Note                                    |
 |-----------------------------|:-----------------------------------------|
 | `ar-ae`                     | Immagine del contenitore con le `ar-AE` impostazioni locali. |
 | `ar-eg`                     | Immagine del contenitore con le `ar-EG` impostazioni locali. |
 | `ar-kw`                     | Immagine del contenitore con le `ar-KW` impostazioni locali. |
 | `ar-qa`                     | Immagine del contenitore con le `ar-QA` impostazioni locali. |
 | `ar-sa`                     | Immagine del contenitore con le `ar-SA` impostazioni locali. |
-| `ca-es`                     | Immagine del contenitore con le `ca-ES` impostazioni locali. |
-| `da-dk`                     | Immagine del contenitore con le `da-DK` impostazioni locali. |
-| `de-de`                     | Immagine del contenitore con le `de-DE` impostazioni locali. |
-| `en-au`                     | Immagine del contenitore con le `en-AU` impostazioni locali. |
-| `en-ca`                     | Immagine del contenitore con le `en-CA` impostazioni locali. |
-| `en-gb`                     | Immagine del contenitore con le `en-GB` impostazioni locali. |
-| `en-in`                     | Immagine del contenitore con le `en-IN` impostazioni locali. |
-| `en-nz`                     | Immagine del contenitore con le `en-NZ` impostazioni locali. |
-| `en-us`                     | Immagine del contenitore con le `en-US` impostazioni locali. |
-| `es-es`                     | Immagine del contenitore con le `es-ES` impostazioni locali. |
-| `es-mx`                     | Immagine del contenitore con le `es-MX` impostazioni locali. |
-| `fi-fi`                     | Immagine del contenitore con le `fi-FI` impostazioni locali. |
-| `fr-ca`                     | Immagine del contenitore con le `fr-CA` impostazioni locali. |
-| `fr-fr`                     | Immagine del contenitore con le `fr-FR` impostazioni locali. |
-| `gu-in`                     | Immagine del contenitore con le `gu-IN` impostazioni locali. |
-| `hi-in`                     | Immagine del contenitore con le `hi-IN` impostazioni locali. |
-| `it-it`                     | Immagine del contenitore con le `it-IT` impostazioni locali. |
-| `ja-jp`                     | Immagine del contenitore con le `ja-JP` impostazioni locali. |
-| `ko-kr`                     | Immagine del contenitore con le `ko-KR` impostazioni locali. |
-| `mr-in`                     | Immagine del contenitore con le `mr-IN` impostazioni locali. |
+| `ca-es`                     | Immagine del contenitore con le impostazioni `ca-ES` locali. |
+| `da-dk`                     | Immagine del contenitore con le impostazioni `da-DK` locali. |
+| `de-de`                     | Immagine del contenitore con le impostazioni `de-DE` locali. |
+| `en-au`                     | Immagine del contenitore con le impostazioni `en-AU` locali. |
+| `en-ca`                     | Immagine del contenitore con le impostazioni `en-CA` locali. |
+| `en-gb`                     | Immagine del contenitore con le impostazioni `en-GB` locali. |
+| `en-in`                     | Immagine del contenitore con le impostazioni `en-IN` locali. |
+| `en-nz`                     | Immagine del contenitore con le impostazioni `en-NZ` locali. |
+| `en-us`                     | Immagine del contenitore con le impostazioni `en-US` locali. |
+| `es-es`                     | Immagine del contenitore con le impostazioni `es-ES` locali. |
+| `es-mx`                     | Immagine del contenitore con le impostazioni `es-MX` locali. |
+| `fi-fi`                     | Immagine del contenitore con le impostazioni `fi-FI` locali. |
+| `fr-ca`                     | Immagine del contenitore con le impostazioni `fr-CA` locali. |
+| `fr-fr`                     | Immagine del contenitore con le impostazioni `fr-FR` locali. |
+| `gu-in`                     | Immagine del contenitore con le impostazioni `gu-IN` locali. |
+| `hi-in`                     | Immagine del contenitore con le impostazioni `hi-IN` locali. |
+| `it-it`                     | Immagine del contenitore con le impostazioni `it-IT` locali. |
+| `ja-jp`                     | Immagine del contenitore con le impostazioni `ja-JP` locali. |
+| `ko-kr`                     | Immagine del contenitore con le impostazioni `ko-KR` locali. |
+| `mr-in`                     | Immagine del contenitore con le impostazioni `mr-IN` locali. |
 | `nb-no`                     | Immagine del contenitore con le `nb-NO` impostazioni locali. |
 | `nl-nl`                     | Immagine del contenitore con le `nl-NL` impostazioni locali. |
 | `pl-pl`                     | Immagine del contenitore con le `pl-PL` impostazioni locali. |
@@ -706,9 +713,9 @@ Per questo contenitore sono disponibili le impostazioni locali seguenti.
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 
-L'immagine del contenitore [da sintesi vocale][sp-tts] è disponibile nel `mcr.microsoft.com` Syndicate del registro contenitori. Si trova all'interno del `azure-cognitive-services/speechservices/` repository ed è denominato `text-to-speech` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech` .
+[L'immagine del contenitore][sp-tts] Sintesi vocale è disponibile nel registro `mcr.microsoft.com` contenitori. Si trova all'interno `azure-cognitive-services/speechservices/` del repository ed è denominato `text-to-speech` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech` .
 
-Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/text-to-speech/tags/list)versione.
+Per questa immagine del contenitore sono disponibili i tag seguenti. È anche possibile trovare un elenco completo dei [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/text-to-speech/tags/list)
 
 
 # <a name="latest-version"></a>[Versione più recente](#tab/current)
@@ -718,12 +725,12 @@ Nota sulla versione per `1.12.0-amd64-<locale-and-voice>` :
 **Funzionalità**
 * Eseguire l'aggiornamento ai modelli più recenti.
 
-| Tag immagine                                  | Note                                                                                                         |
+| Tag di immagine                                  | Note                                                                                                         |
 |---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
 | `latest`                                    | Immagine del contenitore con le `en-US` impostazioni locali e la `en-US-AriaRUS` voce.                                            | 
 | `1.12.0-amd64-<locale-and-voice>`           | Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio, `1.12.0-amd64-en-us-ariarus`. |
 
-| Impostazioni locali per v 1.12.0                         | Note                                                                      | Digest                         |
+| Impostazioni locali per v1.12.0                         | Note                                                                      | Digest                         |
 |---------------------------------------------|:---------------------------------------------------------------------------|:-------------------------------|
 | `ar-eg-hoda`                                | Immagine del contenitore con le `ar-EG` impostazioni locali e la `ar-EG-Hoda` voce.            | `sha256:987e6b3e9e13570eb29117e87829a4905b35c712a0f36429dd6404793af31627` |
 | `ar-sa-naayf`                               | Immagine del contenitore con le `ar-SA` impostazioni locali e la `ar-SA-Naayf` voce.           | `sha256:7d1d3c337b7e3bdc6ae2b3e074828ffc3c64ffc0ab94abcb89896e623148d963` |
@@ -813,7 +820,7 @@ Nota sulla versione per `1.12.0-amd64-<locale-and-voice>` :
 Nota sulla versione per `1.11.0-amd64-<locale-and-voice>` :
 
 **Funzionalità**
-* Ulteriori dettagli sull'errore per i problemi durante il recupero di modelli personalizzati in base all'ID.
+* Altri dettagli sull'errore per i problemi durante il recupero di modelli personalizzati in base all'ID.
 
 Nota sulla versione per `1.9.0-amd64-<locale-and-voice>` :
 
@@ -823,22 +830,22 @@ Nota sulla versione per `1.8.0-amd64-<locale-and-voice>` :
 
 **Funzionalità**
 
-* Migrazione completa a .NET 3,1
+* Migrazione completa a .NET 3.1
 
 Nota sulla versione per `1.7.0-amd64-<locale-and-voice>` :
 
 **Funzionalità**
 
-* Componenti aggiornati a .NET 3,1
+* Componenti aggiornati a .NET 3.1
 
-| Tag immagine                                  | Note                                                                                                         |
+| Tag di immagine                                  | Note                                                                                                         |
 |---------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
 | `1.11.0-amd64-<locale-and-voice>`           | Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio, `1.11.0-amd64-en-us-ariarus`. |
 | `1.9.0-amd64-<locale-and-voice>`            | Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio, `1.9.0-amd64-en-us-ariarus`.  |
 | `1.8.0-amd64-<locale-and-voice>`            | Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio, `1.8.0-amd64-en-us-ariarus`.  |
-| `1.7.0-amd64-<locale-and-voice>`            | 1 ° versione GA. Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio, `1.7.0-amd64-en-us-ariarus`.  |
+| `1.7.0-amd64-<locale-and-voice>`            | Prima versione disponibile a livello di ga. Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio, `1.7.0-amd64-en-us-ariarus`.  |
 
-| Impostazioni locali per v 1.11.0                         | Note                                                                      | Digest                         |
+| Impostazioni locali per la versione 1.11.0                         | Note                                                                      | Digest                         |
 |---------------------------------------------|:---------------------------------------------------------------------------|:-------------------------------|
 | `ar-eg-hoda`                                | Immagine del contenitore con le `ar-EG` impostazioni locali e la `ar-EG-Hoda` voce.            | `sha256:7ba558f444ea482eca87b3e850e9b416c71391282b26a590d1ee3d9a81350188` |
 | `ar-sa-naayf`                               | Immagine del contenitore con le `ar-SA` impostazioni locali e la `ar-SA-Naayf` voce.           | `sha256:7f0afcc205340dea7ffd959812dcba6a11448f6c5c1ab55c1422a360bd876137` |
@@ -922,7 +929,7 @@ Nota sulla versione per `1.7.0-amd64-<locale-and-voice>` :
 | `zh-tw-yating-apollo`                       | Immagine del contenitore con le `zh-TW` impostazioni locali e la `zh-TW-Yating-Apollo` voce.   | `sha256:b8289bb550b9328d83d6a7ec93bdf9524087222f537a55db0b2eb5402c2bf663` |
 | `zh-tw-zhiwei-apollo`                       | Immagine del contenitore con le `zh-TW` impostazioni locali e la `zh-TW-Zhiwei-Apollo` voce.   | `sha256:af4bc0ef2211f69a92541bb14596341375e1003aef541aefcea7843192046b4c` |
 
-| Impostazioni locali per v 1.9.0                          | Note                                                                      | Digest                         |
+| Impostazioni locali per la versione 1.9.0                          | Note                                                                      | Digest                         |
 |---------------------------------------------|:---------------------------------------------------------------------------|:-------------------------------|
 | `ar-eg-hoda`                                | Immagine del contenitore con le `ar-EG` impostazioni locali e la `ar-EG-Hoda` voce.            | `sha256:2b19cfd2212d6517b286aa18617d2f9d1dd1520078b559cbbf9240599270d10` | 
 | `ar-sa-naayf`                               | Immagine del contenitore con le `ar-SA` impostazioni locali e la `ar-SA-Naayf` voce.           | `sha256:6063aae5fb15c62b234cf945220916516a06ca81354c5311dee02af4d8cb0d3` |
@@ -1006,7 +1013,7 @@ Nota sulla versione per `1.7.0-amd64-<locale-and-voice>` :
 | `zh-tw-yating-apollo`                       | Immagine del contenitore con le `zh-TW` impostazioni locali e la `zh-TW-Yating-Apollo` voce.   | `sha256:33eec6e3aaaedafaf3969746eeaf97a1760e763505decfe2abaa03f5054bfd2` |
 | `zh-tw-zhiwei-apollo`                       | Immagine del contenitore con le `zh-TW` impostazioni locali e la `zh-TW-Zhiwei-Apollo` voce.   | `sha256:456db2898b2e5a9c30b7071ce6ea3f141438cbf1aa4899c7ffccfc2f0dde5bd` |
 
-| Impostazioni locali per v 1.8.0                          | Note                                                                      |
+| Impostazioni locali per la versione 1.8.0                          | Note                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `ar-eg-hoda`                                | Immagine del contenitore con le `ar-EG` impostazioni locali e la `ar-EG-Hoda` voce.            |
 | `ar-sa-naayf`                               | Immagine del contenitore con le `ar-SA` impostazioni locali e la `ar-SA-Naayf` voce.           |
@@ -1090,7 +1097,7 @@ Nota sulla versione per `1.7.0-amd64-<locale-and-voice>` :
 | `zh-tw-yating-apollo`                       | Immagine del contenitore con le `zh-TW` impostazioni locali e la `zh-TW-Yating-Apollo` voce.   |
 | `zh-tw-zhiwei-apollo`                       | Immagine del contenitore con le `zh-TW` impostazioni locali e la `zh-TW-Zhiwei-Apollo` voce.   |
 
-| Impostazioni locali per v 1.7.0                          | Note                                                                      |
+| Impostazioni locali per la versione 1.7.0                          | Note                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `ar-eg-hoda`                                | Immagine del contenitore con le `ar-EG` impostazioni locali e la `ar-EG-Hoda` voce.            |
 | `ar-sa-naayf`                               | Immagine del contenitore con le `ar-SA` impostazioni locali e la `ar-SA-Naayf` voce.           |
@@ -1178,17 +1185,17 @@ Nota sulla versione per `1.7.0-amd64-<locale-and-voice>` :
 
 ## <a name="neural-text-to-speech"></a>Sintesi vocale neurale
 
-L'immagine del contenitore [di sintesi vocale neurale][sp-ntts] è disponibile nel Syndicate del `mcr.microsoft.com` Registro contenitori. Si trova all'interno del `azure-cognitive-services/speechservices/` repository ed è denominato `neural-text-to-speech` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech` .
+[L'immagine del contenitore Neural Text-to-Speech][sp-ntts] è disponibile nel registro `mcr.microsoft.com` contenitori. Si trova all'interno `azure-cognitive-services/speechservices/` del repository ed è denominato `neural-text-to-speech` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech` .
 
-Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list)versione.
+Per questa immagine del contenitore sono disponibili i tag seguenti. È anche possibile trovare un elenco completo dei [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list)
 
 
 # <a name="latest-version"></a>[Versione più recente](#tab/current)
 
 Note sulla versione per `v1.4.0` :
 * Eseguire l'aggiornamento ai modelli più recenti. 
-* La latenza e il costo della CPU sono stati ridotti.
-* Supporto migliore per l'ottimizzazione prosodia con tag SSML (ad esempio, pitch Contour).
+* Il costo e la latenza della CPU sono stati ridotti.
+* Migliore supporto dell'ottimizzazione della prosodia con il tag SSML (ad esempio, il contorno del passo).
 
 | Tag immagine                                  | Note                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
@@ -1196,7 +1203,7 @@ Note sulla versione per `v1.4.0` :
 | `1.4.0-amd64-<locale-and-voice>`    | Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio, `1.4.0-amd64-en-us-arianeural`. |
 
 
-| v 1.4.0 impostazioni locali e voci           | Note                                                                      |
+| Impostazioni locali e voci v1.4.0           | Note                                                                      |
 |-------------------------------------|:---------------------------------------------------------------------------|
 | `de-de-katjaneural`                 | Immagine del contenitore con le `de-DE` impostazioni locali e la `de-DE-KatjaNeural` voce.     |
 | `en-au-natashaneural`               | Immagine del contenitore con le `en-AU` impostazioni locali e la `en-AU-NatashaNeural` voce.   |
@@ -1223,7 +1230,7 @@ Note sulla versione per `v1.4.0` :
 # <a name="previous-version"></a>[Versione precedente](#tab/previous)
 
 Note sulla versione per `v1.3.0` :
-* Il contenitore da testo a voce neurale è ora disponibile a livello generale. 
+* Il contenitore Neural Text-to-Speech è ora disponibile a livello generale. 
 
 | Tag immagine                                  | Note                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
@@ -1231,7 +1238,7 @@ Note sulla versione per `v1.3.0` :
 | `1.3.0-amd64-<locale-and-voice>-preview`    | Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio, `1.3.0-amd64-en-us-arianeural-preview`. |
 | `1.2.0-amd64-<locale-and-voice>-preview`    | Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio, `1.2.0-amd64-en-us-arianeural-preview`. |
 
-| v 1.3.0 impostazioni locali e voci           | Note                                                                      |
+| v1.3.0 Impostazioni locali e voci           | Note                                                                      |
 |-------------------------------------|:---------------------------------------------------------------------------|
 | `de-de-katjaneural`                 | Immagine del contenitore con le `de-DE` impostazioni locali e la `de-DE-KatjaNeural` voce.     |
 | `en-au-natashaneural`               | Immagine del contenitore con le `en-AU` impostazioni locali e la `en-AU-NatashaNeural` voce.   |
@@ -1252,7 +1259,7 @@ Note sulla versione per `v1.3.0` :
 | `pt-br-franciscaneural`             | Immagine del contenitore con le `pt-BR` impostazioni locali e la `pt-BR-FranciscaNeural` voce. |
 | `zh-cn-xiaoxiaoneural`              | Immagine del contenitore con le `zh-CN` impostazioni locali e la `zh-CN-XiaoxiaoNeural` voce.  |
 
-| v 1.2.0 Anteprima impostazioni locali e voci           | Note                                                                      |
+| V1.2.0 Preview Locales and voices (Impostazioni locali e voci dell'anteprima v1.2.0)           | Note                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Immagine del contenitore con le `en-US` impostazioni locali e la `en-US-AriaNeural` voce.      |
 | `de-de-katjaneural-preview`                 | Immagine del contenitore con le `de-DE` impostazioni locali e la `de-DE-KatjaNeural` voce.     |
@@ -1276,9 +1283,9 @@ Note sulla versione per `v1.3.0` :
 
 ## <a name="speech-language-detection"></a>Rilevamento della lingua parlata
 
-L'immagine del contenitore del [rilevamento della lingua vocale][sp-lid] è reperibile nel `mcr.microsoft.com` Syndicate del registro contenitori. Si trova all'interno del `azure-cognitive-services/speechservices/` repository ed è denominato `language-detection` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` .
+[L'immagine del contenitore Rilevamento][sp-lid] lingua voce è disponibile nel registro `mcr.microsoft.com` contenitori. Si trova all'interno `azure-cognitive-services/speechservices/` del repository ed è denominato `language-detection` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` .
 
-Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/language-detection/tags/list)versione.
+Per questa immagine del contenitore sono disponibili i tag seguenti. È anche possibile trovare un elenco completo dei [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/language-detection/tags/list)
 
 | Tag immagine                                  | Note                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
@@ -1287,9 +1294,9 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 
 ## <a name="key-phrase-extraction"></a>Estrazione frasi chiave
 
-è possibile trovare l'immagine del contenitore nel `mcr.microsoft.com` Syndicate del registro contenitori. Si trova all'interno del `azure-cognitive-services/textanalytics/` repository ed è denominato `keyphrase` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase` .
+L'immagine del contenitore è disponibile nel registro `mcr.microsoft.com` contenitori. Si trova all'interno `azure-cognitive-services/textanalytics/` del repository ed è denominato `keyphrase` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase` .
 
-Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/keyphrase/tags/list)versione.
+Per questa immagine del contenitore sono disponibili i tag seguenti. È anche possibile trovare un elenco completo di [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/keyphrase/tags/list)
 
 # <a name="latest-version"></a>[Versione più recente](#tab/current)
 
@@ -1310,14 +1317,14 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 
 ## <a name="text-language-detection"></a>Rilevamento della lingua del testo
 
-Il [rilevamento lingua][ta-la] immagine del contenitore è disponibile nel `mcr.microsoft.com` Syndicate del registro contenitori. Si trova all'interno del `azure-cognitive-services/textanalytics/` repository ed è denominato `language` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/textanalytics/language`
+[L Rilevamento lingua'immagine][ta-la] del contenitore è disponibile nel `mcr.microsoft.com` syndicate del registro contenitori. Si trova all'interno `azure-cognitive-services/textanalytics/` del repository ed è denominato `language` . Il nome completo dell'immagine del contenitore è: `mcr.microsoft.com/azure-cognitive-services/textanalytics/language`
 
 
-Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/language/tags/list)versione.
+Per questa immagine del contenitore sono disponibili i tag seguenti. È anche possibile trovare un elenco completo dei [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/language/tags/list)
 
 # <a name="latest-versions"></a>[Versioni più recenti](#tab/current)
 
-| Tag immagine                    | Note |
+| Tag di immagine                    | Note |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.013570001-amd64` | |
@@ -1326,7 +1333,7 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 # <a name="previous-versions"></a>[Versioni precedenti](#tab/previous)
 
 
-| Tag immagine                    | Note |
+| Tag di immagine                    | Note |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.012840001-amd64` |   |
@@ -1336,37 +1343,37 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 
-Il [analisi del sentiment][ta-se] immagine del contenitore è disponibile nel `mcr.microsoft.com` Syndicate del registro contenitori. Si trova all'interno del `azure-cognitive-services/textanalytics/` repository ed è denominato `sentiment` . Il nome completo dell'immagine del contenitore è, `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment`
+[L Analisi del sentiment'immagine][ta-se] del contenitore è disponibile nel `mcr.microsoft.com` syndicate del registro contenitori. Si trova all'interno `azure-cognitive-services/textanalytics/` del repository ed è denominato `sentiment` . Il nome completo dell'immagine del contenitore è: `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment`
 
-Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/sentiment/tags/list)versione.
+Per questa immagine del contenitore sono disponibili i tag seguenti. È anche possibile trovare un elenco completo dei [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/sentiment/tags/list)
 
-| Tag immagine | Note                                         |
+| Tag di immagine | Note                                         |
 |------------|:----------------------------------------------|
 | `latest`   |                                               |
-| `3.0-en`   | Analisi del sentiment V3 (Inglese)               |
-| `3.0-es`   | Analisi del sentiment V3 (Spagnolo)               |
-| `3.0-fr`   | Analisi del sentiment V3 (Francese)                |
-| `3.0-it`   | Analisi del sentiment V3 (Italiano)               |
-| `3.0-de`   | Analisi del sentiment V3 (tedesco)                |
-| `3.0-zh`   | Analisi del sentiment V3 (cinese semplificato)  |
-| `3.0-zht`  | Analisi del sentiment V3 (cinese tradizionale) |
-| `3.0-ja`   | Analisi del sentiment V3 (giapponese)              |
-| `3.0-pt`   | Analisi del sentiment V3 (Portoghese)            |
-| `3.0-nl`   | Analisi del sentiment V3 (Olandese)                 |
+| `3.0-en`   | Analisi del sentiment v3 (inglese)               |
+| `3.0-es`   | Analisi del sentiment v3 (spagnolo)               |
+| `3.0-fr`   | Analisi del sentiment v3 (francese)                |
+| `3.0-it`   | Analisi del sentiment v3 (italiano)               |
+| `3.0-de`   | Analisi del sentiment v3 (tedesco)                |
+| `3.0-zh`   | Analisi del sentiment v3 (cinese semplificato)  |
+| `3.0-zht`  | Analisi del sentiment v3 (cinese tradizionale) |
+| `3.0-ja`   | Analisi del sentiment v3 (giapponese)              |
+| `3.0-pt`   | Analisi del sentiment v3 (portoghese)            |
+| `3.0-nl`   | Analisi del sentiment v3 (olandese)                 |
 | `2.1`    | Analisi del sentiment v2      |
 
 
 ## <a name="text-analytics-for-health"></a>Analisi del testo per la sanità
 
-Il [analisi del testo per][ta-he] l'immagine del contenitore di integrità si trova nel `mcr.microsoft.com` Syndicate del registro contenitori. Si trova all'interno del `azure-cognitive-services/textanalytics/` repository ed è denominato `healthcare` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare`
+Il [Analisi del testo per l'immagine del][ta-he] contenitore di integrità è disponibile nel registro `mcr.microsoft.com` contenitori. Si trova all'interno `azure-cognitive-services/textanalytics/` del repository ed è denominato `healthcare` . Il nome completo dell'immagine del contenitore è `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare`
 
-Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/healthcare/tags/list)versione.
+Per questa immagine del contenitore sono disponibili i tag seguenti. È anche possibile trovare un elenco completo dei [tag in MCR.](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/healthcare/tags/list)
 
 
 Note sulla versione per `3.0.015490002-onprem-amd64` :
 
-* nuovo modello-versione `2021-03-01`
-* Contenitore rilasciato per la versione.
+* nuova versione del modello `2021-03-01`
+* Contenitore rilasciato a MCR.
 
 | Tag immagine | Note                                         |
 |------------|:----------------------------------------------|
