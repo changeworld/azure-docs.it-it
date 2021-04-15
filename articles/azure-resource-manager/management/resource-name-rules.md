@@ -3,20 +3,20 @@ title: Restrizioni di denominazione per le risorse
 description: Illustra le regole e le restrizioni di denominazione per le risorse di Azure.
 ms.topic: conceptual
 ms.date: 04/08/2021
-ms.openlocfilehash: a1dbe409eb5479c4027834cd33e095d12c31e238
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: e260c9055b26d82f2fd2f8458d287a35a838f40f
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210194"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477792"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regole di denominazione e restrizioni per le risorse di Azure
 
 Questo articolo riepiloga le regole e le restrizioni di denominazione per le risorse di Azure. Per consigli sull'assegnazione di nomi alle risorse, vedere [Convenzioni consigliate di denominazione e assegnazione di tag](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
-Questo articolo elenca le risorse per spazio dei nomi del provider di risorse. Per un elenco del modo in cui i provider di risorse corrispondono ai servizi di Azure, vedere [provider di risorse per i servizi di Azure](azure-services-resource-providers.md).
+Questo articolo elenca le risorse in base allo spazio dei nomi del provider di risorse. Per un elenco di come i provider di risorse corrispondono ai servizi di Azure, vedere [Provider di risorse per i servizi di Azure.](azure-services-resource-providers.md)
 
-I nomi delle risorse non fanno distinzione tra maiuscole e minuscole, a meno che non siano indicati nella colonna caratteri validi
+I nomi delle risorse non supportano la distinzione tra maiuscole e minuscole, a meno che non sia specificato nella colonna caratteri validi.
 
 Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 
@@ -83,16 +83,16 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | Entità | Scope | Length | Caratteri validi |
 > | --- | --- | --- | --- |
 > | locks | ambito di assegnazione | 1-90 | Caratteri alfanumerici, punti, caratteri di sottolineatura, trattini e parentesi.<br><br>Non può terminare con un punto. |
-> | policyAssignments | ambito di assegnazione | 1-128 nome visualizzato<br><br>1-64 nome della risorsa<br><br>1-24 nome della risorsa nell'ambito del gruppo di gestione | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio. |
-> | policyDefinitions | ambito di definizione | 1-128 nome visualizzato<br><br>1-64 nome della risorsa | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio. |
-> | policySetDefinitions | ambito di definizione | 1-128 nome visualizzato<br><br>1-64 nome della risorsa<br><br>1-24 nome della risorsa nell'ambito del gruppo di gestione | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio.  |
+> | policyAssignments | ambito di assegnazione | 1-128 nome visualizzato<br><br>1-64 nome risorsa<br><br>1-24 nome risorsa nell'ambito del gruppo di gestione | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio. |
+> | policyDefinitions | ambito di definizione | 1-128 nome visualizzato<br><br>1-64 nome risorsa | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio. |
+> | policySetDefinitions | ambito di definizione | 1-128 nome visualizzato<br><br>1-64 nome risorsa<br><br>1-24 nome risorsa nell'ambito del gruppo di gestione | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio.  |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tableFixed"]
 > | Entità | Scope | Length | Caratteri validi |
 > | --- | --- | --- | --- |
-> | automationAccounts | gruppo di risorse & area <br>(Vedere la nota sotto) | 6-50 | Caratteri alfanumerici e trattini.<br><br>Deve iniziare con una lettera e terminare con un carattere alfanumerico. |
+> | automationAccounts | area del gruppo & risorse <br>(Vedere la nota seguente) | 6-50 | Caratteri alfanumerici e trattini.<br><br>Deve iniziare con una lettera e terminare con un carattere alfanumerico. |
 > | automationAccounts/certificates | account di automazione | 1-128 | Non è possibile usare:<br> `<>*%&:\?.+/` <br><br>Non può terminare con uno spazio.  |
 > | automationAccounts/connections | account di automazione | 1-128 | Non è possibile usare:<br> `<>*%&:\?.+/` <br><br>Non può terminare con uno spazio. |
 > | automationAccounts/credentials | account di automazione | 1-128 | Non è possibile usare:<br> `<>*%&:\?.+/` <br><br>Non può terminare con uno spazio. |
@@ -169,7 +169,7 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | --- | --- | --- | --- |
 > | availabilitySets | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, punti e trattini.<br><br>Deve iniziare con un carattere alfanumerico. Deve terminare con un carattere alfanumerico o di sottolineatura. |
 > | diskEncryptionSets | gruppo di risorse | 1-80 | Caratteri alfanumerici e caratteri di sottolineatura. |
-> | disks | gruppo di risorse | 1-80 | Caratteri alfanumerici e caratteri di sottolineatura. |
+> | disks | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura e trattini. |
 > | galleries | gruppo di risorse | 1-80 | Caratteri alfanumerici e punti.<br><br>Deve iniziare e terminare con un carattere alfanumerico. |
 > | galleries/applications | gallery | 1-80 | Caratteri alfanumerici, trattini e punti.<br><br>Deve iniziare e terminare con un carattere alfanumerico. |
 > | galleries/applications/versions | application | Intero a 32 bit | Numeri e punti. |
@@ -177,13 +177,13 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | galleries/images/versions | image | Intero a 32 bit | Numeri e punti. |
 > | images | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, punti e trattini.<br><br>Deve iniziare con un carattere alfanumerico. Deve terminare con un carattere alfanumerico o di sottolineatura. |
 > | snapshots | gruppo di risorse | 1-80 | Caratteri alfanumerici, caratteri di sottolineatura, punti e trattini.<br><br>Deve iniziare con un carattere alfanumerico. Deve terminare con un carattere alfanumerico o di sottolineatura. |
-> | virtualMachines | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare lo spazio o i caratteri seguenti:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Le macchine virtuali Windows non possono includere il punto o terminare con il trattino.<br><br>Le macchine virtuali Linux non possono terminare con un punto o un segno meno. |
-> | virtualMachineScaleSets | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare lo spazio o i caratteri seguenti:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
+> | virtualMachines | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare uno spazio o questi caratteri:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Le macchine virtuali Windows non possono includere un punto o terminare con un trattino.<br><br>Le macchine virtuali Linux non possono terminare con un punto o un trattino. |
+> | virtualMachineScaleSets | gruppo di risorse | 1-15 (Windows)<br>1-64 (Linux)<br><br>Vedere la nota che segue. | Non è possibile usare uno spazio o questi caratteri:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Non può iniziare con un carattere di sottolineatura. Non può terminare con un punto o un trattino. |
 
 > [!NOTE]
 > Le macchine virtuali di Azure hanno due nomi distinti: il nome della risorsa e il nome host. Quando si crea una macchina virtuale nel portale, viene usato lo stesso valore per entrambi i nomi. Le restrizioni nella tabella precedente sono relative al nome host. Il nome della risorsa effettivo può avere al massimo 64 caratteri.
 
-## <a name="microsoftcommunication"></a>Microsoft. Communication
+## <a name="microsoftcommunication"></a>Microsoft.Communication
 
 > [!div class="mx-tableFixed"]
 > | Entità | Scope | Length | Caratteri validi |
@@ -646,7 +646,7 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > [!div class="mx-tableFixed"]
 > | Entità | Scope | Length | Caratteri validi |
 > | --- | --- | --- | --- |
-> | managedInstances | globale | 1-63 | Lettere minuscole, numeri e trattini.<br><br>Non può iniziare o terminare con un trattino. <br><br> Non possono contenere caratteri speciali, ad esempio `@` . |
+> | managedInstances | globale | 1-63 | Lettere minuscole, numeri e trattini.<br><br>Non può iniziare o terminare con un trattino. <br><br> Non può contenere caratteri speciali, ad esempio `@` . |
 > | servers | globale | 1-63 | Lettere minuscole, numeri e trattini.<br><br>Non può iniziare o terminare con un trattino. |
 > | servers/administrators | server |  | Deve essere `ActiveDirectory`. |
 > | servers/databases | server | 1-128 | Non è possibile usare:<br>`<>*%&:\/?`<br><br>Non può terminare con un punto o uno spazio. |
@@ -717,7 +717,7 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | sites/slots | site | 2-59 | Caratteri alfanumerici e trattini. |
 
 > [!NOTE]
-> Un sito Web deve avere un URL univoco globale. Quando si crea un sito Web che usa un piano di hosting, l'URL è `http://<app-name>.azurewebsites.net` . Il nome dell'app deve essere globalmente univoco. Quando si crea un sito Web che usa una ambiente del servizio app, il nome dell'app deve essere univoco all'interno del [dominio per l'ambiente del servizio app](../../app-service/environment/using-an-ase.md#app-access). Per entrambi i casi, l'URL del sito è univoco a livello globale.
+> Un sito Web deve avere un URL univoco a livello globale. Quando si crea un sito Web che usa un piano di hosting, l'URL è `http://<app-name>.azurewebsites.net` . Il nome dell'app deve essere univoco a livello globale. Quando si crea un sito Web che usa un ambiente del servizio app, il nome dell'app deve essere univoco all'interno del dominio per [l'ambiente del servizio app](../../app-service/environment/using-an-ase.md#app-access). Per entrambi i casi, l'URL del sito è univoco a livello globale.
 >
 > Funzioni di Azure ha le stesse regole di denominazione e le stesse restrizioni di Microsoft.Web/sites.
 

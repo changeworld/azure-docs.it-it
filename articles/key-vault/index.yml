@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Insieme di credenziali chiave di Azure
-summary: Informazioni su come usare l'insieme di credenziali delle chiavi per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
+summary: 'Informazioni su come usare l''insieme di credenziali delle chiavi per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.'
 brand: azure
 metadata:
   title: Documentazione di Azure Key Vault
-  description: Informazioni su come usare l'insieme di credenziali delle chiavi per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
+  description: 'Informazioni su come usare l''insieme di credenziali delle chiavi per creare e gestire chiavi in grado di accedere e crittografare le risorse, le app e le soluzioni cloud. Esercitazioni, informazioni di riferimento sulle API e altro ancora.'
   services: key-vault
   ms.service: key-vault
   ms.subservice: na
@@ -13,158 +13,152 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 55495d690511c1ebfbd81b80ad9c99d76e708146
-  ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
-  ms.translationtype: MT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 03/10/2021
-  ms.locfileid: "102566410"
 highlightedContent:
   items:
-  - title: Introduzione ad Azure Key Vault
-    itemType: overview
-    url: ./general/overview.md
-  - title: Aggiornamenti importanti del servizio
-    itemType: whats-new
-    url: ./general/whats-new.md
-  - title: Authentication
-    itemType: overview
-    url: ./general/authentication.md
-  - title: Concetti fondamentali
-    itemType: overview
-    url: ./general/basic-concepts.md
-  - title: Registrazione
-    itemType: overview
-    url: ./general/logging.md
-  - title: Limitazione
-    itemType: overview
-    url: ./general/overview-throttling.md
+    - title: Introduzione ad Azure Key Vault
+      itemType: overview
+      url: ./general/overview.md
+    - title: Aggiornamenti importanti del servizio
+      itemType: whats-new
+      url: ./general/whats-new.md
+    - title: Authentication
+      itemType: overview
+      url: ./general/authentication.md
+    - title: Concetti fondamentali
+      itemType: overview
+      url: ./general/basic-concepts.md
+    - title: Registrazione
+      itemType: overview
+      url: ./general/logging.md
+    - title: Limitazione
+      itemType: overview
+      url: ./general/overview-throttling.md
 conceptualContent:
   items:
-  - title: Certificati
-    links:
-    - url: ./certificates/about-certificates.md
-      itemType: overview
-      text: Informazioni sui certificati
-    - url: ./certificates/quick-create-portal.md
-      itemType: quickstart
-      text: Impostare e recuperare un certificato da Azure Key Vault usando il portale di Azure
-    - url: ./certificates/certificate-scenarios.md
-      itemType: overview
-      text: Introduzione ai certificati di Key Vault
-    - url: ./certificates/create-certificate-scenarios.md
-      itemType: overview
-      text: Monitorare e gestire la creazione di certificati
-    footerLink:
-      url: ./certificates/index.yml
-      text: Altre informazioni
-  - title: Chiavi
-    links:
-    - url: ./keys/about-keys.md
-      itemType: overview
-      text: Informazioni sulle chiavi
-    - url: ../security/fundamentals/encryption-atrest.md
-      itemType: overview
-      text: Crittografia dei dati
-    - url: ./keys/quick-create-portal.md
-      itemType: quickstart
-      text: Impostare e recuperare una chiave da Azure Key Vault con il portale di Azure
-    - url: ./keys/hsm-protected-keys.md
-      itemType: overview
-      text: Importare chiavi con protezione HSM (panoramica)
-    footerLink:
-      url: ./keys/index.yml
-      text: Altre informazioni
-  - title: Segreti
-    links:
-    - url: ./secrets/about-secrets.md
-      itemType: overview
-      text: Informazioni sui segreti
-    - url: ./secrets/quick-create-portal.md
-      itemType: quickstart
-      text: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
-    - url: ./secrets/tutorial-rotation.md
-      itemType: tutorial
-      text: Ruotare i segreti per le risorse di un utente singolo
-    footerLink:
-      url: ./secrets/index.yml
-      text: Altre informazioni
-  - title: Modulo di protezione hardware gestito (anteprima)
-    links:
-    - url: ./managed-hsm/overview.md
-      itemType: overview
-      text: Che cos'è il modulo di protezione hardware gestito?
-    - url: ./managed-hsm/best-practices.md
-      itemType: overview
-      text: Procedure consigliate
-    - url: ./managed-hsm/quick-create-cli.md
-      itemType: quickstart
-      text: Effettuare il provisioning di un modulo di protezione hardware gestito e attivarlo
-    footerLink:
-      text: Altre informazioni
-      url: ./managed-hsm/index.yml
-  - title: Librerie client
-    links:
-    - url: ./general/client-libraries.md
-      itemType: reference
-      text: Librerie client per Azure Key Vault
-    - url: /dotnet/api/overview/azure/key-vault
-      itemType: reference
-      text: Libreria client .NET
-    - url: /python/api/overview/azure/key-vault-index
-      itemType: reference
-      text: Libreria client Python
-    - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
-      itemType: reference
-      text: Libreria client Java
-    - url: /javascript/api/overview/azure/key-vault-index
-      itemType: reference
-      text: Libreria client Node.js
-  - title: Key Vault con archiviazione
-    links:
-    - url: ./secrets/overview-storage-keys.md
-      itemType: overview
-      text: Gestire le chiavi di archiviazione - Interfaccia della riga di comando
-    - url: ./secrets/overview-storage-keys-powershell.md
-      itemType: overview
-      text: Gestire le chiave di archiviazione - PowerShell
-    - url: ./secrets/storage-keys-sas-tokens-code.md
-      itemType: overview
-      text: Recuperare i token di firma di accesso condiviso nel codice
-  - title: Key Vault con macchine virtuali
-    links:
-    - url: ../virtual-machines/extensions/key-vault-windows.md
-      itemType: overview
-      text: Estensione per VM di Key Vault - Windows
-    - url: ../virtual-machines/extensions/key-vault-linux.md
-      itemType: overview
-      text: Estensione per VM di Key Vault - Linux
-    - url: /azure/developer/ansible/key-vault-configure-vm-security
-      itemType: overview
-      text: Key Vault con VM Linux in Ansible
-    - url: ../virtual-machines/windows/disk-encryption-key-vault.md
-      itemType: overview
-      text: Key Vault con Crittografia dischi di Azure - Windows
-    - url: ../virtual-machines/linux/disk-encryption-key-vault.md
-      itemType: overview
-      text: Key Vault con Crittografia dischi di Azure - Linux
-    - url: ../virtual-machine-scale-sets/disk-encryption-key-vault.md
-      itemType: overview
-      text: Key Vault con set di scalabilità di macchine virtuali
-  - title: Integrazione dell'insieme di credenziali delle chiavi
-    links:
-    - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault
-      itemType: overview
-      text: Azure Dev Ops - Fare riferimento ai segreti di Key Vault in Azure Pipelines
-    - url: ../app-service/app-service-key-vault-references.md
-      itemType: overview
-      text: Servizi app - Fare riferimento ai segreti di Key Vault in Servizi app
-    - url: ../app-service/configure-ssl-certificate.md#store-in-azure-key-vault
-      itemType: overview
-      text: Servizi app - Mantenere i certificati di Servizi app in Key Vault
-    - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
-      itemType: overview
-      text: Servizio Azure Kubernetes - Usare segreti, certificati e chiavi di Key Vault nel servizio Azure Kubernetes
-    - url: /azure/databricks/security/secrets/secret-scopes
-      itemType: overview
-      text: Azure Databricks - Gestione dei segreti con Key Vault
+    - title: Certificati
+      links:
+        - url: ./certificates/about-certificates.md
+          itemType: overview
+          text: Informazioni sui certificati
+        - url: ./certificates/quick-create-portal.md
+          itemType: quickstart
+          text: Impostare e recuperare un certificato da Azure Key Vault usando il portale di Azure
+        - url: ./certificates/certificate-scenarios.md
+          itemType: overview
+          text: Introduzione ai certificati di Key Vault
+        - url: ./certificates/create-certificate-scenarios.md
+          itemType: overview
+          text: Monitorare e gestire la creazione di certificati
+      footerLink:
+        url: ./certificates/index.yml
+        text: Altre informazioni
+    - title: Chiavi
+      links:
+        - url: ./keys/about-keys.md
+          itemType: overview
+          text: Informazioni sulle chiavi
+        - url: ../security/fundamentals/encryption-atrest.md
+          itemType: overview
+          text: Crittografia dei dati
+        - url: ./keys/quick-create-portal.md
+          itemType: quickstart
+          text: Impostare e recuperare una chiave da Azure Key Vault con il portale di Azure
+        - url: ./keys/hsm-protected-keys.md
+          itemType: overview
+          text: Importare chiavi con protezione HSM (panoramica)
+      footerLink:
+        url: ./keys/index.yml
+        text: Altre informazioni
+    - title: Segreti
+      links:
+        - url: ./secrets/about-secrets.md
+          itemType: overview
+          text: Informazioni sui segreti
+        - url: ./secrets/quick-create-portal.md
+          itemType: quickstart
+          text: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
+        - url: ./secrets/tutorial-rotation.md
+          itemType: tutorial
+          text: Ruotare i segreti per le risorse di un utente singolo
+      footerLink:
+        url: ./secrets/index.yml
+        text: Altre informazioni
+    - title: Modulo di protezione hardware gestito
+      links:
+        - url: ./managed-hsm/overview.md
+          itemType: overview
+          text: Che cos'è il modulo di protezione hardware gestito?
+        - url: ./managed-hsm/best-practices.md
+          itemType: overview
+          text: Procedure consigliate
+        - url: ./managed-hsm/quick-create-cli.md
+          itemType: quickstart
+          text: Effettuare il provisioning di un modulo di protezione hardware gestito e attivarlo
+      footerLink:
+        text: Altre informazioni
+        url: ./managed-hsm/index.yml
+    - title: Librerie client
+      links:
+        - url: ./general/client-libraries.md
+          itemType: reference
+          text: Librerie client per Azure Key Vault
+        - url: /dotnet/api/overview/azure/key-vault
+          itemType: reference
+          text: Libreria client .NET
+        - url: /python/api/overview/azure/key-vault-index
+          itemType: reference
+          text: Libreria client Python
+        - url: 'https://azure.github.io/azure-sdk-for-java/keyvault.html'
+          itemType: reference
+          text: Libreria client Java
+        - url: /javascript/api/overview/azure/key-vault-index
+          itemType: reference
+          text: Libreria client Node.js
+    - title: Key Vault con archiviazione
+      links:
+        - url: ./secrets/overview-storage-keys.md
+          itemType: overview
+          text: Gestire le chiavi di archiviazione - Interfaccia della riga di comando
+        - url: ./secrets/overview-storage-keys-powershell.md
+          itemType: overview
+          text: Gestire le chiave di archiviazione - PowerShell
+        - url: ./secrets/storage-keys-sas-tokens-code.md
+          itemType: overview
+          text: Recuperare i token di firma di accesso condiviso nel codice
+    - title: Key Vault con macchine virtuali
+      links:
+        - url: ../virtual-machines/extensions/key-vault-windows.md
+          itemType: overview
+          text: Estensione per VM di Key Vault - Windows
+        - url: ../virtual-machines/extensions/key-vault-linux.md
+          itemType: overview
+          text: Estensione per VM di Key Vault - Linux
+        - url: /azure/developer/ansible/key-vault-configure-vm-security
+          itemType: overview
+          text: Key Vault con VM Linux in Ansible
+        - url: ../virtual-machines/windows/disk-encryption-key-vault.md
+          itemType: overview
+          text: Key Vault con Crittografia dischi di Azure - Windows
+        - url: ../virtual-machines/linux/disk-encryption-key-vault.md
+          itemType: overview
+          text: Key Vault con Crittografia dischi di Azure - Linux
+        - url: ../virtual-machine-scale-sets/disk-encryption-key-vault.md
+          itemType: overview
+          text: Key Vault con set di scalabilità di macchine virtuali
+    - title: Integrazione dell'insieme di credenziali delle chiavi
+      links:
+        - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault
+          itemType: overview
+          text: Azure Dev Ops - Fare riferimento ai segreti di Key Vault in Azure Pipelines
+        - url: ../app-service/app-service-key-vault-references.md
+          itemType: overview
+          text: Servizi app - Fare riferimento ai segreti di Key Vault in Servizi app
+        - url: ../app-service/configure-ssl-certificate.md#store-in-azure-key-vault
+          itemType: overview
+          text: Servizi app - Mantenere i certificati di Servizi app in Key Vault
+        - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
+          itemType: overview
+          text: 'Servizio Azure Kubernetes - Usare segreti, certificati e chiavi di Key Vault nel servizio Azure Kubernetes'
+        - url: /azure/databricks/security/secrets/secret-scopes
+          itemType: overview
+          text: Azure Databricks - Gestione dei segreti con Key Vault
