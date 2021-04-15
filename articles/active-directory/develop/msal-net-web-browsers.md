@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 23ba50a6eca1e398b9d459153b84719909f2ecac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4121d4b9ac73ed18da7dce0e397fe919589ac6f0
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99583740"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478761"
 ---
 # <a name="using-web-browsers-msalnet"></a>Uso dei Web browser (MSAL.NET)
 
@@ -63,11 +63,11 @@ Per impostazione predefinita, MSAL.NET supporta il Web browser di sistema in Xam
 
 L'utilizzo del browser di sistema offre il vantaggio significativo della condivisione dello stato dell'accesso SSO con altre applicazioni e le applicazioni Web senza la necessità di un broker (Portale aziendale/Authenticator). Il browser di sistema è stato usato, per impostazione predefinita, in MSAL.NET per le piattaforme Xamarin iOS e Xamarin Android perché, in queste piattaforme il Web browser di sistema occupa l'intero schermo e offre un'esperienza utente migliore. La visualizzazione Web di sistema non è si distingue da una finestra di dialogo. In iOS, tuttavia, l'utente potrebbe dover fornire il consenso affinché il browser richiami l'applicazione, rendendo così l'esperienza meno piacevole.
 
-## <a name="system-browser-experience-on-net-core"></a>Esperienza del browser di sistema in .NET Core
+## <a name="system-browser-experience-on-net"></a>Esperienza del browser di sistema in .NET 
 
 In .NET Core MSAL.NET avvierà il browser di sistema come processo separato. MSAL.NET non ha il controllo su questo browser, ma non appena l'utente completa l'autenticazione, la pagina Web viene reindirizzata in modo tale che MSAL.NET possa intercettare l'URI.
 
-È anche possibile configurare le app scritte per .NET Classic affinché usino questo browser, specificando
+È anche possibile configurare le app scritte per .NET classico o .NET 5 per l'uso di questo browser specificando:
 
 ```csharp
 await pca.AcquireTokenInteractive(s_scopes)
@@ -141,7 +141,7 @@ Per le applicazioni desktop, tuttavia, l'avvio di una visualizzazione Web di sis
 
 Gli sviluppatori che usano MSAL.NET per Xamarin possono scegliere di usare le visualizzazioni Web o i browser di sistema incorporati. Sarà necessario scegliere a seconda dell'esperienza utente che si vuole offrire e delle problematiche relative alla sicurezza.
 
-Attualmente, MSAL.NET non supporta ancora i broker per Android e iOS. Pertanto, per fornire Single Sign-On (SSO), il browser di sistema potrebbe essere ancora un'opzione migliore. Il supporto dei broker con il Web browser incorporato è incluso nel backlog di MSAL.NET.
+Attualmente, MSAL.NET non supporta ancora i broker per Android e iOS. Pertanto, per fornire l'accesso Single Sign-On (SSO), il browser di sistema potrebbe comunque essere un'opzione migliore. Il supporto dei broker con il Web browser incorporato è incluso nel backlog di MSAL.NET.
 
 ### <a name="differences-between-embedded-webview-and-system-browser"></a>Differenze tra visualizzazioni Web incorporate e browser di sistema
 Esistono alcune differenze visive tra la visualizzazione Web incorporata e il browser di sistema in MSAL.NET.

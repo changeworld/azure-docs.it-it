@@ -3,13 +3,13 @@ title: 'Avvio rapido: Nuova assegnazione di criteri con Python'
 description: In questo argomento di avvio rapido viene usato Python per creare un'assegnazione di Criteri di Azure per identificare le risorse non conformi.
 ms.date: 03/02/2021
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: e600f97dafdd1040c22b6e4d9e333f638334b663
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: devx-track-python
+ms.openlocfilehash: 2c9a0d6bb00d82748505304264aeaefa409c4b06
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742331"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379401"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Avvio rapido: Creare un'assegnazione di criteri per identificare le risorse non conformi con Python
 
@@ -40,7 +40,7 @@ Per abilitare l'uso di Python con Criteri di Azure, è necessario aggiungere la 
    az login
    ```
 
-1. Nell'ambiente Python preferito installare le librerie necessarie per i criteri di Azure:
+1. Nell'ambiente Python preferito installare le librerie necessarie per Criteri di Azure:
 
    ```bash
    # Add the Python library for Python

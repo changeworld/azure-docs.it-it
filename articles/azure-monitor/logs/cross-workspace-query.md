@@ -5,30 +5,30 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/11/2021
-ms.openlocfilehash: e007f5af214dcfa475eb59a5981bc580b9499915
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 19cc85751fc5e4a165b646ac89d9d6b6e90c4408
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314236"
+ms.locfileid: "107379554"
 ---
-# <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Eseguire query di log in monitoraggio di Azure che si estendono su più aree di lavoro e app
+# <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Eseguire query di log in Monitoraggio di Azure che si estendono tra aree di lavoro e app
 
-I log di monitoraggio di Azure supportano query tra più aree di lavoro Log Analytics e app Application Insights nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. Si ottiene così una vista dei dati dell'intero sistema.
+Monitoraggio di Azure log supportano le query in più aree di lavoro log analytics e Application Insights'app nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. Si ottiene così una vista dei dati dell'intero sistema.
 
 Esistono due metodi per eseguire query sui dati archiviati in più aree di lavoro e app:
-1. In modo esplicito specificando i dettagli dell'area di lavoro e dell'app. Questa tecnica è descritta in dettaglio in questo articolo.
-2. Utilizzando in modo implicito le [query del contesto delle risorse](./design-logs-deployment.md#access-mode). Quando si esegue una query nel contesto di una risorsa specifica, un gruppo di risorse o una sottoscrizione, i dati rilevanti verranno recuperati da tutte le aree di lavoro che contengono i dati per queste risorse. I dati Application Insights archiviati nelle app non verranno recuperati.
+1. Specificare in modo esplicito l'area di lavoro e i dettagli dell'app. Questa tecnica è illustrata in dettaglio in questo articolo.
+2. Utilizzo implicito di [query del contesto di risorsa](./design-logs-deployment.md#access-mode). Quando si esegue una query nel contesto di una risorsa, un gruppo di risorse o una sottoscrizione specifica, i dati pertinenti verranno recuperati da tutte le aree di lavoro che contengono i dati per queste risorse. Application Insights dati archiviati nelle app non verranno recuperati.
 
 > [!IMPORTANT]
-> Se si usa una [risorsa di Application Insights basata sull'area di lavoro](../app/create-workspace-resource.md), i dati di telemetria vengono archiviati in un'area di lavoro Log Analytics con tutti gli altri dati di log. Usare l'espressione Workspace () per scrivere una query che includa l'applicazione in più aree di lavoro. Per più applicazioni nella stessa area di lavoro, non è necessaria una query tra aree di lavoro.
+> Se si usa una [risorsa di Application Insights basata sull'area di lavoro](../app/create-workspace-resource.md), i dati di telemetria vengono archiviati in un'area di lavoro Log Analytics con tutti gli altri dati di log. Usare l'espressione workspace() per scrivere una query che include l'applicazione in più aree di lavoro. Per più applicazioni nella stessa area di lavoro, non è necessaria una query tra aree di lavoro.
 
 
-## <a name="cross-resource-query-limits"></a>Limiti di query tra risorse 
+## <a name="cross-resource-query-limits"></a>Limiti delle query tra risorse 
 
-* Il numero di risorse Application Insights e le aree di lavoro Log Analytics che è possibile includere in una singola query sono limitate a 100.
-* Le query su più risorse non sono supportate Progettazione visualizzazioni. È possibile creare una query in Log Analytics e aggiungerla al dashboard di Azure per [visualizzare una query di log](../visualize/tutorial-logs-dashboards.md) o includere nelle [cartelle di lavoro](../visualize/workbooks-overview.md)di.
-* Le query tra risorse negli avvisi del log sono supportate solo nell' [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules)corrente. Se si usa l'API legacy Log Analytics Alerts, sarà necessario [passare all'API corrente](../alerts/alerts-log-api-switch.md).
+* Il numero di Application Insights e delle aree di lavoro log analytics che è possibile includere in una singola query è limitato a 100.
+* Le query su più risorse non sono supportate Progettazione visualizzazioni. È possibile creare una query in Log Analytics e aggiungere la query al dashboard di Azure per visualizzare una [query di log](../visualize/tutorial-logs-dashboards.md) o includerla in Cartelle di [lavoro](../visualize/workbooks-overview.md).
+* Le query tra risorse negli avvisi di log sono supportate solo [nell'API scheduledQueryRules corrente.](/rest/api/monitor/scheduledqueryrules) Se si usa l'API avvisi di Log Analytics legacy, è necessario [passare all'API corrente.](../alerts/alerts-log-api-switch.md)
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Esecuzione di query tra aree di lavoro di Log Analytics e da Application Insights
@@ -41,12 +41,12 @@ Esistono vari modi per identificare un'area di lavoro:
 
 * Nome risorsa - Un nome dell'area di lavoro leggibile dall'utente, spesso definito genericamente *nome del componente*. 
 
-    >[!Note]
-    >Poiché i nomi di app e aree di lavoro non sono univoci, questo identificatore potrebbe essere ambiguo. Quando sono presenti più istanze del nome della risorsa, il riferimento deve essere per nome completo, ID risorsa o ID risorsa di Azure.
+    >[!IMPORTANT]
+    >Poiché i nomi delle app e dell'area di lavoro non sono univoci, questo identificatore potrebbe essere ambiguo. È consigliabile che il riferimento sia in base al nome completo, all'ID area di lavoro o all'ID risorsa di Azure.
 
     `workspace("contosoretail-it").Update | count`
 
-* Nome completo-è il nome completo dell'area di lavoro, composto dal nome della sottoscrizione, dal gruppo di risorse e dal nome del componente nel formato seguente: *subscriptionname/resourceGroup/ComponentName*. 
+* Nome completo: è il "nome completo" dell'area di lavoro, composto dal nome della sottoscrizione, dal gruppo di risorse e dal nome del componente nel formato seguente: *subscriptionName/resourceGroup/componentName*. 
 
     `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
@@ -74,7 +74,7 @@ L'identificazione di un'applicazione in Application Insights può essere eseguit
     `app("fabrikamapp")`
 
     >[!NOTE]
-    >L'identificazione di un'applicazione in base al nome presuppone l'univocità tra tutte le sottoscrizioni accessibili. Se sono presenti più applicazioni con il nome specificato, la query avrà esito negativo a causa dell'ambiguità. In questo caso è necessario usare uno degli altri identificatori.
+    >L'identificazione di un'applicazione in base al nome presuppone l'univocità in tutte le sottoscrizioni accessibili. Se sono presenti più applicazioni con il nome specificato, la query avrà esito negativo a causa dell'ambiguità. In questo caso è necessario usare uno degli altri identificatori.
 
 * Nome completo - Nome completo dell'app, composto dal nome della sottoscrizione, dal gruppo di risorse e dal nome del componente nel formato seguente: *subscriptionName/resourceGroup/componentName*. 
 
@@ -136,7 +136,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
-> Questo metodo non può essere usato con gli avvisi del log perché la convalida dell'accesso delle risorse della regola di avviso, incluse le aree di lavoro e le applicazioni, viene eseguita al momento della creazione dell'avviso. L'aggiunta di nuove risorse alla funzione dopo la creazione dell'avviso non è supportata. Se si preferisce usare la funzione per l'ambito delle risorse negli avvisi del log, è necessario modificare la regola di avviso nel portale o con un modello di Gestione risorse per aggiornare le risorse con ambito. In alternativa, è possibile includere l'elenco delle risorse nella query di avviso del log.
+> Questo metodo non può essere usato con gli avvisi del log perché la convalida dell'accesso delle risorse della regola di avviso, incluse le aree di lavoro e le applicazioni, viene eseguita al momento della creazione degli avvisi. L'aggiunta di nuove risorse alla funzione dopo la creazione dell'avviso non è supportata. Se si preferisce usare la funzione per l'ambito delle risorse negli avvisi di log, è necessario modificare la regola di avviso nel portale o con un modello di Resource Manager per aggiornare le risorse con ambito. In alternativa, è possibile includere l'elenco delle risorse nella query di avviso del log.
 
 
 ![Diagramma temporale](media/cross-workspace-query/chart.png)
