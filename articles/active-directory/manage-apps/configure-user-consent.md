@@ -2,22 +2,22 @@
 title: Configurare la modalità con cui gli utenti finali forniscono il consenso alle applicazioni usando Azure AD
 description: Di seguito viene descritto come gestire la modalità e le tempistiche con cui gli utenti possono fornire il consenso alle applicazioni che avranno accesso ai dati dell'organizzazione.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 68bb846ebb0199691161bc501441df908eb8ad87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95a651f6201c9f60500c9191821edb7eb76b8535
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643610"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374438"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurare la modalità con cui gli utenti finali forniscono il consenso alle applicazioni
 
@@ -32,17 +32,17 @@ Con la possibilità di concedere alle app l'accesso ai dati, gli utenti possono 
 
 ## <a name="user-consent-settings"></a>Impostazioni per il consenso utente
 
-I criteri di consenso delle app descrivono le condizioni che devono essere soddisfatte prima che un'app possa essere consentita. Questi criteri possono includere condizioni nell'app che richiede l'accesso, nonché le autorizzazioni richieste dall'app.
+I criteri di consenso dell'app descrivono le condizioni che devono essere soddisfatte prima che un'app possa essere autorizzata. Questi criteri possono includere condizioni per l'app che richiede l'accesso, nonché le autorizzazioni richieste dall'app.
 
-Scegliendo i criteri di consenso delle app applicabili a tutti gli utenti, è possibile impostare i limiti quando gli utenti finali sono autorizzati a concedere il consenso alle app e quando dovranno richiedere la revisione e l'approvazione dell'amministratore:
+Scegliendo quali criteri di consenso per le app si applicano a tutti gli utenti, è possibile impostare limiti per il momento in cui gli utenti finali sono autorizzati a concedere il consenso alle app e quando verrà richiesto loro di richiedere la revisione e l'approvazione dell'amministratore:
 
-* **Disable user consent** (Disabilita consenso utente): gli utenti non possono concedere le autorizzazioni alle applicazioni. Gli utenti possono continuare ad accedere alle app a cui hanno precedentemente fornito il consenso o che sono autorizzate dagli amministratori per loro conto, ma non potranno fornire autonomamente il consenso a nuove autorizzazioni o a nuove app. Solo gli utenti a cui è stato concesso un ruolo della directory che include l'autorizzazione per concedere il consenso saranno in grado di fornire il consenso alle nuove app.
+* **Disable user consent** (Disabilita consenso utente): gli utenti non possono concedere le autorizzazioni alle applicazioni. Gli utenti possono continuare ad accedere alle app a cui hanno precedentemente fornito il consenso o che sono autorizzate dagli amministratori per loro conto, ma non potranno fornire autonomamente il consenso a nuove autorizzazioni o a nuove app. Solo gli utenti a cui è stato concesso un ruolo della directory che include l'autorizzazione per concedere il consenso potranno dare il consenso alle nuove app.
 
-* **Gli utenti possono concedere il consenso alle app da autori verificati o dalla propria organizzazione, ma solo per le autorizzazioni selezionate** . tutti gli utenti possono solo dare il consenso alle app pubblicate da un editore e da app [verificate](../develop/publisher-verification-overview.md) registrate nel tenant. Gli utenti possono solo dare il consenso alle autorizzazioni classificate come "Low Impact". È necessario [classificare le autorizzazioni](configure-permission-classifications.md) per selezionare le autorizzazioni a cui gli utenti possono fornire il consenso.
+* Gli utenti possono acconsentire alle app di editori verificati o dell'organizzazione, ma solo [](../develop/publisher-verification-overview.md) per le autorizzazioni **selezionate:** tutti gli utenti possono dare il consenso solo alle app pubblicate da un editore verificato e alle app registrate nel tenant. Gli utenti possono concedere il consenso solo alle autorizzazioni classificate come "a basso impatto". È necessario [classificare le autorizzazioni](configure-permission-classifications.md) per selezionare le autorizzazioni a cui gli utenti sono autorizzati a fornire il consenso.
 
-* **Gli utenti possono concedere il consenso a tutte le app** . questa opzione consente a tutti gli utenti di concedere il consenso a qualsiasi autorizzazione che non richiede il consenso dell'amministratore, per qualsiasi applicazione.
+* **Gli utenti possono acconsentire a** tutte le app: questa opzione consente a tutti gli utenti di acconsentire a qualsiasi autorizzazione che non richiede il consenso dell'amministratore per qualsiasi applicazione.
 
-* **Criteri di consenso dell'app personalizzati** : per altre opzioni sulle condizioni che controllano quando il consenso dell'utente, è possibile [creare criteri di consenso dell'app personalizzati](manage-app-consent-policies.md#create-a-custom-app-consent-policy)e configurarli in modo da richiedere il consenso dell'utente.
+* **Criteri di consenso dell'app** personalizzati: per altre opzioni sulle condizioni che regolano il consenso dell'utente, è possibile creare criteri di consenso dell'app personalizzati e configurarne l'applicazione per il consenso dell'utente. [](manage-app-consent-policies.md#create-a-custom-app-consent-policy)
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -57,11 +57,11 @@ Per configurare le impostazioni di consenso utente tramite il portale di Azure:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-È possibile usare il modulo di anteprima di Azure AD PowerShell più recente, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), per scegliere i criteri di consenso dell'app che governano il consenso dell'utente per le applicazioni.
+È possibile usare la versione più recente Azure AD di anteprima di PowerShell, [AzureADPreview,](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview)per scegliere i criteri di consenso dell'app che regolano il consenso dell'utente per le applicazioni.
 
 #### <a name="disable-user-consent"></a>Disabilitare il consenso dell'utente
 
-Per disabilitare il consenso dell'utente, impostare i criteri di consenso che regolano il consenso dell'utente in modo che sia vuoto:
+Per disabilitare il consenso dell'utente, impostare i criteri di consenso che regolano il consenso dell'utente su vuoti:
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
@@ -69,9 +69,9 @@ Per disabilitare il consenso dell'utente, impostare i criteri di consenso che re
      -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
   ```
 
-#### <a name="allow-user-consent-subject-to-an-app-consent-policy"></a>Consenti il consenso dell'utente in conformità ai criteri di consenso dell'app
+#### <a name="allow-user-consent-subject-to-an-app-consent-policy"></a>Consenti consenso utente soggetto ai criteri di consenso dell'app
 
-Per consentire il consenso dell'utente, scegliere i criteri di consenso per le app che devono governare l'autorizzazione degli utenti per concedere il consenso alle app:
+Per consentire il consenso dell'utente, scegliere i criteri di consenso dell'app da autorizzare gli utenti a concedere il consenso alle app:
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
@@ -79,14 +79,14 @@ Per consentire il consenso dell'utente, scegliere i criteri di consenso per le a
      -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
   ```
 
-Sostituire `{consent-policy-id}` con l'ID dei criteri che si desidera applicare. È possibile scegliere un [criterio di consenso app personalizzato](manage-app-consent-policies.md#create-a-custom-app-consent-policy) creato oppure è possibile scegliere tra i criteri predefiniti seguenti:
+Sostituire `{consent-policy-id}` con l'ID del criterio che si desidera applicare. È possibile scegliere [un criterio di consenso](manage-app-consent-policies.md#create-a-custom-app-consent-policy) per l'app personalizzato creato oppure uno dei criteri predefiniti seguenti:
 
 | ID | Descrizione |
 |:---|:------------|
-| Microsoft-utente-predefinito-basso | **Consenti l'autorizzazione utente per le app da autori verificati, per le autorizzazioni selezionate**<br /> Consenti il consenso utente limitato solo per le app da autori verificati e app registrate nel tenant e solo per le autorizzazioni classificate come "basso effetto". (Non dimenticare di [classificare le autorizzazioni](configure-permission-classifications.md) per selezionare le autorizzazioni a cui gli utenti possono dare il consenso). |
-| Microsoft-User-default-legacy | **Consenti consenso utente per le app**<br /> Questa opzione consente a tutti gli utenti di fornire il consenso per qualsiasi autorizzazione che non richiede il consenso dell'amministratore, per qualsiasi applicazione |
+| microsoft-user-default-low | **Consenti il consenso dell'utente per le app da editori verificati, per le autorizzazioni selezionate**<br /> Consentire il consenso utente limitato solo per le app di editori e app verificate registrate nel tenant e solo per le autorizzazioni classificate come "a basso impatto". Non dimenticare di classificare le [autorizzazioni per](configure-permission-classifications.md) selezionare le autorizzazioni a cui gli utenti sono autorizzati a concedere il consenso. |
+| microsoft-user-default-legacy | **Consentire il consenso dell'utente per le app**<br /> Questa opzione consente a tutti gli utenti di acconsentire a qualsiasi autorizzazione che non richiede il consenso dell'amministratore, per qualsiasi applicazione |
   
-Ad esempio, per abilitare il consenso dell'utente in base ai criteri predefiniti `microsoft-user-default-low` :
+Ad esempio, per abilitare il consenso dell'utente soggetto ai criteri `microsoft-user-default-low` predefiniti:
 
 ```powershell
 Set-AzureADMSAuthorizationPolicy `
@@ -97,9 +97,9 @@ Set-AzureADMSAuthorizationPolicy `
 ---
 
 > [!TIP]
-> [Abilitare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md) per consentire agli utenti di richiedere la revisione e l'approvazione dell'amministratore di un'applicazione a cui l'utente non è autorizzato, ad esempio quando il consenso dell'utente è stato disabilitato o quando un'applicazione richiede autorizzazioni che l'utente non è autorizzato a concedere.
+> [](configure-admin-consent-workflow.md) Abilitare il flusso di lavoro di consenso dell'amministratore per consentire agli utenti di richiedere la revisione e l'approvazione di un'applicazione a cui l'utente non è autorizzato a concedere il consenso, ad esempio quando il consenso dell'utente è stato disabilitato o quando un'applicazione richiede autorizzazioni a cui l'utente non è autorizzato a concedere.
 
-## <a name="risk-based-step-up-consent"></a>Consenso per step-up basato sul rischio
+## <a name="risk-based-step-up-consent"></a>Consenso alle procedure dettagliate basate sui rischi
 
 Il consenso incrementale basato sul rischio consente di ridurre l'esposizione degli utenti ad app dannose che effettuano [richieste di consenso illecite](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Se Microsoft rileva una richiesta di consenso dell'utente finale rischiosa, sarà necessario un "passaggio" al consenso dell'amministratore. Questa funzionalità è abilitata per impostazione predefinita, ma comporterà una modifica del comportamento solo quando è abilitato il consenso dell'utente finale.
 
@@ -149,7 +149,7 @@ In questo caso, verrà registrato anche un evento di controllo con una categoria
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | Boolean |  Flag che indica se il consenso dell'utente verrà bloccato quando viene rilevata una richiesta rischiosa. |
 
-1. Valore delle impostazioni di aggiornamento per la configurazione desiderata:
+1. Aggiornare il valore delle impostazioni per la configurazione desiderata:
 
     ```powershell
     # Disable risk-based step-up consent entirely
@@ -177,7 +177,7 @@ In questo caso, verrà registrato anche un evento di controllo con una categoria
 
 Per altre informazioni:
 
-* [Configurare le impostazioni di consenso dell'utente](configure-user-consent.md)
+* [Configurare le impostazioni di consenso utente](configure-user-consent.md)
 * [Gestire i criteri di consenso delle app](manage-app-consent-policies.md)
 * [Configurare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md)
 * [Informazioni su come gestire il consenso alle applicazioni e valutare le richieste di consenso](manage-consent-requests.md)

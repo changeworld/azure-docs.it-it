@@ -6,15 +6,15 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 03/17/2021
 ms.author: mbaldwin
-ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: a56c08e5bf6054d24af3ade571ec625969286a77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell
+ms.openlocfilehash: ce982b38faa72978e1b043d374a333b68aca80b6
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102455645"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374744"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale in .NET
 
@@ -42,7 +42,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
   * [.NET Core 3.1 SDK o versione successiva](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-  * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+  * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="create-resources-and-assign-permissions"></a>Creare le risorse e assegnare le autorizzazioni
 
@@ -50,11 +50,18 @@ Prima di iniziare a scrivere il codice, è necessario creare alcune risorse, ins
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Per accedere ad Azure tramite l'interfaccia della riga di comando di Azure, immettere:
+Per accedere ad Azure usando il comando seguente:
 
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 ```azurecli
 az login
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Connect-AzAccount
+```
+---
 
 ## <a name="create-a-resource-group-and-key-vault"></a>Creare un gruppo di risorse e un insieme di credenziali delle chiavi
 
@@ -74,13 +81,14 @@ Creare una macchina virtuale Windows o Linux con uno dei metodi seguenti:
 | [Azure portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) |
 
 ## <a name="assign-an-identity-to-the-vm"></a>Assegnare un'identità alla macchina virtuale
-Creare un'identità assegnata dal sistema per la macchina virtuale con il comando [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign):
+Creare un'identità assegnata dal sistema per la macchina virtuale con l'esempio seguente:
 
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Annotare l'identità assegnata dal sistema che viene visualizzata nel codice seguente. L'output del comando precedente sarà: 
+Annotare l'identità assegnata dal sistema che viene visualizzata nel codice seguente. L'output del comando precedente sarà:
 
 ```output
 {
@@ -89,12 +97,36 @@ Annotare l'identità assegnata dal sistema che viene visualizzata nel codice seg
 }
 ```
 
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+$vm = Get-AzVM -Name <NameOfYourVirtualMachine>
+Update-AzVM -ResourceGroupName <YourResourceGroupName> -VM $vm -IdentityType SystemAssigned
+```
+
+Si noti il PrincipalId visualizzato nel codice seguente. L'output del comando precedente sarà: 
+
+
+```output
+PrincipalId          TenantId             Type             UserAssignedIdentities
+-----------          --------             ----             ----------------------
+xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
+```
+---
+
 ## <a name="assign-permissions-to-the-vm-identity"></a>Assegnare autorizzazioni per l'identità della macchina virtuale
 Assegnare le autorizzazioni dell'identità creata in precedenza all'insieme di credenziali delle chiavi con il comando [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy):
 
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 ```azurecli
-az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
+az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions  get list set delete
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -ResourceGroupName <YourResourceGroupName> -VaultName '<your-unique-key-vault-name>' -ObjectId '<VMSystemAssignedIdentity>' -PermissionsToSecrets  get,list,set,delete
+```
+---
 
 ## <a name="sign-in-to-the-virtual-machine"></a>Accedere alla macchina virtuale
 
@@ -153,7 +185,7 @@ Aggiungere queste righe per aggiornare l'URI in modo che rispecchi il valore `va
         static void Main(string[] args)
         {
             string secretName = "mySecret";
-
+            string keyVaultName = "<your-key-vault-name>";
             var kvUri = "https://<your-key-vault-name>.vault.azure.net";
             SecretClientOptions options = new SecretClientOptions()
             {
