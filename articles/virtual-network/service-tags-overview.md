@@ -10,29 +10,29 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2020
+ms.date: 4/14/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 2d14ca2423d34926a9e297823a6515c2c5dde06a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b5f6f06af3eecabe26f7b587a790912f99b006e4
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607117"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107496759"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
 
 Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete.
 
-È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](./network-security-groups-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag di servizio, ad esempio **ApiManagement**, nel campo di *origine* o di *destinazione* appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. 
+È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza](./network-security-groups-overview.md#security-rules) di rete o [Firewall di Azure](../firewall/service-tags.md). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag del servizio, ad  esempio  **ApiManagement**, nel campo di origine o destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. 
 
 > [!NOTE] 
-> A partire dal 2021 marzo, è anche possibile usare i tag di servizio al posto degli intervalli di indirizzi IP espliciti nelle [route definite dall'utente](./virtual-networks-udr-overview.md). Questa funzionalità è attualmente in anteprima pubblica. 
+> A partire da marzo 2021, è anche possibile usare tag di servizio al posto di intervalli IP espliciti nelle [route definite dall'utente.](./virtual-networks-udr-overview.md) Questa funzionalità è attualmente in anteprima pubblica. 
 
 È possibile usare i tag del servizio per ottenere l'isolamento rete e proteggere le risorse di Azure da Internet in generale durante l'accesso ai servizi di Azure con endpoint pubblici. Creare regole del gruppo di sicurezza di rete in ingresso/uscita per negare il traffico da/verso **Internet** e consentire il traffico da/verso **AzureCloud** o altri [tag del servizio](#available-service-tags) disponibili dei servizi di Azure specifici.
 
-![Isolamento rete dei servizi di Azure con tag di servizio](./media/service-tags-overview/service_tags.png)
+![Isolamento di rete dei servizi di Azure tramite tag di servizio](./media/service-tags-overview/service_tags.png)
 
 ## <a name="available-service-tags"></a>Tag del servizio disponibili
 La tabella seguente include tutti i tag del servizio disponibili per l'uso nelle regole del [gruppo di sicurezza di rete](./network-security-groups-overview.md#security-rules).
@@ -56,13 +56,13 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureActiveDirectory** | Azure Active Directory. | In uscita | No | Sì |
 | **AzureActiveDirectoryDomainServices** | Traffico di gestione per le distribuzioni dedicate in Azure Active Directory Domain Services. | Entrambe | No | Sì |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | In uscita | No | No |
-| **AzureAPIForFHIR** | API di Azure per FHIR (risorse di interoperabilità sanitaria veloce).<br/><br/> *Nota: questo tag non è attualmente configurabile tramite il portale di Azure.*| In uscita | No | No |
-| **AzureArcInfrastructure** | Server abilitati per Azure Arc, Azure Arc abilitato Kubernetes e traffico di configurazione Guest.<br/><br/>*Nota:* Questo tag presenta una dipendenza dai tag **AzureActiveDirectory**,**AzureTrafficManager** e **AzureResourceManager** . *Questo tag non è attualmente configurabile tramite il portale di Azure*.| In uscita | No | Sì |
+| **AzureAPIForFHIR** | API di Azure per FHIR (Fast Healthcare Interoperability Resources).<br/><br/> *Nota: questo tag non è attualmente configurabile tramite il portale di Azure.*| In uscita | No | No |
+| **AzureArcInfrastructure** | Azure Arc server abilitati, Azure Arc kubernetes abilitati e il traffico di Configurazione guest.<br/><br/>*Nota:* Questo tag ha una dipendenza dai tag **AzureActiveDirectory**,**AzureTrafficManager** e **AzureResourceManager.** *Questo tag non è attualmente configurabile tramite il portale di Azure.*| In uscita | No | Sì |
 | **AzureBackup** |Backup di Azure.<br/><br/>*Nota:* questo tag presenta una dipendenza dai tag **Storage** e **AzureActiveDirectory**. | In uscita | No | Sì |
 | **AzureBotService** | Servizio Azure Bot. | In uscita | No | No |
 | **AzureCloud** | Tutti gli [indirizzi IP pubblici dei data center](https://www.microsoft.com/download/details.aspx?id=56519). | In uscita | Sì | Sì |
-| **AzureCognitiveSearch** | Ricerca cognitiva di Azure <br/><br/>Questo tag o gli indirizzi IP associati possono essere usati per concedere agli indicizzatori l'accesso sicuro alle origini dati. Per altri dettagli, vedere la [documentazione sulla connessione all'indicizzatore](../search/search-indexer-troubleshooting.md#connection-errors) . <br/><br/> *Nota*: l'indirizzo IP del servizio di ricerca non è incluso nell'elenco di intervalli IP per questo tag del servizio ed **è necessario aggiungerlo anche** al firewall IP delle origini dati. | In ingresso | No | No |
-| **AzureConnectors** | Questo tag rappresenta gli indirizzi IP usati per i connettori gestiti che rendono i callback del webhook in ingresso al servizio app per la logica di Azure e le chiamate in uscita ai rispettivi servizi, ad esempio archiviazione di Azure o hub eventi di Azure. | In ingresso/in uscita | Sì | Sì |
+| **AzureCognitiveSearch** | Ricerca cognitiva di Azure <br/><br/>Questo tag o gli indirizzi IP associati possono essere usati per concedere agli indicizzatori l'accesso sicuro alle origini dati. Per altri dettagli, vedere la [documentazione relativa alla connessione all'indicizzatore.](../search/search-indexer-troubleshooting.md#connection-errors) <br/><br/> *Nota*: l'indirizzo IP del servizio di ricerca non è incluso nell'elenco di intervalli IP per questo tag del servizio ed **è necessario aggiungerlo anche** al firewall IP delle origini dati. | In ingresso | No | No |
+| **AzureConnectors** | Questo tag rappresenta gli indirizzi IP usati per i connettori gestiti che effettuano callback webhook in ingresso al servizio App per la logica di Azure e le chiamate in uscita ai rispettivi servizi, ad esempio Archiviazione di Azure o Hub eventi di Azure. | In ingresso/In uscita | Sì | Sì |
 | **AzureContainerRegistry** | Registro Azure Container. | In uscita | Sì | Sì |
 | **AzureCosmosDB** | Azure Cosmos DB. | In uscita | Sì | Sì |
 | **AzureDatabricks** | Azure Databricks. | Entrambe | No | No |
@@ -70,15 +70,15 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | In uscita | No | Sì |
 | **AzureDevSpaces** | Azure Dev Spaces. | In uscita | No | No |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*Nota: questo tag non è attualmente configurabile tramite il portale di Azure*| In ingresso | No | Sì |
-| **AzureDigitalTwins** | Dispositivi gemelli digitali di Azure.<br/><br/>*Nota:* Questo tag o gli indirizzi IP trattati da questo tag possono essere usati per limitare l'accesso agli endpoint configurati per le route degli eventi. *Questo tag non è attualmente configurabile tramite il portale di Azure* | In ingresso | No | Sì |
+| **AzureDigitalTwins** | Gemelli digitali di Azure.<br/><br/>*Nota:* Questo tag o gli indirizzi IP coperti da questo tag possono essere usati per limitare l'accesso agli endpoint configurati per le route eventi. *Questo tag non è attualmente configurabile tramite il portale di Azure* | In ingresso | No | Sì |
 | **AzureEventGrid** | Griglia di eventi di Azure. | Entrambe | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Frontdoor di Azure | Entrambe | No | No |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Nota:* questo tag presenta una dipendenza dai tag **AzureActiveDirectory**, **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty**. | In uscita | No | No |
 | **AzureIoTHub** | Hub IoT di Azure. | In uscita | No | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* questo tag presenta una dipendenza dal tag  **AzureActiveDirectory**. | In uscita | Sì | Sì |
-| **AzureLoadBalancer** | Bilanciamento del carico di infrastruttura di Azure. Viene convertito nell'[indirizzo IP virtuale dell'host](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) da cui hanno origine i probe di integrità di Azure. Questo include solo il traffico Probe, non il traffico reale verso la risorsa back-end. Se non si usa Azure Load Balancer, è possibile ignorare questa regola. | Entrambe | No | No |
+| **AzureLoadBalancer** | Bilanciamento del carico di infrastruttura di Azure. Viene convertito nell'[indirizzo IP virtuale dell'host](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16) da cui hanno origine i probe di integrità di Azure. Questo include solo il traffico probe, non il traffico reale verso la risorsa back-end. Se non si usa Azure Load Balancer, è possibile ignorare questa regola. | Entrambe | No | No |
 | **AzureMachineLearning** | Azure Machine Learning | Entrambe | No | Sì |
-| **AzureMonitor** | Log Analytics, Application Insights, AzMon e metriche personalizzate (GiG endpoints).<br/><br/>*Nota:* Per Log Analytics, è necessario anche il tag di **archiviazione** . Se vengono usati gli agenti Linux, è necessario anche il tag **GuestAndHybridManagement** . | In uscita | No | Sì |
+| **AzureMonitor** | Log Analytics, Application Insights, AzMon e metriche personalizzate (GiG endpoints).<br/><br/>*Nota:* Per Log Analytics è necessario **anche il** tag Archiviazione. Se vengono usati agenti Linux, è necessario anche il tag **GuestAndHybridManagement.** | In uscita | No | Sì |
 | **AzureOpenDatasets** | Set di dati aperti di Azure.<br/><br/>*Nota:* questo tag presenta una dipendenza dai tag **AzureFrontDoor.Frontend** e **Storage**. | In uscita | No | No |
 | **AzurePlatformDNS** | Servizio DNS dell'infrastruttura di base (impostazione predefinita).<br/><br>È possibile usare questo tag per disabilitare il DNS predefinito. Prestare attenzione quando si usa questo tag. È consigliabile leggere le [considerazioni sulla piattaforma di Azure](./network-security-groups-overview.md#azure-platform-considerations). È consigliabile inoltre eseguire i test prima di usare questo tag. | In uscita | No | No |
 | **AzurePlatformIMDS** | Servizio metadati dell'istanza di Azure, un servizio dell'infrastruttura di base.<br/><br/>È possibile usare questo tag per disabilitare il servizio metadati dell'istanza di Azure predefinito. Prestare attenzione quando si usa questo tag. È consigliabile leggere le [considerazioni sulla piattaforma di Azure](./network-security-groups-overview.md#azure-platform-considerations). È consigliabile inoltre eseguire i test prima di usare questo tag. | In uscita | No | No |
@@ -101,11 +101,11 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **LogicAppsManagement** | Traffico di gestione per App per la logica. | In ingresso | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | In uscita | No | No |
 | **MicrosoftContainerRegistry** | Registro contenitori per le immagini del contenitore Microsoft. <br/><br/>*Nota:* questo tag presenta una dipendenza dal tag **AzureFrontDoor.FirstParty**. | In uscita | Sì | Sì |
-| **Power bi** | Power bi. *Nota: questo tag non è attualmente configurabile tramite il portale di Azure.* | Entrambe | No | No|
+| **PowerBI** | PowerBi. *Nota: questo tag non è attualmente configurabile tramite il portale di Azure.* | Entrambe | No | No|
 | **PowerQueryOnline** | Power Query online. | Entrambe | No | No |
 | **Bus di servizio** | Traffico del bus di servizio di Azure che usa il livello di servizio Premium. | In uscita | Sì | Sì |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Nota:* questo tag rappresenta l'endpoint del servizio Service Fabric per il piano di controllo per l'area. Ciò consente ai clienti di eseguire operazioni di gestione per i propri cluster Service Fabric dalle rispettive reti virtuali (endpoint, ad esempio https:// westus.servicefabric.azure.com) | Entrambe | No | No |
-| **Sql** | Database SQL di Azure, database di Azure per MySQL, database di Azure per PostgreSQL e analisi delle sinapsi di Azure.<br/><br/>*Nota:* il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. Tale tag non si applica all'istanza gestita di SQL. | In uscita | Sì | Sì |
+| **Sql** | database SQL di Azure, Database di Azure per MySQL, Database di Azure per PostgreSQL e Azure Synapse Analytics.<br/><br/>*Nota:* il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. Tale tag non si applica all'istanza gestita di SQL. | In uscita | Sì | Sì |
 | **SqlManagement** | Traffico di gestione per le distribuzioni dedicate SQL. | Entrambe | No | Sì |
 | **Storage** | Archiviazione di Azure. <br/><br/>*Nota:* il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Archiviazione di Azure, ma non uno specifico account di archiviazione di Azure. | In uscita | Sì | Sì |
 | **StorageSyncService** | Servizio di sincronizzazione archiviazione | Entrambe | No | No |
@@ -138,8 +138,10 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 - [Interfaccia della riga di comando di Azure](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
-> In anteprima pubblica, l'API di individuazione può restituire informazioni meno aggiornate rispetto alle informazioni restituite dai download JSON. Vedere la sezione successiva.
+> La propagazione dei nuovi dati del tag di servizio nei risultati dell'API richiede fino a 4 settimane. Il numero di modifica nei metadati della risposta verrà incrementato in questo caso. Possono esserci differenze temporanee nei risultati quando vengono specificati valori di posizione diversi. Quando si usano i risultati per creare regole del gruppo di sicurezza di rete, è necessario impostare il parametro location in modo che corrisponda all'area del gruppo di sicurezza di rete. 
 
+> [!NOTE]
+> I dati dell'API rappresenteranno i tag che possono essere usati con le regole del gruppo di sicurezza di rete, un subset dei tag attualmente presenti nel file JSON scaricabile. Nell'anteprima pubblica non è garantito che i dati rimangano invariati da un aggiornamento a quello successivo. 
 
 ### <a name="discover-service-tags-by-using-downloadable-json-files"></a>Individuare i tag del servizio tramite file JSON scaricabili 
 È possibile scaricare i file JSON che contengono l'elenco corrente dei tag del servizio insieme ai dettagli dell'intervallo di indirizzi IP. Tali elenchi vengono aggiornati e pubblicati settimanalmente. Le località per ogni cloud sono le seguenti:
@@ -157,7 +159,7 @@ Gli intervalli di indirizzi IP in questi file sono in notazione CIDR.
 ### <a name="tips"></a>Suggerimenti 
 - È possibile rilevare gli aggiornamenti da una pubblicazione alla successiva annotando un aumento dei valori *changeNumber* nel file JSON. In ogni sottosezione (ad esempio **storage.Westus**) è presente il valore *changeNumber* che viene incrementato quando si verificano modifiche. Il primo livello del valore *changeNumber* del file viene incrementato quando una delle sottosezioni viene modificata.
 - Per esempi di come analizzare le informazioni sui tag del servizio (ad esempio per ottenere tutti gli intervalli di indirizzi per l'archiviazione in WestUS), vedere la documentazione dell'[API di individuazione del tag del servizio in PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag).
-- Quando vengono aggiunti nuovi indirizzi IP ai tag di servizio, non verranno usati in Azure per almeno una settimana. Questa operazione consente di aggiornare tutti i sistemi che potrebbero dover tenere traccia degli indirizzi IP associati ai tag del servizio.
+- Quando vengono aggiunti nuovi indirizzi IP ai tag del servizio, non verranno usati in Azure per almeno una settimana. In questo modo è possibile aggiornare tutti i sistemi che potrebbero dover tenere traccia degli indirizzi IP associati ai tag del servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come [creare un gruppo di sicurezza di rete](tutorial-filter-network-traffic.md).

@@ -1,21 +1,21 @@
 ---
 title: Risolvere i problemi di Single Sign-On basato su SAML in Azure Active Directory
-description: Risolvere i problemi relativi a un'app Azure AD configurata per Single Sign-On basato su SAML.
+description: Risolvere i problemi relativi a Azure AD'app configurata per l'accesso Single Sign-On basato su SAML.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: kenwith
-ms.openlocfilehash: b169616042892c379196dd1d38c2343704aa1030
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: iangithinji
+ms.openlocfilehash: c4a4f7bfad4254e7c3fa5851e62532ed427ced8b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257527"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376427"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Risolvere i problemi di Single Sign-On basato su SAML in Azure Active Directory
 Se si verifica un problema durante la configurazione di un'applicazione. Verificare di aver seguito tutti i passaggi dell'esercitazione per l'applicazione. Durante la configurazione dell'applicazione è disponibile la documentazione in linea relativa a come configurare l'applicazione. Per le istruzioni dettagliate, è possibile accedere all'[Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](../saas-apps/tutorial-list.md).
@@ -31,7 +31,7 @@ Se l'applicazione non supporta alcuna delle operazioni sopra indicate, non è po
 Se non è possibile configurare l'identificatore o l'URL di risposta, verificare che i valori dell'identificatore e dell'URL di risposta corrispondano ai modelli preconfigurati per l'applicazione.
 
 Per conoscere i modelli preconfigurati per l'applicazione:
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.** Andare al passaggio 7. Se si è già nel pannello di configurazione dell'applicazione in Azure AD.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore** globale o **co-amministratore.** Andare al passaggio 7. Se si è già nel pannello di configurazione dell'applicazione in Azure AD.
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
@@ -57,7 +57,7 @@ Azure AD seleziona il formato per l'attributo NameID (identificatore utente) in 
 
 ## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Impossibile trovare i metadati di Azure AD per completare la configurazione con l'applicazione
 Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire questa procedura:
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore** globale o **co-amministratore.**
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.

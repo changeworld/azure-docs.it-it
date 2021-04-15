@@ -1,115 +1,115 @@
 ---
 title: Creare la registrazione di un'app
 titleSuffix: Azure Digital Twins
-description: Vedere come creare una registrazione dell'app Azure AD, come opzione di autenticazione per le app client.
+description: Informazioni su come creare una registrazione Azure AD'app, come opzione di autenticazione per le app client.
 author: baanders
 ms.author: baanders
 ms.date: 10/13/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: acb5457f10c54a741a738dd8a1008e703b0f23b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd45bb264f8e29a2aad870a7daff45fdd44e0d3c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102051022"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478812"
 ---
-# <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Creare una registrazione per l'app da usare con i dispositivi gemelli digitali di Azure
+# <a name="create-an-app-registration-to-use-with-azure-digital-twins"></a>Creare una registrazione dell'app da usare con Gemelli digitali di Azure
 
-Quando si usa un'istanza di dispositivi gemelli digitali di Azure, è comune interagire con tale istanza tramite le applicazioni client, ad esempio un'app client personalizzata o un esempio come [Azure Digital gemells Explorer](quickstart-adt-explorer.md). Tali applicazioni devono eseguire l'autenticazione con i dispositivi gemelli digitali di Azure per interagire con esso e alcuni dei [meccanismi di autenticazione](how-to-authenticate-client.md) che possono essere usati dalle app comportano una **registrazione dell'app** [Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md) .
+Quando si lavora con un'istanza Gemelli digitali di Azure, è comune interagire con tale istanza tramite applicazioni client, ad esempio un'app client personalizzata o un esempio [come Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Queste applicazioni devono eseguire l'autenticazione con Gemelli digitali di Azure per interagire con [](how-to-authenticate-client.md) esso e alcuni dei meccanismi di autenticazione che le app possono usare comportano la registrazione di **un'app** [Azure Active Directory (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md)
 
-Questa operazione non è necessaria per tutti gli scenari di autenticazione. Tuttavia, se si usa una strategia di autenticazione o un esempio di codice che richiede la registrazione di un'app, inclusi un **ID client** e un **ID tenant**, questo articolo illustra come configurarne uno.
+Questa operazione non è necessaria per tutti gli scenari di autenticazione. Tuttavia, se si usa una strategia di autenticazione o un esempio di codice che richiede una registrazione dell'app, inclusi un **ID client** e un **ID tenant,** questo articolo illustra come configurarne uno.
 
-## <a name="using-azure-ad-app-registrations"></a>Uso delle registrazioni dell'app Azure AD
+## <a name="using-azure-ad-app-registrations"></a>Uso Azure AD registrazioni di app
 
-[Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md) è il servizio Microsoft di gestione delle identità e degli accessi basato sul cloud. La configurazione di una **registrazione di app** in Azure ad è un modo per concedere a un'app client l'accesso ai dispositivi gemelli digitali di Azure.
+[Azure Active Directory (Azure AD) è il](../active-directory/fundamentals/active-directory-whatis.md) servizio microsoft di gestione delle identità e degli accessi basato sul cloud. La configurazione della registrazione **di un'app** in Azure AD è un modo per concedere a un'app client l'accesso Gemelli digitali di Azure.
 
-Questa registrazione dell'app è la posizione in cui vengono configurate le autorizzazioni di accesso alle [API di Azure Digital gemelli](how-to-use-apis-sdks.md) Successivamente, le app client possono eseguire l'autenticazione nella registrazione dell'app usando i **valori di ID client e tenant** della registrazione e, di conseguenza, vengono concesse le autorizzazioni di accesso configurate alle API.
+In questa registrazione dell'app è possibile configurare le autorizzazioni di accesso [Gemelli digitali di Azure API .](how-to-use-apis-sdks.md) In un secondo momento, le app client possono eseguire l'autenticazione in base alla registrazione dell'app usando i valori **di ID client** e tenant della registrazione e, di conseguenza, le autorizzazioni di accesso configurate per le API.
 
 >[!TIP]
-> Potrebbe essere preferibile configurare una nuova registrazione dell'app ogni volta che ne serve uno *o* eseguire questa operazione una sola volta, stabilendo una singola registrazione dell'app che verrà condivisa tra tutti gli scenari che lo richiedono.
+> È preferibile configurare una nuova registrazione dell'app  ogni volta che è necessaria oppure, per eseguire questa operazione una sola volta, stabilire una singola registrazione dell'app che verrà condivisa tra tutti gli scenari che la richiedono.
 
 ## <a name="create-the-registration"></a>Creare la registrazione
 
-Per iniziare, passare a [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) nell'portale di Azure (è possibile usare questo collegamento o trovarlo nella barra di ricerca del portale). Selezionare *registrazioni app* dal menu servizio e quindi *+ nuova registrazione*.
+Per iniziare, [passare](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) Azure Active Directory nella portale di Azure (è possibile usare questo collegamento o trovarlo con la barra di ricerca del portale). Selezionare *Registrazioni app* dal menu del servizio e quindi *+ Nuova registrazione.*
 
-:::image type="content" source="media/how-to-create-app-registration/new-registration.png" alt-text="Visualizzazione della pagina del servizio Azure AD nell'portale di Azure, evidenziando l'opzione di menu ' Registrazioni app ' e il pulsante ' + nuova registrazione '":::
+:::image type="content" source="media/how-to-create-app-registration/new-registration.png" alt-text="Visualizzazione della pagina Azure AD servizio nel portale di Azure, evidenziando l'opzione di menu &quot;Registrazioni app&quot; e il pulsante &quot;+ Nuova registrazione&quot;":::
 
-Nella pagina *registra un'applicazione* che segue compilare i valori richiesti:
-* **Nome**: un Azure ad nome visualizzato dell'applicazione da associare alla registrazione
-* **Tipi di account supportati**: selezionare *solo gli account in questa directory organizzativa (solo directory predefinita-tenant singolo)*
-* **URI di reindirizzamento**: *URL di risposta dell'applicazione Azure ad* per l'applicazione Azure ad. Aggiungere un URI *public client/native (mobile & desktop)* per `http://localhost` .
+Nella pagina *Registra un'applicazione* immettere i valori richiesti:
+* **Nome:** Azure AD nome visualizzato dell'applicazione da associare alla registrazione
+* **Tipi di account supportati:** selezionare *Account solo in questa directory organizzativa (solo directory predefinita - tenant singolo)*
+* **URI di reindirizzamento:** *AZURE AD url di risposta dell'applicazione* per l Azure AD app. Aggiungere un *URI client/nativo pubblico (& desktop) per* `http://localhost` .
 
-Al termine, fare clic sul pulsante *Register (registra* ).
+Al termine, fare clic sul *pulsante* Registra.
 
-:::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="Visualizzazione della pagina ' registra un'applicazione ' con i valori descritti compilati":::
+:::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="Visualizzazione della pagina &quot;Registra un'applicazione&quot; con i valori descritti compilati":::
 
-Al termine dell'impostazione della registrazione, il portale reindirizza alla pagina dei dettagli.
+Al termine della configurazione della registrazione, il portale reindirizza l'utente alla pagina dei dettagli.
 
-## <a name="collect-client-id-and-tenant-id"></a>Raccogli ID client e ID tenant
+## <a name="collect-client-id-and-tenant-id"></a>Raccogliere l'ID client e l'ID tenant
 
-Raccogliere quindi alcuni valori importanti sulla registrazione dell'app dalla pagina dei dettagli:
+Successivamente, raccogliere alcuni valori importanti sulla registrazione dell'app dalla pagina dei dettagli:
 
-:::image type="content" source="media/how-to-create-app-registration/app-important-values.png" alt-text="Visualizzazione del portale dei valori importanti per la registrazione dell'app":::
+:::image type="content" source="media/how-to-create-app-registration/app-important-values.png" alt-text="Visualizzazione portale dei valori importanti per la registrazione dell'app":::
 
-Prendere nota dell'ID dell' _**applicazione (client)**_ e della _**Directory (tenant)**_ visualizzati nella **pagina.** Questi sono i valori che un'app client dovrà usare per l'autenticazione con i dispositivi gemelli digitali di Azure.
+Prendere nota _**dell'ID applicazione (client)**_ _**e dell'ID directory (tenant)**_ visualizzati **nella** pagina. Questi sono i valori che un'app client dovrà usare questa registrazione per eseguire l'autenticazione con Gemelli digitali di Azure.
 
-## <a name="provide-azure-digital-twins-api-permission"></a>Fornire l'autorizzazione API per i dispositivi digitali gemelli di Azure
+## <a name="provide-azure-digital-twins-api-permission"></a>Fornire l Gemelli digitali di Azure apisto API
 
-Successivamente, configurare la registrazione dell'app creata con le autorizzazioni di base per le API dei dispositivi gemelli digitali di Azure.
+Configurare quindi la registrazione dell'app creata con le autorizzazioni di base per Gemelli digitali di Azure API.
 
-Dalla pagina del portale per la registrazione dell'app, selezionare *autorizzazioni API* dal menu. Nella pagina autorizzazioni seguenti, fare clic sul pulsante *+ Aggiungi un'autorizzazione* .
+Nella pagina del portale per la registrazione dell'app selezionare *Autorizzazioni API* dal menu. Nella pagina autorizzazioni seguente fare clic sul *pulsante + Aggiungi un'autorizzazione.*
 
-:::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="Visualizzazione della registrazione dell'app nel portale di Azure, evidenziando l'opzione di menu ' autorizzazioni API ' e il pulsante ' + Aggiungi un'autorizzazione '":::
+:::image type="content" source="media/how-to-create-app-registration/add-permission.png" alt-text="Visualizzazione della registrazione dell'app nel portale di Azure, evidenziando l'opzione di menu &quot;Autorizzazioni API&quot; e il pulsante &quot;+ Aggiungi un'autorizzazione&quot;":::
 
-Nella pagina *autorizzazioni API richiesta* seguente passare alle API usate dall' *organizzazione* e cercare i dispositivi *gemelli digitali di Azure*. Selezionare _**Azure Digital gemelli**_ dai risultati della ricerca per procedere con l'assegnazione delle autorizzazioni per le API dei dispositivi gemelli digitali di Azure.
+Nella pagina *Richiedi autorizzazioni API* che segue passare alle *API* che l'organizzazione usa e cercare gemelli digitali *di Azure.* Selezionare _**Gemelli digitali di Azure**_ dai risultati della ricerca per procedere con l'assegnazione delle autorizzazioni per Gemelli digitali di Azure api.
 
-:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1.png" alt-text="Visualizzazione dei risultati della ricerca nella pagina &quot;autorizzazioni API richieste&quot; con i dispositivi gemelli di Azure Digital con ID di applicazione (client) 0b07f429-9f4b-4714-9392-cc5e8e80c8b0.":::
+:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1.png" alt-text="Visualizzazione del risultato della ricerca nella pagina &quot;Richiedi autorizzazioni API&quot; con Gemelli digitali di Azure, con ID applicazione (client) 0b07f429-9f4b-4714-9392-cc5e8e80c8b0.":::
 
 >[!NOTE]
-> Se la sottoscrizione ha ancora un'istanza di Azure Digital Twins esistente dalla precedente anteprima pubblica del servizio (prima del 2020 luglio), è necessario cercare e selezionare il _**servizio Azure Smart Spaces**_ . Si tratta di un nome precedente per lo stesso set di API (si noti che l' *ID dell'applicazione (client)* è identico a quello della schermata precedente) e l'esperienza non verrà modificata oltre questo passaggio.
-> :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1-smart-spaces.png" alt-text="Visualizzazione dei risultati della ricerca nella pagina &quot;autorizzazioni API richieste&quot; con il servizio Azure Smart Spaces":::
+> Se la sottoscrizione ha ancora un'istanza di Gemelli digitali di Azure esistente dall'anteprima pubblica precedente del servizio (prima di luglio 2020), sarà invece necessario cercare e selezionare Servizio _**Azure Smart Spaces.**_ Si tratta di un nome precedente per lo stesso set di API (si noti che l'ID applicazione *(client)* è lo stesso dello screenshot precedente) e l'esperienza non verrà modificata oltre questo passaggio.
+> :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1-smart-spaces.png" alt-text="Visualizzazione del risultato della ricerca della pagina &quot;Richiedi autorizzazioni API&quot; che mostra il servizio Azure Smart Spaces":::
 
-Selezionare quindi le autorizzazioni da concedere per le API. Espandere l'autorizzazione **lettura (1)** e selezionare la casella *Read. Write* per concedere le autorizzazioni di lettura e scrittura per la registrazione dell'app.
+Successivamente, si selezioneranno le autorizzazioni da concedere per queste API. Espandere **l'autorizzazione Lettura (1) e selezionare** la casella *Read.Write* per concedere le autorizzazioni di lettura e scrittura per la registrazione dell'app.
 
-:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="Visualizzazione della pagina &quot;autorizzazioni API richiesta&quot; selezionando le autorizzazioni di lettura. scrittura per le API gemelle digitali di Azure":::
+:::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="Visualizzazione della pagina &quot;Richiedi autorizzazioni API&quot; selezionando le autorizzazioni &quot;Read.Write&quot; per le API Gemelli digitali di Azure":::
 
-Al termine, fare clic su *Aggiungi autorizzazioni* .
+Al *termine, fare clic* su Aggiungi autorizzazioni.
 
 ### <a name="verify-success"></a>Verificare l'esito positivo
 
-Nella pagina *autorizzazioni API* verificare che sia presente una voce per i dispositivi gemelli digitali di Azure che riflettono le autorizzazioni di lettura/scrittura:
+Nella pagina *Autorizzazioni API* verificare che sia ora presente una voce per l'Gemelli digitali di Azure che riflette le autorizzazioni di lettura/scrittura:
 
-:::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Visualizzazione del portale delle autorizzazioni API per la registrazione dell'app Azure AD, che mostra l'accesso in lettura/scrittura per i dispositivi gemelli digitali di Azure":::
+:::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Visualizzazione del portale delle autorizzazioni API per la registrazione dell Azure AD app, che mostra &quot;Accesso in lettura/scrittura&quot; per Gemelli digitali di Azure":::
 
-È anche possibile verificare la connessione ai dispositivi gemelli digitali di Azure entro la *manifest.js* della registrazione dell'app in, che è stata aggiornata automaticamente con le informazioni di Azure Digital gemelli quando sono state aggiunte le autorizzazioni dell'API.
+È anche possibile verificare la connessione Gemelli digitali di Azure all'interno del *manifest.js* della registrazione dell'app in , che è stato aggiornato automaticamente con le informazioni Gemelli digitali di Azure quando sono state aggiunte le autorizzazioni api.
 
-A tale scopo, selezionare *manifesto* dal menu per visualizzare il codice manifesto della registrazione dell'app. Scorrere fino alla fine della finestra del codice e cercare questi campi sotto `requiredResourceAccess` . I valori devono corrispondere a quelli dello screenshot seguente:
+A tale scopo, selezionare *Manifesto dal* menu per visualizzare il codice manifesto della registrazione dell'app. Scorrere fino alla fine della finestra del codice e cercare questi campi in `requiredResourceAccess` . I valori devono corrispondere a quelli nello screenshot seguente:
 
-:::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Visualizzazione del portale del manifesto per la registrazione dell'app Azure AD. Annidato in ' requiredResourceAccess ', esiste un valore ' resourceAppId ' di 0b07f429-9f4b-4714-9392-cc5e8e80c8b0 e un valore ' resourceAccess > ID ' di 4589bd03-58cb-4e6c-B17F-b580e39652f8":::
+:::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Visualizzazione portale del manifesto per la registrazione dell Azure AD app. Annidato in 'requiredResourceAccess', è presente un valore 'resourceAppId' pari a 0b07f429-9f4b-4714-9392-cc5e8e80c8b0 e un valore &quot;resourceAccess > id&quot; pari a 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
 
-Se questi valori sono mancanti, ripetere i passaggi nella [sezione per aggiungere l'autorizzazione API](#provide-azure-digital-twins-api-permission).
+Se questi valori non sono presenti, ripetere i passaggi nella sezione [per aggiungere l'autorizzazione API](#provide-azure-digital-twins-api-permission).
 
 ## <a name="other-possible-steps-for-your-organization"></a>Altri passaggi possibili per l'organizzazione
 
-È possibile che l'organizzazione richieda azioni aggiuntive da proprietari o amministratori di sottoscrizioni per configurare correttamente la registrazione di un'app. I passaggi necessari possono variare a seconda delle impostazioni specifiche dell'organizzazione.
+È possibile che l'organizzazione richieda azioni aggiuntive da parte dei proprietari/amministratori della sottoscrizione per configurare correttamente la registrazione di un'app. I passaggi necessari possono variare a seconda delle impostazioni specifiche dell'organizzazione.
 
-Di seguito sono riportate alcune possibili attività comuni che un proprietario/amministratore della sottoscrizione potrebbe dover eseguire. Queste e altre operazioni possono essere eseguite dalla pagina [*registrazioni app Azure ad*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) nel portale di Azure.
-* Concedere il consenso dell'amministratore per la registrazione dell'app. È possibile che l'organizzazione abbia il *consenso dell'amministratore necessario* attivato a livello globale in Azure ad per tutte le registrazioni di app all'interno della sottoscrizione. In tal caso, il proprietario o l'amministratore dovrà selezionare questo pulsante per la società nella pagina *delle autorizzazioni dell'API* di registrazione dell'app affinché la registrazione dell'app sia valida:
+Di seguito sono riportate alcune possibili attività comuni che un proprietario/amministratore della sottoscrizione potrebbe dover eseguire. Queste e altre operazioni possono essere eseguite dalla pagina App Azure AD [*registrazioni*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) nel portale di Azure.
+* Concedere il consenso dell'amministratore per la registrazione dell'app. L'organizzazione potrebbe avere *il consenso amministratore* richiesto a livello globale attivato a livello Azure AD per tutte le registrazioni dell'app all'interno della sottoscrizione. In tal caso, il proprietario/amministratore dovrà selezionare questo pulsante per l'azienda nella pagina delle autorizzazioni *api* della registrazione dell'app per la validità della registrazione dell'app:
 
-    :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Visualizzazione del portale del pulsante ' concedi il consenso dell'amministratore ' in autorizzazioni API":::
-  - Se il consenso è stato concesso correttamente, la voce per i dispositivi gemelli digitali di Azure dovrebbe visualizzare un valore di *stato* _concesso per **(la società)**_
+    :::image type="content" source="media/how-to-create-app-registration/grant-admin-consent.png" alt-text="Visualizzazione portale del pulsante &quot;Concedi consenso amministratore&quot; in Autorizzazioni API":::
+  - Se il consenso è stato concesso correttamente, la voce per Gemelli digitali di Azure dovrebbe quindi visualizzare il valore *Stato* _concesso per **(società)**_
    
-    :::image type="content" source="media/how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Visualizzazione del portale del consenso dell'amministratore concesso per la società in autorizzazioni API":::
+    :::image type="content" source="media/how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Visualizzazione del portale del consenso dell'amministratore concesso per l'azienda con autorizzazioni API":::
 * Attivare l'accesso client pubblico
 * Impostare URL di risposta specifici per l'accesso Web e desktop
-* Consenti i flussi di autenticazione OAuth2 impliciti
+* Consenti flussi di autenticazione OAuth2 impliciti
 
-Per altre informazioni sulla registrazione dell'app e sulle diverse opzioni di installazione, vedere [*registrare un'applicazione con la piattaforma di identità Microsoft*](/graph/auth-register-app-v2).
+Per altre informazioni sulla registrazione delle app e sulle diverse opzioni di configurazione, vedere [*Registrare un'applicazione con Microsoft Identity Platform.*](/graph/auth-register-app-v2)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo viene configurata una registrazione di Azure AD app che può essere usata per autenticare le applicazioni client con le API dei dispositivi gemelli digitali di Azure.
+In questo articolo viene impostata una registrazione dell Azure AD app che può essere usata per autenticare le applicazioni client con le API Gemelli digitali di Azure client.
 
-Leggere quindi i meccanismi di autenticazione, inclusi quelli che usano registrazioni per l'app e altri che non:
-* [*Procedura: scrivere codice di autenticazione dell'app*](how-to-authenticate-client.md)
+Leggere quindi i meccanismi di autenticazione, tra cui uno che usa le registrazioni delle app e altri che non lo fanno:
+* [*Procedura: Scrivere il codice di autenticazione dell'app*](how-to-authenticate-client.md)

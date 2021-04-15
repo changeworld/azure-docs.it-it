@@ -1,36 +1,36 @@
 ---
-title: Usare un controller di ingresso NGINX personalizzato e configurare HTTPS
+title: Usare un controller in ingresso NGINX personalizzato e configurare HTTPS
 services: azure-dev-spaces
 ms.date: 12/10/2019
 ms.topic: conceptual
-description: Informazioni su come configurare Azure Dev Spaces per l'uso di un controller di ingresso NGINX personalizzato e configurare HTTPS usando il controller di ingresso
+description: Informazioni su come configurare Azure Dev Spaces usare un controller di ingresso NGINX personalizzato e configurare HTTPS usando tale controller di ingresso
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: c5ef14074c6e601bcd8a23ce62921d67b01ba3bb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-js
+ms.openlocfilehash: a0c8fa453115936b61b2cdae299e07ae10356ed3
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198133"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378772"
 ---
-# <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Usare un controller di ingresso NGINX personalizzato e configurare HTTPS
+# <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Usare un controller in ingresso NGINX personalizzato e configurare HTTPS
 
 [!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
-Questo articolo illustra come configurare Azure Dev Spaces per l'uso di un controller di ingresso NGINX personalizzato. Questo articolo illustra anche come configurare il controller di ingresso personalizzato per l'uso di HTTPS.
+Questo articolo illustra come configurare Azure Dev Spaces usare un controller in ingresso NGINX personalizzato. Questo articolo illustra anche come configurare il controller in ingresso personalizzato per l'uso di HTTPS.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha un account, è possibile [crearne uno gratuito][azure-account-create].
 * [L'interfaccia della riga di comando di Azure installata][az-cli].
-* Cluster Azure Kubernetes Service (AKS) con Azure Dev Spaces abilitata.
+* servizio Azure Kubernetes cluster (AKS) con Azure Dev Spaces abilitata.
 * [kubectl][kubectl] installato.
 * [Helm 3 installato][helm-installed].
-* [Un dominio personalizzato][custom-domain] con una [zona DNS][dns-zone].  Questo articolo presuppone che il dominio personalizzato e la zona DNS si trovino nello stesso gruppo di risorse del cluster AKS, ma è possibile usare un dominio personalizzato e una zona DNS in un gruppo di risorse diverso.
+* [Un dominio personalizzato][custom-domain] con una [zona DNS][dns-zone].  Questo articolo presuppone che il dominio personalizzato e la zona DNS si trovano nello stesso gruppo di risorse del cluster del servizio AKS, ma è possibile usare un dominio personalizzato e una zona DNS in un gruppo di risorse diverso.
 
-## <a name="configure-a-custom-nginx-ingress-controller"></a>Configurare un controller di ingresso NGINX personalizzato
+## <a name="configure-a-custom-nginx-ingress-controller"></a>Configurare un controller in ingresso NGINX personalizzato
 
-Connettersi al cluster usando [kubectl][kubectl], il client da riga di comando Kubernetes. Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
+Connettersi al cluster usando [kubectl][kubectl], il client della riga di comando Kubernetes. Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][az-aks-get-credentials]. Questo comando scarica le credenziali e configura l'interfaccia della riga di comando di Kubernetes per usarli.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKS
@@ -44,7 +44,7 @@ NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
 
-Aggiungere il [repository Helm stabile ufficiale][helm-stable-repo], che contiene il grafico Helm del controller di ingresso nginx.
+Aggiungere il [repository Helm stabile ufficiale,][helm-stable-repo]che contiene il grafico Helm del controller di ingresso NGINX.
 
 ```console
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
@@ -58,19 +58,19 @@ helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
 
 > [!NOTE]
-> L'esempio precedente crea un endpoint pubblico per il controller di ingresso. Se invece è necessario usare un endpoint privato per il controller di ingresso, aggiungere il *comando--set controller. Service. Annotations. Service \\ . Beta \\ . kubernetes \\ . io/Azure-Load-Balancer-Internal "= true* parametro per il comando *Helm install* . Ad esempio:
+> L'esempio precedente crea un endpoint pubblico per il controller in ingresso. Se invece è necessario usare un endpoint privato per il controller in ingresso, aggiungere *--set controller.service.annotations." service \\ .beta \\ .kubernetes \\ .io/azure-load-balancer-internal"=true* parametro per il *comando helm install.* Ad esempio:
 > ```console
 > helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
 > ```
-> Questo endpoint privato viene esposto all'interno della rete virtuale in cui è distribuito il cluster AKS.
+> Questo endpoint privato viene esposto all'interno della rete virtuale in cui viene distribuito il cluster del servizio Web del servizio Web.
 
-Ottenere l'indirizzo IP del servizio controller di ingresso NGINX usando [kubectl Get][kubectl-get].
+Ottenere l'indirizzo IP del servizio controller di ingresso NGINX usando [kubectl get][kubectl-get].
 
 ```console
 kubectl get svc -n nginx --watch
 ```
 
-L'output di esempio Mostra gli indirizzi IP per tutti i servizi nello spazio dei nomi *nginx* .
+L'output di esempio mostra gli indirizzi IP per tutti i servizi nello *spazio dei nomi nginx.*
 
 ```console
 NAME                                  TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
@@ -80,7 +80,7 @@ nginx-nginx-ingress-default-backend   ClusterIP      10.0.210.231   <none>      
 nginx-nginx-ingress-controller        LoadBalancer   10.0.19.39     MY_EXTERNAL_IP   80:31314/TCP,443:30521/TCP   26s
 ```
 
-Aggiungere un *record a* nella zona DNS con l'indirizzo IP esterno del servizio nginx usando il comando [AZ network DNS record-set a Add-record][az-network-dns-record-set-a-add-record].
+Aggiungere un record *A* alla zona DNS con l'indirizzo IP esterno del servizio NGINX usando [az network dns record-set a add-record][az-network-dns-record-set-a-add-record].
 
 ```azurecli
 az network dns record-set a add-record \
@@ -90,7 +90,7 @@ az network dns record-set a add-record \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
-Nell'esempio precedente viene aggiunto *un record a* nella zona DNS *MY_CUSTOM_DOMAIN* .
+L'esempio precedente aggiunge un record *A* alla *MY_CUSTOM_DOMAIN* DNS.
 
 In questo articolo verrà usata l'[applicazione di esempio Bike Sharing di Azure Dev Spaces](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) per illustrare l'uso di Azure Dev Spaces. Clonare l'applicazione da GitHub e passare alla relativa directory:
 
@@ -99,11 +99,11 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
-Aprire [values. YAML][values-yaml] ed effettuare gli aggiornamenti seguenti:
-* Sostituire tutte le istanze di *<REPLACE_ME_WITH_HOST_SUFFIX>* con *nginx. MY_CUSTOM_DOMAIN* utilizzo del dominio per *MY_CUSTOM_DOMAIN*. 
-* Sostituire *kubernetes.io/ingress.Class: traefik-azds # dev Spaces-specifico* con *kubernetes.io/ingress.Class: nginx # in ingresso personalizzato*. 
+Aprire [values.yaml][values-yaml] e apportare gli aggiornamenti seguenti:
+* Sostituire tutte le istanze *di<REPLACE_ME_WITH_HOST_SUFFIX>* con *nginx. MY_CUSTOM_DOMAIN* il dominio per *MY_CUSTOM_DOMAIN*. 
+* Sostituire *kubernetes.io/ingress.class: traefik-azds # Dev Spaces-specific* *con kubernetes.io/ingress.class: nginx # Custom Ingress*. 
 
-Di seguito è riportato un esempio di un `values.yaml` file aggiornato:
+Di seguito è riportato un esempio di `values.yaml` file aggiornato:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -126,27 +126,27 @@ gateway:
 
 Salvare le modifiche e chiudere il file.
 
-Creare lo spazio di *sviluppo* con l'applicazione di esempio usando `azds space select` .
+Creare lo *spazio di sviluppo* con l'applicazione di esempio usando `azds space select` .
 
 ```console
 azds space select -n dev -y
 ```
 
-Distribuire l'applicazione di esempio utilizzando `helm install` .
+Distribuire l'applicazione di esempio usando `helm install` .
 
 ```console
 helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
-L'esempio precedente distribuisce l'applicazione di esempio nello spazio dei nomi *dev* .
+L'esempio precedente distribuisce l'applicazione di esempio nello spazio *dei nomi dev.*
 
-Consente di visualizzare gli URL per accedere all'applicazione di esempio tramite `azds list-uris` .
+Visualizzare gli URL per accedere all'applicazione di esempio usando `azds list-uris` .
 
 ```console
 azds list-uris
 ```
 
-L'output seguente Mostra gli URL di esempio da `azds list-uris` .
+L'output seguente mostra gli URL di esempio di `azds list-uris` .
 
 ```console
 Uri                                                  Status
@@ -158,16 +158,16 @@ http://dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 Passare al servizio *bikesharingweb* aprendo l'URL pubblico dal comando `azds list-uris`. Nell'esempio precedente l'URL pubblico per il servizio *bikesharingweb* è `http://dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/`.
 
 > [!NOTE]
-> Se viene visualizzata una pagina di errore anziché il servizio *bikesharingweb* , verificare di aver aggiornato **sia** l'annotazione *kubernetes.io/ingress.Class* che l'host nel file *values. YAML* .
+> Se viene visualizzata una pagina di errore anziché il  servizio *bikesharingweb,* verificare di aver aggiornato sia l'annotazione *kubernetes.io/ingress.class* che l'host nel file *values.yaml.*
 
-Usare il `azds space select` comando per creare uno spazio figlio in *dev* ed elencare gli URL per accedere allo spazio dev figlio.
+Usare il `azds space select` comando per creare uno spazio figlio in *dev* ed elencare gli URL per accedere allo spazio di sviluppo figlio.
 
 ```console
 azds space select -n dev/azureuser1 -y
 azds list-uris
 ```
 
-L'output seguente Mostra gli URL di esempio di `azds list-uris` per accedere all'applicazione di esempio nello spazio dev figlio *azureuser1* .
+L'output seguente mostra gli URL di esempio da `azds list-uris` per accedere all'applicazione di esempio nello spazio di sviluppo *figlio azureuser1.*
 
 ```console
 Uri                                                  Status
@@ -176,11 +176,11 @@ http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/  Available
 http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Passare al servizio *bikesharingweb* nello spazio dev figlio *AZUREUSER1* aprendo l'URL pubblico dal `azds list-uris` comando. Nell'esempio precedente, l'URL pubblico per il servizio *bikesharingweb* nello spazio dev figlio *azureuser1* è `http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/` .
+Passare al *servizio bikesharingweb* nello spazio di sviluppo *figlio azureuser1* aprendo l'URL pubblico dal `azds list-uris` comando . Nell'esempio precedente l'URL pubblico per il *servizio bikesharingweb* nello spazio di sviluppo *figlio azureuser1* è `http://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/` .
 
 ## <a name="configure-the-nginx-ingress-controller-to-use-https"></a>Configurare il controller di ingresso NGINX per l'uso di HTTPS
 
-Usare [Cert-Manager][cert-manager] per automatizzare la gestione del certificato TLS quando si configura il controller di ingresso Nginx per l'uso di HTTPS. Utilizzare `helm` per installare il grafico *CertManager* .
+Usare [cert-manager per][cert-manager] automatizzare la gestione del certificato TLS quando si configura il controller di ingresso NGINX per l'uso di HTTPS. Usare `helm` per installare il grafico *certmanager.*
 
 ```console
 kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml --namespace nginx
@@ -190,7 +190,7 @@ helm repo update
 helm install cert-manager --namespace nginx --version v0.12.0 jetstack/cert-manager --set ingressShim.defaultIssuerName=letsencrypt --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
-Creare un `letsencrypt-clusterissuer.yaml` file e aggiornare il campo del messaggio di posta elettronica con l'indirizzo di posta elettronica.
+Creare un `letsencrypt-clusterissuer.yaml` file e aggiornare il campo di posta elettronica con l'indirizzo di posta elettronica.
 
 ```yaml
 apiVersion: cert-manager.io/v1alpha2
@@ -210,7 +210,7 @@ spec:
 ```
 
 > [!NOTE]
-> Per i test, è disponibile anche un [server di gestione temporanea][letsencrypt-staging-issuer] che è possibile usare per la *ClusterIssuer*.
+> A scopo di test, è disponibile [anche un server di gestione][letsencrypt-staging-issuer] temporanea che è possibile usare per *ClusterIssuer.*
 
 Usare `kubectl` per applicare `letsencrypt-clusterissuer.yaml` .
 
@@ -218,7 +218,7 @@ Usare `kubectl` per applicare `letsencrypt-clusterissuer.yaml` .
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace nginx
 ```
 
-Aggiornare [values. YAML][values-yaml] per includere i dettagli relativi all'uso di *Cert-Manager* e HTTPS. Di seguito è riportato un esempio di un `values.yaml` file aggiornato:
+Aggiornare [values.yaml][values-yaml] per includere i dettagli per l'uso di *cert-manager* e HTTPS. Di seguito è riportato un esempio di `values.yaml` file aggiornato:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -249,19 +249,19 @@ gateway:
       secretName: dev-gateway-secret
 ```
 
-Aggiornare l'applicazione di esempio tramite `helm` :
+Aggiornare l'applicazione di esempio usando `helm` :
 
 ```console
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
-Passare all'applicazione di esempio nello spazio figlio *dev/azureuser1* . si noterà che si viene reindirizzati per l'uso di HTTPS. Si noti inoltre che la pagina viene caricata, ma il browser mostra alcuni errori. L'apertura della console del browser mostra che l'errore si riferisce a una pagina HTTPS che tenta di caricare le risorse HTTP. Ad esempio:
+Passare all'applicazione di esempio nello spazio *figlio dev/azureuser1* e notare che si viene reindirizzati all'uso di HTTPS. Si noti anche che la pagina viene caricata, ma nel browser vengono visualizzati alcuni errori. L'apertura della console del browser mostra che l'errore è correlato a una pagina HTTPS che tenta di caricare le risorse HTTP. Ad esempio:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-Per correggere l'errore, aggiornare [BikeSharingWeb/azds. YAML][azds-yaml] in modo analogo al seguente:
+Per correggere questo errore, aggiornare [BikeSharingWeb/azds.yaml][azds-yaml] in modo simile al seguente:
 
 ```yaml
 ...
@@ -279,7 +279,7 @@ Per correggere l'errore, aggiornare [BikeSharingWeb/azds. YAML][azds-yaml] in mo
 ...
 ```
 
-Aggiornare [BikeSharingWeb/package.json][package-json] con una dipendenza per il pacchetto *URL* .
+Aggiornare [BikeSharingWeb/package.jscon][package-json] una dipendenza per il *pacchetto URL.*
 
 ```json
 {
@@ -291,7 +291,7 @@ Aggiornare [BikeSharingWeb/package.json][package-json] con una dipendenza per il
 ...
 ```
 
-Aggiornare il metodo *getApiHostAsync* in [BikeSharingWeb/lib/helpers.js][helpers-js] per usare https:
+Aggiornare il *metodo getApiHostAsync* in [BikeSharingWeb/lib/helpers.js][helpers-js] usare HTTPS:
 
 ```javascript
 ...
@@ -308,14 +308,14 @@ Aggiornare il metodo *getApiHostAsync* in [BikeSharingWeb/lib/helpers.js][helper
 ...
 ```
 
-Passare alla `BikeSharingWeb` Directory e usare `azds up` per eseguire il servizio *BikeSharingWeb* aggiornato.
+Passare alla `BikeSharingWeb` directory e usare per eseguire il servizio `azds up` *BikeSharingWeb* aggiornato.
 
 ```console
 cd ../BikeSharingWeb/
 azds up
 ```
 
-Passare all'applicazione di esempio nello spazio figlio *dev/azureuser1* . si noti che si viene reindirizzati per l'uso di HTTPS senza errori.
+Passare all'applicazione di esempio nello spazio figlio *dev/azureuser1* e notare che si viene reindirizzati all'uso di HTTPS senza errori.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

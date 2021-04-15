@@ -4,12 +4,12 @@ description: Questa esercitazione descrive come accedere al lab creato usando Az
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.author: spelluru
-ms.openlocfilehash: b4477e0b98ef534b8170ee297edf88ac6fa62dd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 96d41b74b3c143feb64fc9c602de68182787c08b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85476445"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379469"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Accedere a un lab in Azure DevTest Labs
 Questa esercitazione descrive come usare il lab creato in [Esercitazione: Creare un lab in Azure DevTest Labs](tutorial-create-custom-lab.md).
@@ -46,7 +46,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. Selezionare la VM nell'elenco. Viene visualizzata la **pagina della macchina virtuale** relativa alla VM selezionata. Selezionare **Connetti** sulla barra degli strumenti.
 
     ![Connettersi alla macchina virtuale](./media/tutorial-use-custom-lab/connect-button.png)
-2. Salvare il file **RDP** scaricato nel disco rigido e usarlo per connettersi alla macchina virtuale. Specificare il nome utente e la password indicati quando è stata creata la VM nella sezione precedente. 
+2. Salvare il file **RDP scaricato** sul disco rigido e usarlo per connettersi alla macchina virtuale. Specificare il nome utente e la password indicati quando è stata creata la VM nella sezione precedente. 
 
     Per connettersi a una VM Linux, è necessario abilitare l'accesso SSH e/o RDP alla macchina virtuale. Per la procedura di connessione a una VM Linux tramite RDP, vedere [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../virtual-machines/linux/use-remote-desktop.md). 
 

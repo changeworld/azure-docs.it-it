@@ -2,28 +2,28 @@
 title: Ripristino di emergenza geografico - Hub eventi di Azure | Microsoft Docs
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza in Hub eventi di Azure
 ms.topic: article
-ms.date: 02/10/2021
-ms.openlocfilehash: 091c6c61b079ceb8f96f04e62fb772d91732eb2f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/14/2021
+ms.openlocfilehash: 504a83772c2ac8e3afc86465899357d0eda4eb92
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311210"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478659"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
-La resilienza contro interruzioni disastrose delle risorse di elaborazione dati è un requisito per molte aziende e in alcuni casi anche richiesto dalle normative del settore. 
+La resilienza contro interruzioni catastrofiche delle risorse di elaborazione dei dati è un requisito per molte aziende e, in alcuni casi, anche per le normative del settore. 
 
-Hub eventi di Azure distribuisce già il rischio di errori irreversibili dei singoli computer o persino dei rack completi tra i cluster che si estendono su più domini di errore all'interno di un Data Center e implementa meccanismi di rilevamento e failover trasparenti, in modo che il servizio continui a funzionare entro i livelli di servizio garantiti e in genere senza interruzioni evidenti in caso di errori di questo tipo. Se è stato creato uno spazio dei nomi di hub eventi con l'opzione Enabled per le [zone di disponibilità](../availability-zones/az-overview.md), il rischio di interruzione viene ulteriormente distribuito in tre strutture fisicamente separate e il servizio dispone di un numero sufficiente di riserve di capacità per far fronte immediatamente alla perdita irreversibile completa dell'intera struttura. 
+Hub eventi di Azure già estende il rischio di errori irreversibili di singoli computer o persino rack completi tra cluster che si estendono su più domini di errore all'interno di un data center e implementa meccanismi trasparenti di rilevamento degli errori e failover in modo che il servizio continui a funzionare entro i livelli di servizio garantiti e in genere senza interruzioni evidenti in caso di errori di questo tipo. Se è stato creato uno spazio dei nomi di Hub eventi con l'opzione abilitata per le zone di [disponibilità,](../availability-zones/az-overview.md)il rischio di interruzione viene ulteriormente distribuito in tre strutture separate fisicamente e il servizio dispone di sufficienti riserva di capacità per gestire immediatamente la perdita completa e irreversica dell'intera struttura. 
 
-Il modello di cluster di hub eventi di Azure all-Active con supporto per la zona di disponibilità offre resilienza in caso di guasti hardware gravi e anche di perdita irreversibile di intere strutture del Data Center. È comunque possibile che si verifichino situazioni gravi con la distruzione fisica diffusa che anche le misure non possono essere sufficientemente difesa. 
+Il modello di cluster Hub eventi di Azure con supporto della zona di disponibilità offre resilienza contro gravi errori hardware e persino la perdita irreversibile di intere strutture del data center. Tuttavia, potrebbero esserci situazioni gravi con distruzione fisica generalizzata da cui anche queste misure non possono essere sufficientemente difese. 
 
-La funzionalità di ripristino di emergenza geografico di hub eventi è progettata per semplificare il ripristino da una situazione di emergenza e per abbandonare un'area di Azure non riuscita e senza dover modificare le configurazioni dell'applicazione. L'abbandono di un'area di Azure comporterà in genere diversi servizi e questa funzionalità mira principalmente a mantenere l'integrità della configurazione dell'applicazione composita.  
+La funzionalità di ripristino di emergenza geografico di Hub eventi è progettata per semplificare il ripristino da un'emergenza di questo tipo e abbandonare un'area di Azure in errore senza dover modificare le configurazioni dell'applicazione. L'abbandono di un'area di Azure comporta in genere diversi servizi e questa funzionalità mira principalmente a preservare l'integrità della configurazione dell'applicazione composita.  
 
-La funzionalità di ripristino Geo-Disaster garantisce che l'intera configurazione di uno spazio dei nomi (hub eventi, gruppi di consumer e impostazioni) venga replicata continuamente da uno spazio dei nomi primario a uno spazio dei nomi secondario quando abbinato e consente di avviare un failover solo una volta dal database primario al database secondario in qualsiasi momento. Lo spostamento del failover consente di reindirizzare il nome dell'alias scelto per lo spazio dei nomi allo spazio dei nomi secondario e quindi di suddividere l'associazione. Il failover è quasi istantaneo una volta avviata. 
+La funzionalità di ripristino di Geo-Disaster garantisce che l'intera configurazione di uno spazio dei nomi (Hub eventi, gruppi di consumer e impostazioni) sia replicata continuamente da uno spazio dei nomi primario a uno spazio dei nomi secondario quando associato e consente di avviare uno spostamento di failover una sola volta dal database primario a quello secondario in qualsiasi momento. Lo spostamento del failover ri-puntare il nome alias scelto per lo spazio dei nomi allo spazio dei nomi secondario e quindi interrompere l'associazione. Il failover è quasi istantaneo dopo l'avvio. 
 
 > [!IMPORTANT]
-> La funzionalità consente la continuità immediata delle operazioni con la stessa configurazione, ma **non replica i dati dell'evento**. A meno che l'emergenza non abbia causato la perdita di tutte le zone, i dati dell'evento conservati nell'hub eventi primario dopo il failover saranno recuperabili e gli eventi cronologici potranno essere ottenuti da una volta ripristinato l'accesso. Per la replica dei dati degli eventi e il funzionamento degli spazi dei nomi corrispondenti nelle configurazioni attive/attive per far fronte a interruzioni e emergenze, non bisogna occuparsi di questo set di funzionalità di ripristino di emergenza geografico, ma attenersi alle [linee guida](event-hubs-federation-overview.md)per la replica.  
+> La funzionalità consente la continuità immediata delle operazioni con la stessa configurazione, ma **non replica i dati dell'evento**. A meno che l'emergenza non causi la perdita di tutte le zone, i dati degli eventi conservati nell'hub eventi primario dopo il failover saranno recuperabili e gli eventi storici potranno essere ottenuti da tale area dopo il ripristino dell'accesso. Per la replica dei dati degli eventi e il funzionamento degli spazi dei nomi corrispondenti nelle configurazioni attive/attive per gestire interruzioni e situazioni di emergenza, non fare riferimento a questo set di funzionalità di ripristino di emergenza geografico, ma seguire le linee guida per la [replica.](event-hubs-federation-overview.md)  
 
 ## <a name="outages-and-disasters"></a>Emergenze e interruzioni
 
@@ -72,26 +72,26 @@ La sezione seguente è una panoramica del processo di failover e illustra come c
 
 1. Creare lo spazio dei nomi primario.
 1. Creare lo spazio dei nomi secondario in un'area diversa. Questo passaggio è facoltativo. È possibile creare lo spazio dei nomi secondario durante la creazione dell'associazione nel passaggio successivo. 
-1. Nella portale di Azure passare allo spazio dei nomi primario.
-1. Selezionare **ripristino geografico** nel menu a sinistra e selezionare **Avvia associazione** sulla barra degli strumenti. 
+1. Nel portale di Azure passare allo spazio dei nomi primario.
+1. Selezionare **Ripristino geografico** nel menu a sinistra e selezionare **Avvia associazione** sulla barra degli strumenti. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Avviare l'associazione dallo spazio dei nomi primario":::    
-1. Nella pagina **avvio associazione** , attenersi alla seguente procedura:
+1. Nella pagina **Avvia associazione** seguire questa procedura:
     1. Selezionare uno spazio dei nomi secondario esistente o crearne uno in un'area diversa. In questo esempio viene selezionato uno spazio dei nomi esistente.  
-    1. In **alias** immettere un alias per l'associazione del ripristino di emergenza geografico. 
+    1. Per **Alias** immettere un alias per l'associazione con ripristino geografico. 
     1. Scegliere quindi **Create** (Crea). 
 
     :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selezionare lo spazio dei nomi secondario":::        
-1. Verrà visualizzata la pagina **alias ripristino di emergenza geografico** . È anche possibile passare a questa pagina dallo spazio dei nomi primario selezionando **ripristino geografico** nel menu a sinistra.
+1. Verrà visualizzata la **pagina Alias ripristino di emergenza geografico.** È anche possibile passare a questa pagina dallo spazio dei nomi primario selezionando **Ripristino geografico** nel menu a sinistra.
 
-    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Pagina alias ripristino di emergenza geografico":::    
-1. Nella pagina **alias ripristino di emergenza geografico** selezionare **criteri di accesso condivisi** nel menu a sinistra per accedere alla stringa di connessione primaria per l'alias. Usare questa stringa di connessione invece di utilizzare direttamente la stringa di connessione allo spazio dei nomi primario/secondario. 
-1. In questa pagina di **Panoramica** è possibile eseguire le azioni seguenti: 
-    1. Suddividere l'associazione tra gli spazi dei nomi primari e secondari. Selezionare **Interrompi associazione** sulla barra degli strumenti. 
-    1. Eseguire manualmente il failover allo spazio dei nomi secondario. Selezionare **failover** sulla barra degli strumenti. 
+    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Pagina alias di ripristino di emergenza geografico":::    
+1. Nella pagina **Alias di ripristino di** emergenza geografico selezionare Criteri di **accesso** condiviso nel menu a sinistra per accedere alla stringa di connessione primaria per l'alias. Usare questa stringa di connessione invece di usare direttamente la stringa di connessione allo spazio dei nomi primario/secondario. 
+1. In questa **pagina** Panoramica è possibile eseguire le azioni seguenti: 
+    1. Interrompere l'associazione tra gli spazi dei nomi primario e secondario. Selezionare **Interrompi associazione sulla** barra degli strumenti. 
+    1. Eseguire manualmente il failover nello spazio dei nomi secondario. Selezionare **Failover sulla** barra degli strumenti. 
     
         > [!WARNING]
-        > Il failover attiverà lo spazio dei nomi secondario e rimuoverà lo spazio dei nomi primario dall'associazione di Geo-Disaster Recovery. Creare un altro spazio dei nomi per avere una nuova coppia di ripristino di emergenza geografico. 
+        > Il failover attiverà lo spazio dei nomi secondario e rimuoverà lo spazio dei nomi primario dall'Geo-Disaster di ripristino. Creare un altro spazio dei nomi per avere una nuova coppia di ripristino di emergenza geografico. 
 
 Infine, è necessario aggiungere funzionalità di monitoraggio per rilevare i casi in cui è necessario un failover. Nella maggior parte dei casi, il servizio fa parte di un ecosistema di grandi dimensioni, quindi i failover automatici sono raramente possibili, in quanto spesso i failover devono essere eseguiti in modo sincronizzato con il sottosistema o l'infrastruttura rimanente.
 
@@ -128,7 +128,7 @@ L'[esempio su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samp
 
 ## <a name="considerations"></a>Considerazioni
 
-Tenere presente le considerazioni seguenti:
+Tenere presenti le considerazioni seguenti:
 
 1. Da progettazione, il ripristino di emergenza geografico di Hub eventi non replica i dati e non è quindi possibile riutilizzare il valore di offset precedente dell'hub eventi primario per l'hub eventi secondario. È consigliabile riavviare il ricevitore di eventi con uno dei metodi seguenti:
 
@@ -153,12 +153,12 @@ Lo SKU Standard di Hub eventi supporta le [zone di disponibilità di Azure](../a
 
 Usando il portale di Azure, è possibile abilitare le zone di disponibilità solo negli spazi dei nomi. Hub eventi non supporta la migrazione di spazi dei nomi esistenti. Non è possibile disabilitare la ridondanza della zona dopo che è stata abilitata nello spazio dei nomi.
 
-Quando si usano le zone di disponibilità, i metadati e i dati (eventi) vengono replicati nei data center della zona di disponibilità. 
+Quando si usano le zone di disponibilità, sia i metadati che i dati (eventi) vengono replicati tra i data center nella zona di disponibilità. 
 
 ![3][]
 
 ## <a name="private-endpoints"></a>Endpoint privati
-Questa sezione offre ulteriori considerazioni quando si usa il ripristino di emergenza geografico con gli spazi dei nomi che usano endpoint privati. Per informazioni generali sull'uso di endpoint privati con Hub eventi, vedere [Configurare gli endpoint privati](private-link-service.md).
+In questa sezione vengono fornite altre considerazioni sull'uso del ripristino di emergenza geografico con spazi dei nomi che usano endpoint privati. Per informazioni generali sull'uso di endpoint privati con Hub eventi, vedere [Configurare gli endpoint privati](private-link-service.md).
 
 ### <a name="new-pairings"></a>Nuove associazioni
 Se si tenta di creare un'associazione tra uno spazio dei nomi primario con un endpoint privato e uno spazio dei nomi secondario senza un endpoint privato, l'associazione ha esito negativo. L'associazione avrà esito positivo solo se entrambi gli spazi dei nomi, primario e secondario, hanno endpoint privati. È consigliabile usare le stesse configurazioni per gli spazi dei nomi primario e secondario e per le reti virtuali in cui sono stati creati gli endpoint privati.  
@@ -194,19 +194,17 @@ Il vantaggio di questo approccio è che il failover può verificarsi a livello d
 > Per materiale sussidiario sul ripristino di emergenza geografico di una rete virtuale, vedere [Rete virtuale - Continuità aziendale](../virtual-network/virtual-network-disaster-recovery-guidance.md).
  
 ## <a name="next-steps"></a>Passaggi successivi
-
-* L'[esempio disponibile in GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) illustra in dettaglio un semplice flusso di lavoro per la creazione di un'associazione geografica e l'avvio di un failover per uno scenario di ripristino di emergenza.
-* Nella [informazioni di riferimento sulle API del servizio REST](/rest/api/eventhub/) sono descritte le API che consentono di eseguire la configurazione del ripristino di emergenza geografico.
-
-Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
-
-- Introduzione all'Hub eventi
-    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-    - [Java](event-hubs-java-get-started-send.md)
-    - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-node-get-started-send.md)
-* [Domande frequenti su Hub eventi](event-hubs-faq.yml)
-* [Applicazioni di esempio che usano Hub eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+Esaminare gli esempi o la documentazione di riferimento seguenti. 
+- [Esempio di geoDR .NET](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/DotNet/GeoDRClient) 
+- [Esempio di GeoDR Java](https://github.com/Azure-Samples/eventhub-java-manage-event-hub-geo-disaster-recovery)
+- [.NET - Esempi di Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
+- [.NET - Esempi di Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet)
+- [Java - Esempi di azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
+- [Java - Esempi di azure-eventhubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
+- [Esempi per Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples)
+- [Esempi JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
+- [Esempi di TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)
+- [Informazioni di riferimento sulle API REST](/rest/api/eventhub/)
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png

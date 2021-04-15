@@ -8,28 +8,28 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: maintenance-control
 ms.date: 11/12/2020
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 3b07e3e6aed599e82a21a5fc25345e78fb245992
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: mimckitt
+ms.openlocfilehash: 355e29cf062b731ed26670497a8de75fef266b99
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933424"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375713"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifiche di manutenzione pianificata per set di scalabilità di macchine virtuali
 
 
 Azure esegue periodicamente aggiornamenti per migliorare l'affidabilità, le prestazioni e la sicurezza dell'infrastruttura host per le macchine virtuali. Gli aggiornamenti potrebbero includere l'applicazione di patch all'ambiente di hosting o l'aggiornamento e la rimozione di componenti hardware. La maggior parte degli aggiornamenti non influisce sulle macchine virtuali ospitate. Tuttavia, gli aggiornamenti interessano le macchine virtuali in questi scenari:
 
-- Se la manutenzione non richiede un riavvio, Azure sospende la macchina virtuale per alcuni secondi mentre l'host viene aggiornato. Per questi tipi di operazioni di manutenzione viene applicato un dominio di errore per dominio di errore. L'operazione viene interrotta in caso di ricezione di segnali di integrità di avviso.
+- Se la manutenzione non richiede un riavvio, Azure sospende la macchina virtuale per alcuni secondi mentre l'host viene aggiornato. Questi tipi di operazioni di manutenzione vengono applicati dominio di errore per dominio di errore. L'operazione viene interrotta in caso di ricezione di segnali di integrità di avviso.
 
-- Se la manutenzione richiede un riavvio, si riceve un avviso che informa per quando è pianificata la manutenzione. In questi casi, viene fornito un intervallo di tempo in genere di 35 giorni, in cui è possibile avviare manualmente la manutenzione, quando funziona.
+- Se la manutenzione richiede un riavvio, si riceve un avviso che informa per quando è pianificata la manutenzione. In questi casi, viene visualizzato un intervallo di tempo che in genere è di 35 giorni in cui è possibile avviare la manutenzione manualmente, quando funziona automaticamente.
 
 
 La manutenzione pianificata che richiede un riavvio viene pianificata in cicli. Ogni ciclo ha un ambito diverso (aree),
 
 - e inizia con un avviso ai clienti. Per impostazione predefinita, la notifica viene inviata ai proprietari della sottoscrizione e ai comproprietari. È possibile aggiungere destinatari e opzioni di messaggistica, come messaggi di posta elettronica, SMS e webhook, alle notifiche tramite gli [avvisi del log attività](../azure-monitor/essentials/platform-logs-overview.md) di Azure.  
-- Con la notifica viene resa disponibile una *finestra self-service*. Durante questa finestra che in genere è di 35 giorni, è possibile trovare le macchine virtuali incluse nell'onda. È possibile avviare la manutenzione in modo proattivo in base alle proprie esigenze di pianificazione.
+- Con la notifica viene resa disponibile una *finestra self-service*. Durante questa finestra, che in genere è di 35 giorni, è possibile trovare le macchine virtuali incluse nell'ondata. È possibile avviare la manutenzione in modo proattivo in base alle proprie esigenze di pianificazione.
 - Dopo l'intervallo in modalità self-service, viene avviato un *intervallo di manutenzione pianificato*. In un determinato momento di questo intervallo, Azure pianifica e applica la manutenzione necessaria alla macchina virtuale. 
 
 La presenza di due finestre consente di avere tempo sufficiente per iniziare la manutenzione e riavviare la macchina virtuale, sapendo comunque quando Azure avvierà automaticamente la manutenzione.
@@ -185,9 +185,9 @@ Per altre informazioni sulla disponibilità elevata, vedere [Regions and availab
 
 **D: come si possono ottenere notifiche per la manutenzione pianificata?**
 
-**R:** Un ciclo di manutenzione pianificata viene avviato impostando una programmazione su una o più aree di Azure. Subito dopo, viene inviata una notifica tramite posta elettronica agli amministratori della sottoscrizione, ai coamministratori, ai proprietari e ai collaboratori (un messaggio di posta elettronica per ogni sottoscrizione). Si possono configurare altri canali e destinatari per questa notifica usando gli avvisi del log attività. Se si distribuisce una macchina virtuale in un'area in cui la manutenzione pianificata è già pianificata, non verrà ricevuta la notifica. Controllare invece lo stato di manutenzione della macchina virtuale.
+**R:** Un ciclo di manutenzione pianificata viene avviato impostando una programmazione su una o più aree di Azure. Subito dopo, viene inviata una notifica tramite posta elettronica agli amministratori, ai co-amministratori, ai proprietari e ai collaboratori della sottoscrizione (un messaggio di posta elettronica per ogni sottoscrizione). Si possono configurare altri canali e destinatari per questa notifica usando gli avvisi del log attività. Se si distribuisce una macchina virtuale in un'area in cui è già pianificata la manutenzione pianificata, non si riceverà la notifica. Controllare invece lo stato di manutenzione della macchina virtuale.
 
-**D: non viene visualizzata alcuna indicazione di manutenzione pianificata nel portale, in PowerShell o nell'interfaccia della riga di comando. Cosa c'è che non va?**
+**D: Non sono presenti indicazioni sulla manutenzione pianificata nel portale, in PowerShell o nell'interfaccia della riga di comando. Cosa c'è che non va?**
 
 **R:** le informazioni relative alla manutenzione pianificata sono disponibili durante un ciclo di manutenzione pianificata solo per le macchine virtuali interessate dalla manutenzione pianificata. Se i dati non sono visibili, è possibile che il ciclo di manutenzione sia già stato completato (o non sia stato avviato) oppure che la macchina virtuale sia già ospitata in un server aggiornato.
 
@@ -199,14 +199,14 @@ Per altre informazioni sulla disponibilità elevata, vedere [Regions and availab
 
 **R:** a seconda delle dimensioni della macchina virtuale, il riavvio potrebbe richiedere alcuni minuti durante la finestra di manutenzione self-service. Durante i riavvii avviati da Azure nella finestra di manutenzione pianificata, il riavvio richiede in genere circa 25 minuti. Se si usano Servizi cloud (ruolo Web o di lavoro), set di scalabilità di macchine virtuali o set di disponibilità, sono disponibili 30 minuti tra ogni gruppo di macchine virtuali (domini di aggiornamento) durante l'intervallo di manutenzione pianificato. 
 
-**D: non vengono visualizzate informazioni di manutenzione sulle VM. Cosa è successo?**
+**D: Non vengono visualizzate informazioni di manutenzione nelle macchine virtuali. Che cosa si è verificato?**
 
 **R:** i motivi per cui non vengono visualizzate informazioni sulla manutenzione per le macchine virtuali sono diversi:
    - Si usa una sottoscrizione contrassegnata come *Microsoft (interno)*.
    - Le macchine virtuali non sono pianificate per la manutenzione. La manutenzione potrebbe essere terminata oppure essere stata annullata o modificata e di conseguenza le macchine virtuali non sono più interessate.
    - La colonna **Manutenzione** non è stata aggiunta alla visualizzazione elenco delle macchine virtuali. Anche se questa colonna è stata aggiunta alla visualizzazione predefinita, se si configura la visualizzazione per mostrare le colonne non predefinite, è necessario aggiungere manualmente la colonna **Manutenzione** alla visualizzazione elenco delle macchine virtuali.
 
-**D: la macchina virtuale è pianificata per la manutenzione per la seconda volta. Perché?**
+**D: La macchina virtuale è pianificata per la manutenzione per la seconda volta. Perché?**
 
 **R:** in diversi casi d'uso, la macchina virtuale risulta pianificata per la manutenzione dopo avere già completato la manutenzione e la ridistribuzione:
    - Il ciclo di manutenzione è stato annullato e riavviato con un payload diverso. Potrebbe essere stato rilevato un payload con errori e potrebbe essere semplicemente necessario distribuire un payload aggiuntivo.

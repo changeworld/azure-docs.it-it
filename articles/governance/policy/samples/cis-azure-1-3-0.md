@@ -1,23 +1,23 @@
 ---
-title: Dettagli di conformità alle normative per 1.3.0 di base di CIS Microsoft Azure Foundation
-description: Dettagli del 1.3.0 di base di riferimento per la conformità alle normative di Microsoft Azure CIS. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 03/31/2021
+title: Dettagli sulla conformità alle normative per CIS Microsoft Azure Foundations Benchmark 1.3.0
+description: Dettagli dell'iniziativa incorporata cis Microsoft Azure Foundations Benchmark 1.3.0 sulla conformità alle normative. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
+ms.date: 04/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 03e8d5ae24e379928910783f9638327f0b7a42dd
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 3dc7578af93f36ba8f0400099bb21cdabdcffb70
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091651"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497728"
 ---
-# <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>Dettagli del 1.3.0 di base di riferimento per la conformità alle normative di Microsoft Azure CIS
+# <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata di conformità alle normative CIS Microsoft Azure Foundations Benchmark 1.3.0
 
-L'articolo seguente illustra in dettaglio come viene eseguito il mapping della definizione dell'iniziativa incorporata per la conformità alle normative di criteri di Azure ai **controlli** e ai **domini di conformità** in 1.3.0 di base di Microsoft Azure SID
-Per altre informazioni su questo standard di conformità, vedere la pagina relativa al [benchmark di 1.3.0 di CIS Microsoft Azure Foundation](https://www.cisecurity.org/benchmark/azure/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
+L'articolo seguente illustra in dettaglio il mapping della definizione  dell'iniziativa incorporata di conformità alle normative di Criteri di Azure ai domini e ai controlli di conformità **in** CIS Microsoft Azure Foundations Benchmark 1.3.0.
+Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark 1.3.0.](https://www.cisecurity.org/benchmark/azure/) Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
-I mapping seguenti sono relativi ai controlli di **1.3.0 di benchmark della Microsoft Azure** di base di CIS. Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
-Quindi, trovare e selezionare la definizione di iniziativa di base per la conformità alle normative **CIS Microsoft Azure Foundations benchmark v 1.3.0** .
+I mapping seguenti sono ai controlli **CIS Microsoft Azure Foundations Benchmark 1.3.0.** Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
+Trovare e selezionare quindi la definizione di **iniziativa incorporata CIS Microsoft Azure Foundations Benchmark v1.3.0** Conformità alle normative.
 
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../overview.md).
@@ -42,7 +42,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di lettura per la sottoscrizione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe3576e28-8b17-4677-84c3-db2990658d64) |È necessario abilitare Multi-Factor Authentication (MFA) per tutti gli account della sottoscrizione con privilegi di lettura per evitare una violazione di account o risorse. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForReadPermissions_Audit.json) |
 
-### <a name="ensure-guest-users-are-reviewed-on-a-monthly-basis"></a>Verificare che gli utenti guest vengano rivisti su base mensile
+### <a name="ensure-guest-users-are-reviewed-on-a-monthly-basis"></a>Verificare che gli utenti guest siano esaminati su base mensile
 
 **ID**: CIS Azure 1.3 **Proprietà**: Customer
 
@@ -54,7 +54,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-that-no-custom-subscription-owner-roles-are-created"></a>Assicurarsi che non siano stati creati ruoli di proprietario della sottoscrizione personalizzati
 
-**ID**: SID di Azure 1,21 **proprietario**: cliente
+**ID:** CIS Azure 1.21 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -62,7 +62,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ## <a name="security-center"></a>Centro sicurezza
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-servers"></a>Assicurarsi che Azure Defender sia impostato su on per i server
+### <a name="ensure-that-azure-defender-is-set-to-on-for-servers"></a>Assicurarsi che Azure Defender sia impostato su Sì per i server
 
 **ID**: CIS Azure 2.1 **Proprietà**: Customer
 
@@ -70,7 +70,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[Azure Defender per i server deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4da35fc9-c9e7-4960-aec9-797fe7d9051d) |Azure Defender per i server fornisce protezione dalle minacce in tempo reale per i carichi di lavoro dei server e genera raccomandazioni per la protezione avanzata e avvisi sulle attività sospette. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnVM_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-app-service"></a>Assicurarsi che Azure Defender sia impostato su on per il servizio app
+### <a name="ensure-that-azure-defender-is-set-to-on-for-app-service"></a>Assicurarsi che Azure Defender sia impostato su Sì per il servizio app
 
 **ID**: CIS Azure 2.2 **Proprietà**: Customer
 
@@ -78,7 +78,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[Azure Defender per il Servizio app deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2913021d-f2fd-4f3d-b958-22354e2bdbcb) |Azure Defender per il Servizio app sfrutta la portata del cloud e la visibilità di Azure come provider di servizi cloud per monitorare gli attacchi alle app Web più comuni. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnAppServices_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-azure-sql-database-servers"></a>Assicurarsi che Azure Defender sia impostato su on per i server del database SQL di Azure
+### <a name="ensure-that-azure-defender-is-set-to-on-for-azure-sql-database-servers"></a>Assicurarsi che Azure Defender sia impostato su Sì per i server Azure SQL database
 
 **ID**: CIS Azure 2.3 **Proprietà**: Customer
 
@@ -86,7 +86,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[Azure Defender per i server di database SQL di Azure deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |Azure Defender per SQL fornisce funzionalità per l'individuazione e la mitigazione di potenziali vulnerabilità del database, il rilevamento di attività anomale che possono indicare minacce ai database SQL e l'individuazione e la classificazione di dati sensibili. |AuditIfNotExists, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-sql-servers-on-machines"></a>Assicurarsi che Azure Defender sia impostato su on per SQL Server nei computer
+### <a name="ensure-that-azure-defender-is-set-to-on-for-sql-servers-on-machines"></a>Assicurarsi che Azure Defender sia impostato su Sì per i server SQL nei computer
 
 **ID**: CIS Azure 2.4 **Proprietà**: Customer
 
@@ -94,7 +94,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[Azure Defender per i server SQL nelle macchine virtuali deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6581d072-105e-4418-827f-bd446d56421b) |Azure Defender per SQL fornisce funzionalità per l'individuazione e la mitigazione di potenziali vulnerabilità del database, il rilevamento di attività anomale che possono indicare minacce ai database SQL e l'individuazione e la classificazione di dati sensibili. |AuditIfNotExists, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServerVirtualMachines_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-storage"></a>Assicurarsi che Azure Defender sia impostato su on per l'archiviazione
+### <a name="ensure-that-azure-defender-is-set-to-on-for-storage"></a>Assicurarsi che Azure Defender sia impostato su Sì per l'archiviazione
 
 **ID**: CIS Azure 2.5 **Proprietà**: Customer
 
@@ -102,7 +102,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[Azure Defender per l'archiviazione deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F308fbb08-4ab8-4e67-9b29-592e93fb94fa) |Azure Defender per l'archiviazione offre il rilevamento di tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnStorageAccounts_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-kubernetes"></a>Assicurarsi che Azure Defender sia impostato su on per Kubernetes
+### <a name="ensure-that-azure-defender-is-set-to-on-for-kubernetes"></a>Assicurarsi che Azure Defender sia impostato su Sì per Kubernetes
 
 **ID**: CIS Azure 2.6 **Proprietà**: Customer
 
@@ -110,7 +110,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[Azure Defender per Kubernetes deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F523b5cd1-3e23-492f-a539-13118b6d1e3a) |Azure Defender per Kubernetes fornisce protezione dalle minacce in tempo reale per gli ambienti containerizzati e genera avvisi per le attività sospette. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnKubernetesService_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-container-registries"></a>Assicurarsi che Azure Defender sia impostato su on per i registri contenitori
+### <a name="ensure-that-azure-defender-is-set-to-on-for-container-registries"></a>Assicurarsi che Azure Defender sia impostato su Sì per i registri contenitori
 
 **ID**: CIS Azure 2.7 **Proprietà**: Customer
 
@@ -118,9 +118,9 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[Azure Defender per i registri contenitori deve essere abilitato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4) |Azure Defender per i registri contenitori fornisce l'analisi delle vulnerabilità delle immagini di cui è stato eseguito il pull negli ultimi 30 giorni oppure di cui è stato eseguito il push o l'importazione nel registro ed espone i risultati dettagliati per immagine. |AuditIfNotExists, Disabled |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainerRegistry_Audit.json) |
 
-### <a name="ensure-that-azure-defender-is-set-to-on-for-key-vault"></a>Assicurarsi che Azure Defender sia impostato su on per Key Vault
+### <a name="ensure-that-azure-defender-is-set-to-on-for-key-vault"></a>Assicurarsi che Azure Defender sia impostato su Sì per Key Vault
 
-**ID**: SID di Azure 2,8 **proprietario**: cliente
+**ID:** CIS Azure 2.8 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -128,13 +128,13 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Assicurarsi che "Provisioning automatico dell'agente di monitoraggio" sia impostata su "Sì"
 
-**ID**: SID di Azure 2,11 **proprietario**: cliente
+**ID:** CIS Azure 2.11 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[È consigliabile abilitare il provisioning automatico dell'agente di Log Analytics nella sottoscrizione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |Per monitorare le minacce e le vulnerabilità della sicurezza, Centro sicurezza di Azure raccoglie i dati dalle macchine virtuali di Azure. I dati vengono raccolti dall'agente di Log Analytics, precedentemente noto come Microsoft Monitoring Agent (MMA), che esegue la lettura di varie configurazioni relative alla sicurezza e log eventi dalla macchina virtuale e copia i dati nell'area di lavoro Log Analytics per l'analisi. È consigliabile abilitare il provisioning automatico per distribuire automaticamente l'agente in tutte le macchine virtuali di Azure supportate e in tutte le nuove macchine virtuali che vengono create. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
 
-### <a name="ensure-additional-email-addresses-is-configured-with-a-security-contact-email"></a>Assicurarsi che l'indirizzo di posta elettronica aggiuntivo sia configurato con un indirizzo di posta elettronica di contatto di sicurezza
+### <a name="ensure-additional-email-addresses-is-configured-with-a-security-contact-email"></a>Assicurarsi che "Indirizzi di posta elettronica aggiuntivi" sia configurato con un indirizzo di posta elettronica del contatto di sicurezza
 
 **ID**: CIS Azure 2.13 **Proprietà**: Customer
 
@@ -142,7 +142,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[Per le sottoscrizioni deve essere impostato un indirizzo di posta elettronica di contatto per i problemi relativi alla sicurezza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7) |Per garantire che le persone pertinenti all'interno dell'organizzazione ricevano una notifica in caso di potenziale violazione della sicurezza in una delle sottoscrizioni, impostare un contatto di sicurezza per la ricezione delle notifiche tramite posta elettronica dal Centro sicurezza. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_email.json) |
 
-### <a name="ensure-that-notify-about-alerts-with-the-following-severity-is-set-to-high"></a>Verificare che "Invia notifica agli avvisi con la gravità seguente" sia impostato su "High"
+### <a name="ensure-that-notify-about-alerts-with-the-following-severity-is-set-to-high"></a>Assicurarsi che l'opzione "Notifica degli avvisi con la gravità seguente" sia impostata su "Alta"
 
 **ID**: CIS Azure 2.14 **Proprietà**: Customer
 
@@ -160,9 +160,9 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[È consigliabile abilitare il trasferimento sicuro agli account di archiviazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |Requisito di controllo del trasferimento sicuro nell'account di archiviazione. Il trasferimento sicuro è un'opzione che impone all'account di archiviazione di accettare richieste solo da connessioni sicure (HTTPS). L'uso di HTTPS garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 
-### <a name="ensure-that-public-access-level-is-set-to-private-for-blob-containers"></a>Assicurarsi che ' livello di accesso pubblico ' sia impostato su privato per i contenitori BLOB
+### <a name="ensure-that-public-access-level-is-set-to-private-for-blob-containers"></a>Assicurarsi che 'Livello di accesso pubblico' sia impostato su Privato per i contenitori BLOB
 
-**ID**: SID di Azure 3,5 **proprietario**: cliente
+**ID:** CIS Azure 3.5 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -170,7 +170,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>Assicurarsi che la regola di accesso alla rete predefinita per gli account di archiviazione sia impostata su Nega
 
-**ID**: SID di Azure 3,6 **proprietario**: cliente
+**ID:** CIS Azure 3.6 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -187,17 +187,17 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-storage-for-critical-data-are-encrypted-with-customer-managed-key"></a>Assicurarsi che l'archiviazione per i dati critici sia crittografata con la chiave gestita dal cliente
 
-**ID**: SID di Azure 3,9 **proprietario**: cliente
+**ID:** CIS Azure 3.9 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Gli account di archiviazione devono usare la chiave gestita dal cliente per la crittografia](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6fac406b-40ca-413b-bf8e-0bf964659c25) |Proteggi l'account di archiviazione con una maggiore flessibilità usando chiavi gestite dal cliente. Quando si specifica una chiave gestita dal cliente, tale chiave viene usata per proteggere e controllare l'accesso alla chiave che crittografa i dati. L'uso delle chiavi gestite dal cliente fornisce funzionalità aggiuntive per controllare la rotazione della chiave di crittografia della chiave o la cancellazione crittografica dei dati. |Audit, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccountCustomerManagedKeyEnabled_Audit.json) |
+|[Gli account di archiviazione devono usare la chiave gestita dal cliente per la crittografia](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6fac406b-40ca-413b-bf8e-0bf964659c25) |Proteggere l'account di archiviazione con maggiore flessibilità usando chiavi gestite dal cliente. Quando si specifica una chiave gestita dal cliente, tale chiave viene usata per proteggere e controllare l'accesso alla chiave che crittografa i dati. L'uso di chiavi gestite dal cliente offre funzionalità aggiuntive per controllare la rotazione della chiave di crittografia della chiave o cancellare i dati crittograficamente. |Audit, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccountCustomerManagedKeyEnabled_Audit.json) |
 
 ## <a name="database-services"></a>Servizi di database
 
 ### <a name="ensure-that-auditing-is-set-to-on"></a>Assicurarsi che "Controllo" sia impostato su "Attivato"
 
-**ID**: CSI Azure 4.1.1 **Proprietà**: Customer
+**ID:** CIS Azure 4.1.1 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -205,7 +205,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>Assicurarsi che "Crittografia dati" sia impostato su "Attivato" in un database SQL
 
-**ID**: SID Azure 4.1.2 **Proprietà**: Customer
+**ID:** CIS Azure 4.1.2 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,33 +213,33 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-that-auditing-retention-is-greater-than-90-days"></a>Assicurarsi che il periodo di conservazione dei dati di controllo sia "superiore a 90 giorni"
 
-**ID**: SID di Azure 4.1.3 **Proprietà**: cliente
+**ID:** CIS Azure 4.1.3 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[I server SQL con controllo per la destinazione dell'account di archiviazione devono essere configurati con una conservazione di 90 giorni o superiore](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Per finalità di analisi degli eventi imprevisti, è consigliabile impostare la conservazione dei dati per il controllo del SQL Server per la destinazione dell'account di archiviazione su almeno 90 giorni. Verificare di soddisfare le regole di conservazione necessarie per le aree in cui si opera. Questa operazione è talvolta necessaria per la conformità agli standard normativi. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
+|[I server SQL con controllo sulla destinazione dell'account di archiviazione devono essere configurati con una conservazione di 90 giorni o superiore](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Ai fini dell'analisi degli eventi imprevisti, è consigliabile impostare la conservazione dei dati per il controllo SQL Server'account di archiviazione sulla destinazione dell'account di archiviazione su almeno 90 giorni. Verificare di soddisfare le regole di conservazione necessarie per le aree in cui si opera. Questa operazione è talvolta necessaria per la conformità agli standard normativi. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
 
-### <a name="ensure-that-advanced-threat-protection-atp-on-a-sql-server-is-set-to-enabled"></a>Assicurarsi che Advanced Threat Protection (ATP) in un server SQL sia impostato su' Enabled '
+### <a name="ensure-that-advanced-threat-protection-atp-on-a-sql-server-is-set-to-enabled"></a>Assicurarsi che Advanced Threat Protection (ATP) in un server SQL sia impostato su "Abilitato"
 
-**ID**: CSI **Proprietà** di Azure 4.2.1: Customer
+**ID:** CIS Azure 4.2.1 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[La soluzione Sicurezza dei dati avanzata deve essere abilitata nell'istanza gestita di SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb7388-5bf4-4ad7-ba99-2cd2f41cebb9) |Controlla ogni istanza gestita di SQL senza Sicurezza dei dati avanzata. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurity_Audit.json) |
 |[È consigliabile abilitare la sicurezza avanzata dei dati nei server SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb4388-5bf4-4ad7-ba82-2cd2f41ceae9) |Controlla server SQL senza Sicurezza dei dati avanzata |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurity_Audit.json) |
 
-### <a name="ensure-that-vulnerability-assessment-va-is-enabled-on-a-sql-server-by-setting-a-storage-account"></a>Assicurarsi che la valutazione della vulnerabilità sia abilitata in un server SQL impostando un account di archiviazione
+### <a name="ensure-that-vulnerability-assessment-va-is-enabled-on-a-sql-server-by-setting-a-storage-account"></a>Assicurarsi che La valutazione della vulnerabilità (VA) sia abilitata in un server SQL impostando un account di archiviazione
 
-**ID**: SID di Azure 4.2.2 **Proprietà**: Customer
+**ID:** CIS Azure 4.2.2 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[La valutazione della vulnerabilità deve essere abilitata nell'istanza gestita di SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b7aa243-30e4-4c9e-bca8-d0d3022b634a) |Controlla ogni istanza gestita di SQL in cui non sono abilitate analisi di valutazione della vulnerabilità ricorrenti. La valutazione della vulnerabilità consente di individuare, monitorare e risolvere le potenziali vulnerabilità del database. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnManagedInstance_Audit.json) |
 |[È consigliabile abilitare la valutazione della vulnerabilità nei server SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9) |Controlla i server di Azure SQL in cui non sono abilitate analisi di valutazione della vulnerabilità ricorrenti. La valutazione della vulnerabilità consente di individuare, monitorare e risolvere le potenziali vulnerabilità del database. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/VulnerabilityAssessmentOnServer_Audit.json) |
 
-### <a name="ensure-that-va-setting-send-scan-reports-to-is-configured-for-a-sql-server"></a>Assicurarsi che l'impostazione di VA per inviare i report di analisi a sia configurata per un server SQL
+### <a name="ensure-that-va-setting-send-scan-reports-to-is-configured-for-a-sql-server"></a>Assicurarsi che l'impostazione dell'utilità di analisi Invia report a sia configurata per un server SQL
 
-**ID**: CIS Azure 4.2.4 **Proprietà**: Customer
+**ID:** CIS Azure 4.2.4 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -247,7 +247,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>Assicurarsi che il criterio "Imponi connessione SSL" sia abilitato per il server di database PostgreSQL
 
-**ID**: CSI Azure 4.3.1 **Proprietà**: Customer
+**ID:** CIS Azure 4.3.1 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -255,7 +255,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>Assicurarsi che il criterio "Imponi connessione SSL" sia abilitato per il server di database MySQL
 
-**ID**: CSI Azure 4.3.2 **Proprietà**: Customer
+**ID:** CIS Azure 4.3.2 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -263,7 +263,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>Assicurarsi che il parametro del server "log_checkpoints" sia impostato su "Sì" per il server di database PostgreSQL
 
-**ID**: CIS Azure 4.3.3 **Proprietà**: Customer
+**ID:** CIS Azure 4.3.3 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -271,7 +271,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>Assicurarsi che il parametro del server "log_connections" sia impostato su "Sì" per il server di database PostgreSQL
 
-**ID**: CIS Azure 4.3.4 **Proprietà**: Customer
+**ID:** CIS Azure 4.3.4 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -279,7 +279,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>Assicurarsi che il parametro del server "log_disconnections" sia impostato su "Sì" per il server di database PostgreSQL
 
-**ID**: CIS Azure 4.3.5 **Proprietà**: Customer
+**ID:** CIS Azure 4.3.5 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -287,7 +287,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>Assicurarsi che il parametro del server "connection_throttling" sia impostato su "Sì" per il server di database PostgreSQL
 
-**ID**: CIS Azure 4.3.6 **Proprietà**: Customer
+**ID:** CIS Azure 4.3.6 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -301,7 +301,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[È consigliabile effettuare il provisioning di un amministratore di Azure Active Directory per i server SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f314764-cb73-4fc9-b863-8eca98ac36e9) |Controlla il provisioning di un amministratore di Azure Active Directory per il server SQL per abilitare l'autenticazione di Azure AD. L'autenticazione di Azure AD consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità di utenti di database e di altri servizi Microsoft |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SQL_DB_AuditServerADAdmins_Audit.json) |
 
-### <a name="ensure-sql-servers-tde-protector-is-encrypted-with-customer-managed-key"></a>Verificare che la protezione Transparent Data Encryption di SQL Server sia crittografata con la chiave gestita dal cliente
+### <a name="ensure-sql-servers-tde-protector-is-encrypted-with-customer-managed-key"></a>Assicurarsi che la protezione TDE di SQL Server sia crittografata con la chiave gestita dal cliente
 
 **ID**: CIS Azure 4.5 **Proprietà**: Customer
 
@@ -312,7 +312,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-### <a name="ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible"></a>Verificare che il contenitore di archiviazione che archivia i log attività non sia accessibile pubblicamente
+### <a name="ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible"></a>Assicurarsi che il contenitore di archiviazione che archivia i log attività non sia accessibile pubblicamente
 
 **ID**: CIS Azure 5.1.3 **Proprietà**: Customer
 
@@ -330,11 +330,11 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-that-logging-for-azure-keyvault-is-enabled"></a>Assicurarsi che la registrazione per l'insieme di credenziali delle credenziali di Azure sia abilitata
 
-**ID**: CIS Azure 5.1.5 **Proprietà**: Customer
+**ID:** CIS Azure 5.1.5 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[I log delle risorse in Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Assicurarsi che esista un avviso del log attività per l'assegnazione di criteri di creazione
 
@@ -344,7 +344,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[Per operazioni dei criteri specifiche deve esistere un avviso del log attività](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |Questo criterio controlla operazioni dei criteri specifiche per cui non sono configurati avvisi del log attività. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
 
-### <a name="ensure-that-activity-log-alert-exists-for-delete-policy-assignment"></a>Verificare che l'avviso del log attività esista per l'assegnazione dei criteri di eliminazione
+### <a name="ensure-that-activity-log-alert-exists-for-delete-policy-assignment"></a>Assicurarsi che esista un avviso del log attività per l'assegnazione di criteri di eliminazione
 
 **ID**: CIS Azure 5.2.2 **Proprietà**: Customer
 
@@ -410,21 +410,21 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ### <a name="ensure-that-diagnostic-logs-are-enabled-for-all-services-which-support-it"></a>Assicurarsi che i log di diagnostica siano abilitati per tutti i servizi che lo supportano.
 
-**ID**: SID di Azure 5,3 **proprietario**: cliente
+**ID:** CIS Azure 5.3 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[I log di diagnostica devono essere abilitati in Servizi app](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb607c5de-e7d9-4eee-9e5c-83f1bcee4fa0) |Controlla l'abilitazione dei log di diagnostica nell'app. consentendo di ricreare la traccia delle attività ai fini di controllo se si verifica un problema di sicurezza o la rete viene compromessa |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_AuditLoggingMonitoring_Audit.json) |
 |[I log delle risorse in Azure Data Lake Store devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeStore_AuditDiagnosticLog_Audit.json) |
-|[I log delle risorse in analisi di flusso di Azure devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff9be5368-9bf5-4b84-9e0a-7850da98bb46) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Stream%20Analytics/StreamAnalytics_AuditDiagnosticLog_Audit.json) |
-|[I log delle risorse negli account batch devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F428256e6-1fac-4f48-a757-df34c2b3336d) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_AuditDiagnosticLog_Audit.json) |
-|[I log delle risorse in Data Lake Analytics devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc95c74d9-38fe-4f0d-af86-0c7d626a315c) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeAnalytics_AuditDiagnosticLog_Audit.json) |
-|[I log delle risorse nell'hub eventi devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F83a214f7-d01a-484b-91a9-ed54470c9a6a) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Hub/EventHub_AuditDiagnosticLog_Audit.json) |
-|[I log delle risorse nell'hub degli eventi devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F383856f8-de7f-44a2-81fc-e5135b5c2aa4) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |
-|[I log delle risorse in Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
-|[I log delle risorse nelle app per la logica devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34f95f76-5386-4de7-b824-0d8478470c9d) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Logic%20Apps/LogicApps_AuditDiagnosticLog_Audit.json) |
-|[I log delle risorse nei servizi di ricerca devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4330a05-a843-4bc8-bf9a-cacce50c67f4) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_AuditDiagnosticLog_Audit.json) |
-|[I log delle risorse nel bus di servizio devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse Analisi di flusso di Azure devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff9be5368-9bf5-4b84-9e0a-7850da98bb46) |Controlla l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Stream%20Analytics/StreamAnalytics_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse negli account Batch devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F428256e6-1fac-4f48-a757-df34c2b3336d) |Controlla l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse Data Lake Analytics devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc95c74d9-38fe-4f0d-af86-0c7d626a315c) |Controlla l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/DataLakeAnalytics_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse nell'hub eventi devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F83a214f7-d01a-484b-91a9-ed54470c9a6a) |Controlla l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Hub/EventHub_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse nell'hub IoT devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F383856f8-de7f-44a2-81fc-e5135b5c2aa4) |Controlla l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Controlla l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse in App per la logica devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34f95f76-5386-4de7-b824-0d8478470c9d) |Controlla l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Logic%20Apps/LogicApps_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse nei servizi di ricerca devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4330a05-a843-4bc8-bf9a-cacce50c67f4) |Controlla l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse nel bus di servizio devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |Controlla l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
 |[I log delle risorse nei set di scalabilità di macchine virtuali devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) |È consigliabile abilitare i log per poter ricreare la traccia delle attività quando sono necessarie indagini in caso di evento imprevisto o compromissione. |AuditIfNotExists, Disabled |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ServiceFabric_and_VMSS_AuditVMSSDiagnostics.json) |
 
 ## <a name="networking"></a>Rete
@@ -455,7 +455,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ## <a name="virtual-machines"></a>Macchine virtuali
 
-### <a name="ensure-virtual-machines-are-utilizing-managed-disks"></a>Verificare che le macchine virtuali utilizzino Managed Disks
+### <a name="ensure-virtual-machines-are-utilizing-managed-disks"></a>Assicurarsi che le macchine virtuali Managed Disks
 
 **ID**: CIS Azure 7.1 **Proprietà**: Customer
 
@@ -463,7 +463,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[Controlla macchine virtuali che non usano dischi gestiti](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F06a78e20-9358-41c9-923c-fb736d382a4d) |Questo criterio controlla le macchine virtuali che non usano dischi gestiti |controllo |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json) |
 
-### <a name="ensure-that-os-and-data-disks-are-encrypted-with-cmk"></a>Assicurarsi che i dischi ' sistema operativo e dati ' siano crittografati con CMK
+### <a name="ensure-that-os-and-data-disks-are-encrypted-with-cmk"></a>Assicurarsi che i dischi del sistema operativo e dei dati siano crittografati con la chiave CMK
 
 **ID**: CIS Azure 7.2 **Proprietà**: Customer
 
@@ -471,7 +471,7 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 |---|---|---|---|
 |[È consigliabile applicare la crittografia del disco nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |Le macchine virtuali per cui non è abilitata la crittografia dei dischi verranno monitorate dal Centro sicurezza di Azure che invierà raccomandazioni. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
-### <a name="ensure-that-unattached-disks-are-encrypted-with-cmk"></a>Assicurarsi che i "dischi non collegati" siano crittografati con CMK
+### <a name="ensure-that-unattached-disks-are-encrypted-with-cmk"></a>Assicurarsi che i dischi non associati siano crittografati con CMK
 
 **ID**: CIS Azure 7.3 **Proprietà**: Customer
 
@@ -505,17 +505,17 @@ Quindi, trovare e selezionare la definizione di iniziativa di base per la confor
 
 ## <a name="other-security-considerations"></a>Altre considerazioni sulla sicurezza
 
-### <a name="ensure-that-the-expiration-date-is-set-on-all-keys"></a>Verificare che la data di scadenza sia impostata su tutte le chiavi
+### <a name="ensure-that-the-expiration-date-is-set-on-all-keys"></a>Assicurarsi che la data di scadenza sia impostata su tutte le chiavi
 
-**ID**: SID di Azure 8,1 **proprietario**: cliente
+**ID:** CIS Azure 8.1 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Le chiavi degli insiemi di credenziali delle chiavi devono avere una data di scadenza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |Le chiavi di crittografia devono avere una data di scadenza definita e non devono essere permanenti. Le chiavi sempre valide offrono a un potenziale utente malintenzionato più tempo per comprometterle. Impostare le date di scadenza per le chiavi di crittografia è una procedura di sicurezza consigliata. |Audit, Deny, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |
 
-### <a name="ensure-that-the-expiration-date-is-set-on-all-secrets"></a>Verificare che la data di scadenza sia impostata su tutti i segreti
+### <a name="ensure-that-the-expiration-date-is-set-on-all-secrets"></a>Assicurarsi che la data di scadenza sia impostata su tutti i segreti
 
-**ID**: SID di Azure 8,2 **proprietario**: cliente
+**ID:** CIS Azure 8.2 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

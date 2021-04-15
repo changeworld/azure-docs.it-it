@@ -4,24 +4,24 @@ description: Informazioni su come usare il portale di Azure per creare un cluste
 services: container-service
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: c1ecaa88dd5329d86818565983a6ba891a6d8424
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions
+ms.openlocfilehash: bfb9e4a9a7c788255ea7fcba0fb42404829f82f3
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577827"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379350"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali nel portale di Azure
 
-Questo articolo illustra come usare la portale di Azure per creare e configurare le risorse di rete virtuale e un cluster AKS con i nodi virtuali abilitati.
+Questo articolo illustra come usare l'portale di Azure per creare e configurare le risorse di rete virtuale e un cluster del servizio Web del servizio Web con i nodi virtuali abilitati.
 
 > [!NOTE]
-> [Questo articolo](virtual-nodes.md) fornisce una panoramica della disponibilità e delle limitazioni dell'area usando i nodi virtuali.
+> [Questo articolo](virtual-nodes.md) offre una panoramica della disponibilità dell'area e delle limitazioni che usano i nodi virtuali.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in Istanze di Azure Container e nel cluster del servizio Azure Kubernetes. Per consentire la comunicazione viene creata una subnet di rete virtuale e vengono assegnate autorizzazioni delegate. I nodi virtuali funzionano solo con i cluster AKS creati usando *Advanced* Networking (Azure CNI). Per impostazione predefinita, i cluster AKS vengono creati con la rete di *base* (kubenet). Questo articolo illustra come creare una rete virtuale e le subnet e quindi distribuire un cluster del servizio Azure Kubernetes che usa reti avanzate.
+I nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in Istanze di Azure Container e nel cluster del servizio Azure Kubernetes. Per consentire la comunicazione viene creata una subnet di rete virtuale e vengono assegnate autorizzazioni delegate. I nodi virtuali funzionano solo con i cluster del servizio AKS creati usando *la* rete avanzata (Azure CNI). Per impostazione predefinita, i cluster del servizio Ku-Kubak vengono creati con *la rete* di base (kubenet). Questo articolo illustra come creare una rete virtuale e le subnet e quindi distribuire un cluster del servizio Azure Kubernetes che usa reti avanzate.
 
 Se ACI non è stato usato in precedenza, registrare il provider di servizi con la sottoscrizione. È possibile controllare lo stato della registrazione del provider di Istanze di Azure Container usando il comando [az provider list][az-provider-list], come spiegato nell'esempio seguente:
 
@@ -54,17 +54,17 @@ Nell'angolo superiore sinistro del portale di Azure, selezionare **Crea una riso
 Nella pagina **Informazioni di base** configurare le opzioni seguenti:
 
 - *DETTAGLI DEL PROGETTO*: Selezionare una sottoscrizione di Azure, quindi selezionare o creare un gruppo di risorse di Azure, ad esempio *myResourceGroup*. Immettere un **nome cluster Kubernetes**, ad esempio *myAKSCluster*.
-- *Dettagli cluster*: selezionare un'area e la versione Kubernetes per il cluster AKS.
+- *DETTAGLI CLUSTER:* selezionare un'area e una versione di Kubernetes per il cluster del servizio Kubernetes.
 - *POOL DI NODI PRIMARIO*: Selezionare le dimensioni di macchina virtuale per i nodi del servizio Azure Kubernetes. Le dimensioni della macchina virtuale **non possono** essere modificate dopo che un cluster del servizio Azure Container è stato distribuito.
      - Selezionare il numero di nodi da distribuire nel cluster. Per questo articolo, impostare **Conteggio dei nodi** su *1*. Il numero di nodi **può** essere modificato dopo che il cluster è stato distribuito.
 
-Fare clic su **Avanti: pool di nodi**.
+Fare **clic su Avanti: Pool di nodi**.
 
-Nella pagina **pool di nodi** selezionare *Abilita nodi virtuali*.
+Nella pagina **Pool di** nodi selezionare Abilita *nodi virtuali*.
 
-:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="In un browser, Mostra la creazione di un cluster con nodi virtuali abilitati nella portale di Azure. L'opzione ' Abilita nodi virtuali ' è evidenziata.":::
+:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="In un browser viene illustrata la creazione di un cluster con nodi virtuali abilitati nel portale di Azure. L'opzione &quot;Abilita nodi virtuali&quot; è evidenziata.":::
 
-Per impostazione predefinita, viene creata un'identità del cluster. Questa identità del cluster viene usata per la comunicazione del cluster e l'integrazione con altri servizi di Azure. Per impostazione predefinita, questa identità del cluster è un'identità gestita. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md). È anche possibile usare un'entità servizio come identità del cluster.
+Per impostazione predefinita, viene creata un'identità del cluster. Questa identità del cluster viene usata per la comunicazione e l'integrazione del cluster con altri servizi di Azure. Per impostazione predefinita, questa identità del cluster è un'identità gestita. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md). È anche possibile usare un'entità servizio come identità del cluster.
 
 Il cluster è configurato anche per le funzionalità di rete avanzate. I nodi virtuali sono configurati per l'uso della relativa subnet di rete virtuale di Azure. La subnet include autorizzazioni delegate per la connessione delle risorse di Azure nel cluster del servizio Azure Kubernetes. Se non è già presente una subnet delegata, il portale di Azure crea e configura la rete virtuale di Azure e la subnet per l'uso dei nodi virtuali.
 

@@ -3,16 +3,16 @@ title: "Esercitazione: Simulare le risposte dell'API in Gestione API - Portale d
 description: Questa esercitazione illustra come usare Gestione API per impostare un criterio in un'API affinché restituisca una risposta fittizia se il back-end non è disponibile per l'invio di risposte reali.
 author: vladvino
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 562ec4cf19d15772b2dec5adf59582f1feb5363a
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547259"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478465"
 ---
 # <a name="tutorial-mock-api-responses"></a>Esercitazione: Simulare le risposte di un'API
 
@@ -20,7 +20,7 @@ Le API back-end possono essere importate in un'API di Gestione API o essere crea
 
 La possibilità di simulare le risposte può essere utile in diversi scenari:
 
-+ Quando la facciata dell'API viene progettata prima e l'implementazione del back-end viene eseguita in seguito o quando il back-end viene sviluppato in parallelo.
++ Quando l'API faE§ade viene progettata per prima e l'implementazione back-end viene fornita in un secondo momento. o quando il back-end viene sviluppato in parallelo.
 + Quando il back-end è temporaneamente non operativo o non è possibile ridimensionarlo.
 
 In questa esercitazione verranno illustrate le procedure per:
@@ -91,11 +91,11 @@ Sebbene non sia richiesto per questo esempio, è possibile configurare impostazi
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per iniziare a usare interfaccia della riga di comando di Azure:
+Per iniziare a usare l'interfaccia della riga di comando di Azure:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Per aggiungere un'operazione all'API di test, eseguire il comando [AZ gestione API API Operation create](/cli/azure/apim/api/operation#az_apim_api_operation_create) :
+Per aggiungere un'operazione all'API di test, eseguire il [comando az apim api operation create:](/cli/azure/apim/api/operation#az_apim_api_operation_create)
 
 ```azurecli
 az apim api operation create --resource-group apim-hello-word-resource-group \
@@ -103,14 +103,14 @@ az apim api operation create --resource-group apim-hello-word-resource-group \
     --url-template /test --service-name apim-hello-world 
 ```
 
-Eseguire il comando [AZ gestione API API Operation List](/cli/azure/apim/api/operation#az_apim_api_operation_list) per visualizzare tutte le operazioni per un'API:
+Eseguire il [comando az apim api operation list](/cli/azure/apim/api/operation#az_apim_api_operation_list) per visualizzare tutte le operazioni per un'API:
 
 ```azurecli
 az apim api operation list --resource-group apim-hello-word-resource-group \
     --api-id test-api --service-name apim-hello-world --output table
 ```
 
-Per rimuovere un'operazione, usare il comando [AZ gestione API API Operation Delete](/cli/azure/apim/api/operation#az_apim_api_operation_delete) . Ottenere l'ID operazione dal comando precedente.
+Per rimuovere un'operazione, usare il [comando az apim api operation delete.](/cli/azure/apim/api/operation#az_apim_api_operation_delete) Ottenere l'ID operazione dal comando precedente.
 
 ```azurecli
 az apim api operation delete --resource-group apim-hello-word-resource-group \
@@ -118,7 +118,7 @@ az apim api operation delete --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world
 ```
 
-Mantieni questa operazione per l'uso nella parte restante di questo articolo.
+Mantenere questa operazione per l'uso nel resto di questo articolo.
 
 ---
 

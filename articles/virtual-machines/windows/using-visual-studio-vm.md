@@ -1,21 +1,21 @@
 ---
 title: Uso di Visual Studio in una macchina virtuale di Azure
 description: Uso di Visual Studio in una macchina virtuale di Azure.
-author: cathysull
-manager: cathys
+author: andysterland
+manager: andster
 ms.service: virtual-machines
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.author: cathys
+ms.author: andster
 keywords: visualstudio
-ms.openlocfilehash: a6acf27743f17941e14adc3f6deea903f4f5ca87
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f26bec64012e0b0909b7df5422c57ff2cb1c347e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562079"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478557"
 ---
 # <a name="visual-studio-images-on-azure"></a>Immagini di Visual Studio in Azure
 L'uso di Visual Studio in una macchina virtuale (VM) di Azure preconfigurata è un modo semplice e rapido per avere subito a disposizione un ambiente di sviluppo pienamente operativo. In [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure) sono disponibili immagini di sistema con diverse configurazioni di Visual Studio.
@@ -30,7 +30,7 @@ Le immagini per le versioni principali più recenti, Visual Studio 2019, Visual 
 
 | Versione di rilascio                                                                                                                                                | Edizioni              | Versione del prodotto   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: versione più recente (versione 16,8)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | Versione 16.8.0    |
+| [Visual Studio 2019: più recente (versione 16.8)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | Versione 16.8.0    |
 | Visual Studio 2019: RTW                         | Enterprise | Versione 16.0.20    |
 | Visual Studio 2017: Versione più recente (versione 15.9)           | Enterprise, Community | Versione 15.9.29   |
 | Visual Studio 2017: RTW                             | Enterprise, Community | Versione 15.0.28  |
@@ -44,7 +44,7 @@ Per altre informazioni, vedere [Criteri di manutenzione di Visual Studio](https:
 ## <a name="what-features-are-installed"></a>Quali funzionalità vengono installate?
 Ogni immagine contiene il set di funzionalità consigliato per una specifica edizione di Visual Studio. L'installazione include in genere i componenti seguenti:
 
-* Tutti i carichi di lavoro disponibili, inclusi i componenti facoltativi consigliati per ogni carico di lavoro
+* Tutti i carichi di lavoro disponibili, inclusi i componenti facoltativi consigliati di ogni carico di lavoro. Altri dettagli sui carichi di lavoro, i componenti e gli SDK inclusi Visual Studio sono disponibili nella documentazione [Visual Studio](https://docs.microsoft.com/visualstudio/install/workload-and-component-ids)
 * Targeting Pack, Strumenti di sviluppo ed SDK per .NET 4.6.2 e .NET 4.7
 * Visual F#
 * Estensione GitHub per Visual Studio

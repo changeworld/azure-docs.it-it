@@ -2,20 +2,20 @@
 title: Come rimuovere l'accesso di un utente a un'applicazione in Azure Active Directory
 description: Informazioni su come rimuovere l'accesso di un utente a un'applicazione in Azure Active Directory
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
-ms.author: kenwith
-ms.openlocfilehash: e6a6c00811a7b87156802897db62a4a10130f130
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: iangithinji
+ms.openlocfilehash: 958abc5f9be443d66037a6d9fe8d8779e6e37e0e
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257356"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379588"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Come rimuovere l'accesso di un utente a un'applicazione
 
@@ -31,11 +31,11 @@ Per disabilitare tutti gli accessi utente a un'applicazione, seguire i passaggi 
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Si vuole eliminare completamente un'applicazione
 
-La [serie di guide introduttive sulla gestione delle applicazioni](delete-application-portal.md) include istruzioni sull'eliminazione di un'applicazione dal tenant di Azure Active Directory.
+La [serie di guide introduttive sulla gestione delle applicazioni](delete-application-portal.md) include indicazioni sull'eliminazione di un'applicazione dal tenant Azure Active Directory servizio.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Si vuole disabilitare tutte le operazioni future di consenso da parte dell'utente a tutte le applicazioni
 
-La disabilitazione di consenso da parte dell'utente per l'intera directory impedisce agli utenti finali di consentire l'accesso a qualsiasi applicazione. Gli amministratori possono comunque acconsentire per conto dell'utente. Per altre informazioni sul consenso alle applicazioni e sui motivi per cui si può desiderare o meno di dare il consenso, vedere [Informazioni sul consenso dell'utente e dell'amministratore](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Vedere anche [Autorizzazioni e consenso](../develop/v2-permissions-and-consent.md).
+La disabilitazione di consenso da parte dell'utente per l'intera directory impedisce agli utenti finali di consentire l'accesso a qualsiasi applicazione. Gli amministratori possono comunque dare il consenso per conto dell'utente. Per altre informazioni sul consenso alle applicazioni e sui motivi per cui si può desiderare o meno di dare il consenso, vedere [Informazioni sul consenso dell'utente e dell'amministratore](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Vedere anche [Autorizzazioni e consenso](../develop/v2-permissions-and-consent.md).
 
 Per **disabilitare tutte le future operazioni di consenso utente nell'intera directory**, seguire queste istruzioni:
 

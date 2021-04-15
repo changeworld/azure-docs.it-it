@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 9ad761f289805d15d316fc6f528a0049adb36b30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mimckitt
+ms.openlocfilehash: e427d51068115db27a36243d738c0e93a10d3cb1
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97722318"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375917"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rete per i set di scalabilità di macchine virtuali di Azure
 
@@ -43,7 +43,7 @@ La rete accelerata di Azure migliora le prestazioni di rete abilitando Single-Ro
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Set di scalabilità di macchine virtuali di Azure con Azure Load Balancer
-Per altre informazioni su come configurare la Load Balancer Standard con i set di scalabilità di macchine virtuali in base allo scenario, vedere [Azure Load Balancer e set di scalabilità di macchine virtuali](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) .
+Vedere [Azure Load Balancer set di scalabilità](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) di macchine virtuali per altre informazioni su come configurare il Load Balancer Standard con i set di scalabilità di macchine virtuali in base allo scenario.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Creare un set di scalabilità che fa riferimento a un gateway applicazione
 Per creare un set di scalabilità che usa un gateway applicazione, fare riferimento al pool di indirizzi back-end del gateway applicazione nella sezione Configurazioni IP del set di scalabilità, come in questa configurazione ARM modello:
@@ -125,7 +125,7 @@ L'output, per un singolo nome DNS di macchina virtuale, avrà il formato seguent
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>IPv4 pubblico per macchina virtuale
-Per le macchine virtuali di un set di scalabilità di Azure in genere non sono necessari indirizzi IP pubblici specifici. Per la maggior parte degli scenari, è più economico e sicuro associare un indirizzo IP pubblico a un servizio di bilanciamento del carico o a una singola macchina virtuale (noto anche come JumpBox), che quindi instrada le connessioni in ingresso alle macchine virtuali del set di scalabilità in base alle esigenze (ad esempio, tramite le regole NAT in ingresso).
+Per le macchine virtuali di un set di scalabilità di Azure in genere non sono necessari indirizzi IP pubblici specifici. Per la maggior parte degli scenari, è più economico e sicuro associare un indirizzo IP pubblico a un servizio di bilanciamento del carico o a una singola macchina virtuale (nota anche come jumpbox), che quindi instrada le connessioni in ingresso alle macchine virtuali del set di scalabilità in base alle esigenze (ad esempio, tramite regole NAT in ingresso).
 
 Alcuni scenari tuttavia richiedono che le macchine virtuali del set di scalabilità abbiano i propri indirizzi IP pubblici, ad esempio i giochi, in cui una console deve stabilire una connessione diretta a una macchina virtuale cloud, che esegue l'elaborazione fisica del gioco. Un altro esempio è quello in cui le macchine virtuali devono stabilire connessioni esterne reciproche tra aree in un database distribuito.
 
@@ -169,7 +169,7 @@ Per eseguire una query di [Azure Resource Explorer](https://resources.azure.com)
 1. Espandere la sottoscrizione.
 1. Espandere il gruppo di risorse.
 1. Espandere i *provider*.
-1. Espandere *Microsoft. Compute*.
+1. Espandere *Microsoft.Compute*.
 1. Espandere *virtualMachineScaleSets*.
 1. Espandere il set di scalabilità.
 1. Fare clic su *publicipaddresses*.
@@ -384,17 +384,17 @@ az vmss show \
 
 ## <a name="make-networking-updates-to-specific-instances"></a>Apportare aggiornamenti di rete a istanze specifiche
 
-È possibile apportare aggiornamenti di rete a specifiche istanze del set di scalabilità di macchine virtuali. 
+È possibile apportare aggiornamenti di rete a istanze specifiche del set di scalabilità di macchine virtuali. 
 
-È possibile `PUT` eseguire l'aggiornamento della configurazione di rete per l'istanza. Questa operazione può essere utilizzata per eseguire operazioni quali l'aggiunta o la rimozione di schede di interfaccia di rete (NIC) o la rimozione di un'istanza da un pool back-end.
+È possibile `PUT` eseguire l'aggiornamento della configurazione di rete nell'istanza di . Può essere usato per eseguire operazioni quali l'aggiunta o la rimozione di schede di interfaccia di rete (NIC) o la rimozione di un'istanza da un pool back-end.
 
 ```
 PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
 ```
 
-Nell'esempio seguente viene illustrato come aggiungere una seconda configurazione IP alla scheda di interfaccia di rete.
+L'esempio seguente illustra come aggiungere una seconda configurazione IP alla scheda di interfaccia di rete.
 
-1. `GET` dettagli per un'istanza specifica del set di scalabilità di macchine virtuali.
+1. `GET` i dettagli per un'istanza specifica del set di scalabilità di macchine virtuali.
     
     ``` 
     GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
@@ -450,7 +450,7 @@ Nell'esempio seguente viene illustrato come aggiungere una seconda configurazion
     }
     ```
  
-2. `PUT` sull'istanza, aggiornamento per aggiungere la configurazione IP aggiuntiva. Questa operazione è simile per l'aggiunta di ulteriori `networkInterfaceConfiguration` .
+2. `PUT` sull'istanza di , aggiornando per aggiungere la configurazione IP aggiuntiva. Questo è simile per l'aggiunta di ulteriori `networkInterfaceConfiguration` .
 
     
     ```
