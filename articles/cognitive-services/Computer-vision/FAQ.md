@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aac3a38b82b86edc47f48e50d26b5b269486701
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "68564599"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375237"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Domande frequenti sull'API Visione artificiale
 
@@ -25,50 +25,22 @@ ms.locfileid: "68564599"
 
 ---
 
-**Domanda**: è *possibile eseguire il training di API visione artificiale per usare tag personalizzati?  Si desidera, ad esempio, inserire le immagini delle razze cat per eseguire il training dell'intelligenza artificiale, quindi ricevere il valore di generazione su una richiesta di intelligenza artificiale.*
+**Domanda:** *È possibile eseguire il training Visione artificiale'API per l'uso di tag personalizzati?  Ad esempio, voglio inviare* immagini di cani allevati per "eseguire il training" dell'intelligenza artificiale e quindi ricevere il valore della specie in una richiesta di intelligenza artificiale.
 
 **Risposta**: questa funzione non è attualmente disponibile. Tuttavia, i tecnici Microsoft stanno lavorando per introdurre questa funzionalità in Visione artificiale.
 
 ---
 
-**Domanda**: *è possibile usare Visione artificiale in locale senza una connessione a Internet?*
 
-**Risposta**: attualmente non è disponibile una soluzione locale.
+**Domanda:** *È possibile distribuire la funzionalità OCR (Lettura) in locale?*
+
+**Risposta:** Sì, l'API cloud OCR (Lettura) è disponibile anche come contenitore Docker per la distribuzione locale. Informazioni [su come distribuire i contenitori OCR.](/computer-vision-how-to-install-containers)
 
 ---
 
 **Domanda**: *è possibile usare Visione artificiale per leggere targhe?*
 
-**Risposta**: l'API Visione artificiale offre un buon livello di rilevamento del testo con OCR, ma non è attualmente ottimizzata per le targhe. Microsoft si impegna a migliorare costantemente i servizi e il riconoscimento OCR delle targhe automobilistiche è stato aggiunto all'elenco delle richieste di funzionalità.
+**Risposta:** L'API Visione include le funzionalità OCR basate su Deep Learning con la funzionalità di lettura più recente. Microsoft cerca costantemente di migliorare i servizi in modo che funzionino in tutti gli scenari.
 
 ---
 
-**Domanda**: *quali superfici di scrittura sono supportate per il riconoscimento della grafia?*
-
-**Risposta**: la tecnologia supporta diversi tipi di superfici, inclusi lavagne, carta bianca e foglietti adesivi gialli.
-
----
-
-**Domanda**: *quanto tempo richiede l'operazione di riconoscimento della grafia?*
-
-**Risposta**: la quantità di tempo richiesta dipende dalla lunghezza del testo. Per i testi più lunghi, possono essere necessari vari secondi. Pertanto, al termine dell'operazione Recognize Handwritten Text (Riconosci testo scritto a mano) potrebbe essere necessario attendere prima di poter recuperare i risultati tramite l'operazione Get Handwritten Text Operation Result (Ottieni risultato operazione riconoscimento testo scritto a mano).
-
----
-
-**Domanda**: *in quale modo la tecnologia di riconoscimento della grafia gestisce il testo inserito tramite un punto di inserimento all'interno di una riga?*
-
-**Risposta**: il testo di questo tipo viene restituito come riga separata dall'operazione di riconoscimento della grafia.
-
----
-
-**Domanda**: *in quale modo la tecnologia di riconoscimento della grafia gestisce le parole o le righe barrate?*
-
-**Risposta**: se le parole sono barrate con più righe per renderle irriconoscibili, l'operazione di riconoscimento della grafia non le preleva. Tuttavia, se le parole sono barrate con una sola riga, la barratura viene considerata un elemento di disturbo e le parole vengono prelevate dall'operazione di riconoscimento della grafia.
-
----
-
-**Domanda**: *quali orientamenti del testo sono supportati per la tecnologia di riconoscimento della grafia?*
-
-**Risposta**: l'operazione di riconoscimento della grafia può prelevare testo con angolazioni fino a 30-40 gradi.
-
----
