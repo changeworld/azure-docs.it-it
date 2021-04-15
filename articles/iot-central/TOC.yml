@@ -8,9 +8,11 @@
       href: core/overview-iot-central-tour.md
     - name: Aggiornamenti recenti
       items:
-        - name: Febbraio 2021 funzionalità nuove e aggiornate
+        - name: Funzionalità nuove e aggiornate di marzo 2021
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-march-2021/'
+        - name: Funzionalità nuove e aggiornate di febbraio 2021
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/'
-        - name: Gennaio 2021 funzionalità nuove e aggiornate
+        - name: Funzionalità nuove e aggiornate di gennaio 2021
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/'
         - name: Funzionalità nuove e aggiornate di novembre 2020
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/'
@@ -49,7 +51,7 @@
       href: core/quick-monitor-devices.md
 - name: Esercitazioni
   items:
-    - name: Sviluppare e connettere dispositivi
+    - name: Sviluppare e connettere i dispositivi
       items:
         - name: Creare e connettere un dispositivo
           href: core/tutorial-connect-device.md
@@ -145,11 +147,11 @@
           items:
             - name: Panoramica
               href: retail/overview-iot-central-retail.md
-            - name: Architettura di estrazione dell'analisi in archivio
+            - name: Architettura di pagamento dell'analisi nei negozi
               href: retail/store-analytics-architecture.md
             - name: Architettura di gestione dell'inventario intelligente
               href: retail/architecture-smart-inventory-management.md
-            - name: Architettura logistica connessa
+            - name: Architettura della logistica connessa
               href: retail/architecture-connected-logistics.md
             - name: Centro di distribuzione digitale
               href: retail/architecture-digital-distribution-center.md
@@ -169,7 +171,7 @@
           items:
             - name: Panoramica
               href: government/overview-iot-central-government.md
-            - name: Architettura di monitoraggio dello spreco connesso
+            - name: Architettura di monitoraggio dei rifiuti connessi
               href: government/concepts-connectedwastemanagement-architecture.md
             - name: Architettura per il monitoraggio del consumo idrico
               href: government/concepts-waterconsumptionmonitoring-architecture.md
@@ -193,7 +195,7 @@
       href: core/concepts-best-practices.md
 - name: Guide pratiche
   items:
-    - name: Sviluppare e connettere dispositivi
+    - name: Sviluppare e connettere i dispositivi
       items:
         - name: Configurare un modello di dispositivo
           href: core/howto-set-up-template.md
@@ -207,7 +209,7 @@
           href: core/how-to-connect-devices-x509.md
         - name: Monitorare la connettività dei dispositivi con l'interfaccia della riga di comando di Azure
           href: core/howto-monitor-devices-azure-cli.md
-        - name: Connetti i dispositivi tramite un gateway trasparente IoT Edge
+        - name: Connettere i dispositivi tramite un gateway IoT Edge trasparente
           href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Preparare e connettere Azure Sphere DevKit
           href: core/howto-connect-sphere.md
@@ -241,7 +243,7 @@
           href: core/howto-create-custom-analytics.md
         - name: Visualizzare dati in Power BI
           href: core/howto-connect-powerbi.md
-        - name: Connettere l'applicazione con i servizi Field di Dynamics 365
+        - name: Connettere l'applicazione con Dynamics 365 Field Services
           href: government/how-to-configure-connected-field-services.md
     - name: Gestire i dispositivi
       items:
@@ -249,9 +251,9 @@
           href: core/howto-manage-devices.md
         - name: Eseguire un processo
           href: core/howto-run-a-job.md
-        - name: Spostare i dispositivi dall'hub Internet
+        - name: Spostare i dispositivi dall'hub IoT
           href: core/how-to-move-device-to-iot.md
-    - name: Amministrazione della soluzione
+    - name: Amministrare la soluzione
       items:
         - name: Modificare le impostazioni dell'applicazione
           href: core/howto-administer.md
@@ -263,7 +265,7 @@
           href: core/howto-customize-ui.md
         - name: Esportare l'applicazione
           href: core/howto-use-app-templates.md
-        - name: Eseguire la migrazione dell'applicazione V2 a V3
+        - name: Eseguire la migrazione di un'applicazione dalla versione 2 alla versione 3
           href: core/howto-migrate.md
         - name: Monitorare l'integrità delle applicazioni
           href: core/howto-monitor-application-health.md
@@ -309,7 +311,7 @@
       href: /samples/browse/?expanded=azure&products=azure-iot-central
     - name: Opzioni di supporto tecnico e assistenza
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
-    - name: Glossario
+    - name: Glossario IoT
       href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
     - name: Servizi di Azure IoT
       items:

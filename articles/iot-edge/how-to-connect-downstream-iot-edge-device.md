@@ -1,6 +1,6 @@
 ---
-title: Connettere dispositivi IoT Edge downstream-Azure IoT Edge | Microsoft Docs
-description: Come configurare un dispositivo IoT Edge per connettersi ai dispositivi Azure IoT Edge Gateway.
+title: Connettere i dispositivi IoT Edge downstream - Azure IoT Edge | Microsoft Docs
+description: Come configurare un dispositivo IoT Edge per connettersi ai dispositivi Azure IoT Edge gateway.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -12,117 +12,117 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: e0912fb452a7f587fef19de835eea111b349a9a4
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 500833d1bb4fc492942c08239bd488c2d2c16d30
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310020"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484320"
 ---
-# <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo di IoT Edge downstream a un gateway di Azure IoT Edge
+# <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo IoT Edge downstream a un gateway Azure IoT Edge remoto
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
-Questo articolo fornisce le istruzioni per stabilire una connessione trusted tra un gateway IoT Edge e un dispositivo IoT Edge downstream.
+Questo articolo fornisce istruzioni per stabilire una connessione attendibile tra un gateway IoT Edge e un dispositivo IoT Edge downstream.
 
-In uno scenario di gateway, un dispositivo IoT Edge può essere sia un gateway che un dispositivo downstream. È possibile sovrapporre più gateway IoT Edge per creare una gerarchia di dispositivi. I dispositivi downstream o figlio possono autenticare e inviare o ricevere messaggi tramite il dispositivo gateway (o padre).
+In uno scenario gateway, un IoT Edge può essere sia un gateway che un dispositivo downstream. Più IoT Edge gateway possono essere a livelli per creare una gerarchia di dispositivi. I dispositivi downstream (o figlio) possono autenticare e inviare o ricevere messaggi tramite il dispositivo gateway (o padre).
 
-Esistono due diverse configurazioni per i dispositivi IoT Edge in una gerarchia del gateway e questo articolo si rivolge a entrambe. Il primo è il **livello superiore** IOT Edge dispositivo. Quando più dispositivi IoT Edge si connettono tra loro, tutti i dispositivi che non dispongono di un dispositivo padre ma che si connette direttamente all'hub Internet è considerato nel livello superiore. Questo dispositivo è responsabile della gestione delle richieste da tutti i dispositivi sottostanti. L'altra configurazione si applica a qualsiasi dispositivo IoT Edge in un **livello inferiore** della gerarchia. Questi dispositivi possono essere un gateway per altri dispositivi downstream e IoT Edge, ma devono anche instradare le comunicazioni attraverso i propri dispositivi padre.
+Esistono due diverse configurazioni per i dispositivi IoT Edge in una gerarchia di gateway e questo articolo tratta entrambe le soluzioni. Il primo è il **livello superiore IoT Edge** dispositivo. Quando più IoT Edge si connettono tra loro, qualsiasi dispositivo che non dispone di un dispositivo padre ma si connette direttamente all'hub IoT viene considerato nel livello superiore. Questo dispositivo è responsabile della gestione delle richieste da tutti i dispositivi sottostanti. L'altra configurazione si applica IoT Edge dispositivo in un **livello inferiore** della gerarchia. Questi dispositivi possono essere un gateway per altri dispositivi IoT e IoT Edge downstream, ma devono anche instradare le comunicazioni tramite i propri dispositivi padre.
 
-Per alcune architetture di rete è necessario che solo il primo dispositivo IoT Edge in una gerarchia possa connettersi al cloud. In questa configurazione tutti i dispositivi IoT Edge nei livelli inferiori di una gerarchia possono comunicare solo con il dispositivo gateway (o padre) ed eventuali dispositivi downstream (o figlio).
+Alcune architetture di rete richiedono che solo il primo IoT Edge in una gerarchia possa connettersi al cloud. In questa configurazione, tutti IoT Edge nei livelli inferiori di una gerarchia possono comunicare solo con il dispositivo gateway (o padre) e con qualsiasi dispositivo downstream (o figlio).
 
-Tutti i passaggi descritti in questo articolo si basano su quelli di [configurare un dispositivo IOT Edge come gateway trasparente](how-to-create-transparent-gateway.md), che configura un dispositivo IOT Edge come gateway per i dispositivi downstream. Gli stessi passaggi di base si applicano a tutti gli scenari di gateway:
+Tutti i passaggi di questo articolo si basano su quelli descritti in Configurare un dispositivo [IoT Edge per](how-to-create-transparent-gateway.md)fungere da gateway trasparente, che configura un dispositivo IoT Edge come gateway per i dispositivi IoT downstream. Gli stessi passaggi di base si applicano a tutti gli scenari del gateway:
 
-* **Autenticazione**: creare le identità dell'hub Internet per tutti i dispositivi nella gerarchia del gateway.
-* **Autorizzazione**: configurare la relazione padre/figlio nell'hub degli elementi per autorizzare i dispositivi figlio a connettersi al dispositivo padre come se si connettessero all'hub.
-* **Individuazione gateway**: assicurarsi che il dispositivo figlio possa trovare il dispositivo padre nella rete locale.
-* **Connessione protetta**: stabilire una connessione protetta con certificati attendibili che fanno parte della stessa catena.
+* **Autenticazione:** creare identità dell'hub IoT per tutti i dispositivi nella gerarchia del gateway.
+* **Autorizzazione:** configurare la relazione padre/figlio nell'hub IoT per autorizzare i dispositivi figlio a connettersi al dispositivo padre in modo che si connettono all'hub IoT.
+* **Individuazione gateway:** assicurarsi che il dispositivo figlio possa trovare il dispositivo padre nella rete locale.
+* **Connessione sicura:** stabilire una connessione sicura con certificati attendibili che fanno parte della stessa catena.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un hub delle cose standard o gratuito.
-* Almeno due **dispositivi IOT Edge**, uno come dispositivo di livello superiore e uno o più dispositivi di livello inferiore. Se non si dispone di IoT Edge dispositivi disponibili, è possibile [eseguire Azure IOT Edge su macchine virtuali Ubuntu](how-to-install-iot-edge-ubuntuvm.md).
-* Se si usa l'interfaccia della riga di comando di Azure per creare e gestire i dispositivi, fare in modo che l'interfaccia della riga di comando di Azure v 2.3.1 sia installata con l'estensione Azure 0.10.6
+* Hub IoT gratuito o standard.
+* Almeno due dispositivi **IoT Edge**, uno per essere il dispositivo di livello superiore e uno o più dispositivi di livello inferiore. Se non sono disponibili dispositivi IoT Edge, è possibile eseguire Azure IoT Edge in macchine virtuali [Ubuntu.](how-to-install-iot-edge-ubuntuvm.md)
+* Se si usa l'interfaccia della riga di comando di Azure per creare e gestire i dispositivi, installare l'interfaccia della riga di comando di Azure v2.3.1 con l'estensione Azure IoT v0.10.6 o versione successiva.
 
-Questo articolo fornisce le opzioni e i passaggi dettagliati per creare la gerarchia di gateway corretta per lo scenario. Per un'esercitazione guidata, vedere [creare una gerarchia di dispositivi IOT Edge usando i gateway](tutorial-nested-iot-edge.md).
+Questo articolo illustra i passaggi e le opzioni dettagliati che consentono di creare la gerarchia di gateway più semplice per lo scenario. Per un'esercitazione guidata, vedere [Creare una gerarchia](tutorial-nested-iot-edge.md)di IoT Edge dispositivi con gateway .
 
-## <a name="create-a-gateway-hierarchy"></a>Creare una gerarchia del gateway
+## <a name="create-a-gateway-hierarchy"></a>Creare una gerarchia di gateway
 
-Si crea una gerarchia del gateway IoT Edge definendo relazioni padre/figlio per i dispositivi IoT Edge nello scenario. È possibile impostare un dispositivo padre quando si crea una nuova identità del dispositivo oppure è possibile gestire l'elemento padre e gli elementi figlio di un'identità del dispositivo esistente.
+Per creare una gerarchia IoT Edge gateway, definire relazioni padre/figlio per IoT Edge dispositivi nello scenario. È possibile impostare un dispositivo padre quando si crea una nuova identità del dispositivo oppure è possibile gestire l'identità padre e figlio di un'identità del dispositivo esistente.
 
-Il passaggio di configurazione delle relazioni padre/figlio autorizza i dispositivi figlio a connettersi al dispositivo padre come se si connettessero all'hub.
+Il passaggio di configurazione delle relazioni padre/figlio autorizza i dispositivi figlio a connettersi al dispositivo padre in modo che si connettono all'hub IoT.
 
-Solo i dispositivi IoT Edge possono essere dispositivi padre, ma sia i dispositivi IoT Edge che i dispositivi Internet possono essere elementi figlio. Un elemento padre può avere molti elementi figlio, ma un elemento figlio può avere un solo elemento padre. Una gerarchia del gateway viene creata concatenando i set padre/figlio in modo che l'elemento figlio di un dispositivo sia l'elemento padre di un altro.
+Solo IoT Edge dispositivi possono essere dispositivi padre, ma entrambi IoT Edge dispositivi IoT possono essere figlio. Un elemento padre può avere molti elementi figlio, ma un elemento figlio può avere un solo elemento padre. Una gerarchia di gateway viene creata concatenando i set padre/figlio in modo che l'elemento figlio di un dispositivo sia il padre di un altro.
 
 <!-- TODO: graphic of gateway hierarchy -->
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Nel portale di Azure è possibile gestire la relazione padre/figlio quando si creano nuove identità del dispositivo o modificando i dispositivi esistenti.
+Nel portale di Azure, è possibile gestire la relazione padre/figlio quando si creano nuove identità del dispositivo o modificando i dispositivi esistenti.
 
-Quando si crea un nuovo dispositivo di IoT Edge, è possibile scegliere i dispositivi padre e figlio dall'elenco dei dispositivi IoT Edge esistenti nell'hub.
+Quando si crea un nuovo dispositivo IoT Edge, è possibile scegliere i dispositivi padre e figlio dall'elenco dei dispositivi IoT Edge esistenti nell'hub.
 
-1. Nella [portale di Azure](https://portal.azure.com)passare all'hub Internet.
-1. Selezionare **IOT Edge** dal menu di navigazione.
+1. Nel [portale di Azure](https://portal.azure.com)passare all'hub IoT.
+1. Selezionare **IoT Edge** dal menu di spostamento.
 1. Selezionare **Aggiungi un dispositivo IoT Edge**.
-1. Oltre a impostare l'ID dispositivo e le impostazioni di autenticazione, è possibile **impostare un dispositivo padre** o **scegliere dispositivi figlio**.
-1. Scegliere il dispositivo o i dispositivi desiderati come padre o figlio.
+1. Oltre a impostare l'ID dispositivo e le impostazioni di autenticazione, è possibile impostare un **dispositivo padre** o Scegliere i **dispositivi figlio.**
+1. Scegliere il dispositivo o i dispositivi da usare come padre o figlio.
 
 È anche possibile creare o gestire relazioni padre/figlio per i dispositivi esistenti.
 
-1. Nella [portale di Azure](https://portal.azure.com)passare all'hub Internet.
-1. Selezionare **IOT Edge** dal menu di navigazione.
-1. Selezionare il dispositivo che si vuole gestire dall'elenco dei **dispositivi IOT Edge**.
-1. Selezionare **imposta un dispositivo padre** o **Gestisci dispositivi figlio**.
-1. Aggiungere o rimuovere eventuali dispositivi padre o figlio.
+1. Nel [portale di Azure](https://portal.azure.com)passare all'hub IoT.
+1. Selezionare **IoT Edge** dal menu di spostamento.
+1. Selezionare il dispositivo che si vuole gestire dall'elenco di IoT Edge **dispositivi**.
+1. Selezionare **Imposta un dispositivo padre o** Gestisci dispositivi **figlio**.
+1. Aggiungere o rimuovere i dispositivi padre o figlio.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-L'estensione [Azure-](/cli/azure/ext/azure-iot) Internet per l'interfaccia della riga di comando di Azure fornisce comandi per la gestione delle risorse Internet. È possibile gestire la relazione padre/figlio dei dispositivi Internet e IoT Edge quando si creano nuove identità dei dispositivi o si modificano i dispositivi esistenti.
+[L'estensione azure-iot](/cli/azure/iot) per l'interfaccia della riga di comando di Azure fornisce comandi per gestire le risorse IoT. È possibile gestire la relazione padre/figlio dei dispositivi IoT e IoT Edge quando si creano nuove identità del dispositivo o modificando i dispositivi esistenti.
 
-Il gruppo [AZ Internet Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) set of commands consente di gestire le relazioni padre/figlio per un determinato dispositivo.
+Il [set di comandi az iot hub device-identity](/cli/azure/iot/hub/device-identity) consente di gestire le relazioni padre/figlio per un determinato dispositivo.
 
-Il `create` comando include i parametri per l'aggiunta di dispositivi figlio e l'impostazione di un dispositivo padre al momento della creazione del dispositivo.
+Il `create` comando include parametri per l'aggiunta di dispositivi figlio e l'impostazione di un dispositivo padre al momento della creazione del dispositivo.
 
-Altri comandi di identità del dispositivo, tra cui `add-children` , `list-children` e `remove-children` o `get-parent` e `set-parent` , consentono di gestire le relazioni padre/figlio per i dispositivi esistenti.
+Altri comandi di identità del dispositivo, tra cui , e o e , consentono di gestire `add-children` `list-children` le relazioni `remove-children` `get-parent` `set-parent` padre/figlio per i dispositivi esistenti.
 
 ---
 
 ## <a name="prepare-certificates"></a>Preparare i certificati
 
-Una catena di certificati coerente deve essere installata tra i dispositivi nella stessa gerarchia del gateway per stabilire una comunicazione sicura tra di essi. Ogni dispositivo della gerarchia, indipendentemente dal fatto che sia un dispositivo IoT Edge o un dispositivo foglia di un sacco, necessita di una copia dello stesso certificato CA radice. Ogni dispositivo IoT Edge nella gerarchia usa quindi il certificato CA radice come radice per il certificato della CA del dispositivo.
+Per stabilire una comunicazione sicura tra loro, è necessario installare una catena coerente di certificati tra dispositivi nella stessa gerarchia di gateway. Ogni dispositivo nella gerarchia, che si IoT Edge dispositivo foglia o ioT, necessita di una copia dello stesso certificato CA radice. Ogni IoT Edge nella gerarchia usa quindi il certificato della CA radice come radice per il certificato della CA del dispositivo.
 
-Con questa configurazione, ogni dispositivo IoT Edge a valle o il dispositivo foglia di un sacco può verificare l'identità del proprio padre verificando che il edgeHub a cui si connettano disponga di un certificato del server firmato dal certificato CA radice condiviso.
+Con questa configurazione, ogni dispositivo IoT Edge downstream o dispositivo foglia IoT può verificare l'identità del padre verificando che edgeHub a cui si connettono abbia un certificato server firmato dal certificato della CA radice condivisa.
 
 <!-- TODO: certificate graphic -->
 
 Creare i certificati seguenti:
 
-* Un **certificato CA radice**, ovvero il certificato condiviso superiore per tutti i dispositivi in una determinata gerarchia del gateway. Questo certificato è installato in tutti i dispositivi.
-* Tutti i **certificati intermedi** che si desidera includere nella catena di certificati radice.
-* Un **certificato CA del dispositivo** e la relativa **chiave privata**, generati dai certificati radice e intermedi. È necessario un certificato della CA univoco per ogni dispositivo IoT Edge nella gerarchia del gateway.
+* Un **certificato CA radice,** ovvero il certificato condiviso più in alto per tutti i dispositivi in una gerarchia di gateway specificata. Questo certificato viene installato in tutti i dispositivi.
+* Eventuali **certificati intermedi** da includere nella catena di certificati radice.
+* Un **certificato CA del dispositivo** e la relativa chiave **privata,** generati dai certificati radice e intermedi. È necessario un certificato CA univoco per ogni dispositivo IoT Edge nella gerarchia del gateway.
 
-È possibile usare un'autorità di certificazione autofirmata o acquistarne una da un'autorità di certificazione commerciale attendibile, ad esempio Baltimore, Verisign, DigiCert o GlobalSign.
+È possibile usare un'autorità di certificazione autofirmata o acquistarne una da un'autorità di certificazione commerciale attendibile, ad esempio Baltimore, Verisign, Digicert o GlobalSign.
 
-Se non si dispone di certificati personalizzati da usare, è possibile [creare certificati demo per testare le funzionalità del dispositivo IOT Edge](how-to-create-test-certificates.md). Attenersi alla procedura descritta in questo articolo per creare un set di certificati radice e intermedi, quindi per creare IoT Edge certificati della CA del dispositivo per ogni dispositivo.
+Se non si hanno certificati personalizzati da usare, è possibile creare certificati demo per testare le funzionalità [IoT Edge dispositivo.](how-to-create-test-certificates.md) Seguire i passaggi descritti in questo articolo per creare un set di certificati radice e intermedi, quindi per creare IoT Edge certificati CA del dispositivo per ognuno dei dispositivi.
 
 ## <a name="configure-iot-edge-on-devices"></a>Configurare IoT Edge nei dispositivi
 
-I passaggi per la configurazione di IoT Edge come gateway sono molto simili ai passaggi per la configurazione di IoT Edge come dispositivo downstream.
+I passaggi per la configurazione IoT Edge come gateway sono molto simili ai passaggi per la configurazione IoT Edge come dispositivo downstream.
 
-Per abilitare l'individuazione del gateway, ogni dispositivo IoT Edge Gateway deve essere configurato con un **nome host** che i dispositivi figlio utilizzeranno per trovarlo nella rete locale. Ogni dispositivo IoT Edge downstream deve essere configurato con una **parent_hostname** a cui connettersi. Se un singolo dispositivo IoT Edge è sia un dispositivo padre che un dispositivo figlio, sono necessari entrambi i parametri.
+Per abilitare l'individuazione del gateway, ogni dispositivo gateway IoT Edge deve essere configurato con un **nome host** che verrà utilizzato dai dispositivi figlio per trovarlo nella rete locale. Ogni dispositivo IoT Edge deve essere configurato con un parent_hostname **a** cui connettersi. Se un singolo IoT Edge è sia un dispositivo padre che un dispositivo figlio, sono necessari entrambi i parametri.
 
-Per abilitare connessioni sicure, ogni dispositivo IoT Edge in uno scenario di gateway deve essere configurato con un certificato della CA del dispositivo univoco e una copia del certificato CA radice condiviso da tutti i dispositivi nella gerarchia del gateway.
+Per abilitare connessioni sicure, ogni dispositivo IoT Edge in uno scenario gateway deve essere configurato con un certificato CA univoco del dispositivo e una copia del certificato CA radice condiviso da tutti i dispositivi nella gerarchia del gateway.
 
-Nel dispositivo dovrebbe essere già installato IoT Edge. In caso contrario, seguire i passaggi per [registrare un dispositivo IOT Edge nell'hub](how-to-register-device.md) Internet e quindi [installare il runtime di Azure IOT Edge](how-to-install-iot-edge.md).
+È necessario avere già IoT Edge installato nel dispositivo. In caso contrario, seguire la procedura descritta in Registrare [un dispositivo IoT Edge nell'hub IoT](how-to-register-device.md) e quindi [installare il runtime Azure IoT Edge.](how-to-install-iot-edge.md)
 
-I passaggi descritti in questa sezione fanno riferimento al certificato della **CA radice** e al **certificato della CA del dispositivo e alla chiave privata** descritti in precedenza in questo articolo. Se questi certificati sono stati creati in un altro dispositivo, è necessario che siano disponibili nel dispositivo. È possibile trasferire i file fisicamente, ad esempio con un'unità USB, con un servizio come [Azure Key Vault](../key-vault/general/overview.md)o con una funzione come la [copia protetta del file](https://www.ssh.com/ssh/scp/).
+I passaggi descritti in questa sezione fanno riferimento al **certificato CA radice** e al certificato ca del dispositivo e alla chiave **privata** descritti in precedenza in questo articolo. Se i certificati sono stati creati in un dispositivo diverso, è necessario che sia disponibile in questo dispositivo. È possibile trasferire i file fisicamente, ad esempio con un'unità USB, con un servizio come [Azure Key Vault](../key-vault/general/overview.md)o con una funzione come [Secure file copy](https://www.ssh.com/ssh/scp/).
 
 Usare la procedura seguente per configurare IoT Edge nel dispositivo.
 
-Assicurarsi che l'utente **iotedge** disponga delle autorizzazioni di lettura per la directory che contiene i certificati e le chiavi.
+Assicurarsi che l'utente **iotedge abbia** le autorizzazioni di lettura per la directory che contiene i certificati e le chiavi.
 
-1. Installare il **certificato CA radice** in questo dispositivo IOT Edge.
+1. Installare il **certificato CA radice** in questo IoT Edge dispositivo.
 
    ```bash
    sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
@@ -134,7 +134,7 @@ Assicurarsi che l'utente **iotedge** disponga delle autorizzazioni di lettura pe
    sudo update-ca-certificates
    ```
 
-   Questo comando dovrebbe restituire l'aggiunta di un certificato a/etc/ssl/certs.
+   Questo comando restituisce che è stato aggiunto un certificato a /etc/ssl/certs.
 
 1. Aprire il file di configurazione di IoT Edge.
 
@@ -143,30 +143,30 @@ Assicurarsi che l'utente **iotedge** disponga delle autorizzazioni di lettura pe
    ```
 
    >[!TIP]
-   >Se il file di configurazione non esiste ancora nel dispositivo, utilizzare `/etc/aziot/config.toml.edge.template` come modello per crearne uno.
+   >Se il file di configurazione non esiste ancora nel dispositivo, usare `/etc/aziot/config.toml.edge.template` come modello per crearne uno.
 
-1. Trovare la sezione **nome host** nel file di configurazione. Rimuovere il commento dalla riga che contiene il `hostname` parametro e aggiornare il valore in modo che sia il nome di dominio completo (FQDN) o l'indirizzo IP del dispositivo IOT Edge.
+1. Trovare la **sezione Hostname** nel file di configurazione. Rimuovere il commento dalla riga che contiene il parametro e aggiornare il valore in modo che sia il nome di dominio completo `hostname` (FQDN) o l'indirizzo IP del IoT Edge dispositivo.
 
-   Il valore di questo parametro è quello che i dispositivi downstream utilizzeranno per connettersi a questo gateway. Il nome host prende il nome del computer per impostazione predefinita, ma il nome di dominio completo o l'indirizzo IP è necessario per connettere i dispositivi downstream.
+   Il valore di questo parametro è quello che i dispositivi downstream useranno per connettersi a questo gateway. Il nome host accetta il nome del computer per impostazione predefinita, ma l'FQDN o l'indirizzo IP è necessario per connettere i dispositivi downstream.
 
-   Usare un nome host più breve di 64 caratteri, che corrisponde al limite di caratteri per un nome comune del certificato server.
+   Usare un nome host più breve di 64 caratteri, che rappresenta il limite di caratteri per un nome comune del certificato del server.
 
-   Essere coerenti con il modello di nome host in una gerarchia del gateway. Usare nomi di dominio completi o indirizzi IP, ma non entrambi.
+   Coerenza con il modello di nome host in una gerarchia di gateway. Usare nomi fqdn o indirizzi IP, ma non entrambi.
 
-1. *Se il dispositivo è un dispositivo figlio*, trovare la sezione **nome host padre** . Rimuovere il commento e aggiornare il `parent_hostname` parametro in modo che corrisponda al nome di dominio completo o all'indirizzo IP del dispositivo padre, corrispondente a quello fornito come nome host nel file di configurazione del dispositivo padre.
+1. *Se si tratta di un dispositivo figlio,* trovare la **sezione Nome host** padre. Rimuovere il commento e aggiornare il parametro in modo che sia l'FQDN o l'indirizzo IP del dispositivo padre, corrispondente a quello specificato come nome host nel file di configurazione `parent_hostname` del dispositivo padre.
 
-1. Trovare la sezione relativa al **certificato del bundle di attendibilità** . Rimuovere il commento e aggiornare il `trust_bundle_cert` parametro con l'URI del file nel certificato CA radice nel dispositivo.
+1. Trovare la **sezione Trust bundle cert (Certificato bundle** di attendibilità). Rimuovere il commento e aggiornare il `trust_bundle_cert` parametro con l'URI del file nel certificato CA radice nel dispositivo.
 
-1. Verificare che il dispositivo IoT Edge utilizzerà la versione corretta dell'agente IoT Edge all'avvio.
+1. Verificare che IoT Edge dispositivo usi la versione corretta dell'agente IoT Edge all'avvio.
 
-   Trovare la sezione **default Edge Agent** e verificare che il valore dell'immagine sia IoT Edge versione 1,2. In caso contrario, aggiornarlo:
+   Trovare la **sezione Default Edge Agent** (Agente edge predefinito) e verificare che il valore dell'immagine IoT Edge versione 1.2. In caso contrario, aggiornarlo:
 
    ```toml
    [agent.config]
    image: "mcr.microsoft.com/azureiotedge-agent:1.2"
    ```
 
-1. Trovare la sezione **certificato CA perimetrale** nel file di configurazione. Rimuovere il commento dalle righe di questa sezione e fornire i percorsi URI del file per i file di certificato e di chiave nel dispositivo IoT Edge.
+1. Trovare la **sezione Del certificato della CA** edge nel file di configurazione. Rimuovere il commento delle righe in questa sezione e specificare i percorsi URI del file per il certificato e i file di chiave nel IoT Edge dispositivo.
 
    ```toml
    [edge_ca]
@@ -174,9 +174,9 @@ Assicurarsi che l'utente **iotedge** disponga delle autorizzazioni di lettura pe
    pk = "file:///<path>/<device CA key>"
    ```
 
-1. Salvare ( `Ctrl+O` ) e chiudere ( `Ctrl+X` ) il file di configurazione.
+1. Salvare ( `Ctrl+O` ) e chiudere ( ) il file di `Ctrl+X` configurazione.
 
-1. Se sono stati usati altri certificati per IoT Edge prima, eliminare i file nelle due directory seguenti per assicurarsi che vengano applicati i nuovi certificati:
+1. Se in precedenza sono stati usati altri certificati IoT Edge, eliminare i file nelle due directory seguenti per assicurarsi che i nuovi certificati siano applicati:
 
    * `/var/lib/aziot/certd/certs`
    * `/var/lib/aziot/keyd/keys`
@@ -194,54 +194,54 @@ Assicurarsi che l'utente **iotedge** disponga delle autorizzazioni di lettura pe
    ```
 
    >[!TIP]
-   >Lo strumento di controllo IoT Edge usa un contenitore per eseguire parte del controllo di diagnostica. Se si vuole usare questo strumento nei dispositivi IoT Edge downstream, assicurarsi che possano accedere `mcr.microsoft.com/azureiotedge-diagnostics:latest` o avere l'immagine del contenitore nel registro contenitori privato.
+   >Lo IoT Edge di controllo usa un contenitore per eseguire parte del controllo di diagnostica. Se si vuole usare questo strumento nei dispositivi IoT Edge downstream, assicurarsi che possano accedere a o avere l'immagine del contenitore nel registro `mcr.microsoft.com/azureiotedge-diagnostics:latest` contenitori privato.
 
-## <a name="network-isolate-downstream-devices"></a>Isolamento rete di dispositivi downstream
+## <a name="network-isolate-downstream-devices"></a>Isolamento della rete dei dispositivi downstream
 
-I passaggi descritti in questo articolo configurano IoT Edge dispositivi come un gateway o un dispositivo downstream e creare una connessione trusted tra di essi. Il dispositivo gateway gestisce le interazioni tra il dispositivo downstream e l'hub Internet, inclusi l'autenticazione e il routing dei messaggi. I moduli distribuiti a downstream IoT Edge i dispositivi possono comunque creare connessioni personalizzate ai servizi cloud.
+I passaggi descritti in questo articolo configurano IoT Edge dispositivi come gateway o dispositivo downstream e creano una connessione attendibile tra di essi. Il dispositivo gateway gestisce le interazioni tra il dispositivo downstream e l'hub IoT, tra cui l'autenticazione e il routing dei messaggi. I moduli distribuiti in dispositivi downstream IoT Edge possono comunque creare le proprie connessioni ai servizi cloud.
 
-Alcune architetture di rete, come quelle che seguono lo standard ISA-95, cercano di ridurre al minimo il numero di connessioni Internet. In questi scenari è possibile configurare i dispositivi IoT Edge downstream senza connessione diretta a Internet. Oltre al routing delle comunicazioni dell'hub Internet tramite il dispositivo gateway, i dispositivi IoT Edge downstream possono basarsi sul dispositivo gateway per tutte le connessioni cloud.
+Alcune architetture di rete, come quelle che seguono lo standard ISA-95, cercano di ridurre al minimo il numero di connessioni Internet. In questi scenari è possibile configurare i dispositivi downstream IoT Edge senza connettività Internet diretta. Oltre a instradare le comunicazioni dell'hub IoT tramite il dispositivo gateway, i dispositivi IoT Edge downstream possono basarsi sul dispositivo gateway per tutte le connessioni cloud.
 
-Questa configurazione di rete richiede che solo il dispositivo IoT Edge nel livello superiore di una gerarchia del gateway abbia connessioni dirette al cloud. IoT Edge dispositivi nei livelli inferiori possono comunicare solo con il dispositivo padre o con i dispositivi figlio. I moduli speciali nei dispositivi gateway consentono questo scenario, tra cui:
+Questa configurazione di rete richiede che solo il IoT Edge nel livello superiore di una gerarchia di gateway abbia connessioni dirette al cloud. IoT Edge i dispositivi nei livelli inferiori possono comunicare solo con il dispositivo padre o con qualsiasi dispositivo figlio. I moduli speciali nei dispositivi gateway abilitano questo scenario, tra cui:
 
-* Il **modulo proxy API** è obbligatorio in qualsiasi IOT Edge Gateway con un altro dispositivo IOT Edge al di sotto di esso. Ciò significa che deve trovarsi a *ogni livello* di una gerarchia del gateway, ad eccezione del livello inferiore. Questo modulo usa un proxy inverso [nginx](https://nginx.org) per indirizzare i dati HTTP attraverso i livelli di rete su una singola porta. È altamente configurabile tramite il modulo gemello e le variabili di ambiente, quindi può essere adattato ai requisiti dello scenario del gateway.
+* Il **modulo proxy API** è obbligatorio in qualsiasi gateway IoT Edge che dispone di un altro IoT Edge dispositivo sottostante. Ciò significa che deve essere su *ogni livello di* una gerarchia del gateway, ad eccezione del livello inferiore. Questo modulo usa un proxy [inverso nginx](https://nginx.org) per instradare i dati HTTP attraverso i livelli di rete su una singola porta. È altamente configurabile tramite il modulo gemello e le variabili di ambiente, quindi può essere modificato in base ai requisiti dello scenario del gateway.
 
-* Il **modulo Docker Registry** può essere distribuito nel gateway IOT Edge al *livello superiore* di una gerarchia del gateway. Questo modulo è responsabile del recupero e della memorizzazione nella cache delle immagini del contenitore per conto di tutti i dispositivi IoT Edge nei livelli inferiori. L'alternativa alla distribuzione di questo modulo al livello superiore consiste nell'usare un registro di sistema locale o caricare manualmente le immagini del contenitore sui dispositivi e impostare i criteri di pull del modulo su **Never**.
+* Il **modulo registro Docker** può essere distribuito nel gateway IoT Edge livello *superiore* di una gerarchia di gateway. Questo modulo è responsabile del recupero e della memorizzazione nella cache delle immagini dei contenitori per conto di tutti IoT Edge dispositivi nei livelli inferiori. L'alternativa alla distribuzione di questo modulo al livello superiore consiste nell'usare un registro locale o nel caricare manualmente le immagini dei contenitori nei dispositivi e impostare i criteri di pull del modulo su **mai**.
 
-* L' **archiviazione BLOB di Azure in IOT Edge** può essere distribuita nel gateway di IOT Edge al *livello superiore* di una gerarchia del gateway. Questo modulo è responsabile del caricamento di BLOB per conto di tutti i dispositivi IoT Edge nei livelli inferiori. La possibilità di caricare BLOB consente anche di ottenere funzionalità utili per la risoluzione dei problemi per IoT Edge dispositivi nei livelli inferiori, ad esempio il caricamento del log del modulo e il caricamento del bundle del supporto
+* Il **Archiviazione BLOB di Azure nel IoT Edge** può essere distribuito nel gateway IoT Edge livello *superiore* di una gerarchia di gateway. Questo modulo è responsabile del caricamento dei BLOB per conto di tutti IoT Edge dispositivi nei livelli inferiori. La possibilità di caricare i BLOB consente anche funzionalità utili per la risoluzione dei IoT Edge nei livelli inferiori, ad esempio il caricamento del log dei moduli e il caricamento di bundle di supporto.
 
 ### <a name="network-configuration"></a>Configurazione di rete
 
 Per ogni dispositivo gateway nel livello superiore, gli operatori di rete devono:
 
 * Specificare un indirizzo IP statico o un nome di dominio completo (FQDN).
-* Autorizzare le comunicazioni in uscita da questo indirizzo IP al nome host dell'hub Azure Internet sulle porte 443 (HTTPS) e 5671 (AMQP).
-* Autorizzare le comunicazioni in uscita da questo indirizzo IP al nome host Container Registry di Azure sulla porta 443 (HTTPS).
+* Autorizzare le comunicazioni in uscita da questo indirizzo IP al nome host hub IoT di Azure tramite le porte 443 (HTTPS) e 5671 (AMQP).
+* Autorizzare le comunicazioni in uscita da questo indirizzo IP al nome host Registro Azure Container sulla porta 443 (HTTPS).
 
-  Il modulo proxy API può gestire solo le connessioni a un registro contenitori alla volta. Si consiglia di disporre di tutte le immagini del contenitore, incluse le immagini pubbliche fornite da Microsoft Container Registry (mcr.microsoft.com), archiviate nel registro contenitori privato.
+  Il modulo proxy API può gestire solo le connessioni a un registro contenitori alla volta. È consigliabile avere tutte le immagini del contenitore, incluse le immagini pubbliche fornite da Microsoft Container Registry (mcr.microsoft.com), archiviate nel registro contenitori privato.
 
 Per ogni dispositivo gateway in un livello inferiore, gli operatori di rete devono:
 
 * Specificare un indirizzo IP statico.
-* Autorizzare le comunicazioni in uscita da questo indirizzo IP all'indirizzo IP del gateway padre sulle porte 443 (HTTPS) e 5671 (AMQP).
+* Autorizzare le comunicazioni in uscita da questo indirizzo IP all'indirizzo IP del gateway padre tramite le porte 443 (HTTPS) e 5671 (AMQP).
 
-### <a name="deploy-modules-to-top-layer-devices"></a>Distribuire i moduli ai dispositivi di livello superiore
+### <a name="deploy-modules-to-top-layer-devices"></a>Distribuire moduli nei dispositivi di livello superiore
 
-Il dispositivo IoT Edge al livello superiore di una gerarchia del gateway ha un set di moduli necessari che devono essere distribuiti, oltre ai moduli del carico di lavoro che è possibile eseguire nel dispositivo.
+Il IoT Edge al livello superiore di una gerarchia di gateway include un set di moduli obbligatori che devono essere distribuiti in esso, oltre a tutti i moduli del carico di lavoro che è possibile eseguire nel dispositivo.
 
-Il modulo proxy API è stato progettato per essere personalizzato per la gestione dei più comuni scenari di gateway. Questo articolo fornisce ed esempio per configurare i moduli in una configurazione di base. Per informazioni ed esempi più dettagliati, vedere [configurare il modulo proxy API per lo scenario della gerarchia del gateway](how-to-configure-api-proxy-module.md) .
+Il modulo proxy API è stato progettato per essere personalizzato per gestire gli scenari di gateway più comuni. Questo articolo fornisce ed esempio per configurare i moduli in una configurazione di base. Per informazioni [ed esempi più dettagliati,](how-to-configure-api-proxy-module.md) vedere Configurare il modulo proxy API per lo scenario della gerarchia del gateway.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Nella [portale di Azure](https://portal.azure.com)passare all'hub Internet.
-1. Selezionare **IOT Edge** dal menu di navigazione.
-1. Selezionare il dispositivo di livello superiore che si sta configurando dall'elenco dei **dispositivi IOT Edge**.
+1. Nel [portale di Azure](https://portal.azure.com)passare all'hub IoT.
+1. Selezionare **IoT Edge** dal menu di spostamento.
+1. Selezionare il dispositivo di livello superiore che si sta configurando dall'elenco di IoT Edge **dispositivi**.
 1. Selezionare **Imposta moduli**.
-1. Nella sezione **moduli IOT Edge** scegliere **Aggiungi** , quindi **modulo Marketplace**.
-1. Cercare e selezionare il modulo **proxy API IOT Edge** .
+1. Nella sezione **IoT Edge moduli** selezionare **Aggiungi** e quindi scegliere **Modulo Marketplace.**
+1. Cercare e selezionare il modulo **proxy IoT Edge API.**
 1. Selezionare il nome del modulo proxy API dall'elenco dei moduli distribuiti e aggiornare le impostazioni del modulo seguenti:
-   1. Nella scheda **variabili di ambiente** , aggiornare il valore di **NGINX_DEFAULT_PORT** a `443` .
-   1. Nella scheda **contenitore crea opzioni** aggiornare i binding della porta alla porta di riferimento 443.
+   1. Nella scheda **Variabili di ambiente** aggiornare il valore di NGINX_DEFAULT_PORT a  `443` .
+   1. Nella scheda **Opzioni di creazione contenitore** aggiornare le associazioni di porta in modo che fanno riferimento alla porta 443.
 
       ```json
       {
@@ -257,9 +257,9 @@ Il modulo proxy API è stato progettato per essere personalizzato per la gestion
       }
       ```
 
-   Queste modifiche consentono di configurare il modulo proxy API per l'ascolto sulla porta 443. Per evitare conflitti di binding della porta, è necessario configurare il modulo edgeHub in modo che non sia in ascolto sulla porta 443. Al contrario, il modulo proxy API instraderà il traffico edgeHub sulla porta 443.
+   Queste modifiche configurano il modulo proxy API per l'ascolto sulla porta 443. Per evitare conflitti di associazione di porte, è necessario configurare il modulo edgeHub in modo che non sia in ascolto sulla porta 443. Il modulo proxy API instraderà invece qualsiasi traffico edgeHub sulla porta 443.
 
-1. Selezionare le **impostazioni di runtime** e trovare le opzioni di creazione del modulo edgeHub. Eliminare il binding della porta per la porta 443, lasciando le associazioni per le porte 5671 e 8883.
+1. Selezionare **Impostazioni di runtime** e trovare le opzioni di creazione del modulo edgeHub. Eliminare il binding di porta per la porta 443, lasciando le associazioni per le porte 5671 e 8883.
 
    ```json
    {
@@ -280,22 +280,22 @@ Il modulo proxy API è stato progettato per essere personalizzato per la gestion
    }
    ```
 
-1. Selezionare **Save (Salva** ) per salvare le modifiche apportate alle impostazioni di Runtime.
-1. Selezionare di nuovo **Aggiungi** , quindi scegliere **IOT Edge modulo**.
-1. Specificare i valori seguenti per aggiungere il modulo Docker Registry alla distribuzione:
-   1. **Nome del modulo IOT Edge**: `registry`
-   1. Nella scheda **Impostazioni modulo** , **URI immagine**: `registry:latest`
-   1. Nella scheda **variabili di ambiente** aggiungere le variabili di ambiente seguenti:
+1. Selezionare **Salva** per salvare le modifiche apportate alle impostazioni di runtime.
+1. Selezionare **di** nuovo Aggiungi, quindi scegliere **IoT Edge modulo**.
+1. Specificare i valori seguenti per aggiungere il modulo del registro Docker alla distribuzione:
+   1. **IoT Edge modulo:**`registry`
+   1. Nella scheda **Impostazioni modulo** URI **immagine**: `registry:latest`
+   1. Nella scheda **Variabili di** ambiente aggiungere le variabili di ambiente seguenti:
 
-      * **Nome**: `REGISTRY_PROXY_REMOTEURL` **valore**: URL del registro contenitori a cui si vuole associare questo modulo del registro di sistema. Ad esempio: `https://myregistry.azurecr`.
+      * **Nome:** `REGISTRY_PROXY_REMOTEURL` **Valore:** l'URL del registro contenitori a cui si vuole eseguire il mapping del modulo del registro. Ad esempio: `https://myregistry.azurecr`.
 
-        Il modulo del registro di sistema può essere mappato a un solo registro contenitori, quindi è consigliabile avere tutte le immagini del contenitore in un unico registro contenitori privato.
+        Il modulo registry può eseguire il mapping solo a un registro contenitori, quindi è consigliabile avere tutte le immagini del contenitore in un unico registro contenitori privato.
 
-      * **Nome**: `REGISTRY_PROXY_USERNAME` **valore**: nomeutente per l'autenticazione nel registro contenitori.
+      * **Nome:** `REGISTRY_PROXY_USERNAME` **Valore:** nome utente per l'autenticazione nel registro contenitori.
 
-      * **Nome**: `REGISTRY_PROXY_PASSWORD` **valore**: password per l'autenticazione nel registro contenitori.
+      * **Nome:** `REGISTRY_PROXY_PASSWORD` **Valore:** password per l'autenticazione nel registro contenitori.
 
-   1. Nella scheda **Crea opzioni del contenitore** incollare:
+   1. Nella scheda **Opzioni di creazione contenitore** incollare:
 
       ```json
       {
@@ -313,15 +313,15 @@ Il modulo proxy API è stato progettato per essere personalizzato per la gestion
 
 1. Selezionare **Aggiungi** per aggiungere il modulo alla distribuzione.
 1. Selezionare **Avanti: Route** per andare al passaggio successivo.
-1. Per abilitare i messaggi da dispositivo a cloud dai dispositivi downstream per raggiungere l'hub Internet, includere una route che passa tutti i messaggi all'hub Internet. Ad esempio:
+1. Per consentire ai messaggi da dispositivo a cloud provenienti da dispositivi downstream di raggiungere l'hub IoT, includere una route che passi tutti i messaggi all'hub IoT. Ad esempio:
     1. **Nome**: `Route`
     1. **Valore**: `FROM /messages/* INTO $upstream`
-1. Selezionare **Verifica + crea** per andare al passaggio finale.
+1. Selezionare **Rivedi e** crea per andare al passaggio finale.
 1. Selezionare **Crea** per eseguire la distribuzione nel dispositivo.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-1. Nella [Azure cloud Shell](https://shell.azure.com/)creare un file JSON di distribuzione. Ad esempio:
+1. Nella finestra [Azure Cloud Shell](https://shell.azure.com/)creare un file JSON di distribuzione. Ad esempio:
 
    ```json
    {
@@ -412,9 +412,9 @@ Il modulo proxy API è stato progettato per essere personalizzato per la gestion
    }
    ```
 
-   Questo file di distribuzione configura il modulo proxy API per l'ascolto sulla porta 443. Per evitare conflitti di binding di porta, il file configura il modulo edgeHub in modo che non sia in ascolto sulla porta 443. Al contrario, il modulo proxy API instraderà il traffico edgeHub sulla porta 443.
+   Questo file di distribuzione configura il modulo proxy API per l'ascolto sulla porta 443. Per evitare conflitti di binding delle porte, il file configura il modulo edgeHub in modo che non sia in ascolto sulla porta 443. Il modulo proxy API instraderà invece qualsiasi traffico edgeHub sulla porta 443.
 
-1. Immettere il comando seguente per creare una distribuzione in un dispositivo IoT Edge:
+1. Immettere il comando seguente per creare una distribuzione in un IoT Edge dispositivo:
 
    ```bash
    az iot edge set-modules --device-id <device_id> --hub-name <iot_hub_name> --content ./<deployment_file_name>.json
@@ -422,31 +422,31 @@ Il modulo proxy API è stato progettato per essere personalizzato per la gestion
 
 ---
 
-### <a name="deploy-modules-to-lower-layer-devices"></a>Distribuire moduli a dispositivi di livello inferiore
+### <a name="deploy-modules-to-lower-layer-devices"></a>Distribuire moduli nei dispositivi di livello inferiore
 
-IoT Edge dispositivi nei livelli inferiori di una gerarchia del gateway hanno un modulo obbligatorio che deve essere distribuito, oltre ai moduli del carico di lavoro che è possibile eseguire nel dispositivo.
+IoT Edge i dispositivi nei livelli inferiori di una gerarchia di gateway hanno un modulo obbligatorio che deve essere distribuito in essi, oltre a tutti i moduli di carico di lavoro che è possibile eseguire nel dispositivo.
 
 #### <a name="route-container-image-pulls"></a>Pull dell'immagine del contenitore di route
 
-Prima di esaminare il modulo proxy richiesto per IoT Edge dispositivi nelle gerarchie del gateway, è importante comprendere come IoT Edge i dispositivi nei livelli inferiori ottengano le immagini dei moduli.
+Prima di illustrare il modulo proxy necessario per i dispositivi IoT Edge nelle gerarchie del gateway, è importante comprendere come i IoT Edge nei livelli inferiori ottengono le immagini del modulo.
 
-Se i dispositivi di livello inferiore non possono connettersi al cloud, ma si vuole eseguire il pull delle immagini del modulo come di consueto, è necessario configurare il dispositivo di livello superiore della gerarchia del gateway per gestire queste richieste. Il dispositivo di livello superiore deve eseguire un modulo Docker **Registry** mappato al registro contenitori. Configurare quindi il modulo proxy API per instradare le richieste del contenitore. Questi dettagli sono descritti nelle sezioni precedenti di questo articolo. In questa configurazione, i dispositivi di livello inferiore non devono puntare a registri contenitori cloud, ma al registro di sistema in esecuzione nel livello superiore.
+Se i dispositivi di livello inferiore non possono connettersi al cloud, ma si vuole eseguire il pull delle immagini del modulo come di consueto, è necessario configurare il dispositivo di livello superiore della gerarchia del gateway per gestire queste richieste. Il dispositivo di livello superiore deve eseguire un modulo del registro **Docker** mappato al registro contenitori. Configurare quindi il modulo proxy API per instradare le richieste del contenitore. Questi dettagli sono illustrati nelle sezioni precedenti di questo articolo. In questa configurazione, i dispositivi di livello inferiore non devono puntare ai registri contenitori cloud, ma al registro in esecuzione nel livello superiore.
 
-Ad esempio, anziché chiamare `mcr.microsoft.com/azureiotedge-api-proxy:1.0` , i dispositivi di livello inferiore devono chiamare `$upstream:443/azureiotedge-api-proxy:1.0` .
+Ad esempio, invece di chiamare `mcr.microsoft.com/azureiotedge-api-proxy:1.0` , i dispositivi di livello inferiore devono chiamare `$upstream:443/azureiotedge-api-proxy:1.0` .
 
-Il parametro **$upstream** punta all'elemento padre di un dispositivo di livello inferiore, in modo che la richiesta venga indirizzata attraverso tutti i livelli fino a raggiungere il livello superiore con un ambiente proxy che indirizza le richieste del contenitore al modulo del registro di sistema. La `:443` porta in questo esempio deve essere sostituita con qualsiasi porta su cui è in ascolto il modulo proxy API sul dispositivo padre.
+Il **parametro $upstream** punta all'elemento padre di un dispositivo di livello inferiore, quindi la richiesta instraderà attraverso tutti i livelli fino a raggiungere il livello superiore con un ambiente proxy che instraderà le richieste del contenitore al modulo del Registro di sistema. La porta in questo esempio deve essere sostituita con la porta su cui è in ascolto il modulo `:443` proxy API nel dispositivo padre.
 
-Il modulo proxy API può essere indirizzato solo a un modulo del registro di sistema e ogni modulo del registro di sistema può essere mappato solo a un registro contenitori. Pertanto, le immagini che i dispositivi di livello inferiore devono eseguire il pull devono essere archiviate in un unico registro contenitori.
+Il modulo proxy API può essere indirizzato solo a un modulo del Registro di sistema e ogni modulo del Registro di sistema può eseguire il mapping solo a un registro contenitori. Pertanto, tutte le immagini che i dispositivi di livello inferiore devono eseguire il pull devono essere archiviate in un singolo registro contenitori.
 
-Se non si vuole che i dispositivi di livello inferiore facciano richieste pull del modulo tramite una gerarchia del gateway, un'altra opzione consiste nel gestire una soluzione del registro di sistema locale. In alternativa, eseguire il push delle immagini del modulo sui dispositivi prima di creare le distribuzioni, quindi impostare **imagePullPolicy** su **Never**.
+Se non si vogliono dispositivi di livello inferiore che effettuano richieste pull del modulo tramite una gerarchia di gateway, un'altra opzione consiste nel gestire una soluzione del Registro di sistema locale. In caso contrario, eseguire il push delle immagini del modulo nei dispositivi prima di creare le distribuzioni e quindi impostare **imagePullPolicy** su **mai**.
 
-#### <a name="bootstrap-the-iot-edge-agent"></a>Bootstrap dell'agente di IoT Edge
+#### <a name="bootstrap-the-iot-edge-agent"></a>Avviare l'agente IoT Edge
 
-L'agente di IoT Edge è il primo componente di runtime da avviare in qualsiasi dispositivo IoT Edge. È necessario assicurarsi che tutti i dispositivi IoT Edge downstream possano accedere all'immagine del modulo edgeAgent all'avvio, quindi possono accedere alle distribuzioni e avviare le altre immagini del modulo.
+L IoT Edge agente è il primo componente di runtime da avviare in qualsiasi IoT Edge dispositivo. È necessario assicurarsi che tutti i dispositivi IoT Edge downstream possano accedere all'immagine del modulo edgeAgent all'avvio e quindi possano accedere alle distribuzioni e avviare il resto delle immagini del modulo.
 
-Quando si accede al file di configurazione in un dispositivo IoT Edge per fornire le informazioni di autenticazione, i certificati e il nome host padre, aggiornare anche l'immagine del contenitore edgeAgent.
+Quando si passa al file di configurazione in un dispositivo IoT Edge per fornire le informazioni di autenticazione, i certificati e il nome host padre, aggiornare anche l'immagine del contenitore edgeAgent.
 
-Se il dispositivo gateway di primo livello è configurato per gestire le richieste di immagini del contenitore, sostituire `mcr.microsoft.com` con il nome host padre e la porta di ascolto del proxy API. Nel manifesto di distribuzione è possibile usare `$upstream` come collegamento, ma ciò richiede che il modulo edgeHub gestisca il routing e che il modulo non sia stato avviato a questo punto. Ad esempio:
+Se il dispositivo gateway di primo livello è configurato per gestire le richieste di immagini del contenitore, sostituire con il nome host padre e la porta di ascolto `mcr.microsoft.com` del proxy API. Nel manifesto della distribuzione è possibile usare come collegamento, ma ciò richiede che il modulo edgeHub gestirà il routing e tale modulo non è `$upstream` stato avviato a questo punto. Ad esempio:
 
 ```toml
 [agent]
@@ -461,20 +461,20 @@ Se si usa un registro contenitori locale o si forniscono manualmente le immagini
 
 #### <a name="configure-runtime-and-deploy-proxy-module"></a>Configurare il runtime e distribuire il modulo proxy
 
-Il **modulo proxy API** è necessario per il routing di tutte le comunicazioni tra il cloud e qualsiasi dispositivo IOT Edge downstream. Questo modulo non è necessario per un dispositivo IoT Edge nel livello inferiore della gerarchia, senza dispositivi IoT Edge downstream.
+Il **modulo proxy API è** necessario per il routing di tutte le comunicazioni tra il cloud e qualsiasi dispositivo IoT Edge downstream. Un IoT Edge nel livello inferiore della gerarchia, senza dispositivi IoT Edge downstream, non richiede questo modulo.
 
-Il modulo proxy API è stato progettato per essere personalizzato per la gestione dei più comuni scenari di gateway. Questo articolo illustra brevemente la procedura per configurare i moduli in una configurazione di base. Per informazioni ed esempi più dettagliati, vedere [configurare il modulo proxy API per lo scenario della gerarchia del gateway](how-to-configure-api-proxy-module.md) .
+Il modulo proxy API è stato progettato per essere personalizzato per gestire gli scenari di gateway più comuni. Questo articolo illustra brevemente i passaggi per configurare i moduli in una configurazione di base. Per informazioni [dettagliate ed esempi,](how-to-configure-api-proxy-module.md) vedere Configurare il modulo proxy API per lo scenario della gerarchia di gateway.
 
-1. Nella [portale di Azure](https://portal.azure.com)passare all'hub Internet.
-1. Selezionare **IOT Edge** dal menu di navigazione.
-1. Selezionare il dispositivo di livello inferiore che si sta configurando dall'elenco dei **dispositivi IOT Edge**.
+1. Nel [portale di Azure](https://portal.azure.com)passare all'hub IoT.
+1. Selezionare **IoT Edge** dal menu di spostamento.
+1. Selezionare il dispositivo di livello inferiore che si sta configurando dall'elenco di IoT Edge **dispositivi**.
 1. Selezionare **Imposta moduli**.
-1. Nella sezione **moduli IOT Edge** scegliere **Aggiungi** , quindi **modulo Marketplace**.
-1. Cercare e selezionare il modulo **proxy API IOT Edge** .
+1. Nella sezione **IoT Edge moduli** selezionare **Aggiungi e** quindi scegliere Modulo **Marketplace.**
+1. Cercare e selezionare il modulo **proxy IoT Edge API.**
 1. Selezionare il nome del modulo proxy API dall'elenco dei moduli distribuiti e aggiornare le impostazioni del modulo seguenti:
-   1. Nella scheda **Impostazioni modulo** aggiornare il valore dell'URI dell' **immagine**. Sostituire `mcr.microsoft.com` con `$upstream:443`.
-   1. Nella scheda **variabili di ambiente** , aggiornare il valore di **NGINX_DEFAULT_PORT** a `443` .
-   1. Nella scheda **contenitore crea opzioni** aggiornare i binding della porta alla porta di riferimento 443.
+   1. Nella scheda **Impostazioni modulo** aggiornare il valore di **URI immagine**. Sostituire `mcr.microsoft.com` con `$upstream:443`.
+   1. Nella scheda **Variabili di ambiente** aggiornare il valore di NGINX_DEFAULT_PORT a  `443` .
+   1. Nella scheda **Opzioni di creazione contenitore** aggiornare le associazioni di porta in modo che fanno riferimento alla porta 443.
 
       ```json
       {
@@ -490,13 +490,13 @@ Il modulo proxy API è stato progettato per essere personalizzato per la gestion
       }
       ```
 
-   Queste modifiche consentono di configurare il modulo proxy API per l'ascolto sulla porta 443. Per evitare conflitti di binding della porta, è necessario configurare il modulo edgeHub in modo che non sia in ascolto sulla porta 443. Al contrario, il modulo proxy API instraderà il traffico edgeHub sulla porta 443.
+   Queste modifiche configurano il modulo proxy API per l'ascolto sulla porta 443. Per evitare conflitti di associazione di porte, è necessario configurare il modulo edgeHub in modo che non sia in ascolto sulla porta 443. Il modulo proxy API instraderà invece qualsiasi traffico edgeHub sulla porta 443.
 
-1. Selezionare **le impostazioni di runtime**.
+1. Selezionare **Impostazioni di runtime**.
 1. Aggiornare le impostazioni del modulo edgeHub:
 
-   1. Nel campo **Image** sostituire `mcr.microsoft.com` con `$upstream:443` .
-   1. Nel campo **Crea opzioni** eliminare il binding di porta per la porta 443, lasciando i binding per le porte 5671 e 8883.
+   1. Nel campo **Immagine** sostituire `mcr.microsoft.com` con `$upstream:443` .
+   1. Nel campo **Crea opzioni** eliminare il binding di porta per la porta 443, lasciando le associazioni per le porte 5671 e 8883.
 
    ```json
    {
@@ -518,14 +518,14 @@ Il modulo proxy API è stato progettato per essere personalizzato per la gestion
    ```
 
 1. Aggiornare le impostazioni del modulo edgeAgent:
-   1. Nel campo **Image** sostituire `mcr.microsoft.com` con `$upstream:443` .
+   1. Nel campo **Immagine** sostituire `mcr.microsoft.com` con `$upstream:443` .
 
-1. Selezionare **Save (Salva** ) per salvare le modifiche apportate alle impostazioni di Runtime.
+1. Selezionare **Salva** per salvare le modifiche apportate alle impostazioni di runtime.
 1. Selezionare **Avanti: Route** per andare al passaggio successivo.
-1. Per abilitare i messaggi da dispositivo a cloud dai dispositivi downstream per raggiungere l'hub Internet, includere una route che passa tutti i messaggi a `$upstream` . Il parametro upstream punta al dispositivo padre nel caso di dispositivi di livello inferiore. Ad esempio:
+1. Per abilitare i messaggi da dispositivo a cloud dai dispositivi downstream per raggiungere l'hub IoT, includere una route che passi tutti i messaggi a `$upstream` . Il parametro upstream punta al dispositivo padre nel caso di dispositivi di livello inferiore. Ad esempio:
     1. **Nome**: `Route`
     1. **Valore**: `FROM /messages/* INTO $upstream`
-1. Selezionare **Verifica + crea** per andare al passaggio finale.
+1. Selezionare **Rivedi e crea** per andare al passaggio finale.
 1. Selezionare **Crea** per eseguire la distribuzione nel dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi

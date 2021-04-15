@@ -48,7 +48,7 @@
           href: understand/analyze-unexpected-charges.md
         - name: Gestire i costi con l'automazione
           href: costs/manage-automation.md
-        - name: Recuperare set di impostazioni di grandi dimensioni con esportazioni
+        - name: Recuperare set di dati di grandi dimensioni con esportazioni
           href: costs/ingest-azure-usage-at-scale.md
         - name: Gestione costi per i partner
           href: costs/get-started-partners.md
@@ -98,7 +98,7 @@
           href: reservations/reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/toc.json
         - name: Dati sull'utilizzo per singole sottoscrizioni
           href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
-        - name: Dati di utilizzo del contratto utente Enterprise e Microsoft
+        - name: Dati di utilizzo Contratto del cliente Microsoft aziendali e aziendali
           href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
     - name: Fatturazione
       items:
@@ -148,7 +148,7 @@
               href: manage/understand-mca-roles.md
             - name: Collegare l'ID partner
               href: manage/link-partner-id.md
-            - name: Collegare l'ID partner agli account Power Apps
+            - name: Collegare l'ID partner Power Apps account
               href: manage/link-partner-id-power-apps-accounts.md
         - name: Amministrare le sottoscrizioni
           items:
@@ -162,9 +162,9 @@
               href: manage/azurestudents-subscription-disabled.md
             - name: Trasferire la proprietà
               href: manage/billing-subscription-transfer.md
-            - name: Richiedere la proprietà del Contratto del cliente Microsoft
+            - name: Trasferire Contratto del cliente Microsoft proprietà
               href: manage/mca-request-billing-ownership.md
-            - name: Richiedere la proprietà del Contratto Microsoft Partner
+            - name: Trasferire Contratto Microsoft Partner proprietà
               href: manage/mpa-request-ownership.md
             - name: Impostazione e configurazione dell'integrazione di AWS
               href: costs/aws-integration-set-up-configure.md
@@ -280,7 +280,7 @@
           href: manage/cost-management-budget-scenario.md
         - name: Usare gli avvisi per i costi
           href: costs/cost-mgt-alerts-monitor-usage-spending.md
-        - name: Esportare i dati sui costi con una chiave SAS di archiviazione
+        - name: Esportare i dati sui costi con una chiave di firma di accesso condiviso di archiviazione
           href: costs/export-cost-data-storage-account-sas-key.md
         - name: Allocare i costi
           href: costs/allocate-costs.md
@@ -394,15 +394,15 @@
       href: /rest/api/cost-management
     - name: API REST per l'utilizzo di Azure
       href: /rest/api/consumption
-    - name: Modello di budget ARM dell'API REST di consumo
+    - name: Modello di budget arm dell'API REST per il consumo
       href: /azure/templates/microsoft.consumption/budgets
     - name: Esempi di API REST di Gestione costi
       href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
-    - name: Cmdlet di Azure PowerShell per gestione costi
+    - name: Azure PowerShell cmdlet per Gestione costi
       href: /powershell/module/Az.CostManagement
     - name: Scenari di automazione della fatturazione
       href: manage/cost-management-automation-scenarios.md
-    - name: API REST per i prezzi al dettaglio di Azure
+    - name: API REST per i prezzi delle vendite al dettaglio di Azure
       href: /rest/api/cost-management/retail-prices/azure-retail-prices
     - name: API REST di fatturazione di Azure
       href: /rest/api/billing
@@ -418,13 +418,13 @@
       items:
         - name: API REST per le prenotazioni
           href: reservations/reservation-apis.md?toc=/azure/cost-management-billing/toc.json
-        - name: Cmdlet di Azure PowerShell per le prenotazioni
+        - name: Azure PowerShell cmdlet per le prenotazioni
           href: /powershell/module/azurerm.reservations
-        - name: INTERFACCIA della riga di comando di Azure per prenotazioni
+        - name: Interfaccia della riga di comando di Azure per le prenotazioni
           href: /cli/azure/reservations/reservation
-        - name: API REST di dettagli sull'utilizzo
+        - name: API REST dettagli di utilizzo
           href: /rest/api/consumption/usagedetails
-        - name: API REST per le prenotazioni
+        - name: API REST dettagli prenotazioni
           href: /rest/api/consumption/reservationsdetails
 - name: Risorse
   items:
