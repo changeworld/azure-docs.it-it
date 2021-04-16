@@ -1,6 +1,6 @@
 ---
-title: Trovare e usare informazioni sul piano di acquisto del Marketplace usando l'interfaccia della riga di comando
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure per trovare gli URN di immagini e i parametri del piano di acquisto, ad esempio Editore, offerta, SKU e versione, per le immagini di macchine virtuali del Marketplace.
+title: Trovare e usare le informazioni sul piano di acquisto del marketplace usando l'interfaccia della riga di comando
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per trovare gli URL delle immagini e i parametri del piano di acquisto, ad esempio l'editore, l'offerta, lo SKU e la versione, per le immagini di macchine virtuali del Marketplace.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -8,19 +8,19 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cynthn
 ms.collection: linux
-ms.custom: contperf-fy21q3-portal
-ms.openlocfilehash: 70cb4cc54c6f9a376d3bd38dc8bb6cd3a059a20c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: contperf-fy21q3-portal, devx-track-azurecli
+ms.openlocfilehash: be0535a49b47c45cad49abd1bf720b6347a660b8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022844"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484201"
 ---
-# <a name="find-azure-marketplace-image-information-using-the-azure-cli"></a>Trovare informazioni sulle immagini di Azure Marketplace usando l'interfaccia della riga di comando di Azure
+# <a name="find-azure-marketplace-image-information-using-the-azure-cli"></a>Trovare Azure Marketplace'immagine usando l'interfaccia della riga di comando di Azure
 
 Questo argomento descrive come usare l'interfaccia della riga di comando di Azure per trovare immagini di macchine virtuali in Azure Marketplace. Usare queste informazioni per specificare un'immagine del Marketplace quando si crea una macchina virtuale a livello di codice mediante l'interfaccia della riga di comando, modelli di Resource Manager o altri strumenti.
 
-È anche possibile esplorare immagini e offerte disponibili usando [Azure Marketplace](https://azuremarketplace.microsoft.com/) o  [Azure PowerShell](../windows/cli-ps-findimage.md). 
+È anche possibile esplorare le immagini e le offerte disponibili [usando](https://azuremarketplace.microsoft.com/) Azure Marketplace o  [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
 ## <a name="terminology"></a>Terminologia
 
@@ -28,12 +28,12 @@ Un'immagine del Marketplace in Azure presenta gli attributi seguenti:
 
 * **Editore**: organizzazione che ha creato l'immagine. Esempi: Canonical, MicrosoftWindowsServer
 * **Offerta**: nome di un gruppo di immagini correlate create da un editore. Esempi: UbuntuServer, WindowsServer
-* **SKU**: istanza di un'offerta, ad esempio una versione principale di una distribuzione. Esempi: 18,04-LTS, 2019-Datacenter
+* **SKU**: istanza di un'offerta, ad esempio una versione principale di una distribuzione. Esempi: 18.04-LTS, 2019-Datacenter
 * **Versione**: numero di versione di uno SKU immagine. 
 
-Questi valori possono essere passati singolarmente o come *urn* immagine, combinando i valori separati dai due punti (:). Ad esempio: *server di pubblicazione*:*offerta*:*SKU*:*versione*. È possibile sostituire il numero di versione nell'URN con `latest` per usare la versione più recente dell'immagine. 
+Questi valori possono essere passati singolarmente o come *URN* dell'immagine, combinando i valori separati dai due punti (:). Ad esempio: *Server di pubblicazione*:*Offerta*:*Sku*:*Versione*. È possibile sostituire il numero di versione nell'URN con `latest` per usare la versione più recente dell'immagine. 
 
-Se l'autore dell'immagine fornisce condizioni di licenza e di acquisto aggiuntive, è necessario accettarle prima di poter usare l'immagine.  Per ulteriori informazioni, vedere [controllare le informazioni sul piano di acquisto](#check-the-purchase-plan-information).
+Se l'editore di immagini fornisce condizioni di licenza e acquisto aggiuntive, è necessario accettarlo prima di poter usare l'immagine.  Per altre informazioni, vedere [Controllare le informazioni sul piano di acquisto.](#check-the-purchase-plan-information)
 
 
 
@@ -45,7 +45,7 @@ Eseguire il comando [az vm image list](/cli/azure/vm/image), senza l'opzione `--
 az vm image list --output table
 ```
 
-L'output include l'URN dell'immagine. È anche possibile usare *UrnAlias* , una versione abbreviata creata per le immagini più diffuse, ad esempio *UbuntuLTS*.
+L'output include l'URN dell'immagine. È anche possibile usare *UrnAlias,* una versione abbreviata creata per immagini popolari come *UbuntuLTS.*
 
 ```output
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
@@ -103,24 +103,24 @@ Debian                                   credativ                          8    
  
 Un altro modo per trovare un'immagine in una posizione è l'esecuzione in sequenza dei comandi [az vm image list-publishers](/cli/azure/vm/image), [az vm image list-offers](/cli/azure/vm/image) e [az vm image list-skus](/cli/azure/vm/image) . Con questi comandi si determinano questi valori:
 
-1. Elencare gli editori di immagini per un percorso. In questo esempio si esamina l'area *Stati Uniti occidentali* .
+1. Elencare gli editori di immagini per una posizione. In questo esempio si esamina l'area *Stati Uniti* occidentali.
     
     ```azurecli
     az vm image list-publishers --location westus --output table
     ```
 
-1. Elencando le offerte di un determinato editore. In questo esempio viene aggiunto *Canonical* come server di pubblicazione.
+1. Elencando le offerte di un determinato editore. In questo esempio si aggiunge *Canonical come* server di pubblicazione.
     
     ```azurecli
     az vm image list-offers --location westus --publisher Canonical --output table
     ```
 
-1. Elencando le SKU di una determinata offerta. In questo esempio viene aggiunto *UbuntuServer* come offerta.
+1. Elencando le SKU di una determinata offerta. In questo esempio si aggiunge *UbuntuServer* come offerta.
     ```azurecli
     az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
     ```
 
-1. Per i server di pubblicazione, l'offerta e lo SKU specificati, visualizzare tutte le versioni dell'immagine. In questo esempio si aggiunge *18,04-LTS* come SKU.
+1. Per un determinato editore, offerta e SKU, visualizzare tutte le versioni dell'immagine. In questo esempio si aggiunge *18.04-LTS* come SKU.
 
     ```azurecli
     az vm image list \
@@ -131,7 +131,7 @@ Un altro modo per trovare un'immagine in una posizione è l'esecuzione in sequen
         --all --output table
     ```
 
-Passare questo valore della colonna URN con il `--image` parametro quando si crea una macchina virtuale con il comando [AZ VM create](/cli/azure/vm) . È anche possibile sostituire il numero di versione nell'URN con "Latest" per usare semplicemente la versione più recente dell'immagine. 
+Passare questo valore della colonna URN con il `--image` parametro quando si crea una macchina virtuale con il comando [az vm create.](/cli/azure/vm) È anche possibile sostituire il numero di versione nell'URN con "latest", per usare semplicemente la versione più recente dell'immagine. 
 
 Se si distribuisce una macchina virtuale con un modello di Resource Manager, impostare singolarmente i parametri dell'immagine nelle proprietà `imageReference`. Vedere le [informazioni di riferimento sul modello](/azure/templates/microsoft.compute/virtualmachines).
 
@@ -140,9 +140,9 @@ Se si distribuisce una macchina virtuale con un modello di Resource Manager, imp
 
 Alcune immagini di macchina virtuale in Azure Marketplace hanno condizioni di licenza e di acquisto aggiuntive che è necessario accettare prima di poter distribuirle a livello di codice.  
 
-Per distribuire una macchina virtuale da tale immagine, è necessario accettare i termini dell'immagine la prima volta che si usa, una volta per ogni sottoscrizione. È anche necessario specificare i parametri del *piano di acquisto* per distribuire una macchina virtuale da tale immagine
+Per distribuire una macchina virtuale da un'immagine di questo tipo, è necessario accettare i termini dell'immagine la prima volta che la si usa, una volta per ogni sottoscrizione. È anche necessario specificare i parametri del *piano di* acquisto per distribuire una macchina virtuale da tale immagine
 
-Per visualizzare le informazioni sul piano di acquisto di un'immagine, eseguire il comando [AZ VM Image Show](/cli/azure/image) con l'URN dell'immagine. Se la proprietà `plan` nell'output non è `null`, l'immagine presenta condizioni che è necessario accettare prima della distribuzione a livello di codice.
+Per visualizzare le informazioni sul piano di acquisto di un'immagine, eseguire il [comando az vm image show](/cli/azure/image) con l'URN dell'immagine. Se la proprietà `plan` nell'output non è `null`, l'immagine presenta condizioni che è necessario accettare prima della distribuzione a livello di codice.
 
 L'immagine Canonical Ubuntu Server 18.04 LTS, ad esempio, non ha condizioni aggiuntive, perché l'informazione `plan` è `null`:
 
@@ -191,7 +191,7 @@ Output:
 }
 ```
 
-Per distribuire questa immagine, è necessario accettare i termini e fornire i parametri del piano di acquisto quando si distribuisce una macchina virtuale usando l'immagine.
+Per distribuire questa immagine, è necessario accettare le condizioni e specificare i parametri del piano di acquisto quando si distribuisce una macchina virtuale usando tale immagine.
 
 ## <a name="accept-the-terms"></a>Accettare le condizioni
 
@@ -220,17 +220,17 @@ L'output include un `licenseTextLink` alle condizioni di licenza e indica che il
 }
 ```
 
-Per accettare i termini, digitare:
+Per accettare le condizioni, digitare:
 
 ```azurecli
 az vm image terms accept --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
-## <a name="deploy-a-new-vm-using-the-image-parameters"></a>Distribuire una nuova VM usando i parametri dell'immagine
+## <a name="deploy-a-new-vm-using-the-image-parameters"></a>Distribuire una nuova macchina virtuale usando i parametri dell'immagine
 
-Con le informazioni sull'immagine, è possibile distribuirla usando il `az vm create` comando. 
+Con le informazioni sull'immagine, è possibile distribuirla usando il `az vm create` comando . 
 
-Per distribuire un'immagine che non dispone di informazioni sul piano, ad esempio l'immagine più recente di Ubuntu server 18,04 da Canonical, passare l'URN per `--image` :
+Per distribuire un'immagine senza informazioni sul piano, ad esempio l'immagine più recente di Ubuntu Server 18.04 di Canonical, passare l'URN per `--image` :
 
 ```azurecli-interactive
 az group create --name myURNVM --location westus
@@ -243,7 +243,7 @@ az vm create \
 ```
 
 
-Per un'immagine con i parametri del piano di acquisto, ad esempio l'immagine RabbitMQ Certified by BitNami, è possibile passare l'URN per `--image` e fornire anche i parametri del piano di acquisto:
+Per un'immagine con parametri del piano di acquisto, ad esempio l'immagine RabbitMQ Certified by Bitnami, si passa l'URN per e si specificano anche i `--image` parametri del piano di acquisto:
 
 ```azurecli
 az group create --name myPurchasePlanRG --location westus
@@ -259,22 +259,22 @@ az vm create \
    --plan-publisher bitnami
 ```
 
-Se viene ricevuto un messaggio per l'accettazione delle condizioni dell'immagine, vedere [la sezione accettare le condizioni](#accept-the-terms). Verificare che l'output di `az vm image accept-terms` restituisca il valore `"accepted": true,` che indica che sono state accettate le condizioni dell'immagine.
+Se viene visualizzato un messaggio sull'accettazione delle condizioni dell'immagine, vedere la sezione [Accettare le condizioni](#accept-the-terms). Assicurarsi che l'output `az vm image accept-terms` di restituisca il `"accepted": true,` valore che indica che sono stati accettati i termini dell'immagine.
 
 
-## <a name="using-an-existing-vhd-with-purchase-plan-information"></a>Uso di un VHD esistente con informazioni sul piano di acquisto
+## <a name="using-an-existing-vhd-with-purchase-plan-information"></a>Uso di un disco rigido virtuale esistente con informazioni sul piano di acquisto
 
-Se si dispone di un disco rigido virtuale esistente da una macchina virtuale creata usando un'immagine di Azure Marketplace a pagamento, potrebbe essere necessario fornire le informazioni sul piano di acquisto quando si crea una nuova macchina virtuale da tale disco rigido virtuale. 
+Se si dispone di un disco rigido virtuale esistente da una macchina virtuale creata usando un'immagine Azure Marketplace a pagamento, potrebbe essere necessario specificare le informazioni sul piano di acquisto quando si crea una nuova macchina virtuale da tale disco rigido virtuale. 
 
-Se è ancora presente la macchina virtuale originale o un'altra macchina virtuale creata usando la stessa immagine del Marketplace, è possibile ottenere il nome del piano, l'editore e le informazioni sul prodotto usando il comando [AZ VM Get-instance-View](/cli/azure/vm#az_vm_get_instance_view). Questo esempio Mostra come ottenere una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup* e quindi visualizzare le informazioni sul piano di acquisto.
+Se si ha ancora la macchina virtuale originale o un'altra macchina virtuale creata usando la stessa immagine del marketplace, è possibile ottenere il nome del piano, l'editore e le informazioni sul prodotto usando [az vm get-instance-view.](/cli/azure/vm#az_vm_get_instance_view) Questo esempio ottiene una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup* e quindi visualizza le informazioni sul piano di acquisto.
 
 ```azurepowershell-interactive
 az vm get-instance-view -g myResourceGroup -n myVM --query plan
 ```
 
-Se non sono state rilevate informazioni sul piano prima dell'eliminazione della macchina virtuale originale, è possibile archiviare una [richiesta di supporto](https://ms.portal.azure.com/#create/Microsoft.Support). Saranno necessari il nome della macchina virtuale, l'ID sottoscrizione e il timestamp dell'operazione di eliminazione.
+Se non sono state visualizzate le informazioni sul piano prima dell'eliminazione della macchina virtuale originale, è possibile determinare una richiesta [di supporto.](https://ms.portal.azure.com/#create/Microsoft.Support) Saranno necessari il nome della macchina virtuale, l'ID sottoscrizione e il timestamp dell'operazione di eliminazione.
 
-Dopo aver ottenuto le informazioni sul piano, è possibile creare la nuova macchina virtuale usando il `--attach-os-disk` parametro per specificare il disco rigido virtuale.
+Dopo aver creato le informazioni sul piano, è possibile creare la nuova macchina virtuale usando il `--attach-os-disk` parametro per specificare il disco rigido virtuale.
 
 ```azurecli-interactive
 az vm create \

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 03/24/2021
-ms.openlocfilehash: 267dc7c7d89bbecfbed127f4a46adb7cd9044bc4
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0def1f957842417c3936e3f1c7bb5bc023109818
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309374"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536329"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analizzare i dati con pool SQL dedicati
 
@@ -29,9 +29,9 @@ In questa esercitazione si useranno i dati dei taxi di New York per esplorare le
 1. Per **Livello di prestazioni**, scegliere **DW100C**
 1. Selezionare **Rivedi e crea** > **Crea**. Il pool SQL dedicato sarà pronto in pochi minuti. 
 
-Il pool SQL dedicato è associato a un database SQL chiamato anche **SQLPOOL1**.
-1. Passare all'   >  **area di lavoro** dati.
-1. Verrà visualizzato un database denominato **SQLPOOL1**. Se non viene visualizzato, fare clic su **Aggiorna**.
+Il pool SQL dedicato è associato a un database SQL denominato **anche SQLPOOL1.**
+1. Passare a **Area di lavoro**  >  **dati**.
+1. Verrà visualizzato un database denominato **SQLPOOL1.** Se non viene visualizzato, fare clic su **Aggiorna.**
 
 Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibile sospendere il pool in un secondo momento per ridurre i costi.
 
@@ -39,8 +39,8 @@ Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibil
 > Quando si crea un nuovo pool SQL dedicato (in precedenza SQL Data Warehouse) nell'area di lavoro, verrà aperta la pagina per effettuarne il provisioning. Il provisioning verrà effettuato nel server SQL logico.
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Caricare i dati dei taxi di New York in SQLPOOL1
 
-1. In sinapsi Studio passare all'hub **sviluppo** , fare clic sul **+** pulsante per aggiungere una nuova risorsa, quindi creare un nuovo script SQL.
-1. Selezionare il pool "SQLPOOL1" (pool creato nel [passaggio 1](./get-started-create-workspace.md) di questa esercitazione) nell'elenco a discesa "Connetti a" sopra lo script.
+1. Nella Synapse Studio passare all'hub **Sviluppo,** fare clic sul pulsante per aggiungere una **+** nuova risorsa e quindi creare un nuovo script SQL.
+1. Selezionare il pool "SQLPOOL1" (pool creato nel [PASSAGGIO 1](./get-started-create-workspace.md) di questa esercitazione) nell'elenco a discesa "Connetti a" sopra lo script.
 1. Immettere il codice seguente:
     ```
     IF NOT EXISTS (SELECT * FROM sys.objects O JOIN sys.schemas S ON O.schema_id = S.schema_id WHERE O.NAME = 'NYCTaxiTripSmall' AND O.TYPE = 'U' AND S.NAME = 'dbo')
@@ -78,12 +78,13 @@ Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibil
         )
     GO
 
-    --Uncomment the 4 lines below to create a stored procedure for data pipeline orchestration
-    --CREATE PROC bulk_load_NYCTaxiTripSmall
-    --AS
-    --BEGIN
     COPY INTO dbo.NYCTaxiTripSmall
-    (DateID 1, MedallionID 2, HackneyLicenseID 3, PickupTimeID 4, DropoffTimeID 5, PickupGeographyID 6, DropoffGeographyID 7, PickupLatitude 8, PickupLongitude 9, PickupLatLong 10, DropoffLatitude 11, DropoffLongitude 12, DropoffLatLong 13, PassengerCount 14, TripDurationSeconds 15, TripDistanceMiles 16, PaymentType 17, FareAmount 18, SurchargeAmount 19, TaxAmount 20, TipAmount 21, TollsAmount 22, TotalAmount 23)
+    (DateID 1, MedallionID 2, HackneyLicenseID 3, PickupTimeID 4, DropoffTimeID 5,
+    PickupGeographyID 6, DropoffGeographyID 7, PickupLatitude 8, PickupLongitude 9, 
+    PickupLatLong 10, DropoffLatitude 11, DropoffLongitude 12, DropoffLatLong 13, 
+    PassengerCount 14, TripDurationSeconds 15, TripDistanceMiles 16, PaymentType 17, 
+    FareAmount 18, SurchargeAmount 19, TaxAmount 20, TipAmount 21, TollsAmount 22, 
+    TotalAmount 23)
     FROM 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet'
     WITH
     (
@@ -92,14 +93,14 @@ Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibil
         ,IDENTITY_INSERT = 'OFF'
     )
     ```
-1. Per eseguire lo script, fare clic sul pulsante Esegui.
-1. Questo script verrà completato in meno di 60 secondi. Carica 2 milioni righe di dati di NYC Taxi in una tabella denominata **dbo. Viaggio**.
+1. Fare clic sul pulsante Esegui per eseguire lo script.
+1. Questo script verrà completato in meno di 60 secondi. Carica 2 milioni di righe di dati nyc taxi in una tabella denominata **dbo. Trip**.
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Esplorare i dati dei taxi di New York nel pool SQL dedicato
 
 1. In Synapse Studio passare all'hub **Data** (Dati).
 1. Passare a **SQLPOOL1** > **Tabelle**. 
-3. Fare clic con il pulsante destro del mouse su **dbo. Tabella NYCTaxiTripSmall** e selezionare **nuovo script SQL**  >  **selezionare le prime 100 righe**.
+3. Fare clic con il pulsante destro del **mouse sul dbo. Tabella NYCTaxiTripSmall** e selezionare **New SQL Script** Select  >  **TOP 100 Rows (Nuovo script SQL Selezionare le prime 100 righe).**
 4. Attendere mentre viene creato ed eseguito un nuovo script SQL.
 5. Si noti che nella parte superiore dello script SQL la sezione **Connetti a** è impostata automaticamente sul pool SQL denominato **SQLPOOL1**.
 6. Sostituire il testo dello script SQL con il codice ed eseguirlo.
@@ -120,4 +121,4 @@ Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibil
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Analizzare i dati in un account di archiviazione di Azure](get-started-analyze-storage.md)
+> [Analizzare i dati in un account Archiviazione di Azure](get-started-analyze-storage.md)

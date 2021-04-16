@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 424e70f4f3656be2196f4dbdfbddb852846b6897
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
-ms.translationtype: MT
+ms.openlocfilehash: a055cc1b715f93830647c9b13793a59d09db605c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307483"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107513077"
 ---
 ## <a name="setting-up"></a>Configurazione
 
@@ -33,7 +33,7 @@ dotnet add package Azure.Identity
 
 ### <a name="use-the-sdk-packages"></a>Usare i pacchetti SDK
 
-Aggiungere le `using` direttive seguenti a `Program.cs` per usare l'identità di Azure e gli SDK di archiviazione di Azure.
+Aggiungere le direttive `using` seguenti a per usare `Program.cs` l'identità di Azure e Archiviazione di Azure SDK.
 
 ```csharp
 using Azure.Identity;
@@ -43,17 +43,17 @@ using Azure.Core;
 using Azure;
 ```
 
-## <a name="create-a-defaultazurecredential"></a>Creare un DefaultAzureCredential
+## <a name="create-a-defaultazurecredential"></a>Creare un oggetto DefaultAzureCredential
 
-Per questa Guida introduttiva verrà usato [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . Questa credenziale è adatta per ambienti di produzione e di sviluppo. Poiché è necessario per ogni operazione, è possibile crearlo all'interno della `Program.cs` classe. Aggiungere quanto segue all'inizio del file.
+Per questa guida introduttiva verrà [utilizzato DefaultAzureCredential.](/dotnet/api/azure.identity.defaultazurecredential) Queste credenziali sono adatte per gli ambienti di produzione e sviluppo. Poiché è necessario per ogni operazione, è necessario crearla all'interno della `Program.cs` classe . Aggiungere quanto segue all'inizio del file.
 
 ```csharp
      private DefaultAzureCredential credential = new DefaultAzureCredential();
 ```
 
-## <a name="issue-a-token-with-managed-identities"></a>Emettere un token con identità gestite
+## <a name="issue-a-token-with-managed-identities"></a>Rilasciare un token con identità gestite
 
-A questo punto verrà aggiunto il codice che usa le credenziali create per emettere un token di accesso VoIP. Questo codice verrà chiamato in un secondo momento.
+A questo punto si aggiungerà il codice che usa le credenziali create per rilasciare un token di accesso VoIP. Questo codice verrà chiamato più avanti.
 
 ```csharp
      public Response<AccessToken> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
@@ -70,7 +70,7 @@ A questo punto verrà aggiunto il codice che usa le credenziali create per emett
 
 ## <a name="send-an-sms-with-managed-identities"></a>Inviare un SMS con identità gestite
 
-Come altro esempio di utilizzo delle identità gestite, verrà aggiunto il codice che utilizza le stesse credenziali per inviare un SMS:
+Come altro esempio di uso delle identità gestite, si aggiungerà questo codice che usa le stesse credenziali per inviare un SMS:
 
 ```csharp
      public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
@@ -89,7 +89,7 @@ Come altro esempio di utilizzo delle identità gestite, verrà aggiunto il codic
 
 ## <a name="write-the-main-method"></a>Scrivere il metodo Main
 
-Il `Program.cs` dovrebbe avere già un metodo Main. verrà ora aggiunto il codice che chiamerà il codice creato in precedenza per illustrare l'uso delle identità gestite:
+L'oggetto deve già avere un metodo Main. Aggiungere un codice che chiamerà il codice creato in precedenza per illustrare `Program.cs` l'uso delle identità gestite:
 
 ```csharp
      static void Main(string[] args)

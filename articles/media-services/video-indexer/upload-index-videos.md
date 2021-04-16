@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 03/04/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cc9051190bd314ac93e3de2689a6aa0ec2b6235
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 90fca4342b1fe04adef97a1a4c1c2166ca7ec51e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108082"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532487"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
-Una volta caricato il video, Video Indexer (facoltativamente) codificare il video, illustrato nell'articolo. Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Si pagano i minuti indicizzati. Per altre informazioni, vedere [Prezzi di Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
+Dopo aver caricato il video, Video Indexer (facoltativamente) codifica il video (descritto nell'articolo). Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Si pagano i minuti indicizzati. Per altre informazioni, vedere [Prezzi di Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
 
 Durante il caricamento di video con l'API Video Indexer, sono disponibili le opzioni di caricamento seguenti: 
 
@@ -28,7 +28,7 @@ Durante il caricamento di video con l'API Video Indexer, sono disponibili le opz
 * inviare il file video come matrice di byte nel corpo della richiesta,
 * usare l'asset di Servizi multimediali di Azure esistente indicando l'[ID asset](../latest/assets-concept.md) (supportato solo negli account a pagamento).
 
-Questo articolo illustra come caricare e indicizzare i video con queste opzioni:
+L'articolo illustra come caricare e indicizzare i video con queste opzioni:
 
 * [Sito Web di Video Indexer](#upload-and-index-a-video-using-the-video-indexer-website) 
 * [API di Video Indexer](#upload-and-index-with-api)
@@ -37,14 +37,14 @@ Questo articolo illustra come caricare e indicizzare i video con queste opzioni:
 
 Per un elenco dei formati di file che è possibile usare con Video Indexer, vedere l'articolo [Contenitore di input/formati di file](../latest/encode-media-encoder-standard-formats-reference.md).
 
-## <a name="video-files-storage"></a>Archiviazione file video
+## <a name="video-files-storage"></a>Archiviazione di file video
 
-- Con un account di Video Indexer a pagamento, viene creato un account di Video Indexer connesso alla sottoscrizione di Azure e a un account di servizi multimediali di Azure. Per altre informazioni, vedere [creare un account video Indexer connesso ad Azure](connect-to-azure.md).
-- I file video vengono archiviati in archiviazione di Azure da servizi multimediali di Azure. Non esiste alcun limite di tempo.
-- È sempre possibile eliminare i file audio e video, nonché tutti i metadati e le informazioni dettagliate estratti da tali file per Video Indexer. Dopo aver eliminato un file da Video Indexer, il file, i metadati e le informazioni dettagliate vengono rimossi definitivamente da Video Indexer. Se tuttavia è stata implementata la propria soluzione di backup in Archiviazione di Azure, il file rimane nella risorsa di archiviazione di Azure.
-- Il persistenza di un video è identico, indipendentemente dal fatto che il caricamento venga eseguito dal sito Web Video Indexer o tramite l'API di caricamento.
+- Con un account Video Indexer a pagamento, si crea un account Video Indexer connesso alla sottoscrizione di Azure e un account Servizi multimediali di Azure aziendale. Per altre informazioni, vedere [Creare un account Video Indexer connesso ad Azure.](connect-to-azure.md)
+- I file video vengono archiviati nell'archiviazione di Azure Servizi multimediali di Azure. Non esiste alcuna limitazione di tempo.
+- È sempre possibile eliminare i file audio e video, nonché i metadati e le informazioni dettagliate estratti da essi Video Indexer. Dopo aver eliminato un file da Video Indexer, il file, i metadati e le informazioni dettagliate vengono rimossi definitivamente da Video Indexer. Se tuttavia è stata implementata la propria soluzione di backup in Archiviazione di Azure, il file rimane nella risorsa di archiviazione di Azure.
+- La persistenza di un video è identica, indipendentemente dal fatto che il caricamento sia stato eseguito dal sito Web Video Indexer o tramite l'API di caricamento.
    
-## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a>Caricare e indicizzare un video tramite il sito Web Video Indexer
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a>Caricare e indicizzare un video usando il Video Indexer web
 
 > [!NOTE]
 > Il nome del video non può contenere più di 80 caratteri.
@@ -62,11 +62,11 @@ Per un elenco dei formati di file che è possibile usare con Video Indexer, vede
 
 ## <a name="upload-and-index-with-api"></a>Caricare e indicizzare con l'API
 
-Usare l'API di [caricamento video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) per caricare e indicizzare i video in base a un URL. L'esempio di codice seguente include il codice commentato che Mostra come caricare la matrice di byte. 
+Usare [l'API Carica video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) per caricare e indicizzare i video in base a un URL. L'esempio di codice seguente include il codice commentato che illustra come caricare la matrice di byte. 
 
 ### <a name="configurations-and-params"></a>Configurazioni e parametri
 
-Questa sezione descrive alcuni dei parametri facoltativi e i casi in cui è utile impostarli. Per informazioni sui parametri più aggiornati, vedere l'API di [caricamento video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) .
+Questa sezione descrive alcuni dei parametri facoltativi e i casi in cui è utile impostarli. Per informazioni aggiornate sui parametri, vedere l'API [Carica video.](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video)
 
 #### <a name="externalid"></a>externalID 
 
@@ -83,22 +83,22 @@ Questo parametro consente di specificare un ID che verrà associato al video. L'
 
 #### <a name="indexingpreset"></a>indexingPreset
 
-Usare questo parametro per definire il bundle AI che si vuole applicare al file audio o video. Questo parametro si usa per configurare il processo di indicizzazione. È possibile specificare i valori seguenti:
+Usare questo parametro per definire il bundle di intelligenza artificiale da applicare al file audio o video. Questo parametro si usa per configurare il processo di indicizzazione. È possibile specificare i valori seguenti:
 
-- `AudioOnly` : Indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando video).
-- `VideoOnly` -Indicizzare ed estrarre informazioni dettagliate usando solo video (ignorando l'audio).
-- `Default` : Indicizzare ed estrarre informazioni dettagliate usando audio e video.
-- `DefaultWithNoiseReduction` : Consente di indicizzare ed estrarre informazioni dettagliate da audio e video, applicando algoritmi di riduzione del rumore nel flusso audio.
+- `AudioOnly` : indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando il video).
+- `VideoOnly` - Indicizzare ed estrarre informazioni dettagliate usando solo video (ignorando l'audio).
+- `Default` : indicizzare ed estrarre informazioni dettagliate usando audio e video.
+- `DefaultWithNoiseReduction` : indicizzare ed estrarre informazioni dettagliate sia dall'audio che dal video, applicando al contempo algoritmi di riduzione del rumore nel flusso audio.
 
-    Il `DefaultWithNoiseReduction` valore viene ora mappato al set di impostazioni predefinito (deprecato).
-- `BasicAudio` -Indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando video), incluse solo le funzionalità audio di base (trascrizione, traduzione, sottotitoli di output di formato e sottotitoli).
- - `AdvancedAudio` -Indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando video), incluse le funzionalità audio avanzate (rilevamento di eventi audio) oltre all'analisi audio standard.
+    Il `DefaultWithNoiseReduction` valore è ora mappato al set di impostazioni predefinito (deprecato).
+- `BasicAudio` - Indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando i video), incluse solo le funzionalità audio di base (trascrizione, traduzione, formattazione di sottotitoli in lingua originale e sottotitoli).
+ - `AdvancedAudio` - Indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando i video), incluse le funzionalità audio avanzate (rilevamento di eventi audio) oltre all'analisi audio standard.
 
 > [!NOTE]
 > Video Indexer copre fino a due tracce di audio. Se sono presenti più tracce audio nel file, verranno considerate come una traccia.<br/>
-Se si desidera indicizzare le tracce separatamente, sarà necessario estrarre il file audio pertinente e indicizzarlo come `AudioOnly` .
+Per indicizzare le tracce separatamente, è necessario estrarre il file audio pertinente e indicizzarlo come `AudioOnly` .
 
-Il prezzo dipende dall'opzione di indicizzazione selezionata. Per altre informazioni, vedere [prezzi di servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
+Il prezzo dipende dall'opzione di indicizzazione selezionata. Per altre informazioni, vedere Prezzi [di Servizi multimediali.](https://azure.microsoft.com/pricing/details/media-services/)
 
 #### <a name="priority"></a>priority
 
@@ -110,10 +110,10 @@ Il parametro **priority** è supportato solo per gli account a pagamento.
 
 Una volta caricato il video, facoltativamente Video Indexer lo codifica. Procede quindi con l'indicizzazione e l'analisi del video. Quando Video Indexer termina l'analisi, si riceve una notifica con l'ID del video.  
 
-Quando si usano le API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) o [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), uno dei parametri facoltativi è `streamingPreset`. Se si imposta `streamingPreset` su `Default`, `SingleBitrate` o `AdaptiveBitrate`, viene attivato il processo di codifica. Dopo il completamento dei processi di indicizzazione e codifica, il video viene pubblicato in modo che sia possibile eseguirne lo streaming. L'endpoint di streaming da cui si vuole trasmettere il video deve essere nello stato **In esecuzione**.
+Quando si usano le API [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) o [Re-Index Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video), uno dei parametri facoltativi è `streamingPreset`. Se si imposta `streamingPreset` su `Default`, `SingleBitrate` o `AdaptiveBitrate`, viene attivato il processo di codifica. Dopo il completamento dei processi di indicizzazione e codifica, il video viene pubblicato in modo che sia possibile eseguirne lo streaming. L'endpoint di streaming da cui si vuole trasmettere il video deve essere nello stato **In esecuzione**.
 
-Per SingleBitrate, viene applicato il costo del codificatore standard per l'output. Se l'altezza del video è maggiore o uguale a 720, Video Indexer lo codifica come 1280x720. In caso contrario, come 640x468.
-L'impostazione predefinita è [codifica compatibile](../latest/encode-content-aware-concept.md)con il contenuto.
+Per SingleBitrate, il costo del codificatore standard verrà applicato in base all'output. Se l'altezza del video è maggiore o uguale a 720, Video Indexer lo codifica come 1280x720. In caso contrario, come 640x468.
+L'impostazione predefinita è [la codifica con riconoscere il contenuto.](../latest/encode-content-aware-concept.md)
 
 Per poter eseguire i processi di indicizzazione e codifica, l'[account di Servizi multimediali di Microsoft Azure connesso al proprio account di Video Indexer](connect-to-azure.md) richiede unità riservate. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md). Poiché si tratta di processi a elevato utilizzo di calcolo, è consigliabile il tipo di unità S3. Il numero di unità riservate definisce il numero massimo di processi che è possibile eseguire in parallelo. In linea generale è consigliabile usare 10 unità riservate S3. 
 
@@ -131,19 +131,19 @@ Il frammento di codice C# seguente illustra l'uso di tutte le API di Video Index
 
 **Istruzioni per l'esecuzione dell'esempio di codice seguente**
 
-Dopo aver copiato questo codice nella piattaforma di sviluppo, sarà necessario specificare due parametri: chiave di autenticazione e URL video di gestione API.
+Dopo aver copiato questo codice nella piattaforma di sviluppo, è necessario specificare due parametri: API Management chiave di autenticazione e URL video.
 
-* Chiave API: la chiave API è la chiave di sottoscrizione di gestione API personale, che consente di ottenere un token di accesso per eseguire operazioni sull'account Video Indexer. 
+* Chiave API: la chiave API è la chiave di sottoscrizione personale di Gestione API, che consente di ottenere un token di accesso per eseguire operazioni sull'account Video Indexer personale. 
 
-    Per ottenere la chiave API, passare a questo flusso:
+    Per ottenere la chiave API, eseguire questo flusso:
 
     * Passare a https://api-portal.videoindexer.ai/.
     * Accedi
-    * Passa alla   ->    ->  **sottoscrizione di autorizzazione** per i prodotti
+    * Passare a **Products**  ->  **Authorization**  ->  **Authorization subscription (Sottoscrizione autorizzazione prodotti)**
     * Copiare la **chiave primaria**
 * URL video: URL del file video/audio da indicizzare. L'URL deve puntare a un file multimediale; le pagine HTML non sono supportate. Il file può essere protetto da un token di accesso fornito come parte dell'URI e l'endpoint che gestisce il file deve essere protetto con il protocollo TLS 1.2 o versione successiva. L'URL deve essere codificato.
 
-Il risultato dell'esecuzione dell'esempio di codice include un URL widget Insight e un URL Widget Player che consentiranno di esaminare le informazioni dettagliate e i video caricati rispettivamente. 
+Il risultato della corretta esecuzione dell'esempio di codice includerà un URL del widget di informazioni dettagliate e un URL del widget del lettore che consentirà di esaminare le informazioni dettagliate e il video caricati rispettivamente. 
 
 
 ```csharp
@@ -321,11 +321,11 @@ public class AccountContractSlim
 
 L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
-|Codice di stato|ErrorType (nel corpo della risposta)|Descrizione|
+|Codice stato|ErrorType (nel corpo della risposta)|Descrizione|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
 |400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|
-|429||Gli account di valutazione sono consentiti 5 caricamenti al minuto. Gli account a pagamento sono consentiti 50 caricamenti al minuto.|
+|429||Agli account di valutazione sono consentiti 5 caricamenti al minuto. Agli account a pagamento sono consentiti 50 caricamenti al minuto.|
 
 ## <a name="uploading-considerations-and-limitations"></a>Considerazioni e limiti sul caricamento
  
@@ -335,7 +335,7 @@ L'operazione di caricamento può restituire i codici di stato elencati nella tab
 - La lunghezza dell'URL della richiesta è limitata a 6144 caratteri, in cui la lunghezza dell'URL della stringa di query è limitata a 4096 caratteri.
 - Le dimensioni di caricamento con l'opzione matrice di byte sono limitate a 2 GB.
 - L'opzione di matrice di byte raggiunge il timeout dopo 30 minuti.
-- L'URL specificato nel `videoURL` parametro deve essere codificato.
+- L'URL specificato `videoURL` nel parametro deve essere codificato.
 - L'indicizzazione degli asset di Servizi multimediali ha la stessa limitazione dell'indicizzazione dall'URL.
 - Video Indexer ha un limite di durata massima di 4 ore per un singolo file.
 - L'URL deve essere accessibile, ad esempio un URL pubblico. 
@@ -351,4 +351,4 @@ L'operazione di caricamento può restituire i codici di stato elencati nella tab
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esaminare l'output del Video Indexer di Azure prodotto dall'API](video-indexer-output-json-v2.md)
+[Esaminare l'output Video Indexer azure prodotto dall'API](video-indexer-output-json-v2.md)

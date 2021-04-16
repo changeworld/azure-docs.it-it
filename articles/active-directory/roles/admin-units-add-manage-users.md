@@ -59,15 +59,15 @@ Per preparare l'uso di PowerShell e Microsoft Graph per la gestione delle unità
 
    1. Selezionare **Unità amministrative**.
 
-   1. Selezionare l'unità amministrativa a cui si desidera aggiungere gli utenti.
+   1. Selezionare l'unità amministrativa a cui si desidera aggiungere utenti.
 
-   1. Selezionare **Utenti -** Attività bulk  >  **Aggiungi** membri in  >  **blocco**. È quindi possibile scaricare il modello con valori delimitati da virgole (CSV) e modificare il file. Il formato è semplice e richiede l'aggiunta di un singolo nome di entità utente in ogni riga. Quando il file è pronto, salvarlo in un percorso appropriato e quindi caricarlo come parte di questo passaggio.
+   1. Selezionare **Utenti -** Attività in  >  **blocco**- Aggiungi membri in  >  **blocco**. È quindi possibile scaricare il modello con valori delimitati da virgole (CSV) e modificare il file. Il formato è semplice e richiede l'aggiunta di un singolo nome dell'entità utente in ogni riga. Quando il file è pronto, salvarlo in un percorso appropriato e quindi caricarlo come parte di questo passaggio.
 
       ![Screenshot del riquadro "Utenti" per l'assegnazione di utenti a un'unità amministrativa come operazione in blocco.](./media/admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
 ### <a name="use-powershell"></a>Usare PowerShell
 
-In PowerShell usare il `Add-AzureADAdministrativeUnitMember` cmdlet nell'esempio seguente per aggiungere l'utente all'unità amministrativa. L'ID oggetto dell'unità amministrativa a cui si vuole aggiungere l'utente e l'ID oggetto dell'utente da aggiungere vengono presi come argomenti. Modificare la sezione evidenziata in base alle esigenze per l'ambiente specifico.
+In PowerShell usare il `Add-AzureADAdministrativeUnitMember` cmdlet nell'esempio seguente per aggiungere l'utente all'unità amministrativa. L'ID oggetto dell'unità amministrativa a cui si vuole aggiungere l'utente e l'ID oggetto dell'utente da aggiungere vengono utilizzati come argomenti. Modificare la sezione evidenziata in base alle esigenze per l'ambiente specifico.
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
@@ -106,9 +106,9 @@ Esempio
 
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-Nel portale di Azure, è possibile aprire il profilo di un utente eseguendo le operazioni seguenti:
+Nel portale di Azure è possibile aprire il profilo di un utente seguendo questa procedura:
 
-1. Passare a **Azure AD** e quindi selezionare **Utenti**.
+1. Passare a **Azure AD** e quindi selezionare **Utenti.**
 
 1. Selezionare l'utente di cui si vuole visualizzare il profilo.
 

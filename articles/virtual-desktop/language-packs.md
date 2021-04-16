@@ -1,102 +1,103 @@
 ---
-title: Installare i Language Pack in VM Windows 10 in desktop virtuale di Windows-Azure
-description: Come installare i Language Pack per le macchine virtuali con più sessioni di Windows 10 nel desktop virtuale di Windows.
+title: Installare Language Pack nelle Windows 10 virtuali in Desktop virtuale Windows - Azure
+description: Come installare i Language Pack per Windows 10 macchine virtuali multi-sessione in Desktop virtuale Windows.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: eaf6fc789020553b80967341cc9219a30ffce749
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: db1ac3f5de507a5cfdbfec7216afea9a0f4ac541
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446112"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515040"
 ---
-# <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Aggiungere i Language Pack a un'immagine con più sessioni di Windows 10
+# <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Aggiungere Language Pack a un'Windows 10 di più sessioni
 
-Desktop virtuale di Windows è un servizio che gli utenti possono distribuire in qualsiasi momento, ovunque. Per questo motivo è importante che gli utenti siano in grado di personalizzare la lingua visualizzata per l'immagine in più sessioni di Windows 10 Enterprise.
+Desktop virtuale Windows è un servizio che gli utenti possono distribuire in qualsiasi momento e ovunque. Ecco perché è importante che gli utenti siano in grado di personalizzare la lingua in cui viene Windows 10 Enterprise'immagine multi-sessione.
 
-Esistono due modi per soddisfare le esigenze di lingua degli utenti:
+Esistono due modi per soddisfare le esigenze linguistiche degli utenti:
 
-- Crea pool host dedicati con un'immagine personalizzata per ogni lingua.
-- È necessario che gli utenti dispongano di requisiti diversi per la lingua e la localizzazione nello stesso pool di host, ma personalizzare le immagini per assicurarsi che possano selezionare qualsiasi lingua di cui hanno bisogno.
+- Creare pool di host dedicati con un'immagine personalizzata per ogni lingua.
+- Avere utenti con requisiti di lingua e localizzazione diversi nello stesso pool di host, ma personalizzare le immagini per assicurarsi di poter selezionare la lingua necessaria.
 
-Il secondo metodo è molto più efficiente ed economicamente conveniente. Tuttavia, spetta a te decidere quale metodo è più adatto alle tue esigenze. In questo articolo viene illustrato come personalizzare le lingue per le immagini.
+Quest'ultimo metodo è molto più efficiente ed economicamente conveniente. Tuttavia, è l'utente a decidere quale metodo è più adatto alle proprie esigenze. Questo articolo illustra come personalizzare le lingue per le immagini.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per personalizzare le immagini multisessione di Windows 10 Enterprise per aggiungere più lingue, sono necessari gli elementi seguenti:
+Sono necessari gli elementi seguenti per personalizzare le Windows 10 Enterprise di più sessioni per aggiungere più lingue:
 
-- Una macchina virtuale (VM) di Azure con Windows 10 Enterprise multisessione, versione 1903 o successiva
+- Una macchina virtuale di Azure con Windows 10 Enterprise multi-sessione, versione 1903 o successiva
 
-- Il linguaggio ISO, la funzionalità su richiesta (Dom) disco 1 e le app della posta in arrivo ISO della versione del sistema operativo utilizzata dall'immagine. Puoi scaricarle da qui: 
+- L'ISO del linguaggio, il disco su richiesta 1 e l'ISO delle app della posta in arrivo della versione del sistema operativo utilizzata dall'immagine. Puoi scaricarle da qui: 
      
-     - ISO lingua:
+     - ISO del linguaggio:
         - [Windows 10, versione 1903 o 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
         - [Windows 10, versione 2004 o 20H2 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
-     - ISO disco 1 ISO:
-        - [Windows 10, versione 1903 o 1909 Dom disco 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
-        - [Windows 10, versione 2004 o 20H2 Dom Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+     - FOD Disk 1 ISO:
+        - [Windows 10, versione 1903 o 1909 SUD Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10, versione 2004 o 20H2 SUD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         
-     - ISO app della posta in arrivo:
-        - [Windows 10, versione 1903 o 1909 app della posta in arrivo ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
-        - [Windows 10, versione 2004 app della posta in arrivo ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
-        - [Windows 10, versione 20H2 app della posta in arrivo ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+     - Inbox Apps ISO (ISO app posta in arrivo):
+        - [Windows 10, versione 1903 o 1909 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
+        - [Windows 10, versione 2004 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
+        - [Windows 10, versione 20H2 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
      
-     - Se si usano file ISO LXP (local Experience Pack) per localizzare le immagini, sarà anche necessario scaricare l'ISO di LXP appropriato per la migliore esperienza di linguaggio
-        - Se si usa Windows 10, versione 1903 o 1909:
-          - [Windows 10, versione 1903 o 1909 ISO LXP](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
-        - Se si usa Windows 10, versione 2004 o 20H2, usare le informazioni riportate in [aggiunta di lingue in Windows 10: problemi noti](/windows-hardware/manufacture/desktop/language-packs-known-issue) per scoprire quali sono le seguenti immagini LxP più appropriate:
-          - [Windows 10, versione 2004 o 20H2 **9B** LxP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
-          - [Windows 10, versione 2004 o 20H2 **9C** LxP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
-          - [Windows 10, versione 2004 o 20H2 **10C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
-          - [Windows 10, versione 2004 o 20H2 **11C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
-          - [Windows 10, versione 2004 o 20H2 **1C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
-          - [Windows 10, versione 2004 o 20H2 **2C** LxP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
+     - Se si usano file ISO di Pacchetto di esperienze locali (LXP) per localizzare le immagini, è anche necessario scaricare l'ISO LXP appropriato per un'esperienza linguistica ottimale
+        - Se si usa la Windows 10, versione 1903 o 1909:
+          - [Windows 10, versione 1903 o 1909 LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
+        - Se si usa Windows 10 versione 2004 o 20H2, usare le informazioni in Aggiunta di lingue [in Windows 10:](/windows-hardware/manufacture/desktop/language-packs-known-issue) Problemi noti per determinare quale degli ISO LXP seguenti è più utile:
+          - [Windows 10, versione 2004 o 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+          - [Windows 10, versione 2004 o 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
+          - [Windows 10, versione 2004 o 20H2 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
+          - [Windows 10, versione 2004 o 20H2 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
+          - [Windows 10, versione 2004 o 20H2 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
+          - [Windows 10, versione 2004 o 20H2 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
+          - [Windows 10, versione 2004 o 20H2 **3C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2103C.iso)
 
-- Una condivisione File di Azure o una condivisione file in una macchina virtuale file server Windows
+- Una File di Azure o una condivisione file in una macchina virtuale file server Windows
 
 >[!NOTE]
->La condivisione file (repository) deve essere accessibile dalla macchina virtuale di Azure che si prevede di usare per creare l'immagine personalizzata.
+>La condivisione file (repository) deve essere accessibile dalla macchina virtuale di Azure che si intende usare per creare l'immagine personalizzata.
 
-## <a name="create-a-content-repository-for-language-packages-and-features-on-demand"></a>Creare un repository di contenuti per i pacchetti e le funzionalità della lingua su richiesta
+## <a name="create-a-content-repository-for-language-packages-and-features-on-demand"></a>Creare un repository di contenuto per i pacchetti e le funzionalità del linguaggio su richiesta
 
-Per creare il repository di contenuto per i pacchetti della lingua e FODs e un repository per i pacchetti delle app della posta in arrivo:
+Per creare il repository del contenuto per i pacchetti di linguaggio e le applicazioni a pagina mobile e un repository per i pacchetti delle app per la posta in arrivo:
 
-1. In una macchina virtuale di Azure, scaricare le app ISO, FODs e posta in arrivo di Windows 10 multilingua per Windows 10 Enterprise multisessione, versione 1903/1909 e 2004 dai collegamenti nei [prerequisiti](#prerequisites).
+1. In una macchina virtuale di Azure scaricare le immagini isO Windows 10 Multi-Language, FOD e Inbox Apps for Windows 10 Enterprise multi-session, version 1903/1909 e 2004 dai collegamenti in [Prerequisiti](#prerequisites).
 
 2. Aprire e montare i file ISO nella macchina virtuale.
 
-3. Passare al Language Pack ISO e copiare il contenuto dalle cartelle **LocalExperiencePacks** e **x64 \\ Langpacks** , quindi incollare il contenuto nella condivisione file.
+3. Passare alla language pack ISO e copiare il contenuto dalle cartelle **LocalExperiencePacks** e **x64 \\ langpacks,** quindi incollare il contenuto nella condivisione file.
 
-4. Passare al **file ISO Dom**, copiare tutto il contenuto e incollarlo nella condivisione file.
-5. Passare alla cartella **amd64fre** nelle app della posta in arrivo ISO e copiare il contenuto nel repository per le app in arrivo preparate.
+4. Passare al **file ISO SUD,** copiarne tutto il contenuto e quindi incollarlo nella condivisione file.
+5. Passare alla cartella **amd64fre** in Inbox Apps ISO (ISO app posta in arrivo) e copiare il contenuto nel repository per le app della posta in arrivo preparate.
 
      >[!NOTE]
-     > Se si usa una risorsa di archiviazione limitata, copiare solo i file per le lingue necessarie per gli utenti. È possibile distinguere i file esaminando i codici di lingua nei rispettivi nomi di file. Il nome del file francese, ad esempio, è "fr-FR". Per un elenco completo dei codici di lingua per tutte le lingue disponibili, vedere [Language Pack disponibili per Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
+     > Se si lavora con risorse di archiviazione limitate, copiare solo i file per le lingue necessarie agli utenti. È possibile distinguerli esaminando i codici di lingua nei nomi file. Ad esempio, il file francese ha il codice "fr-FR" nel nome. Per un elenco completo dei codici lingua per tutte le lingue disponibili, vedere [Language Pack disponibili per Windows.](/windows-hardware/manufacture/desktop/available-language-packs-for-windows)
 
      >[!IMPORTANT]
-     > Alcuni linguaggi richiedono tipi di carattere aggiuntivi inclusi nei pacchetti satellite che seguono diverse convenzioni di denominazione. Ad esempio, i nomi dei file del tipo di carattere giapponese includono "jpan".
+     > Alcune lingue richiedono tipi di carattere aggiuntivi inclusi nei pacchetti satellite che seguono convenzioni di denominazione diverse. Ad esempio, i nomi dei file dei tipi di carattere giapponesi includono "Jpan".
      >
      > [!div class="mx-imgBorder"]
-     > ![Un esempio dei Language Pack in giapponese con il tag di lingua "jpan" nei nomi dei file.](media/language-pack-example.png)
+     > ![Esempio dei Language Pack giapponesi con il tag di lingua "Jpan" nei nomi file.](media/language-pack-example.png)
 
-6. Impostare le autorizzazioni per la condivisione del repository del contenuto della lingua in modo da avere accesso in lettura alla macchina virtuale che verrà usata per compilare l'immagine personalizzata.
+6. Impostare le autorizzazioni per la condivisione del repository del contenuto della lingua in modo da avere accesso in lettura dalla macchina virtuale che verrà utilizzata per compilare l'immagine personalizzata.
 
-## <a name="create-a-custom-windows-10-enterprise-multi-session-image-manually"></a>Creare un'immagine personalizzata di Windows 10 Enterprise in più sessioni manualmente
+## <a name="create-a-custom-windows-10-enterprise-multi-session-image-manually"></a>Creare manualmente un'Windows 10 Enterprise personalizzata con più sessioni
 
-Per creare manualmente un'immagine di Windows 10 Enterprise multisessione personalizzata:
+Per creare manualmente un'Windows 10 Enterprise personalizzata con più sessioni:
 
-1. Distribuire una macchina virtuale di Azure, quindi passare alla raccolta di Azure e selezionare la versione corrente di Windows 10 Enterprise multisessione in uso.
-2. Dopo aver distribuito la macchina virtuale, connetterla usando RDP come amministratore locale.
-3. Assicurarsi che la macchina virtuale disponga di tutti gli aggiornamenti di Windows più recenti. Scaricare gli aggiornamenti e riavviare la macchina virtuale, se necessario.
-4. Connettersi al repository di condivisione file delle app di Language Package, Dom e Inbox e montarlo in un'unità lettera (ad esempio, unità E).
+1. Distribuire una macchina virtuale di Azure, quindi passare alla raccolta di Azure e selezionare la versione corrente Windows 10 Enterprise più sessioni in uso.
+2. Dopo aver distribuito la macchina virtuale, connettersi a essa usando RDP come amministratore locale.
+3. Assicurarsi che la macchina virtuale abbia tutti gli aggiornamenti di Windows più recenti. Scaricare gli aggiornamenti e riavviare la macchina virtuale, se necessario.
+4. Connettersi al repository di condivisione file language package, FOD e Inbox Apps e montarlo in un'unità lettera (ad esempio, l'unità E).
 
-## <a name="create-a-custom-windows-10-enterprise-multi-session-image-automatically"></a>Creazione automatica di un'immagine di Windows 10 Enterprise multisessione personalizzata
+## <a name="create-a-custom-windows-10-enterprise-multi-session-image-automatically"></a>Creare automaticamente un'Windows 10 Enterprise personalizzata con più sessioni
 
-Se si preferisce installare le lingue tramite un processo automatizzato, è possibile configurare uno script in PowerShell. È possibile utilizzare il seguente script di esempio per installare i Language Pack di spagnolo (Spagna), francese (Francia) e cinese (PRC) e i pacchetti satellite per Windows 10 Enterprise multisessione, versione 2004. Lo script integra il Language Interface Pack e tutti i pacchetti satellite necessari nell'immagine. Tuttavia, è anche possibile modificare lo script per installare altre lingue. È sufficiente assicurarsi di eseguire lo script da una sessione di PowerShell con privilegi elevati, altrimenti non funzionerà.
+Se si preferisce installare le lingue tramite un processo automatizzato, è possibile configurare uno script in PowerShell. È possibile usare l'esempio di script seguente per installare i Language Pack e i pacchetti satellite in spagnolo (Spagna), francese (Francia) e cinese (RPC) per Windows 10 Enterprise più sessioni, versione 2004. Lo script integra il Language Interface Pack e tutti i pacchetti satellite necessari nell'immagine. Tuttavia, è anche possibile modificare questo script per installare altre lingue. È sufficiente assicurarsi di eseguire lo script da una sessione di PowerShell con privilegi elevati. In caso contrario, non funzionerà.
 
 ```powershell
 ########################################################
@@ -171,11 +172,11 @@ $LanguageList.Add("zh-cn")
 Set-WinUserLanguageList $LanguageList -force
 ```
 
-Lo script potrebbe richiedere un po' di tempo a seconda del numero di lingue che è necessario installare.
+Lo script potrebbe richiedere del tempo a seconda del numero di lingue che è necessario installare.
 
-Al termine dell'esecuzione dello script, verificare che i Language Pack siano installati correttamente **passando a**  >  **Impostazioni**  >  **ora &**  >  **lingua** della lingua. Se i file della lingua sono presenti, l'utente è tutto pronto.
+Al termine dell'esecuzione dello script, verificare che i Language Pack siano installati correttamente selezionando Start Settings Time (Ora impostazioni di avvio) & Language Language Language  >    >  **(Lingua).**  >   Se i file di lingua sono presenti, è tutto impostato.
 
-Dopo aver aggiunto altre lingue all'immagine di Windows, è necessario aggiornare anche le app della posta in arrivo per supportare le lingue aggiunte. Questa operazione può essere eseguita aggiornando le app preinstallate con il contenuto delle app della posta in arrivo ISO. Per eseguire l'aggiornamento in un ambiente disconnesso (nessun accesso a Internet dalla VM possibile), è possibile usare l'esempio di script di PowerShell seguente per automatizzare il processo.
+Dopo aver aggiunto altre lingue all'immagine Windows, è necessario aggiornare anche le app della posta in arrivo per supportare le lingue aggiunte. Questa operazione può essere eseguita aggiornando le app preinstallato con il contenuto dell'ISO delle app della posta in arrivo. Per eseguire questo aggiornamento in un ambiente disconnesso (non è possibile accedere a Internet dalla macchina virtuale), è possibile usare l'esempio di script di PowerShell seguente per automatizzare il processo.
 
 ```powershell
 #########################################
@@ -223,17 +224,17 @@ foreach ($Appx in $AllAppxBundles) {
 ```
 
 >[!IMPORTANT]
->Le app della posta in arrivo incluse nell'ISO non sono le versioni più recenti delle app di Windows pre-installate. Per ottenere la versione più recente di tutte le app, è necessario aggiornare le app usando l'app di Windows Store ed eseguire una ricerca manuale degli aggiornamenti dopo aver installato le lingue aggiuntive.
+>Le app della posta in arrivo incluse in ISO non sono le versioni più recenti delle app di Windows preinstallato. Per ottenere la versione più recente di tutte le app, è necessario aggiornare le app usando l'app di Windows Store ed eseguire una ricerca manuale degli aggiornamenti dopo aver installato le lingue aggiuntive.
 
 Al termine, assicurarsi di disconnettere la condivisione.
 
 ## <a name="finish-customizing-your-image"></a>Completare la personalizzazione dell'immagine
 
-Dopo aver installato i Language Pack, è possibile installare qualsiasi altro software che si desidera aggiungere all'immagine personalizzata.
+Dopo aver installato i Language Pack, è possibile installare qualsiasi altro software da aggiungere all'immagine personalizzata.
 
-Al termine della personalizzazione dell'immagine, sarà necessario eseguire l'utilità preparazione sistema (Sysprep).
+Dopo aver completato la personalizzazione dell'immagine, è necessario eseguire lo strumento di preparazione del sistema (sysprep).
 
-Per eseguire Sysprep:
+Per eseguire sysprep:
 
 1. Aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente per generalizzare l'immagine:  
    
@@ -241,15 +242,15 @@ Per eseguire Sysprep:
      C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
      ```
 
-2. Arrestare la macchina virtuale, quindi acquisirla in un'immagine gestita seguendo le istruzioni riportate in [creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/capture-image-resource.md).
+2. Arrestare la macchina virtuale e quindi acquisire la macchina virtuale in un'immagine gestita seguendo le istruzioni riportate in Creare un'immagine gestita di una macchina virtuale [generalizzata in Azure](../virtual-machines/windows/capture-image-resource.md).
 
-3. È ora possibile usare l'immagine personalizzata per distribuire un pool host di desktop virtuali Windows. Per informazioni su come distribuire un pool host, vedere [esercitazione: creare un pool host con il portale di Azure](create-host-pools-azure-marketplace.md).
+3. È ora possibile usare l'immagine personalizzata per distribuire un pool di host di Desktop virtuale Windows. Per informazioni su come distribuire un pool di host, vedere [Esercitazione: Creare un pool di host con](create-host-pools-azure-marketplace.md)portale di Azure .
 
 ## <a name="enable-languages-in-windows-settings-app"></a>Abilitare le lingue nell'app impostazioni di Windows
 
-Infine, dopo aver distribuito il pool host, sarà necessario aggiungere la lingua all'elenco di lingue di ogni utente in modo da poter selezionare la lingua preferita nel menu impostazioni.
+Infine, dopo aver distribuito il pool di host, è necessario aggiungere la lingua all'elenco delle lingue di ogni utente in modo che possa selezionare la lingua preferita nel menu Impostazioni.
 
-Per assicurarsi che gli utenti possano selezionare le lingue installate, accedere come utente, quindi eseguire il cmdlet di PowerShell seguente per aggiungere i Language Pack installati nel menu lingue. È anche possibile configurare questo script come attività automatizzata o script di accesso che viene attivato quando l'utente accede alla propria sessione.
+Per assicurarsi che gli utenti possano selezionare le lingue installate, accedere come utente, quindi eseguire il cmdlet di PowerShell seguente per aggiungere i Language Pack installati al menu Lingue. È anche possibile configurare questo script come un'attività automatizzata o uno script di accesso che si attiva quando l'utente accede alla sessione.
 
 ```powershell
 $LanguageList = Get-WinUserLanguageList
@@ -259,10 +260,10 @@ $LanguageList.Add("zh-cn")
 Set-WinUserLanguageList $LanguageList -force
 ```
 
-Dopo che un utente ha modificato le impostazioni della lingua, sarà necessario disconnettersi dalla sessione desktop virtuale di Windows e accedere di nuovo per rendere effettive le modifiche. 
+Dopo che un utente ha modificato le impostazioni della lingua, dovrà disconnettersi dalla sessione di Desktop virtuale Windows e accedere di nuovo per fare in modo che le modifiche siano effettive. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sui problemi noti relativi ai Language Pack, vedere [aggiunta di Language Pack in Windows 10, versione 1803 e versioni successive: problemi noti](/windows-hardware/manufacture/desktop/language-packs-known-issue).
+Per informazioni sui problemi noti relativi ai Language Pack, vedere Aggiunta di Language Pack in Windows 10, versione [1803](/windows-hardware/manufacture/desktop/language-packs-known-issue)e versioni successive: Problemi noti .
 
-Per altre domande su Windows 10 Enterprise Multisession, vedere le domande [frequenti](windows-10-multisession-faq.yml).
+Per altre domande sull'Windows 10 Enterprise multi-sessione, vedere le domande [frequenti.](windows-10-multisession-faq.yml)

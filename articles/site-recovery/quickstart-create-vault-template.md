@@ -1,15 +1,17 @@
 ---
 title: Avvio rapido per creare un insieme di credenziali di Servizi di ripristino di Azure con un modello di Azure Resource Manager.
 description: Questo argomento di avvio rapido illustra come creare un insieme di credenziali di Servizi di ripristino con un modello di Azure Resource Manager (modello di Resource Manager).
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.date: 04/29/2020
-ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 11a88b5485ad970802a65af31daccdb30a1c86df
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92745887"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533248"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Avvio rapido: Creare un insieme di credenziali di Servizi di ripristino con un modello di Resource Manager
 

@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/07/2021
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 559ace3e9cb9f6daeb6dc3da581bb99d3ff9145e
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.custom: devx-track-dotnet, devx-track-azurecli
+ms.openlocfilehash: 495191dfcdfd7a4d318bef508878e951d88b3ae6
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365162"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483878"
 ---
-# <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-preview-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Avvio rapido: Creare un'app console usando .NET V4 SDK (anteprima) per gestire Azure Cosmos DB di account API SQL.
+# <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-preview-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Guida introduttiva: Creare un'app console usando .NET V4 SDK (anteprima) per gestire Azure Cosmos DB risorse dell'account API SQL.
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
@@ -32,11 +32,11 @@ ms.locfileid: "107365162"
 Per iniziare a usare la libreria client dell'API SQL di Azure Cosmos DB per .NET, seguire i passaggi descritti in questo documento per installare il pacchetto .NET V4 (Azure.Cosmos), compilare un'app e provare il codice di esempio per le operazioni CRUD di base sui dati archiviati in Azure Cosmos DB.
 
 > [!IMPORTANT]
-> .NET V4 SDK per Azure Cosmos DB è attualmente in anteprima pubblica.
+> .NET V4 SDK per Azure Cosmos DB è attualmente disponibile in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Cosmos DB è il database NoSQL veloce di Microsoft con API aperte per qualsiasi scala. È possibile usare Azure Cosmos DB per creare rapidamente database di chiavi/valori, di documenti e a grafo ed eseguire query su di essi. Usare la libreria client dell'API SQL di Azure Cosmos DB per .NET per:
+Azure Cosmos DB è un database NoSQL veloce ™ Microsoft con API aperte per qualsiasi scala. È possibile usare Azure Cosmos DB per creare rapidamente database di chiavi/valori, di documenti e a grafo ed eseguire query su di essi. Usare la libreria client dell'API SQL di Azure Cosmos DB per .NET per:
 
 * Creare un database e un contenitore Azure Cosmos
 * Aggiungere dati di esempio al contenitore
@@ -96,7 +96,7 @@ La creazione dell'account Azure Cosmos richiede un po' di tempo. Al termine dell
 Creare una nuova applicazione .NET nell'ambiente di sviluppo integrato o nell'editor preferito. Aprire il prompt dei comandi di Windows o una finestra del terminale dal computer locale. Tutti i comandi delle sezioni successive dovranno essere eseguiti dal prompt dei comandi o dal terminale.  Eseguire il comando dotnet new riportato di seguito per creare una nuova app denominata `todo`. Il parametro --langVersion imposta la proprietà LangVersion nel file di progetto creato.
 
    ```bash
-   dotnet new console –langVersion:8 -n todo
+   dotnet new console â€“langVersion:8 -n todo
    ```
 
 Spostarsi nella cartella dell'app appena creata. È possibile compilare l'applicazione con il comando seguente:

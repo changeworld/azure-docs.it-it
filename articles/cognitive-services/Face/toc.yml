@@ -3,13 +3,13 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Panoramica del servizio Viso
+    - name: Che cos'è il servizio Viso
       href: Overview.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: Novità
       href: releasenotes.md
-- name: Guida introduttiva a Viso
+- name: Avvio rapido
   href: Quickstarts/client-libraries.md
 - name: Esempi
   href: /samples/browse/?products=azure&term=face
@@ -45,6 +45,14 @@
           href: face-resource-container-config.md
         - name: Usare istanze di contenitore
           href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Configurare le reti virtuali
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/face/context/context
+        - name: Usare chiavi gestite dal cliente
+          href: encrypt-data-at-rest.md
+        - name: Usare l Azure AD autenticazione
+          href: ../authentication.md?context=/azure/cognitive-services/face/context/context
 - name: Concetti
   items:
     - name: Rilevamento del viso
@@ -75,15 +83,15 @@
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
 - name: Risorse
   items:
-    - name: Supporto di area
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Supporto di area
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformità e certificazione
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Moduli di Learn
       href: 'https://docs.microsoft.com/learn/modules/detect-analyze-faces/'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
-    - name: Conformità
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Crittografia
-      href: encrypt-data-at-rest.md
     - name: Aggiornamenti di Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'

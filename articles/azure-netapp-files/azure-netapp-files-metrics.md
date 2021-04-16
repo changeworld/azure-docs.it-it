@@ -1,6 +1,6 @@
 ---
 title: Metriche per Azure NetApp Files | Microsoft Docs
-description: Azure NetApp Files fornisce la metrica sull'archiviazione allocata, sull'utilizzo effettivo dello spazio di archiviazione, sul volume IOPS e sulla latenza. Usare queste metriche per comprendere l'utilizzo e le prestazioni.
+description: Azure NetApp Files metriche sull'archiviazione allocata, sull'utilizzo effettivo dello spazio di archiviazione, sulle operazioni di I/O al secondo del volume e sulla latenza. Usare queste metriche per comprendere l'utilizzo e le prestazioni.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,57 +12,61 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 04/12/2021
 ms.author: b-juche
-ms.openlocfilehash: a17e6cc0479cf8ff2306736994a369d9e44dfdda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b581470a886ff73739edfee7f45c64295eeeb1f0
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745945"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388610"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Metriche per Azure NetApp Files
 
-Azure NetApp Files fornisce la metrica sull'archiviazione allocata, sull'utilizzo effettivo dello spazio di archiviazione, sul volume IOPS e sulla latenza. L'analisi di queste metriche consente di comprendere meglio il modello di utilizzo e le prestazioni del volume degli account NetApp.  
+Azure NetApp Files metriche sull'archiviazione allocata, sull'utilizzo effettivo dello spazio di archiviazione, sulle operazioni di I/O al secondo del volume e sulla latenza. L'analisi di queste metriche consente di comprendere meglio il modello di utilizzo e le prestazioni del volume degli account NetApp.  
+
+È possibile trovare le metriche per un pool di capacità o un volume selezionando il **pool di capacità o** il **volume**.  Fare quindi **clic su Metrica** per visualizzare le metriche disponibili: 
+
+[![Snapshot che illustra come passare all'elenco a discesa Metrica. ](../media/azure-netapp-files/metrics-navigate-volume.png)](../media/azure-netapp-files/metrics-navigate-volume.png#lightbox)
 
 ## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>Metriche di utilizzo per i pool di capacità
 
-- *Dimensioni allocate pool*   
-    Dimensioni del pool di cui è stato effettuato il provisioning.
+- *Dimensioni allocate del pool*   
+    Dimensioni di cui è stato effettuato il provisioning del pool.
 
 - *Pool allocato alle dimensioni del volume*  
-    Totale della quota del volume (GiB) in un determinato pool di capacità, ovvero il totale delle dimensioni di provisioning dei volumi nel pool di capacità.  
-    Questa dimensione corrisponde alla dimensione selezionata durante la creazione del volume.  
+    Totale della quota di volume (GiB) in un determinato pool di capacità, ovvero il totale delle dimensioni di cui è stato effettuato il provisioning dei volumi nel pool di capacità.  
+    Queste dimensioni sono le dimensioni selezionate durante la creazione del volume.  
 
-- *Dimensioni utilizzate pool*  
+- *Dimensioni utilizzate del pool*  
     Totale dello spazio logico (GiB) usato tra i volumi in un pool di capacità.  
 
-- *Dimensioni totali dello snapshot per il pool*    
+- *Dimensioni totali snapshot per il pool*    
     Somma delle dimensioni dello snapshot da tutti i volumi nel pool.
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Metriche di utilizzo per i volumi
 
-- *Dimensioni utilizzate per volume percentuale*    
+- *Percentuale volume consumato dimensioni*    
     Percentuale del volume utilizzato, inclusi gli snapshot.  
-- *Dimensioni allocate volume*   
-    Dimensioni del volume di cui è stato effettuato il provisioning
-- *Dimensioni quota volume*    
-    Dimensioni della quota (GiB) con cui viene eseguito il provisioning del volume.   
+- *Dimensioni allocate del volume*   
+    Dimensioni di cui è stato effettuato il provisioning di un volume
+- *Dimensioni della quota del volume*    
+    Dimensioni della quota (GiB) con cui viene effettuato il provisioning del volume.   
 - *Dimensioni utilizzate del volume*   
-    Dimensioni logiche del volume (byte utilizzati).  
+    Dimensioni logiche del volume (byte usati).  
     Queste dimensioni includono lo spazio logico usato dai file system e gli snapshot attivi.  
 - *Dimensioni snapshot del volume*   
    Dimensioni di tutti gli snapshot in un volume.  
 
 ## <a name="performance-metrics-for-volumes"></a>Metriche delle prestazioni per i volumi
 
-- *Latenza di lettura media*   
-    Tempo medio per le letture dal volume in millisecondi.
-- *Latenza di scrittura media*   
-    Tempo medio per le scritture dal volume in millisecondi.
-- *IOPS lettura*   
-    Numero di letture del volume al secondo.
-- *IOPS di scrittura*   
+- *Latenza media di lettura*   
+    Tempo medio in millisecondi per le operazioni di lettura dal volume.
+- *Latenza media scrittura*   
+    Tempo medio in millisecondi per le scritture dal volume.
+- *Operazioni di I/O al secondo di lettura*   
+    Numero di operazioni di lettura nel volume al secondo.
+- *Operazioni di I/O al secondo di scrittura*   
     Numero di scritture nel volume al secondo.
 <!-- These two metrics are not yet available, until ~ 2020.09
 - *Read MiB/s*   
@@ -83,31 +87,31 @@ Azure NetApp Files fornisce la metrica sull'archiviazione allocata, sull'utilizz
 -->
 
 
-## <a name="volume-replication-metrics"></a><a name="replication"></a>Metriche di replica del volume
+## <a name="volume-replication-metrics"></a><a name="replication"></a>Metriche di replica dei volumi
 
 > [!NOTE] 
-> * Le dimensioni di trasferimento di rete (ad esempio, le metriche di *trasferimento totali* per la replica del volume) potrebbero differire dai volumi di origine o di destinazione di una replica tra aree. Questo comportamento è il risultato di un motore di replica efficiente utilizzato per ridurre al minimo i costi di trasferimento di rete.
-> * Le metriche di replica del volume sono attualmente popolate per i volumi di destinazione della replica e non per l'origine della relazione di replica.
+> * Le dimensioni del trasferimento di rete (ad esempio, *le* metriche di trasferimento totale della replica del volume) potrebbero differire dai volumi di origine o di destinazione di una replica tra aree. Questo comportamento è il risultato dell'uso efficiente del motore di replica per ridurre al minimo i costi di trasferimento della rete.
+> * Le metriche di replica dei volumi vengono attualmente popolate per i volumi di destinazione della replica e non per l'origine della relazione di replica.
 
-- *Stato replica del volume integro*   
-    Condizione della relazione di replica. Uno stato integro è indicato da `1` . Uno stato di tipo non integro è indicato da `0` .
+- *Lo stato della replica del volume è integro*   
+    Condizione della relazione di replica. Uno stato integro è denotato da `1` . Uno stato non integro viene denotato da `0` .
 
-- *Trasferimento della replica del volume*    
-    Indica se lo stato della replica del volume è' Transfer '. 
+- *È in corso il trasferimento della replica del volume*    
+    Indica se lo stato della replica del volume è "trasferimento in corso". 
  
 - *Tempo di ritardo della replica del volume*   
-    Quantità di tempo, in secondi, in base alla quale i dati nel mirror sono in ritardo rispetto all'origine. 
+    Intervallo di tempo in secondi in base al quale i dati nel mirror sono in ritardo rispetto all'origine. 
 
-- *Durata ultimo trasferimento replica volume*   
+- *Durata dell'ultimo trasferimento della replica del volume*   
     Quantità di tempo in secondi impiegato per il completamento dell'ultimo trasferimento. 
 
-- *Dimensioni ultimo trasferimento replica volume*    
+- *Dimensioni dell'ultimo trasferimento della replica del volume*    
     Numero totale di byte trasferiti come parte dell'ultimo trasferimento. 
 
 - *Stato della replica del volume*    
     Quantità totale di dati trasferiti per l'operazione di trasferimento corrente. 
 
-- *Trasferimento totale replica volume*   
+- *Trasferimento totale della replica del volume*   
     Byte cumulativi trasferiti per la relazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi

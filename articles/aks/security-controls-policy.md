@@ -1,20 +1,20 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per il servizio Azure Kubernetes
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per il servizio Azure Kubernetes. Queste definizioni di criteri predefinite rappresentano approcci comuni per gestire la conformità delle risorse di Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: sample
 ms.service: container-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d4b36638caf1365f387f0c2644726706b3793c2f
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: d86dcdea210c51f2668c3dffcc1319f4de391bcd
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107104933"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505845"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-kubernetes-service-aks"></a>Controlli di conformità alle normative di Criteri di Azure per il servizio Azure Kubernetes
 
-La [conformità alle normative in criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce le definizioni di iniziativa (*built-* in) create e gestite da Microsoft, per i domini di conformità e i controlli di sicurezza correlati a diversi standard di conformità. Questa pagina elenca i controlli di sicurezza e i domini di conformità di Azure Kubernetes Service (AKS).
+[Conformità alle normative in Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) le definizioni di iniziativa (*built-ins*) create e gestite da Microsoft, per i domini di conformità e i controlli di sicurezza correlati a diversi standard di conformità. Questa pagina elenca i domini di servizio Azure Kubernetes e i controlli di sicurezza.
 
 È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
 

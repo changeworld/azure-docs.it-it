@@ -1,6 +1,6 @@
 ---
-title: Metodo di autenticazione per domande di sicurezza-Azure Active Directory
-description: Per informazioni sull'uso di domande di sicurezza, vedere Azure Active Directory per contribuire a migliorare e proteggere gli eventi di accesso
+title: Metodo di autenticazione per le domande di sicurezza - Azure Active Directory
+description: Informazioni sull'uso di domande di sicurezza Azure Active Directory per migliorare e proteggere gli eventi di accesso
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -10,14 +10,14 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7229dabd690e5932fbd297992e09782eda85a002
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 841391778e0fb8c00f503aa0cc79b5562661e309
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96744143"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530348"
 ---
-# <a name="authentication-methods-in-azure-active-directory---security-questions"></a>Metodi di autenticazione in Azure Active Directory-domande di sicurezza
+# <a name="authentication-methods-in-azure-active-directory---security-questions"></a>Metodi di autenticazione in Azure Active Directory domande di sicurezza
 
 Le domande di sicurezza non vengono usate come metodo di autenticazione durante un evento di accesso. Possono invece essere usate durante il processo di reimpostazione della password self-service per confermare l'identità dell'utente. Gli account amministratore non possono usare le domande di sicurezza come metodo di verifica con la reimpostazione della password self-service.
 
@@ -32,7 +32,7 @@ Le domande di sicurezza possono risultare meno sicure rispetto ad altri metodi p
 
 ## <a name="predefined-questions"></a>Domande predefinite
 
-Le domande di sicurezza predefinite seguenti sono disponibili per essere usate come metodo di verifica con la reimpostazione della password self-service. Tutte queste domande di sicurezza vengono convertite e localizzate nel set completo di linguaggi Microsoft 365 in base alle impostazioni locali del browser dell'utente:
+Le domande di sicurezza predefinite seguenti sono disponibili per essere usate come metodo di verifica con la reimpostazione della password self-service. Tutte queste domande di sicurezza vengono tradotte e localizzate nel set completo di lingue Microsoft 365 in base alle impostazioni locali del browser dell'utente:
 
 * In quale città hai incontrato tuo marito o il tuo partner?
 * In quale città si sono incontrati i tuoi genitori?
@@ -89,11 +89,11 @@ Sia per le domande di sicurezza predefinite che per quelle personalizzate, si ap
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare, vedere l' [esercitazione per la reimpostazione della password self-service (SSPR)][tutorial-sspr].
+Per iniziare, vedere l'esercitazione per la reimpostazione della [password self-service .][tutorial-sspr]
 
 Per altre informazioni sui concetti di reimpostazione della password self-service, vedere [Come funziona la reimpostazione della password self-service di Azure AD][concept-sspr].
 
-Altre informazioni sulla configurazione dei metodi di autenticazione con l' [API REST di Microsoft Graph beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Altre informazioni sulla configurazione dei metodi di autenticazione usando [l'API REST Microsoft Graph](/graph/api/resources/authenticationmethods-overview).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

@@ -299,7 +299,7 @@
               href: storage-blob-copy.md
             - name: Usare tag indice BLOB
               href: storage-blob-index-how-to.md
-            - name: Calcolare il numero di BLOB e le dimensioni totali
+            - name: Calcolare il numero e le dimensioni totali dei BLOB
               href: calculate-blob-count-size.md
         - name: Autorizzare l'accesso ai dati BLOB
           items:
@@ -415,9 +415,9 @@
               href: versioning-enable.md
             - name: Abilitare e gestire l'eliminazione temporanea per i BLOB
               items:
-                - name: Abilita eliminazione temporanea BLOB
+                - name: Abilitare l'eliminazione blob
                   href: soft-delete-blob-enable.md
-                - name: Gestire e ripristinare BLOB eliminati temporaneamente
+                - name: Gestire e ripristinare i BLOB eliminati automaticamente
                   href: soft-delete-blob-manage.md
             - name: Abilitare il ripristino temporizzato
               href: point-in-time-restore-manage.md
@@ -427,7 +427,7 @@
               href: storage-blob-change-feed-how-to.md
             - name: Configurare e gestire criteri di immutabilità
               href: storage-blob-immutability-policies-manage.md
-        - name: Gestire la ridondanza e il failover
+        - name: Gestire ridondanza e failover
           items:
             - name: Modificare la configurazione della ridondanza
               href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -445,7 +445,7 @@
           items:
             - name: Usare l'emulatore open source Azurite
               href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Usare azzurrite per eseguire test automatizzati
+            - name: Usare Azurite per eseguire test automatizzati
               href: use-azurite-to-run-automated-tests.md
             - name: Usare l'emulatore di archiviazione di Azure
               href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -469,20 +469,22 @@
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Autorizzare con Azure AD
                   href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Ottimizzare le prestazioni
+                  href: ../common/storage-use-azcopy-optimize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Usare i log per trovare gli errori e riprendere i processi
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Esempi: Caricamento'
                   href: ../common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Esempi: Download'
                   href: ../common/storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Esempi: Sincronizza'
-                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Esempi: Copiare tra account'
                   href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Esempi: Sincronizza'
+                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Esempi: Bucket di Amazon S3'
                   href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Esempi: bucket di Google Cloud Storage'
                   href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Configurare, ottimizzare, risolvere i problemi'
-                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Montare risorse di archiviazione con NFS
@@ -519,6 +521,8 @@
           href: ../blobs/reference.md
         - name: AzCopy v10
           items:
+            - name: Impostazioni di configurazione
+              href: ../common/storage-ref-azcopy-configuration-settings.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: azcopy
               href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: azcopy bench
@@ -579,9 +583,9 @@
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Risolvere i problemi di Storage Explorer
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Opzioni della riga di comando Storage Explorer
+            - name: Storage Explorer della riga di comando
               href: ../common/storage-explorer-command-line-options.md
-            - name: Collegamento diretto Storage Explorer
+            - name: Storage Explorer collegamento diretto
               href: ../common/storage-explorer-direct-link.md
             - name: Sicurezza di Storage Explorer
               href: ../common/storage-explorer-security.md
@@ -663,11 +667,11 @@
           href: data-lake-storage-introduction.md
     - name: Esercitazioni
       items:
-        - name: Usare con databricks e Spark
+        - name: Usare con Databricks e Spark
           href: data-lake-storage-use-databricks-spark.md
         - name: Usare con Apache Hive e HDInsight
           href: data-lake-storage-tutorial-extract-transform-load-hive.md
-        - name: Usare con Delta di databricks e griglia di eventi
+        - name: Usare con Databricks Delta e Griglia di eventi
           href: data-lake-storage-events.md
         - name: Uso con altri servizi di Azure
           href: data-lake-storage-integrate-with-services-tutorials.md
@@ -741,18 +745,24 @@
               items:
                 - name: Introduzione
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Autorizzare con Azure AD
+                  href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Ottimizzare le prestazioni
+                  href: ../common/storage-use-azcopy-optimize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Usare i log per trovare gli errori e riprendere i processi
+                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Esempi: Caricamento'
                   href: ../common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Esempi: Download'
                   href: ../common/storage-use-azcopy-blobs-download.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Esempi: Sincronizza'
-                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Esempi: Copiare tra account'
                   href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Esempi: Sincronizza'
+                  href: ../common/storage-use-azcopy-blobs-synchronize.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 'Esempi: Bucket di Amazon S3'
                   href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Configurare, ottimizzare e risolvere i problemi'
-                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Esempi: bucket di Google Cloud Storage'
+                  href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Trasferire dati con lo strumento DistCp

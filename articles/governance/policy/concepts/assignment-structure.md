@@ -1,20 +1,20 @@
 ---
 title: Dettagli della struttura di assegnazione dei criteri
-description: Descrive la definizione di assegnazione dei criteri usata da criteri di Azure per mettere in relazione le definizioni dei criteri e i parametri alle risorse per la valutazione.
-ms.date: 03/17/2021
+description: Descrive la definizione di assegnazione dei criteri usata Criteri di Azure per correlare le definizioni dei criteri e i parametri alle risorse per la valutazione.
+ms.date: 04/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9de210b17264330e79ab5978a449e7a494054be2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604866"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535867"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
 
-Le assegnazioni di criteri vengono usate dai criteri di Azure per definire a quali risorse sono assegnati i criteri o le iniziative. L'assegnazione di criteri può determinare i valori dei parametri per il gruppo di risorse in fase di assegnazione, rendendo possibile il riutilizzo delle definizioni dei criteri che indirizzano le stesse proprietà delle risorse con diverse esigenze di conformità.
+Le assegnazioni di criteri vengono usate Criteri di Azure per definire le risorse a cui vengono assegnati i criteri o le iniziative. L'assegnazione dei criteri può determinare i valori dei parametri per il gruppo di risorse in fase di assegnazione, rendendo possibile il riutilizzo delle definizioni dei criteri che rilascino le stesse proprietà delle risorse con esigenze di conformità diverse.
 
-Si usa JSON per creare un'assegnazione di criteri. L'assegnazione di criteri contiene elementi per:
+Usare JSON per creare un'assegnazione di criteri. L'assegnazione dei criteri contiene elementi per:
 
 - nome visualizzato
 - description
@@ -25,7 +25,7 @@ Si usa JSON per creare un'assegnazione di criteri. L'assegnazione di criteri con
 - messaggi di non conformità
 - parametri
 
-Ad esempio, il codice JSON seguente mostra un'assegnazione di criteri in modalità _DoNotEnforce_ con i parametri dinamici:
+Ad esempio, il codice JSON seguente mostra un'assegnazione di criteri in _modalità DoNotEnforce_ con parametri dinamici:
 
 ```json
 {
@@ -59,39 +59,63 @@ Tutti gli esempi di Criteri di Azure sono disponibili in [Esempi di Criteri di A
 
 ## <a name="display-name-and-description"></a>Nome visualizzato e descrizione
 
-Usare **DisplayName** e **Description** per identificare l'assegnazione dei criteri e fornire il contesto per l'uso con il set specifico di risorse. **displayName** ha una lunghezza massima di _128_ caratteri e **description** una lunghezza massima di _512_ caratteri.
+Usare **displayName e** **description per** identificare l'assegnazione dei criteri e fornire il contesto per l'uso con il set specifico di risorse. **displayName** ha una lunghezza massima di _128_ caratteri e **description** una lunghezza massima di _512_ caratteri.
+
+## <a name="metadata"></a>Metadati
+
+La proprietà `metadata` facoltativa archivia informazioni sull'assegnazione dei criteri. I clienti possono definire qualsiasi proprietà e valore utile per l'organizzazione in `metadata` . Tuttavia, esistono alcune _proprietà comuni_ usate da Criteri di Azure. Ogni `metadata` proprietà ha un limite di 1024 caratteri.
+
+### <a name="common-metadata-properties"></a>Proprietà comuni dei metadati
+
+- `assignedBy` (stringa): nome descrittivo dell'entità di sicurezza che ha creato l'assegnazione.
+- `createdBy` (stringa): GUID dell'entità di sicurezza che ha creato l'assegnazione.
+- `createdOn` (stringa): formato DateTime ISO 8601 universale dell'ora di creazione dell'assegnazione.
+- `parameterScopes` (oggetto): raccolta di coppie chiave-valore in cui la chiave corrisponde a un nome di parametro configurato [strongType](./definition-structure.md#strongtype) e il valore definisce l'ambito della risorsa usato nel portale per fornire l'elenco delle risorse disponibili tramite la corrispondenza _di strongType_. Il portale imposta questo valore se l'ambito è diverso dall'ambito di assegnazione. Se impostato, una modifica dell'assegnazione dei criteri nel portale imposta automaticamente l'ambito per il parametro su questo valore. Tuttavia, l'ambito non è bloccato al valore e può essere modificato in un altro ambito.
+
+  L'esempio seguente di è per un parametro `parameterScopes` _strongType_ denominato **backupPolicyId** che imposta un ambito per la selezione delle risorse quando l'assegnazione viene modificata nel portale.
+
+  ```json
+  "metadata": {
+      "parameterScopes": {
+          "backupPolicyId": "/subscriptions/{SubscriptionID}/resourcegroups/{ResourceGroupName}"
+      }
+  }
+  ```
+
+- `updatedBy` (stringa): nome descrittivo dell'entità di sicurezza che ha aggiornato l'assegnazione, se presente.
+- `updatedOn` (stringa): formato DateTime ISO 8601 universale dell'ora di aggiornamento dell'assegnazione, se presente.
 
 ## <a name="enforcement-mode"></a>Modalità di imposizione
 
-La proprietà **enforcementMode** fornisce ai clienti la possibilità di testare il risultato di un criterio sulle risorse esistenti senza avviare l'effetto del criterio o attivare le voci nel [log attività di Azure](../../../azure-monitor/essentials/platform-logs-overview.md). Questo scenario viene in genere definito "What If" e viene allineato a procedure di distribuzione sicure. **enforcementMode** è diverso dall'effetto [disabilitato](./effects.md#disabled) , perché questo effetto impedisce la valutazione delle risorse.
+La **proprietà enforcementMode** offre ai clienti la possibilità di testare il risultato di un criterio sulle risorse esistenti senza avviare l'effetto dei criteri o attivare le voci nel [log attività di Azure.](../../../azure-monitor/essentials/platform-logs-overview.md) Questo scenario viene comunemente definito "What If" e si allinea alle procedure di distribuzione sicure. **enforcementMode è** diverso [dall'effetto Disabilitato,](./effects.md#disabled) in quanto tale effetto impedisce che la valutazione delle risorse avvenga affatto.
 
-Questa proprietà presenta i valori seguenti:
+Questa proprietà ha i valori seguenti:
 
-|Modalità |Valore JSON |Tipo |Correzione manuale |Voce del log attività |Descrizione |
+|Modalità |Valore JSON |Tipo |Correggere manualmente |Voce del log attività |Descrizione |
 |-|-|-|-|-|-|
 |Abilitato |Predefinito |string |Sì |Sì |L'effetto dei criteri viene applicato durante la creazione o l'aggiornamento delle risorse. |
 |Disabled |DoNotEnforce |string |Sì |No | L'effetto dei criteri non viene applicato durante la creazione o l'aggiornamento delle risorse. |
 
-Se **enforcementMode** non è specificato nella definizione di un criterio o di un'iniziativa, viene usato il valore _predefinito_ . È possibile avviare le [attività di correzione](../how-to/remediate-resources.md) per i criteri [deployIfNotExists](./effects.md#deployifnotexists) , anche quando **enforcementMode** è impostato su _DoNotEnforce_.
+Se **enforcementMode non** viene specificato in una definizione di criteri o iniziative, viene usato _il_ valore Predefinito. [Le attività di correzione](../how-to/remediate-resources.md) possono essere avviate per i criteri [deployIfNotExists,](./effects.md#deployifnotexists) anche quando **enforcementMode** è impostato su _DoNotEnforce_.
 
 ## <a name="excluded-scopes"></a>Ambiti esclusi
 
-L' **ambito** dell'assegnazione include tutti i contenitori di risorse figlio e le risorse figlio. Se a un contenitore di risorse figlio o a una risorsa figlio non deve essere applicata la definizione, ciascuna di esse può essere _esclusa_ dalla valutazione impostando **notScopes**. Questa proprietà è una matrice che consente di escludere uno o più contenitori di risorse o risorse dalla valutazione. **notScopes** può essere aggiunto o aggiornato dopo la creazione dell'assegnazione iniziale.
+**L'ambito** dell'assegnazione include tutti i contenitori di risorse figlio e le risorse figlio. Se a un contenitore di risorse figlio o a una  risorsa figlio non deve essere applicata la definizione, ognuno può essere escluso dalla valutazione impostando **notScopes**. Questa proprietà è una matrice per consentire l'esclusione di uno o più contenitori di risorse o risorse dalla valutazione. **notScopes** può essere aggiunto o aggiornato dopo la creazione dell'assegnazione iniziale.
 
 > [!NOTE]
-> Una risorsa _esclusa_ è diversa da una risorsa _esentata_ . Per altre informazioni, vedere [comprendere l'ambito nei criteri di Azure](./scope.md).
+> Una _risorsa_ esclusa è diversa da una _risorsa esenta._ Per altre informazioni, vedere [Informazioni sull'ambito in Criteri di Azure](./scope.md).
 
-## <a name="policy-definition-id"></a>ID definizione dei criteri
+## <a name="policy-definition-id"></a>ID definizione criteri
 
-Questo campo deve essere il nome completo del percorso di una definizione di criteri o di una definizione di iniziativa.
-`policyDefinitionId` è una stringa e non una matrice. Se più criteri vengono spesso assegnati insieme, è consigliabile usare invece un' [iniziativa](./initiative-definition-structure.md) .
+Questo campo deve essere il nome del percorso completo di una definizione di criteri o di un'iniziativa.
+`policyDefinitionId` è una stringa e non una matrice. Se vengono spesso assegnati più criteri, è consigliabile usare [un'iniziativa.](./initiative-definition-structure.md)
 
 ## <a name="non-compliance-messages"></a>Messaggi di non conformità
 
-Per impostare un messaggio personalizzato che descrive il motivo per cui una risorsa non è conforme alla definizione di criteri o di iniziativa, impostare `nonComplianceMessages` nella definizione di assegnazione. Questo nodo è una matrice di `message` voci. Questo messaggio personalizzato è in aggiunta al messaggio di errore predefinito per la mancata conformità ed è facoltativo.
+Per impostare un messaggio personalizzato che descriva il motivo per cui una risorsa non è conforme alla definizione dei criteri o dell'iniziativa, impostare `nonComplianceMessages` nella definizione di assegnazione. Questo nodo è una matrice `message` di voci. Questo messaggio personalizzato è in aggiunta al messaggio di errore predefinito per la non conformità ed è facoltativo.
 
 > [!IMPORTANT]
-> I messaggi personalizzati per la non conformità sono supportati solo nelle definizioni o nelle iniziative con le definizioni delle [modalità gestione risorse](./definition-structure.md#resource-manager-modes) .
+> I messaggi personalizzati per la non conformità sono supportati solo nelle definizioni o nelle [iniziative con Resource Manager definizioni delle modalità.](./definition-structure.md#resource-manager-modes)
 
 ```json
 "nonComplianceMessages": [
@@ -101,7 +125,7 @@ Per impostare un messaggio personalizzato che descrive il motivo per cui una ris
 ]
 ```
 
-Se l'assegnazione è per un'iniziativa, è possibile configurare messaggi diversi per ogni definizione di criterio nell'iniziativa. I messaggi usano il `policyDefinitionReferenceId` valore configurato nella definizione Initiative. Per informazioni dettagliate, vedere [proprietà delle definizioni dei criteri](./initiative-definition-structure.md#policy-definition-properties).
+Se l'assegnazione è per un'iniziativa, è possibile configurare messaggi diversi per ogni definizione di criteri nell'iniziativa. I messaggi usano il `policyDefinitionReferenceId` valore configurato nella definizione dell'iniziativa. Per informazioni dettagliate, vedere [Proprietà delle definizioni dei criteri](./initiative-definition-structure.md#policy-definition-properties).
 
 ```json
 "nonComplianceMessages": [
@@ -117,7 +141,7 @@ Se l'assegnazione è per un'iniziativa, è possibile configurare messaggi divers
 
 ## <a name="parameters"></a>Parametri
 
-Questo segmento dell'assegnazione di criteri fornisce i valori per i parametri definiti nella definizione dei [criteri o nella definizione di iniziativa](./definition-structure.md#parameters). Questa progettazione rende possibile il riutilizzo di una definizione di criteri o di un'iniziativa con diverse risorse, ma verificare la presenza di valori o risultati aziendali diversi.
+Questo segmento dell'assegnazione di criteri fornisce i valori per i parametri definiti nella definizione dei criteri o nella definizione [dell'iniziativa](./definition-structure.md#parameters). Questa progettazione consente di riutilizzare una definizione di criteri o di iniziativa con risorse diverse, ma verifica la presenza di valori o risultati aziendali diversi.
 
 ```json
 "parameters": {
@@ -130,7 +154,7 @@ Questo segmento dell'assegnazione di criteri fornisce i valori per i parametri d
 }
 ```
 
-In questo esempio, i parametri definiti in precedenza nella definizione dei criteri sono `prefix` e `suffix` . Questa particolare assegnazione di criteri imposta `prefix` a **depta** e `suffix` a **-LC**. La stessa definizione di criteri è riutilizzabile con un diverso set di parametri per un reparto diverso, riducendo la duplicazione e la complessità delle definizioni dei criteri, garantendo al tempo stesso flessibilità.
+In questo esempio i parametri definiti in precedenza nella definizione dei criteri sono `prefix` e `suffix` . Questa particolare assegnazione di criteri `prefix` imposta **su DeptA** e `suffix` su **-LC.** La stessa definizione di criteri è riutilizzabile con un set diverso di parametri per un reparto diverso, riducendo la duplicazione e la complessità delle definizioni dei criteri, offrendo al tempo stesso flessibilità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

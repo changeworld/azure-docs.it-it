@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 037ac972dca49484f7b8c0ad8eed6942c901b997
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cffc36cbd4f24bbcbb5996a323ffa963e311693
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562929"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530954"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuire la prima app a Cloud Foundry in Microsoft Azure
 
@@ -27,11 +27,11 @@ Esistono diverse opzioni per la creazione di un ambiente Cloud Foundry in Azure:
 - [Distribuire i pacchetti open source di Cloud Foundry direttamente][oss-cf-bosh] impostando un [BOSH](https://bosh.io) director, una macchina virtuale che coordina la distribuzione dell'ambiente Cloud Foundry.
 
 > [!IMPORTANT] 
-> Se si distribuisce PCF da Azure Marketplace, annotare il SYSTEMDOMAINURL e le credenziali amministratore necessarie per accedere al gestore di app di Pivotal, entrambi descritti nella Guida alla distribuzione dal marketplace. Questi elementi sono necessari per completare questa esercitazione. Per le distribuzioni del Marketplace, il SYSTEMDOMAINURL è nel formato `https://system.*ip-address*.cf.pcfazure.com` .
+> Se si distribuisce PCF da Azure Marketplace, annotare il SYSTEMDOMAINURL e le credenziali amministratore necessarie per accedere al gestore di app di Pivotal, entrambi descritti nella Guida alla distribuzione dal marketplace. Questi elementi sono necessari per completare questa esercitazione. Per le distribuzioni del marketplace, SYSTEMDOMAINURL è nel formato `https://system.*ip-address*.cf.pcfazure.com` .
 
 ## <a name="connect-to-the-cloud-controller"></a>Connettersi al controller del cloud
 
-Il controller del cloud è il punto di ingresso principale in un ambiente Cloud Foundry per la distribuzione e la gestione delle applicazioni. L'API del controller del cloud di base (CCAPI) è un'API REST, ma è accessibile attraverso vari strumenti. In questo caso, si interagisce con essa tramite l'[interfaccia della riga di comando di Cloud Foundry][cf-cli]. È possibile installare l'interfaccia della riga di comando in Linux, macOS o Windows, ma se si preferisce non installarla, è disponibile preinstallato nel [Azure cloud Shell][cloudshell-docs].
+Il controller del cloud è il punto di ingresso principale in un ambiente Cloud Foundry per la distribuzione e la gestione delle applicazioni. L'API del controller del cloud di base (CCAPI) è un'API REST, ma è accessibile attraverso vari strumenti. In questo caso, si interagisce con essa tramite l'[interfaccia della riga di comando di Cloud Foundry][cf-cli]. È possibile installare l'interfaccia della riga di comando in Linux, macOS o Windows, ma se si preferisce non installarla affatto, è disponibile preinstallato nel [Azure Cloud Shell][cloudshell-docs].
 
 Per eseguire l'accesso, anteporre `api` al SYSTEMDOMAINURL ottenuto dalla distribuzione dal marketplace. Poiché la distribuzione predefinita usa un certificato autofirmato, è necessario includere anche l'istruzione `skip-ssl-validation`.
 
@@ -64,7 +64,7 @@ cf target -o testorg -s dev
 A questo punto, quando si distribuisce un'applicazione essa viene automaticamente creata nella nuova organizzazione e nel nuovo spazio. Per confermare che non sono attualmente presenti app nella nuova organizzazione/spazio, digitare nuovamente `cf apps`.
 
 > [!NOTE] 
-> Per altre informazioni su org e sugli spazi e su come possono essere usati per Cloud Foundry il controllo degli accessi in base al ruolo (Cloud Foundry RBAC), vedere la [documentazione di Cloud Foundry][cf-orgs-spaces-docs].
+> Per altre informazioni su organizzazioni e spazi e su come possono essere usati Cloud Foundry controllo degli accessi in base al ruolo (Cloud Foundry RBAC), vedere la documentazione Cloud Foundry [.][cf-orgs-spaces-docs]
 
 ## <a name="deploy-an-application"></a>Distribuire un'applicazione
 
@@ -144,7 +144,7 @@ L'esecuzione del comando `cf app` nell'applicazione indica che Cloud Foundry sta
 [pcf-azuremarketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
 [pcf-custom]: https://docs.pivotal.io/pivotalcf/1-10/customizing/azure.html
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
-[pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/pivotalcf/customizing/pcf_azure.html
+[pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/ops-manager/2-10/install/pcf_azure.html
 [cf-cli]: https://github.com/cloudfoundry/cli
 [cloudshell-docs]: ../cloud-shell/overview.md
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html

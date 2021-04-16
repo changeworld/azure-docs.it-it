@@ -1,19 +1,21 @@
 ---
-title: 'Guida introduttiva: libreria di archiviazione BLOB di Azure V12-Python'
-description: Questa Guida introduttiva illustra come usare la libreria client di archiviazione BLOB di Azure versione 12 per Python per creare un contenitore e un BLOB nell'archiviazione BLOB (oggetto). Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
+title: 'Guida introduttiva: Archiviazione BLOB di Azure libreria v12 - Python'
+description: Questa guida introduttiva illustra come usare la libreria client Archiviazione BLOB di Azure versione 12 per Python per creare un contenitore e un BLOB nell'archiviazione BLOB (oggetto). Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
 author: twooley
 ms.author: twooley
 ms.date: 01/28/2021
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
-ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: a5d56b20bec7e668bb2119c9174fe03278c805c1
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: 9a6ccbe5482ac8ffe484c3155334cba1b50ba0dc
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278015"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535647"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Avvio rapido: Gestire i BLOB con Python v12 SDK
 
@@ -30,13 +32,13 @@ Altre risorse:
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un account dell'Archiviazione di Azure. [Creare un account di archiviazione](../common/storage-account-create.md).
-- [Python](https://www.python.org/downloads/) 2,7 o 3.6 +.
+- [Python](https://www.python.org/downloads/) 2.7 o 3.6+.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Configurazione
 
-Questa sezione illustra la preparazione di un progetto per l'uso con la libreria client di archiviazione BLOB di Azure V12 per Python.
+Questa sezione illustra come preparare un progetto da usare con la libreria client Archiviazione BLOB di Azure v12 per Python.
 
 ### <a name="create-the-project"></a>Creare il progetto
 
@@ -62,13 +64,13 @@ Creare un'applicazione Python denominata *blob-quickstart-v12*.
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Nella directory dell'applicazione installare la libreria client di archiviazione BLOB di Azure per il pacchetto python usando il `pip install` comando.
+Sempre nella directory dell'applicazione, installare il pacchetto Archiviazione BLOB di Azure libreria client per Python usando il `pip install` comando .
 
 ```console
 pip install azure-storage-blob
 ```
 
-Questo comando installa la libreria client di archiviazione BLOB di Azure per il pacchetto Python e tutte le librerie da cui dipende. In questo caso, si tratta solo della libreria principale di Azure per Python.
+Questo comando installa il pacchetto Archiviazione BLOB di Azure libreria client per Python e tutte le librerie da cui dipende. In questo caso, si tratta solo della libreria principale di Azure per Python.
 
 ### <a name="set-up-the-app-framework"></a>Configurare il framework dell'app
 
@@ -106,7 +108,7 @@ Per interagire con queste risorse, usare le classi Python seguenti:
 
 ## <a name="code-examples"></a>Esempi di codice
 
-Questi frammenti di codice di esempio illustrano come eseguire le attività seguenti con la libreria client di archiviazione BLOB di Azure per Python:
+Questi frammenti di codice di esempio illustrano come eseguire le attività seguenti con la libreria client Archiviazione BLOB di Azure per Python:
 
 * [Ottenere la stringa di connessione](#get-the-connection-string)
 * [Creare un contenitore](#create-a-container)
@@ -117,7 +119,7 @@ Questi frammenti di codice di esempio illustrano come eseguire le attività segu
 
 ### <a name="get-the-connection-string"></a>Ottenere la stringa di connessione
 
-Il codice seguente recupera la stringa di connessione dell'account di archiviazione dalla variabile di ambiente creata nella sezione [configurare la stringa di connessione di archiviazione](#configure-your-storage-connection-string) .
+Il codice seguente recupera la stringa di connessione dell'account di archiviazione dalla variabile di ambiente creata nella [sezione Configurare la stringa di connessione di archiviazione.](#configure-your-storage-connection-string)
 
 Aggiungere questo codice all'interno del blocco `try`:
 
@@ -140,7 +142,7 @@ Aggiungere questo codice alla fine del blocco `try`:
 
 Il frammento di codice seguente consente di:
 
-1. Crea una directory locale in cui conservare i file di dati.
+1. Crea una directory locale per contenere i file di dati.
 1. Creare un file di testo nella directory locale.
 1. Ottenere un riferimento a un oggetto [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) chiamando il metodo [get_blob_client](/python/api/azure-storage-blob/azure.storage.blob.containerclient#get-blob-client-blob--snapshot-none-) su [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) dalla sezione [Creare un contenitore](#create-a-container).
 1. Caricare il file di testo locale nel BLOB chiamando il metodo [upload_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#upload-blob-data--blob-type--blobtype-blockblob---blockblob----length-none--metadata-none----kwargs-).
@@ -169,7 +171,7 @@ Aggiungere questo codice alla fine del blocco `try`:
 
 Il codice seguente pulisce le risorse create dall'app eliminando l'intero contenitore tramite il metodo [delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#delete-container---kwargs-). È anche possibile eliminare i file locali, se si vuole.
 
-L'app viene sospesa per l'input dell'utente chiamando `input()` prima dell'eliminazione di BLOB, contenitore e file locali. Verificare che le risorse siano state create correttamente, prima di essere eliminate.
+L'app viene sospesa per l'input dell'utente chiamando `input()` prima dell'eliminazione di BLOB, contenitore e file locali. Verificare che le risorse siano state create correttamente prima di essere eliminate.
 
 Aggiungere questo codice alla fine del blocco `try`:
 
@@ -177,7 +179,7 @@ Aggiungere questo codice alla fine del blocco `try`:
 
 ## <a name="run-the-code"></a>Eseguire il codice
 
-Questa app crea un file di test nella cartella locale e lo carica nell'archivio BLOB di Azure. L'esempio elenca quindi i BLOB nel contenitore e Scarica il file con un nuovo nome. È possibile confrontare i file vecchi e nuovi.
+Questa app crea un file di test nella cartella locale e lo carica Archiviazione BLOB di Azure. L'esempio elenca quindi i BLOB nel contenitore e scarica il file con un nuovo nome. È possibile confrontare i file vecchi e nuovi.
 
 Passare alla directory contenente il file *blob-quickstart-v12.py*, quindi usare questo comando `python` per eseguire l'app.
 
@@ -206,7 +208,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Prima di iniziare il processo di pulizia, controllare la cartella *dei dati* per i due file. È possibile aprirli e osservare che sono identici.
+Prima di iniziare il processo di pulizia, verificare la presenza *dei* due file nella cartella dei dati. È possibile aprirli e osservare che sono identici.
 
 Dopo aver verificato i file, premere **INVIO** per eliminare i file di test e completare la demo.
 
@@ -217,7 +219,7 @@ In questo avvio rapido si è appreso come caricare, scaricare ed elencare i BLOB
 Per visualizzare le app di esempio di Archiviazione BLOB, procedere con:
 
 > [!div class="nextstepaction"]
-> [Esempi di Python per Azure BLOB Storage SDK V12](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Archiviazione BLOB di Azure SDK v12 per Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
 * Per altre informazioni, vedere le [librerie client di Archiviazione di Azure per Python](/azure/developer/python/sdk/storage/overview).
 * Per esercitazioni, esempi, guide di avvio rapido e altre documentazioni, vedere [Azure per sviluppatori Python](/azure/python/).

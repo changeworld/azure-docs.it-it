@@ -1,18 +1,20 @@
 ---
 title: Come usare le code di azure/service-bus in JavaScript
-description: Informazioni su come scrivere un programma JavaScript che usa la versione più recente del @azure/service-bus pacchetto per inviare e ricevere messaggi da una coda del bus di servizio.
+description: Informazioni su come scrivere un programma JavaScript che usa la versione più recente del pacchetto per inviare e ricevere messaggi @azure/service-bus da una coda del bus di servizio.
 author: spelluru
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: devx-track-js
-ms.openlocfilehash: 3c499dcb5233cbf5cd4048c641d1b38e289cc35f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 11/09/2020
+ms.topic: quickstart
+ms.devlang: nodejs
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: aee67becf7519f03839eafbd897838f938871307
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739713"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537234"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Inviare e ricevere messaggi dalle code del bus di servizio di Azure (JavaScript)
 Questa esercitazione illustra come usare il pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) in un programma JavaScript per inviare e ricevere messaggi da una coda del bus di servizio.
@@ -205,7 +207,7 @@ Selezionare la coda in questa pagina **Panoramica** per passare alla pagina **Co
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere la documentazione e gli esempi seguenti: 
 
-- [Libreria client del bus di servizio di Azure per JavaScript](https://www.npmjs.com/package/@azure/service-bus)
+- [bus di servizio di Azure libreria client per JavaScript](https://www.npmjs.com/package/@azure/service-bus)
 - [Esempi JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Esempi di TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [Documentazione di riferimento delle API](/javascript/api/overview/azure/service-bus)

@@ -2,25 +2,25 @@
 title: Eseguire attività con account utente
 description: Informazioni sui tipi di account utente e su come configurarli.
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 04/13/2021
 ms.custom: seodec18
-ms.openlocfilehash: b19e0c10834b3c5215d14c6c5ae20caaacb4bc64
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02cad0bff9e76ec5db82c417f2439b12ef088045
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606607"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389282"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Eseguire attività con account utente in Batch
 
 > [!NOTE]
-> Gli account utente descritti in questo articolo sono diversi dagli account utente usati per la Remote Desktop Protocol (RDP) o Secure Shell (SSH), per motivi di sicurezza.
+> Gli account utente illustrati in questo articolo sono diversi dagli account utente usati per Remote Desktop Protocol (RDP) o Secure Shell (SSH), per motivi di sicurezza.
 >
-> Per connettersi a un nodo che esegue la configurazione della macchina virtuale Linux tramite SSH, vedere [installare e configurare xrdp per l'uso di desktop remoto con Ubuntu](../virtual-machines/linux/use-remote-desktop.md). Per connettersi ai nodi che eseguono Windows tramite RDP, vedere [come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](../virtual-machines/windows/connect-logon.md).
+> Per connettersi a un nodo che esegue la configurazione della macchina virtuale Linux tramite SSH, vedere Installare e configurare xrdp per l'uso Desktop remoto [con Ubuntu.](../virtual-machines/linux/use-remote-desktop.md) Per connettersi ai nodi che eseguono Windows tramite RDP, vedere [Come connettersi](../virtual-machines/windows/connect-logon.md)e accedere a una macchina virtuale di Azure che esegue Windows .
 >
 > Per connettersi a un nodo che esegue la configurazione del servizio cloud tramite RDP, vedere [Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
-In Azure Batch un'attività viene sempre eseguita con un account utente. Per impostazione predefinita, le attività vengono eseguite con account utente standard, senza le autorizzazioni di amministratore Per determinati scenari, potrebbe essere necessario configurare l'account utente con cui si desidera eseguire un'attività. Questo articolo illustra i tipi di account utente e come configurarli per lo scenario.
+In Azure Batch un'attività viene sempre eseguita con un account utente. Per impostazione predefinita, le attività vengono eseguite con account utente standard, senza le autorizzazioni di amministratore Per determinati scenari, può essere necessario configurare l'account utente con cui si vuole eseguire un'attività. Questo articolo illustra i tipi di account utente e come configurarli per lo scenario.
 
 ## <a name="types-of-user-accounts"></a>Tipi di account utente
 
@@ -31,11 +31,11 @@ Azure Batch offre due tipi di account utente per l'esecuzione di attività:
 - **Account utente non anonimi.** È possibile specificare uno o più account utente non anonimi per un pool al momento della creazione del pool stesso. Ogni account utente viene creato in ogni nodo del pool. Oltre al nome, specificare la password dell'account utente, il livello di elevazione dei privilegi e, per i pool Linux, la chiave privata SSH. Quando si aggiunge un'attività, è possibile specificare l'account utente non anonimo con cui eseguirla.
 
 > [!IMPORTANT]
-> Il servizio batch versione 2017-01-01.4.0 ha introdotto una modifica di rilievo che richiede l'aggiornamento del codice per chiamare tale versione o successiva. Per linee guida rapide per l'aggiornamento del codice batch da una versione precedente, vedere [aggiornare il codice alla libreria client batch più recente](#update-your-code-to-the-latest-batch-client-library) .
+> Il servizio Batch versione 2017-01-01.4.0 ha introdotto una modifica di rilievo che richiede l'aggiornamento del codice per chiamare tale versione o versione successiva. Per linee guida rapide sull'aggiornamento del codice Batch da una versione [precedente,](#update-your-code-to-the-latest-batch-client-library) vedere Aggiornare il codice alla libreria client batch più recente.
 
 ## <a name="user-account-access-to-files-and-directories"></a>Accesso degli account utente a file e directory
 
-Un account utente automatico e un account utente con nome hanno accesso in lettura/scrittura alla directory di lavoro dell'attività, alla directory condivisa e alla directory delle attività a istanze diverse. Entrambi i tipi di account hanno anche accesso in lettura alle directory di avvio e a quelle di preparazione dei processi.
+Sia un account utente automatico che un account utente denominato hanno accesso in lettura/scrittura alla directory di lavoro, alla directory condivisa e alle attività a istanze multipla dell'attività. Entrambi i tipi di account hanno anche accesso in lettura alle directory di avvio e a quelle di preparazione dei processi.
 
 Se un'attività viene eseguita con lo stesso account usato per l'esecuzione di un'attività di avvio, tale attività ha accesso in lettura e scrittura alla directory dell'attività di avvio. In modo analogo, se un'attività viene eseguita con lo stesso account usato per l'esecuzione di un'attività di preparazione dei processi, tale attività ha accesso in lettura e scrittura anche alla directory dell'attività di preparazione dei processi. Se un'attività viene eseguita con un account diverso rispetto a quello usato per l'attività di avvio o per quella di preparazione dei processi, tale attività ha solo accesso in lettura alla directory corrispondente.
 
@@ -50,9 +50,9 @@ Il livello di elevazione dei privilegi dell'account utente indica se un'attivit�
 
 ## <a name="auto-user-accounts"></a>Account utente automatici
 
-Per impostazione predefinita, le attività vengono eseguite in batch con un account utente automatico, come utente standard senza accesso con privilegi elevati e con ambito del pool. L'ambito del pool indica che l'attività viene eseguita con un account utente automatico disponibile per qualsiasi attività nel pool. Per altre informazioni sull'ambito del pool, vedere [eseguire un'attività come utente automatico con ambito del pool](#run-a-task-as-an-auto-user-with-pool-scope).
+Per impostazione predefinita, le attività vengono eseguite in Batch con un account utente automatico, come utente standard senza accesso con privilegi elevati e con ambito pool. Ambito pool indica che l'attività viene eseguita con un account utente automatico disponibile per qualsiasi attività nel pool. Per altre informazioni sull'ambito del pool, vedere [Eseguire un'attività come utente automatico con ambito pool](#run-a-task-as-an-auto-user-with-pool-scope).
 
-L'alternativa all'ambito del pool è l'ambito dell'attività. Quando per l'ambito di attività è configurata la specifica di utente automatico, il servizio Batch crea un account utente di questo tipo solo per l'attività.
+L'alternativa all'ambito del pool è l'ambito delle attività. Quando per l'ambito di attività è configurata la specifica di utente automatico, il servizio Batch crea un account utente di questo tipo solo per l'attività.
 
 Esistono quattro possibili configurazioni per la specifica di utente automatico, ognuna delle quali corrisponde a un account utente automatico univoco:
 
@@ -111,7 +111,7 @@ Quando viene eseguito il provisioning di un nodo, a livello di pool vengono crea
 Quando si specifica l'ambito di pool per l'utente automatico, tutte le attività eseguite con privilegi di amministratore vengono eseguite con lo stesso account utente automatico a livello di pool. In modo analogo, le attività eseguite senza privilegi di amministratore vengono eseguite anche con un unico account utente automatico a livello di pool.
 
 > [!NOTE]
-> I due account utente automatici a livello di pool sono account separati. Le attività in esecuzione con l'account amministrativo a livello di pool non possono condividere dati con attività in esecuzione con l'account standard e viceversa.
+> I due account utente automatici a livello di pool sono account separati. Le attività in esecuzione nell'account amministrativo a livello di pool non possono condividere i dati con le attività in esecuzione con l'account standard e viceversa.
 
 Il vantaggio di eseguire attività con lo stesso account utente automatico consiste nel fatto che le attività sono in grado di condividere dati con altre attività in esecuzione nello stesso nodo.
 
@@ -152,7 +152,13 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: 3,
     virtualMachineSize: "standard_d1_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+    VirtualMachineConfiguration: new VirtualMachineConfiguration(
+    imageReference: new ImageReference(
+                        publisher: "MicrosoftWindowsServer",
+                        offer: "WindowsServer",
+                        sku: "2019-datacenter-core",
+                        version: "latest"),
+    nodeAgentSkuId: "batch.node.windows amd64");
 
 // Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
@@ -238,7 +244,7 @@ PoolAddParameter addParameter = new PoolAddParameter()
         .withId(poolId)
         .withTargetDedicatedNodes(POOL_VM_COUNT)
         .withVmSize(POOL_VM_SIZE)
-        .withCloudServiceConfiguration(configuration)
+        .withVirtualMachineConfiguration(configuration)
         .withUserAccounts(userList);
 batchClient.poolOperations().createPool(addParameter);
 ```
@@ -280,7 +286,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="update-your-code-to-the-latest-batch-client-library"></a>Aggiornare il codice in base alla libreria client Batch più recente
 
-Il servizio batch versione 2017-01-01.4.0 ha introdotto una modifica di rilievo, sostituendo la proprietà **runElevated** disponibile nelle versioni precedenti con la proprietà **UserIdentity** . Le tabelle seguenti illustrano una semplice corrispondenza che consente di aggiornare il codice dalle versioni precedenti delle librerie client.
+Il servizio Batch versione 2017-01-01.4.0 ha introdotto una modifica di rilievo, sostituendo la proprietà **runElevated** disponibile nelle versioni precedenti con la **proprietà userIdentity.** Le tabelle seguenti illustrano una semplice corrispondenza che consente di aggiornare il codice dalle versioni precedenti delle librerie client.
 
 ### <a name="batch-net"></a>Batch .NET
 

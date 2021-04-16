@@ -1,72 +1,75 @@
 ---
-title: Gestione delle estensioni VM con i server abilitati per Azure Arc
-description: I server abilitati per Azure Arc possono gestire la distribuzione delle estensioni delle macchine virtuali che forniscono attività di configurazione e automazione post-distribuzione con macchine virtuali non di Azure.
-ms.date: 03/22/2021
+title: Gestione delle estensioni delle macchine virtuali con Azure Arc server abilitati
+description: Azure Arc server abilitati possono gestire la distribuzione di estensioni di macchine virtuali che forniscono attività di automazione e configurazione post-distribuzione con macchine virtuali non di Azure.
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9af2700f036352188e646188485285482ee70c69
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 67f1b5b3db6ef446342e8381d54d487af1f3426a
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799582"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389792"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestione delle estensioni macchina virtuale con i server con abilitazione di Azure Arc
 
-Le estensioni delle macchine virtuali sono piccole applicazioni che forniscono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione del software, la protezione antivirus o per eseguire uno script al suo interno, è possibile usare un'estensione della macchina virtuale.
+Le estensioni delle macchine virtuali sono piccole applicazioni che forniscono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione del software, la protezione antivirus o l'esecuzione di uno script, è possibile usare un'estensione della macchina virtuale.
 
-I server abilitati per Azure ARC consentono di distribuire le estensioni di VM di Azure in macchine virtuali Windows e Linux non di Azure, semplificando la gestione del computer ibrido durante il ciclo di vita. Le estensioni di macchina virtuale possono essere gestite usando i metodi seguenti nei computer ibridi o nei server gestiti da server abilitati per Arc:
+Azure Arc server abilitati consentono di distribuire estensioni di macchine virtuali di Azure in macchine virtuali Windows e Linux non di Azure, semplificando la gestione della macchina ibrida attraverso il ciclo di vita. Le estensioni vm possono essere gestite usando i metodi seguenti nei computer ibridi o nei server gestiti dai server abilitati per Arc:
 
 - Il[portale di Azure](manage-vm-extensions-portal.md)
 - L'[interfaccia della riga di comando di Azure](manage-vm-extensions-cli.md)
 - [Azure PowerShell](manage-vm-extensions-powershell.md)
-- [Modelli di gestione risorse](manage-vm-extensions-template.md) di Azure
+- Modelli [Resource Manager Azure](manage-vm-extensions-template.md)
+
+> [!NOTE]
+> Azure Arc server abilitati non supporta la distribuzione e la gestione delle estensioni vm nelle macchine virtuali di Azure. Per le macchine virtuali di Azure, vedere l'articolo panoramica [dell'estensione vm](../../virtual-machines/extensions/overview.md) seguente.
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
-Il supporto delle estensioni VM per i server abilitati per Azure Arc offre i vantaggi principali seguenti:
+Azure Arc server abilitati per il supporto dell'estensione vm offre i vantaggi principali seguenti:
 
-- Raccogliere i dati di log per l'analisi con i [log in monitoraggio di Azure](../../azure-monitor/logs/data-platform-logs.md) abilitando l'estensione della macchina virtuale agente log Analytics. Questa operazione è utile per eseguire analisi complesse tra i dati provenienti da diversi tipi di origini.
+- Raccogliere i dati di log per l'analisi con [i log Monitoraggio di Azure](../../azure-monitor/logs/data-platform-logs.md) abilitando l'estensione macchina virtuale dell'agente di Log Analytics. Ciò è utile per eseguire analisi complesse tra dati provenienti da diversi tipi di origini.
 
-- Con [monitoraggio di Azure per le macchine virtuali](../../azure-monitor/vm/vminsights-overview.md), analizza le prestazioni delle macchine virtuali Windows e Linux e monitora i processi e le dipendenze da altre risorse e processi esterni. Questa operazione viene eseguita tramite l'abilitazione dell'agente Log Analytics e delle estensioni della macchina virtuale dell'agente di dipendenza.
+- Con [Monitoraggio di Azure per le macchine virtuali](../../azure-monitor/vm/vminsights-overview.md), analizza le prestazioni delle macchine virtuali Windows e Linux e monitora i processi e le dipendenze da altre risorse e processi esterni. Questa operazione viene ottenuta abilitando sia l'agente di Log Analytics che le estensioni della macchina virtuale dell'agente di dipendenza.
 
-- Scaricare ed eseguire script su computer connessi ibridi usando l'estensione script personalizzata. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione.
+- Scaricare ed eseguire script in computer connessi ibridi usando l'estensione script personalizzato. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione.
 
-- Aggiorna automaticamente i certificati archiviati in un [Azure Key Vault](../../key-vault/general/overview.md).
+- Aggiornamento automatico dei certificati archiviati in un [Azure Key Vault](../../key-vault/general/overview.md).
 
 ## <a name="availability"></a>Disponibilità
 
-La funzionalità di estensione della macchina virtuale è disponibile solo nell'elenco delle [aree supportate](overview.md#supported-regions). Assicurarsi di caricare il computer in una di queste aree.
+La funzionalità di estensione della macchina virtuale è disponibile solo nell'elenco [delle aree supportate.](overview.md#supported-regions) Assicurarsi di eseguire l'onboard del computer in una di queste aree.
 
 ## <a name="extensions"></a>Estensioni
 
-In questa versione sono supportate le estensioni di macchina virtuale seguenti nei computer Windows e Linux.
+In questa versione sono supportate le estensioni vm seguenti nei computer Windows e Linux.
 
-Per informazioni sul pacchetto dell'agente di computer connesso di Azure e per informazioni dettagliate sul componente agente di estensione, vedere [Panoramica degli agenti](agent-overview.md#agent-component-details).
+Per informazioni sul pacchetto Azure Connected Machine agente di estensione e informazioni dettagliate sul componente dell'agente di estensione, vedere [Panoramica dell'agente](agent-overview.md#agent-component-details).
 
 > [!NOTE]
-> Il supporto di recente per l'estensione VM DSC è stato rimosso per i server abilitati per Arc. In alternativa, è consigliabile usare l'estensione di script personalizzati per gestire la configurazione post-distribuzione del server o del computer.
+> Di recente è stato rimosso il supporto per l'estensione macchina virtuale DSC per i server abilitati per Arc. In alternativa, è consigliabile usare l'estensione script personalizzato per gestire la configurazione post-distribuzione del server o del computer.
 
 ### <a name="windows-extensions"></a>Estensioni di Windows
 
 |Estensione |Publisher |Tipo |Informazioni aggiuntive |
 |----------|----------|-----|-----------------------|
-|Scanner di vulnerabilità integrata di Azure Defender |Qualys |WindowsAgent. AzureSecurityCenter |[Soluzione integrata di valutazione della vulnerabilità di Azure Defender per macchine ibride e Azure](../../security-center/deploy-vulnerability-assessment-vm.md)|
-|Estensione di script personalizzati |Microsoft.Compute | CustomScriptExtension |[Estensione script personalizzato Windows](../../virtual-machines/extensions/custom-script-windows.md)|
-|Agente di Log Analytics |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Log Analytics estensione VM per Windows](../../virtual-machines/extensions/oms-windows.md)|
-|Monitoraggio di Azure per le macchine virtuali (informazioni dettagliate) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Estensione macchina virtuale di Dependency Agent per Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
-|Sincronizzazione del certificato Azure Key Vault | Microsoft. Azure. Key. Vault |KeyVaultForWindows | [Estensione di macchina virtuale Key Vault per Windows](../../virtual-machines/extensions/key-vault-windows.md) |
-|Agente di Monitoraggio di Azure |Microsoft. Azure. monitor |AzureMonitorWindowsAgent |[Installare l'agente di monitoraggio di Azure (anteprima)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
+|Azure Defender scanner di vulnerabilità integrato |Qualys |WindowsAgent.AzureSecurityCenter |[Azure Defender soluzione integrata di valutazione delle vulnerabilità per Azure e i computer ibridi](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Estensione di script personalizzati |Microsoft.Compute | CustomScriptExtension |[Estensione script personalizzati di Windows](../../virtual-machines/extensions/custom-script-windows.md)|
+|Agente di Log Analytics |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Estensione vm di Log Analytics per Windows](../../virtual-machines/extensions/oms-windows.md)|
+|Monitoraggio di Azure per le macchine virtuali (informazioni dettagliate) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Estensione macchina virtuale dependency agent per Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
+|Azure Key Vault sincronizzazione dei certificati | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Estensione di macchina virtuale Key Vault per Windows](../../virtual-machines/extensions/key-vault-windows.md) |
+|Agente di Monitoraggio di Azure |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Installare l'Monitoraggio di Azure (anteprima)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
 
 ### <a name="linux-extensions"></a>Estensioni Linux
 
 |Estensione |Publisher |Tipo |Informazioni aggiuntive |
 |----------|----------|-----|-----------------------|
-|Scanner di vulnerabilità integrata di Azure Defender |Qualys |LinuxAgent.AzureSecurityCenter |[Soluzione integrata di valutazione della vulnerabilità di Azure Defender per macchine ibride e Azure](../../security-center/deploy-vulnerability-assessment-vm.md)|
-|Estensione di script personalizzati |Microsoft. Azure. Extensions |CustomScript |[Estensione script personalizzato Linux versione 2](../../virtual-machines/extensions/custom-script-linux.md) |
-|Agente di Log Analytics |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |[Log Analytics estensione VM per Linux](../../virtual-machines/extensions/oms-linux.md) |
-|Monitoraggio di Azure per le macchine virtuali (informazioni dettagliate) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Estensione macchina virtuale dell'agente di dipendenza per Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
-|Sincronizzazione del certificato Azure Key Vault | Microsoft. Azure. Key. Vault |KeyVaultForLinux | [Estensione macchina virtuale di Key Vault per Linux](../../virtual-machines/extensions/key-vault-linux.md) |
-|Agente di Monitoraggio di Azure |Microsoft. Azure. monitor |AzureMonitorLinuxAgent |[Installare l'agente di monitoraggio di Azure (anteprima)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
+|Azure Defender scanner di vulnerabilità integrato |Qualys |LinuxAgent.AzureSecurityCenter |[Azure Defender soluzione integrata di valutazione delle vulnerabilità per Azure e i computer ibridi](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Estensione di script personalizzati |Microsoft.Azure.Extensions |CustomScript |[Estensione per script personalizzati Linux versione 2](../../virtual-machines/extensions/custom-script-linux.md) |
+|Agente di Log Analytics |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |[Estensione macchina virtuale log analytics per Linux](../../virtual-machines/extensions/oms-linux.md) |
+|Monitoraggio di Azure per le macchine virtuali (informazioni dettagliate) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Estensione macchina virtuale Dependency Agent per Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
+|Azure Key Vault Sincronizzazione certificati | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Estensione macchina virtuale di Key Vault per Linux](../../virtual-machines/extensions/key-vault-linux.md) |
+|Agente di Monitoraggio di Azure |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Installare l'Monitoraggio di Azure di distribuzione (anteprima)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -75,42 +78,42 @@ Questa funzionalità dipende dai provider di risorse di Azure seguenti nella sot
 - **Microsoft.HybridCompute**
 - **Microsoft.GuestConfiguration**
 
-Se non sono già registrati, seguire la procedura descritta in [registrare i provider di risorse di Azure](agent-overview.md#register-azure-resource-providers).
+Se non sono già registrati, seguire la procedura descritta in [Registrare i provider di risorse di Azure.](agent-overview.md#register-azure-resource-providers)
 
-Assicurarsi di consultare la documentazione relativa a ogni estensione di macchina virtuale a cui viene fatto riferimento nella tabella precedente per comprendere se sono presenti requisiti di rete o di sistema. Questo può aiutare a evitare di riscontrare problemi di connettività con un servizio o una funzionalità di Azure che si basa su tale estensione della macchina virtuale.
+Assicurarsi di esaminare la documentazione per ogni estensione di macchina virtuale a cui si fa riferimento nella tabella precedente per comprendere se sono presenti requisiti di rete o di sistema. Ciò consente di evitare problemi di connettività con un servizio o una funzionalità di Azure che si basa su tale estensione di macchina virtuale.
 
-### <a name="log-analytics-vm-extension"></a>Estensione della macchina virtuale Log Analytics
+### <a name="log-analytics-vm-extension"></a>Estensione macchina virtuale di Log Analytics
 
-Per l'estensione della macchina virtuale dell'agente Log Analytics per Linux è necessario che Python 2. x sia installato nel computer di destinazione.
+L'estensione macchina virtuale dell'agente di Log Analytics per Linux richiede l'installazione di Python 2.x nel computer di destinazione.
 
-### <a name="azure-key-vault-vm-extension-preview"></a>Estensione della macchina virtuale Azure Key Vault (anteprima)
+### <a name="azure-key-vault-vm-extension-preview"></a>Azure Key Vault macchina virtuale (anteprima)
 
-L'estensione della macchina virtuale Key Vault (anteprima) non supporta i sistemi operativi Linux seguenti:
+L Key Vault di macchina virtuale virtuale (anteprima) non supporta i sistemi operativi Linux seguenti:
 
 - CentOS Linux 7 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
 
-La distribuzione dell'estensione della macchina virtuale Key Vault (anteprima) è supportata solo con:
+La distribuzione dell'estensione Key Vault macchina virtuale (anteprima) è supportata solo tramite:
 
 - Interfaccia della riga di comando di Azure
-- Azure PowerShell
+- Oggetto Azure PowerShell
 - Modello di Azure Resource Manager
 
-Prima di distribuire l'estensione, è necessario completare le operazioni seguenti:
+Prima di distribuire l'estensione, è necessario completare quanto segue:
 
-1. [Creare un insieme di credenziali e un certificato](../../key-vault/certificates/quick-create-portal.md) (autofirmato o importazione).
+1. [Creare un insieme di credenziali e un](../../key-vault/certificates/quick-create-portal.md) certificato (autofirmati o importati).
 
-2. Concedere al server Azure Arc abilitato l'accesso al segreto del certificato. Se si usa l' [Anteprima RBAC](../../key-vault/general/rbac-guide.md), cercare il nome della risorsa Azure Arc e assegnargli il ruolo **utente Key Vault Secrets (anteprima)** . Se si usano i [criteri di accesso key Vault](../../key-vault/general/assign-access-policy-portal.md), assegnare le autorizzazioni **Get** Secret all'identità assegnata al sistema della risorsa di Azure Arc.
+2. Concedere al Azure Arc server abilitato l'accesso al segreto del certificato. Se si usa l'anteprima [del](../../key-vault/general/rbac-guide.md)controllo degli accessi in base al ruolo, cercare il nome della risorsa Azure Arc e assegnarle il ruolo Key Vault **Secrets User (anteprima).** Se si usano criteri di [Key Vault](../../key-vault/general/assign-access-policy-portal.md)di accesso, assegnare le autorizzazioni Secret **Get** Azure Arc'identità assegnata dal sistema della risorsa.
 
 ### <a name="connected-machine-agent"></a>Agente Connected Machine
 
-Verificare che il computer corrisponda alle [versioni supportate](agent-overview.md#supported-operating-systems) del sistema operativo Windows e Linux per l'agente del computer connesso di Azure.
+Verificare che il computer corrisponda [alle versioni supportate](agent-overview.md#supported-operating-systems) del sistema operativo Windows e Linux per l Azure Connected Machine agent.
 
-La versione minima dell'agente del computer connesso supportato con questa funzionalità in Windows e Linux è la versione 1,0.
+La versione minima dell'agente Connected Machine supportata con questa funzionalità in Windows e Linux è la versione 1.0.
 
-Per aggiornare il computer alla versione dell'agente richiesta, vedere [upgrade Agent](manage-agent.md#upgrading-agent).
+Per aggiornare il computer alla versione dell'agente necessaria, vedere [Aggiornare l'agente](manage-agent.md#upgrading-agent).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile distribuire, gestire e rimuovere le estensioni di macchina virtuale usando l'interfaccia della riga di comando di [Azure](manage-vm-extensions-cli.md), [Azure PowerShell](manage-vm-extensions-powershell.md), dal [portale di Azure](manage-vm-extensions-portal.md)o dai [modelli di Azure Resource Manager](manage-vm-extensions-template.md).
+È possibile distribuire, gestire e rimuovere estensioni di macchina virtuale usando l'interfaccia della riga di comando di [Azure,](manage-vm-extensions-cli.md) [Azure PowerShell](manage-vm-extensions-powershell.md), dal portale di Azure [o](manage-vm-extensions-portal.md)dai modelli [Azure Resource Manager.](manage-vm-extensions-template.md)

@@ -1,5 +1,5 @@
 ---
-title: Gestire i log di flusso NSG-Azure PowerShell
+title: Gestire i log dei flussi dei gruppi di Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: Questa pagina illustra come gestire i log di flusso del gruppo di sicurezza di rete in Network Watcher di Azure con PowerShell
 services: network-watcher
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 771b4ce2999357d729c3ffe557b778cf62a5c0f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29340852cabcc77b7488f734a4677697b4a9b972
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98010983"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535229"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configurazione dei log di flusso del gruppo di sicurezza di rete con PowerShell
 
@@ -28,6 +28,8 @@ ms.locfileid: "98010983"
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Network Watcher che consente di visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita in base a regole, scheda di rete a cui si applica il flusso, informazioni su 5 tuple relative al flusso (IP di origine/destinazione, porta di origine/destinazione, protocollo), e se il traffico è consentito o meno.
+
+La specifica dettagliata di tutti i comandi dei log dei flussi dei gruppi di protezione di rete per diverse versioni di AzPowerShell è disponibile [qui](https://docs.microsoft.com/powershell/module/az.network/#network-watcher)
 
 ## <a name="register-insights-provider"></a>Registrare il provider Insights
 

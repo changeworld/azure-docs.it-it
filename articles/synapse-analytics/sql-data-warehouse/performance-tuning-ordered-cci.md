@@ -1,34 +1,34 @@
 ---
 title: Ottimizzazione delle prestazioni con indice columnstore cluster ordinato
-description: Raccomandazioni e considerazioni che è necessario tenere presente quando si usa l'indice columnstore cluster ordinato per migliorare le prestazioni delle query in pool SQL dedicati.
+description: Raccomandazioni e considerazioni da tenere presenti quando si usa l'indice columnstore cluster ordinato per migliorare le prestazioni delle query nei pool SQL dedicati.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 09/05/2019
+ms.date: 04/13/2021
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: afb6efcee2ad4f5cf25a411eed353ff2fc27d75c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3245f560d9a5afb1f9cf8824eeaa3bc681706794
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96460796"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389673"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ottimizzazione delle prestazioni con indice columnstore cluster ordinato  
 
-Quando gli utenti eseguono una query su una tabella columnstore in un pool SQL dedicato, l'utilità di ottimizzazione controlla i valori minimo e massimo archiviati in ogni segmento.  I segmenti che non rientrano nei limiti del predicato della query non vengono letti dal disco alla memoria.  Una query può ottenere prestazioni più veloci se il numero di segmenti da leggere e le dimensioni totali sono ridotte.   
+Quando gli utenti eseguiti una query su una tabella columnstore nel pool SQL dedicato, l'utilità di ottimizzazione controlla i valori minimo e massimo archiviati in ogni segmento.  I segmenti esterni ai limiti del predicato di query non vengono letti da disco a memoria.  Una query può ottenere prestazioni più veloci se il numero di segmenti da leggere e le dimensioni totali sono ridotte.   
 
-## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Confronto tra indice columnstore cluster ordinato e non ordinato
+## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Indice columnstore cluster ordinato e non ordinato
 
-Per impostazione predefinita, per ogni tabella creata senza un'opzione di indice, un componente interno (Generatore di indici) crea un indice columnstore cluster non ordinato (CCI).  I dati in ogni colonna vengono compressi in un segmento CCI rowgroup separato.  Sono presenti metadati nell'intervallo di valori di ogni segmento, quindi i segmenti che non rientrano nei limiti del predicato della query non vengono letti dal disco durante l'esecuzione della query.  CCI offre il massimo livello di compressione dei dati e riduce le dimensioni dei segmenti da leggere, in modo che le query possano essere eseguite più velocemente. Tuttavia, poiché il generatore di indici non Ordina i dati prima di comprimerli in segmenti, è possibile che si verifichino segmenti con intervalli di valori sovrapposti, facendo in modo che le query leggano più segmenti dal disco e imprendano più tempo.  
+Per impostazione predefinita, per ogni tabella creata senza un'opzione di indice, un componente interno (Generatore indici) crea un indice columnstore cluster non ordinato su di essa.  I dati in ogni colonna vengono compressi in un segmento di rowgroup CCI separato.  Sono presenti metadati nell'intervallo di valori di ogni segmento, quindi i segmenti esterni ai limiti del predicato di query non vengono letti dal disco durante l'esecuzione della query.  CCI offre il massimo livello di compressione dei dati e riduce le dimensioni dei segmenti da leggere in modo che le query possano essere eseguite più velocemente. Tuttavia, poiché il generatore di indici non ordina i dati prima di comprimerli in segmenti, è possibile che si verifichino segmenti con intervalli di valori sovrapposti, causando la lettura di più segmenti dal disco e il completamento di più tempo.  
 
-Quando si crea una CCI ordinata, il motore del pool SQL dedicato Ordina i dati esistenti in memoria in base alle chiavi degli ordini prima che il generatore di indici li comprime in segmenti di indice.  Con i dati ordinati, la sovrapposizione dei segmenti è ridotta, consentendo alle query di avere un'eliminazione più efficiente del segmento e quindi prestazioni più veloci perché il numero di segmenti da leggere dal disco è inferiore.  Se tutti i dati possono essere ordinati in memoria contemporaneamente, è possibile evitare la sovrapposizione del segmento.  A causa di tabelle di grandi dimensioni nei data warehouse, questo scenario non si verifica spesso.  
+Quando si crea un CCI ordinato, il motore del pool SQL dedicato ordina i dati esistenti in memoria in base alle chiavi di ordine prima che il generatore di indici li comprime in segmenti di indice.  Con i dati ordinati, la sovrapposizione dei segmenti è ridotta consentendo alle query di ottenere un'eliminazione dei segmenti più efficiente e quindi prestazioni più veloci perché il numero di segmenti da leggere dal disco è inferiore.  Se tutti i dati possono essere ordinati in memoria contemporaneamente, è possibile evitare la sovrapposizione dei segmenti.  A causa di tabelle di grandi dimensioni nei data warehouse, questo scenario non si verifica spesso.  
 
-Per verificare gli intervalli di segmenti per una colonna, eseguire il comando seguente con il nome della tabella e il nome della colonna:
+Per controllare gli intervalli di segmenti per una colonna, eseguire il comando seguente con il nome della tabella e il nome della colonna:
 
 ```sql
 SELECT o.name, pnp.index_id, 
@@ -50,18 +50,18 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> In una tabella CCI ordinata, i nuovi dati risultanti dallo stesso batch di operazioni DML o di caricamento dei dati vengono ordinati all'interno del batch, non esiste alcun ordinamento globale in tutti i dati della tabella.  Gli utenti possono ricompilare la CCI ordinata per ordinare tutti i dati nella tabella.  Nel pool SQL dedicato, la ricompilazione dell'indice columnstore è un'operazione offline.  Per una tabella partizionata, la ricompilazione viene eseguita una partizione alla volta.  I dati della partizione che viene ricompilata sono "offline" e non sono disponibili fino al completamento della ricompilazione per la partizione. 
+> In una tabella CCI ordinata, i nuovi dati risultanti dallo stesso batch di operazioni di caricamento dati o DML vengono ordinati all'interno di tale batch, non esiste alcun ordinamento globale tra tutti i dati nella tabella.  Gli utenti possono ricompilare l'indice CCI ordinato per ordinare tutti i dati nella tabella.  Nel pool SQL dedicato l'indice columnstore REBUILD è un'operazione offline.  Per una tabella partizionata, l'operazione REBUILD viene eseguita una partizione alla volta.  I dati nella partizione in fase di ricompilazione sono "offline" e non sono disponibili fino al completamento della ricompilazione per tale partizione. 
 
 ## <a name="query-performance"></a>Prestazioni delle query
 
-Il miglioramento delle prestazioni di una query da una CCI ordinata dipende dai modelli di query, dalle dimensioni dei dati, dall'ordinamento dei dati, dalla struttura fisica dei segmenti e dalla classe di risorse e DWU scelta per l'esecuzione della query.  Gli utenti devono esaminare tutti questi fattori prima di scegliere le colonne di ordinamento durante la progettazione di una tabella CCI ordinata.
+Il miglioramento delle prestazioni di una query da un elenco CCI ordinato dipende dai modelli di query, dalle dimensioni dei dati, dalla modalità di ordinamento dei dati, dalla struttura fisica dei segmenti e dalla DWU e dalla classe di risorse scelte per l'esecuzione della query.  Gli utenti devono esaminare tutti questi fattori prima di scegliere le colonne di ordinamento durante la progettazione di una tabella CCI ordinata.
 
-Le query con tutti questi modelli vengono in genere eseguite più velocemente con le CCI ordinate.  
-1. Le query hanno predicati di uguaglianza, disuguaglianza o di intervallo
-1. Le colonne del predicato e le colonne CCI ordinate sono le stesse.  
+Le query con tutti questi modelli vengono in genere eseguite più velocemente con l'CCI ordinato.  
+1. Le query hanno predicati di uguaglianza, disuguaglianza o intervallo
+1. Le colonne del predicato e le colonne CCI ordinate sono uguali.  
 1. Le colonne del predicato vengono utilizzate nello stesso ordine dell'ordinale di colonna delle colonne CCI ordinate.  
  
-In questo esempio, la tabella T1 include un indice columnstore cluster ordinato nella sequenza di Col_C, Col_B e Col_A.
+In questo esempio la tabella T1 include un indice columnstore cluster ordinato nella sequenza di Col_C, Col_B e Col_A.
 
 ```sql
 
@@ -70,7 +70,7 @@ ORDER (Col_C, Col_B, Col_A)
 
 ```
 
-Le prestazioni di query 1 possono trarre vantaggio dalla CCI ordinata rispetto alle altre tre query. 
+Le prestazioni della query 1 possono trarre vantaggio dall'CCI ordinato rispetto alle altre tre query. 
 
 ```sql
 -- Query #1: 
@@ -91,11 +91,11 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 ## <a name="data-loading-performance"></a>Prestazioni di caricamento dei dati
 
-Le prestazioni del caricamento dei dati in una tabella CCI ordinata sono simili a quelle di una tabella partizionata.  Il caricamento dei dati in una tabella CCI ordinata può richiedere più tempo rispetto a una tabella CCI non ordinata a causa dell'operazione di ordinamento dei dati, ma le query possono essere eseguite più velocemente in seguito con l'istruzione CCI ordinata.  
+Le prestazioni del caricamento dei dati in una tabella CCI ordinata sono simili a quelle di una tabella partizionata.  Il caricamento dei dati in una tabella CCI ordinata può richiedere più tempo rispetto a una tabella CCI non ordinata a causa dell'operazione di ordinamento dei dati, tuttavia le query possono essere eseguite più velocemente in un secondo momento con CCI ordinato.  
 
-Di seguito è riportato un esempio di confronto delle prestazioni di caricamento dei dati nelle tabelle con schemi diversi.
+Di seguito è riportato un esempio di confronto delle prestazioni del caricamento di dati in tabelle con schemi diversi.
 
-![Grafico a barre che mostra il confronto delle prestazioni del caricamento dei dati nelle tabelle con schemi diversi.](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+![Grafico a barre che mostra il confronto delle prestazioni di caricamento dei dati in tabelle con schemi diversi.](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
 
 
 Di seguito è riportato un esempio di confronto delle prestazioni delle query tra CCI e CCI ordinato.
@@ -103,13 +103,13 @@ Di seguito è riportato un esempio di confronto delle prestazioni delle query tr
 ![Performance_comparison_data_loading](./media/performance-tuning-ordered-cci/occi_query_performance.png)
 
  
-## <a name="reduce-segment-overlapping"></a>Riduzione della sovrapposizione del segmento
+## <a name="reduce-segment-overlapping"></a>Ridurre la sovrapposizione dei segmenti
 
-Il numero di segmenti sovrapposti dipende dalle dimensioni dei dati da ordinare, dalla memoria disponibile e dall'impostazione del grado massimo di parallelismo (MAXDOP) durante la creazione di CCI ordinata. Di seguito sono riportate le opzioni per ridurre la sovrapposizione del segmento durante la creazione di CCI ordinati.
+Il numero di segmenti sovrapposti dipende dalle dimensioni dei dati da ordinare, dalla memoria disponibile e dall'impostazione maxDOP (Maximum Degree of Parallelism) durante la creazione CCI ordinata. Di seguito sono riportate le opzioni per ridurre la sovrapposizione dei segmenti durante la creazione di CCI ordinati.
 
-- Usare la classe di risorse xlargerc in un DWU superiore per consentire una maggiore quantità di memoria per l'ordinamento dei dati prima che il generatore di indici comprime i dati in segmenti.  Una volta in un segmento di indice, la posizione fisica dei dati non può essere modificata.  Nessun ordinamento dei dati all'interno di un segmento o tra più segmenti.  
+- Usare la classe di risorse xlargerc in una DWU superiore per consentire una maggiore quantità di memoria per l'ordinamento dei dati prima che il generatore di indici comprime i dati in segmenti.  Una volta in un segmento di indice, la posizione fisica dei dati non può essere modificata.  Non è disponibile alcun ordinamento dei dati all'interno di un segmento o tra segmenti.  
 
-- Creare una CCI ordinata con MAXDOP = 1.  Ogni thread usato per la creazione di CCI ordinati funziona su un subset di dati e lo ordina localmente.  Non esiste alcun ordinamento globale tra i dati ordinati in base a thread diversi.  L'uso di thread paralleli può ridurre il tempo necessario per creare un'CCI ordinata, ma genererà più segmenti sovrapposti rispetto all'uso di un singolo thread.  Attualmente, l'opzione MAXDOP è supportata solo per la creazione di una tabella CCI ordinata usando CREATE TABLE come comando SELECT.  La creazione di una CCI ordinata tramite i comandi CREATE INDEX o CREATE TABLE non supporta l'opzione MAXDOP. Ad esempio,
+- Creare CCI ordinato con MAXDOP = 1.  Ogni thread usato per la creazione CCI ordinata funziona su un subset di dati e lo ordina in locale.  Non esiste un ordinamento globale tra i dati ordinati in base a thread diversi.  L'uso di thread paralleli può ridurre il tempo necessario per creare un CCI ordinato, ma genererà più segmenti sovrapposti rispetto all'uso di un singolo thread.  Attualmente, l'opzione MAXDOP è supportata solo per la creazione di una tabella CCI ordinata CREATE TABLE comando AS SELECT.  La creazione di un CCI ordinato tramite CREATE INDEX o CREATE TABLE comandi non supporta l'opzione MAXDOP. Ad esempio,
 
 ```sql
 CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )
@@ -117,26 +117,31 @@ AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
 
-- Pre-ordinare i dati in base alle chiavi di ordinamento prima di caricarle nelle tabelle.
+- Pre-ordinare i dati in base alle chiavi di ordinamento prima di caricarli nelle tabelle.
 
-Di seguito è riportato un esempio di una distribuzione della tabella CCI ordinata con un segmento zero che si sovrappone alle raccomandazioni precedenti. La tabella CCI ordinata viene creata in un database DWU1000c tramite CTAS da una tabella heap da 20 GB con MAXDOP 1 e xlargerc.  Il valore CCI viene ordinato in una colonna BIGINT senza duplicati.  
+Di seguito è riportato un esempio di distribuzione ordinata di tabelle CCI con zero segmenti sovrapposti in base alle raccomandazioni precedenti. La tabella CCI ordinata viene creata in un database DWU1000c tramite CTAS da una tabella heap da 20 GB usando MAXDOP 1 e xlargerc.  L'CCI viene ordinato in una colonna BIGINT senza duplicati.  
 
 ![Segment_No_Overlapping](./media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
-## <a name="create-ordered-cci-on-large-tables"></a>Creare CCI ordinati in tabelle di grandi dimensioni
+## <a name="create-ordered-cci-on-large-tables"></a>Creare CCI ordinato in tabelle di grandi dimensioni
 
-La creazione di una CCI ordinata è un'operazione offline.  Per le tabelle senza partizioni, i dati non saranno accessibili agli utenti fino al completamento del processo di creazione di CCI ordinato.   Per le tabelle partizionate, poiché il motore crea la partizione CCI ordinata per partizione, gli utenti possono comunque accedere ai dati nelle partizioni in cui la creazione di CCI ordinata non è in corso.   È possibile utilizzare questa opzione per ridurre al minimo il tempo di inattività durante la creazione di CCI ordinata su tabelle di grandi dimensioni: 
+La creazione di un CCI ordinato è un'operazione offline.  Per le tabelle senza partizioni, i dati non saranno accessibili agli utenti fino al completamento del processo di creazione CCI ordinato.   Per le tabelle partizionate, poiché il motore crea la partizione CCI ordinata per partizione, gli utenti possono comunque accedere ai dati nelle partizioni in cui la creazione CCI ordinata non è in corso.   È possibile usare questa opzione per ridurre al minimo il tempo di inattività durante la creazione di CCI ordinati in tabelle di grandi dimensioni: 
 
-1.    Creare partizioni nella tabella di grandi dimensioni di destinazione (denominata Table_A).
-2.    Creare una tabella CCI ordinata vuota (denominata Table_B) con la stessa tabella e lo stesso schema di partizione della tabella A.
-3.    Passare una partizione dalla tabella A alla tabella B.
-4.    Eseguire ALTER INDEX <Ordered_CCI_Index> in <Table_B> RICOMPILA partizione = <Partition_ID> nella tabella B per ricompilare la partizione commutata.  
+1.    Creare partizioni nella tabella di destinazione di grandi dimensioni (denominata Table_A).
+2.    Creare una tabella CCI ordinata vuota (denominata Table_B) con lo stesso schema di tabella e partizione della tabella A.
+3.    Passare da una partizione dalla tabella A alla tabella B.
+4.    Eseguire ALTER INDEX <Ordered_CCI_Index> ON <Table_B> REBUILD PARTITION = <Partition_ID> tabella B per ricompilare la partizione attivata.  
 5.    Ripetere i passaggi 3 e 4 per ogni partizione in Table_A.
-6.    Una volta passate tutte le partizioni da Table_A a Table_B e ricompilate, eliminare Table_A e rinominare Table_B Table_A. 
+6.    Dopo che tutte le partizioni sono state Table_A a Table_B e sono state ricompilate, eliminare Table_A e rinominare Table_B in Table_A. 
+
+>[!TIP]
+> Per una tabella del pool SQL dedicata con un indice CCI ordinato, ALTER INDEX REBUILD riordina i dati usando tempdb. Monitorare tempdb durante le operazioni di ricompilazione. Se è necessario più spazio in tempdb, aumentare le dimensioni del pool. Tornare alle dimensioni precedenti al termine della ricompilazione dell'indice.
+>
+> Per una tabella del pool SQL dedicata con un indice CCI ordinato, ALTER INDEX REORGANIZE non riordina i dati. Per ricorrere ai dati, usare ALTER INDEX REBUILD.
 
 ## <a name="examples"></a>Esempio
 
-**Un. Per verificare la presenza di colonne ordinate e ordinale:**
+**Un. Per verificare la presenza di colonne ordinate e ordinali di ordine:**
 
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
@@ -145,7 +150,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B. Per modificare il numero ordinale di colonna, aggiungere o rimuovere colonne dall'elenco degli ordini oppure per passare da CCI a ordered CCI:**
+**B. Per modificare l'ordinale di colonna, aggiungere o rimuovere colonne dall'elenco degli ordini o passare da CCI a CCI ordinato:**
 
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
