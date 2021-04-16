@@ -1,46 +1,46 @@
 ---
-title: Monitorare il carico di lavoro-portale di Azure
-description: Monitorare le sinapsi SQL usando il portale di Azure
+title: Monitorare il carico di lavoro - portale di Azure
+description: Monitorare Synapse SQL usando il portale di Azure
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 02/04/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fb81ffc24ed6073e5398b14b7f490a0f63df84f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4f4c50588a67e2e69d0975c9f4414242ecf23617
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585588"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568268"
 ---
-# <a name="monitor-workload---azure-portal"></a>Monitorare il carico di lavoro-portale di Azure
+# <a name="monitor-workload---azure-portal"></a>Monitorare il carico di lavoro - portale di Azure
 
-Questo articolo descrive come usare la portale di Azure per monitorare il carico di lavoro. Ciò include la configurazione dei log di monitoraggio di Azure per analizzare le tendenze di esecuzione delle query e del carico di lavoro con log Analytics per [sinapsi SQL](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
+Questo articolo descrive come usare il portale di Azure per monitorare il carico di lavoro. Ciò include la configurazione di log Monitoraggio di Azure per analizzare le tendenze di esecuzione delle query e del carico di lavoro usando Log Analytics [per Synapse SQL](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-- Pool SQL: verranno raccolti i log per un pool SQL. Se non è stato eseguito il provisioning di un pool SQL, vedere le istruzioni riportate in [creare un pool SQL](./load-data-from-azure-blob-storage-using-copy.md).
+- Pool SQL: verranno raccolti i log per un pool SQL. Se non è stato effettuato il provisioning di un pool SQL, vedere le istruzioni in [Creare un pool SQL.](./load-data-from-azure-blob-storage-using-copy.md)
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
-Passare al pannello Sfoglia per Log Analytics aree di lavoro e creare un'area di lavoro
+Passare al pannello Sfoglia per le aree di lavoro Log Analytics e creare un'area di lavoro
 
 ![Aree di lavoro di Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
-![Screenshot mostra le aree di lavoro Log Analytics in cui è possibile selezionare Aggiungi.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
+![Screenshot che mostra le aree di lavoro di Log Analytics in cui è possibile selezionare Aggiungi.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
 
-![Screenshot mostra l'area di lavoro Log Analytics in cui è possibile immettere i valori.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
+![Screenshot che mostra l'area di lavoro Log Analytics in cui è possibile immettere i valori.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-Per ulteriori informazioni sulle aree di lavoro, vedere la [documentazione](../../azure-monitor/logs/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)seguente.
+Per altre informazioni sulle aree di lavoro, vedere la documentazione [seguente.](../../azure-monitor/logs/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)
 
 ## <a name="turn-on-resource-logs"></a>Attivare i log delle risorse
 
-Configurare le impostazioni di diagnostica per emettere log dal pool SQL. I log sono costituiti da visualizzazioni di telemetria equivalenti alla risoluzione dei problemi di prestazioni più comunemente usata DMV. Attualmente sono supportate le visualizzazioni seguenti:
+Configurare le impostazioni di diagnostica per generare log dal pool SQL. I log sono costituiti da viste di telemetria equivalenti alle DMV per la risoluzione dei problemi di prestazioni usate più di frequente. Attualmente sono supportate le visualizzazioni seguenti:
 
 - [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
@@ -50,7 +50,7 @@ Configurare le impostazioni di diagnostica per emettere log dal pool SQL. I log 
 
 ![Abilitazione dei log delle risorse](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
-I log possono essere emessi in archiviazione di Azure, analisi di flusso o Log Analytics. Per questa esercitazione, selezionare Log Analytics.
+I log possono essere generati in Archiviazione di Azure, Analisi di flusso o Log Analytics. Per questa esercitazione, selezionare Log Analytics.
 
 ![Specificare i log](./media/sql-data-warehouse-monitor-workload-portal/specify_logs.png)
 
@@ -59,11 +59,11 @@ I log possono essere emessi in archiviazione di Azure, analisi di flusso o Log A
 Passare all'area di lavoro Log Analytics in cui è possibile eseguire le operazioni seguenti:
 
 - Analizzare i log usando le query di log e salvare le query per il riutilizzo
-- Salva le query per il riutilizzo
+- Salvare le query per il riutilizzo
 - Creare avvisi di log
 - Aggiungere i risultati della query a un dashboard
 
-Per informazioni dettagliate sulle funzionalità delle query di log, vedere la [documentazione](/azure/data-explorer/kusto/query/?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json)seguente.
+Per informazioni dettagliate sulle funzionalità delle query di log, vedere la documentazione [seguente.](/azure/data-explorer/kusto/query/?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json)
 
 ![Editor dell'area di lavoro Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
 
@@ -97,4 +97,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che sono stati impostati e configurati i log di monitoraggio di Azure, è possibile [personalizzare i dashboard di Azure](../../azure-portal/azure-portal-dashboards.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) per condividerli nel team.
+Dopo aver configurato e configurato i log di Monitoraggio di Azure, personalizzare [i dashboard](../../azure-portal/azure-portal-dashboards.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) di Azure da condividere nel team.

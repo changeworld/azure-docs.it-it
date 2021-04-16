@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 4fb15a7e677d566454d5d487c1cf69767d7f3a30
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4059318e6b8052f3b0221c87e8a357cfc8679e44
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368745"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532755"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Ammortizzare i costi di Prenotazione di Azure
 
@@ -20,11 +20,11 @@ I lettori di fatturazione del Contratto Enterprise e del Contratto del cliente M
 
 Gli utenti con una singola sottoscrizione possono ottenere i dati sui costi ammortizzati dal relativo file di utilizzo. Quando una risorsa riceve uno sconto per la prenotazione, la sezione *AdditionalInfo* nel file di utilizzo contiene i dettagli della prenotazione. Per altre informazioni, vedere [Scaricare l’utilizzo dal portale di Azure](../understand/download-azure-daily-usage.md#download-usage-from-the-azure-portal-csv).
 
-## <a name="see-reservation-usage-data-for-show-back-and-charge-back"></a>Vedere i dati di utilizzo delle prenotazioni per Mostra indietro e addebita indietro
+## <a name="see-reservation-usage-data-for-show-back-and-charge-back"></a>Visualizzare i dati di utilizzo della prenotazione per visualizzare i dati relativi a back back e charge back
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Passa a **Gestione costi e fatturazione** 
-3. Selezionare **analisi dei costi** dal percorso di spostamento a sinistra 
+2. Passare a **Gestione costi e fatturazione** 
+3. Selezionare **Analisi dei costi** nel riquadro di spostamento a sinistra 
 4. In **Costo effettivo**, selezionare la metrica **Costo ammortizzato**.
 5. Per vedere quali risorse sono state usate da una prenotazione, applicare un filtro per **Prenotazione** e quindi selezionare prenotazioni.
 6. Impostare la **Granularità** su **Mensile** o **Giornaliera**.
@@ -33,18 +33,18 @@ Gli utenti con una singola sottoscrizione possono ottenere i dati sui costi ammo
 
 [![Esempio che mostra i costi delle risorse di prenotazione che è possibile usare per il chargeback](./media/charge-back-usage/amortized-reservation-costs.png)](./media/charge-back-usage/amortized-reservation-costs.png#lightbox)
 
-Ecco un video che illustra come visualizzare i costi di utilizzo della prenotazione nel portale di Azure.
+Ecco un video che illustra come visualizzare i costi di utilizzo delle prenotazioni a livello di sottoscrizione, gruppo di risorse e risorsa nel portale di Azure.
 
  > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4sQOw] 
 
-## <a name="get-the-data-for-show-back-and-charge-back"></a>Ottenere i dati da visualizzare e addebitare nuovamente
+## <a name="get-the-data-for-show-back-and-charge-back"></a>Ottenere i dati per show back e charge back
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Passa a **Gestione costi e fatturazione** 
-3. Selezionare **Esporta** dal percorso di spostamento a sinistra 
-4. Fare clic sul pulsante **Aggiungi**
-5. Selezionare il costo ammortizzato come pulsante della metrica e configurare l'esportazione
+2. Passare a **Gestione costi e fatturazione** 
+3. Selezionare **Esporta nel** riquadro di spostamento a sinistra 
+4. Fare clic **sul pulsante** Aggiungi
+5. Selezionare Costo ammortizzato come pulsante della metrica e configurare l'esportazione
 
-il valore di EffectivePrice per l'utilizzo che ottiene lo sconto per la prenotazione è il costo rivalutato della prenotazione (anziché zero). Questo consente di conoscere il valore monetario del consumo della prenotazione da parte di una sottoscrizione, di un gruppo di risorse o di una risorsa e di stornare internamente l'addebito per l'utilizzo della prenotazione. Il set di dati dispone anche di ore di prenotazione inutilizzate. 
+Il valore EffectivePrice per l'utilizzo che ottiene lo sconto per la prenotazione è il costo ri controvalore della prenotazione (anziché essere pari a zero). Questo consente di conoscere il valore monetario del consumo della prenotazione da parte di una sottoscrizione, di un gruppo di risorse o di una risorsa e di stornare internamente l'addebito per l'utilizzo della prenotazione. Il set di dati dispone anche di ore di prenotazione inutilizzate. 
 
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Ottenere i dati di consumo e di utilizzo delle prenotazioni di Azure tramite l'API
 
@@ -74,7 +74,7 @@ Le informazioni riportate nella tabella seguente sulla metrica e sul filtro poss
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Scaricare il file CSV dei dati di utilizzo con i nuovi dati
 
-Se si è un amministratore EA, è possibile scaricare il file CSV contenente i nuovi dati di utilizzo da portale di Azure. Questi dati non sono disponibili in EA Portal (ea.azure.com), occorre scaricare il file di utilizzo dal portale di Azure (portal.azure.com) per visualizzare i nuovi dati.
+Gli amministratori EA possono scaricare il file CSV che contiene i nuovi dati di utilizzo da portale di Azure. Questi dati non sono disponibili in EA Portal (ea.azure.com), occorre scaricare il file di utilizzo dal portale di Azure (portal.azure.com) per visualizzare i nuovi dati.
 
 Nel portale di Azure passare a [Gestione dei costi e fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -82,7 +82,7 @@ Nel portale di Azure passare a [Gestione dei costi e fatturazione](https://porta
 2. Fare clic su **Utilizzo e addebiti**.
 3. Fare clic su **Download**.  
 ![Esempio che mostra dove scaricare il file CSV dei dati di utilizzo nel portale di Azure](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. In **Dettagli sull'utilizzo** selezionare **dati di utilizzo ammortizzati**.
+4. In **Dettagli utilizzo** selezionare Dati di utilizzo **ammortizzati**.
 
 I file CSV scaricati contengono i costi effettivi e i costi ammortizzati.
 
@@ -92,5 +92,5 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sui dati di utilizzo delle prenotazioni di Azure, vedere gli articoli seguenti:
-  - [Costi di prenotazione e utilizzo per Contratto Enterprise e contratto di servizio Microsoft](understand-reserved-instance-usage-ea.md)
+  - [Contratto Enterprise e Contratto del cliente Microsoft costi e utilizzo delle prenotazioni](understand-reserved-instance-usage-ea.md)
  

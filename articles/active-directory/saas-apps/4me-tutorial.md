@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con 4me | Microsoft Docs'
+title: "Esercitazione: Azure Active Directory'integrazione dell'accesso Single Sign-On (SSO) con 4me | Microsoft Docs"
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e 4me.
 services: active-directory
 author: jeevansd
@@ -9,24 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2019
+ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 241450b9a6e97953205aca5de2a7cfd30a08d254
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2a171460defb3a8befba5a674a2f1aadde636af
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92319110"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517828"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con 4me
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Esercitazione: Azure Active Directory'integrazione dell'accesso Single Sign-On (SSO) con 4me
 
 Questa esercitazione descrive come integrare 4me con Azure Active Directory (Azure AD). Integrando 4me con Azure AD, è possibile:
 
 * Controllare in Azure AD chi può accedere a 4me.
 * Abilitare gli utenti per l'accesso automatico a 4me con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
-
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,46 +37,46 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* 4me supporta l'accesso SSO avviato da **SP**
-* 4me supporta il provisioning utenti **JIT**
+* 4me supporta l'accesso SSO avviato da **SP.**
+* 4me supporta il provisioning **utenti JUST-In-Time.**
 
-## <a name="adding-4me-from-the-gallery"></a>Aggiunta di 4me dalla raccolta
+## <a name="add-4me-from-the-gallery"></a>Aggiungere 4me dalla raccolta
 
 Per configurare l'integrazione di 4me in Azure AD è necessario aggiungere 4me dalla raccolta al proprio elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **4me** nella casella di ricerca.
 1. Selezionare **4me** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-4me"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per 4me
+## <a name="configure-and-test-azure-ad-sso-for-4me"></a>Configurare e testare l Azure AD SSO per 4me
 
 Configurare e testare l'accesso SSO di Azure AD con 4me usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in 4me.
 
 Per configurare e testare l'accesso SSO di Azure AD con 4me, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di 4me](#configure-4me-sso)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    * **[Creare l'utente di test di 4me](#create-4me-test-user)**: per avere una controparte di B.Simon in 4me collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare l'utente di test di 4me](#create-4me-test-user)**: per avere una controparte di B.Simon in 4me collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **4me** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina portale di Azure di integrazione dell'applicazione **4me** individuare la **sezione** Gestione e selezionare **Single Sign-On.**
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente:
+    a. Nella casella **di testo URL** di accesso digitare un URL usando uno dei modelli seguenti:
 
     | Environment| URL|
     |---|---|
@@ -86,7 +84,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | QA| `https://<SUBDOMAIN>.4me.qa`|
     | | |
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente:
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL in uno dei formati seguenti:
 
     | Environment| URL|
     |---|---|
@@ -139,15 +137,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **4me**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-
-   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Collegamento Aggiungi utente](common/add-assign-user.png)
-
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-4me-sso"></a>Configurare l'accesso Single Sign-On di 4me
@@ -156,15 +148,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. In alto a sinistra fare clic sul logo **Settings** (Impostazioni) e sulla barra sinistra fare clic su **Single Sign-On**.
 
-    ![Impostazioni di 4me](./media/4me-tutorial/tutorial_4me_settings.png)
+    ![Impostazioni di 4me](./media/4me-tutorial/settings.png)
 
 1. Nella pagina **Single Sign-On** seguire questa procedura:
 
-    ![Accesso Single Sign-On di 4me](./media/4me-tutorial/tutorial_4me_singlesignon.png)
+    ![Accesso Single Sign-On di 4me](./media/4me-tutorial/single-sign-on.png)
 
     a. Selezionare l'opzione **Abilitato**.
 
-    b. Nella casella di testo **Remote Logout URL (URL disconnessione remota** ) incollare il valore dell' **URL di disconnessione** copiato dal portale di Azure.
+    b. Nella casella **di testo Remote logout URL (URL** disconnessione remota) incollare il valore di **URL** disconnessione copiato dal portale di Azure.
 
     c. Nella casella di testo Under **SAML SSO URL** (URL SSO SAML) della sezione **SAML** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -181,16 +173,14 @@ In questa sezione viene creato un utente di nome Britta Simon in 4me. 4me suppor
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di 4me nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione 4me per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà reindirizzato all'URL di accesso 4me in cui è possibile avviare il flusso di accesso. 
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* Passare direttamente all'URL di accesso 4me e avviare il flusso di accesso da qui.
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro 4me nel App personali, verrà reindirizzato all'URL di accesso 4me. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Provare 4me con Azure AD](https://aad.portal.azure.com/)
+Dopo aver configurato 4me, è possibile applicare il controllo sessione, che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

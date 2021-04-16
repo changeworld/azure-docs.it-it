@@ -258,7 +258,7 @@
         - name: Usare i modelli di Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
-        - name: Collegamento all'area di lavoro di Azure sinapsi Analytics
+        - name: Collegamento all'area Azure Synapse Analytics lavoro
           href: how-to-link-synapse-ml-workspaces.md
     - name: Creare e gestire risorse di calcolo
       items:
@@ -268,7 +268,7 @@
         - name: Cluster di calcolo
           displayName: 'compute target, low priority, managed identity'
           href: how-to-create-attach-compute-cluster.md
-        - name: Aggiorna sistema operativo host
+        - name: Aggiornare il sistema operativo host
           displayName: 'upgrade compute cluster, upgrade compute instance, upgrade ubuntu'
           href: how-to-compute-cluster-instance-os-upgrade.md
         - name: Servizio Azure Kubernetes
@@ -285,7 +285,7 @@
         - name: Configurare gli ambienti di sviluppo
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Configurare l'ambiente di studio
+        - name: Configurare l'ambiente di Studio
           items:
             - name: Creare e gestire file
               href: how-to-manage-files.md
@@ -331,7 +331,7 @@
             - name: Inserimento dati con Azure Data Factory
               displayName: 'data, ingestion, adf'
               href: how-to-data-ingest-adf.md
-            - name: Preparazione dei dati con la sinapsi di Azure
+            - name: Preparazione dei dati con Azure Synapse
               displayName: 'data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore'
               href: how-to-data-prep-synapse-spark-pool.md
             - name: DevOps per l'inserimento dati
@@ -345,7 +345,7 @@
             - name: Connettersi ad archiviazione di Azure (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
-            - name: Accesso ai dati basato su identità all'archiviazione
+            - name: Accesso ai dati in base all'identità per l'archiviazione
               displayName: 'blob, access, data lake, datastore, managed identity'
               href: how-to-identity-based-data-access.md
             - name: Recuperare dati da un archivio dati (Python)
@@ -396,7 +396,7 @@
             - name: Abilitare i log
               displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
-            - name: Visualizzare i log e le metriche per le esecuzioni
+            - name: Visualizzare log e metriche per le esecuzioni
               displayName: 'troubleshoot, log, files, tracing, metrics'
               href: how-to-monitor-view-training-logs.md
             - name: Visualizzare le esecuzioni con TensorBoard
@@ -450,7 +450,7 @@
           displayName: 'automl, feature engineering, feature importance'
           href: how-to-configure-cross-validation-data-splits.md
         - name: Definizione delle funzionalità in Machine Learning automatizzato (Python)
-          displayName: 'automl, feature engineering, feature importance'
+          displayName: 'automl, feature engineering, feature importance, BERT'
           href: how-to-configure-auto-features.md
         - name: Usare ML automatizzato nelle pipeline di ML (Python)
           displayName: machine learning automl
@@ -459,7 +459,7 @@
           href: how-to-understand-automated-ml.md
         - name: Usare il modello ONNX in un'applicazione .NET
           href: how-to-use-automl-onnx-model-dotnet.md
-        - name: Risolvere i problemi di Machine Learning automatici
+        - name: Risolvere i problemi di Machine Learning automatizzato
           href: how-to-troubleshoot-auto-ml.md
     - name: Distribuire e gestire modelli
       items:
@@ -544,7 +544,7 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Distribuire pipeline di ML (Python)
           href: how-to-deploy-pipelines.md
-        - name: Usare i pool Apache Spark di Azure sinapsi in una pipeline ML (Python)
+        - name: Usare Azure Synapse di Apache Spark in una pipeline di Machine Learning (Python)
           href: how-to-use-synapsesparkstep.md
         - name: Attivare una pipeline
           href: how-to-trigger-published-pipeline.md

@@ -6,7 +6,7 @@
       href: concepts-baremetal-infrastructure-overview.md
     - name: Conoscere i termini
       href: know-baremetal-terms.md
-    - name: Connettere istanze di BareMetal in Azure
+    - name: Connettere istanze BareMetal in Azure
       displayName: 'Azure CLI, az baremetalinstance, az baremetalinstance restart'
       href: connect-baremetal-infrastructure.md
 - name: Carichi di lavoro
@@ -85,3 +85,5 @@
               href: /azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration?context=/azure/baremetal-infrastructure/workloads/sap/context/context
             - name: Acquistare una prenotazione di SAP HANA in istanze Large
               href: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity
+    - name: Oracle
+      href: ./workloads/oracle/toc.yml

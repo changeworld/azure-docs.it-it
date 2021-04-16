@@ -1,6 +1,6 @@
 ---
-title: azcopy rimuovere | Microsoft Docs
-description: Questo articolo contiene informazioni di riferimento per il comando azcopy Remove.
+title: azcopy remove | Microsoft Docs
+description: Questo articolo fornisce informazioni di riferimento per il comando azcopy remove.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -8,16 +8,16 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d28a20a6afc78939491e56f46a32782b4c0844cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd221215d6be3c14ce1200e8bd374a97cb7608a0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879004"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503015"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
-Eliminare i BLOB o i file da un account di archiviazione di Azure.
+Eliminare BLOB o file da un account di archiviazione di Azure.
 
 ## <a name="synopsis"></a>Riepilogo
 
@@ -28,19 +28,18 @@ azcopy remove [resourceURL] [flags]
 ## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-- [Trasferire i dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
+- [Trasferire dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
-- [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Esempio
 
-Rimuovere un singolo BLOB usando un token SAS:
+Rimuovere un singolo BLOB usando un token di firma di accesso condiviso:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-Rimuovere un'intera directory virtuale usando un token SAS:
+Rimuovere un'intera directory virtuale usando un token di firma di accesso condiviso:
  
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
@@ -52,19 +51,19 @@ Rimuovere solo i BLOB all'interno di una directory virtuale, ma non rimuovere le
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-Rimuovere un subset di BLOB in una directory virtuale (ad esempio: rimuovere solo i file jpg e PDF o se il nome del BLOB è `exactName` ):
+Rimuovere un subset di BLOB in una directory virtuale(ad esempio, rimuovere solo i file jpg e pdf o se il nome del BLOB è `exactName` ):
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --include-pattern="*.jpg;*.pdf;exactName"
 ```
 
-Rimuovere un'intera directory virtuale ma escludere determinati BLOB dall'ambito (ad esempio, ogni BLOB che inizia con foo o termina con la barra):
+Rimuovere un'intera directory virtuale ma escludere determinati BLOB dall'ambito (ad esempio, ogni BLOB che inizia con foo o termina con bar):
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude-pattern="foo*;*bar"
 ```
 
-Rimuovere i BLOB e le directory virtuali specifici inserendo i percorsi relativi (non codificati in URL) in un file:
+Rimuovere BLOB e directory virtuali specifici inserendo i relativi percorsi (non con codifica URL) in un file:
 
 ```azcopy
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/dir]" --recursive=true --list-of-files=/usr/bar/list.txt
@@ -73,13 +72,13 @@ azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/d
     blob1
     blob2
 ```
-Rimuovere un singolo file da un account di archiviazione BLOB con uno spazio dei nomi gerarchico (includere/escludere non supportato):
+Rimuovere un singolo file da un account di archiviazione BLOB con uno spazio dei nomi gerarchico (inclusione/esclusione non supportata):
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/file]?[SAS]"
 ```
 
-Rimuovere una singola directory da un account di archiviazione BLOB con uno spazio dei nomi gerarchico (includere/escludere non supportato):
+Rimuovere una singola directory da un account di archiviazione BLOB con uno spazio dei nomi gerarchico (inclusione/esclusione non supportata):
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory]?[SAS]"
@@ -87,35 +86,35 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Opzioni
 
-**--Delete-Snapshots** stringa per impostazione predefinita, l'operazione di eliminazione ha esito negativo se un BLOB contiene snapshot. Specificare `include` per rimuovere il BLOB radice e tutti i relativi snapshot; in alternativa, specificare `only` per rimuovere solo gli snapshot, mantenendo però il BLOB radice.
+**--delete-snapshots** string Per impostazione predefinita, l'operazione di eliminazione ha esito negativo se un BLOB include snapshot. Specificare per rimuovere il BLOB radice e tutti i relativi snapshot. In alternativa, specificare per rimuovere solo gli snapshot, ma `include` mantenere il BLOB `only` radice.
 
-**--Exclude-Path** stringa escludere questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. ad esempio `myFolder;myFolder/subDirName/file.pdf`
+**--exclude-path string** Consente di escludere questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. ad esempio `myFolder;myFolder/subDirName/file.pdf`
 
-**--Exclude-pattern** String esclude i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: `*.jpg` ; `*.pdf` ;`exactName`
+**--exclude-pattern string** Consente di escludere i file in cui il nome corrisponde all'elenco di criteri. Ad esempio: `*.jpg` ; `*.pdf` ;`exactName`
 
-**--Force-if-sola lettura**   Quando si elimina un file o una cartella File di Azure, forzare l'eliminazione a funzionare anche se per l'oggetto esistente è impostato l'attributo di sola lettura.
+**--force-if-read-only**   Quando si elimina un File di Azure file o una cartella, forzare il funzionamento dell'eliminazione anche se per l'oggetto esistente è impostato l'attributo di sola lettura.
 
-**--**   guida per la rimozione.
+**--help**   help per la rimozione.
 
-**--include-percorso** stringa include solo questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. ad esempio `myFolder;myFolder/subDirName/file.pdf`
+**--include-path** string Includere solo questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. ad esempio `myFolder;myFolder/subDirName/file.pdf`
 
-**--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *`.jpg` ;* `.pdf` ;`exactName`
+**--include-pattern** string Consente di includere solo i file in cui il nome corrisponde all'elenco di criteri. Ad esempio: *`.jpg` ;* `.pdf` ;`exactName`
 
-**--List-of-files** String definisce il percorso di un file che contiene l'elenco di file e directory da eliminare. I percorsi relativi devono essere delimitati da interruzioni di riga e i percorsi non devono essere codificati in URL. 
+**--list-of-files** string Definisce il percorso di un file, che contiene l'elenco di file e directory da eliminare. I percorsi relativi devono essere delimitati da interruzioni di riga e i percorsi NON devono essere codificati con URL. 
 
-**--List-of-Versions** stringa specifica un file in cui ogni ID versione è elencato in una riga separata. Verificare che l'origine debba puntare a un singolo BLOB e che tutti gli ID versione specificati nel file con questo flag appartengano solo al BLOB di origine. Gli ID versione specificati del blob specificato verranno eliminati dall'archiviazione di Azure. 
+**--list-of-versions** string Specifica un file in cui ogni ID versione è elencato in una riga separata. Assicurarsi che l'origine punti a un singolo BLOB e che tutti gli ID versione specificati nel file usando questo flag appartengano solo al BLOB di origine. Gli ID versione specificati del BLOB specificato verranno eliminati dal Archiviazione di Azure. 
 
-**--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log. I livelli disponibili includono: `INFO` (tutte le richieste/risposte), `WARNING` (risposte lente), `ERROR` (solo richieste non riuscite) e `NONE` (nessun log di output). (impostazione predefinita `INFO` ) (impostazione predefinita `INFO` )
+**--log-level** string Consente di definire il livello di dettaglio del log per il file di log. I livelli disponibili includono: `INFO` (tutte le richieste/risposte), `WARNING` (risposte lente), (solo richieste non `ERROR` riuscite) e `NONE` (nessun log di output). (impostazione `INFO` predefinita) (impostazione `INFO` predefinita)
 
-**--ricorsivo**    Esaminare le sottodirectory in modo ricorsivo durante la sincronizzazione tra le directory.
+**--recursive**    Esaminare le sottodirectory in modo ricorsivo durante la sincronizzazione tra le directory.
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
 |Opzione|Descrizione|
 |---|---|
-|--Cap-Mbps float|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
-|--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
-|--trusted-Microsoft-suffissi stringa   |Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
+|--cap-mbps float|Consente di massimare la velocità di trasferimento, in megabit al secondo. La velocità effettiva momentanea può variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è massima.|
+|--output-type string|Formato dell'output del comando. Le scelte includono: text, json. Il valore predefinito è "text".|
+|--trusted-microsoft-suffixes string   |Specifica suffissi di dominio aggiuntivi a Azure Active Directory possono essere inviati i token di accesso.  Il valore predefinito è '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;*. core.usgovcloudapi.net'. Tutti gli elementi elencati di seguito vengono aggiunti all'impostazione predefinita. Per motivi di sicurezza, è consigliabile inserire Microsoft Azure qui. Separare più voci con punti e virgola.|
 
 ## <a name="see-also"></a>Vedi anche
 

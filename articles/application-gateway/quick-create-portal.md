@@ -4,17 +4,19 @@ titleSuffix: Azure Application Gateway
 description: Questo argomento di avvio rapido illustra come usare il portale di Azure per creare un gateway applicazione di Azure che indirizza il traffico Web alle macchine virtuali in un pool back-end.
 services: application-gateway
 author: vhorne
-ms.service: application-gateway
-ms.topic: quickstart
-ms.date: 01/19/2021
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: c1b17d8c624d4bef74278acc24ece37a736a5ca8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 01/19/2021
+ms.topic: quickstart
+ms.service: application-gateway
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: 92e966f5a9c4a21a6a55862ad582f0238802720f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98572970"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538570"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Guida introduttiva: Indirizzare il traffico Web con un gateway applicazione Azure - Portale di Azure
 
@@ -78,7 +80,7 @@ Per creare il gateway applicazione, usare le schede nella pagina **Crea un gatew
    > [!NOTE]
    > Per lo SKU v2 del gateway applicazione, è possibile scegliere solo la configurazione IP front-end **pubblico**. È comunque possibile avere una configurazione IP front-end con indirizzo pubblico e privato, ma la configurazione IP front-end solo privato (solo modalità bilanciamento del carico interno) non è attualmente abilitata per lo SKU v2. 
 
-2. Selezionare **Aggiungi nuovo** per l' **indirizzo IP pubblico** e immettere *myAGPublicIPAddress* per il nome dell'indirizzo IP pubblico e quindi fare clic su **OK**. 
+2. Selezionare **Aggiungi nuovo** per Indirizzo IP **pubblico** e immettere *myAGPublicIPAddress* come nome dell'indirizzo IP pubblico e quindi selezionare **OK.** 
 
      ![Creare il nuovo gateway applicazione: front-end](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -86,9 +88,9 @@ Per creare il gateway applicazione, usare le schede nella pagina **Crea un gatew
 
 ### <a name="backends-tab"></a>Scheda Back-end
 
-Il pool back-end viene usato per instradare le richieste ai server back-end che gestiscono la richiesta. I pool back-end possono essere costituiti da schede di rete, set di scalabilità di macchine virtuali, indirizzi IP pubblici, indirizzi IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come app Azure Service. In questo esempio verrà creato un pool back-end vuoto con il gateway applicazione a cui verranno aggiunte le destinazioni back-end.
+Il pool back-end viene usato per instradare le richieste ai server back-end che gestiscono la richiesta. I pool back-end possono essere costituiti da schede di interfaccia di rete, set di scalabilità di macchine virtuali, indirizzi IP pubblici, indirizzi IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come Servizio app di Azure. In questo esempio verrà creato un pool back-end vuoto con il gateway applicazione a cui verranno aggiunte le destinazioni back-end.
 
-1. Nella scheda Back- **end** selezionare **Aggiungi un pool back-end**.
+1. Nella scheda **Back-end selezionare** **Aggiungi un pool back-end**.
 
 2. Nella finestra **Aggiungi un pool back-end** visualizzata immettere i valori seguenti per creare un pool back-end vuoto:
 
@@ -105,7 +107,7 @@ Il pool back-end viene usato per instradare le richieste ai server back-end che 
 
 Nella scheda **Configurazione** verranno connessi il front-end e il pool back-end creati tramite una regola di routing.
 
-1. Selezionare **Aggiungi una regola di routing** nella colonna **regole di routing** .
+1. Selezionare **Aggiungi una regola di routing** nella colonna Regole **di** routing.
 
 2. Nella finestra **Aggiungi una regola di routing** visualizzata immettere *myRoutingRule* per **Nome regola**.
 
@@ -120,7 +122,7 @@ Nella scheda **Configurazione** verranno connessi il front-end e il pool back-en
 
 4. Nella scheda **Destinazioni back-end** selezionare **myBackendPool** per **Destinazione back-end**.
 
-5. Per l' **impostazione http**, selezionare **Aggiungi nuovo** per aggiungere una nuova impostazione http. L'impostazione HTTP determinerà il comportamento della regola di routing. Nella finestra **Aggiungi un'impostazione HTTP** visualizzata immettere *myHTTPSetting* per **Nome impostazione HTTP** e *80* per **Porta back-end**. Accettare i valori predefiniti per le altre impostazioni nella finestra **Aggiungi un'impostazione HTTP** e quindi selezionare **Aggiungi** per tornare alla finestra **Aggiungi una regola di routing**. 
+5. Per **l'impostazione HTTP** selezionare **Aggiungi nuovo** per aggiungere una nuova impostazione HTTP. L'impostazione HTTP determinerà il comportamento della regola di routing. Nella finestra **Aggiungi un'impostazione HTTP** visualizzata immettere *myHTTPSetting* per **Nome impostazione HTTP** e *80* per **Porta back-end**. Accettare i valori predefiniti per le altre impostazioni nella finestra **Aggiungi un'impostazione HTTP** e quindi selezionare **Aggiungi** per tornare alla finestra **Aggiungi una regola di routing**. 
 
      ![Creare il nuovo gateway applicazione: impostazione HTTP](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
 
@@ -147,7 +149,7 @@ A questo scopo, è necessario:
 ### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
 1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**. Verrà visualizzata la finestra **Nuovo**.
-2. Selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**. Viene visualizzata la pagina **Creare una macchina virtuale**.<br>Il gateway applicazione può indirizzare il traffico a qualsiasi tipo di macchina virtuale usato nel pool back-end. In questo esempio si usa una macchina virtuale Windows Server 2016 datacenter.
+2. Selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**. Viene visualizzata la pagina **Creare una macchina virtuale**.<br>Il gateway applicazione può indirizzare il traffico a qualsiasi tipo di macchina virtuale usato nel pool back-end. In questo esempio si usa una macchina virtuale Windows Server 2016 Datacenter.
 3. Immettere questi valori nella scheda **Informazioni di base** per le seguenti impostazioni della macchina virtuale:
 
     - **Gruppo di risorse**: selezionare **myResourceGroupAG** come nome del gruppo di risorse.
@@ -165,7 +167,7 @@ A questo scopo, è necessario:
 
 ### <a name="install-iis-for-testing"></a>Installare IIS a scopo di test
 
-In questo esempio si installa IIS nelle macchine virtuali per verificare che Azure abbia creato correttamente il gateway applicazione.
+In questo esempio si installa IIS nelle macchine virtuali per verificare che Azure ha creato correttamente il gateway applicazione.
 
 1. Aprire Azure PowerShell.
 
@@ -231,7 +233,7 @@ Per eliminare il gruppo di risorse:
 1. Nel menu del portale di Azure selezionare **Gruppi di risorse** oppure cercare e selezionare *Gruppi di risorse*.
 2. Nella pagina **Gruppo di risorse** cercare **myResourceGroupAG** nell'elenco e selezionarlo.
 3. Nella pagina **Gruppo di risorse** selezionare **Elimina gruppo di risorse**.
-4. Immettere *myResourceGroupAG* in **digitare il nome del gruppo di risorse** e quindi selezionare **Elimina** .
+4. Immettere *myResourceGroupAG* in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e quindi selezionare **Elimina**
 
 ## <a name="next-steps"></a>Passaggi successivi
 

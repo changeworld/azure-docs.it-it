@@ -1,5 +1,5 @@
 ---
-title: Introduzione con Cloud Foundry su Microsoft Azure
+title: Attività iniziali con Cloud Foundry in Microsoft Azure
 description: Eseguire OSS o Pivotal Cloud Foundry in Microsoft Azure
 author: seanmck
 ms.service: virtual-machines
@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: d3b13dffcf251f79a04182d32f23fd40e6ed6044
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f80f07cad0e82ee35fe71223e1282ea24f791bb
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562895"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530929"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry in Azure
 
@@ -39,7 +39,7 @@ Microsoft offre il miglior supporto possibile per OSS CF tramite i canali di com
 
 Pivotal Cloud Foundry include la stessa piattaforma di base della distribuzione OSS, nonché un set di strumenti di gestione proprietari e supporto aziendale. Per eseguire PCF in Azure, è necessario acquisire una licenza da Pivotal. L'offerta PCF in Azure Marketplace include una licenza di valutazione di 90 giorni.
 
-Gli strumenti includono [Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), un'applicazione Web che semplifica la distribuzione e la gestione di una base Cloud Foundry, e [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), un'applicazione Web per la gestione di utenti e applicazioni.
+Gli strumenti includono [Pivotal Operations Manager](https://docs.pivotal.io/ops-manager/2-10/install/), un'applicazione Web che semplifica la distribuzione e la gestione di una base Cloud Foundry, e [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), un'applicazione Web per la gestione di utenti e applicazioni.
 
 Oltre ai canali di supporto elencati sopra per OSS CF, una licenza di PCF offre la possibilità di richiedere supporto a Pivotal. Microsoft e Pivotal hanno anche abilitato flussi di lavoro di supporto che consentono di rivolgersi per assistenza a una delle due parti usufruendo dell'instradamento appropriato della richiesta a seconda della causa del problema.
 
