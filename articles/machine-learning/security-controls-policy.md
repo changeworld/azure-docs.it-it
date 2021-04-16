@@ -1,22 +1,22 @@
 ---
-title: Controlli di conformità normativi di criteri di Azure per Azure Machine Learning
-description: Elenca i controlli di conformità normativi di criteri di Azure disponibili per Azure Machine Learning. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 03/31/2021
+title: Criteri di Azure controlli di conformità alle normative per Azure Machine Learning
+description: Elenca Criteri di Azure controlli di conformità alle normative disponibili per Azure Machine Learning. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
+ms.date: 04/14/2021
 ms.topic: sample
 author: BlackMist
 ms.author: larryfr
 ms.service: machine-learning
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 9e819b743be4d4efd55278fdf1cc718017f6d4c2
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 0a4b301c34d15eb02f2822828bd2a16bb50c3225
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096352"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500831"
 ---
-# <a name="azure-policy-regulatory-compliance-controls-for-azure-machine-learning"></a>Controlli di conformità normativi di criteri di Azure per Azure Machine Learning
+# <a name="azure-policy-regulatory-compliance-controls-for-azure-machine-learning"></a>Criteri di Azure controlli di conformità alle normative per Azure Machine Learning
 
-La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. In questa pagina sono elencati i **controlli di sicurezza** e i **domini di conformità** per Azure Machine Learning. È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
+La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i domini **di conformità e** i controlli di **sicurezza** per Azure Machine Learning. È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 

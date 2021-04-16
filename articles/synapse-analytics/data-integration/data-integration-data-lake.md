@@ -4,19 +4,19 @@ description: Informazioni su come inserire dati in Azure Data Lake Storage Gen2 
 services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
+ms.subservice: pipeline
 ms.topic: conceptual
-ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: fbc4f11b450a645002daedc800d4fed74ed37a3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3024fe1a8fe524a1deddef23a67d86a600b9394
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98219573"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567605"
 ---
-# <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Inserire i dati in Azure Data Lake Storage Gen2 
+# <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Inserire dati in Azure Data Lake Storage Gen2 
 
 Questo articolo illustra come inserire dati da una posizione a un'altra in un account di archiviazione Azure Data Lake Gen 2 (Azure Data Lake Gen 2) con Azure Synapse Analytics.
 
@@ -32,23 +32,23 @@ In Azure Synapse Analytics si usano i servizi collegati per definire le informaz
 1. Aprire l'interfaccia utente di Azure Synapse Analytics e passare alla scheda **Gestisci**.
 1. In **Connessioni esterne** selezionare **Servizi collegati**.
 1. Per aggiungere un servizio collegato, selezionare **Nuovo**.
-1. Selezionare il riquadro Azure Data Lake Storage Gen2 dall'elenco e selezionare **continua**.
+1. Selezionare il Azure Data Lake Storage Gen2 dall'elenco e selezionare **Continua.**
 1. Immettere le credenziali di autenticazione. I tipi di autenticazione attualmente supportati sono la chiave dell'account, l'entità servizio e l'identità gestita. Selezionare Test connessione per verificare che le credenziali siano corrette. 
 1. Selezionare **Create** (Crea) al termine.
 
 ## <a name="create-pipeline"></a>Creare una pipeline
 
-Una pipeline contiene il flusso logico per un'esecuzione di un set di attività. In questa sezione verrà creata una pipeline contenente un'attività di copia che inserisce i dati da Azure Data Lake generazione 2 in un pool SQL dedicato.
+Una pipeline contiene il flusso logico per un'esecuzione di un set di attività. In questa sezione si creerà una pipeline contenente un'attività di copia che inserimenta i dati da Azure Data Lake Gen 2 in un pool SQL dedicato.
 
-1. Passare alla scheda **orchestrazione** . Selezionare l'icona più accanto all'intestazione pipeline e selezionare **pipeline**.
+1. Passare alla **scheda Orchestrazione.** Selezionare l'icona con il segno più accanto all'intestazione della pipeline e selezionare **Pipeline.**
 1. In **Move and Transform** (Sposta e trasforma) nel riquadro delle attività trascinare **Copia dati** sul canvas della pipeline.
-1. Selezionare nell'attività di copia e passare alla scheda **origine** . Selezionare **nuovo** per creare un nuovo set di dati di origine.
-1. Selezionare Azure Data Lake Storage Gen2 come archivio dati e selezionare continua.
-1. Selezionare DelimitedText come formato e selezionare continua.
+1. Selezionare l'attività di copia e passare alla **scheda** Origine. Selezionare **Nuovo per** creare un nuovo set di dati di origine.
+1. Selezionare Azure Data Lake Storage Gen2 come archivio dati e selezionare Continua.
+1. Selezionare DelimitedText come formato e selezionare Continua.
 1. Nel riquadro di impostazione delle proprietà selezionare il servizio collegato Azure Data Lake Storage creato. Specificare il percorso del file dei dati di origine e indicare se la prima riga contiene un'intestazione. È possibile importare lo schema dall'archivio file o da un file di esempio. Selezionare OK al termine.
-1. Passare alla scheda **sink** . Selezionare **nuovo** per creare un nuovo set di dati sink.
-1. Selezionare Azure Data Lake Storage Gen2 come archivio dati e selezionare continua.
-1. Selezionare DelimitedText come formato e selezionare continua.
+1. Passare alla **scheda Sink.** Selezionare **Nuovo per** creare un nuovo set di dati sink.
+1. Selezionare Azure Data Lake Storage Gen2 come archivio dati e selezionare Continua.
+1. Selezionare DelimitedText come formato e selezionare Continua.
 1. Nel riquadro di impostazione delle proprietà selezionare il servizio collegato Azure Data Lake Storage creato. Specificare il percorso della cartella in cui scrivere i dati. Selezionare OK al termine.
 
 ## <a name="debug-and-publish-pipeline"></a>Eseguire il debug della pipeline e pubblicarla
@@ -72,4 +72,4 @@ In questo passaggio si attiverà manualmente la pipeline pubblicata nel passaggi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'integrazione dei dati per Azure sinapsi Analytics, vedere l'articolo inserimento di [dati in un pool SQL dedicato](data-integration-sql-pool.md) .
+Per altre informazioni sull'integrazione dei Azure Synapse Analytics, vedere [l'articolo Inserimento](data-integration-sql-pool.md) di dati in un pool SQL dedicato.

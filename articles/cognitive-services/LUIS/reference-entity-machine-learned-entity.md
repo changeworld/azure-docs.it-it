@@ -1,28 +1,28 @@
 ---
-title: Tipo di entità Machine Learning-LUIS
+title: Tipo di entità di Machine Learning - LUIS
 titleSuffix: Azure Cognitive Services
-description: L'entità Machine Learning è l'entità preferita per la creazione di applicazioni LUIS.
+description: L'entità di Machine Learning è l'entità preferita per la compilazione di applicazioni LUIS.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/30/2020
-ms.openlocfilehash: f16f3ec445af777c3bde1cb2ab0735df4b6614f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 12724175ebb9e23efa431169c01a804cd193cdd5
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91542241"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502590"
 ---
 # <a name="machine-learning-entity"></a>Entità di Machine Learning
 
-L'entità Machine Learning è l'entità preferita per la creazione di applicazioni LUIS.
+L'entità di Machine Learning è l'entità preferita per la compilazione di applicazioni LUIS.
 
 
 ## <a name="example-json"></a>JSON di esempio
 
-Si supponga che l'app accetti gli ordini di pizza, ad esempio l'esercitazione relativa all' [entità decomponibile](tutorial-machine-learned-entity.md). Ogni ordine può includere più pizze diverse, incluse le dimensioni diverse.
+Si supponga che l'app accetta ordini di pizza, ad esempio [l'esercitazione sulle entità scomposte](tutorial-machine-learned-entity.md). Ogni ordine può includere diverse pizze, tra cui diverse dimensioni.
 
 Le espressioni di esempio includono:
 
@@ -36,7 +36,7 @@ Le espressioni di esempio includono:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Poiché un'entità di machine learning può avere molte sottoentità con le funzionalità richieste, questo è solo un esempio. Deve essere considerata una guida per ciò che verrà restituito dall'entità.
+Poiché un'entità di Machine Learning può avere molte sottoe entità con funzionalità necessarie, si tratta solo di un esempio. Deve essere considerata una guida per ciò che l'entità restituirà.
 
 Si consideri la query:
 
@@ -346,6 +346,6 @@ Questa entità non è disponibile nel runtime di stima V2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sull'entità Machine Learning, tra cui un' [esercitazione](tutorial-machine-learned-entity.md), i [concetti](luis-concept-entity-types.md#design-entities-for-decomposition)e la [Guida alle procedure](luis-how-to-add-entities.md#create-a-machine-learned-entity).
+Altre informazioni sull'entità di Machine Learning, tra cui [un'esercitazione,](tutorial-machine-learned-entity.md) [i](luis-concept-entity-types.md#machine-learned-ml-entity)concetti e [la guida pratica.](luis-how-to-add-entities.md#create-a-machine-learned-entity)
 
-Informazioni sull'entità [List](reference-entity-list.md) e sull'entità di [espressioni regolari](reference-entity-regular-expression.md) .
+Informazioni [sull'entità elenco e](reference-entity-list.md) [sull'entità di espressione](reference-entity-regular-expression.md) regolare.

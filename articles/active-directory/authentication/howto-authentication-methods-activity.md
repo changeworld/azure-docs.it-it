@@ -1,6 +1,6 @@
 ---
-title: Attività metodi di autenticazione-Azure Active Directory
-description: Panoramica dei metodi di autenticazione registrati dagli utenti per l'accesso e la reimpostazione delle password.
+title: Attività Metodi di autenticazione - Azure Active Directory
+description: Panoramica dei metodi di autenticazione registrati dagli utenti per accedere e reimpostare le password.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,25 +11,25 @@ author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a1cb71917fdb30ffccda21bedffe1c7f2a428c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 699ff88e4181dada5eacaa3f13469722cdf7ceaa
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557956"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530457"
 ---
 # <a name="authentication-methods-activity"></a>Attività dei metodi di autenticazione 
 
-Il dashboard attività nuovi metodi di autenticazione consente agli amministratori di monitorare la registrazione e l'utilizzo del metodo di autenticazione nell'intera organizzazione. Questa funzionalità di creazione di report consente all'organizzazione di individuare i metodi registrati e il modo in cui vengono usati.
+Il nuovo dashboard attività metodi di autenticazione consente agli amministratori di monitorare la registrazione e l'utilizzo dei metodi di autenticazione nell'intera organizzazione. Questa funzionalità di creazione di report offre all'organizzazione i mezzi per comprendere quali metodi vengono registrati e come vengono usati.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="permissions-and-licenses"></a>Autorizzazioni e licenze
 
-I ruoli predefiniti e personalizzati con le autorizzazioni seguenti possono accedere al pannello attività metodi di autenticazione e alle API:
+I ruoli predefiniti e personalizzati con le autorizzazioni seguenti possono accedere al pannello Attività metodi di autenticazione e alle API:
 
-- Microsoft. directory/auditLogs/allProperties/Read
-- Microsoft. directory/signInReports/allProperties/Read
+- Microsoft.directory/auditLogs/allProperties/read
+- Microsoft.directory/signInReports/allProperties/read
 
 I ruoli seguenti dispongono delle autorizzazioni necessarie:
 
@@ -40,105 +40,105 @@ I ruoli seguenti dispongono delle autorizzazioni necessarie:
 - Amministratore della protezione
 - Amministratore globale
 
- Per accedere all'utilizzo e alle informazioni dettagliate, è necessaria una licenza Azure AD Premium P1 o P2. Azure AD Multi-Factor Authentication e le informazioni sulle licenze per la reimpostazione della password self-service (SSPR) sono disponibili nel [Azure Active Directory sito dei prezzi](https://azure.microsoft.com/pricing/details/active-directory/).
+ È Azure AD Premium una licenza P1 o P2 per accedere all'utilizzo e alle informazioni dettagliate. Azure AD informazioni sulle licenze di Multi-Factor Authentication e reimpostazione della password self-service (SSPR) sono disponibili nel sito Azure Active Directory [prezzi.](https://azure.microsoft.com/pricing/details/active-directory/)
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Per accedere all'utilizzo del metodo di autenticazione e alle informazioni dettagliate:
+Per accedere all'utilizzo e alle informazioni dettagliate del metodo di autenticazione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Fare clic su **Azure Active Directory**  >    >  **attività metodi di autenticazione** di sicurezza  >  .
-1. Nel report sono presenti due schede: **registrazione** e **utilizzo**.
+1. Fare **clic Azure Active Directory** attività  >  **Metodi** di autenticazione  >  **di**  >  **sicurezza**.
+1. Nel report sono presenti due schede: **Registrazione** e **Utilizzo**.
 
-   ![Cenni preliminari sull'attività metodi di autenticazione](media/how-to-authentication-methods-usage-insights/registration-usage-tabs.png)
+   ![Panoramica dell'attività Metodi di autenticazione](media/how-to-authentication-methods-usage-insights/registration-usage-tabs.png)
 
-## <a name="registration-details"></a>Dettagli registrazione
+## <a name="registration-details"></a>Dettagli della registrazione
 
-È possibile accedere alla [**scheda registrazione**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) per visualizzare il numero di utenti in grado di eseguire l'autenticazione a più fattori, l'autenticazione passowordless e la reimpostazione della password self-service. 
+È possibile accedere alla [**scheda Registrazione per**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) visualizzare il numero di utenti in grado di eseguire l'autenticazione a più fattori, l'autenticazione senza password e la reimpostazione della password self-service. 
 
-Fare clic su una delle opzioni seguenti per pre-filtrare un elenco di dettagli della registrazione dell'utente:
+Fare clic su una delle opzioni seguenti per filtrare un elenco di dettagli di registrazione utente:
 
-- **Gli utenti in grado di multi-factor authentication di Azure** mostrano la suddivisione degli utenti:
-  - Registrato per un metodo di autenticazione avanzata 
-  - Abilitata dal criterio per l'uso di tale metodo per l'autenticazione a più fattori 
+- **Gli utenti in grado di Azure Multi-Factor Authentication** mostrano la suddivisione degli utenti che sono entrambi:
+  - Registrato per un metodo di autenticazione sicuro 
+  - Abilitata dai criteri per l'uso di tale metodo per MFA 
   
-  Questo numero non riflette gli utenti registrati per l'autenticazione a più fattori al di fuori della Azure AD. 
-- **Gli utenti che supportano l'autenticazione senza password** mostrano la suddivisione degli utenti registrati per l'accesso senza password usando FIDO2, Windows Hello for business o l'accesso tramite telefono senza password con l'app Microsoft Authenticator. 
-- **Gli utenti che supportano la reimpostazione della password self-service** mostrano la suddivisione degli utenti che possono reimpostare le password. Gli utenti possono reimpostare la password se sono entrambi:
+  Questo numero non riflette gli utenti registrati per L'autenticazione a più fattori al di fuori Azure AD. 
+- Gli utenti in grado di eseguire l'autenticazione senza **password** mostrano la suddivisione degli utenti registrati per l'accesso senza password usando l'app fiDO2, Windows Hello for Business o phone senza password con l'app Microsoft Authenticator. 
+- **Gli utenti in grado di reimpostare la password self-service** mostrano la suddivisione degli utenti che possono reimpostare le password. Gli utenti possono reimpostare la password se sono entrambi:
   - Registrato per un numero sufficiente di metodi per soddisfare i criteri dell'organizzazione per la reimpostazione della password self-service 
   - Abilitato per reimpostare la password 
 
   ![Screenshot degli utenti che possono eseguire la registrazione](media/how-to-authentication-methods-usage-insights/users-capable.png)
 
-**Gli utenti registrati tramite il metodo di autenticazione** mostrano il numero di utenti registrati per ogni metodo di autenticazione. Fare clic su un metodo di autenticazione per vedere chi è registrato per il metodo.
+**Gli utenti registrati dal metodo di autenticazione** mostrano quanti utenti sono registrati per ogni metodo di autenticazione. Fare clic su un metodo di autenticazione per visualizzare chi è registrato per tale metodo.
 
 ![Screenshot degli utenti registrati](media/how-to-authentication-methods-usage-insights/users-registered.png)
 
-La **registrazione recente tramite il metodo di autenticazione** Mostra il numero di registrazioni completate e non riuscite, ordinate per metodo di autenticazione. Fare clic su un metodo di autenticazione per visualizzare gli eventi di registrazione recenti per il metodo.
+**La registrazione recente in base al metodo di** autenticazione mostra il numero di registrazioni riuscite e non riuscite, ordinate in base al metodo di autenticazione. Fare clic su un metodo di autenticazione per visualizzare gli eventi di registrazione recenti per tale metodo.
 
-![Screenshot di registrato di recente](media/how-to-authentication-methods-usage-insights/recently-registered.png)
+![Screenshot di Registrazione recente](media/how-to-authentication-methods-usage-insights/recently-registered.png)
 
 ## <a name="usage-details"></a>Dettagli di utilizzo
 
-Il report **sull'utilizzo** Mostra i metodi di autenticazione utilizzati per l'accesso e la reimpostazione delle password.
+Il report **Utilizzo** mostra i metodi di autenticazione usati per accedere e reimpostare le password.
 
-![Screenshot della pagina Usage](media/how-to-authentication-methods-usage-insights/usage-page.png)
+![Screenshot della pagina Utilizzo](media/how-to-authentication-methods-usage-insights/usage-page.png)
 
-**Accessi in base al requisito di autenticazione** indica il numero di accessi interattivi utente riusciti necessari per l'autenticazione a fattore singolo e a più fattori in Azure ad. Gli accessi in cui l'autenticazione a più fattori è stata applicata da un provider di autenticazione a più fattori di terze parti non sono inclusi.
+**Gli account di accesso** in base ai requisiti di autenticazione mostrano il numero di accesso interattivi utente riusciti necessari per l'autenticazione a fattore singolo e a più fattori in Azure AD. Gli accesso in cui è stata applicata l'autenticazione a più fattori da un provider MFA di terze parti non sono inclusi.
 
-![Screenshot degli accessi in base al requisito di autenticazione](media/how-to-authentication-methods-usage-insights/sign-ins-protected.png)
+![Screenshot degli accesso in base al requisito di autenticazione](media/how-to-authentication-methods-usage-insights/sign-ins-protected.png)
 
-**Accessi in base al metodo di autenticazione** Mostra il numero di accessi interattivi utente (esito positivo e negativo) in base al metodo di autenticazione usato. Non include gli accessi in cui il requisito di autenticazione è stato soddisfatto da un'attestazione nel token.
+**Gli account di accesso tramite metodo di autenticazione** mostrano il numero di accesso interattivi dell'utente (esito positivo e negativo) in base al metodo di autenticazione usato. Non include gli accesso in cui il requisito di autenticazione è stato soddisfatto da un'attestazione nel token.
 
-![Screenshot di accessi per metodo](media/how-to-authentication-methods-usage-insights/sign-ins-by-method.png)
+![Screenshot degli accesso in base al metodo](media/how-to-authentication-methods-usage-insights/sign-ins-by-method.png)
 
-Il **numero di reimpostazioni della password e di sblocco dell'account** Mostra il numero di modifiche apportate alla password e le reimpostazioni della password (self-service e amministratore) riuscite nel corso del tempo.
+**Number of password resets and account unlocks** (Numero di reimpostazioni della password e sblocco dell'account) indica il numero di modifiche della password riuscite e reimpostazioni della password (self-service e da amministratore) nel tempo.
 
-![Schermata di reimpostazioni e sblocco](media/how-to-authentication-methods-usage-insights/password-changes.png)
+![Screenshot delle reimpostazioni e degli sblocchi](media/how-to-authentication-methods-usage-insights/password-changes.png)
 
-Reimpostazione **password in base al metodo di autenticazione** Mostra il numero di autenticazioni riuscite e non riuscite durante il flusso di reimpostazione della password in base al metodo di autenticazione
+**Reimpostazioni delle password in base al metodo di autenticazione** indica il numero di autenticazioni riuscite e non riuscite durante il flusso di reimpostazione della password in base al metodo di autenticazione.
 
-![Screenshot della reimpostazione del metodo](media/how-to-authentication-methods-usage-insights/resets-by-method.png)
+![Screenshot delle reimpostazioni in base al metodo](media/how-to-authentication-methods-usage-insights/resets-by-method.png)
 
-## <a name="user-registration-details"></a>Dettagli registrazione utente 
+## <a name="user-registration-details"></a>Dettagli di registrazione utente 
 
-Utilizzando i controlli nella parte superiore dell'elenco, è possibile cercare un utente e filtrare l'elenco di utenti in base alle colonne visualizzate.
+Usando i controlli nella parte superiore dell'elenco, è possibile cercare un utente e filtrare l'elenco di utenti in base alle colonne visualizzate.
 
-Il report Dettagli registrazione Mostra le informazioni seguenti per ogni utente:
+Il report dei dettagli di registrazione mostra le informazioni seguenti per ogni utente:
 
 - Nome dell'entità utente
 - Nome
-- Autenticazione a più fattori (idonea, non supportata)
-- Supporto senza password (idoneo, non supportato)
+- Idoneo per MFA (idoneo, non idoneo)
+- Idoneo senza password (idoneo, non idoneo)
 - SSPR registrato (registrato, non registrato)
-- SSPR abilitato (abilitato, non abilitato)
-- SSPR (idoneo, non supportato) 
-- Metodi registrati (posta elettronica, telefono cellulare, telefono cellulare alternativo, telefono dell'ufficio, push Microsoft Authenticator, software monouso per il codice, FIDO2, chiave di sicurezza, domande di sicurezza)
+- SSPR abilitata (abilitata, non abilitata)
+- Idoneo per la SSPR (idoneo, non idoneo) 
+- Metodi registrati (posta elettronica, telefono cellulare, telefono cellulare alternativo, telefono ufficio, Microsoft Authenticator push, passcode one-time software, FIDO2, chiave di sicurezza, domande di sicurezza)
 
   ![Screenshot dei dettagli di registrazione utente](media/how-to-authentication-methods-usage-insights/registration-details.png)
 
 ## <a name="registration-and-reset-events"></a>Eventi di registrazione e reimpostazione 
 
-**Gli eventi di registrazione e reimpostazione** visualizzano eventi di registrazione e reimpostazione delle ultime 24 ore, degli ultimi sette giorni o degli ultimi 30 giorni, tra cui:
+**Gli eventi di registrazione e reimpostazione** mostrano gli eventi di registrazione e reimpostazione delle ultime 24 ore, degli ultimi sette giorni o degli ultimi 30 giorni, tra cui:
 
 - Data
 - Nome utente
 - User 
 - Funzionalità (registrazione, reimpostazione)
-- Metodo usato (notifica dell'app, codice dell'app, telefonata, chiamata di Office, chiamata mobile alternativa, SMS, posta elettronica, domande di sicurezza)
-- Stato (esito positivo, esito negativo)
+- Metodo usato (notifica dell'app, codice dell'app, chiamata telefonica, chiamata dell'ufficio, chiamata mobile alternativa, SMS, posta elettronica, domande di sicurezza)
+- Stato (operazione riuscita, esito negativo)
 - Motivo dell'errore (spiegazione)
 
   ![Screenshot degli eventi di registrazione e reimpostazione](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## <a name="limitations"></a>Limitazioni
 
-- I dati del report non vengono aggiornati in tempo reale e possono riflettere una latenza di poche ore.
-- Le registrazioni di pass di accesso temporanee non vengono riflesse nella scheda registrazione del report perché sono valide solo per un breve periodo di tempo.
-- I metodi **PhoneAppNotification** o **PhoneAppOTP** che un utente potrebbe avere configurato non vengono visualizzati nel dashboard. 
+- I dati nel report non vengono aggiornati in tempo reale e possono riflettere una latenza massima di alcune ore.
+- Pass di accesso temporaneo registrazioni non vengono riflesse nella scheda registrazione del report perché sono valide solo per un breve periodo di tempo.
+- I **metodi PhoneAppNotification** **o PhoneAppOTP** che un utente potrebbe aver configurato non vengono visualizzati nel dashboard. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Utilizzo dell'API report utilizzo metodi di autenticazione](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Uso dell'API del report sull'utilizzo dei metodi di autenticazione](/graph/api/resources/authenticationmethods-usage-insights-overview)
 - [Scelta dei metodi di autenticazione per l'organizzazione](concept-authentication-methods.md)
 - [Esperienza di registrazione combinata](concept-registration-mfa-sspr-combined.md)

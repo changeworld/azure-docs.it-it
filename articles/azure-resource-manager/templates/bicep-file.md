@@ -1,24 +1,24 @@
 ---
-title: Struttura e sintassi del file bicipite
-description: Descrive la struttura e le proprietà di un file bicipite usando la sintassi dichiarativa.
+title: Sintassi e struttura del file Bicep
+description: Descrive la struttura e le proprietà di un file Bicep usando la sintassi dichiarativa.
 ms.topic: conceptual
 ms.date: 03/31/2021
-ms.openlocfilehash: 09993ae9c08f53144de8e94e6555ad93bec681f6
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 1b8eddd388878be8f653f963ef967cf2c0af685f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168689"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537856"
 ---
-# <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Comprendere la struttura e la sintassi dei file bicipite
+# <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Comprendere la struttura e la sintassi dei file Bicep
 
-Questo articolo descrive la struttura di un file bicipite. Vengono presentate le diverse sezioni del file e le proprietà disponibili in tali sezioni.
+Questo articolo descrive la struttura di un file Bicep. Presenta le diverse sezioni del file e le proprietà disponibili in tali sezioni.
 
-Questo articolo è destinato agli utenti che hanno familiarità con i file bicipite. Fornisce informazioni dettagliate sulla struttura del modello. Per un'esercitazione dettagliata che illustra il processo di creazione di un file bicipite, vedere [esercitazione: creare e distribuire il primo file bicipite Azure Resource Manager](bicep-tutorial-create-first-bicep.md).
+Questo articolo è destinato agli utenti che hanno familiarità con i file Bicep. Fornisce informazioni dettagliate sulla struttura del modello. Per un'esercitazione dettagliata che illustra il processo di creazione di un file [Bicep, vedere Tutorial: Create and deploy first Azure Resource Manager Bicep file](bicep-tutorial-create-first-bicep.md).
 
 ## <a name="template-format"></a>Formato del modello
 
-Un file bicipite presenta gli elementi seguenti. Gli elementi possono essere visualizzati in qualsiasi ordine.
+Un file Bicep include gli elementi seguenti. Gli elementi possono essere visualizzati in qualsiasi ordine.
 
 ```bicep
 targetScope = '<scope>'
@@ -106,33 +106,33 @@ output storageEndpoint object = stg.properties.primaryEndpoints
 
 ## <a name="target-scope"></a>Ambito di destinazione
 
-Per impostazione predefinita, l'ambito di destinazione è impostato su `resourceGroup` . Se si esegue la distribuzione a livello di gruppo di risorse, non è necessario impostare l'ambito di destinazione nel file bicipite.
+Per impostazione predefinita, l'ambito di destinazione è impostato su `resourceGroup` . Se si esegue la distribuzione a livello di gruppo di risorse, non è necessario impostare l'ambito di destinazione nel file Bicep.
 
 Di seguito sono elencati i valori consentiti:
 
-* **resourceGroup** : valore predefinito, usato per le [distribuzioni di gruppi di risorse](deploy-to-resource-group.md).
-* **sottoscrizione** : usata per le [distribuzioni di sottoscrizioni](deploy-to-subscription.md).
-* **managementGroup** : usato per le [distribuzioni del gruppo di gestione](deploy-to-management-group.md).
-* **tenant** : usato per le [distribuzioni tenant](deploy-to-tenant.md).
+* **resourceGroup:** valore predefinito, usato per le [distribuzioni del gruppo di risorse.](deploy-to-resource-group.md)
+* **subscription:** usato per le [distribuzioni di sottoscrizioni](deploy-to-subscription.md).
+* **managementGroup:** usato per le [distribuzioni del gruppo di gestione](deploy-to-management-group.md).
+* **tenant:** usato per le [distribuzioni di tenant](deploy-to-tenant.md).
 
 ## <a name="parameters"></a>Parametri
 
-Usare i parametri per i valori che devono variare per diverse distribuzioni. È possibile definire un valore predefinito per il parametro utilizzato se non viene specificato alcun valore durante la distribuzione.
+Usare i parametri per i valori che devono variare per distribuzioni diverse. È possibile definire un valore predefinito per il parametro utilizzato se non viene fornito alcun valore durante la distribuzione.
 
-Ad esempio, è possibile aggiungere un parametro SKU per specificare dimensioni diverse per una risorsa. È possibile usare le funzioni modello per creare il valore predefinito, ad esempio il recupero della posizione del gruppo di risorse.
+Ad esempio, è possibile aggiungere un parametro SKU per specificare dimensioni diverse per una risorsa. È possibile usare le funzioni modello per creare il valore predefinito, ad esempio ottenere la posizione del gruppo di risorse.
 
 ```bicep
 param storageSKU string = 'Standard_LRS'
 param location string = resourceGroup().location
 ```
 
-Per i tipi di dati disponibili, vedere [tipi di dati nei modelli](data-types.md).
+Per i tipi di dati disponibili, vedere [Tipi di dati nei modelli.](data-types.md)
 
-Per altre informazioni, vedere [Parameters in templates](template-parameters.md).
+Per altre informazioni, vedere [Parametri nei modelli.](template-parameters.md)
 
-## <a name="parameter-decorators"></a>Elementi Decorator del parametro
+## <a name="parameter-decorators"></a>Elementi Decorator di parametri
 
-È possibile aggiungere uno o più elementi Decorator per ogni parametro. Questi elementi Decorator definiscono i valori consentiti per il parametro. Nell'esempio seguente vengono specificati gli SKU che possono essere distribuiti tramite il file bicipite.
+È possibile aggiungere uno o più elementi Decorator per ogni parametro. Questi elementi Decorator definiscono i valori consentiti per il parametro . L'esempio seguente specifica gli SKU che possono essere distribuiti tramite il file Bicep.
 
 ```bicep
 @allowed([
@@ -144,34 +144,34 @@ Per altre informazioni, vedere [Parameters in templates](template-parameters.md)
 param storageSKU string = 'Standard_LRS'
 ```
 
-Nella tabella seguente vengono descritti gli elementi Decorator disponibili e il modo in cui utilizzarli.
+La tabella seguente descrive gli elementi Decorator disponibili e come usarli.
 
-| Elemento Decorator | Apply to | Argomento | Descrizione |
+| Decoratore | Apply to | Argomento | Descrizione |
 | --------- | ---- | ----------- | ------- |
-| autorizzate | all | array | Valori consentiti per il parametro. Utilizzare questo elemento Decorator per assicurarsi che l'utente fornisca valori corretti. |
-| description | all | string | Testo che spiega come usare il parametro. La descrizione viene visualizzata dagli utenti tramite il portale. |
-| maxLength | Array, stringa | INT | Lunghezza massima per i parametri di stringa e di matrice. Il valore è inclusivo. |
+| autorizzate | all | array | Valori consentiti per il parametro. Usare questo elemento Decorator per assicurarsi che l'utente fornisce i valori corretti. |
+| Descrizione | all | string | Testo che illustra come usare il parametro . La descrizione viene visualizzata agli utenti tramite il portale. |
+| maxLength | array, string | INT | Lunghezza massima per i parametri di stringa e matrice. Il valore è inclusivo. |
 | maxValue | INT | INT | Valore massimo per il parametro integer. Questo valore è inclusivo. |
-| metadata | all | object | Proprietà personalizzate da applicare al parametro. Può includere una proprietà Description equivalente all'elemento Decorator Description. |
-| minLength | Array, stringa | INT | Lunghezza minima per i parametri di stringa e di matrice. Il valore è inclusivo. |
+| metadata | all | object | Proprietà personalizzate da applicare al parametro . Può includere una proprietà description equivalente all'elemento Decorator description. |
+| minLength | array, string | INT | Lunghezza minima per i parametri stringa e matrice. Il valore è inclusivo. |
 | minValue | INT | INT | Valore minimo per il parametro integer. Questo valore è inclusivo. |
-| secure | String, oggetto | Nessuno | Contrassegna il parametro come protetto. Il valore di un parametro sicuro non viene salvato nella cronologia di distribuzione e non viene registrato. Per altre informazioni, vedere [proteggere stringhe e oggetti](data-types.md#secure-strings-and-objects). |
+| secure | string, object | none | Contrassegna il parametro come sicuro. Il valore di un parametro sicuro non viene salvato nella cronologia di distribuzione e non viene registrato. Per altre informazioni, vedere [Proteggere stringhe e oggetti](data-types.md#secure-strings-and-objects). |
 
 ## <a name="variables"></a>Variabili
 
-Usare le variabili per le espressioni complesse ripetute in un file bicipite. Ad esempio, è possibile aggiungere una variabile per un nome di risorsa costruito concatenando più valori contemporaneamente.
+Usare variabili per espressioni complesse ripetute in un file Bicep. Ad esempio, è possibile aggiungere una variabile per un nome di risorsa costruito concatenando più valori.
 
 ```bicep
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 ```
 
-Non è possibile specificare un [tipo di dati](data-types.md) per una variabile. Al contrario, il tipo di dati viene dedotto dal valore.
+Non si specifica un tipo [di dati](data-types.md) per una variabile. Il tipo di dati viene invece dedotto dal valore .
 
-Per altre informazioni, vedere [variabili nei modelli](template-variables.md).
+Per altre informazioni, vedere [Variabili nei modelli](template-variables.md).
 
 ## <a name="resource"></a>Risorsa
 
-Usare la `resource` parola chiave per definire una risorsa da distribuire. La dichiarazione di risorsa include un nome simbolico per la risorsa. Questo nome simbolico verrà usato in altre parti del file bicipite se è necessario ottenere un valore dalla risorsa.
+Usare la `resource` parola chiave per definire una risorsa da distribuire. La dichiarazione di risorsa include un nome simbolico per la risorsa. Questo nome simbolico verrà utilizzato in altre parti del file Bicep se è necessario ottenere un valore dalla risorsa.
 
 La dichiarazione di risorsa include anche il tipo di risorsa e la versione dell'API.
 
@@ -191,9 +191,9 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 
 Nella dichiarazione di risorsa si includono le proprietà per il tipo di risorsa. Queste proprietà sono univoche per ogni tipo di risorsa.
 
-Per altre informazioni, vedere [dichiarazione di risorse nei modelli](resource-declaration.md).
+Per altre informazioni, vedere [Dichiarazione di risorsa nei modelli](resource-declaration.md).
 
-Per [distribuire una risorsa in modo condizionale](conditional-resource-deployment.md), aggiungere un' `if` espressione.
+Per [distribuire in modo condizionale una risorsa,](conditional-resource-deployment.md)aggiungere un'espressione. `if`
 
 ```bicep
 resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
@@ -209,7 +209,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 }
 ```
 
-Per [distribuire più](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md) di un'istanza di un tipo di risorsa, aggiungere un' `for` espressione. L'espressione può scorrere i membri di una matrice.
+Per [distribuire più istanze di](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md) un tipo di risorsa, aggiungere un'espressione. `for` L'espressione può scorrere i membri di una matrice.
 
 ```bicep
 resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in storageAccounts: {
@@ -227,7 +227,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in
 
 ## <a name="modules"></a>Moduli
 
-Usare i moduli per collegare altri file bicipiti che contengono codice che si vuole riutilizzare. Il modulo contiene una o più risorse da distribuire. Le risorse vengono distribuite insieme a qualsiasi altra risorsa nel file bicipite.
+Usare i moduli per collegarsi ad altri file Bicep che contengono il codice che si vuole riutilizzare. Il modulo contiene una o più risorse da distribuire. Tali risorse vengono distribuite insieme a qualsiasi altra risorsa nel file Bicep.
 
 ```bicep
 module webModule './webApp.bicep' = {
@@ -241,15 +241,15 @@ module webModule './webApp.bicep' = {
 
 Il nome simbolico consente di fare riferimento al modulo da un'altra posizione nel file. Ad esempio, è possibile ottenere un valore di output da un modulo usando il nome simbolico e il nome del valore di output.
 
-Analogamente alle risorse, è possibile distribuire un modulo in modo condizionale o iterativo. La sintassi è identica per i moduli di risorse.
+Analogamente alle risorse, è possibile distribuire un modulo in modo condizionale o iterativo. La sintassi è la stessa per i moduli delle risorse.
 
-Per altre informazioni, vedere [use bicipit Modules](bicep-modules.md).
+Per altre informazioni, vedere [Usare i moduli Bicep.](bicep-modules.md)
 
 ## <a name="resource-and-module-decorators"></a>Elementi Decorator di risorse e moduli
 
-È possibile aggiungere un elemento Decorator a una definizione di risorsa o di modulo. L'unico elemento Decorator supportato è `batchSize(int)` . È possibile applicarlo solo a una definizione di risorsa o modulo che usa un' `for` espressione.
+È possibile aggiungere un elemento Decorator a una definizione di risorsa o modulo. L'unico elemento Decorator supportato è `batchSize(int)` . È possibile applicarlo solo a una definizione di risorsa o modulo che usa `for` un'espressione.
 
-Per impostazione predefinita, le risorse vengono distribuite in parallelo. Non si conosce l'ordine in cui vengono completate. Quando si aggiunge l' `batchSize` elemento Decorator, le istanze vengono distribuite in modo seriale. Usare l'argomento integer per specificare il numero di istanze da distribuire in parallelo.
+Per impostazione predefinita, le risorse vengono distribuite in parallelo. Non si conosce l'ordine di completamento. Quando si aggiunge `batchSize` l'elemento Decorator, si distribuiscono le istanze in modo seriale. Usare l'argomento integer per specificare il numero di istanze da distribuire in parallelo.
 
 ```bicep
 @batchSize(3)
@@ -258,11 +258,11 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 }]
 ```
 
-Per ulteriori informazioni, vedere [seriale o parallelo](copy-resources.md#serial-or-parallel).
+Per altre informazioni, vedere [Serial o Parallel](copy-resources.md#serial-or-parallel).
 
 ## <a name="outputs"></a>Output
 
-Usare output per restituire valore dalla distribuzione. In genere, viene restituito un valore da una risorsa distribuita quando è necessario riutilizzare tale valore per un'altra operazione.
+Usare gli output per restituire il valore dalla distribuzione. In genere, si restituisce un valore da una risorsa distribuita quando è necessario riutilizzare tale valore per un'altra operazione.
 
 ```bicep
 output storageEndpoint object = stg.properties.primaryEndpoints
@@ -270,11 +270,11 @@ output storageEndpoint object = stg.properties.primaryEndpoints
 
 Specificare un [tipo di dati](data-types.md) per il valore di output.
 
-Per ulteriori informazioni, vedere [output nei modelli](template-outputs.md).
+Per altre informazioni, vedere [Output nei modelli](template-outputs.md).
 
 ## <a name="comments"></a>Commenti
 
-Usare `//` per i commenti a riga singola o `/* ... */` per i commenti su più righe
+Usare `//` per i commenti a riga singola o per i commenti su più `/* ... */` righe
 
 Nell'esempio seguente viene illustrato un commento a riga singola.
 
@@ -285,7 +285,7 @@ resource nic1 'Microsoft.Network/networkInterfaces@2020-06-01' = {
 }
 ```
 
-Nell'esempio seguente viene illustrato un commento su più righe.
+L'esempio seguente illustra un commento su più righe.
 
 ```bicep
 /*
@@ -295,15 +295,15 @@ Nell'esempio seguente viene illustrato un commento su più righe.
 param existingKeyVaultName string
 ```
 
-## <a name="multi-line-strings"></a>Stringhe a più righe
+## <a name="multi-line-strings"></a>Stringhe su più righe
 
-È possibile suddividere una stringa in più righe. Usare tre virgolette singole `'''` per iniziare e terminare la stringa a più righe. 
+È possibile suddividere una stringa in più righe. Usare tre virgolette singole `'''` per iniziare e terminare la stringa su più righe.
 
-I caratteri all'interno della stringa a più righe vengono gestiti così come sono. I caratteri di escape non sono necessari. Non è possibile includere `'''` nella stringa a più righe. L'interpolazione di stringhe non è attualmente supportata.
+I caratteri all'interno della stringa su più righe vengono gestiti così come sono. I caratteri di escape non sono necessari. Non è possibile includere `'''` nella stringa su più righe. L'interpolazione di stringhe non è attualmente supportata.
 
-È possibile avviare la stringa subito dopo l'apertura `'''` o includere una nuova riga. In entrambi i casi, la stringa risultante non include una nuova riga. A seconda delle terminazioni di riga nel file bicipite, le nuove righe vengono interpretate come `\r\n` o `\n` .
+È possibile avviare la stringa subito dopo l'apertura `'''` o includere una nuova riga. In entrambi i casi, la stringa risultante non include una nuova riga. A seconda delle terminazioni di riga nel file Bicep, le nuove righe vengono interpretate come `\r\n` o `\n` .
 
-Nell'esempio seguente viene illustrata una stringa a più righe.
+Nell'esempio seguente viene illustrata una stringa su più righe.
 
 ```bicep
 var stringVar = '''
@@ -313,7 +313,7 @@ this is multi-line
 '''
 ```
 
-L'esempio precedente è equivalente al codice JSON seguente.
+L'esempio precedente equivale al codice JSON seguente.
 
 ```json
 "variables": {
@@ -323,4 +323,4 @@ L'esempio precedente è equivalente al codice JSON seguente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un'introduzione a bicipite, vedere [che cos'è il bicipite?](bicep-overview.md).
+Per un'introduzione a Bicep, vedere [Che cos'è Bicep?](bicep-overview.md).

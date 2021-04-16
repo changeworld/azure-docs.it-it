@@ -2,7 +2,7 @@
   href: index.yml
 - name: Panoramica
   href: overview.md
-- name: Quali sono le novità di Azure Sentinel?
+- name: Novità di Azure Sentinel?
   href: whats-new.md
 - name: Avvi rapidi
   expanded: true
@@ -23,11 +23,11 @@
       href: tutorial-investigate-cases.md
     - name: Usare l'automazione per rispondere alle minacce
       href: tutorial-respond-threats-playbook.md
-    - name: Creazione di query KQL (modulo Learn)
+    - name: Creare query KQL (modulo Learn)
       href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - name: Concetti
   items:
-    - name: Classificazione dei dati tramite entità
+    - name: Classificare i dati usando le entità
       href: entities-in-azure-sentinel.md
     - name: Gestire l'accesso
       items:
@@ -35,17 +35,17 @@
           href: roles.md
         - name: Gestire l'accesso per risorsa
           href: resource-context-rbac.md
-        - name: Proteggi proprietà intellettuale MSSP
+        - name: Proteggere la proprietà intellettuale di MSSP
           href: mssp-protect-intellectual-property.md
     - name: Rilevamento avanzato di attacchi in più fasi
       href: fusion.md
     - name: Automazione (SOAR)
       items:
-        - name: SOAR in Sentinel di Azure
+        - name: SOAR in Azure Sentinel
           href: automation-in-azure-sentinel.md
         - name: Regole di automazione per la gestione degli eventi imprevisti
           href: automate-incident-handling-with-automation-rules.md
-        - name: Automazione avanzata con PlayBook
+        - name: Automazione avanzata con playbook
           href: automate-responses-with-playbooks.md
     - name: Identificare minacce avanzate con UEBA
       href: identify-threats-with-entity-behavior-analytics.md
@@ -96,7 +96,7 @@
               href: connect-azure-sql-logs.md
             - name: Web application firewall (WAF) di Azure
               href: connect-azure-waf.md
-            - name: Defender for Internet (in precedenza ASC per l'it)
+            - name: Defender per IoT (in precedenza ASC per IoT)
               href: connect-asc-iot.md
             - name: Domain Name Server
               href: connect-dns.md
@@ -120,9 +120,11 @@
               href: connect-windows-firewall.md
             - name: Eventi di sicurezza di Windows
               href: connect-windows-security-events.md
+            - name: Desktop virtuale Windows
+              href: connect-windows-virtual-desktop.md
         - name: Connettere soluzioni esterne
           items:
-            - name: Difesa del phishing di Agari e protezione del marchio
+            - name: Agari Phishing Defense e Protezione del marchio
               href: connect-agari-phishing-defense.md
             - name: Alcide kAudit
               href: connect-alcide-kaudit.md
@@ -150,13 +152,13 @@
               href: connect-f5-big-ip.md
             - name: Forcepoint DLP
               href: connect-forcepoint-dlp.md
-            - name: Area di lavoro Google (G Suite)
+            - name: Area di lavoro Di Google (G Suite)
               href: connect-google-workspace.md
             - name: Infoblox NIOS
               href: connect-infoblox.md
             - name: Juniper SRX
               href: connect-juniper-srx.md
-            - name: Log DNS di NXLog
+            - name: Log DNS NXLog
               href: connect-nxlog-dns.md
             - name: NXLog LinuxAudit
               href: connect-nxlog-linuxaudit.md
@@ -176,7 +178,7 @@
               href: connect-qualys-vm.md
             - name: Salesforce Service Cloud
               href: connect-salesforce-service-cloud.md
-            - name: Sophos cloud Optix
+            - name: Sophos Cloud Optix
               href: connect-sophos-cloud-optix.md
             - name: Sophos XG Firewall
               href: connect-sophos-xg-firewall.md
@@ -234,7 +236,7 @@
                       href: connect-fortinet.md
                     - name: Illusive Networks AMS
                       href: connect-illusive-attack-management-system.md
-                    - name: WAF gateway impervertito
+                    - name: Imperva WAF Gateway
                       href: connect-imperva-waf-gateway.md
                     - name: One Identity Safeguard
                       href: connect-one-identity.md
@@ -270,13 +272,13 @@
       href: multiple-workspace-view.md
     - name: Configurare le chiavi gestite dal cliente
       href: customer-managed-keys.md
-    - name: Dettagli personalizzati della superficie negli avvisi
+    - name: Dettagli personalizzati di Surface negli avvisi
       href: surface-custom-details-in-alerts.md
     - name: Creare eventi imprevisti dagli avvisi
       href: create-incidents-from-alerts.md
     - name: Gestire meglio il Centro operazioni di sicurezza con le metriche degli eventi imprevisti
       href: manage-soc-with-incident-metrics.md
-    - name: Controllare le query e le attività di Azure Sentinel
+    - name: Controllare Azure Sentinel query e attività
       href: audit-sentinel-data.md
     - name: Ricerca
       href: hunting.md
@@ -291,7 +293,7 @@
       href: offboard.md
 - name: Riferimento
   items:
-    - name: Principali cartelle di lavoro di Azure Sentinel
+    - name: Cartelle di lavoro Azure Sentinel principali
       href: top-workbooks.md
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/sentinel/sentinel
@@ -299,31 +301,31 @@
       items:
         - name: Tutti i ruoli di Azure
           href: ../role-based-access-control/built-in-roles.md#all
-        - name: Ruoli di Sentinel di Azure
+        - name: Azure Sentinel ruoli
           href: ../role-based-access-control/built-in-roles.md#security
     - name: API REST
       items:
-        - name: REST di Azure Sentinel-API
+        - name: Azure Sentinel REST-API
           href: /rest/api/securityinsights/
         - name: Gestire le query di ricerca con l'API REST
           href: hunting-with-rest-api.md
-        - name: Gestire watchlists con REST-API
+        - name: Gestire le watchlist con l'API REST
           href: watchlist-with-rest-api.md
     - name: Connettore per app per la logica di Azure Sentinel
       href: /connectors/azuresentinel/
-    - name: Riferimento alle entità
+    - name: Informazioni di riferimento per le entità
       href: entities-reference.md
     - name: Schema di normalizzazione della rete
       href: normalization-schema.md
-    - name: Riferimento allo schema dell'origine dati
+    - name: Informazioni di riferimento sullo schema dell'origine dati
       href: data-source-schema-reference.md
     - name: Linguaggio di query Kusto
       items:
-        - name: Panoramica delle query kusto
+        - name: Panoramica delle query Kusto
           href: /azure/data-explorer/kusto/query/
-        - name: Riferimento rapido per il linguaggio di query di Kusto
+        - name: Informazioni di riferimento rapido sul linguaggio di query Kusto
           href: /azure/data-explorer/kql-quick-reference
-        - name: Ottimizzazioni delle query del log di monitoraggio di Azure
+        - name: Monitoraggio di Azure ottimizzazioni delle query di log
           href: ../azure-monitor/logs/query-optimization.md
     - name: Arricchimenti tramite UEBA
       href: ueba-enrichments.md
@@ -333,7 +335,7 @@
   items:
     - name: Risorse utili
       href: resources.md
-    - name: Blog di Sentinel di Azure
+    - name: Azure Sentinel blog
       href: 'https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog'
     - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'

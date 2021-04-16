@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: possibilità di testare i certificati X. 509 per autenticare i dispositivi in un hub Azure. Microsoft Docs'
-description: "Esercitazione: testare i certificati X. 509 per l'autenticazione nell'hub Azure."
+title: 'Esercitazione: Testare la capacità dei certificati X.509 di autenticare i dispositivi in un hub IoT di Azure | Microsoft Docs'
+description: "Esercitazione: Testare i certificati X.509 per l'autenticazione hub IoT di Azure"
 author: v-gpettibone
 manager: philmea
 ms.service: iot-hub
@@ -12,37 +12,36 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-- devx-track-azurecli
-ms.openlocfilehash: 91eea344914120a396ba9465ec504a37f5844d4e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7d1900782fce6b84ed79014e985393f3626d171b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630705"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379435"
 ---
-# <a name="tutorial-testing-certificate-authentication"></a>Esercitazione: test dell'autenticazione del certificato
+# <a name="tutorial-testing-certificate-authentication"></a>Esercitazione: Test dell'autenticazione del certificato
 
-È possibile usare l'esempio di codice C# seguente per verificare che il certificato sia in grado di autenticare il dispositivo nell'hub Internet. Si noti che prima di eseguire il codice di test è necessario effettuare le operazioni seguenti:
+È possibile usare l'esempio di codice C# seguente per verificare che il certificato possa autenticare il dispositivo nell'hub IoT. Si noti che è necessario eseguire le operazioni seguenti prima di eseguire il codice di test:
 
-* Creare una CA radice o un certificato della CA subordinata.
-* Caricare il certificato della CA nell'hub Internet.
-* Verificare di disporre del certificato della CA.
-* Aggiungere un dispositivo all'hub Internet delle cose.
+* Creare un certificato CA radice o subordinato.
+* Caricare il certificato della CA nell'hub IoT.
+* Dimostrare di essere in possesso del certificato della CA.
+* Aggiungere un dispositivo all'hub IoT.
 * Creare un certificato del dispositivo con lo stesso ID dispositivo del dispositivo.
 
 ## <a name="code-example"></a>Esempio di codice
 
-L'esempio di codice seguente illustra come creare un'applicazione C# per simulare il dispositivo X. 509 registrato per l'hub Internet. L'esempio invia i valori di temperatura e umidità dal dispositivo simulato all'hub. In questa esercitazione verrà creata solo l'applicazione del dispositivo. Viene lasciata come esercizio ai lettori per creare l'applicazione del servizio hub Internet che invierà risposte agli eventi inviati dal dispositivo simulato.
+L'esempio di codice seguente illustra come creare un'applicazione C# per simulare il dispositivo X.509 registrato per l'hub IoT. L'esempio invia i valori di temperatura e umidità dal dispositivo simulato all'hub. In questa esercitazione verrà creata solo l'applicazione del dispositivo. Viene lasciato ai lettori un esercizio per creare l'applicazione del servizio Hub IoT che invierà risposte agli eventi inviati da questo dispositivo simulato.
 
-1. Aprire Visual Studio, selezionare **Crea nuovo progetto**, quindi scegliere il modello di progetto **App Console (.NET Framework)** . Selezionare **Avanti**.
+1. Aprire Visual Studio, selezionare **Crea un nuovo progetto** e quindi scegliere il modello di progetto **App console (.NET Framework).** Selezionare **Avanti**.
 
-1. In **Configura il nuovo progetto** assegnare al progetto il nome *SimulateX509Device* e quindi selezionare **Crea**.
+1. In **Configurare il nuovo progetto** assegnare al progetto il nome *SimulateX509Device* e quindi selezionare **Crea**.
 
    ![Creare il progetto di dispositivo X.509 in Visual Studio](./media/iot-hub-security-x509-get-started/create-device-project-vs2019.png)
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SimulateX509Device** e quindi scegliere **Gestisci pacchetti NuGet**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul **progetto SimulateX509Device** e quindi scegliere **Gestisci pacchetti NuGet**.
 
-1. In **Gestione pacchetti NuGet** selezionare **Sfoglia** e cercare e scegliere **Microsoft. Azure. Devices. client**. Selezionare **Installa**.
+1. Nel Gestione pacchetti **NuGet** selezionare **Sfoglia** e cercare e scegliere **Microsoft.Azure.Devices.Client**. Selezionare **Installa**.
 
    ![Aggiungere il pacchetto NuGet SDK per dispositivi in Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 

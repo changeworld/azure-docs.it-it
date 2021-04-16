@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ff8e03b813e2cb890192667e3466d920eaabc72c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c8ea1580047910cb2d6634aad885d61e99113f3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98756089"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529970"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform e flusso On-Behalf-Of di OAuth 2.0
 
@@ -42,9 +42,9 @@ I passaggi che seguono costituiscono il flusso OBO e vengono descritti con l'aiu
 1. L'API A esegue l'autenticazione all'endpoint di rilascio del token di Microsoft Identity Platform e richiede un token per accedere all'API B.
 1. L'endpoint di rilascio del token di Microsoft Identity Platform convalida le credenziali dell'API A con il token A ed emette il token di accesso per l'API B (token B) all'API A.
 1. Il token B viene impostato dall'API A nell'intestazione dell'autorizzazione della richiesta all'API B.
-1. I dati della risorsa protetta vengono restituiti dall'API B all'API a, quindi al client.
+1. I dati della risorsa protetta vengono restituiti dall'API B all'API A e quindi al client.
 
-In questo scenario, il servizio di livello intermedio non ha alcuna interazione con l'utente per ottenere il consenso dell'utente per accedere all'API downstream. Pertanto, l'opzione per la concessione dell'accesso all'API downstream viene presentata in anticipo come parte della fase del consenso durante l'autenticazione. Per altre informazioni su questa impostazione per l'app, vedere [Ottenere il consenso per l'applicazione di livello intermedio](#gaining-consent-for-the-middle-tier-application).
+In questo scenario, il servizio di livello intermedio non ha alcuna interazione dell'utente per ottenere il consenso dell'utente per accedere all'API downstream. Pertanto, l'opzione per la concessione dell'accesso all'API downstream viene presentata in anticipo come parte della fase del consenso durante l'autenticazione. Per altre informazioni su questa impostazione per l'app, vedere [Ottenere il consenso per l'applicazione di livello intermedio](#gaining-consent-for-the-middle-tier-application).
 
 ## <a name="middle-tier-access-token-request"></a>Richiesta di token di accesso di livello intermedio
 
@@ -65,7 +65,7 @@ Quando viene usato un segreto condiviso, una richiesta di token di accesso da se
 | `grant_type` | Obbligatoria | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obbligatoria | ID dell'applicazione (client) che la pagina [Registrazioni app del portale di Azure](https://go.microsoft.com/fwlink/?linkid=2083908) ha assegnato all'app. |
 | `client_secret` | Obbligatoria | Segreto client generato per l'app nella pagina Registrazioni app del portale di Azure. |
-| `assertion` | Obbligatoria | Il token di accesso inviato all'API di livello intermedio.  Questo token deve avere un' `aud` attestazione audience () dell'app che effettua questa richiesta OBO (l'app indicata dal `client-id` campo). Le applicazioni non possono riscattare un token per un'app diversa, ad esempio se un client invia un'API a un token per MS Graph, l'API non può riscattarla con OBO.  Il token deve invece essere rifiutato.  |
+| `assertion` | Obbligatoria | Token di accesso inviato all'API di livello intermedio.  Questo token deve avere un'attestazione dei destinatari ( ) dell'app che effettua questa `aud` richiesta OBO (l'app denotata dal `client-id` campo ). Le applicazioni non possono riscattare un token per un'app diversa, ad esempio se un client invia un'API a un token destinato a MS Graph, l'API non può riscattarlo usando OBO.  Deve invece rifiutare il token.  |
 | `scope` | Obbligatoria | Un elenco di ambiti separati da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes](v2-permissions-and-consent.md) (Ambiti). |
 | `requested_token_use` | Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
 
@@ -98,7 +98,7 @@ Una richiesta di token di accesso da servizio a servizio con un certificato cont
 | `client_id` | Obbligatoria |  ID dell'applicazione (client) che la pagina [Registrazioni app del portale di Azure](https://go.microsoft.com/fwlink/?linkid=2083908) ha assegnato all'app. |
 | `client_assertion_type` | Obbligatoria | Il valore deve essere `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Obbligatoria | Un'asserzione (un token JSON Web) che è necessario creare e firmare con il certificato registrato come credenziale per l'applicazione. Per informazioni sulla registrazione del certificato e il formato dell'asserzione, vedere le [credenziali del certificato](active-directory-certificate-credentials.md). |
-| `assertion` | Obbligatoria |  Il token di accesso inviato all'API di livello intermedio.  Questo token deve avere un' `aud` attestazione audience () dell'app che effettua questa richiesta OBO (l'app indicata dal `client-id` campo). Le applicazioni non possono riscattare un token per un'app diversa, ad esempio se un client invia un'API a un token per MS Graph, l'API non può riscattarla con OBO.  Il token deve invece essere rifiutato.  |
+| `assertion` | Obbligatoria |  Token di accesso inviato all'API di livello intermedio.  Questo token deve avere un'attestazione dei destinatari ( ) dell'app che effettua questa `aud` richiesta OBO (l'app denotata dal `client-id` campo ). Le applicazioni non possono riscattare un token per un'app diversa, ad esempio se un client invia un'API a un token destinato a MS Graph, l'API non può riscattarlo usando OBO.  Deve invece rifiutare il token.  |
 | `requested_token_use` | Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
 | `scope` | Obbligatoria | Un elenco di ambiti separati da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes](v2-permissions-and-consent.md) (Ambiti).|
 
@@ -130,7 +130,7 @@ Una risposta di esito positivo è una risposta OAuth 2.0 JSON con i parametri se
 
 | Parametro | Descrizione |
 | --- | --- |
-| `token_type` | Indica il valore del tipo di token. L'unico tipo supportato dalla piattaforma di identità Microsoft è `Bearer` . Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
+| `token_type` | Indica il valore del tipo di token. L'unico tipo supportato da Microsoft Identity Platform è `Bearer` . Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
 | `scope` | L'ambito di accesso concesso nel token. |
 | `expires_in` | Il periodo di validità, in secondi, del token di accesso. |
 | `access_token` | Token di accesso richiesto. Il servizio chiamante può usare questo token per l'autenticazione nel servizio ricevente. |
@@ -151,9 +151,9 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 }
 ```
 
-Il token di accesso precedente è un token in formato v 1.0 per Microsoft Graph. Questo perché il formato del token è basato sulla **risorsa** a cui si accede e non è correlato agli endpoint usati per richiederlo. Il Microsoft Graph è configurato per accettare i token v 1.0, quindi la piattaforma Microsoft Identity produce token di accesso v 1.0 quando un client richiede token per Microsoft Graph. Altre app possono indicare che vogliono usare i token di formato v 2.0, i token di formato v 1.0 o anche i formati di token crittografati o proprietari.  Entrambi gli endpoint v 1.0 e v 2.0 possono emettere uno dei due formati di token. in questo modo, la risorsa può ottenere sempre il formato corretto del token indipendentemente dalla modalità o dal punto in cui il token è stato richiesto dal client. 
+Il token di accesso precedente è un token in formato v1.0 per Microsoft Graph. Questo avviene perché il formato del token è basato sulla **risorsa** a cui si accede e non è correlata agli endpoint usati per richiederla. La Microsoft Graph è impostata per accettare i token v1.0, quindi Microsoft Identity Platform produce token di accesso v1.0 quando un client richiede token per Microsoft Graph. Altre app possono indicare che vogliono token in formato v2.0, token in formato v1.0 o anche formati di token proprietari o crittografati.  Entrambi gli endpoint v1.0 e v2.0 possono generare entrambi i formati di token, in questo modo la risorsa può sempre ottenere il formato corretto del token indipendentemente da come o dove il token è stato richiesto dal client. 
 
-Solo le applicazioni devono esaminare i token di accesso. I client **non devono** esaminarli. Esaminando i token di accesso per le altre app nel codice, l'app si interrompe in modo imprevisto quando tale app modifica il formato dei token o inizia a crittografarli. 
+Solo le applicazioni devono esaminare i token di accesso. I client **non devono** esaminarli. L'analisi dei token di accesso per altre app nel codice causa un'interruzione imprevista dell'app quando l'app modifica il formato dei token o inizia a crittografarli. 
 
 ### <a name="error-response-example"></a>Esempio di risposta con errore
 
@@ -191,6 +191,49 @@ Si tratta di un'estensione non standard del flusso on-behalf-of di OAuth 2.0 che
 
 > [!TIP]
 > Se un servizio Web protetto con SAML viene chiamato da un'applicazione Web front-end, è sufficiente chiamare l'API e avviare un flusso di autenticazione interattiva normale con la sessione esistente degli utenti. È necessario usare un flusso OBO quando una chiamata da servizio a servizio richiede un token SAML per fornire il contesto utente.
+ 
+ ### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>Ottenere un token SAML usando una richiesta OBO con un segreto condiviso
+
+Una richiesta da servizio a servizio per un'asserzione SAML contiene i parametri seguenti:
+
+| Parametro | Tipo | Descrizione |
+| --- | --- | --- |
+| grant_type |obbligatorio | Il tipo di richiesta del token. Per una richiesta che usa un JWT, il valore deve essere **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| assertion |obbligatorio | Il valore del token di accesso usato nella richiesta.|
+| client_id |obbligatorio | L'ID app assegnato al servizio chiamante durante la registrazione con Azure AD. Per trovare l'ID app nel portale di Azure, selezionare **Active Directory**, scegliere la directory e quindi selezionare il nome dell'applicazione. |
+| client_secret |obbligatorio | La chiave registrata per il servizio chiamante in Azure AD. È necessario prendere nota di questo valore al momento della registrazione. |
+| resource |obbligatorio | L'URI dell'ID app del servizio ricevente (risorsa protetta). Si tratta della risorsa che rappresenta i destinatari del token SAML. Per trovare l'URI ID app nel portale di Azure, selezionare **Active Directory** e scegliere la directory. Selezionare il nome dell'applicazione, scegliere **Tutte le impostazioni**, quindi selezionare **Proprietà**. |
+| requested_token_use |necessarie | Specifica la modalità di elaborazione della richiesta. Nel flusso on-behalf-of il valore deve essere **on_behalf_of**. |
+| requested_token_type | obbligatorio | Specifica il tipo di token richiesto. Il valore può essere **urn:ietf:params:oauth:token-type:saml2** o **urn:ietf:params:oauth:token-type:saml1**, a seconda dei requisiti della risorsa a cui si accede. |
+
+La risposta contiene un token SAML con codifica UTF8 e Base64url.
+
+- **SubjectConfirmationData per un'asserzione SAML che ha origine da una chiamata OBO**: se l'applicazione di destinazione richiede un valore del destinatario in **SubjectConfirmationData**, nella configurazione dell'applicazione della risorsa deve essere impostato come URL di risposta senza caratteri jolly.
+- **Nodo SubjectConfirmationData**: Il nodo non può contenere un attributo **InResponseTo** perché non fa parte di una risposta SAML. L'applicazione che riceve il token SAML deve essere in grado di accettare l'asserzione SAML senza un attributo **InResponseTo**.
+
+- **Consenso**: per ricevere un token SAML che contiene i dati utente in un flusso OAuth, è necessario aver autorizzato il consenso. Per informazioni sulle autorizzazioni e su come ottenere il consenso dell'amministratore, vedere [Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+
+### <a name="response-with-saml-assertion"></a>Risposta con asserzione SAML
+
+| Parametro | Descrizione |
+| --- | --- |
+| token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è **Bearer**. Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
+| scope |Ambito di accesso concesso nel token. |
+| expires_in |Il periodo di validità del token di accesso (in secondi). |
+| expires_on |Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache. |
+| resource |L'URI dell'ID app del servizio ricevente (risorsa protetta). |
+| access_token |Il parametro che restituisce l'asserzione SAML. |
+| refresh_token |Token di aggiornamento. Il servizio chiamante può usare questo token per richiedere un altro token di accesso dopo la scadenza dell'asserzione SAML corrente. |
+
+- token_type: Bearer
+- expires_in: 3296
+- ext_expires_in: 0
+- expires_on: 1529627844
+- risorsa: `https://api.contoso.com`
+- access_token: \<SAML assertion\>
+- issued_token_type: urn:ietf:params:oauth:token-type:saml2
+- refresh_token: \<Refresh token\>
+
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Ottenere il consenso per l'applicazione di livello intermedio
 
@@ -201,7 +244,7 @@ A seconda dell'architettura o dell'utilizzo dell'applicazione, è possibile pren
 
 ### <a name="default-and-combined-consent"></a>/.default e consenso combinato
 
-L'applicazione di livello intermedio aggiunge il client all'elenco delle applicazioni client note nel relativo manifesto e quindi il client può attivare un flusso di consenso combinato per se stesso e l'applicazione di livello intermedio. Nella piattaforma Microsoft Identity questa operazione viene eseguita usando l' [ `/.default` ambito](v2-permissions-and-consent.md#the-default-scope). Quando si attiva una schermata di consenso con le applicazioni client note e `/.default`, la schermata di consenso visualizzerà le autorizzazioni **sia** del client per l'API di livello intermedio e richiederà anche le eventuali autorizzazioni necessarie per l'API di livello intermedio. L'utente fornisce il consenso per entrambe le applicazioni e quindi il flusso OBO funziona.
+L'applicazione di livello intermedio aggiunge il client all'elenco delle applicazioni client note nel relativo manifesto e quindi il client può attivare un flusso di consenso combinato per se stesso e l'applicazione di livello intermedio. In Microsoft Identity Platform questa operazione viene eseguita usando [ `/.default` l'ambito](v2-permissions-and-consent.md#the-default-scope). Quando si attiva una schermata di consenso con le applicazioni client note e `/.default`, la schermata di consenso visualizzerà le autorizzazioni **sia** del client per l'API di livello intermedio e richiederà anche le eventuali autorizzazioni necessarie per l'API di livello intermedio. L'utente fornisce il consenso per entrambe le applicazioni e quindi il flusso OBO funziona.
 
 ### <a name="pre-authorized-applications"></a>Applicazioni preautorizzate
 

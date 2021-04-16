@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 46f378baad51e959f8b3c074cc24e5bbdfdd95d4
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 15c76bc042cb66dafbdeebac2951f5cb68310aa4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389605"
+ms.locfileid: "107482792"
 ---
 # <a name="azure-digital-twins-service-limits"></a>Gemelli digitali di Azure dei servizi
 
@@ -29,7 +29,7 @@ Questi sono i limiti del servizio Gemelli digitali di Azure.
 
 ## <a name="working-with-limits"></a>Uso dei limiti
 
-Quando viene raggiunto un limite, il servizio limita le richieste aggiuntive. Verrà restituita una risposta di errore 404 da queste richieste.
+Quando viene raggiunto un limite, il servizio limita le richieste aggiuntive. Verrà restituita una risposta di errore 429 da queste richieste.
 
 Per gestire questo problema, di seguito sono riportati alcuni consigli per l'uso dei limiti.
 * **Usare la logica di ripetizione dei tentativi.** Gli [GEMELLI DIGITALI DI AZURE SDK](how-to-use-apis-sdks.md) implementano la logica di ripetizione dei tentativi per le richieste non riuscite, quindi se si lavora con un SDK fornito, questo è già incorporato. In caso contrario, valutare la possibilità di implementare la logica di ripetizione dei tentativi nella propria applicazione. Il servizio restituisce un'intestazione nella risposta di errore, che è possibile usare per determinare il tempo di `Retry-After` attesa prima di riprovare.

@@ -1,6 +1,6 @@
 ---
-title: Creare certificati usando Microsoft Azure Stack strumento di controllo dello stato di preparazione dell'hub | Microsoft Docs
-description: Viene descritto come creare richieste di certificato e quindi ottenere e installare i certificati sul dispositivo GPU Azure Stack Edge Pro usando lo strumento di controllo della conformità dell'hub Azure Stack.
+title: Creare certificati usando lo Microsoft Azure strumento Stack Hub Readiness Checker | Microsoft Docs
+description: Viene descritto come creare richieste di certificato e quindi ottenere e installare certificati nel dispositivo GPU Azure Stack Edge Pro usando lo strumento hub di Azure Stack Readiness Checker.
 services: Azure Stack Edge Pro
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: a04243093b89b6a2498efc48f80cbd7a47d57337
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8316dd0abfa437d4bf88e8268dfe034344c6614c
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437724"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389333"
 ---
-# <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Creare certificati per il Azure Stack Edge Pro usando lo strumento di controllo della conformità dell'hub Azure Stack 
+# <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Creare certificati per l'Azure Stack Edge Pro usando lo hub di Azure Stack Readiness Checker 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Questo articolo descrive come creare certificati per il Azure Stack Edge Pro usando lo strumento di controllo della conformità dell'hub Azure Stack. 
+Questo articolo descrive come creare certificati per l'Azure Stack Edge Pro usando lo strumento hub di Azure Stack Readiness Checker. 
 
-## <a name="using-azure-stack-hub-readiness-checker-tool"></a>Uso dello strumento di controllo della conformità dell'hub Azure Stack
+## <a name="using-azure-stack-hub-readiness-checker-tool"></a>Uso dello hub di Azure Stack Readiness Checker
 
-Usare lo strumento di controllo dello stato di preparazione dell'hub Azure Stack per creare richieste di firma del certificato (I CSR) per una distribuzione di dispositivi Pro Azure Stack Edge. È possibile creare queste richieste dopo aver inserito un ordine per il dispositivo Azure Stack Edge Pro e attendere l'arrivo del dispositivo.
+Usare lo strumento hub di Azure Stack Readiness Checker per creare richieste di firma del certificato (CSR) per una distribuzione Azure Stack Edge Pro dispositivo. È possibile creare queste richieste dopo aver posto un ordine per il Azure Stack Edge Pro e attendere l'arrivo del dispositivo.
 
 > [!NOTE]
 > Usare questo strumento solo a scopo di test o sviluppo e non per i dispositivi di produzione. 
 
-Per richiedere i certificati seguenti, è possibile usare lo strumento di controllo di conformità dell'hub Azure Stack (AzsReadinessChecker):
+È possibile usare lo hub di Azure Stack Readiness Checker (AzsReadinessChecker) per richiedere i certificati seguenti:
 
-- Certificato Azure Resource Manager
+- Azure Resource Manager certificato
 - Certificato dell'interfaccia utente locale
 - Certificato del nodo
 - Certificato BLOB
@@ -39,21 +39,21 @@ Per richiedere i certificati seguenti, è possibile usare lo strumento di contro
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per creare I CSR per la distribuzione di dispositivi Pro Azure Stack Edge, verificare che: 
+Per creare csr per la Azure Stack Edge Pro dei dispositivi, assicurarsi che: 
 
-- È disponibile un client che esegue Windows 10 o Windows Server 2016 o versione successiva. 
-- È stato scaricato lo strumento di controllo dello stato di preparazione dell'Hub Microsoft Azure Stack [dal PowerShell Gallery](https://aka.ms/AzsReadinessChecker) nel sistema.
+- Si ha un client che esegue Windows 10 o Windows Server 2016 o versione successiva. 
+- È stato scaricato lo strumento Microsoft Azure stack hub Readiness Checker [dal](https://aka.ms/AzsReadinessChecker) PowerShell Gallery in questo sistema.
 - Per i certificati sono disponibili le informazioni seguenti:
   - Nome del dispositivo
   - Numero di serie del nodo
-  - Nome di dominio completo (FQDN) esterno
+  - Nome di dominio completo esterno (FQDN)
 
-## <a name="generate-certificate-signing-requests"></a>Genera richieste di firma del certificato
+## <a name="generate-certificate-signing-requests"></a>Generare richieste di firma del certificato
 
-Seguire questa procedura per preparare i certificati del dispositivo Azure Stack Edge Pro:
+Usare questa procedura per preparare i certificati Azure Stack Edge Pro dispositivo:
 
-1. Eseguire PowerShell come amministratore (5,1 o versione successiva).
-2. Installare lo strumento di controllo dello stato di preparazione dell'hub Azure Stack. Al prompt di PowerShell digitare: 
+1. Eseguire PowerShell come amministratore (5.1 o versione successiva).
+2. Installare lo strumento hub di Azure Stack Readiness Checker. Al prompt di PowerShell digitare: 
 
     ```azurepowershell
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
@@ -65,23 +65,23 @@ Seguire questa procedura per preparare i certificati del dispositivo Azure Stack
     Get-InstalledModule -Name Microsoft.AzureStack.ReadinessChecker  | ft Name, Version 
     ```
 
-3. Se non ne è già presente uno, creare una directory per tutti i certificati. Digitare: 
+3. Creare una directory per tutti i certificati, se non ne è già presente uno. Digitare: 
     
     ```azurepowershell
     New-Item "C:\certrequest" -ItemType Directory
     ``` 
     
-4. Per creare una richiesta di certificato, fornire le informazioni seguenti. Se si genera un certificato VPN, alcuni di questi input non si applicano.
+4. Per creare una richiesta di certificato, specificare le informazioni seguenti. Se si genera un certificato VPN, alcuni di questi input non si applicano.
     
     |Input |Descrizione  |
     |---------|---------|
     |`OutputRequestPath`|Percorso del file nel client locale in cui si desidera creare le richieste di certificato.        |
-    |`DeviceName`|Il nome del dispositivo nella pagina **dispositivi** nell'interfaccia utente Web locale del dispositivo. <br> Questo campo non è obbligatorio per un certificato VPN.         |
-    |`NodeSerialNumber`|Il numero di serie del nodo del dispositivo nella pagina **rete** nell'interfaccia utente Web locale del dispositivo. <br> Questo campo non è obbligatorio per un certificato VPN.       |
-    |`ExternalFQDN`|Il valore DNSDomain nella pagina **dispositivi** dell'interfaccia utente Web locale del dispositivo.         |
-    |`RequestType`|Il tipo di richiesta può essere per `MultipleCSR` certificati diversi per i vari endpoint o per `SingleCSR` un singolo certificato per tutti gli endpoint. <br> Questo campo non è obbligatorio per un certificato VPN.     |
+    |`DeviceName`|Nome del dispositivo nella **pagina** Dispositivi dell'interfaccia utente Web locale del dispositivo. <br> Questo campo non è obbligatorio per un certificato VPN.         |
+    |`NodeSerialNumber`|Numero di serie del nodo del dispositivo nella **pagina Rete** nell'interfaccia utente Web locale del dispositivo. <br> Questo campo non è obbligatorio per un certificato VPN.       |
+    |`ExternalFQDN`|Valore DNSDomain nella pagina **Dispositivi** nell'interfaccia utente Web locale del dispositivo.         |
+    |`RequestType`|Il tipo di richiesta può essere per - certificati diversi per i vari endpoint o `MultipleCSR` - un singolo certificato per tutti gli `SingleCSR` endpoint. <br> Questo campo non è obbligatorio per un certificato VPN.     |
 
-    Per tutti i certificati ad eccezione del certificato VPN, digitare: 
+    Per tutti i certificati tranne il certificato VPN, digitare: 
     
     ```azurepowershell
     $edgeCSRparams = @{
@@ -95,7 +95,7 @@ Seguire questa procedura per preparare i certificati del dispositivo Azure Stack
     New-AzsCertificateSigningRequest @edgeCSRparams
     ```
 
-    Se si sta creando un certificato VPN, digitare: 
+    Se si crea un certificato VPN, digitare: 
 
     ```azurepowershell
     $edgeCSRparams = @{
@@ -107,48 +107,48 @@ Seguire questa procedura per preparare i certificati del dispositivo Azure Stack
     ```
 
     
-5. I file della richiesta di certificato sono disponibili nella directory specificata nel parametro OutputRequestPath. Quando si usa il `MultipleCSR` parametro, verranno visualizzati i quattro file seguenti con l' `.req` estensione:
+5. I file di richiesta del certificato sono presenti nella directory specificata nel parametro OutputRequestPath precedente. Quando si `MultipleCSR` usa il parametro , verranno visualizzati i quattro file seguenti con l'estensione `.req` :
 
     
     |Nomi di file  |Tipo di richiesta di certificato  |
     |---------|---------|
     |A partire da `DeviceName`     |Richiesta di certificato dell'interfaccia utente Web locale      |
     |A partire da `NodeSerialNumber`     |Richiesta di certificato del nodo         |
-    |A partire da `login`     |Richiesta certificato endpoint Azure Resource Manager       |
+    |A partire da `login`     |Azure Resource Manager di certificato dell'endpoint       |
     |A partire da `wildcard`     |Richiesta di certificato di archiviazione BLOB. Contiene un carattere jolly perché copre tutti gli account di archiviazione che è possibile creare nel dispositivo.          |
     |A partire da `AzureStackEdgeVPNCertificate`     |Richiesta di certificato client VPN.         |
 
-    Verrà visualizzata anche una cartella INF. Contiene un file di informazioni di Management. <Edge-DeviceName> in testo non crittografato che illustra i dettagli del certificato.  
+    Verrà visualizzata anche una cartella INF. Contiene un file di informazioni management.<edge-devicename> in testo non crittografato che spiega i dettagli del certificato.  
 
 
-6. Inviare i file all'autorità di certificazione (interna o pubblica). Assicurarsi che la CA generi certificati, usando la richiesta generata, che soddisfino i requisiti dei certificati Pro Azure Stack Edge per i [certificati del nodo](azure-stack-edge-gpu-manage-certificates.md#node-certificates), i [certificati dell'endpoint](azure-stack-edge-gpu-manage-certificates.md#endpoint-certificates)e i [certificati dell'interfaccia utente locale](azure-stack-edge-gpu-manage-certificates.md#local-ui-certificates).
+6. Inviare questi file all'autorità di certificazione (interna o pubblica). Assicurarsi che la CA generi certificati, usando la richiesta generata, che soddisfino i requisiti Azure Stack Edge Pro certificati per i certificati [nodo,](azure-stack-edge-gpu-manage-certificates.md#node-certificates)i certificati [endpoint](azure-stack-edge-gpu-manage-certificates.md#endpoint-certificates)e i certificati dell'interfaccia [utente locali.](azure-stack-edge-gpu-manage-certificates.md#local-ui-certificates)
 
 ## <a name="prepare-certificates-for-deployment"></a>Preparare i certificati per la distribuzione
 
-I file del certificato che si ottengono dall'autorità di certificazione (CA) devono essere importati ed esportati con proprietà corrispondenti ai requisiti del certificato del dispositivo Azure Stack Edge Pro. Completare i passaggi seguenti nello stesso sistema in cui sono state generate le richieste di firma del certificato.
+I file di certificato che si ottengono dall'autorità di certificazione (CA) devono essere importati ed esportati con proprietà che soddisfano i requisiti del certificato del Azure Stack Edge Pro dispositivo. Completare i passaggi seguenti nello stesso sistema in cui sono stati generati le richieste di firma del certificato.
 
-- Per importare i certificati, seguire la procedura descritta in [importare i certificati nei client che accedono al dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Per importare i certificati, seguire la procedura descritta in [Importare](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)certificati nei client che accedono Azure Stack Edge Pro dispositivo .
 
-- Per esportare i certificati, seguire la procedura descritta in [esportare i certificati dal client che accede al dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Per esportare i certificati, seguire la procedura descritta in [Esportare](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)certificati dal client che accede Azure Stack Edge Pro dispositivo .
 
 
-## <a name="validate-certificates"></a>Convalida certificati
+## <a name="validate-certificates"></a>Convalidare i certificati
 
-Innanzitutto, verrà generata una struttura di cartelle appropriata e i certificati verranno posizionati nelle cartelle corrispondenti. Verranno convalidati solo i certificati utilizzando lo strumento.
+Prima di tutto, verrà generata una struttura di cartelle appropriata e i certificati verranno posizionati nelle cartelle corrispondenti. Solo a questo punto si convaliderà i certificati usando lo strumento .
 
 1. Eseguire PowerShell come amministratore.
 
-2. Per generare la struttura di cartelle appropriata, al tipo di messaggio di richiesta:
+2. Per generare la struttura di cartelle appropriata, al prompt digitare:
 
-    `New-AzsCertificateFolder -CertificateType AzureStackEdge -OutputPath "$ENV:USERPROFILE\Documents\AzureStackCSR"`
+    `New-AzsCertificateFolder -CertificateType AzureStackEdgeDevice -OutputPath "$ENV:USERPROFILE\Documents\AzureStackCSR"`
 
 3. Convertire la password PFX in una stringa sicura. Digitare:       
 
     `$pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString` 
 
-4. Successivamente, convalidare i certificati. Digitare:
+4. Convalidare quindi i certificati. Digitare:
 
-    `Invoke-AzsCertificateValidation -CertificateType AzureStackEdge -DeviceName mytea1 -NodeSerialNumber VM1500-00025 -externalFQDN azurestackedge.contoso.com -CertificatePath $ENV:USERPROFILE\Documents\AzureStackCSR\AzureStackEdge -pfxPassword $pfxPassword`
+    `Invoke-AzsCertificateValidation -CertificateType AzureStackEdgeDevice -DeviceName mytea1 -NodeSerialNumber VM1500-00025 -externalFQDN azurestackedge.contoso.com -CertificatePath $ENV:USERPROFILE\Documents\AzureStackCSR\AzureStackEdge -pfxPassword $pfxPassword`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

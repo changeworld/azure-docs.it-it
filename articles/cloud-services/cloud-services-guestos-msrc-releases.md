@@ -1,6 +1,6 @@
 ---
 title: Elenco di aggiornamenti applicati al sistema operativo guest di Azure | Microsoft Docs
-description: Questo articolo elenca gli aggiornamenti di Microsoft Security Response Center applicati a diversi sistemi operativi guest di Azure. Verificare se un aggiornamento si applica al sistema operativo guest in uso.
+description: Questo articolo elenca gli Microsoft Security Response Center applicati a diversi sistemi operativi guest di Azure. Verificare se un aggiornamento si applica al sistema operativo guest in uso.
 services: cloud-services
 documentationcenter: na
 author: gunnarcms
@@ -10,44 +10,99 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/28/2021
+ms.date: 4/15/2021
 ms.author: gunnarc
-ms.openlocfilehash: c9a4a5229629b2a65b167a80fce8e502612dcf3c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d537e2ec04189b24adf51285bd40adb39483b93f
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709906"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565815"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Il riporto degli aggiornamenti viene sempre eseguito per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="april-2021-guest-os"></a>Sistema operativo guest di aprile 2021
+
+>[!NOTE] 
+
+>Il sistema operativo guest di aprile è in corso di implementazione nelle macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Nel sistema operativo guest di aprile sono incluse le patch seguenti. L'elenco è soggetto a variazioni. 
+
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+|  Rel 21-04 |  [5001342]  |  Aggiornamento cumulativo più recente | 6,30 | 13 aprile 2021 |
+|  Rel 21-04 |  [4580325]  |  Aggiornamento Flash | 3.96, 4.89, 5.54, 6.30 | 13 ottobre 2020 |
+|  Rel 21-04 |  [5000800]  |  Aggiornamenti cumulativi di IE | 2.109, 3.96, 4.89 | 9 marzo 2021 |
+|  Rel 21-04 |  [5001347]  |  Aggiornamento cumulativo più recente | 5.54 | 13 aprile 2021 |
+|  Rel 21-04 |  [4578952]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5  | 2.109 | 13 ottobre 2020 |
+|  Rel 21-04 |  [4578955]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità  | 2.109 | 13 ottobre 2020 |
+|  Rel 21-04 |  [4578953]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5  | 4.89 | 13 ottobre 2020 |
+|  Rel 21-04 |  [4578956]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità  | 4.89 | 13 ottobre 2020 |
+|  Rel 21-04 |  [4578950]  |  .NET Framework rollup di sicurezza e qualità 3.5  | 3.96 | 13 ottobre 2020 |
+|  Rel 21-04 |  [4578954]  |  . Rollup della sicurezza e della qualità di NET Framework 4.5.2  | 3.96 | 13 ottobre 2020 |
+|  Rel 21-04 |  [4601060]  |  . Aggiornamento cumulativo di NET Framework 3.5 e 4.7.2  | 6,30 | 9 febbraio 2021 |
+|  Rel 21-04 |  [5001335]  |  Rollup mensile  | 2.109 | 9 marzo 2021 |
+|  Rel 21-04 |  [5001387]  |  Rollup mensile  | 3.96 | 13 aprile 2021 |
+|  Rel 21-04 |  [5001382]  |  Rollup mensile  | 4.89 | 13 aprile 2021 |
+|  Rel 21-04 |  [5001401]  |  Aggiornamento dello stack di manutenzione  | 3.96 | 13 aprile 2021 |
+|  Rel 21-04 |  [5001403]  |  Aggiornamento dello stack di manutenzione  | 4.89 | 13 aprile 2021 |
+|  Rel 21-04 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo  | 4.89 | 19 agosto 2020 |
+|  Rel 21-04 |  [5001402]  |  Aggiornamento dello stack di manutenzione  | 5.54 | 13 aprile 2021 |
+|  Rel 21-04 |  [4592510]  |  Aggiornamento dello stack di manutenzione  | 2.109 | 8 dic 2020 |
+|  Rel 21-04 |  [5001404]  |  Aggiornamento dello stack di manutenzione  | 6,30 | 13 aprile 2021 |
+|  Rel 21-04 |  [4494175]  |  Microcodice  | 5.54 | 1 set 2020 |
+|  Rel 21-04 |  [4494174]  |  Microcodice  | 6,30 | 1 set 2020 |
+
+[5001342]: https://support.microsoft.com/kb/5001342
+[4580325]: https://support.microsoft.com/kb/4580325
+[5000800]: https://support.microsoft.com/kb/5000800
+[5001347]: https://support.microsoft.com/kb/5001347
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5001335]: https://support.microsoft.com/kb/5001335
+[5001387]: https://support.microsoft.com/kb/5001387
+[5001382]: https://support.microsoft.com/kb/5001382
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[4592510]: https://support.microsoft.com/kb/4592510
+[5001404]: https://support.microsoft.com/kb/5001404
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## <a name="march-2021-guest-os"></a>Sistema operativo guest di marzo 2021
 
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 21-03 |  [5000822]  |  Aggiornamento cumulativo più recente | [6,29] | 9 mar 2021 |
-|  Rel 21-03 |  [4580325]  |  Aggiornamento Flash | [3,95], [4,88], [5,53], [6,29] | 13 ottobre 2020 |
-|  Rel 21-03 |  [5000800]  |  Aggiornamenti cumulativi IE | [2,108], [3,95], [4,88] | 9 mar 2021 |
-|  Rel 21-03 |  [5000803]  |  Aggiornamento cumulativo più recente | [5,53] | 9 mar 2021 |
-|  Rel 21-03 |  [4578952]  |  Rollup di sicurezza e qualità .NET Framework 3,5  | [2,108] | 13 ottobre 2020 |
-|  Rel 21-03 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2  | [2,108] | 13 ottobre 2020 |
-|  Rel 21-03 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5  | [4,88] | 13 ottobre 2020 |
-|  Rel 21-03 |  [4578956]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2  | [4,88] | 13 ottobre 2020 |
-|  Rel 21-03 |  [4578950]  |  Rollup di sicurezza e qualità .NET Framework 3,5  | [3,95] | 13 ottobre 2020 |
-|  Rel 21-03 |  [4578954]  |  . Rollup della sicurezza e della qualità di 4.5.2 di .NET Framework  | [3,95] | 13 ottobre 2020 |
-|  Rel 21-03 |  [4601060]  |  . Aggiornamento cumulativo di .NET Framework 3,5 e 4.7.2  | [6,29] | 9 febbraio 2021 |
-|  Rel 21-03 |  [5000841]  |  Rollup mensile  | [2,108] | 9 mar 2021 |
-|  Rel 21-03 |  [5000847]  |  Rollup mensile  | [3,95] | 9 mar 2021 |
-|  Rel 21-03 |  [5000848]  |  Rollup mensile  | [4,88] | 9 mar 2021 |
-|  Rel 21-03 |  [4566426]  |  Aggiornamento dello stack di manutenzione  | [3,95] | 14 luglio 2020 |
-|  Rel 21-03 |  [4566425]  |  Aggiornamento dello stack di manutenzione  | [4,88] | 14 luglio 2020 |
-|  Rel 21-03 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo  | [4,88] | 19 agosto 2020 |
-|  Rel 21-03 |  [4592510]  |  Aggiornamento dello stack di manutenzione  | [2,108] | 8 dicembre 2020 |
-|  Rel 21-03 |  [5000859]  |  Aggiornamento dello stack di manutenzione  | [6,29] | 9 mar 2021 |
-|  Rel 21-03 |  [4494175]  |  Microcodice  | [5,53] | 1 ° settembre 2020 |
-|  Rel 21-03 |  [4494174]  |  Microcodice  | [6,29] | 1 ° settembre 2020 |
+|  Rel 21-03 |  [5000822]  |  Aggiornamento cumulativo più recente | [6.29] | 9 marzo 2021 |
+|  Rel 21-03 |  [4580325]  |  Aggiornamento Flash | [3.95], [4.88], [5.53], [6.29] | 13 ottobre 2020 |
+|  Rel 21-03 |  [5000800]  |  Aggiornamenti cumulativi di IE | [2.108], [3.95], [4.88] | 9 marzo 2021 |
+|  Rel 21-03 |  [5000803]  |  Aggiornamento cumulativo più recente | [5.53] | 9 marzo 2021 |
+|  Rel 21-03 |  [4578952]  |  .NET Framework rollup di sicurezza e qualità 3.5  | [2.108] | 13 ottobre 2020 |
+|  Rel 21-03 |  [4578955]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità  | [2.108] | 13 ottobre 2020 |
+|  Rel 21-03 |  [4578953]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5  | [4.88] | 13 ottobre 2020 |
+|  Rel 21-03 |  [4578956]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità  | [4.88] | 13 ottobre 2020 |
+|  Rel 21-03 |  [4578950]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5  | [3.95] | 13 ottobre 2020 |
+|  Rel 21-03 |  [4578954]  |  . Rollup della sicurezza e della qualità di NET Framework 4.5.2  | [3.95] | 13 ottobre 2020 |
+|  Rel 21-03 |  [4601060]  |  . Aggiornamento cumulativo di NET Framework 3.5 e 4.7.2  | [6.29] | 9 febbraio 2021 |
+|  Rel 21-03 |  [5000841]  |  Rollup mensile  | [2.108] | 9 marzo 2021 |
+|  Rel 21-03 |  [5000847]  |  Rollup mensile  | [3.95] | 9 marzo 2021 |
+|  Rel 21-03 |  [5000848]  |  Rollup mensile  | [4.88] | 9 marzo 2021 |
+|  Rel 21-03 |  [4566426]  |  Aggiornamento dello stack di manutenzione  | [3.95] | 14 luglio 2020 |
+|  Rel 21-03 |  [4566425]  |  Aggiornamento dello stack di manutenzione  | [4.88] | 14 luglio 2020 |
+|  Rel 21-03 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo  | [4.88] | 19 agosto 2020 |
+|  Rel 21-03 |  [4592510]  |  Aggiornamento dello stack di manutenzione  | [2.108] | 8 dic 2020 |
+|  Rel 21-03 |  [5000859]  |  Aggiornamento dello stack di manutenzione  | [6.29] | 9 marzo 2021 |
+|  Rel 21-03 |  [4494175]  |  Microcodice  | [5.53] | 1 set 2020 |
+|  Rel 21-03 |  [4494174]  |  Microcodice  | [6.29] | 1 set 2020 |
 
 [5000822]: https://support.microsoft.com/kb/5000822
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -70,39 +125,39 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [5000859]: https://support.microsoft.com/kb/5000859
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-[2,108]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3,95]: ./cloud-services-guestos-update-matrix.md#family-3-releases
-[4,88]: ./cloud-services-guestos-update-matrix.md#family-4-releases
-[5,53]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6,29]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[2.108]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.95]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.88]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.53]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.29]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="february-2021-guest-os"></a>Sistema operativo guest di febbraio 2021
 
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 21-02 |  [4601345]  |  Aggiornamento cumulativo più recente | [6,28] | 9 febbraio 2021 |
-|  Rel 21-02 |  [4580325]  |  Aggiornamento Flash | [3,94], [4,87], [5,52], [6,28] | 13 ottobre 2020 |
-|  Rel 21-02 |  [4586768]  |  Aggiornamenti cumulativi IE | [2,107], [3,94], [4,87] | 10 novembre 2020 |
-|  Rel 21-02 |  [4601318]  |  Aggiornamento cumulativo più recente | [5,52] | 9 febbraio 2021 |
-|  Rel 21-02 |  [4578952]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [2,107] | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [2,107] | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [4,87] | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578956]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [4,87] | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578950]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [3,94] | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578954]  |  . Rollup della sicurezza e della qualità di 4.5.2 di .NET Framework | [3,94] | 12 gennaio 2021 |
-|  Rel 21-02 |  [4578966]  |  . Aggiornamento cumulativo di .NET Framework 3,5 e 4.7.2 | [6,28] | 13 ottobre 2020 |
-|  Rel 21-02 |  [4601347]  |  Rollup mensile | [2,107] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4601345]  |  Aggiornamento cumulativo più recente | [6.28] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4580325]  |  Aggiornamento flash | [3.94], [4.87], [5.52], [6.28] | 13 ottobre 2020 |
+|  Rel 21-02 |  [4586768]  |  Aggiornamenti cumulativi di IE | [2.107], [3.94], [4.87] | 10 novembre 2020 |
+|  Rel 21-02 |  [4601318]  |  Aggiornamento cumulativo più recente | [5.52] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4578952]  |  .NET Framework rollup di sicurezza e qualità 3.5 | [2.107] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578955]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [2.107] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578953]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5 | [4.87] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578956]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [4.87] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578950]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5 | [3,94] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578954]  |  . Rollup della sicurezza e della qualità di NET Framework 4.5.2 | [3,94] | 12 gennaio 2021 |
+|  Rel 21-02 |  [4578966]  |  . Aggiornamento cumulativo di NET Framework 3.5 e 4.7.2 | [6.28] | 13 ottobre 2020 |
+|  Rel 21-02 |  [4601347]  |  Rollup mensile | [2.107] | 9 febbraio 2021 |
 |  Rel 21-02 |  [4601348]  |  Rollup mensile | [3,94] | 9 febbraio 2021 |
-|  Rel 21-02 |  [4601384]  |  Rollup mensile | [4,87] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4601384]  |  Rollup mensile | [4.87] | 9 febbraio 2021 |
 |  Rel 21-02 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3,94] | 14 luglio 2020 |
-|  Rel 21-02 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4,87] | 14 luglio 2020 |
-|  Rel 21-02 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo | [4,87] | 19 agosto 2020 |
-|  Rel 21-02 |  [4601392]  |  Aggiornamento dello stack di manutenzione | [5,52] | 9 febbraio 2021 |
-|  Rel 21-02 |  [4592510]  |  Aggiornamento dello stack di manutenzione | [2,107] | 8 dicembre 2020 |
-|  Rel 21-02 |  [4601393]  |  Aggiornamento dello stack di manutenzione | [6,28] | 9 febbraio 2021 |
-|  Rel 21-02 |  [4494175]  |  Microcodice | [5,52] | 1 ° settembre 2020 |
-|  Rel 21-02 |  [4494174]  |  Microcodice | [6,28] | 1 ° settembre 2020 |
+|  Rel 21-02 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4.87] | 14 luglio 2020 |
+|  Rel 21-02 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo | [4.87] | 19 agosto 2020 |
+|  Rel 21-02 |  [4601392]  |  Aggiornamento dello stack di manutenzione | [5.52] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4592510]  |  Aggiornamento dello stack di manutenzione | [2.107] | 8 dic 2020 |
+|  Rel 21-02 |  [4601393]  |  Aggiornamento dello stack di manutenzione | [6.28] | 9 febbraio 2021 |
+|  Rel 21-02 |  [4494175]  |  Microcodice | [5.52] | 1 set 2020 |
+|  Rel 21-02 |  [4494174]  |  Microcodice | [6.28] | 1 set 2020 |
 
 [4601345]: https://support.microsoft.com/kb/4601345
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -126,39 +181,39 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4601393]: https://support.microsoft.com/kb/4601393
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-[2,107]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[2.107]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 [3,94]: ./cloud-services-guestos-update-matrix.md#family-3-releases
-[4,87]: ./cloud-services-guestos-update-matrix.md#family-4-releases
-[5,52]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6,28]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[4.87]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.52]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.28]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="january-2021-guest-os"></a>Sistema operativo guest di gennaio 2021
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 21-01 |  [4598230]  |  Aggiornamento cumulativo più recente (LCU) | [6,27] | 12 gennaio 2021 |
-|  Rel 21-01 |  [4580325]  |  Aggiornamento Flash | [3,93], [4,86], [5,51], [6,27] | 13 ottobre 2020 |
-|  Rel 21-01 |  [4586768]  |  Aggiornamenti cumulativi IE | [2,106], [3,93], [4,86] | 10 novembre 2020 |
-|  Rel 21-01 |  [4598243]  |  Aggiornamento cumulativo più recente (LCU) | [5,51] | 12 gennaio 2021 |
-|  Rel 21-01 |  [4578952]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [2,106] | 12 gennaio 2021 |
-|  Rel 21-01 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [2,106] | 12 gennaio 2021 |
-|  Rel 21-01 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [4,86] | 12 gennaio 2021 |
-|  Rel 21-01 |  [4578956]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [4,86] | 12 gennaio 2021 |
-|  Rel 21-01 |  [4578950]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [3,93] | 12 gennaio 2021 |
-|  Rel 21-01 |  [4578954]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [3,93] | 12 gennaio 2021 |
-|  Rel 21-01 |  [4578966]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4.7.2 | [6,27] | 13 ottobre 2020 |
-|  Rel 21-01 |  [4598279]  |  Rollup mensile | [2,106] | 12 gennaio 2020 |
-|  Rel 21-01 |  [4598278]  |  Rollup mensile | [3,93] | 12 gennaio 2020 |
-|  Rel 21-01 |  [4598285]  |  Rollup mensile | [4,86] | 12 gennaio 2020 |
-|  Rel 21-01 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3,93] | 14 luglio 2020 |
-|  Rel 21-01 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4,86] | 14 luglio 2020 |
-|  Rel 21-01 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo | [4,86] | 19 agosto 2020 |
-|  Rel 21-01 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5,51] | 8 settembre 2020 |
-|  Rel 21-01 |  [4592510]  |  Aggiornamento dello stack di manutenzione | [2,106] | 8 dicembre 2020 |
-|  Rel 21-01 |  [4598480]  |  Aggiornamento dello stack di manutenzione | [6,27] | 12 gennaio 2021 |
-|  Rel 21-01 |  [4494175]  |  Microcodice | [5,51] | 1 ° settembre 2020 |
-|  Rel 21-01 |  [4494174]  |  Microcodice | [6,27] | 3 settembre 2020 |
+|  Rel 21-01 |  [4598230]  |  Aggiornamento cumulativo più recente | [6.27] | 12 gennaio 2021 |
+|  Rel 21-01 |  [4580325]  |  Aggiornamento flash | [3.93], [4.86], [5.51], [6.27] | 13 ottobre 2020 |
+|  Rel 21-01 |  [4586768]  |  Aggiornamenti cumulativi di IE | [2.106], [3.93], [4.86] | 10 novembre 2020 |
+|  Rel 21-01 |  [4598243]  |  Ultimo aggiornamento cumulativo (LCU) | [5.51] | 12 gennaio 2021 |
+|  Rel 21-01 |  [4578952]  |  .NET Framework rollup di sicurezza e qualità 3.5 | [2.106] | 12 gennaio 2021 |
+|  Rel 21-01 |  [4578955]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [2.106] | 12 gennaio 2021 |
+|  Rel 21-01 |  [4578953]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5 | [4.86] | 12 gennaio 2021 |
+|  Rel 21-01 |  [4578956]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [4.86] | 12 gennaio 2021 |
+|  Rel 21-01 |  [4578950]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5 | [3.93] | 12 gennaio 2021 |
+|  Rel 21-01 |  [4578954]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [3.93] | 12 gennaio 2021 |
+|  Rel 21-01 |  [4578966]  |  .NET Framework 3.5 e 4.7.2 Aggiornamento cumulativo | [6.27] | 13 ottobre 2020 |
+|  Rel 21-01 |  [4598279]  |  Rollup mensile | [2.106] | 12 gennaio 2020 |
+|  Rel 21-01 |  [4598278]  |  Rollup mensile | [3.93] | 12 gennaio 2020 |
+|  Rel 21-01 |  [4598285]  |  Rollup mensile | [4.86] | 12 gennaio 2020 |
+|  Rel 21-01 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3.93] | Lug 14, 2020 |
+|  Rel 21-01 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4.86] | 14 luglio 2020 |
+|  Rel 21-01 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo | [4.86] | 19 agosto 2020 |
+|  Rel 21-01 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5.51] | 8 set 2020 |
+|  Rel 21-01 |  [4592510]  |  Aggiornamento dello stack di manutenzione | [2.106] | 8 dic 2020 |
+|  Rel 21-01 |  [4598480]  |  Aggiornamento dello stack di manutenzione | [6.27] | 12 gennaio 2021 |
+|  Rel 21-01 |  [4494175]  |  Microcodice | [5.51] | 1 set 2020 |
+|  Rel 21-01 |  [4494174]  |  Microcodice | [6.27] | 3 set 2020 |
 
 [4598230]: https://support.microsoft.com/kb/4598230
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -182,39 +237,39 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4598480]: https://support.microsoft.com/kb/4598480
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-[2,106]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3,93]: ./cloud-services-guestos-update-matrix.md#family-3-releases
-[4,86]: ./cloud-services-guestos-update-matrix.md#family-4-releases
-[5,51]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6,27]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[2.106]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.93]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.86]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.51]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.27]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
-## <a name="december-2020-guest-os"></a>Sistema operativo guest 2020 dicembre
+## <a name="december-2020-guest-os"></a>Sistema operativo guest di dicembre 2020
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-12 |  [4592440]  |  Aggiornamento cumulativo più recente | [6,26] | 8 dicembre 2020 |
-|  Rel 20-12 |  [4580325]  |  Aggiornamento Flash | [3,92], [4,85], [5,50], [6,26] | 13 ottobre 2020 |
-|  Rel 20-12 |  [4586768]  |  Aggiornamenti cumulativi IE | [2,105], [3,92], [4,85] | 10 novembre 2020 |
-|  Rel 20-12 |  [4593226]  |  Aggiornamento cumulativo più recente | [5,50] | 8 dicembre 2020 |
-|  Rel 20-12 |  [4052623]  |  Defender | [5,50], [6,26] | 13 dicembre 2020 |
-|  Rel 20-12 |  [4578952]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [2,105] | 10 novembre 2020 |
-|  Rel 20-12 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [2,105] | 10 novembre 2020 |
-|  Rel 20-12 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [4,85] | 10 novembre 2020 |
-|  Rel 20-12 |  [4578956]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [4,85] | 10 novembre 2020 |
-|  Rel 20-12 |  [4578950]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [3,92] | 10 novembre 2020 |
-|  Rel 20-12 |  [4578954]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [3,92] | 10 novembre 2020 |
-|  Rel 20-12 |  [4578966]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4.7.2 | [6,26] | 13 ottobre 2020 |
-|  Rel 20-12 |  [4592471]  |  Rollup mensile | [2,105] | 8 dicembre 2020 |
-|  Rel 20-12 |  [4592468]  |  Rollup mensile | [3,92] | 8 dicembre 2020 |
-|  Rel 20-12 |  [4592484]  |  Rollup mensile | [4,85] | 8 dicembre 2020 |
-|  Rel 20-12 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3,92] | 14 luglio 2020 |
-|  Rel 20-12 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4,85] | 14 luglio 2020 |
-|  Rel 20-12 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo | [4,85] | 19 agosto 2020 |
-|  Rel 20-12 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5,50] | 8 settembre 2020 |
-|  Rel 20-12 |  [4592510]  |  Aggiornamento dello stack di manutenzione | [2,105] | 8 dicembre 2020 |
-|  Rel 20-12 |  [4587735]  |  Aggiornamento dello stack di manutenzione | [6,26] | 10 novembre 2020 |
-|  Rel 20-12 |  [4494175]  |  Microcodice | [5,50] | 1 ° settembre 2020 |
-|  Rel 20-12 |  [4494174]  |  Microcodice | [6,26] | 3 settembre 2020 |
+|  Rel 20-12 |  [4592440]  |  Aggiornamento cumulativo più recente | [6.26] | 8 dic 2020 |
+|  Rel 20-12 |  [4580325]  |  Aggiornamento Flash | [3.92], [4.85], [5.50], [6.26] | 13 ottobre 2020 |
+|  Rel 20-12 |  [4586768]  |  Aggiornamenti cumulativi di IE | [2.105], [3.92], [4.85] | 10 novembre 2020 |
+|  Rel 20-12 |  [4593226]  |  Ultimo aggiornamento cumulativo | [5.50] | 8 dic 2020 |
+|  Rel 20-12 |  [4052623]  |  Defender | [5.50], [6.26] | 13 dic 2020 |
+|  Rel 20-12 |  [4578952]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5 | [2.105] | 10 novembre 2020 |
+|  Rel 20-12 |  [4578955]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [2.105] | 10 novembre 2020 |
+|  Rel 20-12 |  [4578953]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5 | [4.85] | 10 novembre 2020 |
+|  Rel 20-12 |  [4578956]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [4.85] | 10 novembre 2020 |
+|  Rel 20-12 |  [4578950]  |  .NET Framework rollup di sicurezza e qualità 3.5 | [3.92] | 10 novembre 2020 |
+|  Rel 20-12 |  [4578954]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [3.92] | 10 novembre 2020 |
+|  Rel 20-12 |  [4578966]  |  .NET Framework 3.5 e 4.7.2 Aggiornamento cumulativo | [6.26] | 13 ottobre 2020 |
+|  Rel 20-12 |  [4592471]  |  Rollup mensile | [2.105] | 8 dic 2020 |
+|  Rel 20-12 |  [4592468]  |  Rollup mensile | [3.92] | 8 dic 2020 |
+|  Rel 20-12 |  [4592484]  |  Rollup mensile | [4.85] | 8 dic 2020 |
+|  Rel 20-12 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3.92] | 14 luglio 2020 |
+|  Rel 20-12 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4.85] | 14 luglio 2020 |
+|  Rel 20-12 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo | [4.85] | 19 agosto 2020 |
+|  Rel 20-12 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5.50] | 8 settembre 2020 |
+|  Rel 20-12 |  [4592510]  |  Aggiornamento dello stack di manutenzione | [2.105] | 8 dic 2020 |
+|  Rel 20-12 |  [4587735]  |  Aggiornamento dello stack di manutenzione | [6.26] | 10 novembre 2020 |
+|  Rel 20-12 |  [4494175]  |  Microcodice | [5.50] | 1 set 2020 |
+|  Rel 20-12 |  [4494174]  |  Microcodice | [6.26] | 3 set 2020 |
 
 [4592440]: https://support.microsoft.com/kb/4592440
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -239,38 +294,38 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4587735]: https://support.microsoft.com/kb/4587735
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-[2,105]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3,92]: ./cloud-services-guestos-update-matrix.md#family-3-releases
-[4,85]: ./cloud-services-guestos-update-matrix.md#family-4-releases
-[5,50]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6,26]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[2.105]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.92]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.85]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.50]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.26]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="november-2020-guest-os"></a>Sistema operativo guest di novembre 2020
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-11 OOB |  [4594442]  |  Aggiornamento cumulativo più recente | [6,25] | 17 nov, 2020 |
-|  Rel 20-11 OOB |  [4594441]  |  Aggiornamento cumulativo più recente | [5,49] | 19 novembre 2020 |
-|  Rel 20-11 |  [4580325]  |  Aggiornamento Flash | [3,91], [4,84], [5,49], [6,25] | 13 ottobre 2020 |
-|  Rel 20-11 |  [4586768]  |  Aggiornamento cumulativo IE | [2,104], [3,91], [4,84] | 10 novembre 2020 |
-|  Rel 20-11 |  [4578952]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [2,104] | 10 novembre 2020 |
-|  Rel 20-11 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [2,104] | 10 novembre 2020 |
-|  Rel 20-11 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [4,84] | 10 novembre 2020 |
-|  Rel 20-11 |  [4578956]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [4,84] | 10 novembre 2020 |
-|  Rel 20-11 |  [4578950]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [3,91] | 10 novembre 2020 |
-|  Rel 20-11 |  [4578954]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [3,91] | 10 novembre 2020 |
-|  Rel 20-11 |  [4578966]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4.7.2 | [6,25] | 13 ottobre 2020 |
-|  Rel 20-11 |  [4586827]  |  Rollup mensile | [2,104] | 10 novembre 2020 |
-|  Rel 20-11 |  [4586834]  |  Rollup mensile | [3,91] | 10 novembre 2020 |
+|  Rel 20-11 OOB |  [4594442]  |  Ultimo aggiornamento cumulativo | [6.25] | 17 novembre 2020 |
+|  Rel 20-11 OOB |  [4594441]  |  Ultimo aggiornamento cumulativo | [5.49] | 19 novembre 2020 |
+|  Rel 20-11 |  [4580325]  |  Aggiornamento Flash | [3.91], [4.84], [5.49], [6.25] | 13 ottobre 2020 |
+|  Rel 20-11 |  [4586768]  |  Aggiornamento cumulativo di IE | [2.104,] [3.91], [4.84] | 10 novembre 2020 |
+|  Rel 20-11 |  [4578952]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5 | [2.104] | 10 novembre 2020 |
+|  Rel 20-11 |  [4578955]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [2.104] | 10 novembre 2020 |
+|  Rel 20-11 |  [4578953]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5 | [4,84] | 10 novembre 2020 |
+|  Rel 20-11 |  [4578956]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [4,84] | 10 novembre 2020 |
+|  Rel 20-11 |  [4578950]  |  .NET Framework rollup di sicurezza e qualità 3.5 | [3.91] | 10 novembre 2020 |
+|  Rel 20-11 |  [4578954]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [3.91] | 10 novembre 2020 |
+|  Rel 20-11 |  [4578966]  |  .NET Framework 3.5 e 4.7.2 Aggiornamento cumulativo | [6.25] | 13 ottobre 2020 |
+|  Rel 20-11 |  [4586827]  |  Rollup mensile | [2.104] | 10 novembre 2020 |
+|  Rel 20-11 |  [4586834]  |  Rollup mensile | [3.91] | 10 novembre 2020 |
 |  Rel 20-11 |  [4586845]  |  Rollup mensile | [4,84] | 10 novembre 2020 |
-|  Rel 20-11 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3,91] | 14 luglio 2020 |
+|  Rel 20-11 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3.91] | 14 luglio 2020 |
 |  Rel 20-11 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4,84] | 14 luglio 2020 |
 |  Rel 20-11 OOB |  [4578013]  |  Aggiornamento della sicurezza autonomo | [4,84] | 19 agosto 2020 |
-|  Rel 20-11 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5,49] | 8 settembre 2020 |
-|  Rel 20-11 |  [4580970]  |  Aggiornamento dello stack di manutenzione | [2,104] | 13 ottobre 2020 |
-|  Rel 20-11 |  [4587735]  |  Aggiornamento dello stack di manutenzione | [6,25] | 10 novembre 2020 |
-|  Rel 20-11 |  [4494175]  |  Microcodice | [5,49] | 1 ° settembre 2020 |
-|  Rel 20-11 |  [4494174]  |  Microcodice | [6,25] | 3 settembre 2020 |
+|  Rel 20-11 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5.49] | 8 settembre 2020 |
+|  Rel 20-11 |  [4580970]  |  Aggiornamento dello stack di manutenzione | [2.104] | 13 ottobre 2020 |
+|  Rel 20-11 |  [4587735]  |  Aggiornamento dello stack di manutenzione | [6.25] | 10 novembre 2020 |
+|  Rel 20-11 |  [4494175]  |  Microcodice | [5.49] | 1 set 2020 |
+|  Rel 20-11 |  [4494174]  |  Microcodice | [6.25] | 3 set 2020 |
 
 [4594442]: https://support.microsoft.com/kb/4594442
 [4594441]: https://support.microsoft.com/kb/4594441
@@ -294,11 +349,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4587735]: https://support.microsoft.com/kb/4587735
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-[2,104]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3,91]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[2.104]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.91]: ./cloud-services-guestos-update-matrix.md#family-3-releases
 [4,84]: ./cloud-services-guestos-update-matrix.md#family-4-releases
-[5,49]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6,25]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[5.49]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.25]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 
@@ -306,28 +361,28 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-10 |  [4577010]  |  Aggiornamento cumulativo IE | [2,103], [3,90], [4,83] | 8 settembre 2020 |
-|  Rel 20-10 |  [4580325]  |  Aggiornamento Flash | [3,90], [4,83], [5,48], [6,24] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4577668]  |  Aggiornamento cumulativo più recente | [6,24] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4580346]  |  Aggiornamento cumulativo più recente | [5,48] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4580970]  |  Aggiornamento dello stack di manutenzione | [2,103] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4580345]  |  Rollup mensile | [2,103] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578952]  |  Rollup sicurezza e qualità .NET Framework 3.5.1 | [2,103] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [2,103] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3,90] | 14 luglio 2020 |
-|  Rel 20-10 |  [4580382]  |  Rollup mensile | [3,90] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578950]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [3,90] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578954]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [3,90] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4,83] | 14 luglio 2020 |
-|  Rel 20-10 |  [4580347]  |  Rollup mensile | [4,83] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [4,83] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578956]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [4,83] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578013]  |  Aggiornamento della sicurezza autonomo | [4,83] | 19 agosto 2020 |
-|  Rel 20-10 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5,48] | 8 settembre 2020 |
-|  Rel 20-10 |  [4494175]  |  Microcodice | [5,48] | 1 ° settembre 2020 |
-|  Rel 20-10 |  [4577667]  |  Aggiornamento dello stack di manutenzione | [6,24] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578966]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4.7.2 | [6,24] | 13 ottobre 2020 |
-|  Rel 20-10 |  [4494174]  |  Microcodice | [6,24] | 3 settembre 2020 |
+|  Rel 20-10 |  [4577010]  |  Aggiornamento cumulativo di IE | [2.103], [3.90], [4.83] | 8 settembre 2020 |
+|  Rel 20-10 |  [4580325]  |  Aggiornamento Flash | [3.90], [4.83], [5.48], [6.24] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4577668]  |  Ultimo aggiornamento cumulativo | [6.24] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4580346]  |  Aggiornamento cumulativo più recente | [5.48] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4580970]  |  Aggiornamento dello stack di manutenzione | [2.103] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4580345]  |  Rollup mensile | [2.103] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578952]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5.1 | [2.103] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [2.103] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3.90] | Lug 14, 2020 |
+|  Rel 20-10 |  [4580382]  |  Rollup mensile | [3.90] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework rollup di sicurezza e qualità 3.5 | [3.90] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [3.90] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4.83] | 14 luglio 2020 |
+|  Rel 20-10 |  [4580347]  |  Rollup mensile | [4.83] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5 | [4.83] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [4.83] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578013]  |  Aggiornamento della sicurezza autonomo | [4.83] | 19 agosto 2020 |
+|  Rel 20-10 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5.48] | 8 settembre 2020 |
+|  Rel 20-10 |  [4494175]  |  Microcodice | [5.48] | 1 set 2020 |
+|  Rel 20-10 |  [4577667]  |  Aggiornamento dello stack di manutenzione | [6.24] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578966]  |  .NET Framework 3.5 e 4.7.2 Aggiornamento cumulativo | [6.24] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4494174]  |  Microcodice | [6.24] | 3 set 2020 |
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -352,39 +407,39 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4577667]: https://support.microsoft.com/kb/4577667
 [4578966]: https://support.microsoft.com/kb/4578966
 [4494174]: https://support.microsoft.com/kb/4494174
-[2,103]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3,90]: ./cloud-services-guestos-update-matrix.md#family-3-releases
-[4,83]: ./cloud-services-guestos-update-matrix.md#family-4-releases
-[5,48]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6,24]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[2.103]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.90]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.83]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.48]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.24]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="september-2020-guest-os"></a>Sistema operativo guest di settembre 2020
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-09 |  [4577010]  |  Internet Explorer | [2,102], [3,89], [4,82] | 8 settembre 2020 |
-|  Rel 20-09 |  [4561600]  |  Aggiornamento Flash | [3,89], [4,82], [5,47], [6,23] | 8 settembre 2020 |
-|  Rel 20-09 |  [4577015]  |  Aggiornamento cumulativo più recente | [5,47] | 8 settembre 2020 |
-|  Rel 20-09 |  [4570333]  |  Aggiornamento cumulativo più recente | [6,23] | 8 settembre 2020 |
-|  Rel 20-09 |  [4570673]  |  Aggiornamento dello stack di manutenzione | [2,102] | 8 settembre 2020 |
-|  Rel 20-09 |  [4577051]  |  Rollup mensile | [2,102] | 8 settembre 2020 |
-|  Rel 20-09 |  [4569767]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [2,102] | 8 settembre 2020 |
-|  Rel 20-09 |  [4569780]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [2,102] | 8 settembre 2020 |
-|  Rel 20-09 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3,89] | 8 settembre 2020 |
-|  Rel 20-09 |  [4577038]  |  Rollup mensile | [3,89] | 8 settembre 2020 |
-|  Rel 20-09 |  [4569765]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [3,89] | 8 settembre 2020 |
-|  Rel 20-09 |  [4569779]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [3,89] | 8 settembre 2020 |
-|  Rel 20-09 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [2,102] | 8 settembre 2020 |
-|  Rel 20-09 |  [4577066]  |  Rollup mensile | [2,102] | 8 settembre 2020 |
-|  Rel 20-09 |  [4569768]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [2,102] | 8 settembre 2020 |
-|  Rel 20-09 |  [4569778]  |  Rollup della sicurezza e della qualità di 4.5.2 di .NET Framework | [2,102] | 8 settembre 2020 |
-|  Rel 20-09 |  [4578013]  |  Aggiornamento della sicurezza | [2,102] | 8 settembre 2020 |
-|  Rel 20-09 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5,47] | 8 settembre 2020 |
-|  Rel 20-09 |  [4494175]  |  Microcodice | [5,47] | 8 settembre 2020 |
-|  Rel 20-09 |  [4570332]  |  Aggiornamento dello stack di manutenzione | [6,23] | 8 settembre 2020 |
-|  Rel 20-09 |  [4570720]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4.7.2 | [6,23] | 8 settembre 2020 |
-|  Rel 20-09 |  [4494174]  |  Microcodice | [6,23] | 8 settembre 2020 |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | [2.102], [3.89], [4.82] | 8 settembre 2020 |
+|  Rel 20-09 |  [4561600]  |  Aggiornamento Flash | [3.89], [4.82], [5.47], [6.23] | 8 settembre 2020 |
+|  Rel 20-09 |  [4577015]  |  Aggiornamento cumulativo più recente | [5.47] | 8 set 2020 |
+|  Rel 20-09 |  [4570333]  |  Aggiornamento cumulativo più recente | [6.23] | 8 set 2020 |
+|  Rel 20-09 |  [4570673]  |  Aggiornamento dello stack di manutenzione | [2.102] | 8 set 2020 |
+|  Rel 20-09 |  [4577051]  |  Rollup mensile | [2.102] | 8 set 2020 |
+|  Rel 20-09 |  [4569767]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5 | [2.102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4569780]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [2.102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3.89] | 8 settembre 2020 |
+|  Rel 20-09 |  [4577038]  |  Rollup mensile | [3.89] | 8 settembre 2020 |
+|  Rel 20-09 |  [4569765]  |  .NET Framework rollup di sicurezza e qualità 3.5 | [3.89] | 8 settembre 2020 |
+|  Rel 20-09 |  [4569779]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [3.89] | 8 set 2020 |
+|  Rel 20-09 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [2.102] | 8 set 2020 |
+|  Rel 20-09 |  [4577066]  |  Rollup mensile | [2.102] | 8 set 2020 |
+|  Rel 20-09 |  [4569768]  |  .NET Framework rollup di sicurezza e qualità di .NET Framework 3.5 | [2.102] | 8 set 2020 |
+|  Rel 20-09 |  [4569778]  |  Rollup della sicurezza e della qualità di NET Framework 4.5.2 | [2.102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4578013]  |  Aggiornamento della sicurezza | [2.102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5.47] | 8 settembre 2020 |
+|  Rel 20-09 |  [4494175]  |  Microcodice | [5.47] | 8 settembre 2020 |
+|  Rel 20-09 |  [4570332]  |  Aggiornamento dello stack di manutenzione | [6.23] | 8 settembre 2020 |
+|  Rel 20-09 |  [4570720]  |  .NET Framework aggiornamento cumulativo 3.5 e 4.7.2 | [6.23] | 8 set 2020 |
+|  Rel 20-09 |  [4494174]  |  Microcodice | [6.23] | 8 set 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
 [4561600]: https://support.microsoft.com/kb/4561600
@@ -408,37 +463,37 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
 [4494174]: https://support.microsoft.com/kb/4494174
-[2,102]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3,89]: ./cloud-services-guestos-update-matrix.md#family-3-releases
-[4,82]: ./cloud-services-guestos-update-matrix.md#family-4-releases
-[5,47]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6,23]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[2.102]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.89]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.82]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.47]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.23]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
-## <a name="august-2020-guest-os"></a>Sistema operativo guest 2020 agosto
+## <a name="august-2020-guest-os"></a>Sistema operativo guest di agosto 2020
 
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-08 |  [4571687]  |  Aggiornamento cumulativo IE | [2,101], [3,88], [4,81] | 11 agosto 2020 |
-|  Rel 20-08 |  [4561600]  |  Aggiornamento Flash | [3,88], [4,81], [5,46], [6,22] | 9 giugno 2020 |
-|  Rel 20-08 |  [4571694]  |  Aggiornamento cumulativo più recente | [6,22] | 11 agosto 2020 |
-|  Rel 20-08 |  [4565349]  |  Aggiornamento cumulativo più recente | [5,46] | 11 agosto 2020 |
-|  Rel 20-08 |  [4570673]  |  Aggiornamento dello stack di manutenzione | [2,101] | 11 agosto 2020 |
-|  Rel 20-08 |  [4571729]  |  Rollup mensile | [2,101] | 11 agosto 2020 |
-|  Rel 20-08 |  [4569767]  |  Rollup sicurezza e qualità .NET Framework 3.5.1 | [2,101] | 11 agosto 2020 |
-|  Rel 20-08 |  [4569780]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [2,101] | 11 agosto 2020 |
-|  Rel 20-08 |  [4569765]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [3,88] | 11 agosto 2020 |
-|  Rel 20-08 |  [4569779]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [3,88] | 11 agosto 2020 |
-|  Rel 20-08 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3,88] | 14 luglio 2020 |
-|  Rel 20-08 |  [4571736]  |  Rollup mensile | [3,88] | 11 agosto 2020 |
-|  Rel 20-08 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4,81] | 14 luglio 2020 |
-|  Rel 20-08 |  [4571703]  |  Rollup mensile | [4,81] | 11 agosto 2020 |
-|  Rel 20-08 |  [4569768]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [4,81] | 11 agosto 2020 |
-|  Rel 20-08 |  [4569778]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [4,81] | 11 agosto 2020 |
-|  Rel 20-08 |  [4494175]  |  Microcodice | [5,46] | 25 febbraio 2020 |
-|  Rel 20-08 |  [4565912]  |  Aggiornamento dello stack di manutenzione | [5,46] | 14 luglio 2020 |
-|  Rel 20-08 |  [4569776]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4.7.2 | [6,22] | 11 agosto 2020 |
-|  Rel 20-08 |  [4566424]  |  Aggiornamento dello stack di manutenzione | [6,22] | 11 agosto 2020 |
+|  Rel 20-08 |  [4571687]  |  Aggiornamento cumulativo di IE | [2.101,] [3.88], [4.81] | 11 agosto 2020 |
+|  Rel 20-08 |  [4561600]  |  Aggiornamento flash | [3.88], [4.81], [5.46], [6.22] | 9 giugno 2020 |
+|  Rel 20-08 |  [4571694]  |  Aggiornamento cumulativo più recente | [6.22] | 11 agosto 2020 |
+|  Rel 20-08 |  [4565349]  |  Aggiornamento cumulativo più recente | [5.46] | 11 agosto 2020 |
+|  Rel 20-08 |  [4570673]  |  Aggiornamento dello stack di manutenzione | [2.101] | 11 agosto 2020 |
+|  Rel 20-08 |  [4571729]  |  Rollup mensile | [2.101] | 11 agosto 2020 |
+|  Rel 20-08 |  [4569767]  |  .NET Framework rollup di sicurezza e qualità 3.5.1 | [2.101] | 11 agosto 2020 |
+|  Rel 20-08 |  [4569780]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [2.101] | 11 agosto 2020 |
+|  Rel 20-08 |  [4569765]  |  .NET Framework rollup di sicurezza e qualità 3.5 | [3.88] | 11 agosto 2020 |
+|  Rel 20-08 |  [4569779]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [3.88] | 11 agosto 2020 |
+|  Rel 20-08 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3.88] | 14 luglio 2020 |
+|  Rel 20-08 |  [4571736]  |  Rollup mensile | [3.88] | 11 agosto 2020 |
+|  Rel 20-08 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4.81] | 14 luglio 2020 |
+|  Rel 20-08 |  [4571703]  |  Rollup mensile | [4.81] | 11 agosto 2020 |
+|  Rel 20-08 |  [4569768]  |  .NET Framework rollup di sicurezza e qualità 3.5 | [4.81] | 11 agosto 2020 |
+|  Rel 20-08 |  [4569778]  |  .NET Framework 4.5.2 Rollup di sicurezza e qualità | [4.81] | 11 agosto 2020 |
+|  Rel 20-08 |  [4494175]  |  Microcodice | [5.46] | 25 febbraio 2020 |
+|  Rel 20-08 |  [4565912]  |  Aggiornamento dello stack di manutenzione | [5.46] | Lug 14, 2020 |
+|  Rel 20-08 |  [4569776]  |  .NET Framework 3.5 e 4.7.2 Aggiornamento cumulativo | [6.22] | 11 agosto 2020 |
+|  Rel 20-08 |  [4566424]  |  Aggiornamento dello stack di manutenzione | [6.22] | 11 agosto 2020 |
 
 
 [4571687]: https://support.microsoft.com/kb/4571687
@@ -461,38 +516,38 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4565912]: https://support.microsoft.com/kb/4565912
 [4569776]: https://support.microsoft.com/kb/4569776
 [4566424]: https://support.microsoft.com/kb/4566424
-[2,101]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3,88]: ./cloud-services-guestos-update-matrix.md#family-3-releases
-[4,81]: ./cloud-services-guestos-update-matrix.md#family-4-releases
-[5,46]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6,22]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[2.101]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.88]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.81]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.46]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.22]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
-## <a name="july-2020-guest-os"></a>Sistema operativo guest 2020 luglio
+## <a name="july-2020-guest-os"></a>Sistema operativo guest di luglio 2020
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-07 |  [4565479]  |  Internet Explorer | [2,100], [3,87], [4,80] | 14 luglio 2020 |
-|  Rel 20-07 |  [4565511]  |  Aggiornamento cumulativo più recente (LCU) | [5,45] | 14 luglio 2020 |
-|  Rel 20-07 |  [4558998]  |  Aggiornamento cumulativo più recente (LCU) | [6,21] | 14 luglio 2020 |
-|  Rel 20-07 |  [4565524]  |  Rollup mensile | [2,100] | 14 luglio 2020 |
-|  Rel 20-07 |  [4565616]  |  Rollup mensile | [2,100] | 16 luglio 2020 |
-|  Rel 20-07 |  [4565354]  |  Aggiornamento dello stack di manutenzione | [2,100] | 14 luglio 2020 |
-|  Rel 20-07 |  [4565612]  |  Rollup mensile | [2,100] | 14 luglio 2020 |
-|  Rel 20-07 |  [4565615]  |  Rollup mensile | [3,87] | 14 luglio 2020 |
-|  Rel 20-07 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3,87] | 14 luglio 2020 |
-|  Rel 20-07 |  [4565537]  |  Rollup mensile | [3,87] | 14 luglio 2020 |
-|  Rel 20-07 |  [4565610]  |  Rollup mensile | [3,87] | 14 luglio 2020 |
-|  Rel 20-07 |  [4565541]  |  Rollup mensile | [4,80] | 14 luglio 2020 |
-|  Rel 20-07 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4,80] | 14 luglio 2020 |
-|  Rel 20-07 |  [4565614]  |  Rollup mensile | [4,80] | 14 luglio 2020 |
-|  Rel 20-07 |  [4565613]  |  Rollup mensile | [4,80] | 14 luglio 2020 |
+|  Rel 20-07 |  [4565479]  |  Internet Explorer | [2.100], [3.87], [4.80] | Lug 14, 2020 |
+|  Rel 20-07 |  [4565511]  |  Ultimo aggiornamento cumulativo (LCU) | [5,45] | Lug 14, 2020 |
+|  Rel 20-07 |  [4558998]  |  Aggiornamento cumulativo più recente | [6.21] | 14 luglio 2020 |
+|  Rel 20-07 |  [4565524]  |  Rollup mensile | [2.100] | 14 luglio 2020 |
+|  Rel 20-07 |  [4565616]  |  Rollup mensile | [2.100] | 16 luglio 2020 |
+|  Rel 20-07 |  [4565354]  |  Aggiornamento dello stack di manutenzione | [2.100] | 14 luglio 2020 |
+|  Rel 20-07 |  [4565612]  |  Rollup mensile | [2.100] | 14 luglio 2020 |
+|  Rel 20-07 |  [4565615]  |  Rollup mensile | [3.87] | Lug 14, 2020 |
+|  Rel 20-07 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3.87] | Lug 14, 2020 |
+|  Rel 20-07 |  [4565537]  |  Rollup mensile | [3.87] | Lug 14, 2020 |
+|  Rel 20-07 |  [4565610]  |  Rollup mensile | [3.87] | Lug 14, 2020 |
+|  Rel 20-07 |  [4565541]  |  Rollup mensile | [4.80] | Lug 14, 2020 |
+|  Rel 20-07 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4.80] | 14 luglio 2020 |
+|  Rel 20-07 |  [4565614]  |  Rollup mensile | [4.80] | 14 luglio 2020 |
+|  Rel 20-07 |  [4565613]  |  Rollup mensile | [4.80] | 14 luglio 2020 |
 |  Rel 20-07 |  [4565912]  |  Aggiornamento dello stack di manutenzione | [5,45] | 14 luglio 2020 |
 |  Rel 20-07 |  [4565628]  |  Rollup mensile | [5,45] | 14 luglio 2020 |
 |  Rel 20-07 |  [4494175]  |  Microcodice | [5,45] | 25 febbraio 2020 |
-|  Rel 20-07 |  [4565632]  |  Rollup mensile | [6,21] | 14 luglio 2020 |
-|  Rel 20-07 |  [4558997]  |  Aggiornamento dello stack di manutenzione | [6,21] | 14 luglio 2020 |
-|  Rel 20-07 |  [4494174]  |  Microcodice | [6,21] | 25 febbraio 2020 |
+|  Rel 20-07 |  [4565632]  |  Rollup mensile | [6.21] | Lug 14, 2020 |
+|  Rel 20-07 |  [4558997]  |  Aggiornamento dello stack di manutenzione | [6.21] | Lug 14, 2020 |
+|  Rel 20-07 |  [4494174]  |  Microcodice | [6.21] | 25 febbraio 2020 |
 
 
 [4565479]: https://support.microsoft.com/kb/4565479
@@ -516,11 +571,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4565632]: https://support.microsoft.com/kb/4565632
 [4558997]: https://support.microsoft.com/kb/4558997
 [4494174]: https://support.microsoft.com/kb/4494174
-[2,100]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3,87]: ./cloud-services-guestos-update-matrix.md#family-3-releases
-[4,80]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[2.100]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.87]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.80]: ./cloud-services-guestos-update-matrix.md#family-4-releases
 [5,45]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6,21]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[6.21]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="june-2020-guest-os"></a>Sistema operativo guest di giugno 2020
@@ -528,18 +583,18 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  [2,99], [3,86], [4,79]  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  [2.99], [3.86], [4.79]  |  9 giugno 2020  |
 |  Rel 20-06  |  [4561616]  |  Aggiornamento cumulativo più recente  |  [5,44]  |  9 giugno 2020  |
-|  Rel 20-06  |  [4561608]  |  Aggiornamento cumulativo più recente  |  [6,20]  |  9 giugno 2020  |
-|  Rel 20-06  |  [4562030]  |  Aggiornamento dello stack di manutenzione  |  [2,99]  |  9 giugno 2020  |
-|  Rel 20-06  |  [4561643]  |  Rollup mensile  |  [2,99]  |  9 giugno 2020  |
-|  Rel 20-06  |  [4562252]  |  Aggiornamento dello stack di manutenzione  |  [3,86]  |  9 giugno 2020  |
-|  Rel 20-06  |  [4561612]  |  Rollup mensile  |  [3,86]  |  9 giugno 2020  |
-|  Rel 20-06  |  [4561600]  |  Flash  |  [3,86], [4,79], [5,44], [6,20]  |  9 giugno 2020  |
-|  Rel 20-06  |  [4562253]  |  Aggiornamento dello stack di manutenzione  |  [4,79]  |  9 giugno 2020  |
-|  Rel 20-06  |  [4561666]  |  Rollup mensile  |  [4,79]  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561608]  |  Aggiornamento cumulativo più recente  |  [6.20]  |  9 giugno 2020  |
+|  Rel 20-06  |  [4562030]  |  Aggiornamento dello stack di manutenzione  |  [2.99]  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561643]  |  Rollup mensile  |  [2.99]  |  9 giugno 2020  |
+|  Rel 20-06  |  [4562252]  |  Aggiornamento dello stack di manutenzione  |  [3.86]  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561612]  |  Rollup mensile  |  [3.86]  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561600]  |  Flash  |  [3.86], [4.79], [5.44], [6.20]  |  9 giugno 2020  |
+|  Rel 20-06  |  [4562253]  |  Aggiornamento dello stack di manutenzione  |  [4.79]  |  9 giugno 2020  |
+|  Rel 20-06  |  [4561666]  |  Rollup mensile  |  [4.79]  |  9 giugno 2020  |
 |  Rel 20-06  |  [4562561]  |  Aggiornamento dello stack di manutenzione  |  [5,44]  |  9 giugno 2020  |
-|  Rel 20-06  |  [4562562]  |  Aggiornamento dello stack di manutenzione  |  [6,20]  |  9 giugno 2020  |
+|  Rel 20-06  |  [4562562]  |  Aggiornamento dello stack di manutenzione  |  [6.20]  |  9 giugno 2020  |
 
 
 
@@ -555,11 +610,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4561666]: https://support.microsoft.com/kb/4561666
 [4562561]: https://support.microsoft.com/kb/4562561
 [4562562]: https://support.microsoft.com/kb/4562562
-[2,99]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3,86]: ./cloud-services-guestos-update-matrix.md#family-3-releases
-[4,79]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[2.99]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.86]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.79]: ./cloud-services-guestos-update-matrix.md#family-4-releases
 [5,44]: ./cloud-services-guestos-update-matrix.md#family-5-releases
-[6,20]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[6.20]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="may-2020-guest-os"></a>Sistema operativo guest di maggio 2020
@@ -567,7 +622,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98],  [3,85], [4,78]  |  12 maggio 2020  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2.98],  [3.85], [4.78]  |  12 maggio 2020  |
 |  Rel 20-05  |  [4556813]  |  Aggiornamento cumulativo più recente   |  [5.43]  |  12 maggio 2020  |
 |  Rel 20-05  |  [4551853]  |  Aggiornamento cumulativo più recente   |  [6.19]  |  12 maggio 2020  |
 |  Rel 20-05  |  [4552940]  |  Rollup mensile   |  [2.98]  |  12 maggio 2020  |
@@ -601,7 +656,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4550994]: https://support.microsoft.com/kb/4550994
 [4552924]: https://support.microsoft.com/kb/4552924
 [4549947]: https://support.microsoft.com/kb/4549947
-[2,98]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[2.98]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 [3.85]: ./cloud-services-guestos-update-matrix.md#family-3-releases
 [4.78]: ./cloud-services-guestos-update-matrix.md#family-4-releases
 [5.43]: ./cloud-services-guestos-update-matrix.md#family-5-releases

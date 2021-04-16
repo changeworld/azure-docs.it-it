@@ -1,22 +1,22 @@
 ---
 title: Ripristino - Hyperscale (Citus) - Database di Azure per PostgreSQL - portale di Azure
-description: Questo articolo descrive come eseguire operazioni di ripristino in Database di Azure per PostgreSQL - Hyperscale (Citus) tramite l'portale di Azure.
+description: Questo articolo descrive come eseguire operazioni di ripristino in Database di Azure per PostgreSQL Hyperscale (Citus) tramite il portale di Azure.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.openlocfilehash: aebfeed055fad7c1108620ab494236640285aa1e
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.date: 04/14/2021
+ms.openlocfilehash: 99e507fed35e5b74aa44bc2713550f7cf9d7b2e5
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107495042"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518882"
 ---
-# <a name="point-in-time-restore-of-a-hyperscale-citus-server-group"></a>Ripristino temporato di un gruppo di Hyperscale (Citus) server
+# <a name="point-in-time-restore-of-a-hyperscale-citus-server-group"></a>Ripristino temporato di un gruppo Hyperscale (Citus) server
 
-Questo articolo illustra le procedure dettagliate per eseguire ripresi tempormente per un gruppo Hyperscale (Citus) server usando i backup. [](concepts-hyperscale-backup.md#point-in-time-restore-pitr) È possibile ripristinare il backup meno recente o in un punto di ripristino personalizzato entro il periodo di conservazione.
+Questo articolo illustra le procedure dettagliate per eseguire ripresi tempormente per un gruppo Hyperscale (Citus) server usando i backup. [](concepts-hyperscale-backup.md#restore) È possibile ripristinare il backup meno recente o in un punto di ripristino personalizzato entro il periodo di conservazione.
 
 ## <a name="restoring-to-the-earliest-restore-point"></a>Ripristino al punto di ripristino meno recente
 
@@ -29,11 +29,11 @@ Seguire questa procedura per ripristinare il Hyperscale (Citus) del server al ba
     > [!IMPORTANT]
     > Se il **pulsante** Ripristina non è ancora presente per il gruppo di server, aprire una supporto tecnico di Azure richiesta.
 
-3.  La pagina di ripristino chiederà di scegliere  tra il punto di ripristino **meno** recente e un punto di ripristino personalizzato e verrà visualizzata la data meno recente.
+3.  Nella pagina di ripristino verrà chiesto di  scegliere tra il punto di ripristino **meno** recente e un punto di ripristino personalizzato e verrà visualizzata la data meno recente.
 
 4.  Selezionare **Punto di ripristino meno recente.**
 
-5.  Specificare un nuovo nome di gruppo di server nel **campo Ripristina nel nuovo server.** Gli altri campi (sottoscrizione, gruppo di risorse e posizione) vengono visualizzati ma non modificabili.
+5.  Specificare un nuovo nome di gruppo di server nel **campo Ripristina nel nuovo** server. Gli altri campi (sottoscrizione, gruppo di risorse e posizione) vengono visualizzati ma non modificabili.
 
 6.  Fare clic su **OK**.
 
@@ -47,7 +47,7 @@ Seguire questa procedura per ripristinare il gruppo Hyperscale (Citus) server a 
 
 1.  Nel [portale di Azure](https://portal.azure.com/)scegliere il gruppo di server da ripristinare.
 
-2.  Fare **clic su Panoramica** nel pannello sinistro e fare clic su **Ripristina**
+2.  Fare **clic su Panoramica** nel pannello sinistro e quindi su **Ripristina**
 
     > [!IMPORTANT]
     > Se il **pulsante** Ripristina non è ancora presente per il gruppo di server, aprire una supporto tecnico di Azure richiesta.
@@ -77,4 +77,4 @@ Dopo un ripristino, è necessario eseguire le operazioni seguenti per ripristina
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni su [backup e ripristino](concepts-hyperscale-backup.md) in Hyperscale (Citus).
-* Impostare [gli avvisi suggeriti](./howto-hyperscale-alert-on-metric.md#suggested-alerts) Hyperscale (Citus) gruppi di server.
+* Impostare [gli avvisi suggeriti](./howto-hyperscale-alert-on-metric.md#suggested-alerts) per Hyperscale (Citus) gruppi di server.

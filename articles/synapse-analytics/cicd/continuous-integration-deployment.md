@@ -1,34 +1,34 @@
 ---
-title: Integrazione e recapito continui per l'area di lavoro sinapsi
+title: Integrazione e recapito continui per l'area di lavoro Synapse
 description: Informazioni su come usare l'integrazione e il recapito continui per distribuire le modifiche nell'area di lavoro da un ambiente (sviluppo, test, produzione) a un altro.
-services: synapse-analytics
 author: liud
 ms.service: synapse-analytics
+ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: de3738573bb9bb6f045a45d290c74ba9e6902a5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f68e3698f8616b581d319bc19d2a8c636c79c36
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561958"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566087"
 ---
-# <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integrazione e distribuzione continue per l'area di lavoro di Azure sinapsi
+# <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integrazione e recapito continui per l'Azure Synapse lavoro
 
 ## <a name="overview"></a>Panoramica
 
-Integrazione continua (CI) è il processo di automazione della compilazione e del test del codice ogni volta che un membro del team eseguirà il commit delle modifiche al controllo della versione. La distribuzione continua (CD) è il processo per compilare, testare, configurare e distribuire da più ambienti di test o di gestione temporanea in un ambiente di produzione.
+Integrazione continua è il processo di automazione della compilazione e del test del codice ogni volta che un membro del team esegue il commit delle modifiche al controllo della versione. La distribuzione continua (CD) è il processo per compilare, testare, configurare e distribuire da più ambienti di test o staging a un ambiente di produzione.
 
-Per l'area di lavoro di Azure sinapsi, l'integrazione e la distribuzione continua (CI/CD) spostano tutte le entità da un ambiente (sviluppo, test, produzione) a un altro. Per innalzare di livello l'area di lavoro a un'altra area di lavoro, sono disponibili due parti: usare [modelli di Azure Resource Manager](../../azure-resource-manager/templates/overview.md) per creare o aggiornare le risorse dell'area di lavoro eseguire la migrazione di elementi (script SQL, notebook, definizione del processo Spark, pipeline, set di dati, flussi di dati e così via) con gli strumenti di integrazione continua/recapito continuo sinapsi in Azure DevOps. 
+Per Azure Synapse'area di lavoro, l'integrazione continua e il recapito (CI/CD) spostano tutte le entità da un ambiente (sviluppo, test, produzione) a un altro. Per alzare di livello l'area di [](../../azure-resource-manager/templates/overview.md) lavoro a un'altra area di lavoro, sono disponibili due parti: usare i modelli Azure Resource Manager per creare o aggiornare le risorse dell'area di lavoro (pool e area di lavoro). Eseguire la migrazione di artefatti (script SQL, notebook, definizione del processo Spark, pipeline, set di dati, flussi di dati e così via) con gli strumenti CI/CD di Synapse in Azure DevOps. 
 
-Questo articolo descrive come usare la pipeline di rilascio di Azure per automatizzare la distribuzione di un'area di lavoro sinapsi in più ambienti.
+Questo articolo descrive l'uso della pipeline di versione di Azure per automatizzare la distribuzione di un'area di lavoro Synapse in più ambienti.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
--   L'area di lavoro usata per lo sviluppo è stata configurata con un repository git in studio, vedere [controllo del codice sorgente in sinapsi Studio](source-control.md).
--   Un progetto DevOps di Azure è stato preparato per l'esecuzione della pipeline di rilascio.
+-   L'area di lavoro usata per lo sviluppo è stata configurata con un repository Git in Studio. Vedere Controllo del codice sorgente [in Synapse Studio](source-control.md).
+-   Un Azure DevOps è stato preparato per l'esecuzione della pipeline di rilascio.
 
 ## <a name="set-up-a-release-pipelines"></a>Configurare una pipeline di versione
 
@@ -46,29 +46,29 @@ Questo articolo descrive come usare la pipeline di rilascio di Azure per automat
 
 1.  Nella casella **Nome fase** immettere il nome dell'ambiente.
 
-1.  Selezionare **Aggiungi artefatto**, quindi selezionare il repository git configurato con lo sviluppo sinapsi Studio. Selezionare il repository git usato per la gestione del modello ARM dei pool e dell'area di lavoro. Se si usa GitHub come origine, è necessario creare una connessione del servizio per l'account GitHub e i repository di pull. Per ulteriori informazioni sulla [connessione al servizio](/azure/devops/pipelines/library/service-endpoints) 
+1.  Selezionare **Aggiungi artefatto** e quindi selezionare il repository Git configurato con il Synapse Studio. Selezionare il repository Git usato per la gestione del modello arm dei pool e dell'area di lavoro. Se si usa GitHub come origine, è necessario creare una connessione al servizio per l'account GitHub e i repository pull. Per altre informazioni sulla connessione [al servizio](/azure/devops/pipelines/library/service-endpoints) 
 
-    ![Aggiungi ramo di pubblicazione](media/release-creation-github.png)
+    ![Aggiungere un ramo di pubblicazione](media/release-creation-github.png)
 
-1.  Selezionare il ramo del modello ARM per l'aggiornamento delle risorse. Per la **versione predefinita**, selezionare **Più recente dal ramo predefinito**.
+1.  Selezionare il ramo del modello di Arm per l'aggiornamento delle risorse. Per la **versione predefinita**, selezionare **Più recente dal ramo predefinito**.
 
-    ![Aggiungi modello ARM](media/release-creation-arm-branch.png)
+    ![Aggiungere un modello di Arm](media/release-creation-arm-branch.png)
 
 1.  Selezionare la [pubblicazione del ramo](source-control.md#configure-publishing-settings) del repository per il **ramo predefinito**. Per impostazione predefinita, questa pubblicazione del ramo è `workspace_publish`. Per la **versione predefinita**, selezionare **Più recente dal ramo predefinito**.
 
     ![Aggiungere un elemento](media/release-creation-publish-branch.png)
 
-## <a name="set-up-a-stage-task-for-arm-resource-create-and-update"></a>Configurare un'attività di gestione temporanea per la creazione e l'aggiornamento di risorse ARM 
+## <a name="set-up-a-stage-task-for-arm-resource-create-and-update"></a>Configurare un'attività di fase per la creazione e l'aggiornamento di risorse arm 
 
-Aggiungere un'attività di distribuzione Azure Resource Manager per creare o aggiornare le risorse, tra cui l'area di lavoro e i pool:
+Aggiungere un'Azure Resource Manager distribuzione personalizzata per creare o aggiornare le risorse, tra cui l'area di lavoro e i pool:
 
 1. Nella visualizzazione dei passaggi selezionare **Visualizza le attività della fase**.
 
     ![Visualizzazione dei passaggi](media/release-creation-stage-view.png)
 
-1. Creare una nuova attività. Cercare la **distribuzione del modello ARM** e quindi selezionare **Aggiungi**.
+1. Creare una nuova attività. Cercare **Distribuzione modello ARM** e quindi selezionare **Aggiungi.**
 
-1. Nell'attività di distribuzione selezionare la sottoscrizione, il gruppo di risorse e il percorso dell'area di lavoro di destinazione. Fornire le credenziali, se necessario.
+1. Nell'attività Distribuzione selezionare la sottoscrizione, il gruppo di risorse e la posizione per l'area di lavoro di destinazione. Fornire le credenziali, se necessario.
 
 1. Nell'elenco **Azione** selezionare **Creare o aggiornare un gruppo di risorse**.
 
@@ -76,82 +76,82 @@ Aggiungere un'attività di distribuzione Azure Resource Manager per creare o agg
 
 1. Selezionare **...** accanto alla casella **Parametri modello** per scegliere il file dei parametri.
 
-1. Selezionare **...** accanto alla casella **Sostituisci parametri modello** e immettere i valori dei parametri desiderati per l'area di lavoro di destinazione. 
+1. Selezionare **...** accanto alla casella **Esegui l'override dei parametri del** modello e immettere i valori dei parametri desiderati per l'area di lavoro di destinazione. 
 
 1. Selezionare **Incrementale** per la **Modalità di distribuzione**.
     
-    ![distribuzione di area di lavoro e pool](media/pools-resource-deploy.png)
+    ![distribuzione dell'area di lavoro e dei pool](media/pools-resource-deploy.png)
 
-1. Opzionale Aggiungere **Azure PowerShell** per l'assegnazione del ruolo dell'area di lavoro Concedi e aggiorna. Se si usa la pipeline di versione per creare un'area di lavoro sinapsi, l'entità servizio della pipeline viene aggiunta come amministratore dell'area di lavoro predefinito. È possibile eseguire PowerShell per concedere ad altri account l'accesso all'area di lavoro. 
+1. (Facoltativo) Aggiungere i **Azure PowerShell** per l'assegnazione del ruolo dell'area di lavoro di concessione e aggiornamento. Se si usa la pipeline di versione per creare un'area di lavoro Synapse, l'entità servizio della pipeline viene aggiunta come amministratore predefinito dell'area di lavoro. È possibile eseguire PowerShell per concedere ad altri account l'accesso all'area di lavoro. 
     
-    ![Concedi autorizzazione](media/release-creation-grant-permission.png)
+    ![concedere l'autorizzazione](media/release-creation-grant-permission.png)
 
  > [!WARNING]
-> In modalità di distribuzione completa, le risorse esistenti nel gruppo di risorse, ma non specificate nel nuovo modello di Gestione risorse verranno **eliminate**. Per altre informazioni, vedere [Azure Resource Manager modalità di distribuzione](../../azure-resource-manager/templates/deployment-modes.md)
+> In modalità di distribuzione Completa le risorse presenti nel gruppo di risorse ma non specificate nel nuovo modello Resource Manager verranno **eliminate.** Per altre informazioni, vedere Modalità Azure Resource Manager [distribuzione](../../azure-resource-manager/templates/deployment-modes.md)
 
-## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Configurare un'attività di gestione temporanea per la distribuzione di artefatti 
+## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Configurare un'attività di gestione delle fasi per la distribuzione degli artefatti 
 
-Usare l'estensione per la [distribuzione dell'area](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) di lavoro sinapsi per distribuire altri elementi nell'area di lavoro sinapsi, ad esempio set di dati, script SQL, notebook, definizione del processo Spark, flusso di dati, pipeline, servizio collegato, credenziali e IR (Integration Runtime).  
+Usare l'estensione di distribuzione dell'area di lavoro [Synapse](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) per distribuire altri elementi nell'area di lavoro Synapse, ad esempio set di dati, script SQL, notebook, definizione del processo Spark, flusso di dati, pipeline, servizio collegato, credenziali e IR (Integration Runtime).  
 
-1. Cercare e ottenere l'estensione da **Azure DevOps Marketplace**(https://marketplace.visualstudio.com/azuredevops) 
+1. Cercare e ottenere l'estensione **da Azure DevOps Marketplace**(https://marketplace.visualstudio.com/azuredevops) 
 
      ![Ottenere l'estensione](media/get-extension-from-market.png)
 
-1. Selezionare un'organizzazione in cui installare l'estensione. 
+1. Selezionare un'organizzazione per installare l'estensione. 
 
      ![Installare l'estensione](media/install-extension.png)
 
-1. Verificare che all'entità servizio della pipeline di Azure DevOps sia stata concessa l'autorizzazione della sottoscrizione e che sia stata assegnata anche come amministratore dell'area di lavoro per l'area di lavoro 
+1. Assicurarsi che all Azure DevOps'entità servizio della pipeline sia stata concessa l'autorizzazione della sottoscrizione e che sia stata assegnata anche come amministratore dell'area di lavoro per l'area di lavoro di destinazione. 
 
-1. Creare una nuova attività. Cercare la **distribuzione dell'area di lavoro sinapsi**, quindi selezionare **Aggiungi**.
+1. Creare una nuova attività. Cercare Distribuzione **dell'area di lavoro Synapse** e quindi selezionare **Aggiungi.**
 
-     ![Aggiungi estensione](media/add-extension-task.png)
+     ![Aggiungere l'estensione](media/add-extension-task.png)
 
-1.  Nell'attività selezionare **...** accanto alla casella **modello** per scegliere il file modello.
+1.  Nell'attività selezionare **...** accanto alla **casella Modello** per scegliere il file modello.
 
 1. Selezionare **...** accanto alla casella **Parametri modello** per scegliere il file dei parametri.
 
 1. Selezionare la connessione, il gruppo di risorse e il nome dell'area di lavoro di destinazione. 
 
-1. Selezionare **...** accanto alla casella **Sostituisci parametri modello** e immettere i valori dei parametri desiderati per l'area di lavoro di destinazione. 
+1. Selezionare **...** accanto alla casella Override template parameters (Sostituisci **parametri modello)** e immettere i valori dei parametri desiderati per l'area di lavoro di destinazione. 
 
-    ![Distribuzione dell'area di lavoro sinapsi](media/create-release-artifacts-deployment.png)
+    ![Distribuzione dell'area di lavoro Synapse](media/create-release-artifacts-deployment.png)
 
 > [!IMPORTANT]
 > Negli scenari CI/CD, il tipo di runtime di integrazione (IR) in ambienti diversi deve essere lo stesso. Ad esempio, se si dispone di un runtime di integrazione self-hosted nell'ambiente di sviluppo, anche lo stesso runtime di integrazione deve essere di tipo self-hosted in altri ambienti, come quelli di test e produzione. Analogamente, se si condividono runtime di integrazione tra più fasi, è necessario configurarli come self-hosted collegati in tutti gli ambienti, ad esempio quelli di sviluppo, test e produzione.
 
-## <a name="create-release-for-deployment"></a>Crea versione per la distribuzione 
+## <a name="create-release-for-deployment"></a>Creare una versione per la distribuzione 
 
 Dopo aver salvato tutte le modifiche, è possibile selezionare **Crea versione** per creare manualmente una versione. Per automatizzare la creazione di versioni, vedere [Trigger versione di Azure DevOps](/azure/devops/pipelines/release/triggers)
 
    ![Selezionare Crea versione](media/release-creation-manually.png)
 
-## <a name="use-custom-parameters-of-the-workspace-template"></a>Utilizzare parametri personalizzati del modello di area di lavoro 
+## <a name="use-custom-parameters-of-the-workspace-template"></a>Usare parametri personalizzati del modello di area di lavoro 
 
-Si usa l'integrazione continua/recapito continuo automatizzata e si desidera modificare alcune proprietà durante la distribuzione, ma le proprietà non sono parametrizzate per impostazione predefinita. In questo caso, è possibile eseguire l'override del modello di parametro predefinito.
+Si usano ci/CD automatizzati e si vogliono modificare alcune proprietà durante la distribuzione, ma le proprietà non sono parametrizzate per impostazione predefinita. In questo caso, è possibile eseguire l'override del modello di parametro predefinito.
 
-Per eseguire l'override del modello di parametro predefinito, è necessario creare un modello di parametro personalizzato, un file denominato **template-parameters-definition.js** nella cartella radice del ramo di collaborazione git. È necessario usare il nome file esatto. Quando si esegue la pubblicazione dal ramo collaborazione, l'area di lavoro di sinapsi legge questo file e usa la relativa configurazione per generare i parametri. Se non viene trovato alcun file, viene utilizzato il modello di parametro predefinito.
+Per eseguire l'override del modello di parametro predefinito, è necessario creare un modello di parametro personalizzato, un file denominato **template-parameters-definition.jsnella** cartella radice del ramo git collaboration. È necessario usare il nome file esatto. Quando si esegue la pubblicazione dal ramo di collaborazione, l'area di lavoro Synapse leggerà questo file e userà la relativa configurazione per generare i parametri. Se non viene trovato alcun file, viene usato il modello di parametro predefinito.
 
 ### <a name="custom-parameter-syntax"></a>Sintassi dei parametri personalizzata
 
 Di seguito sono riportate alcune linee guida per la creazione del file di parametri personalizzati:
 
 * Immettere il percorso della proprietà nel tipo di entità pertinente.
-* L'impostazione di un nome di proprietà su `*` indica che si desidera parametrizzare tutte le proprietà al suo interno (solo per il primo livello, non in modo ricorsivo). È anche possibile fornire eccezioni a questa configurazione.
+* L'impostazione di un nome di proprietà su indica che si desidera parametrizzare tutte le proprietà al di sotto di essa (solo fino al primo `*` livello, non in modo ricorsivo). È anche possibile fornire eccezioni a questa configurazione.
 * Quando si imposta il valore di una proprietà come stringa, si indica che si vuole parametrizzare la proprietà. Usare il formato `<action>:<name>:<stype>`.
-   *  `<action>` può essere uno di questi caratteri:
-      * `=` indica che il valore corrente viene mantenuto come valore predefinito per il parametro.
-      * `-` significa che non si mantiene il valore predefinito per il parametro.
+   *  `<action>` può essere uno dei caratteri seguenti:
+      * `=` significa mantenere il valore corrente come valore predefinito per il parametro .
+      * `-` significa che non mantenere il valore predefinito per il parametro .
       * `|` è un caso speciale per i segreti Azure Key Vault per le stringhe di connessione o le chiavi.
    * `<name>` è il nome del parametro. Se è vuoto, viene usato il nome della proprietà. Se il valore inizia con un carattere `-`, il nome viene abbreviato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` viene abbreviato in `AzureStorage1_connectionString`.
-   * `<stype>` tipo di parametro. Se `<stype>` è vuoto, il tipo predefinito è `string` . Valori supportati: `string` , `securestring` , `int` , `bool` , `object` `secureobject` e `array` .
-* La specifica di una matrice nel file indica che la proprietà corrispondente nel modello è una matrice. La sinapsi esegue l'iterazione di tutti gli oggetti nella matrice utilizzando la definizione specificata. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
+   * `<stype>` è il tipo di parametro. Se `<stype>` è vuoto, il tipo predefinito è `string` . Valori supportati: `string` , , , , e `securestring` `int` `bool` `object` `secureobject` `array` .
+* La specifica di una matrice nel file indica che la proprietà corrispondente nel modello è una matrice. Synapse scorre tutti gli oggetti nella matrice usando la definizione specificata. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
 * Una definizione non può essere specifica di un'istanza di risorsa. Qualunque definizione viene applicata a tutte le risorse di quel tipo.
 * Per impostazione predefinita, vengono parametrizzate tutte le stringhe sicure, ad esempio i segreti di Key Vault, e le stringhe sicure, ad esempio le stringhe di connessione, le chiavi e i token.
 
-### <a name="parameter-template-definition-samples"></a>Esempi di definizione di modello di parametro 
+### <a name="parameter-template-definition-samples"></a>Esempi di definizione del modello di parametro 
 
-Di seguito è riportato un esempio di come appare la definizione di un modello di parametro:
+Di seguito è riportato un esempio dell'aspetto di una definizione di modello di parametro:
 
 ```json
 {
@@ -229,16 +229,16 @@ Di seguito è riportata una spiegazione del modo in cui viene costruito il model
 
 #### <a name="notebooks"></a>Notebook 
 
-* Qualsiasi proprietà nel percorso `properties/bigDataPool/referenceName` è parametrizzata con il relativo valore predefinito. È possibile parametrizzare il pool di Spark collegato per ogni file del notebook. 
+* Qualsiasi proprietà nel percorso `properties/bigDataPool/referenceName` viene parametrizzata con il relativo valore predefinito. È possibile parametrizzare il pool di Spark collegato per ogni file di notebook. 
 
 #### <a name="sql-scripts"></a>Script SQL 
 
-* Le proprietà (poolname e DatabaseName) nel percorso `properties/content/currentConnection` vengono parametrizzate come stringhe senza i valori predefiniti nel modello. 
+* Le proprietà (poolName e databaseName) nel percorso vengono `properties/content/currentConnection` parametrizzate come stringhe senza i valori predefiniti nel modello. 
 
 #### <a name="pipelines"></a>Pipeline
 
 * Qualunque proprietà nel percorso `activities/typeProperties/waitTimeInSeconds` è parametrizzata. Qualunque attività in una pipeline che dispone di una proprietà a livello di codice denominata `waitTimeInSeconds` (ad esempio, l'attività `Wait`) viene parametrizzata come numero, con un nome predefinito. Non avrà tuttavia un valore predefinito nel modello di Resource Manager. Sarà un input obbligatorio durante la distribuzione di Resource Manager.
-* Analogamente, una proprietà chiamata `headers` (ad esempio, in un' `Web` attività) è parametrizzata con il tipo `object` (oggetto). Ha un valore predefinito, che è lo stesso valore di quello della factory di origine.
+* Analogamente, una proprietà denominata `headers` (ad esempio, in `Web` un'attività) viene parametrizzata con il tipo `object` (Object). Ha un valore predefinito, che è lo stesso valore di quello della factory di origine.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
@@ -262,19 +262,19 @@ Di seguito è riportata una spiegazione del modo in cui viene costruito il model
 
 ## <a name="best-practices-for-cicd"></a>Procedure consigliate per la pipeline CI/CD
 
-Se si usa l'integrazione git con l'area di lavoro sinapsi e si ha una pipeline di integrazione continua/distribuzione continua che sposta le modifiche dallo sviluppo al test e quindi alla produzione, è consigliabile eseguire le procedure consigliate seguenti:
+Se si usa l'integrazione di Git con l'area di lavoro di Synapse e si ha una pipeline CI/CD che sposta le modifiche dallo sviluppo al test e quindi alla produzione, è consigliabile usare queste procedure consigliate:
 
--   **Integrazione di Git**. Configurare solo l'area di lavoro sinapsi di sviluppo con l'integrazione git. Le modifiche alle aree di lavoro di test e produzione vengono distribuite tramite CI/CD e non richiedono l'integrazione git.
--   **Preparare i pool prima della migrazione degli artefatti**. Se è presente un notebook o uno script SQL collegato ai pool nell'area di lavoro di sviluppo, è previsto lo stesso nome dei pool in ambienti diversi. 
--   **Infrastruttura come codice (IaC)**. La gestione dell'infrastruttura (reti, macchine virtuali, bilanciamenti del carico e topologia di connessione) in un modello descrittivo usa lo stesso controllo delle versioni usato dal team di DevOps per il codice sorgente. 
--   **Altre**. Vedere le [procedure consigliate per gli artefatti ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)
+-   **Integrazione di Git**. Configurare solo l'area di lavoro synapse di sviluppo con l'integrazione con Git. Le modifiche alle aree di lavoro di test e produzione vengono distribuite tramite CI/CD e non necessitano dell'integrazione con Git.
+-   **Preparare i pool prima della migrazione degli artefatti.** Se si dispone di uno script SQL o di un notebook collegato ai pool nell'area di lavoro di sviluppo, è previsto lo stesso nome di pool in ambienti diversi. 
+-   **Infrastruttura come codice (IaC).** La gestione dell'infrastruttura (reti, macchine virtuali, servizi di bilanciamento del carico e topologia di connessione) in un modello descrittivo usa le stesse versioni usate dal team DevOps per il codice sorgente. 
+-   **Altri**. Vedere [le procedure consigliate per gli artefatti di AdF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)
 
 ## <a name="troubleshooting-artifacts-deployment"></a>Risoluzione dei problemi di distribuzione degli artefatti 
 
-### <a name="use-the-synapse-workspace-deployment-task"></a>Usare l'attività di distribuzione dell'area di lavoro sinapsi
+### <a name="use-the-synapse-workspace-deployment-task"></a>Usare l'attività di distribuzione dell'area di lavoro Synapse
 
-In sinapsi sono presenti diversi artefatti che non sono risorse ARM. Questo comportamento è diverso da Azure Data Factory. L'attività di distribuzione del modello ARM non funzionerà correttamente per distribuire gli artefatti sinapsi
+In Synapse sono presenti diversi elementi che non sono risorse arm. Questo comportamento è diverso da Azure Data Factory. L'attività di distribuzione del modello arm non funzionerà correttamente per distribuire gli artefatti di Synapse
  
-### <a name="unexpected-token-error-in-release"></a>Errore di token imprevisto nella versione
+### <a name="unexpected-token-error-in-release"></a>Errore imprevisto del token nella versione
 
-Quando il file di parametri contiene valori di parametro che non sono preceduti da un carattere di escape, la pipeline di versione non riuscirà ad analizzare il file e genererà l'errore "token imprevisto". È consigliabile eseguire l'override dei parametri o usare Azure Vault per recuperare i valori dei parametri. È anche possibile usare caratteri di escape doppi come soluzione alternativa.
+Quando il file di parametri contiene valori di parametro che non sono preceduti da caratteri di escape, la pipeline di versione non riuscirà ad analizzare il file e genererà l'errore "token imprevisto". È consigliabile eseguire l'override dei parametri o usare Azure KeyVault per recuperare i valori dei parametri. È anche possibile usare caratteri di escape doppi come soluzione alternativa.

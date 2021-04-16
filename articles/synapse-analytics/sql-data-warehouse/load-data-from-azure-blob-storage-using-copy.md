@@ -1,32 +1,32 @@
 ---
-title: 'Esercitazione: caricare dati relativi ai taxi di New York'
-description: L'esercitazione USA portale di Azure e SQL Server Management Studio per caricare i dati dei taxi di New York da un BLOB di Azure per la sinapsi SQL.
+title: 'Esercitazione: Caricare i dati di New York Taxicab'
+description: L'esercitazione usa portale di Azure e SQL Server Management Studio per caricare i dati di New York Taxicab da un BLOB di Azure per Synapse SQL.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/23/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 1490a0e094c6ce2665e28f7d32540ad58d53cb2a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7ede40aba8e2d36e4262b4bc89a35f5d67079e0e
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600140"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567507"
 ---
-# <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Esercitazione: caricare il set di dati del taxi di New York
+# <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Esercitazione: Caricare il set di dati Taxicab di New York
 
-Questa esercitazione usa l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) per caricare il set di dati del taxi di New York da un account di archiviazione BLOB di Azure. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) per:
+Questa esercitazione usa [l'istruzione COPY per](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) caricare il set di dati New York Taxicab da Archiviazione BLOB di Azure account. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) per:
 
 > [!div class="checklist"]
 >
 > * Creare un utente designato per il caricamento dei dati
 > * Creare le tabelle per il set di dati di esempio 
-> * Usare l'istruzione T-SQL COPY per caricare i dati nel data warehouse
+> * Usare l'istruzione COPY T-SQL per caricare i dati nell'data warehouse
 > * Visualizzare lo stato di avanzamento dei dati durante il caricamento
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -35,17 +35,17 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Prima di iniziare questa esercitazione, scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).  
 
-In questa esercitazione si presuppone che sia già stato creato un pool dedicato a SQL nell' [esercitazione](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)seguente.
+Questa esercitazione presuppone che sia già stato creato un pool sql dedicato dall'esercitazione [seguente.](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)
 
 ## <a name="create-a-user-for-loading-data"></a>Creare un utente per il caricamento dei dati
 
-L'account amministratore del server ha la funzione di eseguire operazioni di gestione e non è appropriato per l'esecuzione di query sui dati degli utenti. Il caricamento di dati è un'operazione a elevato utilizzo di memoria. I valori massimi di memoria sono definiti in base alle [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) e alla [classe di risorse](resource-classes-for-workload-management.md) configurata.
+L'account amministratore del server ha la funzione di eseguire operazioni di gestione e non è appropriato per l'esecuzione di query sui dati degli utenti. Il caricamento di dati è un'operazione a elevato utilizzo di memoria. I valori massimi di memoria vengono definiti in base alle unità [data warehouse e](what-is-a-data-warehouse-unit-dwu-cdwu.md) alla classe [di risorse](resource-classes-for-workload-management.md) configurate.
 
 È consigliabile creare un account di accesso e un utente dedicato per il caricamento dei dati. Quindi aggiungere l'utente con il compito di caricare i dati a una [classe di risorse](resource-classes-for-workload-management.md) che consente un'allocazione di memoria massima appropriata.
 
-Connettersi come amministratore del server in modo che sia possibile creare account di accesso e utenti. Usare questa procedura per creare un account di accesso e un utente denominato **LoaderRC20**. Quindi assegnare l'utente alla classe di risorse **staticrc20**.
+Connettersi come amministratore del server per creare account di accesso e utenti. Usare questa procedura per creare un account di accesso e un utente denominato **LoaderRC20**. Quindi assegnare l'utente alla classe di risorse **staticrc20**.
 
-1. In SSMS, fare clic con il pulsante destro del mouse su **Master** per visualizzare un menu a discesa e scegliere **nuova query**. Viene visualizzata una nuova finestra di query.
+1. In SSMS fare clic con il pulsante destro del mouse **su master** per visualizzare un menu a discesa e scegliere **Nuova query**. Viene visualizzata una nuova finestra di query.
 
     ![Nuova query nel master](./media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -90,9 +90,9 @@ Il primo passo per caricare dati è eseguire l'accesso come LoaderRC20.
 
 ## <a name="create-tables-for-the-sample-data"></a>Creare tabelle per i dati di esempio
 
-Ora è possibile iniziare il processo di caricamento dei dati nel nuovo data warehouse. Questa parte dell'esercitazione illustra come usare l'istruzione COPY per caricare il set di dati CAB di New York City da un BLOB del servizio di archiviazione di Azure. Per riferimento futuro, per informazioni su come ottenere i dati nell'archivio BLOB di Azure o per caricarli direttamente dall'origine, vedere la [Panoramica del caricamento](design-elt-data-loading.md).
+Ora è possibile iniziare il processo di caricamento dei dati nel nuovo data warehouse. Questa parte dell'esercitazione illustra come usare l'istruzione COPY per caricare il set di dati dei taxi di New York City da un BLOB Archiviazione di Azure dati. Per informazioni di riferimento future su come ottenere i dati da Archiviazione BLOB di Azure o caricarlo direttamente dall'origine, vedere la panoramica [del caricamento.](design-elt-data-loading.md)
 
-Eseguire gli script SQL seguenti e specificare le informazioni sui dati che si desidera caricare. Queste informazioni includono la posizione dei dati, il formato del contenuto dei dati e la definizione della tabella per i dati.
+Eseguire gli script SQL seguenti e specificare le informazioni sui dati da caricare. Queste informazioni includono la posizione dei dati, il formato del contenuto dei dati e la definizione della tabella per i dati.
 
 1. Nella sezione precedente è stato eseguito l'accesso al data warehouse come LoaderRC20. In SSMS fare clic con il pulsante destro del mouse sulla connessione LoaderRC20 e selezionare **Nuova query**.  Verrà visualizzata una nuova finestra di query,
 
@@ -251,10 +251,10 @@ Eseguire gli script SQL seguenti e specificare le informazioni sui dati che si d
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Caricare i dati nel data warehouse
 
-In questa sezione viene utilizzata l' [istruzione Copy per caricare](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) i dati di esempio da BLOB del servizio di archiviazione di Azure.  
+In questa sezione viene utilizzata [l'istruzione COPY per caricare](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) i dati di esempio BLOB del servizio di archiviazione di Azure.  
 
 > [!NOTE]
-> Questa esercitazione carica i dati direttamente nella tabella finale. In genere si esegue il caricamento in una tabella di staging per i carichi di lavoro di produzione. Mentre i dati si trovano nella tabella di staging è possibile eseguire le trasformazioni eventualmente necessarie. 
+> Questa esercitazione carica i dati direttamente nella tabella finale. In genere si carica in una tabella di staging per i carichi di lavoro di produzione. Mentre i dati si trovano nella tabella di staging è possibile eseguire le trasformazioni eventualmente necessarie. 
 
 1. Eseguire le istruzioni seguenti per caricare i dati:
 
@@ -334,7 +334,7 @@ In questa sezione viene utilizzata l' [istruzione Copy per caricare](/sql/t-sql/
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
 
-2. Visualizzare i dati man mano che vengono caricati. Si stanno caricando diversi GB di dati e compressi in indici columnstore cluster a elevato livello di prestazioni. Eseguire la query riportata di seguito, che usa le viste a gestione dinamica (DMV) per visualizzare lo stato del caricamento.
+2. Visualizzare i dati man mano che vengono caricati. Si caricano diversi BLOB di dati e vengono compressi in indici columnstore cluster a prestazioni molto performanti. Eseguire la query riportata di seguito, che usa le viste a gestione dinamica (DMV) per visualizzare lo stato del caricamento.
 
     ```sql
     SELECT  r.[request_id]                           
@@ -370,7 +370,7 @@ In questa sezione viene utilizzata l' [istruzione Copy per caricare](/sql/t-sql/
 
     ![Visualizzare le tabelle caricate](./media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 Le risorse di calcolo e i dati caricati nel data warehouse prevedono un addebito. Questi costi vengono addebitati separatamente.
 
@@ -379,21 +379,21 @@ Le risorse di calcolo e i dati caricati nel data warehouse prevedono un addebito
 
 Seguire questa procedura per pulire le risorse nel modo desiderato.
 
-1. Accedere al [portale di Azure](https://portal.azure.com), selezionare la data warehouse.
+1. Accedere al [portale di Azure](https://portal.azure.com), selezionare il data warehouse.
 
     ![Pulire le risorse](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Per sospendere il calcolo, selezionare il pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, selezionare **Avvia**.
 
-3. Per rimuovere il data warehouse in modo che non venga addebitato il calcolo o l'archiviazione, selezionare **Elimina**.
+3. Per rimuovere il data warehouse in modo che non siano addebitati costi per il calcolo o l'archiviazione, selezionare **Elimina.**
 
-4. Per rimuovere il server creato, selezionare **MyNewServer-20180430.database.Windows.NET** nell'immagine precedente e quindi selezionare **Elimina**.  Prestare attenzione con questa operazione perché eliminando il server saranno eliminati tutti i database assegnati al server.
+4. Per rimuovere il server creato, **selezionare** mynewserver-20180430.database.windows.net nell'immagine precedente e quindi selezionare **Elimina.**  Prestare attenzione con questa operazione perché eliminando il server saranno eliminati tutti i database assegnati al server.
 
 5. Per rimuovere il gruppo di risorse, selezionare **myResourceGroup** e quindi **Elimina gruppo di risorse**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto come creare un data warehouse e creare un utente per il caricamento dei dati. È stata usata l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples) semplice per caricare i dati nel data warehouse.
+In questa esercitazione è stato descritto come creare un data warehouse e creare un utente per il caricamento dei dati. È stata usata la semplice [istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples) per caricare i dati nel data warehouse.
 
 Sono state eseguite queste operazioni:
 > [!div class="checklist"]
@@ -403,16 +403,16 @@ Sono state eseguite queste operazioni:
 > * Ci si è connessi al data warehouse con SSMS
 > * È stato creato un utente designato per il caricamento dei dati
 > * Creazione delle tabelle per i dati di esempio
-> * È stata usata l'istruzione COPY T-SQL per caricare i dati nel data warehouse
+> * Usare l'istruzione T-SQL COPY per caricare i dati nel data warehouse
 > * È stato visualizzato lo stato di avanzamento dei dati durante il caricamento
 
-Passare alla panoramica dello sviluppo per informazioni su come eseguire la migrazione di un database esistente ad Azure sinapsi Analytics:
+Passare alla panoramica sullo sviluppo per informazioni su come eseguire la migrazione di un database esistente Azure Synapse Analytics:
 
 > [!div class="nextstepaction"]
-> [Decisioni di progettazione per la migrazione di un database esistente ad Azure sinapsi Analytics](sql-data-warehouse-overview-develop.md)
+> [Decisioni di progettazione per la migrazione di un database esistente a Azure Synapse Analytics](sql-data-warehouse-overview-develop.md)
 
-Per ulteriori informazioni sul caricamento di esempi e riferimenti, vedere la documentazione seguente:
+Per altri esempi di caricamento e riferimenti, vedere la documentazione seguente:
 
 - [Documentazione di riferimento dell'istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
-- [COPIA esempi per ogni metodo di autenticazione](./quickstart-bulk-load-copy-tsql-examples.md)
-- [COPIA avvio rapido per una singola tabella](./quickstart-bulk-load-copy-tsql.md)
+- [Esempi copy per ogni metodo di autenticazione](./quickstart-bulk-load-copy-tsql-examples.md)
+- [Guida introduttiva a COPY per una singola tabella](./quickstart-bulk-load-copy-tsql.md)

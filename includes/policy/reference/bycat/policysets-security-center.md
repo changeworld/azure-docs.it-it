@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 7f172700c66c5c89c498bc9b96fa60216d83e226
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: a49c00ea0822709fab9bc4d25ae1e378565c1971
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089560"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502672"
 ---
 |Nome |Descrizione |Criteri |Versione |
 |---|---|---|---|
 |[\[Anteprima\]: Abilita Data Protection Suite](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/ASC_DataProtection.json) |Abilita la protezione dei dati per i server SQL: questa iniziativa viene assegnata automaticamente dal livello Standard del Centro sicurezza di Azure. |1 |1.0.0-preview |
-|[Azure Security Benchmark](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/AzureSecurityCenter.json) |Azure Security benchmark Initiative rappresenta i criteri e i controlli che implementano le raccomandazioni di sicurezza definite nel benchmark di sicurezza di Azure V2, vedere [https://aka.ms/azsecbm](https://aka.ms/azsecbm) . Questo serve anche come iniziativa dei criteri predefiniti del Centro sicurezza di Azure. È possibile assegnare direttamente questa iniziativa o gestirne i criteri e i risultati di conformità nel centro sicurezza di Azure. |190 |26.2.0 |
+|[Azure Security Benchmark](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/AzureSecurityCenter.json) |L'iniziativa Azure Security Benchmark rappresenta i criteri e i controlli che implementano le raccomandazioni di sicurezza definite in Azure Security Benchmark v2, vedere [https://aka.ms/azsecbm](https://aka.ms/azsecbm) . Funge anche da iniziativa Centro sicurezza di Azure criteri predefiniti. È possibile assegnare direttamente questa iniziativa o gestirne i criteri e i risultati di conformità all'interno Centro sicurezza di Azure. |194 |27.0.0 |

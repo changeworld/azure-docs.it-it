@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d482f21955b76e6b90523afe3b4933378c91d36e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56e0f92593d185890e34a1a5120093d68cf45484
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98107362"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388416"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
 Per gestire un dispositivo Windows, è necessario essere un membro del gruppo di amministratori locale. Durante il processo di aggiunta ad Azure Active Directory (Azure AD), Azure AD aggiorna l'appartenenza di questo gruppo in un dispositivo. È possibile personalizzare l'aggiornamento dell'appartenenza per soddisfare i requisiti aziendali. L'aggiornamento di un'appartenenza è, ad esempio, utile se si vuole consentire al personale del supporto tecnico di eseguire le attività che richiedono diritti di amministratore in un dispositivo.
 
-Questo articolo illustra il funzionamento dell'aggiornamento dell'appartenenza degli amministratori locali e il modo in cui è possibile personalizzarlo durante un Azure AD join. Il contenuto di questo articolo non si applica a dispositivi **ibridi Azure ad aggiunti** .
+Questo articolo illustra il funzionamento dell'aggiornamento dell'appartenenza degli amministratori locali e come è possibile personalizzarlo durante un Azure AD join. Il contenuto di questo articolo non si applica a un dispositivo **Azure AD aggiunti.**
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Quando si connette un dispositivo Windows con Azure AD usando un join Azure AD, Azure AD aggiunge le entità di sicurezza seguenti al gruppo Administrators locale nel dispositivo:
+Quando si connette un dispositivo Windows con Azure AD usando un'aggiunta Azure AD, Azure AD aggiunge le entità di sicurezza seguenti al gruppo administrators locale nel dispositivo:
 
 - Ruolo Amministratore globale di Azure AD
 - Ruolo Amministratore dispositivo di Azure AD 
@@ -58,33 +58,29 @@ Per modificare il ruolo Amministratore dispositivo, configurare **Amministratori
 >[!NOTE]
 > Questa opzione richiede un tenant Azure AD Premium. 
 
-Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti ad Azure AD. Non è possibile includere gli amministratori dispositivo nell'ambito di un set specifico di dispositivi. L'aggiornamento del ruolo Amministratore dispositivo non ha necessariamente un impatto immediato sugli utenti interessati. Nei dispositivi in cui un utente è già connesso, l'elevazione dei privilegi viene eseguita quando si verificano *entrambe* le azioni seguenti:
+Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti ad Azure AD. Non è possibile includere gli amministratori dispositivo nell'ambito di un set specifico di dispositivi. L'aggiornamento del ruolo Amministratore dispositivo non ha necessariamente un impatto immediato sugli utenti interessati. Nei dispositivi in cui un utente ha già eseguito l'accesso, l'elevazione dei privilegi avviene quando *si verificano* entrambe le azioni seguenti:
 
-- Sono trascorse fino a 4 ore per Azure AD per emettere un nuovo token di aggiornamento primario con i privilegi appropriati. 
-- L'utente si disconnette e torna indietro, non blocca/sblocca, per aggiornare il proprio profilo.
-
->[!NOTE]
-> Le azioni precedenti non sono applicabili agli utenti che non hanno eseguito l'accesso al dispositivo pertinente in precedenza. In questo caso, i privilegi di amministratore vengono applicati subito dopo il primo accesso al dispositivo. 
-
-## <a name="manage-administrator-privileges-using-azure-ad-groups-preview"></a>Gestire i privilegi di amministratore usando gruppi di Azure AD (anteprima)
+- Sono trascorse fino a 4 ore per Azure AD un nuovo token di aggiornamento primario con i privilegi appropriati. 
+- L'utente si chiude e accede di nuovo, non blocca/sblocca, per aggiornare il profilo.
 
 >[!NOTE]
-> Questa funzionalità è attualmente in anteprima.
+> Le azioni precedenti non sono applicabili agli utenti che non hanno eseguito l'accesso al dispositivo pertinente in precedenza. In questo caso, i privilegi di amministratore vengono applicati immediatamente dopo il primo accesso al dispositivo. 
 
+## <a name="manage-administrator-privileges-using-azure-ad-groups-preview"></a>Gestire i privilegi di amministratore usando Azure AD gruppi (anteprima)
 
-A partire dall'aggiornamento di Windows 10 2004, è possibile usare i gruppi di Azure AD per gestire i privilegi di amministratore nei dispositivi Azure AD aggiunti con i criteri MDM dei [gruppi limitati](/windows/client-management/mdm/policy-csp-restrictedgroups) . Questo criterio consente di assegnare singoli utenti o gruppi di Azure AD al gruppo Administrators locale in un dispositivo Azure AD aggiunto, offrendo la granularità per configurare amministratori distinti per gruppi diversi di dispositivi. 
+A partire Windows 10 2004, è possibile usare i gruppi Azure AD per gestire i privilegi di amministratore Azure AD dispositivi aggiunti con i criteri [MDM](/windows/client-management/mdm/policy-csp-restrictedgroups) gruppi con restrizioni. Questo criterio consente di assegnare singoli utenti o gruppi Azure AD al gruppo administrators locale in un dispositivo aggiunto Azure AD, fornendo la granularità per configurare amministratori distinti per gruppi diversi di dispositivi. 
 
 >[!NOTE]
-> A partire dall'aggiornamento di Windows 10 20H2, è consigliabile usare i criteri [per utenti e gruppi locali anziché per](/windows/client-management/mdm/policy-csp-localusersandgroups) i criteri dei gruppi limitati
+> A Windows 10 20H2, è consigliabile [](/windows/client-management/mdm/policy-csp-localusersandgroups) usare i criteri Utenti e gruppi locali anziché i criteri Gruppi con restrizioni
 
 
-Attualmente non è disponibile alcuna interfaccia utente in Intune per gestire questi criteri ed è necessario configurarli con [impostazioni URI OMA personalizzate](/mem/intune/configuration/custom-settings-windows-10). Di seguito sono riportate alcune considerazioni relative all'utilizzo di uno di questi criteri: 
+Attualmente, non è disponibile alcuna interfaccia utente in Intune per gestire questi criteri e devono essere configurati usando [impostazioni URI OMA personalizzate](/mem/intune/configuration/custom-settings-windows-10). Alcune considerazioni sull'uso di uno di questi criteri: 
 
-- L'aggiunta di Azure AD gruppi tramite il criterio richiede il SID del gruppo che può essere ottenuto eseguendo l' [API Microsoft Graph per i gruppi](/graph/api/resources/group?view=graph-rest-beta). Il SID è definito dalla proprietà `securityIdentifier` nella risposta dell'API.
-- Quando viene applicato un criterio di gruppi limitati, viene rimosso qualsiasi membro corrente del gruppo che non si trova nell'elenco dei membri. L'applicazione di questi criteri con nuovi membri o gruppi eliminerà quindi gli amministratori esistenti, ovvero l'utente che ha aggiunto il dispositivo, il ruolo di amministratore del dispositivo e il ruolo di amministratore globale dal dispositivo. Per evitare di rimuovere membri esistenti, è necessario configurarli come parte dell'elenco dei membri nel criterio gruppi limitati. Questa limitazione viene risolta se si usano i criteri utenti e gruppi locali che consentono aggiornamenti incrementali dell'appartenenza al gruppo
-- I privilegi di amministratore che usano entrambi i criteri vengono valutati solo per i gruppi noti seguenti in un dispositivo Windows 10: amministratori, utenti, Guest, Power Users, Desktop remoto utenti e utenti di gestione remota. 
-- La gestione degli amministratori locali con gruppi di Azure AD non è applicabile ai dispositivi Azure AD ibrido aggiunti o Azure AD registrati.
-- Mentre i criteri dei gruppi limitati erano precedenti a Windows 10 2004 Update, non supportava i gruppi di Azure AD come membri del gruppo Administrators locale del dispositivo. 
+- L Azure AD di gruppi tramite i criteri richiede il SID del gruppo che può essere ottenuto eseguendo l'API Microsoft Graph [per i gruppi](/graph/api/resources/group?view=graph-rest-beta). Il SID è definito dalla proprietà nella `securityIdentifier` risposta dell'API.
+- Quando viene applicato il criterio Gruppi con restrizioni, tutti i membri correnti del gruppo non presenti nell'elenco Membri vengono rimossi. Pertanto, l'applicazione di questo criterio con nuovi membri o gruppi rimuoverà gli amministratori esistenti, ad esempio l'utente che ha aggiunto il dispositivo, il ruolo amministratore del dispositivo e amministratore globale ruolo dal dispositivo. Per evitare la rimozione di membri esistenti, è necessario configurarli come parte dell'elenco Membri nei criteri Gruppi con restrizioni. Questa limitazione viene affrontata se si usa il criterio Utenti e gruppi locali che consente aggiornamenti incrementali all'appartenenza ai gruppi
+- I privilegi di amministratore che usano entrambi i criteri vengono valutati solo per i gruppi noti seguenti in un dispositivo Windows 10: Administrators, Users, Guests, Power Users, Desktop remoto Users e Remote Management Users. 
+- La gestione degli amministratori locali Azure AD gruppi non è applicabile Azure AD ibrido dispositivi aggiunti o Azure AD registrati.
+- Anche se il criterio Gruppi con restrizioni esisteva prima di Windows 10 versione 2004, non supportava i gruppi Azure AD come membri del gruppo administrators locale di un dispositivo. 
 
 ## <a name="manage-regular-users"></a>Gestire utenti normali
 
@@ -97,7 +93,7 @@ Per impostazione predefinita, Azure AD aggiunge l'utente che esegue l'aggiunta a
 
 Oltre a usare il processo di aggiunta AD Azure, è anche possibile elevare manualmente un utente normale in modo che diventi un amministratore locale su un dispositivo specifico. Per eseguire questo passaggio, è necessario già essere un membro del gruppo Amministratori locale. 
 
-A partire dalla versione di **Windows 10 1709** , è possibile eseguire questa attività da **Settings-> accounts-> altri utenti**. Selezionare **Aggiungere un utente aziendale o dell'istituto di istruzione**, immettere l'UPN dell'utente in **Account utente** e selezionare *Amministratore* in **Tipo di account**  
+A partire dalla **versione Windows 10 1709,** è possibile eseguire questa attività da **Impostazioni -> Accounts -> Altri utenti**. Selezionare **Aggiungere un utente aziendale o dell'istituto di istruzione**, immettere l'UPN dell'utente in **Account utente** e selezionare *Amministratore* in **Tipo di account**  
  
 È anche possibile aggiungere gli utenti usando il prompt dei comandi:
 
@@ -115,4 +111,4 @@ Quando si rimuovono gli utenti dal ruolo Amministratore dispositivo, questi hann
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica sulla gestione del dispositivo nel portale di Azure AD, vedere [Gestione dei dispositivi tramite il portale di Azure](device-management-azure-portal.md)
-- Per altre informazioni sull'accesso condizionale basato su dispositivo, vedere [configurare Azure Active Directory Criteri di accesso condizionale basato su dispositivo](../conditional-access/require-managed-devices.md).
+- Per altre informazioni sull'accesso condizionale basato su dispositivo, vedere configurare Azure Active Directory di accesso condizionale [basato su dispositivo](../conditional-access/require-managed-devices.md).

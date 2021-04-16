@@ -1,48 +1,48 @@
 ---
-title: Spostare un'istanza in un'altra area di Azure
+title: Spostare un'istanza in un'area di Azure diversa
 titleSuffix: Azure Digital Twins
-description: Vedere come spostare un'istanza di Azure Digital Twins da un'area di Azure a un'altra.
+description: Informazioni su come spostare un'istanza Gemelli digitali di Azure da un'area di Azure a un'altra.
 author: baanders
 ms.author: baanders
 ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e268cca87479625af023b5970bb27c56721f6d39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62db56ac9791cea7d6f1a40f794241ed68fa90fa
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102049849"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483577"
 ---
-# <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Spostare un'istanza di Azure Digital Twins in un'altra area di Azure
+# <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Spostare un'Gemelli digitali di Azure in un'area di Azure diversa
 
-Se è necessario spostare l'istanza di Azure Digital Twins da un'area a un'altra, il processo corrente consiste nel ricreare le risorse nella nuova area e quindi eliminare le risorse originali. Al termine di questo processo, si lavorerà con una nuova istanza di Azure Digital Twins identica alla prima, ad eccezione del percorso aggiornato.
+Se è necessario spostare l'istanza di Gemelli digitali di Azure da un'area a un'altra, il processo corrente è quello di creare nuovamente le risorse nella nuova area e quindi eliminare le risorse originali. Al termine di questo processo, si lavora con una nuova istanza di Gemelli digitali di Azure identica alla prima, ad eccezione del percorso aggiornato.
 
-Questo articolo fornisce indicazioni su come eseguire uno spostamento completo e copiare tutti gli elementi necessari per fare in modo che la nuova istanza corrisponda a quella originale.
+Questo articolo fornisce indicazioni su come eseguire uno spostamento e una copia completi di tutti gli elementi necessari per fare in modo che la nuova istanza corrisponda all'originale.
 
 Questo processo include i due passaggi seguenti:
 
-1. Preparare: scaricare i modelli, i dispositivi gemelli e il grafo originali.
-1. Move: creare una nuova istanza di Azure Digital Twins in una nuova area.
-1. Move: ripopolare la nuova istanza di Azure Digital gemelli.
+1. Preparazione: scaricare i modelli, i gemelli e il grafo originali.
+1. Spostamento: creare una nuova istanza Gemelli digitali di Azure in una nuova area.
+1. Sposta: ripopolare la nuova Gemelli digitali di Azure istanza.
     - Caricare i modelli, i gemelli e il grafo originali.
-    - Ricrea gli endpoint e le route.
+    - Creare nuovamente endpoint e route.
     - Ricollegare le risorse connesse.
-1. Pulisci risorse di origine: Elimina l'istanza originale.
+1. Pulire le risorse di origine: eliminare l'istanza originale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di provare a ricreare l'istanza di Azure Digital Twins, esaminare i componenti dell'istanza originale per ottenere un'idea chiara di tutti gli elementi che dovranno essere ricreati.
+Prima di provare a creare di nuovo l'istanza di Gemelli digitali di Azure, passare ai componenti dell'istanza originale per avere un'idea chiara di tutti i componenti che dovranno essere ri-creati.
 
 Ecco alcune domande da considerare:
 
 * Quali sono i *modelli* caricati nell'istanza? Quanti sono?
-* Quali sono i dispositivi *gemelli* nell'istanza? Quanti sono?
-* Qual è la forma generale del *grafico* nell'istanza? Quante relazioni sono disponibili?
-* Quali *endpoint* sono disponibili nell'istanza?
-* Quali *Route* sono disponibili nell'istanza? I filtri sono disponibili?
-* Dove l'istanza *si connette ad altri servizi di Azure*? Alcuni punti di integrazione comuni includono:
+* Quali sono i *gemelli* nell'istanza? Quanti sono?
+* Qual è la forma generale del *grafo* nell'istanza? Quante relazioni sono presenti?
+* Quali *endpoint sono* presenti nell'istanza?
+* Quali *route* sono presenti nell'istanza? Sono disponibili filtri?
+* Dove si connette *l'istanza ad altri servizi di Azure?* Alcuni punti di integrazione comuni includono:
 
     - Griglia di eventi di Azure, Hub eventi di Azure o bus di servizio di Azure
     - Funzioni di Azure
@@ -50,114 +50,118 @@ Ecco alcune domande da considerare:
     - Azure Time Series Insights
     - Mappe di Azure
     - Servizio Device Provisioning in hub IoT di Azure
-* Quali altre *app personali o aziendali* sono disponibili per connettersi all'istanza?
+* Quali altre *app personali o aziendali* si connettono all'istanza?
 
-È possibile raccogliere queste informazioni usando il [portale di Azure](https://portal.azure.com), gli [SDK e le API dei dispositivi digitali gemelli](how-to-use-apis-sdks.md)di Azure, i [comandi dell'interfaccia](how-to-use-cli.md)della riga di comando di Azure Digital gemelli o l'esempio [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
+È possibile raccogliere queste informazioni usando le API portale di Azure [,](https://portal.azure.com) [Gemelli digitali di Azure](how-to-use-apis-sdks.md)e SDK , i comandi dell'interfaccia della riga di comando di [Gemelli digitali di Azure](how-to-use-cli.md)o [l'Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) seguente.
 
 ## <a name="prepare"></a>Preparazione
 
-In questa sezione si prepara la ricreazione dell'istanza scaricando i modelli originali, i dispositivi gemelli e il grafo dall'istanza originale. Questo articolo usa l'esempio di [Esplora risorse di Azure Digital Twins](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) per questa attività.
+In questa sezione si preparerà a creare nuovamente l'istanza scaricando i modelli, i gemelli e il grafo originali dall'istanza originale. Questo articolo [](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) usa l Azure Digital Twins Explorer di esempio per questa attività.
 
 >[!NOTE]
->È possibile che siano già presenti file che contengono i modelli o il grafico nell'istanza. In tal caso, non è necessario scaricare di nuovo tutti gli elementi, ovvero solo quelli mancanti o elementi che potrebbero essere stati modificati da quando sono stati caricati originariamente questi file. Si potrebbero ad esempio avere dispositivi gemelli che sono stati aggiornati con nuovi dati.
+>Potrebbero essere già presenti file che contengono i modelli o il grafo nell'istanza. In questo caso, non è necessario scaricare di nuovo tutto, ma solo i componenti mancanti o gli elementi che potrebbero essere cambiati dopo il caricamento originale di questi file. Ad esempio, si potrebbero avere dispositivi gemelli che sono stati aggiornati con nuovi dati.
 
-### <a name="limitations-of-azure-digital-twins-explorer"></a>Limitazioni di Azure Digital Twins Explorer
+### <a name="limitations-of-azure-digital-twins-explorer"></a>Limitazioni dei Azure Digital Twins Explorer
 
-L' [esempio Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) è un esempio di app client che supporta una rappresentazione visiva del grafo e fornisce l'interazione visiva con l'istanza. Questo articolo illustra come usarlo per scaricare e successivamente ricaricare i modelli, i dispositivi gemelli e i grafici.
+[L Azure Digital Twins Explorer di esempio](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) è un esempio di app client che supporta una rappresentazione visiva del grafo e fornisce l'interazione visiva con l'istanza. Questo articolo illustra come usarlo per scaricare e ricaricare in un secondo momento modelli, gemelli e grafi.
 
-Questo esempio non è uno strumento completo. Il test non è stato testato e non è stato creato per gestire i grafici di grandi dimensioni. Di conseguenza, tenere presenti le limitazioni di esempio seguenti:
+Questo esempio non è uno strumento completo. Non è stata testata da stress e non è stata creata per gestire grafici di grandi dimensioni. Di conseguenza, tenere presenti le limitazioni di esempio seguenti:
 
-* L'esempio è attualmente stato testato solo su dimensioni del grafo fino a 1.000 nodi e 2.000 relazioni.
-* L'esempio non supporta il nuovo tentativo in caso di errori intermittenti.
-* L'esempio non invierà necessariamente notifiche all'utente se i dati caricati sono incompleti.
-* L'esempio non gestisce gli errori derivanti da grafici di grandi dimensioni che superano le risorse disponibili, ad esempio la memoria.
+* L'esempio è stato attualmente testato solo su dimensioni del grafo fino a 1.000 nodi e 2.000 relazioni.
+* L'esempio non supporta i tentativi in caso di errori intermittenti.
+* L'esempio non notificherà necessariamente all'utente se i dati caricati sono incompleti.
+* L'esempio non gestisce gli errori risultanti da grafici molto grandi che superano le risorse disponibili, ad esempio la memoria.
 
-Se l'esempio non è in grado di gestire le dimensioni del grafo, è possibile esportare e importare il grafo usando altri strumenti di sviluppo di Azure Digital Twins:
+Se l'esempio non è in grado di gestire le dimensioni del grafo, è possibile esportare e importare il grafo usando altri strumenti Gemelli digitali di Azure per sviluppatori:
 
-* [Comandi dell'interfaccia della riga di comando di Azure Digital Twins](how-to-use-cli.md)
-* [SDK e API per i dispositivi digitali gemelli di Azure](how-to-use-apis-sdks.md)
+* [Gemelli digitali di Azure comandi dell'interfaccia della riga di comando](how-to-use-cli.md)
+* [Gemelli digitali di Azure API e SDK](how-to-use-apis-sdks.md)
 
-### <a name="set-up-the-azure-digital-twins-explorer-application"></a>Configurare l'applicazione Esplora risorse di Azure Digital Twins
+### <a name="set-up-the-azure-digital-twins-explorer-application"></a>Configurare l'Azure Digital Twins Explorer di distribuzione
 
-Per procedere con Esplora dispositivi digitali di Azure, scaricare prima di tutto il codice dell'applicazione di esempio e configurarlo per l'esecuzione nel computer.
+Per procedere con Azure Digital Twins Explorer, scaricare prima il codice dell'applicazione di esempio e configurarlo per l'esecuzione nel computer.
 
-Per ottenere l'esempio, vedere [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selezionare il pulsante **Scarica zip** per scaricare un file zip di questo codice di esempio nel computer come **Azure_Digital_Twins__ADT__explorer.zip**. Decomprimere i file.
+Per ottenere l'esempio, passare [a Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selezionare il **pulsante Sfoglia** codice sotto il titolo, che consente di accedere al repository GitHub per l'esempio. Selezionare il **pulsante Codice** e **scaricare ZIP** per scaricare l'esempio come *. FILE ZIP* nel computer.
 
-A questo punto, configurare e configurare le autorizzazioni per Azure Digital Gemells Explorer. Seguire le istruzioni riportate nella sezione [set up Azure Digital gemells and Azure Digital Twins Explorer](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) della Guida introduttiva a Digital gemelli di Azure. Questa sezione illustra i passaggi seguenti:
+:::image type="content" source="media/how-to-move-regions/download-repo-zip.png" alt-text="Screenshot del repository digital-twins-explorer in GitHub. Il pulsante Codice è selezionato, producendo una piccola finestra di dialogo in cui è evidenziato il pulsante Scarica ZIP." lightbox="media/how-to-move-regions/download-repo-zip.png":::
 
-1. Configurare un'istanza di dispositivi gemelli digitali di Azure. È possibile ignorare questa parte perché è già presente un'istanza.
-1. Configurare le credenziali di Azure locali per consentire l'accesso all'istanza di.
-1. Eseguire Esplora Digital Twins di Azure e configurarlo per la connessione all'istanza. Si userà il *nome host* dell'istanza di Azure Digital Twins originale che si sta muovendo.
+Decomprimere i file.
 
-A questo punto è necessario avere l'app di esempio Esplora dispositivi digitali gemelli di Azure in esecuzione in un browser nel computer. L'esempio deve essere connesso all'istanza originale di Azure Digital gemelli.
+Configurare quindi le autorizzazioni per Azure Digital Twins Explorer. Seguire le istruzioni nella [sezione Configurare Gemelli digitali di Azure e Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md#set-up-azure-digital-twins-and-azure-digital-twins-explorer) della guida Gemelli digitali di Azure guida introduttiva. Questa sezione illustra i passaggi seguenti:
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Finestra del browser che mostra un'app in esecuzione in localhost: 3000. L'app è denominata Esplora dispositivi digitali gemelli di Azure e contiene le caselle per Esplora query, visualizzazione modello, visualizzazione grafico ed Esplora proprietà. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/explorer-blank.png":::
+1. Configurare un'Gemelli digitali di Azure predefinita. È possibile ignorare questa parte perché è già presente un'istanza di .
+1. Configurare le credenziali di Azure locali per fornire l'accesso all'istanza.
+1. Eseguire Azure Digital Twins Explorer e configurarlo per connettersi all'istanza. Si userà il *nome host dell'istanza* Gemelli digitali di Azure originale che si sta spostando.
 
-Per verificare la connessione, selezionare il pulsante **Esegui query** per eseguire la query predefinita che Visualizza tutti i gemelli e le relazioni nel grafico nella casella **Esplora grafico** .
+A questo punto dovrebbe essere disponibile Azure Digital Twins Explorer app di esempio in esecuzione in un browser nel computer. L'esempio deve essere connesso all'istanza Gemelli digitali di Azure originale.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Viene evidenziata una query di esecuzione per la lettura di un pulsante nell'angolo superiore destro della finestra." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Finestra del browser che mostra un'app in esecuzione in localhost:3000. L'app è denominata Azure Digital Twins Explorer e contiene caselle per Esplora query, Visualizzazione modello, Visualizzazione grafico ed Esplora proprietà. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
-È possibile lasciare la finestra di esplorazione di Azure Digital Twins in esecuzione perché verrà usata di nuovo più avanti in questo articolo per ricaricare questi elementi nella nuova istanza nell'area di destinazione.
+Per verificare la connessione, selezionare il pulsante Esegui query per eseguire la query predefinita che visualizza tutti i gemelli e le relazioni nel grafico nella casella **GRAPH EXPLORER** . 
 
-### <a name="download-models-twins-and-graph"></a>Scarica modelli, gemelli e Graph
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Un pulsante che legge Esegui query nell'angolo superiore destro della finestra è evidenziato." lightbox="media/how-to-move-regions/run-query.png":::
 
-Scaricare quindi i modelli, i dispositivi gemelli e il grafo della soluzione nel computer.
+È possibile lasciare Azure Digital Twins Explorer in esecuzione perché verrà nuovamente utilizzato più avanti in questo articolo per ricaricare questi elementi nella nuova istanza nell'area di destinazione.
 
-Per scaricare tutti questi elementi contemporaneamente, assicurarsi che il grafo completo venga visualizzato nella casella **visualizzazione grafico** . Se il grafo completo non è già visualizzato, eseguire di nuovo la query predefinita di `SELECT * FROM digitaltwins` nella casella **Esplora query** .
+### <a name="download-models-twins-and-graph"></a>Scaricare modelli, gemelli e grafo
+
+Scaricare quindi i modelli, i gemelli e il grafo nella soluzione nel computer.
+
+Per scaricare tutti questi elementi contemporaneamente, assicurarsi prima di tutto che nella casella **GRAPH VIEW (VISUALIZZAZIONE GRAFICO)** sia visualizzato il grafico completo. Se il grafico completo non è già visualizzato, eseguire di nuovo la query predefinita di `SELECT * FROM digitaltwins` nella **casella ESPLORA** QUERY.
  
-Selezionare quindi l'icona **Esporta grafico** nella casella di **visualizzazione grafico** .
+Selezionare quindi **l'icona Esporta grafico** nella **casella GRAPH VIEW (VISUALIZZAZIONE** GRAFICO).
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Nella casella visualizzazione grafico viene evidenziata un'icona. Mostra una freccia rivolta verso il basso da un cloud." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Nella casella Visualizzazione grafico è evidenziata un'icona. Mostra una freccia che punta verso il basso da una nuvola." lightbox="media/how-to-move-regions/export-graph.png":::
 
-Questa azione Abilita un collegamento di **download** nella casella di **visualizzazione grafico** . Selezionarlo per scaricare una rappresentazione basata su JSON del risultato della query, che include modelli, gemelli e relazioni. Questa azione dovrebbe scaricare un file con estensione JSON nel computer.
+Questa azione abilita un **collegamento Scarica** nella casella GRAPH **VIEW (VISUALIZZAZIONE** GRAFICO). Selezionarlo per scaricare una rappresentazione basata su JSON del risultato della query, che include modelli, gemelli e relazioni. Questa azione deve scaricare un file con estensione json nel computer.
 
 >[!NOTE]
->Se il file scaricato sembra avere un'estensione di file diversa, provare a modificare l'estensione direttamente e a modificarla in JSON.
+>Se il file scaricato sembra avere un'estensione diversa, provare a modificare direttamente l'estensione e a modificarla in .json.
 
 ## <a name="move"></a>Sposta
 
-Successivamente, si completerà lo "spostamento" dell'istanza creando una nuova istanza nell'area di destinazione. Quindi verrà popolato con i dati e i componenti dell'istanza originale.
+Successivamente, si completerà lo "spostamento" dell'istanza creando una nuova istanza nell'area di destinazione. Sarà quindi necessario popolarla con i dati e i componenti dell'istanza originale.
 
-### <a name="create-a-new-instance"></a>Crea una nuova istanza
+### <a name="create-a-new-instance"></a>Creare una nuova istanza
 
-Per prima cosa, creare una nuova istanza di Azure Digital gemelli nell'area di destinazione. Attenersi alla procedura descritta in [procedura: configurare un'istanza di e l'autenticazione](how-to-set-up-instance-portal.md)di. Tenere presente questi indicatori:
+Creare prima di tutto una nuova istanza di Gemelli digitali di Azure nell'area di destinazione. Seguire la procedura descritta in [Procedura: Configurare un'istanza e l'autenticazione](how-to-set-up-instance-portal.md). Tenere presenti i puntatori seguenti:
 
-* *Se* si trova in un gruppo di risorse diverso, è possibile usare lo stesso nome per la nuova istanza. Se è necessario usare lo stesso gruppo di risorse che contiene l'istanza originale, la nuova istanza dovrà avere un proprio nome distinto.
-* Quando viene richiesta una località, immettere la nuova area di destinazione.
+* È possibile mantenere lo stesso nome per la nuova *istanza se* si tratta di un gruppo di risorse diverso. Se è necessario usare lo stesso gruppo di risorse che contiene l'istanza originale, la nuova istanza dovrà avere un nome distinto.
+* Immettere la nuova area di destinazione quando viene richiesta una località.
 
-Al termine di questo passaggio, sarà necessario il nome host della nuova istanza per continuare a configurare i dati. Se il nome host non è stato annotato durante l'installazione, seguire [queste istruzioni](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) per ottenere ora dal portale di Azure.
+Al termine di questo passaggio, sarà necessario il nome host della nuova istanza per continuare a configurarla con i dati. Se non è stato prendere nota del nome [](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) host durante l'installazione, seguire queste istruzioni per ottenerlo dal portale di Azure.
 
 ### <a name="repopulate-the-old-instance"></a>Ripopolare l'istanza precedente
 
-Successivamente, si imposterà la nuova istanza in modo che sia una copia del originale.
+Successivamente, si configura la nuova istanza in modo che sia una copia dell'originale.
 
-#### <a name="upload-the-original-models-twins-and-graph-by-using-azure-digital-twins-explorer"></a>Caricare i modelli, i dispositivi gemelli e il grafo originali con Azure Digital Twins Explorer
+#### <a name="upload-the-original-models-twins-and-graph-by-using-azure-digital-twins-explorer"></a>Caricare i modelli, i gemelli e il grafo originali usando Azure Digital Twins Explorer
 
-In questa sezione è possibile ricaricare i modelli, i dispositivi gemelli e Graph nella nuova istanza. Se non sono presenti modelli, gemelli o grafici nell'istanza originale oppure non si vuole spostarli nella nuova istanza, è possibile passare alla [sezione successiva](#re-create-endpoints-and-routes).
+In questa sezione è possibile ricaricare i modelli, i gemelli e il grafo nella nuova istanza. Se nell'istanza originale non sono presenti modelli, gemelli o grafi o non si vuole spostarli nella nuova istanza, è possibile passare alla [sezione successiva.](#re-create-endpoints-and-routes)
 
-In caso contrario, tornare alla finestra del browser in cui è in esecuzione Esplora Digital gemelli di Azure e seguire questa procedura.
+In caso contrario, tornare alla finestra del browser che Azure Digital Twins Explorer e seguire questa procedura.
 
-##### <a name="connect-to-the-new-instance"></a>Connetti alla nuova istanza
+##### <a name="connect-to-the-new-instance"></a>Connettersi alla nuova istanza
 
-Attualmente, Esplora Digital gemelli di Azure è connesso all'istanza originale di Azure Digital gemelli. Impostare la connessione in modo che punti alla nuova istanza selezionando il pulsante **Accedi** nell'angolo superiore destro della finestra.
+Attualmente, Azure Digital Twins Explorer è connessa all'istanza Gemelli digitali di Azure originale. Impostare la connessione in modo che punti alla nuova istanza selezionando il **pulsante Accedi** nell'angolo superiore destro della finestra.
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Esplora Digital gemelli di Azure che evidenzia l'icona di accesso nell'angolo superiore destro della finestra. L'icona Mostra una silhouette semplice di una persona sovrapposta a una silhouette di una chiave." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Azure Digital Twins Explorer l'icona Accedi nell'angolo superiore destro della finestra. L'icona mostra un semplice ingranaggio di una persona sovrapposto con una chiave." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Sostituire l' **URL ADT** per riflettere la nuova istanza. Modificare questo valore in modo che legga *https://{new instance host name}*.
+Sostituire **l'URL ADT** in modo che rifletta la nuova istanza. Modificare questo valore in modo che letta *https://{nome host nuova istanza}*.
 
-Selezionare **Connetti**. Potrebbe essere richiesto di eseguire di nuovo l'accesso con le credenziali di Azure o concedere al consenso dell'applicazione per l'istanza.
+Selezionare **Connetti**. Potrebbe essere richiesto di accedere di nuovo con le credenziali di Azure o concedere il consenso dell'applicazione per l'istanza.
 
-##### <a name="upload-models-twins-and-graph"></a>Caricare modelli, gemelli e Graph
+##### <a name="upload-models-twins-and-graph"></a>Caricare modelli, gemelli e grafo
 
 Caricare quindi i componenti della soluzione scaricati in precedenza nella nuova istanza.
 
-Per caricare i modelli, i dispositivi gemelli e il grafo, selezionare l'icona **Importa grafico** nella casella di **visualizzazione grafico** . Questa opzione consente di caricare contemporaneamente tutti e tre i componenti. Carica anche i modelli che non sono attualmente in uso nel grafico.
+Per caricare i modelli, i gemelli e il grafo, selezionare **l'icona Importa** grafico nella casella **VISUALIZZAZIONE** GRAFO. Questa opzione carica tutti e tre questi componenti contemporaneamente. Carica anche i modelli che non sono attualmente in uso nel grafico.
 
 :::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Nel riquadro Graph View è evidenziata un'icona. Mostra una freccia che punta verso l'alto in una nuvola." lightbox="media/how-to-move-regions/import-graph.png":::
 
-Nella casella Selettore file passare al grafico scaricato. Selezionare il file Graph **. JSON** e selezionare **Apri**.
+Nella casella del selettore di file passare al grafico scaricato. Selezionare il file **JSON del grafo** e selezionare **Apri**.
 
-Dopo alcuni secondi, Azure Digital Twins Explorer apre una visualizzazione di **importazione** che mostra un'anteprima del grafo da caricare.
+Dopo alcuni secondi, Azure Digital Twins Explorer apre una **visualizzazione Importa** che mostra un'anteprima del grafo da caricare.
 
 Per confermare il caricamento del grafico, selezionare l'icona **Save** (Salva) nell'angolo in alto a destra del riquadro **GRAPH VIEW** (VISUALIZZAZIONE GRAFO).
 
@@ -169,11 +173,11 @@ Per confermare il caricamento del grafico, selezionare l'icona **Save** (Salva) 
     :::column-end:::
 :::row-end:::
 
-Esplora dispositivi digitali di Azure ora carica i modelli e il grafo (inclusi i gemelli e le relazioni) per la nuova istanza di Azure Digital gemelli. Verrà visualizzato un messaggio di operazione riuscita che nota il numero di modelli, gemelli e relazioni caricati.
+Azure Digital Twins Explorer ora carica i modelli e il grafo (inclusi i gemelli e le relazioni) nella nuova Gemelli digitali di Azure istanza. Verrà visualizzato un messaggio di esito positivo che indica il numero di modelli, gemelli e relazioni caricati.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Finestra di dialogo che indica la riuscita dell'importazione del grafico. Indica che l'importazione è riuscita. 2 modelli importati. 4 gemelli importati. 2 relazioni importate." lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Finestra di dialogo che indica l'esito positivo dell'importazione del grafo. Il testo indica che l'importazione è riuscita. 2 modelli importati. 4 gemelli importati. 2 relazioni importate.&quot;" lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -181,44 +185,44 @@ Esplora dispositivi digitali di Azure ora carica i modelli e il grafo (inclusi i
     :::column-end:::
 :::row-end:::
 
-Per verificare che tutto sia stato caricato correttamente, selezionare il pulsante **Esegui query** nella casella **Esplora grafico** per eseguire la query predefinita che Visualizza tutti i dispositivi gemelli e le relazioni nel grafico. Questa azione consente inoltre di aggiornare l'elenco dei modelli nella casella **vista modello** .
+Per verificare che tutto sia stato caricato correttamente, selezionare il pulsante Esegui **query** nella casella **GRAPH EXPLORER** per eseguire la query predefinita che visualizza tutti i gemelli e le relazioni nel grafico. Questa azione aggiorna anche l'elenco di modelli nella **casella VISTA** MODELLO.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Evidenziare intorno al pulsante Esegui query nell'angolo superiore destro della finestra." lightbox="media/how-to-move-regions/run-query.png":::
 
-Il grafo dovrebbe essere visualizzato con tutti i gemelli e le relazioni visualizzate nella casella **Esplora grafico** . È anche possibile visualizzare i modelli elencati nella casella **vista modello** .
+Verrà visualizzato il grafico con tutti i relativi gemelli e relazioni visualizzati nella casella **GRAPH EXPLORER** . I modelli dovrebbero essere elencati anche nella **casella VISTA** MODELLO.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Visualizzazione di Esplora dispositivi digitali di Azure con due modelli evidenziati nella casella di visualizzazione modello e un grafico evidenziato nella casella Esplora grafico." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Visualizzazione di un Azure Digital Twins Explorer che mostra due modelli evidenziati nella casella Visualizzazione modello e un grafo evidenziato nella casella Esplora grafi." lightbox="media/how-to-move-regions/post-upload.png":::
 
-Queste visualizzazioni confermano che i modelli, i gemelli e il grafo sono stati caricati nuovamente nella nuova istanza nell'area di destinazione.
+Queste visualizzazioni confermano che i modelli, i gemelli e il grafo sono stati ricaricati nella nuova istanza nell'area di destinazione.
 
-#### <a name="re-create-endpoints-and-routes"></a>Ricrea endpoint e Route
+#### <a name="re-create-endpoints-and-routes"></a>Ri-creare endpoint e route
 
-Se nell'istanza originale sono presenti endpoint o route, sarà necessario ricrearli nella nuova istanza. Se non sono presenti endpoint o route nell'istanza originale o non si vuole spostarli nella nuova istanza, è possibile passare alla [sezione successiva](#relink-connected-resources).
+Se nell'istanza originale sono presenti endpoint o route, è necessario crearli nuovamente nella nuova istanza. Se nell'istanza originale non sono presenti endpoint o route o non si vuole spostarli nella nuova istanza, è possibile passare alla [sezione successiva.](#relink-connected-resources)
 
-In caso contrario, seguire la procedura descritta in [How-to: Manage Endpoints and routes](how-to-manage-routes-portal.md) using the new instance. Tenere presente questi indicatori:
+In caso contrario, seguire la procedura descritta in [Procedura: Gestire endpoint e route](how-to-manage-routes-portal.md) usando la nuova istanza. Tenere presenti questi puntatori:
 
-* *Non* è necessario ricreare la griglia di eventi, gli hub eventi o la risorsa del bus di servizio che si sta usando per l'endpoint. Per ulteriori informazioni, vedere la sezione "Prerequisiti" nelle istruzioni per l'endpoint. È sufficiente creare nuovamente l'endpoint nell'istanza di Azure Digital Twins.
-* È possibile riutilizzare gli endpoint e i nomi di route in quanto hanno come ambito un'istanza diversa.
-* Ricordarsi di aggiungere tutti i filtri necessari alle route create.
+* Non è *necessario* creare nuovamente la risorsa Griglia di eventi, Hub eventi o bus di servizio in uso per l'endpoint. Per altre informazioni, vedere la sezione "Prerequisiti" nelle istruzioni per l'endpoint. È sufficiente creare nuovamente l'endpoint nell'istanza Gemelli digitali di Azure locale.
+* È possibile riutilizzare i nomi di endpoint e route perché hanno come ambito un'istanza diversa.
+* Ricordarsi di aggiungere eventuali filtri necessari alle route create.
 
 #### <a name="relink-connected-resources"></a>Ricollegare le risorse connesse
 
-Se si dispone di altre app o risorse di Azure connesse all'istanza originale di Azure Digital gemelli, sarà necessario modificare la connessione in modo che raggiunga invece la nuova istanza. Queste risorse possono includere altri servizi di Azure o app personali o aziendali configurati per l'uso con i dispositivi gemelli digitali di Azure.
+Se sono presenti altre app o risorse di Azure connesse all'istanza di Gemelli digitali di Azure originale, sarà necessario modificare la connessione in modo che raggiungano la nuova istanza. Queste risorse possono includere altri servizi di Azure o app personali o aziendali che sono stati impostati per l'uso con Gemelli digitali di Azure.
 
-Se non sono presenti altre risorse connesse all'istanza originale o non si vuole spostarle nella nuova istanza, è possibile passare alla [sezione successiva](#verify).
+Se all'istanza originale non sono connesse altre risorse o non si vuole spostarle nella nuova istanza, è possibile passare alla [sezione successiva.](#verify)
 
-In caso contrario, prendere in considerazione le risorse connesse nello scenario. Non è necessario eliminare e ricreare le risorse connesse. Al contrario, è sufficiente modificare i punti in cui si connettono a un'istanza di Azure Digital Twins tramite il nome host. Si aggiornano quindi questi punti per usare il nome host della nuova istanza anziché l'originale.
+In caso contrario, prendere in considerazione le risorse connesse nello scenario. Non è necessario eliminare e creare di nuovo le risorse connesse. È invece sufficiente modificare i punti in cui si connettono a un'Gemelli digitali di Azure tramite il nome host. Questi punti vengono quindi aggiornati in modo da usare il nome host della nuova istanza anziché l'originale.
 
-Le risorse esatte che è necessario modificare dipendono dallo scenario, ma di seguito sono riportati alcuni punti di integrazione comuni:
+Le risorse esatte da modificare dipendono dallo scenario, ma di seguito sono riportati alcuni punti di integrazione comuni:
 
 * Funzioni di Azure. Se si dispone di una funzione di Azure il cui codice include il nome host dell'istanza originale, è necessario aggiornare questo valore al nome host della nuova istanza e ripubblicare la funzione.
 * Griglia di eventi, Hub eventi o bus di servizio.
 * App per la logica.
 * Time Series Insights.
 * Mappe di Azure.
-* Servizio Device provisioning in hub Internet.
-* App personali o aziendali esterne ad Azure, ad esempio l'app client creata in [esercitazione: scrivere codice per un'app client](tutorial-code.md), che si connette all'istanza e chiama le API di Azure Digital gemelli.
-* *Non* è necessario ricreare le registrazioni dell'app Azure ad. Se si usa una [registrazione dell'app](how-to-create-app-registration.md) per connettersi alle API dei dispositivi gemelli digitali di Azure, è possibile riusare la stessa registrazione dell'app con la nuova istanza.
+* Servizio Device Provisioning dell'hub IoT.
+* App personali o aziendali all'esterno di Azure, ad esempio l'app client creata in [Esercitazione:](tutorial-code.md)Codificare un'app client , che si connette all'istanza e chiama Gemelli digitali di Azure API.
+* Azure AD le registrazioni delle *app* non devono essere ri create. Se si usa una registrazione [dell'app](how-to-create-app-registration.md) per connettersi alle API Gemelli digitali di Azure, è possibile riusare la stessa registrazione dell'app con la nuova istanza.
 
 Al termine di questo passaggio, la nuova istanza nell'area di destinazione deve essere una copia dell'istanza originale.
 
@@ -226,21 +230,21 @@ Al termine di questo passaggio, la nuova istanza nell'area di destinazione deve 
 
 Per verificare che la nuova istanza sia stata configurata correttamente, usare gli strumenti seguenti:
 
-* [Portale di Azure](https://portal.azure.com). Il portale è adatto per verificare che la nuova istanza esista e si trovi nell'area di destinazione corretta. È anche opportuno verificare gli endpoint e le route e le connessioni ad altri servizi di Azure.
-* Comandi dell'interfaccia della riga di [comando di Azure Digital Twins](how-to-use-cli.md). Questi comandi sono utili per verificare che la nuova istanza esista e si trovi nell'area di destinazione corretta. Possono inoltre essere utilizzati per verificare i dati dell'istanza.
-* [Esplora dispositivi digitali gemelli di Azure](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Esplora dispositivi digitali di Azure è ideale per la verifica dei dati dell'istanza, ad esempio modelli, gemelli e grafici.
-* [SDK e API per i dispositivi digitali gemelli di Azure](how-to-use-apis-sdks.md). Queste risorse sono utili per la verifica dei dati dell'istanza, ad esempio modelli, gemelli e grafici. Sono utili anche per la verifica di endpoint e route.
+* [Portale di Azure](https://portal.azure.com). Il portale consente di verificare che la nuova istanza esista e che si trova nell'area di destinazione corretta. È anche buona per verificare endpoint, route e connessioni ad altri servizi di Azure.
+* [Gemelli digitali di Azure comandi dell'interfaccia della riga di comando](how-to-use-cli.md). Questi comandi consentono di verificare che la nuova istanza esista e si trova nell'area di destinazione corretta. Possono anche essere usati per verificare i dati dell'istanza.
+* [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Azure Digital Twins Explorer è buona per verificare i dati dell'istanza, ad esempio modelli, gemelli e grafi.
+* [Gemelli digitali di Azure API e SDK](how-to-use-apis-sdks.md). Queste risorse sono utili per verificare i dati dell'istanza, ad esempio modelli, gemelli e grafi. Sono inoltre buoni per la verifica di endpoint e route.
 
-È anche possibile provare a eseguire eventuali app personalizzate o flussi end-to-end che sono stati eseguiti con l'istanza originale per verificare che funzionino correttamente con la nuova istanza.
+È anche possibile provare a eseguire qualsiasi app personalizzata o flusso end-to-end eseguito con l'istanza originale per verificare che funzionino correttamente con la nuova istanza.
 
 ## <a name="clean-up-source-resources"></a>Pulire le risorse di origine
 
-Ora che la nuova istanza è configurata nell'area di destinazione con una copia dei dati e delle connessioni dell'istanza originale, è possibile eliminare l'istanza originale.
+Ora che la nuova istanza è impostata nell'area di destinazione con una copia dei dati e delle connessioni dell'istanza originale, è possibile eliminare l'istanza originale.
 
-È possibile usare l' [portale di Azure](https://portal.azure.com), l' [interfaccia](how-to-use-cli.md)della riga di comando di Azure o le [API del piano di controllo](how-to-use-apis-sdks.md#overview-control-plane-apis).
+È possibile usare il [portale di Azure](https://portal.azure.com), l'interfaccia della riga di comando [di Azure](how-to-use-cli.md)o le API del piano [di controllo](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
-Per eliminare l'istanza usando il portale di Azure, [aprire il portale](https://portal.azure.com) in una finestra del browser e passare all'istanza di Azure Digital Twins originale cercando il nome nella barra di ricerca del portale.
+Per eliminare l'istanza usando il [portale di Azure,](https://portal.azure.com) aprire il portale in una finestra del browser e passare all'istanza di Gemelli digitali di Azure originale cercando il nome nella barra di ricerca del portale.
 
-Selezionare il pulsante **Elimina** e seguire le istruzioni per completare l'eliminazione.
+Selezionare il **pulsante** Elimina e seguire le istruzioni per completare l'eliminazione.
 
-:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Visualizzare i dettagli dell'istanza di Azure Digital gemelli nella portale di Azure nella scheda Panoramica. Il pulsante Elimina è evidenziato.":::
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Visualizzazione dei dettagli Gemelli digitali di Azure'istanza nella portale di Azure, nella scheda Panoramica. Il pulsante Elimina è evidenziato.":::

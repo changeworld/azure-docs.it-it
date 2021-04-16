@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: bb4dd08b4f30982ec4572fd4e130a89112578175
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 37f33a217467619240d3339363c6a2fcd8800a12
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102203556"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505548"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Esercitazione: Eseguire la migrazione online di PostgreSQL a Database di Azure per PostgreSQL con il Servizio Migrazione del database tramite l'interfaccia della riga di comando di Azure
 
@@ -58,7 +58,7 @@ Per completare questa esercitazione, è necessario:
     >
     > Questa configurazione è necessaria perché il Servizio Migrazione del database di Azure non ha connettività Internet.
 
-* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale (NSG) non blocchino la porta in uscita 443 di ServiceTag per ServiceBus, storage e AzureMonitor. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Assicurarsi che le regole del gruppo di sicurezza di rete (NSG) della rete virtuale non blocchino la porta in uscita 443 di ServiceTag per ServiceBus, Archiviazione e AzureMonitor. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Configurare [Windows Firewall per l'accesso al motore di database](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere al server PostgreSQL di origine, per impostazione predefinita attraverso la porta TCP 5432.
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
@@ -155,7 +155,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
 6. Se sono presenti dati di tipo ENUM nelle tabelle, è consigliabile aggiornarli temporaneamente a un tipo di dati character "variante" nella tabella di destinazione. Dopo che la replica dei dati è stata completata, ripristinare il tipo di dati ENUM.
 
-## <a name="provisioning-an-instance-of-dms-using-the-cli"></a>Provisioning di un'istanza del Servizio Migrazione del database mediante l'interfaccia della riga di comando
+## <a name="provisioning-an-instance-of-dms-using-the-azure-cli"></a>Provisioning di un'istanza del Servizio Gestione dei dati tramite l'interfaccia della riga di comando di Azure
 
 1. Installare l'estensione di sincronizzazione del Servizio Migrazione del database:
    * Accedere ad Azure mediante il comando seguente:

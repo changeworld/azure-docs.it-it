@@ -1,6 +1,6 @@
 ---
-title: Metodo di autenticazione dell'app Microsoft Authenticator-Azure Active Directory
-description: Informazioni sull'uso dell'app Microsoft Authenticator in Azure Active Directory per contribuire a migliorare e proteggere gli eventi di accesso
+title: Microsoft Authenticator metodo di autenticazione dell'app - Azure Active Directory
+description: Informazioni sull'uso dell'app Microsoft Authenticator in Azure Active Directory per migliorare e proteggere gli eventi di accesso
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -10,33 +10,33 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e33c87d53580d96363ba15bccbc889370f2479d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3175b1292a7e69506b9193d1182e184e257ebda3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212910"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530503"
 ---
-# <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Metodi di autenticazione nell'app Azure Active Directory Microsoft Authenticator
+# <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Metodi di autenticazione in Azure Active Directory - Microsoft Authenticator app
 
-L'app Microsoft Authenticator offre un livello di sicurezza aggiuntivo per l'account aziendale o dell'Istituto di istruzione Azure AD o per il account Microsoft ed è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Con l'app Microsoft Authenticator, gli utenti possono eseguire l'autenticazione senza password durante l'accesso o come opzione di verifica aggiuntiva durante la reimpostazione della password self-service (SSPR) o gli eventi di Multi-Factor Authentication Azure AD.
+L'app Microsoft Authenticator offre un livello di sicurezza aggiuntivo per l'account Azure AD aziendale o dell'istituto di istruzione o l'account Microsoft ed è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [iOS.](https://go.microsoft.com/fwlink/?linkid=866594) Con l'app Microsoft Authenticator, gli utenti possono eseguire l'autenticazione senza password durante l'accesso o come opzione di verifica aggiuntiva durante la reimpostazione della password self-service o gli eventi Azure AD Multi-Factor Authentication.
 
-Gli utenti possono ricevere una notifica tramite l'app per dispositivi mobili per approvare o negare o usare l'app Authenticator per generare un codice di verifica OAUTH che può essere inserito in un'interfaccia di accesso. Se si abilitano sia la notifica che il codice di verifica, gli utenti che registrano l'app Authenticator possono usare uno dei due metodi per verificare la propria identità.
+Gli utenti possono ricevere una notifica tramite l'app per dispositivi mobili per consentire loro di approvare o rifiutare o usare l'app Authenticator per generare un codice di verifica OAUTH che può essere immesso in un'interfaccia di accesso. Se si abilitano sia la notifica che il codice di verifica, gli utenti che registrano l'app Authenticator possono usare uno dei due metodi per verificare la propria identità.
 
-Per usare l'app Authenticator a una richiesta di accesso anziché una combinazione di nome utente e password, vedere [abilitare l'accesso senza password con l'app Microsoft Authenticator](howto-authentication-passwordless-phone.md).
+Per usare l'app Authenticator a un prompt di accesso anziché una combinazione di nome utente e password, vedere Abilitare l'accesso senza password con [l'app Microsoft Authenticator.](howto-authentication-passwordless-phone.md)
 
 > [!NOTE]
 > Gli utenti non possono registrare l'app per dispositivi mobili quando abilitano la reimpostazione della password self-service. Possono invece registrarla all'indirizzo [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o come parte della registrazione delle informazioni di sicurezza combinate alla pagina [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 ## <a name="passwordless-sign-in"></a>Accesso senza password
 
-Anziché visualizzare la richiesta di una password dopo l'immissione di un nome utente, un utente che ha abilitato l'accesso tramite telefono dall'app Microsoft Authenticator Visualizza un messaggio per toccare un numero nell'app. Quando viene selezionato il numero corretto, il processo di accesso è completo.
+Invece di visualizzare una richiesta di password dopo aver immesso un nome utente, un utente che ha abilitato l'accesso tramite telefono dall'app Microsoft Authenticator visualizza un messaggio per toccare un numero nell'app. Quando viene selezionato il numero corretto, il processo di accesso è completato.
 
-![Esempio di accesso del browser che richiede all'utente di approvare l'accesso](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
+![Esempio di accesso del browser che chiede all'utente di approvare l'accesso](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-Questo metodo di autenticazione offre un elevato livello di sicurezza e rimuove la necessità per l'utente di fornire una password al momento dell'accesso. 
+Questo metodo di autenticazione offre un elevato livello di sicurezza ed elimina la necessità per l'utente di fornire una password all'accesso. 
 
-Per iniziare a usare l'accesso senza password, vedere [abilitare l'accesso senza password con l'app Microsoft Authenticator](howto-authentication-passwordless-phone.md).
+Per iniziare a usare l'accesso senza password, vedere [Abilitare l'accesso senza password](howto-authentication-passwordless-phone.md)con l Microsoft Authenticator app .
 
 ## <a name="notification-through-mobile-app"></a>Notifica tramite app per dispositivi mobili
 
@@ -45,7 +45,7 @@ L'app Authenticator consente di impedire l'accesso non autorizzato agli account 
 ![Screenshot di un esempio di prompt del Web browser per la notifica dell'app Authenticator per completare il processo di accesso](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> Se l'organizzazione dispone di personale che lavora o viaggia in Cina, la *notifica tramite* il metodo di app per dispositivi mobili nei dispositivi Android non funziona in quel paese/area geografica perché i servizi Google Play (incluse le notifiche push) sono bloccati nell'area. Tuttavia, le notifiche iOS funzionano. Per i dispositivi Android, è necessario rendere disponibili metodi di autenticazione alternativi per tali utenti.
+> Se il personale dell'organizzazione lavora o si sposta in Cina, il metodo Notifica tramite *app* per dispositivi mobili nei dispositivi Android non funziona in quel paese/area geografica perché Google Play Services (incluse le notifiche push) è bloccato nell'area. Tuttavia, la notifica iOS funziona correttamente. Per i dispositivi Android, i metodi di autenticazione alternativi devono essere resi disponibili per tali utenti.
 
 ## <a name="verification-code-from-mobile-app"></a>Codice di verifica dall'app per dispositivi mobili
 
@@ -60,6 +60,6 @@ Gli utenti possono avere una combinazione composta da fino a cinque token hardwa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare l'accesso senza password, vedere [abilitare l'accesso senza password con l'app Microsoft Authenticator](howto-authentication-passwordless-phone.md).
+Per iniziare a usare l'accesso senza password, vedere [Abilitare l'accesso senza password](howto-authentication-passwordless-phone.md)con l Microsoft Authenticator app .
 
-Altre informazioni sulla configurazione dei metodi di autenticazione con l' [API REST di Microsoft Graph beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Altre informazioni sulla configurazione dei metodi di autenticazione con l Microsoft Graph aPI [REST.](/graph/api/resources/authenticationmethods-overview)

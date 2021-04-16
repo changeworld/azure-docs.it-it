@@ -7,7 +7,7 @@
       href: overview.md
     - name: Lingue supportate
       href: language-support.md
-    - name: Prezzi e limiti
+    - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Novità
       href: whats-new.md
@@ -27,8 +27,6 @@
       href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
     - name: SDK della libreria client riconoscimento modulo JavaScript
       href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
-    - name: API REST e cURL
-      href: 'https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer'
 - name: Guide pratiche
   items:
     - name: Creare un set di dati di training
@@ -52,6 +50,14 @@
           href: ../containers/index.yml
     - name: Modelli di backup e ripristino
       href: disaster-recovery.md
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Configurare le reti virtuali
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/form-recognizer/context/context
+        - name: Usare chiavi gestite dal cliente
+          href: encrypt-data-at-rest.md
+        - name: Usare Azure AD autenticazione
+          href: ../authentication.md?context=/azure/cognitive-services/form-recognizer/context/context
 - name: Concetti
   items:
     - name: API di layout
@@ -97,15 +103,15 @@
           href: /javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Risorse
   items:
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Supporto di area
+          href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
+        - name: Conformità e certificazione
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilità a livello di area
-      href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
-    - name: Conformità
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Crittografia
-      href: encrypt-data-at-rest.md
     - name: Privacy e cookie
       href: 'https://privacy.microsoft.com/en-US/privacystatement'

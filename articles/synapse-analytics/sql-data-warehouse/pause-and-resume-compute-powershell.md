@@ -2,8 +2,8 @@
 title: 'Avvio rapido: Sospendere e riprendere il calcolo nel pool SQL dedicato (in precedenza SQL DW) con Azure PowerShell'
 description: È possibile usare Azure PowerShell per sospendere e riprendere il pool SQL dedicato (in precedenza SQL DW). (data warehouse).
 services: synapse-analytics
-author: gaursa
-ms.author: gaursa
+author: julieMSFT
+ms.author: jrasnick
 manager: craigg
 ms.reviewer: igorstan
 ms.date: 03/20/2019
@@ -15,12 +15,12 @@ ms.custom:
 - azure-synapse
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: b204132a49a8790b35cc99af8eebf465fd90f041
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: be82b6dcc17c2850b9a35085316cd0905a5b6b75
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536359"
+ms.locfileid: "107566801"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Avvio rapido: Sospendere e riprendere il calcolo nel pool SQL dedicato (in precedenza SQL DW) con Azure PowerShell
 
@@ -117,7 +117,7 @@ Per controllare lo stato del pool SQL dedicato (in precedenza SQL DW), usare il 
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
 
 Vengono addebitati i data warehouse e i dati archiviati nel pool SQL dedicato (in precedenza SQL DW). Le risorse di calcolo e archiviazione vengono fatturate separatamente.
 

@@ -9,35 +9,35 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: d9bbe40e35bdad6fac5c5ccb0b15b909e77b938c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35346836767bc1da8c498e23fd3b42afe7a9c350
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102564017"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531196"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copiare un'immagine da un'altra raccolta usando PowerShell
 
-Se nell'organizzazione sono presenti più raccolte, è possibile creare immagini da immagini archiviate in altre raccolte. È ad esempio possibile disporre di una raccolta di sviluppo e test per la creazione e il test di nuove immagini. Quando sono pronti per l'uso nell'ambiente di produzione, è possibile copiarli in una raccolta di produzione usando questo esempio. È anche possibile creare un'immagine da un'immagine in un'altra raccolta usando l'interfaccia della riga di comando di [Azure](image-version-another-gallery-cli.md).
+Se nell'organizzazione sono presenti più raccolte, è possibile creare immagini da immagini archiviate in altre raccolte. Ad esempio, è possibile avere una raccolta di sviluppo e test per la creazione e il test di nuove immagini. Quando sono pronti per l'uso nell'ambiente di produzione, è possibile copiarli in una raccolta di produzione usando questo esempio. È anche possibile creare un'immagine da un'immagine in un'altra raccolta usando l'interfaccia della riga [di comando di Azure.](image-version-another-gallery-cli.md)
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare questo articolo, è necessario disporre di una raccolta di origine, di una definizione di immagine e di una versione dell'immagine. È inoltre necessario disporre di una raccolta di destinazione. 
+Per completare questo articolo, è necessario avere una raccolta di origine, una definizione di immagine e una versione dell'immagine esistenti. Dovrebbe essere disponibile anche una raccolta di destinazione. 
 
 La versione dell'immagine di origine deve essere replicata nell'area in cui si trova la raccolta di destinazione. 
 
-Verranno creati una nuova definizione di immagine e una nuova versione dell'immagine nella raccolta di destinazione.
+Verranno create una nuova definizione di immagine e una nuova versione dell'immagine nella raccolta di destinazione.
 
 
-Quando si lavora in questo articolo, sostituire i nomi delle risorse laddove necessario.
+Quando si lavora con questo articolo, sostituire i nomi delle risorse dove necessario.
 
 
 ## <a name="get-the-source-image"></a>Ottenere l'immagine di origine 
 
-Sono necessarie informazioni della definizione dell'immagine di origine, in modo che sia possibile crearne una copia nella raccolta di destinazione.
+Saranno necessarie informazioni dalla definizione dell'immagine di origine per poterne creare una copia nella raccolta di destinazione.
 
-Elenca le informazioni sulle raccolte, le definizioni di immagini e le versioni di immagine esistenti usando il cmdlet [Get-AzResource](/powershell/module/az.resources/get-azresource) .
+Elencare informazioni sulle raccolte, le definizioni di immagine e le versioni di immagini esistenti usando il cmdlet [Get-AzResource.](/powershell/module/az.resources/get-azresource)
 
 I risultati sono nel formato `gallery\image definition\image version` .
 
@@ -47,7 +47,7 @@ Get-AzResource `
    Format-Table -Property Name,ResourceGroupName
 ```
 
-Quando si hanno tutte le informazioni necessarie, è possibile ottenere l'ID della versione dell'immagine di origine usando [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion). In questo esempio viene recuperata la `1.0.0` versione dell'immagine, della `myImageDefinition` definizione, nella raccolta di `myGallery` origine, nel gruppo di `myResourceGroup` risorse.
+Dopo aver creato tutte le informazioni necessarie, è possibile ottenere l'ID della versione dell'immagine di origine usando [Get-AzGalleryImageVersion.](/powershell/module/az.compute/get-azgalleryimageversion) In questo esempio viene visualizzata la versione `1.0.0` dell'immagine, della definizione, nella raccolta `myImageDefinition` di `myGallery` origine, nel gruppo di `myResourceGroup` risorse.
 
 ```azurepowershell-interactive
 $sourceImgVer = Get-AzGalleryImageVersion `
@@ -60,7 +60,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
 
 ## <a name="create-the-image-definition"></a>Creare la definizione dell'immagine 
 
-È necessario creare una nuova definizione di immagine che corrisponda alla definizione dell'immagine dell'origine. È possibile visualizzare tutte le informazioni necessarie per ricreare la definizione dell'immagine usando [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition).
+È necessario creare una nuova definizione di immagine che corrisponda alla definizione dell'immagine dell'origine. È possibile visualizzare tutte le informazioni necessarie per ricreare la definizione dell'immagine [usando Get-AzGalleryImageDefinition.](/powershell/module/az.compute/get-azgalleryimagedefinition)
 
 ```azurepowershell-interactive
 Get-AzGalleryImageDefinition `
@@ -103,7 +103,7 @@ Verrà visualizzato un risultato simile al seguente:
 Creare una nuova definizione di immagine nella raccolta di destinazione usando il cmdlet [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) e le informazioni dell'output precedente.
 
 
-In questo esempio, la definizione dell'immagine è denominata *myDestinationImgDef* nella raccolta denominata *myDestinationGallery*.
+In questo esempio la definizione dell'immagine è *denominata myDestinationImgDef* nella raccolta *denominata myDestinationGallery*.
 
 
 ```azurepowershell-interactive
@@ -123,11 +123,11 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 ## <a name="create-the-image-version"></a>Creare una versione di immagine
 
-Creare una versione dell'immagine usando [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). È necessario passare l'ID dell'immagine di origine nel `--managed-image` parametro per creare la versione dell'immagine nella raccolta di destinazione. 
+Creare una versione dell'immagine [usando New-AzGalleryImageVersion.](/powershell/module/az.compute/new-azgalleryimageversion) È necessario passare l'ID dell'immagine di origine nel parametro `-Source` per creare la versione dell'immagine nella raccolta di destinazione. 
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In questo esempio, la raccolta di destinazione è denominata *myDestinationGallery*, nel gruppo di risorse *myDestinationRG* , nella località *Stati Uniti occidentali* . La versione dell'immagine è *1.0.0* e verrà creata una replica nell'area *Stati Uniti centro-meridionali* e 2 repliche nell'area *Stati Uniti occidentali* . 
+In questo esempio la raccolta di destinazione è denominata *myDestinationGallery* nel gruppo di risorse *myDestinationRG,* nella località *Stati* Uniti occidentali. La versione dell'immagine è *1.0.0* e verranno create  1 replica nell'area Stati Uniti centro-meridionali e 2 repliche nell'area Stati Uniti *occidentali.* 
 
 
 ```azurepowershell-interactive
@@ -162,8 +162,8 @@ $job.State
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Creare una macchina virtuale da una versione di immagine [generalizzata](vm-generalized-image-version-powershell.md) o [specializzata](vm-specialized-image-version-powershell.md) .
+Creare una macchina virtuale da [una versione generalizzata](vm-generalized-image-version-powershell.md) o [specializzata](vm-specialized-image-version-powershell.md) dell'immagine.
 
-Il [Generatore di immagini di Azure (anteprima)](./image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](./linux/image-builder-gallery-update-image-version.md). 
+[Azure Image Builder (anteprima)](./image-builder-overview.md) consente di automatizzare la creazione della versione dell'immagine. È anche possibile usarla per aggiornare e creare una nuova versione dell'immagine da una [versione dell'immagine esistente.](./linux/image-builder-gallery-update-image-version.md) 
 
-Per informazioni su come fornire informazioni sul piano di acquisto, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](marketplace-images.md).
+Per informazioni su come fornire informazioni sul piano di acquisto, vedere Fornire Azure Marketplace informazioni sul piano di [acquisto durante la creazione di immagini.](marketplace-images.md)

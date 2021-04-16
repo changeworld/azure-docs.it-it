@@ -2,21 +2,24 @@
 title: "Avvio rapido: Sospendere e riprendere l'esecuzione delle risorse di calcolo in un pool SQL dedicato con il portale di Azure"
 description: Usare il portale di Azure per sospendere l'esecuzione delle risorse di calcolo per un pool SQL dedicato per risparmiare sui costi. Riprendere il calcolo quando si è pronti a usare il data warehouse.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
+ms.author: jrasnick
 manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 11/23/2020
-ms.author: gaursa
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f9cc5083c4b515454b9d5cbc40ed3b48cba80211
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/23/2020
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- seo-lt-2019
+- azure-synapse
+- mode-portal
+ms.openlocfilehash: 27587f436013bcaccbacd668ce62f1d939f89e48
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104602163"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566818"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Avvio rapido: Sospendere e riprendere l'esecuzione delle risorse di calcolo in un pool SQL dedicato con il portale di Azure
 

@@ -1,6 +1,6 @@
 ---
-title: Definizioni predefinite dei criteri per la protezione DDoS di Azure standard
-description: Elenca le definizioni dei criteri predefiniti di criteri di Azure per la protezione DDoS di Azure standard. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+title: Definizioni di criteri predefiniti per Protezione DDoS di Azure Standard
+description: Elenca Criteri di Azure definizioni di criteri predefiniti per Protezione DDoS di Azure Standard. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
 services: ddos-protection
 documentationcenter: na
 author: aletheatoh
@@ -8,20 +8,20 @@ ms.service: ddos-protection
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/07/2021
+ms.date: 04/14/2021
 ms.author: yitoh
 ms.custom: subject-policy-reference
 ms.topic: include
-ms.openlocfilehash: 6a0496740fbd82090ba7199ca3e064f5bd2bf7c5
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 86fa383fe2456eabe0cce142bd4a9c665fb95a2a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107108268"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505701"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-ddos-protection-standard"></a>Definizioni predefinite di criteri di Azure per la protezione DDoS di Azure standard
+# <a name="azure-policy-built-in-definitions-for-azure-ddos-protection-standard"></a>Criteri di Azure definizioni incorporate per Protezione DDoS di Azure Standard
 
-Questa pagina è un indice delle definizioni dei criteri predefiniti di [criteri di Azure](../governance/policy/overview.md) per la protezione DDoS di Azure standard. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
+Questa pagina è un indice [delle](../governance/policy/overview.md) Criteri di Azure di criteri predefiniti per Protezione DDoS di Azure Standard. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
 Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 
@@ -29,8 +29,8 @@ Il nome di ogni definizione di criterio predefinito punta alla definizione del c
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Le reti virtuali devono essere protette da protezione DDoS di Azure standard](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d)|Proteggi le tue reti virtuali da attacchi volumetrici e di protocollo con protezione DDoS di Azure standard. Per altre informazioni, vedere [https://aka.ms/ddosprotectiondocs](https://aka.ms/ddosprotectiondocs).|Modifica, controllo, disabilitazione|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkDdosStandard_Audit.json)|
-|[Per gli indirizzi IP pubblici devono essere abilitati i log delle risorse per la protezione DDoS di Azure standard](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F752154a7-1e0f-45c6-a880-ac75a7e4f648)|Abilitare i log delle risorse per gli indirizzi IP pubblici nelle impostazioni di diagnostica per eseguire lo streaming in un'area di lavoro Log Analytics. Ottenere visibilità dettagliata sul traffico degli attacchi e le azioni intraprese per attenuare gli attacchi DDoS tramite notifiche, report e log dei flussi.|AuditIfNotExists, DeployIfNotExists, disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/PublicIpDdosLogging_Audit.json)|
+|[Le reti virtuali devono essere protette Protezione DDoS di Azure Standard](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d)|Proteggere le reti virtuali da attacchi volumetrici e di protocollo con Protezione DDoS di Azure Standard. Per altre informazioni, vedere [https://aka.ms/ddosprotectiondocs](https://aka.ms/ddosprotectiondocs).|Modifica, Controllo, Disabilitato|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkDdosStandard_Audit.json)|
+|[Gli indirizzi IP pubblici devono avere i log delle risorse abilitati per Protezione DDoS di Azure Standard](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F752154a7-1e0f-45c6-a880-ac75a7e4f648)|Abilitare i log delle risorse per gli indirizzi IP pubblici nelle impostazioni di diagnostica per lo streaming in un'area di lavoro Log Analytics. Ottenere una visibilità dettagliata sul traffico di attacco e sulle azioni intraprese per mitigare gli attacchi DDoS tramite notifiche, report e log di flusso.|AuditIfNotExists, DeployIfNotExists, Disabled|[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/PublicIpDdosLogging_Audit.json)|
 
 
 ## <a name="next-steps"></a>Passaggi successivi

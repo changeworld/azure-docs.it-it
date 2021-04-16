@@ -17,12 +17,12 @@ ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb4ebbd0b1715d9de3905060952a35ad42060119
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2ea62a8d602cc472269b52c230529aa3f9b86ed4
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167550"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535110"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Procedura: Gestire gli account utente inattivi in Azure AD
 
@@ -48,8 +48,8 @@ Per rilevare gli account inattivi, è possibile valutare la proprietà **lastSig
 - **Utenti per data**: In questo scenario viene richiesto un elenco di utenti con una proprietà lastSignInDateTime precedente una data specificata: `https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
 
 > [!NOTE]
-> Potrebbe essere necessario generare un report dell'ultima data di accesso di tutti gli utenti, se è possibile utilizzare lo scenario seguente.
-> **Data e ora dell'ultimo accesso per tutti gli utenti**: in questo scenario viene richiesto un elenco di tutti gli utenti e l'ultimo lastSignInDateTime per ogni utente: `https://graph.microsoft.com/beta/users?$select=displayName,signInActivity` 
+> Potrebbe essere necessario generare un report della data dell'ultimo accesso di tutti gli utenti, in caso contrario è possibile usare lo scenario seguente.
+> **Data e ora dell'ultimo** accesso per tutti gli utenti: in questo scenario viene richiesto un elenco di tutti gli utenti e l'ultimo lastSignInDateTime per ogni utente: `https://graph.microsoft.com/beta/users?$select=displayName,signInActivity` 
 
 ## <a name="what-you-need-to-know"></a>Informazioni importanti
 
@@ -57,7 +57,7 @@ Questa sezione elenca le informazioni che è necessario conoscere sulla propriet
 
 ### <a name="how-can-i-access-this-property"></a>Come è possibile accedere a questa proprietà?
 
-La proprietà **lastSignInDateTime** è esposta dal [tipo di risorsa signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta) dell'[API REST Microsoft Graph](/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
+La proprietà **lastSignInDateTime** è esposta dal [tipo di risorsa signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) dell'[API REST Microsoft Graph](/graph/overview#whats-in-microsoft-graph).   
 
 ### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>La proprietà lastSignInDateTime è disponibile tramite il cmdlet Get-AzureAdUser?
 
@@ -84,11 +84,11 @@ Ogni accesso interattivo che ha avuto esito positivo comporta un aggiornamento d
 
 Per generare un timestamp lastSignInDateTime, è necessario che un accesso sia andato a buon fine. Poiché la proprietà lastSignInDateTime è una nuova funzionalità, il valore della proprietà lastSignInDateTime può essere vuoto se:
 
-- L'ultimo accesso riuscito di un utente ha avuto luogo prima del 2020 aprile.
+- L'ultimo accesso riuscito di un utente è stato eseguito prima di aprile 2020.
 - L'account utente interessato non è mai stato usato per un accesso riuscito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere dati con l'API di creazione report di Azure Active Directory con certificati](tutorial-access-api-with-certificates.md)
-* [Informazioni di riferimento sulle API di controllo](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [Informazioni di riferimento sulle API di report di attività di accesso](/graph/api/resources/signin?view=graph-rest-beta)
+* [Informazioni di riferimento sulle API di controllo](/graph/api/resources/directoryaudit) 
+* [Informazioni di riferimento sulle API di report di attività di accesso](/graph/api/resources/signin)

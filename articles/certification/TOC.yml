@@ -1,37 +1,37 @@
-- name: Documentazione per i dispositivi Azure Certified
+- name: Azure Certified Device documentazione
   href: index.yml
 - name: Panoramica
   items:
-    - name: Che cos'è il programma Azure Certified Device?
+    - name: Che cos'è Azure Certified Device programma?
       href: overview.md
 - name: Esercitazioni
   expanded: true
   items:
-    - name: 1-selezione della certificazione corretta
+    - name: 1 - Selezione della certificazione giusta
       href: tutorial-00-selecting-your-certification.md
-    - name: 2-creazione del progetto
+    - name: 2 - Creazione del progetto
       href: tutorial-01-creating-your-project.md
-    - name: 3-aggiunta dei dettagli del dispositivo
+    - name: 3 - Aggiunta dei dettagli del dispositivo
       href: tutorial-02-adding-device-details.md
-    - name: 4-test del dispositivo
+    - name: 4 - Test del dispositivo
       href: tutorial-03-testing-your-device.md
-    - name: 5-pubblicazione del dispositivo
+    - name: 5 - Pubblicazione del dispositivo
       href: tutorial-04-publishing-your-device.md
 - name: Requisiti del programma
   items:
-    - name: Dispositivo Azure Certified
+    - name: Azure Certified Device
       href: program-requirements-azure-certified-device.md
     - name: Plug and Play IoT
       href: program-requirements-pnp.md
-    - name: Gestione Edge
+    - name: Edge Managed
       href: program-requirements-edge-managed.md
-    - name: Edge protetto-Core (anteprima)
+    - name: Edge Secured-core (anteprima)
       href: program-requirements-edge-secured-core.md
 - name: Concetti
   items:
     - name: Dispositivi legacy
       href: concepts-legacy.md
-    - name: Concetti di marketing
+    - name: Concetti relativi al marketing
       href: concepts-marketing.md
 - name: Guide pratiche
   items:
@@ -39,9 +39,11 @@
       href: how-to-edit-published-device.md
     - name: Come certificare un dispositivo connesso indirettamente
       href: how-to-indirectly-connected-devices.md
-    - name: Come usare la funzionalità componenti
+    - name: Come risolvere i problemi del IoT Plug and Play dispositivo
+      href: how-to-troubleshoot-pnp.md
+    - name: Come usare la funzionalità dei componenti
       href: how-to-using-the-components-feature.md
 - name: Risorse
   items:
-    - name: Glossario sulla certificazione
+    - name: Glossario della certificazione
       href: resources-glossary.md

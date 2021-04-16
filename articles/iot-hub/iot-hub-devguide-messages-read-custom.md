@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 8aebb5b6f6a3ac53bc49fd1d2f75de88667865fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ad57473e0950f031fbeadee2302f85557ed526f
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92147651"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388262"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usare endpoint personalizzati e il routing dei messaggi per i messaggi da dispositivo a cloud
 
@@ -32,13 +32,14 @@ Un singolo messaggio può corrispondere alla condizione di più query di routing
 
 ## <a name="endpoints-and-routing"></a>Endpoint e routing
 
-Un hub IoT dispone di un [endpoint predefinito](iot-hub-devguide-messages-read-builtin.md). È possibile creare endpoint personalizzati per indirizzare i messaggi collegando all'hub gli altri servizi nella sottoscrizione. L'hub IoT supporta attualmente i contenitori di Archiviazione di Azure, l'Hub eventi, le code e gli argomenti del bus di servizio come endpoint personalizzati.
+Un hub IoT dispone di un [endpoint predefinito](iot-hub-devguide-messages-read-builtin.md). È possibile creare endpoint personalizzati a cui instradare i messaggi collegando altri servizi nelle sottoscrizioni di cui si è proprietari all'hub. L'hub IoT supporta attualmente i contenitori di Archiviazione di Azure, l'Hub eventi, le code e gli argomenti del bus di servizio come endpoint personalizzati.
 
 Quando si usa il routing e gli endpoint personalizzati, i messaggi sono inviati solo all'endpoint predefinito se non corrispondono ad alcuna query. Per recapitare i messaggi all'endpoint predefinito e anche a un endpoint personalizzato, aggiungere una route per l'invio dei messaggi all'endpoint **events** predefinito.
 
 > [!NOTE]
 > * L'hub IoT supporta solo la scrittura dei dati nei contenitori di Archiviazione di Azure come BLOB.
 > * Le code del bus di servizio e gli argomenti che hanno abilitato con **Sessioni** o **Rilevamento duplicati** non sono supportati come endpoint personalizzati.
+> * Nell'portale di Azure è possibile creare endpoint di routing personalizzati solo per le risorse di Azure nella stessa sottoscrizione dell'hub. È possibile creare endpoint personalizzati per le risorse in altre sottoscrizioni di cui si è proprietari, ma gli endpoint personalizzati devono essere configurati usando un metodo diverso rispetto all'portale di Azure.
 
 Per altre informazioni sulla creazione di endpoint personalizzati nell'hub IoT, vedere [Endpoint hub IoT](iot-hub-devguide-endpoints.md).
 

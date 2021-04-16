@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: f4f2f8522f6d3d1039673803d946323deb485db9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39e7bb5c151d490e79ef111589f52f260c3e6c7a
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200256"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483164"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorare le distribuzioni IoT Edge
 
@@ -69,7 +69,7 @@ Per apportare modifiche alla distribuzione, vedere [Modificare una distribuzione
 
 ## <a name="monitor-a-deployment-with-azure-cli"></a>Monitorare una distribuzione con l'interfaccia della riga di comando di Azure
 
-Usare il comando [az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) per visualizzare i dettagli di una singola distribuzione:
+Usare il [comando az iot edge deployment show](/cli/azure/iot/edge/deployment) per visualizzare i dettagli di una singola distribuzione:
 
 ```azurecli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
@@ -87,7 +87,7 @@ Ispezionare la distribuzione nella finestra di comando.  La proprietà **metric
 * **reportedSuccessfulCount** - Metrica del dispositivo che specifica il numero di dispositivi IoT Edge presenti nella distribuzione che segnalano l'esito positivo dal runtime client IoT Edge.
 * **reportedFailedCount** - Metrica del dispositivo che specifica il numero di dispositivi IoT Edge presenti nella distribuzione che segnalano l'esito negativo dal runtime client IoT Edge.
 
-È possibile visualizzare un elenco di oggetti o ID dispositivo per ognuna delle metriche tramite il comando [az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric):
+È possibile visualizzare un elenco di OGGETTI o ID dispositivo per ognuna delle metriche con il [comando az iot edge deployment show-metric:](/cli/azure/iot/edge/deployment)
 
 ```azurecli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
@@ -103,4 +103,4 @@ Per apportare modifiche alla distribuzione, vedere [Modificare una distribuzione
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [monitorare i moduli gemelli](how-to-monitor-module-twins.md), principalmente i moduli IOT Edge Agent e runtime Hub IOT Edge, per la connettività e l'integrità delle distribuzioni di IOT Edge.
+Informazioni su come [monitorare](how-to-monitor-module-twins.md)i moduli gemelli, principalmente i moduli di runtime di IoT Edge Agent e IoT Edge Hub, per la connettività e l'integrità IoT Edge distribuzione.

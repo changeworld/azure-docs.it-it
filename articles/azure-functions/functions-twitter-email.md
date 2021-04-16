@@ -1,94 +1,127 @@
 ---
 title: Creare una funzione che si integra con le app per la logica di Azure
-description: Creare una funzione che si integra con le app per la logica di Azure e i servizi cognitivi di Azure per classificare la valutazione dei tweet e inviare notifiche quando la valutazione è bassa.
+description: Creare un'integrazione di funzione con App per la logica di Azure e Servizi cognitivi di Azure. Il flusso di lavoro risultante classifica i sentiment dei tweet inviando notifiche tramite posta elettronica.
 author: craigshoemaker
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 04/10/2021
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: 5750597d7d4d372be975aa64ce8db11859791da2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3517835859de82117de07ad67cdf8027960ab777
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98674319"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388694"
 ---
-# <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creare una funzione che si integra con le app per la logica di Azure
+# <a name="tutorial-create-a-function-to-integrate-with-azure-logic-apps"></a>Esercitazione: Creare una funzione da integrare con App per la logica di Azure
 
-Funzioni di Azure si integra con App per la logica di Azure in Progettazione app per la logica. L'integrazione consente di usare la potenza di calcolo di Funzioni nelle orchestrazioni con altri servizi di Azure e di terze parti. 
+Funzioni di Azure si integra con App per la logica di Azure in Progettazione app per la logica. Questa integrazione consente di usare la potenza di calcolo di Funzioni nelle orchestrazioni con altri servizi di Azure e di terze parti.
 
-Questa esercitazione illustra come usare Funzioni di Azure con App per la logica e Servizi cognitivi in Azure per eseguire l'analisi del sentiment dai post di Twitter. Una funzione trigger HTTP classifica i tweet come verde, giallo o rosso in base al punteggio del sentiment. Quando viene rilevato un livello di sentiment basso viene inviato un messaggio di posta elettronica. 
+Questa esercitazione illustra come creare un flusso di lavoro per analizzare l'attività di Twitter. Quando i tweet vengono valutati, il flusso di lavoro invia notifiche quando vengono rilevati sentimenti positivi.
 
-![immagine dei primi due passaggi dell'app in Progettazione app per la logica](media/functions-twitter-email/00-logic-app-overview.png)
-
-In questa esercitazione verranno illustrate le procedure per:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare una risorsa API per Servizi cognitivi.
 > * Creare una funzione che classifica i sentiment nei tweet.
 > * Creare un'app per la logica che si connette a Twitter.
-> * Aggiungere il rilevamento dei sentiment all'app per la logica. 
+> * Aggiungere il rilevamento dei sentiment all'app per la logica.
 > * Connettere l'app per la logica alla funzione.
 > * Inviare un messaggio di posta elettronica in base alla risposta dalla funzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ Un account [Twitter](https://twitter.com/) attivo. 
-+ Un account [Outlook.com](https://outlook.com/) per l'invio delle notifiche.
+* Un account [Twitter](https://twitter.com/) attivo.
+* Un account [Outlook.com](https://outlook.com/) per l'invio delle notifiche.
 
 > [!NOTE]
-> Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare il connettore Gmail solo con app e servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione nel connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+> Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare il connettore Gmail solo con app e servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione nel connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). <br><br>Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
-+ Questo articolo usa per iniziare le risorse create in [Creare la prima funzione nel portale di Azure](./functions-get-started.md).
-Se queste procedure non sono state ancora completate, completarle ora per creare l'app per le funzioni.
+## <a name="create-text-analytics-resource"></a>Creare Analisi del testo risorsa
 
-## <a name="create-a-cognitive-services-resource"></a>Creare una risorsa per Servizi cognitivi
-
-Le API Servizi cognitivi sono disponibili in Azure come singole risorse. Usare l'API Analisi del testo per rilevare il sentiment dei tweet sottoposti a monitoraggio.
+Le API Servizi cognitivi sono disponibili in Azure come singole risorse. Usare l'API Analisi del testo per rilevare il sentiment dei tweet pubblicati.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
+1. Selezionare **Crea risorsa** nell'angolo superiore sinistro del portale di Azure.
 
-3. Fare clic su **Intelligenza artificiale e Machine Learning** > **Analisi del testo**. Usare quindi le impostazioni indicate nella tabella per creare la risorsa.
+1. In _Categorie_ selezionare **AI + Machine Learning**
 
-    ![Pagina di creazione della risorsa per Servizi cognitivi](media/functions-twitter-email/01-create-text-analytics.png)
+1. In _Analisi del testo_ selezionare **Crea**.
 
-    | Impostazione      |  Valore consigliato   | Descrizione                                        |
-    | --- | --- | --- |
-    | **Nome** | MyCognitiveServicesAccnt | Scegliere un nome dell'account univoco. |
-    | **Posizione** | Stati Uniti occidentali | Usare la posizione più vicina. |
-    | **Piano tariffario** | F0 | Iniziare dal livello più basso. Se si esauriscono le chiamate, passare a un livello superiore.|
-    | **Gruppo di risorse** | myResourceGroup | Usare lo stesso gruppo di risorse per tutti i servizi in questa esercitazione.|
+1. Immettere i valori seguenti nella _schermata Crea Analisi del testo_ dati.
 
-4. Fare clic su **Crea** per creare la risorsa. 
+    | Impostazione | Valore | Commenti |
+    | ------- | ----- | ------- |
+    | Subscription | Il nome della sottoscrizione di Azure | |
+    | Resource group | Creare un nuovo gruppo di risorse denominato **tweet-sentiment-tutorial** | Successivamente, si elimina questo gruppo di risorse per rimuovere tutte le risorse create durante questa esercitazione. |
+    | Region | Selezionare l'area più vicina | |
+    | Nome | **TweetSentimentApp** | |
+    | Piano tariffario | Selezionare **Free F0 (F0 gratuito)** | |
 
-5. Fare clic su **Panoramica** e copiare il valore di **Endpoint** in un editor di testo. Questo valore viene usato durante la creazione di una connessione all'API Servizi cognitivi.
+1. Selezionare **Rivedi e crea**.
 
-    ![Impostazioni di Servizi cognitivi](media/functions-twitter-email/02-cognitive-services.png)
+1. Selezionare **Crea**.
 
-6. Nella colonna di spostamento a sinistra fare clic su **Chiavi** e quindi copiare il valore di **Chiave 1** e conservarlo in un editor di testo. La chiave viene usata per connettere l'app per la logica all'API Servizi cognitivi. 
- 
-    ![Chiavi di Servizi cognitivi](media/functions-twitter-email/03-cognitive-serviecs-keys.png)
+1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
+
+## <a name="get-text-analytics-settings"></a>Ottenere Analisi del testo predefinite
+
+Con la Analisi del testo creata, si copieranno alcune impostazioni e le si rneranno da parte per un uso successivo.
+
+1. Selezionare **Chiavi ed Endpoint**.
+
+1. Copiare **la chiave 1** facendo clic sull'icona alla fine della casella di input.
+
+1. Incollare il valore in un editor di testo.
+
+1. Copiare **l'endpoint** facendo clic sull'icona alla fine della casella di input.
+
+1. Incollare il valore in un editor di testo.
 
 ## <a name="create-the-function-app"></a>Creare l'app per le funzioni
 
-Funzioni di Azure offre un ottimo modo per eseguire l'offload delle attività di elaborazione in un flusso di lavoro delle app per la logica. Questa esercitazione usa una funzione trigger HTTP per elaborare i punteggi attribuiti da Servizi cognitivi ai sentiment dei tweet e restituire un valore di categoria.  
+1. Nella casella di ricerca in alto cercare e selezionare App **per le funzioni**.
 
-[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
+1. Selezionare **Crea**.
 
-## <a name="create-an-http-trigger-function"></a>Creare una funzione trigger HTTP  
+1. Immettere i valori seguenti.
 
-1. Selezionare **Funzioni** nel menu a sinistra della finestra **Funzioni** e quindi **Aggiungi** nel menu in alto.
+    | Impostazione | Valore consigliato | Commenti |
+    | ------- | ----- | ------- |
+    | Subscription | Il nome della sottoscrizione di Azure | |
+    | Resource group | **tweet-sentiment-tutorial** | Usare lo stesso nome del gruppo di risorse in questa esercitazione. |
+    | Nome dell'app per le funzioni | **TweetSentimentAPI** + un suffisso univoco | I nomi delle applicazioni per le funzioni sono univoci a livello globale. I caratteri validi sono `a-z` (senza distinzione tra maiuscole e minuscole), `0-9` e `-`. |
+    | Pubblica | **Codice** | |
+    | Stack di runtime | **.NET** | Il codice della funzione fornito è in C#. |
+    | Versione | Selezionare il numero di versione più recente | |
+    | Region | Selezionare l'area più vicina | |
 
-2. Nella finestra **Nuova funzione** selezionare **Trigger HTTP**.
+1. Selezionare **Rivedi e crea**.
 
-    ![Scegliere la funzione Trigger HTTP](./media/functions-twitter-email/06-function-http-trigger.png)
+1. Selezionare **Crea**.
 
-3. Nella pagina **Nuova funzione** selezionare **Crea funzione**.
+1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
 
-4. Nella nuova funzione trigger HTTP selezionare **Codice e test** nel menu a sinistra, sostituire il contenuto del file `run.csx` con il codice seguente e quindi selezionare **Salva**:
+## <a name="create-an-http-triggered-function"></a>Creare una funzione attivata da HTTP  
+
+1. Dal menu a sinistra della _finestra_ Funzioni selezionare **Funzioni**.
+
+1. Selezionare **Aggiungi** dal menu in alto e immettere i valori seguenti.
+
+    | Impostazione | Valore | Commenti |
+    | ------- | ----- | ------- |
+    | Ambiente di sviluppo | **Sviluppare nel portale** | |
+    | Modello | **HTTP Trigger** | |
+    | Nuova funzione | **TweetSentimentFunction** | Questo è il nome della funzione. |
+    | Livello di autorizzazione | **Funzione** | |
+
+1. Fare clic sul pulsante **Aggiungi**.
+
+1. Selezionare il **pulsante Codice e** test.
+
+1. Incollare il codice seguente nella finestra dell'editor di codice.
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -102,205 +135,224 @@ Funzioni di Azure offre un ottimo modo per eseguire l'offload delle attività di
     
     public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        string category = "GREEN";
     
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        log.LogInformation(string.Format("The sentiment score received is '{0}'.", requestBody));
+        string requestBody = String.Empty;
+        using (StreamReader streamReader =  new  StreamReader(req.Body))
+        {
+            requestBody = await streamReader.ReadToEndAsync();
+        }
     
-        double score = Convert.ToDouble(requestBody);
+        dynamic score = JsonConvert.DeserializeObject(requestBody);
+        string value = "Positive";
     
         if(score < .3)
         {
-            category = "RED";
+            value = "Negative";
         }
         else if (score < .6) 
         {
-            category = "YELLOW";
+            value = "Neutral";
         }
     
         return requestBody != null
-            ? (ActionResult)new OkObjectResult(category)
-            : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
+            ? (ActionResult)new OkObjectResult(value)
+           : new BadRequestObjectResult("Pass a sentiment score in the request body.");
     }
     ```
 
-    Questo codice di funzione restituisce una categoria colore in base al punteggio del sentiment ricevuto nella richiesta. 
+    Un punteggio del sentiment viene passato alla funzione , che restituisce un nome di categoria per il valore.
 
-5. Per testare la funzione, selezionare **Test** nel menu in alto. Nella scheda **Input** immettere il valore `0.2` in **Corpo** e quindi selezionare **Esegui**. Nel campo **Contenuto della risposta HTTP** della scheda **Output** viene restituito il valore **RED**. 
+1. Selezionare il **pulsante Salva** sulla barra degli strumenti per salvare le modifiche.
 
-    :::image type="content" source="./media/functions-twitter-email/07-function-test.png" alt-text="Definire le impostazioni del proxy":::
+    > [!NOTE]
+    > Per testare la funzione, selezionare **Test/Esegui** dal menu superiore. Nella scheda _Input_ immettere un valore nella casella `0.9` Input corpo e quindi selezionare **Esegui**.  Verificare che nella casella Contenuto risposta _HTTP_ della _sezione_ Output sia restituito il _valore_ Positivo.
 
-A questo punto è disponibile una funzione che classifica i punteggi dei sentiment. Nella fase successiva viene creata un'app per la logica che integra la funzione con l'API Twitter e Servizi cognitivi. 
+Creare quindi un'app per la logica che si integra con Funzioni di Azure, Twitter e l'API Servizi cognitivi.
 
-## <a name="create-a-logic-app"></a>Creare un'app per la logica   
+## <a name="create-a-logic-app"></a>Creare un'app per la logica
 
-1. Nel portale di Azure fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo in alto a sinistra del portale di Azure.
+1. Nella casella di ricerca in alto cercare e selezionare App **per la logica**.
 
-2. Fare clic su **Web** > **App per la logica**.
- 
-3. Digitare quindi un valore per **Nome**, ad esempio `TweetSentiment`, e usare le impostazioni specificate nella tabella.
+1. Selezionare **Aggiungi**.
 
-    ![Creare l'app per la logica nel portale di Azure](./media/functions-twitter-email/08-logic-app-create.png)
+1. Selezionare **Consumo** e immettere i valori seguenti.
 
-    | Impostazione      |  Valore consigliato   | Descrizione                                        |
-    | ----------------- | ------------ | ------------- |
-    | **Nome** | TweetSentiment | Scegliere un nome appropriato per l'app. |
-    | **Gruppo di risorse** | myResourceGroup | Scegliere lo stesso gruppo di risorse esistente visto in precedenza. |
-    | **Posizione** | Stati Uniti orientali | Scegliere una località vicina. |    
+    | Impostazione | Valore consigliato |
+    | ------- | --------------- |
+    | Subscription | Il nome della sottoscrizione di Azure |
+    | Resource group | **tweet-sentiment-tutorial** |
+    | Nome dell'app per la logica | **TweetSentimentApp** |
+    | Region | Selezionare l'area più vicina, preferibilmente la stessa area selezionata nei passaggi precedenti. |
 
-4. Dopo aver immesso i valori appropriati per le impostazioni, fare clic su **Crea** per creare l'app per la logica. 
+    Accettare i valori predefiniti per tutte le altre impostazioni.
 
-5. Dopo aver creato l'app, fare clic sulla nuova app per la logica aggiunta al dashboard. In Progettazione app per la logica scorrere verso il basso e fare clic sul modello **App per la logica vuota**. 
+1. Selezionare **Rivedi e crea**.
 
-    ![Modello App per la logica vuota](media/functions-twitter-email/09-logic-app-create-blank.png)
+1. Selezionare **Crea**.
 
-A questo punto è possibile usare Progettazione app per la logica per aggiungere servizi e trigger all'applicazione.
+1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
+
+1. Selezionare il **pulsante App per la logica** vuota.
+
+    :::image type="content" source="media/functions-twitter-email/blank-logic-app-button.png" alt-text="Pulsante App per la logica vuota":::
+
+1. Selezionare il **pulsante Salva** sulla barra degli strumenti per salvare lo stato di avanzamento.
+
+È ora possibile usare Progettazione app per la logica per aggiungere servizi e trigger all'applicazione.
 
 ## <a name="connect-to-twitter"></a>Connettersi a Twitter
 
-Creare prima di tutto una connessione all'account Twitter. L'app per la logica esegue il poll dei tweet, che attiva l'app da eseguire.
+Creare una connessione a Twitter in modo che l'app possa eseguire il polling di nuovi tweet.
 
-1. Nella finestra di progettazione, fare clic sul servizio **Twitter** e scegliere il trigger **Quando viene pubblicato un nuovo tweet**. Accedere all'account Twitter e autorizzare App per la logica all'uso dell'account.
+1. Cercare **Twitter nella** casella di ricerca superiore.
 
-2. Usare le impostazioni del trigger Twitter come specificato nella tabella. 
+1. Selezionare **l'icona di Twitter.**
 
-    ![Impostazioni del connettore Twitter](media/functions-twitter-email/10-tweet-settings.png)
+1. Selezionare il trigger **Quando viene pubblicato un nuovo tweet**.
 
-    | Impostazione      |  Valore consigliato   | Descrizione                                        |
-    | ----------------- | ------------ | ------------- |
-    | **Testo di ricerca** | #Azure | Usare un hashtag che sia abbastanza comune per generare nuovi tweet nell'intervallo selezionato. Quando si usa un hashtag troppo comune con il livello gratuito, c'è il rischio di esaurire rapidamente la quota di transazioni nell'API Servizi cognitivi. |
-    | **Interval** | 15 | Tempo trascorso tra le richieste di Twitter, in unità di frequenza. |
-    | **Frequenza** | Minuto | Unità di frequenza usata per eseguire il poll di Twitter.  |
+1. Immettere i valori seguenti per configurare la connessione.
 
-3.  Fare clic su **Salva** per connettersi all'account Twitter. 
+    | Impostazione |  Valore |
+    | ------- | ---------------- |
+    | Nome connessione | **MyTwitterConnection** |
+    | Tipo di autenticazione | **Usare l'applicazione condivisa predefinita** |
 
-A questo punto l'app è connessa a Twitter. Connettersi ora all'analisi del testo per rilevare il sentiment dei tweet raccolti.
+1. Selezionare **Accedi**.
 
-## <a name="add-sentiment-detection"></a>Aggiungere il rilevamento dei sentiment
+1. Seguire le istruzioni nella finestra popup per completare l'accesso a Twitter.
 
-1. Selezionare **Nuovo passaggio** e quindi **Aggiungi un'azione**.
+1. Immettere quindi i valori seguenti nella _casella Quando viene pubblicato un nuovo tweet._
 
-2. In **Scegliere un'azione** digitare **Analisi del testo** e quindi scegliere l'azione **Rileva sentiment**.
-    
-    ![Screenshot che mostra la sezione "Scegliere un'azione" con "Analisi del testo" nella casella di ricerca e l'azione "Rileva sentiment" selezionata. ](media/functions-twitter-email/11-detect-sentiment.png)
+    | Impostazione | Valore |
+    | ------- | ----- |
+    | Testo di ricerca | **#my-twitter-tutorial** |
+    | In che modo si vogliono verificare gli elementi? | **15** nella casella di testo e <br> **Minuto nell'elenco** a discesa |
 
-3. Digitare un nome per la connessione, ad esempio `MyCognitiveServicesConnection`, incollare la chiave dell'API Servizi cognitivi e l'endpoint di Servizi cognitivi conservato nell'editor di testo e fare clic su **Crea**.
+1. Selezionare il **pulsante Salva** sulla barra degli strumenti per salvare lo stato di avanzamento.
 
-    ![Nuovo passaggio e quindi Aggiungi un'azione.](media/functions-twitter-email/12-connection-settings.png)
+Connettersi quindi all'analisi del testo per rilevare il sentiment dei tweet raccolti.
 
-4. Immettere quindi **Testo tweet** nella casella di testo e quindi fare clic su **Nuovo passaggio**.
+## <a name="add-text-analytics-sentiment-detection"></a>Aggiungere il Analisi del testo del sentiment
 
-    ![Definire il testo da analizzare](media/functions-twitter-email/13-analyze-tweet-text.png)
+1. Selezionare **Nuovo passaggio**.
 
-Dopo aver configurato il rilevamento dei sentiment, è possibile aggiungere una connessione alla funzione che utilizza l'output del punteggio dei sentiment.
+1. Cercare **Analisi del testo** nella casella di ricerca.
 
-## <a name="connect-sentiment-output-to-your-function"></a>Connettere l'output dei sentiment alla funzione
+1. Selezionare **l Analisi del testo** icona a forma di freccia.
 
-1. In Progettazione app per la logica fare clic su **Nuovo passaggio** > **Aggiungi un'azione**, filtrare in base a **Funzioni di Azure** e fare clic su **Scegliere una funzione di Azure**.
+1. Selezionare **Rileva sentiment** e immettere i valori seguenti.
 
-    ![Rileva sentiment](media/functions-twitter-email/14-azure-functions.png)
-  
-4. Selezionare l'app per le funzioni creata in precedenza.
+    | Impostazione | Valore |
+    | ------- | ----- |
+    | Nome connessione | **TextAnalyticsConnection** |
+    | Chiave account | Incollare la chiave Analisi del testo'account di archiviazione impostata in precedenza. |
+    | Site URL | Incollare l'endpoint Analisi del testo impostato in precedenza. |
 
-    ![Screenshot che mostra una sezione "Scegli un'azione" con un'app per le funzioni selezionata.](media/functions-twitter-email/15-select-function.png)
+1. Selezionare **Crea**.
 
-5. Selezionare la funzione creata per questa esercitazione.
+1. Fare clic _all'interno della_ casella Aggiungi nuovo parametro e selezionare la casella **accanto** ai documenti visualizzati nel popup.
 
-    ![Selezionare la funzione](media/functions-twitter-email/16-select-function.png)
+1. Fare clic _all'interno della casella di testo documents ID - 1 (ID - 1)_ per aprire il popup del contenuto dinamico.
 
-4. In **Corpo della richiesta** fare clic su **Punteggio** e quindi su **Salva**.
+1. Nella casella _di ricerca del contenuto_ dinamico cercare **id** e fare clic su **TWEET ID**.
 
-    ![Punteggio](media/functions-twitter-email/17-function-input-score.png)
+1. Fare clic all'interno della casella di testo Text - 1 (Testo _- 1)_ per aprire il popup del contenuto dinamico.
 
-A questo punto, la funzione viene attivata quando l'app per la logica invia un punteggio di sentiment. La funzione restituisce quindi una categoria colore all'app per la logica. Aggiungere quindi l'invio di una notifica di posta elettronica quando la funzione restituisce un valore di sentiment **RED**. 
+1. Nella casella _di ricerca del contenuto_ dinamico cercare testo e fare clic su Testo **tweet**. 
+
+1. In **Scegliere un'azione** digitare **Analisi del testo** e quindi scegliere l'azione **Rileva sentiment**.
+
+1. Selezionare il **pulsante Salva** sulla barra degli strumenti per salvare lo stato di avanzamento.
+
+La _casella Rileva sentiment_ dovrebbe essere simile allo screenshot seguente.
+
+:::image type="content" source="media/functions-twitter-email/detect-sentiment.png" alt-text="Rilevare le impostazioni del sentiment":::
+
+## <a name="connect-sentiment-output-to-function-endpoint"></a>Connettere l'output del sentiment all'endpoint della funzione
+
+1. Selezionare **Nuovo passaggio**.
+
+1. Cercare **Funzioni di Azure** nella casella di ricerca.
+
+1. Selezionare **l'Funzioni di Azure** di testo.
+
+1. Cercare il nome della funzione nella casella di ricerca. Se sono stati seguiti i consigli precedenti, il nome della funzione inizia con **TweetSentimentAPI**.
+
+1. Selezionare l'icona della funzione.
+
+1. Selezionare **l'elemento TweetSentimentFunction.**
+
+1. Fare clic _all'interno della_ casella Corpo richiesta e selezionare l'elemento _Rileva_ punteggio **sentiment** dalla finestra popup.
+
+1. Selezionare il **pulsante Salva** sulla barra degli strumenti per salvare lo stato di avanzamento.
+
+## <a name="add-conditional-step"></a>Aggiungere un passaggio condizionale
+
+1. Selezionare il **pulsante Aggiungi un'azione.**
+
+1. Fare clic _all'interno_ della casella Controllo e cercare **e selezionare Controllo** nella finestra popup.
+
+1. Selezionare **Condizione**.
+
+1. Fare clic _all'interno della casella Scegliere_ un valore e selezionare _l'elemento TweetSentimentFunction_ **Body** (Corpo funzione TweetSentiment) nella finestra popup.
+
+1. Immettere **Positivo** nella _casella Scegliere un_ valore.
+
+1. Selezionare il **pulsante Salva** sulla barra degli strumenti per salvare lo stato di avanzamento.
 
 ## <a name="add-email-notifications"></a>Aggiungere le notifiche di posta elettronica
 
-L'ultima parte del flusso di lavoro consiste nell'attivare l'invio di un messaggio di posta elettronica quando il punteggio del sentiment è _RED_. Questo articolo usa un connettore Outlook.com. Per usare un connettore Gmail o Office 365 Outlook è possibile seguire una procedura simile.   
+1. Nella casella _True_ selezionare il pulsante **Aggiungi un'azione.**
 
-1. In Progettazione app per la logica fare clic su **Nuovo passaggio** > **Aggiungi una condizione**. 
+1. Cercare e selezionare **Office 365 Outlook** nella casella di testo.
 
-    ![Aggiungere una condizione all'app per la logica.](media/functions-twitter-email/18-add-condition.png)
+1. Cercare Invia **e** selezionare **Invia un messaggio di posta** elettronica nella casella di testo.
 
-2. Fare clic su **Scegliere un valore** e quindi su **Corpo**. Selezionare **è uguale a**, fare clic su **Scegliere un valore**, digitare `RED` e quindi fare clic su **Salva**. 
+1. Selezionare il **pulsante Accedi.**
 
-    ![Scegliere un'azione per la condizione.](media/functions-twitter-email/19-condition-settings.png)    
+1. Seguire le istruzioni nella finestra popup per completare l'accesso a Office 365 Outlook.
 
-3. In **È true** fare clic su **Aggiungi un'azione**, cercare `outlook.com`, fare clic su **Invia un messaggio di posta elettronica** e accedere all'account Outlook.com.
+1. Immettere l'indirizzo di posta elettronica nella _casella_ A.
 
-    ![Screenshot che mostra la sezione "È true" con il valore "outlook.com" immesso nella casella di ricerca e l'azione "Invia un messaggio di posta elettronica" selezionata.](media/functions-twitter-email/20-add-outlook.png)
+1. Fare clic _all'interno della_ casella Oggetto e fare clic **sull'elemento Corpo** in _TweetSentimentFunction_. Se _l'elemento_ Corpo non viene visualizzato nell'elenco, fare clic sul **collegamento Altre** informazioni per espandere l'elenco di opzioni.
 
-    > [!NOTE]
-    > Se non è disponibile un account Outlook.com, è possibile scegliere un altro connettore, ad esempio Gmail o Office 365 Outlook.
+1. Dopo _l'elemento_ Body (Corpo) in _Subject (Oggetto),_ immettere il **testo Tweet from:**.
 
-4. Nell'azione **Invia un messaggio di posta elettronica** usare le impostazioni di posta elettronica indicate nella tabella. 
+1. Dopo il _testo Tweet from:_ (Tweet da): fare di nuovo clic sulla casella e selezionare **User name** (Nome utente) nell'elenco di opzioni When a new tweet is posted (Quando viene pubblicato un nuovo _tweet)._
 
-    ![Configurare la posta elettronica per l'azione Invia un messaggio di posta elettronica.](media/functions-twitter-email/21-configure-email.png)
-    
-| Impostazione      |  Valore consigliato   | Descrizione  |
-| ----------------- | ------------ | ------------- |
-| **To** | Digitare l'indirizzo di posta elettronica | Indirizzo di posta elettronica che riceve la notifica. |
-| **Oggetto** | Rilevato sentiment di tweet negativo  | Riga dell'oggetto della notifica di posta elettronica.  |
-| **Corpo** | Testo tweet, Località | Fare clic sui parametri **Testo tweet** e **Località**. |
+1. Fare clic _all'interno della casella_ Corpo e selezionare Testo **tweet** nell'elenco di opzioni Quando viene pubblicato un _nuovo tweet._ Se _l'elemento di testo Tweet_ non è visualizzato nell'elenco, fare clic sul **collegamento** Altre informazioni per espandere l'elenco di opzioni.
 
-1. Fare clic su **Salva**.
+1. Selezionare il **pulsante Salva** sulla barra degli strumenti per salvare lo stato di avanzamento.
 
-Ora che il flusso di lavoro è completo, è possibile abilitare l'app per la logica e provarne il funzionamento.
+La casella di posta elettronica dovrebbe ora essere simile a questa schermata.
 
-## <a name="test-the-workflow"></a>Testare il flusso di lavoro
+:::image type="content" source="media/functions-twitter-email/email-notification.png" alt-text="Notifica di posta elettronica":::
 
-1. In Progettazione app per la logica fare clic su **Esegui** per avviare l'app.
+## <a name="run-the-workflow"></a>Eseguire il flusso di lavoro
 
-2. Nella colonna di sinistra fare clic su **Panoramica** per visualizzare lo stato dell'app per la logica. 
- 
-    ![Stato di esecuzione dell'app per la logica](media/functions-twitter-email/22-execution-history.png)
+1. Dall'account Twitter tingere il testo seguente: **I'm enjoying #my-twitter-tutorial**.
 
-3. (Facoltativo) Fare clic su una delle esecuzioni per visualizzarne i dettagli.
+1. Tornare a Progettazione app per la logica e selezionare il **pulsante** Esegui.
 
-4. Passare alla funzione, visualizzare i log e verificare che i valori dei sentiment siano stati ricevuti ed elaborati.
- 
-    ![Visualizzare i log della funzione](media/functions-twitter-email/sent.png)
+1. Controllare la posta elettronica per un messaggio dal flusso di lavoro.
 
-5. Quando viene rilevato un sentiment potenzialmente negativo, si riceve un messaggio di posta elettronica. Se non è stato ricevuto un messaggio di posta elettronica, è possibile modificare il codice della funzione per restituisca RED ogni volta:
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-    ```csharp
-    return (ActionResult)new OkObjectResult("RED");
-    ```
+Per pulire tutti i servizi e gli account di Azure creati durante questa esercitazione, eliminare il gruppo di risorse.
 
-    Dopo aver verificato le notifiche di posta elettronica, ripristinare il codice originale:
+1. Cercare Gruppi **di risorse** nella casella di ricerca in alto.
 
-    ```csharp
-    return requestBody != null
-        ? (ActionResult)new OkObjectResult(category)
-        : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
-    ```
+1. Selezionare **tweet-sentiment-tutorial.**
 
-    > [!IMPORTANT]
-    > Al termine di questa esercitazione è consigliabile disabilitare l'app per la logica. In questo modo è possibile evitare di incorrere in addebiti per le esecuzioni e di esaurire le transazioni nell'API Servizi cognitivi.
+1. Selezionare **Elimina gruppo di risorse**
 
-È stato così illustrato come sia facile integrare Funzioni in un flusso di lavoro di App per la logica.
+1. Immettere **tweet-sentiment-tutorial** nella casella di testo.
 
-## <a name="disable-the-logic-app"></a>Disabilitare l'app per la logica
+1. Selezionare il pulsante **Elimina**.
 
-Per disabilitare l'app per la logica, fare clic su **Panoramica** e quindi scegliere **Disabilita** nella parte superiore della schermata. La disabilitazione dell'app ne arresta l'esecuzione e permette di evitare addebiti senza doverla necessariamente eliminare.
-
-![Log della funzione](media/functions-twitter-email/disable-logic-app.png)
+Facoltativamente, è possibile tornare all'account Twitter ed eliminare eventuali tweet di test dal feed.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per:
-
-> [!div class="checklist"]
-> * Creare una risorsa API per Servizi cognitivi.
-> * Creare una funzione che classifica i sentiment nei tweet.
-> * Creare un'app per la logica che si connette a Twitter.
-> * Aggiungere il rilevamento dei sentiment all'app per la logica. 
-> * Connettere l'app per la logica alla funzione.
-> * Inviare un messaggio di posta elettronica in base alla risposta dalla funzione.
-
-Passare all'esercitazione successiva per imparare a creare un'API senza server per la funzione.
-
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Creare un'API senza server mediante Funzioni di Azure](functions-create-serverless-api.md)
-
-Per altre informazioni sulle app per la logica, vedere [App per la logica di Azure](../logic-apps/logic-apps-overview.md).

@@ -1,7 +1,7 @@
 ---
 title: Supporto per la lingua - API Analisi del testo
 titleSuffix: Azure Cognitive Services
-description: Ecco un elenco di linguaggi naturali supportati dall'API Analisi del testo. Questo articolo illustra le lingue supportate per ogni operazione.
+description: Ecco un elenco di linguaggi naturali supportati dall'API Analisi del testo. Questo articolo illustra i linguaggi supportati per ogni operazione.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,21 +10,22 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: aahi
-ms.openlocfilehash: 9e257209060396fbf45a4a24c38bc6950acb5168
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: c0d91f803822e018f4363bb78d9138e2efe16f8a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387027"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531430"
 ---
-# <a name="text-analytics-api-v3-language-support"></a>Supporto del linguaggio API Analisi del testo V3 
+# <a name="text-analytics-api-v3-language-support"></a>Analisi del testo della lingua dell'API v3 
 
 #### <a name="sentiment-analysis"></a>[Analisi del sentiment](#tab/sentiment-analysis)
 
-| Linguaggio              | Codice lingua | supporto V3 | Avvio della versione del modello V3: |              Note |
+| Linguaggio              | Codice lingua | Supporto v3 | Versione del modello v3 iniziale: |              Note |
 |:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
 | Cinese semplificato    |   `zh-hans`   |     ✓      |         2019-10-01         | Accettato anche `zh` |
 | Cinese tradizionale   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
+| Olandese                 |     `nl`      |     ✓      |         2019-10-01        |                    |
 | Inglese               |     `en`      |     ✓      |         2019-10-01         |                    |
 | Francese                |     `fr`      |     ✓      |         2019-10-01         |                    |
 | Tedesco                |     `de`      |     ✓      |         2019-10-01         |                    |
@@ -38,19 +39,19 @@ ms.locfileid: "106387027"
 | Spagnolo               |     `es`      |     ✓      |         2019-10-01         |                    |
 | Turco               |     `tr`      |     ✓       |         2020-07-01        |                    |
 
-### <a name="opinion-mining-v31-preview-only"></a>Opinion Mining (versione 3.1-solo anteprima)
+### <a name="opinion-mining-v31-preview-only"></a>Opinion mining (solo v3.1-preview)
 
-| Linguaggio              | Codice lingua | A partire dalla versione del modello V3: |              Note |
+| Linguaggio              | Codice lingua | A partire dalla versione del modello v3: |              Note |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Inglese               |     `en`      |              2020-04-01              |                    |
 
 
-#### <a name="named-entity-recognition-ner"></a>[Riconoscimento di entità denominate (NER)](#tab/named-entity-recognition)
+#### <a name="named-entity-recognition-ner"></a>[Riconoscimento entità denominata (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> * Vengono restituite solo le entità "person", "location" e "Organization" per le lingue contrassegnate con *.
+> * Vengono restituite solo le entità "Person", "Location" e "Organization" per le lingue contrassegnate con *.
 
-| Linguaggio               | Codice lingua | supporto V3 | A partire dalla versione del modello V3: |       Note        |
+| Linguaggio               | Codice lingua | Supporto v3 | A partire dalla versione del modello v3: |       Note        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Arabo                 |     `ar`      |      ✓*    |               2019-10-01        |                    |
 | Cinese semplificato     |   `zh-hans`   |     ✓      |               2021-01-15        | Accettato anche `zh` |
@@ -78,7 +79,7 @@ ms.locfileid: "106387027"
 
 #### <a name="key-phrase-extraction"></a>[Estrazione delle frasi chiave](#tab/key-phrase-extraction)
 
-| Linguaggio              | Codice lingua |  supporto V3 | Disponibile a partire dalla versione del modello V3: |       Note        |
+| Linguaggio              | Codice lingua |  Supporto v3 | Disponibile a partire dalla versione del modello v3: |       Note        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
 | Danese                |     `da`      |     ✓     |                2019-10-01                 |                    |
 | Olandese                 |     `nl`      |     ✓      |                2019-10-01                 |                    |
@@ -99,14 +100,14 @@ ms.locfileid: "106387027"
 
 #### <a name="entity-linking"></a>[Collegamento di entità](#tab/entity-linking)
 
-| Linguaggio | Codice lingua |  supporto V3 | Disponibile a partire dalla versione del modello V3: | Note |
+| Linguaggio | Codice lingua |  Supporto v3 | Disponibile a partire dalla versione del modello v3: | Note |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | Inglese  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Spagnolo  |     `es`      |    ✓      |                2019-10-01                 |       |
 
 #### <a name="personally-identifiable-information-pii"></a>[Informazioni personali](#tab/pii)
 
-| Linguaggio               | Codice lingua | supporto V3 | A partire dalla versione del modello V3: |       Note        |
+| Linguaggio               | Codice lingua | Supporto v3 | A partire dalla versione del modello v3: |       Note        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Cinese semplificato     |   `zh-hans`   |     ✓      |               2021-01-15        | Accettato anche `zh` |
 | Inglese                |     `en`      |     ✓      |               2020-07-01        |                    |
@@ -121,11 +122,11 @@ ms.locfileid: "106387027"
 
 #### <a name="language-detection"></a>[Rilevamento lingua](#tab/language-detection)
 
-Il API Analisi del testo è in grado di rilevare un'ampia gamma di linguaggi, varianti, dialetti e lingue regionali/culturali e di restituire le lingue rilevate con il nome e il codice. Analisi del testo Rilevamento lingua parametri del codice lingua sono conformi allo standard [BCP-47](https://tools.ietf.org/html/bcp47) con la maggior parte di essi conformi agli identificatori [ISO-639-1](https://www.iso.org/iso-639-language-codes.html) . 
+L Analisi del testo API può rilevare un'ampia gamma di lingue, varianti, dialetti e alcune lingue regionali/culturali e restituire le lingue rilevate con il nome e il codice. Analisi del testo Rilevamento lingua i parametri del codice del linguaggio sono conformi allo standard [BCP-47,](https://tools.ietf.org/html/bcp47) la maggior parte dei quali è conforme agli identificatori [ISO-639-1.](https://www.iso.org/iso-639-language-codes.html) 
 
 Se si ha contenuto espresso in un lingua usata con minore frequenza, si può provare Rilevamento lingua per vedere se viene restituito un codice. La risposta per le lingue che non è possibile rilevare è `unknown`.
 
-| Linguaggio | Codice lingua | supporto V3 | Disponibile a partire dalla versione del modello V3: |
+| Linguaggio | Codice lingua | Supporto v3 | Disponibile a partire dalla versione del modello v3: |
 |:-|:-:|:-:|:-:|
 |Afrikaans|`af`|✓|    |
 |Albanese|`sq`|✓|    |
@@ -141,7 +142,7 @@ Se si ha contenuto espresso in un lingua usata con minore frequenza, si può pro
 |Bulgaro|`bg`|✓|    |
 |Birmano|`my`|✓|    |
 |Catalano|`ca`|✓|    |
-|Khmer centrale|`km`|✓|    |
+|Central Khmer|`km`|✓|    |
 |Cinese|`zh`|✓|    |
 |Cinese semplificato|`zh_chs`|✓|    |
 |Cinese tradizionale|`zh_cht`|✓|    |
@@ -240,4 +241,4 @@ Se si ha contenuto espresso in un lingua usata con minore frequenza, si può pro
 
 ## <a name="see-also"></a>Vedi anche
 
-* [Qual è la API Analisi del testo?](overview.md)   
+* [Che cos'è Analisi del testo API?](overview.md)   

@@ -299,7 +299,7 @@
               href: storage-blob-copy.md
             - name: Usare tag indice BLOB
               href: storage-blob-index-how-to.md
-            - name: Calcolare il numero e le dimensioni totali dei BLOB
+            - name: Calcolare il numero di BLOB e le dimensioni totali
               href: calculate-blob-count-size.md
         - name: Autorizzare l'accesso ai dati BLOB
           items:
@@ -415,9 +415,9 @@
               href: versioning-enable.md
             - name: Abilitare e gestire l'eliminazione temporanea per i BLOB
               items:
-                - name: Abilitare l'eliminazione blob
+                - name: Abilitare l'eliminazione blob in modalità soft
                   href: soft-delete-blob-enable.md
-                - name: Gestire e ripristinare i BLOB eliminati automaticamente
+                - name: Gestire e ripristinare BLOB eliminati in modo soft
                   href: soft-delete-blob-manage.md
             - name: Abilitare il ripristino temporizzato
               href: point-in-time-restore-manage.md
@@ -427,7 +427,7 @@
               href: storage-blob-change-feed-how-to.md
             - name: Configurare e gestire criteri di immutabilità
               href: storage-blob-immutability-policies-manage.md
-        - name: Gestire ridondanza e failover
+        - name: Gestire la ridondanza e il failover
           items:
             - name: Modificare la configurazione della ridondanza
               href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -579,6 +579,8 @@
               href: 'https://azure.microsoft.com/features/storage-explorer/'
             - name: Introduzione a Storage Explorer
               href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Accedere a Storage Explorer
+              href: ../common/storage-explorer-sign-in.md
             - name: Note sulla versione di Storage Explorer
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Risolvere i problemi di Storage Explorer

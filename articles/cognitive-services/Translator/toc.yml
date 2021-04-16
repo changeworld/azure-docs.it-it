@@ -5,7 +5,7 @@
   items:
     - name: Supporto delle lingue
       href: language-support.md
-    - name: Prezzi e limiti
+    - name: Prezzi
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator'
 - name: Traduzione testuale
   expanded: true
@@ -18,7 +18,7 @@
       href: quickstart-translator.md
     - name: Esempi
       items:
-        - name: Pagina di esempio di codice
+        - name: Pagina Di esempio di codice
           href: /samples/browse/?terms=microsoft%20translator
         - name: C#
           href: /samples/microsofttranslator/text-translation-api-v3-c-sharp/translator-c-sharp-v3/
@@ -134,7 +134,7 @@
           href: custom-translator/training-and-model.md
         - name: Punteggio BLEU
           href: custom-translator/what-is-bleu-score.md
-- name: Traduzione documenti
+- name: Traduzione di documenti
   items:
     - name: Che cos'è la traduzione di documenti?
       href: document-translation/overview.md
@@ -142,34 +142,44 @@
       href: document-translation/get-started-with-document-translation.md
     - name: Guide pratiche
       items:
-        - name: Creare token SAS per la traduzione dei documenti
+        - name: Creare token di firma di accesso condiviso per la traduzione di documenti
           href: document-translation/create-sas-tokens.md
     - name: Riferimento
       items:
-        - name: Ottenere i formati di documento
+        - name: Ottenere i formati dei documenti
           href: document-translation/reference/get-document-formats.md
-        - name: Ottieni formati Glossario
+        - name: Ottenere i formati di glossario
           href: document-translation/reference/get-glossary-formats.md
-        - name: Ottieni origine archiviazione documenti
+        - name: Ottenere l'origine di archiviazione documenti
           href: document-translation/reference/get-document-storage-source.md
-        - name: Invia richiesta batch
+        - name: Inviare una richiesta batch
           href: document-translation/reference/submit-batch-request.md
-        - name: Ottenere lo stato del documento operazione
+        - name: Ottenere lo stato dei documenti delle operazioni
           href: document-translation/reference/get-operation-documents-status.md
-        - name: Ottenere lo stato di documenti
+        - name: Ottenere lo stato dei documenti
           href: document-translation/reference/get-document-status.md
         - name: Operazioni Get
           href: document-translation/reference/get-operations.md
         - name: Annulla operazione
           href: document-translation/reference/cancel-operation.md
+- name: Guide pratiche
+  items:
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Configurare le reti virtuali
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/translator/context/context
+        - name: Usare chiavi gestite dal cliente
+          href: encrypt-data-at-rest.md
 - name: Risorse
   items:
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Supporto di area
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformità e certificazione
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
-    - name: Conformità
-      href: 'https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy'
-    - name: Crittografia
-      href: encrypt-data-at-rest.md
     - name: Esempi di codice in GitHub
       href: 'https://aka.ms/TranslatorGitHub'
     - name: Privacy e cookie

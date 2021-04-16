@@ -13,12 +13,12 @@ ms.date: 12/01/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 1f6fd0160988802e198ff9388cfeb3232b34b100
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac02638dfdef4867e93e277175df82be18be66a7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96861120"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530097"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
 
@@ -70,9 +70,9 @@ Come gli oggetti applicazione, anche gli oggetti entità servizio possono essere
 
 * Quando gli utenti accedono a un'applicazione di terze parti integrata con Azure AD
   * Durante la procedura di accesso, agli utenti viene chiesto di concedere all'applicazione l'autorizzazione ad accedere al proprio profilo e altri tipi di autorizzazioni. Quando viene dato il primo consenso da un utente, l'entità servizio che rappresenta l'applicazione viene aggiunta alla directory.
-* Quando l'utente accede a Microsoft Servizi online come [Microsoft 365](https://products.office.com/)
-  * Quando si sottoscrive Microsoft 365 o si avvia una versione di valutazione, vengono create una o più entità servizio nella directory che rappresenta i vari servizi usati per fornire tutte le funzionalità associate ai Microsoft 365.
-  * Alcuni servizi Microsoft 365 come SharePoint creano entità servizio in modo continuo per consentire una comunicazione sicura tra i componenti, inclusi i flussi di lavoro.
+* Quando gli utenti a Servizi online a Microsoft [Microsoft 365](https://products.office.com/)
+  * Quando si esegue la sottoscrizione Microsoft 365 o si avvia una versione di valutazione, vengono create una o più entità servizio nella directory che rappresenta i vari servizi usati per distribuire tutte le funzionalità associate a Microsoft 365.
+  * Alcuni Microsoft 365 come SharePoint creano entità servizio su base continuativa per consentire comunicazioni sicure tra i componenti, inclusi i flussi di lavoro.
 * Quando un amministratore aggiunge un'applicazione dalla raccolta di app (in questo caso viene creato anche un oggetto app sottostante)
 * Aggiungere un'applicazione per l'uso di [Azure AD Application Proxy](../manage-apps/application-proxy.md)
 * Connettere un'applicazione per l'accesso Single Sign-On tramite SAML o l'accesso SSO basato su password
@@ -103,9 +103,9 @@ Le applicazioni aggiunte dall'utente (indicate come **app dell'utente** al centr
 * Non tutte le informazioni riportate sopra sono al momento esposte a livello di codice. Le funzionalità seguenti sono disponibili solo nell'interfaccia utente:
   * Regole di trasformazione delle attestazioni
   * Mapping degli attributi (provisioning utenti)
-* Per informazioni più dettagliate sull'entità servizio e sugli oggetti applicazione, vedere la documentazione di riferimento per l'API Microsoft Graph:
+* Per informazioni più dettagliate sull'entità servizio e sugli oggetti applicazione, vedere la documentazione di riferimento Microsoft Graph API:
   * [Applicazione](/graph/api/resources/application)
-  * [Entità servizio](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Entità servizio](/graph/api/resources/serviceprincipal)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Perché le applicazioni vengono integrate con Azure AD?
 
@@ -118,7 +118,7 @@ Le applicazioni vengono aggiunte ad Azure AD per sfruttare uno o più dei serviz
 * Controllo degli accessi in base al ruolo. È possibile usare la directory per definire i ruoli dell'applicazione per eseguire i controlli di autorizzazione in base al ruolo in un'applicazione.
 * Servizi di autorizzazione OAuth: usati da Microsoft 365 e altre applicazioni Microsoft per autorizzare l'accesso ad API/risorse
 * Proxy e pubblicazione dell'applicazione. È possibile pubblicare un'applicazione in Internet da una rete privata.
-* Attributi estensione dello schema di directory: [estendere lo schema degli oggetti entità servizio e utente](active-directory-schema-extensions.md) per archiviare dati aggiuntivi in Azure ad 
+* Attributi dell'estensione dello schema di directory: [estendere lo schema degli oggetti entità](active-directory-schema-extensions.md) servizio e utente per archiviare dati aggiuntivi in Azure AD 
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Chi è autorizzato ad aggiungere applicazioni alla mia istanza di Azure AD?
 

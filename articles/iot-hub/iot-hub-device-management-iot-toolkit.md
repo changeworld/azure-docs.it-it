@@ -1,5 +1,5 @@
 ---
-title: Gestione dei dispositivi Azure Internet con gli strumenti di Azure per VSCode
+title: Azure IoT gestione dei dispositivi con Azure IoT Tools per VSCode
 description: Usare Azure IoT Tools per Visual Studio Code per la gestione dei dispositivi dell'hub IoT di Azure, con opzioni di gestione come i metodi diretti e le proprietà desiderate in dispositivi gemelli.
 author: formulahendry
 ms.service: iot-hub
@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b48def283ea27fdd0eaa3230a2eb9a8327461ff1
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81688088"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567014"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Usare Azure IoT Tools per Visual Studio Code per la gestione dei dispositivi dell'hub IoT di Azure
 
 ![Diagramma end-to-end](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) è un'utile estensione di Visual Studio Code che semplifica la gestione dell'hub IoT e lo sviluppo di applicazioni IoT. Include opzioni di gestione che consentono di eseguire varie attività.
+In questo articolo si apprenderà come usare Azure IoT Tools per Visual Studio Code con varie opzioni di gestione nel computer di sviluppo. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) è un'utile estensione di Visual Studio Code che semplifica la gestione dell'hub IoT e lo sviluppo di applicazioni IoT. Include opzioni di gestione che consentono di eseguire varie attività.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -35,20 +35,12 @@ I dispositivi gemelli sono documenti JSON nei quali vengono archiviate informazi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="what-you-learn"></a>Contenuto dell'esercitazione
-
-Si apprende l'uso di Azure IoT Tools per Visual Studio Code con varie opzioni di gestione nel proprio computer di sviluppo.
-
-## <a name="what-you-do"></a>Operazioni da fare
-
-Eseguire Azure IoT Tools per Visual Studio Code con varie opzioni di gestione.
-
-## <a name="what-you-need"></a>Elementi necessari
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure attiva.
 * Un hub IoT di Azure nella sottoscrizione.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Strumenti di Azure per la vs code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o copiare questo URL e incollarlo in una finestra del browser: `vscode:extension/vsciot-vscode.azure-iot-tools` .
+* [Azure IoT Tools per VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) copiare l'URL e incollarlo in una finestra del browser: `vscode:extension/vsciot-vscode.azure-iot-tools` .
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Eseguire l'accesso all'hub IoT
 
@@ -63,7 +55,7 @@ Eseguire Azure IoT Tools per Visual Studio Code con varie opzioni di gestione.
 5. Verrà visualizzato in pochi secondi l'elenco dei dispositivi nella scheda **Dispositivi di Azure IoT hub di Azure**.
 
    > [!Note]
-   > È anche possibile completare la configurazione scegliendo **Set IoT Hub Connection String** (Configura la stringa di connessione dell'hub IoT). Immettere la stringa di connessione del criterio **iothubowner** per l'hub delle cose a cui si connette il dispositivo Internet nella finestra popup.
+   > È anche possibile completare la configurazione scegliendo **Set IoT Hub Connection String** (Configura la stringa di connessione dell'hub IoT). Immettere la stringa di connessione dei criteri **iothubowner** per l'hub IoT a cui si connette il dispositivo IoT nella finestra popup.
 
 ## <a name="direct-methods"></a>Metodi diretti
 
@@ -71,7 +63,7 @@ Eseguire Azure IoT Tools per Visual Studio Code con varie opzioni di gestione.
 
 2. Immettere il nome e il payload del metodo nella casella di input.
 
-3. I risultati verranno visualizzati nella vista **output**  >  **Hub Azure** .
+3. I risultati verranno visualizzati in **OUTPUT**  >  **hub IoT di Azure** visualizzazione.
 
 ## <a name="read-device-twin"></a>Lettura dispositivo gemello
 
@@ -95,7 +87,7 @@ Per inviare un messaggio dall'hub IoT al dispositivo, seguire questi passaggi:
 
 2. Immettere il messaggio nella casella di input.
 
-3. I risultati verranno visualizzati nella vista **output**  >  **Hub Azure** .
+3. I risultati verranno visualizzati in **OUTPUT**  >  **hub IoT di Azure** visualizzazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

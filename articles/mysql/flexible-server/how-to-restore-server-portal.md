@@ -1,83 +1,87 @@
 ---
-title: Restore-portale di Azure-database di Azure per MySQL-server flessibile
-description: Questo articolo descrive come eseguire operazioni di ripristino nel database di Azure per MySQL tramite il portale di Azure.
+title: Ripristinare un server flessibile di Database di Azure per MySQL con portale di Azure.
+description: Questo articolo descrive come eseguire operazioni di ripristino nel server flessibile di Database di Azure per MySQL tramite portale di Azure
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
-ms.date: 09/21/2020
-ms.openlocfilehash: 062d53fcb122ebacd004d7dca5e11f5a883354cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/01/2021
+ms.openlocfilehash: 962a2cbdbcc238517616c9ade235eed9b8cae6f7
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93241957"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502046"
 ---
-# <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Ripristino temporizzato di un database di Azure per MySQL-server flessibile (anteprima)
+# <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Ripristino temporato di un database di Azure per MySQL - Server flessibile (anteprima) usando portale di Azure
 
 
 > [!IMPORTANT]
 > Il server flessibile di Database di Azure per MySQL è attualmente disponibile in anteprima pubblica.
 
-In questo articolo viene fornita una procedura dettagliata per eseguire i recuperi temporizzati in server flessibili tramite backup.
+Questo articolo illustra la procedura dettagliata per eseguire ripresi tempormente nel server flessibile usando i backup.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida, è necessario:
 
--   È necessario disporre di un server flessibile per database di Azure per MySQL.
+-   È necessario disporre di un server flessibile di Database di Azure per MySQL.
 
-## <a name="restore-to-the-latest-restore-point"></a>Ripristina fino al punto di ripristino più recente
+## <a name="restore-to-the-latest-restore-point"></a>Ripristinare il punto di ripristino più recente
 
-Attenersi alla procedura seguente per ripristinare il server flessibile utilizzando un backup esistente più recente.
+Seguire questa procedura per ripristinare il server flessibile usando un backup esistente meno recente.
 
-1.  Nella [portale di Azure](https://portal.azure.com/)scegliere il server flessibile da cui si desidera ripristinare il backup.
+1.  Nel [portale di Azure](https://portal.azure.com/)scegliere il server flessibile da cui si vuole ripristinare il backup.
 
-2.  Fare clic su **Panoramica** nel pannello di sinistra.
+2.  Fare **clic su Panoramica** nel pannello sinistro.
 
-3.  Nella pagina Panoramica fare clic su **Ripristina**.
+3.  Nella pagina di panoramica fare clic su **Ripristina**.
 
-    Segnaposto
+4.  Verrà visualizzata la pagina Di ripristino con un'opzione per scegliere tra **Punto di ripristino più recente** e Punto di ripristino personalizzato.
 
-4.  Verrà visualizzata la pagina Ripristina con un'opzione che consente di scegliere tra il **punto di ripristino più recente** e il punto di ripristino personalizzato.
+5.  Selezionare **Punto di ripristino più recente**.
 
-5.  Selezionare il **punto di ripristino più recente**.
+6.  Specificare un nuovo nome di server nel **campo Ripristina nel nuovo server.**
 
-
-6.  Consente di specificare un nuovo nome del server nel campo **Ripristina nel nuovo server** .
-
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-latest.png" alt-text="Tempo di ripristino più recente":::
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-latest.png" alt-text="Ora di ripristino meno recente":::
 
 8.  Fare clic su **OK**.
 
-9.  Verrà visualizzata una notifica che l'operazione di ripristino è stata avviata.
+9.  Verrà visualizzata una notifica che indica che l'operazione di ripristino è stata avviata.
 
-## <a name="restoring-to-a-custom-restore-point"></a>Ripristino a un punto di ripristino personalizzato
+## <a name="restoring-to-a-custom-restore-point"></a>Ripristino in un punto di ripristino personalizzato
 
-Attenersi alla procedura seguente per ripristinare il server flessibile utilizzando un backup esistente più recente.
+Seguire questa procedura per ripristinare il server flessibile usando un backup esistente meno recente.
 
-1.  Nella [portale di Azure](https://portal.azure.com/)scegliere il server flessibile da cui si desidera ripristinare il backup.
+1.  Nel [portale di Azure](https://portal.azure.com/)scegliere il server flessibile da cui si vuole ripristinare il backup.
 
-2.  Nella pagina Panoramica fare clic su **Ripristina**.
+2.  Nella pagina di panoramica fare clic su **Ripristina**.
 
-    Segnaposto
+3.  Verrà visualizzata la pagina Di ripristino con un'opzione per scegliere tra Punto di ripristino meno recente e Punto di ripristino personalizzato.
 
-3.  Verrà visualizzata la pagina Ripristina con un'opzione che consente di scegliere tra il primo punto di ripristino e il punto di ripristino personalizzato.
-
-4.  Scegliere **punto di ripristino personalizzato**.
+4.  Scegliere **Punto di ripristino personalizzato.**
 
 5.  Selezionare data e ora.
 
-6.  Consente di specificare un nuovo nome del server nel campo **Ripristina nel nuovo server** .
+6.  Specificare un nuovo nome di server nel **campo Ripristina nel nuovo server.**
 
-6.  Consente di specificare un nuovo nome del server nel campo **Ripristina nel nuovo server** . 
-   
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="Visualizza panoramica":::
- 
+6.  Specificare un nuovo nome di server nel **campo Ripristina nel nuovo server.**
+
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="panoramica della visualizzazione":::
+
 7.  Fare clic su **OK**.
 
-8.  Verrà visualizzata una notifica che l'operazione di ripristino è stata avviata.
+8.  Verrà visualizzata una notifica che indica che l'operazione di ripristino è stata avviata.
+
+
+## <a name="perform-post-restore-tasks"></a>Eseguire le attività post-ripristino
+Al termine del ripristino, è necessario eseguire le attività seguenti per eseguire il backup e l'esecuzione di utenti e applicazioni:
+
+- Se il nuovo server deve sostituire il server originale, reindirizzare i client e le applicazioni client al nuovo server.
+- Assicurarsi che siano presenti regole di rete virtuale appropriate per la connessione degli utenti. Queste regole non vengono copiate dal server originale.
+- Assicurarsi che siano disponibili gli account di accesso e le autorizzazioni a livello di database appropriati.
+- Configurare gli avvisi in base alle esigenze per il nuovo server di ripristino.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Segnaposto
+Altre informazioni sulla [continuità aziendale](concepts-business-continuity.md)

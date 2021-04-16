@@ -1,16 +1,16 @@
 ---
 title: Creare cluster in Windows Server e Linux
-description: I cluster Service Fabric vengono eseguiti in Windows Server e Linux. È possibile distribuire e ospitare Service Fabric applicazioni ovunque sia possibile eseguire Windows Server o Linux.
+description: Service Fabric cluster vengono eseguiti in Windows Server e Linux. È possibile distribuire e ospitare Service Fabric applicazioni ovunque sia possibile eseguire Windows Server o Linux.
 services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4aed4ab38db9f8d8b95647b6662245c93778afed
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97882212"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520157"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Panoramica dei cluster di Service Fabric in Azure
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una VM che fa parte di un cluster è chiamato nodo del cluster. I cluster possono essere ridimensionati fino a migliaia di nodi. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancia le repliche e le istanze di partizione del servizio nel numero incrementato di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo.
@@ -46,9 +46,9 @@ I set di scalabilità possono essere usati per distribuire e gestire una raccolt
 Per altre informazioni, vedere [Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Le istanze di macchine virtuali vengono aggiunte dietro un servizio [Azure Load Balancer](../load-balancer/load-balancer-overview.md), che è associato a un [indirizzo IP pubblico](../virtual-network/public-ip-addresses.md) e a un'etichetta DNS.  Quando si esegue il provisioning di un cluster con *&lt; clustername &gt;*, il nome DNS, *&lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com* è l'etichetta DNS associata al servizio di bilanciamento del carico davanti al set di scalabilità.
+Le istanze di macchine virtuali vengono aggiunte dietro un servizio [Azure Load Balancer](../load-balancer/load-balancer-overview.md), che è associato a un [indirizzo IP pubblico](../virtual-network/public-ip-addresses.md) e a un'etichetta DNS.  Quando si effettua il provisioning di un cluster *&lt; con clustername &gt;*, il nome DNS, *&lt; clustername &gt; . &lt; location &gt; .cloudapp.azure.com* è l'etichetta DNS associata al servizio di bilanciamento del carico davanti al set di scalabilità.
 
-Le macchine virtuali in un cluster hanno solo [indirizzi IP privati](../virtual-network/private-ip-addresses.md).  Il traffico di gestione e il traffico dei servizi vengono instradati attraverso il servizio di bilanciamento del carico pubblico.  Il traffico di rete viene instradato a queste macchine tramite regole NAT (i client si connettono a specifici nodi/istanze) o regole di bilanciamento del carico (il traffico viene indirizzato alle macchine virtuali tramite round robin).  Un servizio di bilanciamento del carico ha un indirizzo IP pubblico associato con un nome DNS nel formato: *&lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com*.  Un IP pubblico è un'altra risorsa di Azure nel gruppo di risorse.  Se si definiscono più tipi di nodo in un cluster, viene creato un servizio di bilanciamento del carico per ogni tipo di nodo/set di scalabilità. In alternativa è possibile configurare un singolo servizio di bilanciamento del carico per più tipi di nodo.  Il tipo di nodo primario ha l'etichetta DNS *&lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com*, altri tipi di nodo hanno l'etichetta DNS *&lt; clustername &gt; - &lt; NodeType &gt; . &lt; location &gt; . cloudapp.Azure.com*.
+Le macchine virtuali in un cluster hanno solo [indirizzi IP privati](../virtual-network/private-ip-addresses.md).  Il traffico di gestione e il traffico dei servizi vengono instradati attraverso il servizio di bilanciamento del carico pubblico.  Il traffico di rete viene instradato a queste macchine tramite regole NAT (i client si connettono a specifici nodi/istanze) o regole di bilanciamento del carico (il traffico viene indirizzato alle macchine virtuali tramite round robin).  A un servizio di bilanciamento del carico è associato un indirizzo IP pubblico con un nome DNS nel formato: *&lt; clustername &gt; . &lt; percorso &gt; .cloudapp.azure.com*.  Un IP pubblico è un'altra risorsa di Azure nel gruppo di risorse.  Se si definiscono più tipi di nodo in un cluster, viene creato un servizio di bilanciamento del carico per ogni tipo di nodo/set di scalabilità. In alternativa è possibile configurare un singolo servizio di bilanciamento del carico per più tipi di nodo.  Il tipo di nodo primario ha l'etichetta DNS *&lt; clustername &gt; . &lt; location &gt; .cloudapp.azure.com*, gli altri tipi di nodo hanno l'etichetta DNS *&lt; clustername &gt; - &lt; nodetype &gt; . &lt; percorso &gt; .cloudapp.azure.com*.
 
 ### <a name="storage-accounts"></a>Account di archiviazione
 Ogni tipo di nodo del cluster è supportato da un [account di archiviazione di Azure](../storage/common/storage-introduction.md) e da dischi gestiti.
@@ -69,11 +69,11 @@ Oltre ai certificati client, è possibile configurare Azure Active Directory anc
 Per altre informazioni, vedere [Sicurezza da client a nodo](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
-Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di assegnare controlli di accesso con granularità fine alle risorse di Azure.  È possibile assegnare regole di accesso diverse a sottoscrizioni, gruppi di risorse e risorse.  Le regole di controllo degli accessi in base al ruolo di Azure vengono ereditate lungo la gerarchia delle risorse, a meno che non venga  È possibile assegnare qualsiasi utente o gruppo di utenti in AAD con regole RBAC di Azure in modo che gli utenti e i gruppi designati possano modificare il cluster.  Per altre informazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](../role-based-access-control/overview.md)
+Il controllo degli accessi in base al ruolo di Azure consente di assegnare controlli di accesso con granularità fine alle risorse di Azure.  È possibile assegnare regole di accesso diverse a sottoscrizioni, gruppi di risorse e risorse.  Le regole del controllo degli accessi in base al ruolo di Azure vengono ereditate lungo la gerarchia delle risorse, a meno che non vengano sostituite a un livello inferiore.  È possibile assegnare qualsiasi utente o gruppo di utenti in AAD con le regole di Controllo degli accessi in base al ruolo di Azure in modo che gli utenti e i gruppi designati possano modificare il cluster.  Per altre informazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](../role-based-access-control/overview.md)
 
 Service Fabric supporta anche il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per gruppi di utenti diversi. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster, sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.  
 
-Per altre informazioni, vedere [Service Fabric controllo degli accessi in base al ruolo](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
+Per altre informazioni, vedere Service Fabric [controllo degli accessi in base al ruolo.](service-fabric-cluster-security.md#service-fabric-role-based-access-control)
 
 ### <a name="network-security-groups"></a>Gruppi di sicurezza di rete 
 I gruppi di sicurezza di rete (NSG) controllano il traffico in ingresso e in uscita di una subnet, una macchina virtuale o una scheda di interfaccia di rete specifica.  Per impostazione predefinita, quando più macchine virtuali si trovano nella stessa rete virtuale, possono comunicare tra loro attraverso qualsiasi porta.  Se si vogliono limitare le comunicazioni tra le macchine virtuali, è possibile definire gruppi di sicurezza di rete per segmentare la rete o isolare le macchine virtuali l'una dall'altra.  Se un cluster contiene più tipi di nodo, è possibile applicare gruppi di sicurezza di rete alle subnet per impedire alle macchine virtuali che appartengono a tipi di nodo diversi di comunicare tra loro.  
@@ -92,25 +92,7 @@ Un cluster di Azure Service Fabric è una risorsa di proprietà dell'utente parz
 Per altre informazioni, vedere [Aggiornamento di un cluster di Azure Service Fabric](service-fabric-cluster-upgrade.md).
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
-È possibile creare cluster in macchine virtuali che eseguono questi sistemi operativi:
-
-| Sistema operativo | Versione Service Fabric supportata più recente | Ultima versione Service Fabric supportata |
-| --- | --- | --- | 
-| Windows Server 2019 | 6.4.654.9590 | N/D |
-| Windows Server 2016 | Tutte le versioni | N/D |
-| Windows Server 20H2 | 7.2.445.9590 | N/D |
-| Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
-| Windows Server 1803 | 6.4 | 7.2.445.9590 |
-| Windows Server 1709 | 6.0 | 7.2.445.9590 |
-| Windows Server 2012 | Tutte le versioni | N/D | 
-| Linux Ubuntu 16.04 | 6.0 | N/D |
-| Linux Ubuntu 18,04 | 7.1 | N/D |
-
-Per altre informazioni, vedere [versioni supportate del cluster in Azure](./service-fabric-versions.md#supported-operating-systems)
-
-> [!NOTE]
-> Se si decide di distribuire Service Fabric in Windows Server 1709, si noti che (1) non si tratta di una distribuzione LTSB (Long Term Servicing Branch) e quindi potrebbe essere necessario passare ad altre versioni in futuro, e (2) se la distribuzione include contenitori, i contenitori basati su Windows Server 2016 non funzionano in Windows Server 1709 e viceversa (sarà necessario ricompilarli per distribuirli).
->
+Per altre [informazioni, vedere Versioni](./service-fabric-versions.md) supportate in Azure
 
 
 ## <a name="next-steps"></a>Passaggi successivi
