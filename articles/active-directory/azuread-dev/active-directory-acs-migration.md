@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: d68cfb91445e2055cb3c3feb88bf925987ea9852
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf50db4c463f5161adcc88d69eb2ae8970526103
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687397"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515618"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Microsoft Azure
 
@@ -114,7 +114,7 @@ Di seguito è riportata la pianificazione della deprecazione dei componenti di C
 
 - **Novembre 2017**: l'esperienza di amministrazione di Azure AD nel portale di Azure classico [è stata ritirata](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). A questo punto, la gestione degli spazi dei nomi per Controllo di accesso sarà disponibile presso un nuovo URL dedicato: `https://manage.windowsazure.com?restoreClassic=true`. Utilizzare questo URl per visualizzare gli spazi dei nomi esistenti, abilitarli, disabilitarli ed eventualmente eliminarli.
 - **2 aprile 2018**: il portale di Azure classico è stato completamente ritirato. Pertanto, la gestione degli spazi dei nomi di Controllo di accesso non è più disponibile tramite un URL. A questo punto, è impossibile disabilitare o abilitare, eliminare o enumerare gli spazi dei nomi di Controllo di accesso. Il portale di gestione di Controllo di accesso, tuttavia, sarà completamente funzionante e disponibile all'indirizzo `https://<namespace>.accesscontrol.windows.net`. Tutti gli altri componenti di Controllo di accesso continuano a funzionare normalmente.
-- **7 novembre 2018**: tutti i componenti di Controllo di accesso vengono arrestati in modo permanente. Sono inclusi il portale di gestione di Controllo di accesso, il servizio di gestione, il servizio token di sicurezza e il motore di regole di trasformazione dei token. A questo punto, tutte le richieste inviate al controllo di accesso (che si trova in \<namespace\> . AccessControl.Windows.NET) hanno esito negativo. È necessario eseguire la migrazione di tutte le app e di tutti i servizi esistenti ad altre tecnologie molto prima di questa data.
+- **7 novembre 2018**: tutti i componenti di Controllo di accesso vengono arrestati in modo permanente. Sono inclusi il portale di gestione di Controllo di accesso, il servizio di gestione, il servizio token di sicurezza e il motore di regole di trasformazione dei token. A questo punto, tutte le richieste inviate al controllo di accesso (che si trova \<namespace\> in .accesscontrol.windows.net) hanno esito negativo. È necessario eseguire la migrazione di tutte le app e di tutti i servizi esistenti ad altre tecnologie molto prima di questa data.
 
 > [!NOTE]
 > Un criterio disabilita gli spazi dei nomi che non hanno richiesto un token per un periodo di tempo. A partire dall'inizio del mese di settembre 2018, questo periodo di tempo corrisponde attualmente a 14 giorni di inattività, ma verrà ridotto a 7 giorni di inattività nelle prossime settimane. Se ci sono spazi dei nomi Controllo di accesso attualmente disabilitati, è possibile [scaricare e installare ACS PowerShell](#download-and-install-acs-powershell) per riabilitare gli spazi dei nomi.
@@ -129,13 +129,13 @@ Ogni servizio cloud Microsoft che accetta token rilasciati da Controllo di acces
 
 | Servizio | Indicazioni |
 | ------- | -------- |
-| Bus di servizio di Azure | [Eseguire la migrazione a firme di accesso condiviso](../../service-bus-messaging/service-bus-migrate-acs-sas.md) |
-| Inoltro del bus di servizio di Azure | [Eseguire la migrazione a firme di accesso condiviso](../../azure-relay/relay-migrate-acs-sas.md) |
+| Bus di servizio di Azure | [Eseguire la migrazione alle firme di accesso condiviso](../../service-bus-messaging/service-bus-migrate-acs-sas.md) |
+| Inoltro del bus di servizio di Azure | [Eseguire la migrazione alle firme di accesso condiviso](../../azure-relay/relay-migrate-acs-sas.md) |
 | Cache gestita di Azure | [Eseguire la migrazione alla cache di Azure per Redis](../../azure-cache-for-redis/cache-faq.md) |
 | Azure DataMarket | [Eseguire la migrazione alle API Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/) |
 | Servizi BizTalk | [Eseguire la migrazione alla funzionalità app per la logica del servizio app di Azure](https://azure.microsoft.com/services/cognitive-services/) |
 | Servizi multimediali di Azure | [Eseguire la migrazione all'autenticazione di Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Backup di Azure | [Aggiornare l'agente di backup di Azure](../../backup/backup-azure-file-folder-backup-faq.md) |
+| Backup di Azure | [Aggiornare l'Backup di Azure di distribuzione](../../backup/backup-azure-file-folder-backup-faq.yml) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
@@ -146,12 +146,12 @@ Ogni servizio cloud Microsoft che accetta token rilasciati da Controllo di acces
 
 ### <a name="sharepoint-customers"></a>Clienti di SharePoint
 
-I clienti di SharePoint 2013, 2016 e SharePoint Online hanno un servizio ACS a lungo termine per scopi di autenticazione in scenari cloud, locali e ibridi. Il ritiro di ACS influirà su alcune funzionalità e su alcuni casi d'uso di SharePoint, ma non su altri. La tabella seguente include indicazioni di riepilogo sulla migrazione per alcune delle funzionalità di SharePoint più diffuse che sfruttano ACS:
+I clienti di SharePoint 2013, 2016 e SharePoint Online hanno usato a lungo ACS per scopi di autenticazione in scenari cloud, locali e ibridi. Il ritiro di ACS influirà su alcune funzionalità e su alcuni casi d'uso di SharePoint, ma non su altri. La tabella seguente include indicazioni di riepilogo sulla migrazione per alcune delle funzionalità di SharePoint più diffuse che sfruttano ACS:
 
 | Funzionalità | Indicazioni |
 | ------- | -------- |
-| Autenticazione degli utenti da Azure AD | In precedenza Azure AD non supportava i token SAML 1.1 richiesti da SharePoint per l'autenticazione e ACS veniva usato come intermediario per rendere SharePoint compatibile con i formati di token di Azure AD. A questo punto, è possibile [connettere SharePoint direttamente a Azure ad usando app Azure ad Gallery SharePoint nell'app locale](../saas-apps/sharepoint-on-premises-tutorial.md). |
-| [Autenticazione dell'app & autenticazione da server a server in SharePoint locale](/SharePoint/security-for-sharepoint-server/authentication-overview) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. | 
+| Autenticazione degli utenti da Azure AD | In precedenza Azure AD non supportava i token SAML 1.1 richiesti da SharePoint per l'autenticazione e ACS veniva usato come intermediario per rendere SharePoint compatibile con i formati di token di Azure AD. A questo punto, [è possibile connettere SharePoint direttamente Azure AD usando App Azure AD App SharePoint locale di SharePoint.](../saas-apps/sharepoint-on-premises-tutorial.md) |
+| [Autenticazione delle app &'autenticazione da server a server in SharePoint locale](/SharePoint/security-for-sharepoint-server/authentication-overview) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. | 
 | [Autorizzazione di attendibilità bassa per componenti aggiuntivi di SharePoint (ospitati da provider e da SharePoint)](/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. |
 | [Ricerca ibrida su cloud di SharePoint](/archive/blogs/spses/cloud-hybrid-search-service-application) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. |
 
@@ -261,13 +261,13 @@ La tabella seguente confronta le funzionalità di Controllo di accesso rilevanti
 | Caricare certificati per la firma di token personalizzati | Supportato | Chiavi di accesso personalizzate, non certificati, supportati tramite criteri personalizzati |
 | Personalizzare le attestazioni nei token |- Eseguire il pass-through delle attestazioni di input dai provider di identità<br />- Ottenere un token di accesso dal provider di identità come attestazione<br />- Rilasciare attestazioni di output in base ai valori delle attestazioni di input<br />- Rilasciare attestazioni di output con valori costanti |- È possibile eseguire il pass-through delle attestazioni dai provider di identità; alcune attestazioni richiedono criteri personalizzati<br />- Non è possibile ottenere un token di accesso dal provider di identità come attestazione<br />- È possibile rilasciare attestazioni di output in base ai valori delle attestazioni di input tramite criteri personalizzati<br />- È possibile rilasciare attestazioni di output con valori costanti tramite criteri personalizzati |
 | **Automazione** | | |
-| Automatizzare le attività di configurazione e gestione | Supportato tramite il servizio di gestione del Controllo di accesso |-Creazione di utenti consentiti tramite l'API Microsoft Graph<br />- Non è possibile creare tenant, applicazioni o criteri di B2C a livello di codice |
+| Automatizzare le attività di configurazione e gestione | Supportato tramite il servizio di gestione del Controllo di accesso |- Creazione di utenti consentiti tramite l'API Microsoft Graph<br />- Non è possibile creare tenant, applicazioni o criteri di B2C a livello di codice |
 
 Se si decide che Azure AD B2C è l'approccio ottimale per le applicazioni e i servizi in uso, iniziare dalle risorse seguenti:
 
 - [Documentazione di Azure AD B2C](../../active-directory-b2c/overview.md)
 - [Criteri personalizzati di Azure AD B2C](../../active-directory-b2c/custom-policy-overview.md)
-- [Prezzi di Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+- [Azure AD B2C prezzi](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Eseguire la migrazione a Ping Identity o Auth0
 
@@ -281,11 +281,11 @@ In alcuni casi, è possibile che Azure AD e Azure AD B2C non siano sufficienti a
 
 In questi casi, è necessario considerare la migrazione dell'applicazione web a un altro servizio di autenticazione cloud. Si consiglia di valutare le opzioni seguenti. Ciascuna delle opzioni seguenti offre funzionalità simili a Controllo di accesso:
 
-![Questa immagine mostra il logo di Auth0](./media/active-directory-acs-migration/rsz-auth0.png) 
+![Questa immagine mostra il logo Auth0](./media/active-directory-acs-migration/rsz-auth0.png) 
 
 [Auth0](https://auth0.com/acs) è un servizio di identità cloud flessibile che ha creato [linee guida alla migrazione di alto livello per clienti di Controllo di accesso](https://auth0.com/acs) e supporta quasi tutte le funzionalità di ACS.
 
-![Questa immagine mostra il logo di identità ping](./media/active-directory-acs-migration/rsz-ping.png)
+![Questa immagine mostra il logo Ping Identity](./media/active-directory-acs-migration/rsz-ping.png)
 
 [Ping Identity](https://www.pingidentity.com) offre due soluzioni simili ad ACS. PingOne è un servizio di identità cloud che supporta molte delle stesse funzionalità di ACS e PingFederate è un prodotto di identità locale simile che offre maggiore flessibilità. Fare riferimento alle linee guida di Ping sul ritiro di ACS per ulteriori informazioni sull'utilizzo di questi prodotti.
 
@@ -332,7 +332,7 @@ Azure AD può essere usato anche per l'autenticazione S2S tramite l'implementazi
 
 Per indicazioni sull'implementazione di scenari S2S, vedere le risorse seguenti:
 
-- Sezione da servizio a servizio della Guida per gli [sviluppatori di Azure ad](../develop/index.yml)
+- Sezione Da servizio a servizio della Guida per [Azure AD per sviluppatori](../develop/index.yml)
 - [Esempio di codice Daemon che usa credenziali client per password semplice](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Esempio di codice Daemon che usa credenziali client per il certificato](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
@@ -346,12 +346,12 @@ In alcuni casi, è possibile che le credenziali del client di Azure AD e l'imple
 
 In questi casi, è possibile valutare la migrazione dell'applicazione Web a un altro servizio di autenticazione cloud. Si consiglia di valutare le opzioni seguenti. Ciascuna delle opzioni seguenti offre funzionalità simili a Controllo di accesso:
 
-![Questa immagine mostra il logo di Auth0](./media/active-directory-acs-migration/rsz-auth0.png)
+![Questa immagine mostra il logo Auth0](./media/active-directory-acs-migration/rsz-auth0.png)
 
 [Auth0](https://auth0.com/acs) è un servizio di identità cloud flessibile che ha creato [linee guida alla migrazione di alto livello per clienti di Controllo di accesso](https://auth0.com/acs) e supporta quasi tutte le funzionalità di ACS.
 
-![Questa immagine mostra l'identità ping logo ](./media/active-directory-acs-migration/rsz-ping.png)
- di[ping](https://www.pingidentity.com) Identity offre due soluzioni simili a ACS. PingOne è un servizio di identità cloud che supporta molte delle stesse funzionalità di ACS e PingFederate è un prodotto di identità locale simile che offre maggiore flessibilità. Fare riferimento alle linee guida di Ping sul ritiro di ACS per ulteriori informazioni sull'utilizzo di questi prodotti.
+![Questa immagine mostra il logo Ping Identity ](./media/active-directory-acs-migration/rsz-ping.png)
+ [Ping Identity](https://www.pingidentity.com) che offre due soluzioni simili ad ACS. PingOne è un servizio di gestione delle identità cloud che supporta molte delle stesse funzionalità di ACS e PingFederate è un prodotto di identità locale simile che offre maggiore flessibilità. Fare riferimento alle linee guida di Ping sul ritiro di ACS per ulteriori informazioni sull'utilizzo di questi prodotti.
 
 L'obiettivo della collaborazione con Ping Identity e Auth0 è quello di assicurare a tutti i clienti di Controllo di accesso un percorso di migrazione per le loro app e i loro servizi in grado di ridurre al minimo il lavoro necessario per il passaggio da Controllo di accesso.
 

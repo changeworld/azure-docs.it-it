@@ -5,13 +5,13 @@ tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
-ms.custom: mvc
-ms.openlocfilehash: 61ce290f8ed5e8ad919a253d426d3278233caa3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 51cdd470c9ae970d5945f8d5399cea67a44037f0
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98747291"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483385"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Esempi dell'interfaccia della riga di comando per Servizio app di Azure
 
@@ -40,7 +40,7 @@ La tabella seguente include collegamenti a script Bash compilati tramite l'inter
 | [Connettere un'app a un account di archiviazione](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'app del servizio app e un account di archiviazione e quindi aggiunge la stringa di connessione della risorsa di archiviazione alle impostazioni dell'app. |
 | [Connettere un'app a Cache Redis di Azure](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app del servizio app e un'istanza di Cache Redis di Azure e quindi aggiunge i dettagli della connessione Redis alle impostazioni dell'app. |
 | [Connettere un'app a Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app del servizio app e un'istanza di Cosmos DB e quindi aggiunge i dettagli della connessione di Cosmos DB alle impostazioni dell'app. |
-|**App di backup e ripristino**||
+|**Eseguire il backup e il ripristino dell'app**||
 | [Eseguire il backup di un'app](./scripts/cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app del servizio app e un backup singolo per essa. |
 | [Creare un backup pianificato per un'app](./scripts/cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app del servizio app e un backup pianificato per essa. |
 | [Ripristinare un'app da un backup](./scripts/cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Ripristina un'app del servizio app da un backup. |

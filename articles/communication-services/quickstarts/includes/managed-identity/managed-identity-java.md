@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 55876d85e72555f51ce47b9bd77a961a194f4e4a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b51f52e24ca843abd94a8511e86b3193a797edd5
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307456"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107513340"
 ---
 ## <a name="additional-prerequisites-for-java"></a>Prerequisiti aggiuntivi per Java
-Per Java, è necessario anche:
+Per Java sono necessari anche:
 - [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) versione 8 o successiva.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
@@ -47,7 +47,7 @@ Aprire il file **pom.xml** nell'editor di testo. Aggiungere l'elemento di dipend
 
 ### <a name="use-the-sdk-packages"></a>Usare i pacchetti SDK
 
-Aggiungere le `import` direttive seguenti al codice per usare Azure Identity e Azure Communication SDK.
+Aggiungere le direttive seguenti al codice per usare gli SDK di identità `import` di Azure e di comunicazione di Azure.
 
 ```java
 import com.azure.communication.common.*;
@@ -61,17 +61,17 @@ import com.azure.identity.*;
 import java.util.*;
 ```
 
-## <a name="create-a-defaultazurecredential"></a>Creare un DefaultAzureCredential
+## <a name="create-a-defaultazurecredential"></a>Creare un valore DefaultAzureCredential
 
-Per questa Guida introduttiva verrà usato [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) . Questa credenziale è adatta per ambienti di produzione e di sviluppo. Poiché è necessario per ogni operazione, è possibile crearlo all'interno della `App.java` classe. Aggiungere quanto segue all'inizio della `App.java` classe.
+Per questa guida introduttiva si usa [DefaultAzureCredential.](/java/api/com.azure.identity.defaultazurecredential) Questa credenziale è adatta per gli ambienti di produzione e sviluppo. Poiché è necessario per ogni operazione, è possibile crearla all'interno della `App.java` classe . Aggiungere quanto segue all'inizio della `App.java` classe .
 
 ```java
 private TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 ```
 
-## <a name="issue-a-token-with-managed-identities"></a>Emettere un token con identità gestite
+## <a name="issue-a-token-with-managed-identities"></a>Rilasciare un token con identità gestite
 
-A questo punto verrà aggiunto il codice che usa le credenziali create per emettere un token di accesso VoIP. Questo codice verrà chiamato in seguito;
+A questo punto si aggiungerà il codice che usa le credenziali create per rilasciare un token di accesso VoIP. Questo codice verrà chiamato più avanti.
 
 ```java
     public AccessToken createIdentityAndGetTokenAsync(String endpoint) {
@@ -87,7 +87,7 @@ A questo punto verrà aggiunto il codice che usa le credenziali create per emett
 
 ## <a name="send-an-sms-with-managed-identities"></a>Inviare un SMS con identità gestite
 
-Come altro esempio di utilizzo delle identità gestite, verrà aggiunto il codice che utilizza le stesse credenziali per inviare un SMS:
+Come altro esempio di uso delle identità gestite, si aggiungerà questo codice che usa le stesse credenziali per inviare un SMS:
 
 ```java
      public SmsSendResult sendSms(String endpoint, String from, String to, String message) {
@@ -102,7 +102,7 @@ Come altro esempio di utilizzo delle identità gestite, verrà aggiunto il codic
 ```
 ## <a name="write-the-main-method"></a>Scrivere il metodo Main
 
-Il `App.java` dovrebbe avere già un metodo Main. verrà ora aggiunto il codice che chiamerà il codice creato in precedenza per illustrare l'uso delle identità gestite:
+L'oggetto deve avere già un metodo Main. Aggiungere un codice che chiamerà il codice creato in precedenza per illustrare `App.java` l'uso delle identità gestite:
 ```java
     public static void main(String[] args) {
           App instance = new App();
@@ -122,7 +122,7 @@ Il `App.java` dovrebbe avere già un metodo Main. verrà ora aggiunto il codice 
     }
 ```
 
-Il risultato finale `App.java` dovrebbe essere simile al seguente:
+`App.java`L'aspetto finale dovrebbe essere simile al seguente:
 
 ```java
 package com.communication.quickstart;

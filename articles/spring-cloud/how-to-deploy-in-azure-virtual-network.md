@@ -1,33 +1,33 @@
 ---
-title: Distribuire il cloud Spring di Azure in una rete virtuale
+title: Distribuire Azure Spring Cloud in una rete virtuale
 description: Distribuire Azure Spring Cloud in una rete virtuale (VNet injection).
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: b0ea5728618c7b69403fcc4c0a3575b70fac6038
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104877981"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482603"
 ---
-# <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Distribuire il cloud Spring di Azure in una rete virtuale
+# <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Distribuire Azure Spring Cloud in una rete virtuale
 
-**Questo articolo si applica a:** ✔️ Java ✔️ C#
+**Questo articolo si applica a:** ââ"ï ̧ Java âââ"ï ̧ C #
 
 Questa esercitazione illustra come distribuire un'istanza di Azure Spring Cloud nella rete virtuale, una funzionalità nota anche come VNet injection.
 
 La distribuzione rende possibili gli scenari seguenti:
 
-* Isolamento delle app di Azure Spring Cloud e del runtime del servizio da Internet nella rete aziendale.
-* Interazione di Azure Spring Cloud con i sistemi nei data center locali o con i servizi di Azure in altre reti virtuali.
+* Isolamento delle Azure Spring Cloud e del runtime del servizio da Internet nella rete aziendale.
+* Azure Spring Cloud con i sistemi in data center locali o con i servizi di Azure in altre reti virtuali.
 * Possibilità per i clienti di controllare le comunicazioni di rete in ingresso e in uscita per Azure Spring Cloud.
 
 > [!Note]
-> È possibile selezionare la rete virtuale di Azure solo quando si crea una nuova istanza del servizio cloud di Azure Spring. Non è possibile modificare l'uso di un'altra rete virtuale dopo la creazione di Azure Spring cloud.
+> È possibile selezionare la rete virtuale di Azure solo quando si crea una nuova istanza Azure Spring Cloud servizio. Non è possibile modificare per usare un'altra rete virtuale dopo Azure Spring Cloud è stata creata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -50,7 +50,7 @@ La rete virtuale in cui viene distribuita l'istanza di Azure Spring Cloud deve s
     * Una per le applicazioni di microservizi Spring Boot.
     * Deve esistere una relazione uno-a-uno tra queste subnet e un'istanza di Azure Spring Cloud. Usare una nuova subnet per ogni istanza del servizio da distribuire. Ogni subnet può includere solo una singola istanza del servizio.
 * **Spazio degli indirizzi**: blocchi CIDR fino a */28* per la subnet del runtime del servizio e per la subnet delle applicazioni di microservizi Spring Boot.
-* **Tabella di route**: per impostazione predefinita, le subnet non necessitano delle tabelle di route esistenti associate. È possibile [importare una tabella di route personalizzata](#bring-your-own-route-table).
+* **Tabella di route:** per impostazione predefinita le subnet non necessitano di tabelle di route esistenti associate. È possibile [usare la propria tabella di route](#bring-your-own-route-table).
 
 Le procedure seguenti descrivono la configurazione della rete virtuale in cui contenere l'istanza di Azure Spring Cloud.
 
@@ -80,7 +80,7 @@ Se è già disponibile una rete virtuale in cui ospitare un'istanza di Azure Spr
 1. Selezionare **Rivedi e crea**. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
 ## <a name="grant-service-permission-to-the-virtual-network"></a>Concedere al servizio l'autorizzazione per la rete virtuale
-Azure Spring cloud richiede l'autorizzazione **owner** per la rete virtuale, in modo da concedere un'entità servizio dedicata e dinamica nella rete virtuale per un'ulteriore distribuzione e manutenzione.
+Azure Spring Cloud è richiesta **l'autorizzazione** Proprietario per la rete virtuale, per concedere un'entità servizio dedicata e dinamica nella rete virtuale per la distribuzione e la manutenzione.
 
 Selezionare la rete virtuale **azure-spring-cloud-vnet** creata in precedenza.
 
@@ -164,9 +164,9 @@ Queste risorse di rete sono connesse alla rete virtuale creata in precedenza.
    > [!Important]
    > I gruppi di risorse sono completamente gestiti dal servizio Azure Spring Cloud. *Non* eliminare o modificare manualmente le risorse al loro interno.
 
-## <a name="using-smaller-subnet-ranges"></a>Utilizzo di intervalli di subnet inferiori
+## <a name="using-smaller-subnet-ranges"></a>Uso di intervalli di subnet più piccoli
 
-Questa tabella mostra il numero massimo di istanze dell'app che Azure Spring cloud supporta l'uso di intervalli di subnet inferiori.
+Questa tabella mostra il numero massimo di istanze di app Azure Spring Cloud supporta l'uso di intervalli di subnet più piccoli.
 
 | CIDR delle subnet di app | Indirizzi IP totali | Indirizzi IP disponibili | Numero massimo di istanze di app                                        |
 | --------------- | --------- | ------------- | ------------------------------------------------------------ |
@@ -180,24 +180,24 @@ Per le subnet, cinque indirizzi IP sono riservati da Azure e almeno quattro indi
 
 Per una subnet di runtime del servizio, la dimensione minima è /28. Questa dimensione non ha alcun effetto sul numero di istanze di app.
 
-## <a name="bring-your-own-route-table"></a>Porta la tua tabella di route
+## <a name="bring-your-own-route-table"></a>Bring Your Own Route Table
 
-Il cloud Spring di Azure supporta l'uso di subnet e tabelle di route esistenti.
+Azure Spring Cloud supporta l'uso di subnet e tabelle di route esistenti.
 
-Se le subnet personalizzate non contengono tabelle di route, Azure Spring cloud le crea per ciascuna subnet e aggiunge le relative regole nel ciclo di vita dell'istanza. Se le subnet personalizzate contengono tabelle di route, Azure Spring cloud riconosce le tabelle di route esistenti durante le operazioni di istanza e aggiunge/aggiorna e/o regole di conseguenza per le operazioni.
+Se le subnet personalizzate non contengono tabelle di route, Azure Spring Cloud crearle per ognuna delle subnet e aggiungervi regole per tutto il ciclo di vita dell'istanza. Se le subnet personalizzate contengono tabelle di route, Azure Spring Cloud le tabelle di route esistenti durante le operazioni dell'istanza e aggiunge/aggiorna e/o le regole di conseguenza per le operazioni.
 
 > [!Warning] 
-> È possibile aggiungere regole personalizzate alle tabelle di route personalizzate e aggiornarle. Tuttavia, le regole vengono aggiunte dal cloud Spring di Azure e non devono essere aggiornate o rimosse. Regole come 0.0.0.0/0 devono sempre esistere in una determinata tabella di route ed eseguire il mapping alla destinazione del gateway Internet, ad esempio un appliance virtuale di rete o un altro gateway in uscita. Prestare attenzione durante l'aggiornamento delle regole quando vengono modificate solo le regole personalizzate.
+> Le regole personalizzate possono essere aggiunte alle tabelle di route personalizzate e aggiornate. Tuttavia, le regole vengono aggiunte Azure Spring Cloud e non devono essere aggiornate o rimosse. Regole come 0.0.0.0/0 devono essere sempre presenti in una determinata tabella di route ed essere mappate alla destinazione del gateway Internet, ad esempio un'NVA o un altro gateway in uscita. Prestare attenzione quando si aggiornano le regole quando vengono modificate solo le regole personalizzate.
 
 
 ### <a name="route-table-requirements"></a>Requisiti della tabella di route
 
-Le tabelle di route a cui è associato il VNET personalizzato devono soddisfare i requisiti seguenti:
+Le tabelle di route a cui è associata la rete virtuale personalizzata devono soddisfare i requisiti seguenti:
 
-* È possibile associare le tabelle di route di Azure con la VNET solo quando si crea una nuova istanza del servizio cloud di Azure Spring. Non è possibile modificare l'uso di un'altra tabella di route dopo la creazione di Azure Spring cloud.
-* Sia la subnet dell'applicazione del microservizio che la subnet di runtime del servizio devono essere associate a tabelle di route diverse o nessuna di esse.
-* Le autorizzazioni devono essere assegnate prima della creazione dell'istanza. Assicurarsi di concedere l'autorizzazione Azure *Spring cloud Owner* alle tabelle di route.
-* Non è possibile aggiornare la risorsa della tabella di route associata dopo la creazione del cluster. Anche se non è possibile aggiornare la risorsa della tabella di route, è possibile modificare le regole personalizzate nella tabella di route.
+* È possibile associare le tabelle di route di Azure alla rete virtuale solo quando si crea una nuova istanza Azure Spring Cloud servizio. Non è possibile modificare per usare un'altra tabella di route dopo Azure Spring Cloud è stato creato.
+* Sia la subnet dell'applicazione del microservizio che la subnet del runtime del servizio devono essere associate a tabelle di route diverse o a nessuna di esse.
+* Le autorizzazioni devono essere assegnate prima della creazione dell'istanza. Assicurarsi di concedere l'autorizzazione *Proprietario Spring Cloud* Azure alle tabelle di route.
+* La risorsa tabella di route associata non può essere aggiornata dopo la creazione del cluster. Anche se non è possibile aggiornare la risorsa della tabella di route, è possibile modificare le regole personalizzate nella tabella di route.
 * Non è possibile riutilizzare una tabella di route con più istanze a causa di potenziali regole di routing in conflitto.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,24 +1,24 @@
 ---
-title: Gestire i Lab in Azure Lab Services | Microsoft Docs
-description: Informazioni su come creare e configurare un Lab per le aule, visualizzare tutti i Lab, condividere il collegamento di registrazione con un utente del Lab o eliminare un Lab.
+title: Gestire i lab in Azure Lab Services | Microsoft Docs
+description: Informazioni su come creare e configurare un lab per le classi, visualizzare tutti i lab, condividere il collegamento di registrazione con un utente del lab o eliminare un lab.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: db7a2f58f99252a7e5076dd86c37b65bbe8ea37a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6acb9609abac15b9ff92250e3d5d44c585881cc
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434210"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481804"
 ---
-# <a name="manage-labs-in-azure-lab-services"></a>Gestisci Lab in Azure Lab Services 
-Questo articolo descrive come creare ed eliminare un lab per le classi, Viene inoltre illustrato come visualizzare tutti i Lab in un account Lab. 
+# <a name="manage-labs-in-azure-lab-services"></a>Gestire i lab in Azure Lab Services 
+Questo articolo descrive come creare ed eliminare un lab per le classi, Illustra anche come visualizzare tutti i lab in un account lab. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per configurare un lab per le classi in un account del lab, è necessario essere un membro del ruolo **Autore di laboratori** nell'account del lab. L'account usato per creare un account del lab viene aggiunto automaticamente a questo ruolo. Un proprietario del lab può aggiungere altri utenti al ruolo Autore di laboratori seguendo i passaggi descritti nell'articolo seguente: [Aggiungere un utente al ruolo di creatore di lab](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Creare un lab per le classi
 
-1. Accedere al [sito Web di Azure Lab Services](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
+1. Accedere al [sito Web di Azure Lab Services](https://labs.azure.com).
 1. Selezionare **Accedi** e immettere le credenziali. Selezionare o immettere un **ID utente** appartenente al ruolo **Autore di laboratori** nell'account lab e quindi immettere la password. Azure Lab Services supporta gli account aziendali e gli account Microsoft. 
 1. Selezionare **New lab** (Nuovo lab). 
     
@@ -32,7 +32,7 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
     1. Vedere il **prezzo totale all'ora** visualizzato nella pagina. 
     1. Selezionare **Salva**.
 
-        ![Screenshot che mostra la finestra "nuovo Lab".](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![Screenshot che mostra la finestra "Nuovo lab".](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
         > [!NOTE]
         > Viene visualizzata un'opzione per selezionare una località del lab se l'account lab è stato configurato con l'opzione [Consenti all'autore del lab di selezionare la località del lab](allow-lab-creator-pick-lab-location.md). 
@@ -139,5 +139,5 @@ Vedere gli articoli seguenti:
 
 - [Configurare e pubblicare modelli come proprietario](how-to-create-manage-template.md)
 - [Configurare e controllare l'uso di un lab come proprietario](how-to-configure-student-usage.md)
-- [Come utente del Lab, Access Labs](how-to-use-classroom-lab.md)
+- [Come utente del lab, accedere ai lab](how-to-use-classroom-lab.md)
 

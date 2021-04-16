@@ -1,14 +1,14 @@
 ---
 title: Esempio di progetto DoD Impact Level 4
 description: Procedura di distribuzione per l'esempio di progetto DoD Impact Level 4, inclusi i dettagli dei parametri degli artefatti del progetto.
-ms.date: 04/02/2021
+ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: fcea8dab551be18b4dfca81bd179f89d17b01bdf
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: ce0d2d162bf77c147e0e4bc26e68964cd50f4372
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386942"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378449"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Distribuire l'esempio di progetto DoD Impact Level 4
 
@@ -19,7 +19,7 @@ Per distribuire l'esempio di progetto Azure Blueprints Department of Defense Imp
 > - Contrassegnare la copia dell'esempio come **Pubblicata**
 > - Assegnare la copia del progetto a una sottoscrizione esistente
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
+Se non si ha una sottoscrizione Azure per enti pubblici, richiedere una sottoscrizione [di valutazione](https://azure.microsoft.com/global-infrastructure/government/request/) prima di iniziare.
 
 ## <a name="create-blueprint-from-sample"></a>Creare il progetto dall'esempio
 

@@ -1,23 +1,23 @@
 ---
 title: Risolvere i problemi di reindirizzamento all'URL del servizio app
 titleSuffix: Azure Application Gateway
-description: Questo articolo fornisce informazioni su come risolvere il problema di reindirizzamento quando applicazione Azure gateway viene usato con app Azure servizio
+description: Questo articolo fornisce informazioni su come risolvere il problema di reindirizzamento quando gateway applicazione di Azure viene usato con Servizio app di Azure
 services: application-gateway
-author: abshamsft
+author: jaesoni
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 11/14/2019
-ms.author: absha
-ms.openlocfilehash: 1cc7df755198461643703cac988c8c31f2ac25db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/15/2021
+ms.author: jaysoni
+ms.openlocfilehash: 6aad1cf1269a7c3dc082482c39fdc4a079fc3240
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96182887"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107514887"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Risolvere i problemi del servizio app nel gateway applicazione
 
-Informazioni su come diagnosticare e risolvere i problemi che possono verificarsi quando app Azure servizio viene usato come destinazione back-end con applicazione Azure gateway.
+Informazioni su come diagnosticare e risolvere i problemi che possono verificarsi quando Servizio app di Azure viene usato come destinazione back-end con gateway applicazione di Azure.
 
 ## <a name="overview"></a>Panoramica
 
@@ -26,35 +26,35 @@ In questo articolo si apprenderà come risolvere i problemi seguenti:
 * L'URL del servizio app viene esposto nel browser quando è presente un reindirizzamento.
 * Il dominio del cookie ARRAffinity del servizio app è impostato sul nome host del servizio app, example.azurewebsites.net, anziché sull'host originale.
 
-Quando un'applicazione back-end invia una risposta di reindirizzamento, potrebbe essere necessario reindirizzare il client a un URL diverso da quello specificato dall'applicazione back-end. Questa operazione può essere eseguita quando un servizio app è ospitato dietro un gateway applicazione e richiede che il client esegua un reindirizzamento al percorso relativo. Un esempio è un Reindirizzamento da contoso.azurewebsites.net/path1 a contoso.azurewebsites.net/path2. 
+Quando un'applicazione back-end invia una risposta di reindirizzamento, potrebbe essere necessario reindirizzare il client a un URL diverso da quello specificato dall'applicazione back-end. È possibile eseguire questa operazione quando un servizio app è ospitato dietro un gateway applicazione e richiede al client di eseguire un reindirizzamento al percorso relativo. Un esempio è un reindirizzamento da contoso.azurewebsites.net/path1 a contoso.azurewebsites.net/path2. 
 
-Quando il servizio app invia una risposta di reindirizzamento, USA lo stesso nome host nell'intestazione Location della risposta come quello nella richiesta ricevuta dal gateway applicazione. Ad esempio, il client effettua la richiesta direttamente a contoso.azurewebsites.net/path2 anziché passare attraverso il contoso.com/path2 del gateway applicazione. Non si vuole ignorare il gateway applicazione.
+Quando il servizio app invia una risposta di reindirizzamento, usa lo stesso nome host nell'intestazione della posizione della risposta di quella nella richiesta ricevuta dal gateway applicazione. Ad esempio, il client effettua la richiesta direttamente contoso.azurewebsites.net/path2 invece di passare attraverso il gateway applicazione contoso.com/path2. Non si vuole ignorare il gateway applicazione.
 
 Questo problema può verificarsi per i motivi principali seguenti:
 
-- È stato configurato il reindirizzamento nel servizio app. Il reindirizzamento può essere semplice quanto aggiungere una barra finale alla richiesta.
-- Si dispone di Azure Active Directory autenticazione, che causa il reindirizzamento.
+- Il reindirizzamento è configurato nel servizio app. Il reindirizzamento può essere semplice come l'aggiunta di una barra finale alla richiesta.
+- È stata Azure Active Directory autenticazione, che causa il reindirizzamento.
 
-Inoltre, quando si usano i servizi app dietro un gateway applicazione, il nome di dominio associato al gateway applicazione (example.com) è diverso dal nome di dominio del servizio app (ad indicare, example.azurewebsites.net). Il valore di dominio per il cookie ARRAffinity impostato dal servizio app contiene il nome di dominio example.azurewebsites.net, che non è auspicabile. Il nome host originale, example.com, deve essere il valore del nome di dominio nel cookie.
+Inoltre, quando si usano i servizi app dietro un gateway applicazione, il nome di dominio associato al gateway applicazione (example.com) è diverso dal nome di dominio del servizio app (ad esempio, example.azurewebsites.net). Il valore di dominio per il cookie ARRAffinity impostato dal servizio app example.azurewebsites.net nome di dominio, che non è consigliabile. Il nome host originale, example.com, deve essere il valore del nome di dominio nel cookie.
 
 ## <a name="sample-configuration"></a>Configurazione di esempio
 
-- Listener HTTP: di base o multisito
-- Pool di indirizzi back-end: servizio app
-- Impostazioni HTTP: **selezionare il nome host dall'indirizzo back-end** abilitato
-- Probe: **selezionare il nome host da impostazioni http** abilitate
+- Listener HTTP: Basic o multisosto
+- Pool di indirizzi back-end: Servizio app
+- Impostazioni HTTP: **selezionare il nome host dall'indirizzo back-end abilitato**
+- Probe: **Selezionare il nome host dalle impostazioni HTTP abilitate**
 
 ## <a name="cause"></a>Causa
 
-Il servizio app è un servizio multi-tenant, quindi usa l'intestazione host nella richiesta per instradare la richiesta all'endpoint corretto. Il nome di dominio predefinito dei servizi app, *. azurewebsites.net (Say, contoso.azurewebsites.net), è diverso dal nome di dominio del gateway applicazione (ad indicare, contoso.com). 
+Il servizio app è un servizio multi-tenant, quindi usa l'intestazione host nella richiesta per instradare la richiesta all'endpoint corretto. Il nome di dominio predefinito di Servizi app, *.azurewebsites.net (ad esempio, contoso.azurewebsites.net), è diverso dal nome di dominio del gateway applicazione (ad esempio, contoso.com). 
 
-La richiesta originale del client ha il nome di dominio del gateway applicazione, contoso.com, come nome host. È necessario configurare il gateway applicazione per modificare il nome host nella richiesta originale con il nome host del servizio app quando instrada la richiesta al back-end del servizio app. Usare l'opzione **Seleziona nome host dall'indirizzo back-end** nella configurazione dell'impostazione http del gateway applicazione. Usare l'opzione **Seleziona nome host da impostazioni http back-end** nella configurazione del probe di integrità.
+La richiesta originale dal client ha il nome di dominio del gateway applicazione, contoso.com, come nome host. È necessario configurare il gateway applicazione per modificare il nome host nella richiesta originale con il nome host del servizio app quando instrada la richiesta al back-end del servizio app. Usare l'opzione **Seleziona nome host da indirizzo back-end** nella configurazione dell'impostazione HTTP del gateway applicazione. Usare l'opzione Pick Hostname from Backend HTTP Settings (Seleziona nome host da impostazioni **HTTP back-end)** nella configurazione del probe di integrità.
 
 
 
-![Nome host modifiche del gateway applicazione](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
+![Il gateway applicazione modifica il nome host](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
-Quando il servizio app esegue un reindirizzamento, usa il nome host sottoposto a override contoso.azurewebsites.net nell'intestazione Location anziché il nome host originale contoso.com, a meno che non sia configurato diversamente. Controllare le intestazioni di richiesta e risposta di esempio seguenti.
+Quando il servizio app esegue un reindirizzamento, usa il nome host sottoposto a override contoso.azurewebsites.net nell'intestazione del percorso anziché il nome host originale contoso.com, a meno che non sia configurato diversamente. Controllare le intestazioni di richiesta e risposta di esempio seguenti.
 ```
 ## Request headers to Application Gateway:
 
@@ -76,43 +76,41 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-Nell'esempio precedente, si noti che l'intestazione della risposta ha un codice di stato 301 per il reindirizzamento. L'intestazione Location ha il nome host del servizio app anziché il nome host originale `www.contoso.com` .
+Nell'esempio precedente si noti che l'intestazione della risposta ha un codice di stato 301 per il reindirizzamento. L'intestazione del percorso ha il nome host del servizio app anziché il nome host originale `www.contoso.com` .
 
-## <a name="solution-rewrite-the-location-header"></a>Soluzione: riscrivere l'intestazione Location
+## <a name="solution-rewrite-the-location-header"></a>Soluzione: riscrivere l'intestazione del percorso
 
-Impostare il nome host nell'intestazione Location sul nome di dominio del gateway applicazione. A tale scopo, creare una [regola di riscrittura](./rewrite-http-headers.md) con una condizione che valuti se l'intestazione Location nella risposta contiene azurewebsites.NET. Deve anche eseguire un'azione per riscrivere l'intestazione location in modo da avere il nome host del gateway applicazione. Per ulteriori informazioni, vedere le istruzioni su [come riscrivere l'intestazione Location](./rewrite-http-headers.md#modify-a-redirection-url).
+Impostare il nome host nell'intestazione del percorso sul nome di dominio del gateway applicazione. A tale scopo, creare una [regola di riscrittura](./rewrite-http-headers.md) con una condizione che valuta se l'intestazione della posizione nella risposta contiene azurewebsites.net. Deve anche eseguire un'azione per riscrivere l'intestazione del percorso in modo che abbia il nome host del gateway applicazione. Per altre informazioni, vedere le istruzioni su [come riscrivere l'intestazione location](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
-> Il supporto per la riscrittura dell'intestazione HTTP è disponibile solo per le [Standard_v2 e WAF_V2 SKU](./application-gateway-autoscaling-zone-redundant.md) del gateway applicazione. Se si usa lo SKU V1, è consigliabile [eseguire la migrazione da V1 a V2](./migrate-v1-v2.md). Si desidera utilizzare riscrittura e altre [funzionalità avanzate](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) disponibili con lo SKU V2.
+> Il supporto per la riscrittura dell'intestazione HTTP è disponibile solo per Standard_v2 e [WAF_v2 SKU](./application-gateway-autoscaling-zone-redundant.md) del gateway applicazione. È [consigliabile eseguire la migrazione alla versione 2](./migrate-v1-v2.md) per la riscrittura dell'intestazione e [altre](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) funzionalità avanzate disponibili con lo SKU v2.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>Soluzione alternativa: usare un nome di dominio personalizzato
 
-Se si usa lo SKU V1, non è possibile riscrivere l'intestazione Location. Questa funzionalità è disponibile solo per lo SKU V2. Per risolvere il problema di reindirizzamento, passare lo stesso nome host che il gateway applicazione riceve anche al servizio app, anziché eseguire una sostituzione dell'host.
+L'uso della funzionalità Custom Domain servizio app è un'altra soluzione per reindirizzare sempre il traffico al nome di dominio del gateway applicazione ( `www.contoso.com` in questo esempio). Questa configurazione funge anche da soluzione per il problema del cookie di affinità ARR. Per impostazione predefinita, il dominio del cookie ARRAffinity è impostato sul nome host predefinito del servizio app (example.azurewebsites.net) anziché sul nome di dominio del gateway applicazione. Di conseguenza, il browser in questi casi rifiuterà il cookie a causa della differenza nei nomi di dominio della richiesta e del cookie.
 
-Il servizio app ora esegue il reindirizzamento, se presente, sulla stessa intestazione host originale che punta al gateway applicazione e non a se stessa.
+È possibile seguire il metodo specificato sia per i problemi di mancata corrispondenza del dominio cookie di Reindirizzamento che di ARRAffinity. Questo metodo dovrà disporre dell'accesso alla zona DNS del dominio personalizzato.
 
-È necessario essere proprietari di un dominio personalizzato e seguire questa procedura:
+**Passaggio 1:** impostare un Custom Domain nel servizio app e verificare la proprietà del dominio aggiungendo il [record DNS CNAME & TXT](../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
+I record hanno un aspetto simile a
+-  `www.contoso.com` IN CNAME `contoso.azurewebsite.net`
+-  `asuid.www.contoso.com` IN TXT " `<verification id string>` "
 
-- Registrare il dominio nell'elenco di domini personalizzati del servizio app. È necessario avere un record CNAME nel dominio personalizzato che punti al nome di dominio completo del servizio app. Per altre informazioni, vedere [eseguire il mapping di un nome DNS personalizzato esistente al servizio app Azure](../app-service/app-service-web-tutorial-custom-domain.md).
 
-    ![Elenco di domini personalizzati del servizio app](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
+**Passaggio 2:** il record CNAME nel passaggio precedente era necessario solo per la verifica del dominio. In definitiva, è necessario che il traffico sia instradato tramite il gateway applicazione. È quindi possibile modificare il nome CNAME di 'ora in modo che punti al nome di `www.contoso.com` dominio completo del gateway applicazione. Per impostare un nome di dominio completo per il gateway applicazione, passare alla relativa risorsa Indirizzo IP pubblico e assegnare un'etichetta di nome DNS. Il record CNAME aggiornato dovrebbe ora essere simile a 
+-  `www.contoso.com` IN CNAME `contoso.eastus.cloudapp.azure.com`
 
-- Il servizio app è pronto per accettare il nome host `www.contoso.com` . Modificare la voce CNAME in DNS per puntare di nuovo al nome di dominio completo del gateway applicazione, ad esempio `appgw.eastus.cloudapp.azure.com` .
 
-- `www.contoso.com`Quando si esegue una query DNS, verificare che il dominio venga risolto nel nome di dominio completo del gateway applicazione.
+**Passaggio 3:** disabilitare "Seleziona nome host da indirizzo back-end" per l'impostazione HTTP associata.
 
-- Impostare il probe personalizzato per disabilitare **pick hostname dalle impostazioni http back-end**. Nella portale di Azure deselezionare la casella di controllo nelle impostazioni del probe. In PowerShell non usare l'opzione **-PickHostNameFromBackendHttpSettings** nel comando **set-AzApplicationGatewayProbeConfig** . Nel campo nome host del probe immettere il nome di dominio completo del servizio app, example.azurewebsites.net. Le richieste di probe inviate dal gateway applicazione contengono questo FQDN nell'intestazione host.
+In PowerShell non usare `-PickHostNameFromBackendAddress` l'opzione nel `Set-AzApplicationGatewayBackendHttpSettings` comando .
 
-  > [!NOTE]
-  > Per il passaggio successivo, assicurarsi che il probe personalizzato non sia associato alle impostazioni HTTP del back-end. Le impostazioni HTTP hanno ancora l'opzione **Seleziona nome host da indirizzo back-end** abilitata a questo punto.
 
-- Impostare le impostazioni HTTP del gateway applicazione per disabilitare **pick hostname dall'indirizzo back-end**. Nella portale di Azure deselezionare la casella di controllo. In PowerShell non usare l'opzione **-PickHostNameFromBackendAddress** nel comando **set-AzApplicationGatewayBackendHttpSettings** .
+**Passaggio 4:** per determinare il back-end come integro e un traffico operativo, impostare un probe di integrità personalizzato con il campo Host come dominio personalizzato o predefinito del servizio app.
 
-- Associare nuovamente il probe personalizzato alle impostazioni HTTP back-end e verificare che il back-end sia integro.
+In PowerShell non usare l'opzione nel comando e usare il dominio personalizzato o predefinito del servizio app nell'opzione `-PickHostNameFromBackendHttpSettings` `Set-AzApplicationGatewayProbeConfig` -HostName del probe.
 
-- Il gateway applicazione deve ora trasmettere lo stesso nome host, `www.contoso.com` , al servizio app. Il reindirizzamento si verifica sullo stesso nome host. Controllare le intestazioni di richiesta e risposta di esempio seguenti.
-
-Per implementare i passaggi precedenti usando PowerShell per un'installazione esistente, usare lo script di PowerShell di esempio seguente. Si noti che non sono state usate le opzioni **-PickHostname** nella configurazione delle impostazioni di probe e http.
+Per implementare i passaggi precedenti usando PowerShell per un'installazione esistente, usare lo script di PowerShell di esempio seguente. Si noti che non sono state usate le opzioni **-PickHostname** nella configurazione del probe e delle impostazioni HTTP.
 
 ```azurepowershell-interactive
 $gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
@@ -144,4 +142,4 @@ Set-AzApplicationGateway -ApplicationGateway $gw
   ```
   ## <a name="next-steps"></a>Passaggi successivi
 
-Se la procedura precedente non risolve il problema, aprire un [ticket di supporto](https://azure.microsoft.com/support/options/).
+Se i passaggi precedenti non hanno risolto il problema, aprire un [ticket di supporto](https://azure.microsoft.com/support/options/).

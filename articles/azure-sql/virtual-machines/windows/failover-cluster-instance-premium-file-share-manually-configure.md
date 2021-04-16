@@ -1,6 +1,6 @@
 ---
-title: Creare un'istanza FCI con una condivisione file Premium
-description: Usare una condivisione file Premium (PFS) per creare un'istanza del cluster di failover con SQL Server in macchine virtuali di Azure.
+title: Creare un'istanza di FCI con una condivisione file Premium
+description: Usare una condivisione file Premium (PFS) per creare un'istanza del cluster di failover con SQL Server nelle macchine virtuali di Azure.
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 80fe9f03f2c57eab8527e553153f3e65315a54bf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ddd25c605ef159bddfb8a9c7cb4d02ac7094c511
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034847"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482195"
 ---
-# <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creare un'istanza FCI con una condivisione file Premium (SQL Server nelle VM di Azure)
+# <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creare un'istanza FCI con una condivisione file Premium (SQL Server nelle macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Questo articolo illustra come creare un'istanza del cluster di failover con SQL Server in macchine virtuali (VM) di Azure usando una [condivisione file Premium](../../../storage/files/storage-how-to-create-file-share.md).
+Questo articolo illustra come creare un'istanza del cluster di failover con SQL Server in macchine virtuali di Azure usando una [condivisione file Premium.](../../../storage/files/storage-how-to-create-file-share.md)
 
-Le condivisioni file Premium sono Spazi di archiviazione diretta (SSD), condivisioni file costantemente a bassa latenza, completamente supportate per l'uso con istanze del cluster di failover per SQL Server 2012 o versioni successive in Windows Server 2012 o versioni successive. Le condivisioni file Premium offrono maggiore flessibilità, consentendo di ridimensionare una condivisione file senza tempi di inattività.
+Le condivisioni file Premium sono condivisioni file con supporto di Spazi di archiviazione diretta (SSD), costantemente a bassa latenza, completamente supportate per l'uso con istanze del cluster di failover per SQL Server 2012 o versioni successive in Windows Server 2012 o versioni successive. Le condivisioni file Premium offrono maggiore flessibilità, consentendo di ridimensionare una condivisione file senza tempi di inattività.
 
-Per altre informazioni, vedere Panoramica di [FCI con SQL Server nelle macchine virtuali di Azure](failover-cluster-instance-overview.md) e [procedure consigliate per cluster](hadr-cluster-best-practices.md). 
+Per altre informazioni, vedere una panoramica dell'istanza di Failover con [SQL Server sulle macchine virtuali di Azure](failover-cluster-instance-overview.md) e sulle procedure consigliate per i [cluster.](hadr-cluster-best-practices.md) 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,54 +36,54 @@ Prima di completare le istruzioni riportate in questo articolo, è necessario av
 
 - Una sottoscrizione di Azure.
 - Un account con autorizzazioni per creare oggetti sia nelle macchine virtuali di Azure che in Active Directory.
-- [Due o più macchine virtuali di Windows Azure predisposte](failover-cluster-instance-prepare-vm.md) in un [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) o in [zone di disponibilità](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)diverse.
+- [Due o più macchine virtuali di Windows Azure preparate](failover-cluster-instance-prepare-vm.md) in un [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) o in zone di disponibilità [diverse.](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)
 - Una [condivisione file Premium](../../../storage/files/storage-how-to-create-file-share.md) da usare come unità del cluster, in base alla quota di archiviazione del database per i file di dati.
-- La versione più recente di [PowerShell](/powershell/azure/install-az-ps). 
+- La versione più recente di [PowerShell.](/powershell/azure/install-az-ps) 
 
 ## <a name="mount-premium-file-share"></a>Montare la condivisione file Premium
 
 1. Accedere al [portale di Azure](https://portal.azure.com). e passare all'account di archiviazione.
-1. Passare a **condivisioni file** in **servizio file**, quindi selezionare la condivisione file Premium che si vuole usare per l'archiviazione SQL.
+1. Passare a **Condivisioni file** in **Servizio file** e quindi selezionare la condivisione file Premium da usare per l'archiviazione SQL.
 1. Selezionare **Connetti** per visualizzare la stringa di connessione per la condivisione file.
-1. Nell'elenco a discesa selezionare la lettera di unità che si desidera utilizzare, quindi copiare entrambi i blocchi di codice nel blocco note.
+1. Nell'elenco a discesa selezionare la lettera di unità da usare e quindi copiare entrambi i blocchi di codice nel Blocco note.
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="Copiare entrambi i comandi di PowerShell dal portale di connessione della condivisione file":::
 
-1. Usare Remote Desktop Protocol (RDP) per connettersi alla macchina virtuale di SQL Server con l'account che l'istanza del cluster di failover di SQL Server utilizzerà per l'account del servizio.
+1. Usare Remote Desktop Protocol (RDP) per connettersi alla macchina virtuale SQL Server con l'account che l'SQL Server FCI userà per l'account del servizio.
 1. Aprire una console di comandi di PowerShell come amministratore.
 1. Eseguire i comandi salvati in precedenza durante il lavoro nel portale.
-1. Passare alla condivisione usando Esplora file o la finestra di dialogo **Esegui** (selezionare Windows + R). Usare il percorso di rete `\\storageaccountname.file.core.windows.net\filesharename`. Ad esempio, usare `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. Passare alla condivisione usando Esplora file o la **finestra di** dialogo Esegui (selezionare Windows + R). Usare il percorso di rete `\\storageaccountname.file.core.windows.net\filesharename`. Ad esempio, usare `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. Creare almeno una cartella nella condivisione file appena connessa in cui inserire i file di dati SQL.
 1. Ripetere questi passaggi in ogni macchina virtuale di SQL Server che parteciperà al cluster.
 
   > [!IMPORTANT]
-  > - Si consiglia di usare una condivisione file separata per i file di backup per salvare le operazioni di input/output al secondo (IOPS) e la capacità di spazio della condivisione per i file di dati e di log. È possibile usare una condivisione file Premium o standard per i file di backup.
-  > - Se si usa Windows 2012 R2 o versione precedente, seguire la stessa procedura per montare la condivisione file che verrà usata come controllo di condivisione file. 
+  > - Prendere in considerazione l'uso di una condivisione file separata per i file di backup per salvare le operazioni di input/output al secondo e la capacità di spazio di questa condivisione per i file di dati e di log. È possibile usare una condivisione file Premium o Standard per i file di backup.
+  > - Se si usa Windows 2012 R2 o versioni precedenti, seguire questi stessi passaggi per montare la condivisione file che si userà come server di controllo della condivisione file. 
   > 
 
 
-## <a name="add-windows-cluster-feature"></a>Aggiungi funzionalità cluster Windows
+## <a name="add-windows-cluster-feature"></a>Aggiungere la funzionalità cluster di Windows
 
 1. Connettersi alla prima macchina virtuale con RDP usando un account di dominio che è membro del gruppo degli amministratori locali e ha l'autorizzazione necessarie per creare oggetti in Active Directory. Usare questo account per il resto della configurazione.
 
-1. [Aggiungere il clustering di failover a ogni macchina virtuale](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [Aggiungere il clustering di failover a ogni macchina virtuale.](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms)
 
    Per installare il clustering di failover dall'interfaccia utente, eseguire le operazioni seguenti in entrambe le macchine virtuali:
    1. In **Server Manager** selezionare **Gestione** e quindi **Aggiungi ruoli e funzionalità**.
-   1. Nell' **Aggiunta guidata ruoli e funzionalità** selezionare **Avanti** fino a quando non si ottengono le **funzionalità selezionate**.
+   1. **Nell'Aggiunta guidata ruoli e funzionalità** selezionare **Avanti** fino a quando non si arriva a **Seleziona funzionalità.**
    1. In **Seleziona funzionalità** selezionare **Clustering di failover**. Includere tutte le funzionalità necessarie e gli strumenti di gestione. 
    1. Selezionare **Aggiungi funzionalità**.
    1. Selezionare **Avanti** e quindi selezionare **Fine** per installare le funzionalità.
 
-   Per installare il clustering di failover tramite PowerShell, eseguire lo script seguente da una sessione di PowerShell amministratore in una delle macchine virtuali:
+   Per installare il clustering di failover tramite PowerShell, eseguire lo script seguente da una sessione di PowerShell di amministratore in una delle macchine virtuali:
 
    ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-## <a name="validate-cluster"></a>Convalida cluster
+## <a name="validate-cluster"></a>Convalidare il cluster
 
 Convalidare il cluster nell'interfaccia utente o usando PowerShell.
 
@@ -102,7 +102,7 @@ Per convalidare il cluster usando l'interfaccia utente, eseguire le operazioni s
 1. Selezionare **Avanti**.
 1. In **Conferma** selezionare **Avanti**.
 
-La convalida guidata **configurazione** esegue i test di convalida.
+La **Convalida guidata configurazione** esegue i test di convalida.
 
 Per convalidare il cluster usando PowerShell, eseguire lo script seguente da una sessione di PowerShell in modalità amministratore in una delle macchine virtuali:
 
@@ -113,7 +113,7 @@ Per convalidare il cluster usando PowerShell, eseguire lo script seguente da una
 Dopo aver convalidato il cluster, creare il cluster di failover.
 
 
-## <a name="create-failover-cluster"></a>Crea cluster di failover
+## <a name="create-failover-cluster"></a>Creare un cluster di failover
 
 Per creare il cluster di failover è necessario:
 
@@ -145,12 +145,12 @@ Per altre informazioni, vedere [Cluster di failover: oggetto di rete cluster](ht
 
 ## <a name="configure-quorum"></a>Configurare il quorum
 
-Configurare la soluzione quorum più adatta alle proprie esigenze aziendali. È possibile configurare un [disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)di controllo, un [cloud](/windows-server/failover-clustering/deploy-cloud-witness)di controllo o una [condivisione file](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)di controllo. Per altre informazioni, vedere [quorum con SQL Server VM](hadr-cluster-best-practices.md#quorum). 
+Configurare la soluzione quorum più adatta alle esigenze aziendali. È possibile configurare un disco [di controllo,](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)un [cloud di controllo](/windows-server/failover-clustering/deploy-cloud-witness)o un controllo di condivisione [file.](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum) Per altre informazioni, vedere [Quorum con SQL Server virtuali.](hadr-cluster-best-practices.md#quorum) 
 
 
-## <a name="test-cluster-failover"></a>Test del failover del cluster
+## <a name="test-cluster-failover"></a>Testare il failover del cluster
 
-Testare il failover del cluster. In **Gestione cluster di failover** fare clic con il pulsante destro del mouse sul cluster, scegliere **altre azioni**  >  **Sposta Core Cluster Resource**  >  **selezionare nodo**, quindi selezionare l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
+Testare il failover del cluster. In Gestione cluster di failover fare clic con il pulsante destro del mouse sul cluster, scegliere Altre azioni Sposta risorsa cluster principale Selezionare **il** nodo e quindi selezionare  >    >  l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testare il failover del cluster spostando le risorse principali negli altri nodi":::
 
@@ -161,7 +161,7 @@ Dopo aver configurato il cluster di failover, è possibile creare l'istanza del 
 
 1. Connettersi alla prima macchina virtuale con RDP.
 
-1. In **Gestione cluster di failover** assicurarsi che tutte le risorse cluster principali siano presenti nella prima macchina virtuale. Se necessario, spostare tutte le risorse in questa macchina virtuale.
+1. In **Gestione cluster di failover** verificare che tutte le risorse principali del cluster siano nella prima macchina virtuale. Se necessario, spostare tutte le risorse in questa macchina virtuale.
 
 1. Individuare i supporti di installazione. Se la macchina virtuale usa una delle immagini di Azure Marketplace, i supporti si trovano in `C:\SQLServer_<version number>_Full`. 
 
@@ -169,9 +169,9 @@ Dopo aver configurato il cluster di failover, è possibile creare l'istanza del 
 
 1. Nel **Centro installazione SQL Server** selezionare **Installazione**.
 
-1. Selezionare **nuovo SQL Server installazione cluster di failover**, quindi seguire le istruzioni della procedura guidata per installare l'istanza FCI di SQL Server.
+1. Selezionare **Nuovo SQL Server'installazione del cluster** di failover di e quindi seguire le istruzioni della procedura guidata per installare l'istanza del SQL Server cluster di failover.
 
-   Le directory di dati dell'istanza del cluster di failover devono trovarsi nella condivisione file Premium. Immettere il percorso completo della condivisione, nel formato seguente: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Verrà visualizzato un avviso che informa che è stato specificato un file server come directory di dati. Si tratta di un avviso previsto. Assicurarsi che l'account utente usato per accedere alla macchina virtuale tramite RDP quando è stata resa permanente la condivisione file sia lo stesso account utilizzato dal servizio SQL Server per evitare possibili errori.
+   Le directory di dati dell'istanza del cluster di failover devono trovarsi nella condivisione file Premium. Immettere il percorso completo della condivisione, nel formato seguente: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Verrà visualizzato un avviso che informa che è stato specificato un file server come directory di dati. Si tratta di un avviso previsto. Assicurarsi che l'account utente usato per accedere alla macchina virtuale tramite RDP quando è stata resa persistente la condivisione file sia lo stesso account usato dal servizio SQL Server per evitare possibili errori.
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Usare la condivisione file come directory dati SQL":::
 
@@ -179,20 +179,20 @@ Dopo aver configurato il cluster di failover, è possibile creare l'istanza del 
 
 1. Al termine dell'installazione dell'istanza del cluster di failover nel primo nodo, connettersi al secondo nodo usando RDP.
 
-1. Aprire **Centro installazione SQL Server**, quindi selezionare **installazione**.
+1. Aprire il **SQL Server installazione di** e quindi selezionare **Installazione**.
 
 1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
 
    >[!NOTE]
    >Se è stata usata un'immagine della raccolta di Azure Marketplace con SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Per altre informazioni, vedere [Scaricare SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. Ripetere questi passaggi in tutti gli altri nodi che si desidera aggiungere all'istanza del cluster di failover di SQL Server. 
+1. Ripetere questi passaggi in tutti gli altri nodi da aggiungere all'istanza del cluster SQL Server failover. 
 
 ## <a name="register-with-the-sql-vm-rp"></a>Eseguire la registrazione con la macchina virtuale SQL RP
 
-Per gestire la macchina virtuale SQL Server dal portale, registrarla con l'estensione SQL IaaS Agent (RP) in [modalità di gestione leggera](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), attualmente l'unica modalità supportata con FCI e SQL Server in macchine virtuali di Azure. 
+Per gestire la macchina virtuale SQL Server dal portale, registrarla con l'estensione sql IaaS Agent (RP) in modalità [di](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode)gestione leggera, attualmente l'unica modalità supportata con FCI e SQL Server nelle macchine virtuali di Azure. 
 
-Registrare una macchina virtuale SQL Server in modalità Lightweight con PowerShell (-LicenseType può essere `PAYG` o `AHUB` ):
+Registrare SQL Server macchina virtuale in modalità leggera con PowerShell (-LicenseType può `PAYG` essere o `AHUB` ):
 
 ```powershell-interactive
 # Get the existing compute VM
@@ -205,24 +205,25 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurare la connettività 
 
-Per instradare il traffico in modo appropriato al nodo primario corrente, configurare l'opzione di connettività adatta per l'ambiente. È possibile creare un servizio di [bilanciamento del carico di Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o, se si usa SQL Server 2019 Cu2 (o versione successiva) e Windows Server 2016 (o versione successiva), è invece possibile usare la funzionalità nome di [rete distribuita](failover-cluster-instance-distributed-network-name-dnn-configure.md) . 
+Per instradare il traffico in modo appropriato al nodo primario corrente, configurare l'opzione di connettività adatta all'ambiente. È possibile creare un servizio di bilanciamento del carico di [Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) oppure, se si usa SQL Server 2019 CU2 (o [](failover-cluster-instance-distributed-network-name-dnn-configure.md) versione successiva) e Windows Server 2016 (o versione successiva), è possibile usare la funzionalità del nome di rete distribuita. 
 
 Per altre informazioni sulle opzioni di connettività del cluster, vedere [Instradare connessioni a disponibilità elevata e ripristino di emergenza a SQL Server in macchine virtuali di Azure](hadr-cluster-best-practices.md#connectivity). 
 
 ## <a name="limitations"></a>Limitazioni
 
 - Microsoft Distributed Transaction Coordinator (MSDTC) non è supportato in Windows Server 2016 e versioni precedenti. 
-- FileStream non è supportato per un cluster di failover con una condivisione file Premium. Per usare FILESTREAM, distribuire il cluster usando [spazi di archiviazione diretta](failover-cluster-instance-storage-spaces-direct-manually-configure.md) o [dischi condivisi di Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) .
-- È supportata solo la registrazione con l'estensione SQL IaaS Agent in [modalità di gestione Lightweight](sql-server-iaas-agent-extension-automate-management.md#management-modes) . 
+- FileStream non è supportato per un cluster di failover con una condivisione file Premium. Per usare filestream, distribuire il cluster usando [Spazi di archiviazione diretta](failover-cluster-instance-storage-spaces-direct-manually-configure.md) o dischi condivisi [di Azure.](failover-cluster-instance-azure-shared-disks-manually-configure.md)
+- È supportata solo la registrazione con l'estensione SQL IaaS Agent in [modalità di gestione](sql-server-iaas-agent-extension-automate-management.md#management-modes) leggera. 
+- Gli snapshot del database non sono attualmente supportati con [File di Azure a causa di limitazioni dei file di tipo sparse.](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non è già stato fatto, configurare la connettività all'istanza del cluster di failover con un [nome di rete virtuale e un](failover-cluster-instance-vnn-azure-load-balancer-configure.md) servizio di bilanciamento del carico di Azure o un nome di [rete distribuita (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+Se non è già stato fatto, configurare la connettività all'istanza di FCI con un nome di rete virtuale e un servizio di bilanciamento del carico di [Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o [DNN (Distributed Network Name).](failover-cluster-instance-distributed-network-name-dnn-configure.md) 
 
 
-Se le condivisioni file Premium non sono la soluzione di archiviazione FCI appropriata, provare a creare un'istanza FCI usando i [dischi condivisi di Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) o [spazi di archiviazione diretta](failover-cluster-instance-storage-spaces-direct-manually-configure.md) . 
+Se le condivisioni file Premium non sono la soluzione di archiviazione FCI appropriata, è consigliabile creare l'istanza FCI usando dischi condivisi di [Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) [o](failover-cluster-instance-storage-spaces-direct-manually-configure.md) Spazi di archiviazione diretta. 
 
-Per altre informazioni, vedere Panoramica di [FCI con SQL Server nelle macchine virtuali di Azure](failover-cluster-instance-overview.md) e [procedure consigliate](hadr-cluster-best-practices.md)per la configurazione del cluster. 
+Per altre informazioni, vedere una panoramica dell'istanza di Failover con [SQL Server sulle macchine virtuali](failover-cluster-instance-overview.md) di Azure e sulle procedure consigliate per la configurazione del [cluster.](hadr-cluster-best-practices.md) 
 
 Per altre informazioni, vedere: 
 - [Tecnologie cluster di Windows](/windows-server/failover-clustering/failover-clustering-overview)   

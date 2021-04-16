@@ -7,16 +7,16 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 335f78bba24947b1b6c3d6132bc38f237b3298b9
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: fb874c25ab688cc5e6723d1023157b8acd9478b9
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449134"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483846"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Avvio rapido: Creazione del primo sito statico con App Web statiche di Azure
 
-App Web statiche di Azure pubblica un sito Web tramite la compilazione di app da un repository di codice. In questa Guida introduttiva si distribuisce un'applicazione in app Web statiche di Azure usando l'estensione Visual Studio Code.
+App Web statiche di Azure pubblica un sito Web creando app da un repository di codice. In questa guida introduttiva si distribuisce un'applicazione in app Web statiche di Azure usando l Visual Studio Code app.
 
 Se non si ha una sottoscrizione di Azure, creare un [account per una versione di prova gratuita](https://azure.microsoft.com/free).
 
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account per una versione di
 
 [!INCLUDE [clone the repository](../../includes/static-web-apps-get-started-clone-repo.md)]
 
-Aprire quindi Visual Studio Code e passare a **File > Apri cartella** per aprire il repository clonato nel computer nell'editor.
+Aprire quindi Visual Studio Code e passare a **File > Apri** cartella per aprire il repository clonato nel computer nell'editor.
 
 ## <a name="create-a-static-web-app"></a>Creare un'app Web statica
 
@@ -43,7 +43,7 @@ Aprire quindi Visual Studio Code e passare a **File > Apri cartella** per aprire
     > [!NOTE]
     > Sono necessari l'accesso ad Azure e GitHub. Se non è già stato effettuato l'accesso ad Azure e GitHub da Visual Studio Code, l'estensione richiederà di accedere a entrambi durante il processo di creazione.
 
-1. Nell'etichetta _app Web statiche_ selezionare il **segno più**.
+1. Sotto _l'etichetta App Web statiche_ selezionare il **segno più**.
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Nome applicazione":::
 
@@ -53,26 +53,40 @@ Aprire quindi Visual Studio Code e passare a **File > Apri cartella** per aprire
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Creare l'app Web statica":::
 
-1. Selezionare i set di impostazioni che corrispondono al tipo di applicazione.
+1. Selezionare i set di impostazioni corrispondenti al tipo di applicazione.
 
     # <a name="no-framework"></a>[Nessun framework](#tab/vanilla-javascript)
-    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Set di impostazioni dell'applicazione: nessun Framework":::
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Set di impostazioni dell'applicazione: nessun framework":::
 
-    Immettere **./** come percorso per i file dell'applicazione
+    Immettere **./** come percorso per i file dell'applicazione.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Percorso dei file dell'applicazione":::
 
-    Selezionare **Ignora per ora** come percorso per l'API di funzioni di Azure
+    Selezionare **Ignora per il momento** come percorso per l'API Funzioni di Azure.
 
     :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Posizione dell'API":::
 
-    Immettere **./** come percorso dell'output di compilazione
+    Immettere **./** come percorso dell'output di compilazione.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Percorso dell'output di compilazione dell'applicazione":::
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Set di impostazioni dell'applicazione: angolare":::
+    Anche se è presente un set di impostazioni Angular, selezionare **l'opzione Personalizzato** in modo da poter specificare un percorso di output appropriato per questa applicazione.
+
+    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Set di impostazioni dell'applicazione: Angular":::
+
+    Immettere **./** come percorso per i file dell'applicazione.
+
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Percorso dei file dell'applicazione: Angular":::
+
+    Selezionare **Ignora per il momento** come percorso per l'API Funzioni di Azure.
+
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="Percorso API: Angular":::
+
+    Immettere **dist/angular-basic** come percorso dell'output di compilazione.
+
+    :::image type="content" source="media/getting-started/extension-angular.png" alt-text="Percorso dell'output di compilazione dell'applicazione: Angular":::
 
     # <a name="react"></a>[React](#tab/react)
 
@@ -80,7 +94,7 @@ Aprire quindi Visual Studio Code e passare a **File > Apri cartella** per aprire
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Set di impostazioni dell'applicazione: VME":::
+    :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Set di impostazioni dell'applicazione: Vue":::
 
     ---
 
@@ -92,11 +106,11 @@ Aprire quindi Visual Studio Code e passare a **File > Apri cartella** per aprire
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Conferma della creazione":::
 
-    Fare quindi clic sul pulsante **Apri azioni in GitHub**. Questa pagina mostra lo stato di compilazione dell'applicazione.
+    Fare quindi clic sul pulsante **Apri azioni in GitHub.** Questa pagina mostra lo stato di compilazione dell'applicazione.
 
-    Una volta completata l'azione di GitHub, è possibile passare al sito Web pubblicato.
+    Al termine dell'azione GitHub, è possibile passare al sito Web pubblicato.
 
-1. Per visualizzare il sito Web nel browser, fare clic con il pulsante destro del mouse sul progetto nell'estensione app Web statiche e selezionare **Sfoglia sito**.
+1. Per visualizzare il sito Web nel browser, fare clic con il pulsante destro del mouse sul progetto nell'estensione App Web statiche e scegliere **Sfoglia sito**.
 
     :::image type="content" source="media/getting-started/extension-browse-site.png" alt-text="Esplorazione del sito":::
 

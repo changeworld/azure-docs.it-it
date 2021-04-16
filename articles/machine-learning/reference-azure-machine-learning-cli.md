@@ -1,6 +1,6 @@
 ---
 title: Installare e usare l'interfaccia della riga di comando di Azure Machine Learning
-description: Informazioni su come usare l'estensione dell'interfaccia della riga di comando di Azure per ML per creare & gestire risorse quali l'area di lavoro, gli archivi dati, i set di dati, le pipeline, i modelli e le distribuzioni.
+description: Informazioni su come usare l'estensione dell'interfaccia della riga di comando di Azure per ML per creare & risorse come l'area di lavoro, gli archivi dati, i set di dati, le pipeline, i modelli e le distribuzioni.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 9a22700782c584015add2c83ecc96ccc610b8509
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 8e912e141ab769f3121fcccdecb9c3952920572f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219621"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516213"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installare e usare l'estensione dell'interfaccia della riga di comando per Azure Machine Learning
 
@@ -39,7 +39,7 @@ L'interfaccia della riga di comando non sostituisce Azure Machine Learning SDK. 
 
 ## <a name="full-reference-docs"></a>Documentazione di riferimento completa
 
-Trovare la [documentazione di riferimento completa per l'estensione azure-cli-ml dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-cli-ml/).
+Trovare la [documentazione di riferimento completa per l'estensione azure-cli-ml dell'interfaccia della riga di comando di Azure](/cli/azure/ml/).
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Connettere l'interfaccia della riga di comando alla sottoscrizione di Azure
 
@@ -60,7 +60,7 @@ Per altri metodi di autenticazione, vedere [Accedere con l'interfaccia della rig
 
 ## <a name="install-the-extension"></a>Installare l'estensione
 
-L'estensione viene installata automaticamente quando si tenta prima di tutto di usare un comando che inizia con `az ml` .
+L'estensione viene installata automaticamente quando si tenta per la prima volta di usare un comando che inizia con `az ml` .
 
 ## <a name="update-the-extension"></a>Aggiornare l'estensione
 
@@ -172,47 +172,47 @@ Per altre informazioni, vedere [az ml computetarget create amlcompute](/cli/azur
 <a id="computeinstance"></a>
 
 ### <a name="compute-instance"></a>Istanza di calcolo
-Gestire le istanze di calcolo.  In tutti gli esempi riportati di seguito, il nome dell'istanza di calcolo è **CPU**
+Gestire le istanze di calcolo.  In tutti gli esempi seguenti il nome dell'istanza di calcolo è **cpu**
 
-+ Creare un nuovo computeinstance.
++ Creare una nuova istanza di calcolo.
 
     ```azurecli-interactive
     az ml computetarget create computeinstance -n cpu -s "STANDARD_D3_V2" -v
     ```
 
-    Per altre informazioni, vedere [AZ ml computetarget create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
+    Per altre informazioni, vedere [az ml computetarget create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
 
-+ Arrestare un computeinstance.
++ Arrestare un'istanza di calcolo.
 
     ```azurecli-interactive
     az ml computetarget computeinstance stop -n cpu -v
     ```
 
-    Per ulteriori informazioni, vedere [AZ ml computetarget computeinstance stop](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Per altre informazioni, vedere [az ml computetarget computeinstance stop](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
 
-+ Avviare un computeinstance.
++ Avviare un'istanza di calcolo.
 
     ```azurecli-interactive
     az ml computetarget computeinstance start -n cpu -v
     ```
 
-    Per altre informazioni, vedere [AZ ml computetarget computeinstance Start](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Per altre informazioni, vedere [az ml computetarget computeinstance start](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
 
-+ Riavviare un computeinstance.
++ Riavviare un'istanza di calcolo.
 
     ```azurecli-interactive
     az ml computetarget computeinstance restart -n cpu -v
     ```
 
-    Per altre informazioni, vedere [AZ ml computetarget computeinstance restart](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Per altre informazioni, vedere [az ml computetarget computeinstance restart](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
-+ Eliminare un computeinstance.
++ Eliminare un'istanza di calcolo.
 
     ```azurecli-interactive
     az ml computetarget delete -n cpu -v
     ```
 
-    Per ulteriori informazioni, vedere [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Per altre informazioni, vedere [az ml computetarget delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
 
 
 ## <a name="run-experiments"></a><a id="experiments"></a>Eseguire esperimenti
@@ -397,7 +397,7 @@ La tabella seguente illustra in dettaglio ogni campo di primo livello nel file J
 | `name` | `string` | Nome dell'ambiente. Non avviare il nome con **Microsoft** o **AzureML**. |
 | `version` | `string` | Versione dell'ambiente. |
 | `environmentVariables` | `{string: string}` | Una mappa di hash dei nomi e dei valori delle variabili di ambiente. |
-| `python` | [`PythonSection`](/python/api/azureml-core/azureml.core.environment.pythonsection)Hat definisce l'ambiente e l'interprete Python da usare nella risorsa di calcolo di destinazione. |
+| `python` | [`PythonSection`](/python/api/azureml-core/azureml.core.environment.pythonsection)hat definisce l'ambiente Python e l'interprete da usare nella risorsa di calcolo di destinazione. |
 | `docker` | [`DockerSection`](/python/api/azureml-core/azureml.core.environment.dockersection) | Definisce le impostazioni per personalizzare l'immagine Docker compilata in base alle specifiche dell'ambiente. |
 | `spark` | [`SparkSection`](/python/api/azureml-core/azureml.core.environment.sparksection) | La sezione configura le impostazioni di Spark. Si usa solo quando il framework è impostato su PySpark. |
 | `databricks` | [`DatabricksSection`](/python/api/azureml-core/azureml.core.databricks.databrickssection) | Configura le dipendenze della libreria Databricks. |

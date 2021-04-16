@@ -1,99 +1,97 @@
 ---
-title: Registrare analisi di origine e configurazione Oracle (anteprima) in Azure
-description: Questo articolo illustra come registrare l'origine Oracle in Azure e come configurare un'analisi.
+title: Registrare l'origine Oracle e le analisi di configurazione (anteprima) in Azure Purview
+description: Questo articolo descrive come registrare l'origine Oracle in Azure Purview e configurare un'analisi.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 76aadd667691e12c61e0e5e13c13ca0241a9f0ce
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 40c5e0ff2c2301607f5a548ff05c742c5c5a948d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045502"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517063"
 ---
-# <a name="register-and-scan-oracle-source-preview"></a>Registrare e analizzare l'origine Oracle (anteprima)
+# <a name="register-and-scan-oracle-source-preview"></a>Registrare ed analizzare l'origine Oracle (anteprima)
 
-Questo articolo illustra come registrare un database Oracle in ambito di competenza e come configurare un'analisi.
+Questo articolo descrive come registrare una data base Oracle in Purview e configurare un'analisi.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-L'origine Oracle supporta l' **analisi completa** per estrarre i metadati da un database Oracle e recuperare la derivazione **tra gli** asset di dati.
+L'origine Oracle supporta **l'analisi completa** per estrarre metadati da un database Oracle e recupera **la derivazione** tra asset di dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1.  Configurare il runtime di [integrazione self-hosted](https://www.microsoft.com/download/details.aspx?id=39717)più recente.
-    Per altre informazioni, vedere [creare e configurare un runtime di integrazione self-hosted](../data-factory/create-self-hosted-integration-runtime.md).
+1.  Configurare il runtime di [integrazione self-hosted più recente.](https://www.microsoft.com/download/details.aspx?id=39717)
+    Per altre informazioni, vedere [Creare e configurare un runtime di integrazione self-hosted.](../data-factory/create-self-hosted-integration-runtime.md)
 
 2.  Assicurarsi che [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) sia installato nella macchina virtuale in cui è installato il runtime di integrazione self-hosted.
 
-3.  Assicurarsi che \" Visual C++ Redistributable 2012 Update 4 \" sia installato nel computer del runtime di integrazione self-hosted. Se non è \' ancora installato, scaricarlo da [qui](https://www.microsoft.com/download/details.aspx?id=30679).
+3.  Assicurarsi che Visual C++ Redistributable 2012 Update 4 sia installato nel computer del runtime di integrazione \" \" self-hosted. Se non \' è ancora installato, scaricarlo da [qui.](https://www.microsoft.com/download/details.aspx?id=30679)
 
-4.  Sarà necessario scaricare manualmente un driver JDBC Oracle da [qui](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) nella macchina virtuale in cui è in esecuzione il runtime di integrazione self-hosted.
+4.  È necessario scaricare manualmente un driver Oracle [](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) JDBC da qui nella macchina virtuale in cui è in esecuzione il runtime di integrazione self-hosted.
 
     > [!Note] 
     > Il driver deve essere accessibile a tutti gli account nella VM. Non installarlo in un account utente.
 
-5.  Le versioni supportate del database Oracle sono 6I in 19C.
+5.  Le versioni di database Oracle supportate sono da 6i a 19c.
 
-6.  Autorizzazione utente: per garantire una corretta analisi per la prima volta, è richiesta l'autorizzazione completa per il tipo di amministratore sys.
-
-    Per le analisi successive, è necessario un accesso in sola lettura alle tabelle di sistema. L'utente deve disporre dell'autorizzazione per la creazione di una sessione e del ruolo selezionare il \_ ruolo del catalogo \_ assegnato. In alternativa, è possibile che all'utente sia concessa l'autorizzazione SELECT per ogni singola tabella di sistema da cui questo connettore esegue una query sui metadati:
-       > Concedi creazione sessione all' \[ utente \] ; \
-        Concedi selezione su tutti \_ gli utenti all' \[ utente \] ; \
-        Concedi selezione su \_ oggetti DBA all' \[ utente \] ; \
-        Concedi \_ commenti alla scheda DBA seleziona \_ per l' \[ utente \] ; \
-        Concedi selezione in \_ percorsi esterni DBA \_ all' \[ utente \] ; \
-        Concedi selezione nelle \_ directory DBA all' \[ utente \] ; \
-        Concedi SELECT su DBA \_ mviews all' \[ utente \] ; \
-        Concedi SELECT su DBA \_ CLU \_ colonne all' \[ utente \] ; \
-        Concedi selezione sulle \_ colonne della scheda DBA \_ all' \[ utente \] ; \
-        Concedi all'utente i commenti SELECT su DBA \_ \_ \[ \] ; \
-        Concedi \_ all'utente i vincoli SELECT per DBA \[ \] ; \
-        concedere le colonne SELECT su DBA \_ const \_ all' \[ utente \] ; \
-        Concedi selezione sugli \_ indici DBA all' \[ utente \] ; \
-        Concedi SELECT su DBA \_ IND \_ colonne all' \[ utente \] ; \
-        Concedi \_ all'utente le procedure SELECT per DBA \[ \] ; \
-        Concedi \_ all'utente i sinonimi SELECT su DBA \[ \] ; \
-        Concedi \_ all'utente le visualizzazioni SELECT per DBA \[ \] ; \
-        Concedi selezione nell' \_ origine DBA all' \[ utente \] ; \
-        Concedi selezione sui \_ trigger DBA all' \[ utente \] ; \
-        Concedi gli argomenti SELECT \_ per DBA all' \[ utente \] ; \
-        Concedi selezione in \_ sequenza DBA all' \[ utente \] ; \
-        Concedi la selezione \_ per le dipendenze DBA all' \[ utente \] ; \
-        Concedi selezione nell' \_ \$ istanza V all' \[ utente \] ; \
-        Concedi Select on v \_ \$ database to \[ User \] ;
+6.  Autorizzazione utente: è necessario un accesso di sola lettura alle tabelle di sistema. L'utente deve disporre dell'autorizzazione per creare una sessione e del ruolo SELECT \_ CATALOG \_ ROLE assegnato. In alternativa, l'utente può avere l'autorizzazione SELECT concessa per ogni singola tabella di sistema da cui il connettore esegue query sui metadati:
+       > concedere la creazione di una sessione \[ \] all'utente ;\
+        grant select on all \_ users to \[ user \] ;\
+        grant select on dba \_ objects to \[ user \] ;\
+        grant select on dba \_ tab \_ comments to \[ user \] ;\
+        grant select on dba \_ external locations to user \_ \[ \] ;\
+        grant select on dba \_ directories to \[ user \] ;\
+        grant select on dba \_ mviews to \[ user \] ;\
+        grant select on dba \_ clu \_ columns to user \[ \] ;\
+        grant select on dba \_ tab columns to user \_ \[ \] ;\
+        grant select on dba \_ col \_ comments to \[ user \] ;\
+        grant select on dba \_ constraints to \[ user \] ;\
+        grant select on dba \_ cons \_ columns to user \[ \] ;\
+        grant select on dba \_ indexes to \[ user \] ;\
+        grant select on dba \_ ind \_ columns to user \[ \] ;\
+        grant select on dba \_ procedures to \[ user \] ;\
+        grant select on dba \_ synonyms to \[ user \] ;\
+        grant select on dba \_ views to \[ user \] ;\
+        grant select on dba \_ source to \[ user \] ;\
+        grant select on dba \_ triggers to \[ user \] ;\
+        grant select on dba \_ arguments to \[ user \] ;\
+        grant select on dba \_ sequences to \[ user \] ;\
+        grant select on dba \_ dependencies to \[ user \] ;\
+        grant select on V \_ \$ INSTANCE to user \[ \] ;\
+        grant select on v \_ \$ database to user \[ \] ;
     
 ## <a name="setting-up-authentication-for-a-scan"></a>Configurazione dell'autenticazione per un'analisi
 
-L'unica autenticazione supportata per un'origine Oracle è l' **autenticazione di base**.
+L'unica autenticazione supportata per un'origine Oracle è **l'autenticazione di base**.
 
 ## <a name="register-an-oracle-source"></a>Registrare un'origine Oracle
 
-Per registrare una nuova origine Oracle nel Catalogo dati, eseguire le operazioni seguenti:
+Per registrare una nuova origine Oracle nel catalogo dati, eseguire le operazioni seguenti:
 
-1.  Passare all'account di competenza.
-2.  Selezionare **origini** nel percorso di spostamento a sinistra.
+1.  Passare all'account Purview.
+2.  Selezionare **Origini** nel riquadro di spostamento a sinistra.
 3.  Selezionare **Registra**
-4.  In registra origini selezionare **Oracle**. Selezionare **Continua**.
+4.  In Registra origini selezionare **Oracle**. Selezionare **Continua**.
 
-    :::image type="content" source="media/register-scan-oracle-source/register-sources.png" alt-text="Registra origini" border="true":::
+    :::image type="content" source="media/register-scan-oracle-source/register-sources.png" alt-text="registrare le origini" border="true":::
 
-Nella schermata **registra origini (Oracle)** eseguire le operazioni seguenti:
+Nella schermata **Registra origini (Oracle)** eseguire le operazioni seguenti:
 
-1.  Immettere un **nome** che l'origine dati sarà elencata nel catalogo.
+1.  Immettere un **nome per** indicare che l'origine dati verrà elencata all'interno del catalogo.
 
-2.  Immettere il nome **host** per la connessione a un'origine Oracle. Può essere:
+2.  Immettere il **nome host** per connettersi a un'origine Oracle. Può essere:
     - Nome host utilizzato da JDBC per connettersi al server di database. Ad esempio, MyDatabaseServer.com o
     - Un indirizzo IP. Ad esempio, 192.169.1.2 o
-    - Stringa di connessione JDBC completo. Ad esempio, \
-        JDBC: Oracle: thin: @ (descrizione = (LOAD \_ balance = on) (Address = (Protocol = TCP) (host = OracleServer1) (Port = 1521)) (Address = (Protocol = TCP) (host = oracleserver2) (Port = 1521)) (Address = (Protocol = TCP) (host = oracleserver3) (Port = 1521)) (Connect \_ Data = ( \_ nome servizio = ORCL)))
+    - Stringa di connessione JDBC completa. Ad esempio, \
+        jdbc:oracle:thin:@(DESCRIPTION=(LOAD \_ BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT \_ DATA=(SERVICE \_ NAME=orcl))
 
-3.  Immettere il **numero di porta** utilizzato da JDBC per connettersi al server di database (1521 per impostazione predefinita per Oracle).
+3.  Immettere il **numero di porta** usato da JDBC per connettersi al server di database (1521 per impostazione predefinita per Oracle).
 
-4.  Immettere il **nome del servizio Oracle** utilizzato da JDBC per connettersi al server di database.
+4.  Immettere il **nome del servizio Oracle** usato da JDBC per connettersi al server di database.
 
 5.  Selezionare una raccolta o crearne una nuova (facoltativo)
 
@@ -105,45 +103,45 @@ Nella schermata **registra origini (Oracle)** eseguire le operazioni seguenti:
 
 Per creare ed eseguire una nuova analisi, procedere come segue:
 
-1.  Nel centro di gestione fare clic su Runtime di integrazione. Assicurasi che sia configurato un runtime di integrazione self-hosted. Se non è configurato, attenersi alla procedura descritta di [seguito](./manage-integration-runtimes.md) per creare un runtime di integrazione self-hosted.
+1.  Nel centro di gestione fare clic su Runtime di integrazione. Assicurasi che sia configurato un runtime di integrazione self-hosted. Se non è configurato, usare i passaggi indicati [qui](./manage-integration-runtimes.md) per creare un runtime di integrazione self-hosted.
 
-2.  Passare a **origini**.
+2.  Passare a **Origini.**
 
 3.  Selezionare l'origine Oracle registrata.
 
-4.  Selezionare **+ nuova analisi**.
+4.  Selezionare **+ Nuova analisi.**
 
 5.  Fornire i dettagli seguenti:
 
-    a.  **Nome**: il nome dell'analisi
+    a.  **Nome:** nome dell'analisi
 
-    b.  **Connetti tramite Integration Runtime**: selezionare il runtime di integrazione self-hosted configurato
+    b.  **Connetti tramite runtime di integrazione:** selezionare il runtime di integrazione self-hosted configurato
 
-    c.  **Credenziale**: selezionare le credenziali per la connessione all'origine dati. Verificare di:
-    - Selezionare autenticazione di base durante la creazione di una credenziale.        
-    - Specificare il nome utente utilizzato da JDBC per connettersi al server di database nel campo di input del nome utente        
-    - Archiviare la password utente utilizzata da JDBC per connettersi al server di database nella chiave privata.
+    c.  **Credenziali:** selezionare le credenziali per connettersi all'origine dati. Verificare di:
+    - Selezionare Autenticazione di base durante la creazione di una credenziale.        
+    - Specificare il nome utente usato da JDBC per connettersi al server di database nel campo di input Nome utente        
+    - Archiviare la password utente usata da JDBC per connettersi al server di database nella chiave privata.
 
-    d.  **Schema**: elenco subset di schemi da importare espressi come un elenco separato da punti e virgola. Ad esempio, Schema1; Schema2. Se l'elenco è vuoto, verranno importati tutti gli schemi utente. Tutti gli schemi di sistema (ad esempio SysAdmin) e gli oggetti di sistema vengono ignorati per impostazione predefinita. Quando l'elenco è vuoto, vengono importati tutti gli schemi disponibili.
-        I modelli di nomi di schema accettabili utilizzando la sintassi delle espressioni LIKE SQL includono, ad esempio, using%. %; B % C%; D
+    d.  **Schema:** elenco di subset di schemi da importare espressi come elenco delimitato da punto e virgola. Ad esempio, schema1; schema2. Tutti gli schemi utente vengono importati se l'elenco è vuoto. Tutti gli schemi di sistema (ad esempio SysAdmin) e gli oggetti di sistema vengono ignorati per impostazione predefinita. Quando l'elenco è vuoto, vengono importati tutti gli schemi disponibili.
+        I modelli di nomi di schema accettabili che usano la sintassi di espressioni LIKE SQL includono ad esempio l'uso di %. A%; %B; %C%; D
        -   inizia con A o        
        -   termina con B o        
        -   contiene C o        
        -   è uguale a D
 
-    L'utilizzo di caratteri non e speciali non è accettabile.
+    L'utilizzo di NOT e caratteri speciali non è accettabile.
 
-6.  **Percorso driver**: specificare il percorso della posizione del driver JDBC nella macchina virtuale in cui è in esecuzione il runtime di integrazione self-hosted. Deve corrispondere al percorso della cartella JAR valida.
+6.  **Percorso driver:** specificare il percorso del driver JDBC nella macchina virtuale in cui è in esecuzione il runtime di integrazione self-host. Deve essere il percorso della cartella JAR valida.
 
-7.  **Memoria massima disponibile**: memoria massima (in GB) disponibile nella macchina virtuale del cliente da usare per l'analisi dei processi. Questo dipende dalle dimensioni dell'origine SAP S/4HANA da analizzare.
+7.  **Memoria massima disponibile:** memoria massima (in GB) disponibile nella macchina virtuale del cliente che deve essere usata dai processi di analisi. Ciò dipende dalle dimensioni dell'origine SAP S/4HANA da analizzare.
 
-    :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="analizza Oracle" border="true":::
+    :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="oracle di analisi" border="true":::
 
-8.  Fare clic su **continua**.
+8.  Fare clic su **Continua**.
 
-9.  Scegliere il **trigger di analisi**. Si può configurare una pianificazione oppure eseguire l'analisi una sola volta.
+9.  Scegliere il **trigger di analisi.** Si può configurare una pianificazione oppure eseguire l'analisi una sola volta.
 
-10.  Esaminare l'analisi e fare clic su **Salva ed Esegui**.
+10.  Esaminare l'analisi e fare clic **su Salva ed esegui**.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>Visualizzazione delle analisi e delle relative esecuzioni
 

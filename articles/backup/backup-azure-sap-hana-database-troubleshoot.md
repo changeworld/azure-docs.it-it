@@ -3,12 +3,12 @@ title: Risolvere i problemi relativi agli errori di backup dei database SAP HANA
 description: Viene descritto come risolvere i problemi relativi agli errori comuni che possono verificarsi quando si usa Backup di Azure per eseguire il backup di database SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 22800adc323bda8a60278160f24bc559103fb57e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cdf4c26aa32d65ec63ec84d85e454adaaf2ece8d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713338"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517233"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Risolvere i problemi relativi al backup di database SAP HANA in Azure
 
@@ -31,7 +31,7 @@ Fare riferimento alle sezioni [Prerequisiti](tutorial-backup-sap-hana-db.md#prer
 
 | Messaggio di errore      | <span style="font-weight:normal">Non è stato possibile connettersi al sistema HANA</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Possibili cause**    | È possibile che l'istanza di SAP HANA sia inattiva.<br/>Le autorizzazioni necessarie per il backup di Azure per interagire con il database HANA non sono impostate. |
+| **Possibili cause**    | È possibile che l'istanza di SAP HANA sia inattiva.<br/>Le autorizzazioni necessarie per Backup di Azure interagire con il database HANA non sono impostate. |
 | **Azione consigliata** | Verificare che il database SAP HANA sia attivo. Se il database è attivo e in esecuzione, verificare che tutte le autorizzazioni necessarie siano impostate. Se manca qualche autorizzazione, eseguire lo [script di pre-registrazione](https://aka.ms/scriptforpermsonhana) per aggiungere le autorizzazioni mancanti. |
 
 ### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
@@ -45,7 +45,7 @@ Fare riferimento alle sezioni [Prerequisiti](tutorial-backup-sap-hana-db.md#prer
 
 | Messaggio di errore      | <span style="font-weight:normal">L'operazione SAP HANA specificata non è supportata</span>              |
 | ------------------ | ------------------------------------------------------------ |
-| **Possibili cause**    | Backup di Azure per SAP HANA non supporta il backup incrementale e le azioni eseguite sui client SAP HANA nativi (studio/pozzetto/DBA) |
+| **Possibili cause**    | Backup di Azure per SAP HANA non supporta il backup incrementale e le azioni eseguite SAP HANA client nativi (Studio/Cockpit/DBA Cockpit) |
 | **Azione consigliata** | Per altre informazioni, vedere [qui](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
@@ -66,7 +66,7 @@ Fare riferimento alle sezioni [Prerequisiti](tutorial-backup-sap-hana-db.md#prer
 
 | Messaggio di errore      | <span style="font-weight:normal">La configurazione di Backint rilevata non è valida</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| **Possibili cause**    | I parametri di supporto non sono specificati correttamente per backup di Azure |
+| **Possibili cause**    | I parametri di backup non sono specificati correttamente per Backup di Azure |
 | **Azione consigliata** | Verificare che siano impostati i parametri seguenti (backint):<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>Se in HOST sono presenti parametri basati su backint, rimuoverli. Se i parametri non sono presenti a livello di HOST ma sono stati modificati manualmente a livello di database, ripristinare i valori appropriati come descritto in precedenza. In alternativa, eseguire la procedura per [arrestare la protezione e conservare i dati di backup](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) dal portale di Azure e quindi selezionare **Riprendi backup**. |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
@@ -89,8 +89,8 @@ Si supponga di eseguire il backup di un'istanza SDC HANA denominata "H21". Il no
 Tenere presente quanto segue:
 
 - Per impostazione predefinita, il nome del database ripristinato verrà popolato con il nome dell'elemento di backup, in questo caso h21(sdc).
-- Se si seleziona la destinazione come H11, il nome del database ripristinato non verrà modificato automaticamente. **Deve essere modificato in h11(sdc)** . Per quanto riguarda SDC, il nome del database ripristinato corrisponderà all'ID istanza di destinazione scritto in lettere minuscole e con il suffisso 'sdc' racchiuso tra parentesi quadre.
-- Poiché la DSC può avere un solo database singolo, è necessario selezionare la casella di controllo per consentire l'override dei dati del database esistenti con i dati del punto di ripristino.
+- Se si seleziona la destinazione H11, il nome del database ripristinato non verrà modificato automaticamente. **Deve essere modificato in h11(sdc)** . Per quanto riguarda SDC, il nome del database ripristinato corrisponderà all'ID istanza di destinazione scritto in lettere minuscole e con il suffisso 'sdc' racchiuso tra parentesi quadre.
+- Poiché SDC può avere un solo database, è anche necessario selezionare la casella di controllo per consentire l'override dei dati del database esistenti con i dati del punto di ripristino.
 - Linux fa distinzione tra maiuscole e minuscole, di conseguenza prestare attenzione a rispettare tale distinzione.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Ripristino di un contenitore di più database (MDC)
@@ -146,7 +146,7 @@ Gli aggiornamenti al sistema operativo, la modifica della versione di SDC o la m
 - Assicurarsi che la nuova versione del sistema operativo, la versione di SDC o quella di MDC siano attualmente [supportate da Backup di Azure](sap-hana-backup-support-matrix.md#scenario-support)
 - [Arrestare la protezione conservando i dati](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) per il database
 - Eseguire l'aggiornamento
-- Eseguire di nuovo lo script di pre-registrazione. Spesso il processo di aggiornamento può rimuovere [i ruoli necessari](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). L'esecuzione dello script di pre-registrazione consentirà di verificare tutti i ruoli necessari.
+- Eseguire di nuovo lo script di pre-registrazione. Spesso, il processo di aggiornamento può [rimuovere i ruoli necessari.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) L'esecuzione dello script di pre-registrazione consente di verificare tutti i ruoli necessari.
 - Riprendere di nuovo la protezione per il database
 
 ## <a name="sdc-to-mdc-upgrade-with-no-change-in-sid"></a>Aggiornamento da SDC a MDC senza modifica del SID
@@ -158,7 +158,7 @@ Gli aggiornamenti da SDC a MDC che non implicano una modifica del SID possono es
 - Eseguire l'aggiornamento. Al termine, il sistema HANA risulta di tipo MDC e include un database di sistema e database tenant
 - Eseguire di nuovo lo [script di pre-registrazione](https://aka.ms/scriptforpermsonhana)
 - Ripetere la registrazione dell'estensione per lo stesso computer nel portale di Azure (**Backup** -> **Visualizza dettagli** -> Selezionare la macchina virtuale di Azure pertinente -> Ripeti registrazione)
-- Selezionare **riindividuare** i database per la stessa macchina virtuale. Con questa azione i nuovi database del passaggio 3 dovrebbero essere SYSTEMDB e tenant DB, non SDC
+- Selezionare **Riscoprire i** blob per la stessa macchina virtuale. Con questa azione i nuovi database del passaggio 3 dovrebbero essere SYSTEMDB e tenant DB, non SDC
 - Il database SDC meno recente continuerà a esistere nell'insieme di credenziali e i dati di backup obsoleti verranno conservati in base ai criteri
 - Configurare il backup per questi database
 
@@ -171,7 +171,7 @@ Gli aggiornamenti da SDC a MDC che implicano una modifica del SID possono essere
 - Eseguire l'aggiornamento. Al termine, il sistema HANA risulta di tipo MDC e include un database di sistema e database tenant
 - Eseguire di nuovo lo [script di pre-registrazione](https://aka.ms/scriptforpermsonhana) con i dettagli corretti (nuovo SID e MDC). In seguito a una modifica del SID, potrebbero verificarsi problemi durante l'esecuzione dello script. Se si verificano problemi, contattare il supporto di Backup di Azure.
 - Ripetere la registrazione dell'estensione per lo stesso computer nel portale di Azure (**Backup** -> **Visualizza dettagli** -> Selezionare la macchina virtuale di Azure pertinente -> Ripeti registrazione)
-- Selezionare **riindividuare** i database per la stessa macchina virtuale. Con questa azione i nuovi database del passaggio 3 dovrebbero essere SYSTEMDB e tenant DB, non SDC
+- Selezionare **Riscoprire i** blob per la stessa macchina virtuale. Con questa azione i nuovi database del passaggio 3 dovrebbero essere SYSTEMDB e tenant DB, non SDC
 - Il database SDC meno recente continuerà a esistere nell'insieme di credenziali e i dati di backup obsoleti verranno conservati in base ai criteri
 - Configurare il backup per questi database
 
@@ -197,4 +197,4 @@ Negli scenari precedenti è consigliabile attivare un'operazione di ripetizione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere le [domande frequenti](./sap-hana-faq-backup-azure-vm.md) sul backup di database SAP HANA nelle macchine virtuali di Azure.
+- Vedere le [domande frequenti](./sap-hana-faq-backup-azure-vm.yml) sul backup di database SAP HANA nelle macchine virtuali di Azure.

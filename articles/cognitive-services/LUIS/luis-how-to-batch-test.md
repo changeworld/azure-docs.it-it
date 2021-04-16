@@ -1,5 +1,5 @@
 ---
-title: Come eseguire un test batch-LUIS
+title: Come eseguire un test batch - LUIS
 titleSuffix: Azure Cognitive Services
 description: Eseguire il test in batch dell'app Language Understanding (LUIS) per trovare le espressioni con finalità ed entità errate.
 services: cognitive-services
@@ -8,34 +8,34 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/29/2020
-ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 9fe4f21a5c9e9e26a2f94b8a60cba47916842fe3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98787013"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501791"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test in batch con un set di espressioni di esempio
 
-Il test batch convalida la versione con Training attivo per misurare l'accuratezza della stima. Un test batch consente di visualizzare l'accuratezza di ogni finalità ed entità nella versione attiva. Esaminare i risultati dei test di batch per eseguire le azioni appropriate per migliorare l'accuratezza, ad esempio l'aggiunta di altre espressioni di esempio a uno scopo se l'app non riesce a identificare la finalità corretta o a etichettare entità all'interno dell'espressione.
+Il test batch convalida la versione attiva con training per misurarne l'accuratezza della stima. Un test batch consente di visualizzare l'accuratezza di ogni finalità ed entità nella versione attiva. Esaminare i risultati del test batch per eseguire le azioni appropriate per migliorare l'accuratezza, ad esempio aggiungendo altre espressioni di esempio a una finalità se l'app spesso non riesce a identificare la finalità corretta o a etichettare le entità all'interno dell'espressione.
 
 ## <a name="group-data-for-batch-test"></a>Raggruppare i dati per il test in batch
 
-È importante che le espressioni usate per i test in batch siano nuove per Language Understanding. Se si dispone di un set di dati di espressioni, dividere le espressioni in tre set: espressioni di esempio aggiunte a un Intent, espressioni ricevute dall'endpoint pubblicato e espressioni usate per eseguire il test di batch LUIS dopo che è stato eseguito il training.
+È importante che le espressioni usate per i test in batch siano nuove per Language Understanding. Se si dispone di un set di dati di espressioni, suddividere le espressioni in tre set: espressioni di esempio aggiunte a una finalità, espressioni ricevute dall'endpoint pubblicato e espressioni usate per eseguire il test in batch di LUIS dopo il training.
 
-Il file JSON batch usato deve includere espressioni con entità di Machine Learning di livello superiore etichettate, tra cui la posizione iniziale e finale. Le espressioni non devono far parte degli esempi già presenti nell'app. Devono essere espressioni da prevedere positivamente per finalità ed entità.
+Il file JSON batch in uso deve includere espressioni con entità di Machine Learning di livello superiore etichettate con la posizione iniziale e finale. Le espressioni non devono far parte degli esempi già presenti nell'app. Devono essere espressioni da prevedere positivamente per finalità ed entità.
 
 È possibile separare i test per finalità e/o entità oppure avere tutti i test (fino a 1000 espressioni) nello stesso file. 
 
 ### <a name="common-errors-importing-a-batch"></a>Errori comuni nell'importazione di un batch
 
-Se si verificano errori durante il caricamento del file batch in LUIS, verificare i seguenti problemi comuni:
+Se si verificano errori durante il caricamento del file batch in LUIS, verificare i problemi comuni seguenti:
 
 * Più di 1.000 espressioni in un file batch
 * Un oggetto JSON di espressione che non ha una proprietà di entità. La proprietà può essere una matrice vuota.
 * Parole etichettata in più entità
-* Etichette di entità che iniziano o terminano in uno spazio.
+* Etichette di entità che iniziano o terminano su uno spazio.
 
 ## <a name="fixing-batch-errors"></a>Correzione di errori batch
 
@@ -44,16 +44,16 @@ In presenza di errori nei test in batch, è possibile aggiungere più espression
 
 <a name="batch-testing"></a>
 
-## <a name="batch-testing-using-the-luis-portal"></a>Test batch tramite il portale LUIS 
+## <a name="batch-testing-using-the-luis-portal"></a>Test batch con il portale LUIS 
 
-### <a name="import-and-train-an-example-app"></a>Importare ed eseguire il training di un'app di esempio
+### <a name="import-and-train-an-example-app"></a>Importare ed training di un'app di esempio
 
 Importare un'app che accetta un ordine di pizza, ad esempio `1 pepperoni pizza on thin crust`.
 
 1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
 1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
-1. Selezionare la freccia accanto a **nuova app** e fare clic su **importa come JSON** per importare il file JSON in una nuova app. Assegnare un nome all'app `Pizza app` .
+1. Selezionare la freccia accanto a **Nuova app e** fare clic su Importa come **JSON** per importare il codice JSON in una nuova app. Assegnare all'app il nome `Pizza app` .
 
 
 1. Selezionare **Esegui il training** sulla barra di spostamento per eseguire il training dell'app.
@@ -79,7 +79,7 @@ Il codice JSON di esempio include un'espressione con un'entità etichettata per 
 
     ![Collegamento Batch Testing (Test in batch)](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-3. Selezionare **Importa**. Nella finestra di dialogo visualizzata selezionare **Choose file (Scegli file** ) e individuare un file JSON con il formato JSON corretto che *non contiene più di 1.000* espressioni da testare.
+3. Selezionare **Importa**. Nella finestra di dialogo visualizzata selezionare Scegli **file** e individuare un file JSON con il formato JSON corretto che contiene non più di *1.000* espressioni da testare.
 
     Gli errori di importazione vengono segnalati in una barra di notifica rossa nella parte superiore del browser. Quando un'importazione presenta degli errori, non viene creato alcun set di dati. Per ulteriori informazioni, vedere[Errori comuni](#common-errors-importing-a-batch).
 
@@ -90,8 +90,8 @@ Il codice JSON di esempio include un'espressione con un'entità etichettata per 
 6. Selezionare il pulsante **Run** (Esegui). Dopo l'esecuzione del test batch, selezionare **Visualizza risultati**. 
 
     > [!TIP]
-    > * Selezionando **Scarica** si scaricherà lo stesso file caricato.
-    > * Se il test batch non è riuscito, almeno una finalità dell'espressione non corrisponde alla stima.
+    > * Selezionando **Scarica** verrà scaricato lo stesso file caricato.
+    > * Se il test batch non è riuscito, almeno una finalità di espressione non corrisponde alla stima.
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
 
@@ -121,7 +121,7 @@ Il grafico è diviso in quattro quadranti, con due sezioni visualizzate in rosso
 
 ### <a name="review-batch-test-results-for-entities"></a>Esaminare i risultati del test batch per le entità
 
-L'entità ModifyOrder, come entità macchina con sottoentità, Visualizza se l'entità di primo livello corrisponde e come vengono stimate le sottoentità.
+L'entità ModifyOrder, come entità computer con entità secondarie, visualizza se l'entità di primo livello corrisponde e come vengono stimate le sotto entità.
 
 1. Selezionare l'entità **ModifyOrder** nell'elenco dei filtri e quindi selezionare il cerchio nella griglia.
 
@@ -140,7 +140,7 @@ Per filtrare il grafico in base a una finalità o entità specifica, selezionare
 
 ### <a name="chart-result-examples"></a>Esempi di risultati del grafico
 
-Il grafico nel portale LUIS, è possibile eseguire le azioni seguenti:
+Il grafico nel portale LUIS consente di eseguire le azioni seguenti:
  
 #### <a name="view-single-point-utterance-data"></a>Visualizzare i dati dell'espressione single-point
 
@@ -166,31 +166,31 @@ Le due sezioni del grafico in verde corrispondevano alla stima prevista.
 
 ## <a name="batch-testing-using-the-rest-api"></a>Test batch con l'API REST 
 
-LUIS consente di eseguire il test in batch usando il portale LUIS e l'API REST. Gli endpoint per l'API REST sono elencati di seguito. Per informazioni sui test batch tramite il portale LUIS, vedere [esercitazione: set di dati di test batch](). Usare gli URL completi indicati di seguito, sostituendo i valori segnaposto con la chiave e l'endpoint di stima di LUIS. 
+LUIS consente di eseguire test in batch usando il portale LUIS e l'API REST. Gli endpoint per l'API REST sono elencati di seguito. Per informazioni sui test batch tramite il portale LUIS, vedere [Esercitazione: set di dati di test batch](). Usare gli URL completi seguenti, sostituendo i valori segnaposto con la chiave di stima LUIS e l'endpoint personalizzati. 
 
-Ricordarsi di aggiungere la chiave LUIS a `Ocp-Apim-Subscription-Key` nell'intestazione e impostare `Content-Type` su `application/json` .
+Ricordarsi di aggiungere la chiave LUIS `Ocp-Apim-Subscription-Key` a nell'intestazione e impostare `Content-Type` su `application/json` .
 
 ### <a name="start-a-batch-test"></a>Avviare un test batch
 
-Avviare un test batch usando un ID versione dell'app o uno slot di pubblicazione. Inviare una richiesta **post** a uno dei seguenti formati di endpoint. Includere il file batch nel corpo della richiesta.
+Avviare un test batch usando un ID versione dell'app o uno slot di pubblicazione. Inviare **una richiesta POST** a uno dei formati di endpoint seguenti. Includere il file batch nel corpo della richiesta.
 
 Slot di pubblicazione
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
 
-ID versione app
+ID versione dell'app
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
 
-Questi endpoint restituiranno un ID operazione che si utilizzerà per controllare lo stato e ottenere risultati. 
+Questi endpoint restituiranno un ID operazione che verrà utilizzato per controllare lo stato e ottenere i risultati. 
 
 
 ### <a name="get-the-status-of-an-ongoing-batch-test"></a>Ottenere lo stato di un test batch in corso
 
-Usare l'ID operazione del test batch avviato per ottenere lo stato dai formati di endpoint seguenti: 
+Usare l'ID operazione del test batch avviato per ottenerne lo stato dai formati di endpoint seguenti: 
 
 Slot di pubblicazione
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
-ID versione app
+ID versione dell'app
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 ### <a name="get-the-results-from-a-batch-test"></a>Ottenere i risultati da un test batch
@@ -200,15 +200,15 @@ Usare l'ID operazione del test batch avviato per ottenere i risultati dai format
 Slot di pubblicazione
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
-ID versione app
+ID versione dell'app
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 
 ### <a name="batch-file-of-utterances"></a>File batch di espressioni
 
-Inviare un file batch di espressioni, noto come set di *dati*, per i test batch. Il set di dati è un file in formato JSON contenente un massimo di 1.000 espressioni con etichetta. È possibile testare fino a 10 set di dati in un'app. Se è necessario testare più, eliminare un set di dati e quindi aggiungerne uno nuovo. Tutte le entità personalizzate nel modello vengono visualizzate nel filtro del test in batch anche se nei dati del file batch non sono presenti entità corrispondente.
+Inviare un file batch di espressioni, noto come *set di dati,* per il test batch. Il set di dati è un file in formato JSON contenente un massimo di 1.000 espressioni con etichetta. È possibile testare fino a 10 set di dati in un'app. Se è necessario testarne altri, eliminare un set di dati e aggiungerne uno nuovo. Tutte le entità personalizzate nel modello vengono visualizzate nel filtro del test in batch anche se nei dati del file batch non sono presenti entità corrispondente.
 
-Il file batch è costituito da espressioni. Ogni espressione deve avere una previsione preventivo prevista insieme a qualsiasi [entità di Machine Learning](luis-concept-entity-types.md#types-of-entities) che si prevede venga rilevata.
+Il file batch è costituito da espressioni. Ogni espressione deve avere una stima della finalità prevista insieme a tutte le entità di [Machine Learning](luis-concept-entity-types.md#machine-learned-ml-entity) che si prevede di essere rilevate.
 
 ### <a name="batch-syntax-template-for-intents-with-entities"></a>Modello di sintassi di batch per finalità con entità
 
@@ -251,12 +251,12 @@ Se non si intende testare le entità, includere la proprietà `entities` e impos
 
 ### <a name="rest-api-batch-test-results"></a>Risultati del test batch dell'API REST
 
-Sono disponibili diversi oggetti restituiti dall'API:
+L'API ha restituito diversi oggetti:
 
-* Informazioni sui modelli Intent ed Entities, ad esempio precisione, richiamo e Punteggio F.
-* Informazioni sui modelli di entità, ad esempio precisione, richiamo e Punteggio F, per ogni entità 
-  * Utilizzando il `verbose` flag, è possibile ottenere ulteriori informazioni sull'entità, ad esempio `entityTextFScore` e `entityTypeFScore` .
-* Sono state fornite espressioni con i nomi di Intent stimati e con etichetta
+* Informazioni sulle finalità e sui modelli di entità, ad esempio precisione, richiamo e punteggio F.
+* Informazioni sui modelli di entità, ad esempio precisione, richiamo e punteggio F) per ogni entità 
+  * Usando il `verbose` flag , è possibile ottenere altre informazioni sull'entità, ad esempio e `entityTextFScore` `entityTypeFScore` .
+* Espressioni fornite con i nomi delle finalità stimate ed etichettate
 * Elenco di entità false positive e un elenco di entità false negative.
 
 ## <a name="next-steps"></a>Passaggi successivi

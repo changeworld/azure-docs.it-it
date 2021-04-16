@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: d1302d44a4cb5b09f6dc3b1bf0cb08a12a932c87
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: a12f0c2e8ff5987a14b56ef12d49b8350cc1b3aa
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029404"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501774"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -28,7 +28,7 @@ L'endpoint privato di Azure è un'interfaccia di rete che connette privatamente 
 |Subnet    |  Subnet per la distribuzione e l'allocazione di indirizzi IP privati da una rete virtuale. Per i requisiti della subnet, vedere la sezione Limitazioni in questo articolo.         |
 |Risorsa di collegamento privato    |   Risorsa di collegamento privato per la connessione tramite l'ID o l'alias risorsa dall'elenco dei tipi disponibili. Viene generato un identificatore di rete univoco per tutto il traffico inviato a questa risorsa.       |
 |Sottorisorsa di destinazione   |      Sottorisorsa a cui connettersi. A ogni tipo di risorsa di collegamento privato sono associate opzioni diverse da selezionare in base alla preferenza.    |
-|Metodo di approvazione della connessione    |  Automatico o manuale. In base alle autorizzazioni di controllo degli accessi in base al ruolo di Azure (RBAC di Azure), l'endpoint privato può essere approvato automaticamente. Se si tenta di connettersi a una risorsa di collegamento privato senza RBAC di Azure, usare il metodo Manual per consentire al proprietario della risorsa di approvare la connessione.        |
+|Metodo di approvazione della connessione    |  Automatico o manuale. In base alle autorizzazioni di controllo degli accessi in base al ruolo di Azure, l'endpoint privato può essere approvato automaticamente. Se si tenta di connettersi a una risorsa di collegamento privato senza controllo degli accessi in base al ruolo di Azure, usare il metodo manuale per consentire al proprietario della risorsa di approvare la connessione.        |
 |Messaggio di richiesta     |  È possibile specificare un messaggio affinché le connessioni richieste vengano approvate manualmente. Questo messaggio può essere usato per identificare una richiesta specifica.        |
 |Stato della connessione   |   Proprietà di sola lettura che specifica se l'endpoint privato è attivo. Per inviare il traffico è possibile usare solo endpoint privati in uno stato approvato. Stati aggiuntivi disponibili: <br>-**Approvato**. La connessione è stata approvata automaticamente o manualmente ed è pronta per essere usata.</br><br>-**In sospeso**. La connessione viene creata manualmente ed è in attesa di approvazione dal proprietario della risorsa di collegamento privato.</br><br>-**Rifiutato**. La connessione è stata rifiutata dal proprietario della risorsa di collegamento privato.</br><br>-**Disconnesso**. La connessione è stata rimossa dal proprietario della risorsa di collegamento privato. L'endpoint privato diventa informativo e deve essere eliminato a scopo di pulizia. </br>|
 
@@ -47,7 +47,7 @@ Di seguito vengono indicati alcuni dettagli importanti sugli endpoint privati:
  
 - È possibile creare più endpoint privati nella stessa subnet o in subnet diverse all'interno della stessa rete virtuale. Sono previsti limiti per il numero di endpoint privati che è possibile creare in una sottoscrizione. Per informazioni dettagliate, vedere  [Limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-- La sottoscrizione dalla risorsa collegamento privato deve anche essere registrata con il provider di risorse Microsoft. Network. Per informazioni dettagliate, vedere [provider di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+- Anche la sottoscrizione della risorsa collegamento privato deve essere registrata con il provider di risorse Micosoft.Network. Per informazioni dettagliate, vedere [Provider di risorse di Azure.](../azure-resource-manager/management/resource-providers-and-types.md)
 
  
 ## <a name="private-link-resource"></a>Risorsa di collegamento privato 
@@ -78,11 +78,12 @@ Una risorsa di collegamento privato è la destinazione di un endpoint privato sp
 |**Griglia di eventi di Azure** | Microsoft.EventGrid/topics    | argomento |
 |**Griglia di eventi di Azure** | Microsoft.EventGrid/domains    | dominio |
 |**Servizio app di Azure** | Microsoft.Web/sites    | siti |
+|**Servizio app di Azure slot** | Microsoft.Web/sites    | sites-`<slot name>` |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | amlworkspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
-|**Monitoraggio di Azure** | Microsoft. Insights/privateLinkScopes    | azuremonitor |
-|**Servizi cognitivi** | (Microsoft. CognitiveServices/accounts    | account |
-|**Sincronizzazione file di Azure** | Microsoft. StorageSync/storageSyncServices    | AFS |
+|**Monitoraggio di Azure** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
+|**Servizi cognitivi** | (Microsoft.CognitiveServices/accounts    | account |
+|**Sincronizzazione file di Azure** | Microsoft.StorageSync/storageSyncServices    | Afs |
     
   
 
@@ -95,7 +96,7 @@ Quando si usano endpoint privati per i servizi di Azure, il traffico viene prote
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Accedere a una risorsa di collegamento privato tramite il flusso di lavoro di approvazione 
 È possibile connettersi a una risorsa di collegamento privato tramite i metodi di approvazione della connessione seguenti:
-- Approvazione **automatica** approvata quando si è proprietari della risorsa di collegamento privato specifica o si dispone delle autorizzazioni appropriate. L'autorizzazione richiesta è basata sul tipo di risorsa collegamento privato nel formato seguente: Microsoft. \<Provider> /<resource_type>/privateEndpointConnectionApproval/action
+- Approvazione **automatica** approvata quando si è proprietari della risorsa di collegamento privato specifica o si dispone delle autorizzazioni appropriate. L'autorizzazione necessaria si basa sul tipo di risorsa collegamento privato nel formato seguente: Microsoft. \<Provider> /<resource_type>/privateEndpointConnectionApproval/action
 - Richiesta **manuale** quando non si dispone dell'autorizzazione necessaria e si desidera richiedere l'accesso. Viene avviato un flusso di lavoro di approvazione. L'endpoint privato e la successiva connessione verranno creati con lo stato "In sospeso". Il proprietario della risorsa di collegamento privato ha la responsabilità di approvare la connessione. Dopo l'approvazione, l'endpoint privato è abilitato per l'invio normale del traffico, come mostrato nel diagramma sul flusso di lavoro di approvazione seguente.  
 
 ![approvazione del flusso di lavoro](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -135,14 +136,14 @@ La tabella seguente contiene un elenco di limitazioni note quando si usano gli e
 ## <a name="next-steps"></a>Passaggi successivi
 - [Creare un endpoint privato per il database SQL usando il portale](create-private-endpoint-portal.md)
 - [Creare un endpoint privato per il database SQL con PowerShell](create-private-endpoint-powershell.md)
-- [Creare un endpoint privato per il database SQL usando l'interfaccia della riga di comando](create-private-endpoint-cli.md)
+- [Creare un endpoint privato per il database SQL tramite l'interfaccia della riga di comando](create-private-endpoint-cli.md)
 - [Creare un endpoint privato per l'account di archiviazione usando il portale](./tutorial-private-endpoint-storage-portal.md)
 - [Creare un endpoint privato per l'account Azure Cosmos usando il portale](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Creare un servizio Collegamento privato con Azure PowerShell](create-private-link-service-powershell.md)
-- [Creare il proprio collegamento privato per database di Azure per PostgreSQL-server singolo con il portale](../postgresql/howto-configure-privatelink-portal.md)
+- [Creare un collegamento privato personalizzato per Database di Azure per PostgreSQL - Server singolo usando il portale](../postgresql/howto-configure-privatelink-portal.md)
 - [Creare il proprio collegamento privato per Database di Azure per PostgreSQL - Server singolo tramite l'interfaccia della riga di comando](../postgresql/howto-configure-privatelink-cli.md)
-- [Creare il proprio collegamento privato per database di Azure per MySQL usando il portale](../mysql/howto-configure-privatelink-portal.md)
+- [Creare un collegamento privato personalizzato per Database di Azure per MySQL usando il portale](../mysql/howto-configure-privatelink-portal.md)
 - [Creare il proprio collegamento privato per Database di Azure per MySQL tramite l'interfaccia della riga di comando](../mysql/howto-configure-privatelink-cli.md)
-- [Creare il proprio collegamento privato per database di Azure per MariaDB usando il portale](../mariadb/howto-configure-privatelink-portal.md)
+- [Creare un collegamento privato personalizzato per Database di Azure per MariaDB usando il portale](../mariadb/howto-configure-privatelink-portal.md)
 - [Creare il proprio collegamento privato per Database di Azure per MariaDB tramite l'interfaccia della riga di comando](../mariadb/howto-configure-privatelink-cli.md)
-- [Creare il proprio collegamento privato per Azure Key Vault usando il portale e l'interfaccia della riga di comando](../key-vault/general/private-link-service.md)
+- [Creare un collegamento privato personalizzato per l'Azure Key Vault tramite il portale e l'interfaccia della riga di comando](../key-vault/general/private-link-service.md)

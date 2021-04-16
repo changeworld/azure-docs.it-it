@@ -8,22 +8,21 @@ ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
-ms.subservice: migration-guide
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: 2be824c89ac1e6b900dc9b67e046e2be2c7f8919
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76ab2204a81d3cbfb559bfa4591f1f332b1707ee
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562825"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388075"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Esercitazione: Eseguire la migrazione online di Oracle a Database di Azure per PostgreSQL usando il Servizio Migrazione del database (anteprima)
 
 > [!IMPORTANT]
-> Lo scenario di migrazione da **Oracle a database di Azure per PostgreSQL** (attualmente in anteprima) non sarà più disponibile dopo il 1 ° maggio 2021. Continuerà a fornire supporto tramite strumenti alternativi, ad esempio Ora2pg, e fornirà la migliore esperienza di migrazione per le migrazioni da Oracle a PostgreSQL. Per le procedure consigliate per la migrazione, vedere la [Guida alla migrazione da Oracle a database di Azure per PostgreSQL](https://aka.ms/OracletoPGguide). 
+> Lo scenario di migrazione da Oracle a Database di Azure per **PostgreSQL** (attualmente in anteprima) non sarà più disponibile dopo il 1° maggio 2021. Continueremo a fornire supporto tramite strumenti alternativi (ad esempio Ora2pg) e offriremo la migliore esperienza di migrazione per le migrazioni da Oracle a PostgreSQL. Per le procedure consigliate per la migrazione, vedere Guida alla migrazione da Oracle a Database di [Azure per PostgreSQL.](https://aka.ms/OracletoPGguide) 
 
 È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database dai database Oracle ospitati in locale o su macchine virtuali a [Database di Azure per PostgreSQL](../postgresql/index.yml) con tempi di inattività minimi. In altre parole, è possibile completare la migrazione con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **HR** da un'istanza locale o su macchina virtuale di Oracle 11g a Database di Azure per PostgreSQL usando l'attività di migrazione online nel Servizio Migrazione del database di Azure.
 
@@ -67,7 +66,7 @@ Per completare questa esercitazione, è necessario:
   >
   > Questa configurazione è necessaria perché il Servizio Migrazione del database di Azure non ha connettività Internet.
 
-* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale (NSG) non blocchino la porta in uscita 443 di ServiceTag per ServiceBus, storage e AzureMonitor. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Assicurarsi che le regole del gruppo di sicurezza di rete (NSG) della rete virtuale non blocchino la porta in uscita 443 di ServiceTag per ServiceBus, Storage e AzureMonitor. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Configurare [Windows Firewall per l'accesso al motore di database](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Aprire Windows Firewall per consentire al Servizio Migrazione del database di Azure di accedere al server Oracle di origine (per impostazione predefinita attraverso la porta TCP 1521).
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.

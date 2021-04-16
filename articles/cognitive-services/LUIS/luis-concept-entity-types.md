@@ -1,166 +1,168 @@
 ---
-title: Tipi di entità-LUIS
-description: Un'entità estrae i dati da un enunciato utente al runtime di stima. Uno scopo secondario _facoltativo_ è quello di aumentare la stima della finalità o di altre entità utilizzando l'entità come una funzionalità.
+title: Tipi di entità - LUIS
+description: Un'entità estrae i dati da un'espressione utente in fase di esecuzione della stima. Uno _scopo_ secondario facoltativo è aumentare la stima della finalità o di altre entità usando l'entità come funzionalità.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 44cffecd653ec2ec748e73d01dc86a87cfcd7de9
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91316563"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500329"
 ---
-# <a name="extract-data-with-entities"></a>Estrarre dati con entità
+# <a name="entities-in-luis"></a>Entità in LUIS
 
-Un'entità estrae i dati da un enunciato utente al runtime di stima. Uno scopo secondario _facoltativo_ è quello di aumentare la stima della finalità o di altre entità utilizzando l'entità come una funzionalità.
-
-Esistono diversi tipi di entità:
-
-* [entità Machine Learning](reference-entity-machine-learned-entity.md) : questa è l'entità primaria. È consigliabile progettare lo schema con questo tipo di entità prima di usare altre entità.
-* Non Machine Learning usato come [funzionalità](luis-concept-feature.md) obbligatoria: per le corrispondenze esatte del testo, i criteri di ricerca o il rilevamento da entità predefinite
-* [Pattern. any](#patternany-entity) : per estrarre il testo in formato libero, ad esempio i titoli dei libri da un [modello](reference-entity-pattern-any.md)
-
-le entità di Machine Learning offrono la più ampia gamma di opzioni di estrazione dei dati. Le entità non di apprendimento automatico funzionano in base alla corrispondenza del testo e vengono usate come [funzionalità obbligatorie](#design-entities-for-decomposition) per un'entità o una finalità di machine learning.
-
-## <a name="entities-represent-data"></a>Le entità rappresentano dati
-
-Le entità sono dati che si desidera estrarre dall'espressione, ad esempio nomi, date, nomi di prodotto o qualsiasi gruppo di parole significativo. Un'espressione può includere molte entità oppure nessuna. Un'applicazione client _può_ richiedere i dati per eseguire la relativa attività.
-
-Le entità devono essere etichettate in modo coerente in tutte le espressioni di training per ogni finalità di un modello.
-
- È possibile definire entità personalizzate o usare entità predefinite per risparmiare tempo per i concetti comuni, ad esempio [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinale](luis-reference-prebuilt-ordinal.md), [e-mail](luis-reference-prebuilt-email.md)e [numero di telefono](luis-reference-prebuilt-phonenumber.md).
-
-|Espressione|Entità|Data|
-|--|--|--|
-|Buy 3 tickets to New York|Number predefinito<br>Destination|3<br>New York|
-
-
-### <a name="entities-are-optional-but-recommended"></a>Le entità sono facoltative ma consigliate
-
-Sebbene siano necessari gli [Intent](luis-concept-intent.md) , le entità sono facoltative. Non è necessario creare entità per tutti i concetti nell'app, ma solo per quelli in cui l'applicazione client richiede i dati o l'entità funge da hint o segnale per un'altra entità o finalità.
-
-Quando l'applicazione si sviluppa e viene individuata una nuova esigenza di dati, è possibile aggiungere le entità appropriate al modello LUIS in un secondo momento.
-
-<a name="entity-compared-to-intent"></a>
-
-## <a name="entity-represents-data-extraction"></a>L'entità rappresenta l'estrazione dei dati
-
-L'entità rappresenta un concetto di dati _all'interno dell'espressione_. Una finalità classifica l' _intera espressione_.
-
-Si considerino le quattro espressioni seguenti:
+Un'entità è un elemento o un elemento rilevante per la finalità dell'utente. Le entità definiscono i dati che possono essere estratti dall'espressione ed è essenziale per completare l'azione richiesta di un utente. Ad esempio:
 
 |Espressione|Finalità stimata|Entità estratte|Spiegazione|
 |--|--|--|--|
-|Help|help|-|Nessun elemento da estrarre.|
-|Invia qualcosa|sendSomething|-|Nessun elemento da estrarre. Il modello non dispone di una funzionalità obbligatoria da estrarre `something` in questo contesto e non è stato dichiarato alcun destinatario.|
-|Invia Bob a presente|sendSomething|`Bob`, `present`|Il modello estrae `Bob` aggiungendo una funzionalità obbligatoria dell'entità predefinita `personName` . Per estrarre è stata usata un'entità Machine Learning `present` .|
-|Invia Bob a box di cioccolato|sendSomething|`Bob`, `box of chocolates`|I due elementi importanti dei dati, `Bob` e `box of chocolates` , sono stati estratti dalle entità di machine learning.|
+|Ciao come stai?|Greeting (Messaggio introduttivo)|-|Niente da estrarre.|
+|Voglio ordinare una pizza piccola|orderPizza| "small" | L'entità "Size" viene estratta come "small".|
+|Disattivare la luce della camera da letto|Bivio| "camera da letto" | L'entità "Room" viene estratta come "camera da letto".|
+|Controllare il saldo nel conto di risparmio che termina con 4406|checkBalance| "savings", "4406" | L'entità "accountType" viene estratta come entità "savings" e "accountNumber" come "4406".|
+|Buy 3 tickets to New York|buyTickets| "3", "New York" | L'entità "ticketsCount" viene estratta come "3" e l'entità "Destination" come "New York".|
 
-## <a name="label-entities-in-all-intents"></a>Etichettare entità in tutti gli Intent
+Le entità sono facoltative ma consigliate. Non è necessario creare entità per ogni concetto nell'app, solo per quelli in cui:
 
-Le entità estraggono i dati indipendentemente dalla finalità prevista. Assicurarsi di contrassegnare _tutte le_ espressioni di esempio in tutti gli Intent. Il `None` preventivo mancato contrassegno dell'entità causa confusione anche se sono state apportate più espressioni di training per gli altri scopi.
+* L'applicazione client richiede i dati, o 
+* L'entità funge da suggerimento o segnale per un'altra entità o finalità. Per altre informazioni sulle entità come Funzionalità, vedere [Entità come funzionalità.](#entities-as-features)
 
-## <a name="design-entities-for-decomposition"></a>Progetta entità per la scomposizione
+## <a name="entity-types"></a>Tipi di entità
 
-le entità di Machine Learning consentono di progettare lo schema dell'app per la scomposizione, suddividendo un concetto di grandi dimensioni in sottoentità.
+Per creare un'entità, è necessario assegnargli un nome e un tipo. In LUIS sono disponibili diversi tipi di entità. 
 
-La progettazione per la scomposizione consente a LUIS di restituire un livello di risoluzione approfondito dell'entità all'applicazione client. Ciò consente all'applicazione client di concentrarsi sulle regole business e lasciare la risoluzione dei dati a LUIS.
+### <a name="list-entity"></a>Entità elenco
 
-Un'entità di Machine Learning viene attivata in base al contesto acquisito tramite espressioni di esempio.
+Un'entità elenco rappresenta un set fisso e chiuso di parole correlate insieme ai relativi sinonimi. È possibile usare le entità elenco per riconoscere più sinonimi o varianti ed estrarre un output normalizzato. Usare *l'opzione* consigliata per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. 
 
-le [**entità di Machine Learning**](tutorial-machine-learned-entity.md) sono gli estrattori di primo livello. Le sottoentità sono entità figlio di entità di machine learning.
+Un'entità elenco non è basata su Machine Learned, vale a dire che LUIS non individua valori aggiuntivi per le entità elenco. LUIS contrassegna eventuali corrispondenze a un elemento in qualsiasi elenco come un'entità nella risposta.
 
-## <a name="effective-machine-learned-entities"></a>Entità di apprendimento automatico valide
+La corrispondenza nelle entità elenco fa distinzione tra maiuscole e minuscole e deve essere una corrispondenza esatta da estrarre. I valori normalizzati vengono usati anche per la corrispondenza dell'entità elenco. Ad esempio:
 
-Per compilare efficacemente le entità apprese dal computer:
-
-* Le etichette devono essere coerenti tra gli Intent. Sono incluse anche le espressioni fornite nell'intento **None** che includono questa entità. In caso contrario, il modello non sarà in grado di determinare in modo efficace le sequenze.
-* Se si dispone di un'entità Machine learned con sottoentità, assicurarsi che i diversi ordini e varianti delle entità e delle sottoentità siano presentati nelle espressioni con etichetta. Le espressioni di esempio con etichetta devono includere tutti i moduli validi e includere le entità che vengono visualizzate e sono assenti e riordinate all'interno dell'espressione.
-* È consigliabile evitare di sovramontare le entità a un set molto fisso. L' **overfitting** si verifica quando il modello non generalizza correttamente ed è un problema comune nei modelli di machine learning. Ciò implica che l'app non funzionerà in modo adeguato ai nuovi dati. A sua volta, è necessario variare le espressioni di esempio con etichetta in modo che l'app possa generalizzare oltre gli esempi limitati forniti. È necessario variare le diverse sottoentità con un numero sufficiente di modifiche affinché il modello pensi a un maggior numero di concetti anziché solo agli esempi mostrati.
-
-## <a name="effective-prebuilt-entities"></a>Entità predefinite valide
-
-Per compilare entità efficaci che estraggono dati comuni, ad esempio quelli forniti dalle [entità predefinite](luis-reference-prebuilt-entities.md), è consigliabile eseguire la procedura seguente.
-
-Migliorare l'estrazione dei dati portando i propri dati a un'entità come funzionalità. In questo modo, tutte le etichette aggiuntive dei dati apprenderanno il contesto in cui si trovano i nomi di persona nell'applicazione.
-
-<a name="composite-entity"></a>
-<a name="list-entity"></a>
-<a name="patternany-entity"></a>
-<a name="prebuilt-entity"></a>
-<a name="regular-expression-entity"></a>
-<a name="simple-entity"></a>
-
-## <a name="types-of-entities"></a>Tipi di entità
-
-Una sottoentità di un elemento padre deve essere un'entità di machine learning. La sottoentità può usare un'entità non machine learning come una [funzionalità](luis-concept-feature.md).
-
-Scegliere l'entità in base a come devono essere estratti i dati e a come devono essere rappresentati dopo l'estrazione.
-
-|Tipo di entità|Scopo|
+|Valore normalizzato|Sinonimi|
 |--|--|
-|[**Apprendimento automatico**](tutorial-machine-learned-entity.md)|Estrae i dati annidati e complessi appresi dagli esempi con etichetta. |
-|[**Elenco**](reference-entity-list.md)|Elenco di elementi e relativi sinonimi estratti con la **corrispondenza esatta del testo**.|
-|[**Pattern. Any**](#patternany-entity)|Entità in cui la ricerca della fine dell'entità è difficile da determinare perché l'entità è in formato libero. Disponibile solo nei [modelli](luis-concept-patterns.md).|
-|[**Predefinita**](luis-reference-prebuilt-entities.md)|È già stato eseguito il training per estrarre un tipo specifico di dati, ad esempio URL o posta elettronica. Alcune di queste entità predefinite sono definite nel progetto open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Se una lingua o un'entità specifica non è attualmente supportata, è possibile collaborare al progetto.|
-|[**Espressione regolare**](reference-entity-regular-expression.md)|Usa l'espressione regolare per la **corrispondenza esatta del testo**.|
+|Small|sm, sml, tiny, smallest|
+|Media|md, mdm, regular, average, middle|
+|large|lg, lrg, big|
+
+Per altre [informazioni, vedere l'articolo di riferimento](reference-entity-list.md) sulle entità elenco.
+
+### <a name="regex-entity"></a>Entità Regex
+
+Un entità di espressione regolare estrae un'entità in base a un criterio di espressione regolare fornito dall'utente. Maiuscole e minuscole vengono ignorate così come la variante relativa alla lingua. L'espressione regolare è ideale per il testo strutturato o per una sequenza predefinita di valori alfanumerici previsti in un determinato formato. Ad esempio:
+
+|Entità|Espressione regolare‏|Esempio|
+|--|--|--|
+|Numero di volo|flight [A-Z] {2} [0-9]{4}| flight AS 1234|
+|Numero di carta di credito|[0-9]{16}|5478789865437632|
+
+Per altre informazioni, vedere l'articolo di riferimento sulle entità [regex.](reference-entity-regular-expression.md)
+
+### <a name="prebuilt-entity"></a>Entità predefinita
+
+LUIS offre un set di entità predefinite per il riconoscimento di tipi comuni di dati, ad esempio nome, data, numero e valuta.  Il comportamento delle entità predefinite è fisso. Il supporto delle entità predefinite varia in base alle impostazioni cultura dell'app LUIS. Ad esempio:
+
+|Entità predefinita|Valore di esempio|
+|--|--|
+|PersonName|James, Bill, Tom|
+|DatetimeV2|2019-05-02, 2 maggio, 8:00 il 2 maggio 2019|
+
+Per altre [informazioni, vedere](./luis-reference-prebuilt-entities.md) l'articolo di riferimento sulle entità predefinite.
+
+### <a name="patternany-entity"></a>Entità Pattern.Any
+
+Modello. Qualsiasi entità è un segnaposto a lunghezza variabile usato solo nell'espressione modello di un criterio per contrassegnare il punto in cui inizia e termina l'entità. Segue una regola o un modello specifico e viene usato meglio per le frasi con struttura lessicale fissa. Ad esempio:
+
+|Espressione di esempio|Modello|Entità|
+|--|--|--|
+|È possibile avere un hamburger per favore?|È possibile avere un {meal} [please][?]| Hamburger
+|È possibile avere una pizza?|Posso avere un {cibo} [per favore][?]| pizza
+|Dove è possibile trovare The Great Gatsby?|Dove è possibile trovare {bookName}?| The Great Gatsby|
+
+Per altre informazioni, vedere l'articolo di riferimento sulle entità [Pattern.Any.](./reference-entity-pattern-any.md)
+
+### <a name="machine-learned-ml-entity"></a>Entità Machine Learning (ML)
+
+L'entità basata su Machine Learned usa il contesto per estrarre le entità in base a esempi etichettati. È l'entità preferita per la creazione di applicazioni LUIS. Si basa su algoritmi di Machine Learning e richiede che l'etichettatura sia adattata correttamente all'applicazione. Usare un'entità di Machine Learning per identificare i dati non sempre formattati correttamente, ma che hanno lo stesso significato. 
+
+|Espressione di esempio|Entità prodotto *estratta*|
+|--|--|
+|Voglio acquistare un libro.|"book"|
+|È possibile ottenere queste scarpe per favore?|"scarpe"|
+|Aggiungere questi shorts al carrello.|"shorts"|
+
+Per altre informazioni sulle entità di Machine Learned, [vedere](./reference-entity-machine-learned-entity.md).
+
+Per altre [informazioni, vedere l'articolo di riferimento](./reference-entity-pattern-any.md) sulle entità di Machine Learned.
+
+#### <a name="ml-entity-with-structure"></a>Entità ML con struttura
+
+Un'entità ml può essere costituita da sotto-entità più piccole, ognuna delle quali può avere proprietà proprie. Ad esempio, *Address* potrebbe avere la struttura seguente:
+
+* Indirizzo: 4567 Main Street, NY, 98052, USA
+    * Numero di edificio: 4567
+    * Via: Via principale
+    * Stato: NY
+    * CAP: 98052
+    * Paese: Stati Uniti
 
 
-## <a name="extraction-versus-resolution"></a>Estrazione rispetto alla risoluzione
+### <a name="building-effective-ml-entities"></a>Creazione di entità di Machine Learning efficaci
 
-Le entità estraggono i dati quando i dati vengono visualizzati nell'espressione. Le entità non modificano o non risolvono i dati. L'entità non fornirà alcuna soluzione se il testo è un valore valido per l'entità.
+Per creare entità apprese dal computer in modo efficace, seguire queste procedure consigliate:
 
-Ci sono modi per portare la risoluzione nell'estrazione, ma è necessario tenere presente che questo limita la capacità dell'app di essere immune a variazioni ed errori.
+* Se si ha un'entità machine learned con sotto-entità, assicurarsi che i diversi ordini e varianti dell'entità e delle sotto-entità siano presentati nelle espressioni etichettate. Le espressioni di esempio etichettate devono includere tutte le forme valide e includere entità che appaiono e sono assenti e riordinate all'interno dell'espressione.
 
-Le entità elenco ed espressioni regolari (corrispondenti al testo) possono essere utilizzate come [funzionalità necessarie](luis-concept-feature.md#required-features) per una sottoentità e che funge da filtro per l'estrazione. È consigliabile usarlo con cautela per non ostacolare la capacità dell'app di prevedere.
+* Evitare di eseguire l'overfitting delle entità in un set molto fisso. L'overfitting si verifica quando il modello non generalizza bene ed è un problema comune nei modelli di Machine Learning. Ciò implica che l'app non funzionerà in modo adeguato su nuovi tipi di esempi. A sua volta, è necessario variare le espressioni di esempio etichettate in modo che l'app possa generalizzare oltre gli esempi limitati forniti.
 
-## <a name="extracting-contextually-related-data"></a>Estrazione di dati correlati al contesto
+* L'etichettatura deve essere coerente tra le finalità. Sono incluse anche le espressioni fornite nella finalità *Nessuna* che include questa entità. In caso contrario, il modello non sarà in grado di determinare le sequenze in modo efficace.
 
-Un'espressione può contenere due o più occorrenze di un'entità in cui il significato dei dati è basato sul contesto all'interno dell'espressione. Un esempio è un enunciato per la prenotazione di un volo con due posizioni geografiche, Origin e Destination.
+## <a name="entities-as-features"></a>Entità come funzionalità
 
-`Book a flight from Seattle to Cairo`
+Un'altra funzione importante delle entità è usarle come caratteristiche o distinguere tratti per altre finalità o entità in modo che il sistema le osservi e apprende attraverso di esse.
 
-È necessario estrarre le due posizioni in modo che l'applicazione client conosca il tipo di ogni località per completare l'acquisto del ticket.
+### <a name="entities-as-features-for-intents"></a>Entità come funzionalità per le finalità
 
-Per estrarre l'origine e la destinazione, creare due sottoentità come parte dell'entità di Machine Learning Order Order. Per ognuna delle sottoentità, creare una funzionalità obbligatoria che usa geographyV2.
+È possibile usare le entità come segnale per una finalità. Ad esempio, la presenza di una determinata entità nell'espressione può distinguere la finalità in cui rientra.
 
-<a name="using-component-constraints-to-help-define-entity"></a>
-<a name="using-subentity-constraints-to-help-define-entity"></a>
+|Espressione di esempio|Entità|Finalità|
+|--|--|--|
+|Prenotami un *servizio a New York.*|City|Prenotazione di un volo|
+|Prenotami la *sala riunioni principale.*|Room|Reserve Room|
 
-### <a name="using-required-features-to-constrain-entities"></a>Uso delle funzionalità necessarie per vincolare le entità
+### <a name="entities-as-feature-for-entities"></a>Entità come funzionalità per le entità
 
-Altre informazioni sulle [funzionalità necessarie](luis-concept-feature.md)
+È anche possibile usare le entità come indicatore della presenza di altre entità. Un esempio comune è l'uso di un'entità precompilata come funzionalità per un'altra entità di Machine Learning.
+Se si sta creando un sistema di prenotazione dei voli e l'espressione è simile a "Prenotami un volo da City a Seattle", le entità Origin *City* e *Destination City* saranno entità ml. È consigliabile usare l'entità `GeographyV2` precompilata come funzionalità per entrambe le entità.
 
-## <a name="patternany-entity"></a>Entità pattern.any
+Per altre informazioni, vedere l'articolo di riferimento sulle entità [GeographyV2.](./luis-reference-prebuilt-geographyv2.md)
 
-Modello. Any è disponibile solo in un [modello](luis-concept-patterns.md).
+È anche possibile usare le entità come funzionalità necessarie per altre entità. Ciò consente di risoluzione delle entità estratte. Ad esempio, se si crea un'applicazione per l'ordinazione di pizze e si ha un'entità ml, è possibile creare un'entità elenco e usarla come funzionalità necessaria per `Size` `SizeList` `Size` l'entità. L'applicazione restituirà il valore normalizzato come entità estratta dall'espressione. 
 
-<a name="if-you-need-more-than-the-maximum-number-of-entities"></a>
-## <a name="exceeding-app-limits-for-entities"></a>Superamento dei limiti delle app per le entità
+Vedere [le](luis-concept-feature.md) funzionalità per altre informazioni ed [entità predefinite per](./luis-reference-prebuilt-entities.md) altre informazioni sulla risoluzione delle entità predefinite disponibili nelle impostazioni cultura. 
 
-Se è necessario più del [limite](luis-limits.md#model-limits), contattare il supporto tecnico. A tale scopo, raccogliere informazioni dettagliate relative al sistema, visitare il sito Web [LUIS](luis-reference-regions.md#luis-website) e quindi selezionare l'opzione relativa al **supporto**. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="entity-prediction-status-and-errors"></a>Stato di stima dell'entità ed errori
+## <a name="entity-prediction-status-and-errors"></a>Stato ed errori della stima dell'entità
 
-Il portale LUIS Mostra quando l'entità ha una stima di entità diversa rispetto all'entità selezionata per un esempio di espressione. Questo punteggio diverso si basa sul modello attualmente sottoposto a training. 
+Il portale LUIS mostra quanto segue quando l'entità ha una stima dell'entità diversa rispetto all'entità etichettata per un'espressione di esempio. Questo punteggio diverso è basato sul modello con training corrente. 
 
-:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="Il portale LUIS Mostra quando l'entità ha una stima di entità diversa rispetto all'entità selezionata per un esempio di espressione.":::
+:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="Il portale LUIS mostra quando l'entità ha una stima dell'entità diversa da quella selezionata per un'espressione di esempio":::
 
-Il testo di errore viene evidenziato all'interno dell'espressione di esempio e la riga dell'espressione di esempio ha un indicatore di errore a destra, visualizzato come triangolo rosso. 
+Il testo che causa l'errore viene evidenziato all'interno dell'espressione di esempio e la riga dell'espressione di esempio ha un indicatore di errore a destra, visualizzato come triangolo rosso. 
 
-Utilizzare queste informazioni per risolvere gli errori dell'entità utilizzando uno o più degli elementi seguenti:
-* Il testo evidenziato viene erroneamente etichettato. Per correggere, rivedere, correggere e ripetere il training. 
-* Creare una [funzionalità](luis-concept-feature.md) per l'entità per facilitare l'identificazione del concetto dell'entità
-* Aggiungere altre [espressioni di esempio](luis-concept-utterance.md) ed etichetta con l'entità
-* [Esaminare i suggerimenti di apprendimento attivi](luis-concept-review-endpoint-utterances.md) per eventuali espressioni ricevute nell'endpoint di stima che consentono di identificare il concetto dell'entità.
+Per risolvere gli errori di entità, provare a eseguire una o più delle operazioni seguenti:
+
+* Il testo evidenziato è etichettato in modo erto. Per risolvere il problema, esaminare l'etichetta, correggerla e rieseificare il training dell'app. 
+* Creare una [funzionalità](luis-concept-feature.md) per l'entità per identificare il concetto dell'entità.
+* Aggiungere altre [espressioni di esempio ed etichettare](luis-concept-utterance.md) con l'entità .
+* [Esaminare i suggerimenti di apprendimento](luis-concept-review-endpoint-utterances.md) attivi per tutte le espressioni ricevute nell'endpoint di stima che consentono di identificare il concetto dell'entità.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sui concetti delle [espressioni](luis-concept-utterance.md) valide.
-
-Vedere [Aggiungere entità](luis-how-to-add-entities.md) per ulteriori informazioni sull'aggiunta di entità all'app LUIS.
-
-Per informazioni su come estrarre i dati strutturati da un enunciato usando l'entità Machine Learning, vedere [esercitazione: estrarre dati strutturati da un enunciato utente con entità di Machine Learning in Language Understanding (Luis)](tutorial-machine-learned-entity.md) .
-
+* Informazioni sulle espressioni di [esempio.](luis-concept-utterance.md)
+* Vedere [Aggiungere entità](luis-how-to-add-entities.md) per ulteriori informazioni sull'aggiunta di entità all'app LUIS.
+* Altre informazioni sui limiti delle [applicazioni](./luis-limits.md)LUIS. 
+* Usare [un'esercitazione](tutorial-machine-learned-entity.md) per informazioni su come estrarre dati strutturati da un'espressione usando l'entità di Machine Learning.

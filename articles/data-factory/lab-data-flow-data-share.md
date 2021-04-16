@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: fa424f7e1f5e1f885dd433b8abc8aae1dc1bc206
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: d3924c38f760a9698735a2757bdad2af5beb0e24
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006158"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518823"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integrazione dei dati con Azure Data Factory e Condivisione dati di Azure
 
@@ -64,12 +64,9 @@ Nei servizi collegati di Azure Data Factory definire le informazioni per la conn
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Creare un servizio collegato Database SQL di Azure
 
-1. La pagina di creazione consente di creare risorse di data factory come pipeline, set di dati, flussi di dati, trigger e servizi collegati. Per creare un servizio collegato, fare clic sul pulsante **Connessioni** nell'angolo in basso a destra.
+1. Per creare un servizio collegato, selezionare Gestisci hub nella  barra laterale  sinistra, nel riquadro Connessioni selezionare Servizi collegati e quindi selezionare **Nuovo** per aggiungere un nuovo servizio collegato. 
 
     ![Configurazione nel portale 2](media/lab-data-flow-data-share/configure2.png)
-1. Nella scheda Connessioni fare clic su **Nuovo** per aggiungere un nuovo servizio collegato.
-
-    ![Configurazione nel portale 3](media/lab-data-flow-data-share/configure3.png)
 1. Il primo servizio collegato da configurare è un database SQL di Azure. È possibile usare la barra di ricerca per filtrare l'elenco di archivi dati. Fare clic sul riquadro **Database SQL di Azure** e quindi su Continua.
 
     ![Configurazione nel portale 4](media/lab-data-flow-data-share/configure-4.png)
@@ -99,9 +96,11 @@ Nei servizi collegati di Azure Data Factory definire le informazioni per la conn
 
 Nella sezione *Trasformare i dati con il flusso di dati per mapping* verranno creati flussi di dati per mapping. Prima di creare flussi di dati per mapping, la procedura consigliata consiste nell'attivare la modalità di debug, che consente di testare la logica di trasformazione in pochi secondi su un cluster Spark attivo.
 
-Per attivare il debug, fare clic sul dispositivo di scorrimento **Data flow debug** (Debug flusso di dati) sulla barra superiore della factory. Nella finestra di dialogo di conferma fare clic su OK. L'avvio del cluster richiede circa 5-7 minuti. Durante l'inizializzazione, procedere a *inserire i dati del database SQL di Azure in ADLS Gen2 con l'attività di copia*.
+Per attivare il debug, fare clic sul dispositivo di scorrimento **Debug** flusso di dati nella barra superiore dell'area di disegno del flusso di dati o dell'area di disegno della pipeline quando sono presenti **attività Flusso di** dati. Nella finestra di dialogo di conferma fare clic su OK. L'avvio del cluster richiede circa 5-7 minuti. Durante l'inizializzazione, procedere a *inserire i dati del database SQL di Azure in ADLS Gen2 con l'attività di copia*.
 
 ![Configurazione nel portale 10](media/lab-data-flow-data-share/configure10.png)
+
+![Configurazione del portale 11](media/lab-data-flow-data-share/configure11.png)
 
 ## <a name="ingest-data-using-the-copy-activity"></a>Inserire i dati usando l'attività di copia
 

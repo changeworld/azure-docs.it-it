@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 04/14/2021
 ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 52acb6d0e99d54491dc1ce30545629ba246acc77
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7098cfbc2fbe2236687eb7d621a0e587497fcebc
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444460"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516414"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -23,7 +23,7 @@ ms.locfileid: "102444460"
 <!-- markdownlint-disable MD034 -->
 > [!IMPORTANT]
 >
-> * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Vedere la documentazione di riferimento di seguito. 
+> * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Vedere la documentazione di riferimento di seguito.
 
 [Documentazione di riferimento](../../index.yml) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Esempi](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
@@ -40,13 +40,13 @@ ms.locfileid: "102444460"
 
 ### <a name="create-a-new-nodejs-application"></a>Creare una nuova applicazione Node.js
 
-In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passare a una nuova directory per l'app. 
+In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passare a una nuova directory per l'app.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Eseguire il comando `npm init` per creare un'applicazione Node con un file `package.json`. 
+Eseguire il comando `npm init` per creare un'applicazione Node con un file `package.json`.
 
 ```console
 npm init
@@ -69,33 +69,33 @@ Creare un file denominato `index.js`, aprirlo e importare le librerie seguenti:
 > [!TIP]
 > Si vuole visualizzare l'intero file di codice dell'argomento di avvio rapido? È possibile trovarlo [in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js), che contiene gli esempi di codice di questo argomento.
 
-Creare le variabili per l'endpoint e la chiave di Azure della risorsa. 
+Creare le variabili per l'endpoint e la chiave di Azure della risorsa.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Accedere al portale di Azure. Se la risorsa di Riconoscimento modulo creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. 
+> Accedere al portale di Azure. Se la risorsa di Riconoscimento modulo creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**.
 >
 > Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](../../../cognitive-services-security.md) di Servizi cognitivi.
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Con Riconoscimento modulo è possibile creare due diversi tipi di client. Il primo, `FormRecognizerClient`, viene usato per eseguire query sul servizio per riconoscere campi modulo e contenuti. Il secondo, `FormTrainingClient`, viene usato per creare e gestire modelli personalizzati da usare per migliorare il riconoscimento. 
+Con Riconoscimento modulo è possibile creare due diversi tipi di client. Il primo, `FormRecognizerClient`, viene usato per eseguire query sul servizio per riconoscere campi modulo e contenuti. Il secondo, `FormTrainingClient` viene usato per creare e gestire modelli personalizzati che è possibile usare per migliorare il riconoscimento.
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
 `FormRecognizerClient` fornisce le operazioni per:
 
-* Riconoscimento dei campi del modulo e del contenuto con modelli personalizzati con training per l'analisi dei moduli personalizzati. Questi valori vengono restituiti in una raccolta di oggetti `RecognizedForm`.
+* Riconoscimento dei campi modulo e del contenuto tramite modelli personalizzati con training per analizzare i moduli personalizzati. Questi valori vengono restituiti in una raccolta di oggetti `RecognizedForm`.
 * Riconoscere i contenuti dei moduli, incluse tabelle, righe e parole, senza la necessità di eseguire il training di un modello. I contenuti dei moduli vengono restituiti in una raccolta di oggetti `FormPage`.
-* Riconoscere i campi comuni delle ricevute, usando un modello di ricevuta con training preliminare nel servizio Riconoscimento modulo. Questi campi e i metadati vengono restituiti in una raccolta di oggetti `RecognizedReceipt`.
+* Riconoscimento di campi comuni da ricevute, biglietti da visita, fatture e documenti di identità degli Stati Uniti usando un modello con training preliminare nel riconoscimento modulo servizio.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
 `FormTrainingClient` fornisce le operazioni per:
 
-* Training di modelli personalizzati per analizzare tutti i campi e i valori trovati nei moduli personalizzati. `CustomFormModel`Viene restituito un oggetto che indica i tipi di form che verrà analizzato dal modello e i campi da estrarre per ogni tipo di form. Per una spiegazione più dettagliata della creazione di un training set, vedere la [documentazione del servizio sul training di modelli non etichettati](#train-a-model-without-labels).
-* Training di modelli personalizzati per l'analisi di campi e valori specifici specificati tramite l'assegnazione di etichette ai moduli personalizzati. Viene restituito un `CustomFormModel` che indica i campi che verranno estratti dal modello e l'accuratezza stimata per ogni campo. Per una spiegazione più dettagliata dell'applicazione di etichette a un training set, vedere la [documentazione del servizio sul training di modelli etichettati](#train-a-model-with-labels).
+* Training di modelli personalizzati per analizzare tutti i campi e i valori presenti nei moduli personalizzati. Viene restituito un valore che indica i tipi di modulo che verranno analizzati dal modello e i campi che `CustomFormModel` estrarrà per ogni tipo di modulo. _Per_ altri [dettagli, vedere](#train-a-model-without-labels) la documentazione del servizio sul training del modello senza etichetta.
+* Training di modelli personalizzati per analizzare campi e valori specifici specificati etichettando i moduli personalizzati. Viene restituito un `CustomFormModel` che indica i campi che verranno estratti dal modello e l'accuratezza stimata per ogni campo. Per una spiegazione più dettagliata dell'applicazione di etichette a un training set, vedere la [documentazione del servizio sul training di modelli etichettati](#train-a-model-with-labels).
 * Gestire i modelli creati nell'account.
 * Copiare un modello personalizzato da una risorsa Riconoscimento modulo a un'altra.
 
@@ -109,34 +109,33 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 * [Autenticare il client](#authenticate-the-client)
 * [Analizzare il layout](#analyze-layout)
 * [Analizzare ricevute](#analyze-receipts)
+* [Analizzare biglietti da visita](#analyze-business-cards)
+* [Analizzare fatture](#analyze-invoices)
+* [Analizzare i documenti di identità](#analyze-identity-documents)
 * [Eseguire il training di un modello personalizzato](#train-a-custom-model)
 * [Analizzare i moduli con un modello personalizzato](#analyze-forms-with-a-custom-model)
 * [Gestire i modelli personalizzati](#manage-your-custom-models)
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-
-
 Eseguire l'autenticazione di un oggetto client usando le variabili di sottoscrizione definite in precedenza. Si userà un oggetto `AzureKeyCredential` in modo che, se necessario, sia possibile aggiornare la chiave API senza creare nuovi oggetti client. Verrà inoltre creato un oggetto client di training.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_auth)]
 
-
 ## <a name="get-assets-for-testing"></a>Ottenere le risorse per il test
 
 Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training e di test.
-* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
-   
-   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recupero dell'URL di firma di accesso condiviso":::
-* Usare il modulo di esempio e le immagini di ricevute inclusi negli esempi seguenti (disponibili anche in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)) oppure usare la procedura precedente per ottenere l'URL di firma di accesso condiviso di un singolo documento nell'archivio BLOB. 
 
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recupero dell'URL di firma di accesso condiviso":::
+* Usare il modulo di esempio e le immagini di ricevute inclusi negli esempi seguenti (disponibili anche in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)) oppure usare la procedura precedente per ottenere l'URL di firma di accesso condiviso di un singolo documento nell'archivio BLOB.
 
 ## <a name="analyze-layout"></a>Analizzare il layout
 
-È possibile utilizzare il riconoscimento moduli per analizzare tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello. Per ulteriori informazioni sull'estrazione del layout, vedere la [Guida concettuale sul layout](../../concept-layout.md). Per analizzare il contenuto di un file in un URI specificato, utilizzare il `beginRecognizeContentFromUrl` metodo.
+È possibile usare riconoscimento modulo per analizzare tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello. Per altre informazioni sull'estrazione del layout, vedere la [guida concettuale Layout](../../concept-layout.md). Per analizzare il contenuto di un file in un URI specifico, usare il `beginRecognizeContentFromUrl` metodo .
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
-
 
 > [!TIP]
 > È anche possibile ottenere contenuto da un file locale. Vedere i metodi [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), ad esempio **beginRecognizeContent**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
@@ -157,7 +156,61 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
+## <a name="analyze-receipts"></a>Analizzare ricevute
 
+Questa sezione illustra come analizzare ed estrarre campi comuni dalle ricevute degli Stati Uniti usando un modello di ricevuta con training preliminare. Per altre informazioni sull'analisi delle ricevute, vedere la [guida concettuale Ricevute](../../concept-receipts.md).
+
+Per analizzare le ricevute da un URI, usare il `beginRecognizeReceiptsFromUrl` metodo . Il codice seguente elabora una ricevuta in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
+
+> [!TIP]
+> È anche possibile analizzare le immagini delle ricevute locali. Vedere i metodi [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), ad esempio **beginRecognizeReceipts**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
+
+### <a name="output"></a>Output
+
+```console
+status: notStarted
+status: running
+status: succeeded
+First receipt:
+  Receipt Type: 'Itemized', with confidence of 0.659
+  Merchant Name: 'Contoso Contoso', with confidence of 0.516
+  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
+    Item Name: '8GB RAM (Black)', with confidence of 0.916
+    Item Name: 'SurfacePen', with confidence of 0.858
+  Total: '1203.39', with confidence of 0.774
+```
+
+## <a name="analyze-business-cards"></a>Analizzare biglietti da visita
+
+Questa sezione illustra come analizzare ed estrarre campi comuni dai biglietti da visita in lingua inglese usando un modello con training preliminare. Per altre informazioni sull'analisi dei biglietti da visita, vedere la [Guida concettuale ai biglietti da visita](../../concept-business-cards.md).
+
+Per analizzare i biglietti da visita da un URL, usare il `beginRecognizeBusinessCardsFromURL` metodo .
+
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_bc":::
+
+> [!TIP]
+> È anche possibile analizzare le immagini dei biglietti da visita locali. Vedere i metodi di [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), ad esempio **beginRecognizeBusinessCards**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
+
+## <a name="analyze-invoices"></a>Analizzare fatture
+
+Questa sezione illustra come analizzare ed estrarre campi comuni dalle fatture di vendita usando un modello con training preliminare. Per altre informazioni sull'analisi delle fatture, vedere la [Guida concettuale alle fatture.](../../concept-invoices.md)
+
+Per analizzare le fatture da un URL, usare il `beginRecognizeInvoicesFromUrl` metodo .
+
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_invoice":::
+
+> [!TIP]
+> È anche possibile analizzare immagini di biglietti da visita locali. Vedere i metodi di [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), ad esempio **beginRecognizeInvoices**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
+
+## <a name="analyze-identity-documents"></a>Analizzare i documenti di identità
+
+Questa sezione illustra come analizzare ed estrarre le informazioni chiave dai documenti di identificazione rilasciati dagli enti pubblici( passaporti in tutto il mondo e licenze del tassista degli Stati Uniti) usando il modello di ID predefinito riconoscimento modulo. Per altre informazioni sull'analisi delle fatture, vedere la guida [concettuale al modello di identificazione predefinito](../../concept-identification-cards.md).
+
+Per analizzare i documenti di identità da un URL, usare il `beginRecognizeIdDocumentsFromUrl` metodo .
+
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_id":::
 
 ## <a name="train-a-custom-model"></a>Eseguire il training di un modello personalizzato
 
@@ -170,14 +223,13 @@ Questa sezione illustra come eseguire il training di un modello con i dati perso
 
 Eseguire il training di modelli personalizzati per analizzare tutti i campi e i valori trovati nei moduli personalizzati senza etichettare manualmente i documenti di training.
 
-La funzione seguente esegue il training di un modello su un set di documenti specificato e ne stampa lo stato nella console. 
+La funzione seguente esegue il training di un modello su un set di documenti specificato e ne stampa lo stato nella console.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_train)]
 
-
 ### <a name="output"></a>Output
 
-Questo è l'output di un modello sottoposto a training con i dati di training disponibili in [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer). Questo output di esempio è stato troncato per migliorare la leggibilità.
+Questo è l'output per un modello con training con i dati di training disponibili in [JavaScript SDK.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer) Questo output di esempio è stato troncato per una leggibilità.
 
 ```console
 training status: creating
@@ -199,15 +251,15 @@ The model found field 'field-7'
 Document name: Form_1.jpg
 Document status: succeeded
 Document page count: 1
-Document errors: 
+Document errors:
 Document name: Form_2.jpg
 Document status: succeeded
 Document page count: 1
-Document errors: 
+Document errors:
 Document name: Form_3.jpg
 Document status: succeeded
 Document page count: 1
-Document errors: 
+Document errors:
 ...
 ```
 
@@ -217,10 +269,9 @@ Document errors:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
+### <a name="output"></a>Output
 
-### <a name="output"></a>Output 
-
-Questo è l'output di un modello sottoposto a training con i dati di training disponibili in [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples). Questo output di esempio è stato troncato per migliorare la leggibilità.
+Questo è l'output per un modello con training con i dati di training disponibili in [JavaScript SDK.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) Questo output di esempio è stato troncato per una leggibilità.
 
 ```console
 training status: creating
@@ -264,7 +315,6 @@ Verrà usato il metodo `beginRecognizeCustomFormsFromUrl`. Il valore restituito 
 > [!TIP]
 > È anche possibile analizzare i file locali. Vedere i metodi [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), ad esempio **beginRecognizeCustomForms**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
 
-
 ### <a name="output"></a>Output
 
 ```console
@@ -301,32 +351,6 @@ Field Signature has value 'undefined' with a confidence score of undefined
 Field Subtotal has value 'undefined' with a confidence score of undefined
 Field Tax has value 'undefined' with a confidence score of undefined
 Field Total has value 'undefined' with a confidence score of undefined
-```
-
-## <a name="analyze-receipts"></a>Analizzare ricevute
-
-Questa sezione illustra come analizzare ed estrarre i campi comuni dalle ricevute degli Stati Uniti, usando un modello di ricezione con training preliminare. Per ulteriori informazioni sull'analisi della ricezione, vedere la [Guida concettuale relativa alle ricevute](../../concept-receipts.md).
-
-Per analizzare le ricevute da un URI, usare il `beginRecognizeReceiptsFromUrl` metodo. Il codice seguente elabora una ricevuta in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
-
-> [!TIP]
-> È anche possibile analizzare le immagini di ricezione locali. Vedere i metodi [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), ad esempio **beginRecognizeReceipts**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
-
-### <a name="output"></a>Output
-
-```console
-status: notStarted
-status: running
-status: succeeded
-First receipt:
-  Receipt Type: 'Itemized', with confidence of 0.659
-  Merchant Name: 'Contoso Contoso', with confidence of 0.516
-  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
-    Item Name: '8GB RAM (Black)', with confidence of 0.916
-    Item Name: 'SurfacePen', with confidence of 0.858
-  Total: '1203.39', with confidence of 0.774
 ```
 
 ## <a name="manage-your-custom-models"></a>Gestire i modelli personalizzati

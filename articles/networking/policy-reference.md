@@ -1,5 +1,5 @@
 ---
-title: Definizioni dei criteri predefiniti per i servizi di rete di Azure
+title: Definizioni di criteri predefiniti per i servizi di rete di Azure
 description: Elenca Criteri di Azure definizioni di criteri predefiniti per i servizi di rete di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
 ms.date: 04/14/2021
 ms.topic: reference

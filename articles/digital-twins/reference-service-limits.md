@@ -1,33 +1,41 @@
 ---
 title: Limiti del servizio
 titleSuffix: Azure Digital Twins
-description: Grafico che mostra i limiti del servizio dispositivi gemelli digitali di Azure.
+description: Grafico che mostra i limiti del Gemelli digitali di Azure servizio.
 author: baanders
 ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 165fa23cf3965d3017b15c27fedc2846f97d8d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 46f378baad51e959f8b3c074cc24e5bbdfdd95d4
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99054400"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389605"
 ---
-# <a name="azure-digital-twins-service-limits"></a>Limiti del servizio dispositivi gemelli digitali di Azure
+# <a name="azure-digital-twins-service-limits"></a>Gemelli digitali di Azure dei servizi
 
-Questi sono i limiti del servizio dei dispositivi gemelli digitali di Azure.
+Questi sono i limiti del servizio Gemelli digitali di Azure.
 
 > [!NOTE]
-> Alcune aree di questo servizio hanno limiti regolabili. Questa situazione è rappresentata nelle tabelle seguenti con la colonna *regolabile?* . Quando è possibile modificare il limite, il valore *regolabile?* è *Sì*.
+> Alcune aree di questo servizio hanno limiti modificabili. Questa proprietà è rappresentata nelle tabelle seguenti con la *colonna Adjustable?* . Quando è possibile regolare il limite, il *valore regolabile?* è *Sì.*
 >
-> Se l'azienda richiede la generazione di un limite o una quota regolabile superiore al limite predefinito, è possibile richiedere risorse aggiuntive [aprendo un ticket di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+> Se l'azienda richiede l'innalzamento di un limite regolabile o di una quota superiore al limite predefinito, è possibile richiedere risorse aggiuntive aprendo [un ticket di supporto.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="limits-by-type"></a>Limiti per tipo
 
 [!INCLUDE [Azure Digital Twins limits](../../includes/digital-twins-limits.md)]
 
+## <a name="working-with-limits"></a>Uso dei limiti
+
+Quando viene raggiunto un limite, il servizio limita le richieste aggiuntive. Verrà restituita una risposta di errore 404 da queste richieste.
+
+Per gestire questo problema, di seguito sono riportati alcuni consigli per l'uso dei limiti.
+* **Usare la logica di ripetizione dei tentativi.** Gli [GEMELLI DIGITALI DI AZURE SDK](how-to-use-apis-sdks.md) implementano la logica di ripetizione dei tentativi per le richieste non riuscite, quindi se si lavora con un SDK fornito, questo è già incorporato. In caso contrario, valutare la possibilità di implementare la logica di ripetizione dei tentativi nella propria applicazione. Il servizio restituisce un'intestazione nella risposta di errore, che è possibile usare per determinare il tempo di `Retry-After` attesa prima di riprovare.
+* **Usare soglie e notifiche per avvisare sull'avvicinamento dei limiti.** Alcuni dei limiti del servizio per Gemelli digitali di Azure metriche [corrispondenti](troubleshoot-metrics.md) che possono essere usati per tenere traccia dell'utilizzo in queste aree. Per configurare le soglie e configurare un avviso per qualsiasi metrica quando viene raggiunta una soglia, vedere le istruzioni in Risoluzione dei [*problemi: Configurare gli avvisi*](troubleshoot-alerts.md). Per configurare le notifiche per altri limiti in cui non vengono fornite metriche, valutare la possibilità di implementare questa logica nel codice dell'applicazione.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla versione corrente dei dispositivi gemelli digitali di Azure, vedere la panoramica del servizio:
-* [*Panoramica: che cos'è i dispositivi gemelli digitali di Azure?*](overview.md)
+Per altre informazioni sulla versione corrente di Gemelli digitali di Azure panoramica del servizio:
+* [*Panoramica: Che cos'è Gemelli digitali di Azure?*](overview.md)

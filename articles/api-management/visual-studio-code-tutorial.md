@@ -6,16 +6,16 @@ author: dlepow
 ms.author: apimpm
 ms.topic: tutorial
 ms.date: 12/10/2020
-ms.openlocfilehash: 0dea8e43d5f09b84c5795bc257cf3331ad919fcb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0090d981e93cee12f2feaaf7d2c12f341564f6ec
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649547"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482331"
 ---
 # <a name="tutorial-use-the-api-management-extension-for-visual-studio-code-to-import-and-manage-apis"></a>Esercitazione: Usare l'estensione Gestione API per Visual Studio Code per importare e gestire API
 
-Questa esercitazione illustra come usare l'estensione gestione API per Visual Studio Code per operazioni comuni in gestione API. Usare il noto ambiente Visual Studio Code per importare, aggiornare, testare e gestire le API.
+Questa esercitazione illustra come usare l'estensione API Management per Visual Studio Code per le operazioni comuni in API Management. Usare il noto ambiente Visual Studio Code per importare, aggiornare, testare e gestire le API.
 
 Si apprenderà come:
 
@@ -32,7 +32,7 @@ Per un'introduzione alle altre funzionalità di Gestione API, vedere le esercita
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md)
-- Assicurarsi di aver installato [Visual Studio Code](https://code.visualstudio.com/) e la versione più recente dell' [estensione gestione API di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- Assicurarsi di aver [installato](https://code.visualstudio.com/) Visual Studio Code e la versione più recente dell'estensione azure API Management per [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 - [Creare un'istanza di Gestione API](vscode-create-service-instance.md)
 
 ## <a name="import-an-api"></a>Importare un'API
@@ -101,7 +101,7 @@ Per testare l'API importata e i criteri applicati, è necessaria una chiave di s
 ### <a name="test-an-api-operation"></a>Testare un'operazione API
 
 1. Nel riquadro di Esplora risorse espandere il nodo **Operazioni** nell'API *demo-conference-api* importata.
-1. Selezionare un'operazione, ad esempio *GetSpeakers*.
+1. Selezionare un'operazione, ad esempio *GetSpeakers,* quindi fare clic con il pulsante destro del mouse sull'operazione e scegliere **Test operation (Testa operazione).**
 1. Nella finestra dell'editor, accanto a **Ocp-Apim-Subscription-Key**, sostituire `{{SubscriptionKey}}` con la chiave di sottoscrizione copiata.
 1. Selezionare **Invia richiesta**. 
 

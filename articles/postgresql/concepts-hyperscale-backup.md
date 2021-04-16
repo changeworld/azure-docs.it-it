@@ -1,69 +1,56 @@
 ---
-title: Backup e ripristino – iperscalabilità (CITUS)-database di Azure per PostgreSQL
-description: Protezione dei dati dal danneggiamento o dall'eliminazione accidentale
+title: Backup e ripristino - Hyperscale (Citus) - Database di Azure per PostgreSQL
+description: Protezione dei dati da danneggiamenti o eliminazioni accidentali
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 90b2a39b9a5f3b4d011ff1a1ef3651dff75a1cf6
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 8dfc82ce79f33553be5220b52a1e415d99c26518
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968306"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483912"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e ripristino nel database di Azure per PostgreSQL-iperscalabilità (CITUS)
+# <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e ripristino in Database di Azure per PostgreSQL - Hyperscale (Citus)
 
-Database di Azure per PostgreSQL – iperscalabilità (CITUS) crea automaticamente i backup di ogni nodo e li archivia nell'archiviazione con ridondanza locale. I backup possono essere usati per ripristinare il cluster iperscalabile (CITUS) a un tempo specificato. Il backup e il ripristino sono una parte essenziale di qualsiasi strategia di continuità aziendale, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale.
+Database di Azure per PostgreSQL: Hyperscale (Citus) automaticamente i backup di ogni nodo e li archivia nell'archiviazione con ridondanza locale. I backup possono essere usati per ripristinare il cluster Hyperscale (Citus) a un'ora specificata. Il backup e il ripristino sono una parte essenziale di qualsiasi strategia di continuità aziendale, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale.
 
 ## <a name="backups"></a>Backup
 
-Almeno una volta al giorno, database di Azure per PostgreSQL esegue backup di snapshot dei file di dati e del log delle transazioni del database. I backup consentono di ripristinare un server in qualsiasi punto nel tempo entro il periodo di conservazione. Il periodo di memorizzazione è attualmente di 35 giorni per tutti i cluster. Tutti i backup vengono crittografati con la crittografia AES a 256 bit.
+Almeno una volta al giorno, Database di Azure per PostgreSQL consente di eseguire backup snapshot dei file di dati e del log delle transazioni del database. I backup consentono di ripristinare un server in qualsiasi momento entro il periodo di conservazione. Il periodo di conservazione è attualmente di 35 giorni per tutti i cluster. Tutti i backup vengono crittografati usando la crittografia AES a 256 bit.
 
-Nelle aree di Azure che supportano le zone di disponibilità, gli snapshot di backup vengono archiviati in tre zone di disponibilità. Fino a quando almeno una zona di disponibilità è online, il cluster iperscalabile (CITUS) è ripristinabile.
+Nelle aree di Azure che supportano le zone di disponibilità, gli snapshot di backup vengono archiviati in tre zone di disponibilità. Finché almeno una zona di disponibilità è online, il cluster Hyperscale (Citus) è ripristinabile.
 
-Non è possibile esportare i file di backup. Possono essere usati solo per le operazioni di ripristino nel database di Azure per PostgreSQL.
+I file di backup non possono essere esportati. Possono essere usati solo per le operazioni di ripristino in Database di Azure per PostgreSQL.
 
 ### <a name="backup-storage-cost"></a>Costo dell'archiviazione dei backup
 
-Per i prezzi correnti di archiviazione di backup, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/)di database di Azure per PostgreSQL-iperscalabile (CITUS).
+Per i prezzi correnti dell'archiviazione di backup, vedere la pagina dei prezzi di Database di Azure per PostgreSQL - Hyperscale (Citus) [prezzi.](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/)
 
 ## <a name="restore"></a>Restore
 
-Nel database di Azure per PostgreSQL il ripristino di un cluster con iperscalabilità (CITUS) crea un nuovo cluster dai backup dei nodi originali. 
+In Database di Azure per PostgreSQL il ripristino di un cluster Hyperscale (Citus) crea un nuovo cluster dai backup dei nodi originali. 
 
 > [!IMPORTANT]
->È possibile ripristinare solo il cluster iperscalabile (CITUS) all'interno della stessa sottoscrizione e del gruppo di risorse e con un nome di cluster diverso.
+>È possibile ripristinare il cluster Hyperscale (Citus) solo all'interno della stessa sottoscrizione e gruppo di risorse e con un nome di cluster diverso.
 
 
 > [!IMPORTANT]
-> Non è possibile ripristinare i cluster CITUS (overscale) eliminati. Se si elimina il cluster, tutti i nodi appartenenti al cluster vengono eliminati e non possono essere recuperati. Per proteggere le risorse del cluster, post-distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare i [blocchi di gestione](../azure-resource-manager/management/lock-resources.md).
+> I Hyperscale (Citus) cluster non possono essere ripristinati. Se si elimina il cluster, tutti i nodi che appartengono al cluster vengono eliminati e non possono essere ripristinati. Per proteggere le risorse del cluster, dopo la distribuzione, da eliminazioni accidentali o modifiche impreviste, gli amministratori possono sfruttare [i blocchi di gestione](../azure-resource-manager/management/lock-resources.md).
 
-### <a name="point-in-time-restore-pitr"></a>Ripristino temporizzato (ripristino temporizzato)
+### <a name="point-in-time-restore-pitr"></a>Ripristino temporato (PITR)
 
-È possibile ripristinare un cluster in qualsiasi punto nel tempo entro gli ultimi 35 giorni.
+È possibile ripristinare un cluster in qualsiasi momento negli ultimi 35 giorni.
 Il ripristino temporizzato è utile in più scenari, Può accadere, ad esempio, quando un utente elimina accidentalmente i dati o rimuove una tabella o un database importante oppure se un'applicazione sovrascrive accidentalmente dati validi con dati non validi.
 
-Il processo di ripristino crea un nuovo cluster nella stessa area di Azure, sottoscrizione e gruppo di risorse dell'originale. Il cluster ha la configurazione originale: lo stesso numero di nodi, il numero di Vcore, le dimensioni di archiviazione, i ruoli utente, la versione di PostgreSQL e la versione dell'estensione CITUS.
+Il processo di ripristino crea un nuovo cluster nella stessa area di Azure, nella stessa sottoscrizione e nello stesso gruppo di risorse dell'originale. Il cluster ha la configurazione originale: lo stesso numero di nodi, numero di vCore, dimensioni di archiviazione, ruoli utente, versione di PostgreSQL e versione dell'estensione Citus.
 
-Le impostazioni del firewall e i parametri del server PostgreSQL non vengono conservati dal gruppo di server originale, vengono reimpostati sui valori predefiniti. Il firewall eviterà tutte le connessioni. Sarà necessario modificare manualmente queste impostazioni dopo il ripristino.
-
-> [!IMPORTANT]
-> È necessario aprire una richiesta di supporto per eseguire il ripristino temporizzato del cluster iperscalabile (CITUS).
-
-### <a name="post-restore-tasks"></a>Attività successive al ripristino
-
-Dopo un ripristino da uno dei due meccanismi di ripristino, è necessario eseguire le operazioni seguenti per eseguire il backup e l'esecuzione di utenti e applicazioni:
-
-* Se il nuovo server è destinato a sostituire il server originale, reindirizzare i client e le applicazioni client al nuovo server
-* Verificare che sia presente il firewall a livello di server appropriato per consentire agli utenti di connettersi. Queste regole non vengono copiate dal gruppo di server originale.
-* Modificare i parametri del server PostgreSQL in base alle esigenze. I parametri non vengono copiati dal gruppo di server originale.
-* Verificare che siano presenti gli account di accesso e le autorizzazioni a livello di database appropriati
-* Configurare gli avvisi in base alle proprie esigenze.
+Le impostazioni del firewall e i parametri del server PostgreSQL non vengono mantenuti dal gruppo di server originale, ma vengono reimpostati sui valori predefiniti. Il firewall impedirà tutte le connessioni. Sarà necessario modificare manualmente queste impostazioni dopo il ripristino. In generale, vedere l'elenco delle attività [post-ripristino suggerite.](howto-hyperscale-restore-portal.md#post-restore-tasks)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle [zone di disponibilità di Azure](../availability-zones/az-overview.md).
-* Impostare [avvisi suggeriti](./howto-hyperscale-alert-on-metric.md#suggested-alerts) per i gruppi di server iperscalare (CITUS).
+* Vedere i passaggi per [ripristinare un gruppo di server](howto-hyperscale-restore-portal.md) nella portale di Azure.
+* Informazioni sulle zone [di disponibilità di Azure.](../availability-zones/az-overview.md)

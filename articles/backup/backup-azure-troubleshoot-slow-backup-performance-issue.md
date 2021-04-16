@@ -3,12 +3,12 @@ title: Risolvere i problemi relativi al rallentamento delle prestazioni di backu
 description: Fornisce indicazioni sulla risoluzione dei problemi per diagnosticare la causa del rallentamento delle prestazioni di backup per file e cartelle di Backup di Azure
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: b3f2ac343ef4a703f347ec8a57f242a636bb32d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 791f0edf5f50d27147e402f09e7a3e4c2ea7ca43
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88824016"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518525"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Risolvere i problemi di rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
 
@@ -21,7 +21,7 @@ Questo articolo fornisce indicazioni sulla risoluzione dei problemi per diagnost
 
 Prima di iniziare a risolvere i problemi, è consigliabile scaricare e installare l' [agente di Backup di Azure più recente](https://aka.ms/azurebackup_agent). L'agente di Backup viene aggiornato di frequente per risolvere diversi problemi, aggiungere funzionalità e migliorare le prestazioni.
 
-È anche consigliabile vedere l'articolo [Servizio Backup di Azure: Domande frequenti](backup-azure-backup-faq.md) per assicurarsi che non si tratti di problemi di configurazione comuni.
+È anche consigliabile vedere l'articolo [Servizio Backup di Azure: Domande frequenti](backup-azure-backup-faq.yml) per assicurarsi che non si tratti di problemi di configurazione comuni.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -49,13 +49,13 @@ Ecco alcuni contatori delle prestazioni e intervalli che possono essere utili pe
 
 | Contatore | Stato |
 | --- | --- |
-| Disco logico (disco fisico) - % inattività |<li> 100% di inattività a 50% inattivo = integro</br><li> 49% inattivo a 20% inattivo = avviso o monitoraggio</br><li> 19% inattivo a 0% inattivo = critico o fuori specifica |
-| Disco logico (disco fisico) - % Media letture o scritture disco/sec |<li> da 0,001 MS a 0,015 MS = integro</br><li> da 0,015 MS a 0,025 MS = avviso o monitoraggio</br><li> 0,026 MS o più = critico o fuori specifica |
+| Disco logico (disco fisico) - % inattività |<li> Da 100% inattivo a 50% inattivo = Integro</br><li> Da 49% inattivo a 20% inattivo = Avviso o Monitoraggio</br><li> Da 19% inattivo a 0% inattivo = critico o non in base alle specifiche |
+| Disco logico (disco fisico) - % Media letture o scritture disco/sec |<li> Da 0,001 ms a 0,015 ms = Integro</br><li> Da 0,015 ms a 0,025 ms = avviso o monitoraggio</br><li> 0,026 ms o più = Critico o Fuori specifica |
 | Disco logico (disco fisico) - Lunghezza corrente coda del disco (per tutte le istanze) |80 richieste per più di 6 minuti |
-| Memoria - Byte del pool non di paging |<li> Inferiore al 60% del pool utilizzato = integro<br><li> 61% al 80% del pool utilizzato = avviso o monitoraggio</br><li> Superiore al 80% del pool utilizzato = critico o fuori specifica |
-| Memoria - Byte del pool di paging |<li> Inferiore al 60% del pool utilizzato = integro</br><li> 61% al 80% del pool utilizzato = avviso o monitoraggio</br><li> Superiore al 80% del pool utilizzato = critico o fuori specifica |
-| Memoria - MByte disponibili |<li> 50% di memoria disponibile o superiore = integro</br><li> 25% della memoria disponibile = monitoraggio</br><li>10% di memoria libera disponibile = avviso</br><li> Inferiore a 100 MB o 5% di memoria libera disponibile = critico o fuori specifica |
-| Processore - \%Tempo processore (tutte le istanze) |<li> Inferiore al 60% utilizzato = integro</br><li> da 61% a 90% utilizzato = monitoraggio o attenzione</br><li> 91% a 100% utilizzato = critico |
+| Memoria - Byte del pool non di paging |<li> Meno del 60% del pool utilizzato = integro<br><li> Dal 61% all'80% del pool utilizzato = Avviso o Monitoraggio</br><li> Maggiore dell'80% del pool utilizzato = Critico o Non specificato |
+| Memoria - Byte del pool di paging |<li> Meno del 60% del pool utilizzato = integro</br><li> Dal 61% all'80% del pool utilizzato = Avviso o Monitoraggio</br><li> Maggiore dell'80% del pool utilizzato = Critico o Non specificato |
+| Memoria - MByte disponibili |<li> 50% della memoria disponibile o superiore = Integro</br><li> 25% della memoria disponibile = Monitoraggio</br><li>10% della memoria disponibile = Avviso</br><li> Meno di 100 MB o il 5% della memoria disponibile = Critico o Fuori specifica |
+| Processore - \%Tempo processore (tutte le istanze) |<li> Meno del 60% utilizzato = Integro</br><li> Dal 61% al 90% utilizzato = Monitoraggio o attenzione</br><li> Dal 91% al 100% utilizzato = Critico |
 
 > [!NOTE]
 > Se si determina che l'infrastruttura è la causa del problema, è consigliabile deframmentare i dischi a intervalli regolari per ottenere prestazioni migliori.
@@ -93,10 +93,10 @@ Questo comportamento è dovuto al fatto che mentre è attivo il backup e lo spos
 Gli indicatori seguenti possono risultare utili per individuare il collo di bottiglia e agire di conseguenza nei passaggi successivi:
 
 * **L'interfaccia utente visualizza lo stato di avanzamento per il trasferimento dei dati**. I dati sono ancora in fase di trasferimento. La larghezza di banda di rete o le dimensioni dei dati potrebbero causare ritardi.
-* **L'interfaccia utente non Visualizza lo stato di avanzamento per il trasferimento dei dati**. Aprire i log disponibili in "C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure\Temp" e quindi cercare la voce FileProvider::EndData nei log. Questa voce indica che il trasferimento dei dati è stato completato e che l'operazione di catalogo è in corso. Non annullare i processi di backup. Al contrario, attendere ancora qualche istante che l'operazione di catalogo venga completata. Se il problema persiste, contattare il [supporto di Azure](https://portal.azure.com/#create/Microsoft.Support).
+* **L'interfaccia utente non mostra lo stato di avanzamento per il trasferimento dei dati.** Aprire i log disponibili in "C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure\Temp" e quindi cercare la voce FileProvider::EndData nei log. Questa voce indica che il trasferimento dei dati è stato completato e che l'operazione di catalogo è in corso. Non annullare i processi di backup. Al contrario, attendere ancora qualche istante che l'operazione di catalogo venga completata. Se il problema persiste, contattare il [supporto di Azure](https://portal.azure.com/#create/Microsoft.Support).
 
-Se si sta provando a eseguire il backup di dischi di grandi dimensioni, è consigliabile usare [Azure Data Box](./offline-backup-azure-data-box.md) per il primo backup (replica iniziale).  Se non è possibile usare Data Box, eventuali problemi di rete temporanei che si verificano nell'ambiente durante i trasferimenti di dati di lunga durata sulla rete possono causare errori di backup.  Per evitare questi errori, è possibile aggiungere alcune cartelle al backup iniziale e continuare ad aggiungerle in modo incrementale fino a quando non viene completato il backup di tutte le cartelle in Azure.  I successivi backup incrementali saranno relativamente più veloci.
+Se si sta tentando di eseguire il backup di dischi [](./offline-backup-azure-data-box.md) di grandi dimensioni, è consigliabile usare Azure Data Box per il primo backup (replica iniziale).  Se non è possibile usare Data Box, eventuali problemi di rete temporanei che si verificano nell'ambiente durante i trasferimenti di dati di lunga durata sulla rete possono causare errori di backup.  Per evitare questi errori, è possibile aggiungere alcune cartelle al backup iniziale e continuare ad aggiungerle in modo incrementale fino a quando non viene completato il backup di tutte le cartelle in Azure.  I successivi backup incrementali saranno relativamente più veloci.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Domande frequenti sul backup di file e cartelle](backup-azure-file-folder-backup-faq.md)
+* [Domande frequenti sul backup di file e cartelle](backup-azure-file-folder-backup-faq.yml)

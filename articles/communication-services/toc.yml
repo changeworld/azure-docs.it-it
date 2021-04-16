@@ -5,7 +5,7 @@
   items:
     - name: Che cos'è l'offerta Servizi di comunicazione di Azure?
       href: overview.md
-    - name: Opzioni di supporto e guida
+    - name: Opzioni di supporto e Guida
       href: support.md
 - name: Avvi rapidi
   expanded: true
@@ -16,7 +16,7 @@
       href: quickstarts/access-tokens.md
     - name: Usare identità gestite
       href: quickstarts/managed-identity.md
-    - name: Configurare identità gestite dall'interfaccia della riga di comando
+    - name: Configurare le identità gestite dall'interfaccia della riga di comando
       href: quickstarts/managed-identity-from-cli.md
     - name: Chat
       items:
@@ -42,9 +42,9 @@
       items:
         - name: Aggiungere chiamate vocali all'app
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
-        - name: Aggiungere il video chiamante all'app (JavaScript)
+        - name: Aggiungere videochiamata all'app (JavaScript)
           href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-        - name: Usare l'SDK chiamante
+        - name: Usare l'SDK di chiamata
           href: quickstarts/voice-video-calling/calling-client-samples.md
         - name: Aggiungere l'app di chiamata a una riunione di Teams
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
@@ -54,18 +54,18 @@
           href: quickstarts/ui-framework/get-started-with-composites.md
         - name: Introduzione ai componenti di base
           href: quickstarts/ui-framework/get-started-with-components.md
-        - name: Creare un componente del Framework dell'interfaccia utente personalizzato
+        - name: Creare un componente del framework dell'interfaccia utente personalizzato
           href: quickstarts/ui-framework/create-your-own-components.md
 - name: Esercitazioni
   expanded: false
   items:
     - name: Creare un servizio di autenticazione attendibile con Funzioni di Azure
       href: tutorials/trusted-service-tutorial.md
-    - name: 'Firmare una richiesta HTTP con una firma HMAC con C #'
+    - name: 'Firmare una richiesta HTTP con una firma HMAC usando C #'
       href: tutorials/hmac-header-tutorial.md
-    - name: Preparare un'app Web per i servizi di comunicazione (Node.js)
+    - name: Preparare un'app Web per Servizi di comunicazione (Node.js)
       href: tutorials/building-app-start.md
-    - name: Firmare e inviare richieste all'API SMS di ACS con l'agente di pubblicazione
+    - name: Firmare e inviare richieste ai API SMS ACS con Postman
       href: tutorials/postman-tutorial.md
 - name: Concetti
   expanded: false
@@ -88,7 +88,7 @@
           href: concepts/telephony-sms/plan-solution.md
         - name: Requisiti dell'infrastruttura dell'interfaccia SIP
           href: concepts/telephony-sms/sip-interface-infrastructure.md
-        - name: DOMANDE FREQUENTI SU SMS
+        - name: Domande frequenti su SMS
           href: concepts/telephony-sms/sms-faq.md
         - name: Criteri di messaggistica
           href: concepts/telephony-sms/messaging-policy.md
@@ -96,7 +96,7 @@
       items:
         - name: Problemi noti
           href: concepts/known-issues.md
-        - name: Panoramica dell'SDK chiamante
+        - name: Panoramica delle chiamate all'SDK
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Concetti relativi alle chiamate vocali e video
           href: concepts/voice-video-calling/about-call-types.md
@@ -104,25 +104,14 @@
           href: concepts/voice-video-calling/network-requirements.md
         - name: Flussi di chiamate
           href: concepts/call-flows.md
-        - name: Topologie del flusso di chiamate
+        - name: Topologie del flusso di chiamata
           href: concepts/detailed-call-flows.md
     - name: Framework di interfaccia utente
       items:
-        - name: Panoramica del Framework dell'interfaccia utente
+        - name: Panoramica del framework interfaccia utente
           href: concepts/ui-framework/ui-sdk-overview.md
-        - name: Funzionalità del Framework dell'interfaccia utente
+        - name: Funzionalità del framework interfaccia utente
           href: concepts/ui-framework/ui-sdk-features.md
-    - name: Dati e operazioni
-      items:
-        - name: Eventi del servizio (EventGrid)
-          href: ../event-grid/event-schema-communication-services.md
-          maintainContext: true
-        - name: Registrazione e diagnostica
-          href: concepts/logging-and-diagnostics.md
-        - name: Metriche
-          href: concepts/metrics.md
-        - name: Risoluzione dei problemi
-          href: concepts/troubleshooting-info.md
     - name: SDK e API REST
       href: concepts/sdk-options.md
     - name: Architettura client e server
@@ -139,6 +128,15 @@
       href: concepts/notifications.md
     - name: Interoperabilità di Teams
       href: concepts/teams-interop.md
+    - name: Eventi del servizio (EventGrid)
+      href: ../event-grid/event-schema-communication-services.md
+      maintainContext: true
+    - name: Registrazione e diagnostica
+      href: concepts/logging-and-diagnostics.md
+    - name: Metriche
+      href: concepts/metrics.md
+    - name: Risoluzione dei problemi
+      href: concepts/troubleshooting-info.md
 - name: Esempi
   items:
     - name: Panoramica
@@ -193,7 +191,7 @@
           href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationidentity'
         - name: Identità (Android/Java)
           href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity'
-        - name: Identità (Python)
+        - name: Identity (Python)
           href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity'
     - name: Librerie comuni
       items:
@@ -203,7 +201,7 @@
           href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon'
         - name: Comuni (Android/Java)
           href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common'
-        - name: Comune (Python)
+        - name: Common (Python)
           href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common'
 - name: Risorse
   items:

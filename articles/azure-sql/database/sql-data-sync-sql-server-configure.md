@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 6b7ead2e54889327bfbea188ad464012c3861556
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 75de7b122bff75ea13e3b66bb0b79452142dc36c
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968612"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500091"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Esercitazione: Configurare la sincronizzazione dati SQL tra i database nel database SQL di Azure e in SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,7 +64,7 @@ Per esempi di PowerShell su come configurare la sincronizzazione dati SQL, veder
    | **Usare il collegamento privato** | Scegliere un endpoint privato gestito dal servizio per stabilire una connessione sicura tra il servizio di sincronizzazione e il database hub. |
 
    > [!NOTE]
-   > Microsoft consiglia di creare un nuovo database vuoto da usare come **Database dei metadati di sincronizzazione**. La sincronizzazione dati crea tabelle in questo database ed esegue un carico di lavoro frequente. Questo database viene condiviso come **database dei metadati di sincronizzazione** per tutti i gruppi di sincronizzazione in un'area e in una sottoscrizione selezionate. Non è possibile modificare il database o il nome di questo senza rimuovere tutti i gruppi e gli agenti di sincronizzazione nell'area. Inoltre, un database di processi elastici non può essere utilizzato come database dei metadati di sincronizzazione dati SQL e viceversa.  
+   > Microsoft consiglia di creare un nuovo database vuoto da usare come **Database dei metadati di sincronizzazione**. La sincronizzazione dati crea tabelle in questo database ed esegue un carico di lavoro frequente. Questo database viene condiviso come **database dei metadati di sincronizzazione** per tutti i gruppi di sincronizzazione in un'area e in una sottoscrizione selezionate. Non è possibile modificare il database o il nome di questo senza rimuovere tutti i gruppi e gli agenti di sincronizzazione nell'area. Inoltre, non è possibile usare un database di processi elastici come database sincronizzazione dati SQL metadati e viceversa.  
 
    Selezionare **OK** e attendere che il gruppo di sincronizzazione venga creato e distribuito.
    
@@ -236,6 +236,11 @@ Per le domande frequenti sull'agente client, vedere [Domande frequenti sull'agen
 **È necessario approvare manualmente il collegamento privato prima di iniziare a usarlo?**
 
 Sì, è necessario approvare manualmente l'endpoint privato gestito dal servizio, nella pagina Connessioni a endpoint privato del portale di Azure durante la distribuzione del gruppo di sincronizzazione o usando PowerShell.
+
+**Perché viene visualizzato un errore del firewall quando il processo di sincronizzazione esegue il provisioning del database di Azure?**
+
+Questo problema può verificarsi perché le risorse di Azure non sono autorizzate ad accedere al server. Assicurarsi che l'impostazione "Consenti ai servizi e alle risorse di Azure di accedere al server" del firewall nel database di Azure sia impostata su "Sì".
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

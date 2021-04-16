@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cbc415411e05d6fdecee1acf2fbc02b3c170b9d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80f0efe0894c54d1499bbfdce2317a38dff9299d
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501125"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481617"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Avvio rapido: Configurare Attestazione di Azure con Azure PowerShell
 
@@ -170,12 +170,12 @@ Per gestire i criteri, gli utenti di Azure AD devono avere le autorizzazioni seg
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-Queste autorizzazioni possono essere assegnate a un utente di AD tramite un ruolo come "Proprietario" (autorizzazioni con caratteri jolly), "Collaboratore" (autorizzazioni con caratteri jolly) o "Collaboratore per attestazioni" (autorizzazioni specifiche solo per Attestazione di Azure).  
+Per eseguire queste azioni, un Azure AD deve avere il ruolo "Collaboratore attestazione" nel provider di attestazione. Queste autorizzazioni possono anche essere ereditate con ruoli quali "Proprietario" (autorizzazioni con caratteri jolly), "Collaboratore" (autorizzazioni con caratteri jolly) a livello di sottoscrizione o di gruppo di risorse.  
 
 Per leggere i criteri, gli utenti di Azure AD devono avere l'autorizzazione seguente per "Azioni":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-Questa autorizzazione può essere assegnata a un utente di Azure AD tramite un ruolo come "Lettore" (autorizzazioni con caratteri jolly) o "Ruolo con autorizzazioni di lettura per le attestazioni" (autorizzazioni specifiche solo per Attestazione di Azure).
+Per eseguire questa azione, un Azure AD deve avere il ruolo "Lettore attestazione" nel provider di attestazione. L'autorizzazione di lettura può essere ereditata anche con ruoli come "Lettore" (autorizzazioni con caratteri jolly) a livello di sottoscrizione/gruppo di risorse.  
 
 I cmdlet di PowerShell seguenti forniscono la gestione dei criteri per un provider di attestazioni (un ambiente TEE alla volta).
 
