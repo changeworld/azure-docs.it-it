@@ -1,6 +1,6 @@
 ---
-title: processi azcopy puliti | Microsoft Docs
-description: Questo articolo contiene informazioni di riferimento per il comando azcopy Jobs clean.
+title: azcopy jobs clean | Microsoft Docs
+description: Questo articolo fornisce informazioni di riferimento per il comando azcopy jobs clean.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -8,16 +8,16 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 4a2c717601747e15556608559450b35bb934410b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01bb7e37965abacac8105689bcb5ae52c548d647
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879106"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503423"
 ---
 # <a name="azcopy-jobs-clean"></a>azcopy jobs clean
 
-Rimuovi tutti i file di registro e di piano per tutti i processi
+Rimuovere tutti i file di log e di piano per tutti i processi
 
 ```
 azcopy jobs clean [flags]
@@ -26,9 +26,8 @@ azcopy jobs clean [flags]
 ## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-- [Trasferire i dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
+- [Trasferire dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
-- [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Esempio
 
@@ -38,17 +37,17 @@ azcopy jobs clean [flags]
 
 ## <a name="options"></a>Opzioni
 
-**--Guida**                Guida per pulire.
+**--help**                Guida per la pulizia.
 
-**--with-status** stringa rimuove solo i processi con questo stato, i valori disponibili: `Canceled` , `Completed` , `Failed` , `InProgress` , `All` (impostazione predefinita `All` )
+**--with-status** string Rimuove solo i processi con questo stato, i valori disponibili: `Canceled` , , , , `Completed` `Failed` `InProgress` `All` (impostazione `All` predefinita)
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
-**--Cap-Mbps float**      Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
+**--cap-mbps float**      Consente di massimare la velocità di trasferimento, in megabit al secondo. La velocità effettiva momentanea può variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non viene impostata.
 
-**--output-** formato stringa di tipo dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text". (impostazione predefinita "testo")
+**--output-type** string Formato dell'output del comando. Le opzioni disponibili includono: text, json. Il valore predefinito è "text". (testo predefinito)
 
-**--trusted-Microsoft-suffissi** stringa specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
+**--trusted-microsoft-suffixes** string Specifica suffissi di dominio aggiuntivi in Azure Active Directory i token di accesso.  Il valore predefinito è '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;*. core.usgovcloudapi.net'. Tutti gli elementi elencati vengono aggiunti all'impostazione predefinita. Per motivi di sicurezza, è consigliabile inserire Microsoft Azure domini qui. Separare più voci con punti e virgola.
 
 ## <a name="see-also"></a>Vedi anche
 

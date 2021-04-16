@@ -1,19 +1,19 @@
 ---
-title: Definizioni predefinite dei criteri per portale di Azure
-description: Elenca le definizioni dei criteri predefiniti di criteri di Azure per portale di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/31/2021
+title: Definizioni di criteri predefiniti per portale di Azure
+description: Elenca Criteri di Azure definizioni di criteri predefiniti per portale di Azure. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+ms.date: 04/14/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 68b85e874ecb5d037228bde1cb8c22fdeb072bd0
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: f3064e45dc939ff28d3131f4bac4a5e34db58c44
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094245"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107504213"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-portal"></a>Definizioni predefinite dei criteri di Azure per portale di Azure
+# <a name="azure-policy-built-in-definitions-for-azure-portal"></a>Criteri di Azure definizioni incorporate per portale di Azure
 
-Questa pagina è un indice delle definizioni dei criteri predefiniti di [criteri di Azure](../governance/policy/overview.md) per portale di Azure. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
+Questa pagina è un indice [delle](../governance/policy/overview.md) Criteri di Azure di criteri predefiniti per portale di Azure. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
 Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 

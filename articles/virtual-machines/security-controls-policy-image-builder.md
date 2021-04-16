@@ -1,7 +1,7 @@
 ---
-title: Controlli di conformità normativi di criteri di Azure per Generatore immagini di Azure
-description: Elenca i controlli di conformità normativi di criteri di Azure disponibili per Generatore immagini di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 03/31/2021
+title: Criteri di Azure controlli di conformità alle normative per Azure Image Builder
+description: Elenca Criteri di Azure controlli conformità alle normative disponibili per Azure Image Builder. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
+ms.date: 04/14/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
@@ -9,16 +9,16 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a6f20e58701d19673b83d6b739175c5c0285886b
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 76db40d506e84c5b4621c6fe53991d9748b47e4e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091473"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502225"
 ---
-# <a name="azure-policy-regulatory-compliance-controls-for-azure-image-builder"></a>Controlli di conformità normativi di criteri di Azure per Generatore immagini di Azure
+# <a name="azure-policy-regulatory-compliance-controls-for-azure-image-builder"></a>Criteri di Azure controlli di conformità alle normative per Azure Image Builder
 
-La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i **domini di conformità** e i **controlli di sicurezza** per Azure Image Builder. È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
+La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i domini **di conformità e** i controlli di **sicurezza** per Azure Image Builder. È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 

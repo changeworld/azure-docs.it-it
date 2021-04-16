@@ -8,16 +8,16 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: e31a1cef427062723adf4b45bd47cd8009630128
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b48963fa6cb28c836c57de8b46861ef83752231
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94888811"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388560"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Guida introduttiva: Configurare Azure NetApp Files e creare un volume NFS
 
-Questo articolo illustra come configurare rapidamente Azure NetApp Files e creare un volume.
+Questo articolo illustra come configurare rapidamente Azure NetApp Files e creare un volume NFS. 
 
 In questo argomento di avvio rapido si configureranno gli elementi seguenti:
 
@@ -27,6 +27,8 @@ In questo argomento di avvio rapido si configureranno gli elementi seguenti:
 - Un volume NFS per Azure NetApp Files
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+Per visualizzare tutte le funzionalità che è possibile abilitare per un volume NFS e considerazioni pertinenti, vedere [Creare un volume NFS.](azure-netapp-files-create-volumes.md) 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -248,7 +250,7 @@ Il frammento di codice seguente mostra come creare un pool di capacità in un mo
 
 ---
 
-## <a name="create-nfs-volume-for-azure-netapp-files"></a>Creare un volume NFS per Azure NetApp Files
+## <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creare un volume NFS per Azure NetApp Files
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 

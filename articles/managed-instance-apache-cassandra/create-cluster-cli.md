@@ -1,39 +1,39 @@
 ---
-title: "Guida introduttiva: usare l'interfaccia della riga di comando per creare un cluster Azure Istanza gestita"
-description: Usare questa Guida introduttiva per creare un cluster Azure Istanza gestita per Apache Cassandra usando l'interfaccia della riga di comando di Azure.
+title: Guida introduttiva- Usare l'interfaccia della riga di comando per creare Istanza gestita azure per il cluster Apache Cassandra
+description: Usare questa guida introduttiva per creare un cluster Azure Istanza gestita per Apache Cassandra usando l'interfaccia della riga di comando di Azure.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.openlocfilehash: b719310a331044df363efcc6b79be323faf49247
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 53fe53e1406bfcde1f2d8c7b2a1ce8369303426f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562104"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379367"
 ---
-# <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Guida introduttiva: creare un cluster Azure Istanza gestita per Apache Cassandra usando l'interfaccia della riga di comando di Azure (anteprima)
+# <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Avvio rapido: Creare un cluster Azure Istanza gestita per Apache Cassandra usando l'interfaccia della riga di comando di Azure (anteprima)
 
-Azure Istanza gestita per Apache Cassandra fornisce operazioni automatiche di distribuzione e scalabilità per i Data Center di Apache Cassandra Open Source gestiti. Questo servizio ti aiuta ad accelerare gli scenari ibridi e a ridurre la manutenzione continuativa.
+Azure Istanza gestita per Apache Cassandra offre operazioni automatizzate di distribuzione e ridimensionamento per data center Apache Cassandra open source gestiti. Questo servizio consente di accelerare gli scenari ibridi e ridurre la manutenzione continuativa.
 
 > [!IMPORTANT]
-> Azure Istanza gestita per Apache Cassandra è attualmente disponibile in anteprima pubblica.
+> Azure Istanza gestita per Apache Cassandra è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questa Guida introduttiva illustra come usare i comandi dell'interfaccia della riga di comando di Azure per creare un cluster con Azure Istanza gestita per Apache Cassandra. Mostra anche la creazione di un Data Center e la scalabilità dei nodi all'interno del Data Center.
+Questa guida introduttiva illustra come usare i comandi dell'interfaccia della riga di comando di Azure per creare un cluster con Azure Istanza gestita per Apache Cassandra. Viene anche illustrato come creare un data center e ridimensionare i nodi all'interno del data center.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) con connettività all'ambiente self-hosted o on-premise. Per altre informazioni sulla connessione di ambienti locali ad Azure, vedere l'articolo [connettere una rete locale ad Azure](/azure/architecture/reference-architectures/hybrid-networking/) .
+* [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) con connettività all'ambiente self-hosted o locale. Per altre informazioni sulla connessione di ambienti locali ad Azure, vedere l'articolo Connettere una [rete locale ad Azure.](/azure/architecture/reference-architectures/hybrid-networking/)
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!IMPORTANT]
-> Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.17.1 o successiva. Se si utilizza Azure Cloud Shell, è già installata la versione più recente.
+> Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.17.1 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
-## <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>Creare un cluster di istanze gestite
+## <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>Creare un cluster di istanza gestita
 
 1. Accedere al [portale di Azure](https://portal.azure.com/)
 
@@ -43,25 +43,33 @@ Questa Guida introduttiva illustra come usare i comandi dell'interfaccia della r
    az account set -s <Subscription_ID>
    ```
 
-1. Successivamente, creare una rete virtuale con una subnet dedicata nel gruppo di risorse:
+1. Creare quindi una rete virtuale con una subnet dedicata nel gruppo di risorse:
 
    ```azurecli-interactive
    az network vnet create -n <VNet_Name> -l eastus2 -g <Resource_Group_Name> --subnet-name <Subnet Name>
    ```
+    > [!NOTE]
+    > La distribuzione di un'istanza di Azure Istanza gestita per Apache Cassandra richiede l'accesso a Internet. La distribuzione ha esito negativo negli ambienti in cui l'accesso a Internet è limitato. Assicurarsi di non bloccare l'accesso all'interno della rete virtuale ai servizi di Azure essenziali seguenti necessari per il corretto funzionamento di Cassandra gestita:
+    > - Archiviazione di Azure
+    > - Azure Key Vault
+    > - Set di scalabilità delle macchine virtuali di Azure
+    > - Monitoraggio di Azure
+    > - Azure Active Directory
+    > - Sicurezza di Azure
 
-1. Applicare alcune autorizzazioni speciali per la rete virtuale e la subnet, necessarie per l'istanza gestita. Usare il `az role assignment create` comando, sostituendo `<subscription ID>` , `<resource group name>` , `<VNet name>` e `<subnet name>` con i valori appropriati:
+1. Applicare alcune autorizzazioni speciali alla rete virtuale, richieste dall'istanza gestita. Usare il `az role assignment create` comando sostituendo , e con i valori `<subscription ID>` `<resource group name>` `<VNet name>` appropriati:
 
    ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
+   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
    ```
 
    > [!NOTE]
-   > I valori `assignee` e `role` nel comando precedente sono valori fissi, immettere questi valori esattamente come indicato nel comando. In caso contrario, si verificheranno errori durante la creazione del cluster. Se si verificano errori durante l'esecuzione di questo comando, è possibile che non si disponga delle autorizzazioni per eseguirlo, rivolgersi all'amministratore per ottenere le autorizzazioni.
+   > I `assignee` valori e nel comando precedente sono valori `role` fissi. Immettere questi valori esattamente come indicato nel comando. Se non si esegue questa operazione, si verificano errori durante la creazione del cluster. Se si verificano errori durante l'esecuzione di questo comando, è possibile che non si abbia le autorizzazioni per eseguirlo. Contattare l'amministratore per ottenere le autorizzazioni.
 
-1. Successivamente, creare il cluster nella rete virtuale appena creata usando il comando [AZ Managed-Cassandra cluster create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create) . Eseguire il comando seguente il valore della `delegatedManagementSubnetId` variabile:
+1. Creare quindi il cluster nella rete virtuale appena creata usando il [comando az managed-cassandra cluster create.](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create) Eseguire il comando seguente sul valore della `delegatedManagementSubnetId` variabile :
 
    > [!NOTE]
-   > Il valore della `delegatedManagementSubnetId` variabile che verrà fornita di seguito è esattamente uguale al valore di `--scope` specificato nel comando precedente:
+   > Il valore della variabile che verrà fornita di seguito è esattamente uguale al valore di `delegatedManagementSubnetId` `--scope` specificato nel comando precedente:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
@@ -79,7 +87,7 @@ Questa Guida introduttiva illustra come usare i comandi dell'interfaccia della r
       --debug
    ```
 
-1. Infine, creare un Data Center per il cluster con tre nodi usando il comando [AZ Managed-Cassandra datacenter create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create) :
+1. Infine, creare un data center per il cluster con tre nodi usando il [comando az managed-cassandra datacenter create:](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create)
 
    ```azurecli-interactive
    dataCenterName='dc1'
@@ -94,7 +102,7 @@ Questa Guida introduttiva illustra come usare i comandi dell'interfaccia della r
       --node-count 3 
    ```
 
-1. Una volta creato il Data Center, se si vuole aumentare o ridurre i nodi nel Data Center, eseguire il comando [AZ Managed-Cassandra datacenter Update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update) . Modificare il valore del `node-count` parametro impostando il valore desiderato:
+1. Dopo aver creato il data center, se si vuole aumentare o ridimensionare i nodi nel data center, eseguire il [comando az managed-cassandra datacenter update.](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update) Modificare il valore del `node-count` parametro con il valore desiderato:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
@@ -111,7 +119,7 @@ Questa Guida introduttiva illustra come usare i comandi dell'interfaccia della r
 
 ## <a name="connect-to-your-cluster"></a>Connettersi al cluster
 
-Azure Istanza gestita per Apache Cassandra non crea nodi con indirizzi IP pubblici. Per connettersi al cluster Cassandra appena creato, è necessario creare un'altra risorsa all'interno della rete virtuale. Questa risorsa può essere un'applicazione o una macchina virtuale con lo strumento di query open source di Apache [CQLSH](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) installato. È possibile usare un [modello di gestione risorse](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) per distribuire una macchina virtuale Ubuntu. Dopo la distribuzione, usare SSH per connettersi al computer e installare CQLSH come illustrato nei comandi seguenti:
+Azure Istanza gestita per Apache Cassandra non crea nodi con indirizzi IP pubblici. Per connettersi al cluster Cassandra appena creato, è necessario creare un'altra risorsa all'interno della rete virtuale. Questa risorsa può essere un'applicazione o una macchina virtuale in cui è installato lo strumento di query open source di Apache [CQLSH.](https://cassandra.apache.org/doc/latest/tools/cqlsh.html) È possibile usare un [modello Resource Manager per](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/) distribuire una macchina virtuale Ubuntu. Dopo la distribuzione, usare SSH per connettersi al computer e installare CQLSH, come illustrato nei comandi seguenti:
 
 ```bash
 # Install default-jre and default-jdk
@@ -135,16 +143,16 @@ cqlsh $host 9042 -u cassandra -p cassandra --ssl
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se si verifica un errore durante l'applicazione delle autorizzazioni alla rete virtuale, ad esempio *non è possibile trovare l'utente o l'entità servizio nel database Graph per ' e5007d2c-4B13-4a74-9B6A-605d99f03501'*, è possibile applicare la stessa autorizzazione manualmente dalla portale di Azure. Per applicare le autorizzazioni dal portale, passare al riquadro **controllo di accesso (IAM)** della rete virtuale esistente e aggiungere un'assegnazione di ruolo per "Azure Cosmos DB" al ruolo "amministratore di rete". Se vengono visualizzate due voci quando si cerca "Azure Cosmos DB", aggiungere entrambe le voci come illustrato nell'immagine seguente: 
+Se si verifica un errore durante l'applicazione delle autorizzazioni alla rete virtuale, ad esempio Impossibile trovare l'utente o l'entità servizio nel database a grafo per *'e5007d2c-4b13-4a74-9b6a-605d99f03501',* è possibile applicare la stessa autorizzazione manualmente dal portale di Azure. Per applicare le autorizzazioni dal portale, passare al riquadro Controllo di accesso **(IAM)** della rete virtuale esistente e aggiungere un'assegnazione di ruolo per "Azure Cosmos DB" al ruolo "Amministratore di rete". Se vengono visualizzate due voci quando si cerca "Azure Cosmos DB", aggiungere entrambe le voci come illustrato nell'immagine seguente: 
 
    :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Applicare le autorizzazioni" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
 
 > [!NOTE] 
-> L'assegnazione di ruolo Azure Cosmos DB viene utilizzata solo a scopo di distribuzione. Istanza gestita di Azure per Apache Cassandra non ha dipendenze back-end in Azure Cosmos DB.  
+> La Azure Cosmos DB ruolo viene usata solo a scopo di distribuzione. Istanza gestita di Azure per Apache Cassandra non ha dipendenze back-end da Azure Cosmos DB.  
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non è più necessario, è possibile usare il `az group delete` comando per rimuovere il gruppo di risorse, l'istanza gestita e tutte le risorse correlate:
+Quando non sono più necessari, è possibile usare il comando per rimuovere il gruppo di `az group delete` risorse, l'istanza gestita e tutte le risorse correlate:
 
 ```azurecli-interactive
 az group delete --name <Resource_Group_Name>
@@ -152,7 +160,7 @@ az group delete --name <Resource_Group_Name>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva si è appreso come creare un cluster di Istanza gestita di Azure per Apache Cassandra usando l'interfaccia della riga di comando di Azure. È ora possibile iniziare a usare il cluster:
+In questa guida introduttiva si è appreso come creare un cluster Azure Istanza gestita per Apache Cassandra usando l'interfaccia della riga di comando di Azure. È ora possibile iniziare a usare il cluster:
 
 > [!div class="nextstepaction"]
 > [Distribuire un cluster Apache Spark gestito con Azure Databricks](deploy-cluster-databricks.md)

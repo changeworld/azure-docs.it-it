@@ -1,6 +1,6 @@
 ---
-title: azcopy BENCH | Microsoft Docs
-description: Questo articolo contiene informazioni di riferimento per il comando azcopy BENCH.
+title: azcopy bench | Microsoft Docs
+description: Questo articolo fornisce informazioni di riferimento per il comando azcopy bench.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -8,36 +8,42 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c1028d0a4a458746c08fd6fa4f16aa952d9962a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e49e787854069c2fcea30df7a43c3aacdd21b9e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87282008"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502029"
 ---
-# <a name="azcopy-benchmark"></a>Benchmark azcopy
+# <a name="azcopy-benchmark"></a>azcopy benchmark
 
-Esegue un benchmark delle prestazioni caricando o scaricando i dati di test da o verso una destinazione specificata. Per i caricamenti, i dati di test vengono generati automaticamente.
+Esegue un benchmark delle prestazioni caricando o scaricando i dati di test in o da una destinazione specificata. Per i caricamenti, i dati di test vengono generati automaticamente.
 
-Il comando benchmark esegue lo stesso processo di "copy", ad eccezione del fatto che: 
+Il comando benchmark esegue lo stesso processo di "copia", ad eccezione del seguente: 
 
-  - Anziché richiedere parametri di origine e di destinazione, il benchmark ne accetta solo uno. Si tratta del contenitore BLOB, della condivisione File di Azure o Azure Data Lake Storage Gen2 file system da cui si desidera caricare o scaricare.
+  - Invece di richiedere parametri di origine e di destinazione, benchmark ne accetta solo uno. Si tratta del contenitore BLOB, File di Azure condivisione o Azure Data Lake Storage Gen2 file system da cui si vuole eseguire il caricamento o il download.
 
-  - Il parametro ' Mode ' indica se AzCopy deve testare i caricamenti o i download dalla destinazione specificata. I valori validi sono ' upload ' è download '. Il valore predefinito è "upload".
+  - Il parametro 'mode' descrive se AzCopy deve testare i caricamenti in o i download da una determinata destinazione. I valori validi sono 'Upload' e 'Download'. Il valore predefinito è 'Upload'.
 
-  - Per i benchmark di caricamento, il payload viene descritto dai parametri della riga di comando, che controllano il numero di file generati automaticamente e l'importanza dei file. Il processo di generazione si verifica completamente in memoria. Il disco non viene utilizzato.
+  - Per i benchmark di caricamento, il payload è descritto dai parametri della riga di comando, che controllano il numero di file che vengono rigenerati automaticamente e il livello di significativo dei file. Il processo di generazione avviene interamente in memoria. Il disco non viene usato.
 
-  - Per i download, il payload è costituito da qualsiasi file già esistente nell'origine. (Vedere l'esempio seguente su come generare file di test, se necessario).
+  - Per i download, il payload è costituito dai file già presenti nell'origine. Vedere l'esempio seguente su come generare file di test, se necessario.
   
   - Sono supportati solo alcuni dei parametri facoltativi disponibili per il comando copy.
   
-  - Vengono misurate e segnalate ulteriori informazioni di diagnostica.
+  - La diagnostica aggiuntiva viene misurata e segnalata.
   
-  - Per il caricamento, il comportamento predefinito consiste nell'eliminare i dati trasferiti alla fine dell'esecuzione dei test.  Per i download, i dati non vengono mai salvati localmente.
+  - Per i caricamenti, il comportamento predefinito è eliminare i dati trasferiti alla fine dell'esecuzione del test.  Per i download, i dati non vengono mai salvati in locale.
 
-La modalità benchmark verrà automaticamente sintonizzata sul numero di connessioni TCP parallele che fornisce la velocità effettiva massima. Il numero verrà visualizzato alla fine. Per impedire l'ottimizzazione automatica, impostare la variabile di ambiente AZCOPY_CONCURRENCY_VALUE su un numero specifico di connessioni. 
+La modalità benchmark si ottimizza automaticamente al numero di connessioni TCP parallele che offre la velocità effettiva massima. Il numero verrà visualizzato alla fine. Per impedire l'aggiornamento automatico, impostare la AZCOPY_CONCURRENCY_VALUE di ambiente su un numero specifico di connessioni. 
 
-Sono supportati tutti i tipi di autenticazione usuali. Tuttavia, l'approccio più pratico per il benchmarking del caricamento è in genere quello di creare un contenitore vuoto con un token di firma di accesso condiviso e di usare l'autenticazione SAS. Per la modalità di download è necessario che nel contenitore di destinazione sia presente un set di dati di test.
+Sono supportati tutti i tipi di autenticazione consueti. Tuttavia, l'approccio più pratico per il benchmarking del caricamento consiste in genere nel creare un contenitore vuoto con un token di firma di accesso condiviso e usare l'autenticazione di firma di accesso condiviso. La modalità di download richiede che nel contenitore di destinazione sia presente un set di dati di test.
+
+## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
+
+- [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
+- [Ottimizzare le prestazioni di AzCopy v10 con Archiviazione di Azure](storage-use-azcopy-optimize.md)
+
 
 ## <a name="examples"></a>Esempio
 
@@ -45,29 +51,29 @@ Sono supportati tutti i tipi di autenticazione usuali. Tuttavia, l'approccio pi�
 azcopy benchmark [destination] [flags]
 ```
 
-Eseguire un test di benchmark con i parametri predefiniti (idoneo per le reti di benchmarking fino a 1 Gbps):'
+Eseguire un test benchmark con parametri predefiniti (idonei per il benchmarking delle reti fino a 1 Gbps):'
 
 ```azcopy
 azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"
 ```
-Eseguire un test di benchmark che carica i file 100, ogni 2 GiB: (adatta per il benchmarking su una rete veloce, ad esempio 10 Gbps):'
+Eseguire un test benchmark che carica 100 file, ogni 2 GiB di dimensioni: (adatto per il benchmarking in una rete veloce, ad esempio, 10 Gbps):'
 
 ```azcopy
 azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"--file-count 100 --size-per-file 2G
 ```
-Eseguire un test di benchmark, ma usare i file 50.000, ogni 8 MB di dimensioni e calcolare gli hash MD5 (in modo analogo al `--put-md5` flag che esegue questa operazione nel comando copy). Lo scopo di `--put-md5` quando il benchmarking consiste nel verificare se il calcolo MD5 influisca sulla velocità effettiva per il numero e le dimensioni dei file selezionati:
+Eseguire un test benchmark, ma usare 50.000 file, ogni 8 MiB di dimensioni e calcolare gli hash MD5 (nello stesso modo in cui il flag esegue questa operazione nel comando `--put-md5` di copia). Lo scopo del benchmarking è verificare se il calcolo MD5 influisce sulla `--put-md5` velocità effettiva per il numero di file e le dimensioni selezionati:
 
 ```azcopy
 azcopy bench --mode='Upload' "https://[account].blob.core.windows.net/[container]?<SAS>" --file-count 50000 --size-per-file 8M --put-md5
 ```
 
-Eseguire un test di benchmark che Scarica i file esistenti da una destinazione
+Eseguire un test benchmark che scarica i file esistenti da una destinazione
 
 ```azcopy
 azcopy bench --mode='Download' "https://[account].blob.core.windows.net/[container]?<SAS?"
 ```
 
-Eseguire un caricamento che non elimina i file trasferiti. (Questi file possono quindi fungere da payload per un test di download)
+Eseguire un caricamento che non elimini i file trasferiti. Questi file possono quindi fungere da payload per un test di download.
 
 ```azcopy
 azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-count 100 --delete-test-data=false
@@ -75,35 +81,35 @@ azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-
 
 ## <a name="options"></a>Opzioni
 
-**--BLOB-type** String definisce il tipo di BLOB nella destinazione. Usato per consentire il benchmarking di diversi tipi di BLOB. Identico al parametro con lo stesso nome nel comando Copy (valore predefinito "Detect").
+**--blob-type** string Definisce il tipo di BLOB nella destinazione. Usato per consentire il benchmarking di tipi di BLOB diversi. Identico al parametro con lo stesso nome nel comando copy (impostazione predefinita "Detect").
 
-**--block-size-MB** float usa questa dimensione del blocco (specificata in MIB). Il valore predefinito viene calcolato automaticamente in base alle dimensioni del file. Sono consentite frazioni decimali, ad esempio 0,25. Identico al parametro con lo stesso nome nel comando copy.
+**--block-size-mb** float Usare questa dimensione del blocco (specificata in MiB). Il valore predefinito viene calcolato automaticamente in base alle dimensioni del file. Sono consentite frazioni decimali, ad esempio 0,25. Identico al parametro con lo stesso nome nel comando copy.
 
-**--Check-length**  Controllare la lunghezza di un file nella destinazione dopo il trasferimento. In caso di mancata corrispondenza tra origine e destinazione, il trasferimento viene contrassegnato come non riuscito. (valore predefinito true)
+**--check-length**  Controllare la lunghezza di un file nella destinazione dopo il trasferimento. Se è presente una mancata corrispondenza tra l'origine e la destinazione, il trasferimento viene contrassegnato come non riuscito. (valore predefinito true)
 
-**--Delete-test-data**  Se true, i dati del benchmark verranno eliminati al termine dell'esecuzione del benchmark.  Impostarla su false se si desidera che i dati vengano mantenuti nella destinazione, ad esempio per utilizzarli per i test manuali al di fuori della modalità benchmark (impostazione predefinita: true).
+**--delete-test-data**  Se true, i dati di benchmark verranno eliminati alla fine dell'esecuzione del benchmark.  Impostare su false se si desidera mantenere i dati nella destinazione, ad esempio per usarli per i test manuali al di fuori della modalità benchmark (impostazione predefinita true).
 
-**--Conteggio file** uint.  Numero di file di dati generati automaticamente da usare (valore predefinito 100).
+**--file-count** uint.  Numero di file di dati rigenerati automaticamente da usare (valore predefinito 100).
 
-**--Guida**  Guida per il banco
+**--help**  Guida per bench
 
-**--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log, i livelli disponibili: info (tutte le richieste/risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (impostazione predefinita "INFO")
+**--log-level** string Consente di definire il livello di dettaglio del log per il file di log, i livelli disponibili: INFO(tutte le richieste/risposte), WARNING(risposte lente), ERROR (solo richieste non riuscite) e NONE (nessun log di output). (impostazione predefinita "INFO")
 
-**--** la stringa della modalità definisce se Azcopy deve testare i caricamenti o i download da questa destinazione. I valori validi sono ' upload ' è download '. L'opzione predefinita è' upload '. (valore predefinito ' upload ')
+**--mode** string definisce se Azcopy deve testare i caricamenti o i download da questa destinazione. I valori validi sono 'upload' e 'download'. L'opzione predefinita è 'upload'. (caricamento predefinito)
 
-**--Number-of-folders** uint se maggiore di 0, creare cartelle per dividere i dati.
+**--number-of-folders** uint Se è maggiore di 0, creare cartelle per dividere i dati.
 
-**--put-MD5**  Creare un hash MD5 di ogni file e salvare l'hash come proprietà Content-MD5 del BLOB o del file di destinazione. Per impostazione predefinita, l'hash non viene creato. Identico al parametro con lo stesso nome nel comando copy.
+**--put-md5**  Creare un hash MD5 di ogni file e salvarlo come proprietà Content-MD5 del BLOB/file di destinazione. Per impostazione predefinita, l'hash NON viene creato. Identico al parametro con lo stesso nome nel comando copy.
 
-**--** dimensioni della stringa per ogni file di ogni file di dati generato automaticamente. Deve essere un numero immediatamente seguito da K, M o G, ad esempio 12K o 200G (valore predefinito "250 milioni").
+**--size-per-file** string Dimensione di ogni file di dati rigenerato automaticamente. Deve essere un numero immediatamente seguito da K, M o G. Ad esempio 12.000 o 200G (valore predefinito "250M").
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
-**--Cap-Mbps float**  Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
+**--cap-mbps float**  Consente di massimare la velocità di trasferimento, in megabit al secondo. La velocità effettiva momentanea può variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non viene impostata.
 
-**--output-** formato stringa di tipo dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text". (impostazione predefinita "testo").
+**--output-type** string Formato dell'output del comando. Le opzioni disponibili includono: text, json. Il valore predefinito è "text". (valore predefinito "text").
 
-**--trusted-Microsoft-suffissi** stringa specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
+**--trusted-microsoft-suffixes** string Specifica suffissi di dominio aggiuntivi in Azure Active Directory i token di accesso.  Il valore predefinito è '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;*. core.usgovcloudapi.net'. Tutti gli elementi elencati vengono aggiunti al valore predefinito. Per motivi di sicurezza, è consigliabile inserire Microsoft Azure domini qui. Separare più voci con punti e virgola.
 
 
 ## <a name="see-also"></a>Vedi anche

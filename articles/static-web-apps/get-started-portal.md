@@ -3,16 +3,18 @@ title: 'Avvio rapido: Creazione della prima app Web statica con App Web statiche
 description: Informazioni su come distribuire un sito statico in App Web statiche di Azure con il portale di Azure.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
-ms.topic: quickstart
-ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: b19c37a45131e3689fdc9726d186f220ab5ba9fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/03/2020
+ms.topic: quickstart
+ms.service: static-web-apps
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 78af2290a2e71d349303d3913f8a40510eb9c6a0
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149529"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531593"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Avvio rapido: Creazione del primo sito statico nel portale di Azure
 
@@ -116,8 +118,8 @@ Se non si intende continuare a usare questa applicazione, è possibile eliminare
 1. Aprire il [portale di Azure](https://portal.azure.com)
 1. Cercare **my-first-web-static-app** nella barra di ricerca in alto
 1. Selezionare il nome dell'app
-1. Selezionare il pulsante **Elimina**
-1. Selezionare **Sì** per confermare l'azione di eliminazione. l'operazione potrebbe richiedere alcuni minuti.
+1. Selezionare il **pulsante** Elimina
+1. Selezionare **Sì** per confermare l'azione di eliminazione (il completamento dell'azione potrebbe richiedere alcuni istanti)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

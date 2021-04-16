@@ -1,20 +1,20 @@
 ---
-title: funzionalità e sintassi supportate per la versione del server 4,0 nell'API Azure Cosmos DB per MongoDB
-description: Informazioni sulle funzionalità e sulla sintassi supportate per la versione del server per MongoDB 4,0 e sulle API Azure Cosmos DB. Informazioni sui comandi del database, il supporto del linguaggio di query, i tipi di dati, i comandi della pipeline di aggregazione e gli operatori supportati.
+title: Funzionalità e sintassi supportate dalla versione 4.0 del server Azure Cosmos DB'API di MongoDB
+description: Informazioni sulle Azure Cosmos DB e sulla sintassi supportate dell'API di MongoDB 4.0. Informazioni sui comandi del database, sul supporto del linguaggio di query, sui tipi di dati, sui comandi della pipeline di aggregazione e sugli operatori supportati.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 9eebc77c5b3d9402c766320fddfdaf05d50b574f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74e08cce381d173e0c5e1458ae99167a0c8c697f
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485402"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107504511"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione Server 4,0): funzionalità e sintassi supportate
+# <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>AZURE COSMOS DB API di MongoDB (versione server 4.0): funzionalità e sintassi supportate
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile comunicare con l'API di Azure Cosmos DB per MongoDB tramite uno dei [driver](https://docs.mongodb.org/ecosystem/drivers) open source del client MongoDB. L'API di Azure Cosmos DB per MongoDB consente di usare driver client esistenti aderendo al [protocollo di collegamento](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
@@ -23,7 +23,7 @@ Usando l'API di Azure Cosmos DB per MongoDB è possibile sfruttare i noti vantag
 
 ## <a name="protocol-support"></a>Protocolli supportati
 
-Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi all'API di Cosmos DB per MongoDB. Quando si usa l'API di Azure Cosmos DB per gli account MongoDB, le versioni 3.6 + degli account hanno l'endpoint nel formato `*.mongo.cosmos.azure.com` mentre la versione 3,2 degli account ha l'endpoint nel formato `*.documents.azure.com` .
+Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi all'API di Cosmos DB per MongoDB. Quando si usa l'API di Azure Cosmos DB per gli account MongoDB, le versioni 3.6+ degli account hanno l'endpoint nel formato , mentre la versione 3.2 degli account ha `*.mongo.cosmos.azure.com` l'endpoint nel formato `*.documents.azure.com` .
 
 > [!NOTE]
 > Questo articolo elenca solo i comandi server supportati e non le funzioni wrapper lato client. Le funzioni wrapper lato client come `deleteMany()` e `updateMany()` utilizzano internamente i comandi server `delete()` e `update()`. Le funzioni che utilizzano i comandi server supportati sono compatibili con l'API di Azure Cosmos DB per MongoDB.
@@ -40,7 +40,7 @@ L'API di Azure Cosmos DB per MongoDB supporta i comandi di database seguenti:
 
 | Comando | Supportato |
 |---------|---------|
-| [modificare i flussi](mongodb-change-streams.md) | Sì |
+| [flussi di modifiche](mongodb-change-streams.md) | Sì |
 | eliminare | Sì |
 | eval | No |
 | trovare | Sì |
@@ -53,7 +53,7 @@ L'API di Azure Cosmos DB per MongoDB supporta i comandi di database seguenti:
 | resetError | No |
 | update | Sì |
 
-### <a name="transaction-commands"></a>Comandi delle transazioni
+### <a name="transaction-commands"></a>Comandi di transazione
 
 | Comando | Supportato |
 |---------|---------|
@@ -143,7 +143,7 @@ L'API di Azure Cosmos DB per MongoDB supporta i comandi di database seguenti:
 | $limit | Sì |
 | $listLocalSessions | No |
 | $listSessions | No |
-| $lookup | Sì |
+| $lookup | Parziale |
 | $match | Sì |
 | $out | Sì |
 | $project | Sì |
@@ -155,6 +155,9 @@ L'API di Azure Cosmos DB per MongoDB supporta i comandi di database seguenti:
 | $sort | Sì |
 | $sortByCount | Sì |
 | $unwind | Sì |
+
+> [!NOTE]
+> `$lookup` non supporta ancora la [funzionalità di sottoquery](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) non correlate introdotta nella versione 3.6 del server. Verrà visualizzato un errore con un messaggio contenente `let is not supported` se si tenta di usare l'operatore con i campi e `$lookup` `let` `pipeline` .
 
 ### <a name="boolean-expressions"></a>Espressioni booleane
 
@@ -352,9 +355,9 @@ L'API di Azure Cosmos DB per MongoDB supporta i comandi di database seguenti:
 
 ## <a name="data-types"></a>Tipi di dati
 
-L'API di Azure Cosmos DB per MongoDB supporta i documenti codificati nel formato BSON MongoDB. La versione dell'API 4,0 migliora l'utilizzo interno di questo formato per migliorare le prestazioni e ridurre i costi. I documenti scritti o aggiornati tramite un endpoint che esegue 4,0 traggono vantaggio da questa operazione.
+Azure Cosmos DB'API di MongoDB supporta i documenti codificati in formato BSON MongoDB. La versione 4.0 dell'API migliora l'utilizzo interno di questo formato per migliorare le prestazioni e ridurre i costi. I documenti scritti o aggiornati tramite un endpoint che esegue la versione 4.0 traggono vantaggio da questo vantaggio.
  
-In uno [scenario di aggiornamento](mongodb-version-upgrade.md), i documenti scritti prima dell'aggiornamento alla versione 4,0 non trarranno vantaggio dalle prestazioni migliorate fino a quando non vengono aggiornati tramite un'operazione di scrittura tramite l'endpoint 4,0.
+In uno [scenario](mongodb-version-upgrade.md)di aggiornamento , i documenti scritti prima dell'aggiornamento alla versione 4.0 non trarranno vantaggio dalle prestazioni migliorate fino a quando non vengono aggiornati tramite un'operazione di scrittura tramite l'endpoint 4.0.
 
 | Comando | Supportato |
 |---------|---------|
@@ -533,7 +536,7 @@ Quando si usa l'operazione `findOneAndUpdate`, sono supportate le operazioni di 
 
 ## <a name="unique-indexes"></a>Indici univoci
 
-Gli [indici univoci](mongodb-indexing.md#unique-indexes) assicurano che un campo specifico non abbia valori duplicati in tutti i documenti di una raccolta, in modo simile alla preservazione dell'univocità per la chiave "_id" predefinita. È possibile creare indici univoci in Azure Cosmos DB usando il `createIndex` comando con il `unique` parametro constraint:
+Gli [indici univoci](mongodb-indexing.md#unique-indexes) assicurano che un campo specifico non abbia valori duplicati in tutti i documenti di una raccolta, in modo simile alla preservazione dell'univocità per la chiave "_id" predefinita. È possibile creare indici univoci in Azure Cosmos DB usando il `createIndex` comando con il parametro `unique` constraint:
 
 ```javascript
 globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
@@ -548,7 +551,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
 
 ## <a name="compound-indexes"></a>Indici composti
 
-Gli [indici composti](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) consentono di creare un indice per gruppi di campi per un massimo di otto campi. Questo tipo di indice è diverso dagli indici composti nativi di MongoDB. In Azure Cosmos DB gli indici composti vengono usati per le operazioni di ordinamento applicate a più campi. Per creare un indice composto, è necessario specificare più di una proprietà come parametro:
+[Gli indici composti](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) consentono di creare un indice per gruppi di campi per un massimo di otto campi. Questo tipo di indice è diverso dagli indici composti nativi di MongoDB. In Azure Cosmos DB gli indici composti vengono usati per le operazioni di ordinamento applicate a più campi. Per creare un indice composto, è necessario specificare più di una proprietà come parametro:
 
 ```javascript
 globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
@@ -568,9 +571,9 @@ Azure Cosmos DB supporta GridFS tramite qualsiasi driver Mongo compatibile con G
 
 Azure Cosmos DB supporta la replica automatica e nativa ai livelli più bassi. Questa logica viene estesa per ottenere anche una replica globale a bassa latenza. Cosmos DB non supporta comandi di replica manuali.
 
-## <a name="retryable-writes"></a>Scritture ripetibili
+## <a name="retryable-writes"></a>Scritture non ripetibili
 
-Cosmos DB non supporta ancora le Scritture riprovabili. I driver client devono aggiungere il parametro URL ' retryWrites = false ' alla relativa stringa di connessione. È possibile aggiungere più parametri URL anteponendo il prefisso "&". 
+Cosmos DB non supporta ancora le scritture ripetibili. I driver client devono aggiungere il parametro URL 'retryWrites=false' alla stringa di connessione. È possibile aggiungere altri parametri URL antefissindoli con un '&'. 
 
 ## <a name="sharding"></a>Partizionamento orizzontale
 
@@ -582,11 +585,11 @@ Azure Cosmos DB non supporta ancora i comandi delle sessioni sul lato server.
 
 ## <a name="time-to-live-ttl"></a>Durata (TTL)
 
-Azure Cosmos DB supporta un valore TTL (time-to-Live) in base al timestamp del documento. La durata può essere abilitata per le raccolte passando al [portale di Azure](https://portal.azure.com).
+Azure Cosmos DB supporta una durata (TTL) in base al timestamp del documento. La durata può essere abilitata per le raccolte passando al [portale di Azure](https://portal.azure.com).
 
 ## <a name="transactions"></a>Transazioni
 
-Le transazioni a più documenti sono supportate all'interno di una raccolta non partizionata. Le transazioni a più documenti non sono supportate nelle raccolte o nelle raccolte partizionate. Il timeout per le transazioni è di 5 secondi fissi.
+Le transazioni multi-documento sono supportate all'interno di una raccolta non partizionata. Le transazioni multi-documento non sono supportate tra raccolte o raccolte partizionate. Il timeout per le transazioni è fisso di 5 secondi.
 
 ## <a name="user-and-role-management"></a>Gestione di utenti e ruoli
 
@@ -594,7 +597,7 @@ Azure Cosmos DB non supporta ancora utenti e ruoli. Cosmos DB, tuttavia, support
 
 ## <a name="write-concern"></a>Write concern
 
-Alcune applicazioni si basano su un [problema di scrittura](https://docs.mongodb.com/manual/reference/write-concern/), che specifica il numero di risposte necessarie durante un'operazione di scrittura. A causa della modalità in cui Cosmos DB gestisce la replica in background, per impostazione predefinita tutte le operazioni di scrittura sono automaticamente Quorum. Qualsiasi write concern specificato dal codice client viene ignorato. Per altre informazioni, vedere [Uso dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni](consistency-levels.md).
+Alcune applicazioni si basano su [un problema](https://docs.mongodb.com/manual/reference/write-concern/)di scrittura, che specifica il numero di risposte necessarie durante un'operazione di scrittura. A causa della modalità in cui Cosmos DB gestisce la replica in background, per impostazione predefinita tutte le operazioni di scrittura sono automaticamente Quorum. Qualsiasi write concern specificato dal codice client viene ignorato. Per altre informazioni, vedere [Uso dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni](consistency-levels.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

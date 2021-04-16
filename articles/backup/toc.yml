@@ -68,7 +68,7 @@
           href: azure-file-share-support-matrix.md
         - name: Matrice di supporto per il backup di dischi di Azure
           href: disk-backup-support-matrix.md
-        - name: Matrice di supporto backup BLOB di Azure
+        - name: Matrice di supporto per il backup di BLOB di Azure
           href: blob-backup-support-matrix.md
         - name: Controller di dominio Active Directory
           href: active-directory-backup-restore.md
@@ -77,25 +77,25 @@
     - name: Domande frequenti
       items:
         - name: Domande frequenti - Insieme di credenziali di Servizi di ripristino
-          href: backup-azure-backup-faq.md
+          href: backup-azure-backup-faq.yml
         - name: Domande frequenti - Centro backup
           href: backup-center-faq.yml
         - name: Domande frequenti - Backup di macchine virtuali di Azure
           href: backup-azure-vm-backup-faq.yml
         - name: Domande frequenti - Agente MARS
-          href: backup-azure-file-folder-backup-faq.md
+          href: backup-azure-file-folder-backup-faq.yml
         - name: Domande frequenti - Eseguire il backup di File di Azure
-          href: backup-azure-files-faq.md
+          href: backup-azure-files-faq.yml
         - name: Domande frequenti - Backup di dischi di Azure
-          href: disk-backup-faq.md
+          href: disk-backup-faq.yml
         - name: Domande frequenti - Eseguire il backup di database SQL Server in macchine virtuali di Azure
-          href: faq-backup-sql-server.md
+          href: faq-backup-sql-server.yml
         - name: Domande frequenti - Eseguire il backup di database SAP HANA nelle VM di Azure
-          href: sap-hana-faq-backup-azure-vm.md
+          href: sap-hana-faq-backup-azure-vm.yml
         - name: 'Domande frequenti: DPM e server di Backup di Azure'
-          href: backup-azure-dpm-azure-server-faq.md
+          href: backup-azure-dpm-azure-server-faq.yml
         - name: 'Domande frequenti: avviso di monitoraggio di Backup di Azure'
-          href: backup-azure-monitor-alert-faq.md
+          href: backup-azure-monitor-alert-faq.yml
     - name: Architettura del backup
       href: backup-architecture.md
     - name: Materiale sussidiario e procedure consigliate
@@ -236,7 +236,7 @@
               href: backup-managed-disks-ps.md
             - name: Restore
               href: restore-managed-disks-ps.md
-    - name: Backup BLOB di Azure
+    - name: Backup di BLOB di Azure
       items:
         - name: Panoramica
           href: blob-backup-overview.md
@@ -374,7 +374,7 @@
           href: monitor-azure-backup-with-backup-explorer.md
         - name: Uso del portale di Azure
           href: backup-azure-monitoring-built-in-monitor.md
-        - name: Uso dei log di monitoraggio di Azure
+        - name: Uso Monitoraggio di Azure log
           href: backup-azure-monitoring-use-azuremonitor.md
     - name: Report
       items:
@@ -382,7 +382,7 @@
           items:
             - name: Configurare report di Backup di Azure
               href: configure-reports.md
-            - name: Inviare i report di backup di Azure
+            - name: Inviare report Backup di Azure posta elettronica
               href: backup-reports-email.md
         - name: Configurare eventi di diagnostica per insiemi di credenziali di Servizi di ripristino
           items:
@@ -463,7 +463,7 @@
           href: security-baseline.md
     - name: Livello di accesso
       items:
-        - name: Livello archivio
+        - name: Livello di archiviazione
           href: archive-tier-support.md
     - name: Risolvere problemi
       items:

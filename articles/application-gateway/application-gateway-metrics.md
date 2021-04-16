@@ -1,34 +1,34 @@
 ---
-title: Metriche di monitoraggio di Azure per il gateway applicazione
+title: Monitoraggio di Azure metriche per il gateway applicazione
 description: Informazioni su come usare le metriche per monitorare le prestazioni del gateway applicazione
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
-ms.author: surmb
-ms.openlocfilehash: 9faa3a284aa7151880526c1ee70cfadc3dbf3089
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: azhussai
+ms.openlocfilehash: 3baaf49cb3d1c8c5502d96974f9729d05996c75b
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100576118"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519887"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
-Il gateway applicazione pubblica i punti dati, detti metrica, in [monitoraggio di Azure](../azure-monitor/overview.md) per le prestazioni del gateway applicazione e delle istanze back-end. Queste metriche sono valori numerici in un set ordinato di dati di serie temporali che descrivono un aspetto del gateway applicazione in un determinato momento. Se sono presenti richieste che passano attraverso il gateway applicazione, misura e invia le metriche in intervalli di 60 secondi. Se non sono presenti richieste che passano attraverso il gateway applicazione o nessun dato per una metrica, la metrica non viene segnalata. Per altre informazioni, vedere [metriche di monitoraggio di Azure](../azure-monitor/essentials/data-platform-metrics.md).
+Il gateway applicazione pubblica i punti dati, denominati [metriche, Monitoraggio di Azure](../azure-monitor/overview.md) per le prestazioni delle istanze del gateway applicazione e back-end. Queste metriche sono valori numerici in un set ordinato di dati della serie temporale che descrivono alcuni aspetti del gateway applicazione in un determinato momento. Se sono presenti richieste che passano attraverso il gateway applicazione, misura e invia le metriche a intervalli di 60 secondi. Se non sono presenti richieste che passano attraverso il gateway applicazione o non sono presenti dati per una metrica, la metrica non viene segnalata. Per altre informazioni, vedere Monitoraggio di Azure [metriche .](../azure-monitor/essentials/data-platform-metrics.md)
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Metriche supportate dallo SKU del gateway applicazione V2
 
-### <a name="timing-metrics"></a>Metriche temporali
+### <a name="timing-metrics"></a>Metriche di temporizzazione
 
-Il gateway applicazione offre diverse metriche temporali predefinite relative alla richiesta e alla risposta, che sono tutte misurate in millisecondi. 
+Il gateway applicazione offre diverse metriche di temporizzazione incorporate correlate alla richiesta e alla risposta, tutte misurate in millisecondi. 
 
-![Diagramma delle metriche temporali per il gateway applicazione.](./media/application-gateway-metrics/application-gateway-metrics.png)
+![Diagramma delle metriche di temporizzazione per il gateway applicazione.](./media/application-gateway-metrics/application-gateway-metrics.jpg)
 
 > [!NOTE]
 >
-> Se sono presenti più listener nel gateway applicazione, filtrare sempre in base alla dimensione del *listener* confrontando le metriche di latenza diverse per ottenere un'inferenza significativa.
+> Se nel gateway applicazione sono presenti più listener, filtrare sempre in base alla dimensione *Listener* confrontando metriche di latenza diverse per ottenere un'inferenza significativa.
 
 - **Tempo di connessione back-end**
 
@@ -36,37 +36,37 @@ Il gateway applicazione offre diverse metriche temporali predefinite relative al
 
   Ciò include la latenza di rete e il tempo impiegato dallo stack TCP del server back-end per stabilire nuove connessioni. Nel caso di TLS, include anche il tempo trascorso nell'handshake. 
 
-- **Tempo di risposta primo byte back-end**
+- **Tempo di risposta del primo byte back-end**
 
-  Intervallo di tempo tra l'inizio del tentativo di stabilire una connessione al server back-end e la ricezione del primo byte dell'intestazione della risposta. 
+  Intervallo di tempo tra l'inizio della connessione al server back-end e la ricezione del primo byte dell'intestazione della risposta. 
 
-  In questo modo si approssimano la somma del *tempo di connessione back-end*, il tempo impiegato dalla richiesta per raggiungere il back-end dal gateway applicazione, il tempo impiegato dall'applicazione back-end per rispondere (il tempo impiegato dal server per generare il contenuto, potenzialmente recuperare le query di database) e il tempo impiegato dal primo byte della risposta per raggiungere il gateway applicazione dal back-end.
+  Ciò si avvicina alla somma del tempo di connessione *back-end,* del tempo impiegato dalla richiesta per raggiungere il back-end dal gateway applicazione, del tempo impiegato dall'applicazione back-end per rispondere (tempo impiegato dal server per generare contenuto, potenzialmente recuperare query di database) e del tempo impiegato dal primo byte della risposta per raggiungere il gateway applicazione dal back-end.
 
-- **Tempo di risposta ultimo byte back-end**
+- **Tempo di risposta dell'ultimo byte back-end**
 
-  Intervallo di tempo tra l'inizio del tentativo di stabilire una connessione al server back-end e la ricezione dell'ultimo byte del corpo della risposta. 
+  Intervallo di tempo tra l'inizio della connessione al server back-end e la ricezione dell'ultimo byte del corpo della risposta. 
 
   Si tratta all'incirca della somma tra il *tempo di risposta del primo byte del back-end* e il tempo di trasferimento dei dati. Questo numero può variare enormemente in base alle dimensioni degli oggetti richiesti e alla latenza di rete del server.
 
 - **Tempo totale del gateway applicazione**
 
-  Tempo medio necessario per la ricezione, l'elaborazione e la risposta della richiesta da inviare. 
+  Tempo medio necessario per ricevere, elaborare e inviare una richiesta e la relativa risposta. 
 
-  Si tratta dell'intervallo dal momento in cui il gateway applicazione riceve il primo byte della richiesta HTTP al momento in cui l'ultimo byte di risposta è stato inviato al client. Questo include il tempo di elaborazione impiegato dal gateway applicazione, il *tempo di risposta ultimo byte back-end*, il tempo impiegato dal gateway applicazione per inviare tutte le risposte e il RTT del *client*.
+  Intervallo tra il momento in cui il gateway applicazione riceve il primo byte della richiesta HTTP e l'ora in cui l'ultimo byte di risposta è stato inviato al client. Ciò include il tempo di elaborazione impiegato dal gateway applicazione, il tempo di risposta dell'ultimo *byte* del back-end, il tempo impiegato dal gateway applicazione per inviare tutta la risposta e il *tempo RTT del client.*
 
 - **Client RTT (Scrittura in tempo reale client)**
 
-  Tempo medio round trip tra i client e il gateway applicazione.
+  Tempo round trip tra i client e il gateway applicazione.
 
 
 
-Queste metriche possono essere usate per determinare se il rallentamento osservato è dovuto alla rete client, alle prestazioni del gateway applicazione, alla rete di back-end e al server back-end, alla saturazione dello stack TCP, alle prestazioni dell'applicazione back-end o alle dimensioni del file di grandi dimensioni.
+Queste metriche possono essere usate per determinare se il rallentamento osservato è dovuto alla rete client, alle prestazioni del gateway applicazione, alla rete back-end e alla saturazione dello stack TCP del server back-end, alle prestazioni dell'applicazione back-end o a file di grandi dimensioni.
 
-Se, ad esempio, si verifica un picco nella tendenza del *tempo di risposta del primo byte di back* -end, ma la tendenza del tempo di *connessione back* -end è stabile, è possibile dedurre che il gateway applicazione alla latenza del back-end e il tempo necessario per stabilire la connessione siano stabili e il picco è causato da un aumento del tempo di risposta dell'applicazione back-end. D'altra parte, se il picco nel *tempo di risposta del primo byte di back-end* è associato a un picco corrispondente nel tempo di *connessione back-end*, è possibile dedurre che la rete tra il gateway applicazione e il server back-end o lo stack TCP del server back-end è satura. 
+Ad esempio, se si verifica un picco nella tendenza  del tempo di risposta del primo *byte* back-end, ma la tendenza del tempo di connessione back-end è stabile, è possibile dedurre che il gateway applicazione sia la latenza del back-end e il tempo impiegato per stabilire la connessione sia stabile e che il picco sia causato da un aumento del tempo di risposta dell'applicazione back-end. D'altra parte, se il picco nel tempo di risposta del primo *byte* back-end è associato a un picco corrispondente nel tempo di connessione back-end, è possibile dedurre che la rete tra il gateway applicazione e il server back-end o lo stack TCP del server back-end sia satura. 
 
-Se si nota un picco nel *tempo di risposta dell'ultimo byte del back-end* , ma il *tempo di risposta del primo byte back-end* è stabile, è possibile dedurre che il picco è dovuto a un file più grande richiesto.
+Se si nota un picco nel tempo di risposta dell'ultimo byte del *back-end* ma il tempo di risposta del primo byte del *back-end* è stabile, è possibile dedurre che il picco è dovuto alla richiesta di un file di dimensioni maggiori.
 
-Analogamente, se il *tempo totale del gateway applicazione* ha un picco ma il *tempo di risposta ultimo byte del back-end* è stabile, può essere un segno di collo di bottiglia delle prestazioni nel gateway applicazione o un collo di bottiglia nella rete tra il client e il gateway applicazione. Inoltre, se il valore *RTT del client* dispone anche di un picco corrispondente, significa che il calo è dovuto alla rete tra il gateway applicazione e il client.
+Analogamente, se il tempo totale del *gateway* applicazione presenta un picco ma il tempo di risposta dell'ultimo *byte* back-end è stabile, può essere un segno di collo di bottiglia delle prestazioni nel gateway applicazione o un collo di bottiglia nella rete tra il client e il gateway applicazione. Inoltre, se anche il *valore RTT del client* presenta un picco corrispondente, indica che la riduzione delle prestazioni è dovuta alla rete tra il client e il gateway applicazione.
 
 ### <a name="application-gateway-metrics"></a>Metriche del gateway applicazione
 
@@ -82,27 +82,27 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Protocollo TLS client**
 
-   Numero di richieste TLS e non TLS avviate dal client che hanno stabilito la connessione al gateway applicazione. Per visualizzare la distribuzione del protocollo TLS, filtrare in base al protocollo TLS della dimensione.
+   Numero di richieste TLS e non TLS avviate dal client che ha stabilito la connessione con il gateway applicazione. Per visualizzare la distribuzione del protocollo TLS, filtrare in base al protocollo TLS della dimensione.
 
 - **Unità di capacità correnti**
 
-   Il numero di unità di capacità utilizzate per bilanciare il carico del traffico. Esistono tre fattori determinanti per la capacità: unità di calcolo, connessioni permanenti e velocità effettiva. Ogni unità di capacità è composta al massimo da: 1 unità di calcolo o 2500 connessioni persistenti o 2,22 Mbps di velocità effettiva.
+   Il numero di unità di capacità utilizzate per bilanciare il carico del traffico. Esistono tre fattori determinanti per l'unità di capacità: unità di calcolo, connessioni permanenti e velocità effettiva. Ogni unità di capacità è composta al massimo da: 1 unità di calcolo o 2500 connessioni persistenti o 2,22 Mbps di velocità effettiva.
 
 - **Unità di calcolo correnti**
 
-   Conteggio della capacità del processore utilizzata. I fattori che influiscono sull'unità di calcolo sono il numero di connessioni TLS/sec, i calcoli di URL Rewrite e l'elaborazione di regole di WAF. 
+   Numero di capacità del processore utilizzate. I fattori che influiscono sull'unità di calcolo sono il numero di connessioni TLS/sec, i calcoli di URL Rewrite e l'elaborazione di regole di WAF. 
 
 - **connessioni correnti**
 
-   Il numero totale di connessioni simultanee attive dai client al gateway applicazione
+   Numero totale di connessioni simultanee attive dai client al gateway applicazione
    
 - **Unità di capacità stimate per la fatturazione**
 
-  Con lo SKU v2, il modello di determinazione dei prezzi è determinato dal consumo. Le unità di capacità misurano i costi in base al consumo addebitati in aggiunta al costo fisso. *Unità di capacità fatturate stimate* indica il numero di unità di capacità in base alle quali viene stimata la fatturazione. Questo calcolo viene eseguito considerando il valore maggiore tra *unità di capacità correnti* (le unità di capacità necessarie per il bilanciamento del carico del traffico) e *unità di capacità fatturabili fisse* (le unità di capacità minime di cui viene mantenuto il provisioning).
+  Con lo SKU v2, il modello di determinazione dei prezzi è determinato dal consumo. Le unità di capacità misurano i costi in base al consumo addebitati in aggiunta al costo fisso. *Unità di capacità fatturate stimate* indica il numero di unità di capacità con cui viene stimata la fatturazione. Questo calcolo viene eseguito considerando il valore maggiore tra *unità di capacità correnti* (le unità di capacità necessarie per il bilanciamento del carico del traffico) e *unità di capacità fatturabili fisse* (le unità di capacità minime di cui viene mantenuto il provisioning).
 
 - **Richieste non riuscite**
 
-  Numero di richieste gestite dal gateway applicazione con i codici di errore del server 5xx. Sono inclusi i codici 5xx generati dal gateway applicazione, nonché i codici 5xx generati dal back-end. Il numero di richieste può essere ulteriormente filtrato per visualizzare il conteggio per ogni combinazione di impostazioni http del pool back-end specifico.
+  Numero di richieste servite dal gateway applicazione con codici di errore del server 5xx. Sono inclusi i codici 5xx generati dal gateway applicazione e i codici 5xx generati dal back-end. Il numero di richieste può essere ulteriormente filtrato per visualizzare il conteggio per ogni combinazione di impostazione pool-http back-end specifica.
    
 - **Unità di capacità fatturabili fisse**
 
@@ -123,7 +123,7 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Richieste totali**
 
-   Numero di richieste riuscite gestite dal gateway applicazione. Il numero di richieste può essere ulteriormente filtrato per visualizzare il conteggio per ogni combinazione di impostazioni http del pool back-end specifico.
+   Numero di richieste riuscite che il gateway applicazione ha servito. Il conteggio delle richieste può essere ulteriormente filtrato per mostrare il conteggio per ogni combinazione di impostazione pool-http back-end specifica.
 
 ### <a name="backend-metrics"></a>Metriche back-end
 
@@ -131,22 +131,22 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Stato della risposta back-end**
 
-  Numero di codici di stato della risposta HTTP restituiti dai backend. Non sono inclusi i codici di risposta generati dal gateway applicazione. La distribuzione del codice di stato della risposta può essere ulteriormente classificata per visualizzare le risposte nelle categorie 2xx, 3xx, 4xx e 5xx.
+  Numero di codici di stato della risposta HTTP restituiti dai back-end. Non sono inclusi i codici di risposta generati dal gateway applicazione. La distribuzione del codice di stato della risposta può essere ulteriormente classificata per visualizzare le risposte nelle categorie 2xx, 3xx, 4xx e 5xx.
 
-- **Numero host integro**
+- **Numero di host integri**
 
-  Il numero di backend che sono determinati integri dal probe di integrità. È possibile filtrare in base al pool back-end per visualizzare il numero di host integri in un pool back-end specifico.
+  Numero di back-end determinati come integri dal probe di integrità. È possibile filtrare in base al pool back-end per visualizzare il numero di host integri in un pool back-end specifico.
 
-- **Numero host non integro**
+- **Numero di host non integri**
 
-  Il numero di backend determinati da un probe di integrità non integro. È possibile filtrare in base al pool back-end per visualizzare il numero di host non integri in un pool back-end specifico.
+  Numero di back-end determinati non integri dal probe di integrità. È possibile filtrare in base al pool back-end per visualizzare il numero di host non integri in un pool back-end specifico.
   
 - **Requests per minute per Healthy Host (Richieste al minuto per host integro)**
 
-  Numero medio di richieste ricevute da ogni membro integro in un pool back-end in un minuto. È necessario specificare il pool back-end usando la dimensione *end di integri* .  
+  Numero medio di richieste ricevute da ogni membro integro in un pool back-end in un minuto. È necessario specificare il pool back-end usando la *dimensione BackendPool HttpSettings.*  
   
 
-## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Metriche supportate dallo SKU del gateway applicazione V1
+## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Metriche supportate dallo SKU V1 del gateway applicazione
 
 ### <a name="application-gateway-metrics"></a>Metriche del gateway applicazione
 
@@ -162,7 +162,7 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Richieste non riuscite**
 
-  Numero di richieste non riuscite a causa di problemi di connessione. Questo numero include le richieste non riuscite a causa del superamento dell'impostazione HTTP "Timeout richieste" e delle richieste non riuscite a causa di problemi di connessione tra il gateway applicazione e il back-end. Questo conteggio non include errori perché non è disponibile un back-end integro. anche le risposte 4xx e 5xx dal back-end non vengono considerate come parte di questa metrica.
+  Numero di richieste non riuscite a causa di problemi di connessione. Questo conteggio include le richieste non riuscite a causa del superamento dell'impostazione HTTP "Timeout richiesta" e le richieste non riuscite a causa di problemi di connessione tra il gateway applicazione e il back-end. Questo conteggio non include gli errori perché non è disponibile alcun back-end integro. Anche le risposte 4xx e 5xx del back-end non vengono considerate come parte di questa metrica.
 
 - **Stato della risposta**
 
@@ -174,27 +174,27 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Richieste totali**
 
-  Numero di richieste riuscite gestite dal gateway applicazione. Il numero di richieste può essere ulteriormente filtrato per visualizzare il conteggio per ogni combinazione di impostazioni http del pool back-end specifico.
+  Numero di richieste riuscite che il gateway applicazione ha servito. Il numero di richieste può essere ulteriormente filtrato per visualizzare il conteggio per ogni combinazione di impostazione pool-http back-end specifica.
 
 - **Web Application Firewall Blocked Requests Count (Web application firewall - Conteggio richieste bloccate)**
-- **Distribuzione richieste bloccate del Web Application Firewall**
+- **Distribuzione delle richieste bloccate di Web Application Firewall**
 - **Web Application Firewall Total Rule Distribution (Web application firewall - Distribuzione regole totali)**
 
 ### <a name="backend-metrics"></a>Metriche back-end
 
 Per il gateway applicazione sono disponibili le metriche seguenti:
 
-- **Numero host integro**
+- **Numero di host integri**
 
-  Il numero di backend che sono determinati integri dal probe di integrità. È possibile filtrare in base al pool back-end per visualizzare il numero di host integri in un pool back-end specifico.
+  Numero di back-end determinati integri dal probe di integrità. È possibile filtrare in base a un pool back-end per visualizzare il numero di host integri in un pool back-end specifico.
 
-- **Numero host non integro**
+- **Numero di host non integri**
 
-  Il numero di backend determinati da un probe di integrità non integro. È possibile filtrare in base al pool back-end per visualizzare il numero di host non integri in un pool back-end specifico.
+  Numero di back-end determinati non integri dal probe di integrità. È possibile filtrare in base a un pool back-end per visualizzare il numero di host non integri in un pool back-end specifico.
 
-## <a name="metrics-visualization"></a>Visualizzazione metrica
+## <a name="metrics-visualization"></a>Visualizzazione delle metriche
 
-Passare a un gateway applicazione, in **monitoraggio** selezionare **metriche**. Per visualizzare i valori disponibili, selezionare l'elenco a discesa **METRICA**.
+Passare a un gateway applicazione, in **Monitoraggio selezionare** **Metriche**. Per visualizzare i valori disponibili, selezionare l'elenco a discesa **METRICA**.
 
 Nella figura seguente è illustrato un esempio con tre metriche visualizzate per gli ultimi 30 minuti:
 
@@ -208,11 +208,11 @@ Per un elenco delle metriche correnti, vedere [Metriche supportate con il monito
 
 L'esempio seguente illustra la creazione di una regola di avviso per l'invio di un messaggio di posta elettronica a un amministratore al superamento della soglia della velocità effettiva:
 
-1. Selezionare **Aggiungi avviso metrica** per aprire la pagina **Aggiungi regola** . È anche possibile accedere a questa pagina dalla pagina metrica.
+1. Selezionare **Aggiungi avviso metrica per** aprire la pagina **Aggiungi** regola. È anche possibile raggiungere questa pagina dalla pagina delle metriche.
 
    ![Pulsante "Aggiungi avviso per la metrica"][6]
 
-2. Nella pagina **Aggiungi regola** , compilare le sezioni nome, condizione e notifica, quindi selezionare **OK**.
+2. Nella pagina **Aggiungi regola** compilare le sezioni nome, condizione e notifica e selezionare **OK.**
 
    * Nel selettore **Condizione** selezionare uno dei quattro valori seguenti: **Maggiore di**, **Maggiore di o uguale a**, **Minore di** o **Minore o uguale a**.
 

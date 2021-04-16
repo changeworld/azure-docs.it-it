@@ -2,14 +2,14 @@
 title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 04/14/2021
 ms.custom: references_regions
-ms.openlocfilehash: 349a48b6178d5e4618aa62d9f0c3a150fe561e05
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.openlocfilehash: 5c74a34efe8075ab7a34fab4570d9513900b3f81
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107284392"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517420"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -25,22 +25,22 @@ Sono disponibili altre matrici di supporto:
 
 ## <a name="vault-support"></a>Supporto degli insiemi di credenziali
 
-Backup di Azure usa insiemi di credenziali dei servizi di ripristino per orchestrare e gestire i backup per i seguenti tipi di carico di lavoro: macchine virtuali di Azure, SQL in macchine virtuali di Azure, SAP HANA in macchine virtuali di Azure, condivisioni file di Azure e carichi di lavoro locali con l'agente di backup di Azure, server di Backup di Azure e System Center DPM. USA anche gli insiemi di credenziali dei servizi di ripristino per archiviare i dati di backup per questi carichi di lavoro.
+Backup di Azure usa gli insiemi di credenziali di Servizi di ripristino per orchestrare e gestire i backup per i tipi di carico di lavoro seguenti: macchine virtuali di Azure, SQL nelle macchine virtuali di Azure, SAP HANA in macchine virtuali di Azure, condivisioni file di Azure e carichi di lavoro locali usando Backup di Azure Agent, server di Backup di Azure e System Center DPM. Usa anche insiemi di credenziali di Servizi di ripristino per archiviare i dati di cui è stato eseguito il backup per questi carichi di lavoro.
 
 Nella tabella seguente vengono descritte le funzioni dell'insieme di credenziali di Servizi di ripristino:
 
 **Funzionalità** | **Dettagli**
 --- | ---
 **Insiemi di credenziali nella sottoscrizione** | Fino a 500 insiemi di credenziali di Servizi di ripristino in una sottoscrizione singola.
-**Computer in un insieme di credenziali** | Fino a 2000 origini dati in tutti i carichi di lavoro, ad esempio macchine virtuali di Azure, SQL Server VM, server MAB e così via, possono essere protette in un unico insieme di credenziali.<br><br>Fino a 1.000 VM di Azure in un singolo insieme di credenziali.<br/><br/> In un singolo insieme di credenziali possono essere registrati fino a 50 server MABS.
-**Origini dei dati** | La dimensione massima di una singola [origine dati](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) è 54.400 GB. Questo limite non si applica ai backup di VM di Azure. Alla quantità totale di dati di cui è possibile eseguire il backup nell'insieme di credenziali non è applicato alcun limite.
+**Computer in un insieme di credenziali** | In un singolo insieme di credenziali è possibile proteggere fino a 2000 origini dati in tutti i carichi di lavoro, ad esempio macchine virtuali di Azure, macchine virtuali SQL Server, server MABS e così via.<br><br>Fino a 1.000 VM di Azure in un singolo insieme di credenziali.<br/><br/> In un singolo insieme di credenziali possono essere registrati fino a 50 server MABS.
+**Origini dei dati** | La dimensione massima di una singola [origine dati](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) è 54.400 GB. Questo limite non si applica ai backup di macchine virtuali di Azure. Alla quantità totale di dati di cui è possibile eseguire il backup nell'insieme di credenziali non è applicato alcun limite.
 **Backup in un insieme di credenziali** | **VM di Azure:** una volta al giorno.<br/><br/>**Computer protetti da DPM/MABS:** due volte al giorno.<br/><br/> **Computer sottoposti a backup direttamente usando l'agente MARS:** tre volte al giorno.
 **Backup tra insiemi di credenziali** | Il backup avviene all'interno di un'area.<br/><br/> È necessario un insieme di credenziali in ogni area di Azure che contiene macchine virtuali di cui si vuole eseguire il backup. Non è possibile eseguire il backup in un'altra area.
 **Spostamento di insiemi di credenziali** | È possibile [spostare insiemi di credenziali](./backup-azure-move-recovery-services-vault.md) fra sottoscrizioni o fra gruppi di risorse nella stessa sottoscrizione. Tuttavia, lo spostamento di insiemi di credenziali tra aree non è supportato.
 **Spostamento dei dati tra insiemi di credenziali** | Lo spostamento di dati sottoposti a backup tra insiemi di credenziali non è supportato.
 **Modifica del tipo di archiviazione dell'insieme di credenziali** | È possibile modificare il tipo di replica di archiviazione (archiviazione con ridondanza geografica o archiviazione con ridondanza locale) per un insieme di credenziali prima che vengano archiviati i backup. Dopo l'avvio dei backup nell'insieme di credenziali, il tipo di replica non può essere modificato.
 **Archiviazione con ridondanza della zona (ZRS)** | Disponibile nelle aree Regno Unito meridionale (UKS) e South Asia orientale (SEA).
-**Endpoint privati** | Per informazioni sui requisiti per la creazione di endpoint privati per un insieme di credenziali di servizi di ripristino, vedere [questa sezione](./private-endpoints.md#before-you-start) .  
+**Endpoint privati** | Vedere [questa sezione per](./private-endpoints.md#before-you-start) i requisiti per la creazione di endpoint privati per un insieme di credenziali del servizio di ripristino.  
 
 ## <a name="on-premises-backup-support"></a>Supporto del backup in locale
 
@@ -68,7 +68,7 @@ Se si vuole eseguire il backup delle VM di Azure, sono supportati gli scenari se
 
 **Computer** | **Elementi di backup** | **Posizione** | **Funzionalità**
 --- | --- | --- | ---
-**Backup di VM di Azure tramite l'estensione della VM** | Intera macchina virtuale | Backup nell'insieme di credenziali. | Estensione installata quando si abilita il backup per una macchina virtuale.<br/><br/> Backup eseguito una volta al giorno.<br/><br/> Backup con riconoscimento delle app per le VM Windows, backup coerenti con i file per le VM Linux. È possibile configurare la coerenza con le app per i computer Linux tramite script personalizzati.<br/><br/> Ripristino di VM o disco.<br/><br/>Il [backup e il ripristino di Active Directory controller di dominio](active-directory-backup-restore.md) sono supportati.<br><br> Non è possibile eseguire il backup di una VM di Azure in una posizione locale.
+**Backup di VM di Azure tramite l'estensione della VM** | Intera macchina virtuale | Backup nell'insieme di credenziali. | Estensione installata quando si abilita il backup per una macchina virtuale.<br/><br/> Backup eseguito una volta al giorno.<br/><br/> Backup con riconoscimento delle app per le VM Windows, backup coerenti con i file per le VM Linux. È possibile configurare la coerenza con le app per i computer Linux tramite script personalizzati.<br/><br/> Ripristino di VM o disco.<br/><br/>[È supportato il backup e il ripristino dei controller di](active-directory-backup-restore.md) dominio Active Directory.<br><br> Non è possibile eseguire il backup di una VM di Azure in una posizione locale.
 **Backup di VM di Azure tramite l'agente MARS** | File, cartelle, stato del sistema | Backup nell'insieme di credenziali. | Backup eseguito tre volte al giorno.<br/><br/> Se si vuole eseguire il backup di cartelle o file specifici invece che dell'intera VM, l'agente MARS può essere eseguito insieme all'estensione della VM.
 **VM di Azure con DPM** | File, cartelle, volumi, stato del sistema, dati delle app | Backup nell'archivio locale della VM di Azure che esegue DPM. DPM esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento delle app.<br/><br/> Piena granularità per backup e ripristino.<br/><br/> Linux supportato per le VM (Hyper-V/VMware).<br/><br/> Oracle non supportato.
 **VM di Azure con MABS** | File, cartelle, volumi, stato del sistema, dati delle app | Backup nell'archivio locale della VM di Azure che esegue MABS. Il server MABS esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento delle app.<br/><br/> Piena granularità per backup e ripristino.<br/><br/> Linux supportato per le VM (Hyper-V/VMware).<br/><br/> Oracle non supportato.
@@ -81,13 +81,13 @@ Se si vuole eseguire il backup di computer Linux, sono supportati gli scenari se
 --- | ---
 **Backup diretto di un computer locale che esegue Linux** | Non supportato. L'agente MARS può essere installato solo in computer Windows.
 **Uso dell'estensione agente per eseguire il backup di una VM di Azure che esegue Linux** | Backup coerenti con le app tramite [script personalizzati](backup-azure-linux-app-consistent.md).<br/><br/> Ripristino a livello di file.<br/><br/> Ripristino tramite creazione di una VM da un punto di ripristino o da disco.
-**Uso di DPM per eseguire il backup su computer locali che eseguono Linux** | Backup coerente con i file delle macchine virtuali guest Linux in Hyper-V e VMware.<br/><br/> Ripristino di VM di VM guest Hyper-V e VMware Linux.
-**Uso di MABS per eseguire il backup su computer locali che eseguono Linux** | Backup coerente con i file delle macchine virtuali guest Linux in Hyper-V e VMware.<br/><br/> Ripristino di VM di VM guest Hyper-V e VMware Linux.
+**Uso di DPM per eseguire il backup su computer locali che eseguono Linux** | Backup coerente con i file delle macchine virtuali guest Linux in Hyper-V e VMware.<br/><br/> Ripristino delle macchine virtuali guest Hyper-V e VMware Linux.
+**Uso di MABS per eseguire il backup su computer locali che eseguono Linux** | Backup coerente con i file delle macchine virtuali guest Linux in Hyper-V e VMware.<br/><br/> Ripristino delle macchine virtuali guest Hyper-V e VMware Linux.
 **Uso di MABS o DPM per eseguire il backup di VM Linux di Azure** | Non supportato.
 
 ## <a name="daylight-saving-time-support"></a>Ora legale supportata
 
-Backup di Azure non supporta la regolazione automatica dell'orologio in base all'ora legale per i backup delle VM di Azure. Non sposta l'ora del backup avanti o indietro. Per assicurarsi che il backup venga eseguito all'ora desiderata, modificare manualmente i criteri di backup in base alle proprie necessità.
+Backup di Azure non supporta la regolazione automatica dell'orologio in base all'ora legale per i backup delle VM di Azure. Non sposta l'ora del backup in avanti o indietro. Per assicurarsi che il backup venga eseguito all'ora desiderata, modificare manualmente i criteri di backup in base alle proprie necessità.
 
 ## <a name="disk-deduplication-support"></a>Supporto per la deduplicazione dei dischi
 
@@ -108,7 +108,7 @@ Backup di Azure supporta la crittografia per i dati in movimento e inattivi.
 ### <a name="data-security"></a>Sicurezza dei dati
 
 - I dati di backup vengono archiviati nell'insieme di credenziali di Servizi di ripristino in formato crittografato.
-- Quando si esegue il backup dei dati dai server locali con l'agente MARS, i dati vengono crittografati con una passphrase prima del caricamento in backup di Azure e decrittografati solo dopo essere stati scaricati da backup di Azure.
+- Quando viene eseguito il backup dei dati dai server locali con l'agente MARS, i dati vengono crittografati con una passphrase prima del caricamento in Backup di Azure e decrittografati solo dopo essere stati scaricati da Backup di Azure.
 - Per il backup delle VM di Azure, è necessario configurare la crittografia *all'interno* della macchina virtuale.
 - Backup di Azure supporta Crittografia dischi di Azure, che usa BitLocker su macchine virtuali Windows e **dm-crypt** su macchine virtuali Linux.
 - Nel back-end Backup di Azure usa [Crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md), che protegge i dati inattivi.
@@ -137,7 +137,7 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 
 **Impostazione** | **Limiti**
 --- | ---
-**Punti di ripristino massimi per istanza protetta (computer o carico di lavoro)** | 9\.999
+**Numero massimo di punti di ripristino per ogni istanza protetta (computer o carico di lavoro)** | 9\.999
 **Tempo massimo prima della scadenza di un punto di ripristino** | Nessun limite
 **Frequenza massima di backup in DPM/MABS** | Ogni 15 minuti per SQL Server<br/><br/> Una volta all'ora per altri carichi di lavoro
 **Frequenza massima di backup in insieme di credenziali** | **Computer Windows locali o VM di Azure che eseguono MARS:** tre volte al giorno<br/><br/> **DPM/MABS:** due volte al giorno<br/><br/> **Backup di VM di Azure:** una volta al giorno
@@ -147,12 +147,12 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 
 ## <a name="cross-region-restore"></a>Ripristino tra aree
 
-Backup di Azure ha aggiunto la funzionalità di ripristino tra aree per rafforzare la disponibilità dei dati e la capacità di resilienza, offrendo il controllo completo per ripristinare i dati in un'area secondaria. Per configurare questa funzionalità, vedere l'[articolo sul ripristino tra aree](backup-create-rs-vault.md#set-cross-region-restore). Questa funzionalità è supportata nei seguenti tipi di gestione:
+Backup di Azure è stata aggiunta la funzionalità ripristino tra aree per rafforzare la disponibilità e la resilienza dei dati, offrendo il controllo completo per ripristinare i dati in un'area secondaria. Per configurare questa funzionalità, vedere l'[articolo sul ripristino tra aree](backup-create-rs-vault.md#set-cross-region-restore). Questa funzionalità è supportata nei seguenti tipi di gestione:
 
 | Tipo di gestione di backup | Supportato                                                    | Aree supportate |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Macchina virtuale di Azure               | Supportato per le macchine virtuali di Azure con dischi gestiti e non gestiti. Non supportata per le macchine virtuali classiche. | Disponibile in tutte le aree pubbliche di Azure e nelle aree sovrane ad eccezione di France Central, Australia centrale, Sudafrica settentrionale, Emirati Arabi Uniti settentrionali, Svizzera settentrionale, Germania centro-occidentale, Norvegia orientale, UG IOWA e GA Virginia. <br>Per informazioni sull'utilizzo in tali aree, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
-| SQL/SAP HANA | In anteprima                                                      | Disponibile in tutte le aree pubbliche di Azure e nelle aree sovrane ad eccezione di France Central, Australia centrale, Sudafrica settentrionale, Emirati Arabi Uniti settentrionali, Svizzera settentrionale, Germania centro-occidentale, Norvegia orientale, UG IOWA e GA Virginia. <br>Per informazioni sull'utilizzo in tali aree, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Macchina virtuale di Azure               | Supportato per le macchine virtuali di Azure (incluse le macchine virtuali di Azure crittografate) con dischi gestiti e non gestiti. Non supportata per le macchine virtuali classiche. | Disponibile in tutte le aree pubbliche e sovrane di Azure, ad eccezione di Francia centrale, Australia centrale, Sudafrica settentrionale, Emirati Arabi Uniti settentrionali, Svizzera settentrionale, Germania centro-occidentale, Norvegia orientale, UG IOWA e Virginia UG. <br>Per informazioni sull'uso in tali aree, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| SQL/SAP HANA | In anteprima                                                      | Disponibile in tutte le aree pubbliche e sovrane di Azure, ad eccezione di Francia centrale, Australia centrale, Sudafrica settentrionale, Emirati Arabi Uniti settentrionali, Svizzera settentrionale, Germania centro-occidentale, Norvegia orientale, UG IOWA e UG Virginia. <br>Per informazioni sull'uso in tali aree, contattare [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | Agente MARS/locale  | No                                                           | N/D               |
 | AFS (condivisioni file di Azure)                 | No                                                           | N/D               |
 

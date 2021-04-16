@@ -1,7 +1,7 @@
 ---
-title: Translator translate (metodo)
+title: Metodo Translator Translate
 titleSuffix: Azure Cognitive Services
-description: Comprendere i parametri, le intestazioni e i messaggi del corpo per il metodo translate del traduttore di servizi cognitivi di Azure per tradurre il testo.
+description: Comprendere i parametri, le intestazioni e i messaggi del corpo per il metodo Translate Servizi cognitivi di Azure Translator per tradurre il testo.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: lajanuar
-ms.openlocfilehash: d46fef0159b983f2685be40e2a0ab5471b96883b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 148aa722515d9364ce5af85b3f7c3b39958c9c91
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98895442"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388381"
 ---
-# <a name="translator-30-translate"></a>Translator 3,0: Traduci
+# <a name="translator-30-translate"></a>Translator 3.0: Translate
 
 Traduce il testo.
 
@@ -55,15 +55,15 @@ I parametri della richiesta inviati a una stringa di query sono:
   <th>Descrizione</th>
   <tr>
     <td>da</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/><code>from</code>Quando si usa la funzionalità del <a href="/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico</a> , è necessario usare il parametro anziché il rilevamento automatico.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>Quando si usa la funzionalità del dizionario dinamico, è necessario usare il parametro anziché la <code>from</code> <a href="/azure/cognitive-services/translator/dynamic-dictionary">funzione di rilevamento</a> automatico.</td>
   </tr>  
   <tr>
     <td>textType</td>
-    <td><em>Parametro facoltativo</em>.<br/>Definisce se il testo tradotto è testo normale o testo HTML. Qualsiasi codice HTML deve essere un elemento completo ben formato. I valori possibili sono: <code>plain</code> (impostazione predefinita) o <code>html</code>.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Definisce se il testo tradotto è testo normale o testo HTML. Qualsiasi codice HTML deve essere un elemento completo ben formato. Durante la traduzione di testo HTML, il testo di output contiene i caratteri speciali seguenti in formato di escape: "&", "<" e ">". Ciò si verifica indipendentemente dal fatto che nel testo HTML di input i caratteri siano preceduti da un carattere di escape. I valori possibili sono: <code>plain</code> (impostazione predefinita) o <code>html</code>.</td>
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con <a href="../customization.md">Custom Translator</a>. Aggiungere l'ID categoria dei <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">Dettagli del progetto</a> di conversione personalizzati a questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con <a href="../customization.md">Custom Translator</a>. Aggiungere l'ID categoria dai traduttore personalizzato <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">progetto a</a> questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -136,7 +136,7 @@ Il corpo della richiesta è una matrice JSON. Ogni elemento di matrice è un ogg
 Si applicano le limitazioni seguenti:
 
 * La matrice deve essere composta al massimo da 100 elementi.
-* L'intero testo incluso nella richiesta non può superare i 10.000 caratteri, inclusi gli spazi.
+* L'intero testo incluso nella richiesta non può superare i 10.000 caratteri inclusi gli spazi.
 
 ## <a name="response-body"></a>Corpo della risposta
 
@@ -222,7 +222,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>429</td>
-    <td>Il server ha rifiutato la richiesta perché il client ha superato i limiti di richiesta.</td>
+    <td>Il server ha rifiutato la richiesta perché il client ha superato i limiti delle richieste.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -234,7 +234,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
 </table> 
 
-Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](./v3-0-reference.md#errors). 
+Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella pagina [di riferimento di V3 Translator.](./v3-0-reference.md#errors) 
 
 ## <a name="examples"></a>Esempio
 
@@ -317,7 +317,7 @@ La traduzione di più stringhe contemporaneamente equivale semplicemente a speci
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
-La risposta contiene la traduzione di tutte le parti di testo nello stesso ordine in cui si trovava nella richiesta.
+La risposta contiene la traduzione di tutte le parti di testo nello stesso ordine della richiesta.
 Il corpo della risposta è:
 
 ```
@@ -384,7 +384,7 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
     <td>Le parole volgari vengono sostituite da un indicatore nell'output. L'indicatore dipende dal parametro <code>ProfanityMarker</code>.<br/><br/>
 Per <code>ProfanityMarker=Asterisk</code>, le parole volgari vengono sostituite con <code>***</code>:<br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
-    <strong>Esempio di traduzione (Inglese)</strong>: è \* \* \* .<br/><br/>
+    <strong>Traduzione di esempio (inglese):</strong>è un \* \* \* .<br/><br/>
 Per <code>ProfanityMarker=Tag</code>, le parole volgari sono racchiuse tra i tag XML &lt;profanity&gt; e &lt;/profanity&gt;:<br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
     <strong>Traduzione di esempio (italiano)</strong>: è un &lt;profanity&gt;cretino&lt;/profanity&gt;.
@@ -488,16 +488,16 @@ La risposta è:
 Le informazioni sull'allineamento iniziano con `0:2-0:1`, vale a dire che i primi tre caratteri nel testo di origine (`The`) sono associati ai primi due caratteri nel testo tradotto (`La`).
 
 #### <a name="limitations"></a>Limitazioni
-Il recupero delle informazioni di allineamento è una funzionalità sperimentale che è stata abilitata per la ricerca e l'esperienza di prototipi con possibili mapping di frasi. In futuro, è possibile che si scelga di smettere di supportarlo. Di seguito sono riportate alcune delle restrizioni rilevanti in cui gli allineamenti non sono supportati:
+Ottenere informazioni di allineamento è una funzionalità sperimentale che è stata abilitata per la prototipazione di ricerche ed esperienze con potenziali mapping di frasi. È possibile scegliere di interrompere il supporto in futuro. Ecco alcune delle restrizioni di cui non sono supportati gli allineamenti:
 
-* L'allineamento non è disponibile per il testo in formato HTML, ad esempio textType = HTML
+* L'allineamento non è disponibile per il testo in formato HTML, ad esempio textType=html
 * L'allineamento viene restituito solo per un subset delle coppie di lingue:
-  - Da inglese a/da qualsiasi altra lingua, ad eccezione del cinese tradizionale, cantonese (tradizionale) o serbo (alfabeto cirillico).
+  - Inglese da/verso qualsiasi altra lingua, ad eccezione del cinese tradizionale, del cantonese (tradizionale) o del serbo (alfabeto cirillico).
   - da giapponese e coreano o da coreano a giapponese.
-  - da giapponese a cinese semplificato e cinese semplificato in giapponese. 
+  - dal giapponese al cinese semplificato e al cinese semplificato al giapponese. 
   - dal cinese semplificato al cinese tradizionale e cinese tradizionale al cinese semplificato. 
 * Non si riceveranno informazioni sull'allineamento se la frase è una traduzione predefinita. Un esempio di traduzione predefinita è "Questo è un test", "Ti amo" e altre frasi usate frequentemente.
-* L'allineamento non è disponibile quando si applica uno degli approcci per impedire la traduzione come descritto [qui](../prevent-translation.md) .
+* L'allineamento non è disponibile quando si applica uno degli approcci per impedire la traduzione, come descritto [qui](../prevent-translation.md)
 
 ### <a name="obtain-sentence-boundaries"></a>Ottenere delimitatori di frase
 
@@ -525,7 +525,7 @@ La risposta è:
 
 ### <a name="translate-with-dynamic-dictionary"></a>Tradurre con un dizionario dinamico
 
-Se si conosce già la traduzione che si vuole applicare a una parola o una frase, è possibile specificarla come markup all'interno della richiesta. Il dizionario dinamico è sicuro solo per i sostantivi appropriati, ad esempio nomi personali e nomi di prodotto.
+Se si conosce già la traduzione che si vuole applicare a una parola o una frase, è possibile specificarla come markup all'interno della richiesta. Il dizionario dinamico è sicuro solo per i nomi propri, ad esempio nomi personali e nomi di prodotto.
 
 Il markup da specificare usa la sintassi seguente.
 
@@ -551,4 +551,4 @@ Il risultato è:
 ]
 ```
 
-Questa funzionalità funziona allo stesso modo con `textType=text` o con `textType=html`. È consigliabile usarla solo in casi limitati. Il modo più appropriato e di gran lunga migliore per personalizzare una traduzione è quello di usare Custom Translator. Custom Translator fa un ampio uso delle probabilità statistiche e di contesto. Se si ha la possibilità di creare dati di training che mostrano l'azienda o una frase nel contesto, si otterranno certamente risultati migliori. [Altre informazioni sul convertitore personalizzato](../customization.md).
+Questa funzionalità funziona allo stesso modo con `textType=text` o con `textType=html`. È consigliabile usarla solo in casi limitati. Il modo più appropriato e di gran lunga migliore per personalizzare una traduzione è quello di usare Custom Translator. Custom Translator fa un ampio uso delle probabilità statistiche e di contesto. Se si ha la possibilità di creare dati di training che mostrano l'azienda o una frase nel contesto, si otterranno certamente risultati migliori. [Altre informazioni su traduttore personalizzato](../customization.md).

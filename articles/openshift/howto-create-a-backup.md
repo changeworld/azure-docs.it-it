@@ -1,27 +1,27 @@
 ---
-title: Creare un backup dell'applicazione cluster Azure Red Hat OpenShift 4 con Velero
-description: Informazioni su come creare un backup delle applicazioni cluster Red Hat OpenShift di Azure con Velero
+title: Creare un backup Azure Red Hat OpenShift 4 dell'applicazione cluster con Velero
+description: Informazioni su come creare un backup delle applicazioni Azure Red Hat OpenShift cluster con Velero
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
 author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: bbfe280ed0b1b562e0f50b23a09ea159750c4a79
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: c8bf722bd77372cd89e7c64757347b5fd07eb1ed
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217092"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481362"
 ---
-# <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Creare un backup dell'applicazione cluster Red Hat OpenShift 4 di Azure
+# <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Creare un backup Azure Red Hat OpenShift 4 cluster dell'applicazione
 
-In questo articolo si prepara l'ambiente per la creazione di un backup dell'applicazione cluster Red Hat OpenShift 4 di Azure. Si apprenderà come:
+In questo articolo si preparerà l'ambiente per creare un backup dell'applicazione Azure Red Hat OpenShift 4 cluster. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Configurare i prerequisiti e installare gli strumenti necessari
-> * Creare un backup dell'applicazione Azure Red Hat OpenShift 4
+> * Creare un backup Azure Red Hat OpenShift 4 applicazioni
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.6.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -29,11 +29,11 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ### <a name="install-velero"></a>Installare Velero
 
-Per [installare](https://velero.io/docs/main/basic-install/) Velero nel sistema, seguire la procedura consigliata per il sistema operativo in uso.
+Per [installare](https://velero.io/docs/main/basic-install/) Velero nel sistema, seguire la procedura consigliata per il sistema operativo.
 
 ### <a name="set-up-azure-storage-account-and-blob-container"></a>Configurare l'account di archiviazione di Azure e il contenitore BLOB
 
-Questo passaggio creerà un gruppo di risorse all'esterno del gruppo di risorse del cluster ARO.  Questo gruppo di risorse consentirà la permanenza dei backup e potrà ripristinare le applicazioni nei nuovi cluster.
+Questo passaggio creerà un gruppo di risorse all'esterno del gruppo di risorse del cluster ARO.  Questo gruppo di risorse consentirà di rendere persistenti i backup e di ripristinare le applicazioni in nuovi cluster.
 
 ```bash
 AZURE_BACKUP_RESOURCE_GROUP=Velero_Backups
@@ -57,7 +57,7 @@ az storage container create -n $BLOB_CONTAINER --public-access off --account-nam
 
 ### <a name="create-service-principal"></a>Creare un'entità servizio
 
-Velero richiede le autorizzazioni per eseguire operazioni di backup e ripristino. Quando si crea un'entità servizio, si concede l'autorizzazione Velero per accedere al gruppo di risorse definito nel passaggio precedente. Questo passaggio otterrà il gruppo di risorse del cluster:
+Velero necessita delle autorizzazioni per eseguire backup e ripristini. Quando si crea un'entità servizio, si dà a Velero l'autorizzazione per accedere al gruppo di risorse definito nel passaggio precedente. Questo passaggio otterrà il gruppo di risorse del cluster:
 
 ```bash
 export AZURE_RESOURCE_GROUP=$(az aro show --name <name of cluster> --resource-group <name of resource group> | jq -r .clusterProfile.resourceGroupId | cut -d '/' -f 5,5)
@@ -90,7 +90,7 @@ EOF
 
 ## <a name="install-velero-on-azure-red-hat-openshift-4-cluster"></a>Installare Velero nel cluster Azure Red Hat OpenShift 4
 
-Questo passaggio consente di installare Velero nel proprio progetto e le [definizioni di risorse personalizzate](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessarie per eseguire backup e ripristini con Velero. Assicurarsi di aver effettuato l'accesso a un cluster Azure Red Hat OpenShift V4.
+Questo passaggio installerà Velero nel proprio progetto e nelle definizioni di risorse [personalizzate](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessarie per eseguire backup e ripristini con Velero. Assicurarsi di aver eseguito correttamente l'accesso a un cluster Azure Red Hat OpenShift v4.
 
 
 ```bash
@@ -107,47 +107,47 @@ velero install \
 
 ## <a name="create-a-backup-with-velero"></a>Creare un backup con Velero
 
-Per creare un backup dell'applicazione con Velero, è necessario includere lo spazio dei nomi in cui si trova l'applicazione.  Se si dispone di uno `nginx-example` spazio dei nomi e si desidera includere tutte le risorse nello spazio dei nomi nel backup, eseguire il comando seguente nel terminale:
+Per creare un backup dell'applicazione con Velero, è necessario includere lo spazio dei nomi in cui si trova l'applicazione.  Se si dispone di uno spazio dei nomi e si vogliono includere tutte le risorse in tale spazio dei nomi nel `nginx-example` backup, eseguire il comando seguente nel terminale:
 
 ```bash
 velero create backup <name of backup> --include-namespaces=nginx-example
 ```
-Per controllare lo stato del backup, è possibile eseguire:
+È possibile controllare lo stato del backup eseguendo:
 
 ```bash
 oc get backups -n velero <name of backup> -o yaml
 ```
 
-Viene restituito un backup con esito positivo `phase:Completed` e gli oggetti si trovano nel contenitore nell'account di archiviazione.
+Un backup riuscito verrà `phase:Completed` restituito e gli oggetti saranno presenti nel contenitore nell'account di archiviazione.
 
 ## <a name="create-a-backup-with-velero-to-include-snapshots"></a>Creare un backup con Velero per includere gli snapshot
 
-Per creare un backup dell'applicazione con Velero per includere i volumi persistenti dell'applicazione, è necessario includere lo spazio dei nomi in cui si trova l'applicazione e includere il `snapshot-volumes=true` flag durante la creazione del backup
+Per creare un backup dell'applicazione con Velero in modo da includere i volumi permanenti dell'applicazione, è necessario includere lo spazio dei nomi in cui si trova l'applicazione e il flag durante la creazione del `snapshot-volumes=true` backup
 
 ```bash
 velero backup create <name of backup> --include-namespaces=nginx-example --snapshot-volumes=true --include-cluster-resources=true
 ```
 
-Per controllare lo stato del backup, è possibile eseguire:
+È possibile controllare lo stato del backup eseguendo:
 
 ```bash
 oc get backups -n velero <name of backup> -o yaml
 ```
 
-Un backup con esito positivo con output `phase:Completed` e gli oggetti risiederanno nel contenitore nell'account di archiviazione.
+Un backup riuscito con output `phase:Completed` e gli oggetti saranno presenti nel contenitore nell'account di archiviazione.
 
-Per altre informazioni su come creare backup e ripristini usando Velero, vedere [backup OpenShift Resources in modalità nativa](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
+Per altre informazioni su come creare backup e ripristini usando Velero, vedere [Eseguire il backup delle risorse OpenShift in modo nativo](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato eseguito il backup di un'applicazione cluster Azure Red Hat OpenShift 4. Si è appreso come:
+In questo articolo è stato eseguito il backup Azure Red Hat OpenShift'applicazione cluster Azure Red Hat OpenShift 4. Si è appreso come:
 
 > [!div class="checklist"]
-> * Creare un backup dell'applicazione cluster OpenShift V4 con Velero
-> * Creare un backup dell'applicazione cluster OpenShift V4 con snapshot usando Velero
+> * Creare un backup dell'applicazione cluster OpenShift v4 con Velero
+> * Creare un backup dell'applicazione cluster OpenShift v4 con snapshot usando Velero
 
 
-Passare all'articolo successivo per informazioni su come creare un ripristino dell'applicazione cluster Red Hat OpenShift 4 di Azure.
+Passare all'articolo successivo per informazioni su come creare un'applicazione Azure Red Hat OpenShift 4 cluster.
 
-* [Creare un ripristino dell'applicazione cluster Red Hat OpenShift 4 di Azure](howto-create-a-restore.md)
-* [Creare un ripristino dell'applicazione cluster Red Hat OpenShift 4 di Azure, inclusi gli snapshot](howto-create-a-restore.md)
+* [Creare un ripristino Azure Red Hat OpenShift 4 cluster dell'applicazione](howto-create-a-restore.md)
+* [Creare un ripristino Azure Red Hat OpenShift 4 cluster, inclusi gli snapshot](howto-create-a-restore.md)

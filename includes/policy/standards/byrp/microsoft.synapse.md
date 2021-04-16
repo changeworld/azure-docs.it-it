@@ -14,8 +14,8 @@ ms.locfileid: "107497668"
 ---
 ## <a name="cmmc-level-3"></a>CMMC Livello 3
 
-Per esaminare il mapping delle Criteri di Azure disponibili per tutti i servizi di Azure a questo standard di conformità, vedere Criteri di Azure [Regulatory Compliance - CMMC Level 3](../../../../articles/governance/policy/samples/cmmc-l3.md).
-Per altre informazioni su questo standard di conformità, vedere [Cybersecurity Maturity Model Certification (CMMC)](https://www.acq.osd.mil/cmmc/docs/CMMC_Model_Main_20200203.pdf).
+Per esaminare il mapping delle Criteri di Azure predefiniti disponibili per tutti i servizi di Azure a questo standard di conformità, vedere Criteri di Azure Regulatory Compliance - CMMC Level 3 (Conformità alle normative di [Criteri di Azure - CMMC livello 3).](../../../../articles/governance/policy/samples/cmmc-l3.md)
+Per altre informazioni su questo standard di conformità, vedere [Cybersecurity Maturity Model Certification (CMMC).](https://www.acq.osd.mil/cmmc/docs/CMMC_Model_Main_20200203.pdf)
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

@@ -14,18 +14,18 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb102c23d80095b8eb79fc25d1c1fd9d7f374fce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce1900ca1ca04923f98642f0783925f2dd06619b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91529695"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533576"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>API Microsoft Graph per Privileged Identity Management (anteprima)
 
 È possibile eseguire le attività di Privileged Identity Management con le [API Microsoft Graph](/graph/overview) per Azure Active Directory. Questo articolo descrive alcuni concetti importanti per l'uso delle API Microsoft Graph per Privileged Identity Management.
 
-Per informazioni dettagliate sulle API Microsoft Graph, esaminare le [informazioni di riferimento sulle API di Azure Active Directory Privileged Identity Management](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta).
+Per informazioni dettagliate sulle API Microsoft Graph, esaminare le [informazioni di riferimento sulle API di Azure Active Directory Privileged Identity Management](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta&preserve-view=true).
 
 > [!IMPORTANT]
 > Le API nella versione beta in Microsoft Graph sono disponibili in anteprima e sono soggetti a modifiche. L'uso di queste API nelle applicazioni di produzione non è supportato.
@@ -51,7 +51,7 @@ Se si usa Graph Explorer per testare le chiamate, è possibile specificare le au
 
 1. Fare clic su **Autorizzazioni di modifica**.
 
-    ![Screenshot che mostra la pagina "Graph Explorer" con l'azione "modifica autorizzazioni" selezionata.](./media/pim-apis/graph-explorer.png)
+    ![Screenshot che mostra la pagina "Graph Explorer" con l'azione "Modifica autorizzazioni" selezionata.](./media/pim-apis/graph-explorer.png)
 
 1. Selezionare le caselle di controllo accanto alle autorizzazioni che si vogliono includere. `PrivilegedAccess.ReadWrite.AzureAD` non è ancora disponibile in Graph Explorer.
 
@@ -61,4 +61,4 @@ Se si usa Graph Explorer per testare le chiamate, è possibile specificare le au
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni di riferimento sulle API di Azure Active Directory Privileged Identity Management](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta)
+- [Informazioni di riferimento sulle API di Azure Active Directory Privileged Identity Management](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta&preserve-view=true)

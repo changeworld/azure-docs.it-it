@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/03/2020
+ms.date: 04/14/2021
 ms.author: jeedes
-ms.openlocfilehash: af1c0702929e7cd700c8d19ab24e40f9c6f43a21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5904d3eeec3f5880213f8a8c6a41cefbe76801b3
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96602173"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520089"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con MongoDB Cloud
 
@@ -26,14 +26,12 @@ Questa esercitazione descrive come integrare MongoDB Cloud con Azure Active Dire
 * Abilitare gli utenti per l'accesso automatico a MongoDB Cloud con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per iniziare, è necessario:
+Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Un'organizzazione MongoDB Cloud abilitata per l'accesso Single Sign-On (SSO); è possibile effettuare la registrazione per un [cluster gratuito](https://www.mongodb.com/cloud)
+* Sottoscrizione di MongoDB Cloud abilitata per l'accesso Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -41,25 +39,23 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * MongoDB Cloud supporta l'accesso SSO avviato da **SP** e **IDP**.
 * MongoDB Cloud supporta il provisioning utenti **JIT**.
-* Dopo aver configurato MongoDB Cloud, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. Per altre informazioni, vedere [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-mongodb-cloud-from-the-gallery"></a>Aggiungere MongoDB Cloud dalla raccolta
 
 Per configurare l'integrazione di MongoDB Cloud in Azure AD, è necessario aggiungere MongoDB Cloud dalla raccolta all'elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro sinistro selezionare **Azure Active Directory**.
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **MongoDB Cloud** nella casella di ricerca.
-1. Selezionare **MongoDB Cloud** nei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
+1. Selezionare **MongoDB Cloud** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-mongodb-cloud"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per MongoDB Cloud
+## <a name="configure-and-test-azure-ad-sso-for-mongodb-cloud"></a>Configurare e testare l Azure AD SSO per MongoDB Cloud
 
 Configurare e testare l'accesso SSO di Azure AD con MongoDB Cloud usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in MongoDB Cloud.
 
-Per configurare e testare l'accesso SSO di Azure AD con MongoDB Cloud, completare le procedure di base seguenti:
+Per configurare e testare Azure AD SSO con MongoDB Cloud, seguire questa procedura:
 
 1. [Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso): per consentire agli utenti di usare questa funzionalità.
     1. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
@@ -110,6 +106,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Nella sezione **Configura MongoDB Cloud** copiare gli URL appropriati in base alle esigenze.
 
     ![Screenshot della sezione Configura MongoDB Cloud, in cui sono evidenziati gli URL](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione viene creato un utente di test di nome B.Simon nel portale di Azure.
@@ -126,19 +123,13 @@ In questa sezione viene creato un utente di test di nome B.Simon nel portale di 
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a MongoDB Cloud.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **MongoDB Cloud**.
-1. Nella pagina di panoramica dell'app individuare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-
-   ![Screenshot della sezione Gestione con Utenti e gruppi evidenziato](common/users-groups-blade.png)
-
-1. Selezionare **Aggiungi utente**. Nella finestra di dialogo **Aggiungi assegnazione** selezionare quindi **Utenti e gruppi**.
-
-    ![Screenshot della pagina Utenti e gruppi, in cui è evidenziato il pulsante Aggiungi utente](common/add-assign-user.png)
-
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** nell'elenco degli utenti. Scegliere quindi **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Scegliere quindi **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-mongodb-cloud-sso"></a>Configurare l'accesso Single Sign-On di MongoDB Cloud
 
@@ -150,22 +141,20 @@ MongoDB Cloud supporta il provisioning utenti JIT, che è abilitato per impostaz
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di MongoDB Cloud nel pannello di accesso, si accede automaticamente all'istanza di MongoDB Cloud per cui si è configurato l'accesso SSO. Per altre informazioni, vedere [Accedere e avviare app dal portale App personali](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Avviato da SP:
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà reindirizzato all'URL di accesso a MongoDB Cloud, in cui è possibile avviare il flusso di accesso.  
 
-- [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](./tutorial-list.md)
+* Passare direttamente all'URL di accesso a MongoDB Cloud e avviare il flusso di accesso da questa pagina.
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Avviato da IDP:
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
+* Fare clic **su Test this application** (Testa questa applicazione) portale di Azure per accedere automaticamente all'applicazione MongoDB Cloud per cui si è configurato l'accesso SSO. 
 
-- [Iscrizione a MongoDB Atlas in Azure](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mdb_atlas_oct2020?tab=Overview)
+È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di MongoDB Cloud nel App personali, se configurato in modalità SP si verrà reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso e, se configurato in modalità IDP, si dovrebbe accedere automaticamente all'istanza di MongoDB Cloud per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Provare MongoDB Cloud con Azure AD](https://aad.portal.azure.com/)
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sul controllo sessione in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
-
-- [Proteggere MongoDB Cloud con visibilità e controlli avanzati](/cloud-app-security/proxy-intro-aad)
+Dopo aver configurato MongoDB Cloud, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

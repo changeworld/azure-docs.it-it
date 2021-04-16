@@ -3,12 +3,12 @@ title: Installare il server di Backup di Azure in Azure Stack
 description: Questo articolo illustra come usare il server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro in Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 12dfd15c2bd43816dd361fdf45995bcbcd6fba56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7c685a16db50e51a54387dde49ffb137fcfd626
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98987006"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519477"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -69,7 +69,7 @@ Il server di Backup di Azure archivia i dati di backup sui dischi di Azure colle
 
 L'archiviazione dei dati di backup in Azure riduce l'infrastruttura di backup in Azure Stack. Se i dati sono meno recenti di cinque giorni, devono essere archiviati in Azure.
 
-Per archiviare i dati di backup in Azure, creare o usare un insieme di credenziali di Servizi di ripristino. Nella fase di preparazione all'esecuzione del backup del carico di lavoro del server di Backup di Azure [configurare l'insieme di credenziali di Servizi di ripristino](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Al termine della configurazione, ogni volta che viene eseguito un processo di backup, nell'insieme di credenziali viene creato un punto di ripristino. Ogni insieme di credenziali di Servizi di ripristino contiene fino a 9999 punti di ripristino. A seconda del numero di punti di ripristino creati e del tempo di conservazione, è possibile conservare i dati di backup per molti anni. È ad esempio possibile creare punti di ripristino mensili e conservarli per cinque anni.
+Per archiviare i dati di backup in Azure, creare o usare un insieme di credenziali di Servizi di ripristino. Nella fase di preparazione all'esecuzione del backup del carico di lavoro del server di Backup di Azure [configurare l'insieme di credenziali di Servizi di ripristino](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Al termine della configurazione, ogni volta che viene eseguito un processo di backup, nell'insieme di credenziali viene creato un punto di ripristino. Ogni insieme di credenziali di Servizi di ripristino contiene fino a 9999 punti di ripristino. A seconda del numero di punti di ripristino creati e del periodo di conservazione, è possibile conservare i dati di backup per molti anni. È ad esempio possibile creare punti di ripristino mensili e conservarli per cinque anni.
 
 ### <a name="scaling-deployment"></a>Ridimensionamento della distribuzione
 
@@ -107,18 +107,18 @@ Aggiungere sempre il server di backup di Azure a un dominio. Se è necessario sp
 
 ### <a name="set-storage-replication"></a>Impostare la replica di archiviazione
 
-La replica di archiviazione dell'insieme di credenziali di Servizi di ripristino consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Scegliere l'archiviazione con ridondanza locale se si vuole un'opzione più economica meno durevole. Per altre informazioni sulle opzioni di archiviazione con ridondanza [geografica](../storage/common/storage-redundancy.md#geo-redundant-storage), con ridondanza [locale](../storage/common/storage-redundancy.md#locally-redundant-storage)e con [ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) , vedere [Panoramica della replica di archiviazione di Azure](../storage/common/storage-redundancy.md).
+La replica di archiviazione dell'insieme di credenziali di Servizi di ripristino consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Scegliere l'archiviazione con ridondanza locale se si vuole un'opzione più economica e meno durevole. Per altre informazioni sulle opzioni di [](../storage/common/storage-redundancy.md#zone-redundant-storage) [archiviazione con ridondanza](../storage/common/storage-redundancy.md#geo-redundant-storage)geografica, con ridondanza locale e con ridondanza della [zona, Archiviazione di Azure panoramica della replica.](../storage/common/storage-redundancy.md) [](../storage/common/storage-redundancy.md#locally-redundant-storage)
 
 Per modificare le impostazioni di replica di archiviazione:
 
-1. Selezionare l'insieme di credenziali per aprire il dashboard dell'insieme di credenziali e il menu Impostazioni. Se il menu **Impostazioni** non viene aperto, selezionare **tutte le impostazioni** nel dashboard dell'insieme di credenziali.
-2. Nel menu **Impostazioni** selezionare configurazione backup **infrastruttura**  >   di backup per aprire il menu **configurazione backup** . Nel menu **Configurazione di backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali.
+1. Selezionare l'insieme di credenziali per aprire il dashboard dell'insieme di credenziali e il menu Impostazioni. Se il menu **Impostazioni** non si apre, selezionare Tutte **le** impostazioni nel dashboard dell'insieme di credenziali.
+2. Nel menu **Impostazioni selezionare** Configurazione di **backup dell'infrastruttura**  >  **di** backup per aprire il menu **Configurazione di** backup. Nel menu **Configurazione di backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali.
 
     ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
 ## <a name="download-azure-backup-server-installer"></a>Scaricare il programma di installazione del server di Backup di Azure
 
-Esistono due modi per scaricare il programma di installazione del server di Backup di Azure. Il programma di installazione del server di Backup di Azure può essere scaricato dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=55269). È anche possibile scaricare server di Backup di Azure programma di installazione durante la configurazione di un insieme di credenziali di servizi di ripristino. I passaggi seguenti consentono di eseguire il download del programma di installazione dal portale di Azure durante la configurazione di un insieme di credenziali di Servizi di ripristino.
+Esistono due modi per scaricare il programma di installazione del server di Backup di Azure. Il programma di installazione del server di Backup di Azure può essere scaricato dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=55269). È anche possibile scaricare il programma server di Backup di Azure durante la configurazione di un insieme di credenziali di Servizi di ripristino. I passaggi seguenti consentono di eseguire il download del programma di installazione dal portale di Azure durante la configurazione di un insieme di credenziali di Servizi di ripristino.
 
 1. Dalla macchina virtuale di Azure Stack [accedere alla propria sottoscrizione di Azure nel portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra selezionare **Tutti i servizi**.
@@ -135,7 +135,7 @@ Esistono due modi per scaricare il programma di installazione del server di Back
 
     ![Selezionare l'insieme di credenziali per aprire il dashboard](./media/backup-mabs-install-azure-stack/rs-vault-dashboard.png)
 
-5. Nel menu di Introduzione dell'insieme di credenziali selezionare **backup** per aprire la procedura guidata introduzione.
+5. Nel menu di configurazione dell'Attività iniziali selezionare **Backup per** aprire la Attività iniziali guidata.
 
     ![Attività iniziali di backup](./media/backup-mabs-install-azure-stack/getting-started-backup.png)
 
@@ -143,23 +143,23 @@ Esistono due modi per scaricare il programma di installazione del server di Back
 
     ![Backup-obiettivi-predefinito-aperto](./media/backup-mabs-install-azure-stack/getting-started-menu.png)
 
-6. Nel menu di backup selezionare **Locale** dal menu **Dove è in esecuzione il carico di lavoro**. Dal menu a discesa **Elementi di cui eseguire il backup** selezionare i carichi di lavoro da proteggere con il server di Backup di Azure. Se non si è certi dei carichi di lavoro da selezionare, scegliere **macchine virtuali Hyper-V** e quindi selezionare **prepara infrastruttura**.
+6. Nel menu di backup selezionare **Locale** dal menu **Dove è in esecuzione il carico di lavoro**. Dal menu a discesa **Elementi di cui eseguire il backup** selezionare i carichi di lavoro da proteggere con il server di Backup di Azure. Se non si è certi dei carichi di lavoro da selezionare, scegliere **Macchine virtuali Hyper-V** e quindi selezionare **Preparare l'infrastruttura.**
 
     ![locale e carichi di lavoro come obiettivi](./media/backup-mabs-install-azure-stack/getting-started-menu-onprem-hyperv.png)
 
     Si apre il menu **Preparare l'infrastruttura**.
 
-7. Nel menu **prepara infrastruttura** selezionare **Scarica** per aprire una pagina Web per scaricare i file di installazione server di backup di Azure.
+7. Nel menu **Preparare l'infrastruttura** selezionare **Scarica per** aprire una pagina Web per scaricare server di Backup di Azure di installazione.
 
     ![Attività iniziali guidate modifica](./media/backup-mabs-install-azure-stack/prepare-infrastructure.png)
 
     Viene visualizzata la pagina Web di Microsoft che ospita i file scaricabili per il server di Backup di Azure.
 
-8. Nella pagina di download di Backup di Microsoft Azure server scegliere una lingua e selezionare **Scarica**.
+8. Nella pagina Backup di Microsoft Azure download di Backup di Microsoft Azure Server scegliere una lingua e selezionare **Scarica.**
 
     ![Viene visualizzata l'area download](./media/backup-mabs-install-azure-stack/mabs-download-center-page.png)
 
-9. Il programma di installazione del server di Backup di Azure è costituito da otto file, un programma di installazione e sette file BIN. Controllare **nome file** per selezionare tutti i file necessari e fare clic su **Avanti**. Scaricare tutti i file nella stessa cartella.
+9. Il programma di installazione del server di Backup di Azure è costituito da otto file, un programma di installazione e sette file BIN. Selezionare **Nome file** per selezionare tutti i file necessari e selezionare **Avanti.** Scaricare tutti i file nella stessa cartella.
 
     ![Area download, file selezionati](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
@@ -169,19 +169,19 @@ Esistono due modi per scaricare il programma di installazione del server di Back
 
 Dopo aver scaricato tutti i file nella macchina virtuale di Azure Stack, passare al percorso di download. La prima fase dell'installazione del server di Backup di Azure consiste nell'estrazione dei file.
 
-![Scarica programma di installazione di MAB](./media/backup-mabs-install-azure-stack/download-mabs-installer.png)
+![Scaricare il programma di installazione di MABS](./media/backup-mabs-install-azure-stack/download-mabs-installer.png)
 
-1. Per avviare l'installazione, selezionare **MicrosoftAzureBackupserverInstaller.exe** dall'elenco dei file scaricati.
+1. Per avviare l'installazione, nell'elenco dei file scaricati selezionare **MicrosoftAzureBackupserverInstaller.exe**.
 
     > [!WARNING]
     > Per estrarre i file di installazione sono necessari almeno 4 GB di spazio libero.
     >
 
-2. Nella procedura guidata server di Backup di Azure selezionare **Avanti** per continuare.
+2. Nella procedura server di Backup di Azure guidata selezionare **Avanti** per continuare.
 
     ![Backup di Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wiz-1.png)
 
-3. Scegliere il percorso per i file di server di Backup di Azure e fare clic su **Avanti**.
+3. Scegliere il percorso per i server di Backup di Azure e selezionare **Avanti.**
 
    ![Selezionare la destinazione per i file](./media/backup-mabs-install-azure-stack/mabs-install-wizard-select-destination-1.png)
 
@@ -191,117 +191,117 @@ Dopo aver scaricato tutti i file nella macchina virtuale di Azure Stack, passare
 
 5. La procedura guidata estrae i file e predispone il processo di installazione.
 
-   ![File estratti dalla procedura guidata](./media/backup-mabs-install-azure-stack/mabs-install-wizard-install-3.png)
+   ![La procedura guidata estrae i file](./media/backup-mabs-install-azure-stack/mabs-install-wizard-install-3.png)
 
-6. Al termine del processo di estrazione, fare clic su **fine**. L'opzione **Esegui setup.exe** è selezionata per impostazione predefinita. Quando si seleziona **fine**, Setup.exe installa backup di Microsoft Azure server nel percorso specificato.
+6. Al termine del processo di estrazione, selezionare **Fine**. L'opzione **Esegui setup.exe** è selezionata per impostazione predefinita. Quando si seleziona **Fine**, Setup.exe installa Backup di Microsoft Azure Server nel percorso specificato.
 
-   ![Il programma di installazione estrae i file del Server Backup di Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-finish-4.png)
+   ![Il programma di installazione estrae Backup di Microsoft Azure file del server](./media/backup-mabs-install-azure-stack/mabs-install-wizard-finish-4.png)
 
 ## <a name="install-the-software-package"></a>Installare il pacchetto software
 
-Nel passaggio precedente, selezionare **fine** per uscire dalla fase di estrazione e avviare l'installazione guidata di server di backup di Azure.
+Nel passaggio precedente selezionare Fine per **uscire** dalla fase di estrazione e avviare l'server di Backup di Azure guidata.
 
-![Avvio dell'installazione guidata di Backup di Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
+![Backup di Microsoft Azure Installazione guidata avvia](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Il server di Backup di Azure condivide codice con Data Protection Manager. Verranno visualizzati i riferimenti a Data Protection Manager e DPM nel programma di installazione di server di Backup di Azure. Benché il server di Backup di Azure e Data Protection Manager siano prodotti distinti, sono strettamente correlati.
+Il server di Backup di Azure condivide codice con Data Protection Manager. Nel programma di installazione Data Protection Manager dpm verranno visualizzati i riferimenti server di Backup di Azure dpm. Benché il server di Backup di Azure e Data Protection Manager siano prodotti distinti, sono strettamente correlati.
 
-1. Per avviare l'installazione guidata, selezionare **backup di Microsoft Azure server**.
+1. Per avviare l'installazione guidata, **selezionare Backup di Microsoft Azure Server**.
 
-   ![Selezione Server Backup di Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5b.png)
+   ![Selezionare Backup di Microsoft Azure Server](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5b.png)
 
-2. Nella schermata **iniziale** selezionare **Avanti**.
+2. Nella schermata **iniziale** selezionare **Avanti.**
 
-    ![Server di Backup di Azure-Benvenuti](./media/backup-mabs-install-azure-stack/mabs-install-wizard-setup-6.png)
+    ![server di Backup di Azure - Benvenuto](./media/backup-mabs-install-azure-stack/mabs-install-wizard-setup-6.png)
 
-3. Nella schermata **verifiche dei prerequisiti** selezionare **Controlla** per determinare se i prerequisiti hardware e software per server di backup di Azure sono stati soddisfatti.
+3. Nella schermata **Controlli prerequisiti**  selezionare Verifica per determinare se i prerequisiti hardware e software per server di Backup di Azure sono stati soddisfatti.
 
-    ![Controllo dei prerequisiti di server di Backup di Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
+    ![server di Backup di Azure- Controllo dei prerequisiti](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    Se l'ambiente presenta i prerequisiti necessari, verrà visualizzato un messaggio che indica che il computer soddisfa i requisiti. Selezionare **Avanti**.  
+    Se l'ambiente ha i prerequisiti necessari, verrà visualizzato un messaggio che indica che il computer soddisfa i requisiti. Selezionare **Avanti**.  
 
     ![Server di Backup di Azure - Controllo dei prerequisiti superato](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
-    Se l'ambiente non soddisfa i prerequisiti necessari, verranno specificati i problemi. I prerequisiti che non sono stati soddisfatti sono elencati anche in DpmSetup. log. Risolvere gli errori relativi ai prerequisiti e quindi eseguire **di nuovo il controllo**. L'installazione non può continuare finché non vengono soddisfatti tutti i prerequisiti.
+    Se l'ambiente non soddisfa i prerequisiti necessari, verranno specificati i problemi. I prerequisiti non soddisfatti sono elencati anche in DpmSetup.log. Risolvere gli errori relativi ai prerequisiti e quindi eseguire **di nuovo il controllo**. L'installazione non può continuare fino a quando non vengono soddisfatti tutti i prerequisiti.
 
     ![Server di Backup di Azure - prerequisiti di installazione non soddisfatti](./media/backup-mabs-install-azure-stack/installation-errors.png)
 
 4. Il server di Backup di Microsoft Azure richiede SQL Server. Il pacchetto di installazione del server di Backup di Azure include i file binari appropriati di SQL Server. Se si preferisce, è possibile usare la propria installazione di SQL. Tuttavia, la scelta consigliata è consentire al programma di installazione di aggiungere una nuova istanza di SQL Server. Per assicurarsi che la scelta funzioni con l'ambiente, selezionare **Controlla e installa**.
 
    > [!NOTE]
-   > Server di Backup di Azure non funzionerà con un'istanza di SQL Server remota. L'istanza usata dal server di Backup di Azure deve essere locale.
+   > server di Backup di Azure non funzionerà con un'istanza SQL Server remota. L'istanza usata dal server di Backup di Azure deve essere locale.
    >
 
-    ![Impostazioni server di Backup di Azure-SQL](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)
+    ![server di Backup di Azure - Impostazioni SQL](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)
 
-    Al termine del controllo, se la macchina virtuale dispone dei prerequisiti necessari per l'installazione di server di Backup di Azure, fare clic su **Avanti**.
+    Dopo aver verificato se la macchina virtuale ha i prerequisiti necessari per installare server di Backup di Azure, selezionare **Avanti.**
 
-    ![Server di Backup di Azure-requisiti soddisfatti](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-ready-10.png)
+    ![server di Backup di Azure: requisiti soddisfatti](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-ready-10.png)
 
-    Se si verifica un errore con l'indicazione di riavviare il computer, eseguire questa operazione. Dopo aver riavviato il computer, riavviare il programma di installazione e, quando si arriva alla schermata **Impostazioni SQL** , selezionare di **nuovo verifica**.
+    Se si verifica un errore con l'indicazione di riavviare il computer, eseguire questa operazione. Dopo aver riavviato il computer, riavviare il programma di installazione e, quando si arriva alla schermata **Impostazioni SQL,** selezionare **Controlla di nuovo**.
 
-5. Nelle **impostazioni di installazione** specificare un percorso per l'installazione dei file di backup di Microsoft Azure server e selezionare **Avanti**.
+5. In **Impostazioni di installazione** specificare un percorso per l'installazione dei file Backup di Microsoft Azure server e selezionare **Avanti.**
 
     ![Specificare il percorso per l'installazione dei file](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    La disponibilità di uno spazio di lavoro è obbligatoria per il backup in Azure. Verificare che la dimensione dello spazio di lavoro sia equivalente ad almeno il 5% dei dati pianificati per il backup in Azure. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere [preparare l'archiviazione dati](/system-center/dpm/plan-long-and-short-term-data-storage).
+    La disponibilità di uno spazio di lavoro è obbligatoria per il backup in Azure. Verificare che la dimensione dello spazio di lavoro sia equivalente ad almeno il 5% dei dati pianificati per il backup in Azure. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere Preparare [l'archiviazione dei dati.](/system-center/dpm/plan-long-and-short-term-data-storage)
 
-6. Nella schermata **impostazioni di sicurezza** specificare una password complessa per gli account utente locali con restrizioni e selezionare **Avanti**.
+6. Nella schermata **Impostazioni di** sicurezza specificare una password complessa per gli account utente locali con restrizioni e selezionare **Avanti.**
 
     ![Schermata delle impostazioni Sicurezza](./media/backup-mabs-install-azure-stack/mabs-install-wizard-security-12.png)
 
-7. Nella schermata **Microsoft Update consenso esplicito** selezionare se si vuole usare *Microsoft Update* per verificare la disponibilità di aggiornamenti e selezionare **Avanti**.
+7. Nella schermata **Microsoft Update consenso esplicito** selezionare se si  vuole usare Microsoft Update per verificare la disponibilità di aggiornamenti e selezionare **Avanti.**
 
    > [!NOTE]
    > È consigliabile impostare Windows Update per il reindirizzamento a Microsoft Update, che offre sicurezza e importanti aggiornamenti per Windows e altri prodotti come il server di Backup di Microsoft Azure.
    >
 
-    ![Schermata Opt-In Microsoft Update](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
+    ![Microsoft Update Opt-In schermata](./media/backup-mabs-install-azure-stack/mabs-install-wizard-update-13.png)
 
-8. Esaminare il *Riepilogo delle impostazioni* e selezionare **Installa**.
+8. Esaminare il *riepilogo delle impostazioni e* selezionare **Installa.**
 
     ![Riepilogo delle impostazioni](./media/backup-mabs-install-azure-stack/mabs-install-wizard-summary-14.png)
 
     Quando il server di Backup di Azure termina l'installazione, il programma di installazione avvia immediatamente l'installazione dell'agente di Servizi di ripristino di Microsoft Azure.
 
-9. Il programma di installazione dell'agente di Servizi di ripristino di Microsoft Azure si apre e verifica la connettività Internet. Se è disponibile la connettività Internet, continuare l'installazione. Se non è disponibile connettività, fornire i dettagli del proxy per la connessione a Internet. Dopo aver specificato le impostazioni proxy, fare clic su **Avanti**.
+9. Il programma di installazione dell'agente di Servizi di ripristino di Microsoft Azure si apre e verifica la connettività Internet. Se è disponibile la connettività Internet, continuare con l'installazione. Se non è presente connettività, specificare i dettagli del proxy per connettersi a Internet. Dopo aver specificato le impostazioni proxy, selezionare **Avanti.**
 
     ![Configurazione proxy](./media/backup-mabs-install-azure-stack/mabs-install-wizard-proxy-15.png)
 
-10. Per installare l'agente di Servizi di ripristino di Microsoft Azure, selezionare **Installa**.
+10. Per installare l'Microsoft Azure di Servizi di ripristino, selezionare **Installa.**
 
     ![Installazione dell'agente](./media/backup-mabs-install-azure-stack/mabs-install-wizard-mars-agent-16.png)
 
-    L'agente di Servizi di ripristino di Microsoft Azure, detto anche agente di Backup di Azure, configura il server di Backup di Azure nell'insieme di credenziali di Servizi di ripristino. Una volta configurata, server di Backup di Azure eseguirà sempre il backup dei dati nello stesso insieme di credenziali di servizi di ripristino.
+    L'agente di Servizi di ripristino di Microsoft Azure, detto anche agente di Backup di Azure, configura il server di Backup di Azure nell'insieme di credenziali di Servizi di ripristino. Dopo la configurazione, server di Backup di Azure backup dei dati nello stesso insieme di credenziali di Servizi di ripristino.
 
-11. Al termine dell'installazione dell'agente di Servizi di ripristino di Microsoft Azure, selezionare **Avanti** per avviare la fase successiva: registrazione server di backup di Azure con l'insieme di credenziali di servizi di ripristino.
+11. Al termine Microsoft Azure'installazione dell'agente di Servizi  di ripristino, selezionare Avanti per avviare la fase successiva: server di Backup di Azure'insieme di credenziali di Servizi di ripristino.
 
-    ![Installazione agente completata correttamente](./media/backup-mabs-install-azure-stack/mabs-install-wizard-complete-16.png)
+    ![Installazione dell'agente completata](./media/backup-mabs-install-azure-stack/mabs-install-wizard-complete-16.png)
 
     Il programma di installazione avvia la **registrazione guidata del server**.
 
-12. Passare alla sottoscrizione di Azure e all'insieme di credenziali di Servizi di ripristino. Nel menu **preparare l'infrastruttura** selezionare **download** per scaricare le credenziali dell'insieme di credenziali. Se il pulsante **Scarica** nel passaggio 2 non è attivo, selezionare **già scaricato o usare l'installazione server di backup di Azure più recente** per attivare il pulsante. Le credenziali vengono scaricate nel percorso in cui si archiviano i download. Tenere presente questo percorso poiché sarà necessario per il passaggio successivo.
+12. Passare alla sottoscrizione di Azure e all'insieme di credenziali di Servizi di ripristino. Nel menu **Preparare l'infrastruttura** selezionare Scarica per **scaricare** le credenziali dell'insieme di credenziali. Se il **pulsante Scarica** nel passaggio 2 non è attivo, selezionare Già scaricato o usare l'installazione server di Backup di Azure **più** recente per attivare il pulsante. Le credenziali vengono scaricate nel percorso in cui si archiviano i download. Tenere presente questo percorso poiché sarà necessario per il passaggio successivo.
 
     ![Scaricare le credenziali dell’insieme di credenziali](./media/backup-mabs-install-azure-stack/download-mars-credentials-17.png)
 
-13. Nel menu di **Identificazione** dell'insieme di credenziali selezionare **Sfoglia** per trovare le credenziali dell'insieme di credenziali dei servizi di ripristino.
+13. Nel menu **Identificazione insieme di credenziali** selezionare Sfoglia per trovare **le** credenziali dell'insieme di credenziali di Servizi di ripristino.
 
     ![Menu di identificazione dell'insieme di credenziali](./media/backup-mabs-install-azure-stack/mabs-install-wizard-vault-id-18.png)
 
-    Nella finestra di dialogo **Select Vault Credentials** passare al percorso di download, selezionare le credenziali dell'insieme di credenziali e selezionare **Open**.
+    Nella finestra **di dialogo Seleziona credenziali dell'insieme** di credenziali passare al percorso di download, selezionare le credenziali dell'insieme di credenziali e selezionare **Apri.**
 
-    Il percorso per le credenziali viene visualizzato nel menu di identificazione dell'insieme di credenziali. Selezionare **Avanti** per passare alle **impostazioni di crittografia**.
+    Il percorso per le credenziali viene visualizzato nel menu di identificazione dell'insieme di credenziali. Selezionare **Avanti** per passare a **Impostazioni di crittografia.**
 
-14. Nella finestra di dialogo **impostazione crittografia** specificare una passphrase per la crittografia dei backup e un percorso in cui archiviare la passphrase, quindi selezionare **Avanti**.
+14. Nella finestra **di dialogo Impostazione** crittografia specificare una passphrase per la crittografia di backup e un percorso in cui archiviare la passphrase e selezionare **Avanti.**
 
     ![Impostazioni crittografia](./media/backup-mabs-install-azure-stack/mabs-install-wizard-encryption-19.png)
 
-    È possibile specificare la propria passphrase o usare il generatore di passphrase per crearne una. La passphrase è la tua e Microsoft non salva né gestisce questa passphrase. Per preparare un'emergenza, salvare la passphrase in una posizione accessibile.
+    È possibile specificare la propria passphrase o usare il generatore di passphrase per crearne una. La passphrase è propria dell'utente e Microsoft non salva né gestisce la passphrase. Per prepararsi a un'emergenza, salvare la passphrase in una posizione accessibile.
 
-    Dopo aver selezionato **Avanti**, il server di backup di Azure viene registrato con l'insieme di credenziali di servizi di ripristino. Il programma di installazione continua a installare SQL Server e il server di Backup di Azure.
+    Dopo aver selezionato **Avanti, il** server di Backup di Azure viene registrato con l'insieme di credenziali di Servizi di ripristino. Il programma di installazione continua a installare SQL Server e il server di Backup di Azure.
 
     ![Il programma di installazione installa SQL e server di Backup di Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-still-installing-20.png)
 
-15. Al termine del programma di installazione, lo **stato** indica che tutto il software è stato installato correttamente.
+15. Al termine del programma di installazione, lo **stato indica** che tutto il software è stato installato correttamente.
 
     ![Il software è stato installato correttamente](./media/backup-mabs-install-azure-stack/mabs-install-wizard-done-22.png)
 
@@ -318,7 +318,7 @@ La prima copia di backup viene salvata in una risorsa di archiviazione collegata
 
 ## <a name="network-connectivity"></a>Connettività di rete
 
-Per il corretto funzionamento del prodotto, il server di Backup di Azure richiede la connettività al servizio Backup di Azure. Per convalidare la connettività del computer ad Azure, usare il cmdlet ```Get-DPMCloudConnection``` nella console di PowerShell del server di Backup di Azure. Se l'output del cmdlet è TRUE, la connettività esiste, in caso contrario non esiste alcuna connettività.
+Per il corretto funzionamento del prodotto, il server di Backup di Azure richiede la connettività al servizio Backup di Azure. Per convalidare la connettività del computer ad Azure, usare il cmdlet ```Get-DPMCloudConnection``` nella console di PowerShell del server di Backup di Azure. Se l'output del cmdlet è TRUE, la connettività esiste; in caso contrario, non esiste connettività.
 
 Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato integro. Per verificare lo stato della sottoscrizione e gestirla, accedere al [portale delle sottoscrizioni](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
@@ -335,7 +335,7 @@ Dopo avere verificato lo stato della connettività di Azure e della sottoscrizio
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recupero dalla perdita di connettività
 
-Se il computer ha accesso a Internet limitato, verificare che le impostazioni del firewall nel computer o nel proxy consentano gli URL e gli indirizzi IP seguenti:
+Se il computer ha accesso a Internet limitato, assicurarsi che le impostazioni del firewall nel computer o nel proxy consentano gli URL e gli indirizzi IP seguenti:
 
 * URL
   * `www.msftncsi.com`
@@ -353,15 +353,15 @@ Dopo il ripristino della connettività ad Azure nel server di Backup di Azure, l
 
 ### <a name="handling-subscription-states"></a>Gestione degli stati della sottoscrizione
 
-È possibile modificare lo stato di una sottoscrizione di Azure da *Scaduta* o *Deprovisioning eseguito* ad *Attiva*. Mentre lo stato della sottoscrizione non è *attivo*:
+È possibile modificare lo stato di una sottoscrizione di Azure da *Scaduta* o *Deprovisioning eseguito* ad *Attiva*. Mentre lo stato della sottoscrizione non è *Attivo:*
 
 - Mentre è *sottoposta a deprovisioning*, la sottoscrizione perde le funzionalità. Il ripristino dello stato *Attiva* della sottoscrizione consente di riattivare le funzionalità di backup e ripristino. Se i dati di backup sono stati mantenuti nel disco locale per un periodo di conservazione sufficientemente elevato, possono essere ripristinati. I dati di backup in Azure, invece, vengono persi definitivamente al passaggio della sottoscrizione allo stato *Deprovisioning eseguito*.
-- Una sottoscrizione *scaduta* perde le funzionalità. I backup pianificati non vengono eseguiti mentre una sottoscrizione è *scaduta*.
+- Una sottoscrizione *scaduta* perde le funzionalità. I backup pianificati non vengono eseguiti quando una sottoscrizione è *scaduta.*
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 In caso di errori del server di Backup di Microsoft Azure durante la fase di installazione, di backup o ripristino, vedere il [documento relativo ai codici di errore](https://support.microsoft.com/kb/3041338).
-È anche possibile vedere [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
+È anche possibile vedere [Backup di Azure - Domande frequenti](backup-azure-backup-faq.yml)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

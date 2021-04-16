@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: impostare & visualizzare Azure Key Vault certificati con Azure PowerShell'
+title: 'Guida introduttiva: Impostare & visualizzare Azure Key Vault certificati con Azure PowerShell'
 description: Avvio rapido che illustra come impostare e recuperare un certificato da Azure Key Vault con Azure PowerShell
 services: key-vault
 author: msmbaldwin
@@ -8,15 +8,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 587815cf9628df35f1e1efdbc6a7a3c89a27ed55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11f463ab0ae60f489fd6b10d06402b6d27fc9930
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071918"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502259"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Avvio rapido: Impostare e recuperare un certificato da Azure Key Vault con Azure PowerShell
 
@@ -53,7 +53,7 @@ $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-È ora possibile fare riferimento a questo certificato aggiunto ad Azure Key Vault usando il relativo URI. Per ottenere la versione corrente, usare **"https://<il nome univoco** dell'insieme di credenziali delle credenziali di>. Vault.Azure.NET/Certificates/ExampleCertificate". 
+È ora possibile fare riferimento a questo certificato aggiunto ad Azure Key Vault usando il relativo URI. Usare **"https://<-unique-keyvault-name>.vault.azure.net/certificates/ExampleCertificate"** per ottenere la versione corrente. 
 
 Per visualizzare il certificato archiviato in precedenza:
 
@@ -62,6 +62,18 @@ Get-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "Exampl
 ```
 
 A questo punto è stata creata un'istanza di Key Vault nella quale è stato archiviato e recuperato un certificato.
+
+**Risoluzione dei problemi:**
+
+L'operazione ha restituito un codice di stato non valido 'Forbidden'
+
+Se viene visualizzato questo errore, l'account che accede Azure Key Vault non dispone delle autorizzazioni appropriate per creare i certificati.
+
+Eseguire il comando Azure PowerShell seguente per assegnare le autorizzazioni appropriate:
+
+```azurepowershell-interactive
+Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -PermissionsToCertificates get,list,update,create
+```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

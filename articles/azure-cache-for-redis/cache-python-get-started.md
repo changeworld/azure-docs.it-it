@@ -3,28 +3,29 @@ title: 'Avvio rapido: Usare la cache di Azure per Redis in Python'
 description: In questa guida introduttiva viene illustrato come creare un'app Python che usa la cache di Azure per Redis.
 author: yegu-ms
 ms.author: yegu
+ms.date: 11/05/2019
+ms.topic: quickstart
 ms.service: cache
 ms.devlang: python
-ms.topic: quickstart
 ms.custom:
 - mvc
 - seo-python-october2019
 - devx-track-python
-ms.date: 11/05/2019
-ms.openlocfilehash: 048c31bedb56bdb66dc3b80d12c3014652e34625
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+- mode-api
+ms.openlocfilehash: 40990dfb651817cf52cd5b5a039566e3209d6ac7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121151"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532040"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Avvio rapido: Usare la cache di Azure per Redis in Python
 
 In questo articolo si incorpora Cache di Azure per Redis in un'app Python per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure.
 
-## <a name="skip-to-the-code-on-github"></a>Passa al codice su GitHub
+## <a name="skip-to-the-code-on-github"></a>Passare al codice in GitHub
 
-Per passare direttamente al codice, vedere la [Guida introduttiva di Python](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/python) su GitHub.
+Se si vuole passare direttamente al codice, vedere la guida [introduttiva a Python](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/python) in GitHub.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -113,4 +114,3 @@ Per eliminare il gruppo di risorse e la relativa istanza della cache di Azure pe
 
 > [!div class="nextstepaction"]
 > [Creare una semplice app Web ASP.NET che usa Cache Redis di Azure.](./cache-web-app-howto.md)
-

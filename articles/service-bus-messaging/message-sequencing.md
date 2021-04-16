@@ -1,18 +1,18 @@
 ---
 title: Timestamp e sequenze di messaggi del bus di servizio di Azure | Microsoft Docs
-description: Questo articolo illustra come mantenere la sequenziazione e l'ordinamento (con timestamp) dei messaggi del bus di servizio di Azure.
+description: Questo articolo illustra come mantenere la sequenziazione e l'ordinamento (con timestamp) bus di servizio di Azure messaggi.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: fdb18802e576ad114fd3f783d5efd7bb826a5f94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: 3d5300568232afae1238445113d60eda8cdb2f1b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85341169"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497098"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Timestamp e sequenze di messaggi
 
-I timestamp e le sequenze sono due funzionalità sempre abilitate in tutte le entità del bus di servizio e disponibili tramite le proprietà [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) e [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) dei messaggi ricevuti o esplorati.
+La sequenziazione e il timestamp sono due funzionalità che sono sempre abilitate in tutte le entità del bus di servizio e vengono emersi tramite le proprietà e dei messaggi ricevuti `SequenceNumber` `EnqueuedTimeUtc` o esplorati.
 
 Per i casi in cui l'ordine assoluto dei messaggi è significativo e/o in cui un consumer necessita di un identificatore univoco attendibile per i messaggi, il broker contrassegna i messaggi con un numero di sequenza crescente senza interruzioni in relazione alla coda o all'argomento. Per le entità partizionate, il numero di sequenza viene emesso in relazione alla partizione.
 
@@ -30,7 +30,11 @@ La funzionalità di timestamp funge da autorità neutra e affidabile che acquisi
 
 I messaggi pianificati non si materializzano nella coda fino all'ora di accodamento definita. Prima di tale ora, i messaggi pianificati possono essere annullati. L'annullamento comporta l'eliminazione del messaggio.
 
-È possibile pianificare i messaggi impostando la proprietà [ScheduledEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) quando si invia un messaggio attraverso il normale percorso di invio oppure in modo esplicito con l'API [ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_). Nel secondo caso viene immediatamente restituito il valore **SequenceNumber** del messaggio pianificato, che è possibile usare in un secondo momento per annullare il messaggio pianificato, se necessario. I messaggi pianificati e i relativi numeri di sequenza possono anche essere individuati tramite l'[esplorazione dei messaggi](message-browsing.md).
+È possibile pianificare i messaggi usando uno qualsiasi dei client in due modi:
+- Usare l'API di invio normale, ma impostare `ScheduledEnqueueTimeUtc` la proprietà sul messaggio prima dell'invio.
+- Usare l'API dei messaggi di pianificazione, passare sia il messaggio normale che l'ora pianificata. Verrà restituito **sequenceNumber** del messaggio pianificato, che sarà possibile usare in un secondo momento per annullare il messaggio pianificato, se necessario. 
+
+I messaggi pianificati e i relativi numeri di sequenza possono anche essere individuati tramite l'[esplorazione dei messaggi](message-browsing.md).
 
 Il valore **SequenceNumber** per un messaggio pianificato è valido quando il messaggio si trova in questo stato. Quando il messaggio passa allo stato attivo, viene aggiunto alla coda come se fosse stato accodato nell'istante corrente e gli viene quindi assegnato un nuovo valore **SequenceNumber**.
 

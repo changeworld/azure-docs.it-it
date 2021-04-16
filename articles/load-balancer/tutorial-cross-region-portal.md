@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 65d85f51afef36aa618868e2fda1d2bbf583ea21
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 16320021ede4a4e285c4e1973c166d2cdf643c4a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106221127"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529524"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Esercitazione: Creare un servizio di Azure Load Balancer tra più aree usando il portale di Azure
 
@@ -48,8 +48,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 In questa sezione verranno creati un servizio di bilanciamento del carico tra più aree e un indirizzo IP pubblico.
 
 1. Selezionare **Crea una risorsa**. 
-2. Nella casella di ricerca immettere **Load Balancer**. Selezionare **Load Balancer** nei risultati della ricerca.
-3. Nella pagina **bilanciamento del carico** selezionare **Crea**.
+2. Nella casella di ricerca immettere Servizio **di bilanciamento del carico.** Selezionare **Bilanciamento del** carico nei risultati della ricerca.
+3. Nella pagina **Servizio di bilanciamento** del carico selezionare **Crea.**
 4. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
 
     | Impostazione                 | Valore                                              |
@@ -57,13 +57,13 @@ In questa sezione verranno creati un servizio di bilanciamento del carico tra pi
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e immettere **CreateCRLBTutorial-rg** nella casella di testo.|
     | Nome                   | Immettere **myLoadBalancer-CR**                                   |
-    | Region         | Select **(Stati Uniti) Stati Uniti occidentali**.                                        |
+    | Region         | Selezionare **(Stati Uniti) Stati Uniti occidentali.**                                        |
     | Type          | Selezionare **Pubblica**.                                        |
-    | SKU           | Lasciare il valore predefinito **standard**. |
+    | SKU           | Lasciare l'impostazione **predefinita Standard.** |
     | Livello           | Selezionare **Globale** |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**.|
     | Nome dell'indirizzo IP pubblico | Digitare **myPublicIP-CR** nella casella di testo.|
-    | Preferenza di routing| Selezionare **rete Microsoft**. </br> Per ulteriori informazioni sulle preferenze di routing, vedere informazioni sulle preferenze di [routing (anteprima)](../virtual-network/routing-preference-overview.md). |
+    | Preferenza di routing| Selezionare **Rete Microsoft.** </br> Per altre informazioni sulle preferenze di routing, vedere [Che cos'è la preferenza di routing (anteprima)?](../virtual-network/routing-preference-overview.md). |
 
     > [!NOTE]
     > Il servizio di bilanciamento del carico tra più aree può essere distribuito solo nelle aree seguenti: **Stati Uniti orientali 2, Stati Uniti occidentali, Europa occidentale, Asia sud-orientale, Stati Uniti centrali, Europa settentrionale, Asia orientale**. Per altre informazioni, vedere **https://aka.ms/homeregionforglb**.
@@ -133,7 +133,6 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
     | Porta | Immettere **80**.|
     | Porta back-end | Immettere **80**. |
     | Pool back-end | Selezionare **myBackendPool**.|
-    | Probe di integrità | Selezionare **myHealthProbe**. |
     | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su **15**. |
     | Reimpostazione TCP | Selezionare **Enabled**. |
 
@@ -172,6 +171,6 @@ In questa esercitazione:
 * È stata creata una regola di bilanciamento del carico.
 * È stato testato il servizio di bilanciamento del carico.
 
-Per ulteriori informazioni sul bilanciamento del carico tra aree, vedere:
+Per altre informazioni sul servizio di bilanciamento del carico tra aree, vedere:
 > [!div class="nextstepaction"]
 > [Bilanciamento del carico tra aree (anteprima)](cross-region-overview.md)
