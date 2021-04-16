@@ -2,26 +2,22 @@
 title: Errore imprevisto durante la richiesta di consenso per un'applicazione | Microsoft Docs
 description: Vengono illustrati gli errori che possono verificarsi quando si tenta di ottenere il consenso per un'applicazione, nonché suggerite le operazioni da eseguire per risolverli
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
-ms.assetid: ''
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f829672f88ea848e4611000b54d9cc200bc166d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad216d0062928fc16b0f2226daabb6258d09063c
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259978"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378126"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Errore imprevisto durante la richiesta di consenso per un'applicazione
 
@@ -35,16 +31,16 @@ Perché un utente possa concedere le autorizzazioni richieste da un'applicazione
 * **AADSTS90093:** &lt;NomeVisualizzatoAppClient&gt; richiede una o più autorizzazioni che l'utente non è autorizzato a concedere. Contattare un amministratore che possa concedere il consenso per l'applicazione per conto dell'utente.
 * **AADSTS90094:** &lt;NomeVisualizzatoAppClient&gt; richiede l'autorizzazione per accedere alle risorse dell'organizzazione che solo un amministratore può concedere. Prima di usarla, è necessario chiedere a un amministratore di concedere l'autorizzazione a quest'app.
 
-Questo errore si verifica quando un utente che non è un amministratore globale tenta di utilizzare un'applicazione che richiede autorizzazioni che solo un amministratore può concedere. Il problema può essere risolto chiedendo a un amministratore di concedere l'accesso all'applicazione per conto dell'organizzazione.
+Questo errore si verifica quando un utente che non è un amministratore globale tenta di usare un'applicazione che richiede autorizzazioni che solo un amministratore può concedere. Il problema può essere risolto chiedendo a un amministratore di concedere l'accesso all'applicazione per conto dell'organizzazione.
 
-Questo errore può verificarsi anche quando si impedisce a un utente di acconsentire a un'applicazione a causa del rilevamento da parte di Microsoft che la richiesta di autorizzazioni è rischiosa. In questo caso, verrà registrato anche un evento di controllo con una categoria "ApplicationManagement", un tipo di attività di "consenso per l'applicazione" e il motivo dello stato "applicazione rischiosa rilevata".
+Questo errore può verificarsi anche quando a un utente viene impedito di concedere il consenso a un'applicazione perché Microsoft ha rilevato che la richiesta di autorizzazioni è rischiosa. In questo caso, verrà registrato anche un evento di controllo con categoria "ApplicationManagement", tipo di attività "Consenso all'applicazione" e Motivo stato "Applicazione rischiosa rilevata".
 
-Un altro scenario in cui questo errore potrebbe verificarsi è quando è richiesta l'assegnazione dell'utente per l'applicazione, ma non è stato fornito alcun consenso da parte dell'amministratore. In questo caso, l'amministratore deve innanzitutto fornire il consenso dell'amministratore.   
+Un altro scenario in cui questo errore può verificarsi è quando l'assegnazione utente è necessaria per l'applicazione, ma non è stato fornito il consenso dell'amministratore. In questo caso, l'amministratore deve prima fornire il consenso dell'amministratore.   
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Errore dovuto a criteri che impediscono di concedere le autorizzazioni
 * **AADSTS90093:** un amministratore di &lt;NomeVisualizzatoTenant&gt; ha configurato criteri che impediscono di concedere a &lt;nome dell'app&gt; le autorizzazioni che richiede. Contattare un amministratore di &lt;NomeVisualizzatoTenant&gt; che possa concedere le autorizzazioni richieste dall'app per conto dell'utente.
 
-Questo errore si verifica quando un amministratore globale disattiva la possibilità per gli utenti di fornire il consenso alle applicazioni, quindi un utente non amministratore tenta di utilizzare un'applicazione che richiede il consenso. Il problema può essere risolto chiedendo a un amministratore di concedere l'accesso all'applicazione per conto dell'organizzazione.
+Questo errore si verifica quando un amministratore globale disattiva la possibilità per gli utenti di dare il consenso alle applicazioni, quindi un utente non amministratore tenta di usare un'applicazione che richiede il consenso. Il problema può essere risolto chiedendo a un amministratore di concedere l'accesso all'applicazione per conto dell'organizzazione.
 
 ## <a name="intermittent-problem-error"></a>Errore dovuto a un problema intermittente
 * **AADSTS90090:** sembra che la procedura di accesso rilevi un problema intermittente durante la registrazione delle autorizzazioni che si è tentato di concedere a &lt;NomeVisualizzazioneAppClient&gt;. Riprovare in un secondo momento.
@@ -78,15 +74,15 @@ Tutti questi errori si verificano quando l'applicazione per la quale un utente s
 
     -   Aggiungendo l'applicazione dalla raccolta di applicazioni di Azure AD
 
-## <a name="risky-app-error-and-warning"></a>Errore e avviso dell'app rischiosa
-* **AADSTS900941:** Il consenso dell'amministratore è obbligatorio. L'app è considerata rischiosa. (AdminConsentRequiredDueToRiskyApp)
-* Questa app potrebbe essere rischiosa. Se si considera attendibile questa app, rivolgersi all'amministratore per concedere l'accesso.
-* **AADSTS900981:** Per un'app rischiosa è stata ricevuta una richiesta di consenso dell'amministratore. (AdminConsentRequestRiskyAppWarning)
-* Questa app potrebbe essere rischiosa. Continuare solo se si considera attendibile l'app.
+## <a name="risky-app-error-and-warning"></a>Errore e avviso dell'app rischioso
+* **AADSTS900941:** È necessario il consenso dell'amministratore. L'app è considerata rischiosa. (AdminConsentRequiredDueToRiskyApp)
+* Questa app può essere rischiosa. Se si considera attendibile questa app, chiedere all'amministratore di concedere l'accesso.
+* **AADSTS900981:** È stata ricevuta una richiesta di consenso dell'amministratore per un'app rischiosa. (AdminConsentRequestRiskyAppWarning)
+* Questa app può essere rischiosa. Continuare solo se si considera attendibile questa app.
 
-Entrambi questi messaggi verranno visualizzati quando Microsoft ha stabilito che la richiesta di consenso potrebbe essere rischiosa. Tra molti altri fattori, questo problema può verificarsi se un [editore verificato](../develop/publisher-verification-overview.md) non è stato aggiunto alla registrazione dell'app. Il primo codice di errore e il messaggio verranno visualizzati agli utenti finali quando il [flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md) è disabilitato. Il secondo codice e messaggio verrà visualizzato agli utenti finali quando il flusso di lavoro di consenso dell'amministratore è abilitato e agli amministratori. 
+Entrambi questi messaggi verranno visualizzati quando Microsoft ha stabilito che la richiesta di consenso potrebbe essere rischiosa. Tra gli altri fattori, questo può verificarsi se un editore verificato [non](../develop/publisher-verification-overview.md) è stato aggiunto alla registrazione dell'app. Il primo codice di errore e il primo messaggio verranno visualizzati agli utenti finali quando il flusso di [lavoro di](configure-admin-consent-workflow.md) consenso amministratore è disabilitato. Il secondo codice e il secondo messaggio verranno visualizzati agli utenti finali quando il flusso di lavoro di consenso dell'amministratore è abilitato e agli amministratori. 
 
-Gli utenti finali non saranno in grado di concedere il consenso alle app che sono state rilevate come rischiose. Gli amministratori sono in grado di valutare l'app in modo molto accurato e procedere con cautela. Se l'app sembra sospetta dopo un'ulteriore verifica, può essere segnalata a Microsoft dalla schermata del consenso. 
+Gli utenti finali non potranno concedere il consenso alle app rilevate come rischiose. Gli amministratori possono, ma devono valutare l'app con molta attenzione e procedere con cautela. Se l'app sembra sospetta dopo un'ulteriore revisione, può essere segnalata a Microsoft dalla schermata di consenso. 
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

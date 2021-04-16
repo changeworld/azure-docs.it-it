@@ -3,12 +3,12 @@ title: Novità Note sulla versione - Griglia di eventi di Azure
 description: Informazioni sulle novità di Griglia di eventi di Azure, tra cui le note sulla versione più aggiornate, i problemi noti, le correzioni di bug, le funzionalità deprecate e le modifiche imminenti.
 ms.topic: overview
 ms.date: 07/23/2020
-ms.openlocfilehash: da0b26e4f163f428e6955a37636ceb19bb34abc5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f135b25f28002c037dd24fa0cb3bb7476a06309f
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107534"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389588"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>Novità di Griglia di eventi di Azure
 
@@ -21,6 +21,24 @@ Griglia di eventi di Azure viene regolarmente migliorato. Per stare al passo con
 - Correzioni di bug
 - Funzionalità deprecate
 - Modifiche pianificate
+
+## <a name="610-preview-2020-10"></a>6.1.0-preview (2020-10)
+- [Identità gestite per gli argomenti di sistema](enable-identity-system-topics.md)
+- [Proprietà di recapito personalizzate](delivery-properties.md)
+- [Coda di archiviazione : durata (TTL) dei messaggi](delivery-properties.md#configure-time-to-live-on-outgoing-events-to-azure-storage-queues)
+- [Miglioramenti avanzati dei filtri](event-filtering.md#advanced-filtering)
+    - Supporto del filtro sui dati della matrice negli eventi in ingresso
+    - Consentire l'applicazione di filtri agli attributi di contesto delle estensioni CloudEvents
+    - Nuovi operatori
+        - StringNotContains
+        - StringNotBeginsWith
+        - StringNotEndsWith
+        - NumberInRange
+        - NumberNotInRange
+        - IsNull
+        - IsNotNull
+- [Consentire lo schema di Griglia di eventi alle trasformazioni dello schema di CloudEvents 1.0 per argomenti e domini personalizzati](cloudevents-schema.md#configure-event-grid-for-cloudevents)
+        
 
 ## <a name="600-2020-06"></a>6.0.0 (2020-06)
 - Aggiunta di supporto alla nuova versione dell'API del servizio 2020-06-01 disponibile a livello generale.

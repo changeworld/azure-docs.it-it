@@ -1,6 +1,6 @@
 ---
-title: Scambiare dischi del sistema operativo con l'interfaccia della riga di comando
-description: Modificare il disco del sistema operativo usato da una macchina virtuale di Azure usando l'interfaccia della riga di comando.
+title: Scambiare tra dischi del sistema operativo usando l'interfaccia della riga di comando di Azure '
+description: Modificare il disco del sistema operativo usato da una macchina virtuale di Azure usando l'interfaccia della riga di comando di Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: disks
@@ -8,14 +8,15 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 24cd71cafa9dc0bd9131255caf50841f6d5909d1
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0c9b0c1948dc4ecef74cd78ec1736803a0c0b4bc
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311244"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497371"
 ---
-# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Modificare il disco del sistema operativo usato da una macchina virtuale di Azure usando l'interfaccia della riga di comando
+# <a name="change-the-os-disk-used-by-an-azure-vm-using-the-azure-cli"></a>Modificare il disco del sistema operativo usato da una macchina virtuale di Azure usando l'interfaccia della riga di comando di Azure
 
 
 Se si dispone di una macchina virtuale esistente, ma si desidera scambiare il disco con un disco di backup o un altro disco del sistema operativo, è possibile usare l'interfaccia della riga di comando di Azure per scambiare i dischi del sistema operativo. Non è necessario eliminare e ricreare la macchina virtuale. È anche possibile usare un disco gestito in un altro gruppo di risorse, purché non sia già in uso.

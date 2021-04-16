@@ -60,7 +60,7 @@ Introduzione alle novità nella documentazione Monitoraggio di Azure dal 1° mar
 - [<a id=troubleshooting></a> Risolvere i problemi di abilitazione Application Insights Snapshot Debugger o visualizzazione di snapshot](app/snapshot-debugger-troubleshoot.md)
 - [Note sulla versione per l'estensione app Web di Azure per Application Insights](app/web-app-extension-release-notes.md)
 - [Configurare Monitoraggio di Azure per l'applicazione Python](app/opencensus-python.md)
-- [Aggiornamento da Application Insights Java 2.x SDK](app/java-standalone-upgrade-from-2x.md)
+- [Aggiornamento da Application Insights SDK Java 2.x](app/java-standalone-upgrade-from-2x.md)
 - [Usare l'analisi di flusso per elaborare dati esportati da Application Insights](app/export-stream-analytics.md)
 - [Guida alla risoluzione dei problemi: Monitoraggio di Azure Application Insights per Java](app/java-standalone-troubleshoot.md)
 
@@ -69,16 +69,16 @@ Introduzione alle novità nella documentazione Monitoraggio di Azure dal 1° mar
 **Articoli aggiornati**
 
 - [Risoluzione dei problemi relativi alle informazioni dettagliate sui contenitori](containers/container-insights-troubleshoot.md)
-- [Come visualizzare log, eventi e metriche dei pod di Kubernetes in tempo reale](containers/container-insights-livedata-overview.md)
+- [Come visualizzare log, eventi e metriche dei pod kubernetes in tempo reale](containers/container-insights-livedata-overview.md)
 - [Come eseguire query sui log da Informazioni dettagliate sui contenitori](containers/container-insights-log-search.md)
 - [Configurare il monitoraggio PV con Informazioni dettagliate sui contenitori](containers/container-insights-persistent-volumes.md)
 - [Monitorare le prestazioni del cluster Kubernetes con Informazioni dettagliate sui contenitori](containers/container-insights-analyze.md)
-- [Configurare Azure Red Hat OpenShift v3 con Informazioni dettagliate sul contenitore](containers/container-insights-azure-redhat-setup.md)
-- [Configurare Azure Red Hat OpenShift v4.x con Informazioni dettagliate sul contenitore](containers/container-insights-azure-redhat4-setup.md)
+- [Configurare Azure Red Hat OpenShift v3 con Informazioni dettagliate sui contenitori](containers/container-insights-azure-redhat-setup.md)
+- [Configurare Azure Red Hat OpenShift v4.x con Informazioni dettagliate sui contenitori](containers/container-insights-azure-redhat4-setup.md)
 - [Abilitare il monitoraggio del cluster Kubernetes con abilitazione di Azure Arc](containers/container-insights-enable-arc-enabled-clusters.md)
 - [Configurare cluster Kubernetes ibridi con Informazioni dettagliate sui contenitori](containers/container-insights-hybrid-setup.md)
-- [Avvisi delle metriche consigliati (anteprima) da Informazioni dettagliate sul contenitore](containers/container-insights-metric-alerts.md)
-- [Abilitare Informazioni dettagliate sul contenitore](containers/container-insights-onboard.md)
+- [Avvisi delle metriche consigliati (anteprima) da Informazioni dettagliate sui contenitori](containers/container-insights-metric-alerts.md)
+- [Abilitare le informazioni dettagliate sui contenitori](containers/container-insights-onboard.md)
 - [Panoramica delle informazioni dettagliate sui contenitori](containers/container-insights-overview.md)
 - [Configurare lo scraping delle metriche di Prometheus con Informazioni dettagliate sui contenitori](containers/container-insights-prometheus-integration.md)
 
@@ -96,7 +96,7 @@ Introduzione alle novità nella documentazione Monitoraggio di Azure dal 1° mar
 **Articoli aggiornati**
 
 - [Monitoraggio di Azure informazioni dettagliate sulla rete](insights/network-insights-overview.md)
-- [Wire Data 2.0 (anteprima) in Monitoraggio di Azure (ritirata)](insights/wire-data.md)
+- [Wire Data 2.0 (anteprima) in Monitoraggio di Azure (ritirato)](insights/wire-data.md)
 - [Monitorare le distribuzioni SQL con informazioni dettagliate su SQL (anteprima)](insights/sql-insights-overview.md)
 
 ## <a name="logs"></a>Log
@@ -115,20 +115,20 @@ Introduzione alle novità nella documentazione Monitoraggio di Azure dal 1° mar
 
 **Articoli aggiornati**
 
-- [Creare report interattivi sulle informazioni dettagliate sulle macchine virtuali con le cartelle di lavoro](vm/vminsights-workbooks.md)
+- [Creare report interattivi sulle informazioni dettagliate sulle macchine virtuali con cartelle di lavoro](vm/vminsights-workbooks.md)
 - [Panoramica dell'abilitazione delle informazioni dettagliate sulle macchine virtuali](vm/vminsights-enable-overview.md)
 - [Risolvere i problemi relativi all'integrità VM guest di Monitoraggio di Azure per le macchine virtuali (anteprima)](vm/vminsights-health-troubleshoot.md)
 - [Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure](vm/monitor-vm-azure.md)
-- [Integrare System Center Operations Manager con la funzionalità Mappa di Informazioni dettagliate sulle macchine virtuali](vm/service-map-scom.md)
+- [Integrare la System Center Operations Manager con la funzionalità di mappa delle informazioni dettagliate sulle macchine virtuali](vm/service-map-scom.md)
 - [Come creare avvisi dalle informazioni dettagliate sulle macchine virtuali](vm/vminsights-alerts.md)
-- [Configurare l'area di lavoro Log Analytics per le informazioni dettagliate sulle macchine virtuali](vm/vminsights-configure-workspace.md)
-- [Abilitare le informazioni dettagliate sulle macchine virtuali usando Criteri di Azure](vm/vminsights-enable-policy.md)
-- [Abilitare le informazioni dettagliate sulle macchine virtuali Resource Manager modelli](vm/vminsights-enable-resource-manager.md)
+- [Configurare l'area di lavoro Log Analytics per informazioni dettagliate sulle macchine virtuali](vm/vminsights-configure-workspace.md)
+- [Abilitare informazioni dettagliate sulle macchine virtuali usando Criteri di Azure](vm/vminsights-enable-policy.md)
+- [Abilitare informazioni dettagliate sulle macchine virtuali Resource Manager modelli](vm/vminsights-enable-resource-manager.md)
 - [Domande frequenti sulle informazioni dettagliate sulle macchine virtuali disponibili a livello generale](vm/vminsights-ga-release-faq.md)
-- [Abilitare l'integrità guest di Informazioni dettagliate sulle macchine virtuali (anteprima)](vm/vminsights-health-enable.md)
+- [Abilitare l'integrità guest di Informazioni dettagliate macchina virtuale (anteprima)](vm/vminsights-health-enable.md)
 - [Disabilitare il monitoraggio delle macchine virtuali nelle informazioni dettagliate sulle macchine virtuali](vm/vminsights-optout.md)
 - [Panoramica delle informazioni dettagliate sulle macchine virtuali](vm/vminsights-overview.md)
-- [Come creare un grafico delle prestazioni con le informazioni dettagliate sulle macchine virtuali](vm/vminsights-performance.md)
+- [Come creare un grafico delle prestazioni con informazioni dettagliate sulle macchine virtuali](vm/vminsights-performance.md)
 
 ## <a name="visualizations"></a>Visualizzazioni
 

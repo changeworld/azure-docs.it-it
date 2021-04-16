@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Documentazione sulla sicurezza di Azure
-summary: La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusivi relativi alla sicurezza, derivanti da un intelligence globale per la sicurezza, controlli relativi ai clienti e un'infrastruttura con protezione avanzata. Questa combinazione avanzata contribuisce alla protezione delle applicazioni e dei dati e al supporto del lavoro richiesto per la conformità e offre una sicurezza a costi contenuti per organizzazioni di qualsiasi dimensione.
+summary: 'La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusivi relativi alla sicurezza, derivanti da un intelligence globale per la sicurezza, controlli relativi ai clienti e un''infrastruttura con protezione avanzata. Questa combinazione avanzata contribuisce alla protezione delle applicazioni e dei dati e al supporto del lavoro richiesto per la conformità e offre una sicurezza a costi contenuti per organizzazioni di qualsiasi dimensione.'
 brand: azure
 metadata:
   title: Documentazione sulla sicurezza di Azure
-  description: Informazioni sulla sicurezza in Azure. Informazioni su concetti di base, procedure consigliate e modelli di sicurezza, oltre che su Centro sicurezza di Azure.
+  description: 'Informazioni sulla sicurezza in Azure. Informazioni su concetti di base, procedure consigliate e modelli di sicurezza, oltre che su Centro sicurezza di Azure.'
   services: security
   ms.service: security
   ms.subservice: na
@@ -14,228 +14,225 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 02/05/2021
-  ms.openlocfilehash: 368cd62109d1d5d74d26b22d9384cb4bf56a7944
-  ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-  ms.translationtype: MT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 03/24/2021
-  ms.locfileid: "105044686"
 highlightedContent:
   items:
-  - title: Introduzione alla sicurezza di Azure
-    itemType: overview
-    url: ./fundamentals/overview.md
-  - title: Procedure consigliate e modelli per la sicurezza
-    itemType: concept
-    url: ./fundamentals/best-practices-and-patterns.md
-  - title: Che cos'è il Centro sicurezza di Azure?
-    itemType: overview
-    url: ../security-center/security-center-introduction.md
+    - title: Iniziare il percorso di sicurezza
+      itemType: get-started
+      url: ./journey/index.yml
+    - title: Trovare i servizi di sicurezza per le esigenze aziendali
+      itemType: overview
+      url: ./fundamentals/end-to-end.md
+    - title: Usare le procedure consigliate e le raccomandazioni per proteggere le distribuzioni cloud
+      itemType: concept
+      url: ./benchmarks/introduction.md
 conceptualContent:
   items:
-  - title: Nozioni fondamentali
-    links:
-    - url: ./fundamentals/technical-capabilities.md
-      itemType: overview
-      text: Funzionalità tecniche per la sicurezza di Azure
-    - url: https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91
-      itemType: concept
-      text: Responsabilità condivise per il cloud computing
-    - url: ./benchmarks/index.yml
-      itemType: concept
-      text: Controlli di sicurezza per i servizi di Azure
-    footerLink:
-      url: ./fundamentals/index.yml
-      text: Altre informazioni
-  - title: Sviluppatori
-    links:
-    - url: ./develop/secure-dev-overview.md
-      itemType: overview
-      text: Procedure consigliate per lo sviluppo sicuro
-    - url: ./develop/secure-develop.md
-      itemType: tutorial
-      text: Sviluppare applicazioni sicure
-    - url: ./develop/threat-modeling-tool.md
-      itemType: concept
-      text: Microsoft Threat Modeling Tool
-    footerLink:
-      url: ./develop/index.yml
-      text: Altre informazioni
-  - title: Benchmark e raccomandazioni
-    links:
-    - url: ./benchmarks/introduction.md
-      itemType: download
-      text: Benchmark per la sicurezza del cloud di Azure
-    - url: ../security-center/security-center-remediate-recommendations.md
-      itemType: overview
-      text: Raccomandazioni del Centro sicurezza di Azure
-    footerLink:
-      url: ./benchmarks/index.yml
-      text: Altre informazioni
-  - title: Segreti e chiavi
-    links:
-    - url: ../key-vault/general/overview.md
-      itemType: overview
-      text: Informazioni sull'insieme di credenziali delle chiavi di Azure
-    - url: ../key-vault/secrets/quick-create-cli.md
-      itemType: quickstart
-      text: Impostare e recuperare un segreto
-    - url: ../dedicated-hsm/overview.md
-      itemType: overview
-      text: Informazioni su Modulo di protezione hardware dedicato di Azure
-    footerLink:
-      url: ../key-vault/index.yml
-      text: Altre informazioni
-  - title: Protezione dei dati
-    links:
-    - url: ./fundamentals/encryption-atrest.md
-      itemType: concept
-      text: Crittografia dei dati inattivi
-    - url: ./fundamentals/data-encryption-best-practices.md
-      itemType: concept
-      text: Procedure consigliate per la sicurezza e la crittografia dei dati
-    - url: ../storage/blobs/security-recommendations.md
-      itemType: concept
-      text: Sicurezza di archiviazione
-    footerLink:
-      url: ./fundamentals/encryption-overview.md
-      text: Altre informazioni
-  - title: Gestione delle identità
-    links:
-    - url: ../active-directory/hybrid/choose-ad-authn.md
-      itemType: concept
-      text: Scegliere il metodo di autenticazione corretto
-    - url: ./fundamentals/steps-secure-identity.md
-      itemType: concept
-      text: Protezione dell'infrastruttura di identità
-    - url: ./fundamentals/identity-management-best-practices.md
-      itemType: concept
-      text: Procedure consigliate per la sicurezza
-    footerLink:
-      url: ./fundamentals/identity-management-overview.md
-      text: Altre informazioni
-  - title: Monitoraggio della protezione
-    links:
-    - url: ../security-center/security-center-get-started.md
-      itemType: quickstart
-      text: Eseguire l'onboarding della sottoscrizione nel Centro sicurezza
-    - url: ../security-center/security-center-just-in-time.md
-      itemType: how-to-guide
-      text: Accesso Just-In-Time alle macchine virtuali
-    - url: ../security-center/tutorial-security-policy.md
-      itemType: how-to-guide
-      text: Utilizzo dei criteri di sicurezza
-    footerLink:
-      url: ../security-center/index.yml
-      text: Altre informazioni
-  - title: Monitoraggio della sicurezza per IoT
-    links:
-    - url: ../defender-for-iot/overview.md
-      itemType: overview
-      text: Introduzione al Centro sicurezza di Azure per IoT
-    - url: ../defender-for-iot/architecture.md
-      itemType: how-to-guide
-      text: 'Centro sicurezza di Azure per IoT: architettura'
-    - url: ../defender-for-iot/getting-started.md
-      itemType: how-to-guide
-      text: Introduzione al Centro sicurezza di Azure per IoT
-    footerLink:
-      url: /azure/asc-for-iot/
-      text: Altre informazioni
-  - title: Analisi sicurezza
-    links:
-    - url: ../sentinel/overview.md
-      itemType: overview
-      text: Che cos'è Azure Sentinel (anteprima)?
-    - url: ../sentinel/quickstart-onboard.md
-      itemType: quickstart
-      text: Eseguire l'onboarding di Azure Sentinel (anteprima)
-    - url: ../sentinel/quickstart-get-visibility.md
-      itemType: quickstart
-      text: Introduzione ad Azure Sentinel (anteprima)
-    footerLink:
-      url: ../sentinel/index.yml
-      text: Altre informazioni
-  - title: Protezione dalle minacce
-    links:
-    - url: ../security-center/security-center-alerts-overview.md
-      itemType: concept
-      text: Avvisi di sicurezza nel Centro sicurezza di Azure
-    - url: ../storage/common/azure-defender-storage-configure.md
-      itemType: concept
-      text: Azure Defender per Archiviazione
-    - url: ../azure-sql/database/threat-detection-overview.md
-      itemType: concept
-      text: Azure Defender per SQL
-    footerLink:
-      url: ./fundamentals/threat-detection.md
-      text: Altre informazioni
-  - title: Registrazione e controllo
-    links:
-    - url: ./fundamentals/log-audit.md
-      itemType: concept
-      text: Registrazione e controllo di Azure
-    - url: ./fundamentals/management-monitoring-overview.md
-      itemType: overview
-      text: Panoramica su gestione e monitoraggio
-    footerLink:
-      url: /search/?category=Documentation&scope=azure&search=security%2baudit%2blog
-      text: Cercare altre informazioni
-  - title: Sicurezza di rete
-    links:
-    - url: ./fundamentals/network-overview.md
-      itemType: overview
-      text: Panoramica della sicurezza
-    - url: ./fundamentals/network-best-practices.md
-      itemType: concept
-      text: Procedure consigliate per la sicurezza
-    - url: ../ddos-protection/fundamental-best-practices.md
-      itemType: concept
-      text: Protezione DDoS
-  - title: Sicurezza dell'infrastruttura
-    links:
-    - url: ./fundamentals/physical-security.md
-      itemType: concept
-      text: Sicurezza fisica, locali e strutture di Azure
-    - url: ./fundamentals/infrastructure-network.md
-      itemType: concept
-      text: Architettura di rete
-    - url: ./fundamentals/protection-customer-data.md
-      itemType: concept
-      text: Protezione dei dati dei clienti
-    footerLink:
-      url: ./fundamentals/infrastructure.md
-      text: Altre informazioni
-  - title: Sicurezza delle macchine virtuali
-    links:
-    - url: ./fundamentals/virtual-machines-overview.md
-      itemType: overview
-      text: Panoramica della sicurezza
-    - url: ./fundamentals/iaas.md
-      itemType: concept
-      text: Procedure consigliate per i carichi di lavoro IaaS
-    - url: ./fundamentals/azure-marketplace-images.md
-      itemType: concept
-      text: Raccomandazioni sulla configurazione della sicurezza
-  - title: Sicurezza del database
-    links:
-    - url: ./fundamentals/encryption-overview.md#encryption-of-data-at-rest-with-azure-sql-database
-      itemType: overview
-      text: Sicurezza dei dati
-    - url: ./fundamentals/paas-applications-using-sql.md
-      itemType: concept
-      text: Procedure consigliate per i database per PaaS
-    - url: ./fundamentals/database-security-checklist.md
-      itemType: concept
-      text: Elenco di controllo relativo alla sicurezza
-  - title: Governance e conformità
-    links:
-    - url: ../governance/policy/overview.md
-      itemType: overview
-      text: Servizio Criteri di Azure
-    - url: ../governance/blueprints/overview.md
-      itemType: overview
-      text: Servizio Azure Blueprints
-    footerLink:
-      url: ../governance/index.yml
-      text: Altre informazioni
+    - title: Fundamentals
+      links:
+        - url: ./fundamentals/overview.md
+          itemType: overview
+          text: Introduzione alla sicurezza di Azure
+        - url: 'https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91'
+          itemType: concept
+          text: Responsabilità condivise per il cloud computing
+        - url: ./benchmarks/index.yml
+          itemType: concept
+          text: Controlli di sicurezza per i servizi di Azure
+      footerLink:
+        url: ./fundamentals/index.yml
+        text: Altre informazioni
+    - title: Sviluppatori
+      links:
+        - url: ./develop/secure-dev-overview.md
+          itemType: overview
+          text: Procedure consigliate per lo sviluppo sicuro
+        - url: ./develop/secure-develop.md
+          itemType: tutorial
+          text: Sviluppare applicazioni sicure
+        - url: ./develop/threat-modeling-tool.md
+          itemType: concept
+          text: Microsoft Threat Modeling Tool
+      footerLink:
+        url: ./develop/index.yml
+        text: Altre informazioni
+    - title: Procedure consigliate e modelli per la sicurezza
+      links:
+        - url: ./fundamentals/identity-management-best-practices.md
+          itemType: concept
+          text: Gestione delle identità
+        - url: ./fundamentals/network-best-practices.md
+          itemType: concept
+          text: Sicurezza di rete
+        - url: ./fundamentals/paas-deployments.md
+          itemType: concept
+          text: Protezione delle distribuzioni PaaS
+      footerLink:
+        url: ./fundamentals/best-practices-and-patterns.md
+        text: Altre informazioni
+    - title: Segreti e chiavi
+      links:
+        - url: ../key-vault/general/overview.md
+          itemType: overview
+          text: Informazioni sull'insieme di credenziali delle chiavi di Azure
+        - url: ../key-vault/secrets/quick-create-cli.md
+          itemType: quickstart
+          text: Impostare e recuperare un segreto
+        - url: ../dedicated-hsm/overview.md
+          itemType: overview
+          text: Informazioni su Modulo di protezione hardware dedicato di Azure
+      footerLink:
+        url: ../key-vault/index.yml
+        text: Altre informazioni
+    - title: Protezione dei dati
+      links:
+        - url: ./fundamentals/encryption-atrest.md
+          itemType: concept
+          text: Crittografia dei dati inattivi
+        - url: ./fundamentals/data-encryption-best-practices.md
+          itemType: concept
+          text: Procedure consigliate per la sicurezza e la crittografia dei dati
+        - url: ../storage/blobs/security-recommendations.md
+          itemType: concept
+          text: Sicurezza di archiviazione
+      footerLink:
+        url: ./fundamentals/encryption-overview.md
+        text: Altre informazioni
+    - title: Gestione delle identità
+      links:
+        - url: ../active-directory/hybrid/choose-ad-authn.md
+          itemType: concept
+          text: Scegliere il metodo di autenticazione corretto
+        - url: ./fundamentals/steps-secure-identity.md
+          itemType: concept
+          text: Protezione dell'infrastruttura di identità
+        - url: ./fundamentals/identity-management-best-practices.md
+          itemType: concept
+          text: Procedure consigliate per la sicurezza
+      footerLink:
+        url: ./fundamentals/identity-management-overview.md
+        text: Altre informazioni
+    - title: Monitoraggio della protezione
+      links:
+        - url: ../security-center/security-center-get-started.md
+          itemType: quickstart
+          text: Eseguire l'onboarding della sottoscrizione nel Centro sicurezza
+        - url: ../security-center/security-center-just-in-time.md
+          itemType: how-to-guide
+          text: Accesso Just-In-Time alle macchine virtuali
+        - url: ../security-center/tutorial-security-policy.md
+          itemType: how-to-guide
+          text: Utilizzo dei criteri di sicurezza
+      footerLink:
+        url: ../security-center/index.yml
+        text: Altre informazioni
+    - title: Monitoraggio della sicurezza per IoT
+      links:
+        - url: ../defender-for-iot/overview.md
+          itemType: overview
+          text: Introduzione al Centro sicurezza di Azure per IoT
+        - url: ../defender-for-iot/architecture.md
+          itemType: how-to-guide
+          text: 'Centro sicurezza di Azure per IoT: architettura'
+        - url: ../defender-for-iot/getting-started.md
+          itemType: how-to-guide
+          text: Introduzione al Centro sicurezza di Azure per IoT
+      footerLink:
+        url: /azure/asc-for-iot/
+        text: Altre informazioni
+    - title: Analisi sicurezza
+      links:
+        - url: ../sentinel/overview.md
+          itemType: overview
+          text: Che cos'è Azure Sentinel (anteprima)?
+        - url: ../sentinel/quickstart-onboard.md
+          itemType: quickstart
+          text: Eseguire l'onboarding di Azure Sentinel (anteprima)
+        - url: ../sentinel/quickstart-get-visibility.md
+          itemType: quickstart
+          text: Introduzione ad Azure Sentinel (anteprima)
+      footerLink:
+        url: ../sentinel/index.yml
+        text: Altre informazioni
+    - title: Protezione dalle minacce
+      links:
+        - url: ../security-center/security-center-alerts-overview.md
+          itemType: concept
+          text: Avvisi di sicurezza nel Centro sicurezza di Azure
+        - url: ../storage/common/azure-defender-storage-configure.md
+          itemType: concept
+          text: Azure Defender per Archiviazione
+        - url: ../azure-sql/database/threat-detection-overview.md
+          itemType: concept
+          text: Azure Defender per SQL
+      footerLink:
+        url: ./fundamentals/threat-detection.md
+        text: Altre informazioni
+    - title: Registrazione e controllo
+      links:
+        - url: ./fundamentals/log-audit.md
+          itemType: concept
+          text: Registrazione e controllo di Azure
+        - url: ./fundamentals/management-monitoring-overview.md
+          itemType: overview
+          text: Panoramica su gestione e monitoraggio
+      footerLink:
+        url: /search/?category=Documentation&scope=azure&search=security%2baudit%2blog
+        text: Cercare altre informazioni
+    - title: Sicurezza di rete
+      links:
+        - url: ./fundamentals/network-overview.md
+          itemType: overview
+          text: Panoramica della sicurezza
+        - url: ./fundamentals/network-best-practices.md
+          itemType: concept
+          text: Procedure consigliate per la sicurezza
+        - url: ../ddos-protection/fundamental-best-practices.md
+          itemType: concept
+          text: Protezione DDoS
+    - title: Sicurezza dell'infrastruttura
+      links:
+        - url: ./fundamentals/physical-security.md
+          itemType: concept
+          text: 'Sicurezza fisica, locali e strutture di Azure'
+        - url: ./fundamentals/infrastructure-network.md
+          itemType: concept
+          text: Architettura di rete
+        - url: ./fundamentals/protection-customer-data.md
+          itemType: concept
+          text: Protezione dei dati dei clienti
+      footerLink:
+        url: ./fundamentals/infrastructure.md
+        text: Altre informazioni
+    - title: Sicurezza delle macchine virtuali
+      links:
+        - url: ./fundamentals/virtual-machines-overview.md
+          itemType: overview
+          text: Panoramica della sicurezza
+        - url: ./fundamentals/iaas.md
+          itemType: concept
+          text: Procedure consigliate per i carichi di lavoro IaaS
+        - url: ./fundamentals/azure-marketplace-images.md
+          itemType: concept
+          text: Raccomandazioni sulla configurazione della sicurezza
+    - title: Sicurezza del database
+      links:
+        - url: ./fundamentals/encryption-overview.md#encryption-of-data-at-rest-with-azure-sql-database
+          itemType: overview
+          text: Sicurezza dei dati
+        - url: ./fundamentals/paas-applications-using-sql.md
+          itemType: concept
+          text: Procedure consigliate per i database per PaaS
+        - url: ./fundamentals/database-security-checklist.md
+          itemType: concept
+          text: Elenco di controllo relativo alla sicurezza
+    - title: Governance e conformità
+      links:
+        - url: ../governance/policy/overview.md
+          itemType: overview
+          text: Servizio Criteri di Azure
+        - url: ../governance/blueprints/overview.md
+          itemType: overview
+          text: Servizio Azure Blueprints
+      footerLink:
+        url: ../governance/index.yml
+        text: Altre informazioni

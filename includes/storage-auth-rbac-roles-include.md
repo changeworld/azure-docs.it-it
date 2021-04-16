@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: f014ce55dc40723faf1b60f908814f9fa0428b8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18f64defbc4222b46d858cb9cfd3e9b56866a4d0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99213929"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107512654"
 ---
 Azure prevede i seguenti ruoli predefiniti di Azure per l'autorizzazione dell'accesso a dati di BLOB e code tramite Azure AD e OAuth:
 
@@ -26,9 +26,9 @@ Azure prevede i seguenti ruoli predefiniti di Azure per l'autorizzazione dell'ac
 - [Ruolo con autorizzazioni di elaborazione per i messaggi sui dati della coda di archiviazione](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): consente di concedere autorizzazioni di visualizzazione, recupero ed eliminazione per i messaggi nelle code di Archiviazione di Azure.
 - [Mittente dei messaggi sui dati della coda di archiviazione](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): consente di concedere autorizzazioni di aggiunta per i messaggi nelle code di Archiviazione di Azure.
 
-Solo i ruoli definiti in modo esplicito per l'accesso ai dati consentono a un'entità di sicurezza di accedere ai dati di BLOB o code. I ruoli predefiniti, ad esempio **Proprietario**, **Collaboratore** e **Collaboratore Account di archiviazione** permettono a un'entità di sicurezza di gestire un account di archiviazione, ma non forniscono l'accesso ai dati di BLOB o code all'interno di tale account tramite Azure AD. Tuttavia, se un ruolo include **Microsoft.Storage/storageAccounts/listKeys/action**, un utente a cui è assegnato può accedere ai dati nell'account di archiviazione tramite l'autorizzazione con chiave condivisa con le chiavi di accesso all'account. Per altre informazioni, vedere [Usare il portale di Azure per accedere ai dati di BLOB o code](../articles/storage/blobs/authorize-data-operations-portal.md).
+Solo i ruoli definiti in modo esplicito per l'accesso ai dati consentono a un'entità di sicurezza di accedere ai dati di BLOB o code. I ruoli predefiniti, ad esempio **Proprietario**, **Collaboratore** e **Collaboratore Account di archiviazione** permettono a un'entità di sicurezza di gestire un account di archiviazione, ma non forniscono l'accesso ai dati di BLOB o code all'interno di tale account tramite Azure AD. Tuttavia, se un ruolo include **Microsoft.Storage/storageAccounts/listKeys/action,** un utente a cui è assegnato tale ruolo può accedere ai dati nell'account di archiviazione tramite l'autorizzazione chiave condivisa con le chiavi di accesso dell'account. Per altre informazioni, vedere [Usare il portale di Azure per accedere ai dati di BLOB o code](../articles/storage/blobs/authorize-data-operations-portal.md).
 
 Per informazioni dettagliate sui ruoli predefiniti di Azure per Archiviazione di Azure, sia per i servizi dati che per il servizio di gestione, vedere la sezione **Archiviazione** in [Ruoli predefiniti di Azure per il controllo degli accessi in base al ruolo di Azure](../articles/role-based-access-control/built-in-roles.md#storage). Inoltre, per informazioni sui diversi tipi di ruolo che forniscono le autorizzazioni in Azure, vedere [Ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
-> Le assegnazioni di ruolo di Azure possono richiedere fino a 30 minuti per la propagazione.
+> La propagazione delle assegnazioni di ruolo di Azure può richiedere fino a 30 minuti.

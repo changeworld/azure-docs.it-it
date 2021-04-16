@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva-gestire i numeri di telefono usando i servizi di comunicazione di Azure
-description: Informazioni su come gestire i numeri di telefono usando i servizi di comunicazione di Azure
+title: 'Avvio rapido: Gestire i numeri di telefono con Servizi di comunicazione di Azure'
+description: Informazioni su come gestire i numeri di telefono usando Servizi di comunicazione di Azure
 author: prakulka
 manager: nmurav
 services: azure-communication-services
@@ -10,16 +10,18 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
 zone_pivot_groups: acs-azp-java-net-python-csharp-js
-ms.openlocfilehash: 0f4a461ac5d459c6e3311400785e34bc22f40a00
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 19bb79f9a4deaebfacc75918c46a5516d2d398be
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728454"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498195"
 ---
-# <a name="quickstart-manage-phone-numbers"></a>Guida introduttiva: gestire i numeri di telefono
+# <a name="quickstart-manage-phone-numbers"></a>Guida introduttiva: Gestire i numeri di telefono
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
+[!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
@@ -45,9 +47,9 @@ ms.locfileid: "105728454"
 
 Domande e problemi comuni:
 
-- Il telefono per l'acquisto è supportato solo negli Stati Uniti. Per acquistare i numeri di telefono, verificare quanto segue:
-  - L'indirizzo di fatturazione della sottoscrizione di Azure associato si trova nel Stati Uniti. Non è possibile spostare una risorsa in un'altra sottoscrizione in questo momento.
-  - Il provisioning della risorsa di servizi di comunicazione viene effettuato nel percorso dei dati Stati Uniti. In questo momento non è possibile spostare una risorsa in un altro percorso dati.
+- L'acquisto del telefono è supportato solo negli Stati Uniti. Per acquistare i numeri di telefono, assicurarsi che:
+  - L'indirizzo di fatturazione della sottoscrizione di Azure associato si trova nel Stati Uniti. Al momento non è possibile spostare una risorsa in un'altra sottoscrizione.
+  - Il provisioning della risorsa di Servizi di comunicazione viene eseguito nel percorso Stati Uniti dati. Al momento non è possibile spostare una risorsa in un'altra posizione dati.
 
 - I numeri di telefono rilasciati non potranno essere rilasciati o riacquistati fino al termine del ciclo di fatturazione.
 

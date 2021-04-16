@@ -1,35 +1,35 @@
 ---
-title: Configurare il consenso del proprietario del gruppo per le app che accedono ai dati di gruppo usando Azure AD
-description: Informazioni su come gestire se i proprietari di gruppi e team possono dare il consenso alle applicazioni che avranno accesso ai dati del gruppo o del team.
+title: Configurare il consenso del proprietario del gruppo per le app che accedono ai dati del gruppo usando Azure AD
+description: Informazioni su come gestire se i proprietari del gruppo e del team possono dare il consenso alle applicazioni che avranno accesso ai dati del gruppo o del team.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8d8604a1dd54ed819bb9e27c46d61a46466bf3da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be28148aacf270f2f3cfabad4cbd5f03afa05d3b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548802"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374421"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurare il consenso del proprietario del gruppo per le app che accedono ai dati di gruppo
 
-I proprietari di gruppi e team possono autorizzare le applicazioni, ad esempio le applicazioni pubblicate da fornitori di terze parti, ad accedere ai dati dell'organizzazione associati a un gruppo. Ad esempio, il proprietario di un team in Microsoft Teams può consentire a un'app di leggere tutti i messaggi del team oppure elencare il profilo di base dei membri di un gruppo. Per altre informazioni, vedere il [consenso specifico per le risorse in Microsoft teams](/microsoftteams/resource-specific-consent) .
+I proprietari di gruppi e team possono autorizzare le applicazioni, ad esempio le applicazioni pubblicate da fornitori di terze parti, ad accedere ai dati dell'organizzazione associati a un gruppo. Ad esempio, il proprietario di un team in Microsoft Teams può consentire a un'app di leggere tutti i messaggi del team oppure elencare il profilo di base dei membri di un gruppo. Per [altre informazioni, vedere Consenso specifico delle risorse in Microsoft Teams.](/microsoftteams/resource-specific-consent)
 
 ## <a name="manage-group-owner-consent-to-apps"></a>Gestire il consenso del proprietario del gruppo alle app
 
-È possibile configurare quali utenti possono concedere il consenso alle app che accedono ai dati dei gruppi o dei team oppure è possibile disabilitare questa operazione per tutti gli utenti.
+È possibile configurare gli utenti autorizzati a dare il consenso alle app che accedono ai dati dei gruppi o dei team oppure è possibile disabilitare questa impostazione per tutti gli utenti.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Seguire questa procedura per gestire il consenso del proprietario del gruppo alle app che accedono ai dati di gruppo:
+Seguire questa procedura per gestire il consenso del proprietario del gruppo alle app che accedono ai dati del gruppo:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../roles/permissions-reference.md#global-administrator).
 2. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Consenso e autorizzazioni** > **Impostazioni per il consenso utente**.
@@ -117,7 +117,7 @@ In questo esempio, tutti i proprietari del gruppo possono fornire il consenso al
 
 Per altre informazioni:
 
-* [Configurare le impostazioni di consenso dell'utente](configure-user-consent.md)
+* [Configurare le impostazioni di consenso utente](configure-user-consent.md)
 * [Configurare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md)
 * [Informazioni su come gestire il consenso alle applicazioni e valutare le richieste di consenso](manage-consent-requests.md)
 * [Concedere a un'applicazione il consenso amministratore a livello di tenant](grant-admin-consent.md)

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: b22954edf4f3a5a935c470326aa43bd24ee2d708
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 61fcbfa9d40ebb26485ce8160fa3b011935ab4d6
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366063"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536311"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creazione di un'area di lavoro di Synapse
 
@@ -39,17 +39,20 @@ Compilare i campi seguenti:
 1. **Gruppo di risorse:** usare qualsiasi gruppo di risorse.
 1. **Gruppo di risorse gestite:** lasciare vuoto questo campo.
 
-## <a name="basics-tab--workspace-details"></a>Scheda Informazioni di base >'area di lavoro
+## <a name="basics-tab--workspace-details"></a>Scheda Informazioni di base > dettagli dell'area di lavoro
 Compilare i campi seguenti:
 
-1. **Nome area di** lavoro: selezionare un nome univoco globale. In questa esercitazione si userà **myworkspace**.
-1. **Area:** selezionare qualsiasi area.
+1. **Nome area di** lavoro: selezionare qualsiasi nome univoco globale. In questa esercitazione si userà **myworkspace**.
+1. **Area:** selezionare l'area in cui sono state posizionate le applicazioni/servizi client (ad esempio, macchina virtuale di Azure, Power BI, Azure Analysis Service) e le risorse di archiviazione che contengono dati (ad esempio Archiviazione Di Azure Data Lake, Azure Cosmos DB archiviazione analitica).
 
-In **Selezionare Data Lake Storage Gen 2:**
+> [!NOTE]
+> Un'area di lavoro non condivisa con le applicazioni client o l'archiviazione può essere la causa principale di molti problemi di prestazioni. Se i dati o i client sono posizionati in più aree, è possibile creare aree di lavoro separate in aree diverse colocate con i dati e i client.
 
-1. In **Nome account** selezionare Crea nuovo e assegnare al nuovo account di archiviazione il nome  **contosolake** o un nome simile a , in quanto il nome deve essere univoco.
-1. Per **Nome file system** selezionare Crea nuovo **e** assegnare agli utenti il nome **.** Verrà creato un contenitore di archiviazione denominato **users**. L'area di lavoro userà questo account di archiviazione come account di archiviazione "primario" per le tabelle Spark e i log delle applicazioni Spark.
-1. Selezionare la casella "Assign me the Storage Blob Data Contributor role on the Data Lake Storage Gen2 account" (Assegna a se stesso il ruolo Collaboratore ai dati dei BLOB di archiviazione nell'account di archiviazione). 
+In **Selezionare Data Lake Storage Generazione 2**:
+
+1. In **Nome account** selezionare Crea nuovo e assegnare al nuovo account di archiviazione il nome  **contosolake** o simile al nome che deve essere univoco.
+1. In **Nome file system** selezionare Crea **nuovo** e assegnare un nome **agli utenti.** Verrà creato un contenitore di archiviazione denominato **users**. L'area di lavoro userà questo account di archiviazione come account di archiviazione "primario" per le tabelle Spark e i log delle applicazioni Spark.
+1. Selezionare la casella "Assegna a se stesso il ruolo Collaboratore dati BLOB di archiviazione nell'account Data Lake Storage Gen2". 
 
 ## <a name="completing-the-process"></a>Completamento del processo
 Selezionare **Rivedi e crea** > **Crea**. L'area di lavoro sarò pronta entro pochi minuti.
@@ -62,7 +65,7 @@ Selezionare **Rivedi e crea** > **Crea**. L'area di lavoro sarò pronta entro po
 
 Dopo aver creato l'area di lavoro di Azure Synapse, è possibile aprire Synapse Studio in due modi:
 
-* Aprire l'area di lavoro di Synapse  [nel](https://portal.azure.com)portale di Azure , nella sezione  Panoramica dell'area di lavoro Synapse selezionare Apri nella casella Synapse Studio Apri.
+* Aprire l'area di lavoro Synapse nel [portale di Azure](https://portal.azure.com), nella sezione **Panoramica**  dell'area di lavoro Synapse selezionare Apri nella casella Apri Synapse Studio.
 * Passare a `https://web.azuresynapse.net` e accedere alla propria area di lavoro.
 
 ## <a name="place-sample-data-into-the-primary-storage-account"></a>Inserire i dati di esempio nell'account di archiviazione primario
@@ -71,8 +74,8 @@ In questa guida introduttiva verrà utilizzato un piccolo set di dati di esempio
 * Scaricare questo file nel computer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
 * In Synapse Studio passare all'hub dati. 
 * Selezionare **Collegato.**
-* Nella categoria **Azure Data Lake Storae Gen2** verrà visualizzato un elemento con un nome come **myworkspace ( Primary - contosolake ).**
-* Selezionare il contenitore denominato **users (Primary)**.
+* Sotto la categoria **Azure Data Lake Storage Gen2** verrà visualizzato un elemento con un nome come **myworkspace ( Primary - contosolake )**.
+* Selezionare il contenitore **denominato users (Primary)**.
 * Selezionare **Carica** e selezionare il `NYCTripSmall.parquet` file scaricato.
 
 ## <a name="next-steps"></a>Passaggi successivi

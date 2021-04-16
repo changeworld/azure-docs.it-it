@@ -1,47 +1,47 @@
 ---
 title: Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 titleSuffix: Azure Storage
-description: Eseguire l'aggiornamento a account di archiviazione di uso generico V2 usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Specificare un livello di accesso per i dati BLOB.
+description: Eseguire l'aggiornamento agli account di archiviazione per utilizzo generico v2 usando portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Specificare un livello di accesso per i dati BLOB.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: tamram
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 30c73849d07c1495251c17510ea71f29c674c618
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: d6d94efea52d920b8bfe69be2ee07c8b829792d8
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967490"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484099"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 
-Gli account di archiviazione per utilizzo generico v2 supportano le funzionalità di archiviazione di Azure più recenti e incorporano tutte le funzionalità degli account di archiviazione BLOB e per utilizzo generico v1. Gli account per utilizzo generico v2 rappresentano la scelta consigliata per la maggior parte degli scenari. Gli account per utilizzo generico v2 offrono i prezzi per gigabyte più bassi per Archiviazione di Azure, oltre a prezzi per transazione competitivi a livello di settore. Gli account per utilizzo generico V2 supportano i livelli di accesso account predefinito di livello frequente o sporadico e a livello di BLOB tra accesso frequente, ad accesso sporadico o archivio.
+Gli account di archiviazione per utilizzo generico v2 supportano le funzionalità di archiviazione di Azure più recenti e incorporano tutte le funzionalità degli account di archiviazione BLOB e per utilizzo generico v1. Gli account per utilizzo generico v2 rappresentano la scelta consigliata per la maggior parte degli scenari. Gli account per utilizzo generico v2 offrono i prezzi per gigabyte più bassi per Archiviazione di Azure, oltre a prezzi per transazione competitivi a livello di settore. Gli account per utilizzo generico v2 supportano i livelli di accesso agli account predefiniti con livelli di accesso ad accesso ad accesso rapido o ad accesso ad accesso elevato e a livello di BLOB tra accesso ad accesso rapido, ad accesso ad accesso limitato o archivio.
 
-L'aggiornamento a un account di archiviazione per utilizzo generico V2 dagli account di archiviazione BLOB o V1 per utilizzo generico è semplice. È possibile eseguire l'aggiornamento tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Non sono previsti tempi di inattività o rischi di perdita dei dati associati all'aggiornamento a un account di archiviazione per utilizzo generico V2. L'aggiornamento dell'account avviene tramite una semplice operazione di Azure Resource Manager che modifica il tipo di account.
+L'aggiornamento a un account di archiviazione per utilizzo generico v2 dagli account di archiviazione per utilizzo generico v1 o BLOB è semplice. È possibile eseguire l'aggiornamento tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Non sono presenti tempi di inattività o rischi di perdita di dati associati all'aggiornamento a un account di archiviazione per utilizzo generico v2. L'aggiornamento dell'account avviene tramite una semplice Azure Resource Manager che modifica il tipo di account.
 
 > [!IMPORTANT]
-> L'aggiornamento di un account di archiviazione BLOB o per utilizzo generico V1 a utilizzo generico V2 è permanente e non può essere annullato.
+> L'aggiornamento di un account di archiviazione BLOB o per utilizzo generico v1 alla versione 2 per utilizzo generico è permanente e non può essere annullato.
 
 > [!NOTE]
-> Sebbene Microsoft consigli gli account per utilizzo generico V2 per la maggior parte degli scenari, Microsoft continuerà a supportare gli account per utilizzo generico V1 per i clienti nuovi ed esistenti. È possibile creare account di archiviazione per utilizzo generico V1 in nuove aree ogni volta che archiviazione di Azure è disponibile in tali aree. Microsoft non ha attualmente un piano per deprecare il supporto per gli account per utilizzo generico V1 e fornirà almeno un preavviso di un anno prima di deprecare le funzionalità di archiviazione di Azure. Microsoft continuerà a fornire aggiornamenti della sicurezza per gli account per utilizzo generico V1, ma per questo tipo di account non è previsto alcun nuovo sviluppo di funzionalità.
+> Anche se Microsoft consiglia gli account per utilizzo generico v2 per la maggior parte degli scenari, Microsoft continuerà a supportare gli account per utilizzo generico v1 per i clienti nuovi ed esistenti. È possibile creare account di archiviazione per utilizzo generico v1 in nuove aree ogni volta Archiviazione di Azure disponibili in tali aree. Microsoft attualmente non ha un piano per deprecare il supporto per gli account per utilizzo generico v1 e fornirà almeno un anno di preavviso prima di deprecare qualsiasi funzionalità Archiviazione di Azure. Microsoft continuerà a fornire aggiornamenti della sicurezza per gli account per utilizzo generico v1, ma non è previsto alcun nuovo sviluppo di funzionalità per questo tipo di account.
 >
-> Per le nuove aree di Azure che sono online dopo il 1 ° ottobre 2020, i prezzi per gli account per utilizzo generico V1 sono stati modificati e sono equivalenti ai prezzi per gli account per utilizzo generico V2 in tali aree. I prezzi per gli account per utilizzo generico V1 nelle aree di Azure esistenti prima del 1 ° ottobre 2020 non sono stati modificati. Per informazioni dettagliate sui prezzi per gli account per utilizzo generico V1 in un'area specifica, vedere la pagina dei prezzi di archiviazione di Azure. Scegliere l'area geografica e quindi selezionare **altro** accanto a offerte per i **prezzi**.
+> Per le nuove aree di Azure che sono state online dopo il 1° ottobre 2020, i prezzi per gli account per utilizzo generico v1 sono stati modificati ed è equivalente ai prezzi per gli account per utilizzo generico v2 in tali aree. I prezzi per gli account per utilizzo generico v1 nelle aree di Azure esistenti prima del 1° ottobre 2020 non sono stati modificati. Per informazioni dettagliate sui prezzi per gli account per utilizzo generico v1 in un'area specifica, vedere la pagina Archiviazione di Azure prezzi. Scegliere l'area e quindi accanto a **Offerte per i prezzi** selezionare **Altro**.
 
 ## <a name="upgrade-an-account"></a>Aggiornare un account
 
-Per aggiornare un account di archiviazione BLOB o V1 di uso generico a un account per utilizzo generico V2, usare portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
+Per aggiornare un account di archiviazione BLOB o per utilizzo generico v1 a un account per utilizzo generico v2, usare portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare all'account di archiviazione.
 3. Nella sezione **Impostazioni** fare clic su **Configurazione**.
-4. In **tipo di account** fare clic su **Aggiorna**.
-5. In **Conferma aggiornamento** Digitare il nome dell'account.
-6. Fare clic su **Aggiorna** nella parte inferiore del pannello.
+4. In **Account kind (Tipo di account)** fare clic **su Upgrade (Aggiorna).**
+5. In **Conferma aggiornamento** digitare il nome dell'account.
+6. Fare **clic su** Aggiorna nella parte inferiore del pannello.
 
     ![Tipo di account di aggiornamento](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
@@ -71,24 +71,24 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Specificare un livello di accesso per i dati BLOB
 
-Gli account per utilizzo generico V2 supportano tutti i servizi di archiviazione di Azure e gli oggetti dati, ma i livelli di accesso sono disponibili solo per i BLOB in blocchi nell'archivio BLOB. Quando si esegue l'aggiornamento a un account di archiviazione per utilizzo generico V2, è possibile specificare un livello di accesso account predefinito di accesso frequente o sporadico, che indica il livello predefinito in cui verranno caricati i dati BLOB come se il singolo parametro del livello di accesso BLOB non fosse specificato.
+Gli account per utilizzo generico v2 supportano tutti i servizi e gli oggetti dati di Archiviazione di Azure, ma i livelli di accesso sono disponibili solo per i BLOB in blocchi all'interno dell'archiviazione BLOB. Quando si esegue l'aggiornamento a un account di archiviazione per utilizzo generico v2, è possibile specificare un livello di accesso all'account predefinito ad accesso rapido o ad accesso limitato, che indica il livello predefinito in cui verranno caricati i dati BLOB come se non fosse specificato il singolo parametro del livello di accesso al BLOB.
 
-I livelli di accesso ai BLOB consentono di scegliere la risorsa di archiviazione più conveniente in base ai modelli di utilizzo previsti. I BLOB in blocchi possono essere archiviati in livelli ad accesso frequente, ad accesso sporadico o archivio. Per altre informazioni sui livelli di accesso, vedere [archiviazione BLOB di Azure: livelli di archiviazione ad accesso frequente, ad](../blobs/storage-blob-storage-tiers.md)accesso sporadico e archivio.
+I livelli di accesso BLOB consentono di scegliere l'archiviazione più conveniente in base ai modelli di utilizzo previsti. I BLOB in blocchi possono essere archiviati in livelli di accesso ad accesso più caldo, ad accesso ad accesso archivio o archivio. Per altre informazioni sui livelli di accesso, vedere Archiviazione BLOB di Azure: livelli di archiviazione ad accesso rapido, ad accesso [limitato e archivio.](../blobs/storage-blob-storage-tiers.md)
 
-Per impostazione predefinita, viene creato un nuovo account di archiviazione nel livello di accesso frequente e un account di archiviazione per utilizzo generico V1 può essere aggiornato al livello di account frequente o ad accesso sporadico. Se non è stato specificato un livello di accesso dell'account durante l'aggiornamento, verrà aggiornato a attivo per impostazione predefinita. Se si sta esplorando il livello di accesso da usare per l'aggiornamento, considerare lo scenario di utilizzo dei dati corrente. Esistono due tipici scenari utente per la migrazione a un account per utilizzo generico v2:
+Per impostazione predefinita, viene creato un nuovo account di archiviazione nel livello di accesso ad accesso rapido e un account di archiviazione per utilizzo generico v1 può essere aggiornato al livello di account ad accesso ad accesso rapido o ad accesso ad accesso rapido. Se durante l'aggiornamento non viene specificato un livello di accesso dell'account, per impostazione predefinita verrà aggiornato all'accesso ad accesso più rapido. Se si sta valutando il livello di accesso da usare per l'aggiornamento, prendere in considerazione lo scenario di utilizzo dei dati corrente. Esistono due tipici scenari utente per la migrazione a un account per utilizzo generico v2:
 
 * È disponibile un account di archiviazione per utilizzo generico v1 esistente e si vuole valutare un aggiornamento per passare a un account di archiviazione per utilizzo generico v2 con il livello di accesso all'archiviazione corretto per i dati BLOB.
-* Si è deciso di usare un account di archiviazione per utilizzo generico v2 o se ne ha già uno e si vuole valutare se usare il livello di accesso di archiviazione ad accesso frequente o sporadico per i dati BLOB.
+* Si è deciso di usare un account di archiviazione per utilizzo generico v2 o se ne è già disponibile uno e si vuole valutare se è consigliabile usare il livello di accesso ad accesso rapido o ad accesso ad accesso cool per i dati BLOB.
 
 In entrambi i casi, è prioritario stimare il costo di archiviazione, accesso e gestione dei dati archiviati in un account di archiviazione per utilizzo generico v2 e confrontarlo con i costi attuali.
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
-L'aggiornamento di un account di archiviazione V1 a un account per utilizzo generico V2 è gratuito. È possibile specificare il livello di account desiderato durante il processo di aggiornamento. Se non si specifica un livello di account durante l'aggiornamento, il livello di account predefinito dell'account aggiornato sarà `Hot` . Tuttavia, la modifica del livello di accesso alle archiviazioni dopo l'aggiornamento può comportare modifiche alla fattura, in modo che sia consigliabile specificare il nuovo livello di account durante l'aggiornamento.
+L'aggiornamento di un account di archiviazione v1 a un account per utilizzo generico v2 è gratuito. È possibile specificare il livello dell'account desiderato durante il processo di aggiornamento. Se non viene specificato un livello account durante l'aggiornamento, il livello account predefinito dell'account aggiornato sarà `Hot` . Tuttavia, la modifica del livello di accesso all'archiviazione dopo l'aggiornamento può comportare modifiche alla fattura, pertanto è consigliabile specificare il nuovo livello di account durante l'aggiornamento.
 
 Tutti gli account di archiviazione usano per l'archivio BLOB un modello di determinazione prezzi basato sul livello di ogni BLOB. Quando si usa un account di archiviazione, tenere conto delle considerazioni seguenti relative alla fatturazione:
 
-* **Costi di archiviazione**: oltre alla quantità di dati archiviati, il costo di archiviazione dei dati varia a seconda del livello di accesso di archiviazione. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
+* **Costi di archiviazione:** oltre alla quantità di dati archiviati, il costo di archiviazione dei dati varia a seconda del livello di accesso all'archiviazione. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.
 
 * **Costi di accesso ai dati**: i costi di accesso ai dati aumentano passando a un livello ad accesso più sporadico. Per i dati nei livelli di archiviazione ad accesso sporadico e archivio vengono addebitati i costi per l'accesso ai dati per gigabyte per le operazioni di lettura.
 
@@ -98,7 +98,7 @@ Tutti gli account di archiviazione usano per l'archivio BLOB un modello di deter
 
 * **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
 
-* **Modifica del livello di accesso alla** risorsa di archiviazione: la modifica del livello di accesso di archiviazione account da sporadico a frequente comporta un addebito uguale alla lettura di tutti i dati esistenti nell'account di archiviazione. Il passaggio dell'account dal livello di accesso all'archiviazione ad accesso frequente a quello ad accesso sporadico comporta invece un addebito corrispondente a quello per la scrittura di tutti i dati nel livello ad accesso sporadico (solo per account per utilizzo generico v2).
+* **Modifica del livello di accesso** all'archiviazione: la modifica del livello di accesso all'archiviazione dell'account da ad accesso ad accesso rapido comporta un addebito pari alla lettura di tutti i dati esistenti nell'account di archiviazione. Il passaggio dell'account dal livello di accesso all'archiviazione ad accesso frequente a quello ad accesso sporadico comporta invece un addebito corrispondente a quello per la scrittura di tutti i dati nel livello ad accesso sporadico (solo per account per utilizzo generico v2).
 
 > [!NOTE]
 > Per altre informazioni sul modello di determinazione prezzi per gli account di archiviazione, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). Per altre informazioni sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -136,7 +136,7 @@ Per monitorare i modelli di accesso ai dati per l'archiviazione BLOB, è necessa
 
 Per ottenere una buona approssimazione del modello di accesso e di utilizzo dei dati, è consigliabile scegliere un periodo di conservazione per le metriche che rappresenti l'utilizzo regolare ed estrapolarne i dati. Una possibilità consiste nel conservare i dati delle metriche per sette giorni e raccoglierli ogni settimana per analizzarli alla fine del mese. Un'altra possibilità è conservare i dati di metrica per gli ultimi 30 giorni e raccogliere e analizzare i dati alla fine del periodo di 30 giorni.
 
-Per informazioni dettagliate sull'abilitazione, la raccolta e la visualizzazione dei dati di metrica, vedere [metriche di analisi archiviazione](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Per informazioni dettagliate sull'abilitazione, la raccolta e la visualizzazione dei dati delle metriche, vedere [Metriche di Analisi archiviazione](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Anche l'archiviazione, l'accesso e il download dei dati di analisi vengono addebitati come avviene per i dati utente normali.
@@ -180,5 +180,5 @@ I costi di trasferimento dati con replica geografica per gli account di archivia
 
 * [Panoramica dell'account di archiviazione](storage-account-overview.md)
 * [Creare un account di archiviazione](storage-account-create.md)
-* [Spostare un account di archiviazione di Azure in un'altra area](storage-account-move.md)
+* [Spostare un account Archiviazione di Azure in un'altra area](storage-account-move.md)
 * [consente di ripristinare un account di archiviazione eliminato](storage-account-recover.md)

@@ -3,26 +3,26 @@ title: Guida al protocollo AMQP 1.0 in Hub eventi e nel bus di servizio di Azure
 description: Guida al protocollo per le espressioni e descrizione di AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 ms.topic: article
 ms.date: 04/14/2021
-ms.openlocfilehash: 8575e17cd06a4153928837e6990c764d7a29993f
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 8d346aeef74e1f67d3d525c061d40314ee5342aa
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502063"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531014"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
 AMQP (Advanced Message Queueing Protocol) 1.0 è un protocollo di frame e di trasferimento che consente di trasferire messaggi tra due parti in modo asincrono, sicuro e affidabile. È il protocollo principale della messaggistica del bus di servizio e di Hub eventi di Azure.  
 
-AMQP 1.0 è il risultato di un'ampia collaborazione a livello di settore, tra fornitori di middleware, ad esempio Microsoft e Red Hat, e molti utenti di middleware di messaggistica, ad esempio JP Morgan Chase, che rappresenta il settore di servizi finanziari. Il forum di standardizzazione tecnica per le specifiche di estensione e protocollo AMQP è OASIS e ha ottenuto l'approvazione formale come standard internazionale come ISO/IEC 19494:2014. 
+AMQP 1.0 è il risultato di un'ampia collaborazione a livello di settore, tra fornitori di middleware, ad esempio Microsoft e Red Hat, e molti utenti di middleware di messaggistica, ad esempio JP Morgan Chase, che rappresenta il settore di servizi finanziari. Il forum sulla standardizzazione tecnica per le specifiche del protocollo e dell'estensione AMQP è OASIS e ha ottenuto l'approvazione formale come standard internazionale come ISO/IEC 19494:2014. 
 
 ## <a name="goals"></a>Obiettivi
 
-Questo articolo riepiloga i concetti di base della specifica di messaggistica AMQP 1.0 insieme alle specifiche di estensione sviluppate dal comitato tecnico [OASIS AMQP](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) e spiega come bus di servizio di Azure implementa e si basa su queste specifiche.
+Questo articolo riepiloga i concetti di base della specifica di messaggistica AMQP 1.0 insieme alle specifiche di estensione sviluppate dal Comitato tecnico [OASIS AMQP](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) e spiega come bus di servizio di Azure implementa e si basa su queste specifiche.
 
 L'obiettivo consiste nel permettere a tutti gli sviluppatori che usano uno stack client AMQP 1.0 esistente su qualsiasi piattaforma di interagire con il bus di servizio di Azure tramite AMQP 1.0.
 
-Gli stack AMQP 1.0 per utilizzo generico comuni, ad esempio [Apache Qpid Proton](https://qpid.apache.org/proton/index.html) o [AMQP.NET Lite,](https://github.com/Azure/amqpnetlite)implementano tutti gli elementi principali del protocollo AMQP 1.0, ad esempio sessioni o collegamenti. Questi elementi di base vengono talvolta incapsulati con un'API di livello superiore. Apache Proton offre anche due api, l'API Messenger imperativa e l'API reattiva Reactor.
+Gli stack amQP 1.0 per utilizzo generico comuni, ad esempio [Apache Qpid Proton](https://qpid.apache.org/proton/index.html) o [AMQP.NET Lite,](https://github.com/Azure/amqpnetlite)implementano tutti gli elementi principali del protocollo AMQP 1.0, ad esempio sessioni o collegamenti. Questi elementi di base vengono talvolta incapsulati con un'API di livello superiore. Apache Proton offre anche due api, l'API Messenger imperativa e l'API reattiva Reactor.
 
 Nella discussione che segue si presuppone che la gestione di connessioni, sessioni e collegamenti di AMQP e la gestione di trasferimenti di frame e del controllo di flusso siano a carico del rispettivo stack, ad esempio Apache Proton-C, e non richiedano attenzione specifica da parte degli sviluppatori di applicazioni. Si presuppone in modo astratto l'esistenza di alcune interfacce API primitive, ad esempio la possibilità di connettersi e di creare qualche genere di oggetti di astrazione *sender* e *receiver*, che includono rispettivamente un tipo di operazione `send()` e `receive()`.
 
@@ -48,11 +48,11 @@ L'origine più autorevole per apprendere il funzionamento di AMQP è la specific
 
 AMQP definisce *contenitori* i programmi di comunicazione. I contenitori includono *nodi*, ovvero entità che comunicano all'interno di tali contenitori. Una coda può essere un nodo di questo tipo. AMQP consente il multiplexing, quindi una singola connessione può essere usata per molti percorsi di comunicazione tra i nodi. Un client applicazione, ad esempio, può ricevere contemporaneamente da una coda e inviare a un'altra coda sulla stessa connessione di rete.
 
-![Diagramma che mostra sessioni e connessioni tra contenitori.][1]
+![Diagramma che mostra le sessioni e le connessioni tra contenitori.][1]
 
 La connessione di rete viene quindi ancorata al contenitore. Viene avviata dal contenitore nel ruolo client che effettua una connessione in uscita tramite socket TCP a un contenitore nel ruolo del ricevitore che è in ascolto e accetta connessioni TCP in ingresso. L'handshake di connessione include la negoziazione della versione del protocollo, la dichiarazione o la negoziazione dell'uso di TLS/SSL (Transport Level Security) e un handshake di autenticazione/autorizzazione nell'ambito di connessione basato su SASL.
 
-bus di servizio di Azure richiede sempre l'uso di TLS. Supporta connessioni sulla porta TCP 5671. La connessione TCP viene prima di tutto sovrapposta a TLS prima dell'handshake del protocollo AMQP e supporta anche connessioni sulla porta TCP 5672, in cui il server offre immediatamente un aggiornamento obbligatorio della connessione a TLS usando il modello prescritto da AMQP. L'associazione a WebSocket AMQP crea un tunnel sulla porta TCP 443 che è quindi equivalente a connessioni di tipo AMQP 5671.
+Il bus di servizio di Azure richiede sempre l'uso di TLS. Supporta connessioni sulla porta TCP 5671. La connessione TCP viene prima di tutto sovrapposta a TLS prima dell'handshake del protocollo AMQP e supporta anche connessioni sulla porta TCP 5672, in cui il server offre immediatamente un aggiornamento obbligatorio della connessione a TLS usando il modello prescritto da AMQP. L'associazione a WebSocket AMQP crea un tunnel sulla porta TCP 443 che è quindi equivalente a connessioni di tipo AMQP 5671.
 
 Dopo la configurazione della connessione e di TLS, il bus di servizio offre due opzioni per il meccanismo SASL:
 
@@ -67,17 +67,17 @@ Le sessioni hanno un modello di controllo del flusso basato su una finestra. Qua
 
 Il modello basato su finestra è quasi equivalente al concetto TCP del controllo di flusso basato su finestra, ma a livello di sessione all'interno del socket. Il concetto del protocollo che permette più sessioni contemporanee consente di dare la precedenza al traffico a priorità elevata rispetto al traffico normale con limitazioni.
 
-Il bus di servizio di Azure usa attualmente esattamente una sessione per ogni connessione. La dimensione massima del frame del bus di servizio è di 262.144 byte (256 K byte) per il bus di servizio Standard. Si tratta di 1.048.576 (1 MB) per Il bus di servizio Premium e Hub eventi. Il bus di servizio non impone alcuna finestra di limitazione specifica a livello di sessione, ma reimposta regolarmente la finestra come parte del controllo di flusso a livello di collegamento. Vedere la [sezione successiva](#links).
+Il bus di servizio di Azure usa attualmente esattamente una sessione per ogni connessione. La dimensione massima del frame del bus di servizio è di 262.144 byte (256.000 byte) per il bus di servizio Standard. È 1.048.576 (1 MB) per Il bus di servizio Premium e Hub eventi. Il bus di servizio non impone alcuna finestra di limitazione specifica a livello di sessione, ma reimposta regolarmente la finestra come parte del controllo di flusso a livello di collegamento. Vedere la [sezione successiva](#links).
 
 Le connessioni, le sessioni e i canali sono temporanei. In caso di interruzione della connessione sottostante, è necessario ristabilire le connessioni, il tunnel TLS, il contesto di autorizzazione SASL e le sessioni.
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisiti delle porte in uscita AMQP
 
-I client che usano connessioni AMQP su TCP richiedono l'apertura delle porte 5671 e 5672 nel firewall locale. Insieme a queste porte, potrebbe essere necessario aprire porte aggiuntive se è abilitata la funzionalità [EnableLinkRedirect.](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect) `EnableLinkRedirect` è una nuova funzionalità di messaggistica che consente di ignorare un hop durante la ricezione dei messaggi, consentendo così di aumentare la velocità effettiva. Il client inizierà a comunicare direttamente con il servizio back-end tramite l'intervallo di porte 104XX, come illustrato nell'immagine seguente. 
+I client che usano connessioni AMQP su TCP richiedono l'apertura delle porte 5671 e 5672 nel firewall locale. Insieme a queste porte, potrebbe essere necessario aprire porte aggiuntive se è abilitata la funzionalità [EnableLinkRedirect.](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect) `EnableLinkRedirect` è una nuova funzionalità di messaggistica che consente di ignorare un hop durante la ricezione dei messaggi, aumentando così la velocità effettiva. Il client inizierà a comunicare direttamente con il servizio back-end tramite l'intervallo di porte 104XX, come illustrato nell'immagine seguente. 
 
 ![Elenco delle porte di destinazione][4]
 
-Un client .NET avrà esito negativo con socketException ("È stato effettuato un tentativo di accedere a un socket in modo non consentito dalle autorizzazioni di accesso") se queste porte sono bloccate dal firewall. La funzionalità può essere disabilitata impostando nella stringa di connessione, che forza i client a comunicare con il `EnableAmqpLinkRedirect=false` servizio remoto sulla porta 5671.
+Un client .NET avrà esito negativo con un'eccezione SocketException ("È stato effettuato un tentativo di accedere a un socket in un modo non consentito dalle relative autorizzazioni di accesso") se queste porte sono bloccate dal firewall. La funzionalità può essere disabilitata impostando nella stringa di connessione, che impone ai client di comunicare con il servizio remoto `EnableAmqpLinkRedirect=false` sulla porta 5671.
 
 
 ### <a name="links"></a>Collegamenti
@@ -100,13 +100,13 @@ Il client che si connette deve anche usare un nome di nodo locale per la creazio
 
 Dopo la creazione di un collegamento, è possibile trasferire i messaggi su tale collegamento. In AMQP un trasferimento viene eseguito con un gesto esplicito del protocollo, ovvero la performativa *transfer*, che sposta un messaggio dal mittente al ricevitore tramite un collegamento. Un trasferimento è completo quando è "finalizzato", ovvero quando entrambe le parti hanno raggiunto un accordo condiviso dell'esito del trasferimento.
 
-![Diagramma che mostra il trasferimento di un messaggio tra il mittente e il ricevitore e la disposizione che ne deriva.][3]
+![Diagramma che mostra il trasferimento di un messaggio tra il mittente e il destinatario e la disposizione che ne risulta.][3]
 
 Nel caso più semplice il mittente può scegliere di inviare messaggi "pre-finalizzati", ovvero il client non è interessato all'esito e il ricevitore non fornisce alcun commento sull'esito dell'operazione. Questa modalità è supportata dal bus di servizio a livello del protocollo AMQP, ma non viene esposta in nessuna API client.
 
 La situazione normale prevede l'invio di messaggi non finalizzati. Il ricevitore indica quindi l'accettazione o il rifiuto usando la performativa *disposition*. Il rifiuto si verifica quando il ricevitore non può accettare il messaggio per qualsiasi motivo e il messaggio di rifiuto contiene informazioni sul motivo, ovvero una struttura di errore definita da AMQP. Se i messaggi vengono rifiutati a causa di errori interni nel bus di servizio, il servizio restituisce informazioni aggiuntive all'interno della struttura. Queste informazioni possono essere usate per offrire suggerimenti di diagnostica al personale di supporto tecnico in caso di invio di richieste di supporto. Informazioni dettagliate sugli errori sono disponibili più avanti.
 
-Una forma speciale di rifiuto è costituita dallo stato *released*, che indica che il ricevitore non ha alcuna obiezione tecnica al trasferimento, ma non è al tempo stesso interessato alla finalizzazione del trasferimento. È ad esempio possibile che un messaggio venga recapitato a un client del bus di servizio e che il client scelga di "abbandonare" il messaggio perché non è in grado di eseguire le operazioni risultanti dall'elaborazione del messaggio stesso, anche se l'operazione di recapito non presenta errori. Una variazione di questo stato è lo stato *modified*, che consente modifiche al messaggio durante il rilascio. Attualmente, questo stato non viene usato dal bus di servizio in .
+Una forma speciale di rifiuto è costituita dallo stato *released*, che indica che il ricevitore non ha alcuna obiezione tecnica al trasferimento, ma non è al tempo stesso interessato alla finalizzazione del trasferimento. È ad esempio possibile che un messaggio venga recapitato a un client del bus di servizio e che il client scelga di "abbandonare" il messaggio perché non è in grado di eseguire le operazioni risultanti dall'elaborazione del messaggio stesso, anche se l'operazione di recapito non presenta errori. Una variazione di questo stato è lo stato *modified*, che consente modifiche al messaggio durante il rilascio. Questo stato non viene attualmente usato dal bus di servizio.
 
 La specifica AMQP 1.0 definisce uno stato di disposizione aggiuntivo denominato *received*, che semplifica in modo specifico la gestione del recupero del collegamento. Il recupero del collegamento consente di ricostituire lo stato di un collegamento e di eventuali recapiti in sospeso su una nuova connessione e sessione, in caso di perdita della connessione e della sessione precedente.
 
@@ -122,7 +122,7 @@ Oltre al modello di controllo di flusso a livello di sessione illustrato in prec
 
 ![Screenshot di un log che mostra Origine, Destinazione, Porta di origine, Porta di destinazione e Nome protocollo. Nella prima riga la porta di destinazione 10401 (0x28 A 1) è delineata in nero.][4]
 
-In un collegamento, i trasferimenti possono verificarsi solo quando il mittente ha un credito *di collegamento sufficiente.* Il credito di collegamento è un contatore impostato dal ricevitore usando la performativa *flow*, che ha come ambito un collegamento. Quando riceve credito di collegamento, il mittente prova a usare completamente tale credito recapitando messaggi. Ogni recapito di messaggi riduce di 1 il credito di collegamento rimanente. Quando il credito di collegamento viene usato completamente, i recapiti si interrompono.
+Su un collegamento, i trasferimenti possono verificarsi solo quando il mittente ha un *credito di collegamento sufficiente.* Il credito di collegamento è un contatore impostato dal ricevitore usando la performativa *flow*, che ha come ambito un collegamento. Quando riceve credito di collegamento, il mittente prova a usare completamente tale credito recapitando messaggi. Ogni recapito di messaggi riduce di 1 il credito di collegamento rimanente. Quando il credito di collegamento viene usato completamente, i recapiti si interrompono.
 
 Quando il bus di servizio ha il ruolo di ricevitore, fornisce immediatamente al mittente un credito di collegamento molto ampio per consentire l'invio immediato dei messaggi. Durante l'uso del credito di collegamento, il bus di servizio invia di tanto in tanto una performativa *flow* al mittente per aggiornare il saldo del credito di collegamento.
 
@@ -144,67 +144,67 @@ Le frecce della seguente tabella visualizzano la direzione del flusso performati
 
 | Client | Bus di servizio |
 | --- | --- |
-| `--> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link ID}<br/>)` |Il client si collega a un'entità come ricevitore |
-| Il bus di servizio risponde collegando la propria estremità del collegamento |`<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link ID}<br/>)` |
+| --> attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**receiver**,<br/>source={nome entità},<br/>target={ID collegamento client}<br/>) |Il client si collega a un'entità come ricevitore |
+| Il bus di servizio risponde collegando la propria estremità del collegamento |<-- attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**sender**,<br/>source={nome entità},<br/>target={ID collegamento client}<br/>) |
 
 #### <a name="create-message-sender"></a>Creare il mittente dei messaggi
 
 | Client | Bus di servizio |
 | --- | --- |
-| `--> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>)` |Nessuna azione |
-| Nessuna azione |`<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link ID},<br/>target={entity name}<br/>)` |
+| --> attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**sender**,<br/>source={ID collegamento client},<br/>target={nome entità}<br/>) |Nessuna azione |
+| Nessuna azione |<-- attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**receiver**,<br/>source={ID collegamento client},<br/>target={nome entità}<br/>) |
 
 #### <a name="create-message-sender-error"></a>Creare il mittente dei messaggi (errore)
 
 | Client | Bus di servizio |
 | --- | --- |
-| `--> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>)` |Nessuna azione |
-| Nessuna azione |`<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>)` |
+| --> attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**sender**,<br/>source={ID collegamento client},<br/>target={nome entità}<br/>) |Nessuna azione |
+| Nessuna azione |<-- attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={handle numerico},<br/>closed=**true**,<br/>error={informazioni errore}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Chiudere il ricevitore/mittente dei messaggi
 
 | Client | Bus di servizio |
 | --- | --- |
-| `--> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)` |Nessuna azione |
-| Nessuna azione |`<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)` |
+| --> detach(<br/>handle={handle numerico},<br/>closed=**true**<br/>) |Nessuna azione |
+| Nessuna azione |<-- detach(<br/>handle={handle numerico},<br/>closed=**true**<br/>) |
 
 #### <a name="send-success"></a>Inviare (operazione riuscita)
 
 | Client | Bus di servizio |
 | --- | --- |
-| `--> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |Nessuna azione |
-| Nessuna azione |`<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>)` |
+| --> transfer(<br/>delivery-id={handle numerico},<br/>delivery-tag={handle binario},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nessuna azione |
+| Nessuna azione |<-- disposition(<br/>role=receiver,<br/>first={ID consegna},<br/>last={ID consegna},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-error"></a>Inviare (errore)
 
 | Client | Bus di servizio |
 | --- | --- |
-| `--> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |Nessuna azione |
-| Nessuna azione |`<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>)` |
+| --> transfer(<br/>delivery-id={handle numerico},<br/>delivery-tag={handle binario},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nessuna azione |
+| Nessuna azione |<-- disposition(<br/>role=receiver,<br/>first={ID consegna},<br/>last={ID consegna},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={informazioni errore}<br/>)<br/>) |
 
 #### <a name="receive"></a>Receive
 
 | Client | Bus di servizio |
 | --- | --- |
-| `--> flow(<br/>link-credit=1<br/>)` |Nessuna azione |
-| Nessuna azione |`< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |
-| `--> disposition(<br/>role=**receiver**,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>)` |Nessuna azione |
+| --> flow(<br/>link-credit=1<br/>) |Nessuna azione |
+| Nessuna azione |< transfer(<br/>delivery-id={handle numerico},<br/>delivery-tag={handle binario},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| --> disposition(<br/>role=**receiver**,<br/>first={ID consegna},<br/>last={ID consegna},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nessuna azione |
 
 #### <a name="multi-message-receive"></a>Ricevere più messaggi
 
 | Client | Bus di servizio |
 | --- | --- |
-| `--> flow(<br/>link-credit=3<br/>)` |Nessuna azione |
-| Nessuna azione |`< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |
-| Nessuna azione |`< transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |
-| Nessuna azione |`< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |
-| `--> disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID+2},<br/>settled=**true**,<br/>state=**accepted**<br/>)` |Nessuna azione |
+| --> flow(<br/>link-credit=3<br/>) |Nessuna azione |
+| Nessuna azione |< transfer(<br/>delivery-id={handle numerico},<br/>delivery-tag={handle binario},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| Nessuna azione |< transfer(<br/>delivery-id={hanlde numerico+1},<br/>delivery-tag={handle binario},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| Nessuna azione |< transfer(<br/>delivery-id={handle numerico+2},<br/>delivery-tag={handle binario},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| --> disposition(<br/>role=receiver,<br/>first={ID consegna},<br/>last={ID consegna+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nessuna azione |
 
 ### <a name="messages"></a>Messaggi
 
 Le sezioni seguenti spiegano quali proprietà delle sessioni di messaggi AMQP standard vengono usate dal bus di servizio e ne illustrano il mapping al set di API del bus di servizio.
 
-Qualsiasi proprietà che l'applicazione deve definire deve essere mappata alla mappa di `application-properties` AMQP.
+Eventuali proprietà che l’applicazione deve definire dovranno essere mappate al mapping `application-properties` di AMQP.
 
 #### <a name="header"></a>header
 
@@ -223,7 +223,7 @@ Qualsiasi proprietà che l'applicazione deve definire deve essere mappata alla m
 | message-id |Identificatore freeform definito dall'applicazione per questo messaggio. Usato per il rilevamento dei duplicati. |[Messageid](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificatore dell'utente definito dall'applicazione, non interpretato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
 | in |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio |[Etichetta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio. |[Etichetta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Indicatore del percorso di risposta definito dall'applicazione, non interpretato dal bus di servizio. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificatore della correlazione definito dall'applicazione, non interpretato dal bus di servizio. |[Correlationid](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Indicatore del tipo di contenuto definito dall'applicazione per il corpo, non interpretato dal bus di servizio. |[Contenttype](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -247,7 +247,7 @@ Esistono alcune altre proprietà del messaggio del bus di servizio che non fanno
 | x-opt-sequence-number | Numero univoco definito dal servizio assegnato a un messaggio. | [Sequencenumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
 | x-opt-offset | Numero di sequenza di accodamento definito dal servizio del messaggio. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
 | x-opt-locked-until | Definito dal servizio. La data e l'ora fino alla quale il messaggio sarà bloccato nella coda/sottoscrizione. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
-| x-opt-deadletter-source | Definito dal servizio. Se il messaggio viene ricevuto dalla coda dei messaggi non recapitato, è l'origine del messaggio originale. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
+| x-opt-deadletter-source | Definito dal servizio. Se il messaggio viene ricevuto dalla coda di messaggi non recapitabili, l'origine del messaggio originale. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
 
 ### <a name="transaction-capability"></a>Funzionalità delle transazioni
 
@@ -287,7 +287,7 @@ Il controller conclude l'attività transazionale inviando un `discharge` messagg
 
 #### <a name="sending-a-message-in-a-transaction"></a>Invio di un messaggio in una transazione
 
-Tutte le operazioni transazionali vengono eseguite con lo stato di recapito transazionale `transactional-state` che contiene txn-id. Nel caso dell'invio di messaggi, lo stato transazionale viene trasportato dal frame di trasferimento del messaggio. 
+Tutte le operazioni transazionali vengono eseguite con lo stato di recapito transazionale `transactional-state` che contiene txn-id. Nel caso dell'invio di messaggi, lo stato transazionale viene trasferito dal frame di trasferimento del messaggio. 
 
 | Client (controller) | Direzione | Bus di servizio (coordinatore) |
 | :--- | :---: | :--- |
@@ -319,16 +319,16 @@ Questa sezione illustra le funzionalità avanzate del bus di servizio di Azure b
 
 ### <a name="amqp-management"></a>Gestione di AMQP
 
-La specifica di gestione di AMQP è la prima delle estensioni provvisorie illustrate in questo articolo. Questa specifica definisce un set di protocolli a più livelli sul protocollo AMQP che consente interazioni di gestione con l'infrastruttura di messaggistica tramite AMQP. La specifica definisce operazioni generiche, ad esempio *create*, *read*, *update* e *delete* per la gestione di entità all'interno di un'infrastruttura di messaggistica e di un set di operazioni di query.
+La specifica di gestione di AMQP è la prima delle estensioni provvisorie illustrate in questo articolo. Questa specifica definisce un set di protocolli posizionati sopra il protocollo AMQP che consentono interazioni di gestione con l'infrastruttura di messaggistica su AMQP. La specifica definisce operazioni generiche, ad esempio *create*, *read*, *update* e *delete* per la gestione di entità all'interno di un'infrastruttura di messaggistica e di un set di operazioni di query.
 
 Tutti questi gesti richiedono un'interazione di tipo richiesta/risposta tra il client e l'infrastruttura di messaggistica. Pertanto la specifica definisce come modellare tale schema di interazione su AMQP: il client si connette alla struttura di messaggistica, inizializza una sessione e quindi crea una coppia di collegamenti. In un collegamento il client funge da mittente e nell'altro funge da ricevitore, creando quindi una coppia di collegamenti che può fungere da canale bidirezionale.
 
 | Operazione logica | Client | Bus di servizio |
 | --- | --- | --- |
-| Creare un percorso di richiesta/risposta |`--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>)` |Nessuna azione |
-| Creare un percorso di richiesta/risposta |Nessuna azione |`\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>)` |
-| Creare un percorso di richiesta/risposta |`--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>)` | |
-| Creare un percorso di richiesta/risposta |Nessuna azione |`\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>)` |
+| Creare un percorso di richiesta/risposta |--> attach(<br/>name={*nome collegamento*},<br/>handle={*handle numerico*},<br/>role=**sender**,<br/>source=**null**,<br/>target="myentity/$management"<br/>) |Nessuna azione |
+| Creare un percorso di richiesta/risposta |Nessuna azione |\<-- attach(<br/>name={*link name*},<br/>handle={*handle numerico*},<br/>role=**receiver**,<br/>source=null,<br/>target="myentity"<br/>) |
+| Creare un percorso di richiesta/risposta |--> attach(<br/>name={*nome collegamento*},<br/>handle={*handle numerico*},<br/>role=**receiver**,<br/>source="myentity/$management",<br/>target="myclient$id"<br/>) | |
+| Creare un percorso di richiesta/risposta |Nessuna azione |\<-- attach(<br/>name={*link name*},<br/>handle={*handle numerico*},<br/>role=**sender**,<br/>source="myentity",<br/>target="myclient$id"<br/>) |
 
 Se la coppia di collegamenti è disponibile, l'implementazione del percorso di richiesta/risposta è molto semplice: una richiesta è un messaggio inviato a un'entità all'interno dell'infrastruttura di messaggistica che comprende questo modello. Nel messaggio di richiesta il campo *reply-to* nella sezione *properties* è impostato sull'identificatore *target* per il collegamento in cui recapitare la risposta. L'entità di gestione elabora la richiesta e recapita la risposta sul collegamento il cui identificatore *target* corrisponde all'identificatore *reply-to* indicato.
 
@@ -368,8 +368,8 @@ La proprietà *name* identifica l'entità a cui deve essere associato il token. 
 
 | Tipo di token | Descrizione del token | Tipo di corpo | Note |
 | --- | --- | --- | --- |
-| `jwt` |Token Web JSON (JWT) |Valore AMQP (stringa) |Non ancora disponibile. |
-| `servicebus.windows.net:sastoken` |Token SAS del bus di servizio |Valore AMQP (stringa) |- |
+| Jwt |Token Web JSON (JWT) |Valore AMQP (stringa) | |
+| servicebus.windows.net:sastoken |Token SAS del bus di servizio |Valore AMQP (stringa) |- |
 
 I token conferiscono diritti. Il bus di servizio riconosce tre diritti fondamentali: "Send" per consentire l'invio, "Listen" per consentire la ricezione e "Manage" per consentire la modifica delle entità. I token di firma di accesso condiviso del bus di servizio fanno riferimento a regole configurate nello spazio dei nomi o nell'entità e queste regole sono configurate con diritti. Se si firma il token con la chiave associata a quella regola, il token esprimerà i rispettivi diritti. Il token associato a un'entità che usa *put-token* consente al client connesso di interagire con l'entità in base ai diritti del token. Un collegamento in cui il client assume il ruolo *di mittente* richiede il diritto "Invia". L'assunzione *del ruolo ricevitore* richiede il diritto "Listen".
 
@@ -400,8 +400,8 @@ Con questa funzionalità, si crea un mittente e si stabilisce il collegamento a 
 
 | Client | Direzione | Bus di servizio |
 | :--- | :---: | :--- |
-| attach(<br/>name={nome collegamento},<br/>role=sender,<br/>source={ID collegamento client},<br/>target=**{via-entity}**,<br/>**properties=map [( <br/> com.microsoft:transfer-destination-address= <br/> {destination-entity})]**) | ------> | |
-| | <------ | attach(<br/>name={nome collegamento},<br/>role=receiver,<br/>source={ID collegamento client},<br/>target={tramite entità},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity})]) |
+| attach(<br/>name={nome collegamento},<br/>role=sender,<br/>source={ID collegamento client},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )]** ) | ------> | |
+| | <------ | attach(<br/>name={nome collegamento},<br/>role=receiver,<br/>source={ID collegamento client},<br/>target={tramite entità},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )] ) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: "INTERFACCIA della riga di comando: connettere un'app a Redis"
+title: "Interfaccia della riga di comando: Connettere un'app a Redis"
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come connettere un'app a una cache di Azure per Redis.
 author: msangapu-msft
 tags: azure-service-management
@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc, seodec18
-ms.openlocfilehash: e4d9fc6e597fb51f607a3e2833ae6ddd7d9281fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: eaec8a8d5ffe3fcba84d834b2116b2daae442084
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97006339"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481107"
 ---
 # <a name="connect-an-app-service-app-to-an-azure-cache-for-redis-using-cli"></a>Connettere un'app del servizio app a Cache Redis di Azure usando l'interfaccia della riga di comando
 

@@ -1,48 +1,48 @@
 ---
-title: Copiare dati da Google Cloud storage ad archiviazione di Azure usando AzCopy | Microsoft Docs
-description: Usare AzCopy per copiare dati da Google Cloud storage ad archiviazione di Azure. AzCopy è un'utilità della riga di comando che è possibile usare per copiare i BLOB o i file da e verso un account di archiviazione.
+title: Copiare da Google Cloud Storage Archiviazione di Azure con AzCopy | Microsoft Docs
+description: Usare AzCopy per copiare i dati da Google Cloud Storage Archiviazione di Azure. AzCopy è un'utilità della riga di comando che è possibile usare per copiare i BLOB o i file da e verso un account di archiviazione.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c6a53acd63b6aa882674f6aa29e1f7152f5b0a30
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3b2ad11abb7d1a3e64deef1ca49d9f84f03e5879
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728811"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498340"
 ---
-# <a name="copy-data-from-google-cloud-storage-to-azure-storage-by-using-azcopy-preview"></a>Copiare dati da Google Cloud storage ad archiviazione di Azure usando AzCopy (anteprima)
+# <a name="copy-data-from-google-cloud-storage-to-azure-storage-by-using-azcopy-preview"></a>Copiare dati da Google Cloud Storage Archiviazione di Azure usando AzCopy (anteprima)
 
-AzCopy è un'utilità della riga di comando che è possibile usare per copiare i BLOB o i file da e verso un account di archiviazione. Questo articolo consente di copiare oggetti, directory e bucket da Google Cloud storage nell'archivio BLOB di Azure usando AzCopy.
+AzCopy è un'utilità della riga di comando che è possibile usare per copiare i BLOB o i file da e verso un account di archiviazione. Questo articolo consente di copiare oggetti, directory e bucket da Google Cloud Storage Archiviazione BLOB di Azure usando AzCopy.
 
 > [!IMPORTANT]
-> La copia dei dati da Google Cloud storage ad archiviazione di Azure è attualmente disponibile in anteprima pubblica.
+> La copia dei dati da Google Cloud Storage Archiviazione di Azure è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Scegliere il modo in cui fornire le credenziali di autorizzazione
 
-* Per autorizzare l'archiviazione di Azure, usare Azure Active Directory (AD) o un token di firma di accesso condiviso (SAS).
+* Per autorizzare con Archiviazione di Azure, usare Azure Active Directory (AD) o un token di firma di accesso condiviso.
 
 * Per autorizzare con Google Cloud Storage, usare una chiave dell'account del servizio.
 
-### <a name="authorize-with-azure-storage"></a>Autorizzare con archiviazione di Azure
+### <a name="authorize-with-azure-storage"></a>Autorizzare con Archiviazione di Azure
 
-Vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-v10.md) per scaricare AzCopy e informazioni sui modi in cui è possibile fornire le credenziali di autorizzazione al servizio di archiviazione.
+Vedere [l'articolo Introduzione ad AzCopy](storage-use-azcopy-v10.md) per scaricare AzCopy e informazioni sui modi in cui è possibile fornire credenziali di autorizzazione al servizio di archiviazione.
 
 > [!NOTE] 
-> Gli esempi in questo articolo presuppongono che siano state fornite le credenziali di autorizzazione usando Azure Active Directory (Azure AD).
+> Gli esempi in questo articolo presuppongono che siano stati forniti credenziali di autorizzazione usando Azure Active Directory (Azure AD).
 >
 > Se si preferisce usare un token di firma di accesso condiviso per autorizzare l'accesso ai dati BLOB, è possibile aggiungere tale token all'URL della risorsa in ogni comando AzCopy. Ad esempio: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
-### <a name="authorize-with-google-cloud-storage"></a>Autorizza con Google Cloud Storage
+### <a name="authorize-with-google-cloud-storage"></a>Autorizzare con Google Cloud Storage
 
-Per autorizzare con Google Cloud Storage, si userà una chiave dell'account del servizio. Per informazioni su come creare una chiave dell'account del servizio, vedere [creazione e gestione delle chiavi dell'account del servizio](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
+Per autorizzare con Google Cloud Storage, si userà una chiave dell'account del servizio. Per informazioni su come creare una chiave dell'account del servizio, vedere [Creazione e gestione delle chiavi dell'account del servizio](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 
-Una volta ottenuta una chiave di servizio, impostare la `GOOGLE_APPLICATION_CREDENTIALS` variabile di ambiente sul percorso assoluto del file di chiave dell'account del servizio:
+Dopo aver ottenuto una chiave del servizio, impostare la variabile di ambiente sul `GOOGLE_APPLICATION_CREDENTIALS` percorso assoluto del file di chiave dell'account del servizio:
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -52,33 +52,41 @@ Una volta ottenuta una chiave di servizio, impostare la `GOOGLE_APPLICATION_CRED
 
 ## <a name="copy-objects-directories-and-buckets"></a>Copiare oggetti, directory e bucket
 
-AzCopy usa il [blocco put dall'API URL](/rest/api/storageservices/put-block-from-url) , quindi i dati vengono copiati direttamente tra i server di archiviazione e archiviazione cloud di Google. Queste operazioni di copia non utilizzano la larghezza di banda di rete del computer.
+AzCopy usa l'API [Put Block From URL,](/rest/api/storageservices/put-block-from-url) quindi i dati vengono copiati direttamente tra Google Cloud Storage e i server di archiviazione. Queste operazioni di copia non usano la larghezza di banda di rete del computer.
 
 > [!TIP]
-> Gli esempi in questa sezione racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd.exe). Se si usa una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
+> Gli esempi in questa sezione racchiudno gli argomenti di percorso tra virgolette singole (''). Usare virgolette singole in tutte le shell dei comandi ad eccezione della shell dei comandi di Windows (cmd.exe). Se si usa una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti di percorso tra virgolette doppie ("") anziché virgolette singole ('').
 
- Questi esempi funzionano anche con gli account che hanno uno spazio dei nomi gerarchico. L'accesso a più [protocolli su data Lake storage](../blobs/data-lake-storage-multi-protocol-access.md) consente di usare la stessa sintassi URL ( `blob.core.windows.net` ) per tali account. 
+ Questi esempi funzionano anche con account con uno spazio dei nomi gerarchico. [L'accesso multi-protocollo Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) consente di usare la stessa sintassi url ( `blob.core.windows.net` ) per tali account. 
 
-### <a name="copy-an-object"></a>Copia di un oggetto
+### <a name="copy-an-object"></a>Copiare un oggetto
 
-Utilizzare la stessa sintassi URL ( `blob.core.windows.net` ) per gli account che dispongono di uno spazio dei nomi gerarchico.
+Usare la stessa sintassi dell'URL ( `blob.core.windows.net` ) per gli account con uno spazio dei nomi gerarchico.
 
-| Sintassi/esempio  |  Codice |
-|--------|-----------|
-| **Sintassi** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
-| **Esempio** | `azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
-| **Esempio** (spazio dei nomi gerarchico) | `azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
+**Sintassi**
+
+`azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'`
+
+**Esempio**
+
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'
+```
 
 
 ### <a name="copy-a-directory"></a>Copiare una directory
 
-Utilizzare la stessa sintassi URL ( `blob.core.windows.net` ) per gli account che dispongono di uno spazio dei nomi gerarchico.
+Usare la stessa sintassi dell'URL ( `blob.core.windows.net` ) per gli account con uno spazio dei nomi gerarchico.
 
-| Sintassi/esempio  |  Codice |
-|--------|-----------|
-| **Sintassi** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
-| **Esempio** | `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
-| **Esempio** (spazio dei nomi gerarchico)| `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+**Sintassi**
+
+`azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true`
+
+**Esempio**
+
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true
+```
 
 > [!NOTE]
 > In questo esempio viene aggiunto il `--recursive` flag per copiare i file in tutte le sottodirectory.
@@ -87,92 +95,116 @@ Utilizzare la stessa sintassi URL ( `blob.core.windows.net` ) per gli account ch
 
 È possibile copiare il contenuto di una directory senza copiare la directory che lo contiene usando il carattere jolly (*).
 
-| Sintassi/esempio  |  Codice |
-|--------|-----------|
-| **Sintassi** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
-| **Esempio** | `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
-| **Esempio** (spazio dei nomi gerarchico)| `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+**Sintassi**
+
+`azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true`
+
+**Esempio**
+
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true
+```
 
 ### <a name="copy-a-cloud-storage-bucket"></a>Copiare un bucket di archiviazione cloud
 
-Utilizzare la stessa sintassi URL ( `blob.core.windows.net` ) per gli account che dispongono di uno spazio dei nomi gerarchico.
+Usare la stessa sintassi dell'URL ( `blob.core.windows.net` ) per gli account con uno spazio dei nomi gerarchico.
 
-| Sintassi/esempio  |  Codice |
-|--------|-----------|
-| **Sintassi** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
-| **Esempio** | `azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **Esempio** (spazio dei nomi gerarchico)| `azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+**Sintassi**
 
-### <a name="copy-all-buckets-in-a-google-cloud-project"></a>Copia tutti i bucket in un progetto Google Cloud 
+`azcopy copy 'https://storage.cloud.google.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true`
 
-Impostare prima di tutto `GOOGLE_CLOUD_PROJECT` su ID progetto di Google Cloud Project.
+**Esempio**
 
-Utilizzare la stessa sintassi URL ( `blob.core.windows.net` ) per gli account che dispongono di uno spazio dei nomi gerarchico.
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
+```
 
-| Sintassi/esempio  |  Codice |
-|--------|-----------|
-| **Sintassi** | `azcopy copy 'https://storage.cloud.google.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
-| **Esempio** | `azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **Esempio** (spazio dei nomi gerarchico)| `azcopy copy 'https://storage.cloud.google.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+### <a name="copy-all-buckets-in-a-google-cloud-project"></a>Copiare tutti i bucket in un progetto Google Cloud 
 
-### <a name="copy-a-subset-of-buckets-in-a-google-cloud-project"></a>Copiare un subset di bucket in un progetto di Google Cloud 
+Per prima cosa, impostare `GOOGLE_CLOUD_PROJECT` sull'ID progetto del progetto Google Cloud.
 
-Impostare prima di tutto `GOOGLE_CLOUD_PROJECT` su ID progetto di Google Cloud Project.
+Usare la stessa sintassi dell'URL ( `blob.core.windows.net` ) per gli account con uno spazio dei nomi gerarchico.
 
-Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. Utilizzare la stessa sintassi URL ( `blob.core.windows.net` ) per gli account che dispongono di uno spazio dei nomi gerarchico.
+**Sintassi**
 
-| Sintassi/esempio  |  Codice |
-|--------|-----------|
-| **Sintassi** | `azcopy copy 'https://storage.cloud.google.com/<bucket*name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
-| **Esempio** | `azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **Esempio** (spazio dei nomi gerarchico)| `azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+`azcopy copy 'https://storage.cloud.google.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true`
+
+**Esempio**
+
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
+```
+
+### <a name="copy-a-subset-of-buckets-in-a-google-cloud-project"></a>Copiare un subset di bucket in un progetto Google Cloud 
+
+Per prima cosa, impostare `GOOGLE_CLOUD_PROJECT` sull'ID progetto del progetto Google Cloud.
+
+Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. Usare la stessa sintassi dell'URL ( `blob.core.windows.net` ) per gli account con uno spazio dei nomi gerarchico.
+
+**Sintassi**
+
+`azcopy copy 'https://storage.cloud.google.com/<bucket*name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true`
+
+**Esempio**
+
+```azcopy
+azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
+```
 
 ## <a name="handle-differences-in-bucket-naming-rules"></a>Gestire le differenze nelle regole di denominazione dei bucket
 
-Google Cloud Storage dispone di un set diverso di convenzioni di denominazione per i nomi di bucket rispetto ai contenitori BLOB di Azure. È possibile leggere le informazioni [qui](https://cloud.google.com/storage/docs/naming-buckets). Se si sceglie di copiare un gruppo di bucket in un account di archiviazione di Azure, l'operazione di copia potrebbe non riuscire a causa di differenze di denominazione.
+Google Cloud Storage ha un set diverso di convenzioni di denominazione per i nomi di bucket rispetto ai contenitori BLOB di Azure. Per altre informazioni, vedere [qui](https://cloud.google.com/storage/docs/naming-buckets). Se si sceglie di copiare un gruppo di bucket in un account di archiviazione di Azure, l'operazione di copia potrebbe non riuscire a causa di differenze di denominazione.
 
-AzCopy gestisce tre dei problemi più comuni che possono verificarsi. Bucket contenenti punti, bucket che contengono trattini consecutivi e bucket che contengono caratteri di sottolineatura. I nomi dei bucket di archiviazione cloud Google possono contenere punti e trattini consecutivi, ma un contenitore in Azure non può. AzCopy sostituisce i punti con trattini e trattini consecutivi con un numero che rappresenta il numero di trattini consecutivi (ad esempio, un bucket denominato `my----bucket` diventa `my-4-bucket` . Se il nome del bucket ha un carattere di sottolineatura ( `_` ), AzCopy sostituisce il carattere di sottolineatura con un trattino (ad esempio, un bucket denominato `my_bucket` diventa `my-bucket` . 
+AzCopy gestisce tre dei problemi più comuni che possono verificarsi; bucket contenenti punti, bucket contenenti trattini consecutivi e bucket contenenti caratteri di sottolineatura. I nomi dei bucket di Google Cloud Storage possono contenere punti e trattini consecutivi, ma un contenitore in Azure non può. AzCopy sostituisce i punti con trattini e trattini consecutivi con un numero che rappresenta il numero di trattini consecutivi (ad esempio, un bucket denominato `my----bucket` diventa `my-4-bucket` . Se il nome del bucket ha un carattere di sottolineatura ( ), AzCopy sostituisce il carattere di sottolineatura con un trattino `_` (ad esempio, un bucket denominato diventa `my_bucket` `my-bucket` . 
 
 ## <a name="handle-differences-in-object-naming-rules"></a>Gestire le differenze nelle regole di denominazione degli oggetti
 
-Google Cloud Storage dispone di un set diverso di convenzioni di denominazione per i nomi di oggetti rispetto ai BLOB di Azure. È possibile leggere le informazioni [qui](https://cloud.google.com/storage/docs/naming-objects).
+Google Cloud Storage ha un set diverso di convenzioni di denominazione per i nomi degli oggetti rispetto ai BLOB di Azure. Per altre informazioni, vedere [qui](https://cloud.google.com/storage/docs/naming-objects).
 
-Archiviazione di Azure non consente la fine dei nomi di oggetti (o di qualsiasi segmento nel percorso della directory virtuale) con punti finali (ad esempio `my-bucket...` ). I punti finali vengono rimossi quando viene eseguita l'operazione di copia. 
+Archiviazione di Azure non consente ai nomi di oggetto (o a qualsiasi segmento nel percorso della directory virtuale) di terminare con punti finali (ad esempio `my-bucket...` ). I punti finali vengono tagliati quando viene eseguita l'operazione di copia. 
 
 ## <a name="handle-differences-in-object-metadata"></a>Gestire le differenze nei metadati degli oggetti
 
-Google Cloud storage e Azure consentono diversi set di caratteri nei nomi delle chiavi degli oggetti. Per informazioni sui metadati in Google Cloud Storage, vedere [qui](https://cloud.google.com/storage/docs/metadata). Sul lato Azure, le chiavi degli oggetti BLOB rispettano le regole di denominazione per gli [identificatori C#](/dotnet/csharp/language-reference/).
+Google Cloud Storage e Azure consentono set diversi di caratteri nei nomi delle chiavi oggetto. Per informazioni sui metadati in Google Cloud [Storage, vedere qui](https://cloud.google.com/storage/docs/metadata). Sul lato Azure, le chiavi oggetto BLOB rispettano le regole di denominazione per [gli identificatori C#.](/dotnet/csharp/language-reference/)
 
-Come parte di un `copy` comando AzCopy, è possibile specificare un valore facoltativo per il `s2s-handle-invalid-metadata` flag che specifica come si desidera gestire i file in cui i metadati del file contengono nomi di chiave incompatibili. Nella tabella seguente viene descritto ogni valore di flag.
+Come parte di un comando AzCopy, è possibile specificare un valore per il flag facoltativo che specifica come gestire i file in cui i metadati del file contengono nomi di chiave `copy` incompatibili. `s2s-handle-invalid-metadata` Nella tabella seguente viene descritto ogni valore di flag.
 
 | Valore del flag | Descrizione  |
 |--------|-----------|
-| **ExcludeIfInvalid** | (Opzione predefinita) I metadati non sono inclusi nell'oggetto trasferito. AzCopy registra un avviso. |
-| **FailIfInvalid** | Gli oggetti non vengono copiati. AzCopy registra un errore e include tale errore nel conteggio non riuscito visualizzato nel riepilogo del trasferimento.  |
-| **RenameIfInvalid**  | AzCopy risolve la chiave di metadati non valida e copia l'oggetto in Azure usando la coppia chiave-valore dei metadati risolta. Per informazioni sui passaggi eseguiti da AzCopy per rinominare le chiavi degli oggetti, vedere la sezione [come AzCopy](#rename-logic) Rinomina le chiavi degli oggetti di seguito. Se AzCopy non è in grado di rinominare la chiave, l'oggetto non verrà copiato. |
+| **ExcludeIfInvalid** | (opzione predefinita) I metadati non sono inclusi nell'oggetto trasferito. AzCopy registra un avviso. |
+| **FailIfInvalid** | Gli oggetti non vengono copiati. AzCopy registra un errore e lo include nel conteggio degli errori visualizzato nel riepilogo del trasferimento.  |
+| **RenameIfInvalid**  | AzCopy risolve la chiave di metadati non valida e copia l'oggetto in Azure usando la coppia chiave-valore dei metadati risolta. Per informazioni sui passaggi esemisi da AzCopy per rinominare le chiavi oggetto, vedere la sezione Come [AzCopy rinomina le](#rename-logic) chiavi oggetto più avanti. Se AzCopy non riesce a rinominare la chiave, l'oggetto non verrà copiato. |
 
 <a id="rename-logic"></a>
 
-### <a name="how-azcopy-renames-object-keys"></a>Come AzCopy Rinomina le chiavi dell'oggetto
+### <a name="how-azcopy-renames-object-keys"></a>Come AzCopy rinomina le chiavi degli oggetti
 
-AzCopy esegue i passaggi seguenti:
+AzCopy esegue questi passaggi:
 
-1. Sostituisce i caratteri non validi con ' _'.
+1. Sostituisce i caratteri non validi con '_'.
 
 2. Aggiunge la stringa `rename_` all'inizio di una nuova chiave valida.
 
-   Questa chiave verrà usata per salvare il **valore** dei metadati originali.
+   Questa chiave verrà usata per salvare il valore dei metadati **originale**.
 
 3. Aggiunge la stringa `rename_key_` all'inizio di una nuova chiave valida.
-   Questa chiave verrà usata per salvare la **chiave** originale dei metadati non validi.
-   È possibile usare questa chiave per provare a ripristinare i metadati nel lato Azure poiché la chiave dei metadati viene mantenuta come valore nel servizio di archiviazione BLOB.
+   Questa chiave verrà usata per salvare la chiave non valida dei metadati **originali.**
+   È possibile usare questa chiave per provare a recuperare i metadati sul lato Azure, perché la chiave dei metadati viene mantenuta come valore nel servizio di archiviazione BLOB.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altri esempi sono disponibili in uno di questi articoli:
+Altri esempi sono disponibili in questi articoli:
 
-- [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
+- [Esempi: Caricamento](storage-use-azcopy-blobs-upload.md)
+- [Esempi: Download](storage-use-azcopy-blobs-download.md)
+- [Esempi: Copiare tra account](storage-use-azcopy-blobs-copy.md)
+- [Esempi: Sincronizza](storage-use-azcopy-blobs-synchronize.md)
+- [Esempi: Bucket di Amazon S3](storage-use-azcopy-s3.md)
+- [Esempi: File di Azure](storage-use-azcopy-files.md)
+- [Eseguire la migrazione di dati locali in una risorsa di archiviazione cloud tramite AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
-- [Trasferire i dati](storage-use-azcopy-v10.md#transfer-data)
+Vedere questi articoli per configurare le impostazioni, ottimizzare le prestazioni e risolvere i problemi:
 
-- [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
+- [Impostazioni di configurazione di AzCopy](storage-ref-azcopy-configuration-settings.md)
+- [Ottimizzare le prestazioni di AzCopy](storage-use-azcopy-optimize.md)
+- [Risolvere i problemi di AzCopy V10 in Archiviazione di Azure usando i file di log](storage-use-azcopy-configure.md)

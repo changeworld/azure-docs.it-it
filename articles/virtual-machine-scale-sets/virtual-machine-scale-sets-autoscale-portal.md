@@ -4,17 +4,17 @@ description: Come creare regole di scalabilità automatica per i set di scalabil
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
-ms:service: virtual-machine-scale-sets
+ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 4bb4084a7ee0d9d719a88c077fa8c63803aa6934
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ee2db62cf43dc191da2b92f7d4b67ff775f628f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100591369"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537522"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali nel portale di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app.
@@ -49,7 +49,7 @@ Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle ista
     | *Operatore*             | Operatore usato per confrontare i dati della metrica rispetto alla soglia.                                                     | Maggiore di   |
     | *Soglia*            | La percentuale che determina l'attivazione di un'azione da parte della regola di scalabilità automatica.                                                 | 70             |
     | *Duration*             | Il tempo monitorato prima che vengano confrontati i valori delle metriche e delle soglie. Non include il periodo di raffreddamento.                                   | 10 minuti     |
-    | *Operazione*            | Definisce se il set di scalabilità deve aumentare o diminuire quando si applica la regola e l'incremento.                        | Aumenta percentuale di |
+    | *Operazione*            | Definisce se il set di scalabilità deve aumentare o scendere quando si applica la regola e in base all'incremento.                        | Aumenta percentuale di |
     | *Numero di istanze*       | La percentuale di istanze di macchine virtuali deve essere modificata quando viene attivata la regola.                                            | 20             |
     | *Disattiva regole dopo (minuti)*  | Il tempo di attesa prima che la regola venga applicata nuovamente in modo che le azioni di scalabilità automatica diventino effettive. | 5 minuti      |
 

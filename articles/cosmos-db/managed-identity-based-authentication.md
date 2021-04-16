@@ -1,6 +1,6 @@
 ---
 title: Come usare un'identità gestita assegnata dal sistema per accedere ai dati di Azure Cosmos DB
-description: Informazioni su come configurare un Azure Active Directory (Azure AD) identità gestita assegnata dal sistema (identità del servizio gestito) per accedere alle chiavi da Azure Cosmos DB.
+description: Informazioni su come configurare un'identità gestita Azure Active Directory (Azure AD) assegnata dal sistema (identità del servizio gestita) per accedere alle chiavi Azure Cosmos DB.
 author: j-patrick
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,73 +8,73 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d9845fad8c9013bd20499c45a8d1714e30e9dbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: e4a41d508d15c3d8f41cc727776f233cc56c0817
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98927407"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480937"
 ---
-# <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usare identità gestite assegnate dal sistema per accedere ai dati di Azure Cosmos DB
+# <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usare le identità gestite assegnate dal sistema per accedere Azure Cosmos DB dati
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-In questo articolo si configurerà una *solida soluzione agnostica* per la rotazione della chiave per accedere alle chiavi Azure Cosmos DB usando le [identità gestite](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). L'esempio in questo articolo usa funzioni di Azure, ma è possibile usare qualsiasi servizio che supporta le identità gestite. 
+In questo articolo si imposterà una soluzione affidabile e indipendente dalla rotazione delle chiavi per accedere *alle* chiavi Azure Cosmos DB usando le [identità gestite.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) L'esempio in questo articolo Funzioni di Azure, ma è possibile usare qualsiasi servizio che supporta le identità gestite. 
 
-Si apprenderà come creare un'app per le funzioni che può accedere ai dati Azure Cosmos DB senza dover copiare le chiavi di Azure Cosmos DB. L'app per le funzioni viene riattivata ogni minuto e registra la temperatura corrente del serbatoio di un acquario. Per informazioni su come configurare un'app per le funzioni attivata dal timer, vedere l'articolo [creare una funzione in Azure attivata da un timer](../azure-functions/functions-create-scheduled-function.md) .
+Si apprenderà come creare un'app per le funzioni in grado di accedere Azure Cosmos DB dati senza dover copiare Azure Cosmos DB chiavi. L'app per le funzioni si riattiva ogni minuto e registra la temperatura corrente di un acquario. Per informazioni su come configurare un'app per le funzioni attivata da timer, vedere l'articolo Creare una funzione [in Azure attivata da un timer.](../azure-functions/functions-create-scheduled-function.md)
 
-Per semplificare lo scenario, è già stata configurata un'impostazione di [durata (TTL](./time-to-live.md) ) per pulire i documenti di temperatura precedenti. 
+Per semplificare lo scenario, è [già configurata un'impostazione](./time-to-live.md) Time To Live per pulire i documenti di temperatura meno recenti. 
 
 ## <a name="assign-a-system-assigned-managed-identity-to-a-function-app"></a>Assegnare un'identità gestita assegnata dal sistema a un'app per le funzioni
 
-In questo passaggio si assegnerà un'identità gestita assegnata dal sistema all'app per le funzioni.
+In questo passaggio si assegna un'identità gestita assegnata dal sistema all'app per le funzioni.
 
-1. Nel [portale di Azure](https://portal.azure.com/)aprire il riquadro **funzione di Azure** e passare all'app per le funzioni. 
+1. Nella finestra [portale di Azure](https://portal.azure.com/)aprire il riquadro **Funzioni di Azure** e passare all'app per le funzioni. 
 
-1. Aprire la scheda identità **funzionalità piattaforma**  >   : 
+1. Aprire la **scheda Identità delle funzionalità**  >  **della** piattaforma: 
 
-   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Screenshot che illustra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Screenshot che mostra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
 
-1. Nella scheda **identità** **, attivare lo** **stato** di identità del sistema e selezionare **Salva**. Il riquadro **Identity** avrà un aspetto simile al seguente:  
+1. Nella scheda **Identità** attivare lo stato **dell'identità** **del sistema** e selezionare **Salva.** Il **riquadro Identità** dovrebbe essere simile al seguente:  
 
-   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Screenshot che mostra lo stato di identità del sistema impostato su on.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Screenshot che mostra lo stato dell'identità di sistema impostato su On.":::
 
-## <a name="grant-access-to-your-azure-cosmos-account"></a>Concedi l'accesso all'account Azure Cosmos
+## <a name="grant-access-to-your-azure-cosmos-account"></a>Concedere l'accesso all'account Azure Cosmos
 
-In questo passaggio si assegna un ruolo all'identità gestita assegnata dal sistema dell'app per le funzioni. Azure Cosmos DB dispone di più ruoli predefiniti che è possibile assegnare all'identità gestita. Per questa soluzione si useranno i due ruoli seguenti:
+In questo passaggio si assegna un ruolo all'identità gestita assegnata dal sistema dell'app per le funzioni. Azure Cosmos DB ha più ruoli predefiniti che è possibile assegnare all'identità gestita. Per questa soluzione si useranno i due ruoli seguenti:
 
 |Ruolo predefinito  |Descrizione  |
 |---------|---------|
-|[Collaboratore account DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|È in grado di gestire account Azure Cosmos DB. Consente il recupero delle chiavi di lettura/scrittura. |
+|[Collaboratore account DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|È in grado di gestire account Azure Cosmos DB. Consente il recupero di chiavi di lettura/scrittura. |
 |[Ruolo Lettore dell'account Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Può leggere i dati degli account Azure Cosmos DB. Consente il recupero delle chiavi di lettura. |
 
 > [!IMPORTANT]
-> Il supporto per il controllo degli accessi in base al ruolo in Azure Cosmos DB si applica solo alle operazioni del piano di controllo. Le operazioni del piano dati sono protette tramite chiavi primarie o token di risorsa. Per altre informazioni, vedere l'articolo [proteggere l'accesso ai dati](secure-access-to-data.md) .
+> Il supporto per il controllo degli accessi in base al ruolo Azure Cosmos DB si applica solo alle operazioni del piano di controllo. Le operazioni del piano dati sono protette tramite chiavi primarie o token di risorsa. Per altre informazioni, vedere [l'articolo Accesso sicuro ai](secure-access-to-data.md) dati.
 
 > [!TIP] 
-> Quando si assegnano i ruoli, assegnare solo l'accesso necessario. Se il servizio richiede solo la lettura dei dati, assegnare il ruolo di **lettore Account Cosmos DB** all'identità gestita. Per ulteriori informazioni sull'importanza dell'accesso con privilegi minimi, vedere l'articolo sull' [esposizione inferiore di account con privilegi](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) .
+> Quando si assegnano ruoli, assegnare solo l'accesso necessario. Se il servizio richiede solo la lettura dei dati, assegnare il ruolo **lettore** Cosmos DB account all'identità gestita. Per altre informazioni sull'importanza dell'accesso con privilegi minimi, vedere l'articolo Esposizione più bassa [degli account con privilegi.](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts)
 
-In questo scenario, l'app per le funzioni leggerà la temperatura dell'acquario, quindi eseguirà il writeback dei dati in un contenitore Azure Cosmos DB. Poiché l'app per le funzioni deve scrivere i dati, è necessario assegnare il ruolo di **collaboratore account DocumentDB** . 
+In questo scenario, l'app per le funzioni leggerà la temperatura dell'acquario e quindi scriverà i dati in un contenitore in Azure Cosmos DB. Poiché l'app per le funzioni deve scrivere i dati, è necessario assegnare il ruolo **Collaboratore account DocumentDB.** 
 
-### <a name="assign-the-role-using-azure-portal"></a>Assegnare il ruolo utilizzando portale di Azure
+### <a name="assign-the-role-using-azure-portal"></a>Assegnare il ruolo usando portale di Azure
 
-1. Accedere al portale di Azure e passare all'account di Azure Cosmos DB. Aprire il riquadro **controllo di accesso (IAM)** e quindi la scheda **assegnazioni di ruolo** :
+1. Accedere al portale di Azure e passare all'account Azure Cosmos DB personale. Aprire il **riquadro Controllo di accesso (IAM)** e quindi la scheda **Assegnazioni di** ruolo:
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot che mostra il riquadro di controllo di accesso e la scheda assegnazioni di ruolo.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot che mostra il riquadro Controllo di accesso e la scheda Assegnazioni di ruolo.":::
 
 1. Selezionare **Aggiungi** > **Aggiungi assegnazione di ruolo**.
 
-1. Si apre il pannello **Aggiungi assegnazione ruolo** a destra:
+1. Il **pannello Aggiungi assegnazione di** ruolo si apre a destra:
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot che illustra il riquadro Aggiungi assegnazione ruolo.":::
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot che mostra il riquadro Aggiungi assegnazione di ruolo.":::
 
-   * **Ruolo**: selezionare **collaboratore account DocumentDB**
-   * **Assegnare l'accesso a**: nella sottosezione **Seleziona identità gestita assegnata dal sistema** Selezionare **app per le funzioni**.
-   * **Select**: il riquadro verrà popolato con tutte le app per le funzioni nella sottoscrizione che hanno un' **identità del sistema gestito**. In questo caso, selezionare l'app per le funzioni **FishTankTemperatureService** : 
+   * **Ruolo:** selezionare **Collaboratore account DocumentDB**
+   * **Assegnare l'accesso** a : nella **sottosezione Seleziona identità gestita assegnata dal** sistema selezionare App per le **funzioni**.
+   * **Selezionare**: il riquadro verrà popolato con tutte le app per le funzioni nella sottoscrizione con **un'identità di sistema gestita.** In questo caso, selezionare l'app per le funzioni **FishTankTemperatureService:** 
 
-      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot che illustra il riquadro Aggiungi assegnazione ruolo popolato con esempi.":::
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot che mostra il riquadro Aggiungi assegnazione di ruolo popolato con esempi.":::
 
-1. Dopo aver selezionato l'app per le funzioni, selezionare **Salva**.
+1. Dopo aver selezionato l'app per le funzioni, selezionare **Salva.**
 
 ### <a name="assign-the-role-using-azure-cli"></a>Assegnare il ruolo usando l'interfaccia della riga di comando di Azure
 
@@ -89,16 +89,16 @@ principalId=$(az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure
 az role assignment create --assignee $principalId --role "DocumentDB Account Contributor" --scope $scope
 ```
 
-## <a name="programmatically-access-the-azure-cosmos-db-keys"></a>Accedere a livello di codice alle chiavi Azure Cosmos DB
+## <a name="programmatically-access-the-azure-cosmos-db-keys"></a>Accedere alle chiavi Azure Cosmos DB a livello di codice
 
-A questo punto è disponibile un'app per le funzioni con un'identità gestita assegnata dal sistema con il ruolo **collaboratore account DocumentDB** nelle autorizzazioni Azure Cosmos DB. Il codice dell'app per le funzioni seguente consente di ottenere le chiavi Azure Cosmos DB, creare un oggetto CosmosClient, ottenere la temperatura dell'acquario e quindi salvarlo Azure Cosmos DB.
+È ora disponibile un'app per le funzioni con un'identità gestita assegnata dal sistema con il ruolo **Collaboratore Account DocumentDB** nelle autorizzazioni Azure Cosmos DB sistema. Il codice dell'app per le funzioni seguente otterrà le chiavi Azure Cosmos DB, creerà un oggetto CosmosClient, otterrà la temperatura del acquario e quindi lo salverà Azure Cosmos DB.
 
-Questo esempio usa l' [API list keys](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) per accedere alle chiavi dell'account Azure Cosmos DB.
+Questo esempio usa [l'API List Keys](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) per accedere alle chiavi Azure Cosmos DB account.
 
 > [!IMPORTANT] 
-> Se si vuole [assegnare il ruolo di lettore Account Cosmos DB](#grant-access-to-your-azure-cosmos-account) , è necessario usare l' [API elenca chiavi](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys)di sola lettura. In questo modo si popolano solo le chiavi di sola lettura.
+> Per assegnare il [ruolo lettore Cosmos DB](#grant-access-to-your-azure-cosmos-account) account, è necessario usare l'API Elenca chiavi di [sola lettura](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys). Verranno popolate solo le chiavi di sola lettura.
 
-L'API List Keys restituisce l' `DatabaseAccountListKeysResult` oggetto. Questo tipo non è definito nelle librerie C#. Il codice seguente illustra l'implementazione di questa classe:  
+L'API List Keys restituisce `DatabaseAccountListKeysResult` l'oggetto . Questo tipo non è definito nelle librerie C#. Il codice seguente illustra l'implementazione di questa classe:  
 
 ```csharp 
 namespace Monitor 
@@ -113,7 +113,7 @@ namespace Monitor
 }
 ```
 
-Nell'esempio viene inoltre usato un documento semplice denominato "TemperatureRecord", che viene definito come segue:
+L'esempio usa anche un documento semplice denominato "TemperatureRecord", definito come segue:
 
 ```csharp
 using System;
@@ -130,7 +130,7 @@ namespace Monitor
 }
 ```
 
-Si userà la libreria [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) per ottenere il token di identità gestito assegnato dal sistema. Per informazioni su altri modi per ottenere il token e trovare altre informazioni sulla `Microsoft.Azure.Service.AppAuthentication` libreria, vedere l'articolo relativo all' [autenticazione da servizio a servizio](/dotnet/api/overview/azure/service-to-service-authentication) .
+Si userà la libreria [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) per ottenere il token di identità gestita assegnato dal sistema. Per altre informazioni su come ottenere il token e altre informazioni sulla libreria, vedere l'articolo Autenticazione da servizio `Microsoft.Azure.Service.AppAuthentication` [a](/dotnet/api/overview/azure/service-to-service-authentication) servizio.
 
 
 ```csharp
@@ -214,10 +214,10 @@ namespace Monitor
 }
 ```
 
-A questo punto è possibile [distribuire l'app per le funzioni](../azure-functions/create-first-function-vs-code-csharp.md).
+A questo punto è possibile distribuire [l'app per le funzioni](../azure-functions/create-first-function-vs-code-csharp.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Autenticazione basata su certificati con Azure Cosmos DB e Azure Active Directory](certificate-based-authentication.md)
-* [Proteggere le chiavi di Azure Cosmos DB usando Azure Key Vault](access-secrets-from-keyvault.md)
-* [Baseline della sicurezza per Azure Cosmos DB](security-baseline.md)
+* [Proteggere Azure Cosmos DB chiavi con Azure Key Vault](access-secrets-from-keyvault.md)
+* [Baseline di sicurezza per Azure Cosmos DB](security-baseline.md)

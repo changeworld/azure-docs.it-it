@@ -2,27 +2,24 @@
 title: Crittografia dei token SAML in Azure Active Directory
 description: Informazioni su come configurare la crittografia dei token SAML in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af5329f33cc4cbaa3309450165e657fc829c828b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5c06a499cccb03e6726ee19542d7eb79e0c99b43
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709498"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375730"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Procedura: configurare Azure AD crittografia di token SAML
+# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Procedura: Configurare la Azure AD token SAML
 
 > [!NOTE]
 > La crittografia dei token è una funzionalità Premium di Azure Active Directory (Azure AD). Per altre informazioni sulle edizioni, le funzionalità e i prezzi di Azure AD, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -66,7 +63,7 @@ Per configurare la crittografia dei token SAML, seguire questa procedura:
     > [!NOTE]
     > L'opzione **Crittografia di token** è disponibile solo per le applicazioni SAML che sono state configurate dal pannello **Applicazioni aziendali** nel portale di Azure e vale sia per le app della raccolta di applicazioni che per le app che non fanno parte della raccolta. Per altre applicazioni questa opzione di menu è disabilitata. Per le applicazioni registrate tramite l'esperienza **Registrazioni app** nel portale di Azure è possibile configurare la crittografia per i token SAML usando il manifesto dell'applicazione, con Microsoft Graph o PowerShell.
 
-1. Nella pagina **crittografia token** selezionare **Importa certificato** per importare il file con estensione cer che contiene il certificato X. 509 pubblico.
+1. Nella pagina **Crittografia token** selezionare **Importa** certificato per importare il file cer contenente il certificato X.509 pubblico.
 
     ![Importare il file con estensione cer che contiene il certificato X.509](./media/howto-saml-token-encryption/import-certificate-small.png)
 
@@ -122,15 +119,15 @@ Quando si configura un oggetto keyCredential tramite Graph, PowerShell o il mani
 
 ### <a name="to-configure-token-encryption-using-powershell"></a>Per configurare la crittografia dei token tramite PowerShell
 
-1. Usare la versione più recente del modulo Azure AD PowerShell per connettersi al tenant.
+1. Usare il modulo Azure AD PowerShell più recente per connettersi al tenant.
 
-1. Impostare le impostazioni di crittografia del token usando il comando **[set-AzureApplication](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview&preserve-view=true)** .
+1. Impostare le impostazioni di crittografia dei token usando **[il comando Set-AzureApplication.](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview&preserve-view=true)**
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
-1. Leggere le impostazioni di crittografia del token usando i comandi seguenti.
+1. Leggere le impostazioni di crittografia dei token usando i comandi seguenti.
 
     ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>

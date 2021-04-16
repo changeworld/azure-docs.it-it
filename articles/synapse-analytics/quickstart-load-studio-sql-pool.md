@@ -2,19 +2,19 @@
 title: 'Avvio rapido: Eseguire il caricamento bulk dei dati con un pool SQL dedicato'
 description: Usare Synapse Studio per eseguire il caricamento bulk di dati in un pool SQL dedicato in Azure Synapse Analytics.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
 ms.date: 12/11/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: be15a37a9a2965da36f7e8f884a0a3112106b9ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 838138fb6ca6f64b4296b54a81bc2764c3f1399c
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104586727"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567911"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-studio"></a>Avvio rapido: Caricamento bulk con Synapse Studio
 

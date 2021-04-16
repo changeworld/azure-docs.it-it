@@ -3,11 +3,11 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Visione artificiale panoramica
+    - name: Informazioni sulla Visione artificiale
       href: overview.md
     - name: Lingue supportate
       href: language-support.md
-    - name: Prezzi e limiti
+    - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
     - name: Novità
       href: whats-new.md
@@ -15,9 +15,9 @@
       href: FAQ.md
 - name: Riconoscimento ottico dei caratteri (OCR)
   items:
-    - name: Panoramica di OCR
+    - name: Panoramica del riconoscimento ottico dei dati
       href: overview-ocr.md
-    - name: Guida introduttiva a OCR
+    - name: Guida introduttiva al riconoscimento ottico dei dati
       href: quickstarts-sdk/client-library.md
     - name: Esempi
       href: /samples/browse/?products=azure&terms=computer-vision
@@ -34,7 +34,7 @@
               displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
             - name: Configurare i contenitori
               href: computer-vision-resource-container-config.md
-            - name: Eseguire la migrazione alla versione 3 del contenitore OCR di lettura
+            - name: Eseguire la migrazione alla versione 3 del contenitore Read OCR
               href: read-container-migration-guide.md
               displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
             - name: Usare con Kubernetes e Jenkins
@@ -180,21 +180,23 @@
               href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
 - name: Guide pratiche
   items:
-    - name: Come configurare le reti virtuali
-      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Come configurare l'autenticazione di AAD
-      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Come usare le chiavi gestite dal cliente
-      href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Configurare le reti virtuali
+          href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+        - name: Usare Autenticazione di Azure AD
+          href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
 - name: Risorse
   items:
-    - name: Supporto di area
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Moduli LEARN
-      href: /learn/paths/explore-computer-vision-microsoft-azure/
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Supporto di area
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformità e certificazione
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
-    - name: Conformità
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Moduli Microsoft Learn
+      href: /learn/paths/explore-computer-vision-microsoft-azure/
     - name: Aggiornamenti di Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'

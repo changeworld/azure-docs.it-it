@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2960726cf687908e8e4aed9333fce490dd7ff006
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd82caab0babbc4803dd54926dafcba98370fa03
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98788738"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567282"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Esercitazione: Usare un'identità gestita per connettere Key Vault a un'app Web di Azure in .NET
 
@@ -34,7 +34,7 @@ Per completare questa esercitazione, sono necessari:
 
 * Una sottoscrizione di Azure. [Crearne una gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [.NET Core 3.1 SDK (o versione successiva)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* Un'installazione di [Git](https://www.git-scm.com/downloads).
+* [Un'installazione](https://www.git-scm.com/downloads) Git della versione 2.28.0 o successiva.
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault](./overview.md). È possibile creare un insieme di credenziali delle chiavi usando il [portale di Azure](quick-create-portal.md), l'[interfaccia della riga di comando di Azure](quick-create-cli.md) o [Azure PowerShell](quick-create-powershell.md).
 * Un [segreto](../secrets/about-secrets.md) di Key Vault. È possibile creare un segreto tramite il [portale di Azure](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md) o l'[interfaccia della riga di comando di Azure](../secrets/quick-create-cli.md).
@@ -78,7 +78,7 @@ In questo passaggio l'applicazione .NET Core viene distribuita nel servizio app 
 Nella finestra del terminale premere **CTRL+C** per chiudere il server Web.  Inizializzare un repository Git per il progetto .NET Core:
 
 ```bash
-git init
+git init --initial-branch=main
 git add .
 git commit -m "first commit"
 ```
@@ -167,8 +167,13 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-
 L'URL dell'istanza Git remota è visualizzato nella proprietà `deploymentLocalGitUrl`, nel formato `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Salvare questo URL. Sarà necessario più avanti.
+
+Configurare ora l'app Web per la distribuzione dal `main` ramo :
+
+```azurecli-interactive
+ az webapp config appsettings set -g MyResourceGroup -name "<your-webapp-name>"--settings deployment_branch=main
+```
 
 Passare alla nuova app usando il comando seguente. Sostituire `<your-webapp-name>` con il nome dell'app.
 

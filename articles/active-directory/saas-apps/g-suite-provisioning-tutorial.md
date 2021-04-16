@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.author: Zhchia
-ms.openlocfilehash: f6ef2f91d178db01e618c19df55705bc9c1209e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8513f62b6f181a1490d136062c5de81db847ba7
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104583752"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533396"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: Configurare G Suite per il provisioning utenti automatico
 
@@ -273,7 +273,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 * 17/10/2020: aggiunta del supporto per altri attributi di gruppo e utente di G Suite.
 * 17/10/2020: aggiornamento dei nomi degli attributi di destinazione di G Suite in base a quanto definito [qui](https://developers.google.com/admin-sdk/directory).
 * 17/10/2020: aggiornamento dei mapping degli attributi predefiniti.
-* 03/18/2021-la posta elettronica Manager è stata sincronizzata al posto di ID per tutti i nuovi utenti. Per tutti gli utenti esistenti di cui è stato effettuato il provisioning con un responsabile come ID, è possibile eseguire un riavvio tramite [Microsoft Graph](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) con ambito "completo" per assicurarsi che venga effettuato il provisioning del messaggio di posta elettronica. Questa modifica ha un effetto solo sul processo di provisioning di GSuite e non sul precedente processo probisioning che inizia con Goov2OutDelta. Si noti che viene effettuato il provisioning del messaggio di posta elettronica del Manager quando l'utente viene creato per la prima volta o quando viene modificato. Non viene effettuato il provisioning della posta elettronica del Manager se il responsabile modifica il proprio indirizzo di posta elettronica. 
+* 18/03/2021 - L'indirizzo di posta elettronica del manager è ora sincronizzato invece dell'ID per tutti i nuovi utenti. Per tutti gli utenti esistenti di cui è stato effettuato il provisioning con un manager come ID, è possibile eseguire un [riavvio](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http&preserve-view=true) tramite Microsoft Graph con ambito "completo" per assicurarsi che venga effettuato il provisioning del messaggio di posta elettronica. Questa modifica influisce solo sul processo di provisioning GSuite e non sul processo di provisioning precedente a partire da Goov2OutDelta. Si noti che il provisioning del messaggio di posta elettronica del responsabile viene effettuato quando l'utente viene creato per la prima volta o quando il responsabile viene modificato. Il provisioning del messaggio di posta elettronica del responsabile non viene effettuato se il responsabile modifica l'indirizzo di posta elettronica. 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -1,33 +1,33 @@
 ---
 title: Gestire i criteri di consenso delle app in Azure AD
-description: Informazioni su come gestire i criteri di consenso app predefiniti e personalizzati per controllare quando è possibile concedere il consenso.
+description: Informazioni su come gestire i criteri di consenso delle app predefiniti e personalizzati per controllare quando è possibile concedere il consenso.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9c269e2ab37a08e48eedd3ee468080a382f9a8e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44299fadd17d1acfa292dd88bd57c8be4a44be36
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558730"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375696"
 ---
 # <a name="manage-app-consent-policies"></a>Gestire i criteri di consenso delle app
 
-Con Azure AD PowerShell è possibile visualizzare e gestire i criteri di consenso delle app.
+Con Azure AD PowerShell, è possibile visualizzare e gestire i criteri di consenso delle app.
 
-Un criterio di consenso dell'app è costituito da uno o più set di condizioni "includes" e da zero o più set di condizioni "excludes". Affinché un evento venga considerato in un criterio di consenso dell'app, deve corrispondere almeno a un set di condizioni "includes" e non deve corrispondere *ad* *alcun* set di condizioni "excludes".
+I criteri di consenso dell'app sono costituiti da uno o più set di condizioni "include" e zero o più set di condizioni "escluse". Perché un evento sia considerato nei criteri di  consenso dell'app, deve corrispondere ad almeno un set di condizioni "include" e non deve corrispondere ad alcun set di condizioni  "escluse".
 
-Ogni set di condizioni è costituito da diverse condizioni. Affinché un evento corrisponda a un set di condizioni, è necessario che *tutte* le condizioni nel set di condizioni siano soddisfatte.
+Ogni set di condizioni è costituito da diverse condizioni. Perché un evento corrisponda a un set di condizioni, *tutte* le condizioni nel set di condizioni devono essere soddisfatte.
 
-I criteri di consenso delle app in cui l'ID inizia con "Microsoft-" sono criteri predefiniti. Alcuni di questi criteri predefiniti vengono usati nei ruoli della directory predefiniti esistenti. Ad esempio, i `microsoft-application-admin` criteri di consenso delle app descrivono le condizioni in base alle quali i ruoli amministratore applicazione e amministratore applicazione cloud possono concedere il consenso dell'amministratore a livello di tenant. I criteri predefiniti possono essere usati nei ruoli della directory personalizzati e per configurare le impostazioni di consenso dell'utente, ma non possono essere modificati o eliminati.
+I criteri di consenso delle app in cui l'ID inizia con "microsoft-" sono criteri predefiniti. Alcuni di questi criteri predefiniti vengono usati nei ruoli di directory predefiniti esistenti. Ad esempio, i criteri di consenso dell'app descrivono le condizioni in cui i ruoli Amministratore applicazione e Amministratore applicazioni cloud sono autorizzati a concedere il consenso dell'amministratore `microsoft-application-admin` a livello di tenant. I criteri predefiniti possono essere usati nei ruoli di directory personalizzati e per configurare le impostazioni di consenso dell'utente, ma non possono essere modificati o eliminati.
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
@@ -44,9 +44,9 @@ I criteri di consenso delle app in cui l'ID inizia con "Microsoft-" sono criteri
    Connect-AzureAD
    ```
 
-## <a name="list-existing-app-consent-policies"></a>Elenca i criteri di consenso delle app esistenti
+## <a name="list-existing-app-consent-policies"></a>Elencare i criteri di consenso delle app esistenti
 
-Per iniziare, è consigliabile acquisire familiarità con i criteri di consenso delle app esistenti nell'organizzazione:
+È buona idea iniziare conoscendo i criteri di consenso delle app esistenti nell'organizzazione:
 
 1. Elencare tutti i criteri di consenso delle app:
 
@@ -54,25 +54,25 @@ Per iniziare, è consigliabile acquisire familiarità con i criteri di consenso 
    Get-AzureADMSPermissionGrantPolicy | ft Id, DisplayName, Description
    ```
 
-1. Visualizzare i set di condizioni "includes" di un criterio:
+1. Visualizzare i set di condizioni "include" di un criterio:
 
     ```powershell
     Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "includes"
     ```
 
-1. Visualizzare i set di condizioni "excludes":
+1. Visualizzare i set di condizioni "esclude":
 
     ```powershell
     Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "excludes"
     ```
 
-## <a name="create-a-custom-app-consent-policy"></a>Creare un criterio di consenso dell'app personalizzato
+## <a name="create-a-custom-app-consent-policy"></a>Creare criteri di consenso dell'app personalizzati
 
 Seguire questa procedura per creare criteri di consenso dell'app personalizzati:
 
-1. Creare un nuovo criterio di consenso per le app vuote.
+1. Creare un nuovo criterio di consenso dell'app vuoto.
 
    ```powershell
    New-AzureADMSPermissionGrantPolicy `
@@ -81,7 +81,7 @@ Seguire questa procedura per creare criteri di consenso dell'app personalizzati:
        -Description "This is a sample custom app consent policy."
    ```
 
-1. Aggiungere set di condizioni "includes".
+1. Aggiungere set di condizioni "include".
 
    ```powershell
    # Include delegated permissions classified "low", for apps from verified publishers
@@ -93,7 +93,7 @@ Seguire questa procedura per creare criteri di consenso dell'app personalizzati:
        -ClientApplicationsFromVerifiedPublisherOnly $true
    ```
 
-   Ripetere questo passaggio per aggiungere ulteriori set di condizioni di "inclusione".
+   Ripetere questo passaggio per aggiungere altri set di condizioni di "inclusione".
 
 1. Facoltativamente, aggiungere set di condizioni "excludes".
 
@@ -109,43 +109,43 @@ Seguire questa procedura per creare criteri di consenso dell'app personalizzati:
        -ResourceApplication $azureApi.AppId
    ```
 
-   Ripetere questo passaggio per aggiungere ulteriori set di condizioni "exclude".
+   Ripetere questo passaggio per aggiungere altri set di condizioni di esclusione.
 
-Una volta creati i criteri di consenso per l'app, è possibile [consentire il consenso dell'utente](configure-user-consent.md?tabs=azure-powershell#allow-user-consent-subject-to-an-app-consent-policy) in base a questi criteri.
+Dopo aver creato i criteri di consenso dell'app, è possibile consentire [il consenso dell'utente](configure-user-consent.md?tabs=azure-powershell#allow-user-consent-subject-to-an-app-consent-policy) in base a questi criteri.
 
-## <a name="delete-a-custom-app-consent-policy"></a>Eliminare un criterio di consenso dell'app personalizzato
+## <a name="delete-a-custom-app-consent-policy"></a>Eliminare i criteri di consenso dell'app personalizzati
 
-1. Di seguito viene illustrato come è possibile eliminare un criterio di consenso dell'app personalizzato. **Questa azione non può essere annullata.**
+1. Di seguito viene illustrato come eliminare un criterio di consenso dell'app personalizzato. **Questa azione non può essere annullata.**
 
    ```powershell
    Remove-AzureADMSPermissionGrantPolicy -Id "my-custom-policy"
    ```
 
 > [!WARNING]
-> Non è possibile ripristinare i criteri di consenso delle app eliminati. Se si elimina accidentalmente un criterio di consenso dell'app personalizzato, sarà necessario ricreare i criteri.
+> I criteri di consenso delle app eliminati non possono essere ripristinati. Se si elimina accidentalmente un criterio di consenso dell'app personalizzato, sarà necessario creare nuovamente il criterio.
 
 ---
 
 ### <a name="supported-conditions"></a>Condizioni supportate
 
-La tabella seguente include l'elenco delle condizioni supportate per i criteri di consenso delle app.
+La tabella seguente fornisce l'elenco delle condizioni supportate per i criteri di consenso delle app.
 
 | Condizione | Descrizione|
 |:---------------|:----------|
-| PermissionClassification | [Classificazione delle autorizzazioni](configure-permission-classifications.md) per l'autorizzazione che viene concessa o "All" per la corrispondenza con qualsiasi classificazione di autorizzazione (incluse le autorizzazioni non classificate). Il valore predefinito è "All". |
-| PermissionType | Tipo di autorizzazione dell'autorizzazione concessa. Usare "Application" per le autorizzazioni dell'applicazione (ad esempio, i ruoli dell'app) o "delegate" per le autorizzazioni delegate. <br><br>**Nota**: il valore "delegatedUserConsentable" indica le autorizzazioni delegate che non sono state configurate dal server di pubblicazione API per richiedere il consenso dell'amministratore. questo valore può essere usato nei criteri di concessione delle autorizzazioni predefinite, ma non può essere usato nei criteri di concessione delle autorizzazioni personalizzate. Obbligatorio. |
-| ResourceApplication | **AppID** dell'applicazione della risorsa (ad esempio, l'API) per cui viene concessa un'autorizzazione o "any" per la corrispondenza con qualsiasi API o applicazione della risorsa. Il valore predefinito è "any". |
-| Autorizzazioni | Elenco di ID di autorizzazione per le autorizzazioni specifiche con cui trovare una corrispondenza o un elenco con il singolo valore "All" per la corrispondenza con qualsiasi autorizzazione. Il valore predefinito è "All". <ul><li>Gli ID autorizzazione delegati si trovano nella proprietà **OAuth2Permissions** dell'oggetto SERVICEPRINCIPAL dell'API.</li><li>Gli ID delle autorizzazioni dell'applicazione sono reperibili nella proprietà **AppRoles** dell'oggetto SERVICEPRINCIPAL dell'API.</li></ol> |
-| ClientApplicationIds | Elenco di valori **AppID** per le applicazioni client con cui trovare una corrispondenza o un elenco con il singolo valore "All" per la corrispondenza con qualsiasi applicazione client. Il valore predefinito è "All". |
-| ClientApplicationTenantIds | Elenco di Azure Active Directory ID tenant in cui è registrata l'applicazione client o un elenco con il singolo valore "All" per la corrispondenza con le app client registrate in qualsiasi tenant. Il valore predefinito è "All". |
-| ClientApplicationPublisherIds | Elenco di ID di Microsoft Partner Network (MPN) per i server di [pubblicazione verificati](../develop/publisher-verification-overview.md) dell'applicazione client o un elenco con il singolo valore "All" per la corrispondenza con le app client da qualsiasi server di pubblicazione. Il valore predefinito è "All". |
-| ClientApplicationsFromVerifiedPublisherOnly | Impostare su in `$true` modo che corrisponda solo alle applicazioni client con i [Publisher verificati](../develop/publisher-verification-overview.md). Impostare su `$false` per trovare la corrispondenza con qualsiasi app client, anche se non dispone di un server di pubblicazione verificato. Il valore predefinito è `$false`. |
+| PermissionClassification | Classificazione [delle autorizzazioni](configure-permission-classifications.md) per l'autorizzazione concessa o "all" in modo che corrisponda a qualsiasi classificazione di autorizzazione (incluse le autorizzazioni non classificate). Il valore predefinito è "all". |
+| Tipo di autorizzazione | Tipo di autorizzazione dell'autorizzazione concessa. Usare "applicazione" per le autorizzazioni dell'applicazione (ad esempio, i ruoli dell'app) o "delegate" per le autorizzazioni delegate. <br><br>**Nota:** il valore "delegatedUserConsentable" indica le autorizzazioni delegate che non sono state configurate dall'autore dell'API per richiedere il consenso dell'amministratore. Questo valore può essere usato nei criteri di concessione delle autorizzazioni predefiniti, ma non nei criteri di concessione delle autorizzazioni personalizzati. Obbligatorio. |
+| ResourceApplication | **AppId dell'applicazione** della risorsa(ad esempio, l'API) per cui viene concessa un'autorizzazione o "qualsiasi" da associare a qualsiasi applicazione o API della risorsa. Il valore predefinito è "any". |
+| Autorizzazioni | Elenco di ID di autorizzazione per le autorizzazioni specifiche con cui trovare la corrispondenza oppure elenco con il singolo valore "all" in modo che corrisponda a qualsiasi autorizzazione. Il valore predefinito è il singolo valore "all". <ul><li>Gli ID autorizzazione delegati sono disponibili nella **proprietà OAuth2Permissions** dell'oggetto ServicePrincipal dell'API.</li><li>Gli ID di autorizzazione dell'applicazione sono disponibili nella **proprietà AppRoles** dell'oggetto ServicePrincipal dell'API.</li></ol> |
+| ClientApplicationIds | Elenco di valori **AppId** per le applicazioni client con cui trovare la corrispondenza oppure un elenco con il singolo valore "all" in modo che corrisponda a qualsiasi applicazione client. Il valore predefinito è il singolo valore "all". |
+| ClientApplicationTenantIds | Elenco di ID Azure Active Directory tenant in cui è registrata l'applicazione client o un elenco con il singolo valore "all" per la corrispondenza con le app client registrate in qualsiasi tenant. Il valore predefinito è il singolo valore "all". |
+| ClientApplicationPublisherIds | Un elenco di ID Microsoft Partner Network (MPN) per gli editori verificati dell'applicazione client o un elenco con il singolo valore "all" per la corrispondenza con le app client di qualsiasi editore. [](../develop/publisher-verification-overview.md) Il valore predefinito è il singolo valore "all". |
+| ClientApplicationsFromVerifiedPublisherOnly | Impostare su `$true` in modo che corrisponda solo alle applicazioni client con un server di pubblicazione [verificato.](../develop/publisher-verification-overview.md) Impostare su `$false` in modo che corrisponda a qualsiasi app client, anche se non dispone di un editore verificato. Il valore predefinito è `$false`. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni:
 
-* [Configurare le impostazioni di consenso dell'utente](configure-user-consent.md)
+* [Configurare le impostazioni di consenso utente](configure-user-consent.md)
 * [Configurare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md)
 * [Informazioni su come gestire il consenso alle applicazioni e valutare le richieste di consenso](manage-consent-requests.md)
 * [Concedere a un'applicazione il consenso amministratore a livello di tenant](grant-admin-consent.md)
