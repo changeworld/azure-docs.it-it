@@ -1,68 +1,72 @@
 ### YamlMime:Landing
-title: Inizia a usare il contratto per i clienti Microsoft
-summary: Per iniziare a gestire la fatturazione e le sottoscrizioni, usare il contratto per i clienti Microsoft. Scopri come comprendere e ottimizzare i costi garantendo al contempo l'accesso sicuro all'ambiente di fatturazione.
+title: Introduzione all'Contratto del cliente Microsoft
+summary: Iniziare a gestire la fatturazione e le sottoscrizioni nell'Contratto del cliente Microsoft. Informazioni su come comprendere e ottimizzare i costi garantendo al tempo stesso l'accesso sicuro all'ambiente di fatturazione.
 metadata:
-  title: Inizia a usare il contratto per i clienti Microsoft
-  description: Informazioni su come iniziare a usare il contratto per i clienti Microsoft.
+  title: Introduzione all'Contratto del cliente Microsoft
+  description: Informazioni su come iniziare a usare il Contratto del cliente Microsoft.
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 03/01/2021
-  ms.openlocfilehash: f2dcb2687a5a765e674a3dce7ac9016e58056b81
-  ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+  ms.date: 04/07/2021
+  ms.openlocfilehash: bc04150b8aedcb02fcee888b390e2819c97d7a01
+  ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/16/2021
-  ms.locfileid: "103574711"
+  ms.lasthandoff: 04/14/2021
+  ms.locfileid: "107478098"
 landingContent:
 - title: Introduzione
   linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è un contratto per i clienti Microsoft?
+    - text: Che cos'è un Contratto del cliente Microsoft?
       url: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - linkListType: get-started
+    links:
+    - text: Passaggi successivi principali dopo l'accettazione del contratto
+      url: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - linkListType: how-to-guide
     links:
-    - text: Passa dalla carta di credito alla fattura
+    - text: Trasferire la proprietà della fatturazione dal pagamento in base al pagamento al mca
       url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - text: Accedere alle sottoscrizioni con ID dominio
+    - text: Trasferire la proprietà della fatturazione dal EA al McA
       url: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - text: Configurare l'amministratore per gestire gli utenti della sottoscrizione
       url: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - text: Creare nuove sottoscrizioni
       url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Risolvere i problemi di accesso alla sottoscrizione
+      url: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - title: Gestire la fatturazione
   linkLists:
   - linkListType: concept
     links:
-    - text: Informazioni sul ciclo di fatturazione
+    - text: Comprendere il ciclo di fatturazione
       url: ../understand/mca-understand-your-invoice.md#billing-period
   - linkListType: tutorial
     links:
-    - text: Ricevi una fattura nel contratto
+    - text: Ricevere una fattura in base al contratto
       url: ../understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - linkListType: how-to-guide
     links:
-    - text: Che cos'è un profilo di fatturazione e come posso gestirlo?
+    - text: Che cos'è un profilo di fatturazione e come è possibile gestirlo?
       url: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - text: Pagare fattura per fattura
-      url: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - text: Pagare fattura per carta di credito o debito oppure per assegno o bonifico
+    - text: Come pagare la fattura
       url: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
     - text: Configurare un amministratore per gestire la fatturazione
       url: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - text: Inizia la fatturazione per il contratto
+    - text: Avviare la fatturazione per il contratto
       url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-    - text: Trova il proprietario della sottoscrizione
+    - text: Trovare il proprietario della sottoscrizione
       url: ../manage/add-change-subscription-administrator.md#assign-a-subscription-administrator
   - linkListType: video
     links:
     - text: Organizzare i costi
       url: https://www.youtube.com/watch?v=7RxTfShGHwU
-    - text: Gestisci l'accesso all'account di fatturazione
+    - text: Gestire l'accesso all'account di fatturazione
       url: https://www.youtube.com/watch?v=9sqglBlKkho
     - text: Comprendere la fattura
       url: https://www.youtube.com/watch?v=e2LGZZ7GubA
@@ -72,3 +76,5 @@ landingContent:
     links:
     - text: Che cos'è Active Directory?
       url: ../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - text: Gestire i tenant
+      url: manage-tenants.md

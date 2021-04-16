@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 04/15/2021
 ms.custom:
 - amqp
 - mqtt
@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 3ddc8c78bac47ed85266037341328585e3c7cb1c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e72af412f61f2084fb78907c15a92a22b9e3bc99
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97825121"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567180"
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -383,14 +383,14 @@ I certificati supportati includono:
 
 * **Un certificato X-509 auto-generato e auto-firmato**. Un produttore di dispositivi o un distributore interno può generare questi certificati e archiviare la chiave privata corrispondente (e il certificato) nel dispositivo. È possibile usare strumenti come [OpenSSL](https://www.openssl.org/) e l'utilità [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) per questo scopo. È compatibile solo con l'autenticazione tramite identificazione personale.
 
-Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'autenticazione, ma non per entrambi. Con l'autenticazione del certificato X. 509, assicurarsi di disporre di una strategia per gestire il rollover del certificato quando un certificato esistente scade.
+Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'autenticazione, ma non per entrambi. Con l'autenticazione del certificato X.509, assicurarsi di avere una strategia per gestire il rollover del certificato alla scadenza di un certificato esistente.
 
-Le funzionalità seguenti non sono supportate per i dispositivi che usano l'autenticazione della CA X. 509:
+La funzionalità seguente per i dispositivi che usano l'autenticazione dell'autorità di certificazione X.509 non è ancora disponibile a livello generale e deve essere abilitata [la modalità di anteprima:](iot-hub-preview-mode.md)
 
-* HTTPS, MQTT su WebSocket e AMQP su protocolli WebSocket.
+* HTTPS, MQTT su WebSockets e AMQP su protocolli WebSockets.
 * Caricamenti di file (tutti i protocolli).
 
-Per altre informazioni sull'autenticazione tramite l'autorità di certificazione, vedere [Autenticazione dei dispositivi con i certificati della CA X.509](iot-hub-x509ca-overview.md). Per informazioni su come caricare e verificare un'autorità di certificazione con l'hub Internet delle cose, vedere [configurare la sicurezza X. 509 nell'hub Azure](iot-hub-security-x509-get-started.md).
+Per altre informazioni sull'autenticazione tramite l'autorità di certificazione, vedere [Autenticazione dei dispositivi con i certificati della CA X.509](iot-hub-x509ca-overview.md). Per informazioni su come caricare e verificare un'autorità di certificazione con l'hub IoT, vedere Configurare la sicurezza [X.509 nell'hub Azure IoT.](iot-hub-security-x509-get-started.md)
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registrare un certificato X.509 per un dispositivo
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1977663f4661fca316e4839671abd76e07b5acda
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0986a1d6a75f0d464eb405841af821c606c68200
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107304801"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565322"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Usare tabelle esterne con Synapse SQL
 
@@ -339,9 +339,9 @@ Specifica la cartella o il percorso e il nome del file per i dati effettivi in A
 Se si specifica un percorso (LOCATION) di cartella, una query del pool SQL serverless eseguirà la selezione nella tabella esterna e recupererà i file dalla stessa.
 
 > [!NOTE]
-> A differenza di Hadoop e PolyBase, il pool SQL serverless non restituisce le sottocartelle, a meno che non si specifichi /** alla fine del percorso.
+> A differenza di Hadoop e PolyBase, il pool SQL serverless non restituisce le sottocartelle, a meno che non si specifichi /** alla fine del percorso. Analogamente a Hadoop e PolyBase, non restituisce i file per i quali il nome del file inizia con una sottolineatura (_) o un punto (.).
 
-In questo esempio, se LOCATION ='/WebData/', una query del pool SQL senza server, restituirà righe da mydata.txt. Non restituirà mydata2.txt e mydata3.txt perché si trovano in una sottocartella.
+In questo esempio, se LOCATION='/webdata/', una query del pool SQL serverless restituirà righe da mydata.txt. Non restituirà mydata2.txt e mydata3.txt perché si trovano in una sottocartella.
 
 ![Dati ricorsivi per tabelle esterne](./media/develop-tables-external-tables/folder-traversal.png)
 
@@ -381,7 +381,7 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="create-and-query-external-tables-from-a-file-in-azure-data-lake"></a>Creare ed eseguire query su tabelle esterne da un file in Azure Data Lake
 
-Usando le funzionalità di esplorazione di Data Lake, è ora possibile creare ed eseguire query su una tabella esterna usando il pool SQL dedicato o il pool SQL serverless tramite un semplice clic con il pulsante destro del mouse sul file. Il gesto con un clic per creare tabelle esterne dall'account di archiviazione ADLS Gen2 è supportato solo per i file parquet. 
+Usando le funzionalità di esplorazione di Data Lake, è ora possibile creare ed eseguire query su una tabella esterna usando il pool SQL dedicato o il pool SQL serverless tramite un semplice clic con il pulsante destro del mouse sul file. Il movimento con un clic per creare tabelle esterne dall'account ADLS Gen2 di archiviazione è supportato solo per i file Parquet. 
 
 ### <a name="prerequisites"></a>Prerequisiti
 

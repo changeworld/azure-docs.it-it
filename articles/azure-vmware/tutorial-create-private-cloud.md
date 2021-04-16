@@ -1,16 +1,16 @@
 ---
-title: 'Esercitazione: distribuire un cloud privato della soluzione VMware di Azure'
-description: Informazioni su come creare e distribuire un cloud privato della soluzione VMware di Azure
+title: 'Esercitazione: Distribuire un soluzione Azure VMware cloud privato'
+description: Informazioni su come creare e distribuire un soluzione Azure VMware cloud privato
 ms.topic: tutorial
 ms.date: 02/22/2021
-ms.openlocfilehash: ed916305cd1a67162f07c24e3bf97766e5389b74
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 89a44ce7e5910609068f72c321971ced2e3646b4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462168"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374846"
 ---
-# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Esercitazione: distribuire un cloud privato della soluzione VMware di Azure
+# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Esercitazione: Distribuire un soluzione Azure VMware cloud privato
 
 La soluzione Azure VMware consente di distribuire un cluster vSphere in Azure. La distribuzione iniziale minima è di tre host. È possibile aggiungere altri host uno alla volta, fino a un massimo di 16 host per cluster.
 
@@ -25,10 +25,10 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Diritti amministrativi appropriati e l'autorizzazione per creare un cloud privato. È necessario avere un livello minimo di collaboratore nella sottoscrizione.
-- Per distribuire la soluzione VMware di Azure, seguire le informazioni raccolte nell'articolo sulla [pianificazione](production-ready-deployment-steps.md) .
+- Diritti amministrativi appropriati e l'autorizzazione per creare un cloud privato. È necessario avere almeno il livello di collaboratore nella sottoscrizione.
+- Seguire le informazioni raccolte nell'articolo [sulla pianificazione per](production-ready-deployment-steps.md) distribuire soluzione Azure VMware.
 - Assicurarsi di avere la rete appropriata configurata come descritto in [Esercitazione: Elenco di controllo per la rete](tutorial-network-checklist.md).
-- È stato eseguito il provisioning degli host e il provider di risorse Microsoft. AVS è stato registrato come descritto in [richiedere gli host e abilitare il provider di risorse Microsoft. AVS](enable-azure-vmware-solution.md).
+- È stato effettuato il provisioning degli host e il provider di risorse Microsoft.AVS è stato registrato come descritto in Richiedere host e abilitare il provider di risorse [Microsoft.AVS.](enable-azure-vmware-solution.md)
 
 ## <a name="create-a-private-cloud"></a>Creare un cloud privato
 
@@ -48,7 +48,7 @@ Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. È an
 
 #### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [' AZ Group create '](/cli/azure/group) . Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Creare un gruppo di risorse con il [comando "az group create".](/cli/azure/group) Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 

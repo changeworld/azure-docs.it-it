@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42def04db63d81bdb3eff8098daa8c75924bffec
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93146927"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502080"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendere il registro delle identità nell'hub IoT
 
@@ -84,7 +84,7 @@ Usare operazioni asincrone sull'[endpoint del provider di risorse dell'hub IoT](
 
 Per altre informazioni sulle API di importazione e di esportazione, vedere [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource) (API REST del provider di risorse dell'hub IoT). Per altre informazioni sull'esecuzione dei processi di importazione ed esportazione, vedere [Gestione in blocco delle identità dei dispositivi dell'hub IoT](iot-hub-bulk-identity-mgmt.md).
 
-Le identità dei dispositivi possono anche essere esportate e importate da un hub Internet delle cose tramite l'API del servizio tramite l' [API REST](/rest/api/iothub/service/jobs/createimportexportjob) o uno degli [SDK del servizio](./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)hub Internet.
+Le identità dei dispositivi possono anche essere esportate e importate da un hub IoT tramite l'API del servizio tramite [l'API REST](/rest/api/iothub/service/jobs/createimportexportjob) o uno degli [SDK](./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)del servizio hub IoT.
 
 ## <a name="device-provisioning"></a>Provisioning di dispositivi
 
@@ -99,14 +99,14 @@ Il registro delle identità dell'hub IoT contiene un campo denominato **connecti
 Se la soluzione IoT necessita di conoscere se un dispositivo è connesso, è necessario implementare il *modello di heartbeat*.
 Nel modello di heartbeat il dispositivo invia messaggi da dispositivo a cloud almeno una volta ogni intervallo di tempo stabilito, ad esempio almeno una volta ogni ora. Di conseguenza, anche se in un dispositivo non sono presenti dati da inviare, viene comunque inviato un messaggio vuoto da dispositivo a cloud, in genere con una proprietà che lo identifica come heartbeat. Sul lato servizio, la soluzione gestisce una mappa con l'ultimo heartbeat ricevuto per ogni dispositivo e presuppone che sia presente un problema con il dispositivo se non riceve un messaggio di heartbeat entro il tempo previsto.
 
-Un'implementazione più complessa può includere le informazioni di [monitoraggio di Azure](../azure-monitor/index.yml) e [integrità risorse di Azure](../service-health/resource-health-overview.md) per identificare i dispositivi che tentano di connettersi o comunicano ma non riescono. Per altre informazioni, vedere [monitorare l'hub](monitor-iot-hub.md) Internet e [controllare l'integrità delle risorse dell'hub](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health). Quando si implementa il modello di heartbeat, assicurarsi di controllare [Quote e limitazioni dell'hub IoT](iot-hub-devguide-quotas-throttling.md).
+Un'implementazione più complessa [](../azure-monitor/index.yml) può includere le informazioni Monitoraggio di Azure e [Integrità risorse di Azure](../service-health/resource-health-overview.md) identificare i dispositivi che tentano di connettersi o comunicare ma che hanno esito negativo. Per altre informazioni, vedere [Monitorare l'hub IoT](monitor-iot-hub.md) e [Controllare l'integrità delle risorse dell'hub IoT.](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health) Quando si implementa il modello di heartbeat, assicurarsi di controllare [Quote e limitazioni dell'hub IoT](iot-hub-devguide-quotas-throttling.md).
 
 > [!NOTE]
 > Se una soluzione IoT usa lo stato di connessione esclusivamente per determinare se inviare i messaggi da cloud a dispositivo e i messaggi non vengono trasmessi a grandi set di dispositivi, è da considerare l'uso del criterio *a breve scadenza* più semplice. Un modello di questo tipo consente di gestire il registro dello stato di connessione del dispositivo in modo analogo a un modello di heartbeat, ma con maggiore efficienza. Se si richiede l'acknowledgement dei messaggi, l'hub IoT può inviare una notifica per indicare quali dispositivi possono ricevere messaggi e quali no.
 
 ## <a name="device-and-module-lifecycle-notifications"></a>Notifiche per il ciclo di vita di dispositivi e moduli
 
-L'hub IoT può inviare una notifica alla soluzione IoT quando un'identità viene creata o eliminata inviando notifiche del ciclo di vita. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *DeviceLifecycleEvents* o *ModuleLifecycleEvents*. Per impostazione predefinita, non vengono inviate notifiche del ciclo di vita, il che significa che queste route non sono preesistenti. Il messaggio di notifica include le proprietà e il corpo.
+L'hub IoT può inviare una notifica alla soluzione IoT quando viene creata o eliminata un'identità del dispositivo inviando notifiche del ciclo di vita. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *DeviceLifecycleEvents*. Per impostazione predefinita, non vengono inviate notifiche del ciclo di vita, il che significa che queste route non sono preesistenti. Creando una route con Origine dati uguale a *DeviceLifecycleEvents,* gli eventi del ciclo di vita verranno inviati sia per le identità dei dispositivi che per le identità dei moduli. Tuttavia, il contenuto del messaggio varia a seconda che gli eventi siano generati per le identità del modulo o le identità del dispositivo.  Si noti che per i moduli IoT Edge il flusso di creazione dell'identità del modulo è diverso rispetto ad altri moduli, di conseguenza per i moduli IoT Edge la notifica di creazione viene inviata solo se è in esecuzione il dispositivo IoT Edge corrispondente per l'identità del modulo IoT Edge aggiornata. Per tutti gli altri moduli, le notifiche del ciclo di vita vengono inviate ogni volta che l'identità del modulo viene aggiornata sul lato hub IoT.  Il messaggio di notifica include le proprietà e il corpo.
 
 Proprietà: le proprietà di sistema del messaggio hanno come prefisso il simbolo `$`.
 
@@ -192,7 +192,7 @@ Le identità dei dispositivi vengono rappresentate da documenti JSON con le prop
 | --- | --- | --- |
 | deviceId |Obbligatoria, di sola lettura negli aggiornamenti |Stringa con distinzione tra maiuscole/minuscole (lunghezza massima 128 caratteri) con caratteri alfanumerici ASCII a 7 bit più alcuni caratteri speciali: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |Obbligatoria, di sola lettura |Stringa con distinzione tra maiuscole/minuscole generata dall'hub IoT con lunghezza massima di 128 caratteri. Tale valore viene usato per distinguere i dispositivi con la stessa proprietà **deviceId** in caso di eliminazione e nuova creazione. |
-| etag |Obbligatoria, di sola lettura |Stringa che rappresenta un ETag debole per l'identità del dispositivo, come per ogni [RFC7232](https://tools.ietf.org/html/rfc7232). |
+| etag |Obbligatoria, di sola lettura |Stringa che rappresenta un ETag debole per l'identità del dispositivo, in base a [RFC7232.](https://tools.ietf.org/html/rfc7232) |
 | auth |facoltative |Oggetto composito contenente le informazioni di autenticazione e i materiali di sicurezza. |
 | auth.symkey |facoltative |Oggetto composito contenente una chiave primaria e una chiave secondaria, archiviate in formato Base 64. |
 | status |necessario |Indicatore di accesso. Può essere **Enabled** o **Disabled**. Se è **Enabled**, il dispositivo sarà autorizzato alla connessione. Se è **Disabled**, il dispositivo non potrà accedere ad alcun endpoint per il dispositivo. |
@@ -200,7 +200,7 @@ Le identità dei dispositivi vengono rappresentate da documenti JSON con le prop
 | statusUpdateTime |Sola lettura |Indicatore temporale che mostra la data e l'ora dell'ultimo aggiornamento dello stato. |
 | connectionState |Sola lettura |Campo indicante lo stato della connessione: **Connected** o **Disconnected**. Questo campo rappresenta la visualizzazione Hub IoT dello stato di connessione del dispositivo. **Importante**: è consigliabile usare questo campo solo per scopi di sviluppo e di debug. Lo stato di connessione viene aggiornato solo per i dispositivi che usano MQTT o AMQP. Si basa anche su ping a livello di protocollo (ping MQTT o AMQP) e può avere un ritardo massimo di soli 5 minuti. Per questi motivi possono essere presenti falsi positivi, ad esempio dispositivi segnalati come connessi, ma in realtà disconnessi. |
 | connectionStateUpdatedTime |Sola lettura |Indicatore temporale che mostra la data e l'ora dell'ultimo aggiornamento dello stato della connessione. |
-| lastActivityTime |Sola lettura |Indicatore temporale che mostra la data e l'ora in cui il dispositivo si è connesso oppure ha ricevuto o inviato un messaggio per l'ultima volta. Questa proprietà è alla fine coerente, ma potrebbe essere ritardata fino a 5-10 minuti. Per questo motivo, non dovrebbe essere usato negli scenari di produzione. |
+| lastActivityTime |Sola lettura |Indicatore temporale che mostra la data e l'ora in cui il dispositivo si è connesso oppure ha ricevuto o inviato un messaggio per l'ultima volta. Questa proprietà è alla fine coerente, ma può essere ritardata fino a 5-10 minuti. Per questo motivo, non deve essere usato negli scenari di produzione. |
 
 > [!NOTE]
 > Lo stato della connessione può rappresentare solo la visualizzazione Hub IoT dello stato della connessione. Gli aggiornamenti dello stato possono essere ritardati a seconda delle condizioni e delle configurazioni della rete.
@@ -217,7 +217,7 @@ Le identità dei moduli vengono rappresentate da documenti JSON con le propriet�
 | deviceId |Obbligatoria, di sola lettura negli aggiornamenti |Stringa con distinzione tra maiuscole/minuscole (lunghezza massima 128 caratteri) con caratteri alfanumerici ASCII a 7 bit più alcuni caratteri speciali: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | moduleId |Obbligatoria, di sola lettura negli aggiornamenti |Stringa con distinzione tra maiuscole/minuscole (lunghezza massima 128 caratteri) con caratteri alfanumerici ASCII a 7 bit più alcuni caratteri speciali: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |Obbligatoria, di sola lettura |Stringa con distinzione tra maiuscole/minuscole generata dall'hub IoT con lunghezza massima di 128 caratteri. Tale valore viene usato per distinguere i dispositivi con la stessa proprietà **deviceId** in caso di eliminazione e nuova creazione. |
-| etag |Obbligatoria, di sola lettura |Stringa che rappresenta un ETag debole per l'identità del dispositivo, come per ogni [RFC7232](https://tools.ietf.org/html/rfc7232). |
+| etag |Obbligatoria, di sola lettura |Stringa che rappresenta un ETag debole per l'identità del dispositivo, in base a [RFC7232.](https://tools.ietf.org/html/rfc7232) |
 | auth |facoltative |Oggetto composito contenente le informazioni di autenticazione e i materiali di sicurezza. |
 | auth.symkey |facoltative |Oggetto composito contenente una chiave primaria e una chiave secondaria, archiviate in formato Base 64. |
 | status |necessario |Indicatore di accesso. Può essere **Enabled** o **Disabled**. Se è **Enabled**, il dispositivo sarà autorizzato alla connessione. Se è **Disabled**, il dispositivo non potrà accedere ad alcun endpoint per il dispositivo. |

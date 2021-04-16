@@ -1,7 +1,7 @@
 ---
-title: YAML della pipeline Machine Learning
+title: Machine Learning pipeline YAML
 titleSuffix: Azure Machine Learning
-description: Informazioni su come definire una pipeline di Machine Learning usando un file YAML. Le definizioni di pipeline YAML vengono usate con l'estensione di machine learning per l'interfaccia della riga di comando di Azure.
+description: Informazioni su come definire una pipeline di Machine Learning usando un file YAML. Le definizioni della pipeline YAML vengono usate con l'estensione di Machine Learning per l'interfaccia della riga di comando di Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,26 +10,26 @@ ms.reviewer: larryfr
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 07/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 2a92fa8fd242482585ab3785e99f8239548ce369
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 1c44f018d558b9426ba6271c0cbb1c2356a2a9b2
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868342"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478285"
 ---
-# <a name="define-machine-learning-pipelines-in-yaml"></a>Definire le pipeline di Machine Learning in YAML
+# <a name="define-machine-learning-pipelines-in-yaml"></a>Definire pipeline di Machine Learning in YAML
 
-Informazioni su come definire le pipeline di Machine Learning in [YAML](https://yaml.org/). Quando si usa l'estensione Machine Learning per l'interfaccia della riga di comando di Azure, molti comandi correlati alla pipeline prevedono un file YAML che definisce la pipeline.
+Informazioni su come definire le pipeline di Machine Learning in [YAML.](https://yaml.org/) Quando si usa l'estensione di Machine Learning per l'interfaccia della riga di comando di Azure, molti comandi correlati alla pipeline prevedono un file YAML che definisce la pipeline.
 
-La tabella seguente elenca gli elementi che non sono attualmente supportati quando si definisce una pipeline in YAML:
+La tabella seguente elenca cosa è e non è attualmente supportato quando si definisce una pipeline in YAML:
 
 | Tipo di passaggio | Supportata |
 | ----- | :-----: |
 | PythonScriptStep | Sì |
 | ParallelRunStep | Sì |
 | AdlaStep | Sì |
-| AzureBatchStep | Sì |
+| Passaggio di AzureBatchStep | Sì |
 | DatabricksStep | Sì |
 | DataTransferStep | Sì |
 | AutoMLStep | No |
@@ -40,26 +40,26 @@ La tabella seguente elenca gli elementi che non sono attualmente supportati quan
 
 ## <a name="pipeline-definition"></a>Definizione della pipeline
 
-Una definizione di pipeline usa le chiavi seguenti, che corrispondono alla classe [Pipelines](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline) :
+Una definizione di pipeline usa le chiavi seguenti, che corrispondono alla [classe Pipelines:](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline)
 
 | Chiave YAML | Descrizione |
 | ----- | ----- |
 | `name` | Descrizione della pipeline. |
-| `parameters` | Parametro/i alla pipeline. |
-| `data_reference` | Definisce la modalità e la posizione in cui i dati devono essere resi disponibili in un'esecuzione. |
-| `default_compute` | Destinazione di calcolo predefinita in cui vengono eseguiti tutti i passaggi della pipeline. |
-| `steps` | Passaggi utilizzati nella pipeline. |
+| `parameters` | Parametri alla pipeline. |
+| `data_reference` | Definisce come e dove devono essere resi disponibili i dati in un'esecuzione. |
+| `default_compute` | Destinazione di calcolo predefinita in cui vengono eseguiti tutti i passaggi nella pipeline. |
+| `steps` | Passaggi usati nella pipeline. |
 
 ## <a name="parameters"></a>Parametri
 
-La `parameters` sezione usa le chiavi seguenti, che corrispondono alla classe [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter) :
+La `parameters` sezione usa le chiavi seguenti, che corrispondono alla classe [PipelineParameter:](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter)
 
 | Chiave YAML | Descrizione |
 | ---- | ---- |
-| `type` | Tipo del valore del parametro. I tipi validi sono,,, `string` `int` `float` `bool` o `datapath` . |
+| `type` | Tipo del valore del parametro. I tipi validi `string` sono , , , o `int` `float` `bool` `datapath` . |
 | `default` | Il valore predefinito. |
 
-Ogni parametro è denominato. Il frammento di codice YAML seguente, ad esempio, definisce tre parametri denominati `NumIterationsParameter` , `DataPathParameter` e `NodeCountParameter` :
+Ogni parametro è denominato. Ad esempio, il frammento YAML seguente definisce tre parametri denominati `NumIterationsParameter` , `DataPathParameter` e `NodeCountParameter` :
 
 ```yaml
 pipeline:
@@ -87,7 +87,7 @@ La `data_references` sezione usa le chiavi seguenti, che corrispondono a [DataRe
 | `datastore` | Archivio dati a cui fare riferimento. |
 | `path_on_datastore` | Percorso relativo nell'archivio di backup per il riferimento ai dati. |
 
-Ogni riferimento ai dati è contenuto in una chiave. Il frammento di codice YAML seguente, ad esempio, definisce un riferimento ai dati archiviato nella chiave denominata `employee_data` :
+Ogni riferimento ai dati è contenuto in una chiave. Ad esempio, il frammento YAML seguente definisce un riferimento ai dati archiviato nella chiave denominata `employee_data` :
 
 ```yaml
 pipeline:
@@ -104,34 +104,34 @@ pipeline:
 
 ## <a name="steps"></a>Passaggi
 
-I passaggi definiscono un ambiente di calcolo, insieme ai file da eseguire nell'ambiente. Per definire il tipo di un passaggio, usare la `type` chiave:
+I passaggi definiscono un ambiente di calcolo, insieme ai file da eseguire nell'ambiente. Per definire il tipo di un passaggio, usare la `type` chiave :
 
 | Tipo di passaggio | Descrizione |
 | ----- | ----- |
-| `AdlaStep` | Esegue uno script U-SQL con Azure Data Lake Analytics. Corrisponde alla classe [AdlaStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep) . |
-| `AzureBatchStep` | Esegue processi utilizzando Azure Batch. Corrisponde alla classe [AzureBatchStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep) . |
-| `DatabricsStep` | Aggiunge un notebook di databricks, uno script Python o un file JAR. Corrisponde alla classe [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep) . |
-| `DataTransferStep` | Trasferisce i dati tra le opzioni di archiviazione. Corrisponde alla classe [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep) . |
-| `PythonScriptStep` | Esegue uno script Python. Corrisponde alla classe [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep) . |
-| `ParallelRunStep` | Esegue uno script Python per elaborare grandi quantità di dati in modo asincrono e in parallelo. Corrisponde alla classe [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) . |
+| `AdlaStep` | Esegue uno script U-SQL con Azure Data Lake Analytics. Corrisponde alla [classe AdlaStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep) |
+| `AzureBatchStep` | Esegue i processi usando Azure Batch. Corrisponde alla [classe AzureBatchStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep) |
+| `DatabricsStep` | Aggiunge un notebook di Databricks, uno script Python o un file JAR. Corrisponde alla [classe DatabricksStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep) |
+| `DataTransferStep` | Trasferisce i dati tra le opzioni di archiviazione. Corrisponde alla [classe DataTransferStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep) |
+| `PythonScriptStep` | Esegue uno script Python. Corrisponde alla [classe PythonScriptStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep) |
+| `ParallelRunStep` | Esegue uno script Python per elaborare grandi quantità di dati in modo asincrono e parallelo. Corrisponde alla [classe ParallelRunStep.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) |
 
-### <a name="adla-step"></a>Passaggio Anna
+### <a name="adla-step"></a>Passaggio di ADLA
 
 | Chiave YAML | Descrizione |
 | ----- | ----- |
 | `script_name` | Nome dello script U-SQL (relativo a `source_directory` ). |
-| `compute` | La destinazione di calcolo Azure Data Lake da usare per questo passaggio. |
-| `parameters` | [Parametri](#parameters) della pipeline. |
-| `inputs` | Gli input possono essere [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [DataSet](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
-| `outputs` | Gli output possono essere [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) o [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
+| `compute` | Destinazione di calcolo di Azure Data Lake da usare per questo passaggio. |
+| `parameters` | [Parametri](#parameters) per la pipeline. |
+| `inputs` | Gli input possono essere [InputPortBinding,](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding) [DataReference,](#data-reference) [PortDataReference,](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference) [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset.](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset) |
+| `outputs` | Gli output possono essere [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) o [OutputPortBinding.](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding) |
 | `source_directory` | Directory che contiene lo script, gli assembly e così via. |
-| `priority` | Valore di priorità da usare per il processo corrente. |
+| `priority` | Valore di priorità da utilizzare per il processo corrente. |
 | `params` | Dizionario di coppie nome-valore. |
-| `degree_of_parallelism` | Grado di parallelismo da utilizzare per questo processo. |
-| `runtime_version` | Versione di runtime del motore di Data Lake Analytics. |
+| `degree_of_parallelism` | Grado di parallelismo da usare per questo processo. |
+| `runtime_version` | Versione di runtime del motore Data Lake Analytics motore. |
 | `allow_reuse` | Determina se il passaggio deve riutilizzare i risultati precedenti quando viene eseguito di nuovo con le stesse impostazioni. |
 
-L'esempio seguente contiene una definizione di passaggio Anna:
+L'esempio seguente contiene una definizione di passaggio ADLA:
 
 ```yaml
 pipeline:
@@ -166,24 +166,24 @@ pipeline:
                     bind_mode: mount
 ```
 
-### <a name="azure-batch-step"></a>Passaggio Azure Batch
+### <a name="azure-batch-step"></a>Azure Batch passaggio
 
 | Chiave YAML | Descrizione |
 | ----- | ----- |
-| `compute` | La destinazione di calcolo Azure Batch da usare per questo passaggio. |
-| `inputs` | Gli input possono essere [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [DataSet](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
-| `outputs` | Gli output possono essere [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) o [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
-| `source_directory` | Directory che contiene i file binari del modulo, eseguibili, assembly e così via. |
-| `executable` | Nome del comando/eseguibile che verrà eseguito come parte di questo processo. |
-| `create_pool` | Flag booleano per indicare se creare il pool prima di eseguire il processo. |
-| `delete_batch_job_after_finish` | Flag booleano per indicare se eliminare il processo dall'account batch dopo che è stato terminato. |
-| `delete_batch_pool_after_finish` | Flag booleano per indicare se eliminare il pool al termine del processo. |
-| `is_positive_exit_code_failure` | Flag booleano per indicare se il processo ha esito negativo se l'attività termina con un codice positivo. |
-| `vm_image_urn` | Se `create_pool` è `True` , e la macchina virtuale usa `VirtualMachineConfiguration` . |
-| `pool_id` | ID del pool in cui viene eseguito il processo. |
+| `compute` | La Azure Batch di calcolo da usare per questo passaggio. |
+| `inputs` | Gli input possono essere [InputPortBinding,](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding) [DataReference,](#data-reference) [PortDataReference,](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference) [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset.](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset) |
+| `outputs` | Gli output possono essere [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) o [OutputPortBinding.](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding) |
+| `source_directory` | Directory che contiene i file binari del modulo, l'eseguibile, gli assembly e così via. |
+| `executable` | Nome del comando o dell'eseguibile che verrà eseguito come parte di questo processo. |
+| `create_pool` | Flag booleano che indica se creare il pool prima di eseguire il processo. |
+| `delete_batch_job_after_finish` | Flag booleano che indica se eliminare il processo dall'account Batch al termine. |
+| `delete_batch_pool_after_finish` | Flag booleano che indica se eliminare il pool al termine del processo. |
+| `is_positive_exit_code_failure` | Flag booleano che indica se il processo ha esito negativo se l'attività termina con un codice positivo. |
+| `vm_image_urn` | Se `create_pool` è e la macchina virtuale usa `True` `VirtualMachineConfiguration` . |
+| `pool_id` | ID del pool in cui verrà eseguito il processo. |
 | `allow_reuse` | Determina se il passaggio deve riutilizzare i risultati precedenti quando viene eseguito di nuovo con le stesse impostazioni. |
 
-L'esempio seguente contiene una definizione del passaggio Azure Batch:
+L'esempio seguente contiene una definizione Azure Batch passaggio di esecuzione:
 
 ```yaml
 pipeline:
@@ -220,20 +220,20 @@ pipeline:
                     datastore: workspaceblobstore
 ```
 
-### <a name="databricks-step"></a>Passaggio di databricks
+### <a name="databricks-step"></a>Passaggio di Databricks
 
 | Chiave YAML | Descrizione |
 | ----- | ----- |
-| `compute` | La destinazione di calcolo Azure Databricks da usare per questo passaggio. |
-| `inputs` | Gli input possono essere [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [DataSet](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
-| `outputs` | Gli output possono essere [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) o [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
-| `run_name` | Nome in databricks per questa esecuzione. |
+| `compute` | La Azure Databricks di calcolo da usare per questo passaggio. |
+| `inputs` | Gli input possono essere [InputPortBinding,](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding) [DataReference,](#data-reference) [PortDataReference,](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference) [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset.](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset) |
+| `outputs` | Gli output possono essere [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) o [OutputPortBinding.](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding) |
+| `run_name` | Nome in Databricks per questa esecuzione. |
 | `source_directory` | Directory che contiene lo script e altri file. |
-| `num_workers` | Numero statico di ruoli di lavoro per il cluster di esecuzione di databricks. |
-| `runconfig` | Percorso di un `.runconfig` file. Questo file è una rappresentazione YAML della classe [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration) . Per ulteriori informazioni sulla struttura di questo file, vedere [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `num_workers` | Numero statico di worker per il cluster di esecuzione di Databricks. |
+| `runconfig` | Percorso di un `.runconfig` file. Questo file è una rappresentazione YAML della [classe RunConfiguration.](/python/api/azureml-core/azureml.core.runconfiguration) Per altre informazioni sulla struttura di questo file, vedererunconfigschema.js[ su](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Determina se il passaggio deve riutilizzare i risultati precedenti quando viene eseguito di nuovo con le stesse impostazioni. |
 
-L'esempio seguente contiene un passaggio di databricks:
+L'esempio seguente contiene un passaggio di Databricks:
 
 ```yaml
 pipeline:
@@ -274,13 +274,13 @@ pipeline:
                     bind_mode: mount
 ```
 
-### <a name="data-transfer-step"></a>Passaggio trasferimento dati
+### <a name="data-transfer-step"></a>Passaggio di trasferimento dei dati
 
 | Chiave YAML | Descrizione |
 | ----- | ----- |
-| `compute` | La destinazione di calcolo Azure Data Factory da usare per questo passaggio. |
-| `source_data_reference` | Connessione di input utilizzata come origine delle operazioni di trasferimento dei dati. I valori supportati sono [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [DataSet](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
-| `destination_data_reference` | Connessione di input che funge da destinazione delle operazioni di trasferimento dei dati. I valori supportati sono [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) e [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
+| `compute` | La Azure Data Factory di calcolo da usare per questo passaggio. |
+| `source_data_reference` | Connessione di input che funge da origine delle operazioni di trasferimento dei dati. I valori supportati [sono InputPortBinding,](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding) [DataReference,](#data-reference) [PortDataReference,](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference) [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset.](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset) |
+| `destination_data_reference` | Connessione di input che funge da destinazione delle operazioni di trasferimento dei dati. I valori supportati [sono PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) e [OutputPortBinding.](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding) |
 | `allow_reuse` | Determina se il passaggio deve riutilizzare i risultati precedenti quando viene eseguito di nuovo con le stesse impostazioni. |
 
 L'esempio seguente contiene un passaggio di trasferimento dei dati:
@@ -318,15 +318,15 @@ pipeline:
                     source: blob_test_data
 ```
 
-### <a name="python-script-step"></a>Passaggio di script Python
+### <a name="python-script-step"></a>Istruzione di script Python
 
 | Chiave YAML | Descrizione |
 | ----- | ----- |
-| `inputs` | Gli input possono essere [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [DataSet](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
-| `outputs` | Gli output possono essere [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) o [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
+| `inputs` | Gli input possono essere [InputPortBinding,](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding) [DataReference,](#data-reference) [PortDataReference,](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference) [PipelineData,](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset.](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset) |
+| `outputs` | Gli output possono essere [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) o [OutputPortBinding.](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding) |
 | `script_name` | Nome dello script Python (relativo a `source_directory` ). |
-| `source_directory` | Directory che contiene lo script, l'ambiente conda e così via. |
-| `runconfig` | Percorso di un `.runconfig` file. Questo file è una rappresentazione YAML della classe [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration) . Per ulteriori informazioni sulla struttura di questo file, vedere [runconfig.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
+| `source_directory` | Directory che contiene lo script, l'ambiente Conda e così via. |
+| `runconfig` | Percorso di un `.runconfig` file. Questo file è una rappresentazione YAML della [classe RunConfiguration.](/python/api/azureml-core/azureml.core.runconfiguration) Per altre informazioni sulla struttura di questo file, vedererunconfig.js[ su](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Determina se il passaggio deve riutilizzare i risultati precedenti quando viene eseguito di nuovo con le stesse impostazioni. |
 
 L'esempio seguente contiene un passaggio di script Python:
@@ -369,11 +369,11 @@ pipeline:
 
 | Chiave YAML | Descrizione |
 | ----- | ----- |
-| `inputs` | Gli input possono essere [DataSet](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
-| `outputs` | Gli output possono essere [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) o [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
+| `inputs` | Gli input possono essere [Dataset,](/python/api/azureml-core/azureml.core.dataset%28class%29) [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)o [PipelineDataset.](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset) |
+| `outputs` | Gli output possono essere [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) o [OutputPortBinding.](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding) |
 | `script_name` | Nome dello script Python (relativo a `source_directory` ). |
-| `source_directory` | Directory che contiene lo script, l'ambiente conda e così via. |
-| `parallel_run_config` | Percorso di un `parallel_run_config.yml` file. Questo file è una rappresentazione YAML della classe [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig) . |
+| `source_directory` | Directory che contiene lo script, l'ambiente Conda e così via. |
+| `parallel_run_config` | Percorso di un `parallel_run_config.yml` file. Questo file è una rappresentazione YAML della [classe ParallelRunConfig.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig) |
 | `allow_reuse` | Determina se il passaggio deve riutilizzare i risultati precedenti quando viene eseguito di nuovo con le stesse impostazioni. |
 
 L'esempio seguente contiene un passaggio di esecuzione parallela:
@@ -421,7 +421,7 @@ pipeline:
 
 | Chiave YAML | Descrizione |
 | ----- | ----- |
-| `steps` | Sequenza di una o più definizioni PipelineStep. Si noti che le `destination` chiavi di un passaggio `outputs` diventano le `source` chiavi del `inputs` passaggio successivo.| 
+| `steps` | Sequenza di una o più definizioni PipelineStep. Si noti `destination` che le chiavi di un passaggio diventano le chiavi del passaggio `outputs` `source` `inputs` successivo.| 
 
 ```yaml
 pipeline:
@@ -478,7 +478,7 @@ pipeline:
 
 ## <a name="schedules"></a>Pianificazioni
 
-Quando si definisce la pianificazione per una pipeline, può essere attivata da un archivio dati o ricorrente in base a un intervallo di tempo. Di seguito sono riportate le chiavi usate per definire una pianificazione:
+Quando si definisce la pianificazione per una pipeline, può essere attivata dall'archivio dati o ricorrente in base a un intervallo di tempo. Di seguito sono riportate le chiavi usate per definire una pianificazione:
 
 | Chiave YAML | Descrizione |
 | ----- | ----- |
@@ -488,12 +488,12 @@ Quando si definisce la pianificazione per una pipeline, può essere attivata da 
 | `wait_for_provisioning` | Indica se attendere il completamento del provisioning della pianificazione. |
 | `wait_timeout` | Numero di secondi di attesa prima del timeout. |
 | `datastore_name` | Archivio dati da monitorare per i BLOB modificati/aggiunti. |
-| `polling_interval` | Quanto tempo, in minuti, tra il polling per i BLOB modificati/aggiunti. Valore predefinito: 5 minuti. Supportato solo per le pianificazioni dell'archivio dati. |
+| `polling_interval` | Intervallo di tempo, in minuti, tra il polling per i BLOB modificati/aggiunti. Valore predefinito: 5 minuti. Supportato solo per le pianificazioni dell'archivio dati. |
 | `data_path_parameter_name` | Nome del parametro della pipeline del percorso dati da impostare con il percorso BLOB modificato. Supportato solo per le pianificazioni dell'archivio dati. |
-| `continue_on_step_failure` | Indica se continuare l'esecuzione di altri passaggi nel PipelineRun inviato in caso di esito negativo di un passaggio. Se specificato, eseguirà l'override dell' `continue_on_step_failure` impostazione della pipeline.
-| `path_on_datastore` | facoltativo. Percorso nell'archivio dati da monitorare per i BLOB modificati/aggiunti. Il percorso è sotto il contenitore per l'archivio dati, quindi il percorso effettivo di monitoraggio della pianificazione è contenitore/ `path_on_datastore` . Se è None, viene monitorato il contenitore dell'archivio dati. Le aggiunte o le modifiche apportate in una sottocartella del `path_on_datastore` non vengono monitorate. Supportato solo per le pianificazioni dell'archivio dati. |
+| `continue_on_step_failure` | Se continuare l'esecuzione di altri passaggi nella pipeline inviataEsegui se un passaggio ha esito negativo. Se specificato, eseguirà l'override `continue_on_step_failure` dell'impostazione della pipeline.
+| `path_on_datastore` | facoltativo. Percorso nell'archivio dati da monitorare per i BLOB modificati/aggiunti. Il percorso si trova nel contenitore per l'archivio dati, quindi il percorso effettivo monitorato dalla pianificazione è container/ `path_on_datastore` . Se non è disponibile, viene monitorato il contenitore dell'archivio dati. Le aggiunte/modifiche apportate in una sottocartella di `path_on_datastore` non vengono monitorate. Supportato solo per le pianificazioni dell'archivio dati. |
 
-L'esempio seguente contiene la definizione per una pianificazione attivata da un archivio dati:
+L'esempio seguente contiene la definizione per una pianificazione attivata dall'archivio dati:
 
 ```yaml
 Schedule: 
@@ -509,18 +509,18 @@ Schedule:
       path_on_datastore: "file/path" 
 ```
 
-Quando si definisce una **pianificazione ricorrente**, usare le chiavi seguenti in `recurrence` :
+Quando si definisce una **pianificazione ricorrente,** usare le chiavi seguenti in `recurrence` :
 
 | Chiave YAML | Descrizione |
 | ----- | ----- |
-| `frequency` | Frequenza con cui si ripete la pianificazione. I valori validi sono `"Minute"` ,, `"Hour"` `"Day"` , `"Week"` o `"Month"` . |
-| `interval` | Frequenza con cui viene attivata la pianificazione. Il valore integer è il numero di unità di tempo di attesa fino a quando la pianificazione non viene riattivata. |
-| `start_time` | Ora di inizio per la pianificazione. Il formato della stringa del valore è `YYYY-MM-DDThh:mm:ss` . Se non viene specificata l'ora di inizio, il primo carico di lavoro viene eseguito immediatamente e i carichi di lavoro futuri vengono eseguiti in base alla pianificazione. Se l'ora di inizio è nel passato, il primo carico di lavoro viene eseguito al successivo tempo di esecuzione calcolato. |
-| `time_zone` | Fuso orario per l'ora di inizio. Se non viene specificato alcun fuso orario, viene utilizzata l'ora UTC. |
-| `hours` | Se `frequency` è `"Day"` o `"Week"` , è possibile specificare uno o più numeri interi da 0 a 23, separati da virgole, come ore del giorno in cui deve essere eseguita la pipeline. `time_of_day` `hours` `minutes` È possibile utilizzare solo o. |
-| `minutes` | Se `frequency` è `"Day"` o `"Week"` , è possibile specificare uno o più numeri interi compresi tra 0 e 59, separati da virgole, come minuti dell'ora di esecuzione della pipeline. `time_of_day` `hours` `minutes` È possibile utilizzare solo o. |
-| `time_of_day` | Se `frequency` è `"Day"` o `"Week"` , è possibile specificare un'ora del giorno in cui eseguire la pianificazione. Il formato della stringa del valore è `hh:mm` . `time_of_day` `hours` `minutes` È possibile utilizzare solo o. |
-| `week_days` | Se `frequency` è `"Week"` , è possibile specificare uno o più giorni, separati da virgole, quando la pianificazione deve essere eseguita. I valori validi sono `"Monday"` ,, `"Tuesday"` `"Wednesday"` , `"Thursday"` , `"Friday"` , `"Saturday"` e `"Sunday"` . |
+| `frequency` | Frequenza con cui si ripete la pianificazione. I valori validi `"Minute"` sono , , , o `"Hour"` `"Day"` `"Week"` `"Month"` . |
+| `interval` | Frequenza di esecuzione della pianificazione. Il valore intero è il numero di unità di tempo di attesa fino a quando la pianificazione non viene riescita. |
+| `start_time` | Ora di inizio della pianificazione. Il formato stringa del valore è `YYYY-MM-DDThh:mm:ss` . Se non viene specificata alcuna ora di inizio, il primo carico di lavoro viene eseguito immediatamente e i carichi di lavoro futuri vengono eseguiti in base alla pianificazione. Se l'ora di inizio è nel passato, il primo carico di lavoro viene eseguito alla successiva esecuzione calcolata. |
+| `time_zone` | Fuso orario per l'ora di inizio. Se non viene specificato alcun fuso orario, viene usata l'ora UTC. |
+| `hours` | Se è o , è possibile specificare uno o più numeri interi da 0 a `frequency` `"Day"` 23, separati da virgole, come ore del giorno in cui deve essere eseguita `"Week"` la pipeline. È `time_of_day` possibile usare solo o e `hours` `minutes` . |
+| `minutes` | Se è o , è possibile specificare uno o più numeri interi da 0 a `frequency` `"Day"` 59, separati da virgole, come minuti dell'ora in cui deve essere eseguita `"Week"` la pipeline. È `time_of_day` possibile usare solo o e `hours` `minutes` . |
+| `time_of_day` | Se `frequency` è o , è possibile specificare `"Day"` `"Week"` un'ora del giorno per l'esecuzione della pianificazione. Il formato stringa del valore è `hh:mm` . È `time_of_day` possibile usare solo o e `hours` `minutes` . |
+| `week_days` | Se `frequency` è , è possibile specificare uno o più giorni, separati da `"Week"` virgole, quando deve essere eseguita la pianificazione. I valori validi `"Monday"` sono , , , , , e `"Tuesday"` `"Wednesday"` `"Thursday"` `"Friday"` `"Saturday"` `"Sunday"` . |
 
 L'esempio seguente contiene la definizione per una pianificazione ricorrente:
 
@@ -552,4 +552,4 @@ Schedule:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [usare l'estensione CLI per Azure Machine Learning](reference-azure-machine-learning-cli.md).
+Informazioni su come usare [l'estensione dell'interfaccia della](reference-azure-machine-learning-cli.md)riga di comando per Azure Machine Learning .

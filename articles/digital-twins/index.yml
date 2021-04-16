@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: 29f3b0bf0a00c9e4e238e8bb514f80e7451d30a6
-  ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+  ms.openlocfilehash: 703ea98a1db6f706395ea2c5f66bac0edc2b2f01
+  ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/09/2021
-  ms.locfileid: "100007755"
+  ms.lasthandoff: 04/14/2021
+  ms.locfileid: "107481685"
 landingContent:
 - title: Informazioni su Gemelli digitali di Azure
   linkLists:
@@ -36,7 +36,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Esplorare uno scenario di esempio
-      url: quickstart-adt-explorer.md
+      url: quickstart-azure-digital-twins-explorer.md
 - title: Esercitazioni per approfondire
   linkLists:
   - linkListType: tutorial
@@ -109,19 +109,19 @@ landingContent:
     links:
     - text: Swagger personalizzati per il connettore di App per la logica
       url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
-- title: Apprendimento basato su scenari con Microsoft Learn
+- title: Apprendimento basato su scenario con Microsoft Learn
   linkLists:
   - linkListType: learn
     links:
-    - text: 'Percorso di apprendimento: sviluppare con i dispositivi gemelli digitali di Azure'
+    - text: 'Percorso di apprendimento: Sviluppare con Gemelli digitali di Azure'
       url: /learn/paths/develop-azure-digital-twins/
   - linkListType: learn
     links:
-    - text: 'Modulo Learn: Introduzione ai dispositivi gemelli digitali di Azure'
+    - text: 'Modulo Learn: Introduzione alla Gemelli digitali di Azure'
       url: /learn/modules/develop-with-azure-digital-twins/introduction-to-azure-digital-twins/
-    - text: 'Modulo Learn: creare un grafico dei gemelli digitali di Azure per una linea di produzione di Chocolate Factory'
+    - text: 'Modulo Learn: Creare un grafo Gemelli digitali di Azure per una linea di produzione di una fabbrica di cioccolata'
       url: /learn/modules/develop-with-azure-digital-twins/build-azure-digital-twins-graph-for-chocolate-factory/
-    - text: 'Modulo Learn: inserire i dati nei dispositivi gemelli digitali di Azure'
+    - text: 'Modulo Learn: Inserire dati in Gemelli digitali di Azure'
       url: /learn/modules/develop-with-azure-digital-twins/ingest-data-into-azure-digital-twins/
-    - text: 'Modulo Learn: output dai dispositivi gemelli digitali di Azure ai servizi downstream'
+    - text: 'Modulo Learn: Output da Gemelli digitali di Azure a servizi downstream'
       url: /learn/modules/develop-with-azure-digital-twins/route-output-from-azure-digital-twins-to-downstream-services/
