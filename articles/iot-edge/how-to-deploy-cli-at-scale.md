@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 7b12b6c1cdc85eaba531f34b23aa74bee6b38f7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c502a9c02160c5a92d78ccdbb0532e6f173122da
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201132"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479509"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite l'interfaccia della riga di comando di Azure
 
@@ -30,9 +30,9 @@ In questo articolo vengono configurate l'interfaccia della riga di comando di Az
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure.
-* Uno o più dispositivi IoT Edge.
+* Uno o più IoT Edge dispositivi.
 
-  Se non si dispone di un dispositivo IoT Edge configurato, è possibile crearne uno in una macchina virtuale di Azure. Per [creare un dispositivo Linux virtuale](quickstart-linux.md) o [creare un dispositivo Windows virtuale](quickstart.md), seguire la procedura descritta in uno degli articoli introduttivi.
+  Se non è configurato un dispositivo IoT Edge, è possibile crearne uno in una macchina virtuale di Azure. Seguire la procedura descritta in uno degli articoli di avvio rapido [per Creare](quickstart-linux.md) un dispositivo Linux virtuale o Creare un dispositivo Windows [virtuale.](quickstart.md)
 
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
 * [Estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
@@ -46,7 +46,7 @@ Per distribuire i moduli tramite l'interfaccia della riga di comando di Azure, s
 Di seguito è riportato un esempio di manifesto della distribuzione di base con un solo modulo:
 
 >[!NOTE]
->Questo manifesto di distribuzione di esempio usa la versione dello schema 1,1 per l'agente IoT Edge e l'hub. La versione dello schema 1,1 è stata rilasciata insieme a IoT Edge versione 1.0.10 e Abilita funzionalità come l'ordine di avvio del modulo e la priorità delle route.
+>Questo manifesto di distribuzione di esempio usa la versione 1.1 dello schema per l'IoT Edge e l'hub. La versione 1.1 dello schema è stata rilasciata insieme IoT Edge versione 1.0.10 e abilita funzionalità come l'ordine di avvio del modulo e la priorità delle route.
 
 ```json
 {
@@ -191,7 +191,7 @@ Per altre informazioni sui dispositivi gemelli e i tag, vedere [Comprendere e us
 
 Per distribuire moduli nei dispositivi di destinazione, si crea una distribuzione costituita dall'apposito manifesto e da altri parametri.
 
-Per creare una distribuzione, usare il comando [az iot edge deployment create](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create):
+Per creare una distribuzione, usare il comando [az iot edge deployment create](/cli/azure/iot/edge/deployment):
 
 ```azurecli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -224,7 +224,7 @@ Se si aggiorna la condizione di destinazione, vengono eseguiti gli aggiornamenti
 
 Non è possibile aggiornare il contenuto di una distribuzione che includa i moduli e le route definiti nel manifesto della distribuzione. Per aggiornare il contenuto di una distribuzione è necessario creare una nuova distribuzione destinata agli stessi dispositivi con una priorità più alta. È possibile modificare determinate proprietà di un modulo esistente, tra cui la condizione di destinazione, le etichette, le metriche e la priorità.
 
-Per aggiornare una distribuzione, usare il comando [az iot edge deployment update](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update):
+Per aggiornare una distribuzione, usare il comando [az iot edge deployment update](/cli/azure/iot/edge/deployment):
 
 ```azurecli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -245,7 +245,7 @@ Il comando Aggiorna distribuzione accetta i parametri seguenti:
 
 Quando si elimina una distribuzione, tutti i dispositivi ricevono la distribuzione successiva nell'ordine di priorità. Se i dispositivi non soddisfano la condizione di destinazione di qualsiasi altra distribuzione, i moduli non vengono rimossi in seguito all'eliminazione della distribuzione.
 
-Per eliminare una distribuzione, usare il comando [az iot edge deployment delete](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete):
+Per eliminare una distribuzione, usare il comando [az iot edge deployment delete](/cli/azure/iot/edge/deployment):
 
 ```azurecli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]

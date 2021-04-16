@@ -20,7 +20,7 @@
       href: quick-start.md
 - name: Esempi
   items:
-    - name: Browser esempi
+    - name: Browser di esempi
       href: /samples/browse/?terms=content+moderator
     - name: Esempi di .NET SDK
       href: samples-dotnet.md
@@ -82,6 +82,12 @@
       items:
         - name: 'Revisioni, flussi di lavoro e processi'
           href: review-api.md
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Configurare le reti virtuali
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-moderator/context/context
+        - name: Usare chiavi gestite dal cliente
+          href: encrypt-data-at-rest.md
 - name: Concetti
   items:
     - name: Moderazione immagini
@@ -100,7 +106,7 @@
       href: facebook-post-moderation.md
 - name: Riferimento
   items:
-    - name: API REST di Content Moderator
+    - name: Content Moderator REST API
       href: api-reference.md
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
@@ -114,19 +120,21 @@
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator'
 - name: Risorse
   items:
-    - name: Serie di webinar su Azure
-      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
-    - name: Supporto di area
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Moduli Microsoft Learn
-      href: /learn/browse/?terms=content+moderator
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Supporto di area
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformità e certificazione
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
-    - name: Azure per enti pubblici e Azure globale
+    - name: Moduli Microsoft Learn
+      href: /learn/browse/?terms=content+moderator
+    - name: Serie di webinar su Azure
+      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
+    - name: Azure per enti pubblici azure globale
       href: ../../azure-government/compare-azure-government-global-azure.md
     - name: Aggiornamenti di Azure
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Crittografia
-      href: encrypt-data-at-rest.md

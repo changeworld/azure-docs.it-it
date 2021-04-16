@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f44cbf3764063c511c896f11bb7ebfaae2973f0c
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: ebc403553443a9ea04525323b751fbdb51d23c6e
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365400"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500584"
 ---
 # <a name="set-up-msix-app-attach-using-powershell"></a>Configurare le montaggio app MSIX con PowerShell
 
@@ -19,21 +19,17 @@ Oltre al portale di Azure, è anche possibile configurare le montaggio app MSIX 
 
 ## <a name="requirements"></a>Requisiti
 
->[!IMPORTANT]
->Prima di iniziare, assicurarsi di compilare e inviare [questo modulo](https://aka.ms/enablemsixappattach) per abilitare montaggio app MSIX nella sottoscrizione. Se non si ha una richiesta approvata, montaggio app MSIX non funzionerà. L'approvazione delle richieste può richiedere fino a 24 ore durante i giorni lavorativi. Quando la richiesta è stata accettata e completata, si otterrà un messaggio di posta elettronica.
-
 Ecco cosa è necessario per configurare montaggio app MSIX:
 
 - Una distribuzione di Desktop virtuale Windows funzionante. Per informazioni su come distribuire Desktop virtuale Windows (versione classica), vedere [Creare un tenant in Desktop virtuale Windows.](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) Per informazioni su come distribuire Desktop virtuale Windows con Azure Resource Manager, vedere [Creare un pool di host](./create-host-pools-azure-marketplace.md)con il portale di Azure .
 - Un pool di host di Desktop virtuale Windows con almeno un host sessione attivo.
-- Questo pool di host deve essere nell'ambiente di convalida.
 - Un gruppo di app desktop remoto.
 - MSIX Packaging Tool.
 - Un'applicazione in pacchetto MSIX espansa in un'immagine MSIX che viene caricata in una condivisione file.
 - Una condivisione file nella distribuzione di Desktop virtuale Windows in cui verrà archiviato il pacchetto MSIX.
 - La condivisione file in cui è stata caricata l'immagine MSIX deve essere accessibile anche a tutte le macchine virtuali (VM) nel pool di host. Gli utenti dovranno disporre delle autorizzazioni di sola lettura per accedere all'immagine.
 - Scaricare e installare PowerShell Core.
-- Scaricare l'anteprima pubblica Azure PowerShell modulo ed espanderlo in una cartella locale.
+- Scaricare l'anteprima Azure PowerShell modulo ed espanderlo in una cartella locale.
 - Installare il modulo di Azure eseguendo il cmdlet seguente:
 
     ```powershell
@@ -42,7 +38,7 @@ Ecco cosa è necessario per configurare montaggio app MSIX:
 
 ## <a name="sign-in-to-azure-and-import-the-module"></a>Accedere ad Azure e importare il modulo
 
-Dopo aver pronto tutti i requisiti, aprire PowerShell Core in un prompt dei comandi con privilegi elevati ed eseguire questo cmdlet:
+Una volta pronti tutti i requisiti, aprire PowerShell Core in un prompt dei comandi con privilegi elevati ed eseguire questo cmdlet:
 
 ```powershell
 Connect-AzAccount
@@ -52,7 +48,7 @@ Dopo l'esecuzione, autenticare l'account usando le credenziali. In questo caso, 
 
 ## <a name="import-the-azwindowsvirtualdesktop-module"></a>Importare il modulo Az.WindowsVirtualDesktop
 
-Per seguire le istruzioni di questo articolo, è necessario il modulo Az.DesktopVirtualization.
+Per seguire le istruzioni di questo articolo è necessario il modulo Az.DesktopVirtualization.
 
 >[!NOTE]
 >Per l'anteprima pubblica, il modulo verrà fornito come file ZIP separati che è necessario importare manualmente.
@@ -75,7 +71,7 @@ Se il modulo è bloccato nella macchina virtuale, eseguire questo cmdlet per sbl
 Unblock-File "<path>\Az.DesktopVirtualization.psm1"
 ```
 
-Con questa pulizia, è possibile importare il modulo.
+Dopo questa operazione di pulizia, è possibile importare il modulo.
 
 1. Eseguire il cmdlet seguente, quindi premere **il tasto R** quando viene richiesto di accettare l'esecuzione del codice personalizzato.
 
@@ -201,9 +197,9 @@ Remove-AzWvdMsixPackage -FullName $obj.PackageFullName -HostPoolName $hp -Resour
 
 ## <a name="publish-msix-apps-to-an-app-group"></a>Pubblicare app MSIX in un gruppo di app
 
-È possibile seguire le istruzioni riportate in questa sezione solo se si sono completate le istruzioni nelle sezioni precedenti. Se si ha un pool di host con un host sessione attivo, almeno un gruppo di app desktop e si è aggiunto un pacchetto MSIX al pool host, si è pronti per iniziare.
+È possibile seguire le istruzioni in questa sezione solo se si è terminato di seguire le istruzioni nelle sezioni precedenti. Se si dispone di un pool di host con un host sessione attivo, almeno un gruppo di app desktop e si è aggiunto un pacchetto MSIX al pool di host, si è pronti per iniziare.
 
-Per pubblicare un'app dal pacchetto MSIX in un gruppo di app, è necessario individuarne il nome e quindi usare tale nome nel cmdlet di pubblicazione.
+Per pubblicare un'app dal pacchetto MSIX in un gruppo di app, è necessario trovarne il nome e quindi usare tale nome nel cmdlet di pubblicazione.
 
 Per pubblicare un'app:
 
@@ -227,7 +223,7 @@ Infine, è necessario pubblicare l'app.
    New-AzWvdApplication -ResourceGroupName $rg -SubscriptionId $subId -Name PowerBi -ApplicationType MsixApplication -ApplicationGroupName $grName -MsixPackageFamilyName $obj.PackageFamilyName -CommandLineSetting 0
    ```
 
-- Per pubblicare l'app in un gruppo di app remote, eseguire invece questo cmdlet:
+- Per pubblicare l'app in un gruppo di app remoto, eseguire invece questo cmdlet:
 
    ```powershell
    New-AzWvdApplication -ResourceGroupName $rg -SubscriptionId $subId -Name PowerBi -ApplicationType MsixApplication -ApplicationGroupName $grName -MsixPackageFamilyName $obj.PackageFamilyName -CommandLineSetting 0 -MsixPackageApplicationId $obj.PackageApplication.AppId

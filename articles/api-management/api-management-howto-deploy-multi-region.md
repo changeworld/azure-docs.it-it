@@ -1,54 +1,54 @@
 ---
-title: Distribuire i servizi di gestione API di Azure in più aree di Azure
+title: Distribuire i servizi API Management Azure in più aree di Azure
 titleSuffix: Azure API Management
 description: Informazioni su come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure.
-services: api-management
-documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 04/20/2020
+ms.topic: how-to
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: 427ebfe865002612be2f9aeb9db416f5c2f41e52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9546813173e72b1f264c3668ee889bbeea07ce7f
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88065455"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534083"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
 
-Gestione API di Azure supporta la distribuzione in più aree, che consente agli editori di API di distribuire un singolo servizio gestione API di Azure in qualsiasi numero di aree di Azure supportate. La funzionalità in più aree consente di ridurre la latenza delle richieste percepita dai consumer di API distribuiti geograficamente e di migliorare la disponibilità del servizio se un'area è offline.
+Azure API Management supporta la distribuzione in più aree, che consente agli editori di API di distribuire un singolo servizio Gestione API di Azure in un numero qualsiasi di aree di Azure supportate. La funzionalità in più aree consente di ridurre la latenza delle richieste percepita dai consumer di API distribuite geograficamente e migliora la disponibilità del servizio se un'area passa offline.
 
-Un nuovo servizio gestione API di Azure contiene inizialmente una sola [unità][unit] in una singola area di Azure, ovvero l'area primaria. È possibile aggiungere unità aggiuntive alle aree primarie o secondarie. Un componente gateway di gestione API viene distribuito in ogni area primaria e secondaria selezionata. Le richieste API in ingresso vengono indirizzate automaticamente all'area più vicina. Se un'area passa alla modalità offline, le richieste API verranno indirizzate automaticamente intorno all'area non riuscita al gateway successivo più vicino.
+Un nuovo servizio azure API Management inizialmente contiene una sola [unità][unit] in una singola area di Azure, l'area primaria. È possibile aggiungere unità aggiuntive alle aree primaria o secondaria. Un API Management gateway virtuale viene distribuito in ogni area primaria e secondaria selezionata. Le richieste API in ingresso vengono indirizzate automaticamente all'area più vicina. Se un'area passa offline, le richieste API verranno indirizzate automaticamente all'area non riuscita al gateway più vicino successivo.
 
 > [!NOTE]
-> Solo il componente gateway di gestione API viene distribuito in tutte le aree. Il componente di gestione dei servizi e il portale per sviluppatori sono ospitati solo nell'area primaria. Pertanto, in caso di interruzione dell'area primaria, l'accesso al portale per sviluppatori e la possibilità di modificare la configurazione, ad esempio l'aggiunta di API, l'applicazione di criteri, saranno compromessi fino a quando l'area primaria non tornerà online. Mentre l'area primaria è disponibile offline, le aree secondarie continueranno a gestire il traffico API usando la configurazione più recente disponibile.
+> Solo il componente gateway di API Management viene distribuito in tutte le aree. Il componente di gestione del servizio e il portale per sviluppatori sono ospitati solo nell'area primaria. Pertanto, in caso di interruzione dell'area primaria, l'accesso al portale per sviluppatori e la possibilità di modificare la configurazione (ad esempio, l'aggiunta di API, l'applicazione di criteri) saranno compromessi fino a quando l'area primaria non torna online. Mentre l'area primaria è offline, le aree secondarie disponibili continueranno a gestire il traffico API usando la configurazione più recente disponibile. Facoltativamente, [abilitare la riondanza della zona](zone-redundancy.md) per migliorare la disponibilità e la resilienza delle aree primarie o secondarie.
 
 >[!IMPORTANT]
-> La funzionalità che consente di archiviare i dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sudorientale (Singapore) del Asia Pacifico Geo. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo.
+> La funzionalità per abilitare l'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sud-orientale (Singapore) del Asia Pacifico geografica. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>Distribuire il servizio gestione API in una nuova area
 
-> [!NOTE]
-> Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][create an api management service instance].
+## <a name="prerequisites"></a>Prerequisiti
 
-1. Nel portale di Azure passare al servizio gestione API e fare clic sulla voce **locations (percorsi** ) nel menu.
-2. Fare clic su **+ Aggiungi** nella barra superiore.
-3. Selezionare la posizione dall'elenco a discesa e impostare il numero di unità con il dispositivo di scorrimento.
-4. Fare clic sul pulsante **Aggiungi** per confermare.
-5. Ripetere questo processo fino a quando non si configurano tutte le posizioni.
-6. Fare clic su **Salva** nella barra superiore per avviare il processo di distribuzione.
+* Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API](get-started-create-service-instance.md). Selezionare il livello di servizio Premium.
+* Se l'istanza di API Management viene distribuita in una rete [virtuale,](api-management-using-with-vnet.md)assicurarsi di configurare una rete virtuale, una subnet e un indirizzo IP pubblico nella posizione che si intende aggiungere.
 
-## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Eliminare un percorso del servizio gestione API
+## <a name="deploy-api-management-service-to-an-additional-location"></a><a name="add-region"> </a>Distribuire API Management servizio in un percorso aggiuntivo
 
-1. Nel portale di Azure passare al servizio gestione API e fare clic sulla voce **locations (percorsi** ) nel menu.
+1. Nel portale di Azure passare al servizio API Management e selezionare **Località** nel menu.
+1. Selezionare **+ Aggiungi** nella barra superiore.
+1. Selezionare la posizione dall'elenco a discesa.
+1. Selezionare il numero di unità **[di scala](upgrade-and-scale.md)** nella posizione.
+1. Facoltativamente, abilitare [**zone di disponibilità**](zone-redundancy.md).
+1. Se l'API Management è distribuita in una [rete virtuale,](api-management-using-with-vnet.md)configurare le impostazioni della rete virtuale nel percorso. Selezionare una rete virtuale, una subnet e un indirizzo IP pubblico esistenti disponibili nel percorso.
+1. Selezionare **Aggiungi per** confermare.
+1. Ripetere questo processo fino a configurare tutte le posizioni.
+1. Selezionare **Salva** nella barra superiore per avviare il processo di distribuzione.
+
+## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Eliminare un percorso API Management servizio
+
+1. Nel portale di Azure passare al servizio API Management e fare clic sulla **voce Località** nel menu.
 2. Per la località che si vuole rimuovere aprire il menu di scelta rapida usando il pulsante **...** sul lato destro della tabella. Selezionare l'opzione **Elimina**.
 3. Confermare l'eliminazione e fare clic su **Salva** per applicare le modifiche.
 
@@ -97,17 +97,17 @@ Per sfruttare completamente la distribuzione geografica del sistema, è necessar
     ```
 
 > [!TIP]
-> È anche possibile rivolgersi ai servizi back-end con [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/), indirizzare le chiamate API a gestione traffico e consentire la risoluzione automatica del routing.
+> È anche possibile eseguire il front-end dei servizi [back-end](https://azure.microsoft.com/services/traffic-manager/)con Gestione traffico di Azure, indirizzare le chiamate API a Gestione traffico e consentire la risoluzione automatica del routing.
 
-## <a name="use-custom-routing-to-api-management-regional-gateways"></a><a name="custom-routing"> </a>Usare il routing personalizzato ai gateway regionali di gestione API
+## <a name="use-custom-routing-to-api-management-regional-gateways"></a><a name="custom-routing"> </a>Usare il routing personalizzato per API Management gateway regionali
 
-Gestione API instrada le richieste a un _gateway_ a livello di area in base [alla latenza più bassa](../traffic-manager/traffic-manager-routing-methods.md#performance). Sebbene non sia possibile eseguire l'override di questa impostazione in gestione API, è possibile usare gestione traffico con regole di routing personalizzate.
+API Management instrada le richieste a un _gateway a livello di regione_ in base alla [latenza più bassa.](../traffic-manager/traffic-manager-routing-methods.md#performance) Anche se non è possibile eseguire l'override di questa impostazione in API Management, è possibile usare Gestione traffico con regole di routing personalizzate.
 
-1. Creare [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/).
-1. Se si usa un dominio personalizzato, [usarlo con gestione traffico invece che con](../traffic-manager/traffic-manager-point-internet-domain.md) il servizio gestione API.
-1. [Configurare gli endpoint regionali di gestione API in gestione traffico](../traffic-manager/traffic-manager-manage-endpoints.md). Gli endpoint internazionali seguono il modello di URL `https://<service-name>-<region>-01.regional.azure-api.net` , ad esempio `https://contoso-westus2-01.regional.azure-api.net` .
-1. [Configurare gli endpoint di stato locale di gestione API in gestione traffico](../traffic-manager/traffic-manager-monitoring.md). Gli endpoint di stato regionali seguono il modello di URL `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef` , ad esempio `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef` .
-1. Specificare [il metodo di routing](../traffic-manager/traffic-manager-routing-methods.md) di gestione traffico.
+1. Creare il proprio [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/).
+1. Se si usa un dominio personalizzato, [usarlo con Gestione traffico](../traffic-manager/traffic-manager-point-internet-domain.md) anziché con il API Management servizio.
+1. [Configurare gli API Management endpoint regionali in Gestione traffico](../traffic-manager/traffic-manager-manage-endpoints.md). Gli endpoint di zona seguono il modello di URL `https://<service-name>-<region>-01.regional.azure-api.net` di , ad esempio `https://contoso-westus2-01.regional.azure-api.net` .
+1. [Configurare gli API Management endpoint di stato regionali in Gestione traffico.](../traffic-manager/traffic-manager-monitoring.md) Gli endpoint di stato a livello di regione seguono il modello di URL `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef` di , ad esempio `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef` .
+1. Specificare [il metodo di routing](../traffic-manager/traffic-manager-routing-methods.md) di Gestione traffico.
 
 [create an api management service instance]: get-started-create-service-instance.md
 [get started with azure api management]: get-started-create-service-instance.md

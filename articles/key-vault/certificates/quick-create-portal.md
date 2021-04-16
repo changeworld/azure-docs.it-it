@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e55c0832638105ad681f74cbeb6429a6704b7fb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a35f83286abe5ae33f6d3c44ee7b05faf692512
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935139"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479220"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>Avvio rapido: Impostare e recuperare un certificato da Azure Key Vault con il portale di Azure
 
@@ -61,7 +61,8 @@ Per aggiungere un certificato a Key Vault, sono sufficienti un paio di passaggi 
     - **Metodo di creazione del certificato**: Genera.
     - **Nome del certificato**: ExampleCertificate.
     - **Soggetto**: CN=ExampleDomain
-    - Lasciare invariati gli altri valori predefiniti. Fare clic su **Crea**.
+    - Lasciare invariati gli altri valori predefiniti. Per impostazione predefinita, se non si specifica alcun elemento speciale in Criteri avanzati, sarà utilizzabile come certificato di autenticazione client.
+ 4. Fare clic su **Crea**.
 
 Dopo avere ricevuto il messaggio che indica che il certificato è stato creato, è possibile fare clic su di esso nell'elenco. Sarà quindi possibile vedere alcune delle proprietà. Se si fa clic sulla versione corrente è possibile visualizzare il valore specificato nel passaggio precedente.
 

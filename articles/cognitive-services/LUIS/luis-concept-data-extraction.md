@@ -1,24 +1,24 @@
 ---
-title: Estrazione dei dati-LUIS
-description: Estrae i dati da testo enunciato con Intent ed entità. Informazioni sul tipo di dati che è possibile estrarre da Language Understanding (LUIS).
+title: Estrazione dei dati - LUIS
+description: Estrarre dati dal testo dell'espressione con finalità ed entità. Informazioni sul tipo di dati che è possibile estrarre da Language Understanding (LUIS).
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: dd7d113b1c23a0afec82a346e0f7baa1254ebbed
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025994"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500142"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrarre dati da testo di un'espressione con finalità ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
 
-I dati più difficili da estrarre sono i dati di Machine Learning perché non corrispondono esattamente al testo. L'estrazione dei dati delle [entità](luis-concept-entity-types.md) di Machine Learning deve far parte del [ciclo di creazione](luis-concept-app-iteration.md) fino a quando non si è certi di ricevere i dati previsti.
+I dati più difficili da estrarre sono i dati di Machine Learning perché non si tratta di una corrispondenza esatta del testo. L'estrazione dei [](luis-concept-entity-types.md) dati delle entità di [](luis-concept-app-iteration.md) Machine Learning deve far parte del ciclo di creazione fino a quando non si è certi di ricevere i dati previsti.
 
 ## <a name="data-location-and-key-usage"></a>Posizione dei dati e uso di chiavi
-LUIS estrae i dati dall'espressione dell'utente nell' [endpoint](luis-glossary.md#endpoint)pubblicato. La **richiesta HTTPS** (POST o GET) contiene l'espressione e alcune configurazioni facoltative, ad esempio ambienti di staging o produzione.
+LUIS estrae i dati dall'espressione dell'utente [nell'endpoint pubblicato.](luis-glossary.md#endpoint) La **richiesta HTTPS** (POST o GET) contiene l'espressione e alcune configurazioni facoltative, ad esempio ambienti di staging o produzione.
 
 **Richiesta dell'endpoint di previsione V2**
 
@@ -74,12 +74,12 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 |--|--|--|--|
 |Finalità|string|topScoringIntent.intent|"GetStoreInfo"|
 
-Se l'app chatbot o LUIS-Calling prende una decisione in base a più di un punteggio preventivo, restituisce tutti i punteggi di Intent.
+Se il chatbot o l'app che chiama LUIS prende una decisione in base a più di un punteggio di finalità, restituire tutti i punteggi delle finalità.
 
 
 #### <a name="v2-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
-Impostare il parametro QueryString, `verbose=true` . La risposta dell'endpoint è:
+Impostare il parametro querystring, `verbose=true` . La risposta dell'endpoint è:
 
 ```JSON
 {
@@ -104,7 +104,7 @@ Impostare il parametro QueryString, `verbose=true` . La risposta dell'endpoint �
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Impostare il parametro QueryString, `show-all-intents=true` . La risposta dell'endpoint è:
+Impostare il parametro querystring, `show-all-intents=true` . La risposta dell'endpoint è:
 
 ```JSON
 {
@@ -201,15 +201,15 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 
 ## <a name="data-from-entities"></a>Dati da entità
-Per la maggior parte delle applicazioni e bot di chat è necessario più del nome di Intent. Questi dati aggiuntivi e facoltativi provengono da entità trovate nell'espressione. Ogni tipo di entità restituisce informazioni diverse sulla corrispondenza.
+La maggior parte dei chat bot e delle applicazioni ha bisogno di più del nome della finalità. Questi dati aggiuntivi e facoltativi provengono da entità trovate nell'espressione. Ogni tipo di entità restituisce informazioni diverse sulla corrispondenza.
 
 Una singola parola o frase dell'espressione può corrispondere a più di un'entità. In questo caso, ogni entità corrispondente viene restituita con il relativo punteggio.
 
-Tutte le entità vengono restituite nella matrice di **entità** della risposta dall'endpoint
+Tutte le entità vengono restituite nella matrice **di** entità della risposta dall'endpoint
 
 ## <a name="tokenized-entity-returned"></a>Entità in formato token restituita
 
-Esaminare il [supporto dei token](luis-language-support.md#tokenization) in Luis.
+Esaminare il [supporto dei token](luis-language-support.md#tokenization) in LUIS.
 
 
 ## <a name="prebuilt-entity-data"></a>Dati entità predefinita
@@ -217,11 +217,11 @@ Vengono trovate le entità [predefinite](luis-concept-entity-types.md) in base a
 
 ## <a name="list-entity-data"></a>Dati entità elenco
 
-Le [entità di elenco](reference-entity-list.md) rappresentano un set fisso e chiuso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint.
+[Le entità elenco](reference-entity-list.md) rappresentano un set fisso e chiuso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint.
 
 ## <a name="regular-expression-entity-data"></a>Dati entità espressione regolare
 
-Un' [entità di espressione regolare](reference-entity-regular-expression.md) estrae un'entità in base a un'espressione regolare fornita.
+[Un'entità di espressione regolare](reference-entity-regular-expression.md) estrae un'entità in base a un'espressione regolare specificata.
 
 ## <a name="extracting-names"></a>Estrazione di nomi
 Ottenere i nomi da un'espressione è difficile perché un nome può essere qualsiasi combinazione di lettere e parole. Le opzioni disponibili variano a seconda del tipo di nome estratto. I suggerimenti seguenti non sono regole, ma linee guida.
@@ -232,37 +232,37 @@ Le entità [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-
 
 ### <a name="names-of-people"></a>Nomi di persone
 
-I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Utilizzare un'entità **[PersonName](luis-reference-prebuilt-person.md)** predefinita o un' **[entità semplice](luis-concept-entity-types.md)** con ruoli di nome e cognome.
+I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un'entità **[personName](luis-reference-prebuilt-person.md)** precompilato o **[un'entità semplice](luis-concept-entity-types.md)** con ruoli di nome e cognome.
 
-Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse ed espressioni in tutti gli Intent, inclusa la finalità None. [Rivedere](./luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse e espressioni in tutte le finalità, inclusa la finalità Nessuna. [Rivedere](./luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ### <a name="names-of-places"></a>Nomi di località
 
-I nomi di località sono impostati e noti come città, contee, Stati, Province e paesi/aree geografiche. Usare l'entità predefinita **[geographyV2](luis-reference-prebuilt-geographyv2.md)** per estrarre le informazioni sul percorso.
+I nomi delle località sono impostati e noti, ad esempio città, contee, stati, province e paesi/aree geografiche. Usare l'entità predefinita **[geographyV2](luis-reference-prebuilt-geographyv2.md)** per estrarre le informazioni sulla posizione.
 
 ### <a name="new-and-emerging-names"></a>Nomi nuovi ed emergenti
 
-Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più complesso di estrazione dei dati. Iniziare con un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** e aggiungere un [elenco di frasi](luis-concept-feature.md). [Rivedere](./luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più difficile di estrazione dei dati. Iniziare con **[un'entità semplice e](luis-concept-entity-types.md)** aggiungere un elenco di [frasi.](luis-concept-feature.md) [Rivedere](./luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ## <a name="patternany-entity-data"></a>Dati entità Pattern.any
 
-[Pattern. any](reference-entity-pattern-any.md) è un segnaposto a lunghezza variabile usato solo nell'espressione di modello di un modello per contrassegnare l'inizio e la fine dell'entità. Per poter applicare il modello, è necessario trovare l'entità utilizzata nel modello.
+[Pattern.any è](reference-entity-pattern-any.md) un segnaposto a lunghezza variabile usato solo nell'espressione modello di un criterio per contrassegnare l'inizio e la fine dell'entità. L'entità usata nel criterio deve essere trovata per poter applicare il criterio.
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
-Se l'analisi dei sentimenti viene configurata durante la [pubblicazione](luis-how-to-publish-app.md#sentiment-analysis), la risposta di Luis JSON include l'analisi dei sentimenti. Per ulteriori informazioni sull'analisi del sentiment, vedere la documentazione [Analisi del testo](../text-analytics/index.yml).
+Se l'analisi del sentiment è [configurata durante la](luis-how-to-publish-app.md#sentiment-analysis)pubblicazione di , la risposta JSON di LUIS include l'analisi del sentiment. Per ulteriori informazioni sull'analisi del sentiment, vedere la documentazione [Analisi del testo](../text-analytics/index.yml).
 
 ## <a name="key-phrase-extraction-entity-data"></a>Dati entità estrazione frasi chiave
-L' [entità di estrazione della frase chiave](luis-reference-prebuilt-keyphrase.md) restituisce frasi chiave nell'espressione, fornite da [analisi del testo](../text-analytics/index.yml).
+[L'entità di estrazione frasi](luis-reference-prebuilt-keyphrase.md) chiave restituisce le frasi chiave nell'espressione, fornite [Analisi del testo](../text-analytics/index.yml).
 
 ## <a name="data-matching-multiple-entities"></a>Dati corrispondenti a più entità
 
-LUIS restituisce tutte le entità individuate nell'espressione. Di conseguenza, il bot della chat potrebbe dover prendere una decisione in base ai risultati.
+LUIS restituisce tutte le entità individuate nell'espressione. Di conseguenza, il chatbot potrebbe dover prendere una decisione in base ai risultati.
 
 ## <a name="data-matching-multiple-list-entities"></a>Dati corrispondenti a più entità elenco
 
 Se una parola o frase corrisponde a più entità elenco, la query di endpoint restituisce ciascuna entità elenco.
 
-Per la query `when is the best time to go to red rock?` e l'app contiene la parola `red` in più di un elenco, Luis riconosce tutte le entità e restituisce una matrice di entità come parte della risposta dell'endpoint JSON.
+Per la query e l'app contiene la parola in più elenchi, LUIS riconosce tutte le entità e restituisce una matrice di entità come parte della risposta `when is the best time to go to red rock?` `red` dell'endpoint JSON.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

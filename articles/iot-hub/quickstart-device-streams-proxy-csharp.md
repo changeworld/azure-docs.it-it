@@ -1,20 +1,20 @@
 ---
-title: 'Guida introduttiva: flussi di dispositivi hub Azure-Guida introduttiva a C# per SSH e RDP'
+title: Guida introduttiva - Hub IoT di Azure flusso di dispositivi C# per SSH e RDP
 description: In questo argomento di avvio rapido vengono eseguite due applicazioni C# di esempio che consentono scenari SSH e RDP su un flusso del dispositivo dell'hub IoT.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 12e26818f86fc4abdc1873d031182fd994c04687
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bca2701b708bfb957dce1c954f43f60f55b7dae
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98624372"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479951"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy C# (anteprima)
 

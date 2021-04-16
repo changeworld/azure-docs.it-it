@@ -215,7 +215,7 @@
             - name: Raccomandazioni per le prestazioni
               href: concepts-performance-recommendations.md
               displayName: 'query store, performance, optimize, recommendations'
-            - name: Raccomandazioni Azure Advisor
+            - name: Azure Advisor raccomandazioni
               href: concepts-azure-advisor-recommendations.md
         - name: Sviluppo di app
           items:
@@ -684,6 +684,10 @@
             - name: Accedere ai log del database
               href: howto-hyperscale-logging.md
               displayName: 'log, hyperscale'
+        - name: Ripristinare un gruppo di server
+          items:
+            - name: Portale di Azure
+              href: howto-hyperscale-restore-portal.md
         - name: Aggiornamenti della versione principale
           href: howto-hyperscale-upgrade.md
         - name: Risolvere problemi

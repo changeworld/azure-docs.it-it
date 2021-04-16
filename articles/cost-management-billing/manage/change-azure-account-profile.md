@@ -1,21 +1,21 @@
 ---
 title: Modificare le informazioni di contatto per un account di fatturazione di Azure
 description: Descrive come modificare le informazioni di contatto dell'account di fatturazione di Azure
-author: genlin
-ms.reviewer: dcscontentpm
+author: bandersmsft
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 04/08/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 776c207387ee55b998615131baf77e6c13655b49
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: f394b6b44b2030253f7b78ec68459819c82c3c27
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033938"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480903"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Modificare le informazioni di contatto per un account di fatturazione di Azure
 
@@ -64,6 +64,21 @@ Per aggiornare le informazioni del profilo utente di Azure Active Directory, ten
     ![Screenshot che illustra dove aggiornare l'indirizzo](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. Immettere il nuovo indirizzo e selezionare **Salva**.  
     ![Screenshot che illustra l'aggiornamento dell'indirizzo](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+
+## <a name="update-a-po-number"></a>Aggiornare un numero di ordine di acquisto
+
+Per impostazione predefinita, a una fattura per il profilo di fatturazione non è associato un numero di ordine di acquisto. Dopo aver aggiunto un numero di ordine d'acquisto per un profilo di fatturazione, questo viene visualizzato nelle fatture per il profilo di fatturazione.
+
+Per aggiungere o modificare il numero di ordine d'acquisto per un profilo di fatturazione, seguire questa procedura.
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Cercare **Gestione dei costi e fatturazione** e quindi selezionare Ambiti di **fatturazione.**
+1. Selezionare l'ambito di fatturazione.
+1. Nel menu a sinistra in **Fatturazione** selezionare **Profili di fatturazione.**
+1. Selezionare il profilo di fatturazione appropriato.
+1. Nel menu a sinistra in **Impostazioni** selezionare **Proprietà.**
+1. Selezionare **Aggiorna numero ordine di acquisto**.
+1. Immettere un numero di ordine d'acquisto e quindi **selezionare Aggiorna.**
 
 ## <a name="service-and-marketing-emails"></a>Messaggi di posta elettronica di servizio e di marketing
 

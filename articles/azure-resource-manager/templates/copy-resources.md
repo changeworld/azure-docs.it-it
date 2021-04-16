@@ -1,20 +1,20 @@
 ---
 title: Distribuire più istanze di risorse
-description: Usare l'operazione di copia e le matrici in un modello di Azure Resource Manager (modello ARM) per distribuire il tipo di risorsa molte volte.
+description: Usare l'operazione di copia e le matrici in un modello Azure Resource Manager (modello arm) per distribuire più volte il tipo di risorsa.
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.openlocfilehash: 3af676cce544c125e441857f06556b9ff7eee697
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5ddb0cabf0acae1ffe9b9e77e6defa70f9cbd61b
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385710"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479968"
 ---
-# <a name="resource-iteration-in-arm-templates"></a>Iterazione delle risorse nei modelli ARM
+# <a name="resource-iteration-in-arm-templates"></a>Iterazione delle risorse nei modelli arm
 
-Questo articolo illustra come creare più di un'istanza di una risorsa nel modello di Azure Resource Manager (modello ARM). Aggiungendo il ciclo di copia alla sezione Resources del modello, è possibile impostare dinamicamente il numero di risorse da distribuire. È anche possibile evitare di ripetere la sintassi del modello.
+Questo articolo illustra come creare più di un'istanza di una risorsa nel modello di Azure Resource Manager (modello arm). Aggiungendo il ciclo di copia alla sezione resources del modello, è possibile impostare dinamicamente il numero di risorse da distribuire. Si evita anche di dover ripetere la sintassi del modello.
 
-È anche possibile usare il ciclo di copia con [Proprietà](copy-properties.md), [variabili](copy-variables.md)e [output](copy-outputs.md).
+È anche possibile usare il ciclo di copia [con le](copy-properties.md)proprietà , [le variabili](copy-variables.md)e gli [output .](copy-outputs.md)
 
 Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](conditional-resource-deployment.md).
 
@@ -22,7 +22,7 @@ Se è necessario specificare se una risorsa viene distribuita, vedere l'[element
 
 # <a name="json"></a>[JSON](#tab/json)
 
-Aggiungere l' `copy` elemento alla sezione Resources del modello per distribuire più istanze della risorsa. L' `copy` elemento ha il formato generale seguente:
+Aggiungere `copy` l'elemento alla sezione resources del modello per distribuire più istanze della risorsa. `copy`L'elemento ha il formato generale seguente:
 
 ```json
 "copy": {
@@ -35,11 +35,11 @@ Aggiungere l' `copy` elemento alla sezione Resources del modello per distribuire
 
 La `name` proprietà è qualsiasi valore che identifica il ciclo. La `count` proprietà specifica il numero di iterazioni desiderate per il tipo di risorsa.
 
-Usare le `mode` `batchSize` proprietà e per specificare se le risorse vengono distribuite in parallelo o in sequenza. Queste proprietà sono descritte in [serie o in parallelo](#serial-or-parallel).
+Usare le `mode` proprietà e per specificare se le risorse vengono distribuite in parallelo o in `batchSize` sequenza. Queste proprietà sono descritte in [Serial o Parallel.](#serial-or-parallel)
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-È possibile usare i cicli per dichiarare più risorse in base a quanto segue:
+I cicli possono essere usati per dichiarare più risorse:
 
 - Iterazione su una matrice:
 
@@ -47,47 +47,47 @@ Usare le `mode` `batchSize` proprietà e per specificare se le risorse vengono d
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
     <resource-properties>
-  }
+  }]
   ```
 
-- Iterazione sugli elementi di una matrice
+- Iterazione degli elementi di una matrice
 
   ```bicep
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
     <resource-properties>
-  }
+  }]
   ```
 
-- Utilizzo dell'indice del ciclo
+- Uso dell'indice del ciclo
 
   ```bicep
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <index> in range(<start>, <stop>): {
     <resource-properties>
-  }
+  }]
   ```
 
 ---
 
 ## <a name="copy-limits"></a>Limiti di copia
 
-Il conteggio non può essere maggiore di 800.
+Il conteggio non può superare 800.
 
-Il conteggio non può essere un numero negativo. Può essere zero se si distribuisce il modello con una versione recente dell'interfaccia della riga di comando di Azure, PowerShell o l'API REST. In particolare, è necessario usare:
+Il conteggio non può essere un numero negativo. Può essere zero se si distribuisce il modello con una versione recente dell'interfaccia della riga di comando di Azure, PowerShell o API REST. In particolare, è necessario usare:
 
-- Azure PowerShell **2,6** o versione successiva
-- INTERFACCIA della riga di comando di Azure **2.0.74** o versione successiva
-- API REST versione **2019-05-10** o successiva
-- Le [distribuzioni collegate](linked-templates.md) devono usare l'API versione **2019-05-10** o successiva per il tipo di risorsa di distribuzione
+- Azure PowerShell **2.6** o versione successiva
+- Interfaccia della riga di comando di Azure **2.0.74** o versione successiva
+- API REST **versione 2019-05-10** o successiva
+- [Le distribuzioni collegate](linked-templates.md) devono usare l'API **versione 2019-05-10 o** successiva per il tipo di risorsa di distribuzione
 
-Le versioni precedenti di PowerShell, l'interfaccia della riga di comando e l'API REST non supportano zero per Count.
+Le versioni precedenti di PowerShell, dell'interfaccia della riga di comando e dell'API REST non supportano zero per il conteggio.
 
-Prestare attenzione quando si usa la [distribuzione in modalità completa](deployment-modes.md) con il ciclo di copia. Se si esegue la ridistribuzione con la modalità completa in un gruppo di risorse, tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
+Prestare attenzione [all'uso della distribuzione in modalità completa](deployment-modes.md) con il ciclo di copia. Se si esegue la ridistribuzione in un gruppo di risorse con modalità completa, tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia vengono eliminate.
 
 ## <a name="resource-iteration"></a>Iterazione delle risorse
 
-Nell'esempio seguente viene creato il numero di account di archiviazione specificato nel `storageCount` parametro.
+Nell'esempio seguente viene creato il numero di account di archiviazione specificati nel `storageCount` parametro .
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -133,7 +133,7 @@ Crea questi nomi:
 - storage1
 - storage2
 
-Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione `copyIndex()`. Il numero di iterazioni è ancora specificato nell'elemento Copy, ma il valore di `copyIndex` è offset in base al valore specificato. Quindi l'esempio seguente:
+Per eseguire l'offset del valore di indice, è possibile passare un valore nella funzione `copyIndex()`. Il numero di iterazioni è ancora specificato nell'elemento di copia, ma il valore di `copyIndex` è offset dal valore specificato. Quindi l'esempio seguente:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -163,11 +163,11 @@ resource storage_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in r
 }]
 ```
 
-Si noti che l'indice `i` viene usato per creare il nome della risorsa dell'account di archiviazione.
+Si noti che `i` l'indice viene usato nella creazione del nome della risorsa dell'account di archiviazione.
 
 ---
 
-Nell'esempio seguente viene creato un account di archiviazione per ogni nome specificato nel parametro.
+Nell'esempio seguente viene creato un account di archiviazione per ogni nome specificato nel parametro .
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -228,11 +228,11 @@ resource storageNames_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for n
 
 ---
 
-Se si desidera restituire valori dalle risorse distribuite, è possibile usare [Copy nella sezione Outputs](copy-outputs.md).
+Se si desidera restituire valori dalle risorse distribuite, è possibile usare [la copia nella sezione outputs](copy-outputs.md).
 
-## <a name="serial-or-parallel"></a>Seriale o parallela
+## <a name="serial-or-parallel"></a>Seriale o parallelo
 
-Per impostazione predefinita, Gestione risorse crea le risorse in parallelo. Non viene applicato alcun limite al numero di risorse distribuite in parallelo, oltre al limite totale di 800 risorse nel modello. L'ordine di creazione non è garantito.
+Per impostazione predefinita, Gestione risorse crea le risorse in parallelo. Non applica alcun limite al numero di risorse distribuite in parallelo, oltre al limite totale di 800 risorse nel modello. L'ordine di creazione non è garantito.
 
 Tuttavia è consigliabile specificare che le risorse vengano distribuite in sequenza. Ad esempio, quando si aggiorna un ambiente di produzione, è consigliabile sfalsare gli aggiornamenti per aggiornarne solo un determinato numero in un dato momento.
 
@@ -242,7 +242,7 @@ Ad esempio, per distribuire in modo seriale gli account di archiviazione due all
 
 Per distribuire in modo seriale più istanze di una risorsa, impostare `mode` su **serial** e `batchSize` sul numero di istanze da distribuire contemporaneamente. Con la modalità seriale, Resource Manager crea una dipendenza da istanze precedenti nel ciclo in modo un batch venga avviato solo dopo il completamento del batch precedente.
 
-Il valore per `batchSize` non può superare il valore per `count` nell'elemento Copy.
+Il valore per `batchSize` non può superare il valore di `count` nell'elemento copy.
 
 ```json
 {
@@ -271,11 +271,11 @@ Il valore per `batchSize` non può superare il valore per `count` nell'elemento 
 }
 ```
 
-La `mode` proprietà accetta anche **Parallel**, che corrisponde al valore predefinito.
+La `mode` proprietà accetta anche **parallel**, che è il valore predefinito.
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-Per distribuire in modo seriale più di un'istanza di una risorsa, impostare l' `batchSize` [elemento Decorator](./bicep-file.md#resource-and-module-decorators) sul numero di istanze da distribuire alla volta. Con la modalità seriale, Resource Manager crea una dipendenza da istanze precedenti nel ciclo in modo un batch venga avviato solo dopo il completamento del batch precedente.
+Per distribuire in serie più istanze di una risorsa, impostare l'elemento Decorator sul numero di `batchSize` [](./bicep-file.md#resource-and-module-decorators) istanze da distribuire contemporaneamente. Con la modalità seriale, Resource Manager crea una dipendenza da istanze precedenti nel ciclo in modo un batch venga avviato solo dopo il completamento del batch precedente.
 
 ```bicep
 @batchSize(2)
@@ -373,11 +373,11 @@ Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più ista
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per impostare le dipendenze dalle risorse create in un ciclo di copia, vedere [definire l'ordine per la distribuzione delle risorse nei modelli ARM](define-resource-dependency.md).
-- Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse con i modelli ARM](template-tutorial-create-multiple-instances.md).
+- Per impostare le dipendenze dalle risorse create in un ciclo di copia, vedere Definire l'ordine di distribuzione [delle risorse nei modelli arm.](define-resource-dependency.md)
+- Per completare un'esercitazione, vedere [Esercitazione: Creare più istanze di risorse con i modelli arm.](template-tutorial-create-multiple-instances.md)
 - Per un modulo Microsoft Learn che illustra la copia delle risorse, vedere [Gestire distribuzioni cloud complesse usando le funzionalità avanzate dei modelli di ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 - Per altri usi del ciclo di copia, vedere:
-  - [Iterazione delle proprietà nei modelli ARM](copy-properties.md)
-  - [Iterazione delle variabili nei modelli ARM](copy-variables.md)
-  - [Iterazione di output nei modelli ARM](copy-outputs.md)
-- Per informazioni sull'uso di Copy con i modelli annidati, vedere [uso di Copy](linked-templates.md#using-copy).
+  - [Iterazione delle proprietà nei modelli di Arm](copy-properties.md)
+  - [Iterazione delle variabili nei modelli di Arm](copy-variables.md)
+  - [Iterazione di output nei modelli di Arm](copy-outputs.md)
+- Per informazioni sull'uso della copia con modelli annidati, vedere [Using copy](linked-templates.md#using-copy).

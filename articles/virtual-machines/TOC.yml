@@ -1199,13 +1199,13 @@
         - name: Windows
           displayName: detach a disk
           href: ./windows/detach-disk.md
-    - name: Espandere il disco del sistema operativo
+    - name: Espandere un disco
       items:
         - name: Linux
-          displayName: Expand OS disk
+          displayName: Expand a disk - Linux
           href: ./linux/expand-disks.md
         - name: Windows
-          displayName: Expand OS disk
+          displayName: Expand a disk - Windows
           href: ./windows/expand-os-disk.md
     - name: Gestire l'archiviazione
       items:
@@ -1405,7 +1405,7 @@
               href: ./windows/key-vault-setup.md
     - name: Attenuazione dell'esecuzione speculativa
       href: mitigate-se.md
-    - name: Aggiungere una macchina virtuale Linux Azure Active Directory
+    - name: Aggiungere una macchina virtuale Linux a Azure Active Directory
       displayName: Azure AD
       items:
         - name: Red Hat Enterprise Linux
