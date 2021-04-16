@@ -9,12 +9,12 @@ metadata:
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: 25c96daa5bdebb07eb868a5e2d5b574e14e38d96
-  ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+  ms.openlocfilehash: d6c9d2ae5a2f91cd0c9c5b0b902b254ffcd8c8f8
+  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/16/2021
-  ms.locfileid: "107535613"
+  ms.lasthandoff: 04/15/2021
+  ms.locfileid: "107517879"
 landingContent:
 - title: Informazioni su Azure Red Hat OpenShift
   linkLists:
@@ -38,15 +38,13 @@ landingContent:
     links:
     - text: Creare un cluster Azure Red Hat OpenShift privato
       url: ./howto-create-private-cluster-4x.md
-    - text: Configurare l'inoltro DNS per un cluster Azure Red Hat OpenShift dns
+    - text: Configurare l'inoltro DNS per un cluster Azure Red Hat OpenShift rete
       url: dns-forwarding.md
     - text: Configurare il registro contenitori predefinito per Azure Red Hat OpenShift
       url: built-in-container-registry.md
-    - text: Distribuire un'applicazione dall'origine
-      url: howto-deploy-with-s2i.md
-    - text: Distribuire un'applicazione usando OpenShift Serverless
+    - text: Distribuire un'applicazione in Azure Red Hat OpenShift usando OpenShift Serverless
       url: howto-deploy-with-serverless.md
-    - text: Distribuire un'applicazione Open Liberty/WebSphere Liberty in un cluster Azure Red Hat OpenShift distribuzione
+    - text: Distribuire un'applicazione Open Liberty/WebSphere Liberty in un cluster di Azure Red Hat OpenShift 4
       url: howto-deploy-java-liberty-app.md
 - title: Informazioni di riferimento
   linkLists:
