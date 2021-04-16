@@ -2,22 +2,18 @@
 title: Come usare Gestione API di Azure con le reti virtuali
 description: Informazioni su come configurare una connessione a una rete virtuale in Gestione API di Azure e usarla per accedere ai servizi Web.
 services: api-management
-documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 ms.service: api-management
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 12/10/2020
+ms.topic: how-to
+ms.date: 04/12/2021
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: c63b71ad00a5621babe07597720a1e9ea87f1e4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5612da51c1896aaa40ff2a0fb90e3343f676de43
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99260249"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531648"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -35,11 +31,13 @@ Gestione API di Azure può essere distribuito all'interno della rete virtuale (V
 
 Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
-+ Una sottoscrizione di Azure attiva.
++ **Una sottoscrizione di Azure attiva.**
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ Un'istanza di Gestione API. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
++ **Istanza API Management.** Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
+
+[!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
 ## <a name="enable-vnet-connection"></a><a name="enable-vpn"> </a>Abilitare la connessione VNET
 
@@ -47,14 +45,14 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
 1. Passare al [portale di Azure](https://portal.azure.com) per trovare l'istanza di Gestione API. Cercare e selezionare **Servizi Gestione API**.
 
-2. Scegliere l'istanza di Gestione API.
+1. Scegliere l'istanza di Gestione API.
 
-3. Selezionare **Rete virtuale**.
-4. Configurare l'istanza di Gestione API da distribuire all'interno di una rete virtuale.
+1. Selezionare **Rete virtuale**.
+1. Configurare l'istanza di Gestione API da distribuire all'interno di una rete virtuale.
 
-    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Selezionare rete virtuale in portale di Azure.":::
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Selezionare la rete virtuale in portale di Azure.":::
     
-5. Selezionare il tipo di accesso da usare:
+1. Selezionare il tipo di accesso da usare:
 
     * **Off**: Questa è la modalità predefinita. Gestione API non viene distribuito in una rete virtuale.
 
@@ -66,32 +64,46 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
         ![Peering privato][api-management-vnet-private]
 
-6. Se si seleziona l'opzione **Esterna** o **Interna**, verrà visualizzato un elenco di tutte le aree in cui viene eseguito il provisioning del servizio Gestione API. Scegliere una **Posizione** e quindi selezionare la **rete virtuale** e la **subnet** corrispondenti. L'elenco di reti virtuali viene popolato con le reti virtuali classiche e Resource Manager disponibili nelle sottoscrizioni di Azure, impostate nell'area che si sta configurando.
+1. Se è stata selezionata **l'opzione** Esterno o Interno, verrà visualizzato un elenco di tutte le località (aree) in cui viene eseguito il provisioning del servizio API Management servizio. Scegliere un **percorso** e quindi selezionare la rete **virtuale,** **la subnet** e **l'indirizzo IP.** L'elenco di reti virtuali viene popolato Resource Manager le reti virtuali disponibili nelle sottoscrizioni di Azure configurate nell'area che si sta configurando.
 
-    > [!IMPORTANT]
-    > Quando si distribuisce un'istanza di gestione API di Azure a una rete virtuale Resource Manager, il servizio deve essere in una subnet dedicata che non contiene altre risorse, a eccezione di istanze di gestione API di Azure. Se si tenta di distribuire un'istanza di gestione API di Azure a una subnet della rete virtuale Resource Manager contenente altre risorse, la distribuzione avrà esito negativo.
-
-    Selezionare **Applica**. La pagina **Rete virtuale** dell'istanza di Gestione API viene aggiornata con le nuove opzioni della rete virtuale e della subnet.
 
     :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Impostazioni della rete virtuale nel portale.":::
 
+    > [!IMPORTANT]
+    > * Quando il client usa **l'API versione 2020-12-01** o precedente per distribuire un'istanza di Azure API Management in una rete virtuale Resource Manager, il servizio deve essere in una subnet dedicata che non contiene risorse ad eccezione delle istanze di Azure API Management. Se si tenta di distribuire un'istanza di gestione API di Azure a una subnet della rete virtuale Resource Manager contenente altre risorse, la distribuzione avrà esito negativo.
+    > * Quando il client usa **l'API versione 2021-01-01-preview** o successiva per distribuire un'istanza di Azure API Management in una rete virtuale, è supportata solo una rete virtuale Resource Manager. Inoltre, la subnet usata può contenere altre risorse. Non è necessario usare una subnet dedicata a API Management istanze. 
+
+1. Selezionare **Applica**. La pagina **Rete virtuale** dell'istanza di Gestione API viene aggiornata con le nuove opzioni della rete virtuale e della subnet.
+
+1. Continuare a configurare le impostazioni di rete virtuale per i percorsi rimanenti dell'API Management locale.
+
 7. Nella barra di spostamento superiore selezionare **Salva** e quindi selezionare **Applica configurazione di rete**.
 
+    L'aggiornamento dell'istanza di API Management può richiedere da 15 a 45 minuti.
+
 > [!NOTE]
-> L'indirizzo VIP dell'istanza di Gestione API può cambiare ogni volta che la rete virtuale viene abilitata o disabilitata.
-> L'indirizzo VIP verrà modificato anche quando Gestione API passa da **Esterna** a **Interna** o viceversa.
->
+> Con i client che usano l'API 2020-12-01 e versioni precedenti, l'indirizzo VIP dell'istanza di API Management cambierà ogni volta che la rete virtuale viene abilitata o disabilitata. L'indirizzo VIP cambierà anche quando API Management viene spostato **da** Esterno **a Rete** virtuale interna o viceversa.
 
 > [!IMPORTANT]
-> Se si rimuove Gestione API da una rete virtuale o si modifica quella in cui è distribuito, la rete virtuale usata in precedenza può rimanere bloccata fino a sei ore. Durante questo periodo non sarà possibile eliminare la rete virtuale o distribuirvi una nuova risorsa. Questo comportamento è valido per i client che usano api-version 2018-01-01 e versioni precedenti. Per i client che usano api-version 2019-01-01 e versioni successive, la rete virtuale viene liberata non appena viene eliminato il servizio Gestione API associato.
+> Se si rimuove Gestione API da una rete virtuale o si modifica quella in cui è distribuito, la rete virtuale usata in precedenza può rimanere bloccata fino a sei ore. Durante questo periodo non sarà possibile eliminare la rete virtuale o distribuirvi una nuova risorsa. Questo comportamento è vero per i client che usano l'API 2018-01-01 e versioni precedenti. I client che usano l'API 2019-01-01 e versioni successive, la rete virtuale viene liberata non appena il servizio API Management associato viene eliminato.
 
-## <a name="deploy-api-management-into-external-vnet"></a><a name="deploy-apim-external-vnet"> </a>Distribuire Gestione API in VNET esterni
+### <a name="deploy-api-management-into-external-vnet"></a><a name="deploy-apim-external-vnet"> </a>Distribuire API Management in una rete virtuale esterna
 
-[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
+È anche possibile abilitare la connettività di rete virtuale usando i metodi seguenti.
 
-* **Creare un servizio Gestione API all'interno di una rete virtuale**: usare il cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) per creare un servizio Gestione API di Azure all'interno di una rete virtuale.
+### <a name="api-version-2021-01-01-preview"></a>API versione 2021-01-01-preview
 
-* **Distribuire un servizio Gestione API esistente all'interno di una rete virtuale**: usare il cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) per spostare un servizio Gestione API di Azure esistente all'interno di una rete virtuale.
+* Azure Resource Manager [modello](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet-publicip)
+
+     [![Distribuisci in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
+
+### <a name="api-version-2020-12-01"></a>API versione 2020-12-01
+
+* Azure Resource Manager [modello](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet)
+    
+     [![Distribuisci in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
+
+* Azure PowerShell cmdlet : creare [o](/powershell/module/az.apimanagement/new-azapimanagement) [aggiornare un'istanza](/powershell/module/az.apimanagement/update-azapimanagementregion) API Management in una rete virtuale
 
 ## <a name="connect-to-a-web-service-hosted-within-a-virtual-network"></a><a name="connect-vnet"> </a>Connettersi a un servizio Web ospitato all'interno di una rete virtuale
 Dopo che il servizio Gestione API è stato connesso alla VNET, l'accesso ai servizi di back-end all'interno della rete virtuale non è diverso dall'accesso ai servizi pubblici. È sufficiente digitare l'indirizzo locale o il nome host (se è stato configurato un server DNS per la VNET) del servizio Web nel campo **URL del servizio Web** quando si crea una nuova API o se ne modifica una esistente.
@@ -115,20 +127,20 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 | * / [80], 443                  | In ingresso            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicazione tra client e Gestione API                      | Esterno             |
 | */3443                     | In ingresso            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Endpoint di gestione per il portale di Azure e PowerShell         | Esterno e interno  |
 | * / 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / Storage             | **Dipendenza da Archiviazione di Azure**                             | Esterno e interno  |
-| * / 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) e dipendenza dell'insieme di credenziali delle credenziali di Azure                  | Esterno e interno  |
+| * / 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) e la dipendenza di Azure KeyVault                  | Esterno e interno  |
 | * / 1433                     | In uscita           | TCP                | VIRTUAL_NETWORK/SQL                 | **Accesso agli endpoint SQL di Azure**                           | Esterno e interno  |
-| * / 443                     | In uscita           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Accesso ad Azure Vault**                           | Esterno e interno  |
+| * / 443                     | In uscita           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Accesso ad Azure KeyVault**                           | Esterno e interno  |
 | * / 5671, 5672, 443          | In uscita           | TCP                | VIRTUAL_NETWORK / EventHub            | Dipendenza per il criterio [Registra a Hub eventi](api-management-howto-log-event-hubs.md) e l'agente di monitoraggio | Esterno e interno  |
 | * / 445                      | In uscita           | TCP                | VIRTUAL_NETWORK / Storage             | Dipendenza dalla condivisione file di Azure per [GIT](api-management-configuration-repository-git.md)                      | Esterno e interno  |
-| */443, 12000                     | In uscita           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Estensione Health and Monitoring         | Esterno e interno  |
-| */1886, 443                     | In uscita           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Pubblicare [log e metriche di diagnostica](api-management-howto-use-azure-monitor.md), [integrità risorse](../service-health/resource-health-overview.md) e [Application Insights](api-management-howto-app-insights.md)                   | Esterno e interno  |
-| */25, 587, 25028                       | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
-| * / 6381 - 6383              | In ingresso e in uscita | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Accedere al servizio Redis per i criteri di [cache](api-management-caching-policies.md) tra computer         | Esterno e interno  |
-| */4290              | In ingresso e in uscita | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Contatori di sincronizzazione per i criteri relativi ai [limiti di frequenza](api-management-access-restriction-policies.md#LimitCallRateByKey) tra computer         | Esterno e interno  |
+| * / 443, 12000                     | In uscita           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Estensione integrità e monitoraggio         | Esterno e interno  |
+| * / 1886, 443                     | In uscita           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Pubblicare [log e metriche di](api-management-howto-use-azure-monitor.md) [diagnostica, Integrità risorse](../service-health/resource-health-overview.md) e [Application Insights](api-management-howto-app-insights.md)                   | Esterno e interno  |
+| * / 25, 587, 25028                       | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
+| * / 6381 - 6383              | In ingresso e in uscita | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Accedere al servizio Redis per i [criteri della cache](api-management-caching-policies.md) tra computer         | Esterno e interno  |
+| * / 4290              | In ingresso e in uscita | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sincronizzare i contatori per [i criteri di limite](api-management-access-restriction-policies.md#LimitCallRateByKey) di frequenza tra computer         | Esterno e interno  |
 | * / *                        | In ingresso            | TCP                | VIRTUAL_NETWORK/AZURE_LOADBALANCER | Bilanciamento del carico di infrastruttura di Azure                          | Esterno e interno  |
 
 >[!IMPORTANT]
-> Le porte per cui *Scopo* è **grassetto** sono necessarie per la corretta distribuzione del servizio Gestione API. Bloccando le altre porte, tuttavia, si verificherà una **riduzione** della capacità di utilizzo e **monitoraggio del servizio in esecuzione e di fornire il contratto di servizio con commit**.
+> Le porte per cui *Scopo* è **grassetto** sono necessarie per la corretta distribuzione del servizio Gestione API. Il blocco delle altre porte, tuttavia, causerà **una** riduzione della capacità di usare e monitorare il servizio in esecuzione e fornire il contratto di servizio di cui è stato eseguito **il commit.**
 
 + **Funzionalità TLS**: per abilitare la creazione e la convalida della catena di certificati TLS/SSL, il servizio Gestione API richiede la connettività di rete in uscita a ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. Questa dipendenza non è necessaria se un certificato caricato in Gestione API contiene l'intera catena per la radice dell'autorità di certificazione.
 
@@ -138,17 +150,17 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
     | Ambiente Azure | Endpoint                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Public      | <ul><li>gcs.prod.monitoring.core.windows.net(**nuovo**)</li><li>prod.warmpath.msftcloudes.com(**da deprecare**)</li><li>global.prod.microsoftmetrics.com(**nuovo**)</li><li>global.metrics.nsatc.net(**da deprecare**)</li><li>shoebox2.prod.microsoftmetrics.com(**nuovo**)</li><li>shoebox2.metrics.nsatc.net(**da deprecare**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nuovo**)</li><li>prod3.metrics.nsatc.net(**da deprecare**)</li><li>prod3-black.prod.microsoftmetrics.com(**nuovo**)</li><li>prod3-black.prod3.metrics.nsatc.net(**da deprecare**)</li><li>prod3-red.prod.microsoftmetrics.com(**nuovo**)</li><li>prod3-red.prod3.metrics.nsatc.net(**da deprecare**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>global.prod.microsoftmetrics.com(**nuovo**)</li><li>global.metrics.nsatc.net(**da deprecare**)</li><li>shoebox2.prod.microsoftmetrics.com(**nuovo**)</li><li>shoebox2.metrics.nsatc.net(**da deprecare**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nuovo**)</li><li>prod3.metrics.nsatc.net(**da deprecare**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
-    | 21Vianet per Azure Cina     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com(**nuovo**)</li><li>global.metrics.nsatc.net(**da deprecare**)</li><li>shoebox2.prod.microsoftmetrics.com(**nuovo**)</li><li>shoebox2.metrics.nsatc.net(**da deprecare**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nuovo**)</li><li>prod3.metrics.nsatc.net(**da deprecare**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Public      | <ul><li>gcs.prod.monitoring.core.windows.net(**nuovo**)</li><li>global.prod.microsoftmetrics.com(**nuovo**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nuovo**)</li><li>prod3-black.prod.microsoftmetrics.com(**nuovo**)</li><li>prod3-red.prod.microsoftmetrics.com(**nuovo**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>global.prod.microsoftmetrics.com(**nuovo**)</li><li>shoebox2.prod.microsoftmetrics.com(**nuovo**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nuovo**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
+    | 21Vianet per Azure Cina     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com(**nuovo**)</li><li>shoebox2.prod.microsoftmetrics.com(**nuovo**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com(**nuovo**)</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
-  > La modifica dei cluster sopra indicati con zona DNS **.nsatc.net** a **.microsoftmetrics.com** è principalmente una modifica DNS. L'indirizzo IP del cluster non verrà modificato.
+  > La modifica dei cluster precedenti con la zona DNS **con estensione nsatc.net** a **.microsoftmetrics.com** è principalmente una modifica DNS. L'indirizzo IP del cluster non verrà modificato.
 
 + **Tag del servizio locale**: le regole NSG che consentono la connettività in uscita ai tag di servizio di archiviazione, SQL e hub eventi possono usare le versioni locali dei tag corrispondenti all'area che contiene l'istanza di Gestione API (ad esempio, Storage.WestUS per un'istanza di Gestione API nell'area Stati Uniti occidentali). Nelle distribuzioni in più aree, il gruppo di sicurezza di rete in ogni area deve consentire il traffico ai tag del servizio per tale area e l'area primaria.
 
     > [!IMPORTANT]
-    > Per abilitare la pubblicazione del [portale per sviluppatori](api-management-howto-developer-portal.md) per un'istanza di gestione API in una rete virtuale, assicurarsi di consentire anche la connettività in uscita all'archiviazione BLOB nell'area Stati Uniti occidentali. Ad esempio, usare il tag del servizio **storage. westus** in una regola NSG. La connettività all'archiviazione BLOB nell'area Stati Uniti occidentali è attualmente necessaria per pubblicare il portale per sviluppatori per qualsiasi istanza di gestione API.
+    > Per abilitare la pubblicazione [del](api-management-howto-developer-portal.md) portale per sviluppatori per un'istanza API Management in una rete virtuale, assicurarsi di consentire anche la connettività in uscita all'archiviazione BLOB nell'area Stati Uniti occidentali. Ad esempio, usare il tag **del servizio Storage.WestUS** in una regola del gruppo di criteri di rete. La connettività all'archiviazione BLOB nell'area Stati Uniti occidentali è attualmente necessaria per pubblicare il portale per sviluppatori per qualsiasi API Management istanza.
 
 + **Inoltro SMTP**: connettività di rete in uscita per il server di inoltro SMTP, che si risolve nell'host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` e `ies.global.microsoft.com`
 
@@ -158,7 +170,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 + **Azure Load Balancer**: consentire le richieste in ingresso dal tag di servizio `AZURE_LOAD_BALANCER` non è un requisito per lo SKU `Developer`, poiché viene distribuita solo un'unità di calcolo. Tuttavia, consentire le richieste in ingresso da [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) diventa cruciale quando si passa a uno SKU superiore, ad esempio `Premium`, perché in caso di errore di un probe di integrità da Load Balancer, la distribuzione ha esito negativo.
 
-+ **Application Insights**: se il monitoraggio di [applicazione Azure Insights](api-management-howto-app-insights.md) è abilitato in gestione API, è necessario consentire la connettività in uscita all' [endpoint di telemetria](../azure-monitor/app/ip-addresses.md#outgoing-ports) dalla rete virtuale. 
++ **Application Insights:** se [applicazione Azure monitoraggio di API Management Insights](api-management-howto-app-insights.md) è abilitato, è necessario consentire la connettività in uscita all'endpoint di telemetria dalla rete virtuale. [](../azure-monitor/app/ip-addresses.md#outgoing-ports) 
 
 + **Forzare il tunneling del traffico al firewall locale usando ExpressRoute o un'appliance virtuale di rete**: Una configurazione comune dei clienti prevede la definizione di una route predefinita (0.0.0.0/0) personalizzata che forza tutto il traffico dalla subnet delegata di Gestione API a passare attraverso un firewall locale o a un'appliance virtuale di rete. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. Per la soluzione è necessario eseguire alcune operazioni:
 
@@ -173,7 +185,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
       - CAPTCHA del portale per sviluppatori
 
 ## <a name="troubleshooting"></a><a name="troubleshooting"> </a>Risoluzione dei problemi
-* **Installazione iniziale**: quando la distribuzione iniziale del servizio Gestione API in una subnet non ha esito positivo, è consigliabile distribuire prima una macchina virtuale nella stessa subnet. Successivamente, eseguire il desktop remoto nella macchina virtuale e verificare che sia presente la connettività a una delle risorse seguenti nella sottoscrizione di Azure
+* **Installazione iniziale**: quando la distribuzione iniziale del servizio Gestione API in una subnet non ha esito positivo, è consigliabile distribuire prima una macchina virtuale nella stessa subnet. Successivamente, desktop remoto nella macchina virtuale e verificare che sia presente connettività a una delle risorse seguenti nella sottoscrizione di Azure
     * BLOB di Archiviazione di Azure
     * database SQL di Azure
     * Tabella di archiviazione di Azure
@@ -181,14 +193,14 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
   > [!IMPORTANT]
   > Dopo aver convalidato la connettività, assicurarsi di rimuovere tutte le risorse distribuite nella subnet, prima di distribuire Gestione API nella subnet.
 
-* **Verificare lo stato della connettività di rete**: dopo la distribuzione di gestione API nella subnet, usare il portale per verificare la connettività dell'istanza alle dipendenze, ad esempio archiviazione di Azure. Nel menu a sinistra del portale, in **distribuzione e infrastruttura** selezionare **stato connettività di rete**.
+* **Verificare lo stato della connettività** di rete: dopo aver distribuito API Management nella subnet, usare il portale per controllare la connettività dell'istanza alle dipendenze, ad esempio Archiviazione di Azure. Nel menu a sinistra del portale, in Distribuzione e **infrastruttura,** selezionare **Stato connettività di rete**.
 
    :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Verificare lo stato della connettività di rete nel portale":::
 
-    * Selezionare **richiesto** per verificare la connettività ai servizi di Azure richiesti per gestione API. Un errore indica che l'istanza non è in grado di eseguire operazioni di base per gestire le API.
-    * Selezionare **facoltativo** per verificare la connettività ai servizi facoltativi. Qualsiasi errore indica solo che la funzionalità specifica non funzionerà, ad esempio SMTP. Un errore può comportare una riduzione della capacità di usare e monitorare l'istanza di gestione API e fornire il contratto di contratto di cui è stato eseguito il commit.
+    * Selezionare **Obbligatorio** per esaminare la connettività ai servizi di Azure necessari per API Management. Un errore indica che l'istanza non è in grado di eseguire operazioni di base per gestire le API.
+    * Selezionare **Facoltativo** per esaminare la connettività ai servizi facoltativi. Qualsiasi errore indica solo che la funzionalità specifica non funzionerà,ad esempio SMTP. Un errore può causare una riduzione della capacità di usare e monitorare l'istanza API Management e fornire il contratto di servizio di cui è stato eseguito il commit.
 
-Per risolvere i problemi di connettività, vedere [problemi comuni di configurazione di rete](#network-configuration-issues) e correggere le impostazioni di rete necessarie.
+Per risolvere i problemi di connettività, vedere [Problemi di configurazione di rete comuni](#network-configuration-issues) e correggere le impostazioni di rete necessarie.
 
 * **Aggiornamenti incrementali**: quando si apportano modifiche alla rete, fare riferimento all'[API NetworkStatus](/rest/api/apimanagement/2019-12-01/networkstatus) per verificare che il servizio Gestione API non abbia perso l'accesso ad alcuna delle risorse critiche da cui dipende. Lo stato della connettività dovrebbe essere aggiornato ogni 15 minuti.
 
@@ -209,7 +221,7 @@ Ogni unità di scala aggiuntiva di Gestione API richiede altri due indirizzi IP.
 + L'indirizzo IP pubblico con bilanciamento del carico è disponibile nel pannello Panoramica/Informazioni di base del portale di Azure.
 
 ## <a name="limitations"></a><a name="limitations"> </a>Limitazioni
-* Una subnet contenente le istanze di Gestione API non può contenere altri tipi di risorse di Azure.
+* Per i client che usano l'API versione 2020-12-01 e precedenti, una subnet contenente istanze API Management non può contenere altri tipi di risorse di Azure.
 * La subnet e il servizio di Gestione API devono essere nella stessa sottoscrizione.
 * Una subnet contenente le istanze di gestione API non può essere spostata da una sottoscrizione all'altra.
 * Per le distribuzioni di Gestione API su più aree in modalità rete virtuale interna configurata, gli utenti sono responsabili della gestione del bilanciamento del carico poiché sono titolari del routing.
@@ -217,7 +229,7 @@ Ogni unità di scala aggiuntiva di Gestione API richiede altri due indirizzi IP.
 
 ## <a name="control-plane-ip-addresses"></a><a name="control-plane-ips"> </a> Indirizzi IP del piano di controllo
 
-Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si consente le richieste in ingresso, l'indirizzo IP contrassegnato con **globale** deve essere consentito insieme all'indirizzo IP specifico dell' **area** .
+Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si consentono richieste in ingresso, l'indirizzo IP contrassegnato con **Globale** deve essere consentito insieme **all'indirizzo** IP specifico dell'area.
 
 | **Ambiente di Azure**|   **Area**|  **Indirizzo IP**|
 |-----------------|-------------------------|---------------|
@@ -237,7 +249,7 @@ Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si consente le ri
 | Azure Public| Canada orientale| 52.139.80.117|
 | Azure Public| Emirati Arabi Uniti settentrionali| 20.46.144.85|
 | Azure Public| Brasile meridionale| 191.233.24.179|
-| Azure Public| Brasile sudorientale| 191.232.18.181|
+| Azure Public| Brasile sud-orientale| 191.232.18.181|
 | Azure Public| Asia sud-orientale| 40.90.185.46|
 | Azure Public| Sudafrica settentrionale| 102.133.130.197|
 | Azure Public| Canada centrale| 52.139.20.34|

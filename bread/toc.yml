@@ -67,6 +67,9 @@
         - name: Report e monitoraggio
           tocHref: /azure/active-directory/reports-monitoring/
           topicHref: /azure/active-directory/reports-monitoring/
+        - name: Credenziali verificabili
+          tocHref: /azure/active-directory/verifiable-credentials/
+          topicHref: /azure/active-directory/verifable-credentials/
     - name: Analysis Services
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
@@ -218,7 +221,7 @@
         - name: Azure Percept
           tocHref: /azure/azure-percept/
           topicHref: /azure/azure-percept/
-        - name: Aggiornamento del dispositivo per l'hub Internet
+        - name: Aggiornamento dei dispositivi per l'hub IoT
           tocHref: /azure/iot-hub-device-update/
           topicHref: /azure/iot-hub-device-update/
         - name: Hub IoT
@@ -248,7 +251,7 @@
         - name: Mappe di Azure
           tocHref: /azure/azure-maps/
           topicHref: /azure/azure-maps/
-        - name: Dispositivo Azure Certified
+        - name: Azure Certified Device
           tocHref: /azure/certification/
           topicHref: /azure/certification/
     - name: Gestione risorse
@@ -271,7 +274,7 @@
       tocHref: /azure/partner-solutions/
       topicHref: /azure/partner-solutions/
       items:
-        - name: Apache Kafka per il cloud Confluent
+        - name: Apache Kafka per Confluent Cloud
           tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
           topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
     - name: Servizio SignalR
@@ -679,7 +682,7 @@
         - name: Servizio Frontdoor
           tocHref: /azure/frontdoor/
           topicHref: /azure/frontdoor/
-        - name: Sportello anteriore standard/Premium (anteprima)
+        - name: Front door Standard/Premium (anteprima)
           tocHref: /azure/frontdoor/standard-premium
           topicHref: /azure/frontdoor/standard-premium
         - name: Analizzatore Internet
@@ -770,6 +773,9 @@
         - name: Sviluppo
           tocHref: /azure/security/develop/
           topicHref: /azure/security/develop/
+        - name: Journey
+          tocHref: /azure/security/journey
+          topicHref: /azure/security/journey
         - name: Benchmark
           tocHref: /azure/security/benchmarks/
           topicHref: /azure/security/benchmarks/

@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: a5ecd3827bbdc12b098684f1feda2df652f11940
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05c98102109d1925eb78d4558faf62b366801e77
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551913"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538975"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Domande frequenti su Confidential computing di Azure
 
-Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'esecuzione di [carichi di lavoro di elaborazione riservati in macchine virtuali di Azure](overview.md).
+Questo articolo fornisce risposte ad alcune delle domande più comuni sull'esecuzione di carichi di lavoro [di confidential computing nelle macchine virtuali di Azure.](overview.md)
 
 Se il problema riguardante Azure non viene risolto in questo articolo, visitare i forum di Azure su [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). È possibile pubblicare il problema in questi forum o in [@AzureSupport su Twitter](https://twitter.com/AzureSupport). È anche possibile inviare una richiesta di supporto tecnico di Azure. Per inviare una richiesta di supporto tecnico, selezionare Supporto nella pagina [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
 
@@ -45,13 +45,13 @@ Nella finestra informativa accanto alla macchina virtuale sono disponibili diver
 
 Assicurarsi di aver selezionato un'[area disponibile](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Assicurarsi di selezionare anche "Cancella tutti i filtri" nel selettore delle dimensioni. 
 
-**È possibile abilitare la rete accelerata con Azure Confidential computing?**
+**È possibile abilitare la rete accelerata con il confidential computing di Azure?**
 
- No. La rete accelerata non è supportata nelle macchine virtuali DC-Series o DCsv2-Series. Non è possibile abilitare la rete accelerata per la distribuzione di macchine virtuali di elaborazione riservata o per la distribuzione di cluster di servizi Kubernetes di Azure in esecuzione in un computer riservato.
+ No. La rete accelerata non è supportata in DC-Series o DCsv2-Series virtuali. La rete accelerata non può essere abilitata per la distribuzione di macchine virtuali di confidential computing o servizio Azure Kubernetes cluster in esecuzione nel confidential computing.
 
-**È possibile usare l'host dedicato di Azure con questi computer?**
+**È possibile usare host dedicato di Azure con questi computer?**
 
-Sì. Host dedicato di Azure supporta macchine virtuali serie DCsv2. Host dedicato di Azure fornisce un server fisico a tenant singolo per l'esecuzione delle macchine virtuali. Gli utenti in genere usano host dedicato di Azure per soddisfare i requisiti di conformità per la sicurezza fisica, l'integrità dei dati e il monitoraggio. 
+Sì. host dedicato di Azure le macchine virtuali serie DCsv2. host dedicato di Azure un server fisico a tenant singolo in cui eseguire le macchine virtuali. Gli utenti usano in genere host dedicato di Azure per soddisfare i requisiti di conformità relativi alla sicurezza fisica, all'integrità dei dati e al monitoraggio. 
 
 **Si verifica un errore di distribuzione del modello di Azure Resource Manager: "Non è stato possibile completare l'operazione perché comporta il superamento della quota standard approvata di core della famiglia DcsV2"**
 
@@ -65,9 +65,9 @@ Le macchine virtuali serie DC vengono eseguite in processori Intel a 6 core prec
 
 No. Attualmente, queste macchine virtuali sono disponibili solo in aree selezionate. Consultare la pagina [Products by Regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) (Prodotti per area) per le aree più recenti disponibili. 
 
-**Hyper-Threading è disattivato su questi computer?**
+**L'hyperthreading è disattivato in questi computer?**
 
-Hyper-Threading è disabilitato per tutti i cluster di Azure Confidential computing.
+L'hyperthreading è disabilitato per tutti i cluster di confidential computing di Azure.
 
 **Ricerca per categorie: installare Open Enclave SDK su macchine virtuali DCsv2**
    
@@ -76,4 +76,3 @@ Per indicazioni su come installare Open Enclave SDK in un computer Azure o local
 Per istruzioni di installazione specifiche per il sistema operativo, vedere il repository GitHub di SDK Open Enclave:
    - [Installare Open Enclave SDK in Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)
    - [Installare Open Enclave SDK in Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
-   - [Installare Open Enclave SDK in Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcd194e2503610db314f6a975a4afb1d27962f8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a445e9869b0cd9928d95364f39e60fc892214b9a
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98028223"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532449"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
@@ -47,7 +47,7 @@ Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio d
     > [!NOTE]
     > I nuovi utenti sono automaticamente sottoscritti per l'autorizzazione.
     
-    Una volta effettuata la sottoscrizione, è possibile trovare la sottoscrizione in **prodotti**  ->  **autorizzazione**. Nella pagina sottoscrizione sono disponibili le chiavi primarie e secondarie. Le chiavi devono essere protette. Le chiavi devono essere usate solo dal codice server. Non devono essere disponibili sul lato client (JS, HTML e così via).
+    Dopo aver effettuato la sottoscrizione, è possibile trovare la sottoscrizione in **Products**  ->  **Authorization**. Nella pagina della sottoscrizione sono presenti le chiavi primaria e secondaria. Le chiavi devono essere protette. Le chiavi devono essere usate solo dal codice server. Non devono essere disponibili sul lato client (JS, HTML e così via).
 
     ![Sottoscrizione e chiavi nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/subscriptions.png)
 
@@ -88,7 +88,7 @@ Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle oper
 
 * Usare il **portale per sviluppatori di Video Indexer** per ottenere l'ID account a livello di codice.
 
-    Usare l'API [Get account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) (Ottieni account).
+    Usare l'API [Get account](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account) (Ottieni account).
 
     > [!TIP]
     > È possibile generare i token di accesso per gli account definendo `generateAccessTokens=true`.
@@ -105,9 +105,9 @@ Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle oper
 
 In questa sezione sono elencati alcuni suggerimenti per l'uso dell'API Video Indexer.
 
-- Se si prevede di caricare un video, è consigliabile inserire il file in un percorso di rete pubblico, ad esempio un account di archiviazione BLOB di Azure. Ottenere il collegamento del video e specificare l'URL come il parametro per il caricamento del file.
+- Se si prevede di caricare un video, è consigliabile inserire il file in un percorso di rete pubblico, ad esempio un account di Archiviazione BLOB di Azure. Ottenere il collegamento del video e specificare l'URL come il parametro per il caricamento del file.
 
-    L'URL fornito a Video Indexer deve puntare a un file multimediale (audio o video). Una semplice verifica per l'URL (o l'URL di firma di accesso condiviso) consiste nel incollarlo in un browser, se il file avvia la riproduzione o il download, probabilmente è un URL valido. Se il browser esegue il rendering di una visualizzazione, probabilmente il collegamento non è relativo a un file ma a una pagina HTML.
+    L'URL fornito a Video Indexer deve puntare a un file multimediale (audio o video). Una verifica semplice per l'URL (o URL di firma di accesso condiviso) è incollarlo in un browser. Se il file inizia a riprodurre/scaricare, è probabile che si tratta di un URL valido. Se il browser esegue il rendering di una visualizzazione, probabilmente il collegamento non è relativo a un file ma a una pagina HTML.
 
 - Quando si chiama l'API che consente di ottenere informazioni dettagliate sui video per il video specificato, viene visualizzato un output JSON dettagliato come contenuto della risposta. [Consultare informazioni dettagliate sul codice JSON restituito in questo argomento](video-indexer-output-json-v2.md).
 
@@ -211,7 +211,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questa esercitazione, eliminare le risorse che non si prevede di usare.
+Al termine dell'esercitazione, eliminare le risorse che non si prevede di usare.
 
 ## <a name="see-also"></a>Vedere anche
 
@@ -221,5 +221,5 @@ Al termine di questa esercitazione, eliminare le risorse che non si prevede di u
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esaminare i dettagli del codice JSON di output](video-indexer-output-json-v2.md)
-- Vedere il [codice di esempio](https://github.com/Azure-Samples/media-services-video-indexer) che illustra un aspetto importante del caricamento e dell'indicizzazione di un video. Seguendo il codice si otterrà una migliore idea di come usare l'API per le funzionalità di base. Assicurarsi di leggere i commenti inline e i suggerimenti per le procedure consigliate.
+- Vedere il [codice di esempio](https://github.com/Azure-Samples/media-services-video-indexer) che illustra un aspetto importante del caricamento e dell'indicizzazione di un video. Seguendo il codice si avrà una buona idea di come usare l'API per le funzionalità di base. Assicurarsi di leggere i commenti inline e i suggerimenti per le procedure consigliate.
 

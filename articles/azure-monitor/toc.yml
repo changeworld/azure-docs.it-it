@@ -97,7 +97,7 @@
           href: logs/resource-manager-log-queries.md
         - name: Workbooks
           href: visualize/resource-manager-workbooks.md
-        - name: Informazioni dettagliate sul contenitore
+        - name: Informazioni dettagliate sui contenitori
           href: containers/resource-manager-container-insights.md
         - name: Informazioni dettagliate sulle macchine virtuali
           href: vm/resource-manager-vminsights.md
@@ -329,7 +329,7 @@
               href: agents/data-sources-linux-applications.md
             - name: Log di IIS
               href: agents/data-sources-iis-logs.md
-            - name: Dati Event Tracing for Windows
+            - name: Event Tracing for Windows dati
               href: agents/data-sources-event-tracing-windows.md
             - name: Log personalizzati
               href: agents/data-sources-custom-logs.md
@@ -722,7 +722,7 @@
                       items:
                         - name: Metriche JMX
                           href: app/java-jmx-metrics-configuration.md
-                        - name: Override del campionamento
+                        - name: Sostituzioni di campionamento
                           href: app/java-standalone-sampling-overrides.md
                         - name: Processori di telemetria
                           items:
@@ -777,6 +777,8 @@
           displayname: 'e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies'
         - name: Disponibilità
           items:
+            - name: Panoramica
+              href: app/availability-overview.md
             - name: Test tramite URL
               displayname: 'ping, ping tests, availability, GSM, up/down'
               href: app/monitor-web-app-availability.md
@@ -789,7 +791,7 @@
             - name: Avvisi di disponibilità
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
-            - name: Report contratto di servizio
+            - name: Report del contratto di servizio
               href: app/sla-report.md
             - name: Risoluzione dei problemi
               displayname: 'availability, troubleshoot, troubleshoot availability'
@@ -1044,7 +1046,7 @@
           href: vm/vminsights-optout.md
         - name: Risolvere problemi
           href: vm/vminsights-troubleshoot.md
-    - name: Informazioni dettagliate sul contenitore
+    - name: Informazioni dettagliate sui contenitori
       items:
         - name: Panoramica
           href: containers/container-insights-overview.md
@@ -1082,7 +1084,7 @@
           href: insights/container-insights-reports.md
         - name: Visualizzare i dati dinamici
           items:
-            - name: Panoramica dei dati dinamici
+            - name: Panoramica di Live Data
               href: containers/container-insights-livedata-overview.md
             - name: Configurazione
               href: containers/container-insights-livedata-setup.md
@@ -1132,7 +1134,7 @@
           href: insights/network-insights-overview.md
         - name: Key Vault
           href: insights/key-vault-insights-overview.md
-        - name: SQL Insights (anteprima)
+        - name: Informazioni dettagliate su SQL (anteprima)
           items:
             - name: Panoramica
               href: insights/sql-insights-overview.md

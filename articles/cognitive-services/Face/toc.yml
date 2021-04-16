@@ -3,13 +3,13 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Panoramica del servizio Face
+    - name: Panoramica del servizio Viso
       href: Overview.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: Novità
       href: releasenotes.md
-- name: Guida introduttiva viso
+- name: Guida introduttiva a Viso
   href: Quickstarts/client-libraries.md
 - name: Esempi
   href: /samples/browse/?products=azure&term=face
@@ -17,7 +17,7 @@
   items:
     - name: Rilevare e analizzare i visi
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Specificare una versione del modello per il riconoscimento viso
+    - name: Specificare una versione del modello di riconoscimento volto
       href: Face-API-How-to-Topics/specify-recognition-model.md
     - name: Specificare una versione del modello di rilevamento viso
       href: Face-API-How-to-Topics/specify-detection-model.md
@@ -33,19 +33,18 @@
       href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
     - name: Eseguire la migrazione dei dati del viso
       href: Face-API-How-to-Topics/how-to-migrate-face-data.md
-    - name: Usare il contenitore viso
+    - name: Usare il contenitore Viso
       items:
         - name: Documentazione dei contenitori di Servizi cognitivi
-          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+          href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/face/context/context
         - name: Panoramica dei contenitori
-          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/computer-vision/context/context
+          href: /azure/cognitive-services/cognitive-services-container-support?context=/azure/cognitive-services/face/context/context
         - name: Installare ed eseguire i contenitori
           href: face-how-to-install-containers.md
         - name: Configurare i contenitori
           href: face-resource-container-config.md
         - name: Usare istanze di contenitore
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
+          href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
 - name: Concetti
   items:
     - name: Rilevamento del viso
@@ -54,9 +53,7 @@
       href: concepts/face-recognition.md
 - name: Esercitazioni
   items:
-    - name: Creare un'app per il rilevamento viso
-      href: Tutorials/FaceAPIinCSharpTutorial.md
-    - name: Aggiungere utenti a un servizio viso
+    - name: Aggiungere utenti a un servizio Viso
       items:
         - name: Procedure consigliate per l'aggiunta di utenti
           href: enrollment-overview.md
@@ -64,7 +61,7 @@
           href: build-enrollment-app.md
 - name: Riferimento
   items:
-    - name: API REST viso
+    - name: API REST Viso
       href: APIReference.md
     - name: .NET
       href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet

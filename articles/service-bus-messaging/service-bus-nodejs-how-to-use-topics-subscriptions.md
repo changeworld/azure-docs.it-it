@@ -2,17 +2,19 @@
 title: Usare l'anteprima di azure/service-bus in JavaScript con argomenti e sottoscrizioni
 description: Informazioni su come scrivere un programma JavaScript che usa l'ultima versione di anteprima del pacchetto @azure/service-bus per inviare messaggi a un argomento del bus di servizio e ricevere messaggi da una sottoscrizione dell'argomento.
 author: spelluru
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: devx-track-js
-ms.openlocfilehash: a1afe4207ce3833f3bcb55bc7bc2e8e27f393f63
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/09/2020
+ms.topic: quickstart
+ms.devlang: nodejs
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: 59f1bb29099f2b921e687ca9de46365bc34f1b91
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98179997"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537243"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Avvio rapido: Argomenti e sottoscrizioni del bus di servizio con Node.js e pacchetto azure/service-bus
 Questa esercitazione illustra come usare il pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) in un programma JavaScript per inviare messaggi a un argomento del bus di servizi e ricevere messaggi da una sottoscrizione del bus di servizio di tale argomento.

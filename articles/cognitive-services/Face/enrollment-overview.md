@@ -1,5 +1,5 @@
 ---
-title: Panoramica della registrazione all'API Viso
+title: Procedure consigliate per l'aggiunta di utenti a un servizio Viso
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul processo di registrazione degli utenti al servizio di riconoscimento volto Viso.
 author: PatrickFarley
@@ -9,14 +9,14 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: ac5106aa661cb2baea31ee15d57e9c6fac8c7192
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: e710771dd14b389e856e752b6587e2a76ad9d85b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350331"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505072"
 ---
-# <a name="face-api-enrollment"></a>Registrazione all'API Viso
+# <a name="best-practices-for-adding-users-to-a-face-service"></a>Procedure consigliate per l'aggiunta di utenti a un servizio Viso
 
 Per usare l'API Viso di Servizi cognitivi per la verifica o l'identificazione facciale, è necessario registrare i visi in una classe **LargePersonGroup**. Questo approfondimento illustra le procedure consigliate per raccogliere il consenso significativo degli utenti, oltre alla logica di esempio per creare registrazioni di alta qualità che ottimizzino l'accuratezza del riconoscimento.  
 

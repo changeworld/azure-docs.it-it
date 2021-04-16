@@ -3,17 +3,20 @@ title: 'Avvio rapido: Creare un account di automazione - Modello di Azure'
 titleSuffix: Azure Automation
 description: Questo argomento di avvio rapido illustra come creare un account di automazione con il modello di Azure Resource Manager.
 services: automation
+ms.author: magoedte
+ms.date: 01/07/2021
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 01/07/2021
-ms.author: magoedte
-ms.custom: mvc,subject-armqs
-ms.openlocfilehash: dda2e2e34ab1f0c8facafe62a4fc0b9c5116f9d9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.custom:
+- mvc
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 50a8c057a6fdf6350a18225cd2dc538942d6686d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063169"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538398"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Avvio rapido: Creare un account di automazione con il modello di Resource Manager
 
@@ -39,7 +42,7 @@ Questo modello di esempio esegue le azioni seguenti:
 * Aggiunge runbook di automazione di esempio all'account.
 
 >[!NOTE]
->La creazione dell'account RunAs di Automazione non è supportata quando si usa un modello di Resource Manager. Per creare manualmente un account RunAs dal portale o con PowerShell, vedere [creare un account RunAs](create-run-as-account.md).
+>La creazione dell'account RunAs di Automazione non è supportata quando si usa un modello di Resource Manager. Per creare un account RunAs manualmente dal portale o con PowerShell, vedere [Creare un account RunAs.](create-run-as-account.md)
 
 Dopo aver completato questi passaggi, è necessario [configurare le impostazioni di diagnostica](automation-manage-send-joblogs-log-analytics.md) per l'account di Automazione per inviare lo stato del processo del runbook e i flussi di processo all'area di lavoro Log Analytics collegata.
 

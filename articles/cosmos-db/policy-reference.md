@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Azure Cosmos DB
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Cosmos DB. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.topic: reference
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 645d490a2d7d9d934d72c76bbb108ee0cf414c44
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: f901ab116ef67655cc17af4ff636b5b419c44c3c
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091847"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107504129"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cosmos-db"></a>Definizioni predefinite di Criteri di Azure per Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

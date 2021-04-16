@@ -1,16 +1,21 @@
 ---
 title: Usare le code del bus di servizio di Azure con Java (azure-messaging-servicebus)
 description: Questa esercitazione illustra come usare Java per inviare e ricevere messaggi dalla coda del bus di servizio di Azure. Si userà il nuovo pacchetto azure-messaging-servicebus.
-ms.devlang: Java
-ms.topic: quickstart
 ms.date: 02/13/2021
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 1fab8d3f603b3c2c7e3c307d3d2ce53590d7511c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.topic: quickstart
+ms.devlang: Java
+ms.custom:
+- seo-java-july2019
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: e3998e812bb921ff8bea5e83199bc4e142ed2e83
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739764"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533417"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Inviare e ricevere messaggi dalle code del bus di servizio di Azure (Java)
 In questa guida di avvio rapido si creerà un'app Java per inviare e ricevere messaggi da una coda del bus di servizio di Azure. 
@@ -32,9 +37,9 @@ In questa sezione verrà creato un progetto di console Java, quindi verrà aggiu
 Creare un progetto Java usando Eclipse o un altro strumento a scelta. 
 
 ### <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
-Aggiungere i riferimenti alle librerie di Azure core e del bus di servizio di Azure. 
+Aggiungere riferimenti ad Azure Core e bus di servizio di Azure librerie. 
 
-Se si usa Eclipse e si crea un'applicazione console Java, convertire il progetto Java in Maven: fare clic con il pulsante destro del mouse sul progetto nella finestra **Esplora pacchetti** e selezionare **Configura**  ->  **Converti in progetto Maven**. Aggiungere quindi le dipendenze a queste due librerie, come illustrato nell'esempio seguente.
+Se si usa Eclipse e si crea un'applicazione console Java, convertire il progetto  Java in un progetto Maven: fare clic con il pulsante destro del mouse sul progetto nella finestra Esplora pacchetti, selezionare **Configura** il progetto Converti in  ->  **Maven**. Aggiungere quindi le dipendenze a queste due librerie, come illustrato nell'esempio seguente.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -174,7 +179,7 @@ In questa sezione si aggiunge il codice per recuperare i messaggi dalla coda.
 1. Aggiungere un metodo denominato `receiveMessages` per ricevere messaggi dalla coda. Questo metodo crea un oggetto `ServiceBusProcessorClient` per la coda specificando un gestore per l'elaborazione di messaggi e un altro per la gestione degli errori. Quindi avvia il processore, aspetta alcuni secondi, stampa i messaggi ricevuti e infine arresta e chiude il processore.
 
     > [!IMPORTANT]
-    > Sostituire `QueueTest` in `QueueTest::processMessage` nel codice con il nome della classe. 
+    > Sostituire `QueueTest` in nel codice con il nome della `QueueTest::processMessage` classe. 
 
     ```java
     // handles received messages

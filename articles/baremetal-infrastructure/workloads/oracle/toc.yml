@@ -1,0 +1,14 @@
+- name: Che cos'è l'infrastruttura BareMetal per Oracle?
+  href: oracle-baremetal-overview.md
+- name: SKU BareMetal
+  href: oracle-baremetal-skus.md
+- name: Archiviazione
+  href: oracle-baremetal-storage.md
+- name: Considerazioni sull'applicazione di patch
+  href: oracle-baremetal-patching.md
+- name: Configurazione Ethernet
+  href: oracle-baremetal-ethernet.md
+- name: Architettura
+  href: oracle-baremetal-architecture.md
+- name: Provisioning
+  href: oracle-baremetal-provision.md

@@ -1,5 +1,5 @@
 ---
-title: Introduzione alla registrazione dei flussi per gruppi
+title: Introduzione alla registrazione dei flussi per i NSG
 titleSuffix: Azure Network Watcher
 description: Questo articolo illustra come usare la funzionalità dei log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher.
 services: network-watcher
@@ -12,79 +12,79 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: bc085163b4f738d022ab9771794ec85293de5ed8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 206bcfaeb5cb13d3ecf1e5f6335518c42df21eb8
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100521680"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535301"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
 ## <a name="introduction"></a>Introduzione
 
-I log dei flussi del [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md#security-rules) (NSG) sono una funzionalità di Azure Network Watcher che consente di registrare informazioni sul flusso del traffico IP tramite un NSG. I dati di flusso vengono inviati agli account di archiviazione di Azure da cui è possibile accedervi e esportarli in qualsiasi strumento di visualizzazione, SIEM o ID a scelta.
+[I log dei flussi](../virtual-network/network-security-groups-overview.md#security-rules) del gruppo di sicurezza di rete (NSG) sono una funzionalità di Azure Network Watcher che consente di registrare informazioni sul flusso del traffico IP attraverso un gruppo di sicurezza di rete. I dati del flusso vengono inviati Archiviazione di Azure account da cui è possibile accedervi, nonché esportati in qualsiasi strumento di visualizzazione, SIEM o IDS di propria scelta.
 
 ![Panoramica dei log di flusso](./media/network-watcher-nsg-flow-logging-overview/homepage.jpg)
 
-## <a name="why-use-flow-logs"></a>Perché usare i log di flusso
+## <a name="why-use-flow-logs"></a>Perché usare i log dei flussi?
 
 È fondamentale monitorare, gestire e conoscere la rete per fare in modo che la sicurezza, la conformità e le prestazioni non vengano compromesse. Per proteggere e ottimizzare l'ambiente, è indispensabile conoscerlo. Spesso è necessario conoscere lo stato corrente della rete, chi si connette a cosa, da dove si connettono, quali porte sono aperte a Internet, il comportamento previsto della rete, il comportamento irregolare della rete e i picchi improvvisi di traffico.
 
-I log dei flussi sono l'origine della verità per tutte le attività di rete nell'ambiente cloud. Che tu sia un avvio imminente che tenti di ottimizzare le risorse o grandi aziende che tentano di rilevare le intrusioni, i log dei flussi sono la scelta migliore. Puoi usarlo per ottimizzare i flussi di rete, monitorare la velocità effettiva, verificare la conformità, rilevare intrusioni e altro ancora.
+I log dei flussi sono l'origine di dati veri e propri per tutte le attività di rete nell'ambiente cloud. Indipendentemente dal fatto che si stia tentando di ottimizzare le risorse o che un'azienda di grandi dimensioni stia tentando di rilevare le intrusioni, i log dei flussi sono la soluzione migliore. È possibile usarlo per ottimizzare i flussi di rete, monitorare la velocità effettiva, verificare la conformità, rilevare le intrusioni e altro ancora.
 
 ## <a name="common-use-cases"></a>Casi d'uso comuni
 
-**Monitoraggio della rete**: identificare il traffico sconosciuto o indesiderato. Monitorare i livelli di traffico e l'utilizzo della larghezza di banda Filtrare i log di flusso per IP e porta per comprendere il comportamento dell'applicazione. Esporta i log di flusso negli strumenti di analisi e visualizzazione che preferisci per configurare i dashboard di monitoraggio.
+**Monitoraggio di rete:** identificare il traffico sconosciuto o indesiderato. Monitorare i livelli di traffico e l'utilizzo della larghezza di banda. Filtrare i log dei flussi in base all'INDIRIZZO IP e alla porta per comprendere il comportamento dell'applicazione. Esportare i log dei flussi in strumenti di analisi e visualizzazione di propria scelta per configurare i dashboard di monitoraggio.
 
-**Monitoraggio e ottimizzazione dell'utilizzo:** Identificare i Talker principali nella rete. Combinare con i dati di GeoIP per identificare il traffico tra aree. Comprendere la crescita del traffico per la previsione della capacità. Usare i dati per rimuovere regole del traffico esplicitamente restrittive.
+**Monitoraggio e ottimizzazione dell'utilizzo:** Identificare i principali talker nella rete. Combinare con i dati GeoIP per identificare il traffico tra aree. Comprendere la crescita del traffico per la previsione della capacità. Usare i dati per rimuovere regole di traffico eccessivamente restrittive.
 
-**Conformità**: usare i dati del flusso per verificare l'isolamento e la conformità della rete con le regole di accesso dell'organizzazione
+**Conformità:** usare i dati del flusso per verificare l'isolamento della rete e la conformità alle regole di accesso aziendale
 
-**Analisi della rete & analisi della sicurezza**: analizzare i flussi di rete da indirizzi IP compromessi e interfacce di rete. Esporta i log dei flussi in qualsiasi strumento SIEM o IDS di tua scelta.
+**Analisi della sicurezza & analisi della sicurezza:** analizzare i flussi di rete provenienti da ip e interfacce di rete compromessi. Esportare i log dei flussi in qualsiasi strumento SIEM o IDS di propria scelta.
 
 ## <a name="how-logging-works"></a>Funzionamento della registrazione
 
 **Proprietà chiave**
 
-- I log di flusso operano al [livello 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) e registrano tutti i flussi IP in entrata e in uscita da un NSG
-- I log vengono raccolti a **intervalli di 1 min** attraverso la piattaforma Azure e non influiscono in alcun modo sulle risorse dei clienti o sulle prestazioni di rete.
-- I log vengono scritti in formato JSON e mostrano i flussi in ingresso e in uscita in base alla regola NSG.
-- Ogni record di log contiene l'interfaccia di rete (NIC) a cui si applica il flusso, informazioni su 5 tuple, il traffico decisionale & (solo versione 2) informazioni sulla velocità effettiva. Per i dettagli completi, vedere il _formato di log_ riportato di seguito.
+- I log di flusso operano [al livello 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) e registrano tutti i flussi IP in ingresso e in uscita da un gruppo di sicurezza di rete
+- I log vengono raccolti a **intervalli di 1 minuto** tramite la piattaforma Azure e non influiscono in alcun modo sulle risorse dei clienti o sulle prestazioni di rete.
+- I log vengono scritti in formato JSON e mostrano i flussi in uscita e in ingresso in base alle regole del gruppo di protezione di rete.
+- Ogni record di log contiene l'interfaccia di rete (NIC) a cui si applica il flusso, informazioni a 5 tuple, la decisione del traffico & (solo versione 2) informazioni sulla velocità effettiva. Per _informazioni dettagliate,_ vedere Formato log di seguito.
 - I log di flusso hanno una funzionalità di conservazione che consente di eliminare automaticamente i log fino a un anno dopo la loro creazione. 
 
 > [!NOTE]
-> La conservazione è disponibile solo se si usano account di archiviazione per utilizzo [generico V2 (GPv2)](../storage/common/storage-account-overview.md#types-of-storage-accounts). 
+> La conservazione è disponibile solo se si usano account di archiviazione per utilizzo [generico v2 (GPv2).](../storage/common/storage-account-overview.md#types-of-storage-accounts) 
 
 **Concetti di base**
 
-- Le reti definite da software sono organizzate intorno alle reti virtuali (reti virtuali) e alle subnet. La sicurezza di questi reti virtuali e subnet può essere gestita tramite un NSG.
-- Un gruppo di sicurezza di rete (NSG) contiene un elenco di _regole di sicurezza_ che consentono o negano il traffico di rete nelle risorse a cui è connessa. Gruppi può essere associato a subnet, singole VM o singole interfacce di rete collegate alle VM (Gestione risorse). Per altre informazioni, vedere [Panoramica dei gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- Tutti i flussi di traffico nella rete vengono valutati usando le regole nel NSG applicabile.
-- Il risultato di queste valutazioni è NSG Flow log. I log di flusso vengono raccolti tramite la piattaforma Azure e non richiedono alcuna modifica alle risorse del cliente.
-- Nota: le regole sono di due tipi, ovvero terminano & non fatali, ognuna con diversi comportamenti di registrazione.
-- - Le regole di negazione NSG verranno terminate. Il NSG che nega il traffico li registrerà nei log di flusso e l'elaborazione in questo caso verrebbe arrestata dopo che un NSG nega il traffico. 
-- - Le regole di NSG allow non terminano, il che significa che anche se una NSG la consente, l'elaborazione continuerà a NSG successivo. L'ultimo NSG che consente il traffico registrerà il traffico nei log dei flussi.
-- I log di flusso NSG vengono scritti negli account di archiviazione da cui è possibile accedervi.
-- È possibile esportare, elaborare, analizzare e visualizzare i log di flusso usando strumenti come TA, Splunk, Grafana, Stealthwatch e così via.
+- Le reti software-defined sono organizzate in base alle reti virtuali (VNET) e alle subnet. La sicurezza di queste reti virtuali e subnet può essere gestita tramite un gruppo di sicurezza di rete.
+- Un gruppo di sicurezza di rete (NSG) contiene un elenco di regole di sicurezza che consentono o negano il traffico di rete nelle risorse a cui è connesso.  I NSG possono essere associati a subnet, singole macchine virtuali o singole interfacce di rete collegate alle macchine virtuali (Resource Manager). Per altre informazioni, vedere [Panoramica dei gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Tutti i flussi di traffico nella rete vengono valutati usando le regole nel gruppo di sicurezza di rete applicabile.
+- Il risultato di queste valutazioni è log del flusso del gruppo di sicurezza di rete. I log di flusso vengono raccolti tramite la piattaforma Azure e non richiedono alcuna modifica alle risorse del cliente.
+- Nota: le regole sono di due tipi: terminando & terminazione, ognuna con comportamenti di registrazione diversi.
+- - Le regole di negazione del gruppo di sicurezza di rete vengono terminate. Il gruppo di sicurezza di rete che nega il traffico lo logerà nei log di Flow e l'elaborazione in questo caso si arresterà dopo che un gruppo di sicurezza di rete negherà il traffico. 
+- - Le regole consentite del gruppo di sicurezza di rete non terminano, ovvero anche se un gruppo di sicurezza di rete lo consente, l'elaborazione continuerà al gruppo di sicurezza di rete successivo. L'ultimo gruppo di sicurezza di rete che consente il traffico registra il traffico nei log di Flow.
+- I log di flusso del gruppo di rete vengono scritti in account di archiviazione da cui è possibile accedervi.
+- È possibile esportare, elaborare, analizzare e visualizzare i log di Flusso usando strumenti come TA, Splunk, Grafana, Stealthwatch e così via.
 
-## <a name="log-format"></a>Formato di log
+## <a name="log-format"></a>Formato del log
 
 I log dei flussi includono le proprietà seguenti:
 
 * **time**: ora in cui l'evento è stato registrato.
-* **SystemId** -ID di sistema del gruppo di sicurezza di rete.
+* **systemId** - ID di sistema del gruppo di sicurezza di rete.
 * **category**: categoria dell'evento. La categoria è sempre **NetworkSecurityGroupFlowEvent**
-* **resourceId** : ID risorsa del NSG
+* **resourceid:** ID risorsa del gruppo di criteri di rete
 * **operationName**: sempre NetworkSecurityGroupFlowEvents.
 * **properties**: raccolta di proprietà del flusso.
     * **Version**: numero di versione dello schema di eventi del log dei flussi.
-    * **Flows** : raccolta di flussi. Questa proprietà ha più voci per regole diverse.
+    * **flows** : raccolta di flussi. Questa proprietà ha più voci per regole diverse.
         * **rule**: regola per cui vengono elencati i flussi.
             * **flows**: raccolta di flussi.
                 * **mac**: indirizzo MAC della scheda di interfaccia di rete per la VM in cui è stato raccolto il flusso.
                 * **flowTuples**: stringa che contiene più proprietà per la tupla del flusso nel formato con valori separati da virgole.
-                    * **Timestamp** : questo valore è il timestamp del momento in cui il flusso si è verificato nel formato Epoch UNIX
+                    * **Timestamp:** questo valore è il timestamp di quando il flusso si è verificato in formato un tempo UNIX
                     * **Source IP**: IP di origine.
                     * **Destination IP**: IP di destinazione.
                     * **Source Port**: porta di origine.
@@ -99,9 +99,9 @@ I log dei flussi includono le proprietà seguenti:
                     * **Bytes sent - Destination to source - Version 2 Only** Numero totale di byte dei pacchetti TCP e UDP inviati dalla destinazione all'origine dall'ultimo aggiornamento. I byte dei pacchetti includono payload e intestazione del pacchetto.
 
 
-**Log dei flussi di NSG versione 2 (vs versione 1)** 
+**Log dei flussi del gruppo di protezione di rete versione 2 (rispetto alla versione 1)** 
 
-Nella versione 2 dei log è stato introdotto il concetto di stato del flusso. È possibile configurare la versione del log di flusso ricevuta.
+La versione 2 dei log introduce il concetto di stato del flusso. È possibile configurare la versione del log di flusso ricevuta.
 
 Lo stato del flusso _B_ viene registrato quando viene avviato un flusso. Gli stati del flusso _C_ ed _E_ contrassegnano rispettivamente la continuazione e la fine di un flusso. Gli stati _C_ ed _E_ contengono informazioni sulla larghezza di banda del traffico.
 
@@ -110,7 +110,7 @@ Lo stato del flusso _B_ viene registrato quando viene avviato un flusso. Gli sta
 Di seguito è riportato un testo di esempio di log dei flussi. Come si può osservare, più record seguono l'elenco di proprietà descritto nella sezione precedente.
 
 > [!NOTE]
-> I valori della proprietà *della flowtuples* sono un elenco delimitato da virgole.
+> I valori nella *proprietà flowTuples* sono un elenco delimitato da virgole.
  
 **Esempio di formato di log di flusso del gruppo di sicurezza di rete versione 1**
 ```json
@@ -292,9 +292,9 @@ Di seguito è riportato un testo di esempio di log dei flussi. Come si può osse
         }
         
 ```
-**Descrizione della tupla di log**
+**Illustrata la tupla di log**
 
-![tupla log di flusso](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
+![tupla dei log di flusso](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
 
 **Calcolo della larghezza di banda di esempio**
 
@@ -319,19 +319,19 @@ Usare il collegamento pertinente riportato di seguito per le guide sull'abilitaz
 
 **Azure portal**
 
-Nella portale di Azure passare alla sezione log di flusso NSG in Network Watcher. Fare quindi clic sul nome del NSG. Verrà impostato il riquadro impostazioni per il log dei flussi. Modificare i parametri desiderati e fare clic su **Salva** per distribuire le modifiche.
+Nel portale di Azure passare alla sezione Log flusso del gruppo di protezione di rete in Network Watcher. Fare quindi clic sul nome del gruppo di criteri di rete. Verrà visualizzato il riquadro delle impostazioni per il log di Flow. Modificare i parametri desiderati e fare clic **su Salva** per distribuire le modifiche.
 
 **PS/CLI/REST/ARM**
 
-Per aggiornare i parametri tramite gli strumenti da riga di comando, usare lo stesso comando usato per abilitare i log di flusso (sopra), ma con i parametri aggiornati che si desidera modificare.
+Per aggiornare i parametri tramite gli strumenti da riga di comando, usare lo stesso comando usato per abilitare i log di flusso (dall'alto) ma con i parametri aggiornati che si desidera modificare.
 
-## <a name="working-with-flow-logs"></a>Uso dei log di flusso
+## <a name="working-with-flow-logs"></a>Uso dei log di Flow
 
 *Leggere ed esportare i log dei flussi*
 
-- [Scaricare &amp; i log dei flussi di visualizzazione dal portale](./network-watcher-nsg-flow-logging-portal.md#download-flow-log)
-- [Leggere i log di flusso con le funzioni di PowerShell](./network-watcher-read-nsg-flow-logs.md)
-- [Esportare i log di flusso NSG in Splunk](https://www.splunk.com/en_us/blog/tips-and-tricks/splunking-microsoft-azure-network-watcher-data.html)
+- [Scaricare &amp; i log del flusso di visualizzazione dal portale](./network-watcher-nsg-flow-logging-portal.md#download-flow-log)
+- [Leggere i log di Flow usando le funzioni di PowerShell](./network-watcher-read-nsg-flow-logs.md)
+- [Esportare i log del flusso del gruppo di protezione di rete in Splunk](https://www.splunk.com/en_us/blog/tips-and-tricks/splunking-microsoft-azure-network-watcher-data.html)
 
 Anche se i log dei flussi specificano come destinazione gruppi di sicurezza di rete, non vengono visualizzati come gli altri log. I log dei flussi vengono archiviati solo in un account di archiviazione e hanno un percorso di registrazione come quello dell'esempio seguente:
 
@@ -339,56 +339,68 @@ Anche se i log dei flussi specificano come destinazione gruppi di sicurezza di r
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-*Visualizzare i log dei flussi*
+*Visualizzare i log di flusso*
 
-- [Analisi del traffico di Azure](./traffic-analytics.md) è un servizio nativo di Azure per l'elaborazione dei log dei flussi, estrae informazioni dettagliate e Visualizza i log dei flussi. 
-- [Tutorial Visualizzare i log dei flussi NSG con Power BI](./network-watcher-visualize-nsg-flow-logs-power-bi.md)
-- [Tutorial Visualizzare i log dei flussi NSG con Elastic stack](./network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-- [Tutorial Gestire e analizzare i log di flusso NSG con Grafana](./network-watcher-nsg-grafana.md)
-- [Tutorial Gestire e analizzare i log di flusso NSG con Graylog](./network-watcher-analyze-nsg-flow-logs-graylog.md)
+- [Analisi del traffico di Azure](./traffic-analytics.md) è un servizio nativo di Azure per elaborare i log dei flussi, estrarre informazioni dettagliate e visualizzare i log di flusso. 
+- [[Esercitazione] Visualizzare i log del flusso NSG con Power BI](./network-watcher-visualize-nsg-flow-logs-power-bi.md)
+- [[Esercitazione] Visualizzare i log del flusso del gruppo di protezione di rete con lo stack elastico](./network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+- [[Esercitazione] Gestire e analizzare i log del flusso NSG usando Grafana](./network-watcher-nsg-grafana.md)
+- [[Esercitazione] Gestire e analizzare i log del flusso NSG usando Graylog](./network-watcher-analyze-nsg-flow-logs-graylog.md)
 
+*Disabilitare i log di flusso*
 
-## <a name="nsg-flow-logging-considerations"></a>Considerazioni sulla registrazione del flusso NSG
+Quando il log di flusso è disabilitato, la registrazione del flusso per il gruppo di protezione di rete associato viene arrestata. Tuttavia, il log di flusso come risorsa continua a esistere con tutte le relative impostazioni e associazioni. Può essere abilitato in qualsiasi momento per avviare la registrazione del flusso nel gruppo di protezione di rete configurato. La procedura per disabilitare/abilitare un log di flusso è disponibile in [questa guida.](./network-watcher-nsg-flow-logging-powershell.md)  
 
-**Considerazioni sull'account di archiviazione**: 
+*Eliminare i log di flusso*
 
-- Località: l'account di archiviazione usato deve trovarsi nella stessa area del NSG.
+Quando il log di flusso viene eliminato, non solo la registrazione del flusso per il gruppo di sicurezza di rete associato viene arrestata, ma anche la risorsa del log di flusso viene eliminata con le relative impostazioni e associazioni. Per iniziare di nuovo la registrazione del flusso, è necessario creare una nuova risorsa di log del flusso per tale gruppo di protezione di rete. Un log di flusso può essere eliminato usando [PowerShell, l'interfaccia](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworkwatcherflowlog) [della riga di comando](https://docs.microsoft.com/cli/azure/network/watcher/flow-log#az_network_watcher_flow_log_delete) o [l'API REST.](https://docs.microsoft.com/rest/api/network-watcher/flowlogs/delete) Il supporto per l'eliminazione dei log di flusso portale di Azure è in pipeline.    
+
+Inoltre, quando viene eliminato un gruppo di protezione di rete, per impostazione predefinita viene eliminata la risorsa log di flusso associata.
+
+> [!NOTE]
+> Per spostare un gruppo di sicurezza di rete in un gruppo di risorse o una sottoscrizione diversa, i log di flusso associati devono essere eliminati, ma la semplice disabilitazione dei log di flusso non funzionerà. Dopo la migrazione del gruppo di protezione di rete, i log di flusso devono essere ricreati per abilitare la registrazione del flusso su di esso.  
+
+## <a name="nsg-flow-logging-considerations"></a>Considerazioni sulla registrazione dei flussi del gruppo di sicurezza di rete
+
+**Considerazioni sull'account di archiviazione:** 
+
+- Località: l'account di archiviazione usato deve essere nella stessa area del gruppo di criteri di rete.
 - Livello di prestazioni: attualmente sono supportati solo gli account di archiviazione di livello standard.
-- Rotazione automatica delle chiavi: se si modificano/ruotano le chiavi di accesso all'account di archiviazione, i log di flusso NSG smetteranno di funzionare. Per risolvere questo problema, è necessario disabilitare e quindi riabilitare i log dei flussi di NSG.
+- Rotazione delle chiavi con gestione automatica: se si modificano o ruotano le chiavi di accesso nell'account di archiviazione, i log dei flussi del gruppo di protezione di rete smetteranno di funzionare. Per risolvere questo problema, è necessario disabilitare e quindi riattivare i log dei flussi del gruppo di sicurezza di rete.
 
-**Costi** per la registrazione dei flussi: la registrazione del flusso NSG viene addebitata sul volume dei log prodotti. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità relativa ai criteri di conservazione con la registrazione del flusso NSG significa sostenere costi di archiviazione separati per periodi di tempo prolungati. Se si desidera mantenere i dati per sempre e non si desidera applicare alcun criterio di conservazione, impostare la conservazione (giorni) su 0. Per ulteriori informazioni, vedere [Network Watcher prezzi](https://azure.microsoft.com/pricing/details/network-watcher/) e [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
+**Costi di registrazione del flusso:** la registrazione dei flussi del gruppo di disponibilità di rete viene fatturata in base al volume di log prodotti. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità dei criteri di conservazione con registrazione del flusso del gruppo di sicurezza di rete comporta costi di archiviazione separati per lunghi periodi di tempo. Se si vogliono conservare i dati per sempre e non si vogliono applicare criteri di conservazione, impostare conservazione (giorni) su 0. Per altre informazioni, vedere Prezzi [Network Watcher e](https://azure.microsoft.com/pricing/details/network-watcher/) [prezzi Archiviazione di Azure per](https://azure.microsoft.com/pricing/details/storage/) altri dettagli.
 
-**Problemi con le regole TCP in ingresso definite dall'utente**: i [gruppi di sicurezza di rete (gruppi)](../virtual-network/network-security-groups-overview.md) vengono implementati come [Firewall con stato](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Tuttavia, a causa delle limitazioni correnti della piattaforma, le regole definite dall'utente che interessano i flussi TCP in ingresso vengono implementate in modo senza stato. A causa di questo problema, i flussi interessati dalle regole in ingresso definite dall'utente diventano non fatali. Inoltre, i conteggi di byte e pacchetti non vengono registrati per questi flussi. Di conseguenza, il numero di byte e i pacchetti riportati nei log di flusso NSG (e Analisi del traffico) potrebbero essere diversi dai numeri effettivi. Un flag di consenso esplicito che corregge questi problemi è pianificato per essere disponibile entro il 2021 più recente. Nel frattempo, i clienti che hanno riscontrato problemi gravi a causa di questo comportamento possono richiedere il consenso esplicito tramite supporto tecnico, generare una richiesta di supporto in Network Watcher > log di flusso NSG.  
+**Problemi con le regole TCP in** ingresso definite dall'utente: i gruppi di sicurezza di rete [vengono](../virtual-network/network-security-groups-overview.md) implementati come firewall [con stato.](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true) Tuttavia, a causa delle attuali limitazioni della piattaforma, le regole definite dall'utente che influiscono sui flussi TCP in ingresso vengono implementate senza stato. A causa di questo problema, i flussi interessati dalle regole in ingresso definite dall'utente diventano non terminanti. Inoltre, i conteggi di byte e pacchetti non vengono registrati per questi flussi. Di conseguenza, il numero di byte e pacchetti segnalati nei log dei flussi del gruppo di Analisi del traffico (NSG Flow Logs) potrebbe essere diverso dai numeri effettivi. È previsto che un flag di consenso esplicito che corregge questi problemi sia disponibile entro il mese di marzo 2021 più recente. Nel frattempo, i clienti che si trovano ad affrontare problemi gravi a causa di questo comportamento possono richiedere il consenso esplicito tramite il supporto, generare una richiesta di supporto in Network Watcher > di flusso del gruppo di sicurezza di rete.  
 
-**Flussi in ingresso registrati da indirizzi IP Internet alle VM senza IP pubblici**: le macchine virtuali che non hanno un indirizzo IP pubblico assegnato tramite un indirizzo IP pubblico associato alla scheda di interfaccia di rete come IP pubblico a livello di istanza o che fanno parte di un pool back-end di bilanciamento del carico di base, usano [SNAT predefiniti](../load-balancer/load-balancer-outbound-connections.md) e hanno un indirizzo IP assegnato da Azure per semplificare la connettività in uscita. Di conseguenza, è possibile visualizzare le voci del log di flusso per i flussi da indirizzi IP Internet, se il flusso è destinato a una porta nell'intervallo di porte assegnate per SNAT. Sebbene Azure non consenta questi flussi alla macchina virtuale, il tentativo viene registrato e viene visualizzato nel log di flusso NSG di Network Watcher in base alla progettazione. È consigliabile che il traffico Internet in ingresso indesiderato venga bloccato in modo esplicito con NSG.
+Flussi in ingresso registrati dagli indirizzi IP Internet alle macchine virtuali senza indirizzi IP **pubblici:** le macchine virtuali a cui non è assegnato un indirizzo IP pubblico tramite un indirizzo IP pubblico associato alla scheda di interfaccia di rete come IP pubblico a livello di istanza o che fanno parte di un pool back-end del servizio di bilanciamento del carico di base, usano [SNAT](../load-balancer/load-balancer-outbound-connections.md) predefinito e hanno un indirizzo IP assegnato da Azure per facilitare la connettività in uscita. Di conseguenza, se il flusso è destinato a una porta nell'intervallo di porte assegnate per SNAT, potrebbero essere visualizzate voci di log dei flussi provenienti da indirizzi IP Internet. Anche se Azure non consente questi flussi alla macchina virtuale, il tentativo viene registrato e visualizzato nel log dei flussi del gruppo di sicurezza di rete di Network Watcher per impostazione predefinita. È consigliabile bloccare in modo esplicito il traffico Internet in ingresso indesiderato con il gruppo di sicurezza di rete.
 
-**Problema con il gateway applicazione V2 subnet NSG**: la registrazione dei flussi sulla subnet del gateway applicazione V2 NSG non è attualmente [supportata](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) . Questo problema non influisce sul gateway applicazione V1.
+**Problema con il gruppo di** sicurezza di rete della subnet V2 del gateway applicazione: la registrazione del flusso nel gruppo di sicurezza di rete della subnet V2 del gateway applicazione non è [attualmente](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) supportata. Questo problema non influisce sul gateway applicazione V1.
 
-**Servizi non compatibili**: a causa delle limitazioni correnti della piattaforma, un piccolo set di servizi di Azure non è supportato dai log dei flussi di NSG. L'elenco corrente dei servizi incompatibili è
+**Servizi incompatibili:** a causa delle limitazioni correnti della piattaforma, un piccolo set di servizi di Azure non è supportato dai log dei flussi dei gruppi di sicurezza di rete. L'elenco corrente di servizi incompatibili è
 - [Servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/)
 - [App per la logica](https://azure.microsoft.com/services/logic-apps/) 
 
 ## <a name="best-practices"></a>Procedure consigliate
 
-**Abilita su reti virtuali/subnet critiche**: i log di flusso devono essere abilitati in tutte le reti virtuali/subnet critiche nella sottoscrizione come procedura di controllo e sicurezza consigliata. 
+**Abilita in subnet/VNET** critiche: i log dei flussi devono essere abilitati in tutte le VNET/subnet critiche nella sottoscrizione come procedura consigliata per la controllabilità e la sicurezza. 
 
-**Abilitare la registrazione del flusso NSG in tutti gruppi collegati a una risorsa**: la registrazione dei flussi in Azure è configurata nella risorsa NSG. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi, è consigliabile abilitare i log dei flussi NSG in tutti i gruppi applicati alla subnet o all'interfaccia di rete della risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni, vedere [come viene valutato il traffico](../virtual-network/network-security-group-how-it-works.md) nei gruppi di sicurezza di rete. 
+**Abilitare la registrazione dei flussi dei gruppi** di sicurezza di rete in tutti i gruppi di sicurezza di rete collegati a una risorsa: la registrazione dei flussi in Azure è configurata nella risorsa del gruppo di sicurezza di rete. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi di sicurezza di rete, è consigliabile abilitare i log dei flussi in tutti i gruppi di sicurezza di rete applicati all'interfaccia di rete o subnet di una risorsa per assicurarsi che tutto il traffico venga registrato, Per altre informazioni, vedere Come [viene valutato il traffico](../virtual-network/network-security-group-how-it-works.md) nei gruppi di sicurezza di rete. 
 
-Pochi scenari comuni:
-1. **Più schede di rete in una VM**: nel caso in cui siano collegate più schede di rete a una macchina virtuale, la registrazione dei flussi deve essere abilitata su tutte
-1. **Con NSG a livello di nic e di subnet**: nel caso in cui NSG sia configurato nella scheda di interfaccia di rete e nel livello di subnet, la registrazione del flusso deve essere abilitata in entrambi i gruppi. 
+Alcuni scenari comuni:
+1. **Più schede di interfaccia di rete in** una macchina virtuale: nel caso in cui più schede di interfaccia di rete siano collegate a una macchina virtuale, la registrazione dei flussi deve essere abilitata in tutte
+1. **Avere un gruppo di** sicurezza di rete sia a livello di scheda di interfaccia di rete che a livello di subnet: nel caso in cui il gruppo di sicurezza di rete sia configurato sia a livello di scheda di interfaccia di rete che a livello di subnet, la registrazione dei flussi deve essere abilitata in entrambi i NSG. 
 
-**Provisioning dell'archiviazione**: è necessario eseguire il provisioning dell'archiviazione in sintonia con il volume di log di flusso previsto.
+**Provisioning dell'archiviazione:** il provisioning dello spazio di archiviazione deve essere eseguito in modo ottimizzato con il volume previsto del log di flusso.
 
-**Denominazione**: il nome NSG deve contenere fino a 80 caratteri e i nomi delle regole NSG fino a 65 caratteri. Se i nomi superano il limite di caratteri, è possibile che venga troncato durante la registrazione.
+**Denominazione:** il nome del gruppo di criteri di rete deve contenere fino a 80 caratteri e i nomi delle regole del gruppo di criteri di rete devono contenere fino a 65 caratteri. Se i nomi superano il limite di caratteri, potrebbe essere troncato durante la registrazione.
 
 ## <a name="troubleshooting-common-issues"></a>Risoluzione dei problemi comuni
 
 **Impossibile abilitare i log dei flussi dei gruppi di sicurezza di rete**
 
-- Il provider di risorse **Microsoft. Insights** non è registrato
+- Il provider **di risorse Microsoft.Insights** non è registrato
 
-Se è stato ricevuto un errore _AuthorizationFailed_ o _GatewayAuthenticationFailed_, potrebbe significare che il provider di risorse Microsoft Insights non è stato abilitato nella sottoscrizione. [Seguire le istruzioni](./network-watcher-nsg-flow-logging-portal.md#register-insights-provider) per abilitare il provider Microsoft Insights.
+Se è stato ricevuto un errore _AuthorizationFailed_ o _GatewayAuthenticationFailed_, potrebbe significare che il provider di risorse Microsoft Insights non è stato abilitato nella sottoscrizione. [Seguire le istruzioni](./network-watcher-nsg-flow-logging-portal.md#register-insights-provider) per abilitare il provider di Microsoft Insights.
 
 **Sono stati abilitati i log dei flussi dei gruppi di sicurezza di rete ma non vengono visualizzati dati nell'account di archiviazione**
 
@@ -406,36 +418,36 @@ Il supporto dell'automazione tramite modelli di Azure Resource Manager non è at
 
 ## <a name="faq"></a>Domande frequenti
 
-**Quali sono i registri dei flussi di NSG?**
+**Che cosa fanno i log dei flussi del gruppo di protezione di rete?**
 
-Le risorse di rete di Azure possono essere combinate e gestite tramite [gruppi di sicurezza di rete (gruppi)](../virtual-network/network-security-groups-overview.md). I log di flusso NSG consentono di registrare le informazioni sul flusso di 5 tuple relative a tutto il traffico attraverso gruppi. I log dei flussi non elaborati vengono scritti in un account di archiviazione di Azure da cui possono essere ulteriormente elaborati, analizzati, sottoposti a query o esportati in base alle esigenze.
+Le risorse di rete di Azure possono essere combinate e gestite tramite gruppi di [sicurezza di rete (NSG).](../virtual-network/network-security-groups-overview.md) I log dei flussi del gruppo di sicurezza di rete consentono di registrare informazioni sul flusso di 5 tuple su tutto il traffico attraverso i NSG. I log di flusso non elaborati vengono scritti in un account Archiviazione di Azure da cui possono essere ulteriormente elaborati, analizzati, sottoposti a query o esportati in base alle esigenze.
 
-**L'uso dei log di flusso influisce sulla latenza di rete o sulle prestazioni?**
+**L'uso dei log di flusso influisce sulla latenza o sulle prestazioni della rete?**
 
-I dati dei log dei flussi vengono raccolti al di fuori del percorso del traffico di rete e pertanto non influiscono sulla velocità effettiva o sulla latenza di rete. È possibile creare o eliminare i log di flusso senza rischiare di influire sulle prestazioni della rete.
+I dati dei log di flusso vengono raccolti all'esterno del percorso del traffico di rete e pertanto non influiscono sulla velocità effettiva o sulla latenza di rete. È possibile creare o eliminare i log di flusso senza alcun rischio di impatto sulle prestazioni di rete.
 
-**Ricerca per categorie usare i log di flusso NSG con un account di archiviazione dietro un firewall?**
+**Ricerca per categorie usare i log dei flussi del gruppo di sicurezza di rete con un account di archiviazione dietro un firewall?**
 
-Per usare un account di archiviazione dietro un firewall, è necessario fornire un'eccezione affinché i servizi Microsoft attendibili accedano all'account di archiviazione:
+Per usare un account di archiviazione dietro un firewall, è necessario fornire un'eccezione per i servizi Microsoft attendibili per accedere all'account di archiviazione:
 
-- Passare all'account di archiviazione digitando il nome dell'account di archiviazione nella ricerca globale nel portale o dalla [pagina account di archiviazione](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-- Nella sezione  **Impostazioni**  selezionare  **firewall e reti virtuali**
-- In **Consenti accesso da** selezionare  **reti selezionate**. Quindi, in  **eccezioni**, seleziona la casella accanto a * * * * Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione * * * *
+- Passare all'account di archiviazione digitando il nome dell'account di archiviazione nella ricerca globale nel portale o nella pagina [Account di archiviazione](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
+- Nella sezione  **IMPOSTAZIONI**  selezionare  **Firewall e reti virtuali**
+- In **Consenti accesso da** selezionare Reti  **selezionate**. In  **Eccezioni selezionare quindi** la casella accanto a ***Consenti servizi Microsoft attendibili per accedere a questo account di archiviazione****
 - Se l'opzione è già selezionata, non occorre modificare niente.
-- Individuare il NSG di destinazione nella [pagina Panoramica dei log di flusso di NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) e abilitare i log di flusso di NSG con l'account di archiviazione selezionato.
+- Individuare il gruppo di protezione di rete di destinazione nella pagina di panoramica [Log](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) flusso gruppo di rete e abilitare Log flusso gruppo di rete con l'account di archiviazione precedente selezionato.
 
 È possibile controllare i log di archiviazione dopo alcuni minuti. Dovrebbe essere visualizzato un TimeStamp aggiornato o un nuovo file JSON creato.
 
-**Ricerca per categorie usare i log di flusso NSG con un account di archiviazione dietro a un endpoint di servizio?**
+**Ricerca per categorie usare i log dei flussi del gruppo di protezione di rete con un account di archiviazione dietro un endpoint di servizio?**
 
-I log di flusso NSG sono compatibili con gli endpoint di servizio senza richiedere alcuna configurazione aggiuntiva. Vedere l' [esercitazione sull'abilitazione degli endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint) nella rete virtuale.
+I log dei flussi dei NSG sono compatibili con gli endpoint di servizio senza richiedere alcuna configurazione aggiuntiva. Vedere [l'esercitazione sull'abilitazione degli endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint) nella rete virtuale.
 
-**Qual è la differenza tra i log dei flussi versioni 1 & 2?**
+**Qual è la differenza tra i log di flusso versioni 1 & 2?**
 
-Log dei flussi versione 2 introduce il concetto di _stato del flusso_ & archivia le informazioni su byte e pacchetti trasmessi. [Altre informazioni](#log-format)
+Flow Logs version 2 introduce il concetto di _Flow State_ & le informazioni sui byte e i pacchetti trasmessi. [Altre informazioni](#log-format)
 
 ## <a name="pricing"></a>Prezzi
 
-I log di flusso NSG vengono addebitati per GB di log raccolti e sono disponibili con un livello gratuito di 5 GB al mese per sottoscrizione. Per i prezzi correnti nella propria area, vedere la [pagina](https://azure.microsoft.com/pricing/details/network-watcher/)relativa ai prezzi di Network Watcher.
+I log di flusso del gruppo di rete vengono addebitati per GB di log raccolti e hanno un livello gratuito di 5 GB al mese per sottoscrizione. Per i prezzi correnti nell'area, vedere la pagina [Network Watcher prezzi.](https://azure.microsoft.com/pricing/details/network-watcher/)
 
-L'archiviazione dei log viene addebitata separatamente. per i prezzi pertinenti, vedere la pagina relativa ai prezzi per i [BLOB in blocchi di archiviazione](https://azure.microsoft.com/pricing/details/storage/blobs/)
+L'archiviazione dei log viene addebitata separatamente, [Archiviazione di Azure prezzi dei BLOB in](https://azure.microsoft.com/pricing/details/storage/blobs/) blocchi per i prezzi pertinenti.
