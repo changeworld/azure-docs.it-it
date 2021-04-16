@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: creare un server di route di Azure usando un modello di Azure Resource Manager (modello ARM)'
-description: Questa Guida introduttiva illustra come creare un server di route di Azure usando Azure Resource Manager modello (modello ARM).
+title: 'Avvio rapido: Creare un server di route di Azure usando un modello di Azure Resource Manager (modello arm)'
+description: Questa guida introduttiva illustra come creare un server di route di Azure usando un Azure Resource Manager di Azure .
 services: route-server
 author: duongau
 ms.service: route-server
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/05/2021
 ms.author: duau
-ms.openlocfilehash: 6f56b9fb1f6a1f5a1fe0811617fb20412c52fd72
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3476e5fa2c274f0fc2c180711480375b0ebefaf2
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106452202"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388041"
 ---
-# <a name="quickstart-create-an-azure-route-server-using-an-arm-template"></a>Guida introduttiva: creare un server di route di Azure usando un modello ARM
+# <a name="quickstart-create-an-azure-route-server-using-an-arm-template"></a>Guida introduttiva: Creare un server di route di Azure con un modello di Azure Azure Arm
 
-Questa Guida introduttiva descrive come usare un modello di Azure Resource Manager (modello ARM) per distribuire un server di route di Azure in una rete virtuale nuova o esistente.
+Questa guida introduttiva descrive come usare un modello di Azure Resource Manager (modello ARM) per distribuire un server di route di Azure in una rete virtuale nuova o esistente.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -33,17 +33,17 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-route-server).
 
-In questa Guida introduttiva verrà distribuito un server di route di Azure in una rete virtuale nuova o esistente. Verrà creata una subnet dedicata denominata `RouteServerSubnet` per ospitare il server di route. Il server di route verrà inoltre configurato con l'ASN peer e il peer IP per stabilire un peering BGP.
+In questa guida introduttiva si distribuirà un server di route di Azure in una rete virtuale nuova o esistente. Verrà creata una subnet dedicata `RouteServerSubnet` denominata per ospitare il server di route. Il server di route verrà configurato anche con l'ASN peer e l'IP peer per stabilire un peering BGP.
 
 :::code language="json" source="~/quickstart-templates/101-route-server/azuredeploy.json" range="001-145" highlight="105-142":::
 
 Nel modello sono state definite più risorse di Azure.
 
 * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks)
-* [**Microsoft. Network/virtualNetworks/Subnets**](/azure/templates/microsoft.network/virtualNetworks/subnets) (due subnet, una con nome `routeserversubnet` )
-* [**Microsoft. Network/virtualHubs**](/azure.templates/microsoft.network/virtualhubs) (distribuzione del server di route)
-* [**Microsoft. Network/virtualHubs/ipConfigurations**](/azure.templates/microsoft.network/virtualhubs/ipConfigurations)
-* [**Microsoft. Network/virtualHubs/bgpConnections**](/azure.templates/microsoft.network/virtualhubs/bgpConnections) (configurazione ASN peer e peer IP)
+* [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualNetworks/subnets) (due subnet, una denominata `routeserversubnet` )
+* [**Microsoft.Network/virtualHubs**](/azure/templates/microsoft.network/virtualhubs) (distribuzione del server di route)
+* [**Microsoft.Network/virtualHubs/ipConfigurations**](/azure/templates/microsoft.network/virtualhubs/ipConfigurations)
+* [**Microsoft.Network/virtualHubs/bgpConnections**](/azure/templates/microsoft.network/virtualhubs/bgpconnections) (configurazione ASN peer e IP peer)
 
 
 Per altri modelli correlati a ExpressRoute, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
@@ -77,7 +77,7 @@ Per altri modelli correlati a ExpressRoute, vedere [Modelli di avvio rapido di A
 
     La distribuzione del modello richiede circa 20 minuti. Al termine, l'output sarà simile al seguente:
 
-    :::image type="content" source="./media/quickstart-configure-template/powershell-output.png" alt-text="Output della distribuzione del modello di Gestione risorse del server di route.":::
+    :::image type="content" source="./media/quickstart-configure-template/powershell-output.png" alt-text="Route Server Resource Manager output di distribuzione di PowerShell.":::
 
 Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShell, è anche possibile usare il portale di Azure, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-portal.md).
 
@@ -95,9 +95,9 @@ Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShe
 
 1. Passare a https://aka.ms/routeserver.
 
-1. Selezionare il server di route denominato **routeserver** per verificare che la distribuzione sia stata completata correttamente.
+1. Selezionare il server di route **denominato routeserver** per verificare che la distribuzione sia riuscita.
 
-    :::image type="content" source="./media/quickstart-configure-template/deployment.png" alt-text="Screenshot della pagina Panoramica del server di route.":::
+    :::image type="content" source="./media/quickstart-configure-template/deployment.png" alt-text="Screenshot della pagina di panoramica del server di route.":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -113,11 +113,11 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 In questo argomento di avvio rapido sono stati creati questi componenti:
 
-* Server di route
+* Route Server
 * Rete virtuale
 * Subnet
 
-Dopo aver creato il server di route di Azure, continuare a conoscere il modo in cui il server di routing di Azure interagisce con i gateway ExpressRoute e VPN: 
+Dopo aver creato il server di route di Azure, continuare ad apprendere come il server di route di Azure interagisce con ExpressRoute e i gateway VPN: 
 
 > [!div class="nextstepaction"]
-> [Azure ExpressRoute e supporto VPN di Azure](expressroute-vpn-support.md)
+> [Azure ExpressRoute e VPN di Azure](expressroute-vpn-support.md)

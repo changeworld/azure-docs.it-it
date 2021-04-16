@@ -1,17 +1,23 @@
 ---
-title: "Guida introduttiva: creare un'app Java in Azure Service Fabric"
+title: "Guida introduttiva: Creare un'app Java in Azure Service Fabric"
 description: In questa guida introduttiva viene creata un'applicazione Java per Azure usando un'applicazione Reliable Services Service Fabric di esempio.
-ms.topic: quickstart
 ms.date: 01/29/2019
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 2f1e5f8f73f74d4b427e574b9e6a75aaf84a4211
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- mvc
+- devcenter
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: 199fe459ec8fd58d05b4946dda4291c46a4881c3
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91529855"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530912"
 ---
-# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Guida introduttiva: distribuire un'app Java in Azure Service Fabric in Linux
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Guida introduttiva: Distribuire un'app Java in Azure Service Fabric in Linux
 
 Questo argomento di avvio rapido illustra come distribuire un'applicazione Java in Azure Service Fabric usando l'IDE Eclipse in un computer di sviluppo Linux. Al termine, sarà disponibile un'applicazione di voto con un front-end Web Java che salva i risultati delle votazioni in un servizio back-end con stato nel cluster.
 
@@ -44,7 +50,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Azure Service Fabric Explorer mostra nodi integri](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Aprire Eclipse.
-3. Selezionare **file**  >  **Import**  >  **Gradle**  >  **existing Gradle Project** e seguire la procedura guidata.
+3. Selezionare **File**  >  **Import**  >  **Gradle**  >  Existing Gradle Project (Importa file **Gradle existing Gradle Project)** e seguire la procedura guidata.
 4. Selezionare **Directory** e scegliere la directory **Valutazione** nella cartella **service-fabric-java-quickstart** clonata da GitHub. Selezionare **Fine**.
 
     ![Importare il progetto Gradle in Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)

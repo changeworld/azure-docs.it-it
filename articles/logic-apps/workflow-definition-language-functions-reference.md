@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 03/30/2021
-ms.openlocfilehash: 53e96f4057b35fa6c849ec643ac1c9e0c7d5b402
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: d2ea08551299d66edd919a828877c134c84ef938
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076548"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477775"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate
 
@@ -123,7 +123,7 @@ Per eseguire operazioni con le raccolte, generalmente matrici, stringhe e talvol
 Per eseguire operazioni con le condizioni, confrontare i valori e i risultati delle espressioni o valutare vari tipi di logica, è possibile usare queste funzioni di confronto logico. Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
-> Se si utilizzano funzioni o condizioni logiche per confrontare i valori, i valori null vengono convertiti in valori di stringa ( `""` ) vuoti. Il comportamento delle condizioni è diverso quando si esegue il confronto con una stringa vuota anziché con un valore null. Per ulteriori informazioni, vedere la [funzione String ()](#string). 
+> Se si usano funzioni logiche o condizioni per confrontare i valori, i valori Null vengono convertiti in valori stringa vuota ( `""` ). Il comportamento delle condizioni è diverso quando si esegue il confronto con una stringa vuota anziché con un valore Null. Per altre informazioni, vedere la [funzione string().](#string) 
 
 | Funzione di confronto logico | Attività |
 | --------------------------- | ---- |
@@ -145,7 +145,7 @@ Per eseguire operazioni con le condizioni, confrontare i valori e i risultati de
 Per modificare il tipo o il formato di un valore, è possibile usare queste funzioni di conversione. Ad esempio, è possibile modificare un valore da booleano a intero. Per altre informazioni sul modo in cui App per la logica gestisce i tipi di contenuto durante la conversione, vedere [Gestire tipi di contenuto](../logic-apps/logic-apps-content-type.md). Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni vedere [Conversioni implicite di tipi di dati](#implicit-data-conversions).
+> App per la logica di Azure esegue automaticamente o implicitamente la codifica e la decodifica Base64, quindi non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano queste funzioni comunque nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul relativo effetto, a meno che non si modificano i valori dei parametri delle funzioni, rimuovendo le funzioni e i relativi effetti dal codice. Per altre informazioni vedere [Conversioni implicite di tipi di dati](#implicit-data-conversions).
 
 | Funzione di conversione | Attività |
 | ------------------- | ---- |
@@ -177,7 +177,7 @@ Per modificare il tipo o il formato di un valore, è possibile usare queste funz
 
 ## <a name="implicit-data-type-conversions"></a>Conversioni implicite di tipi di dati
 
-App per la logica di Azure converte automaticamente o in modo implicito tra alcuni tipi di dati, pertanto non è necessario eseguire manualmente queste conversioni. Ad esempio, se si usano valori non stringa laddove si prevede l'uso di stringhe come input, App per la logica converte in modo automatico i valori non stringa in stringhe.
+App per la logica di Azure esegue la conversione automatica o implicita tra alcuni tipi di dati, quindi non è necessario eseguire manualmente queste conversioni. Ad esempio, se si usano valori non stringa laddove si prevede l'uso di stringhe come input, App per la logica converte in modo automatico i valori non stringa in stringhe.
 
 Si supponga, ad esempio, che un trigger restituisca un valore numerico come output:
 
@@ -191,7 +191,7 @@ Se si usa questo output numerico laddove è prevista una stringa come input, ad 
 
 ### <a name="base64-encoding-and-decoding"></a>Codifica e decodifica Base64
 
-App per la logica esegue automaticamente o in modo implicito la codifica o la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni corrispondenti:
+App per la logica esegue automaticamente o implicitamente la codifica o la decodifica Base64, quindi non è necessario eseguire manualmente queste conversioni usando le funzioni corrispondenti:
 
 * `base64(<value>)`
 * `base64ToBinary(<value>)`
@@ -202,7 +202,7 @@ App per la logica esegue automaticamente o in modo implicito la codifica o la de
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> Se si aggiunge manualmente una di queste funzioni al flusso di lavoro tramite la finestra di progettazione dell'app per la logica, ad esempio usando l'editor espressioni, uscire dalla finestra di progettazione e tornare alla finestra di progettazione, la funzione scompare dalla finestra di progettazione, lasciando solo i valori dei parametri. Questo comportamento si verifica anche se si seleziona un trigger o un'azione che usa questa funzione senza modificare i valori dei parametri della funzione. Questo risultato influisce solo sulla visibilità della funzione e non sull'effetto. Nella visualizzazione codice la funzione non è interessata. Tuttavia, se si modificano i valori dei parametri della funzione, la funzione e il relativo effetto vengono rimossi dalla visualizzazione del codice, lasciando solo i valori dei parametri della funzione.
+> Se si aggiunge manualmente una di queste funzioni al flusso di lavoro tramite Progettazione app per la logica, ad esempio usando l'editor espressioni, uscire dalla finestra di progettazione e tornare alla finestra di progettazione, la funzione scompare dalla finestra di progettazione, lasciando solo i valori dei parametri. Questo comportamento si verifica anche se si seleziona un trigger o un'azione che usa questa funzione senza modificare i valori dei parametri della funzione. Questo risultato influisce solo sulla visibilità della funzione e non sull'effetto. Nella visualizzazione codice, la funzione non è influenzata. Tuttavia, se si modificano i valori dei parametri della funzione, la funzione e il relativo effetto vengono entrambi rimossi dalla visualizzazione codice, lasciando solo i valori dei parametri della funzione.
 
 <a name="math-functions"></a>
 
@@ -284,7 +284,7 @@ Per informazioni dettagliate su ogni funzione, vedere l'[elenco in ordine alfabe
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Restituisce il corpo per una parte specifica dell'output di un'azione con più parti. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Restituisce l'output di un'azione in fase di esecuzione. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Restituisce il valore per un parametro descritto nella definizione del flusso di lavoro. |
-| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Restituisce gli input e gli output delle azioni di primo livello all'interno dell'azione con ambito specificata, ad esempio `For_each` , `Until` e `Scope` . |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Restituisce gli input e gli output delle azioni di primo livello all'interno dell'azione con ambito specificata, ad esempio `For_each` `Until` , e `Scope` . |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Restituisce l'output di un trigger in fase di esecuzione o i valori di altre coppie di nomi e valori JSON. Vedere anche [triggerOutputs](#triggerOutputs) e [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Restituisce l'oggetto `body` di output di un trigger in fase di esecuzione. Vedere [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Restituisce un singolo valore corrispondente a un nome di chiave negli output *form-data* o *form-encoded* del trigger. |
@@ -482,7 +482,7 @@ Per le versioni a sintassi abbreviata, vedere [actionBody()](#actionBody), [acti
 Per l'azione corrente, vedere [action()](#action).
 
 > [!TIP]
-> La `actions()` funzione restituisce l'output sotto forma di stringa. Se è necessario usare un valore restituito come oggetto JSON, è prima di tutto necessario convertire il valore stringa. È possibile trasformare il valore stringa in un oggetto JSON usando l' [azione analizza JSON](logic-apps-perform-data-operations.md#parse-json-action).
+> La `actions()` funzione restituisce l'output come stringa. Se è necessario usare un valore restituito come oggetto JSON, è prima necessario convertire il valore stringa. È possibile trasformare il valore stringa in un oggetto JSON usando [l'azione Analizza JSON](logic-apps-perform-data-operations.md#parse-json-action).
 
 > [!NOTE]
 > In precedenza, era possibile usare la funzione `actions()` o l'elemento `conditions` per specificare che un'azione veniva eseguita in base all'output di un'altra azione. Tuttavia, per dichiarare in modo esplicito le dipendenze tra le azioni, ora è necessario usare la proprietà `runAfter` dell'azione dipendente.
@@ -558,7 +558,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
 | <*days*> | Sì | Integer | Numero positivo o negativo di giorni da aggiungere |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -600,7 +600,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
 | <*hours*> | Sì | Integer | Numero positivo o negativo di ore da aggiungere |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -616,7 +616,7 @@ Questo esempio aggiunge 10 ore al timestamp specificato:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-Restituisce quindi il risultato seguente:' "2018-03-15T10:00:00.0000000 Z"
+E restituisce questo risultato: '"2018-03-15T10:00:00.0000000Z"
 
 *Esempio 2*
 
@@ -642,7 +642,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
 | <*minutes*> | Sì | Integer | Numero positivo o negativo di minuti da aggiungere |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -692,7 +692,7 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Oggetto | Oggetto JSON aggiornato con la proprietà specificata |
 ||||
 
-Per aggiungere una proprietà padre a una proprietà esistente, usare la `setProperty()` funzione, non la `addProperty()` funzione. Altrimenti, la funzione restituisce solo l'oggetto figlio come output.
+Per aggiungere una proprietà padre a una proprietà esistente, usare la `setProperty()` funzione e non la funzione `addProperty()` . Altrimenti, la funzione restituisce solo l'oggetto figlio come output.
 
 ```
 setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
@@ -783,7 +783,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
 | <*seconds*> | Sì | Integer | Numero positivo o negativo di secondi da aggiungere |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -827,7 +827,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
 | <*interval*> | Sì | Integer | Numero di unità di tempo specificate da aggiungere |
 | <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -946,7 +946,7 @@ E viene restituito questo risultato: `["hello"]`
 Restituisce la versione di una stringa con codifica base64.
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
+> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica base64, quindi non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul relativo effetto, a meno che non si modificano i valori dei parametri delle funzioni, rimuovendo le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere Codifica e decodifica [Base64.](#base64-encoding-decoding)
 
 ```
 base64('<value>')
@@ -979,7 +979,7 @@ E viene restituito questo risultato: `"aGVsbG8="`
 Restituisce la versione binaria di una stringa con codifica base64.
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
+> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica base64, quindi non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul relativo effetto, a meno che non si modificano i valori dei parametri delle funzioni, rimuovendo le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere Codifica e decodifica [Base64.](#base64-encoding-decoding)
 
 ```
 base64ToBinary('<value>')
@@ -1014,7 +1014,7 @@ E viene restituito questo risultato:
 Restituisce la versione stringa di una stringa con codifica base64, decodificando in modo efficace la stringa base64. Usare questa funzione al posto di [decodeBase64()](#decodeBase64), che è deprecata.
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
+> App per la logica di Azure esegue automaticamente o implicitamente la codifica e la decodifica Base64, quindi non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul relativo effetto, a meno che non si modificano i valori dei parametri delle funzioni, rimuovendo le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere Codifica e decodifica [Base64.](#base64-encoding-decoding)
 
 ```
 base64ToString('<value>')
@@ -1129,10 +1129,10 @@ bool(<value>)
 
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sì | Qualsiasi | Valore da convertire in valore booleano. |
+| <*value*> | Sì | Qualsiasi | Valore da convertire in booleano. |
 |||||
 
-Se si usa `bool()` con un oggetto, il valore dell'oggetto deve essere una stringa o un Integer che può essere convertito in un valore booleano.
+Se si usa con un oggetto , il valore dell'oggetto deve essere una stringa o un numero intero che `bool()` può essere convertito in booleano.
 
 | Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
@@ -1195,13 +1195,13 @@ E vengono restituiti questi risultati:
 Combina due o più stringhe e restituisce la stringa combinata.
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni quando si usa la `concat()` funzione con i dati che richiedono la codifica o la decodifica:
+> App per la logica di Azure esegue automaticamente o implicitamente la codifica e la decodifica Base64, quindi non è necessario eseguire manualmente queste conversioni quando si usa la funzione con dati che devono essere codificati o `concat()` decodificati:
 > 
 > * `concat('data:;base64,',<value>)`
 > * `concat('data:,',encodeUriComponent(<value>))`
 > 
-> Tuttavia, se si usa questa funzione comunque nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità della funzione e non sull'effetto, a meno che non si modifichino i valori dei parametri della funzione, che rimuove la funzione e l'effetto dal codice. 
-> Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
+> Tuttavia, se si usa questa funzione comunque nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità della funzione e non sull'effetto, a meno che non si modificano i valori dei parametri della funzione, rimuovendo così la funzione e l'effetto dal codice. 
+> Per altre informazioni, vedere Codifica e decodifica [Base64.](#base64-encoding-decoding)
 
 ```
 concat('<text1>', '<text2>', ...)
@@ -1284,8 +1284,8 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
-| <*destinationTimeZone*> | Sì | string | Nome del fuso orario di destinazione. Per i nomi dei fusi orari, vedere [Valori dell'indice del fuso orario Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ma potrebbe essere necessario rimuovere la punteggiatura nel nome del fuso orario. |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*destinationTimeZone*> | Sì | string | Nome del fuso orario di destinazione. Per i nomi dei fusi orari, vedere Fusi orari predefiniti di [Microsoft Windows,](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones)ma potrebbe essere necessario rimuovere qualsiasi punteggiatura dal nome del fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -1326,9 +1326,9 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
-| <*sourceTimeZone*> | Sì | string | Nome del fuso orario di origine. Per i nomi dei fusi orari, vedere [Valori dell'indice del fuso orario Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ma potrebbe essere necessario rimuovere la punteggiatura nel nome del fuso orario. |
-| <*destinationTimeZone*> | Sì | string | Nome del fuso orario di destinazione. Per i nomi dei fusi orari, vedere [Valori dell'indice del fuso orario Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ma potrebbe essere necessario rimuovere la punteggiatura nel nome del fuso orario. |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*sourceTimeZone*> | Sì | string | Nome del fuso orario di origine. Per i nomi dei fusi orari, vedere Fusi orari predefiniti di [Microsoft Windows,](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones)ma potrebbe essere necessario rimuovere qualsiasi punteggiatura dal nome del fuso orario. |
+| <*destinationTimeZone*> | Sì | string | Nome del fuso orario di destinazione. Per i nomi dei fusi orari, vedere Fusi orari predefiniti di [Microsoft Windows,](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones)ma potrebbe essere necessario rimuovere qualsiasi punteggiatura dal nome del fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -1369,8 +1369,8 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
-| <*sourceTimeZone*> | Sì | string | Nome del fuso orario di origine. Per i nomi dei fusi orari, vedere [Valori dell'indice del fuso orario Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), ma potrebbe essere necessario rimuovere la punteggiatura nel nome del fuso orario. |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*sourceTimeZone*> | Sì | string | Nome del fuso orario di origine. Per i nomi dei fusi orari, vedere Fusi orari predefiniti di [Microsoft Windows,](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones)ma potrebbe essere necessario rimuovere qualsiasi punteggiatura dal nome del fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -1629,7 +1629,7 @@ Questa funzione è deprecata. usare invece [base64ToString()](#base64ToString).
 Restituisce la versione binaria di un URI (Uniform Resource Identifier) di dati. Usare [dataUriToBinary()](#dataUriToBinary) al posto di `decodeDataUri()`. Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usare `dataUriToBinary()`.
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
+> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica base64, quindi non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul relativo effetto, a meno che non si modificano i valori dei parametri delle funzioni, rimuovendo le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere Codifica e decodifica [Base64.](#base64-encoding-decoding)
 
 ```
 decodeDataUri('<value>')
@@ -1708,7 +1708,7 @@ div(<dividend>, <divisor>)
 
 | Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer o float | Risultato della divisione del primo numero per il secondo numero. Se il dividendo o il divisore è di tipo float, il risultato è di tipo float. <p><p>**Nota**: per convertire il risultato float in un Integer, provare a [creare e chiamare una funzione in Azure](../logic-apps/logic-apps-azure-functions.md) dall'app per la logica. |
+| <*quotient-result*> | Integer o float | Risultato della divisione del primo numero per il secondo numero. Se il dividendo o il divisore ha tipo Float, il risultato ha tipo Float. <p><p>**Nota:** per convertire il risultato float in un numero intero, provare a creare e [chiamare una funzione in Azure](../logic-apps/logic-apps-azure-functions.md) dall'app per la logica. |
 ||||
 
 *Esempio 1*
@@ -1722,7 +1722,7 @@ div(11,5)
 
 *Esempio 2*
 
-Entrambi gli esempi restituiscono questo valore con tipo float: `2.2`
+Entrambi gli esempi restituiscono questo valore con tipo Float: `2.2`
 
 ```
 div(11,5.0)
@@ -1736,7 +1736,7 @@ div(11.0,5)
 Restituisce la versione con codifica URI (Uniform Resource Identifier) per una stringa sostituendo i caratteri non sicuri per gli URL con caratteri di escape. Usare [uriComponent()](#uriComponent) al posto di `encodeUriComponent()`. Anche se entrambe le funzioni hanno un comportamento analogo, è preferibile usare `uriComponent()`.
 
 > [!NOTE]
-> App per la logica di Azure esegue automaticamente o in modo implicito la codifica e la decodifica Base64, pertanto non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul loro effetto, a meno che non si modifichino i valori dei parametri delle funzioni, che rimuove le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere [codifica e decodifica Base64](#base64-encoding-decoding).
+> App per la logica di Azure esegue automaticamente o implicitamente la codifica e la decodifica Base64, quindi non è necessario eseguire manualmente queste conversioni usando le funzioni di codifica e decodifica. Tuttavia, se si usano comunque queste funzioni nella finestra di progettazione, è possibile che si verifichino comportamenti di rendering imprevisti nella finestra di progettazione. Questi comportamenti influiscono solo sulla visibilità delle funzioni e non sul relativo effetto, a meno che non si modificano i valori dei parametri delle funzioni, rimuovendo le funzioni e i relativi effetti dal codice. Per altre informazioni, vedere Codifica e decodifica [Base64.](#base64-encoding-decoding)
 
 ```
 encodeUriComponent('<value>')
@@ -1955,7 +1955,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ggTHH:mm:ss.fffffffK), che è conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -2104,7 +2104,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Sì | Integer | Numero di unità di tempo specificate da aggiungere |
 | <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ggTHH:mm:ss.fffffffK), che è conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -2148,7 +2148,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Sì | Integer | Numero di unità di tempo specificate da sottrarre |
 | <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ggTHH:mm:ss.fffffffK), che è conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -2539,7 +2539,7 @@ Questo esempio crea una variabile contatore e la incrementa di uno durante ogni 
 
 ### <a name="json"></a>json
 
-Restituisce il valore del tipo di JavaScript Object Notation (JSON), l'oggetto o la matrice di oggetti per una stringa o XML.
+Restituisce il valore, l'oggetto o la matrice di oggetti di tipo JavaScript Object Notation (JSON) per una stringa o XML.
 
 ```
 json('<value>')
@@ -2547,9 +2547,9 @@ json(xml('value'))
 ```
 
 > [!IMPORTANT]
-> Senza un XML Schema che definisce la struttura dell'output, è possibile che la funzione restituisca risultati in cui la struttura differisce significativamente dal formato previsto, a seconda dell'input.
+> Senza uno schema XML che definisce la struttura dell'output, la funzione potrebbe restituire risultati in cui la struttura differisce notevolmente dal formato previsto, a seconda dell'input.
 >  
-> Questo comportamento rende questa funzione non adatta per gli scenari in cui l'output deve essere conforme a un contratto ben definito, ad esempio, in sistemi aziendali critici o soluzioni.
+> Questo comportamento rende questa funzione non idonea per gli scenari in cui l'output deve essere conforme a un contratto ben definito, ad esempio in soluzioni o sistemi aziendali critici.
 
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
@@ -2558,12 +2558,12 @@ json(xml('value'))
 
 | Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | Tipo, oggetto o matrice nativa JSON | Valore del tipo nativo JSON, oggetto o matrice di oggetti dalla stringa di input o XML. <p><p>-Se si passa codice XML con un singolo elemento figlio nell'elemento radice, la funzione restituisce un singolo oggetto JSON per quell'elemento figlio. <p> -Se si passa codice XML con più elementi figlio nell'elemento radice, la funzione restituisce una matrice che contiene oggetti JSON per gli elementi figlio. <p>-Se la stringa è null, la funzione restituisce un oggetto vuoto. |
+| <*JSON-result*> | Tipo nativo JSON, oggetto o matrice | Valore del tipo nativo JSON, oggetto o matrice di oggetti dalla stringa di input o da XML. <p><p>- Se si passa codice XML con un singolo elemento figlio nell'elemento radice, la funzione restituisce un singolo oggetto JSON per tale elemento figlio. <p> - Se si passa codice XML con più elementi figlio nell'elemento radice, la funzione restituisce una matrice che contiene oggetti JSON per tali elementi figlio. <p>- Se la stringa è Null, la funzione restituisce un oggetto vuoto. |
 ||||
 
 *Esempio 1*
 
-In questo esempio la stringa viene convertita in un valore JSON:
+Questo esempio converte questa stringa in un valore JSON:
 
 ```
 json('[1, 2, 3]')
@@ -2573,7 +2573,7 @@ E viene restituito questo risultato: `[1, 2, 3]`
 
 *Esempio 2*
 
-Questo esempio converte la stringa in formato JSON:
+Questo esempio converte questa stringa in JSON:
 
 ```
 json('{"fullName": "Sophia Owen"}')
@@ -2589,7 +2589,7 @@ E viene restituito questo risultato:
 
 *Esempio 3*
 
-Questo esempio usa le `json()` `xml()` funzioni e per convertire il codice XML che include un singolo elemento figlio nell'elemento radice in un oggetto JSON denominato `person` per l'elemento figlio:
+In questo esempio vengono utilizzate le funzioni e per convertire il codice XML con un singolo elemento figlio nell'elemento radice in un oggetto `json()` JSON denominato per tale elemento `xml()` `person` figlio:
 
 `json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
@@ -2612,7 +2612,7 @@ E viene restituito questo risultato:
 
 *Esempio 4*
 
-Questo esempio usa le `json()` `xml()` funzioni e per convertire il codice XML che include più elementi figlio nell'elemento radice in una matrice denominata `person` che contiene oggetti JSON per gli elementi figlio seguenti:
+In questo esempio vengono utilizzate le funzioni e per convertire il codice XML con più elementi figlio nell'elemento radice in una matrice denominata contenente oggetti `json()` JSON per tali elementi `xml()` `person` figlio:
 
 `json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
 
@@ -2762,7 +2762,7 @@ lastIndexOf('<text>', '<searchText>')
 
 Se il valore della stringa o della sottostringa è vuoto, si verifica il comportamento seguente:
 
-* Se solo il valore della stringa è vuoto, la funzione restituisce `-1` .
+* Se solo il valore stringa è vuoto, la funzione restituisce `-1` .
 
 * Se i valori della stringa e della sottostringa sono entrambi vuoti, la funzione restituisce `0` .
 
@@ -2770,13 +2770,13 @@ Se il valore della stringa o della sottostringa è vuoto, si verifica il comport
 
 *esempi*
 
-In questo esempio viene trovato il valore di indice iniziale per l'ultima occorrenza della sottostringa della sottostringa `world` nella stringa `hello world hello world` . Il risultato restituito è `18` :
+In questo esempio viene trovato il valore di indice iniziale per l'ultima occorrenza della `world` sottostringa della sottostringa nella stringa `hello world hello world` . Il risultato restituito è `18` :
 
 ```json
 lastIndexOf('hello world hello world', 'world')
 ```
 
-In questo esempio manca il parametro substring e viene restituito il valore `22` perché il valore della stringa di input ( `23` ) meno 1 è maggiore di 0.
+In questo esempio manca il parametro della sottostringa e viene restituito un valore perché il valore della stringa di `22` input ( ) meno `23` 1 è maggiore di 0.
 
 ```json
 lastIndexOf('hello world hello world', '')
@@ -3458,12 +3458,12 @@ Ecco l'oggetto JSON aggiornato:
 
 ### <a name="result"></a>result
 
-Restituisce i risultati dalle azioni di primo livello nell'azione con ambito specificata, ad esempio un' `For_each` `Until` azione, o `Scope` . La `result()` funzione accetta un solo parametro, che è il nome dell'ambito, e restituisce una matrice che contiene informazioni dalle azioni di primo livello in tale ambito. Questi oggetti azione includono gli stessi attributi restituiti dalla `actions()` funzione, ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID di correlazione e gli output dell'azione.
+Restituisce i risultati delle azioni di primo livello nell'azione con ambito specificata, ad esempio `For_each` `Until` , o `Scope` . La funzione accetta un singolo parametro, ovvero il nome dell'ambito, e restituisce una matrice contenente informazioni dalle azioni di primo `result()` livello in tale ambito. Questi oggetti azione includono gli stessi attributi restituiti dalla funzione, ad esempio l'ora di inizio, l'ora di fine, lo stato, gli input, gli ID correlazione e `actions()` gli output dell'azione.
 
 > [!NOTE]
-> Questa funzione restituisce informazioni *solo* dalle azioni di primo livello nell'ambito dell'azione e non dalle azioni nidificate più approfondite, ad esempio le azioni switch o Condition.
+> Questa funzione restituisce informazioni *solo dalle* azioni di primo livello nell'azione con ambito e non da azioni annidate più profonde, ad esempio azioni switch o condition.
 
-Ad esempio, è possibile usare questa funzione per ottenere i risultati dalle azioni non riuscite, in modo da poter diagnosticare e gestire le eccezioni. Per altre informazioni, vedere [Ottenere il contesto e i risultati per gli errori](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+Ad esempio, è possibile usare questa funzione per ottenere i risultati dalle azioni non riuscite in modo da poter diagnosticare e gestire le eccezioni. Per altre informazioni, vedere [Ottenere il contesto e i risultati per gli errori](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
@@ -3471,17 +3471,17 @@ result('<scopedActionName>')
 
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*scopedActionName*> | Sì | string | Nome dell'azione con ambito in cui si desidera ottenere gli input e gli output dalle azioni di primo livello all'interno di tale ambito |
+| <*scopedActionName*> | Sì | string | Nome dell'azione con ambito in cui si desidera che gli input e gli output delle azioni di primo livello all'interno di tale ambito |
 ||||
 
 | Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
-| <*array-object*> | Oggetto matrice | Matrice che contiene matrici di input e output di ogni azione di primo livello all'interno dell'ambito specificato. |
+| <*array-object*> | Oggetto matrice | Matrice contenente matrici di input e output di ogni azione di primo livello all'interno dell'ambito specificato |
 ||||
 
 *Esempio*
 
-In questo esempio vengono restituiti gli input e gli output di ogni iterazione di un'azione HTTP all'interno di un `For_each` ciclo utilizzando la `result()` funzione nell' `Compose` azione:
+Questo esempio restituisce gli input e gli output di ogni iterazione di un'azione HTTP all'interno di un ciclo usando la funzione `For_each` `result()` `Compose` nell'azione:
 
 ```json
 {
@@ -3747,7 +3747,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -3778,7 +3778,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -3809,7 +3809,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -3892,12 +3892,12 @@ string(<value>)
 
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sì | Qualsiasi | Valore da convertire. Se questo valore è null o restituisce null, il valore viene convertito in un valore stringa vuoto ( `""` ). <p><p>Se ad esempio si assegna una variabile stringa a una proprietà inesistente, a cui è possibile accedere con l' `?` operatore, il valore null viene convertito in una stringa vuota. Tuttavia, il confronto di un valore null non equivale a confrontare una stringa vuota. |
+| <*value*> | Sì | Qualsiasi | Valore da convertire. Se questo valore è Null o restituisce null, il valore viene convertito in un valore di stringa vuota ( `""` ). <p><p>Ad esempio, se si assegna una variabile stringa a una proprietà inesistente, a cui è possibile accedere con l'operatore , il valore Null viene convertito `?` in una stringa vuota. Tuttavia, il confronto di un valore Null non è uguale al confronto di una stringa vuota. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
-| <*string-value*> | string | Versione della stringa per il valore specificato. Se il parametro del *valore* è null o restituisce null, questo valore viene restituito come valore stringa vuoto ( `""` ). |
+| <*string-value*> | string | Versione della stringa per il valore specificato. Se il *parametro value* è Null o restituisce null, questo valore viene restituito come valore di stringa vuota ( `""` ). |
 ||||
 
 
@@ -3973,8 +3973,8 @@ substring('<text>', <startIndex>, <length>)
 |||||
 
 > [!NOTE]
-> Assicurarsi che la somma dell'aggiunta dei valori del parametro *startIndex* e *length* sia minore della lunghezza della stringa fornita per il parametro *Text* .
-> In caso contrario, viene visualizzato un errore, a differenza delle funzioni simili in altri linguaggi in cui il risultato è la sottostringa da *startIndex* alla fine della stringa. Il parametro *length* è facoltativo e, se non viene specificato, la funzione **substring ()** accetta tutti i caratteri che iniziano da *startIndex* alla fine della stringa.
+> Assicurarsi che la somma dell'aggiunta dei *valori dei parametri startIndex* e *length* sia minore della lunghezza della stringa specificata per il *parametro text.*
+> In caso contrario, viene visualizzato un errore, a differenza di funzioni simili in altri linguaggi in cui il risultato è la sottostringa da *startIndex* alla fine della stringa. Il *parametro length* è facoltativo e, se non viene specificato, la funzione **substring()** accetta tutti i caratteri che iniziano da *startIndex* alla fine della stringa.
 
 | Valore restituito | Tipo | Descrizione |
 | ------------ | ---- | ----------- |
@@ -4007,7 +4007,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
 | <*interval*> | Sì | Integer | Numero di unità di tempo specificate da sottrarre |
 | <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -4642,7 +4642,7 @@ Facoltativamente, è possibile specificare un formato diverso con il parametro <
 
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ggThh: mm: SS. fffffffK), che è conforme allo standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e conserva le informazioni sul fuso orario. |
+| <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss.fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e mantiene le informazioni sul fuso orario. |
 |||||
 
 | Valore restituito | Tipo | Descrizione |
@@ -4715,7 +4715,7 @@ workflow().<property>
 
 | Parametro | Obbligatoria | Tipo | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | No | string | Nome della proprietà del flusso di lavoro di cui si vuole ottenere il valore <p><p>Per impostazione predefinita, un oggetto flusso di lavoro dispone di queste proprietà: `name` ,, `type` `id` , `location` , `run` e `tags` . <p><p>-Il `run` valore della proprietà è un oggetto JSON che include le proprietà seguenti: `name` , `type` e `id` . <p><p>-La `tags` proprietà è un oggetto JSON che include i [tag associati all'app per la logica in app per la logica di Azure o flow in Power automatizzate](../azure-resource-manager/management/tag-resources.md) e i valori per tali tag. Per altre informazioni sui tag nelle risorse di Azure, vedere [risorse dei tag, gruppi di risorse e sottoscrizioni per l'organizzazione logica in Azure](../azure-resource-manager/management/tag-resources.md). <p><p>**Nota**: per impostazione predefinita, un'app per la logica non contiene tag, ma un flusso di Power automatizzato include i `flowDisplayName` `environmentName` tag e. |
+| <*property*> | No | string | Nome della proprietà del flusso di lavoro di cui si vuole ottenere il valore <p><p>Per impostazione predefinita, un oggetto flusso di lavoro ha queste proprietà: `name` , , , , e `type` `id` `location` `run` `tags` . <p><p>- Il `run` valore della proprietà è un oggetto JSON che include queste proprietà: `name` , e `type` `id` . <p><p>- La proprietà è un oggetto JSON che include tag associati all'app per la logica in App per la logica di Azure o flusso in Power Automate e i valori `tags` per tali tag. [](../azure-resource-manager/management/tag-resources.md) Per altre informazioni sui tag nelle risorse di Azure, vedere Contrassegnare le risorse, i gruppi di risorse e le sottoscrizioni per [l'organizzazione logica in Azure.](../azure-resource-manager/management/tag-resources.md) <p><p>**Nota:** per impostazione predefinita, un'app per la logica non ha tag, ma Power Automate flusso di lavoro include `flowDisplayName` i tag e `environmentName` . |
 |||||
 
 *Esempio 1*
@@ -4726,9 +4726,9 @@ Questo esempio restituisce il nome dell'esecuzione corrente di un flusso di lavo
 
 *Esempio 2*
 
-Se si usa Power automatizzate, è possibile creare un' `@workflow()` espressione che usa la `tags` proprietà output per ottenere i valori dalla `flowDisplayName` proprietà o del flusso `environmentName` .
+Se si usa Power Automate, è possibile creare un'espressione che usa la proprietà di output per ottenere i valori dalla `@workflow()` `tags` proprietà o del `flowDisplayName` `environmentName` flusso.
 
-Ad esempio, è possibile inviare notifiche di posta elettronica personalizzate dal flusso stesso che si collega al flusso. Queste notifiche possono includere un collegamento HTML che contiene il nome visualizzato del flusso nel titolo del messaggio di posta elettronica e segue questa sintassi:
+Ad esempio, è possibile inviare notifiche di posta elettronica personalizzate dal flusso stesso che si collegano al flusso. Queste notifiche possono includere un collegamento HTML che contiene il nome visualizzato del flusso nel titolo del messaggio di posta elettronica e segue questa sintassi:
 
 `<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
 
@@ -4833,11 +4833,11 @@ Si supponga di avere questa `'items'` stringa XML:
 </produce>
 ```
 
-In questo esempio viene passata l'espressione XPath, `'/produce/item/name'` , per trovare i nodi che corrispondono al `<name></name>` nodo nella `'items'` stringa XML e viene restituita una matrice con i valori del nodo seguenti:
+In questo esempio viene passata l'espressione XPath , , per trovare i nodi che corrispondono al nodo nella stringa XML e viene restituita una `'/produce/item/name'` matrice con questi valori di `<name></name>` `'items'` nodo:
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
-Nell'esempio viene inoltre utilizzata la funzione [Parameters ()](#parameters) per ottenere la stringa XML da `'items'` e convertire la stringa in formato XML utilizzando la funzione [XML ()](#xml) .
+L'esempio usa anche la [funzione parameters()](#parameters) per ottenere la stringa XML da e convertire la stringa in `'items'` formato XML usando la funzione [xml().](#xml)
 
 Ecco la matrice di risultati con i nodi corrispondenti a `<name></name`:
 
@@ -4845,7 +4845,7 @@ Ecco la matrice di risultati con i nodi corrispondenti a `<name></name`:
 
 *Esempio 2*
 
-Nell'esempio 1, in questo esempio viene passata l'espressione XPath, `'/produce/item/name[1]'` , per trovare il primo `name` elemento figlio dell' `item` elemento.
+Nell'esempio 1 questo esempio passa l'espressione XPath , , per trovare il primo elemento figlio `'/produce/item/name[1]'` `name` `item` dell'elemento.
 
 `xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
@@ -4853,7 +4853,7 @@ Ecco il risultato: `Gala`
 
 *Esempio 3*
 
-Nell'esempio 1, in questo esempio viene passato l'espressione XPath, `'/produce/item/name[last()]'` , per trovare l'ultimo `name` elemento figlio dell' `item` elemento.
+Nell'esempio 1 questo esempio passa l'espressione XPath , , per trovare l'ultimo elemento figlio `'/produce/item/name[last()]'` `name` `item` dell'elemento.
 
 `xpath(xml(parameters('items')), '/produce/item/name[last()]')`
 
@@ -4861,7 +4861,7 @@ Ecco il risultato: `Honeycrisp`
 
 *Esempio 4*
 
-In questo esempio si supponga `items` che la stringa XML includa anche gli attributi `expired='true'` e `expired='false'` :
+In questo esempio si supponga che `items` la stringa XML contenga anche gli attributi e `expired='true'` `expired='false'` :
 
 ```xml
 <?xml version="1.0"?>
@@ -4879,7 +4879,7 @@ In questo esempio si supponga `items` che la stringa XML includa anche gli attri
 </produce>
 ```
 
-In questo esempio viene passata l'espressione XPath, `'//name[@expired]'` , per trovare tutti gli `name` elementi con l' `expired` attributo:
+In questo esempio viene passata l'espressione `'//name[@expired]'` XPath, , per trovare tutti gli elementi con `name` `expired` l'attributo :
 
 `xpath(xml(parameters('items')), '//name[@expired]')`
 
@@ -4887,7 +4887,7 @@ Ecco il risultato: `[ Gala, Honeycrisp ]`
 
 *Esempio 5*
 
-In questo esempio si supponga che la `items` stringa XML contenga solo questo attributo `expired = 'true'` :
+In questo esempio si supponga che la `items` stringa XML contenga solo questo attributo, `expired = 'true'` :
 
 ```xml
 <?xml version="1.0"?>
@@ -4905,7 +4905,7 @@ In questo esempio si supponga che la `items` stringa XML contenga solo questo at
 </produce>
 ```
 
-In questo esempio viene passata l'espressione XPath, `'//name[@expired = 'true']'` , per trovare tutti gli `name` elementi con l'attributo `expired = 'true'` :
+In questo esempio viene passata l'espressione XPath, , per `'//name[@expired = 'true']'` trovare tutti gli elementi con `name` l'attributo `expired = 'true'` :
 
 `xpath(xml(parameters('items')), '//name[@expired = 'true']')`
 
@@ -4913,7 +4913,7 @@ Ecco il risultato: `[ Gala ]`
 
 *Esempio 6*
 
-In questo esempio si supponga che la `items` stringa XML includa anche questi attributi: 
+In questo esempio si supponga che `items` la stringa XML contenga anche questi attributi: 
 
 * `expired='true' price='12'`
 * `expired='false' price='40'`
@@ -4934,7 +4934,7 @@ In questo esempio si supponga che la `items` stringa XML includa anche questi at
 </produce>
 ```
 
-In questo esempio viene passata l'espressione XPath, `'//name[price>35]'` , per trovare tutti gli `name` elementi che includono `price > 35` :
+In questo esempio viene passata l'espressione `'//name[price>35]'` XPath, , per trovare tutti gli elementi con `name` `price > 35` :
 
 `xpath(xml(parameters('items')), '//name[price>35]')`
 
@@ -4942,7 +4942,7 @@ Ecco il risultato: `Honeycrisp`
 
 *Esempio 7*
 
-In questo esempio `items` si supponga che la stringa XML corrisponda a quella dell'esempio 1:
+In questo esempio si supponga che `items` la stringa XML sia la stessa dell'esempio 1:
 
 ```xml
 <?xml version="1.0"?>
@@ -4960,7 +4960,7 @@ In questo esempio `items` si supponga che la stringa XML corrisponda a quella de
 </produce>
 ```
 
-In questo esempio vengono individuati i nodi che corrispondono al `<count></count>` nodo e vengono aggiunti i valori del nodo con la `sum()` funzione:
+Questo esempio trova i nodi che `<count></count>` corrispondono al nodo e aggiunge i valori dei nodi con la `sum()` funzione :
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
@@ -4968,13 +4968,13 @@ Ecco il risultato: `30`
 
 *Esempio 8*
 
-In questo esempio si supponga di avere questa stringa XML, che include lo spazio dei nomi del documento XML `xmlns="https://contoso.com"` :
+In questo esempio si supponga di avere questa stringa XML, che include lo spazio dei nomi del documento XML `xmlns="https://contoso.com"` , :
 
 ```xml
 <?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-Queste espressioni usano un'espressione XPath `/*[name()="file"]/*[name()="location"]` o `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]` per trovare i nodi che corrispondono al `<location></location>` nodo. Questi esempi illustrano la sintassi usata nella finestra di progettazione dell'app per la logica o nell'editor espressioni:
+Queste espressioni usano l'espressione XPath `/*[name()="file"]/*[name()="location"]` o per trovare i nodi che `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]` corrispondono al `<location></location>` nodo. Questi esempi illustrano la sintassi che si usa in Progettazione app per la logica o nell'editor espressioni:
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
 * `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
@@ -4985,9 +4985,9 @@ Ecco il nodo del risultato che corrisponde al nodo `<location></location>`:
 
 > [!IMPORTANT]
 >
-> Se si lavora nella visualizzazione codice, usare il carattere di escape per le virgolette doppie (") usando il carattere barra rovesciata ( \\ ). 
+> Se si usa la visualizzazione codice, usare un carattere di escape per le virgolette doppie (") usando il carattere barra rovesciata ( \\ ). 
 > Ad esempio, è necessario usare caratteri escape quando si serializza un'espressione come stringa JSON. 
-> Tuttavia, se si lavora nella finestra di progettazione dell'app per la logica o nell'editor espressioni, non è necessario eseguire l'escape delle virgolette doppie perché il carattere barra rovesciata viene aggiunto automaticamente alla definizione sottostante, ad esempio:
+> Tuttavia, se si lavora in Progettazione app per la logica o nell'editor di espressioni, non è necessario usare caratteri di escape per le virgolette doppie perché il carattere barra rovesciata viene aggiunto automaticamente alla definizione sottostante, ad esempio:
 > 
 > * Visualizzazione Codice: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 >
@@ -4995,7 +4995,7 @@ Ecco il nodo del risultato che corrisponde al nodo `<location></location>`:
 
 *Esempio 9*
 
-Nell'esempio 8, in questo esempio viene utilizzata l'espressione XPath, `'string(/*[name()="file"]/*[name()="location"])'` , per trovare il valore nel `<location></location>` nodo:
+Nell'esempio 8 seguente viene utilizzata l'espressione XPath , , per `'string(/*[name()="file"]/*[name()="location"])'` trovare il valore nel nodo `<location></location>` :
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 

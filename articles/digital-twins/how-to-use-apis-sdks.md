@@ -1,97 +1,97 @@
 ---
 title: Usare le API e gli SDK di Gemelli digitali di Azure
 titleSuffix: Azure Digital Twins
-description: Vedere come usare le API dei dispositivi gemelli digitali di Azure, incluso via SDK.
+description: Informazioni su come usare le API Gemelli digitali di Azure, anche tramite SDK.
 author: baanders
 ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f4f3fc8c928cd284088cc51120f1a7b485b4fac0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efa5061a49978ed5e7766c0e7bf9b56a1e73cf5d
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104595346"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389758"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
-I dispositivi gemelli digitali di Azure sono dotati di API del **piano di controllo** e **API del piano dati** per gestire l'istanza e i relativi elementi. 
-* Le API del piano di controllo sono [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) e coprono le operazioni di gestione delle risorse come la creazione e l'eliminazione dell'istanza. 
-* Le API del piano dati sono API per i dispositivi gemelli digitali di Azure e vengono usate per operazioni di gestione dati come la gestione di modelli, gemelli e Graph.
+Gemelli digitali di Azure è dotato sia delle **API** del piano di controllo che delle **API** del piano dati per la gestione dell'istanza e dei relativi elementi. 
+* Le API del piano di controllo [Azure Resource Manager API arm (ARM)](../azure-resource-manager/management/overview.md) e coprono le operazioni di gestione delle risorse, ad esempio la creazione e l'eliminazione dell'istanza. 
+* Le API del piano dati sono Gemelli digitali di Azure API e vengono usate per operazioni di gestione dei dati, ad esempio la gestione di modelli, gemelli e il grafo.
 
-Questo articolo fornisce una panoramica delle API disponibili e i metodi per interagire con essi. È possibile usare le API REST direttamente con le loro spavalderia associate (tramite uno strumento come il [postazione](how-to-use-postman.md)) o tramite un SDK.
+Questo articolo offre una panoramica delle API disponibili e dei metodi per interagire con esse. È possibile usare le API REST direttamente con gli Swagger associati (tramite uno strumento come [Postman)](how-to-use-postman.md)o tramite un SDK.
 
 ## <a name="overview-control-plane-apis"></a>Panoramica: API del piano di controllo
 
-Le API del piano di controllo sono API [ARM](../azure-resource-manager/management/overview.md) usate per gestire l'istanza di dispositivi gemelli digitali di Azure nel suo complesso, in modo da coprire operazioni come la creazione o l'eliminazione dell'intera istanza. Questi vengono usati anche per creare ed eliminare gli endpoint.
+Le API del piano [](../azure-resource-manager/management/overview.md) di controllo sono API ARM usate per gestire l'istanza di Gemelli digitali di Azure nel suo complesso, quindi coprono operazioni come la creazione o l'eliminazione dell'intera istanza. Verranno usate anche per creare ed eliminare endpoint.
 
-La versione più recente dell'API del piano di controllo è _**2020-12-01**_.
+La versione più recente dell'API del piano di controllo _**è 2020-12-01.**_
 
 Per usare le API del piano di controllo:
-* È possibile chiamare direttamente le API facendo riferimento alla cartella spavalderia più recente nel [repository di spavalderia del piano di controllo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable). Questa cartella include anche una cartella di esempi che illustrano l'utilizzo.
-* È attualmente possibile accedere ad SDK per le API di controllo in...
-  - [**.NET (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([riferimento [generato automaticamente]](/dotnet/api/overview/azure/digitaltwins/management)) ([origine](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [**Java**](https://search.maven.org/search?q=a:azure-mgmt-digitaltwins) ([riferimento [generato automaticamente]](/java/api/overview/azure/digitaltwins)) ([origine](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins))
-  - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([origine](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
-  - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([origine](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
-  - [**Go**](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt) ([origine](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt))
+* È possibile chiamare direttamente le API facendo riferimento alla cartella Swagger più recente nel piano di controllo [Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable). Questa cartella include anche una cartella di esempi che illustrano l'utilizzo.
+* È attualmente possibile accedere agli SDK per le API di controllo in ...
+  - [**.NET (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([riferimento [generato automaticamente]](/dotnet/api/overview/azure/digitaltwins/management)) ([source](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
+  - [**Java**](https://search.maven.org/search?q=a:azure-mgmt-digitaltwins) ([riferimento [generato automaticamente]](/java/api/overview/azure/digitaltwins)) ([source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins))
+  - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
+  - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([source](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
+  - [**Go**](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt) ([source](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt))
 
-È anche possibile esercitare le API del piano di controllo interagendo con i dispositivi gemelli digitali di Azure tramite il [portale di Azure](https://portal.azure.com) e l' [interfaccia](how-to-use-cli.md)della riga di comando.
+È anche possibile usare le API del piano di controllo interagendo con Gemelli digitali di Azure tramite l'interfaccia portale di Azure [e](https://portal.azure.com) l'interfaccia della riga [di comando.](how-to-use-cli.md)
 
 ## <a name="overview-data-plane-apis"></a>Panoramica: API del piano dati
 
-Le API del piano dati sono le API di Azure Digital gemelli usate per gestire gli elementi all'interno dell'istanza di Azure Digital gemelli. Sono incluse operazioni come la creazione di route, il caricamento di modelli, la creazione di relazioni e la gestione dei dispositivi gemelli. Possono essere suddivise nelle categorie seguenti:
-* **DigitalTwinModels** : la categoria DigitalTwinModels contiene le API per gestire i [modelli](concepts-models.md) in un'istanza di dispositivi gemelli digitali di Azure. Le attività di gestione includono il caricamento, la convalida, il recupero e l'eliminazione di modelli creati in DTDL.
-* **DigitalTwins** : la categoria DigitalTwins contiene le API che consentono agli sviluppatori di creare, modificare ed eliminare i dispositivi [gemelli digitali](concepts-twins-graph.md) e le relative relazioni in un'istanza di dispositivi gemelli digitali di Azure.
-* **Query** : la categoria query consente agli sviluppatori [di individuare set di gemelli digitali nel grafico gemello tra le](how-to-query-graph.md) relazioni.
-* **Route di eventi** : la categoria di route degli eventi contiene le API per [indirizzare i dati](concepts-route-events.md), attraverso il sistema e i servizi downstream.
+Le API del piano dati sono le API Gemelli digitali di Azure usate per gestire gli elementi all'interno dell'istanza Gemelli digitali di Azure dati. Includono operazioni come la creazione di route, il caricamento di modelli, la creazione di relazioni e la gestione dei gemelli. Possono essere suddivisi in modo ampio nelle categorie seguenti:
+* **DigitalTwinModels:** la categoria DigitalTwinModels contiene le API per gestire i modelli [in](concepts-models.md) un'Gemelli digitali di Azure istanza. Le attività di gestione includono caricamento, convalida, recupero ed eliminazione dei modelli creati in DTDL.
+* **DigitalTwins:** la categoria DigitalTwins contiene le API che consentono [](concepts-twins-graph.md) agli sviluppatori di creare, modificare ed eliminare gemelli digitali e le relative relazioni in un Gemelli digitali di Azure istanza.
+* **Query:** la categoria Query consente agli [sviluppatori di trovare set di gemelli digitali nel grafo dei gemelli](how-to-query-graph.md) tra le relazioni.
+* **Route di** eventi: la categoria Route eventi contiene LE API per [instradare](concepts-route-events.md)i dati , attraverso il sistema e verso i servizi downstream.
 
-La versione più recente dell'API del piano dati è _**2020-10-31**_.
+La versione più recente dell'API del piano dati _**è 2020-10-31.**_
 
 Per usare le API del piano dati:
-* È possibile chiamare direttamente le API, da...
-   - riferimento alla cartella spavalderia più recente nel [repository di spavalderia del piano dati](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). Questa cartella include anche una cartella di esempi che illustrano l'utilizzo. 
-   - visualizzazione della [documentazione di riferimento](/rest/api/azure-digitaltwins/)per le API.
-* È possibile usare **.NET (C#) SDK**. Per utilizzare .NET SDK...
-   - è possibile visualizzare e aggiungere il pacchetto da NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
-   - è possibile visualizzare la [documentazione di riferimento dell'SDK](/dotnet/api/overview/azure/digitaltwins/client).
-   - è possibile trovare l'origine SDK, inclusa una cartella di esempi, in GitHub: [libreria client di dispositivi digitali gemelli di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - per visualizzare informazioni dettagliate ed esempi di utilizzo, continuare con la sezione [*.NET (C#) SDK (piano dati)*](#net-c-sdk-data-plane) di questo articolo.
-* È possibile usare **Java SDK**. Per utilizzare Java SDK...
-   - è possibile visualizzare e installare il pacchetto da Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
-   - è possibile visualizzare la [documentazione di riferimento dell'SDK](/java/api/overview/azure/digitaltwins/client)
-   - è possibile trovare l'origine SDK in GitHub: [libreria client di dispositivi digitali gemelli di Azure per Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
-* È possibile usare **JavaScript SDK**. Per utilizzare JavaScript SDK...
-   - è possibile visualizzare e installare il pacchetto da NPM: [libreria client dei componenti di base di Azure Digital gemelli per JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
-   - è possibile visualizzare la [documentazione di riferimento dell'SDK](/javascript/api/@azure/digital-twins-core/).
-   - è possibile trovare l'origine SDK in GitHub: [libreria client di Azure Digital Twins core per JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
+* È possibile chiamare le API direttamente, tramite...
+   - che fa riferimento alla cartella Swagger più recente nel [repo Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)del piano dati. Questa cartella include anche una cartella di esempi che illustrano l'utilizzo. 
+   - visualizzazione della documentazione [di riferimento dell'API](/rest/api/azure-digitaltwins/).
+* È possibile usare **.NET (C#) SDK.** Per usare .NET SDK...
+   - È possibile visualizzare e aggiungere il pacchetto da NuGet: [Azure.DigitalTwins.Core.](https://www.nuget.org/packages/Azure.DigitalTwins.Core) 
+   - È possibile visualizzare la documentazione [di riferimento dell'SDK](/dotnet/api/overview/azure/digitaltwins/client).
+   - È possibile trovare l'origine SDK, inclusa una cartella di esempi, in GitHub: Azure IoT client di Gemelli digitali [per .NET.](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) 
+   - È possibile visualizzare informazioni dettagliate ed esempi di utilizzo continuando con la sezione [*.NET (C#) SDK (piano dati)*](#net-c-sdk-data-plane) di questo articolo.
+* È possibile usare **Java SDK**. Per usare Java SDK...
+   - È possibile visualizzare e installare il pacchetto da Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
+   - è possibile visualizzare la documentazione [di riferimento dell'SDK](/java/api/overview/azure/digitaltwins/client)
+   - È possibile trovare l'origine SDK in GitHub: [Azure IoT libreria client di Gemelli digitali per Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
+* È possibile usare **JavaScript SDK**. Per usare JavaScript SDK...
+   - è possibile visualizzare e installare il pacchetto da npm: [libreria client di Azure Gemelli digitali di Azure Core per JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
+   - è possibile visualizzare la documentazione [di riferimento dell'SDK](/javascript/api/@azure/digital-twins-core/).
+   - È possibile trovare l'origine SDK in GitHub: [Libreria client di Azure Gemelli digitali di Azure Core per JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * È possibile usare **Python SDK**. Per usare Python SDK...
-   - è possibile visualizzare e installare il pacchetto da PyPi: [libreria client dei componenti di base di Azure Digital gemelli di Azure per Python](https://pypi.org/project/azure-digitaltwins-core/).
-   - è possibile visualizzare la [documentazione di riferimento dell'SDK](/python/api/azure-digitaltwins-core/azure.digitaltwins.core).
-   - è possibile trovare l'origine SDK in GitHub: [libreria client di Azure Digital Twins core per Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
-* È possibile generare un SDK per un altro linguaggio con autorest. Seguire le istruzioni in [*procedura: creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest*](how-to-create-custom-sdks.md).
+   - è possibile visualizzare e installare il pacchetto da PyPi: [Libreria client di Azure Gemelli digitali di Azure Core per Python](https://pypi.org/project/azure-digitaltwins-core/).
+   - è possibile visualizzare la documentazione [di riferimento dell'SDK](/python/api/azure-digitaltwins-core/azure.digitaltwins.core).
+   - È possibile trovare l'origine SDK in GitHub: [Libreria client di Azure Gemelli digitali di Azure Core per Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
+* È possibile generare un SDK per un altro linguaggio usando AutoRest. Seguire le istruzioni in Procedura: Creare SDK personalizzati per Gemelli digitali di Azure [*con AutoRest*](how-to-create-custom-sdks.md).
 
-È anche possibile esercitare le API del piano dati interagendo con i dispositivi gemelli digitali di Azure tramite l' [interfaccia](how-to-use-cli.md)della riga di comando.
+È anche possibile usare le API del piano data interagendo con Gemelli digitali di Azure tramite l'interfaccia della [riga di comando.](how-to-use-cli.md)
 
 ## <a name="net-c-sdk-data-plane"></a>.NET (C#) SDK (piano dati)
 
-Azure Digital Twins .NET (C#) SDK è parte di Azure SDK per .NET. È open source ed è basato sulle API dei piani dati di Azure Digital gemelli.
+L Gemelli digitali di Azure SDK .NET (C#) fa parte di Azure SDK per .NET. È open source e si basa sulle API Gemelli digitali di Azure del piano dati.
 
 > [!NOTE]
-> Per altre informazioni sulla progettazione di SDK, vedere i [principi di progettazione generali per gli SDK di Azure](https://azure.github.io/azure-sdk/general_introduction.html) e le [linee guida di progettazione .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html)specifiche.
+> Per altre informazioni sulla progettazione dell'SDK, vedere i principi generali di progettazione per gli SDK di [Azure](https://azure.github.io/azure-sdk/general_introduction.html) e le linee guida di progettazione [.NET specifiche.](https://azure.github.io/azure-sdk/dotnet_introduction.html)
 
-Per usare l'SDK, includere il pacchetto NuGet **Azure. DigitalTwins. Core** con il progetto. Sarà necessaria anche la versione più recente del pacchetto **Azure. Identity** . In Visual Studio è possibile aggiungere questi pacchetti usando Gestione pacchetti NuGet (a cui si accede tramite *strumenti > gestione pacchetti nuget > gestire i pacchetti NuGet per la soluzione*). In alternativa, è possibile usare lo strumento da riga di comando .NET con i comandi disponibili nei collegamenti al pacchetto NuGet seguenti per aggiungerli al progetto:
+Per usare l'SDK, includere il pacchetto NuGet **Azure.DigitalTwins.Core** con il progetto. Sarà anche necessaria la versione più recente del **pacchetto Azure.Identity.** In Visual Studio, è possibile aggiungere questi pacchetti usando il Gestione pacchetti NuGet (accessibile tramite Strumenti *> NuGet Gestione pacchetti > Gestire pacchetti NuGet per la soluzione*). In alternativa, è possibile usare lo strumento da riga di comando .NET con i comandi disponibili nei collegamenti al pacchetto NuGet seguenti per aggiungerli al progetto:
 * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Questo è il pacchetto per l'[SDK Gemelli digitali di Azure per .NET](/dotnet/api/overview/azure/digitaltwins/client). 
 * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Questa libreria fornisce strumenti che consentono di eseguire l'autenticazione in Azure.
 
-Per una procedura dettagliata sull'uso delle API, vedere l' [*esercitazione: scrivere codice per un'app client*](tutorial-code.md). 
+Per una procedura dettagliata sull'uso delle API nella pratica, vedere [*Esercitazione: Codificare un'app client*](tutorial-code.md). 
 
 ### <a name="net-sdk-usage-examples"></a>Esempi di utilizzo di .NET SDK
 
-Di seguito sono riportati alcuni esempi di codice che illustrano l'uso di .NET SDK.
+Ecco alcuni esempi di codice che illustrano l'uso di .NET SDK.
 
-Eseguire l'autenticazione per il servizio:
+Eseguire l'autenticazione nel servizio:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_basic":::
 
@@ -105,46 +105,46 @@ Elencare i modelli:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="GetModels":::
 
-Creazione di dispositivi gemelli:
+Creare gemelli:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
 
-Eseguire query sui gemelli e scorrere in ciclo i risultati:
+Eseguire query sui gemelli e scorrere i risultati:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="FullQuerySample":::
 
-Vedere l' [*esercitazione: scrivere codice di un'app client*](tutorial-code.md) per una procedura dettagliata del codice dell'app di esempio. 
+Vedere [*Esercitazione: Codificare un'app client*](tutorial-code.md) per una procedura dettagliata di questo codice dell'app di esempio. 
 
-È anche possibile trovare esempi aggiuntivi nel [repository GitHub per .NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
+È anche possibile trovare altri esempi nel [repository GitHub per .NET (C#) SDK.](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples)
 
 #### <a name="serialization-helpers"></a>Helper di serializzazione
 
-Gli helper di serializzazione sono funzioni di supporto disponibili nell'SDK per creare o deserializzare rapidamente i dati gemelli per l'accesso alle informazioni di base. Poiché i metodi di Core SDK restituiscono i dati gemelli come JSON per impostazione predefinita, può essere utile usare queste classi helper per suddividere ulteriormente i dati gemelli.
+Gli helper di serializzazione sono funzioni helper disponibili all'interno dell'SDK per la creazione o la deserializzazione rapida dei dati gemelli per l'accesso alle informazioni di base. Poiché i metodi SDK principali restituiscono dati gemelli come JSON per impostazione predefinita, può essere utile usare queste classi helper per suddividere ulteriormente i dati gemelli.
 
 Le classi helper disponibili sono:
-* `BasicDigitalTwin`: Rappresenta genericamente i dati principali di un dispositivo gemello digitale
-* `BasicDigitalTwinComponent`: Rappresenta in modo generico un componente nelle `Contents` proprietà di un oggetto `BasicDigitalTwin`
-* `BasicRelationship`: Rappresenta genericamente i dati principali di una relazione
-* `DigitalTwinsJsonPropertyName`: Contiene le costanti di stringa da usare per la serializzazione e la deserializzazione JSON per i tipi di dispositivi gemelli digitali personalizzati
+* `BasicDigitalTwin`: rappresenta in modo generico i dati di base di un gemello digitale
+* `BasicDigitalTwinComponent`: rappresenta in modo generico un componente nelle `Contents` proprietà di un oggetto `BasicDigitalTwin`
+* `BasicRelationship`: rappresenta in modo generico i dati principali di una relazione
+* `DigitalTwinsJsonPropertyName`: contiene le costanti stringa da usare nella serializzazione e deserializzazione JSON per i tipi di gemelli digitali personalizzati
 
-##### <a name="deserialize-a-digital-twin"></a>Deserializzare un dispositivo gemello digitale
+##### <a name="deserialize-a-digital-twin"></a>Deserializzare un gemello digitale
 
-È sempre possibile deserializzare i dati gemelli usando la libreria JSON preferita, ad esempio `System.Text.Json` o `Newtonsoft.Json` . Per l'accesso di base a un dispositivo gemello, le classi helper possono renderle più convenienti.
+È sempre possibile deserializzare i dati gemelli usando la libreria JSON di propria scelta, ad `System.Text.Json` esempio o `Newtonsoft.Json` . Per l'accesso di base a un gemello, le classi helper possono rendere questa operazione più pratica.
 
-La `BasicDigitalTwin` classe helper consente inoltre di accedere alle proprietà definite nel dispositivo gemello, tramite un `Dictionary<string, object>` . Per elencare le proprietà del dispositivo gemello, è possibile usare:
+La `BasicDigitalTwin` classe helper consente anche di accedere alle proprietà definite nel dispositivo gemello, tramite un oggetto `Dictionary<string, object>` . Per elencare le proprietà del gemello, è possibile usare:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
 
 > [!NOTE]
-> `BasicDigitalTwin` utilizza `System.Text.Json` gli attributi. Per utilizzare con la `BasicDigitalTwin` [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true), è necessario inizializzare il client con il costruttore predefinito oppure, se si desidera personalizzare l'opzione del serializzatore, utilizzare [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
+> `BasicDigitalTwin` usa `System.Text.Json` attributi. Per usare con `BasicDigitalTwin` [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true), è necessario inizializzare il client con il costruttore predefinito oppure, se si vuole personalizzare l'opzione serializer, usare [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
 
-##### <a name="create-a-digital-twin"></a>Creare un dispositivo gemello digitale
+##### <a name="create-a-digital-twin"></a>Creare un gemello digitale
 
-Utilizzando la `BasicDigitalTwin` classe, è possibile preparare i dati per la creazione di un'istanza del dispositivo gemello:
+Usando la `BasicDigitalTwin` classe , è possibile preparare i dati per la creazione di un'istanza del dispositivo gemello:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
 
-Il codice precedente è equivalente alla variante "Manual" riportata di seguito:
+Il codice precedente equivale alla variante "manuale" seguente:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
@@ -154,56 +154,58 @@ Il codice precedente è equivalente alla variante "Manual" riportata di seguito:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
 
-La `BasicRelationship` classe helper consente inoltre di accedere alle proprietà definite nella relazione, tramite un oggetto `IDictionary<string, object>` . Per elencare le proprietà, è possibile usare:
+La `BasicRelationship` classe helper consente anche di accedere alle proprietà definite nella relazione, tramite un oggetto `IDictionary<string, object>` . Per elencare le proprietà, è possibile usare:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
 
 ##### <a name="create-a-relationship"></a>Creare una relazione
 
-Utilizzando la `BasicRelationship` classe, è inoltre possibile preparare i dati per la creazione di relazioni in un'istanza gemella:
+Usando la `BasicRelationship` classe , è anche possibile preparare i dati per la creazione di relazioni in un'istanza gemella:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
-##### <a name="create-a-patch-for-twin-update"></a>Creare una patch per l'aggiornamento dei dispositivi gemelli
+##### <a name="create-a-patch-for-twin-update"></a>Creare una patch per l'aggiornamento gemello
 
-Le chiamate di aggiornamento per i dispositivi gemelli e le relazioni usano la struttura [patch JSON](http://jsonpatch.com/) . Per creare elenchi di operazioni patch JSON, è possibile usare `JsonPatchDocument` come illustrato di seguito.
+Le chiamate di aggiornamento per i gemelli e le relazioni usano [la struttura della patch JSON.](http://jsonpatch.com/) Per creare elenchi di operazioni di patch JSON, è possibile usare come `JsonPatchDocument` illustrato di seguito.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
 ## <a name="general-apisdk-usage-notes"></a>Note generali sull'utilizzo di API/SDK
 
 > [!NOTE]
-> Si noti che i dispositivi gemelli digitali di Azure attualmente non supportano la **condivisione di risorse tra le origini (CORS)**. Per ulteriori informazioni sulle strategie di effetto e risoluzione, vedere la sezione relativa alla [*condivisione delle risorse tra le origini (CORS)*](concepts-security.md#cross-origin-resource-sharing-cors) di *concetti relativi alla sicurezza per le soluzioni di dispositivi gemelli digitali di Azure*.
+> Si noti che Gemelli digitali di Azure attualmente non supporta la condivisione di risorse tra le origini **(CORS).** Per altre informazioni sulle strategie di impatto e risoluzione, vedere la sezione [*Cross-Origin Resource Sharing (CORS)*](concepts-security.md#cross-origin-resource-sharing-cors) di *Concepts: Security for Gemelli digitali di Azure solutions*.
 
-L'elenco seguente fornisce informazioni aggiuntive e linee guida generali per l'uso delle API e degli SDK.
+L'elenco seguente fornisce informazioni dettagliate aggiuntive e linee guida generali per l'uso delle API e degli SDK.
 
-* È possibile usare uno strumento di testing HTTP REST, ad esempio il post per effettuare chiamate dirette alle API dei dispositivi gemelli digitali di Azure. Per ulteriori informazioni su questo processo, vedere [*procedura: effettuare richieste con il post*](how-to-use-postman.md).
-* Per usare l'SDK, creare un'istanza della `DigitalTwinsClient` classe. Il costruttore richiede credenziali che possono essere ottenute con diversi metodi di autenticazione nel `Azure.Identity` pacchetto. Per ulteriori informazioni `Azure.Identity` , vedere la relativa [documentazione dello spazio dei nomi](/dotnet/api/azure.identity). 
-* Potrebbe risultare `InteractiveBrowserCredential` utile durante l'introduzione, ma sono disponibili diverse altre opzioni, incluse le credenziali per l' [identità gestita](/dotnet/api/azure.identity.interactivebrowsercredential), che è possibile usare per autenticare le [funzioni di Azure configurate con MSI](../app-service/overview-managed-identity.md?tabs=dotnet) nei dispositivi gemelli digitali di Azure. Per ulteriori informazioni su `InteractiveBrowserCredential` , vedere la relativa documentazione relativa alla [classe](/dotnet/api/azure.identity.interactivebrowsercredential).
-* Tutte le chiamate all'API del servizio sono esposte come funzioni membro sulla `DigitalTwinsClient` classe.
-* Tutte le funzioni del servizio sono disponibili in versioni sincrone e asincrone.
-* Tutte le funzioni del servizio generano un'eccezione per qualsiasi stato di restituzione 400 o superiore. Assicurarsi di eseguire il wrapping delle chiamate in una `try` sezione e intercettare almeno `RequestFailedExceptions` . Per ulteriori informazioni su questo tipo di eccezione, vedere [qui](/dotnet/api/azure.requestfailedexception).
-* La maggior parte dei metodi di servizio restituisce `Response<T>` o ( `Task<Response<T>>` per le chiamate asincrone), dove `T` è la classe dell'oggetto restituito per la chiamata al servizio. La [`Response`](/dotnet/api/azure.response-1) classe incapsula il risultato del servizio e Visualizza i valori restituiti nel `Value` campo.  
-* I metodi del servizio con risultati di paging restituiscono `Pageable<T>` o `AsyncPageable<T>` come risultati. Per ulteriori informazioni sulla `Pageable<T>` classe, vedere [qui](/dotnet/api/azure.pageable-1). per ulteriori informazioni su `AsyncPageable<T>` , vedere [qui](/dotnet/api/azure.asyncpageable-1).
-* È possibile scorrere i risultati di paging usando un `await foreach` ciclo. Per ulteriori informazioni su questo processo, vedere [qui](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
-* L'SDK sottostante è `Azure.Core` . Per informazioni di riferimento sull'infrastruttura e sui tipi SDK, vedere la [documentazione dello spazio dei nomi di Azure](/dotnet/api/azure) .
+* È possibile usare uno strumento di test REST HTTP come Postman per effettuare chiamate dirette Gemelli digitali di Azure API. Per altre informazioni su questo processo, vedere [*Procedura: Effettuare richieste con Postman*](how-to-use-postman.md).
+* Per usare l'SDK, creare un'istanza della `DigitalTwinsClient` classe . Il costruttore richiede credenziali che possono essere ottenute con un'ampia gamma di metodi di autenticazione nel `Azure.Identity` pacchetto. Per altre informazioni su `Azure.Identity` , vedere la relativa documentazione sullo spazio dei [nomi](/dotnet/api/azure.identity). 
+* È possibile trovare utile durante l'introduzione, ma esistono diverse altre opzioni, tra cui le credenziali per l'identità gestita, che probabilmente verranno usate per autenticare le funzioni di Azure impostate con l'identità del servizio gestito in `InteractiveBrowserCredential` Gemelli digitali di Azure. [](/dotnet/api/azure.identity.interactivebrowsercredential) [](../app-service/overview-managed-identity.md?tabs=dotnet) Per altre informazioni su `InteractiveBrowserCredential` , vedere la documentazione della [classe](/dotnet/api/azure.identity.interactivebrowsercredential).
+* Le richieste alle API Gemelli digitali di Azure richiedono un utente o un'entità servizio che fa parte dello stesso tenant [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) in cui risiede l'istanza Gemelli digitali di Azure. Per impedire agli attori non autorizzati di analizzare gli URL per individuare la posizione in cui si trovano le istanze di Gemelli digitali di Azure, alle richieste con token di accesso dall'esterno del tenant di origine verrà restituito un messaggio di errore "404 Sub-Domain non trovato". Questo errore verrà  restituito anche se all'utente o all'entità servizio è stato assegnato un ruolo Gemelli digitali di Azure Data Owner o Gemelli digitali di Azure Data Reader tramite Azure AD [Collaborazione B2B.](../active-directory/external-identities/what-is-b2b.md)
+* Tutte le chiamate API del servizio vengono esposte come funzioni membro nella `DigitalTwinsClient` classe .
+* Tutte le funzioni del servizio esistono in versioni sincrone e asincrone.
+* Tutte le funzioni del servizio generano un'eccezione per qualsiasi stato restituito di 400 o superiore. Assicurarsi di eseguire il wrapping delle chiamate in `try` una sezione e intercettare almeno `RequestFailedExceptions` . Per altre informazioni su questo tipo di eccezione, vedere [qui](/dotnet/api/azure.requestfailedexception).
+* La maggior parte dei metodi `Response<T>` di servizio restituisce o ( per le chiamate `Task<Response<T>>` asincrone), dove `T` è la classe dell'oggetto restituito per la chiamata al servizio. La [`Response`](/dotnet/api/azure.response-1) classe incapsula la restituzione del servizio e presenta i valori restituiti nel `Value` relativo campo .  
+* I metodi del servizio con risultati di cui è stato paginato `Pageable<T>` restituiscono `AsyncPageable<T>` o come risultati. Per altre informazioni sulla `Pageable<T>` classe , vedere [qui](/dotnet/api/azure.pageable-1). Per altre informazioni su , `AsyncPageable<T>` vedere [qui](/dotnet/api/azure.asyncpageable-1).
+* È possibile eseguire l'iterazione dei risultati di paginazione usando un `await foreach` ciclo . Per altre informazioni su questo processo, vedere [qui](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
+* L'SDK sottostante è `Azure.Core` . Per informazioni di [riferimento sull'infrastruttura](/dotnet/api/azure) e sui tipi dell'SDK, vedere la documentazione dello spazio dei nomi di Azure.
 
-I metodi del servizio restituiscono oggetti fortemente tipizzati laddove possibile. Tuttavia, poiché i dispositivi gemelli digitali di Azure si basano sui modelli configurati in modo personalizzato dall'utente in fase di esecuzione (tramite i modelli DTDL caricati nel servizio), molte API del servizio accettano e restituiscono i dati gemelli in formato JSON.
 
-## <a name="monitor-api-metrics"></a>Monitorare le metriche API
+I metodi del servizio restituiscono oggetti fortemente tipizzato laddove possibile. Tuttavia, poiché Gemelli digitali di Azure è basato su modelli configurati dall'utente in fase di esecuzione (tramite modelli DTDL caricati nel servizio), molte API del servizio accettano e restituiscono dati gemelli in formato JSON.
 
-Le metriche API, ad esempio richieste, latenza e percentuale di errori, possono essere visualizzate nel [portale di Azure](https://portal.azure.com/). 
+## <a name="monitor-api-metrics"></a>Monitorare le metriche dell'API
 
-Dalla Home page del portale, cercare l'istanza di Azure Digital gemelli per recuperare i dettagli. Selezionare l'opzione **metrica** dal menu dell'istanza di Azure Digital gemelli per visualizzare la pagina *metrica* .
+Le metriche delle API, ad esempio le richieste, la latenza e la frequenza degli errori, possono essere visualizzate nel [portale di Azure](https://portal.azure.com/). 
 
-:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot che mostra la pagina delle metriche per i dispositivi gemelli digitali di Azure":::
+Dalla home page del portale cercare l'istanza Gemelli digitali di Azure per visualizzarne i dettagli. Selezionare **l'opzione** Metriche dal menu Gemelli digitali di Azure'istanza per visualizzare la *pagina* Metriche.
+
+:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot che mostra la pagina delle metriche per Gemelli digitali di Azure":::
 
 Da qui è possibile visualizzare le metriche per l'istanza e creare visualizzazioni personalizzate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come inviare richieste dirette alle API, vedere l'articolo:
-* [*Procedura: effettuare richieste con il post*](how-to-use-postman.md)
+Vedere come effettuare richieste dirette alle API usando Postman:
+* [*Procedura: Effettuare richieste con Postman*](how-to-use-postman.md)
 
-In alternativa, provare a usare .NET SDK creando un'app client con questa esercitazione:
+In caso contrario, è consigliabile usare .NET SDK creando un'app client con questa esercitazione:
 * [*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)

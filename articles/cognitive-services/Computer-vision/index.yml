@@ -27,7 +27,7 @@ conceptualContent:
     - title: Riconoscimento ottico dei caratteri
       links:
         - itemType: overview
-          text: Informazioni sull'OCR
+          text: Informazioni su OCR
           url: overview-ocr.md
         - itemType: quickstart
           text: Introduzione a OCR
@@ -36,11 +36,11 @@ conceptualContent:
           text: Chiamare l'API di lettura
           url: Vision-API-How-to-Topics/call-read-api.md
         - itemType: deploy
-          text: Usare il contenitore OCR di lettura
+          text: Usare il contenitore Read OCR
           url: computer-vision-how-to-install-containers.md
         - itemType: reference
           text: Informazioni di riferimento sulle API OCR
-          url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005'
+          url: 'https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005'
       footerLink:
         text: Più informazioni
         url: index-ocr.yml
@@ -50,7 +50,7 @@ conceptualContent:
           text: Informazioni sull'analisi delle immagini
           url: overview-image-analysis.md
         - itemType: quickstart
-          text: Inizia a usare l'analisi delle immagini
+          text: Introduzione all'analisi delle immagini
           url: quickstarts-sdk/image-analysis-client-library.md
         - itemType: concept
           text: Tag di contenuto
@@ -65,7 +65,7 @@ conceptualContent:
           text: Generare metadati per le immagini
           url: Tutorials/storage-lab-tutorial.md
         - itemType: reference
-          text: Informazioni di riferimento sull'API analisi immagini
+          text: Informazioni di riferimento sull'API di analisi delle immagini
           url: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b'
       footerLink:
         text: Più informazioni
@@ -95,7 +95,7 @@ conceptualContent:
         url: index-spatial-analysis.yml
 tools:
   title: SDK (Software Development Kit)
-  summary: Inizia a usare il Visione artificiale SDK nel tuo linguaggio di programmazione preferito.
+  summary: Introduzione all'SDK Visione artificiale nel linguaggio di programmazione preferito.
   items:
     - title: C#
       imageSrc: media/index/logo_Csharp.svg

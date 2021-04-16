@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 03/11/2021
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9ec0ffeb930fd9285f34ad9ba9e6aa606b15b5a2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ce08ebf473b11eecae327c7de050c791f5bc1b1a
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593889"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379010"
 ---
 # <a name="create-azure-subscriptions-programmatically"></a>Creare sottoscrizioni di Azure a livello di codice
 
@@ -36,9 +36,9 @@ API più recenti:
 - [Creare sottoscrizioni MCA](programmatically-create-subscription-microsoft-customer-agreement.md)
 - [Creare sottoscrizioni MPA](programmatically-create-subscription-microsoft-partner-agreement.md)
 
-Questi articoli illustrano anche come creare sottoscrizioni con un modello di Azure Resource Manager (modello ARM). Un modello ARM consente di automatizzare il processo di creazione della sottoscrizione.
+Questi articoli illustrano anche come creare sottoscrizioni con un modello di Azure Resource Manager (modello arm). Un modello arm consente di automatizzare il processo di creazione della sottoscrizione.
 
-Se si usano ancora le [API di anteprima](programmatically-create-subscription-preview.md), è possibile continuare a creare sottoscrizioni con loro. 
+Se si usano ancora le [API di anteprima,](programmatically-create-subscription-preview.md)è possibile continuare a creare sottoscrizioni con esse. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,22 +1,22 @@
 ---
 title: 'Esercitazione: Creare un gateway NAT - Interfaccia della riga di comando di Azure'
 titlesuffix: Azure Virtual Network NAT
-description: Per iniziare, creare un gateway NAT usando l'interfaccia della riga di comando di Azure.
+description: Introduzione alla creazione di un gateway NAT con l'interfaccia della riga di comando di Azure.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/10/2021
-ms.custom: template-tutorial
-ms.openlocfilehash: 5dd431a5a7377c409be0794511c5f402d1c5a3a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: template-tutorial, devx-track-azurecli
+ms.openlocfilehash: d312702f441cfe2ad94e347cadcdfc88d4cc2a72
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102663330"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479322"
 ---
-# <a name="tutorial-create-a-nat-gateway-using-the-azure-cli"></a>Esercitazione: creare un gateway NAT usando l'interfaccia della riga di comando di Azure
+# <a name="tutorial-create-a-nat-gateway-using-the-azure-cli"></a>Esercitazione: Creare un gateway NAT usando l'interfaccia della riga di comando di Azure
 
 Questa esercitazione illustra come usare il servizio NAT di rete virtuale di Azure. Verrà creato un gateway NAT per fornire connettività in uscita per una macchina virtuale in Azure. 
 
@@ -48,7 +48,7 @@ L'esempio seguente crea un gruppo di risorse denominato **myResourceGroupNAT** n
 
 ## <a name="create-the-nat-gateway"></a>Creare il gateway NAT
 
-In questa sezione vengono creati il gateway NAT e le risorse di supporto.
+In questa sezione viene creato il gateway NAT e le risorse di supporto.
 
 ### <a name="create-public-ip-address"></a>Creare un indirizzo IP pubblico
 
@@ -64,7 +64,7 @@ Per accedere a Internet, sono necessari uno o più indirizzi IP pubblici per il 
 
 ### <a name="create-nat-gateway-resource"></a>Creare una risorsa gateway NAT
 
-Creare un gateway NAT di Azure globale con [AZ Network NAT gateway create](/cli/azure/network/nat#az_network_nat_gateway_create). Il risultato di questo comando creerà una risorsa gateway denominata **myNATgateway** che usa l'indirizzo IP pubblico **myPublicIP**. Il timeout di inattività è impostato su 10 minuti.  
+Creare un gateway NAT di Azure globale con [az network nat gateway create.](/cli/azure/network/nat#az_network_nat_gateway_create) Il risultato di questo comando creerà una risorsa gateway denominata **myNATgateway** che usa l'indirizzo IP pubblico **myPublicIP.** Il timeout di inattività è impostato su 10 minuti.  
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -76,7 +76,7 @@ Creare un gateway NAT di Azure globale con [AZ Network NAT gateway create](/cli/
 
 ### <a name="create-virtual-network"></a>Creare una rete virtuale
 
-Creare una rete virtuale denominata **myVnet** con una **subnet denominata Subnet** [AZ Network VNET create](/cli/azure/network/vnet#az_network_vnet_create) nel gruppo di risorse **myResourceGroup** . Lo spazio degli indirizzi IP per la rete virtuale è **10.1.0.0/16**. La subnet all'interno della rete virtuale è **10.1.0.0/24**.
+Creare una rete virtuale denominata **myVnet** con una subnet denominata **mySubnet** [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) nel gruppo di risorse **myResourceGroup.** Lo spazio indirizzi IP per la rete virtuale è **10.1.0.0/16.** La subnet all'interno della rete virtuale **è 10.1.0.0/24.**
 
 ```azurecli-interactive
   az network vnet create \
@@ -90,9 +90,9 @@ Creare una rete virtuale denominata **myVnet** con una **subnet denominata Subne
 
 ### <a name="create-bastion-host"></a>Creare un host bastion
 
-Creare un host Bastion di Azure denominato **myBastionHost** per accedere alla macchina virtuale. 
+Creare un host Azure Bastion denominato **myBastionHost per** accedere alla macchina virtuale. 
 
-Usare [AZ Network VNET subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) per creare una subnet di Azure Bastion.
+Usare [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) per creare una subnet Azure Bastion rete virtuale.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -102,7 +102,7 @@ az network vnet subnet create \
     --address-prefixes 10.1.1.0/24
 ```
 
-Creare un indirizzo IP pubblico per l'host Bastion con [AZ Network Public-IP create](/cli/azure/network/public-ip#az_network_public_ip_create). 
+Creare un indirizzo IP pubblico per il bastion host [con az network public-ip create.](/cli/azure/network/public-ip#az_network_public_ip_create) 
 
 ```azurecli-interactive
 az network public-ip create \
@@ -111,7 +111,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Usare [AZ Network Bastion create](/cli/azure/network/bastion#az-network-bastion-create) per creare l'host Bastion. 
+Usare [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) per creare l'host bastion. 
 
 ```azurecli-interactive
 az network bastion create \
@@ -139,7 +139,7 @@ A questo punto, tutto il traffico in uscita verso le destinazioni Internet usa i
 
 ## <a name="virtual-machine"></a>Macchina virtuale
 
-In questa sezione verrà creata una macchina virtuale per testare il gateway NAT per verificare l'indirizzo IP pubblico della connessione in uscita.
+In questa sezione si creerà una macchina virtuale per testare il gateway NAT per verificare l'indirizzo IP pubblico della connessione in uscita.
 
 Creare la macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create).
 
@@ -154,21 +154,21 @@ az vm create \
     --vnet-name myVNet
 ```
 
-Attendere il completamento della creazione della macchina virtuale prima di procedere alla sezione successiva.
+Attendere il completamento della creazione della macchina virtuale prima di passare alla sezione successiva.
 
 ## <a name="test-nat-gateway"></a>Testare il gateway NAT
 
-In questa sezione verrà testato il gateway NAT. Si scoprirà prima l'indirizzo IP pubblico del gateway NAT. Ci si connette quindi alla macchina virtuale di test e si verifica la connessione in uscita tramite il gateway NAT.
+In questa sezione verrà testato il gateway NAT. Prima di tutto si scoprirà l'indirizzo IP pubblico del gateway NAT. Ci si connetterà quindi alla macchina virtuale di test e si verificherà la connessione in uscita tramite il gateway NAT.
     
 1. Accedere al [portale di Azure](https://portal.azure.com)
 
-1. Trovare l'indirizzo IP pubblico per il gateway NAT nella schermata **Panoramica** . Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine selezionare **myPublicIP**.
+1. Trovare l'indirizzo IP pubblico per il gateway NAT nella **schermata Panoramica.** Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine selezionare **myPublicIP**.
 
 2. Prendere nota dell'indirizzo IP pubblico:
 
     :::image type="content" source="./media/tutorial-create-nat-gateway-portal/find-public-ip.png" alt-text="Individuare l'indirizzo IP pubblico del gateway NAT" border="true":::
 
-3. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse** e quindi nell'elenco delle risorse selezionare **myVM** che si trova nel gruppo di risorse **myResourceGroupNAT** .
+3. Selezionare **Tutti i** servizi nel menu a sinistra, selezionare Tutte le risorse e quindi nell'elenco delle risorse selezionare **myVM** che si trova nel gruppo di risorse **myResourceGroupNAT.** 
 
 4. Nella pagina **Panoramica** selezionare **Connetti**, quindi **Bastion**.
 
@@ -180,13 +180,13 @@ In questa sezione verrà testato il gateway NAT. Si scoprirà prima l'indirizzo 
 
 8. Immettere **https://whatsmyip.com** nella barra degli indirizzi.
 
-9. Verificare che l'indirizzo IP visualizzato corrisponda all'indirizzo del gateway NAT annotato nel passaggio precedente:
+9. Verificare che l'indirizzo IP visualizzato corrisponda all'indirizzo del gateway NAT specificato nel passaggio precedente:
 
-    :::image type="content" source="./media/tutorial-create-nat-gateway-portal/my-ip.png" alt-text="Internet Explorer che mostra l'indirizzo IP in uscita esterno" border="true":::
+    :::image type="content" source="./media/tutorial-create-nat-gateway-portal/my-ip.png" alt-text="Internet Explorer ip esterno in uscita" border="true":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se non si intende continuare a usare questa applicazione, eliminare la rete virtuale, la macchina virtuale e il gateway NAT con i passaggi seguenti:
+Se non si continuerà a usare questa applicazione, eliminare la rete virtuale, la macchina virtuale e il gateway NAT con la procedura seguente:
 
 ```azurecli-interactive 
   az group delete \
@@ -195,6 +195,6 @@ Se non si intende continuare a usare questa applicazione, eliminare la rete virt
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla rete virtuale di Azure NAT, vedere:
+Per altre informazioni sui NAT di rete virtuale di Azure, vedere:
 > [!div class="nextstepaction"]
-> [Panoramica NAT della rete virtuale](nat-overview.md)
+> [NAT di rete virtuale panoramica](nat-overview.md)

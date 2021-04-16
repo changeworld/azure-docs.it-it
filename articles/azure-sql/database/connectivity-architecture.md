@@ -1,6 +1,6 @@
 ---
 title: Architettura della connettività del database SQL di Azure
-description: Questo documento illustra l'architettura di connettività del database SQL di Azure per le connessioni di database da Azure o all'esterno di Azure.
+description: Questo documento illustra l'architettura database SQL di Azure connettività per le connessioni di database dall'interno di Azure o dall'esterno di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,50 +12,50 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: 40962d0c104fc90385ba4b93852991c7b63e186a
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 3442e3003ef8a299beb88cd212602c8713915474
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961898"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499955"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architettura di connettività del database SQL di Azure e di Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Questo articolo illustra l'architettura dei vari componenti che indirizzano il traffico di rete a un server nel database SQL di Azure o in Azure sinapsi Analytics. Vengono inoltre illustrati i diversi criteri di connessione e il modo in cui i client si connettono da Azure e i client che si connettono dall'esterno di Azure.
+Questo articolo illustra l'architettura dei vari componenti che indirizzano il traffico di rete a un server database SQL di Azure o Azure Synapse Analytics. Illustra anche i diversi criteri di connessione e il modo in cui influisce sui client che si connettono dall'interno di Azure e i client che si connettono dall'esterno di Azure.
 
 > [!IMPORTANT]
-> Questo articolo *non* si applica a **Istanza gestita di SQL di Azure**. [Per un'istanza gestita](../managed-instance/connectivity-architecture-overview.md), vedere Architettura di connettività.
+> Questo articolo *non* si applica a **Istanza gestita di SQL di Azure**. Vedere Architettura [della connettività per un'istanza gestita.](../managed-instance/connectivity-architecture-overview.md)
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 
-Il diagramma seguente fornisce una panoramica generale dell'architettura di connettività.
+Il diagramma seguente offre una panoramica generale dell'architettura di connettività.
 
-![Diagramma che illustra una panoramica generale dell'architettura di connettività.](./media/connectivity-architecture/connectivity-overview.png)
+![Diagramma che mostra una panoramica generale dell'architettura di connettività.](./media/connectivity-architecture/connectivity-overview.png)
 
-I passaggi seguenti descrivono come viene stabilita una connessione al database SQL di Azure:
+I passaggi seguenti descrivono come viene stabilita una connessione per database SQL di Azure:
 
 - I client si connettono al gateway, che ha un indirizzo IP pubblico ed è in ascolto sulla porta 1433.
 - A seconda dei criteri di connessione effettivi, il gateway reindirizza o trasmette tramite proxy il traffico al cluster di database corretto.
-- All'interno del database il traffico del cluster viene inviato al database appropriato.
+- All'interno del cluster di database il traffico viene inoltrato al database appropriato.
 
 ## <a name="connection-policy"></a>Criteri di connessione
 
-I server del database SQL e di Azure sinapsi supportano le tre opzioni seguenti per l'impostazione dei criteri di connessione del server:
+I server nel database SQL e Azure Synapse supportano le tre opzioni seguenti per l'impostazione dei criteri di connessione del server:
 
-- **Reindirizzamento (scelta consigliata):** I client stabiliscono connessioni direttamente al nodo che ospita il database, con conseguente riduzione della latenza e della velocità effettiva migliorata. Per le connessioni per l'utilizzo di questa modalità, i client devono:
-  - Consentire le comunicazioni in uscita dal client a tutti gli indirizzi IP SQL di Azure nell'area sulle porte nell'intervallo 11000 11999. Usare i tag di servizio per SQL per semplificare la gestione.  
-  - Consentire le comunicazioni in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
+- **Reindirizzamento (scelta consigliata):** I client stabiliscono connessioni direttamente al nodo che ospita il database, con una latenza ridotta e una velocità effettiva migliorata. Per usare questa modalità per le connessioni, i client devono:
+  - Consentire le comunicazioni in uscita dal client a Azure SQL indirizzi IP nell'area sulle porte nell'intervallo 11000 11999. Usare i tag di servizio per SQL per semplificare la gestione.  
+  - Consentire le comunicazioni in uscita dal client database SQL di Azure indirizzi IP del gateway sulla porta 1433.
 
-- **Proxy:** In questa modalità, tutte le connessioni vengono inviate tramite proxy tramite i gateway del database SQL di Azure, con conseguente aumento della latenza e della velocità effettiva ridotta. Per le connessioni a usare questa modalità, i client devono consentire le comunicazioni in uscita dal client agli indirizzi IP del gateway del database SQL di Azure sulla porta 1433.
+- **Proxy:** In questa modalità, tutte le connessioni vengono proxy tramite i gateway database SQL di Azure, con un aumento della latenza e una velocità effettiva ridotta. Per consentire alle connessioni di usare questa modalità, i client devono consentire le comunicazioni in uscita dal client database SQL di Azure indirizzi IP del gateway sulla porta 1433.
 
-- **Impostazione predefinita:** Questo è il criterio di connessione attivo in tutti i server dopo la creazione, a meno che non si modifichi in modo esplicito i criteri di connessione a `Proxy` o `Redirect` . Il criterio predefinito è `Redirect` per tutte le connessioni client che provengono da Azure, ad esempio da una macchina virtuale di Azure, e `Proxy` per tutte le connessioni client che hanno origine all'esterno, ad esempio le connessioni dalla workstation locale.
+- **Impostazione predefinita:** Si tratta dei criteri di connessione in vigore in tutti i server dopo la creazione, a meno che non si modificano in modo esplicito i criteri di connessione in `Proxy` o `Redirect` . Il criterio predefinito è per tutte le connessioni client che hanno origine all'interno di Azure (ad esempio, da una macchina virtuale di Azure) e per tutte le connessioni client che hanno origine all'esterno (ad esempio, le connessioni dalla `Redirect` `Proxy` workstation locale).
 
-Se si preferisce la minor latenza e la maggiore velocità effettiva possibili, quindi, si consiglia di scegliere i criteri di connessione `Redirect` anziché `Proxy`. Tuttavia, sarà necessario soddisfare i requisiti aggiuntivi per consentire il traffico di rete come descritto in precedenza. Se il client è una macchina virtuale di Azure, è possibile eseguire questa operazione usando i gruppi di sicurezza di rete (NSG) con i [tag del servizio](../../virtual-network/network-security-groups-overview.md#service-tags). Se il client si connette da una workstation locale, potrebbe essere necessario collaborare con l'amministratore di rete per consentire il traffico di rete attraverso il firewall aziendale.
+Se si preferisce la minor latenza e la maggiore velocità effettiva possibili, quindi, si consiglia di scegliere i criteri di connessione `Redirect` anziché `Proxy`. Tuttavia, è necessario soddisfare i requisiti aggiuntivi per consentire il traffico di rete, come descritto in precedenza. Se il client è una macchina virtuale di Azure, è possibile eseguire questa operazione usando gruppi di sicurezza di rete (NSG) con [tag di servizio](../../virtual-network/network-security-groups-overview.md#service-tags). Se il client si connette da una workstation locale, potrebbe essere necessario collaborare con l'amministratore di rete per consentire il traffico di rete attraverso il firewall aziendale.
 
 ## <a name="connectivity-from-within-azure"></a>Connettività dall'interno di Azure
 
-Se ci si connette dall'interno di Azure, il criterio di connessione predefinito per le connessioni è `Redirect`. Un criterio di `Redirect` significa che dopo che la sessione TCP è stata stabilita nel database SQL di Azure, la sessione client viene quindi reindirizzata al cluster di database appropriato con una modifica all'indirizzo IP virtuale di destinazione da quello del gateway del database SQL di Azure a quello del cluster. Tutti i pacchetti successivi passano poi direttamente al cluster, ignorando il gateway del database SQL di Azure. Il diagramma seguente illustra il flusso del traffico.
+Se ci si connette dall'interno di Azure, il criterio di connessione predefinito per le connessioni è `Redirect`. Un criterio di indica che dopo che la sessione TCP è stata stabilita database SQL di Azure, la sessione client viene quindi reindirizzata al cluster di database giusto con una modifica all'INDIRIZZO IP virtuale di destinazione da quella del gateway database SQL di Azure a quella `Redirect` del cluster. Tutti i pacchetti successivi passano poi direttamente al cluster, ignorando il gateway del database SQL di Azure. Il diagramma seguente illustra il flusso del traffico.
 
 ![panoramica dell'architettura](./media/connectivity-architecture/connectivity-azure.png)
 
@@ -63,16 +63,16 @@ Se ci si connette dall'interno di Azure, il criterio di connessione predefinito 
 
 Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di connessione `Proxy` per impostazione predefinita. Il criterio `Proxy` significa che la sessione TCP viene stabilita tramite il gateway del database SQL di Azure e che tutti i pacchetti successivi passano attraverso il gateway. Il diagramma seguente illustra il flusso del traffico.
 
-![Diagramma che illustra il modo in cui la sessione TCP viene stabilita tramite il gateway del database SQL di Azure e tutti i pacchetti successivi vengono propagati tramite il gateway.](./media/connectivity-architecture/connectivity-onprem.png)
+![Diagramma che illustra come viene stabilita la sessione TCP tramite il gateway database SQL di Azure e tutti i pacchetti successivi vengono inviati tramite il gateway.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Aprire inoltre le porte TCP 1434 e 14000-14999 per abilitare [la connessione con DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac)
+> Aprire anche le porte TCP 1434 e 14000-14999 per abilitare la connessione con l'applicazione livello [dati](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac)
 
 ## <a name="gateway-ip-addresses"></a>Indirizzi IP del gateway
 
-La tabella seguente elenca gli indirizzi IP dei gateway per area. Per connettersi a un database SQL o a una sinapsi di Azure, è necessario consentire il traffico di rete da e verso **tutti** i gateway per l'area.
+La tabella seguente elenca gli indirizzi IP dei gateway per area. Per connettersi al database SQL o Azure Synapse, è necessario consentire il traffico di rete da e verso **tutti** i gateway per l'area.
 
-Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del traffico ai nuovi gateway in aree specifiche, fare quanto segue: [migrazione del traffico del database SQL di Azure ai gateway più recenti](gateway-migration.md)
+Informazioni dettagliate su come eseguire la migrazione del traffico ai nuovi gateway in aree specifiche sono disponibili nell'articolo seguente: Database SQL di Azure migrazione del traffico ai [gateway più nuovi](gateway-migration.md)
 
 | Nome area          | Indirizzi IP del gateway |
 | --- | --- |
@@ -83,7 +83,7 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Brasile meridionale         | 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | Canada centrale       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Canada orientale          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
-| Stati Uniti centrali           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
+| Stati Uniti centrali           | 13.67.215.62, 52.182.137.15, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
 | Cina orientale           | 139.219.130.35     |
 | Cina orientale 2         | 40.73.82.1         |
 | Cina settentrionale          | 139.219.15.17      |
@@ -115,9 +115,9 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Svizzera occidentale     | 51.107.152.0, 51.107.153.0 |
 | Emirati Arabi Uniti centrali          | 20.37.72.64        |
 | Emirati Arabi Uniti settentrionali            | 65.52.248.0        |
-| Regno Unito meridionale             | 51.140.184.11, 51.105.64.0 |
+| Regno Unito meridionale             | 51.140.184.11, 51.105.64.0, 51.140.144.36, 51.105.72.32 |
 | Regno Unito occidentale              | 51.141.8.11        |
-| Stati Uniti centro-occidentali      | 13.78.145.25, 13.78.248.43        |
+| Stati Uniti centro-occidentali      | 13.78.145.25, 13.78.248.43, 13.71.193.32, 13.71.193.33 |
 | Europa occidentale          | 40.68.37.158, 104.40.168.105, 52.236.184.163  |
 | Stati Uniti occidentali              | 104.42.238.205, 13.86.216.196   |
 | Stati Uniti occidentali 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
@@ -127,6 +127,6 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come modificare i criteri di connessione del database SQL di Azure per un server, vedere [conn-Policy](/cli/azure/sql/server/conn-policy).
+- Per informazioni su come modificare i criteri database SQL di Azure connessione per un server, vedere [conn-policy.](/cli/azure/sql/server/conn-policy)
 - Per informazioni sul comportamento della connessione al database SQL di Azure per i client che usano ADO.NET 4.5 o versione successiva, vedere [Porte successive alla 1433 per ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).
 - Per una panoramica generale sullo sviluppo di applicazioni, vedere [Panoramica dello sviluppo di applicazioni del database SQL](develop-overview.md).

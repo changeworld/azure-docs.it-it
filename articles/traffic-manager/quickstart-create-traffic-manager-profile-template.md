@@ -3,17 +3,19 @@ title: 'Avvio rapido: Creare un profilo di Gestione traffico usando un modello d
 description: Questo argomento di avvio rapido descrive come creare un profilo di Gestione traffico di Azure usando un modello di Azure Resource Manager.
 services: traffic-manager
 author: duongau
-ms.service: traffic-manager
-ms.topic: quickstart
-ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
-ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.service: traffic-manager
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 03342d33731ed29b60908044cd29d529aaa5677b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92676000"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531241"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Avvio rapido: Creare un profilo di Gestione traffico usando un modello di Resource Manager
 

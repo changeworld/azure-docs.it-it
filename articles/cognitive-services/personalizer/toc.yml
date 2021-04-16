@@ -3,7 +3,7 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Panoramica del personalizzatore
+    - name: Informazioni su Personalizza esperienze
       href: what-is-personalizer.md
     - name: Prezzi
       href: 'https://go.microsoft.com/fwlink/?linkid=2092154'
@@ -11,7 +11,7 @@
     - name: Novità
       href: whats-new.md
       displayName: 'release notes, service updates, videos'
-- name: Guida introduttiva al personalizzatore
+- name: Avvio rapido
   href: ./quickstart-personalizer-sdk.md
 - name: Esempi
   href: 'https://github.com/Azure-Samples/cognitive-services-personalizer-samples'
@@ -32,6 +32,12 @@
       href: how-to-manage-model.md
     - name: Analizzare con una valutazione offline
       href: how-to-offline-evaluation.md
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Configurare le reti virtuali
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/personalizer/context/context
+        - name: Usare chiavi gestite dal cliente
+          href: encrypt-data-at-rest.md
 - name: Concetti
   items:
     - name: Funzionamento di Personalizza esperienze
@@ -43,7 +49,7 @@
     - name: Terminologia
       href: terminology.md
       displayName: 'best practice, design'
-    - name: Nozioni fondamentali su personalizzatore
+    - name: Nozioni fondamentali su Personalizza esperienze
       items:
         - name: Azione e contesto delle funzionalità
           href: concepts-features.md
@@ -81,7 +87,7 @@
       displayName: 'jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency'
 - name: Riferimento
   items:
-    - name: API REST di personalizzazione
+    - name: API REST di Personalizza esperienze
       href: 'https://go.microsoft.com/fwlink/?linkid=2092082'
     - name: .NET
       items:
@@ -107,17 +113,17 @@
           href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Risorse
   items:
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Supporto di area
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformità e certificazione
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Moduli Microsoft Learn
+      href: 'https://docs.microsoft.com/learn/browse/?terms=personalizer'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
     - name: Risoluzione dei problemi
       href: troubleshooting.md
-    - name: Moduli di Learn
-      href: 'https://docs.microsoft.com/learn/browse/?terms=personalizer'
-    - name: Supporto di area
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-    - name: Conformità
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Crittografia
-      href: encrypt-data-at-rest.md
     - name: Aggiornamenti di Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
