@@ -5,30 +5,28 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/14/2021
 ms.author: banders
-ms.openlocfilehash: bd16bbbe33876a3c44b20c5d1756b83814f9b17d
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3e8f50efd04364483c32ecb8ef5020bdd053e55b
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601951"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515482"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 
-Le prenotazioni di Azure offrono la flessibilità necessaria a soddisfare le esigenze in continua evoluzione. È possibile scambiare prenotazioni per un'altra prenotazione dello stesso tipo. Ad esempio, è possibile restituire più prenotazioni di calcolo, tra cui host dedicato di Azure, soluzione VMware di Azure e macchine virtuali di Azure tra loro. In altre parole, i prodotti di prenotazione sono intercambiabili tra loro se sono dello stesso tipo di prenotazione. In un altro esempio, è possibile scambiare più tipi di prenotazione del database SQL, incluse le istanze gestite e Pool elastico tra loro.
+Le prenotazioni di Azure offrono la flessibilità necessaria a soddisfare le esigenze in continua evoluzione. È possibile scambiare prenotazioni per un'altra prenotazione dello stesso tipo. Ad esempio, è possibile restituire più prenotazioni di calcolo, tra cui host dedicato di Azure, soluzione Azure VMware e macchine virtuali di Azure contemporaneamente. In altre parole, i prodotti di prenotazione sono intercambiabili tra loro se sono dello stesso tipo di prenotazione. In un altro esempio è possibile scambiare più tipi di prenotazione di database SQL, tra cui istanze gestite e Pool elastico tra loro.
 
-Tuttavia, non è possibile scambiare prenotazioni non analoghe. Ad esempio, non è possibile scambiare una prenotazione di Cosmos DB per il database SQL.
+Tuttavia, non è possibile scambiare prenotazioni dissimili. Ad esempio, non è possibile scambiare una prenotazione Cosmos DB per il database SQL.
 
-È anche possibile scambiare una prenotazione per acquistare un'altra prenotazione di un tipo simile in un'area diversa. Ad esempio, è possibile scambiare una prenotazione che si trova negli Stati Uniti occidentali 2 per uno che si trova in Europa occidentale.
+È anche possibile scambiare una prenotazione per acquistare un'altra prenotazione di un tipo simile in un'area diversa. Ad esempio, è possibile scambiare una prenotazione negli Stati Uniti occidentali 2 con una nell'Europa occidentale.
 
-Quando si scambia una prenotazione, è possibile modificare il periodo di validità da un anno a tre anni.
+Quando si scambia una prenotazione, è possibile modificare il termine da un anno a tre anni.
 
 È anche possibile rimborsare le prenotazione, ma la somma totale dell'impegno di tutte le prenotazioni annullate nell'ambito di fatturazione, ad esempio Contratto Enterprise, Contratto del cliente Microsoft e Contratto Microsoft Partner, non può superare i 50.000 USD in una finestra di mobile di 12 mesi.
 
 La capacità riservata di Azure Databricks, la prenotazione della soluzione Azure VMware di CloudSimple, la prenotazione di Azure Red Hat Open Shift, i piani di Red Hat e i piani di SUSE Linux non sono idonei per i rimborsi.
-
-La funzionalità di scambio e annullamento self-service non è disponibile per i clienti US Government con Contratto Enterprise. Sono supportati altri tipi di sottoscrizione US Government, inclusi con pagamento in base al consumo e CSP (Cloud Solution Provider).
 
 > [!NOTE]
 > - **È necessario avere l'accesso proprietario all'ordine di prenotazione per richiedere lo scambio o il rimborso di una prenotazione esistente.** È possibile [Aggiungere o modificare gli utenti che possono gestire una prenotazione](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
@@ -47,22 +45,22 @@ La funzionalità di scambio e annullamento self-service non è disponibile per i
 
 Per rimborsare una prenotazione, aprire **Dettagli prenotazione** e selezionare **Rimborsa**.
 
-## <a name="exchange-multiple-reservations"></a>Scambia più prenotazioni
+## <a name="exchange-multiple-reservations"></a>Scambiare più prenotazioni
 
 È possibile restituire tipi simili di prenotazioni in un'unica azione.
 
-Quando si scambiano prenotazioni, la nuova quantità di valuta di acquisto deve essere maggiore dell'importo del rimborso. Se la nuova quantità di acquisto è inferiore all'importo del rimborso, si riceverà un errore. Se viene visualizzato l'errore, ridurre la quantità che si desidera restituire o aumentare l'importo da acquistare.
+Quando si scambiano prenotazioni, l'importo della nuova valuta di acquisto deve essere maggiore dell'importo del rimborso. Se il nuovo importo di acquisto è inferiore all'importo del rimborso, verrà visualizzato un errore. Se viene visualizzato l'errore, ridurre la quantità che si vuole restituire o aumentare la quantità da acquistare.
 
 1. Accedere al portale di Azure e passare a **Prenotazioni**.
-1. Nell'elenco delle prenotazioni selezionare la casella per ogni prenotazione da scambiare.
+1. Nell'elenco delle prenotazioni selezionare la casella per ogni prenotazione che si vuole scambiare.
 1. Nella parte superiore della pagina selezionare **Exchange**.
 1. Se necessario, rivedere la quantità da restituire per ogni prenotazione.
-1. Se si seleziona la quantità di riempimento automatica, è possibile scegliere di **rimborsare tutti** i dati per riempire l'elenco con la quantità totale di cui si è proprietari per ogni prenotazione o **ottimizzare l'utilizzo (7 giorni)** per riempire l'elenco con una quantità ottimizzata per l'utilizzo in base agli ultimi sette giorni di utilizzo. **Selezionare Applica**.
-1. Nella parte inferiore della pagina selezionare **Avanti: acquisto**.
-1. Nella scheda acquisto Selezionare i prodotti disponibili per i quali si desidera scambiare. È possibile selezionare più prodotti di tipi diversi.
-1. Nel riquadro selezionare il prodotto da acquistare selezionare i prodotti desiderati, quindi selezionare **Aggiungi al carrello** , quindi fare clic su **Chiudi**.
-1. Al termine, selezionare **Avanti: Revisione**.
-1. Esaminare le prenotazioni per restituire e le nuove prenotazioni da acquistare, quindi selezionare **conferma Exchange**.
+1. Se si seleziona la quantità restituita con  riempimento automatico, è possibile scegliere Rimborsa tutto per riempire l'elenco con la quantità completa di cui si è proprietari per ogni prenotazione o Ottimizza per l'utilizzo **(7 giorni)** per riempire l'elenco con una quantità ottimizzata per l'utilizzo in base agli ultimi sette giorni di utilizzo. **Selezionare Applica**.
+1. Nella parte inferiore della pagina selezionare **Avanti: Acquista**.
+1. Nella scheda acquisto selezionare i prodotti disponibili per cui si vuole eseguire lo scambio. È possibile selezionare più prodotti di tipi diversi.
+1. Nel riquadro Selezionare il prodotto da acquistare selezionare i prodotti desiderati, quindi selezionare Aggiungi al **carrello** e quindi **selezionare Chiudi**.
+1. Al termine, selezionare **Avanti: Rivedi**.
+1. Esaminare le prenotazioni da restituire e le nuove prenotazioni da acquistare e quindi selezionare **Conferma scambio**.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Archiviazione non Premium di Exchange per archiviazione Premium
 

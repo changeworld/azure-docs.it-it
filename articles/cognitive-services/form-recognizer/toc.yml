@@ -15,16 +15,20 @@
   items:
     - name: Introduzione alla libreria client o all'API REST
       href: quickstarts/client-library.md
-    - name: Usare lo strumento di assegnazione di etichette di esempio
+    - name: Usare lo strumento di etichettatura di esempio
       href: quickstarts/label-tool.md
 - name: Esempi
   items:
-    - name: 'C#/.NET: Form riconoscimento SDK libreria client'
+    - name: 'C#/.NET: riconoscimento modulo SDK della libreria client'
       href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
-    - name: 'Java: Form Recognizer Client Library SDK'
+    - name: 'Java: riconoscimento modulo SDK della libreria client'
       href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
-    - name: 'Python: Form riconoscimento SDK libreria client'
+    - name: 'Python: riconoscimento modulo SDK della libreria client'
       href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
+    - name: SDK della libreria client riconoscimento modulo JavaScript
+      href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
+    - name: API REST e cURL
+      href: 'https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer'
 - name: Guide pratiche
   items:
     - name: Creare un set di dati di training
@@ -53,7 +57,7 @@
     - name: API di layout
       expanded: true
       items:
-        - name: Estrai dati del modulo
+        - name: Estrarre i dati del modulo
           href: concept-layout.md
     - name: Modelli personalizzati
       href: concept-custom.md
@@ -63,7 +67,7 @@
       href: concept-business-cards.md
     - name: Fatture
       href: concept-invoices.md
-    - name: Schede di identificazione
+    - name: Documenti di identità
       href: concept-identification-cards.md
 - name: Esercitazioni
   items:
@@ -73,11 +77,11 @@
       href: ../../search/cognitive-search-custom-skill-form.md
     - name: Usare il riconoscimento modulo con AI Builder
       href: tutorial-ai-builder.md
-    - name: Usare il riconoscimento dei moduli con funzioni di Azure
+    - name: Usare riconoscimento modulo con Funzioni di Azure
       href: tutorial-azure-function.md
 - name: Riferimento
   items:
-    - name: Form API Recognizer versione 2.1 Preview. 3
+    - name: riconoscimento modulo API v2.1 preview.3
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm'
     - name: API Riconoscimento modulo v2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'

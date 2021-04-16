@@ -4,13 +4,14 @@ services: azure-dev-spaces
 ms.date: 07/24/2019
 ms.topic: conceptual
 description: Informazioni su come abilitare Azure Dev Spaces in un cluster del servizio Azure Kubernetes e installare gli strumenti lato client.
+ms.custom: devx-track-azurecli
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 177496a53d204306b2b655b8736ce063dedf0f61
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 079a9e1b28b315457ac20d3aa9e7d29ce28fa077
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202247"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505361"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Abilitare Azure Dev Spaces in un cluster del servizio Azure Kubernetes e installare gli strumenti lato client
 
@@ -18,7 +19,7 @@ ms.locfileid: "102202247"
 
 Questo articolo illustra diversi modi per abilitare Azure Dev Spaces in un cluster del servizio Azure Kubernetes e installare gli strumenti lato client.
 
-## <a name="enable-azure-dev-spaces-using-the-cli"></a>Abilitare Azure Dev Spaces usando l'interfaccia della riga di comando
+## <a name="enable-azure-dev-spaces-using-the-azure-cli"></a>Abilitare Azure Dev Spaces tramite l'interfaccia della riga di comando di Azure
 
 Prima di poter abilitare Dev Spaces tramite l'interfaccia della riga di comando, è necessario disporre di:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito][az-portal-create-account].
@@ -59,7 +60,7 @@ Il comando `use-dev-spaces` installa anche l'interfaccia della riga di comando d
 * Installare il carico di lavoro Sviluppo di Azure in [Visual Studio 2019][visual-studio].
 * Scaricare e installare l'interfaccia della riga di comando di [Windows][cli-win], [Mac][cli-mac] o [Linux][cli-linux].
 
-## <a name="remove-azure-dev-spaces-using-the-cli"></a>Rimuovere Azure Dev Spaces usando l'interfaccia della riga di comando
+## <a name="remove-azure-dev-spaces-using-the-azure-cli"></a>Rimuovere Azure Dev Spaces'interfaccia della riga di comando di Azure
 
 Per rimuovere Azure Dev Spaces dal cluster del servizio Azure Kubernetes, usare il comando `azds remove`.
 
@@ -67,7 +68,7 @@ Per rimuovere Azure Dev Spaces dal cluster del servizio Azure Kubernetes, usare 
 azds remove -g MyResourceGroup -n MyAKS
 ```
 
-L'output di esempio seguente mostra come rimuovere Azure Dev Spaces dal cluster *MyAKS* .
+L'output di esempio seguente mostra la Azure Dev Spaces dal cluster *MyAKS.*
 
 ```azurecli
 $ azds remove -g MyResourceGroup -n MyAKS

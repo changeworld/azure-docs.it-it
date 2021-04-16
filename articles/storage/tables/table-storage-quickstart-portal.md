@@ -2,18 +2,20 @@
 title: 'Avvio rapido: Creare una tabella di archiviazione di Azure nel portale di Azure'
 description: In questa guida di avvio rapido si usa il servizio tabelle nel portale di Azure per creare una tabella di archiviazione di Azure. Viene anche illustrato come si può creare un account di archiviazione di Azure.
 services: storage
-ms.service: storage
 author: tamram
 ms.author: tamram
-ms.topic: quickstart
 ms.date: 12/02/2019
+ms.topic: quickstart
+ms.service: storage
 ms.subservice: tables
-ms.openlocfilehash: 93c6cb0f61185457ef0684d2a1ba691a0534aa13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: fabfd0031ddd8ff58af346274c454b107c00779b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96326775"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529485"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Guida introduttiva: Creare una tabella di archiviazione di Azure nel portale di Azure 
 

@@ -1,6 +1,6 @@
 ---
-title: Mostra i processi di azcopy | Microsoft Docs
-description: Questo articolo contiene informazioni di riferimento per il comando azcopy Jobs show.
+title: azcopy jobs show | Microsoft Docs
+description: Questo articolo fornisce informazioni di riferimento per il comando azcopy jobs show.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -8,24 +8,24 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 57970371b947c5240be97e58c10299d2f4dfe525
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a14546d8bfc50531902b5150d38ee5ce8b8b5769
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879072"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503355"
 ---
 # <a name="azcopy-jobs-show"></a>azcopy jobs show
 
-Mostra informazioni dettagliate per l'ID del processo specificato.
+Visualizza informazioni dettagliate per l'ID processo specificato.
 
 ## <a name="synopsis"></a>Riepilogo
 
-Se viene fornito solo l'ID processo senza flag, viene restituito il riepilogo dello stato di avanzamento del processo.
+Se viene fornito solo l'ID processo senza un flag, viene restituito il riepilogo dello stato del processo.
 
 I conteggi dei byte e la percentuale di completamento visualizzati quando si esegue questo comando riflettono solo i file completati nel processo. Non riflettono i file parzialmente completati.
 
-Se il `with-status` flag è impostato, verrà visualizzato l'elenco di trasferimenti nel processo con il valore specificato.
+Se il flag è impostato, verrà visualizzato l'elenco dei trasferimenti nel processo con `with-status` il valore specificato.
 
 ```azcopy
 azcopy jobs show [jobID] [flags]
@@ -34,24 +34,23 @@ azcopy jobs show [jobID] [flags]
 ## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-- [Trasferire i dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
+- [Trasferire dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
-- [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opzioni
 
 |Opzione|Descrizione|
 |--|--|
-|-h, --help|Visualizza il contenuto della Guida per il comando Mostra.|
-|--with-status stringa|Elencare solo i trasferimenti del processo con questo stato, i valori disponibili: Started, Success, failed|
+|-h, --help|Mostra il contenuto della Guida per il comando show.|
+|--with-status string|Elencare solo i trasferimenti del processo con questo stato, i valori disponibili: Avviato, Riuscito, Non riuscito|
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
 |Opzione|Descrizione|
 |---|---|
-|--Cap-Mbps float|Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.|
-|--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
-|--trusted-Microsoft-suffissi stringa   |Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
+|--cap-mbps float|Consente di massimare la velocità di trasferimento, in megabit al secondo. La velocità effettiva momentanea può variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non viene impostata.|
+|--output-type string|Formato dell'output del comando. Le opzioni disponibili includono: text, json. Il valore predefinito è "text".|
+|--trusted-microsoft-suffixes string   |Specifica suffissi di dominio aggiuntivi in Azure Active Directory i token di accesso.  Il valore predefinito è '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;*. core.usgovcloudapi.net'. Tutti gli elementi elencati vengono aggiunti all'impostazione predefinita. Per motivi di sicurezza, è consigliabile inserire Microsoft Azure domini qui. Separare più voci con punti e virgola.|
 
 ## <a name="see-also"></a>Vedi anche
 

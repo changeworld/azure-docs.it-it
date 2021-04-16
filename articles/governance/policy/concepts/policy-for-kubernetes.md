@@ -1,14 +1,15 @@
 ---
-title: Informazioni su criteri di Azure per Kubernetes
+title: Informazioni Criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale.
 ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4a6ca7fb5086401cab58d4bfb6a412089c11ef05
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9ca33c3a937b0a155928f20469830388a95a08e3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564306"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107506024"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Informazioni su Criteri di Azure per i cluster Kubernetes
 
@@ -25,7 +26,7 @@ Il servizio Criteri di Azure per Kubernetes supporta gli ambienti cluster seguen
 - [Motore del servizio Azure Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> I componenti aggiuntivi per il motore AKS e l'arco abilitato Kubernetes sono disponibili in **Anteprima**. Criteri di Azure per Kubernetes supporta solo i pool di nodi Linux e le definizioni dei criteri predefiniti. Le definizioni dei criteri predefinite sono nella categoria **Kubernetes**. Le definizioni dei criteri di anteprima limitati con effetto **EnforceOPAConstraint** e **EnforceRegoPolicy** e la categoria del **servizio Kubernetes** correlata sono _deprecate_. Usare invece la modalità di _controllo_ degli effetti e di _negazione_ con il provider di risorse `Microsoft.Kubernetes.Data` .
+> I componenti aggiuntivi per il motore del servizio Kubernetes e Kubernetes abilitati per Arc sono in **anteprima.** Criteri di Azure per Kubernetes supporta solo pool di nodi Linux e definizioni di criteri predefiniti. Le definizioni dei criteri predefinite sono nella categoria **Kubernetes**. Le definizioni dei criteri di anteprima limitate **con effetto EnforceOPAConstraint** e **EnforceRegoPolicy** e la categoria del servizio **Kubernetes** correlata sono _deprecate._ Usare invece gli effetti audit _e_ _deny con_ la modalità provider di risorse `Microsoft.Kubernetes.Data` .
 
 ## <a name="overview"></a>Panoramica
 
@@ -37,7 +38,7 @@ Per abilitare e usare Criteri di Azure con il cluster Kubernetes, eseguire le op
    - [Motore del servizio Azure Kubernetes](#install-azure-policy-add-on-for-aks-engine)
 
    > [!NOTE]
-   > Per problemi comuni relativi all'installazione, vedere [risoluzione dei problemi-componente aggiuntivo criteri di Azure](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
+   > Per problemi comuni relativi all'installazione, vedere [Risolvere i Criteri di Azure del componente aggiuntivo](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
 1. [Familiarizzare con il linguaggio di Criteri di Azure per Kubernetes](#policy-language)
 
@@ -47,45 +48,45 @@ Per abilitare e usare Criteri di Azure con il cluster Kubernetes, eseguire le op
 
 ## <a name="limitations"></a>Limitazioni
 
-Le limitazioni generali seguenti si applicano al componente aggiuntivo di criteri di Azure per i cluster Kubernetes:
+Le limitazioni generali seguenti si applicano al Criteri di Azure per i cluster Kubernetes:
 
-- Il componente aggiuntivo criteri di Azure per Kubernetes è supportato in Kubernetes versione **1,14** o successiva.
-- Il componente aggiuntivo criteri di Azure per Kubernetes può essere distribuito solo nei pool di nodi Linux
-- Sono supportate solo le definizioni di criteri predefinite
+- Criteri di Azure componente aggiuntivo per Kubernetes è supportato in Kubernetes **versione 1.14** o successiva.
+- Criteri di Azure componente aggiuntivo per Kubernetes può essere distribuito solo in pool di nodi Linux
+- Sono supportate solo le definizioni dei criteri predefiniti
 - Numero massimo di record non conformi per ogni criterio per cluster: **500**
-- Numero massimo di record non conformi per ogni sottoscrizione: **1 milione**
-- Le installazioni di Gatekeeper all'esterno del componente aggiuntivo criteri di Azure non sono supportate. Disinstallare i componenti installati da un'installazione precedente di gatekeeper prima di abilitare il componente aggiuntivo criteri di Azure.
-- I [motivi della mancata conformità](../how-to/determine-non-compliance.md#compliance-reasons) non sono disponibili per la `Microsoft.Kubernetes.Data` 
-   [modalità del provider di risorse](./definition-structure.md#resource-provider-modes). Usare [i dettagli del componente](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
-- Le [esenzioni](./exemption-structure.md) non sono supportate per le [modalità del provider di risorse](./definition-structure.md#resource-provider-modes).
+- Numero massimo di record non conformi per sottoscrizione: **1 milione**
+- Le installazioni di Gatekeeper all'esterno Criteri di Azure componente aggiuntivo non sono supportate. Disinstallare tutti i componenti installati da un'installazione precedente di Gatekeeper prima di abilitare Criteri di Azure componente aggiuntivo.
+- [I motivi della mancata conformità](../how-to/determine-non-compliance.md#compliance-reasons) non sono disponibili per la `Microsoft.Kubernetes.Data` 
+   [modalità provider di risorse](./definition-structure.md#resource-provider-modes). Usare [i dettagli del componente](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+- [Le esenzioni](./exemption-structure.md) non sono supportate per le [modalità del provider di risorse](./definition-structure.md#resource-provider-modes).
 
-Le limitazioni seguenti si applicano solo al componente aggiuntivo criteri di Azure per AKS:
+Le limitazioni seguenti si applicano solo al componente aggiuntivo Criteri di Azure per il server del supporto di Microsoft Windows:
 
-- Non è possibile abilitare entrambi i [criteri di sicurezza AKS Pod](../../../aks/use-pod-security-policies.md) e il componente aggiuntivo criteri di Azure per AKS. Per altre informazioni, vedere la pagina relativa al [limite di sicurezza di AKS Pod](../../../aks/use-azure-policy.md).
-- Spazi dei nomi esclusi automaticamente dal componente aggiuntivo criteri di Azure per la valutazione: _Kube-System_, _Gatekeeper-System_ e _AKS-periscopio_.
+- [I criteri di sicurezza del pod](../../../aks/use-pod-security-policies.md) del servizio Criteri di Azure del servizio Web Diaks non possono essere entrambi abilitati. Per altre informazioni, vedere [Limitazione della sicurezza dei pod del contenitore del server del server del supporto di Microsoft Windows](../../../aks/use-azure-policy.md).
+- Spazi dei nomi esclusi automaticamente Criteri di Azure componente aggiuntivo per la valutazione: _kube-system,_ _gatekeeper-system_ e _aks-periscope._
 
 ## <a name="recommendations"></a>Consigli
 
-Di seguito sono riportate indicazioni generali per l'uso del componente aggiuntivo criteri di Azure:
+Di seguito sono riportate indicazioni generali per l'uso Criteri di Azure componente aggiuntivo:
 
-- Il componente aggiuntivo di criteri di Azure richiede l'esecuzione di tre componenti Gatekeeper: 1 audit pod e 2 repliche Pod del webhook. Questi componenti utilizzano più risorse, in quanto il numero di risorse Kubernetes e le assegnazioni di criteri aumentano nel cluster, che richiede operazioni di controllo e imposizione.
+- Il Criteri di Azure componente aggiuntivo richiede tre componenti Gatekeeper per l'esecuzione: 1 pod di controllo e 2 repliche di pod webhook. Questi componenti utilizzano più risorse con l'aumentare del numero di risorse e assegnazioni di criteri Kubernetes nel cluster, che richiede operazioni di controllo e imposizione.
 
-  - Per meno di 500 pod in un singolo cluster con un massimo di 20 vincoli: 2 vCPU e 350 MB di memoria per ogni componente.
-  - Per più di 500 pod in un singolo cluster con un massimo di 40 vincoli: 3 vCPU e 600 MB di memoria per ogni componente.
+  - Per meno di 500 pod in un singolo cluster con un massimo di 20 vincoli: 2 vCKU e 350 MB di memoria per componente.
+  - Per più di 500 pod in un singolo cluster con un massimo di 40 vincoli: 3 vCKU e 600 MB di memoria per componente.
 
 - I pod Windows [non supportano i contesti di sicurezza](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods).
-  Pertanto, alcune delle definizioni di criteri di Azure, ad esempio la disattivazione dei privilegi radice, non possono essere Escalate nei Pod Windows e si applicano solo ai pod Linux.
+  Di conseguenza, alcune delle definizioni Criteri di Azure, ad esempio la disattivazione dei privilegi radice, non possono essere riassegnate nei pod Di Windows e si applicano solo ai pod Linux.
 
-La raccomandazione seguente si applica solo ad AKS e al componente aggiuntivo criteri di Azure:
+La raccomandazione seguente si applica solo al Criteri di Azure AKS:
 
-- Usare il pool di nodi `CriticalAddonsOnly` di sistema con Tain per pianificare i pod Gatekeeper. Per ulteriori informazioni, vedere [utilizzo dei pool di nodi di sistema](../../../aks/use-system-pools.md#system-and-user-node-pools).
-- Proteggere il traffico in uscita dai cluster AKS. Per altre informazioni, vedere [controllare il traffico in uscita per i nodi del cluster](../../../aks/limit-egress-traffic.md).
-- Se il cluster ha `aad-pod-identity` abilitato, i pod di identità gestita del nodo modificano i iptables dei nodi per intercettare le chiamate all'endpoint dei metadati dell'istanza di Azure. Questa configurazione significa che tutte le richieste effettuate all'endpoint dei metadati vengono intercettate da NMI anche se il Pod non lo usa `aad-pod-identity` . AzurePodIdentityException CRD può essere configurato per informare `aad-pod-identity` che qualsiasi richiesta all'endpoint di metadati originata da un pod che corrisponde alle etichette definite in CRD deve essere inoltrata senza alcuna elaborazione in NMI. I pod di sistema con `kubernetes.azure.com/managedby: aks` etichetta nello spazio dei nomi _Kube-System_ devono essere esclusi in `aad-pod-identity` tramite la configurazione di AzurePodIdentityException CRD. Per altre informazioni, vedere [disabilitare AAD-Pod-Identity per un pod o un'applicazione specifica](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
-  Per configurare un'eccezione, installare la [YAML di eccezione MIC](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
+- Usare il pool di nodi di sistema `CriticalAddonsOnly` con taint per pianificare i pod Gatekeeper. Per altre informazioni, vedere [Uso dei pool di nodi di sistema](../../../aks/use-system-pools.md#system-and-user-node-pools).
+- Proteggere il traffico in uscita dai cluster del servizio Gateway Gateway. Per altre informazioni, vedere [Controllare il traffico in uscita per i nodi del cluster.](../../../aks/limit-egress-traffic.md)
+- Se il cluster è `aad-pod-identity` abilitato, i pod identità gestita del nodo (NMI) modificano le tabelle IP dei nodi per intercettare le chiamate all'endpoint dei metadati dell'istanza di Azure. Questa configurazione indica che qualsiasi richiesta effettuata all'endpoint dei metadati viene intercettata da NMI anche se il pod non usa `aad-pod-identity` . AzurePodIdentityException CRD può essere configurato per informare che qualsiasi richiesta all'endpoint dei metadati proveniente da un pod che corrisponde alle etichette definite in CRD deve essere elaborata tramite proxy senza alcuna elaborazione `aad-pod-identity` in NMI. I pod di sistema con etichetta nello spazio dei nomi kube-system devono essere esclusi in configurando `kubernetes.azure.com/managedby: aks`  `aad-pod-identity` azurePodIdentityException CRD. Per altre informazioni, vedere [Disabilitare aad-pod-identity per un pod o un'applicazione specifica.](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)
+  Per configurare un'eccezione, installare [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Installare il componente aggiuntivo Criteri di Azure per il servizio Azure Kubernetes
 
-Prima di installare il componente aggiuntivo criteri di Azure o abilitare le funzionalità del servizio, la sottoscrizione deve abilitare i provider di risorse **Microsoft. PolicyInsights** .
+Prima di installare il Criteri di Azure o abilitare una delle funzionalità del servizio, la sottoscrizione deve abilitare i provider di risorse **Microsoft.PolicyInsights.**
 
 1. È necessaria l'interfaccia della riga di comando di Azure versione 2.12.0 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -93,7 +94,7 @@ Prima di installare il componente aggiuntivo criteri di Azure o abilitare le fun
 
    - Portale di Azure:
 
-     Registrare i provider di risorse **Microsoft. PolicyInsights** . Per le procedure, vedere [Provider e tipi di risorse](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+     Registrare **i provider di risorse Microsoft.PolicyInsights.** Per le procedure, vedere [Provider e tipi di risorse](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
    - Interfaccia della riga di comando di Azure:
 
@@ -104,7 +105,7 @@ Prima di installare il componente aggiuntivo criteri di Azure o abilitare le fun
      az provider register --namespace Microsoft.PolicyInsights
      ```
 
-1. Se sono state installate definizioni dei criteri di anteprima limitate, rimuovere il componente aggiuntivo con il pulsante **Disabilita** nel cluster AKS nella pagina **criteri** .
+1. Se sono state installate definizioni di criteri di anteprima limitate, rimuovere il componente aggiuntivo con il pulsante **Disabilita** nel cluster del servizio Web Disattesa nella **pagina** Criteri.
 
 1. La versione del cluster del servizio Azure Kubernetes deve essere la _1.14_ o successiva. Usare lo script seguente per verificare la versione del cluster del servizio Azure Kubernetes:
 
@@ -121,23 +122,23 @@ Una volta completati i passaggi dei prerequisiti, installare il componente aggiu
 
 - Portale di Azure
 
-  1. Avviare il servizio AKS nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
+  1. Avviare il servizio Servizio Kubernetes nel portale di Azure selezionando **Tutti** i servizi , quindi cercando e selezionando **Servizi Kubernetes**.
 
   1. Selezionare uno dei cluster del servizio Azure Kubernetes.
 
-  1. Selezionare **criteri** sul lato sinistro della pagina del servizio Kubernetes.
+  1. Selezionare **Criteri** sul lato sinistro della pagina del servizio Kubernetes.
 
   1. Nella pagina principale selezionare il pulsante **Abilita componente aggiuntivo**.
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
-     > Se il pulsante **Disabilita componente aggiuntivo** è abilitato e viene visualizzato un messaggio di avviso di migrazione V2, il componente aggiuntivo V1 è installato e deve essere rimosso prima di assegnare le definizioni dei criteri V2. Il componente aggiuntivo _deprecato_ V1 verrà automaticamente sostituito con il componente aggiuntivo V2 a partire dal 24 agosto,
-     > 2020. Sarà quindi necessario assegnare le nuove versioni V2 delle definizioni dei criteri. Per eseguire l'aggiornamento ora, attenersi alla seguente procedura:
+     > Se il **pulsante** Disabilita componente aggiuntivo è abilitato e viene visualizzato un messaggio di avviso di migrazione v2, il componente aggiuntivo v1 viene installato e deve essere rimosso prima di assegnare le definizioni dei criteri v2. Il _componente aggiuntivo_ v1 deprecato verrà sostituito automaticamente con il componente aggiuntivo v2 a partire dal 24 agosto.
+     > 2020. È quindi necessario assegnare nuove versioni v2 delle definizioni dei criteri. Per eseguire subito l'aggiornamento, seguire questa procedura:
      >
-     > 1. Verificare che nel cluster del servizio contenitore di Azure sia installato il componente aggiuntivo V1 visitando la pagina **criteri** del cluster AKS e che il cluster corrente usi il componente aggiuntivo criteri di Azure V1... Messaggio.
+     > 1. Convalidare che il cluster del servizio Criteri di Azure abbia  installato il componente aggiuntivo v1 visitando la pagina Criteri nel cluster del servizio Web di Servizio Web Disattesa con il messaggio "Il cluster corrente usa il componente aggiuntivo Criteri di Azure v1..." Messaggio.
      > 1. [Rimuovere il componente aggiuntivo](#remove-the-add-on-from-aks).
-     > 1. Selezionare il pulsante **Abilita componente** aggiuntivo per installare la versione V2 del componente aggiuntivo.
-     > 1. [Assegnare le versioni V2 delle definizioni dei criteri predefiniti V1](#assign-a-built-in-policy-definition)
+     > 1. Selezionare il **pulsante Abilita componente** aggiuntivo per installare la versione 2 del componente aggiuntivo.
+     > 1. [Assegnare le versioni v2 delle definizioni dei criteri predefiniti v1](#assign-a-built-in-policy-definition)
 
 - Interfaccia della riga di comando di Azure
 
@@ -171,7 +172,7 @@ Infine, verificare che sia installato il componente aggiuntivo più recente eseg
 }
 ```
 
-## <a name="install-azure-policy-add-on-for-azure-arc-enabled-kubernetes-preview"></a><a name="install-azure-policy-add-on-for-azure-arc-enabled-kubernetes"></a>Installare il componente aggiuntivo criteri di Azure per Azure Arc Enabled Kubernetes (anteprima)
+## <a name="install-azure-policy-add-on-for-azure-arc-enabled-kubernetes-preview"></a><a name="install-azure-policy-add-on-for-azure-arc-enabled-kubernetes"></a>Installare Criteri di Azure componente aggiuntivo per Azure Arc Kubernetes abilitato (anteprima)
 
 Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le funzionalità del servizio, la sottoscrizione deve abilitare il provider di risorse **Microsoft.PolicyInsights** e creare un'assegnazione di ruolo per l'entità servizio del cluster.
 
@@ -275,7 +276,7 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-## <a name="install-azure-policy-add-on-for-aks-engine-preview"></a><a name="install-azure-policy-add-on-for-aks-engine"></a>Installare il componente aggiuntivo criteri di Azure per il motore AKS (anteprima)
+## <a name="install-azure-policy-add-on-for-aks-engine-preview"></a><a name="install-azure-policy-add-on-for-aks-engine"></a>Installare Criteri di Azure componente aggiuntivo per il motore del servizio Web Di windows (anteprima)
 
 Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le funzionalità del servizio, la sottoscrizione deve abilitare il provider di risorse **Microsoft.PolicyInsights** e creare un'assegnazione di ruolo per l'entità servizio del cluster.
 
@@ -371,13 +372,13 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="policy-language"></a>Linguaggio dei criteri
 
-La struttura del linguaggio di Criteri di Azure per la gestione di Kubernetes segue quella delle definizioni dei criteri esistenti. Con la [modalità del provider di risorse](./definition-structure.md#resource-provider-modes) `Microsoft.Kubernetes.Data` , vengono usati gli effetti [Audit](./effects.md#audit) e [Deny](./effects.md#deny) per gestire i cluster Kubernetes. _Audit_ e _Deny_ devono fornire **informazioni dettagliate** sulle proprietà specifiche per l'uso del [Framework di vincolo OPA](https://github.com/open-policy-agent/frameworks/tree/master/constraint) e di Gatekeeper V3.
+La struttura del linguaggio di Criteri di Azure per la gestione di Kubernetes segue quella delle definizioni dei criteri esistenti. Con la [modalità provider di risorse](./definition-structure.md#resource-provider-modes) di , gli effetti di controllo e negazione vengono usati per gestire i cluster `Microsoft.Kubernetes.Data` Kubernetes. [](./effects.md#audit) [](./effects.md#deny) _Il_ controllo _e la_ negazione devono **fornire proprietà** dettagliate specifiche per l'uso [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) e Gatekeeper v3.
 
 Come parte delle proprietà _details.constraintTemplate_ e _details.constraint_ nella definizione dei criteri, Criteri di Azure passa gli URI di queste [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates) (CRD) al componente aggiuntivo. Rego è il linguaggio supportato da OPA e Gatekeeper per convalidare una richiesta al cluster Kubernetes. Grazie al supporto di uno standard esistente per la gestione di Kubernetes, Criteri di Azure consente di riutilizzare le regole esistenti e di associarle a Criteri di Azure per un'esperienza di creazione di report di conformità cloud unificata. Per altre informazioni, vedere [Informazioni su Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
 ## <a name="assign-a-built-in-policy-definition"></a>Assegnare una definizione di criteri predefinita
 
-Per assegnare una definizione di criteri al cluster Kubernetes, è necessario disporre delle operazioni di assegnazione dei criteri appropriate per il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). I ruoli predefiniti e il **proprietario** dei **criteri delle risorse** di Azure hanno queste operazioni. Per altre informazioni, vedere [autorizzazioni RBAC di Azure in criteri di Azure](../overview.md#azure-rbac-permissions-in-azure-policy).
+Per assegnare una definizione di criteri al cluster Kubernetes, è necessario assegnare le operazioni di assegnazione dei criteri appropriate per il controllo degli accessi in base al ruolo di Azure. I ruoli predefiniti di Azure **Collaboratore e** **Proprietario** dei criteri di risorsa hanno queste operazioni. Per altre informazioni, vedere [Autorizzazioni del controllo degli accessi in](../overview.md#azure-rbac-permissions-in-azure-policy)base al ruolo di Azure in Criteri di Azure .
 
 Trovare le definizioni dei criteri predefinite per la gestione del cluster eseguendo questa procedura nel portale di Azure:
 
@@ -396,7 +397,7 @@ Trovare le definizioni dei criteri predefinite per la gestione del cluster esegu
 
 1. Compilare i campi **Nome** e **Descrizione** dell'assegnazione dei criteri per identificarla più facilmente.
 
-1. Impostare l' [applicazione dei criteri](./assignment-structure.md#enforcement-mode) su uno dei valori riportati di seguito.
+1. Impostare [l'opzione Imposizione](./assignment-structure.md#enforcement-mode) criteri su uno dei valori seguenti.
 
    - **Abilitata**: applica i criteri nel cluster. Le richieste di ammissione Kubernetes con violazioni vengono rifiutate.
 
@@ -428,22 +429,22 @@ In un cluster Kubernetes, se uno spazio dei nomi ha una delle etichette seguenti
 > [!NOTE]
 > Anche se un amministratore del cluster può avere l'autorizzazione per creare e aggiornare i modelli di vincolo e le risorse vincolo installati dal componente aggiuntivo Criteri di Azure, questi scenari non sono supportati in quanto gli aggiornamenti manuali vengono sovrascritti. Gatekeeper continua a valutare i criteri che esistevano prima dell'installazione del componente aggiuntivo e dell'assegnazione delle definizioni dei criteri di Criteri di Azure.
 
-Ogni 15 minuti il componente aggiuntivo richiede un'analisi completa del cluster. Dopo aver raccolto tramite Gatekeeper i dettagli dell'analisi completa e di eventuali valutazioni in tempo reale delle modifiche apportate al cluster, il componente aggiuntivo restituisce i risultati a Criteri di Azure in modo che vengano inclusi nei [dettagli di conformità](../how-to/get-compliance-data.md) come qualsiasi assegnazione di Criteri di Azure. Durante il ciclo di controllo vengono restituiti solo i risultati delle assegnazioni di criteri attive. I risultati del controllo possono anche essere considerati come [violazioni](https://github.com/open-policy-agent/gatekeeper#audit) elencate nel campo di stato del vincolo non riuscito. Per informazioni dettagliate sulle risorse _non conformi_ , vedere [Dettagli dei componenti per le modalità del provider di risorse](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+Ogni 15 minuti il componente aggiuntivo richiede un'analisi completa del cluster. Dopo aver raccolto tramite Gatekeeper i dettagli dell'analisi completa e di eventuali valutazioni in tempo reale delle modifiche apportate al cluster, il componente aggiuntivo restituisce i risultati a Criteri di Azure in modo che vengano inclusi nei [dettagli di conformità](../how-to/get-compliance-data.md) come qualsiasi assegnazione di Criteri di Azure. Durante il ciclo di controllo vengono restituiti solo i risultati delle assegnazioni di criteri attive. I risultati del controllo possono anche essere considerati come [violazioni](https://github.com/open-policy-agent/gatekeeper#audit) elencate nel campo di stato del vincolo non riuscito. Per informazioni dettagliate _sulle risorse non conformi,_ vedere [Dettagli dei componenti per le modalità del provider di risorse](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 > [!NOTE]
 > Ogni report di conformità in Criteri di Azure per i cluster Kubernetes include tutte le violazioni verificatesi negli ultimi 45 minuti. Il timestamp indica il momento in cui si è verificata una violazione.
 
 Altre considerazioni:
 
-- Se la sottoscrizione del cluster è registrata nel centro sicurezza di Azure, i criteri Kubernetes del Centro sicurezza di Azure vengono applicati automaticamente al cluster.
+- Se la sottoscrizione del cluster è registrata con Centro sicurezza di Azure, Centro sicurezza di Azure criteri Kubernetes vengono applicati automaticamente al cluster.
 
-- Quando un criterio Deny viene applicato al cluster con risorse Kubernetes esistenti, la risorsa preesistente non conforme al nuovo criterio continua a essere eseguita. Quando la risorsa non conforme viene ripianificata in un nodo diverso, il gatekeeper blocca la creazione della risorsa.
+- Quando un criterio di rifiuto viene applicato al cluster con risorse Kubernetes esistenti, qualsiasi risorsa preesistenti non conforme ai nuovi criteri continua a essere eseguita. Quando la risorsa non conforme viene ripianificata in un nodo diverso, Gatekeeper blocca la creazione della risorsa.
 
-- Quando un cluster ha un criterio Deny per la convalida delle risorse, l'utente non visualizzerà un messaggio di rifiuto durante la creazione di una distribuzione. Si consideri, ad esempio, una distribuzione Kubernetes che contiene ReplicaSets e Pod. Quando un utente esegue `kubectl describe deployment $MY_DEPLOYMENT` , non restituisce un messaggio di rifiuto come parte degli eventi. Restituisce tuttavia `kubectl describe replicasets.apps $MY_DEPLOYMENT` gli eventi associati al rifiuto.
+- Quando un cluster dispone di un criterio di rifiuto che convalida le risorse, l'utente non visualizza un messaggio di rifiuto durante la creazione di una distribuzione. Si consideri ad esempio una distribuzione Kubernetes che contiene replicaset e pod. Quando un utente esegue `kubectl describe deployment $MY_DEPLOYMENT` , non restituisce un messaggio di rifiuto come parte degli eventi. Restituisce tuttavia `kubectl describe replicasets.apps $MY_DEPLOYMENT` gli eventi associati al rifiuto.
 
 ## <a name="logging"></a>Registrazione
 
-Come controller/contenitore Kubernetes, i registri di _Azure-Policy_ e _Gatekeeper_ mantengono i registri nel cluster Kubernetes. I log possono essere esposti nella pagina **Informazioni dettagliate** del cluster Kubernetes. Per altre informazioni, vedere [Monitorare le prestazioni del cluster Kubernetes con Monitoraggio di Azure per i contenitori](../../../azure-monitor/containers/container-insights-analyze.md).
+Come controller/contenitore Kubernetes, i pod _azure-policy_ e _gatekeeper_ mantengono i log nel cluster Kubernetes. I log possono essere esposti nella pagina **Informazioni dettagliate** del cluster Kubernetes. Per altre informazioni, vedere [Monitorare le prestazioni del cluster Kubernetes con Monitoraggio di Azure per i contenitori](../../../azure-monitor/containers/container-insights-analyze.md).
 
 Per visualizzare i log del componente aggiuntivo, usare `kubectl`:
 
@@ -459,7 +460,7 @@ Per altre informazioni, vedere la sezione [Debugging](https://github.com/open-po
 
 ## <a name="troubleshooting-the-add-on"></a>Risoluzione dei problemi del componente aggiuntivo
 
-Per altre informazioni sulla risoluzione dei problemi del componente aggiuntivo per Kubernetes, vedere la [sezione Kubernetes](../troubleshoot/general.md#add-on-for-kubernetes-general-errors) dell'articolo sulla risoluzione dei problemi di criteri di Azure.
+Per altre informazioni sulla risoluzione dei problemi del componente aggiuntivo per Kubernetes, vedere la sezione [Kubernetes](../troubleshoot/general.md#add-on-for-kubernetes-general-errors) dell'articolo Criteri di Azure risoluzione dei problemi.
 
 ## <a name="remove-the-add-on"></a>Rimuovere il componente aggiuntivo
 
@@ -469,11 +470,11 @@ Per rimuovere il componente aggiuntivo Criteri di Azure dal cluster del servizio
 
 - Portale di Azure
 
-  1. Avviare il servizio AKS nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
+  1. Avviare il servizio Servizio Kubernetes nel portale di Azure selezionando **Tutti** i servizi , quindi cercando e selezionando **Servizi Kubernetes**.
 
   1. Selezionare il cluster del servizio Azure Kubernetes in cui si vuole disabilitare il componente aggiuntivo Criteri di Azure.
 
-  1. Selezionare **criteri** sul lato sinistro della pagina del servizio Kubernetes.
+  1. Selezionare **Criteri** sul lato sinistro della pagina del servizio Kubernetes.
 
   1. Nella pagina principale selezionare il pulsante **Disabilita componente aggiuntivo**.
 

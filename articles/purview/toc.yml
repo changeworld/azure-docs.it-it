@@ -12,9 +12,9 @@ items:
         href: create-catalog-portal.md
       - name: Creare un account Purview - Azure PowerShell
         href: create-catalog-powershell.md
-      - name: Creare un account di competenza-.NET SDK
+      - name: Creare un account Purview - .NET SDK
         href: create-purview-dotnet.md
-      - name: Creare un account di competenza-Python
+      - name: Creare un account Purview - Python
         href: create-purview-python.md
   - name: Esercitazioni
     items:
@@ -83,7 +83,7 @@ items:
                 href: purview-connector-overview.md
               - name: Origine multipla di Azure
                 href: register-scan-azure-multiple-sources.md
-              - name: Analisi delle sinapsi di Azure (area di lavoro)
+              - name: Azure Synapse Analytics (area di lavoro)
                 href: register-scan-synapse-workspace.md
               - name: Archiviazione BLOB di Azure
                 href: register-scan-azure-blob-storage-source.md
@@ -130,7 +130,7 @@ items:
             href: how-to-manage-term-templates.md
       - name: Modifiche di massa
         items:
-          - name: Modificare in blocco gli asset in annotazioni e contatti Tag
+          - name: Modificare in blocco gli asset per contrassegnare annotazioni e contatti
             href: how-to-bulk-edit-assets.md
       - name: Classificazione
         items:
@@ -174,11 +174,19 @@ items:
             href: file-extension-insights.md
       - name: Sicurezza & rete
         items:
-          - name: Gestisci endpoint privati
+          - name: Gestire gli endpoint privati
             href: catalog-private-link.md
   - name: Informazioni di riferimento
     items:
       - name: Classificazioni supportate
         href: supported-classifications.md
-      - name: Guida alla distribuzione della funzione ABAP
+      - name: Guida alla distribuzione delle funzioni ABAP
         href: abap-functions-deployment-guide.md
+  - name: Risorse
+    items:
+      - name: Commenti e suggerimenti sulla funzionalità (Voce utente)
+        href: 'https://feedback.azure.com/forums/932437-azure-purview'
+      - name: Calcolatore prezzi
+        href: 'https://azure.microsoft.com/pricing/details/azure-purview/'
+      - name: Forum di Microsoft Q&A
+        href: 'https://docs.microsoft.com/answers/topics/azure-purview.html'

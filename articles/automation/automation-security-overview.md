@@ -4,24 +4,24 @@ description: Questo articolo offre una panoramica dell'autenticazione di account
 keywords: sicurezza in Automazione, proteggere Automazione; autenticazione in Automazione
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b52fa3083dc5c42fa71e720e9a3991cb7aa5afec
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708901"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501570"
 ---
-# <a name="automation-account-authentication-overview"></a>Panoramica dell'autenticazione di account di Automazione
+# <a name="azure-automation-account-authentication-overview"></a>Panoramica dell'autenticazione di account con Automazione di Azure
 
-Automazione di Azure consente di automatizzare le attività sulle risorse in Azure, in locale e con altri provider di servizi cloud, ad esempio Amazon Web Services (AWS). È possibile usare manuali operativi per automatizzare le attività o un ruolo di lavoro ibrido per runbook se si hanno processi aziendali o operativi da gestire all'esterno di Azure. Per lavorare in uno di questi ambienti, è necessario disporre delle autorizzazioni per accedere in modo sicuro alle risorse con i diritti minimi necessari.
+Automazione di Azure consente di automatizzare le attività sulle risorse in Azure, in locale e con altri provider di servizi cloud, ad esempio Amazon Web Services (AWS). È possibile usare i runbook per automatizzare le attività o un ruolo di lavoro ibrido per runbook se si dispone di processi aziendali o operativi da gestire all'esterno di Azure. L'uso di uno di questi ambienti richiede autorizzazioni per accedere in modo sicuro alle risorse con i diritti minimi necessari.
 
 Questo articolo illustra i diversi scenari di autenticazione supportati da Automazione di Azure e descrive come iniziare partendo da uno o più ambienti che è necessario gestire.
 
 ## <a name="automation-account"></a>Account di Automazione
 
-Al primo avvio di Automazione di Azure sarà necessario creare almeno un account di Automazione. Gli account di automazione consentono di isolare le risorse di automazione, manuali operativi, asset e configurazioni dalle risorse di altri account. È possibile usare gli account di automazione per separare le risorse in ambienti logici distinti o responsabilità delegate. Ad esempio, è possibile usare un account per lo sviluppo, uno per la produzione e un altro per l'ambiente locale. In alternativa, è possibile dedicare un account di automazione per gestire gli aggiornamenti del sistema operativo in tutti i computer con [Gestione aggiornamenti](update-management/overview.md). 
+Al primo avvio di Automazione di Azure sarà necessario creare almeno un account di Automazione. Gli account di Automazione consentono di isolare le risorse di Automazione, i runbook, gli asset e le configurazioni dalle risorse di altri account. È possibile usare gli account di Automazione per separare le risorse in ambienti logici separati o responsabilità delegate. Ad esempio, è possibile usare un account per lo sviluppo, uno per la produzione e un altro per l'ambiente locale. Oppure è possibile dedicare un account di Automazione per gestire gli aggiornamenti del sistema operativo in tutti i computer [con Gestione aggiornamenti](update-management/overview.md). 
 
 Un account di Automazione di Azure è diverso dagli account Microsoft creati nella sottoscrizione di Azure. Per un'introduzione alla creazione di un account di Automazione, vedere [Creare un account di Automazione](automation-quickstart-create-account.md).
 
@@ -31,19 +31,44 @@ Le risorse di Automazione per ogni account di Automazione sono associate a una s
 
 Tutte le attività eseguite sulle risorse con Azure Resource Manager e i cmdlet di PowerShell in Automazione di Azure devono eseguire l'autenticazione in Azure con l'autenticazione basata su credenziali dell'identità dell'organizzazione di Azure Active Directory (Azure AD).
 
+## <a name="managed-identities-preview"></a>Identità gestite (anteprima)
+
+Un'identità gestita Azure Active Directory (Azure AD) consente al runbook di accedere facilmente ad altre Azure AD protette. L'identità viene gestita dalla piattaforma Azure e non è necessario eseguire il provisioning o ruotare alcun segreto. Per altre informazioni sulle identità gestite in Azure AD, vedere [Identità gestite per le risorse di Azure.](/azure/active-directory/managed-identities-azure-resources/overview)
+
+Ecco alcuni dei vantaggi dell'uso delle identità gestite:
+
+- È possibile usare le identità gestite per eseguire l'autenticazione a qualsiasi servizio di Azure che supporta Azure AD autenticazione.
+
+- Le identità gestite possono essere usate senza costi aggiuntivi.
+
+- Non è necessario rinnovare il certificato usato dall'account RunAs di Automazione.
+
+- Non è necessario specificare l'oggetto connessione RunAs nel codice del runbook. È possibile accedere alle risorse usando l'identità gestita dell'account di Automazione da un runbook senza creare certificati, connessioni, account RunAs e così via.
+
+A un account di Automazione possono essere concessi due tipi di identità:
+
+- Un'identità assegnata dal sistema viene associata all'applicazione e viene eliminata in caso di eliminazione dell'app. A un'app può essere associata una sola identità assegnata dal sistema.
+
+- Un'identità assegnata dall'utente è una risorsa di Azure autonoma che può essere assegnata all'app. Un'app può avere più identità assegnate dall'utente.
+
+>[!NOTE]
+> Le identità assegnate dall'utente non sono ancora supportate.
+
+Per informazioni dettagliate sull'uso delle identità gestite, vedere [Abilitare l'identità gestita per Automazione di Azure (anteprima).](enable-managed-identity-for-automation.md)
+
 ## <a name="run-as-accounts"></a>Account RunAs
 
-Gli account RunAs in automazione di Azure forniscono l'autenticazione per la gestione di risorse Azure Resource Manager o risorse distribuite nel modello di distribuzione classica. In automazione di Azure sono disponibili due tipi di account RunAs:
+Gli account RunAs in Automazione di Azure l'autenticazione per la gestione Azure Resource Manager risorse o risorse distribuite nel modello di distribuzione classica. Esistono due tipi di account RunAs in Automazione di Azure:
 
-* Account RunAs di Azure: consente di gestire le risorse di Azure in base al servizio di distribuzione e gestione Azure Resource Manager per Azure.
+* Account RunAs di Azure: consente di gestire le risorse di Azure in base al servizio Azure Resource Manager distribuzione e gestione per Azure.
 * Account RunAs classico di Azure: consente di gestire le risorse classiche di Azure in base al modello di distribuzione classica.
 
-Per ulteriori informazioni sui modelli di distribuzione Azure Resource Manager e classica, vedere [Gestione risorse e distribuzione classica](../azure-resource-manager/management/deployment-models.md).
+Per altre informazioni sui modelli di Azure Resource Manager e classica, vedere Resource Manager [distribuzione classica.](../azure-resource-manager/management/deployment-models.md)
 
 >[!NOTE]
 >Le sottoscrizioni Azure Cloud Solution Provider (CSP) supportano solo il modello di Azure Resource Manager. I servi diversi da Azure Resource Manager non sono disponibili nel programma. Quando si usa una sottoscrizione CSP, non viene creato l'account RunAs classico di Azure, ma l'account RunAs di Azure. Per altre informazioni sulle sottoscrizioni CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-Quando si crea un account di automazione, l'account RunAs viene creato per impostazione predefinita nello stesso momento. Se si sceglie di non crearla insieme all'account di automazione, è possibile crearla singolarmente in un secondo momento. Un account RunAs classico di Azure è facoltativo e viene creato separatamente se è necessario gestire le risorse classiche.
+Quando si crea un account di Automazione, l'account RunAs viene creato contemporaneamente per impostazione predefinita. Se si è scelto di non crearlo insieme all'account di Automazione, è possibile crearlo singolarmente in un secondo momento. Un account RunAs classico di Azure è facoltativo e viene creato separatamente se è necessario gestire le risorse classiche.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
@@ -51,7 +76,7 @@ Quando si crea un account di automazione, l'account RunAs viene creato per impos
 
 Quando si crea un account RunAs, vengono eseguite le attività seguenti:
 
-* Crea un'applicazione Azure AD con un certificato autofirmato, crea un account dell'entità servizio per l'applicazione in Azure AD e assegna il ruolo [collaboratore](../role-based-access-control/built-in-roles.md#contributor) per l'account nella sottoscrizione corrente. È possibile modificare l'impostazione del certificato in [Reader](../role-based-access-control/built-in-roles.md#reader) o qualsiasi altro ruolo. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
+* Crea un'applicazione Azure AD con un certificato autofirmato, crea un account entità servizio per l'applicazione in Azure AD e assegna il ruolo [Collaboratore](../role-based-access-control/built-in-roles.md#contributor) per l'account nella sottoscrizione corrente. È possibile modificare l'impostazione del certificato [in Lettore](../role-based-access-control/built-in-roles.md#reader) o in qualsiasi altro ruolo. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
 
 * Crea un asset del certificato di Automazione denominato `AzureRunAsCertificate` nell'account di Automazione specificato. L'asset del certificato contiene la chiave privata del certificato usata dall'applicazione Azure AD.
 
@@ -62,7 +87,7 @@ Quando si crea un account RunAs, vengono eseguite le attività seguenti:
 Quando si crea un account RunAs classico di Azure, vengono eseguite le attività seguenti:
 
 > [!NOTE]
-> Per creare o rinnovare questo tipo di account RunAs, è necessario essere un coamministratore della sottoscrizione.
+> Per creare o rinnovare questo tipo di account RunAs, è necessario essere un co-amministratore nella sottoscrizione.
 
 * Crea un certificato di gestione nella sottoscrizione.
 
@@ -72,9 +97,9 @@ Quando si crea un account RunAs classico di Azure, vengono eseguite le attività
 
 ## <a name="service-principal-for-run-as-account"></a>Entità servizio per l'account RunAs
 
-Per impostazione predefinita l'entità servizio per un account RunAs non ha le autorizzazioni di lettura per Azure AD. Se vogliono aggiungere autorizzazioni di lettura o gestione di Azure AD, è necessario concederle all'entità servizio in **Autorizzazioni API**. Per altre informazioni, vedere [aggiungere autorizzazioni per accedere all'API Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
+Per impostazione predefinita l'entità servizio per un account RunAs non ha le autorizzazioni di lettura per Azure AD. Se vogliono aggiungere autorizzazioni di lettura o gestione di Azure AD, è necessario concederle all'entità servizio in **Autorizzazioni API**. Per altre informazioni, vedere [Aggiungere autorizzazioni per accedere all'API Web.](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)
 
-## <a name="run-as-account-permissions"></a><a name="permissions"></a>Autorizzazioni account RunAs
+## <a name="run-as-account-permissions"></a><a name="permissions"></a>Autorizzazioni dell'account RunAs
 
 Questa sezione definisce le autorizzazioni sia per i normali account RunAs che per gli account RunAs classici.
 
@@ -88,13 +113,13 @@ Nel caso in cui i compiti siano separati, nella tabella seguente è disponibile 
 |Creare un'applicazione Azure AD|[New-AzADApplication](/powershell/module/az.resources/new-azadapplication)     | Ruolo di Sviluppatore di applicazioni<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registrazioni app |
 |Aggiungere una credenziale all'applicazione.|[New-AzADAppCredential](/powershell/module/az.resources/new-azadappcredential)     | Amministratore di applicazioni o Amministratore globale<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registrazioni app|
 |Creare e ottenere un'entità servizio di Azure AD|[New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)     | Amministratore di applicazioni o Amministratore globale<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)</br>Home > Azure AD > Registrazioni app|
-|Assegna o ottiene il ruolo di Azure per l'entità specificata|[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Proprietario o Amministratore Accesso utenti oppure disporre delle autorizzazioni seguenti:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Sottoscrizione](../role-based-access-control/role-assignments-portal.md)</br>Home > sottoscrizioni > \<subscription name\> -controllo di accesso (IAM)|
+|Assegnare o ottenere il ruolo di Azure per l'entità specificata|[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Proprietario o Amministratore Accesso utenti oppure disporre delle autorizzazioni seguenti:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Sottoscrizione](../role-based-access-control/role-assignments-portal.md)</br>Home > sottoscrizioni > \<subscription name\> - Controllo di accesso (IAM)|
 |Creare o rimuovere un certificato di Automazione|[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remove-AzAutomationCertificate](/powershell/module/az.automation/remove-azautomationcertificate)     | Collaboratore nel gruppo di risorse         |Gruppo di risorse dell'account di Automazione|
 |Creare o rimuovere una connessione di Automazione|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection)</br>[Remove-AzAutomationConnection](/powershell/module/az.automation/remove-azautomationconnection)|Collaboratore nel gruppo di risorse |Gruppo di risorse dell'account di Automazione|
 
-<sup>1</sup> gli utenti non amministratori nel tenant di Azure ad possono [registrare le applicazioni ad](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) se l'opzione utenti del tenant del Azure ad **può registrare le applicazioni** nella pagina **impostazioni utente** è impostata su **Sì**. Se l'impostazione di registrazione dell'applicazione è impostata su **No**, l'utente che esegue questa azione deve essere quello definito in questa tabella.
+<sup>1</sup> Gli utenti non amministratori nel tenant [](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app) di Azure AD possono registrare le  applicazioni ad Active Directory se l'opzione Gli utenti possono registrare le applicazioni del tenant di Azure AD nella pagina **Impostazioni** utente è impostata su **Sì**. Se l'impostazione di registrazione dell'applicazione è impostata su **No**, l'utente che esegue questa azione deve essere quello definito in questa tabella.
 
-Se l'utente non è membro dell'istanza di Active Directory della sottoscrizione prima di essere aggiunto al ruolo di amministratore globale della sottoscrizione, viene aggiunto come guest. In questa situazione viene visualizzato un `You do not have permissions to create…` avviso nella pagina **Aggiungi account di automazione** .
+Se l'utente non è membro dell'istanza di Active Directory della sottoscrizione prima di essere aggiunto al ruolo di amministratore globale della sottoscrizione, viene aggiunto come guest. In questo caso, viene visualizzato un `You do not have permissions to create…` avviso nella pagina Aggiungi account di **Automazione.**
 
 Per verificare che la situazione che ha prodotto il messaggio di errore è stata risolta:
 
@@ -107,7 +132,7 @@ Per verificare che la situazione che ha prodotto il messaggio di errore è stata
 
 Il controllo degli accessi in base al ruolo è disponibile con Azure Resource Manager per concedere a un account utente di Azure AD e a un account RunAs l'autorizzazione per le azioni consentite e per l'autenticazione dell'entità servizio. Per altre informazioni utili per sviluppare il modello per la gestione delle autorizzazioni di Automazione, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
 
-Se si dispone di controlli di sicurezza severi per l'assegnazione delle autorizzazioni nei gruppi di risorse, è necessario assegnare l'appartenenza dell'account RunAs al ruolo **collaboratore** nel gruppo di risorse.
+Se si dispone di controlli di sicurezza rigorosi per l'assegnazione delle autorizzazioni nei gruppi di risorse, è necessario assegnare l'appartenenza all'account RunAs al ruolo **Collaboratore** nel gruppo di risorse.
 
 ## <a name="runbook-authentication-with-hybrid-runbook-worker"></a>Autenticazione dei runbook con ruolo di lavoro ibrido per runbook
 
@@ -120,3 +145,4 @@ Per i runbook che usano i ruoli di lavoro ibridi per runbook nelle macchine virt
 * Per creare un account di Automazione dal portale di Azure, vedere [Creare un account di Automazione di Azure autonomo](automation-create-standalone-account.md).
 * Se si preferisce creare l'account usando un modello, vedere [Creare un account di Automazione usando un modello di Azure Resource Manager](quickstart-create-automation-account-template.md).
 * Per l'autenticazione con Amazon Web Services, vedere [Autenticare runbook con Amazon Web Services](automation-config-aws-account.md).
+* Per un elenco dei servizi di Azure che supportano la funzionalità delle identità gestite per le risorse di Azure, vedere [Servizi che supportano le identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).

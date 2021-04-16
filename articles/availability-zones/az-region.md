@@ -8,26 +8,26 @@ ms.date: 04/13/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: fd4443e4ef6bcecacc03ce190bbf438288c9ec60
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: b59062395c0b05f36dd0f5bd00fbd1acb3ccb2a9
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107364057"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529798"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servizi di Azure che supportano le zone di disponibilità
 
-Microsoft Azure'infrastruttura globale è progettata e costruita a ogni livello per offrire ai clienti i livelli più elevati di ridondanza e resilienza. L'infrastruttura di Azure è costituita da aree geografiche, aree e zone di disponibilità, che limitano il raggio di esplosione di un errore e quindi limitano il potenziale impatto sulle applicazioni e sui dati dei clienti. Il zone di disponibilità di Azure è stato sviluppato per fornire una soluzione software e di rete per la protezione da errori dei data center e per offrire maggiore disponibilità elevata ai clienti.
+Microsoft Azure'infrastruttura globale è progettata e costruita a ogni livello per offrire ai clienti i massimi livelli di ridondanza e resilienza. L'infrastruttura di Azure è costituita da aree geografiche, aree e zone di disponibilità, che limitano il raggio di un errore e quindi limitano il potenziale impatto sulle applicazioni e i dati dei clienti. Il zone di disponibilità di Azure è stato sviluppato per fornire una soluzione software e di rete per la protezione da errori dei data center e per offrire una maggiore disponibilità elevata ai clienti.
 
-Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituito da uno o più data center con alimentazione, raffreddamento e rete indipendenti. La separazione fisica dei zone di disponibilità all'interno di un'area limita l'impatto sulle applicazioni e sui dati dagli errori di zona, ad esempio alluvioni su larga scala, tempeste e superstorm e altri eventi che potrebbero compromettere l'accesso al sito, il passaggio sicuro, il tempo di attività esteso delle utilità e la disponibilità delle risorse. zone di disponibilità e i data center associati sono progettati in modo che, se una zona viene compromessa, i servizi, la capacità e la disponibilità sono supportati dagli altri zone di disponibilità nell'area.
+Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituito da uno o più data center con alimentazione, raffreddamento e rete indipendenti. La separazione fisica delle zone di disponibilità all'interno di un'area limita l'impatto sulle applicazioni e sui dati dagli errori di zona, ad esempio alondanze su larga scala, tempeste e superstorming principali e altri eventi che potrebbero compromettere l'accesso al sito, il passaggio sicuro, il tempo di attività esteso delle utilità e la disponibilità delle risorse. zone di disponibilità e i data center associati sono progettati in modo che, se una zona viene compromessa, i servizi, la capacità e la disponibilità siano supportati dalle altre zone di disponibilità nell'area.
 
-Tutti i servizi di gestione di Azure sono progettati per essere resilienti dagli errori a livello di area. Nella gamma di errori, uno o più errori della zona di disponibilità all'interno di un'area hanno un raggio di errore inferiore rispetto a un errore dell'intera area. Azure può eseguire il ripristino da un errore a livello di zona dei servizi di gestione all'interno di un'area. Azure esegue la manutenzione critica una zona alla volta all'interno di un'area, per evitare eventuali errori che influiscono sulle risorse dei clienti zone di disponibilità all'interno di un'area.
+Tutti i servizi di gestione di Azure sono strutturati in modo da essere resilienti dagli errori a livello di area. Nella gamma di errori, uno o più errori della zona di disponibilità all'interno di un'area hanno un raggio di errore inferiore rispetto a un errore dell'intera area. Azure può eseguire il ripristino da un errore a livello di zona dei servizi di gestione all'interno di un'area. Azure esegue una manutenzione critica una zona alla volta all'interno di un'area, per evitare eventuali errori che influiscono sulle risorse dei clienti zone di disponibilità all'interno di un'area.
 
 
 ![Visualizzazione concettuale di un'area di Azure con 3 zone](./media/az-region/azure-region-availability-zones.png)
 
 
-I servizi di Azure che zone di disponibilità rientrano in tre categorie: **servizi di zona,** con ridondanza della zona e **non regionali.** I carichi di lavoro dei clienti possono essere classificati in modo da usare uno di questi scenari di architettura per soddisfare le prestazioni e la durabilità delle applicazioni.
+I servizi di Azure zone di disponibilità rientrano in tre categorie: **servizi di zona,** con ridondanza della zona e servizi **non regionali.** I carichi di lavoro dei clienti possono essere classificati in modo da usare uno qualsiasi di questi scenari di architettura per soddisfare le prestazioni e la durabilità delle applicazioni.
 
 - **Servizi di zona:** una risorsa può essere distribuita in una zona di disponibilità specifica e selezionata autonomamente per ottenere requisiti di latenza o prestazioni più stringenti.  La resilienza è auto-progettata replicando applicazioni e dati in una o più zone all'interno dell'area.  Le risorse possono essere aggiunte a una zona specifica. Ad esempio, le macchine virtuali, i dischi gestiti o gli indirizzi IP standard possono essere aggiunti a una zona specifica, che consente una maggiore resilienza grazie alla presenza di una o più istanze di risorse distribuite tra le zone.
 
@@ -67,7 +67,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 
 - Le macchine virtuali di generazione precedente non sono elencate di seguito. Per altre informazioni, vedere [le generazioni precedenti di dimensioni delle macchine virtuali.](../virtual-machines/sizes-previous-gen.md)
 
-- Per altre informazioni, vedere Aree e zone di disponibilità [in Azure.](az-overview.md) Questi servizi non hanno dipendenza da un'area di Azure specifica, rendendoli resilienti alle interruzioni a livello di zona e alle interruzioni a livello di area.  L'elenco dei servizi non regionali è disponibile in [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/).
+- Alcuni servizi non sono regionali. Per altre informazioni, vedere Aree e zone di disponibilità [in Azure.](az-overview.md) Questi servizi non hanno dipendenza da un'area di Azure specifica, rendendoli resilienti alle interruzioni a livello di zona e alle interruzioni a livello di area.  L'elenco dei servizi non regionali è disponibile in [Prodotti disponibili per area](https://azure.microsoft.com/global-infrastructure/services/).
 
 
 ### <a name="zone-resilient-services"></a>Servizi resilienti della zona 
@@ -100,7 +100,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 |     [Set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set)                               | :large_blue_diamond:  |
 |     [Macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                                          | :large_blue_diamond:  |
 |     Macchine virtuali: [serie Av2](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                              | :large_blue_diamond:  |
-|     Macchine virtuali: [serie Bs](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
+|     Macchine virtuali: [serie B](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                               | :large_blue_diamond:  |
 |     Macchine virtuali: [serie DSv2](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                             | :large_blue_diamond:  |
 |     Macchine virtuali: [serie DSv3](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                            | :large_blue_diamond:  |
 |     Macchine virtuali: [serie Dv2](https://docs.microsoft.com/azure/virtual-machines/windows/create-powershell-availability-zone)                             | :large_blue_diamond:  |
@@ -121,6 +121,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 |-----------------------------------------------------------------|:----------------------------:|
 |     [Ambienti del servizio app](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy)                                    | :large_blue_diamond:  |
 |     [Servizi di dominio Azure Active Directory](https://docs.microsoft.com/azure/active-directory-domain-services/overview)                      | :large_blue_diamond:  |
+|     [Gestione API di Azure](https://docs.microsoft.com/azure/api-management/zone-redundancy)                      | :large_blue_diamond:  |
 |     [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview)                                               | :large_blue_diamond:  |
 |     [Cache Redis di Azure](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-high-availability)                              | :large_blue_diamond:  |
 |     [Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-performance-optimization#availability-zones)               | :large_blue_diamond:  |

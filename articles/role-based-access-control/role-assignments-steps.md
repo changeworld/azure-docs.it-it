@@ -1,28 +1,28 @@
 ---
-title: Passaggi per assegnare un ruolo di Azure-RBAC di Azure
-description: Informazioni sui passaggi per assegnare i ruoli di Azure a utenti, gruppi, entità servizio o identità gestite usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
+title: Passaggi per assegnare un ruolo di Azure - Controllo degli accessi in base al ruolo di Azure
+description: Informazioni sui passaggi per assegnare ruoli di Azure a utenti, gruppi, entità servizio o identità gestite usando il controllo degli accessi in base al ruolo di Azure.
 services: active-directory
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 04/14/2021
 ms.author: rolyon
-ms.openlocfilehash: 081335779ffc4b3a6ddf09e56b773c6d34b210be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40a17da6383fb1f368c74a82fefa71991cdc1b19
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556044"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517675"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Passaggi per assegnare un ruolo di Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Questo articolo descrive i passaggi di alto livello per assegnare i ruoli di Azure usando il [portale di Azure](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), l'interfaccia della riga di comando di [Azure](role-assignments-cli.md)o l' [API REST](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Questo articolo descrive i passaggi di alto livello per assegnare i ruoli di Azure [usando](role-assignments-portal.md)portale di Azure , [Azure PowerShell,](role-assignments-powershell.md)l'interfaccia della riga di comando di [Azure](role-assignments-cli.md)o l'API [REST](role-assignments-rest.md).
 
-## <a name="step-1-determine-who-needs-access"></a>Passaggio 1: determinare chi necessita dell'accesso
+## <a name="step-1-determine-who-needs-access"></a>Passaggio 1: Determinare chi deve accedere
 
-Per prima cosa è necessario determinare chi necessita di accesso. È possibile assegnare un ruolo a un utente, un gruppo, un'entità servizio o un'identità gestita. Questa operazione è detta anche *entità di sicurezza*.
+È prima di tutto necessario determinare chi deve accedere. È possibile assegnare un ruolo a un utente, un gruppo, un'entità servizio o un'identità gestita. Si tratta anche di *un'entità di sicurezza*.
 
 ![Entità di sicurezza per un'assegnazione di ruolo](./media/shared/rbac-security-principal.png)
 
@@ -31,9 +31,9 @@ Per prima cosa è necessario determinare chi necessita di accesso. È possibile 
 - Entità servizio: un'identità di sicurezza utilizzata da applicazioni o servizi per accedere a specifiche risorse di Azure. È possibile pensare a questo elemento come a un'*identità utente* (nome utente e password o certificato) per un'applicazione.
 - Identità gestita: un'identità in Azure Active Directory che viene gestita automaticamente da Azure. Le [identità gestite](../active-directory/managed-identities-azure-resources/overview.md) vengono in genere usate durante lo sviluppo di applicazioni cloud per gestire le credenziali per l'autenticazione ai servizi di Azure.
 
-## <a name="step-2-select-the-appropriate-role"></a>Passaggio 2: selezionare il ruolo appropriato
+## <a name="step-2-select-the-appropriate-role"></a>Passaggio 2: Selezionare il ruolo appropriato
 
-Le autorizzazioni vengono raggruppate in una *definizione di ruolo*. generalmente chiamata *ruolo*. È possibile scegliere da un elenco di diversi ruoli predefiniti. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati.
+Le autorizzazioni vengono raggruppate in una definizione *di ruolo*. generalmente chiamata *ruolo*. È possibile selezionare da un elenco di diversi ruoli predefiniti. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati.
 
 ![Definizione di ruolo per un'assegnazione di ruolo](./media/shared/rbac-role-definition.png)
 
@@ -48,47 +48,49 @@ Gli altri ruoli predefiniti consentono la gestione di risorse di Azure specifich
 
 1. Iniziare con l'articolo completo [Ruoli predefiniti di Azure](built-in-roles.md). La tabella all'inizio dell'articolo è un indice dei dettagli descritti più avanti nell'articolo.
 
-1. In questo articolo passare alla categoria del servizio (ad esempio calcolo, archiviazione e database) per la risorsa a cui si vogliono concedere le autorizzazioni. Il modo più semplice per trovare ciò che si sta cercando è in genere cercare nella pagina una parola chiave pertinente, ad esempio "blob", "macchina virtuale" e così via.
+1. In questo articolo passare alla categoria di servizi (ad esempio calcolo, archiviazione e database) per la risorsa a cui si vogliono concedere le autorizzazioni. Il modo più semplice per trovare ciò che si sta cercando è in genere cercare nella pagina una parola chiave pertinente, ad esempio "blob", "macchina virtuale" e così via.
 
 1. Esaminare i ruoli elencati per la categoria di servizio e identificare le operazioni specifiche necessarie. Ancora una volta, iniziare sempre con il ruolo più restrittivo.
 
-    Se, ad esempio, un'entità di sicurezza deve leggere i BLOB in un account di archiviazione di Azure, ma non necessita dell'accesso in scrittura, scegliere [lettore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-reader) anziché [collaboratore dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-contributor) (e senza dubbio il ruolo [proprietario dati BLOB di archiviazione](built-in-roles.md#storage-blob-data-owner) a livello di amministratore). È sempre possibile aggiornare le assegnazioni di ruolo in un secondo momento, se necessario.
+    Ad esempio, se un'entità di sicurezza deve leggere i BLOB in un account [](built-in-roles.md#storage-blob-data-reader) di archiviazione di Azure, ma non richiede l'accesso in scrittura, scegliere Lettore dati BLOB di archiviazione anziché Collaboratore dati BLOB di archiviazione [(e](built-in-roles.md#storage-blob-data-contributor) sicuramente non il ruolo proprietario dei dati del BLOB di archiviazione a livello di [amministratore).](built-in-roles.md#storage-blob-data-owner) È sempre possibile aggiornare le assegnazioni di ruolo in un secondo momento, se necessario.
 
-1. Se non si trova un ruolo appropriato, è possibile creare un [ruolo personalizzato](custom-roles.md).
+1. Se non si trova un ruolo appropriato, è possibile creare un [ruolo personalizzato.](custom-roles.md)
 
-## <a name="step-3-identify-the-needed-scope"></a>Passaggio 3: identificare l'ambito necessario
+## <a name="step-3-identify-the-needed-scope"></a>Passaggio 3: Identificare l'ambito necessario
 
-*Ambito* è il set di risorse a cui si applica l'accesso. In Azure è possibile specificare un ambito a quattro livelli: [gruppo di gestione](../governance/management-groups/overview.md), sottoscrizione, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups)e risorsa. Gli ambiti sono strutturati in una relazione padre-figlio. Ogni livello di gerarchia rende più specifico l'ambito. È possibile assegnare i ruoli a qualsiasi livello dell'ambito. Il livello selezionato determina la frequenza con cui viene applicato il ruolo. I livelli inferiori ereditano le autorizzazioni dei ruoli dai livelli più alti. 
+*Ambito* è il set di risorse a cui si applica l'accesso. In Azure è possibile specificare un ambito a quattro [livelli:](../governance/management-groups/overview.md)gruppo di gestione, sottoscrizione, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups)e risorsa. Gli ambiti sono strutturati in una relazione padre-figlio. Ogni livello di gerarchia rende l'ambito più specifico. È possibile assegnare i ruoli a qualsiasi livello dell'ambito. Il livello selezionato determina l'estensione dell'applicazione del ruolo. I livelli inferiori ereditano le autorizzazioni del ruolo dai livelli superiori. 
 
 ![Ambito per un'assegnazione di ruolo](./media/shared/rbac-scope.png)
 
-Quando si assegna un ruolo a un ambito padre, tali autorizzazioni vengono ereditate negli ambiti figlio. Ad esempio:
+Quando si assegna un ruolo in un ambito padre, tali autorizzazioni vengono ereditate agli ambiti figlio. Ad esempio:
 
-- Se si assegna il ruolo [lettore](built-in-roles.md#reader) a un utente nell'ambito del gruppo di gestione, tale utente potrà leggere tutti gli elementi in tutte le sottoscrizioni del gruppo di gestione.
-- Se si assegna il ruolo [Lettura fatturazione](built-in-roles.md#billing-reader) a un gruppo nell'ambito della sottoscrizione, i membri del gruppo potranno leggere i dati di fatturazione per ogni gruppo di risorse e risorsa nella sottoscrizione.
+- Se si assegna il [ruolo Lettore](built-in-roles.md#reader) a un utente nell'ambito del gruppo di gestione, tale utente può leggere tutti gli elementi in tutte le sottoscrizioni del gruppo di gestione.
+- Se si assegna il [ruolo](built-in-roles.md#billing-reader) Lettore fatturazione a un gruppo nell'ambito della sottoscrizione, i membri di tale gruppo possono leggere i dati di fatturazione per ogni gruppo di risorse e risorsa nella sottoscrizione.
 - Se si assegna il ruolo [Collaboratore](built-in-roles.md#contributor) a un'applicazione nell'ambito del gruppo di risorse, è possibile gestire risorse di tutti i tipi in quel gruppo di risorse, ma non altri gruppi di risorse nella sottoscrizione.
 
- Per altre informazioni, vedere [comprendere l'ambito](scope-overview.md).
+ Per altre informazioni, vedere Informazioni [sull'ambito.](scope-overview.md)
 
 ## <a name="step-4-check-your-prerequisites"></a>Passaggio 4. Verificare i prerequisiti
 
-Per assegnare ruoli, è necessario eseguire l'accesso con un utente a cui è assegnato un ruolo che dispone dell'autorizzazione di scrittura per le assegnazioni di ruolo, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator) nell'ambito a cui si sta provando ad assegnare il ruolo. Analogamente, per rimuovere un'assegnazione di ruolo, è necessario disporre dell'autorizzazione DELETE per le assegnazioni di ruolo.
+Per assegnare i ruoli, è necessario essere connessi con un utente a cui [](built-in-roles.md#owner) è assegnato un ruolo con l'autorizzazione di scrittura per le assegnazioni di ruolo, ad esempio Proprietario o Amministratore [Accesso](built-in-roles.md#user-access-administrator) utenti nell'ambito a cui si sta tentando di assegnare il ruolo. Analogamente, per rimuovere un'assegnazione di ruolo, è necessario disporre dell'autorizzazione di eliminazione delle assegnazioni di ruolo.
 
 - `Microsoft.Authorization/roleAssignments/write`
 - `Microsoft.Authorization/roleAssignments/delete`
 
 Se l'account utente non ha le autorizzazioni per assegnare un ruolo all'interno della sottoscrizione, verrà visualizzato un messaggio di errore che segnala che l'account non è autorizzato a eseguire l'azione 'Microsoft.Authorization/roleAssignments/write'. In questo caso, contattare gli amministratori della sottoscrizione in quanto possono assegnare le autorizzazioni per conto dell'utente.
 
+Se si usa un'entità servizio per assegnare i ruoli, è possibile che venga visualizzato l'errore "Privilegi insufficienti per completare l'operazione". Questo errore è probabilmente dovuto al fatto che Azure sta tentando di cercare l'identità dell'assegnatare in Azure Active Directory (Azure AD) e l'entità servizio non può leggere Azure AD per impostazione predefinita. In questo caso, è necessario concedere all'entità servizio le autorizzazioni per leggere i dati nella directory. In alternativa, se si usa l'interfaccia della riga di comando di Azure, è possibile creare l'assegnazione di ruolo usando l'ID oggetto dell'assegnatare per ignorare la Azure AD ricerca. Per altre informazioni, vedere Risolvere i problemi relativi [al controllo degli accessi in base al ruolo di Azure.](troubleshooting.md)
+
 ## <a name="step-5-assign-role"></a>Passaggio 5. Assegnare il ruolo
 
-Quando si conoscono l'entità di sicurezza, il ruolo e l'ambito, è possibile assegnare il ruolo. È possibile assegnare i ruoli usando il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure, Azure SDK o le API REST. È possibile avere fino a **2000** assegnazioni di ruolo in ogni sottoscrizione. Questo limite include le assegnazioni di ruolo negli ambiti di sottoscrizione, gruppo di risorse e risorsa. È possibile avere fino a **500** assegnazioni di ruolo in ogni sottoscrizione.
+Una volta che si conoscono l'entità di sicurezza, il ruolo e l'ambito, è possibile assegnare il ruolo. È possibile assegnare i ruoli usando portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure, Azure SDK o le API REST. È possibile avere fino a **2000** assegnazioni di ruolo in ogni sottoscrizione. Questo limite include le assegnazioni di ruolo negli ambiti di sottoscrizione, gruppo di risorse e risorsa. È possibile avere fino a **500** assegnazioni di ruolo in ogni sottoscrizione.
 
-Per istruzioni dettagliate su come assegnare i ruoli, vedere gli articoli seguenti.
+Per informazioni dettagliate su come assegnare i ruoli, vedere gli articoli seguenti.
 
 - [Assegnare i ruoli di Azure usando il portale di Azure](role-assignments-portal.md)
-- [Assegnare i ruoli di Azure usando Azure PowerShell](role-assignments-powershell.md)
-- [Assegnare i ruoli di Azure usando l'interfaccia della riga di comando](role-assignments-cli.md)
-- [Assegnare i ruoli di Azure usando l'API REST](role-assignments-rest.md)
+- [Assegnare ruoli di Azure usando Azure PowerShell](role-assignments-powershell.md)
+- [Assegnare ruoli di Azure tramite l'interfaccia della riga di comando di Azure](role-assignments-cli.md)
+- [Assegnare ruoli di Azure usando l'API REST](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

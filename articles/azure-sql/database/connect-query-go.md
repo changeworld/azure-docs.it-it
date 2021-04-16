@@ -11,13 +11,13 @@ ms.topic: quickstart
 author: David-Engel
 ms.author: sstein
 ms.reviewer: MightyPen
-ms.date: 02/12/2019
-ms.openlocfilehash: b4a22c734d2afb90d5ea7bc1bda17d3f8fcf585a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: 1a479572ba8dbd68ccc072fce32446abcc9b873c
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91327545"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517781"
 ---
 # <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Usare Golang per eseguire query su un database nel database SQL di Azure o nell'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,7 +76,6 @@ Ottenere le informazioni di connessione necessarie per connettersi al database. 
    ```bash
    cd SqlServerSample
    go get github.com/denisenkom/go-mssqldb
-   go install github.com/denisenkom/go-mssqldb
    ```
 
 ## <a name="create-sample-data"></a>Creare dati di esempio

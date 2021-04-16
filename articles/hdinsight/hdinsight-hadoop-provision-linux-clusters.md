@@ -3,20 +3,20 @@ title: Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apach
 description: Configurare i cluster Hadoop, Kafka, Spark, HBase, R Server o Storm per HDInsight da un browser, dall'interfaccia della riga di comando classica di Azure, da Azure PowerShell, REST o SDK.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017,seodec18
+ms.custom: hdinsightactive,hdiseo17may2017,seodec18, devx-track-azurecli
 ms.date: 08/06/2020
-ms.openlocfilehash: 04da79509ac40ba870014995d8318a49c98e1ce5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d1059ab46ff0e3722d1f6538bba61cdc4e8cb59
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863412"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482688"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Informazioni su come installare e configurare Apache Hadoop, Apache Spark, Apache Kafka, Interactive query, Apache HBase, ML Services o Apache Storm in HDInsight. Informazioni su come personalizzare i cluster e proteggerli aggiungendoli a un dominio.
+Informazioni su come configurare Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, ML Services o Apache Storm in HDInsight. Informazioni su come personalizzare i cluster e proteggerli aggiungendoli a un dominio.
 
 Un cluster Hadoop è costituito da alcune macchine virtuali (nodi) che vengono usate per l'elaborazione distribuita di attività. Azure HDInsight gestisce i dettagli di implementazione dell'installazione e della configurazione dei singoli nodi. È quindi necessario specificare solo le informazioni di configurazione generali.
 
@@ -31,38 +31,38 @@ La tabella seguente illustra i diversi metodi che è possibile usare per configu
 
 | Cluster creati con | Web browser | Riga di comando | API REST | SDK |
 | --- |:---:|:---:|:---:|:---:|
-| [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
-| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [Interfaccia della riga di comando di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
-| [Modelli di Gestione risorse di Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |âââ" |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |âââ" |âââ" |âââ" |âââ" |
+| [Interfaccia della riga di comando di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |âââ" |&nbsp; |&nbsp; |
+| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |âââ" |&nbsp; |&nbsp; |
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |âââ" |âââ" |&nbsp; |
+| [Modelli di Gestione risorse di Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |âââ" |&nbsp; |&nbsp; |
 
-Questo articolo illustra la configurazione nel [portale di Azure](https://portal.azure.com), in cui è possibile creare un cluster HDInsight.
+Questo articolo illustra la configurazione nel portale di Azure [,](https://portal.azure.com)in cui è possibile creare un cluster HDInsight.
 
 ## <a name="basics"></a>Nozioni di base
 
-:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="HDInsight creare opzioni personalizzate Quick":::
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="Hdinsight create options custom quick":::
 
 ### <a name="project-details"></a>Dettagli del progetto
 
-[Azure Resource Manager](../azure-resource-manager/management/overview.md) consente di usare le risorse nell'applicazione come gruppo, denominato [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups)di Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione in un'unica operazione coordinata.
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) consente di usare le risorse nell'applicazione come gruppo, definito gruppo di [risorse di](../azure-resource-manager/management/overview.md#resource-groups)Azure. È quindi possibile distribuire, aggiornare, monitorare o eliminare tutte le risorse per l'applicazione in un'unica operazione coordinata.
 
 ### <a name="cluster-details"></a>Dettagli dei cluster
 
 #### <a name="cluster-name"></a>Nome cluster
 
-I nomi dei cluster HDInsight presentano le restrizioni seguenti:
+I nomi dei cluster HDInsight hanno le restrizioni seguenti:
 
 * Caratteri consentiti: a-z, 0-9, A-Z
 * Lunghezza massima: 59
 * Nomi riservati: app
-* L'ambito di denominazione del cluster è per tutti gli Azure, in tutte le sottoscrizioni. Il nome del cluster deve quindi essere univoco in tutto il mondo.
+* L'ambito di denominazione del cluster è per tutte le sottoscrizioni di Azure. Il nome del cluster deve quindi essere univoco in tutto il mondo.
 * I primi sei caratteri devono essere univoci all'interno di una rete virtuale
 
 #### <a name="region"></a>Region
 
-Non è necessario specificare il percorso del cluster in modo esplicito: il cluster si trova nella stessa posizione delle risorse di archiviazione predefinite. Per un elenco delle aree supportate, selezionare l'elenco a discesa **regione** in [prezzi HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Non è necessario specificare il percorso del cluster in modo esplicito: il cluster si trova nella stessa posizione delle risorse di archiviazione predefinite. Per un elenco di aree supportate, selezionare **l'elenco** a discesa Area nei [prezzi di HDInsight.](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)
 
 #### <a name="cluster-type"></a>Tipo di cluster
 
@@ -89,37 +89,37 @@ Scegliere la versione di HDInsight per questo cluster. Per altre informazioni, v
 
 Con i cluster HDInsight è possibile configurare due account utente durante la creazione del cluster:
 
-* Nome utente di accesso del cluster: il nome utente predefinito è *admin*. Usa la configurazione di base nel portale di Azure. A volte viene chiamato "utente cluster" o "utente HTTP".
-* Nome utente Secure Shell (SSH): usato per connettersi al cluster tramite SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Nome utente di accesso del cluster: il nome utente predefinito è *admin*. Usa la configurazione di base nel portale di Azure. A volte si chiama "Utente cluster" o "Utente HTTP".
+* Secure Shell nome utente (SSH): usato per connettersi al cluster tramite SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Il nome utente HTTP presenta le restrizioni seguenti:
 
 * Caratteri speciali consentiti: `_` e `@`
-* Caratteri non consentiti: #;. "', \/ :'! *? $ () {} [] <>|&--= +% ~ ^ spazio
+* Caratteri non consentiti: #;.",', \/ :'!*?$() {} []<>|&--=+%~^spazio
 * Lunghezza massima: 20
 
 Il nome utente SSH presenta le restrizioni seguenti:
 
 * Caratteri speciali consentiti: `_` e `@`
-* Caratteri non consentiti: #;. "', \/ :'! *? $ () {} [] <>|&--= +% ~ ^ spazio
+* Caratteri non consentiti: #;."', \/ :'!*?$() {} []<>|&--=+%~^spazio
 * Lunghezza massima: 64
-* Nomi riservati: Hadoop, Users, oozie, hive, mapred, Ambari-QA, Zookeeper, Tez, HDFS, Sqoop, Yarn, hcat, AMS, HBase, Storm, amministratore, amministratore, utente, User1, test, User2, test1, utente3, Admin1, 1, 123, a, ACTUser, ADM, Amministratore2, ASPNET, backup, console, David, Guest, John, proprietario, radice, server, SQL, supporto tecnico, support_388945a0, sys, test2, test3, User4, User5, Spark
+* Nomi riservati: hadoop, users, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, storm, administrator, admin, user, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, console, david, guest, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
 ## <a name="storage"></a>Archiviazione
 
-:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png" alt-text="Impostazioni di archiviazione del cluster: endpoint compatibili con HDFS":::
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png" alt-text="Impostazioni di archiviazione cluster: endpoint compatibili con HDFS":::
 
-Sebbene l'installazione locale di Hadoop usi Hadoop Distributed File System (HDFS) per l'archiviazione nel cluster, nel cloud vengono usati degli endpoint di archiviazione connessi al cluster. L'uso dell'archiviazione cloud consente di eliminare in modo sicuro i cluster HDInsight usati per il calcolo, mantenendo comunque i dati.
+Sebbene l'installazione locale di Hadoop usi Hadoop Distributed File System (HDFS) per l'archiviazione nel cluster, nel cloud vengono usati degli endpoint di archiviazione connessi al cluster. L'uso dell'archiviazione cloud consente di eliminare in modo sicuro i cluster HDInsight usati per il calcolo mantenendo comunque i dati.
 
-I cluster HDInsight possono usare le seguenti opzioni di archiviazione:
+I cluster HDInsight possono usare le opzioni di archiviazione seguenti:
 
 * Azure Data Lake Storage Gen2
 * Azure Data Lake Storage Gen1
-* Archiviazione di Azure per utilizzo generico V2
-* Archiviazione di Azure per utilizzo generico V1
-* BLOB in blocchi di archiviazione **di Azure (supportato solo come archiviazione secondaria**)
+* Archiviazione di Azure per utilizzo generico v2
+* Archiviazione di Azure per utilizzo generico v1
+* Archiviazione di Azure BLOB in blocchi **(supportato solo come archiviazione secondaria)**
 
-Per altre informazioni sulle opzioni di archiviazione con HDInsight, vedere [confrontare le opzioni di archiviazione per l'uso con i cluster HDInsight di Azure](hdinsight-hadoop-compare-storage-options.md).
+Per altre informazioni sulle opzioni di archiviazione con HDInsight, vedere Confrontare le opzioni di archiviazione da usare [con Azure HDInsight cluster](hdinsight-hadoop-compare-storage-options.md).
 
 > [!WARNING]  
 > L'uso di un account di archiviazione aggiuntivo in una località diversa rispetto al cluster HDInsight non è supportato.
@@ -129,36 +129,36 @@ Durante la configurazione, per l'endpoint di archiviazione predefinito si specif
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
 > [!IMPORTANT]
-> L'abilitazione del trasferimento di archiviazione protetta dopo la creazione di un cluster può causare errori con l'account di archiviazione e non è consigliabile. È preferibile creare un nuovo cluster usando un account di archiviazione con trasferimento sicuro già abilitato.
+> L'abilitazione del trasferimento sicuro dell'archiviazione dopo la creazione di un cluster può causare errori durante l'uso dell'account di archiviazione e non è consigliabile. È meglio creare un nuovo cluster usando un account di archiviazione con il trasferimento sicuro già abilitato.
 
 > [!Note]  
-> Azure HDInsight non trasferisce, sposta o copia automaticamente i dati archiviati in archiviazione di Azure da un'area a un'altra.
+> Azure HDInsight non trasferisce, sposta o copia automaticamente i dati archiviati in Archiviazione di Azure da un'area a un'altra.
 
-### <a name="metastore-settings"></a>Impostazioni Metastore
+### <a name="metastore-settings"></a>Impostazioni metastore
 
-È possibile creare dei metastore Hive o Apache Oozie facoltativi. Tuttavia, non tutti i tipi di cluster supportano i Metastore e Azure sinapsi Analytics non è compatibile con i Metastore.
+È possibile creare dei metastore Hive o Apache Oozie facoltativi. Tuttavia, non tutti i tipi di cluster supportano i metastore e Azure Synapse Analytics non è compatibile con i metastore.
 
 Per altre informazioni, vedere [Use external metadata stores in Azure HDInsight (Usare archivi di metadati esterni in Azure HDInsight)](./hdinsight-use-external-metadata-stores.md).
 
 > [!IMPORTANT]  
 > Quando si crea un metastore personalizzato, non usare un nome di database contenente trattini, segni meno o spazi. perché in quel caso il processo di creazione del cluster non andrebbe a buon fine.
 
-#### <a name="sql-database-for-hive"></a>Database SQL per hive
+#### <a name="sql-database-for-hive"></a>Database SQL per Hive
 
 Per conservare le tabelle Hive dopo aver eliminato il cluster HDInsight, usare un metastore personalizzato. Sarà quindi possibile associare il metastore a un altro cluster HDInsight.
 
-HDInsight An Metastore creato per una versione del cluster HDInsight non può essere condiviso tra diverse versioni del cluster HDInsight. Per un elenco di versioni di HDInsight, vedere [Versioni supportate di HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
+Un metastore HDInsight creato per una versione del cluster HDInsight non può essere condiviso tra versioni diverse del cluster HDInsight. Per un elenco di versioni di HDInsight, vedere [Versioni supportate di HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 > [!IMPORTANT]
-> Il Metastore predefinito fornisce un database SQL di Azure con un **limite di DTU di livello Basic 5 (non aggiornabile)**. Adatto a scopo di test di base. Per carichi di lavoro di grandi dimensioni o di produzione, è consigliabile eseguire la migrazione a un Metastore esterno.
+> Il metastore predefinito fornisce un database SQL di Azure con un limite di DTU di **livello Basic 5 (non aggiornabile).** Adatto per scopi di test di base. Per carichi di lavoro di grandi dimensioni o di produzione, è consigliabile eseguire la migrazione a un metastore esterno.
 
-#### <a name="sql-database-for-oozie"></a>Database SQL per OOZIE
+#### <a name="sql-database-for-oozie"></a>Database SQL per Oozie
 
 Per ottenere un miglioramento delle prestazioni quando si usa Oozie, usare un metastore personalizzato. Un metastore può anche fornire l'accesso ai dati di processo Oozie dopo l'eliminazione del cluster.
 
 #### <a name="sql-database-for-ambari"></a>Database SQL per Ambari
 
-Ambari viene usato per monitorare i cluster HDInsight, apportare modifiche alla configurazione e archiviare le informazioni di gestione del cluster, nonché la cronologia dei processi. La funzionalità Custom Ambari DB consente di distribuire un nuovo cluster e di configurare Ambari in un database esterno gestito. Per ulteriori informazioni, vedere [Custom AMBARI DB](./hdinsight-custom-ambari-db.md).
+Ambari viene usato per monitorare i cluster HDInsight, apportare modifiche alla configurazione e archiviare le informazioni sulla gestione dei cluster, nonché la cronologia dei processi. La funzionalità di database Ambari personalizzata consente di distribuire un nuovo cluster e configurare Ambari in un database esterno che si gestisce. Per altre informazioni, vedere [Database Ambari personalizzato.](./hdinsight-custom-ambari-db.md)
 
 > [!IMPORTANT]  
 > Non è possibile riutilizzare un metastore Oozie personalizzato. Per usare un metastore Oozie personalizzato, è necessario specificare un database SQL di Azure vuoto al momento della creazione del cluster HDInsight.
@@ -177,33 +177,33 @@ Per altre informazioni sulla creazione di un cluster HDInsight aggiunto al domin
 
 ### <a name="tls"></a>TLS
 
-Per ulteriori informazioni, vedere [Transport Layer Security](./transport-layer-security.md)
+Per altre informazioni, vedere [Transport Layer Security](./transport-layer-security.md)
 
 ### <a name="virtual-network"></a>Rete virtuale
 
 Se la soluzione richiede tecnologie che vengono distribuite tra più tipi di cluster HDInsight, una [rete virtuale di Azure](../virtual-network/index.yml) è in grado di connettere i tipi di cluster necessari. Questa configurazione consente ai cluster e al codice in essi distribuito di comunicare direttamente tra loro.
 
-Per altre informazioni sull'uso di una rete virtuale di Azure con HDInsight, vedere [pianificare una rete virtuale per HDInsight](hdinsight-plan-virtual-network-deployment.md).
+Per altre informazioni sull'uso di una rete virtuale di Azure con HDInsight, vedere [Pianificare una rete virtuale per HDInsight.](hdinsight-plan-virtual-network-deployment.md)
 
-Per un esempio dell'uso di due tipi di cluster in una rete virtuale di Azure, vedere [Usare lo streaming strutturato Apache Spark con Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Per altre informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere [pianificare una rete virtuale per HDInsight](hdinsight-plan-virtual-network-deployment.md).
+Per un esempio dell'uso di due tipi di cluster in una rete virtuale di Azure, vedere [Usare lo streaming strutturato Apache Spark con Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Per altre informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere Pianificare una rete virtuale [per HDInsight.](hdinsight-plan-virtual-network-deployment.md)
 
-### <a name="disk-encryption-setting"></a>Impostazione crittografia dischi
+### <a name="disk-encryption-setting"></a>Impostazione di crittografia del disco
 
 Per altre informazioni, vedere [Crittografia dischi con chiavi gestite dal cliente](./disk-encryption.md).
 
 ### <a name="kafka-rest-proxy"></a>Proxy REST Kafka
 
-Questa impostazione è disponibile solo per il tipo di cluster Kafka. Per altre informazioni, vedere [uso di un proxy Rest](./kafka/rest-proxy.md).
+Questa impostazione è disponibile solo per il tipo di cluster Kafka. Per altre informazioni, vedere [Uso di un proxy REST.](./kafka/rest-proxy.md)
 
 ### <a name="identity"></a>Identità
 
-Per altre informazioni, vedere [identità gestite in Azure HDInsight](./hdinsight-managed-identities.md).
+Per altre informazioni, vedere [Identità gestite in Azure HDInsight](./hdinsight-managed-identities.md).
 
 ## <a name="configuration--pricing"></a>Configurazione e prezzi
 
-:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png" alt-text="HDInsight scegliere le dimensioni del nodo":::
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png" alt-text="HDInsight sceglie le dimensioni del nodo":::
 
-Viene addebitato l'utilizzo del nodo fino a quando esiste il cluster. La fatturazione inizia con la creazione del cluster e si interrompe quando il cluster viene eliminato. I cluster non possono essere deallocati o messi in attesa.
+Viene addebitato l'utilizzo del nodo per tutto il tempo in cui il cluster esiste. La fatturazione inizia con la creazione del cluster e si interrompe quando il cluster viene eliminato. I cluster non possono essere deallocato o messo in attesa.
 
 ### <a name="node-configuration"></a>Configurazione nodi
 
@@ -211,10 +211,10 @@ Ogni tipo di cluster ha il proprio numero di nodi, una terminologia specifica pe
 
 | Tipo | Nodi | Diagramma |
 | --- | --- | --- |
-| Hadoop |Nodo Head (2), nodo Worker (1 +) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png" alt-text="Nodi del cluster HDInsight Hadoop" border="false"::: |
-| hbase |Server head (2), server di area (1+), nodo master/ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="Installazione del tipo di cluster HDInsight HBase" border="false"::: |
-| Storm |Nodo Nimbus (2), server supervisore (1+), nodo ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png" alt-text="Configurazione del tipo di cluster HDInsight Storm" border="false"::: |
-| Spark |Nodo Head (2), nodo Worker (1 +), nodo ZooKeeper (3) (gratuito per le dimensioni della macchina virtuale ZooKeeper a1) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="Installazione del tipo di cluster HDInsight Spark" border="false"::: |
+| Hadoop |Nodo head (2), nodo di lavoro (1+) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png" alt-text="Nodi del cluster HDInsight Hadoop" border="false"::: |
+| hbase |Server head (2), server di area (1+), nodo master/ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="Configurazione del tipo di cluster HBase HDInsight" border="false"::: |
+| Storm |Nodo Nimbus (2), server supervisore (1+), nodo ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png" alt-text="Configurazione del tipo di cluster storm HDInsight" border="false"::: |
+| Spark |Nodo head (2), nodo di lavoro (1+), nodo ZooKeeper (3) (gratuito per le dimensioni della macchina virtuale ZooKeeper A1) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="Configurazione del tipo di cluster SPARK HDInsight" border="false"::: |
 
 Per altre informazioni, vedere [Configurazione del nodo predefinito e dimensioni della macchina virtuale per i cluster](hdinsight-supported-node-configuration.md) in "Componenti e versioni di Hadoop in HDInsight"
 
@@ -223,18 +223,18 @@ Il costo del cluster HDInsight è determinato dal numero di nodi e dalle dimensi
 Diversi tipi di cluster hanno diversi tipi, numeri e dimensioni di nodi:
 * Tipo predefinito di cluster Hadoop:
     * Due *nodi head*
-    * Quattro *nodi* del ruolo di lavoro
+    * Quattro *nodi di lavoro*
 * Tipo predefinito di cluster Storm:
     * Due *nodi Nimbus*
     * Tre *nodi ZooKeeper*
     * Quattro *nodi Supervisor*
 
-Se si sta provando solo HDInsight, è consigliabile usare un solo nodo di lavoro. Per altre informazioni sui prezzi di HDInsight, vedere [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Se si sta solo provando HDInsight, è consigliabile usare un nodo di lavoro. Per altre informazioni sui prezzi di HDInsight, vedere [Prezzi di HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
 > Il limite relativo alle dimensioni del cluster dipende dalla sottoscrizione di Azure. Per aumentare il limite, contattare il team del [supporto fatturazione di Azure](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
-Quando si usa il portale di Azure per configurare il cluster, le dimensioni del nodo sono disponibili tramite la scheda **configurazione e prezzi** . Nel portale è anche possibile visualizzare il costo associato alle diverse dimensioni dei nodi.
+Quando si usa il portale di Azure per configurare il cluster, le dimensioni del nodo sono disponibili tramite la **scheda Configurazione e prezzi.** Nel portale è anche possibile visualizzare il costo associato alle diverse dimensioni dei nodi.
 
 ### <a name="virtual-machine-sizes"></a>Dimensioni delle macchine virtuali
 
@@ -248,7 +248,7 @@ Per scoprire quale valore usare per specificare le dimensioni di macchina virtua
 > [!IMPORTANT]  
 > Se sono necessari più di 32 nodi di lavoro in un cluster, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 
-Per ulteriori informazioni, vedere [dimensioni per le macchine virtuali](../virtual-machines/sizes.md). Per informazioni sui prezzi delle varie dimensioni, vedere [prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
+Per altre informazioni, vedere [Dimensioni per le macchine virtuali.](../virtual-machines/sizes.md) Per informazioni sui prezzi delle varie dimensioni, vedere [Prezzi di HDInsight.](https://azure.microsoft.com/pricing/details/hdinsight)
 
 ### <a name="add-application"></a>Aggiunta di un'applicazione
 
@@ -265,7 +265,7 @@ Nel cluster è possibile eseguire alcuni componenti Java nativi, come Apache Mah
 > [!NOTE]  
 > In caso di problemi durante la distribuzione di file JAR in cluster HDInsight o nella chiamata di file JAR in cluster HDInsight, contattare il [Supporto Microsoft](https://azure.microsoft.com/support/options/).
 >
-> Cascading non è supportato da HDInsight, quindi in caso di problemi non è possibile rivolgersi al Supporto Microsoft. Per gli elenchi dei componenti supportati, vedere Novità delle [versioni cluster fornite da HDInsight](hdinsight-component-versioning.md).
+> Cascading non è supportato da HDInsight, quindi in caso di problemi non è possibile rivolgersi al Supporto Microsoft. Per gli elenchi dei componenti supportati, vedere Novità delle [versioni del cluster fornite da HDInsight.](hdinsight-component-versioning.md)
 
 In alcuni casi è opportuno configurare i file di configurazione seguenti durante il processo di creazione:
 

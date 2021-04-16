@@ -1,26 +1,26 @@
 ---
-title: 'Esempio di PowerShell: esportare i segreti e i certificati per le registrazioni di app in Azure Active Directory tenant.'
-description: Esempio di PowerShell che esporta tutti i segreti e i certificati per le registrazioni di app specificate nel tenant del Azure Active Directory.
+title: Esempio di PowerShell - Esportare segreti e certificati per le registrazioni di app Azure Active Directory tenant.
+description: Esempio di PowerShell che esporta tutti i segreti e i certificati per le registrazioni di app specificate nel tenant Azure Active Directory servizio.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
-ms.openlocfilehash: d0de96d0d8a5edc6fbacc25dcbcb868073e57183
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5cbb6b3843e81d9265405dcea24a092e57bf65e
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556554"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377044"
 ---
-# <a name="export-secrets-and-certificates-for-app-registrations"></a>Esportare i segreti e i certificati per le registrazioni di app
+# <a name="export-secrets-and-certificates-for-app-registrations"></a>Esportare segreti e certificati per le registrazioni di app
 
-Questo esempio di script di PowerShell Esporta tutti i segreti e i certificati per le registrazioni di app specificate dalla directory in un file CSV.
+Questo esempio di script di PowerShell esporta tutti i segreti e i certificati per le registrazioni di app specificate dalla directory in un file CSV.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,4 +44,4 @@ Il comando "Add-Member" è responsabile della creazione delle colonne nel file C
 
 Per altre informazioni sul modulo Azure AD PowerShell, vedere la [panoramica del modulo di Azure AD PowerShell](/powershell/azure/active-directory/overview).
 
-Per altri esempi di PowerShell per la gestione delle applicazioni, vedere [Azure ad esempi di PowerShell per la gestione delle applicazioni](../app-management-powershell-samples.md).
+Per altri esempi di PowerShell per la gestione delle applicazioni, [Azure AD esempi di PowerShell per la gestione delle applicazioni.](../app-management-powershell-samples.md)

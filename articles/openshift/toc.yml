@@ -62,6 +62,8 @@
               href: ../azure-monitor/containers/container-insights-optout-openshift-v4.md
     - name: Sviluppare ed eseguire applicazioni
       items:
+        - name: Distribuire un'applicazione in Azure Red Hat OpenShift usando OpenShift Serverless
+          href: howto-deploy-with-serverless.md
         - name: Distribuire un'app Open Liberty/WebSphere Liberty
           href: howto-deploy-java-liberty-app.md
     - name: Azure Red Hat OpenShift 3.11

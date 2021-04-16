@@ -8,16 +8,16 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 710f33ada7a64248f0371a3e8c39e085d3f0834c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 242dd2476783a3d1db6b74452d35e87c5cd189b6
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107058"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516553"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novità di Desktop virtuale Windows
 
-Il desktop virtuale di Windows viene aggiornato regolarmente. Questo articolo include le informazioni seguenti:
+Desktop virtuale Windows viene aggiornato regolarmente. Questo articolo include le informazioni seguenti:
 
 - Aggiornamenti più recenti
 - Nuove funzionalità
@@ -39,127 +39,135 @@ Servizi Desktop remoto, vedere questi articoli:
 
 ## <a name="windows-virtual-desktop-agent-updates"></a>Aggiornamenti dell'agente di Desktop virtuale Windows
 
-L'agente desktop virtuale di Windows viene aggiornato almeno una volta al mese.
+L'agente desktop virtuale Windows viene aggiornato almeno una volta al mese.
 
-Ecco le modifiche apportate all'agente desktop virtuale di Windows:
+Ecco le modifiche dell'agente di Desktop virtuale Windows:
 
-- Versione 1.0.2866.1500: questo aggiornamento è stato rilasciato il 26 marzo 2021 ed è stato risolto un problema relativo al controllo integrità dello stack.
-- Versione 1.0.2800.2802: questo aggiornamento è stato rilasciato il 10 marzo 2021 e presenta miglioramenti generali e correzioni di bug.
-- Versione 1.0.2800.2800: questo aggiornamento è stato rilasciato il 2 marzo 2021 ed è stato risolto un problema di connessione inversa.
-- Versione 1.0.2800.2700: questo aggiornamento è stato rilasciato il 10 febbraio 2021 e presenta miglioramenti generali e correzioni di bug.
-- Versione 1.0.2800.2700: questo aggiornamento è stato rilasciato il 4 febbraio 2021 ed è stato risolto un problema dell'orchestrazione di accesso negato.
+- Versione 1.0.2990.800: questo aggiornamento è stato rilasciato il 13 aprile 2021 e presenta le modifiche seguenti:
+    - Aggiornamento dei messaggi di errore dell'agente.
+    - Aggiunge un'eccezione che impedisce l'installazione di agenti non Windows 7 nelle macchine virtuali Windows 7.
+    - È stata aggiornata la logica del servizio heartbeat.
+- Versione 1.0.2944.1400: questo aggiornamento è stato rilasciato il 7 aprile 2021 e presenta le modifiche seguenti:
+    - Sono stati inseriti collegamenti alla guida alla risoluzione dei problemi dell'agente Desktop virtuale Windows nei log del Visualizzatore eventi per gli errori dell'agente.
+    - Aggiunta di un'eccezione aggiuntiva per una migliore gestione degli errori.
+    - Aggiunta del WVDAgentUrlTool.exe che consente ai clienti di controllare gli URL necessari a cui possono accedere.
+- Versione 1.0.2866.1500: questo aggiornamento è stato rilasciato il 26 marzo 2021 e corregge un problema con il controllo dell'integrità dello stack.
+- Versione 1.0.2800.2802: questo aggiornamento è stato rilasciato il 10 marzo 2021 e include miglioramenti generali e correzioni di bug.
+- Versione 1.0.2800.2800: questo aggiornamento è stato rilasciato il 2 marzo 2021 e corregge un problema di connessione inversa.
+- Versione 1.0.2800.2700: questo aggiornamento è stato rilasciato il 10 febbraio 2021 e include miglioramenti generali e correzioni di bug.
+- Versione 1.0.2800.2700: questo aggiornamento è stato rilasciato il 4 febbraio 2021 e corregge un problema di orchestrazione per accesso negato.
 
-## <a name="fslogix-updates"></a>Aggiornamenti FSLogix
+## <a name="fslogix-updates"></a>Aggiornamenti di FSLogix
 
-Sei curioso degli aggiornamenti più recenti per FSLogix? Scopri le [novità di FSLogix](/fslogix/whats-new).
+Per informazioni sugli aggiornamenti più recenti per FSLogix, Vedere [Novità in FSLogix.](/fslogix/whats-new)
 
 ## <a name="march-2021"></a>Marzo 2021
 
-Ecco cosa è cambiato nel 2021 marzo.
+Ecco cosa è cambiato a marzo 2021.
 
-### <a name="updates-to-the-azure-portal-ui-for-windows-virtual-desktop"></a>Aggiornamenti dell'interfaccia utente di portale di Azure per desktop virtuale di Windows
+### <a name="updates-to-the-azure-portal-ui-for-windows-virtual-desktop"></a>Aggiornamenti all'interfaccia portale di Azure per Desktop virtuale Windows
 
-Per il portale di Azure sono stati apportati i seguenti aggiornamenti al desktop virtuale di Windows:
+Sono stati apportati i seguenti aggiornamenti a Desktop virtuale Windows per l'portale di Azure:
 
-- Sono state abilitate nuove opzioni di disponibilità (set di disponibilità e zone) per i flussi di lavoro per creare pool host e aggiungere macchine virtuali.
-- È stato risolto un problema per cui un host con lo stato "needs Assistance" è stato visualizzato come non disponibile. A questo punto l'host avrà accanto un'icona di avviso.
+- Sono stati abilitate nuove opzioni di disponibilità (set di disponibilità e zone) per i flussi di lavoro per creare pool di host e aggiungere macchine virtuali.
+- È stato risolto un problema a causa del quale un host con lo stato "Richiede assistenza" risultava non disponibile. A questo punto l'host avrà un'icona di avviso accanto.
 - È stato abilitato l'ordinamento per le sessioni attive.
-- È ora possibile inviare messaggi o disconnettersi da utenti specifici nella scheda Dettagli host.
-- Il campo limite massimo di sessioni è stato modificato.
-- È stato aggiunto un percorso di convalida dell'unità organizzativa al flusso di lavoro per creare un pool host.
-- È ora possibile usare la versione più recente dell'immagine di Windows 10 quando si crea un pool di host personali.
+- È ora possibile inviare messaggi a o disconnettere utenti specifici nella scheda dei dettagli dell'host.
+- È stato modificato il campo limite massimo di sessioni.
+- È stato aggiunto un percorso di convalida dell'unità organizzativa al flusso di lavoro per creare un pool di host.
+- È ora possibile usare la versione più recente dell'immagine Windows 10 quando si crea un pool di host personali.
 
-### <a name="generation-2-images-and-trusted-launch"></a>Immagini di generazione 2 e avvio attendibile
+### <a name="generation-2-images-and-trusted-launch"></a>Immagini di seconda generazione e avvio attendibile
 
-Azure Marketplace include ora immagini di generazione 2 per la multisessione di Windows 10 Enterprise e Windows 10 Enterprise. Queste immagini consentiranno di usare macchine virtuali di avvio attendibili. Per altre informazioni sulle macchine virtuali di seconda generazione, è [consigliabile creare una macchina virtuale di prima o seconda generazione](../virtual-machines/generation-2.md). Per informazioni su come eseguire il provisioning di macchine virtuali di avvio attendibile per desktop virtuale Windows, vedere [il post TechCommunity](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
+Il Azure Marketplace ora include immagini di seconda generazione per Windows 10 Enterprise e Windows 10 Enterprise multi-sessione. Queste immagini consentiranno di usare macchine virtuali di avvio attendibili. Per altre informazioni sulle macchine virtuali di seconda generazione, vedere [È consigliabile creare](../virtual-machines/generation-2.md)una macchina virtuale di prima o seconda generazione. Per informazioni su come effettuare il provisioning di macchine virtuali di avvio attendibili di Desktop virtuale Windows, vedere [il post di TechCommunity.](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170)
 
-### <a name="fslogix-is-now-preinstalled-on-windows-10-enterprise-multi-session-images"></a>FSLogix è ora preinstallato nelle immagini multisessione Enterprise di Windows 10
+### <a name="fslogix-is-now-preinstalled-on-windows-10-enterprise-multi-session-images"></a>FSLogix è ora preinstallato in Windows 10 Enterprise di più sessioni
 
-In base ai commenti e suggerimenti dei clienti, è stata configurata una nuova versione dell'immagine multisessione Enterprise di Windows 10 in cui è già installata una versione non configurata di FSLogix. Ci auguriamo che questa operazione renda più semplice la distribuzione di desktop virtuali Windows.
+In base ai commenti e suggerimenti dei clienti, è stata configurata una nuova versione dell'immagine Windows 10 Enterprise multi-sessione in cui è già installata una versione non configurata di FSLogix. Ci auguriamo che in questo modo la distribuzione di Desktop virtuale Windows sia più semplice.
 
-### <a name="azure-monitor-for-windows-virtual-desktop-is-now-in-general-availability"></a>Il monitoraggio di Azure per desktop virtuale Windows è ora disponibile a livello generale
+### <a name="azure-monitor-for-windows-virtual-desktop-is-now-in-general-availability"></a>Monitoraggio di Azure desktop virtuale Windows è ora disponibile a disponibilità generale
 
-Monitoraggio di Azure per desktop virtuale Windows è ora disponibile a livello generale per il pubblico. Questa funzionalità è un servizio automatizzato che monitora le distribuzioni e consente di visualizzare gli eventi, l'integrità e i suggerimenti per la risoluzione dei problemi in un'unica posizione. Per altre informazioni, vedere [la documentazione](azure-monitor.md) o consultare [il post di TechCommunity](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
+Monitoraggio di Azure desktop virtuale Windows è ora disponibile a livello generale per il pubblico. Questa funzionalità è un servizio automatizzato che monitora le distribuzioni e consente di visualizzare eventi, integrità e suggerimenti per la risoluzione dei problemi in un'unica posizione. Per altre informazioni, vedere [la documentazione o](azure-monitor.md) consultare il post di [TechCommunity](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
 
-### <a name="march-2021-updates-for-teams-on-windows-virtual-desktop"></a>Aggiornamenti di marzo 2021 per i team su desktop virtuale Windows
+### <a name="march-2021-updates-for-teams-on-windows-virtual-desktop"></a>Aggiornamenti di marzo 2021 per Teams in Desktop virtuale Windows
 
-Per i team in desktop virtuale Windows sono stati apportati i seguenti aggiornamenti:
+Sono stati apportati gli aggiornamenti seguenti per Teams in Desktop virtuale Windows:
 
-- Sono state migliorate le prestazioni di qualità video per le chiamate e la modalità 2x2.
-- L'utilizzo della CPU è stato ridotto del 5-10% (a seconda della generazione della CPU) utilizzando l'hardware offload dell'elaborazione video (XVP).
-- I computer meno recenti possono ora usare XVP e la decodifica hardware per visualizzare più flussi video in ingresso senza problemi in modalità 2x2.
-- Lo stack WebRTC è stato aggiornato da M74 a M88 per migliorare le prestazioni di sincronizzazione AV e meno problemi temporanei.
-- Abbiamo sostituito il software H264 encoder con OpenH264 (OSS usato nei team sul Web), che ha aumentato la qualità del video della fotocamera in uscita.
-- È stata abilitata la modalità 2x2 per i team server per il pubblico generale il 30 marzo. la modalità 2x2 Mostra fino a quattro flussi video in ingresso nello stesso momento.
+- Sono state migliorate le prestazioni della qualità video per le chiamate e la modalità 2x2.
+- L'utilizzo della CPU è stato ridotto del 5-10% (a seconda della generazione della CPU) usando l'offload hardware dell'elaborazione video (XVP).
+- I computer meno recenti possono ora usare XVP e la decodifica hardware per visualizzare senza problemi più flussi video in ingresso in modalità 2x2.
+- Lo stack WebRTC è stato aggiornato da M74 a M88 per migliorare le prestazioni di sincronizzazione av e un minor numero di problemi temporanei.
+- Il codificatore H264 software è stato sostituito con OpenH264 (OSS usato in Teams sul Web), che ha aumentato la qualità video della fotocamera in uscita.
+- La modalità 2x2 per Teams Server è stata abilitata per il pubblico generale il 30 marzo. La modalità 2x2 mostra fino a quattro flussi video in ingresso contemporaneamente.
 
-### <a name="start-vm-on-connect-public-preview"></a>Avviare la macchina virtuale nell'anteprima pubblica di Connect
+### <a name="start-vm-on-connect-public-preview"></a>Avviare la macchina virtuale nell'anteprima pubblica connect
 
-L'impostazione nuovo pool host, avvia macchina virtuale in Connect, è ora disponibile in anteprima pubblica. Questa impostazione consente di attivare le VM ogni volta che è necessario. Se si vuole ridurre i costi, è necessario deallocare le macchine virtuali configurando le impostazioni di calcolo di Azure. Per altre informazioni, vedere [il post di Blog](https://aka.ms/wvdstartvmonconnect) e [la documentazione](start-virtual-machine-connect.md).
+La nuova impostazione del pool di host, Avvia macchina virtuale alla connessione, è ora disponibile in anteprima pubblica. Questa impostazione consente di attivare le macchine virtuali ogni volta che sono necessarie. Per risparmiare sui costi, è necessario deallocare le macchine virtuali configurando le impostazioni Calcolo di Azure servizio. Per altre informazioni, vedere il [post di blog e](https://aka.ms/wvdstartvmonconnect) la [documentazione.](start-virtual-machine-connect.md)
 
-### <a name="windows-virtual-desktop-specialty-certification"></a>Certificazione speciale per desktop virtuali Windows
+### <a name="windows-virtual-desktop-specialty-certification"></a>Certificazione Windows Virtual Desktop Specialty
 
-Abbiamo rilasciato una versione beta dell'esame AZ-140 che ti consentirà di dimostrare le tue competenze nel desktop virtuale di Windows in Azure. Per altre informazioni, vedere [il post di TechCommunity](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107).
+È stata rilasciata una versione beta dell'esame AZ-140 che consente di dimostrare le proprie competenze in Desktop virtuale Windows in Azure. Per altre informazioni, vedere il [post di TechCommunity](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107).
 
-## <a name="february-2021"></a>2021 febbraio
+## <a name="february-2021"></a>Febbraio 2021
 
-Ecco le modifiche apportate a febbraio 2021.
+Ecco cosa è cambiato a febbraio 2021.
 
 ### <a name="portal-experience"></a>Funzionalità del portale
 
-L'esperienza portale di Azure è stata migliorata nei modi seguenti:
+L'esperienza di portale di Azure è stata migliorata nei modi seguenti:
 
-- Modalità di svuotamento bulk negli host nella scheda griglia host sessione. 
-- La connessione all'app MSIX è ora disponibile per l'anteprima pubblica.
-- Informazioni generali sul pool host fisso per la modalità scura.
+- Modalità svuotamento bulk negli host nella scheda della griglia dell'host della sessione. 
+- montaggio app MSIX è ora disponibile per l'anteprima pubblica.
+- Correzione delle informazioni generali sul pool di host per la modalità scura.
 
-### <a name="eu-metadata-storage-now-in-public-preview"></a>Archiviazione dei metadati UE ora disponibile in versione di anteprima pubblica
+### <a name="eu-metadata-storage-now-in-public-preview"></a>Archiviazione dei metadati dell'Unione Europea ora in anteprima pubblica
 
-Stiamo ora ospitando un'anteprima pubblica dell'Europa (EU) Geography come opzione di archiviazione per i metadati del servizio nel desktop virtuale di Windows. Quando creano oggetti servizio, i clienti possono scegliere tra Europa occidentale o settentrionale. Gli oggetti e i metadati del servizio per i pool host verranno archiviati nella geografia di Azure associata a ogni area. Per altre informazioni, leggi [il post di Blog che annuncia l'anteprima pubblica](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939).
+È ora disponibile un'anteprima pubblica dell'area geografica Europa (UE) come opzione di archiviazione per i metadati del servizio in Desktop virtuale Windows. I clienti possono scegliere tra Europa occidentale o Europa settentrionale quando creano gli oggetti servizio. Gli oggetti servizio e i metadati per i pool di host verranno archiviati nell'area geografica di Azure associata a ogni area. Per altre informazioni, leggere [il post di blog che annuncia l'anteprima pubblica.](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939)
 
-### <a name="teams-on-windows-virtual-desktop-plugin-updates"></a>Aggiornamenti del plug-in per desktop virtuali di Windows
+### <a name="teams-on-windows-virtual-desktop-plugin-updates"></a>Aggiornamenti del plug-in di Desktop virtuale Windows di Teams
 
-È stata migliorata la qualità della chiamata del video nel plug-in per desktop virtuali di Windows, risolvendo i problemi segnalati più di frequente, ad esempio quando la schermata diventa improvvisamente scura o il video e il suono vengono desincronizzati. Questi miglioramenti dovrebbero migliorare le prestazioni della visualizzazione a video singolo con cambio di altoparlante attivo. È stato risolto anche un problema per cui i dispositivi hardware con caratteri speciali non erano disponibili in team.
+La qualità delle chiamate video nel plug-in Desktop virtuale Windows è stata migliorata grazie alla risoluzione dei problemi segnalati più di frequente, ad esempio quando lo schermo diventa improvvisamente scuro o il video e l'audio vengono desincronizzazioneti. Questi miglioramenti dovrebbero migliorare le prestazioni della visualizzazione di un singolo video con il cambio di voce attivo. È stato anche risolto un problema a causa del quale i dispositivi hardware con caratteri speciali non erano disponibili in Teams.
 
 ## <a name="january-2021"></a>Gennaio 2021
 
-Ecco le modifiche apportate a gennaio 2021:
+Ecco cosa è cambiato a gennaio 2021:
 
-### <a name="new-windows-virtual-desktop-offer"></a>Nuova offerta desktop virtuale Windows
+### <a name="new-windows-virtual-desktop-offer"></a>Nuova offerta di Desktop virtuale Windows
 
-I nuovi clienti risparmiano il 30% sui costi di calcolo del desktop virtuale Windows per le macchine virtuali serie D e BS per un massimo di 90 giorni quando si usa la soluzione nativa Microsoft. È possibile riscattare questa offerta nel portale di Azure prima del 31 marzo 2021. Ulteriori informazioni sono disponibili nella [pagina dell'offerta desktop virtuale di Windows](https://azure.microsoft.com/services/virtual-desktop/offer/).
+I nuovi clienti risparmiano il 30% sui costi di elaborazione di Desktop virtuale Windows per le macchine virtuali serie D e Bs per un massimo di 90 giorni quando si usa la soluzione Microsoft nativa. È possibile riscattare l'offerta portale di Azure prima del 31 marzo 2021. Per altre informazioni, vedere la [pagina dell'offerta desktop virtuale Windows.](https://azure.microsoft.com/services/virtual-desktop/offer/)
 
-### <a name="networksecuritygrouprules-value-change"></a>Modifica valore networkSecurityGroupRules 
+### <a name="networksecuritygrouprules-value-change"></a>Modifica del valore di networkSecurityGroupRules 
 
-Nel modello annidato Azure Resource Manager è stato modificato il valore predefinito di networkSecurityGroupRules da un oggetto a una matrice. In questo modo si eviteranno eventuali errori se si usa managedDisks-customimagevm.json senza specificare un valore per networkSecurityGroupRules. Questa non è una modifica di rilievo ed è compatibile con le versioni precedenti.
+Nel modello Azure Resource Manager annidato è stato modificato il valore predefinito per networkSecurityGroupRules da un oggetto a una matrice. In questo modo si evitano errori se si managedDisks-customimagevm.jssu senza specificare un valore per networkSecurityGroupRules. Questa non è stata una modifica di rilievo ed è compatibile con le versioni precedenti.
 
-### <a name="fslogix-hotfix-update"></a>Aggiornamento hotfix FSLogix
+### <a name="fslogix-hotfix-update"></a>FsLogix hotfix update
 
-Abbiamo rilasciato FSLogix, versione 2009 HF_01 (2.9.7654.46150) per risolvere i problemi nella versione precedente (2.9.7621.30127). Si consiglia di interrompere l'uso della versione precedente e di aggiornare FSLogix appena possibile.
+È stato rilasciato FSLogix, versione 2009 HF_01 (2.9.7654.46150) per risolvere i problemi della versione precedente (2.9.7621.30127). È consigliabile interrompere l'uso della versione precedente e aggiornare FSLogix appena possibile.
 
-Per ulteriori informazioni, vedere le note sulla versione in [What ' s New in FSLogix](/fslogix/whats-new#fslogix-apps-2009-hf_01-29765446150).
+Per altre informazioni, vedere le note sulla versione in [Novità di FSLogix.](/fslogix/whats-new#fslogix-apps-2009-hf_01-29765446150)
 
-### <a name="azure-portal-experience-improvements"></a>Miglioramenti all'esperienza portale di Azure
+### <a name="azure-portal-experience-improvements"></a>portale di Azure'esperienza
 
-Sono stati apportati i miglioramenti seguenti all'esperienza portale di Azure:
+Sono stati apportati i miglioramenti seguenti all'esperienza portale di Azure funzionalità:
 
-- È ora possibile aggiungere direttamente le credenziali di amministratore della VM locale anziché aggiungere un account locale creato con le credenziali dell'account di aggiunta al dominio Active Directory.
-- Gli utenti possono ora elencare le assegnazioni di singoli e gruppi in schede separate per singoli utenti e gruppi.
-- Il numero di versione dell'agente desktop virtuale di Windows è ora visibile nella panoramica delle macchine virtuali per i pool host.
-- Aggiunta dell'eliminazione bulk per i pool host e i gruppi di applicazioni.
-- È ora possibile abilitare o disabilitare la modalità di svuotamento per più host sessione in un pool host.
-- Rimuovere il campo IP pubblico dalla pagina dei dettagli della macchina virtuale.
+- È ora possibile aggiungere direttamente le credenziali di amministratore della macchina virtuale locale invece di dover aggiungere un account locale creato con le credenziali dell'account di aggiunta al dominio di Active Directory.
+- Gli utenti possono ora elencare le assegnazioni di singoli utenti e gruppi in schede separate per singoli utenti e gruppi.
+- Il numero di versione dell'agente di Desktop virtuale Windows è ora visibile nella panoramica della macchina virtuale per i pool di host.
+- Aggiunta dell'eliminazione in blocco per i pool di host e i gruppi di applicazioni.
+- È ora possibile abilitare o disabilitare la modalità svuotamento per più host di sessione in un pool di host.
+- È stato rimosso il campo ip pubblico dalla pagina dei dettagli della macchina virtuale.
 
-### <a name="windows-virtual-desktop-agent-troubleshooting"></a>Risoluzione dei problemi dell'agente desktop virtuale di Windows
+### <a name="windows-virtual-desktop-agent-troubleshooting"></a>Risoluzione dei problemi dell'agente di Desktop virtuale Windows
 
-Di recente è stata configurata la [Guida alla risoluzione dei problemi dell'agente desktop virtuale di Windows](troubleshoot-agent.md) per aiutare i clienti che hanno riscontrato problemi comuni.
+Di recente è stata impostata la [guida alla risoluzione dei](troubleshoot-agent.md) problemi dell'agente di Desktop virtuale Windows per aiutare i clienti che hanno riscontrato problemi comuni.
 
 ### <a name="microsoft-defender-for-endpoint-integration"></a>Integrazione di Microsoft Defender per endpoint
 
-Microsoft Defender per l'integrazione degli endpoint è ora disponibile a livello generale. Questa funzionalità offre alle VM desktop virtuali Windows la stessa esperienza di analisi di un computer Windows 10 locale. Se si usa la multisessione Enterprise di Windows 10, Microsoft Defender per l'endpoint supporterà fino a 50 connessioni utente simultanee, offrendo risparmi sui costi per la multisessione Enterprise di Windows 10 e la confidenza di Microsoft Defender per l'endpoint. Per altre informazioni, vedere il [post di Blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/windows-virtual-desktop-support-is-now-generally-available/ba-p/2103712).
+L'integrazione di Microsoft Defender per endpoint è ora disponibile a livello generale. Questa funzionalità offre alle macchine virtuali Desktop virtuale Windows la stessa esperienza di analisi di un computer Windows 10 locale. Se si usa Windows 10 Enterprise più sessioni, Microsoft Defender per Endpoint supporterà fino Windows 10 Enterprise 50 connessioni utente simultanee, con un risparmio sui costi di Windows 10 Enterprise più sessioni e la fiducia di Microsoft Defender per l'endpoint. Per altre informazioni, vedere il [post di blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/windows-virtual-desktop-support-is-now-generally-available/ba-p/2103712).
 
-### <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Baseline della sicurezza di Azure per desktop virtuale Windows
+### <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Baseline di sicurezza di Azure per Desktop virtuale Windows
 
-Abbiamo pubblicato di recente [un articolo sulla base di riferimento della sicurezza di Azure](security-baseline.md) per desktop virtuale Windows a cui vorremmo richiamare l'attenzione. Queste linee guida includono informazioni su come applicare il benchmark di sicurezza di Azure, versione 2,0 al desktop virtuale di Windows. Il benchmark di sicurezza di Azure descrive le impostazioni e le procedure consigliate per proteggere le soluzioni cloud in Azure.
+Di recente è stato pubblicato [un articolo sulla baseline](security-baseline.md) di sicurezza di Azure per Desktop virtuale Windows a cui si desidera richiamare l'attenzione dell'utente. Queste linee guida includono informazioni su come applicare Azure Security Benchmark versione 2.0 a Desktop virtuale Windows. Azure Security Benchmark descrive le impostazioni e le procedure consigliate per proteggere le soluzioni cloud in Azure.
 
 ## <a name="december-2020"></a>Dicembre 2020
 

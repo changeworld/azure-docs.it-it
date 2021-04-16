@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 04/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 325f6ad7d9685fac17e17b28c4ffbe31b1245cca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef121112bb4ff3ff6a297677a5c713f642cb3b78
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734530"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519538"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-confluence"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con EasySSO for Confluence
 
@@ -37,10 +37,10 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* EasySSO for Confluence supporta l'accesso SSO avviato da **SP e IDP**
-* EasySSO for Confluence supporta il provisioning utenti **JIT**
+* EasySSO for Confluence supporta l'accesso SSO avviato da SP e **IDP.**
+* EasySSO for Confluence supporta il provisioning **utenti JUST-In-Time.**
 
-## <a name="adding-easysso-for-confluence-from-the-gallery"></a>Aggiunta di EasySSO for Confluence dalla raccolta
+## <a name="add-easysso-for-confluence-from-the-gallery"></a>Aggiungere EasySSO for Confluence dalla raccolta
 
 Per configurare l'integrazione di EasySSO for Confluence in Azure AD, è necessario aggiungere EasySSO for Confluence dalla raccolta all'elenco di app SaaS gestite.
 
@@ -50,7 +50,6 @@ Per configurare l'integrazione di EasySSO for Confluence in Azure AD, è necessa
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **EasySSO for Confluence** nella casella di ricerca.
 1. Selezionare **EasySSO for Confluence** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-easysso-for-confluence"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per EasySSO for Confluence
 
@@ -71,7 +70,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina di integrazione dell'applicazione **EasySSO for Confluence** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -129,9 +128,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **EasySSO for Confluence**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.

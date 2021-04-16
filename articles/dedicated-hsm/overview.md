@@ -13,26 +13,26 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 0e07839c3c5ce542335eeadc92e6a3c98fe87856
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 418c8f0844bf2336ce0d4a681071f237d81877ca
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606981"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505718"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Informazioni su Modulo di protezione hardware dedicato di Azure
 
 Modulo di protezione hardware dedicato di Azure è un servizio di Azure che offre l'archiviazione di chiavi crittografiche in Azure. Tale servizio soddisfa i requisiti di sicurezza più rigorosi. È la soluzione ideale per i clienti che richiedono dispositivi convalidati dalla certificazione FIPS 140-2 Livello 3 e il controllo completo ed esclusivo dell'appliance HSM. 
 
- I dispositivi HSM vengono distribuiti a livello globale in diverse aree di Azure. È possibile eseguirne facilmente il provisioning come una coppia di dispositivi e configurarli per la disponibilità elevata. È anche possibile effettuare il provisioning dei dispositivi HSM tra varie aree per garantire il failover a livello regionale. Microsoft fornisce il servizio HSM dedicato usando le appliance [A790 del modello di modulo di protezione hardware Thales Luna 7](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) . Questo dispositivo offre i livelli più elevati di prestazioni e opzioni di integrazione crittografica. 
+ I dispositivi HSM vengono distribuiti a livello globale in diverse aree di Azure. È possibile eseguirne facilmente il provisioning come una coppia di dispositivi e configurarli per la disponibilità elevata. È anche possibile effettuare il provisioning dei dispositivi HSM tra varie aree per garantire il failover a livello regionale. Microsoft offre il servizio HSM dedicato usando le appliance [A790 del modello HSM Thales Luna 7.](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) Questo dispositivo offre i livelli più elevati di prestazioni e opzioni di integrazione crittografica. 
 
-Una volta eseguito il provisioning, i dispositivi HSM sono connessi direttamente alla rete virtuale del cliente. Sono anche accessibili dalle applicazioni e dagli strumenti di gestione in locale quando si configura la connettività VPN da sito a sito o da punto a sito. I clienti ottengono il software e la documentazione per configurare e gestire i dispositivi HSM dal [portale di supporto clienti di Thales](https://supportportal.thalesgroup.com/csm).
+Una volta eseguito il provisioning, i dispositivi HSM sono connessi direttamente alla rete virtuale del cliente. Sono anche accessibili dalle applicazioni e dagli strumenti di gestione in locale quando si configura la connettività VPN da sito a sito o da punto a sito. I clienti ottengono il software e la documentazione per configurare e gestire i dispositivi HSM dal portale [di supporto clienti thales.](https://supportportal.thalesgroup.com/csm)
 
 ## <a name="why-use-azure-dedicated-hsm"></a>Perché usare HSM dedicato di Azure?
 
 ### <a name="fips-140-2-level-3-compliance"></a>Conformità a FIPS 140-2 Livello 3
 
-Molte organizzazioni hanno rigorose normative di settore che stabiliscono che le chiavi crittografiche devono essere archiviate in [FIPS 140-2 livello 3](https://csrc.nist.gov/publications/detail/fips/140/2/final) convalidato HSM. Il modulo di protezione hardware dedicato di Azure e una nuova offerta a tenant singolo, [Azure Key Vault HSM gestito (anteprima)](https://docs.microsoft.com/azure/key-vault/managed-hsm), aiutano i clienti di diversi segmenti del settore, come il settore dei servizi finanziari, le agenzie governative e altri, soddisfano i requisiti FIPS 140-2 Level-3. Anche se il servizio di [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) multi-tenant di Microsoft usa attualmente HSM convalidati FIPS 140-2 livello 2. 
+Molte organizzazioni hanno normative di settore stringenti che stabilgono che le chiavi crittografiche devono essere archiviate in moduli di protezione HMS convalidati [FIPS 140-2 livello 3.](https://csrc.nist.gov/publications/detail/fips/140/2/final) HSM dedicato di Azure e una nuova offerta a tenant singolo, [Azure Key Vault Managed HSM,](https://docs.microsoft.com/azure/key-vault/managed-hsm)consentono ai clienti di vari segmenti di settore, ad esempio il settore dei servizi finanziari, le agenzie governative e altri, di soddisfare i requisiti FIPS 140-2 Level-3. Mentre il servizio di [](https://docs.microsoft.com/azure/key-vault) Azure Key Vault multi-tenant di Microsoft usa attualmente IMS convalidati FIPS 140-2 Di livello 2. 
 
 ### <a name="single-tenant-devices"></a>Dispositivi a tenant singolo
 
@@ -72,7 +72,7 @@ Azure HSM dedicati non rappresenta una soluzione adatta per il tipo di scenario 
 
 ### <a name="it-depends"></a>Dipende
 
-Determinare se HSM dedicato di Azure rappresenti o meno una soluzione idonea per una specifica situazione dipende da una combinazione potenzialmente complessa di requisiti e compromessi. Un esempio è il requisito FIPS 140-2 Livello 3. Questo requisito è comune e il modulo di protezione hardware dedicato di Azure e una nuova offerta a tenant singolo, [Azure Key Vault HSM gestito (anteprima)](https://docs.microsoft.com/azure/key-vault/managed-hsm) sono attualmente le uniche opzioni per la riunione. Se questi requisiti non sono rilevanti, spesso si tratta di una scelta tra Azure Key Vault e il modulo di protezione hardware dedicato di Azure. Valutare i requisiti prima di prendere una decisione.
+Determinare se HSM dedicato di Azure rappresenti o meno una soluzione idonea per una specifica situazione dipende da una combinazione potenzialmente complessa di requisiti e compromessi. Un esempio è il requisito FIPS 140-2 Livello 3. Questo requisito è comune e HSM dedicato di Azure e una nuova offerta a tenant singolo, Azure Key Vault [HSM gestito](https://docs.microsoft.com/azure/key-vault/managed-hsm) sono attualmente le uniche opzioni per soddisfare il problema. Se questi requisiti obbligatori non sono rilevanti, spesso è possibile scegliere tra Azure Key Vault e HSM dedicato di Azure. Valutare i requisiti prima di prendere una decisione.
 
 Le situazioni in cui sarà necessario valutare le opzioni disponibili includono: 
 
@@ -85,7 +85,7 @@ Le situazioni in cui sarà necessario valutare le opzioni disponibili includono:
 
 Questo è un servizio altamente specializzato. È pertanto consigliabile assicurarsi di aver compreso a fondo i concetti principali illustrati in questa documentazione, inclusi i prezzi, il supporto e i contratti di servizio. 
 
-Le [guide all'integrazione di Thales](https://cpl.thalesgroup.com/partners/overview) consentono di semplificare il provisioning di HSM in un ambiente di rete virtuale esistente. Sono inoltre disponibili guide sulle procedure che consentono di determinare come configurare l'architettura di distribuzione.
+Le [guide all'integrazione di Thales](https://cpl.thalesgroup.com/partners/overview) consentono di semplificare il provisioning di macchine virtuali in un ambiente di rete virtuale esistente. Sono anche disponibili guide procedurali per determinare come configurare l'architettura di distribuzione.
 
 * [Disponibilità elevata](high-availability.md)
 * [Sicurezza fisica](physical-security.md)

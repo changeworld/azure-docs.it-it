@@ -3,7 +3,7 @@ title: Esempio di PowerShell - App di Application Proxy senza certificato
 description: Esempio di PowerShell che elenca tutte le applicazioni di Azure Active Directory (Azure AD) Application Proxy che usano domini personalizzati ma per le quali non è stato caricato un certificato TLS/SSL valido.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,14 +11,14 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: f4b661ee66d3fb045dfa4891f1f1c1643927167c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 00c2aa65c727bc614441b59c0021846855fcaf68
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044040"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377141"
 ---
-# <a name="get-all-application-proxy-apps-published-with-no-certificate-uploaded"></a>Ottenere tutte le app proxy di applicazione pubblicate senza certificato caricato
+# <a name="get-all-application-proxy-apps-published-with-no-certificate-uploaded"></a>Ottenere tutte le Application Proxy pubblicate senza certificato caricato
 
 Questo script di esempio di PowerShell elenca tutte le app di Azure Active Directory (Azure AD) Application Proxy che usano domini personalizzati ma per le quali non è stato caricato un certificato TLS/SSL valido.
 

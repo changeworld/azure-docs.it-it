@@ -1,18 +1,18 @@
 ---
 title: Controlli dell'esempio di progetto Media
 description: Mapping dei controlli dell'esempio di progetto Media. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 04/02/2021
+ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: b489111010c9a4fcb112428ae642332980302849
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 4c04c661d7dd8b2b07a05c20524258d6bb887e62
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386405"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376699"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Media
 
-L'articolo seguente descrive il mapping dell'esempio di progetto Media di Azure Blueprints ai controlli Media. Per altre informazioni sui controlli, vedere [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+L'articolo seguente descrive il mapping dell'esempio di progetto Media di Azure Blueprints ai controlli Media. Per altre informazioni sui controlli, vedere [Media](https://www.motionpictures.org/best-practices).
 
 I mapping seguenti fanno riferimento ai controlli **Media**. Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Trovare e selezionare l'iniziativa dei criteri predefinita **\[Anteprima\]: Verifica controlli Media**.
 

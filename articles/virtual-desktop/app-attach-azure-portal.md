@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0d7598e332539b8203d55bbcb1cf497811c32540
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 21dbab6c8d4fb12fe79434a6994dd7f5b8a49190
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107366556"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502709"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurare la connessione all'app MSIX con il portale di Azure
 
@@ -19,14 +19,10 @@ Questo articolo illustra come configurare montaggio app MSIX in un ambiente Desk
 
 ## <a name="requirements"></a>Requisiti
 
->[!IMPORTANT]
->Prima di iniziare, assicurarsi di compilare e inviare questo [modulo](https://aka.ms/enablemsixappattach) per abilitare montaggio app MSIX nella sottoscrizione. Se non si ha una richiesta approvata, montaggio app MSIX non funzionerà. L'approvazione delle richieste può richiedere fino a 24 ore durante i giorni lavorativi. Si otterrà un messaggio di posta elettronica quando la richiesta è stata accettata e completata.
-
 Ecco cosa è necessario per configurare montaggio app MSIX:
 
-- Una distribuzione di Desktop virtuale Windows funzionante. Per informazioni su come distribuire Desktop virtuale Windows (versione classica), vedere [Creare un tenant in Desktop virtuale Windows.](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) Per informazioni su come distribuire Desktop virtuale Windows con Azure Resource Manager, vedere [Creare un pool di host](./create-host-pools-azure-marketplace.md)con il portale di Azure .
+- Una distribuzione di Desktop virtuale Windows funzionante. Per informazioni su come distribuire Desktop virtuale Windows (versione classica), vedere [Creare un tenant in Desktop virtuale Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Per informazioni su come distribuire Desktop virtuale Windows con Azure Resource Manager, vedere [Creare un pool di host](./create-host-pools-azure-marketplace.md)con il portale di Azure .
 - Pool di host desktop virtuale Windows con almeno un host di sessione attivo.
-- Questo pool host deve essere nell'ambiente di convalida. 
 - Strumento di creazione pacchetti MSIX.
 - Un'applicazione in pacchetto MSIX è stata espansa in un'immagine MSIX caricata in una condivisione file.
 - Condivisione file nella distribuzione di Desktop virtuale Windows in cui verrà archiviato il pacchetto MSIX.
@@ -55,14 +51,14 @@ reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\De
 >[!NOTE]
 >È consigliabile riavviare la macchina virtuale dopo aver abilitato Hyper-V.
 
-## <a name="configure-the-msix-app-attach-management-interface"></a>Configurare l'montaggio app MSIX di gestione delle applicazioni
+## <a name="configure-the-msix-app-attach-management-interface"></a>Configurare l'montaggio app MSIX di gestione dei dati
 
-Successivamente, è necessario scaricare e configurare l'interfaccia di montaggio app MSIX per l'portale di Azure.
+Sarà quindi necessario scaricare e configurare l'interfaccia di gestione montaggio app MSIX per l'portale di Azure.
 
 Per configurare l'interfaccia di gestione:
 
 1. [Aprire il portale di Azure](https://portal.azure.com).
-2. Se viene visualizzato un prompt che chiede se si considera attendibile l'estensione, selezionare **Consenti.**
+2. Se viene visualizzato un messaggio che chiede se si considera attendibile l'estensione, selezionare **Consenti**.
 
       > [!div class="mx-imgBorder"]
       > ![Screenshot della finestra estensioni non attendibili. "Consenti" è evidenziato in rosso.](media/untrusted-extensions.png)
@@ -83,23 +79,23 @@ Per aggiungere l'immagine MSIX:
 
 3. Selezionare il pool di host in cui si prevede di inserire le app MSIX.
 
-4. Selezionare **Pacchetti MSIX** per aprire la griglia dei dati con tutti **i pacchetti MSIX** attualmente aggiunti al pool di host.
+4. Selezionare **Pacchetti MSIX** per aprire la griglia dei dati con tutti **i pacchetti MSIX** attualmente aggiunti al pool host.
 
 5. Selezionare **+ Aggiungi** per aprire la scheda Aggiungi pacchetto **MSIX.**
 
-6. Nella scheda **Add MSIX package (Aggiungi pacchetto MSIX)** immettere i valori seguenti:
+6. Nella scheda **Aggiungi pacchetto MSIX** immettere i valori seguenti:
 
-      - Per **Percorso immagine MSIX** immettere un percorso UNC valido che punta all'immagine MSIX nella condivisione file. Ad esempio, `\\storageaccount.file.core.windows.net\msixshare\appfolder\MSIXimage.vhd` . Al termine, selezionare Aggiungi **per** interrogare il contenitore MSIX per verificare se il percorso è valido.
+      - Per **Percorso immagine MSIX** immettere un percorso UNC valido che punta all'immagine MSIX nella condivisione file. (Ad esempio, `\\storageaccount.file.core.windows.net\msixshare\appfolder\MSIXimage.vhd` .) Al termine, selezionare **Aggiungi** per interrogare il contenitore MSIX per verificare se il percorso è valido.
 
       - Per **Pacchetto MSIX** selezionare il nome del pacchetto MSIX pertinente dal menu a discesa. Questo menu verrà popolato solo se è stato immesso un percorso di immagine valido nel **percorso immagine MSIX**.
 
-      - Per **Le applicazioni pacchetto** assicurarsi che l'elenco contenga tutte le applicazioni MSIX che si vuole rendere disponibili agli utenti nel pacchetto MSIX.
+      - Per **Le applicazioni del** pacchetto assicurarsi che l'elenco contenga tutte le applicazioni MSIX che si vuole rendere disponibili agli utenti nel pacchetto MSIX.
 
       - Facoltativamente, immettere **un nome visualizzato** se si vuole che il pacchetto abbia un nome più descrittivo nelle distribuzioni utente.
 
       - Assicurarsi che **version abbia** il numero di versione corretto.
 
-      - Selezionare il **tipo di** registrazione da usare. Quello che si usa dipende dalle proprie esigenze:
+      - Selezionare il **tipo di** registrazione che si vuole usare. Quello che si usa dipende dalle proprie esigenze:
 
     - **La registrazione su richiesta** posticipa la registrazione completa dell'applicazione MSIX fino a quando l'utente non avvia l'applicazione. Si tratta del tipo di registrazione che è consigliabile usare.
 
@@ -121,20 +117,20 @@ Per pubblicare le app:
 
 1. Nel provider di risorse Desktop virtuale Windows selezionare la **scheda Gruppi di** applicazioni.
 
-2. Selezionare il gruppo di applicazioni in cui si vogliono pubblicare le app.
+2. Selezionare il gruppo di applicazioni in cui pubblicare le app.
 
    >[!NOTE]
-   >Le applicazioni MSIX possono essere distribuite con montaggio app MSIX a gruppi di app remote e desktop
+   >Le applicazioni MSIX possono essere recapitate con montaggio app MSIX a gruppi di app remote e desktop
 
-3. Una volta nel gruppo di app, selezionare la **scheda** Applicazioni. La **griglia Applicazioni** visualizza tutte le app esistenti all'interno del gruppo di app.
+3. Dopo aver fatto parte del gruppo di app, selezionare la **scheda** Applicazioni. Nella **griglia Applicazioni** verranno visualizzate tutte le app esistenti all'interno del gruppo di app.
 
-4. Selezionare **+ Aggiungi per** aprire la scheda **Aggiungi** applicazione.
+4. Selezionare **+ Aggiungi** per aprire la scheda **Aggiungi** applicazione.
 
       > [!div class="mx-imgBorder"]
       > ![Screenshot dell'utente che seleziona + Aggiungi per aprire la scheda Aggiungi applicazione](media/select-add.png)
 
 5. Per **Origine applicazione** scegliere l'origine per l'applicazione.
-    - Se si usa un gruppo di app desktop, scegliere **Pacchetto MSIX.**
+    - Se si usa un gruppo di app desktop, scegliere **Pacchetto MSIX**.
       
       > [!div class="mx-imgBorder"]
       > ![Screenshot di un cliente che seleziona il pacchetto MSIX dal menu a discesa dell'origine dell'applicazione. Il pacchetto MSIX è evidenziato in rosso.](media/select-source.png)
@@ -151,7 +147,7 @@ Per pubblicare le app:
    
     - Per **Nome visualizzato** immettere un nuovo nome per il pacchetto che verrà visualizzato dagli utenti.
 
-    - Per **Descrizione** immettere una breve descrizione del pacchetto dell'app.
+    - In **Descrizione** immettere una breve descrizione del pacchetto dell'app.
 
     - Se si usa un gruppo di app remote, è anche possibile configurare queste opzioni:
 
@@ -169,7 +165,7 @@ Per pubblicare le app:
 Dopo aver assegnato le app MSIX a un gruppo di app, è necessario concedere agli utenti l'accesso. È possibile assegnare l'accesso aggiungendo utenti o gruppi di utenti a un gruppo di app con applicazioni MSIX pubblicate. Seguire le istruzioni in [Gestire i gruppi di app con il portale di Azure](manage-app-groups.md) per assegnare gli utenti a un gruppo di app.
 
 >[!NOTE]
->montaggio app MSIX app remote potrebbero scomparire dal feed quando si testano le app remote durante l'anteprima pubblica. Le app non vengono visualizzate perché il pool di host in uso nell'ambiente di valutazione viene gestito da Un Broker Desktop remoto nell'ambiente di produzione. Poiché Gestore Desktop remoto nell'ambiente di produzione non registra la presenza dell'montaggio app MSIX remote, le app non verranno visualizzate nel feed.
+>montaggio app MSIX app remote potrebbero scomparire dal feed quando si testano le app remote durante l'anteprima pubblica. Le app non vengono visualizzate perché il pool di host in uso nell'ambiente di valutazione viene gestito da Un Broker Desktop remoto nell'ambiente di produzione. Poiché Gestore Desktop remoto nell'ambiente di produzione non registra la presenza del montaggio app MSIX remote, le app non verranno visualizzate nel feed.
 
 ## <a name="change-msix-package-state"></a>Modificare lo stato del pacchetto MSIX
 
@@ -187,9 +183,9 @@ Per modificare lo stato del pacchetto con l'elenco Delle applicazioni:
 
 Per modificare lo stato del pacchetto con un pacchetto di aggiornamento:
 
-1. Passare al pool di host e selezionare **Pacchetti MSIX**. Verrà visualizzato un elenco di tutti i pacchetti MSIX esistenti all'interno del pool di host.
+1. Passare al pool di host e selezionare **Pacchetti MSIX**. Verrà visualizzato un elenco di tutti i pacchetti MSIX esistenti all'interno del pool host.
 
-2. Selezionare il nome del pacchetto di cui si vuole modificare lo stato dall'elenco pacchetto MSIX. Verrà aperta la **scheda Aggiorna** pacchetto.
+2. Selezionare il nome del pacchetto di cui si vuole modificare lo stato dall'elenco dei pacchetti MSIX. Verrà aperta la **scheda Aggiorna** pacchetto.
 
 3. Impostare **l'opzione** Stato su **Inattivo** **o Attivo** e quindi selezionare **Salva.**
 
@@ -197,31 +193,31 @@ Per modificare lo stato del pacchetto con un pacchetto di aggiornamento:
 
 Per modificare il tipo di registrazione del pacchetto:
 
-1. Selezionare **Pacchetti MSIX**. Verrà visualizzato un elenco di tutti i pacchetti MSIX esistenti all'interno del pool di host.
+1. Selezionare **Pacchetti MSIX**. Verrà visualizzato un elenco di tutti i pacchetti MSIX esistenti all'interno del pool host.
 
-2. Selezionare **Nome pacchetto nella** griglia pacchetti **MSIX** per aprire il pannello per aggiornare il pacchetto.
+2. Selezionare **Nome pacchetto nella** griglia Pacchetti **MSIX** per aprire il pannello per aggiornare il pacchetto.
 
-3. Attivare o **disattivare il tipo** di registrazione tramite il pulsante Di blocco **su richiesta/Accesso** e selezionare **Salva.**
+3. Attivare o **disattivare** il tipo di registrazione tramite il pulsante Di blocco su **richiesta/Accesso** come desiderato e selezionare **Salva.**
 
 ## <a name="remove-an-msix-package"></a>Rimuovere un pacchetto MSIX
 
 Per rimuovere un pacchetto MSIX dal pool di host:
 
-1. Selezionare **Pacchetti MSIX.**  Verrà visualizzato un elenco di tutti i pacchetti MSIX esistenti all'interno del pool di host.
+1. Selezionare **Pacchetti MSIX**.  Verrà visualizzato un elenco di tutti i pacchetti MSIX esistenti all'interno del pool host.
 
-2. Selezionare i puntini di sospensione sul lato destro del nome del pacchetto da eliminare, quindi selezionare **Rimuovi.**
+2. Selezionare i puntini di sospensione sul lato destro del nome del pacchetto da eliminare, quindi selezionare **Rimuovi**.
 
 ## <a name="remove-msix-apps"></a>Rimuovere le app MSIX
 
 Per rimuovere singole app MSIX dal pacchetto:
 
-1. Passare al pool di host e selezionare **Gruppi di applicazioni.**
+1. Passare al pool di host e selezionare **Gruppi di applicazioni**.
 
-2. Selezionare il gruppo di applicazioni da cui si vogliono rimuovere le app MSIX.
+2. Selezionare il gruppo di applicazioni da cui rimuovere le app MSIX.
 
 3. Aprire la **scheda** Applicazioni.
 
-4. Selezionare l'app da rimuovere, quindi **selezionare Rimuovi.**
+4. Selezionare l'app da rimuovere, quindi **selezionare Rimuovi**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

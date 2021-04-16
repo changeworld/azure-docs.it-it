@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 315519472baa672e802855b5ab21b8bae8f51935
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d03a4865c8db52f74f4130c458fec3028f5b95a4
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109850"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481668"
 ---
 # <a name="what-is-azure-digital-twins"></a>Cos'è il servizio Gemelli digitali di Azure?
 
@@ -94,14 +94,14 @@ Il diagramma seguente illustra il punto in cui si trova Gemelli digitali di Azur
 
 ## <a name="service-limits"></a>Limiti del servizio
 
-Per informazioni sui limiti dei **Servizi** dei dispositivi gemelli digitali di Azure, vedere i [limiti del servizio Azure Digital gemelli](reference-service-limits.md). Questo può essere utile quando si lavora con il servizio per comprendere le limitazioni funzionali e di frequenza del servizio, nonché i limiti che è possibile modificare se necessario.
+Per informazioni sui limiti del **servizio di** Gemelli digitali di Azure, vedere Limiti [Gemelli digitali di Azure servizio.](reference-service-limits.md) Ciò può essere utile quando si lavora con il servizio per comprendere le limitazioni funzionali e di frequenza del servizio, nonché i limiti che possono essere modificati se necessario.
 
 ## <a name="terminology"></a>Terminologia
 
-È possibile visualizzare un elenco di **termini comuni** di Internet e i relativi usi nei servizi di Azure, inclusi i dispositivi gemelli digitali di Azure, qui: [Glossario di Azure](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). Questo può essere un riferimento utile mentre si inizia a usare i dispositivi gemelli digitali di Azure e si crea una soluzione Internet delle cose.
+È possibile visualizzare un elenco di termini **IoT** comuni e i relativi usi nei servizi Azure IoT, tra cui Gemelli digitali di Azure, qui: [Azure IoT Glossario](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). Questo può essere un riferimento utile quando si inizia a usare Gemelli digitali di Azure creazione di una soluzione IoT.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Approfondire l'uso di Azure Digital gemelli nella Guida introduttiva: [*Guida introduttiva: esplorare uno scenario di esempio*](quickstart-adt-explorer.md).
+* Approfondire l'uso di Gemelli digitali di Azure nell'avvio rapido: [*Guida introduttiva: Esplorare uno scenario di esempio.*](quickstart-azure-digital-twins-explorer.md)
 
-* In alternativa, iniziare a leggere i concetti relativi ai dispositivi gemelli digitali di Azure con [*concetti: modelli personalizzati*](concepts-models.md).
+* In altri termini, è possibile iniziare a leggere Gemelli digitali di Azure concetti [*relativi ai modelli personalizzati.*](concepts-models.md)

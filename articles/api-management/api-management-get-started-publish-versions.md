@@ -3,16 +3,16 @@ title: "Esercitazione: Pubblicare versioni dell'API con Gestione API di Azure"
 description: Le procedure illustrate in questa esercitazione descrivono come pubblicare più versioni API in Gestione API.
 author: vladvino
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: apimpm
-ms.openlocfilehash: dc3d3b4658bd9a26363b6d41377d448059e30c0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5930979258372e4269c4d453ffbc5e0d46258088
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889672"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483611"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Esercitazione: Pubblicare più versioni dell'API 
 
@@ -90,29 +90,29 @@ Ad esempio, per aggiungere la versione al prodotto **Illimitato**:
 
 ## <a name="use-version-sets"></a>Usare i set di versioni
 
-Quando si creano più versioni, il portale di Azure crea un *set* di versioni, che rappresenta un set di versioni per una singola API logica. Consente di selezionare il nome di un'API con più versioni. Il portale di Azure Visualizza il **set di versioni**. È possibile personalizzare il **nome** e la **Descrizione** di un set virtuale.
+Quando si creano più versioni, il portale di Azure crea un *set* di versioni , che rappresenta un set di versioni per una singola API logica. Selezionare il nome di un'API con più versioni. Nella portale di Azure viene visualizzato il **relativo set di versioni**. È possibile personalizzare il **nome e** la **descrizione** di un set virtuale.
 
 È possibile interagire direttamente con i set di versioni usando l'interfaccia della riga di comando di Azure:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Per visualizzare tutti i set di versioni, eseguire il comando [AZ gestione API API deversions list](/cli/azure/apim/api/versionset#az_apim_api_versionset_list) :
+Per visualizzare tutti i set di versioni, eseguire il [comando az apim api versionset list:](/cli/azure/apim/api/versionset#az_apim_api_versionset_list)
 
 ```azurecli
 az apim api versionset list --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world --output table
 ```
 
-Quando il portale di Azure crea automaticamente un set di versioni, assegna un nome alfanumerico, che viene visualizzato nella colonna **nome** dell'elenco. Usare questo nome in altri comandi dell'interfaccia della riga di comando di Azure.
+Quando l portale di Azure crea automaticamente un set di versioni, assegna un nome alfanumerico, che viene visualizzato nella **colonna Nome** dell'elenco. Usare questo nome in altri comandi dell'interfaccia della riga di comando di Azure.
 
-Per visualizzare i dettagli di un set di versioni, eseguire il comando [AZ gestione API API Versions Show](/cli/azure/apim/api/versionset#az_apim_api_versionset_show) :
+Per visualizzare i dettagli su un set di versioni, eseguire il [comando az apim api versionset show:](/cli/azure/apim/api/versionset#az_apim_api_versionset_show)
 
 ```azurecli
 az apim api versionset show --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world --version-set-id 00000000000000000000000
 ```
 
-Per altre informazioni sui set di versioni, vedere [versioni in gestione API di Azure](api-management-versions.md#how-versions-are-represented).
+Per altre informazioni sui set di versioni, vedere [Versioni in Azure API Management](api-management-versions.md#how-versions-are-represented).
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Passare al portale per sviluppatori per visualizzare la versione
 

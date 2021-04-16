@@ -1,5 +1,5 @@
 ---
-title: Tutte le entità predefinite-LUIS
+title: Tutte le entità predefinite - LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene gli elenchi delle entità predefinite incluse in Language Understanding, ovvero LUIS.
 services: cognitive-services
@@ -8,22 +8,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/20/2020
-ms.openlocfilehash: cb3c74a2176ee7fcac53afb5185e8c62e66f4dfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 7155a829655645e13e0485ed7d51305ec50e5b0a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798800"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502760"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entità per impostazioni cultura nel modello LUIS
 
 Language Understanding offre entità predefinite.
 
-## <a name="entity-resolution"></a>Risoluzione di entità
-Quando nell'applicazione viene inclusa un'entità predefinita, LUIS include la risoluzione dell'entità corrispondente nella risposta dell'endpoint. Anche tutte le espressioni di esempio vengono contrassegnate con l'entità.
+## <a name="entity-resolution"></a>Risoluzione delle entità
+Quando un'entità predefinita viene inclusa nell'applicazione, LUIS include la risoluzione dell'entità corrispondente nella risposta dell'endpoint. Anche tutte le espressioni di esempio vengono contrassegnate con l'entità.
 
-Il comportamento delle entità predefinite non può essere modificato, ma è possibile migliorare la risoluzione aggiungendo [l'entità predefinita come funzionalità a un'entità o a un'entità di Machine Learning](luis-concept-entity-types.md#effective-prebuilt-entities).
+Il comportamento delle entità predefinite non può essere modificato, ma è possibile migliorare la risoluzione aggiungendo l'entità precompilata come funzionalità a un'entità di Machine Learning o a una [sotto-entità](luis-concept-entity-types.md#prebuilt-entity).
 
 ## <a name="availability"></a>Disponibilità
 Se non indicato diversamente, le entità predefinite sono disponibili in tutte le impostazioni locali dell'applicazione LUIS, ovvero nelle impostazioni cultura. La tabella seguente riporta le entità predefinite supportate per ogni impostazione cultura.
@@ -44,7 +44,7 @@ Se non indicato diversamente, le entità predefinite sono disponibili in tutte l
 
 ## <a name="prediction-endpoint-runtime"></a>Runtime dell'endpoint di stima
 
-La disponibilità di un'entità precompilata in una lingua specifica è determinata dalla versione runtime dell'endpoint di stima.
+La disponibilità di un'entità predefinita in una lingua specifica è determinata dalla versione di runtime dell'endpoint di stima.
 
 ## <a name="chinese-entity-support"></a>Supporto entità cinesi
 
@@ -54,18 +54,18 @@ Sono supportate le entità seguenti:
 | --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    V2, V3   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperature (Temperatura):](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="dutch-entity-support"></a>Supporto entità olandesi
@@ -74,19 +74,19 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | nl-NL |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
+[Age (Età):](luis-reference-prebuilt-age.md)<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DateTime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
@@ -98,18 +98,18 @@ Sono supportate le entità seguenti:
 | --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    V2, V3   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    V2, V3   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperature (Temperatura):](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="french-france-entity-support"></a>Supporto di entità francesi (Francia)
@@ -118,19 +118,19 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | fr-FR |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
+[Age (Età):](luis-reference-prebuilt-age.md)<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |   -   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
@@ -142,18 +142,18 @@ Sono supportate le entità seguenti:
 | --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperature (Temperatura):](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="german-entity-support"></a>Supporto entità tedesche
@@ -162,25 +162,25 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita | de-DE |
 | -------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
+[Age (Età):](luis-reference-prebuilt-age.md)<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="italian-entity-support"></a>Supporto entità italiane
 
-L'età, la valuta, la dimensione, il numero, la risoluzione percentuale e la _risoluzione_ dell'italiano sono cambiate dall'anteprima V2 e V3.
+L'età predefinita, la valuta, la dimensione, il numero e la _risoluzione_ della percentuale sono state modificate dall'anteprima V2 e V3.
 
 Sono supportate le entità seguenti:
 
@@ -192,14 +192,14 @@ Sono supportate le entità seguenti:
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperature (Temperatura):](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="japanese-entity-support"></a>Supporto entità giapponesi
@@ -208,20 +208,20 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita | ja-JP |
 | -------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2,-   |
-[Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2,-   |
+[Age (Età):](luis-reference-prebuilt-age.md)<br>anno<br>month<br>week<br>day   |    V2, -   |
+[Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, -   |
 [DateTime](luis-reference-prebuilt-deprecated.md)   |    -   |
-[Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2,-   |
+[Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, -   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
-[Number](luis-reference-prebuilt-number.md)   |    V2,-   |
-[Ordinale](luis-reference-prebuilt-ordinal.md)   |    V2,-   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[Number](luis-reference-prebuilt-number.md)   |    V2, -   |
+[Ordinale](luis-reference-prebuilt-ordinal.md)   |    V2, -   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Percentuale](luis-reference-prebuilt-percentage.md)   |    V2,-   |
+[Percentuale](luis-reference-prebuilt-percentage.md)   |    V2, -   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2,-   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, -   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="korean-entity-support"></a>Supporto entità coreane
@@ -236,14 +236,14 @@ Sono supportate le entità seguenti:
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    -   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    -   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    -   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    -   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperature (Temperatura):](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="portuguese-brazil-entity-support"></a>Supporto entità portoghesi (Brasile)
@@ -252,19 +252,19 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | pt-BR |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
+[Age (Età):](luis-reference-prebuilt-age.md)<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
@@ -278,18 +278,18 @@ Sono supportate le entità seguenti:
 | --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Temperature (Temperatura):](luis-reference-prebuilt-temperature.md)<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="spanish-mexico-entity-support"></a>Supporto entità spagnole (Messico)
@@ -298,19 +298,19 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | es-MX |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    -   |
+[Age (Età):](luis-reference-prebuilt-age.md)<br>anno<br>month<br>week<br>day   |    -   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>intervallo di tempo   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    -   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Number](luis-reference-prebuilt-number.md)   |    V2, V3   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    -   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    -   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
@@ -322,14 +322,14 @@ Vedere le note in [Entità predefinite deprecate](luis-reference-prebuilt-deprec
 | --------------- | :---: |
 [Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    -   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>data<br>daterange<br>time<br>intervallo di tempo   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    -   |
 [Posta elettronica](luis-reference-prebuilt-email.md)   |    -   |
-[Frase chiave](luis-reference-prebuilt-keyphrase.md)   |    -   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   |
 [Number](luis-reference-prebuilt-number.md)   |    -   |
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    -   |
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    -   |
-[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    -   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    -   |
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   |
 [URL](luis-reference-prebuilt-url.md)   |    -   |
 

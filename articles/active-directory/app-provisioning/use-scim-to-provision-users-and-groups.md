@@ -12,42 +12,42 @@ ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 3d53c96c4b0306911b0c8a0b8576f35a73419db0
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305600"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107498153"
 ---
-# <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Esercitazione: sviluppare e pianificare il provisioning per un endpoint SCIM
+# <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Esercitazione: Sviluppare e pianificare il provisioning per un endpoint SCIM
 
-Gli sviluppatori di applicazioni possono usare l'API di gestione degli utenti di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi tra l'applicazione e Azure AD (AAD). Questo articolo descrive come creare un endpoint SCIM e integrarsi con il servizio di provisioning di AAD. La specifica SCIM offre uno schema utente comune per il provisioning. In combinazione con standard di federazione come OpenID Connect o SAML, SCIM offre agli amministratori una soluzione end-to-end basata su standard per la gestione degli accessi.
+Gli sviluppatori di applicazioni possono usare l'API di gestione utenti System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi tra l'applicazione e Azure AD (AAD). Questo articolo descrive come compilare un endpoint SCIM e integrarlo con il servizio di provisioning di AAD. La specifica SCIM offre uno schema utente comune per il provisioning. In combinazione con standard di federazione come OpenID Connect o SAML, SCIM offre agli amministratori una soluzione end-to-end basata su standard per la gestione degli accessi.
 
 ![Provisioning da Azure AD a un'app con SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
-SCIM è una definizione standardizzata di due endpoint: un `/Users` endpoint e un `/Groups` endpoint. Usa verbi REST comuni per creare, aggiornare ed eliminare oggetti e uno schema predefinito per attributi comuni come nome del gruppo, nome utente, nome, cognome e indirizzo di posta elettronica. Le app che offrono un'API REST SCIM 2.0 possono ridurre o eliminare le difficoltà associate all'uso di un'API proprietaria di gestione degli utenti. Ad esempio, tutti i client SCIM conformi sanno come inserire un HTTP POST di un oggetto JSON nell' `/Users` endpoint per creare una nuova voce utente. Invece di richiedere un'API leggermente diversa per le stesse azioni di base, le app conformi allo standard SCIM possono sfruttare immediatamente i vantaggi del codice, dei client e degli strumenti preesistenti. 
+SCIM è una definizione standardizzata di due endpoint: un `/Users` endpoint e un `/Groups` endpoint. Usa verbi REST comuni per creare, aggiornare ed eliminare oggetti e uno schema predefinito per attributi comuni come nome del gruppo, nome utente, nome, cognome e indirizzo di posta elettronica. Le app che offrono un'API REST SCIM 2.0 possono ridurre o eliminare le difficoltà associate all'uso di un'API proprietaria di gestione degli utenti. Ad esempio, qualsiasi client SCIM conforme sa come creare un HTTP POST di un oggetto JSON `/Users` nell'endpoint per creare una nuova voce utente. Invece di richiedere un'API leggermente diversa per le stesse azioni di base, le app conformi allo standard SCIM possono sfruttare immediatamente i vantaggi del codice, dei client e degli strumenti preesistenti. 
 
 Lo schema dell'oggetto utente standard e le API REST per la gestione definiti in SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643) e [7644](https://tools.ietf.org/html/rfc7644)) facilitano l'integrazione tra provider di identità e app. Gli sviluppatori di applicazioni che creano un endpoint SCIM possono effettuare l'integrazione con qualsiasi client conforme a SCIM senza che siano necessarie operazioni personalizzate.
 
-Per automatizzare il provisioning in un'applicazione, è necessario compilare e integrare un endpoint SCIM con il client di Azure AD SCIM. Usare la procedura seguente per avviare il provisioning di utenti e gruppi nell'applicazione. 
+Per automatizzare il provisioning in un'applicazione, sarà necessario compilare e integrare un endpoint SCIM con il client SCIM Azure AD client SCIM. Usare la procedura seguente per avviare il provisioning di utenti e gruppi nell'applicazione. 
     
 1. Progettare lo schema di utenti e gruppi
 
-   Identificare gli oggetti e gli attributi dell'applicazione per determinare il modo in cui vengono mappati allo schema utente e gruppo supportato dall'implementazione di AAD SCIM.
+   Identificare gli oggetti e gli attributi dell'applicazione per determinare come viene mappato allo schema utente e gruppo supportato dall'implementazione SCIM di AAD.
 
 1. Informazioni sull'implementazione di AAD SCIM
 
-   Informazioni sul modo in cui viene implementato il client AAD SCIM per modellare le risposte e la gestione delle richieste del protocollo SCIM.
+   Informazioni su come viene implementato il client SCIM di AAD per modellare la gestione e le risposte delle richieste del protocollo SCIM.
 
-1. Compilare un endpoint SCIM
+1. Creare un endpoint SCIM
 
-   Un endpoint deve essere compatibile con SCIM 2,0 per l'integrazione con il servizio di provisioning di AAD. In alternativa, usare le librerie di Microsoft Common Language Infrastructure (CLI) ed esempi di codice per compilare l'endpoint. Questi esempi sono solo a fini di riferimento e di testing; è consigliabile evitare di usarli come dipendenze nell'app di produzione.
+   Un endpoint deve essere compatibile con SCIM 2.0 per l'integrazione con il servizio di provisioning AAD. Come opzione, usare le librerie di Microsoft Common Language Infrastructure (CLI) e gli esempi di codice per compilare l'endpoint. Questi esempi sono solo per riferimento e test; È consigliabile non usarle come dipendenze nell'app di produzione.
 
 1. Integrare l'endpoint SCIM con il client SCIM di AAD 
 
-   Se l'organizzazione usa un'applicazione di terze parti per implementare un profilo di SCIM 2,0 supportato da AAD, è possibile automatizzare rapidamente il provisioning e il deprovisioning di utenti e gruppi.
+   Se l'organizzazione usa un'applicazione di terze parti per implementare un profilo di SCIM 2.0 che supporta AAD, è possibile automatizzare rapidamente sia il provisioning che il deprovisioning di utenti e gruppi.
 
-1. Pubblicare l'applicazione nella raccolta di applicazioni di AAD 
+1. Pubblicare l'applicazione nella raccolta di applicazioni AAD 
 
    Consentire ai clienti di individuare l'applicazione e configurare il provisioning con facilità. 
 
@@ -55,34 +55,34 @@ Per automatizzare il provisioning in un'applicazione, è necessario compilare e 
 
 ## <a name="design-your-user-and-group-schema"></a>Progettare lo schema di utenti e gruppi
 
-Ogni applicazione richiede attributi diversi per la creazione di un utente o un gruppo. Avviare l'integrazione identificando gli oggetti richiesti (utenti, gruppi) e gli attributi (nome, Manager, titolo del processo e così via) necessari per l'applicazione. 
+Ogni applicazione richiede attributi diversi per creare un utente o un gruppo. Avviare l'integrazione identificando gli oggetti necessari (utenti, gruppi) e attributi (nome, manager, posizione e così via) necessari per l'applicazione. 
 
 Lo standard SCIM definisce uno schema per la gestione di utenti e gruppi. 
 
-Lo schema utente **principale** richiede solo tre attributi (tutti gli altri attributi sono facoltativi):
+Lo **schema utente** di base richiede solo tre attributi (tutti gli altri attributi sono facoltativi):
 
 - `id`, identificatore definito del provider di servizi
-- `userName`, un identificatore univoco per l'utente (in genere viene eseguito il mapping al nome dell'entità utente Azure AD)
-- `meta`, metadati di sola *lettura* gestiti dal provider di servizi
+- `userName`, un identificatore univoco per l'utente (in genere viene mappato Azure AD nome dell'entità utente)
+- `meta`, *metadati di sola* lettura gestiti dal provider di servizi
 
-Oltre allo schema utente **principale** , lo standard scim definisce un'estensione utente **aziendale** con un modello per l'estensione dello schema utente per soddisfare le esigenze dell'applicazione. 
+Oltre allo schema **utente principale,** lo standard  SCIM definisce un'estensione utente aziendale con un modello per estendere lo schema utente in base alle esigenze dell'applicazione. 
 
-Se, ad esempio, l'applicazione richiede un indirizzo di posta elettronica dell'utente e un responsabile dell'utente, usare lo schema **principale** per raccogliere la posta elettronica dell'utente e lo schema utente **aziendale** per raccogliere il responsabile dell'utente.
+Ad esempio, se l'applicazione richiede sia il messaggio di posta elettronica di un utente che  il responsabile dell'utente, usare lo **schema** principale per raccogliere la posta elettronica dell'utente e lo schema utente aziendale per raccogliere il responsabile dell'utente.
 
-Per progettare lo schema, attenersi alla procedura seguente:
+Per progettare lo schema, seguire questa procedura:
 
-1. Elencare gli attributi richiesti dall'applicazione, quindi categorizzare come attributi necessari per l'autenticazione (ad esempio, LoginName e posta elettronica), gli attributi necessari per gestire il ciclo di vita dell'utente (ad esempio, status/Active) e tutti gli altri attributi necessari per il funzionamento dell'applicazione (ad esempio, Manager, tag).
+1. Elencare gli attributi richiesti dall'applicazione, quindi classificarli come attributi necessari per l'autenticazione (ad esempio loginName e posta elettronica), gli attributi necessari per gestire il ciclo di vita dell'utente (ad esempio stato/attivo) e tutti gli altri attributi necessari per il funzionamento dell'applicazione (ad esempio manager, tag).
 
-1. Controllare se gli attributi sono già definiti nello schema utente **principale** o nello schema utente **aziendale** . In caso contrario, è necessario definire un'estensione per lo schema utente che copre gli attributi mancanti. Vedere l'esempio seguente per un'estensione dell'utente per consentire il provisioning di un utente `tag` .
+1. Controllare se gli attributi sono  già definiti nello schema utente principale o nello schema **utente** aziendale. In caso contrario, è necessario definire un'estensione dello schema utente che copre gli attributi mancanti. Vedere l'esempio seguente per un'estensione all'utente per consentire il provisioning di un utente `tag` .
 
-1. Eseguire il mapping degli attributi SCIM agli attributi utente in Azure AD. Se uno degli attributi definiti nell'endpoint SCIM non ha una controparte chiara nello schema utente Azure AD, guida l'amministratore tenant per estendere il proprio schema o usare un attributo di estensione, come illustrato di seguito per la `tags` Proprietà.
+1. Eseguire il mapping degli attributi SCIM agli attributi utente in Azure AD. Se uno degli attributi definiti nell'endpoint SCIM non ha una controparte chiara nello schema utente di Azure AD, guidare l'amministratore tenant a estendere il proprio schema o usare un attributo di estensione, come illustrato di seguito per la `tags` proprietà .
 
-|Attributo app obbligatorio|Attributo SCIM mappato|Attributo Azure AD mappato|
+|Attributo dell'app obbligatorio|Attributo SCIM mappato|Attributo Azure AD mappato|
 |--|--|--|
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|name.familyName|Cognome|
-|workMail|messaggi di posta elettronica [digitare EQ "Work"]. Value|Posta elettronica|
+|workMail|emails[type eq "work"].value|Posta elettronica|
 |manager|manager|manager|
 |tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
 |status|active|isSoftDeleted (valore calcolato non archiviato per l'utente)|
@@ -120,9 +120,9 @@ Per progettare lo schema, attenersi alla procedura seguente:
 **Schema di esempio definito da un payload JSON**
 
 > [!NOTE]
-> Oltre agli attributi necessari per l'applicazione, la rappresentazione JSON include anche gli `id` attributi, e richiesti `externalId` `meta` .
+> Oltre agli attributi necessari per l'applicazione, la rappresentazione JSON include anche gli attributi `id` `externalId` obbligatori , e `meta` .
 
-Consente di classificare tra `/User` e `/Group` per eseguire il mapping di tutti gli attributi utente predefiniti Azure ad alla RFC SCIM, vedere [come vengono mappati gli attributi di personalizzazione tra Azure ad e l'endpoint scim](customize-application-attributes.md).
+Consente di classificare tra e per eseguire il mapping di tutti gli attributi utente predefiniti in Azure AD alla RFC SCIM. Vedere come viene eseguito il mapping degli attributi di personalizzazione tra Azure AD e `/User` l'endpoint `/Group` [SCIM.](customize-application-attributes.md)
 
 
 | Utente Azure Active Directory | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
@@ -146,7 +146,7 @@ Consente di classificare tra `/User` e `/Group` per eseguire il mapping di tutti
 | telephone-Number |phoneNumbers[type eq "work"].value |
 | user-PrincipalName |userName |
 
-**Elenco di esempio di attributi di utenti e gruppi**
+**Elenco di esempio di attributi utente e gruppo**
 
 | Gruppo di Azure Active Directory | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
@@ -157,12 +157,12 @@ Consente di classificare tra `/User` e `/Group` per eseguire il mapping di tutti
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
-**Elenco di esempio degli attributi di gruppo**
+**Elenco di esempio degli attributi del gruppo**
 
 > [!NOTE]
-> Non è necessario supportare sia gli utenti che i gruppi o tutti gli attributi illustrati in questo articolo, ma solo un riferimento al modo in cui gli attributi di Azure AD vengono spesso mappati alle proprietà nel protocollo SCIM. 
+> Non è necessario supportare utenti e gruppi o tutti gli attributi illustrati qui, ma solo un riferimento al modo in cui viene spesso eseguito il mapping degli attributi in Azure AD alle proprietà nel protocollo SCIM. 
 
-Nell'RFC di SCIM sono definiti diversi endpoint. È possibile iniziare con l' `/User` endpoint e quindi espandersi da questa posizione. 
+Nell'RFC di SCIM sono definiti diversi endpoint. È possibile iniziare con `/User` l'endpoint e quindi espandere da qui. 
 
 |Endpoint|Descrizione|
 |--|--|
@@ -176,46 +176,47 @@ Nell'RFC di SCIM sono definiti diversi endpoint. È possibile iniziare con l' `/
 **Elenco di endpoint di esempio**
 
 > [!NOTE]
-> Utilizzare l' `/Schemas` endpoint per supportare gli attributi personalizzati o se lo schema viene modificato spesso in quanto consente a un client di recuperare automaticamente lo schema più aggiornato. Usare l' `/Bulk` endpoint per supportare i gruppi.
+> Usare l'endpoint per supportare attributi personalizzati o se lo schema cambia di frequente perché consente a un client di recuperare automaticamente lo `/Schemas` schema più aggiornato. Usare `/Bulk` l'endpoint per supportare i gruppi.
 
 ## <a name="understand-the-aad-scim-implementation"></a>Informazioni sull'implementazione di AAD SCIM
 
-Per supportare un'API di gestione utenti di SCIM 2,0, questa sezione descrive come viene implementato il client AAD SCIM e Mostra come modellare le risposte e la gestione delle richieste di protocollo SCIM.
+Per supportare un'API di gestione utenti SCIM 2.0, questa sezione descrive come viene implementato il client SCIM di AAD e illustra come modellare la gestione e le risposte delle richieste del protocollo SCIM.
 
 > [!IMPORTANT]
 > L'ultimo aggiornamento del comportamento dell'implementazione SCIM di Azure AD è stato eseguito il 18 dicembre 2018. Per informazioni sulle modifiche, vedere [Conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD](application-provisioning-config-problem-scim-compatibility.md).
 
-All'interno della [specifica del protocollo SCIM 2,0](http://www.simplecloud.info/#Specification), l'applicazione deve supportare i requisiti seguenti:
+All'interno della specifica del protocollo [SCIM 2.0,](http://www.simplecloud.info/#Specification)l'applicazione deve supportare questi requisiti:
 
 |Requisito|Note di riferimento (protocollo SCIM)|
 |-|-|
-|Creare gli utenti e, facoltativamente, anche i gruppi|[sezione 3,3](https://tools.ietf.org/html/rfc7644#section-3.3)|
+|Creare utenti e facoltativamente anche gruppi|[sezione 3.3](https://tools.ietf.org/html/rfc7644#section-3.3)|
 |Modificare utenti o gruppi con richieste PATCH|[sezione 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Il supporto assicura che il provisioning di gruppi e utenti venga effettuato con prestazioni elevate.|
 |Recuperare una risorsa nota per un utente o un gruppo creato in precedenza|[sezione 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)|
 |Eseguire query su utenti o gruppi|[sezione 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Per impostazione predefinita, gli utenti vengono recuperati in base al valore di `id` e le query vengono eseguite in base a `username` e `externalId` per gli utenti e in base a `displayName` per i gruppi.|
-|Query utente in base all'ID e al responsabile|sezione 3.4.2|
-|Eseguire query sui gruppi in base all'ID e al membro|sezione 3.4.2|
-|Filtro [excludedAttributes = members](#get-group) quando si eseguono query sulla risorsa del gruppo|sezione 3.4.2.5|
-|Accettare un'unica bearer token per l'autenticazione e l'autorizzazione di AAD per l'applicazione.||
-|Eliminazione temporanea di un utente `active=false` e ripristino dell'utente `active=true`|L'oggetto utente deve essere restituito in una richiesta se l'utente è attivo o meno. L'unica volta in cui l'utente non deve essere restituito è quando viene eliminato definitivamente dall'applicazione.|
-|Supportare l'endpoint/schemas|[sezione 7](https://tools.ietf.org/html/rfc7643#page-30) L'endpoint di individuazione dello schema verrà utilizzato per individuare attributi aggiuntivi.|
+|Eseguire query utente in base all'ID e al manager|sezione 3.4.2|
+|Eseguire query su gruppi in base all'ID e al membro|sezione 3.4.2|
+|Filtro [excludedAttributes=members durante](#get-group) l'esecuzione di query sulla risorsa del gruppo|sezione 3.4.2.5|
+|Accettare una singola bearer token per l'autenticazione e l'autorizzazione di AAD per l'applicazione.||
+|Eliminazione soft di un utente `active=false` e ripristino dell'utente `active=true`|L'oggetto utente deve essere restituito in una richiesta indipendentemente dal fatto che l'utente sia attivo o meno. L'unica volta in cui l'utente non deve essere restituito è quando viene eliminato definitivamente dall'applicazione.|
+|Supportare l'endpoint /Schemas|[sezione 7](https://tools.ietf.org/html/rfc7643#page-30) L'endpoint di individuazione dello schema verrà usato per individuare attributi aggiuntivi.|
 
 Usare le linee guida generali per l'implementazione di un endpoint SCIM per garantire la compatibilità con AAD:
 
 * `id` è una proprietà obbligatoria per tutte le risorse. In tutte le risposte che restituiscono una risorsa deve essere garantita la presenza di questa proprietà per ogni risorsa, tranne in caso di `ListResponse` con zero membri.
 * La risposta a una richiesta di query/filtro dovrà essere sempre un messaggio `ListResponse`.
-* I gruppi sono facoltativi, ma sono supportati solo se l'implementazione di SCIM supporta le richieste **patch** .
-* Non è necessario includere l'intera risorsa nella risposta **patch** .
+* I gruppi sono facoltativi, ma sono supportati solo se l'implementazione SCIM supporta le **richieste PATCH.**
+* Non è necessario includere l'intera risorsa nella **risposta PATCH.**
 * Microsoft AAD usa solo gli operatori seguenti: `eq` , `and`
-* Non richiedere una corrispondenza con distinzione tra maiuscole e minuscole negli elementi strutturali  in SCIM, in particolare `op` i valori delle operazioni patch, come definito nella [sezione 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD emette i valori di `op` come **Aggiungi**, **Sostituisci** e **Rimuovi**.
-* Microsoft AAD esegue richieste di recupero di un utente e di un gruppo casuali per verificare che l'endpoint e le credenziali siano validi. Viene anche eseguita come parte del flusso di **test della connessione** nella [portale di Azure](https://portal.azure.com). 
-* L'attributo su cui è possibile eseguire query sulle risorse deve essere impostato come attributo corrispondente nell'applicazione nella [portale di Azure](https://portal.azure.com), vedere [personalizzazione dei mapping degli attributi per il provisioning degli utenti](customize-application-attributes.md).
-* Supporto di HTTP nell'endpoint SCIM
+* Non è necessaria una corrispondenza con distinzione tra maiuscole e minuscole per gli elementi strutturali in SCIM, in particolare i valori dell'operazione **PATCH,** come definito nella sezione `op` [3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD genera i valori `op` di come **Add**, **Replace** e **Remove**.
+* Microsoft AAD effettua richieste per recuperare un utente e un gruppo casuali per assicurarsi che l'endpoint e le credenziali siano validi. Questa operazione viene eseguita anche come parte del flusso **Test connessione** [nell'portale di Azure](https://portal.azure.com). 
+* L'attributo su cui è possibile eseguire query sulle risorse deve essere impostato come attributo corrispondente nell'applicazione [nel](https://portal.azure.com)portale di Azure , vedere [Personalizzazione](customize-application-attributes.md)dei mapping degli attributi di provisioning utenti .
+* L'attributo entitlements non è supportato.
+* Supportare HTTPS nell'endpoint SCIM.
 * [Individuazione dello schema](#schema-discovery)
-  * L'individuazione dello schema non è attualmente supportata nell'applicazione personalizzata, ma viene usata in alcune applicazioni della raccolta. In futuro, l'individuazione dello schema verrà utilizzata come metodo primario per aggiungere altri attributi a un connettore. 
-  * Se non è presente alcun valore, non inviare valori null.
-  * I valori delle proprietà devono essere con la combinazione di maiuscole e minuscole (ad esempio readWrite).
-  * Deve restituire una risposta List.
+  * L'individuazione dello schema non è attualmente supportata nell'applicazione personalizzata, ma viene usata in determinate applicazioni della raccolta. In futuro, l'individuazione dello schema verrà usata come metodo primario per aggiungere altri attributi a un connettore. 
+  * Se non è presente un valore, non inviare valori Null.
+  * I valori delle proprietà devono essere cased camel (ad esempio readWrite).
+  * Deve restituire una risposta di elenco.
   
 ### <a name="user-provisioning-and-deprovisioning"></a>Provisioning e deprovisioning utenti
 
@@ -226,7 +227,7 @@ La figura seguente mostra i messaggi inviati da AAD a un servizio SCIM per gesti
 
 ### <a name="group-provisioning-and-deprovisioning"></a>Provisioning e deprovisioning di gruppi
 
-Il provisioning e il deprovisioning di gruppi sono facoltativi. Quando implementato e abilitato, nella figura seguente vengono mostrati i messaggi inviati da AAD a un servizio SCIM per gestire il ciclo di vita di un gruppo nell'archivio identità dell'applicazione. Questi messaggi si differenziano dai messaggi relativi agli utenti in due modi:
+Il provisioning e il deprovisioning di gruppi sono facoltativi. Se implementata e abilitata, la figura seguente mostra i messaggi inviati da AAD a un servizio SCIM per gestire il ciclo di vita di un gruppo nell'archivio identità dell'applicazione. Questi messaggi si differenziano dai messaggi relativi agli utenti in due modi:
 
 * Le richieste per il recupero di gruppi specificano che l'attributo members deve essere escluso da qualsiasi risorsa fornita in risposta alla richiesta.  
 * Le richieste per determinare se un attributo reference ha un determinato valore sono richieste relative all'attributo members.  
@@ -235,10 +236,10 @@ Il provisioning e il deprovisioning di gruppi sono facoltativi. Quando implement
 *Sequenza di provisioning e deprovisioning di gruppi*
 
 ### <a name="scim-protocol-requests-and-responses"></a>Richieste e risposte del protocollo SCIM
-Questa sezione fornisce le richieste SCIM di esempio emesse dal client SCIM di AAD e le risposte previste di esempio. Per ottenere risultati ottimali, è consigliare creare il codice dell'app in modo da gestire tali richieste in questo formato e generare le risposte previste.
+In questa sezione vengono fornite richieste SCIM di esempio generate dal client SCIM di AAD e risposte previste di esempio. Per ottenere risultati ottimali, è consigliare creare il codice dell'app in modo da gestire tali richieste in questo formato e generare le risposte previste.
 
 > [!IMPORTANT]
-> Per comprendere come e quando il servizio di provisioning utenti di AAD emette le operazioni descritte di seguito, vedere la sezione [cicli di provisioning: iniziale e incrementale](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) nel funzionamento del [provisioning](how-provisioning-works.md).
+> Per comprendere come e quando il servizio di provisioning utenti di AAD genera le operazioni descritte di seguito, vedere la sezione Cicli di [provisioning: iniziale](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) e incrementale in Funzionamento [del provisioning](how-provisioning-works.md).
 
 [Operazioni relative agli utenti](#user-operations)
   - [Creare un utente](#create-user) ([richiesta](#request) / [risposta](#response))
@@ -260,7 +261,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client SCIM di A
   - [Eliminare un gruppo](#delete-group) ([richiesta](#request-13) / [risposta](#response-13))
 
 [Individuazione dello schema](#schema-discovery)
-  - [Individua schema](#discover-schema) ([richiesta](#request-15)-  /  [risposta](#response-15))
+  - [Individuare lo schema](#discover-schema) ([Richiesta](#request-15)  /  [di risposta](#response-15))
 
 ### <a name="user-operations"></a>Operazioni relative agli utenti
 
@@ -760,10 +761,10 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client SCIM di A
 *HTTP/1.1 204 (Nessun contenuto)*
 
 ### <a name="schema-discovery"></a>Individuazione dello schema
-#### <a name="discover-schema"></a>Individua schema
+#### <a name="discover-schema"></a>Individuare lo schema
 
 ##### <a name="request"></a><a name="request-15"></a>Richiesta
-*OTTENERE/schemas* 
+*GET /Schemas* 
 ##### <a name="response"></a><a name="response-15"></a>Risposta
 *HTTP/1.1 200 (OK)*
 ```json
@@ -887,13 +888,13 @@ Livello minimo dei pacchetti di crittografia TLS 1.2:
 ### <a name="ip-ranges"></a>Intervalli di indirizzi IP
 Il servizio di provisioning di Azure AD attualmente opera sotto gli intervalli di indirizzi IP per AzureActiveDirectory, come indicato [qui](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). È possibile aggiungere gli intervalli di indirizzi IP elencati sotto il tag AzureActiveDirectory per consentire il traffico dal servizio di provisioning di Azure AD all'applicazione. Si noti che sarà necessario esaminare attentamente l'elenco di intervalli di indirizzi IP per verificare gli indirizzi calcolati. Un indirizzo come '40.126.25.32' può essere rappresentato nell'elenco di intervalli di indirizzi IP come '40.126.0.0/18'. È anche possibile recuperare a livello di codice l'elenco di intervalli di indirizzi IP usando l'[API](/rest/api/virtualnetwork/servicetags/list) seguente.
 
-## <a name="build-a-scim-endpoint"></a>Compilare un endpoint SCIM
+## <a name="build-a-scim-endpoint"></a>Creare un endpoint SCIM
 
 Dopo aver progettato lo schema e aver compreso l'implementazione SCIM di Azure AD, si può iniziare a sviluppare l'endpoint SCIM. Anziché iniziare da zero e creare autonomamente l'intera implementazione, è possibile usare diverse librerie SCIM open source pubblicate dalla community SCIM.
 
-Per istruzioni su come compilare un endpoint SCIM, inclusi esempi, vedere [sviluppare un endpoint scim di esempio](use-scim-to-build-users-and-groups-endpoints.md).
+Per indicazioni su come compilare un endpoint SCIM, inclusi esempi, vedere [Sviluppare un endpoint SCIM di esempio.](use-scim-to-build-users-and-groups-endpoints.md)
 
-L'esempio di codice di [riferimento](https://aka.ms/SCIMReferenceCode) .NET Core open source pubblicato dal team di Azure ad provisioning è una risorsa di questo tipo che consente di avviare lo sviluppo. Dopo aver creato l'endpoint SCIM, sarà opportuno testarlo. È possibile usare la raccolta di [test Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) offerti come parte del codice di riferimento oppure eseguire le richieste e le risposte di esempio riportate [sopra](#user-operations).  
+L open source di codice [di](https://aka.ms/SCIMReferenceCode) riferimento di .NET Core pubblicato dal team di provisioning Azure AD è una di queste risorse che può iniziare subito lo sviluppo. Dopo aver creato l'endpoint SCIM, sarà opportuno testarlo. È possibile usare la raccolta di [test Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) offerti come parte del codice di riferimento oppure eseguire le richieste e le risposte di esempio riportate [sopra](#user-operations).  
 
    > [!Note]
    > Il codice di riferimento è utile per iniziare a creare l'endpoint SCIM e viene fornito "COSÌ COM'È". Sono benvenuti i contributi della community per la compilazione e la gestione del codice.
@@ -990,7 +991,7 @@ Nel codice di esempio, le richieste vengono autenticate usando il pacchetto Micr
 
 È necessario un token di connessione anche per usare i [test Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) forniti ed eseguire il debug locale con localhost. Il codice di esempio usa ambienti ASP.NET Core per modificare le opzioni di autenticazione durante la fase di sviluppo e abilitare l'uso di un token autofirmato.
 
-Per altre informazioni su più ambienti in ASP.NET Core, vedere [usare più ambienti in ASP.NET Core](/aspnet/core/fundamentals/environments).
+Per altre informazioni su più ambienti in ASP.NET Core, vedere Usare più ambienti [in ASP.NET Core.](/aspnet/core/fundamentals/environments)
 
 Il codice seguente impone l'autenticazione delle richieste per qualsiasi endpoint del servizio con un token di connessione firmato con una chiave personalizzata:
 
@@ -1057,10 +1058,10 @@ private string GenerateJSONWebToken()
 
 ***Esempio 1. Eseguire query sul servizio per trovare un utente corrispondente***
 
-Azure Active Directory (AAD) esegue una query sul servizio per un utente con un `externalId` valore di attributo che corrisponde al valore dell'attributo mailNickname di un utente in AAD. La query viene espressa come richiesta HTTP (Hypertext Transfer Protocol) come in questo esempio, in cui jyoung è un esempio di mailNickname di un utente in Azure Active Directory.
+Azure Active Directory (AAD) esegue una query sul servizio per un utente con un valore di attributo corrispondente al valore dell'attributo `externalId` mailNickname di un utente in AAD. La query viene espressa come richiesta HTTP (Hypertext Transfer Protocol) come in questo esempio, in cui jyoung è un esempio di mailNickname di un utente in Azure Active Directory.
 
 >[!NOTE]
-> Questo è solo un esempio. Non tutti gli utenti avranno un attributo mailNickname e il valore di un utente potrebbe non essere univoco nella directory. Inoltre, l'attributo usato per la corrispondenza (che in questo caso è `externalId` ) è configurabile nei [mapping degli attributi di AAD](customize-application-attributes.md).
+> Questo è solo un esempio. Non tutti gli utenti avranno un attributo mailNickname e il valore di un utente potrebbe non essere univoco nella directory. Inoltre, l'attributo usato per la corrispondenza (che in questo caso è ) è `externalId` configurabile nei [mapping degli attributi di AAD.](customize-application-attributes.md)
 
 ```
 GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -1090,7 +1091,7 @@ Nella query di esempio, per un utente con un determinato valore dell'attributo `
 
 ***Esempio 2. Effettuare il provisioning di un utente***
 
-Se la risposta a una query al servizio Web per un utente con un `externalId` valore di attributo che corrisponde al valore dell'attributo mailNickname di un utente non restituisce alcun utente, AAD richiede che il servizio effettui il provisioning di un utente corrispondente a quello in AAD.  Ecco un esempio di questa richiesta: 
+Se la risposta a una query al servizio Web per un utente con un valore di attributo corrispondente al valore dell'attributo mailNickname di un utente non restituisce alcun utente, AAD richiede al servizio di effettuare il provisioning di un utente corrispondente a quello `externalId` in AAD.  Ecco un esempio di questa richiesta: 
 
 ```
 POST https://.../scim/Users HTTP/1.1
@@ -1221,18 +1222,18 @@ Nell'esempio di una richiesta per l'aggiornamento di un utente, i valori delle p
 
 |Argomento|Valore|
 |-|-|
-|ResourceIdentifier. Identifier|"54D382A4-2050-4C03-94D1-E769F1D15682"|
-|ResourceIdentifier. SchemaIdentifier|"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"|
-|(PatchRequest come PatchRequest2). Operations. Count|1|
-|(PatchRequest come PatchRequest2). Operations. ElementAt (0). NomeOperazione|OperationName.Add|
-|(PatchRequest come PatchRequest2). Operations. ElementAt (0). Percorso. AttributePath|Manager|
-|(PatchRequest come PatchRequest2). Operations. ElementAt (0). Valore. Count|1|
-|(PatchRequest come PatchRequest2). Operations. ElementAt (0). Value. ElementAt (0). Riferimento|http://.../scim/Users/2819c223-7f76-453a-919d-413861904646|
-|(PatchRequest come PatchRequest2). Operations. ElementAt (0). Value. ElementAt (0). Valore| 2819c223-7f76-453a-919d-413861904646|
+|ResourceIdentifier.Identifier|"54D382A4-2050-4C03-94D1-E769F1D15682"|
+|ResourceIdentifier.SchemaIdentifier|"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"|
+|(PatchRequest come PatchRequest2). Operations.Count|1|
+|(PatchRequest come PatchRequest2). Operations.ElementAt(0). Nomeoperazione|OperationName.Add|
+|(PatchRequest come PatchRequest2). Operations.ElementAt(0). Path.AttributePath|"manager"|
+|(PatchRequest come PatchRequest2). Operations.ElementAt(0). Value.Count|1|
+|(PatchRequest come PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Riferimento|http://.../scim/Users/2819c223-7f76-453a-919d-413861904646|
+|(PatchRequest come PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Valore| 2819c223-7f76-453a-919d-413861904646|
 
 ***Esempio 6. Effettuare il deprovisioning di un utente***
 
-Per eseguire il deprovisioning di un utente da un archivio identità gestito da un servizio SCIM, AAD invia una richiesta, ad esempio:
+Per eseguire il deprovisioning di un utente da un archivio identità di fronte a un servizio SCIM, AAD invia una richiesta, ad esempio:
 
 ```
 DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
@@ -1258,7 +1259,7 @@ Nell'esempio di richiesta per il deprovisioning di un utente, l'oggetto specific
 
 ## <a name="integrate-your-scim-endpoint-with-the-aad-scim-client"></a>Integrare l'endpoint SCIM con il client SCIM di AAD
 
-È possibile configurare Azure AD per il provisioning automatico di utenti e gruppi assegnati nelle applicazioni che implementano un profilo specifico del [protocollo SCIM 2.0](https://tools.ietf.org/html/rfc7644). Le specifiche del profilo sono documentate in [comprendere l'implementazione di Azure ad scim](#understand-the-aad-scim-implementation).
+È possibile configurare Azure AD per il provisioning automatico di utenti e gruppi assegnati nelle applicazioni che implementano un profilo specifico del [protocollo SCIM 2.0](https://tools.ietf.org/html/rfc7644). Le specifiche del profilo sono documentate in Informazioni sull'implementazione [Azure AD SCIM.](#understand-the-aad-scim-implementation)
 
 Verificare la conformità ai requisiti sopra riportati con il provider dell'applicazione o consultando la documentazione fornita dal provider.
 
@@ -1271,19 +1272,19 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
 
 **Per connettere un'applicazione che supporta SCIM:**
 
-1. Accedere al portale di [AAD](https://aad.portal.azure.com). Si noti che è possibile ottenere l'accesso a una versione di valutazione gratuita per Azure Active Directory con licenze P2 iscrivendosi al [programma per sviluppatori](https://developer.microsoft.com/office/dev-program).
+1. Accedere al portale [di AAD.](https://aad.portal.azure.com) Si noti che è possibile ottenere l'accesso a una versione di valutazione gratuita per Azure Active Directory con licenze P2 iscrivendosi al [programma per sviluppatori](https://developer.microsoft.com/office/dev-program).
 1. Selezionare **Applicazioni aziendali** nel riquadro sinistro. Verrà visualizzato un elenco di tutte le app configurate, incluse le app aggiunte dalla raccolta.
-1. Selezionare **+ nuova applicazione**  >  **+ Crea la propria applicazione**.
-1. Immettere un nome per l'applicazione, scegliere l'opzione "*integra qualsiasi altra applicazione non trovata nella raccolta*" e selezionare **Aggiungi** per creare un oggetto app. La nuova app verrà aggiunta all'elenco delle applicazioni aziendali e verrà visualizzata la schermata di gestione dell'app.
+1. Selezionare **+ Nuova applicazione**+ Crea la propria  >  **applicazione**.
+1. Immettere un nome per l'applicazione, scegliere *l'opzione*" integrare qualsiasi altra  applicazione non presente nella raccolta " e selezionare Aggiungi per creare un oggetto app. La nuova app verrà aggiunta all'elenco delle applicazioni aziendali e verrà visualizzata la schermata di gestione dell'app.
 
-   ![Screenshot mostra la raccolta di applicazioni di Azure AD ](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)
-    *Azure ad raccolta di applicazioni*
+   ![Screenshot che mostra la raccolta Azure AD di applicazioni ](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)
+    *Azure AD raccolta di applicazioni*
 
    > [!NOTE]
-   > Se si usa la vecchia esperienza della raccolta di app, seguire la guida della schermata riportata di seguito.
+   > Se si usa l'esperienza della raccolta di app precedente, seguire la guida sullo schermo riportata di seguito.
    
-   ![Screenshot mostra la Azure AD esperienza della raccolta di app precedente ](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)
-    *Azure ad esperienza della raccolta di app precedente*
+   ![Screenshot che mostra l'esperienza Azure AD raccolta di app precedente Azure AD ](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)
+    *precedente della raccolta di app*
 
 1. Nella schermata di gestione dell'app selezionare **Provisioning** nel pannello sinistro.
 1. Nel menu **Modalità di provisioning** selezionare **Automatica**.
@@ -1316,12 +1317,12 @@ Dopo l'avvio del ciclo iniziale, è possibile selezionare la scheda **Log di pro
 > [!NOTE]
 > Il ciclo iniziale richiede più tempo rispetto alle sincronizzazioni successive, che vengono eseguite circa ogni 40 minuti fintanto che il servizio è in esecuzione.
 
-## <a name="publish-your-application-to-the-aad-application-gallery"></a>Pubblicare l'applicazione nella raccolta di applicazioni di AAD
+## <a name="publish-your-application-to-the-aad-application-gallery"></a>Pubblicare l'applicazione nella raccolta di applicazioni AAD
 
 Se si crea un'applicazione che verrà usata da più tenant, è possibile renderla disponibile nella raccolta di applicazioni di Azure AD. In questo modo, le organizzazioni potranno individuare l'applicazione e configurare il provisioning con facilità. Pubblicare l'app nella raccolta di Azure AD e rendere il provisioning disponibile ad altri è semplice. Consultare i passaggi [qui](../develop/v2-howto-app-gallery-listing.md) Microsoft collaborerà all'integrazione dell'applicazione nella raccolta, al test dell'endpoint e al rilascio di [documentazione](../saas-apps/tutorial-list.md) sull'onboarding utilizzabile dai clienti.
 
 ### <a name="gallery-onboarding-checklist"></a>Elenco di controllo per l'onboarding nella raccolta
-Usare l'elenco di controllo per caricare rapidamente l'applicazione e i clienti hanno un'esperienza di distribuzione senza problemi. Queste informazioni verranno raccolte durante l'onboarding nella raccolta. 
+Usare l'elenco di controllo per eseguire rapidamente l'onboardmento dell'applicazione e i clienti hanno un'esperienza di distribuzione uniforme. Queste informazioni verranno raccolte durante l'onboarding nella raccolta. 
 > [!div class="checklist"]
 > * Supportare un endpoint [SCIM 2.0](#understand-the-aad-scim-implementation) per gli utenti e per i gruppi (ne è necessario uno solo, ma è consigliabile usare entrambi)
 > * Supportare almeno 25 richieste al secondo per tenant per assicurare che il provisioning e il deprovisioning di utenti e gruppi vengano effettuati senza ritardi (obbligatorio)
@@ -1329,48 +1330,48 @@ Usare l'elenco di controllo per caricare rapidamente l'applicazione e i clienti 
 > * Usare 3 credenziali di test non in scadenza per l'applicazione (obbligatorio)
 > * Supportare la concessione del codice di autorizzazione OAuth o un token di lunga durata come descritto di seguito (obbligatorio)
 > * Stabilire un punto di contatto per la progettazione e il supporto tecnico per supportare i clienti dopo l'onboarding nella raccolta (obbligatorio)
-> * [Supporto individuazione schema (obbligatorio)](https://tools.ietf.org/html/rfc7643#section-6)
-> * Supporto dell'aggiornamento di più appartenenze a gruppi con una singola PATCH
-> * Documentare l'endpoint SCIM pubblicamente
+> * [Supporto dell'individuazione dello schema (obbligatorio)](https://tools.ietf.org/html/rfc7643#section-6)
+> * Supporto dell'aggiornamento di più appartenenze a gruppi con un'unica patch
+> * Documentare pubblicamente l'endpoint SCIM
 
 ### <a name="authorization-to-provisioning-connectors-in-the-application-gallery"></a>Autorizzazione per il provisioning dei connettori nella raccolta di applicazioni
-La specifica SCIM non definisce uno schema specifico di SCIM per l'autenticazione e l'autorizzazione e si basa sull'uso di standard di settore esistenti.
+La specifica SCIM non definisce uno schema specifico scim per l'autenticazione e l'autorizzazione e si basa sull'uso di standard di settore esistenti.
 
 |Metodo di autorizzazione|Vantaggi|Svantaggi|Supporto|
 |--|--|--|--|
 |Nome utente e password (non consigliato o supportato da Azure AD)|Facile da implementare|Non sicuro. [La pa$$word è irrilevante](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984).|Supportato caso per caso per le app della raccolta. Non supportato per le app non nella raccolta.|
 |Token di connessione di lunga durata|I token di lunga durata non richiedono che sia presente un utente. Possono essere usati facilmente dagli amministratori durante la configurazione del provisioning.|I token di lunga durata possono essere difficili da condividere con un amministratore senza usare metodi non sicuri come la posta elettronica. |Supportato sia per le app della raccolta che per quelle non nella raccolta. |
-|Concessione del codice di autorizzazione OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata.  Durante l'autorizzazione iniziale deve essere presente un utente reale e questo offre un livello di affidabilità aggiuntivo. |Deve essere presente un utente. Se l'utente lascia l'organizzazione, il token non è valido ed è necessario completare nuovamente l'autorizzazione.|È supportato per le app della raccolta ma non per quelle non della raccolta. Tuttavia, è possibile fornire un token di accesso nell'interfaccia utente come token segreto a scopo di test a breve termine. Il supporto per la concessione di codice OAuth per la raccolta non è nel backlog, oltre al supporto per gli URL di autenticazione/token configurabili nell'app della raccolta.|
+|Concessione del codice di autorizzazione OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata.  Durante l'autorizzazione iniziale deve essere presente un utente reale e questo offre un livello di affidabilità aggiuntivo. |Deve essere presente un utente. Se l'utente lascia l'organizzazione, il token non è valido ed è necessario completare nuovamente l'autorizzazione.|È supportato per le app della raccolta ma non per quelle non della raccolta. Tuttavia, è possibile fornire un token di accesso nell'interfaccia utente come token segreto a scopo di test a breve termine. Il supporto per la concessione di codice OAuth non nella raccolta è nel backlog, oltre al supporto per url di autenticazione/token configurabili nell'app della raccolta.|
 |Concessione di credenziali client OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata. Sia la concessione del codice di autorizzazione che la concessione delle credenziali client creano lo stesso tipo di token di accesso, quindi il passaggio tra questi metodi è trasparente per l'API.  Il provisioning può essere completamente automatizzato e i nuovi token possono essere richiesti automaticamente senza interazione dell'utente. ||Non supportato sia per le app della raccolta che per quelle non nella raccolta. Il supporto è incluso nel backlog di Microsoft.|
 
 > [!NOTE]
-> Non è consigliabile lasciare vuoto il campo token nell'interfaccia utente dell'app personalizzata per la configurazione del provisioning di AAD. Il token generato è disponibile principalmente a scopo di test.
+> Non è consigliabile lasciare vuoto il campo del token nell'interfaccia utente dell'app personalizzata di configurazione del provisioning di AAD. Il token generato è disponibile principalmente a scopo di test.
 
 ### <a name="oauth-code-grant-flow"></a>Flusso di concessione del codice OAuth
 
-Il servizio di provisioning supporta la [concessione del codice di autorizzazione](https://tools.ietf.org/html/rfc6749#page-24) e dopo l'invio della richiesta per la pubblicazione dell'app nella raccolta, il Team collaborerà con l'utente per raccogliere le informazioni seguenti:
+Il servizio di [](https://tools.ietf.org/html/rfc6749#page-24) provisioning supporta la concessione del codice di autorizzazione e, dopo aver inviato la richiesta di pubblicazione dell'app nella raccolta, il team collaborare con l'utente per raccogliere le informazioni seguenti:
 
-- **URL di autorizzazione**, un URL dal client per ottenere l'autorizzazione dal proprietario della risorsa tramite il reindirizzamento dell'agente utente. L'utente viene reindirizzato a questo URL per l'autorizzazione dell'accesso. 
+- **URL di autorizzazione**, UN URL del client per ottenere l'autorizzazione dal proprietario della risorsa tramite il reindirizzamento dell'agente utente. L'utente viene reindirizzato a questo URL per l'autorizzazione dell'accesso. 
 
-- **URL di scambio di token**, un URL dal client per scambiare una concessione di autorizzazione per un token di accesso, in genere con l'autenticazione client.
+- **URL di scambio di token**, un URL del client per lo scambio di una concessione di autorizzazione per un token di accesso, in genere con l'autenticazione client.
 
-- **ID client**, il server di autorizzazione rilascia al client registrato un identificatore client, ovvero una stringa univoca che rappresenta le informazioni di registrazione fornite dal client.  L'identificatore client non è un segreto. Viene esposto al proprietario della risorsa e **non deve** essere usato da solo per l'autenticazione client.  
+- **ID client**, il server di autorizzazione e consente al client registrato di ottenere un identificatore client, ovvero una stringa univoca che rappresenta le informazioni di registrazione fornite dal client.  L'identificatore client non è un segreto. Viene esposto al proprietario della risorsa e **non deve** essere usato da solo per l'autenticazione client.  
 
-- **Segreto client**, un segreto generato dal server di autorizzazione che deve essere un valore univoco noto solo al server di autorizzazione. 
-
-> [!NOTE]
-> L'URL di **autorizzazione** e l' **URL di scambio di token** non sono attualmente configurabili per ogni tenant.
+- **Segreto client**, segreto generato dal server di autorizzazione che deve essere un valore univoco noto solo al server di autorizzazione. 
 
 > [!NOTE]
-> OAuth V1 non è supportato a causa dell'esposizione del segreto client. OAuth v2 è supportato.  
+> **L'URL di autorizzazione** e **l'URL di scambio di** token non sono attualmente configurabili per ogni tenant.
 
-Procedure consigliate (scelta consigliata, ma non obbligatoria):
+> [!NOTE]
+> OAuth v1 non è supportato a causa dell'esposizione del segreto client. OAuth v2 è supportato.  
+
+Procedure consigliate (consigliate, ma non obbligatorie):
 * Supportare più URL di reindirizzamento. Gli amministratori possono configurare il provisioning sia da "portal.azure.com" che da "aad.portal.azure.com". Il supporto di più URL di reindirizzamento garantirà agli utenti la possibilità di ottenere l'autorizzazione dell'accesso da uno dei due portali.
-* Supporta più segreti per un rinnovo semplice, senza tempi di inattività. 
+* Supporto di più segreti per un rinnovo semplice, senza tempi di inattività. 
 
 #### <a name="how-to-setup-oauth-code-grant-flow"></a>Come configurare il flusso di concessione del codice OAuth
 
-1. Accedere al portale di Azure, passare ad **applicazioni aziendali**  >    >  **provisioning** dell'applicazione e selezionare **autorizza**.
+1. Accedere al portale di Azure, passare a **Provisioning** applicazioni aziendali  >  **e**  >   selezionare **Autorizza**.
 
    1. Il portale di Azure reindirizza l'utente all'URL di autorizzazione (pagina di accesso per l'app di terze parti).
 
@@ -1383,9 +1384,9 @@ Procedure consigliate (scelta consigliata, ma non obbligatoria):
 1. Quando inizia il ciclo di provisioning, il servizio controlla se il token di accesso corrente è valido e lo scambia con un nuovo token, se necessario. Il token di accesso viene fornito in ogni richiesta effettuata all'app e prima di ogni richiesta ne viene verificata la validità.
 
 > [!NOTE]
-> Sebbene non sia possibile configurare OAuth nelle applicazioni non della raccolta, è possibile generare manualmente un token di accesso dal server di autorizzazione e immetterlo come token segreto in un'applicazione non della raccolta. In questo modo è possibile verificare la compatibilità del server SCIM con il client SCIM di AAD prima del caricamento nella raccolta di app, che supporta la concessione del codice OAuth.  
+> Anche se non è possibile configurare OAuth nelle applicazioni non della raccolta, è possibile generare manualmente un token di accesso dal server di autorizzazione e immettere il token come token segreto in un'applicazione non della raccolta. In questo modo è possibile verificare la compatibilità del server SCIM con il client SCIM di AAD prima di eseguire l'onboarding nella raccolta di app, che supporta la concessione di codice OAuth.  
 
-**Token di porta OAuth di lunga durata:** Se l'applicazione non supporta il flusso di concessione del codice di autorizzazione OAuth, generare invece un bearer token OAuth di lunga durata che un amministratore può usare per configurare l'integrazione del provisioning. Il token deve essere perpetuo, altrimenti il processo di provisioning verrà messo [in quarantena](application-provisioning-quarantine-status.md) alla scadenza del token.
+**Token di bearer OAuth di lunga durata:** Se l'applicazione non supporta il flusso di concessione del codice di autorizzazione OAuth, generare invece un bearer token OAuth di lunga durata che un amministratore può usare per configurare l'integrazione del provisioning. Il token deve essere perpetuo, altrimenti il processo di provisioning verrà messo [in quarantena](application-provisioning-quarantine-status.md) alla scadenza del token.
 
 Per altri metodi di autenticazione e autorizzazione, comunicare questa esigenza in [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 
@@ -1393,10 +1394,10 @@ Per altri metodi di autenticazione e autorizzazione, comunicare questa esigenza 
 Per favorire la conoscenza e la richiesta dell'integrazione congiunta, è consigliabile aggiornare la documentazione esistente e promuovere l'integrazione nei canali di marketing.  Di seguito è riportato un elenco di controllo con un set di attività che è consigliabile completare per supportare il lancio.
 
 > [!div class="checklist"]
-> * Assicurati che i team di supporto clienti e vendite siano consapevoli, pronti e possano comunicare con le funzionalità di integrazione. Informare i team, fornire domande frequenti e includere l'integrazione nei materiali di vendita. 
+> * Assicurarsi che i team di vendita e supporto clienti siano consapevoli, pronti e possano parlare con le funzionalità di integrazione. In breve, fornire ai team le domande frequenti e includere l'integrazione nei materiali di vendita. 
 > * Creare un post di blog o un comunicato stampa che descriva l'integrazione congiunta, i relativi vantaggi e come iniziare a usarla. [Esempio: comunicato stampa di imprivata su Azure Active Directory](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft). 
 > * Sfruttare i social media, come Twitter, Facebook o LinkedIn, per promuovere l'integrazione presso i clienti. Assicurarsi di includere @AzureAD per consentire a Microsoft di fare retweet del post. [Esempio: post di imprivata su Twitter](https://twitter.com/azuread/status/1123964502909779968).
-> * Consente di creare o aggiornare le pagine di marketing o il sito Web (ad esempio, pagina di integrazione, pagina dei partner, pagina dei prezzi e così via) per includere la disponibilità dell'integrazione congiunta. [Esempio: pagina relativa alle integrazioni di Pingboard](https://pingboard.com/org-chart-for), [pagina sull'integrazione di Smartsheet](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad) e [pagina dei prezzi di Monday.com](https://monday.com/pricing/). 
+> * Creare o aggiornare le pagine di marketing o il sito Web (ad esempio pagina di integrazione, pagina partner, pagina dei prezzi e così via) per includere la disponibilità dell'integrazione congiunta. [Esempio: pagina relativa alle integrazioni di Pingboard](https://pingboard.com/org-chart-for), [pagina sull'integrazione di Smartsheet](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad) e [pagina dei prezzi di Monday.com](https://monday.com/pricing/). 
 > * Creare un articolo del centro assistenza o documentazione tecnica che illustri ai clienti come iniziare a usare l'integrazione. [Esempio: integrazione di Envoy e Microsoft Azure Active Directory](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
 ). 
 > * Avvisare i clienti della nuova integrazione tramite la comunicazione ai clienti (newsletter mensili, campagne di posta elettronica, note sulla versione del prodotto). 
@@ -1404,10 +1405,10 @@ Per favorire la conoscenza e la richiesta dell'integrazione congiunta, è consig
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Sviluppare un endpoint](use-scim-to-build-users-and-groups-endpoints.md) 
->  scim di esempio [Automatizzare il provisioning e il deprovisioning utenti in app Saas](user-provisioning.md) 
->  [Personalizzare i mapping degli attributi per il provisioning](customize-application-attributes.md) 
->  degli utenti [Scrittura di espressioni per i mapping](functions-for-customizing-application-data.md) 
->  degli attributi [Filtri di ambito per il provisioning](define-conditional-rules-for-provisioning-user-accounts.md) 
->  degli utenti [Notifiche relative](user-provisioning.md) 
->  al provisioning degli account [Elenco delle esercitazioni su come integrare le app Saas](../saas-apps/tutorial-list.md)
+> [Sviluppare un endpoint SCIM di esempio](use-scim-to-build-users-and-groups-endpoints.md) 
+>  [Automatizzare il provisioning e il deprovisioning utenti nelle app SaaS](user-provisioning.md) 
+>  [Personalizzare i mapping degli attributi per il provisioning utenti](customize-application-attributes.md) 
+>  [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md) 
+>  [Filtri di ambito per il provisioning utenti](define-conditional-rules-for-provisioning-user-accounts.md) 
+>  [Notifiche di provisioning dell'account](user-provisioning.md) 
+>  [Elenco di esercitazioni su come integrare le app SaaS](../saas-apps/tutorial-list.md)
