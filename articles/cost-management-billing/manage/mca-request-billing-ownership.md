@@ -1,21 +1,21 @@
 ---
-title: Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure
-description: Informazioni su come richiedere la proprietà della fatturazione delle sottoscrizioni di Azure da altri utenti.
+title: Trasferire la proprietà della fatturazione della sottoscrizione di Azure per un Contratto del cliente Microsoft
+description: Informazioni su come trasferire la proprietà della fatturazione delle sottoscrizioni di Azure.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/09/2020
+ms.date: 04/08/2021
 ms.author: banders
-ms.openlocfilehash: ca55773b2deb74ea0647ed33df4040065762f94a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
-ms.translationtype: HT
+ms.openlocfilehash: 4cfb5c0b746ab8cf4ebb26ee0f755b34b6289982
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938478"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481430"
 ---
-# <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure da altri account
+# <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Trasferire la proprietà della fatturazione della sottoscrizione di Azure per un Contratto del cliente Microsoft
 
 Può capitare che si debba assumere la proprietà delle sottoscrizioni di Azure se l'attuale proprietario della fatturazione abbandona l'organizzazione o si intende pagare le sottoscrizioni tramite il proprio account di fatturazione. Quando si assume la proprietà, le responsabilità di fatturazione delle sottoscrizioni vengono trasferite al proprio account.
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 42d079a2aa98549b12aafecdd8d58f3361db8b4d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 3fcfb364ebffdd3643e803922cbe4f3dd0d87935
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307478"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107512081"
 ---
 ## <a name="setting-up"></a>Configurazione
 
@@ -25,11 +25,11 @@ pip install azure-communication-sms
 ```
 
 ### <a name="create-a-new-file"></a>Creare un nuovo file
-Aprire e salvare un nuovo file all'interno della cartella creata denominata `managed-identity.py` . il codice verrà inserito in questo file.
+Aprire e salvare un nuovo file all'interno della cartella creata denominata , il codice verrà posizionato `managed-identity.py` all'interno di questo file.
 
 ### <a name="use-the-sdk-packages"></a>Usare i pacchetti SDK
 
-Aggiungere le seguenti `import` istruzioni all'inizio del file per usare gli SDK installati.
+Aggiungere le `import` istruzioni seguenti all'inizio del file per usare gli SDK installati.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -37,17 +37,17 @@ from azure.communication.identity import CommunicationIdentityClient
 from azure.communication.sms import SmsClient
 ```
 
-### <a name="create-a-defaultazurecredential"></a>Creare un DefaultAzureCredential
+### <a name="create-a-defaultazurecredential"></a>Creare un valore DefaultAzureCredential
 
-Si userà [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential). Questa credenziale è adatta per ambienti di produzione e di sviluppo. Come verrà usato in questa Guida introduttiva, verrà creata nella parte superiore del file.
+Verrà utilizzato [DefaultAzureCredential.](/python/api/azure-identity/azure.identity.defaultazurecredential) Questa credenziale è adatta per gli ambienti di produzione e sviluppo. Poiché verrà utilizzato in questa guida introduttiva, verrà creato nella parte superiore del file.
 
 ```python
      credential = DefaultAzureCredential()
 ```
 
-## <a name="create-an-identity-and-issue-a-token-with-managed-identities"></a>Creare un'identità ed emettere un token con identità gestite.
+## <a name="create-an-identity-and-issue-a-token-with-managed-identities"></a>Creare un'identità ed emettere un token con identità gestite
 
-A questo punto verrà aggiunto il codice che usa le credenziali create per emettere un token di accesso VoIP. Questo codice verrà chiamato in un secondo momento:
+A questo punto si aggiungerà il codice che usa le credenziali create per rilasciare un token di accesso VoIP. Questo codice verrà chiamato più avanti:
 
 ```python
 def create_identity_and_get_token(resource_endpoint):
@@ -60,7 +60,7 @@ def create_identity_and_get_token(resource_endpoint):
 ```
 
 ### <a name="send-an-sms-with-managed-identities"></a>Inviare un SMS con identità gestite
-Come altro esempio di utilizzo delle identità gestite, verrà aggiunto il codice che utilizza le stesse credenziali per inviare un SMS:
+Come altro esempio di uso delle identità gestite, si aggiungerà questo codice che usa le stesse credenziali per inviare un SMS:
 
 ```python
 def send_sms(resource_endpoint, from_phone_number, to_phone_number, message_content):
@@ -76,7 +76,7 @@ def send_sms(resource_endpoint, from_phone_number, to_phone_number, message_cont
 
 ## <a name="write-our-main-code"></a>Scrivere il codice principale
 
-Con le nostre funzioni create possiamo ora scrivere il codice principale che chiamerà le funzioni scritte in precedenza.
+Con le funzioni create è ora possibile scrivere il codice principale che chiamerà le funzioni scritte in precedenza.
 
 ```python
 # You can find your endpoint and access key from your resource in the Azure portal
@@ -95,7 +95,7 @@ print(f'SMS ID: {sms_result[0].message_id}');
 print(f'Send Result Successful: {sms_result[0].successful}');
 ```
 
-Il `managed-identity.py` file finale dovrebbe avere un aspetto simile al seguente:
+Il `managed-identity.py` file finale dovrebbe essere simile al seguente:
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -140,7 +140,7 @@ print(f'Send Result Successful: {sms_result[0].successful}');
 ```
 ## <a name="run-the-program"></a>Eseguire il programma
 
-Con tutte le operazioni completate, è possibile eseguire il file immettendo `python managed-identity.py` dalla directory del progetto. Se tutto funzionasse correttamente, verrà visualizzato un risultato simile al seguente.
+Al termine, è possibile eseguire il file `python managed-identity.py` immettendo dalla directory del progetto. Se tutto è andato bene, si dovrebbe vedere qualcosa di simile al seguente.
 
 ```Bash
     $ python managed-identity.py

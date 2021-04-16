@@ -1,28 +1,28 @@
 ---
 title: Definire più istanze di una proprietà
-description: Usare l'operazione di copia in un modello di Azure Resource Manager (modello ARM) per eseguire un'iterazione più volte durante la creazione di una proprietà in una risorsa.
+description: Usare l'operazione di copia in Azure Resource Manager modello arm per eseguire l'iterazione più volte durante la creazione di una proprietà in una risorsa.
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.openlocfilehash: 94bc153a49f80694ab9b2d5b04fdf57e8a12e8c8
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 16c293f1c3aff64aeb8b6cae4b7f1aa14dcd0a77
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385752"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480002"
 ---
-# <a name="property-iteration-in-arm-templates"></a>Iterazione delle proprietà nei modelli ARM
+# <a name="property-iteration-in-arm-templates"></a>Iterazione delle proprietà nei modelli arm
 
-Questo articolo illustra come creare più di un'istanza di una proprietà nel modello di Azure Resource Manager (modello ARM). Aggiungendo il ciclo di copia alla sezione delle proprietà di una risorsa nel modello, è possibile impostare dinamicamente il numero di elementi per una proprietà durante la distribuzione. È anche possibile evitare di ripetere la sintassi del modello.
+Questo articolo illustra come creare più di un'istanza di una proprietà nel modello di Azure Resource Manager (modello arm). Aggiungendo il ciclo di copia alla sezione delle proprietà di una risorsa nel modello, è possibile impostare dinamicamente il numero di elementi per una proprietà durante la distribuzione. È anche possibile evitare di dover ripetere la sintassi del modello.
 
-È possibile usare solo il ciclo di copia con risorse di livello superiore, anche quando si applica il ciclo di copia a una proprietà. Per informazioni sulla modifica di una risorsa figlio in una risorsa di livello superiore, vedere [iterazione per una risorsa figlio](copy-resources.md#iteration-for-a-child-resource).
+È possibile usare il ciclo di copia solo con risorse di primo livello, anche quando si applica il ciclo di copia a una proprietà. Per informazioni sulla modifica di una risorsa figlio in una risorsa di primo livello, vedere [Iterazione per una risorsa figlio](copy-resources.md#iteration-for-a-child-resource).
 
-È anche possibile usare il ciclo di copia con [risorse](copy-resources.md), [variabili](copy-variables.md)e [output](copy-outputs.md).
+È anche possibile usare il ciclo di copia [con le risorse](copy-resources.md), le [variabili](copy-variables.md)e [gli output](copy-outputs.md).
 
 ## <a name="syntax"></a>Sintassi
 
 # <a name="json"></a>[JSON](#tab/json)
 
-Aggiungere l' `copy` elemento alla sezione Resources del modello per impostare il numero di elementi per una proprietà. Il formato generale dell'elemento Copy è il seguente:
+Aggiungere `copy` l'elemento alla sezione resources del modello per impostare il numero di elementi per una proprietà. L'elemento copy ha il formato generale seguente:
 
 ```json
 "copy": [
@@ -34,58 +34,58 @@ Aggiungere l' `copy` elemento alla sezione Resources del modello per impostare i
 ]
 ```
 
-Per `name` , specificare il nome della proprietà della risorsa che si desidera creare.
+Per `name` specificare il nome della proprietà della risorsa che si vuole creare.
 
-La `count` proprietà specifica il numero di iterazioni desiderate per la proprietà.
+La `count` proprietà specifica il numero di iterazioni desiderato per la proprietà .
 
 La `input` proprietà specifica le proprietà che si desidera ripetere. Si crea una matrice di elementi costruita dal valore della proprietà `input`.
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-È possibile usare i cicli per dichiarare più proprietà per:
+I cicli possono essere usati per dichiarare più proprietà:
 
 - Iterazione su una matrice:
 
   ```bicep
   <property-name>: [for <item> in <collection>: {
     <properties>
-  }
+  }]
   ```
 
-- Iterazione sugli elementi di una matrice
+- Iterazione degli elementi di una matrice
 
   ```bicep
   <property-name>: [for (<item>, <index>) in <collection>: {
     <properties>
-  }
+  }]
   ```
 
-- Utilizzo dell'indice del ciclo
+- Uso dell'indice del ciclo
 
   ```bicep
   <property-name>: [for <index> in range(<start>, <stop>): {
     <properties>
-  }
+  }]
   ```
 
 ---
 
 ## <a name="copy-limits"></a>Limiti di copia
 
-Il conteggio non può essere maggiore di 800.
+Il conteggio non può superare 800.
 
-Il conteggio non può essere un numero negativo. Può essere zero se si distribuisce il modello con una versione recente dell'interfaccia della riga di comando di Azure, PowerShell o l'API REST. In particolare, è necessario usare:
+Il conteggio non può essere un numero negativo. Può essere zero se si distribuisce il modello con una versione recente dell'interfaccia della riga di comando di Azure, di PowerShell o dell'API REST. In particolare, è necessario usare:
 
-- Azure PowerShell **2,6** o versione successiva
-- INTERFACCIA della riga di comando di Azure **2.0.74** o versione successiva
+- Azure PowerShell **2.6 o** versione successiva
+- Interfaccia della riga di comando di Azure **2.0.74** o versione successiva
 - API REST versione **2019-05-10** o successiva
-- Le [distribuzioni collegate](linked-templates.md) devono usare l'API versione **2019-05-10** o successiva per il tipo di risorsa di distribuzione
+- [Le distribuzioni collegate](linked-templates.md) devono usare l'API **versione 2019-05-10 o** successiva per il tipo di risorsa di distribuzione
 
-Le versioni precedenti di PowerShell, l'interfaccia della riga di comando e l'API REST non supportano zero per Count.
+Le versioni precedenti di PowerShell, dell'interfaccia della riga di comando e dell'API REST non supportano zero per il conteggio.
 
 ## <a name="property-iteration"></a>Iterazione delle proprietà
 
-Nell'esempio seguente viene illustrato come applicare il ciclo di copia alla `dataDisks` Proprietà in una macchina virtuale:
+L'esempio seguente illustra come applicare il ciclo di copia alla `dataDisks` proprietà in una macchina virtuale:
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -223,7 +223,7 @@ Il modello di esempio seguente crea un gruppo di failover per i database passati
 }
 ```
 
-L' `copy` elemento è una matrice, quindi è possibile specificare più di una proprietà per la risorsa.
+`copy`L'elemento è una matrice, pertanto è possibile specificare più di una proprietà per la risorsa.
 
 ```json
 {
@@ -368,7 +368,7 @@ resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for
 
 ## <a name="example-templates"></a>Modelli di esempio
 
-Nell'esempio seguente viene illustrato uno scenario comune per la creazione di più di un valore per una proprietà.
+L'esempio seguente illustra uno scenario comune per la creazione di più valori per una proprietà.
 
 |Modello  |Descrizione  |
 |---------|---------|
@@ -376,10 +376,10 @@ Nell'esempio seguente viene illustrato uno scenario comune per la creazione di p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per eseguire un'esercitazione, vedere [esercitazione: creare più istanze di risorse con i modelli ARM](template-tutorial-create-multiple-instances.md).
+- Per completare un'esercitazione, vedere [Esercitazione: Creare più istanze di risorse con i modelli arm.](template-tutorial-create-multiple-instances.md)
 - Per altri usi del ciclo di copia, vedere:
-  - [Iterazione delle risorse nei modelli ARM](copy-resources.md)
-  - [Iterazione delle variabili nei modelli ARM](copy-variables.md)
-  - [Iterazione di output nei modelli ARM](copy-outputs.md)
-- Per informazioni sulle sezioni di un modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
-- Per informazioni su come distribuire il modello, vedere [distribuire le risorse con i modelli ARM e Azure PowerShell](deploy-powershell.md).
+  - [Iterazione delle risorse nei modelli arm](copy-resources.md)
+  - [Iterazione delle variabili nei modelli di Arm](copy-variables.md)
+  - [Iterazione di output nei modelli di Arm](copy-outputs.md)
+- Per informazioni sulle sezioni di un modello, vedere Comprendere la struttura e la sintassi [dei modelli di Arm.](template-syntax.md)
+- Per informazioni su come distribuire il modello, vedere Distribuire risorse [con modelli di Arm e Azure PowerShell](deploy-powershell.md).

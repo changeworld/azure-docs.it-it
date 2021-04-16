@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 836c7bf9aefd4b2cb7d52c66bbd37e7ba38a467c
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101686462"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377311"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operazioni di Azure Active Directory Connect Health
 Questo argomento descrive le varie operazioni che è possibile eseguire tramite Azure Active Directory (Azure AD) Connect Health.
@@ -35,17 +35,18 @@ Questo argomento descrive le varie operazioni che è possibile eseguire tramite 
 >
 
 ### <a name="to-enable-azure-ad-connect-health-email-notifications"></a>Per abilitare le notifiche di posta elettronica di Azure AD Connect Health
-1. Aprire il pannello **Avvisi** per il servizio per cui si desidera ricevere una notifica di posta elettronica.
-2. Nella barra delle azioni fare clic su **Impostazioni di notifica**.
-3. Impostare l'opzione di notifica di posta elettronica su **ON**.
-4. Selezionare la casella di controllo per fare in modo che tutti gli amministratori globali ricevano notifiche di posta elettronica.
-5. Se si desidera ricevere notifiche di posta elettronica ad altri indirizzi di posta elettronica, specificarli nella casella **Destinatari di posta elettronica aggiuntivi**. Per rimuovere un indirizzo di posta elettronica da questo elenco, fare clic con il pulsante destro del mouse sulla voce interessata e scegliere **Elimina**.
-6. Per finalizzare le modifiche, fare clic su **Salva**. Le modifiche diventano effettive dopo il salvataggio.
+1. Nel portale di Azure cercare Azure AD Connect Health
+2. Selezionare Errori **di sincronizzazione**
+3. Selezionare **Impostazioni di notifica.**
+5. Impostare l'opzione di notifica di posta elettronica su **ON**.
+6. Selezionare la casella di controllo per fare in modo che tutti gli amministratori globali ricevano notifiche di posta elettronica.
+7. Se si desidera ricevere notifiche di posta elettronica ad altri indirizzi di posta elettronica, specificarli nella casella **Destinatari di posta elettronica aggiuntivi**. Per rimuovere un indirizzo di posta elettronica da questo elenco, fare clic con il pulsante destro del mouse sulla voce interessata e scegliere **Elimina**.
+8. Per finalizzare le modifiche, fare clic su **Salva**. Le modifiche diventano effettive dopo il salvataggio.
 
 >[!NOTE] 
-> Quando si verificano problemi durante l'elaborazione delle richieste di sincronizzazione nel servizio back-end, questo servizio invia un messaggio di posta elettronica di notifica con i dettagli dell'errore agli indirizzi di posta elettronica dei contatti amministrativi del tenant. I clienti hanno inviato commenti e suggerimenti che, in alcuni casi, il volume di questi messaggi è eccessivamente grande, quindi si sta cambiando il modo in cui vengono inviati i messaggi. 
+> In caso di problemi durante l'elaborazione delle richieste di sincronizzazione nel servizio back-end, questo servizio invia un messaggio di posta elettronica di notifica con i dettagli dell'errore agli indirizzi di posta elettronica di contatto amministrativi del tenant. I commenti e i suggerimenti dei clienti hanno detto che in alcuni casi il volume di questi messaggi è molto elevato, quindi stiamo cambiando il modo in cui si inviano questi messaggi. 
 >
-> Anziché inviare un messaggio per ogni errore di sincronizzazione ogni volta che si verifica, verrà inviato un digest giornaliero di tutti gli errori restituiti dal servizio back-end. Questo consente ai clienti di elaborare questi errori in modo più efficiente e di ridurre il numero di messaggi di errore duplicati.
+> Invece di inviare un messaggio per ogni errore di sincronizzazione ogni volta che si verifica, verrà inviato un digest giornaliero di tutti gli errori restituiti dal servizio back-end. In questo modo i clienti possono elaborare questi errori in modo più efficiente e ridurre il numero di messaggi di errore duplicati.
 
 ## <a name="delete-a-server-or-service-instance"></a>Eliminare un server o un'istanza del servizio
 
@@ -101,8 +102,8 @@ Quando si elimina un'istanza del servizio, tenere presente quanto segue:
    <br><br>
 
 [//]: # (Inizio della sezione Controllo degli accessi in base al ruolo)
-## <a name="manage-access-with-azure-rbac"></a>Gestire l'accesso con RBAC di Azure
-Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md) per Azure ad Connect Health fornisce accesso a utenti e gruppi diversi dagli amministratori globali. Il controllo degli accessi in base al ruolo di Azure assegna i ruoli agli utenti e ai gruppi desiderati e fornisce un meccanismo per limitare gli amministratori globali all'interno della directory.
+## <a name="manage-access-with-azure-rbac"></a>Gestire l'accesso con il controllo degli accessi in base al ruolo di Azure
+[Il controllo degli accessi in base al](../../role-based-access-control/role-assignments-portal.md) ruolo di Azure per Azure AD Connect Health consente l'accesso a utenti e gruppi diversi dagli amministratori globali. Il controllo degli accessi in base al ruolo di Azure assegna i ruoli agli utenti e ai gruppi di destinazione e fornisce un meccanismo per limitare gli amministratori globali all'interno della directory.
 
 ### <a name="roles"></a>Ruoli
 Azure AD Connect Health supporta i ruoli predefiniti seguenti:
@@ -133,12 +134,12 @@ Per consentire a un utente l'accesso a livello di *tutte le istanze del servizio
    ![Schermata della barra laterale delle risorse di Azure AD Connect Health](./media/how-to-connect-health-operations/startRBAC.png)
 2. Selezionare **Aggiungi**.
 3. Nel riquadro **selezionare un ruolo** selezionare un ruolo, ad esempio **Proprietario**.<br>
-   ![Screenshot del menu di Azure AD Connect Health e di configurazione di Azure RBAC](./media/how-to-connect-health-operations/RBAC_add.png)
+   ![Screenshot del menu Azure AD Connect Health e del controllo degli accessi in base al ruolo di Azure](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Digitare il nome o l'identificatore dell'utente o del gruppo. È possibile selezionare uno o più utenti o gruppi contemporaneamente. Fare clic su **Seleziona**.
-   ![Screenshot dell'elenco di Azure AD Connect Health e dei ruoli di Azure](./media/how-to-connect-health-operations/RBAC_select_users.png)
+   ![Screenshot dell'elenco Azure AD Connect Health ruoli di Azure](./media/how-to-connect-health-operations/RBAC_select_users.png)
 5. Selezionare **OK**.<br>
 6. Dopo avere completato l'assegnazione dei ruoli, gli utenti e i gruppi vengono visualizzati nell'elenco.<br>
-   ![Screenshot del Azure AD Connect Health e del controllo degli accessi in base al ruolo di Azure](./media/how-to-connect-health-operations/RBAC_user_list.png)
+   ![Screenshot del controllo Azure AD Connect Health controllo degli accessi in base al ruolo di Azure e dei nuovi utenti evidenziati](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
 Ora gli utenti e i gruppi elencati hanno accesso, in base ai relativi ruoli assegnati.
 
@@ -151,7 +152,7 @@ Ora gli utenti e i gruppi elencati hanno accesso, in base ai relativi ruoli asse
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Passaggio 3: Condividere il percorso del pannello con utenti o gruppi
 1. Dopo che le autorizzazioni sono state assegnate, un utente può accedere ad Azure AD Connect Health da [qui](https://aka.ms/aadconnecthealth).
 2. Nel pannello l'utente può aggiungere il pannello o parti di esso al dashboard. Fare semplicemente clic sull'icona **Aggiungi a dashboard**.<br>
-   ![Screenshot del pannello Azure AD Connect Health e del pin RBAC di Azure con l'icona del pin evidenziata](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
+   ![Screenshot del pannello aggiungi Azure AD Connect Health controllo degli accessi in base al ruolo di Azure, con l'icona aggiungi evidenziata](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
 
 > [!NOTE]
 > Un utente con il ruolo di lettore non può recuperare l'estensione Azure AD Connect Health da Azure Marketplace. L'utente non può eseguire l'operazione di creazione necessaria a tale compito. Potrà comunque ancora accedere al pannello tramite il collegamento sopra riportato. Per gli utilizzi successivi, l'utente può aggiungere il pannello al dashboard.
@@ -159,14 +160,14 @@ Ora gli utenti e i gruppi elencati hanno accesso, in base ai relativi ruoli asse
 >
 
 ### <a name="remove-users-or-groups"></a>Rimuovere utenti o gruppi
-È possibile rimuovere un utente o un gruppo aggiunto a Azure AD Connect Health e controllo degli accessi in base al ruolo di Azure. Fare semplicemente clic con il pulsante destro del mouse sull'utente o sul gruppo e selezionare **Rimuovi**.<br>
-![Screenshot di Azure AD Connect Health e di Azure RBAC con Rimuovi evidenziato](./media/how-to-connect-health-operations/RBAC_remove.png)
+È possibile rimuovere un utente o un gruppo aggiunto a Azure AD Connect Health controllo degli accessi in base al ruolo di Azure. Fare semplicemente clic con il pulsante destro del mouse sull'utente o sul gruppo e selezionare **Rimuovi**.<br>
+![Screenshot del controllo Azure AD Connect Health controllo degli accessi in base al ruolo di Azure con l'opzione Rimuovi evidenziata](./media/how-to-connect-health-operations/RBAC_remove.png)
 
 [//]: # (Fine della sezione Controllo degli accessi in base al ruolo)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
-* [Installazione agente Azure AD Connect Health](how-to-connect-health-agent-install.md)
+* [Azure AD Connect Health dell'agente](how-to-connect-health-agent-install.md)
 * [Uso di Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md)
 * [Uso di Azure AD Connect Health per la sincronizzazione](how-to-connect-health-sync.md)
 * [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](how-to-connect-health-adds.md)

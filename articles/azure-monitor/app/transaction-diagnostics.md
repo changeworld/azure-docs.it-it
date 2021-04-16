@@ -4,12 +4,12 @@ description: Diagnostica della transazioni end-to-end in Application Insights
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60365079c295e154ff0a38277c9ccdec35157e6e
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96746098"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481396"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostica unificata delle transazioni tra componenti
 
@@ -66,9 +66,9 @@ Questo riquadro comprimibile mostra altri risultati che soddisfano i criteri del
 
 [Application Insights Profiler](./profiler.md) o [Snapshot Debugger](snapshot-debugger.md) consentono di eseguire la diagnostica a livello di codice dei problemi di prestazioni e degli errori. Grazie a questa esperienza è possibile visualizzare le tracce del profiler o gli snapshot di un componente con un solo clic.
 
-Se non è stato possibile ottenere il funzionamento del profiler, contattare **serviceprofilerhelp \@ Microsoft.com**
+Se profiler non funziona, contattare **serviceprofilerhelp \@ microsoft.com**
 
-Se non è stato possibile ottenere Snapshot Debugger funzionante, contattare **snapshothelp \@ Microsoft.com**
+Se non è possibile ottenere Snapshot Debugger, contattare **snapshothelp \@ microsoft.com**
 
 ![Integrazione profiler](media/transaction-diagnostics/profilerTraces.png)
 
@@ -80,7 +80,7 @@ Possibili motivi:
 
 * Gli altri componenti sono instrumentati con Application Insights?
 * Usano l'SDK di Application Insights più recente e stabile?
-* Se questi componenti sono separati Application Insights risorse, si ha l' [accesso](resources-roles-access-control.md) necessario se si dispone dell'accesso e i componenti sono instrumentati con gli sdk di Application Insights più recenti, è possibile comunicare tramite il canale di commenti e suggerimenti in alto a destra.
+* Se questi componenti sono risorse Application Insights separate, [](resources-roles-access-control.md) è necessario accedere Se si ha accesso e i componenti sono instrumentati con gli SDK Application Insights più recenti, inviare un messaggio tramite il canale di feedback in alto a destra.
 
 *Vengono visualizzate righe duplicate per le dipendenze. È previsto?*
 
@@ -94,3 +94,6 @@ Le sequenze temporali vengono modificate in base agli sfasamenti di orario nel g
 
 Questo si verifica per motivi strutturali. Tutti gli elementi correlati in tutti i componenti sono già disponibili a sinistra (nelle sezioni in alto e in basso). La nuova esperienza presenta due elementi correlati che non sono riportati a sinistra: tutti i dati di telemetria generati nei cinque minuti precedenti e successivi a questo evento e la sequenza temporale dell'utente.
 
+*Vengono visualizzati più eventi del previsto nell'esperienza di diagnostica delle transazioni quando si usa Application Insights JavaScript SDK. Esiste un modo per visualizzare un minor numero di eventi per transazione?*
+
+L'esperienza di diagnostica delle transazioni mostra tutti i dati di telemetria in una [singola operazione](correlation.md#data-model-for-telemetry-correlation) che condividono un [ID operazione](data-model-context.md#operation-id). Per impostazione predefinita, Application Insights SDK per JavaScript crea una nuova operazione per ogni visualizzazione pagina univoca. In un'applicazione a pagina singola verrà generato un solo evento di visualizzazione pagina e verrà usato un singolo ID operazione per tutti i dati di telemetria generati. Ciò può comportare la correlazione di molti eventi alla stessa operazione. In questi scenari è possibile usare il rilevamento automatico delle route per creare automaticamente nuove operazioni per la navigazione nell'app a pagina singola. È necessario attivare [enableAutoRouteTracking](javascript.md#single-page-applications) in modo che una visualizzazione pagina viene generata ogni volta che viene aggiornata la route URL (si verifica la visualizzazione pagina logica). Per aggiornare manualmente l'ID operazione, è possibile chiamare `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()` . L'attivazione manuale di un evento PageView reimposta anche l'ID operazione.

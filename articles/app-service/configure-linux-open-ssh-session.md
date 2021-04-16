@@ -1,25 +1,25 @@
 ---
-title: Accesso SSH per i contenitori Linux
-description: È possibile aprire una sessione SSH in un contenitore Linux nel servizio app Azure. I contenitori Linux personalizzati sono supportati con alcune modifiche all'immagine personalizzata.
+title: Accesso SSH per contenitori Linux
+description: È possibile aprire una sessione SSH in un contenitore Linux in Servizio app di Azure. I contenitori Linux personalizzati sono supportati con alcune modifiche all'immagine personalizzata.
 keywords: Servizio app di Azure, app Web, Linux, OSS
 author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
 ms.date: 02/23/2021
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 8e9dd76b60d05b9fa5e3a4aaf7ccc6663f4a969b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 5a4572c1292f691f1883a720d07c3f0130f1c8f3
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709037"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480291"
 ---
-# <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Aprire una sessione SSH in un contenitore Linux nel servizio app Azure
+# <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Aprire una sessione SSH in un contenitore Linux in Servizio app di Azure
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) viene usato comunemente per eseguire comandi amministrativi in remoto da un terminale della riga di comando. Il servizio app in Linux offre il supporto SSH nel contenitore dell'app. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) viene usato comunemente per eseguire comandi amministrativi in remoto da un terminale della riga di comando. Servizio app in Linux fornisce il supporto SSH nel contenitore di app. 
 
-![SSH servizio app Linux](./media/configure-linux-open-ssh-session/app-service-linux-ssh.png)
+![SSH del servizio app Linux](./media/configure-linux-open-ssh-session/app-service-linux-ssh.png)
 
 È anche possibile connettersi al contenitore direttamente dal computer di sviluppo locale tramite SSH e SFTP.
 
@@ -29,7 +29,7 @@ ms.locfileid: "101709037"
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>Usare il supporto SSH con le immagini Docker personalizzate
 
-Vedere [configurare SSH in un contenitore personalizzato](configure-custom-container.md#enable-ssh).
+Vedere [Configurare SSH in un contenitore personalizzato.](configure-custom-container.md#enable-ssh)
 
 ## <a name="open-ssh-session-from-remote-shell"></a>Aprire una sessione SSH dalla shell remota
 
@@ -41,7 +41,7 @@ Con il tunneling TCP è possibile creare una connessione di rete tra il computer
 
 Per iniziare, è necessario installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Per esaminare il funzionamento senza installare l'interfaccia della riga di comando di Azure, aprire [Azure Cloud Shell](../cloud-shell/overview.md). 
 
-Aprire una connessione remota all'app usando il comando [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection#ext-webapp-az-webapp-remote-connection-create). Specificare _\<subscription-id>_ _\<group-name>_ e \_ \<app-name> _ per l'app.
+Aprire una connessione remota all'app usando il comando [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection#ext-webapp-az-webapp-remote-connection-create). Specificare _\<subscription-id>_ , e _ per _\<group-name>_ \_ \<app-name> l'app.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
@@ -51,7 +51,7 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 > Il carattere `&` alla fine del comando serve solo per comodità, se si usa Cloud Shell. Esegue il processo in background in modo che sia possibile eseguire il comando successivo nella stessa shell.
 
 > [!NOTE]
-> Se il comando non riesce, verificare che il [debug remoto](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0) sia *disabilitato* con il comando seguente:
+> Se questo comando non riesce, assicurarsi che [il debug remoto](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0) sia *disabilitato* con il comando seguente:
 >
 > ```azurecli-interactive
 > az webapp config set --resource-group <resource-group-name> -n <app-name> --remote-debugging-enabled=false
