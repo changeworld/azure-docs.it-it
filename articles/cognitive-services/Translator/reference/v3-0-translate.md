@@ -1,7 +1,7 @@
 ---
 title: Metodo Translator Translate
 titleSuffix: Azure Cognitive Services
-description: Comprendere i parametri, le intestazioni e i messaggi del corpo per il metodo Translate Servizi cognitivi di Azure Translator per tradurre il testo.
+description: Comprendere i parametri, le intestazioni e i messaggi del corpo per il metodo Translate di Servizi cognitivi di Azure Translator per tradurre il testo.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: lajanuar
-ms.openlocfilehash: 148aa722515d9364ce5af85b3f7c3b39958c9c91
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 7c92fb7f5de5542af08d1335bea745557a330f0d
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388381"
+ms.locfileid: "107506007"
 ---
-# <a name="translator-30-translate"></a>Translator 3.0: Translate
+# <a name="translator-30-translate"></a>Translator 3.0: Tradurre
 
 Traduce il testo.
 
@@ -55,15 +55,15 @@ I parametri della richiesta inviati a una stringa di query sono:
   <th>Descrizione</th>
   <tr>
     <td>da</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>Quando si usa la funzionalità del dizionario dinamico, è necessario usare il parametro anziché la <code>from</code> <a href="/azure/cognitive-services/translator/dynamic-dictionary">funzione di rilevamento</a> automatico.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>È necessario usare il parametro anziché la funzione di <code>from</code> rilevamento automatico quando si usa la funzionalità di <a href="/azure/cognitive-services/translator/dynamic-dictionary">dizionario</a> dinamico.</td>
   </tr>  
   <tr>
     <td>textType</td>
-    <td><em>Parametro facoltativo</em>.<br/>Definisce se il testo tradotto è testo normale o testo HTML. Qualsiasi codice HTML deve essere un elemento completo ben formato. Durante la traduzione di testo HTML, il testo di output contiene i caratteri speciali seguenti in formato di escape: "&", "<" e ">". Ciò si verifica indipendentemente dal fatto che nel testo HTML di input i caratteri siano preceduti da un carattere di escape. I valori possibili sono: <code>plain</code> (impostazione predefinita) o <code>html</code>.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Definisce se il testo tradotto è testo normale o testo HTML. Qualsiasi codice HTML deve essere un elemento completo ben formato. I valori possibili sono: <code>plain</code> (impostazione predefinita) o <code>html</code>.</td>
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con <a href="../customization.md">Custom Translator</a>. Aggiungere l'ID categoria dai traduttore personalizzato <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">progetto a</a> questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con <a href="../customization.md">Custom Translator</a>. Aggiungere l'ID categoria dai dettagli traduttore personalizzato <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">progetto</a> a questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>

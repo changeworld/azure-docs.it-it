@@ -5,14 +5,14 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 04/14/2021
 ms.author: jingwang
-ms.openlocfilehash: a3cc3686d4b256fc7b8702f34cdf393dc1b0e25f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 191ad61990e10fdb718eebf1a8f57d8edaadcf35
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740393"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515456"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copiare dati dall'archiviazione BLOB di Azure a un database SQL in sicurezza usando endpoint privati
 
@@ -102,8 +102,8 @@ In questo passaggio si crea un runtime di integrazione di Azure e si abilita la 
 1. Nel portale di Data Factory passare a **Gestisci** e selezionare **Nuovo** per creare un nuovo runtime di integrazione di Azure.
 
    ![Screenshot che illustra la creazione di un nuovo runtime di integrazione di Azure.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Nella pagina di **installazione di Integration Runtime** scegliere il runtime di integrazione da creare in base alle funzionalità necessarie. In questa esercitazione selezionare **Azure, self-hosted** e quindi fare clic su **continue (continua**). 
-1. Selezionare **Azure** e quindi fare clic su **continua** per creare un runtime di integrazione di Azure.
+1. Nella pagina **Integration runtime setup (Configurazione runtime** di integrazione) scegliere il runtime di integrazione da creare in base alle funzionalità necessarie. In questa esercitazione selezionare **Azure, Self-Hosted** e quindi fare clic su **Continua.** 
+1. Selezionare **Azure e** quindi fare clic su **Continua** per creare un runtime di integrazione di Azure.
 
    ![Screenshot che mostra un nuovo runtime di integrazione di Azure.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 1. In **Configurazione della rete virtuale (anteprima)** selezionare **Abilita**.

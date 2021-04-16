@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b82c86983bc07f39c1adb5aa741497d8cc3246e9
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-python, devx-track-azurepowershell
+ms.openlocfilehash: e9e27720c50de8653fa859e051c9cfb3af4509ff
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967125"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377472"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Avvio rapido: Libreria client dei segreti di Azure Key Vault per Python
 
@@ -24,7 +24,7 @@ Introduzione alla libreria client dei segreti di Azure Key Vault per Python. Seg
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7 + o 3.6 +](/azure/developer/python/configure-local-development-environment)
+- [Python 2.7+ o 3.6+](/azure/developer/python/configure-local-development-environment)
 - [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 
 Questa Guida di avvio rapido presuppone l'esecuzione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) in una finestra del terminale Linux.

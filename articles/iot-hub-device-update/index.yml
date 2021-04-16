@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentazione sull'aggiornamento del dispositivo per l'hub Internet
-summary: L'aggiornamento del dispositivo per l'hub Internet è un servizio che consente di distribuire gli aggiornamenti in modalità wireless nei dispositivi Internet delle cose.
+title: Documentazione dell'aggiornamento dei dispositivi per l'hub IoT
+summary: Aggiornamento dei dispositivi per l'hub IoT è un servizio che consente di distribuire aggiornamenti over-the-air (OTA) ai dispositivi IoT.
 metadata:
-  title: Documentazione sull'aggiornamento del dispositivo per l'hub Internet
-  description: L'aggiornamento del dispositivo per l'hub Internet è un servizio che consente di distribuire gli aggiornamenti in modalità wireless nei dispositivi Internet delle cose.
+  title: Documentazione dell'aggiornamento dei dispositivi per l'hub IoT
+  description: Aggiornamento dei dispositivi per l'hub IoT è un servizio che consente di distribuire aggiornamenti over-the-air (OTA) ai dispositivi IoT.
   services: iot-hub
   ms.service: iot-hub
   ms.topic: landing-page
@@ -11,44 +11,44 @@ metadata:
   ms.author: philmea
   manager: philmea
   ms.date: 2/17/2021
-  ms.openlocfilehash: 8943e22428d6f510b374ef31938257ec08a0dff6
-  ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+  ms.openlocfilehash: 9fd99eeefcae6667dfcc9a11c7d623f5d213ffac
+  ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
   ms.translationtype: MT
   ms.contentlocale: it-IT
   ms.lasthandoff: 04/13/2021
-  ms.locfileid: "107312094"
+  ms.locfileid: "107377820"
 landingContent:
 - title: Informazioni sull'aggiornamento del dispositivo
   linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è l'aggiornamento dei dispositivi per l'hub Internet?
+    - text: Che cos'è l'aggiornamento dei dispositivi per l'hub IoT?
       url: understand-device-update.md
 - title: Altre informazioni
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Creazione di un account di aggiornamento del dispositivo
+    - text: Creare un account di aggiornamento del dispositivo
       url: create-device-update-account.md
-    - text: Provisioning dell'aggiornamento del dispositivo per l'agente Hub Azure
+    - text: Provisioning dell'agente di aggiornamento dei dispositivi
       url: device-update-agent-provisioning.md
-    - text: Importazione di un aggiornamento
+    - text: Importare un aggiornamento
       url: import-update.md
-    - text: Creazione di un gruppo di aggiornamento
+    - text: Creare un gruppo di aggiornamenti
       url: create-update-group.md
     - text: Distribuire un aggiornamento
       url: deploy-update.md
   - linkListType: concept
     links:
-    - text: Modalità di utilizzo dell'aggiornamento dispositivo Plug and Play
+    - text: Come l'aggiornamento del dispositivo usa Plug and Play
       url: device-update-plug-and-play.md
-    - text: Informazioni sull'autenticazione e sull'autorizzazione degli aggiornamenti dei dispositivi
+    - text: Informazioni su autenticazione e autorizzazione degli aggiornamenti dei dispositivi
       url: device-update-control-access.md
-    - text: Informazioni sull'agente di aggiornamento del dispositivo
+    - text: Informazioni su Device Update Agent
       url: device-update-agent-overview.md
-    - text: Informazioni sull'importazione degli aggiornamenti del dispositivo
+    - text: Informazioni sull'importazione degli aggiornamenti dei dispositivi
       url: import-concepts.md
-    - text: Informazioni sui gruppi di aggiornamento del dispositivo
+    - text: Informazioni su gruppi di aggiornamento dei dispositivi
       url: device-update-groups.md
 - title: Guida per sviluppatori
   linkLists:
@@ -64,9 +64,9 @@ landingContent:
       url: device-update-simulator.md
     - text: Aggiornamento del dispositivo in Raspberry Pi
       url: device-update-raspberry-pi.md
-    - text: Aggiornamento del dispositivo nell'agente di pacchetti di Ubuntu server 18,04 x64
+    - text: Aggiornamento del dispositivo in Ubuntu Server 18.04 x64 Package Agent
       url: device-update-ubuntu-agent.md
-- title: Informazioni di riferimento sull'API e sull'SDK
+- title: Informazioni di riferimento su API e SDK
   linkLists:
   - linkListType: reference
     links:
@@ -74,15 +74,15 @@ landingContent:
       url: https://docs.microsoft.com/rest/api/deviceupdate/
   - linkListType: reference
     links:
-    - text: Piano di controllo-.NET
+    - text: Piano di controllo - .NET
       url: https://docs.microsoft.com/dotnet/api/overview/azure/iot/management?view=azure-dotnet
-    - text: Piano di controllo-Python
+    - text: Piano di controllo - Python
       url: https://docs.microsoft.com/python/api/azure-mgmt-deviceupdate/?view=azure-python
   - linkListType: reference
     links:
-    - text: Piano dati-JavaScript
+    - text: Piano dati - JavaScript
       url: https://docs.microsoft.com/javascript/api/@azure/iot-device-update/?view=azure-node-preview
-    - text: Piano dati-Java
+    - text: Piano dati - Java
       url: https://docs.microsoft.com/java/api/com.azure.iot.deviceupdate?view=azure-java-preview
-    - text: Piano dati-Python
+    - text: Piano dati - Python
       url: https://docs.microsoft.com/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview

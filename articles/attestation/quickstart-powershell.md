@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 80f0efe0894c54d1499bbfdce2317a38dff9299d
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a343c1729b47d88ec414f17fcef7f9323d99161d
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481617"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515261"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Avvio rapido: Configurare Attestazione di Azure con Azure PowerShell
 
@@ -120,6 +120,10 @@ $attestationResourceGroup = "<attestation provider resource group name>"
 New-AzResourceGroup -Name $attestationResourceGroup -Location $location 
 ```
 
+ > [!NOTE]
+   > Dopo aver creato un provider di attestazione in questo gruppo di risorse, un utente Azure AD deve avere il ruolo "Collaboratore attestazione" nel provider per eseguire operazioni come la configurazione dei criteri o la gestione dei certificati del firmatario dei criteri. Queste autorizzazioni possono essere ereditate anche con ruoli come "Proprietario" (autorizzazioni con caratteri jolly), "Collaboratore" (autorizzazioni con caratteri jolly) nella sottoscrizione o nel gruppo di risorse.  
+
+
 ## <a name="create-and-manage-an-attestation-provider"></a>Creare e gestire un provider di attestazioni
 
 New-AzAttestation crea un provider di attestazioni.
@@ -170,12 +174,12 @@ Per gestire i criteri, gli utenti di Azure AD devono avere le autorizzazioni seg
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-Per eseguire queste azioni, un Azure AD deve avere il ruolo "Collaboratore attestazione" nel provider di attestazione. Queste autorizzazioni possono anche essere ereditate con ruoli quali "Proprietario" (autorizzazioni con caratteri jolly), "Collaboratore" (autorizzazioni con caratteri jolly) a livello di sottoscrizione o di gruppo di risorse.  
+ Per eseguire queste azioni, un Azure AD deve avere il ruolo "Collaboratore attestazione" nel provider di attestazione. Queste autorizzazioni possono essere ereditate anche con ruoli come "Proprietario" (autorizzazioni con caratteri jolly), "Collaboratore" (autorizzazioni con caratteri jolly) nella sottoscrizione o nel gruppo di risorse.  
 
 Per leggere i criteri, gli utenti di Azure AD devono avere l'autorizzazione seguente per "Azioni":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-Per eseguire questa azione, un Azure AD deve avere il ruolo "Lettore attestazione" nel provider di attestazione. L'autorizzazione di lettura può essere ereditata anche con ruoli come "Lettore" (autorizzazioni con caratteri jolly) a livello di sottoscrizione/gruppo di risorse.  
+ Per eseguire questa azione, un Azure AD deve avere il ruolo "Lettore di attestazione" nel provider di attestazione. L'autorizzazione di lettura può essere ereditata anche con ruoli come "Lettore" (autorizzazioni con caratteri jolly) nella sottoscrizione o nel gruppo di risorse.  
 
 I cmdlet di PowerShell seguenti forniscono la gestione dei criteri per un provider di attestazioni (un ambiente TEE alla volta).
 

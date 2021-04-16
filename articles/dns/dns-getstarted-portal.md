@@ -4,16 +4,18 @@ titleSuffix: Azure DNS
 description: Usare questa guida di avvio rapido dettagliata per informazioni su come creare una zona e un record DNS di Azure usando il portale di Azure.
 services: dns
 author: rohinkoul
-ms.service: dns
-ms.topic: quickstart
-ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: be76a7902c2747c7a8dc1bfc21d58ae88f3ff343
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/20/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- mode-portal
+ms.openlocfilehash: d08c5768c2c400ff3d842f58081a58708bfc28db
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92282152"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537769"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Guida introduttiva: Creare una zona e un record DNS di Azure con il portale di Azure
 
@@ -59,11 +61,11 @@ Una zona DNS contiene le voci DNS per un dominio. Per iniziare a ospitare il dom
 
 La creazione della zona può richiedere alcuni minuti.
 
-## <a name="create-a-dns-record"></a>Creare un record DNS
+## <a name="create-a-dns-record&quot;></a>Creare un record DNS
 
-Creare voci o record DNS per il dominio all'interno della zona DNS. Creare un nuovo record di indirizzo o record "A" per risolvere un nome host in un indirizzo IPv4.
+Creare voci o record DNS per il dominio all'interno della zona DNS. Creare un nuovo record di indirizzo o record &quot;A&quot; per risolvere un nome host in un indirizzo IPv4.
 
-**Per creare un record "A":**
+**Per creare un record &quot;A&quot;:**
 
 1. Nel portale di Azure in **Tutte le risorse** aprire la zona DNS **contoso.xyz** nel gruppo di risorse **MyResourceGroup**. È possibile immettere *contoso.xyz* nella finestra **Filtra per nome** per trovarla più facilmente.
 
@@ -72,7 +74,7 @@ Creare voci o record DNS per il dominio all'interno della zona DNS. Creare un nu
 1. Nella pagina **Aggiungi set di record** digitare o selezionare i valori seguenti:
 
    - **Name**: digitare *www*. Il nome del record è il nome host che si vuole risolvere nell'indirizzo IP specificato.
-   - **Tipo**: selezionare **A**. I record "A" sono i più comuni, ma esistono altri tipi di record per server di posta elettronica ("MX"), indirizzi IPv6 ("AAAA") e così via. 
+   - **Tipo**: selezionare **A**. I record &quot;A&quot; sono i più comuni, ma esistono altri tipi di record per server di posta elettronica (&quot;MX"), indirizzi IPv6 ("AAAA") e così via. 
    - **TTL**: digitare *1*. La *durata TTL*  della richiesta DNS specifica per quanto tempo i client e i server DNS possono memorizzare nella cache una risposta.
    - **Unità TTL**: selezionare **Ore**. Questo è l'unità di tempo per il valore **TTL**. 
    - **Indirizzo IP**: per questo esempio della guida introduttiva digitare *10.10.10.10*. Questo valore indica l'indirizzo IP in cui viene risolto il record "A". In uno scenario reale, sarebbe necessario immettere l'indirizzo IP pubblico per il server Web.

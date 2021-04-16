@@ -3,13 +3,15 @@ title: 'Guida introduttiva: Creare una query condivisa con Azure PowerShell'
 description: Questa guida di avvio rapido descrive la procedura per creare una query condivisa di Resource Graph con Azure PowerShell.
 ms.date: 01/11/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b771253b1dea4bd1d2913bf7c48062112019a19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- devx-track-azurepowershell
+- mode-api
+ms.openlocfilehash: 9015b6df99bdd6f153194e8f4cbbe7658cf1d6dc
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99981545"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535809"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-powershell"></a>Guida introduttiva: Creare una query condivisa di Resource Graph con Azure PowerShell
 
@@ -36,7 +38,7 @@ Questo articolo descrive come creare una query condivisa di Azure Resource Graph
 
 ## <a name="create-a-resource-graph-shared-query"></a>Creare una query condivisa di Resource Graph
 
-Con il modulo di PowerShell **AZ. ResourceGraph** aggiunto all'ambiente desiderato, è possibile creare una query di Resource Graph condivisa. La query condivisa è un oggetto Azure Resource Manager a cui è possibile concedere autorizzazioni o che è possibile eseguire in Azure Resource Graph Explorer. Nella query viene riepilogato il conteggio di tutte le risorse raggruppate in base alla _località_.
+Con il **modulo PowerShell Az.ResourceGraph** aggiunto all'ambiente preferito, è possibile creare una query Resource Graph condivisa. La query condivisa è un oggetto Azure Resource Manager a cui è possibile concedere autorizzazioni o che è possibile eseguire in Azure Resource Graph Explorer. Nella query viene riepilogato il conteggio di tutte le risorse raggruppate in base alla _località_.
 
 1. Creare un gruppo di risorse con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) per archiviare la query condivisa di Azure Resource Graph. Questo gruppo di risorse è denominato `resource-graph-queries` e la località è `westus2`.
 
@@ -47,7 +49,7 @@ Con il modulo di PowerShell **AZ. ResourceGraph** aggiunto all'ambiente desidera
    New-AzResourceGroup -Name resource-graph-queries -Location westus2
    ```
 
-1. Creare la query condivisa di Azure Resource Graph usando il modulo di PowerShell **AZ. ResourceGraph** e il cmdlet [New-AzResourceGraphQuery](/powershell/module/az.resourcegraph/new-azresourcegraphquery) :
+1. Creare la Azure Resource Graph query condivisa usando il **modulo Az.ResourceGraph** di PowerShell e il cmdlet [New-AzResourceGraphQuery:](/powershell/module/az.resourcegraph/new-azresourcegraphquery)
 
    ```azurepowershell-interactive
    # Create the Azure Resource Graph shared query

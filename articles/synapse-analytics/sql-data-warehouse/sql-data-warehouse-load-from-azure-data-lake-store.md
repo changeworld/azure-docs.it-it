@@ -1,29 +1,29 @@
 ---
 title: 'Esercitazione: Caricare dati da Azure Data Lake Storage'
-description: Usare l'istruzione COPY per caricare i dati da Azure Data Lake Storage per i pool SQL dedicati.
+description: Usare l'istruzione COPY per caricare i dati Azure Data Lake Storage pool SQL dedicati.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: ca57c6200cf7006a89be4b1fd621974559e5b514
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16f95a86169be04eba202b311fc4437b204ec8b3
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606124"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566529"
 ---
-# <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Caricare i dati da Azure Data Lake Storage in pool SQL dedicati in Azure sinapsi Analytics
+# <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Caricare i dati Azure Data Lake Storage pool SQL dedicati in Azure Synapse Analytics
 
-Questa guida illustra come usare l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) per caricare i dati da Azure Data Lake storage. Per esempi rapidi sull'uso dell'istruzione COPY in tutti i metodi di autenticazione, vedere la documentazione seguente: caricare i dati in modo [sicuro usando pool SQL dedicati](./quickstart-bulk-load-copy-tsql-examples.md).
+Questa guida descrive come usare l'istruzione [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) per caricare dati da Azure Data Lake Storage. Per esempi rapidi sull'uso dell'istruzione COPY in tutti i metodi di autenticazione, vedere la documentazione seguente: Caricare in modo sicuro i dati [usando pool SQL dedicati.](./quickstart-bulk-load-copy-tsql-examples.md)
 
 > [!NOTE]  
-> Per fornire commenti e suggerimenti o segnalare problemi nell'istruzione COPY, inviare un messaggio di posta elettronica alla seguente lista di distribuzione: sqldwcopypreview@service.microsoft.com .
+> Per inviare commenti e suggerimenti o segnalare problemi relativi all'istruzione COPY, inviare un messaggio di posta elettronica alla lista di distribuzione seguente: sqldwcopypreview@service.microsoft.com .
 >
 > [!div class="checklist"]
 >
@@ -38,12 +38,12 @@ Prima di iniziare questa esercitazione, scaricare e installare la versione più 
 
 Per eseguire questa esercitazione è necessario:
 
-* Un pool SQL dedicato. Vedere [creare un pool SQL dedicato ed eseguire query sui dati](create-data-warehouse-portal.md).
-* Un account di Data Lake Storage. Vedere [Introduzione ad Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Per questo account di archiviazione, è necessario configurare o specificare una delle credenziali seguenti per il caricamento: una chiave dell'account di archiviazione, una chiave di firma di accesso condiviso, un utente dell'applicazione di directory di Azure o un utente di AAD con il ruolo di Azure appropriato per l'account di archiviazione.
+* Pool SQL dedicato. Vedere [Creare un pool SQL dedicato ed eseguire query sui dati](create-data-warehouse-portal.md).
+* Un account di Data Lake Storage. Vedere [Introduzione ad Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Per questo account di archiviazione, è necessario configurare o specificare una delle credenziali seguenti da caricare: una chiave dell'account di archiviazione, una chiave di firma di accesso condiviso, un utente dell'applicazione di directory di Azure o un utente di AAD con il ruolo di Azure appropriato per l'account di archiviazione.
 
 ## <a name="create-the-target-table"></a>Creare la tabella di destinazione
 
-Connettersi al pool SQL dedicato e creare la tabella di destinazione in cui si desidera caricare. In questo esempio viene creata una tabella della dimensione Product.
+Connettersi al pool SQL dedicato e creare la tabella di destinazione in cui eseguire il caricamento. In questo esempio viene creata una tabella delle dimensioni prodotto.
 
 ```sql
 -- A: Create the target table
@@ -65,7 +65,7 @@ WITH
 
 ## <a name="create-the-copy-statement"></a>Creare l'istruzione COPY
 
-Connettersi al pool dedicato di SQL ed eseguire l'istruzione COPY. Per un elenco completo degli esempi, vedere la documentazione seguente: [caricare in modo sicuro i dati usando i pool SQL dedicati](./quickstart-bulk-load-copy-tsql-examples.md).
+Connettersi al pool dedicato SQL ed eseguire l'istruzione COPY. Per un elenco completo di esempi, vedere la documentazione seguente: Caricare in modo sicuro i dati [usando pool SQL dedicati.](./quickstart-bulk-load-copy-tsql-examples.md)
 
 ```sql
 -- B: Create and execute the COPY statement
@@ -132,7 +132,7 @@ Il caricamento dei dati è il primo passaggio per lo sviluppo di una soluzione d
 > [!div class="nextstepaction"]
 > [Informazioni sullo sviluppo di tabelle per il data warehousing](sql-data-warehouse-tables-overview.md)
 
-Per ulteriori informazioni sul caricamento di esempi e riferimenti, vedere la documentazione seguente:
+Per altri esempi di caricamento e riferimenti, vedere la documentazione seguente:
 - [Documentazione di riferimento dell'istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
-- [COPIA esempi per ogni metodo di autenticazione](./quickstart-bulk-load-copy-tsql-examples.md)
-- [COPIA avvio rapido per una singola tabella](./quickstart-bulk-load-copy-tsql.md)
+- [Esempi COPY per ogni metodo di autenticazione](./quickstart-bulk-load-copy-tsql-examples.md)
+- [Guida introduttiva a COPY per una singola tabella](./quickstart-bulk-load-copy-tsql.md)

@@ -3,19 +3,19 @@ title: Monitorare Batch con Azure Application Insights
 description: Informazioni su come instrumentare un'applicazione .NET di Azure Batch con la libreria di Azure Application Insights.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 03/25/2021
-ms.openlocfilehash: 251f02f145e8f450b1528bf8676cffdc61a6f051
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/13/2021
+ms.openlocfilehash: 8bc8ff0a04996d988a642062f118e9e6792abbf0
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607882"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389350"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorare ed eseguire il debug di un'applicazione .NET di Azure Batch con Application Insights
 
 [Application Insights](../azure-monitor/app/app-insights-overview.md) offre agli sviluppatori un modo elegante e potente per monitorare ed eseguire il debug delle applicazioni distribuite nei servizi di Azure. Usare Application Insights per monitorare i contatori delle prestazioni e le eccezioni, nonché per instrumentare il codice con metriche e funzionalità di traccia personalizzate. L'integrazione di Application Insights con l'applicazione Azure Batch consente di ottenere informazioni dettagliate sui comportamenti e di analizzare i problemi in tempo quasi reale.
 
-Questo articolo illustra come aggiungere e configurare la libreria di Application Insights nella soluzione .NET di Azure Batch e instrumentare il codice dell'applicazione. Vengono inoltre presentati i modi per monitorare l'applicazione tramite il portale di Azure e creare dashboard personalizzati. Per Application Insights supporto in altre lingue, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../azure-monitor/app/platforms.md).
+Questo articolo illustra come aggiungere e configurare la libreria di Application Insights nella soluzione .NET di Azure Batch e instrumentare il codice dell'applicazione. Vengono inoltre presentati i modi per monitorare l'applicazione tramite il portale di Azure e creare dashboard personalizzati. Per Application Insights supporto in altri linguaggi, vedere la documentazione relativa a [linguaggi, piattaforme e integrazioni.](../azure-monitor/app/platforms.md)
 
 In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights) è disponibile una soluzione C# di esempio con codice per seguire questo articolo. Questo esempio aggiunge codice di strumentazione di Application Insights all'esempio [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Se non si ha familiarità con tale esempio, provare prima di tutto a compilare ed eseguire TopNWords. In questo modo sarà possibile comprendere un flusso di lavoro semplice di Batch per l'elaborazione di un set di BLOB di input in parallelo su più nodi di calcolo.
 
@@ -26,11 +26,11 @@ In [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Arti
 
 - [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/vs)
 - [Un account Batch e un account di archiviazione collegato](batch-account-create-portal.md)
-- [Risorsa Application Insights](../azure-monitor/app/create-new-resource.md). Usare il portale di Azure per creare una *risorsa* di Application Insights. Selezionare il **tipo di applicazione** *Generale*.
-- Copiare la [chiave di strumentazione](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key) dal portale di Azure. Questo valore sarà necessario in seguito.
+- [Application Insights risorsa](../azure-monitor/app/create-new-resource.md). Usare il portale di Azure per creare una *risorsa* di Application Insights. Selezionare il **tipo di applicazione** *Generale*.
+- Copiare [la chiave di strumentazione](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key) dal portale di Azure. Questo valore sarà necessario in seguito.
   
   > [!NOTE]
-  > È possibile che vengano [addebitati](https://azure.microsoft.com/pricing/details/application-insights/) i dati archiviati in Application Insights. Tali dati includono i dati di diagnostica e monitoraggio descritti in questo articolo.
+  > Potrebbero essere [addebitati](https://azure.microsoft.com/pricing/details/application-insights/) i dati archiviati in Application Insights. Tali dati includono i dati di diagnostica e monitoraggio descritti in questo articolo.
 
 ## <a name="add-application-insights-to-your-project"></a>Aggiunta di Application Insights al progetto
 
@@ -291,7 +291,7 @@ Per creare un grafico di esempio:
    - In **Metriche** selezionare **Personalizzato** > **Blob download in seconds** (Download BLOB in secondi).
    - Modificare la visualizzazione della **Tavolozza dei colori** in base alle preferenze.
 
-![Screenshot di un grafico che mostra i tempi di download dei BLOB per ogni nodo.](./media/monitor-application-insights/blobdownloadtime.png)
+![Screenshot di un grafico che mostra il tempo di download dei BLOB per nodo.](./media/monitor-application-insights/blobdownloadtime.png)
 
 ## <a name="monitor-compute-nodes-continuously&quot;></a>Monitoraggio continuo dei nodi di calcolo
 
@@ -310,7 +310,13 @@ CloudPool pool = client.PoolOperations.CreatePool(
     topNWordsConfiguration.PoolId,
     targetDedicated: topNWordsConfiguration.PoolNodeCount,
     virtualMachineSize: &quot;standard_d1_v2&quot;,
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: &quot;5"));
+    VirtualMachineConfiguration: new VirtualMachineConfiguration(
+    imageReference: new ImageReference(
+                        publisher: &quot;MicrosoftWindowsServer&quot;,
+                        offer: &quot;WindowsServer&quot;,
+                        sku: &quot;2019-datacenter-core&quot;,
+                        version: &quot;latest"),
+    nodeAgentSkuId: "batch.node.windows amd64");
 ...
 
 // Create a start task which will run a dummy exe in background that simply emits performance
@@ -335,4 +341,4 @@ Tenendo conto del fatto che le applicazioni di Azure Batch in esecuzione in ambi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su [Application Insights](../azure-monitor/app/app-insights-overview.md).
-- Per Application Insights supporto in altre lingue, vedere la [documentazione relativa a linguaggi, piattaforme e integrazioni](../azure-monitor/app/platforms.md).
+- Per Application Insights supporto in altri linguaggi, vedere la documentazione relativa a [linguaggi, piattaforme e integrazioni.](../azure-monitor/app/platforms.md)

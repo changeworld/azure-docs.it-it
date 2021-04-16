@@ -7,12 +7,12 @@ ms.date: 4/12/2021
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli, RACI, support
-ms.openlocfilehash: 364b0a04e3394efcacba00c538218ecee2355f89
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 4bb00cb533d0065a992831f09ed8280c96efcdee
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107495038"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107537012"
 ---
 # <a name="overview-of-responsibilities-for-azure-red-hat-openshift"></a>Panoramica delle responsabilità per Azure Red Hat OpenShift
 
@@ -37,26 +37,26 @@ Mentre Microsoft e Red Hat gestiscono il Azure Red Hat OpenShift, il cliente con
   <tr>
    <td><a href="#customer-data-and-applications">Dati dei clienti</a>
    </td>
-   <td>Customer </td>
-   <td>Customer </td>
-   <td>Customer </td>
-   <td>Customer </td>
+   <td>Cliente </td>
+   <td>Cliente </td>
+   <td>Cliente </td>
+   <td>Cliente </td>
   </tr>
   <tr>
    <td><a href="#customer-data-and-applications">Applicazioni dei clienti</a>
    </td>
-   <td>Customer </td>
-   <td>Customer </td>
-   <td>Customer </td>
-   <td>Customer </td>
+   <td>Cliente </td>
+   <td>Cliente </td>
+   <td>Cliente </td>
+   <td>Cliente </td>
   </tr>
   <tr>
    <td><a href="#customer-data-and-applications">Servizi per sviluppatori </a>
    </td>
-   <td>Customer </td>
-   <td>Customer </td>
-   <td>Customer </td>
-   <td>Customer </td>
+   <td>Cliente </td>
+   <td>Cliente </td>
+   <td>Cliente </td>
+   <td>Cliente </td>
   </tr>
   <tr>
    <td>Monitoraggio della piattaforma </td>
@@ -252,14 +252,14 @@ Microsoft e Red Hat sono responsabili dell'abilitazione delle modifiche all'infr
 
 <li>Configurare il servizio router OpenShift nativo. Consente di impostare il router come privato e di aggiungere fino a una partizione del router aggiuntiva.
 
-<li>Installare, configurare e gestire i componenti SDN OpenShift per il traffico interno del pod predefinito.
+<li>Installare, configurare e gestire componenti SDN OpenShift per il traffico interno del pod predefinito.
 </li>
 </ul>
    </td>
    <td>
 <ul>
 
-<li>Configurare le autorizzazioni di rete del pod non predefinite per le reti di progetto e pod, l'ingresso del pod e l'uscita del pod usando gli oggetti NetworkPolicy.
+<li>Configurare le autorizzazioni di rete del pod non predefinite per le reti di progetto e pod, l'ingresso e l'uscita del pod usando gli oggetti NetworkPolicy.
 
 <li>Richiedere e configurare eventuali servizi di bilanciamento del carico aggiuntivi per servizi specifici.
 </li>
@@ -281,7 +281,7 @@ Microsoft e Red Hat sono responsabili dell'abilitazione delle modifiche all'infr
    <td>
 <ul>
 
-<li>Fornire intervalli di indirizzi IP facoltativi non predefiniti per cidr del computer, CIDR del servizio e CIDR del pod se necessario tramite OpenShift Cluster Manager quando viene effettuato il provisioning del cluster.
+<li>Fornire intervalli di indirizzi IP facoltativi non predefiniti per cidr del computer, CIDR del servizio e CIDR del pod, se necessario tramite OpenShift Cluster Manager quando viene effettuato il provisioning del cluster.
 
 <li>Richiedere che l'endpoint del servizio API sia reso pubblico o privato durante la creazione del cluster o dopo la creazione del cluster tramite l'interfaccia della riga di comando di Azure.
 </li>
@@ -383,7 +383,7 @@ La gestione delle identità e degli accessi include tutte le responsabilità per
    <td>
 <ul>
 
-<li>Rispettare un processo di accesso interno a livelli basato su standard di settore per i log di controllo della piattaforma.
+<li>Rispettare un processo di accesso interno a livelli basato su standard del settore per i log di controllo della piattaforma.
 
 <li>Fornire funzionalità native di Controllo degli accessi in base al ruolo di OpenShift.
 </li>
@@ -405,14 +405,14 @@ La gestione delle identità e degli accessi include tutte le responsabilità per
    <td>
 <ul>
 
-<li>Fornire il controllo degli accessi in base al ruolo di OpenShift nativo e le funzionalità di amministrazione dedicate.
+<li>Fornire funzionalità native del controllo degli accessi in base al ruolo di OpenShift.
 </li>
 </ul>
    </td>
    <td>
 <ul>
 
-<li>Configurare gli amministratori dedicati di OpenShift e il controllo degli accessi in base al ruolo per controllare l'accesso alla configurazione della route in base alle esigenze.
+<li>Configurare il controllo degli accessi in base al ruolo di OpenShift per controllare l'accesso alla configurazione della route in base alle esigenze.
 </li>
 </ul>
    </td>
@@ -423,7 +423,7 @@ La gestione delle identità e degli accessi include tutte le responsabilità per
    <td>
 <ul>
 
-<li>Fornire il controllo degli accessi in base al ruolo di OpenShift nativo e le funzionalità di amministrazione dedicate.
+<li>Fornire funzionalità native del controllo degli accessi in base al ruolo di OpenShift.
 </li>
 </ul>
    </td>
@@ -434,7 +434,7 @@ La gestione delle identità e degli accessi include tutte le responsabilità per
 
 <li>Gestire gli amministratori dell'organizzazione di Red Hat per concedere l'accesso a OpenShift Cluster Manager.
 
-<li>Configurare gli amministratori dedicati di OpenShift e il controllo degli accessi in base al ruolo per controllare l'accesso alla configurazione della route in base alle esigenze.
+<li>Configurare il controllo degli accessi in base al ruolo di OpenShift per controllare l'accesso alla configurazione della route in base alle esigenze.
 </li>
 </ul>
    </td>
@@ -465,7 +465,7 @@ Tabella 4. Responsabilità condivise per la gestione di identità e accessi
 
 ### <a name="security-and-regulation-compliance"></a>Conformità alla sicurezza e alle normative 
 
-La sicurezza e la conformità includono tutte le responsabilità e i controlli che garantiscono la conformità alle leggi, ai criteri e alle normative pertinenti.
+La sicurezza e la conformità includono tutte le responsabilità e i controlli che garantiscono la conformità con leggi, criteri e normative pertinenti.
 
 
 <table>
@@ -502,16 +502,16 @@ La sicurezza e la conformità includono tutte le responsabilità e i controlli c
 
 <li>Monitorare i componenti di rete virtuale per potenziali problemi e minacce alla sicurezza.
 
-<li>Usare altri strumenti pubblici di Microsoft e Red Hat Azure per un monitoraggio e una protezione aggiuntivi.
+<li>Usare altri strumenti pubblici di Microsoft e Red Hat Azure per il monitoraggio e la protezione aggiuntivi.
 </li>
 </ul>
    </td>
    <td>
 <ul>
 
-<li>Monitorare i componenti di rete virtuale configurati facoltativamente alla ricerca di potenziali problemi e minacce per la sicurezza.
+<li>Monitorare i componenti di rete virtuale configurati facoltativamente per potenziali problemi e minacce alla sicurezza.
 
-<li>Configurare le regole del firewall o le data center necessarie.
+<li>Configurare le eventuali regole del firewall necessarie o data center di protezione in base alle esigenze.
 </li>
 </ul>
    </td>
@@ -522,12 +522,12 @@ La sicurezza e la conformità includono tutte le responsabilità e i controlli c
 Tabella 5. Responsabilità condivise per la conformità alla sicurezza e alle normative
 
 
-## <a name="customer-responsibilities-when-using-azure-red-hat-openshift"></a>Responsabilità del cliente quando si usa Azure Red Hat OpenShift 
+## <a name="customer-responsibilities-when-using-azure-red-hat-openshift"></a>Responsabilità dei clienti quando si usa Azure Red Hat OpenShift 
 
 
 ### <a name="customer-data-and-applications"></a>Dati e applicazioni dei clienti
 
-Il cliente è responsabile delle applicazioni, dei carichi di lavoro e dei dati distribuiti in Azure Red Hat OpenShift. Tuttavia, Microsoft e Red Hat offrono vari strumenti per aiutare i clienti a gestire i dati e le applicazioni sulla piattaforma.
+Il cliente è responsabile delle applicazioni, dei carichi di lavoro e dei dati distribuiti in Azure Red Hat OpenShift. Tuttavia, Microsoft e Red Hat offrono vari strumenti per aiutare il cliente a gestire i dati e le applicazioni nella piattaforma.
 
 
 <table>
@@ -544,11 +544,11 @@ Il cliente è responsabile delle applicazioni, dei carichi di lavoro e dei dati 
    <td>
 <ul>
 
-<li>Mantenere gli standard a livello di piattaforma per la crittografia dei dati in base a quanto definito dagli standard di sicurezza e conformità del settore. 
+<li>Mantenere gli standard a livello di piattaforma per la crittografia dei dati in base agli standard di sicurezza e conformità del settore. 
 
-<li>Fornire componenti OpenShift per facilitare la gestione dei dati dell'applicazione, ad esempio i segreti.
+<li>Fornire componenti OpenShift per gestire i dati dell'applicazione, ad esempio i segreti.
 
-<li>Abilitare l'integrazione con servizi dati di terze parti(ad esempio Azure SQL) per archiviare e gestire i dati all'esterno del cluster e/o Microsoft e Red Hat Azure.
+<li>Abilitare l'integrazione con servizi dati di terze parti (ad esempio Azure SQL) per archiviare e gestire i dati all'esterno del cluster e/o Microsoft e Red Hat Azure.
 </li>
 </ul>
    </td>
@@ -579,13 +579,13 @@ Il cliente è responsabile delle applicazioni, dei carichi di lavoro e dei dati 
    <td>
 <ul>
 
-<li>Mantenere la responsabilità per le applicazioni, i dati e il ciclo di vita completo di clienti e di terze parti.
+<li>Mantenere la responsabilità per le applicazioni, i dati e il ciclo di vita completo dei clienti e di terze parti.
 
-<li>Se un cliente aggiunge Red Hat, community, terze parti, servizi propri o altri servizi al cluster usando operatori o immagini esterne, il cliente è responsabile di questi servizi e di lavorare con il provider appropriato (incluso Red Hat) per risolvere eventuali problemi.
+<li>Se un cliente aggiunge Red Hat, community, terze parti, servizi propri o di altro tipo al cluster usando operatori o immagini esterne, il cliente è responsabile di questi servizi e dell'uso del provider appropriato (incluso Red Hat) per risolvere eventuali problemi.
 
-<li>Usare gli strumenti e le funzionalità forniti per <a href="https://docs.openshift.com/dedicated/4/architecture/understanding-development.html#application-types">configurare e distribuire</a>; <a href="https://docs.openshift.com/dedicated/4/applications/deployments/deployment-strategies.html">mantenere aggiornati</a>; <a href="https://docs.openshift.com/dedicated/4/applications/working-with-quotas.html">configurare le richieste e i limiti delle risorse;</a> <a href="https://docs.openshift.com/dedicated/4/getting_started/scaling-your-cluster.html">ridimensionare il cluster in modo che abbia risorse sufficienti per eseguire le app;</a> <a href="https://docs.openshift.com/dedicated/4/administering_a_cluster/dedicated-admin-role.html#dedicated-admin-granting-permissions_dedicated-administrator">impostare le autorizzazioni</a>; integrare con altri servizi; <a href="https://docs.openshift.com/dedicated/4/openshift_images/images-understand.html">gestire i flussi di immagini o i modelli distribuiti dal cliente;</a> <a href="https://docs.openshift.com/dedicated/4/cloud_infrastructure_access/dedicated-aws-private-cluster.html">servire esternamente</a>; salvare, eseguire il backup e ripristinare i dati; e in caso contrario gestire i carichi di lavoro a disponibilità elevata e resilienti.
+<li>Usare gli strumenti e le funzionalità forniti per <a href="https://docs.openshift.com/aro/4/architecture/understanding-development.html#application-types">configurare e distribuire</a>. <a href="https://docs.openshift.com/aro/4/applications/deployments/deployment-strategies.html">mantenere aggiornato</a>; <a href="https://docs.openshift.com/aro/4/applications/working-with-quotas.html">configurare le richieste di risorse e i limiti;</a> <a href="https://docs.openshift.com/aro/4/getting_started/scaling-your-cluster.html">ridimensionare il cluster in modo che abbia risorse sufficienti per eseguire le app;</a> <a href="https://docs.openshift.com/aro/4/administering_a_cluster/">impostare le autorizzazioni</a>; integrazione con altri servizi; <a href="https://docs.openshift.com/aro/4/openshift_images/images-understand.html">gestire i flussi di immagini o i modelli distribuiti dal cliente;</a> <a href="https://docs.openshift.com/aro/4/cloud_infrastructure_access">servire esternamente</a>; salvare, eseguire il backup e ripristinare i dati; e gestire in altro modo i carichi di lavoro resilienti e a disponibilità elevata.
 
-<li>Mantenere la responsabilità del monitoraggio delle applicazioni eseguite Azure Red Hat OpenShift; inclusa l'installazione e il funzionamento del software per raccogliere metriche e creare avvisi.
+<li>Mantenere la responsabilità del monitoraggio delle applicazioni eseguite in Azure Red Hat OpenShift; inclusa l'installazione e il software operativo per raccogliere metriche e creare avvisi.
 </li>
 </ul>
    </td>
@@ -593,4 +593,4 @@ Il cliente è responsabile delle applicazioni, dei carichi di lavoro e dei dati 
 </table>
 
 
-Tabella 7. Responsabilità dei clienti per i dati dei clienti, le applicazioni e i servizi dei clienti
+Tabella 7. Responsabilità dei clienti per i dati, le applicazioni e i servizi dei clienti

@@ -3,12 +3,12 @@ title: Configurare report di Backup di Azure
 description: Configurare e visualizzare i report di Backup di Azure usando Log Analytics e le cartelle di lavoro di Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0f3638e7649fc02f050c575ee621ce9dc237c24f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562325"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107517267"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
@@ -22,8 +22,8 @@ Oggi Backup di Azure offre una soluzione per la creazione di report che usa i [l
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
-- I report di Backup sono supportati per Macchine virtuali di Azure, SQL in Macchine virtuali di Azure, SAP HANA in Macchine virtuali di Azure, l'agente di Servizi di ripristino di Microsoft Azure (MARS), il server di Backup di Microsoft Azure e System Center Data Protection Manager (DPM). Per il backup di condivisioni file di Azure, vengono visualizzati i dati per i record creati il 1 ° giugno 2020.
-- Per il backup di condivisioni file di Azure, vengono visualizzati i dati nelle istanze protette per i record creati dopo il 1 ° febbraio 2021 (il valore predefinito è zero per i record meno recenti).
+- I report di Backup sono supportati per Macchine virtuali di Azure, SQL in Macchine virtuali di Azure, SAP HANA in Macchine virtuali di Azure, l'agente di Servizi di ripristino di Microsoft Azure (MARS), il server di Backup di Microsoft Azure e System Center Data Protection Manager (DPM). Per il backup di condivisione file di Azure, vengono visualizzati i dati per i record creati il 1° giugno 2020 o dopo il 1° giugno 2020.
+- Per il backup di condivisione file di Azure, i dati nelle istanze protette vengono visualizzati per i record creati dopo il 1° febbraio 2021 (il valore predefinito è zero per i record meno recenti).
 - Per i carichi di lavoro DPM, i report di Backup sono supportati per DPM versione 5.1.363.0 e successive e per l'agente MARS versione 2.0.9127.0 e successive.
 - Per i carichi di lavoro del server di Backup di Microsoft Azure, i report di Backup sono supportati per il server di Backup di Microsoft Azure versione 13.0.415.0 e successive e per l'agente MARS versione 2.0.9170.0 e successive.
 - I report di Backup possono essere visualizzati per tutti gli elementi di backup, gli insiemi di credenziali, le sottoscrizioni e le aree, purché i relativi dati vengano inviati a un'area di lavoro Log Analytics a cui l'utente può accedere. Per visualizzare i report relativi a un set di insiemi di credenziali, è sufficiente avere accesso in lettura all'area di lavoro Log Analytics a cui gli insiemi di credenziali inviano i dati. Non è necessario avere accesso ai singoli insiemi di credenziali.
@@ -75,98 +75,98 @@ Il report contiene diverse schede:
 
 ##### <a name="summary"></a>Riepilogo
 
-Usare questa scheda per ottenere una panoramica di alto livello del patrimonio di backup. È possibile vedere a colpo d'occhio il numero totale di elementi di backup, lo spazio di archiviazione cloud totale utilizzato, il numero di istanze protette e la percentuale di processi completati per tipo di carico di lavoro. Per informazioni più dettagliate su un tipo di elemento di backup specifico, vedere le rispettive schede.
+Usare questa scheda per ottenere una panoramica generale dell'insieme di backup. È possibile vedere a colpo d'occhio il numero totale di elementi di backup, lo spazio di archiviazione cloud totale utilizzato, il numero di istanze protette e la percentuale di processi completati per tipo di carico di lavoro. Per informazioni più dettagliate su un tipo di elemento di backup specifico, vedere le rispettive schede.
 
    ![Scheda Riepilogo](./media/backup-azure-configure-backup-reports/summary.png)
 
 ##### <a name="backup-items"></a>Elementi di backup
 
-Usare questa scheda per visualizzare le informazioni e le tendenze sull'archiviazione cloud usata a livello di elemento di backup. Ad esempio, se si usa SQL in un backup di VM di Azure, è possibile visualizzare lo spazio di archiviazione cloud utilizzato per ogni database SQL di cui viene eseguito il backup. Si può anche scegliere di visualizzare i dati relativi agli elementi di backup di un determinato stato di protezione. Ad esempio, se si seleziona il riquadro **Protezione arrestata** nella parte superiore della scheda, vengono filtrati tutti i widget sottostanti per visualizzare solo i dati relativi agli elementi di backup nello stato di protezione arrestata.
+Usare questa scheda per visualizzare informazioni e tendenze sull'archiviazione cloud utilizzata a livello di elemento di backup. Ad esempio, se si usa SQL in un backup di VM di Azure, è possibile visualizzare lo spazio di archiviazione cloud utilizzato per ogni database SQL di cui viene eseguito il backup. Si può anche scegliere di visualizzare i dati relativi agli elementi di backup di un determinato stato di protezione. Ad esempio, se si seleziona il riquadro **Protezione arrestata** nella parte superiore della scheda, vengono filtrati tutti i widget sottostanti per visualizzare solo i dati relativi agli elementi di backup nello stato di protezione arrestata.
 
    ![Scheda Elementi di backup](./media/backup-azure-configure-backup-reports/backup-items.png)
 
 ##### <a name="usage"></a>Utilizzo
 
-Usare questa scheda per visualizzare i parametri di fatturazione principali per i backup. Le informazioni visualizzate in questa scheda sono a livello di entità di fatturazione (contenitore protetto). Se, ad esempio, viene eseguito il backup di un server DPM in Azure, è possibile visualizzare la tendenza delle istanze protette e dello spazio di archiviazione cloud utilizzato per il server DPM. Analogamente, se si usa SQL in Backup di Azure o SAP HANA in Backup di Azure, questa scheda fornisce informazioni relative all'utilizzo a livello della macchina virtuale che contiene questi database.
+Usare questa scheda per visualizzare i parametri di fatturazione principali per i backup. Le informazioni visualizzate in questa scheda sono a livello di entità di fatturazione (contenitore protetto). Ad esempio, se viene eseguito il backup di un server DPM in Azure, è possibile visualizzare la tendenza delle istanze protette e dello spazio di archiviazione cloud utilizzato per il server DPM. Analogamente, se si usa SQL in Backup di Azure o SAP HANA in Backup di Azure, questa scheda fornisce informazioni relative all'utilizzo a livello della macchina virtuale che contiene questi database.
 
    ![Scheda Utilizzo](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> Per i carichi di lavoro DPM, è possibile che gli utenti visualizzino una lieve differenza (dell'ordine di 20 MB per ogni server DPM) tra i valori di utilizzo indicati nei report rispetto al valore di utilizzo aggregato, come illustrato nella scheda **Panoramica dell'insieme** di credenziali di servizi di ripristino. Questa differenza è rappresentata dal fatto che a ogni server DPM registrato per il backup è associata un'origine dati ' Metadata ' che non viene rilevata come artefatto per la creazione di report.
+> Per i carichi di lavoro DPM, gli utenti potrebbero vedere una lieve differenza (dell'ordine di 20 MB per ogni server  DPM) tra i valori di utilizzo visualizzati nei report rispetto al valore di utilizzo aggregato, come illustrato nella scheda Panoramica dell'insieme di credenziali di Servizi di ripristino. Questa differenza è data dal fatto che a ogni server DPM registrato per il backup è associata un'origine dati "metadati" che non viene visualizzata come artefatto per la creazione di report.
 
 ##### <a name="jobs"></a>Processi
 
-Usare questa scheda per visualizzare le tendenze con esecuzione prolungata nei processi, ad esempio il numero di processi non riusciti al giorno e le cause principali dell'errore del processo. È possibile visualizzare queste informazioni sia a livello aggregato che a livello di elemento di backup. Selezionare uno specifico elemento di backup in una griglia per visualizzare informazioni dettagliate su ogni processo attivato su tale elemento di backup nell'intervallo di tempo selezionato.
+Usare questa scheda per visualizzare le tendenze a esecuzione lunga sui processi, ad esempio il numero di processi non riusciti al giorno e le cause principali dell'errore del processo. È possibile visualizzare queste informazioni sia a livello aggregato che a livello di elemento di backup. Selezionare uno specifico elemento di backup in una griglia per visualizzare informazioni dettagliate su ogni processo attivato su tale elemento di backup nell'intervallo di tempo selezionato.
 
    ![Scheda Processi](./media/backup-azure-configure-backup-reports/jobs.png)
 
 ##### <a name="policies"></a>Criteri
 
-Usare questa scheda per visualizzare informazioni su tutti i criteri attivi, ad esempio il numero di elementi associati e l'archiviazione cloud totale utilizzata dagli elementi di cui è stato eseguito il backup in base a un determinato criterio. Selezionare un criterio specifico per visualizzare le informazioni su ogni elemento di backup associato.
+Usare questa scheda per visualizzare informazioni su tutti i criteri attivi, ad esempio il numero di elementi associati e lo spazio di archiviazione cloud totale utilizzato dagli elementi di cui è stato eseguito il backup in un determinato criterio. Selezionare un criterio specifico per visualizzare le informazioni su ogni elemento di backup associato.
 
    ![Scheda Criteri](./media/backup-azure-configure-backup-reports/policies.png)
 
 ##### <a name="optimize"></a>Ottimizzazione
 
-Usare questa scheda per ottenere visibilità sulle possibili opportunità di ottimizzazione dei costi per i backup. Di seguito sono riportati gli scenari per i quali la scheda Ottimizza fornisce attualmente informazioni dettagliate:
+Usare questa scheda per ottenere visibilità su potenziali opportunità di ottimizzazione dei costi per i backup. Di seguito sono riportati gli scenari per i quali la scheda Ottimizza fornisce attualmente informazioni dettagliate:
 
 ###### <a name="inactive-resources"></a>Risorse inattive
 
-Utilizzando questa visualizzazione, è possibile identificare gli elementi di backup per i quali non è stato eseguito il backup per un periodo di tempo significativo. Questo potrebbe significare che il computer sottostante di cui viene eseguito il backup non esiste più (e pertanto comporta backup non riusciti) oppure si è verificato un problema con il computer che impedisce l'esecuzione affidabile dei backup.
+Usando questa visualizzazione, è possibile identificare gli elementi di backup che non hanno eseguito correttamente il backup per un periodo di tempo significativo. Questo potrebbe significare che il computer sottostante di cui viene eseguito il backup non esiste più (e quindi si verificano backup non riusciti) o che si è verificato un problema con il computer che impedisce l'esecuzione affidabile dei backup.
 
-Per visualizzare le risorse inattive, passare alla scheda **ottimizza** e selezionare il riquadro **risorse inattive** . Selezionare questo riquadro per visualizzare una griglia contenente i dettagli di tutte le risorse inattive presenti nell'ambito selezionato. Per impostazione predefinita, la griglia Mostra gli elementi che non hanno un punto di ripristino negli ultimi sette giorni. Per trovare le risorse inattive per un intervallo di tempo diverso, è possibile modificare il filtro **intervallo di tempo** nella parte superiore della scheda.
+Per visualizzare le risorse inattive, passare alla **scheda Ottimizza** e selezionare il **riquadro Risorse inattive.** Selezionare questo riquadro per visualizzare una griglia contenente i dettagli di tutte le risorse inattive presenti nell'ambito selezionato. Per impostazione predefinita, la griglia mostra gli elementi che non hanno un punto di ripristino negli ultimi sette giorni. Per trovare le risorse inattive per un intervallo di tempo diverso, è possibile modificare il filtro **Intervallo** di tempo nella parte superiore della scheda.
 
-Una volta identificata una risorsa inattiva, è possibile esaminare ulteriormente il problema passando al dashboard dell'elemento di backup o al riquadro delle risorse di Azure per tale risorsa, ove applicabile. A seconda dello scenario, è possibile scegliere di arrestare il backup per il computer (se non esiste più) ed eliminare i backup superflui, che consentono di risparmiare sui costi, oppure è possibile risolvere i problemi nel computer per assicurarsi che i backup vengano eseguiti in modo affidabile.
+Dopo aver identificato una risorsa inattiva, è possibile analizzare ulteriormente il problema passando al dashboard dell'elemento di backup o al riquadro delle risorse di Azure per tale risorsa (se applicabile). A seconda dello scenario, è possibile scegliere di arrestare il backup per il computer (se non esiste più) ed eliminare i backup non necessari, risparmiando così i costi, oppure di risolvere i problemi nel computer per assicurarsi che i backup siano esempiati in modo affidabile.
 
-![Ottimizzare le risorse inattive nella scheda](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
+![Scheda Ottimizza - Risorse inattive](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 
 ###### <a name="backup-items-with-a-large-retention-duration"></a>Elementi di backup con durata di conservazione estesa
 
-Utilizzando questa visualizzazione, è possibile identificare gli elementi per i quali i backup sono conservati per un periodo di tempo più lungo rispetto a quello richiesto dall'organizzazione.
+Usando questa visualizzazione, è possibile identificare gli elementi che dispongono di backup conservati per una durata più lunga di quanto richiesto dall'organizzazione.
 
-Selezionando il riquadro **ottimizzazioni dei criteri** seguito dal riquadro **ottimizzazioni di conservazione** viene visualizzata una griglia contenente tutti gli elementi di backup per i quali la conservazione del punto di conservazione giornaliero, settimanale, mensile o annuale è maggiore di un valore specificato. Per impostazione predefinita, nella griglia vengono visualizzati tutti gli elementi di backup nell'ambito selezionato. È possibile utilizzare i filtri per la conservazione giornaliera, settimanale, mensile e annuale di RP per filtrare ulteriormente la griglia e identificare gli elementi per i quali potrebbe essere possibile ridurre la conservazione per risparmiare sui costi di archiviazione di backup.
+Selezionando  il riquadro Ottimizzazioni  criteri seguito dal riquadro Ottimizzazioni conservazione viene visualizzata una griglia contenente tutti gli elementi di backup per i quali la conservazione del punto di conservazione giornaliero, settimanale, mensile o annuale è maggiore di un valore specificato. Per impostazione predefinita, la griglia visualizza tutti gli elementi di backup nell'ambito selezionato. È possibile usare i filtri per la conservazione RP giornaliera, settimanale, mensile e annuale per filtrare ulteriormente la griglia e identificare gli elementi per i quali la conservazione potrebbe potenzialmente essere ridotta per risparmiare sui costi di archiviazione dei backup.
 
-Per i carichi di lavoro di database come SQL e SAP HANA, i periodi di conservazione visualizzati nella griglia corrispondono ai periodi di conservazione dei punti di backup completi e non ai punti di backup differenziali. Lo stesso vale anche per i filtri di conservazione.  
+Per i carichi di lavoro del database come SQL e SAP HANA, i periodi di conservazione visualizzati nella griglia corrispondono ai periodi di conservazione dei punti di backup completi e non ai punti di backup differenziali. Lo stesso vale anche per i filtri di conservazione.  
 
-![Ottimizzare le ottimizzazioni per la memorizzazione nella scheda](./media/backup-azure-configure-backup-reports/optimize-retention.png)
+![Scheda Ottimizza - Ottimizzazioni conservazione](./media/backup-azure-configure-backup-reports/optimize-retention.png)
 
 ###### <a name="databases-configured-for-daily-full-backup"></a>Database configurati per il backup completo giornaliero 
 
-Utilizzando questa visualizzazione, è possibile identificare i carichi di lavoro del database configurati per il backup completo giornaliero. Spesso, l'uso del backup differenziale giornaliero insieme al backup completo settimanale è più conveniente.
+Questa vista consente di identificare i carichi di lavoro del database configurati per il backup completo giornaliero. Spesso, l'uso del backup differenziale giornaliero insieme al backup completo settimanale è più conveniente.
 
-Selezionando il riquadro **ottimizzazioni dei criteri** seguito dal riquadro **ottimizzazioni pianificazione backup** , viene visualizzata una griglia contenente tutti i database con criteri di backup completi giornalieri. È possibile scegliere di passare a un particolare elemento di backup e modificare il criterio in modo da usare il backup differenziale giornaliero con backup completo settimanale.
+Selezionando il **riquadro Ottimizzazioni criteri** seguito dal riquadro **Ottimizzazioni** pianificazione backup viene visualizzata una griglia contenente tutti i database con un criterio di backup completo giornaliero. È possibile scegliere di passare a un particolare elemento di backup e modificare i criteri in modo da usare il backup differenziale giornaliero con il backup completo settimanale.
 
-Il filtro del **tipo di gestione di backup** nella parte superiore della scheda deve avere gli elementi **SQL in VM di Azure** e **SAP Hana nella macchina virtuale di Azure** selezionata per consentire alla griglia di visualizzare i carichi di lavoro del database come previsto.
+Nel filtro **Tipo** di gestione backup nella parte superiore della scheda devono essere selezionati gli elementi **SQL nella** macchina virtuale di Azure e SAP HANA nella macchina virtuale di **Azure,** in modo che la griglia sia in grado di visualizzare i carichi di lavoro del database come previsto.
 
-![Ottimizza la scheda-ottimizzazioni della pianificazione dei backup](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
+![Scheda Ottimizza - Ottimizzazioni pianificazione backup](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
 
-###### <a name="policy-adherence"></a>Conformità dei criteri
+###### <a name="policy-adherence"></a>Conformità ai criteri
 
-Utilizzando questa scheda è possibile stabilire se per tutte le istanze di backup è stato eseguito almeno un backup di ogni giorno. Per gli elementi con criteri di backup settimanali, è possibile utilizzare questa scheda per determinare se per tutte le istanze di backup è stato eseguito almeno un backup a settimana.
+Questa scheda consente di determinare se tutte le istanze di backup hanno eseguito almeno un backup riuscito ogni giorno. Per gli elementi con criteri di backup settimanali, è possibile usare questa scheda per determinare se in tutte le istanze di backup è stato eseguito almeno un backup riuscito alla settimana.
 
-Sono disponibili due tipi di visualizzazioni di conformità dei criteri:
+Sono disponibili due tipi di visualizzazioni di conformità ai criteri:
 
-* **Conformità dei criteri in base al periodo di tempo**: utilizzando questa visualizzazione, è possibile identificare il numero di elementi con almeno un backup riuscito in un determinato giorno e il numero di backup non riusciti in quel giorno. È possibile fare clic su una riga per visualizzare i dettagli di tutti i processi di backup che sono stati attivati nel giorno selezionato. Si noti che se si aumenta l'intervallo di tempo a un valore maggiore, ad esempio gli ultimi 60 giorni, viene eseguito il rendering della griglia nella visualizzazione settimanale e viene visualizzato il conteggio di tutti gli elementi per i quali è stato eseguito almeno un backup completato ogni giorno della settimana specificata. Analogamente, è disponibile una visualizzazione mensile per intervalli di tempo maggiori.
+* **Aderenza ai** criteri per periodo di tempo: usando questa visualizzazione, è possibile identificare il numero di elementi per cui è stato eseguito almeno un backup riuscito in un determinato giorno e il numero di elementi che non hanno eseguito correttamente il backup in tale giorno. È possibile fare clic su una riga per visualizzare i dettagli di tutti i processi di backup attivati nel giorno selezionato. Si noti che se si aumenta l'intervallo di tempo a un valore maggiore, ad esempio gli ultimi 60 giorni, il rendering della griglia viene eseguito nella visualizzazione settimanale e viene visualizzato il numero di tutti gli elementi che hanno eseguito almeno un backup riuscito ogni giorno nella settimana specificata. Analogamente, è disponibile una visualizzazione mensile per intervalli di tempo più ampi.
 
-Nel caso di elementi sottoposti a backup settimanale, questa griglia consente di identificare tutti gli elementi per i quali è stato eseguito almeno un backup nella settimana specificata. Per un intervallo di tempo maggiore, ad esempio gli ultimi 120 giorni, viene eseguito il rendering della griglia nella visualizzazione mensile e viene visualizzato il conteggio di tutti gli elementi per i quali è stato eseguito almeno un backup completato in ogni settimana del mese specificato. Per informazioni dettagliate sulle visualizzazioni giornaliere, settimanali e mensili, vedere [convenzioni usate nei report di backup](#conventions-used-in-backup-reports) .
+Nel caso di elementi sottoposti a backup settimanale, questa griglia consente di identificare tutti gli elementi che hanno eseguito almeno un backup riuscito nella settimana specificata. Per un intervallo di tempo più ampio, ad esempio gli ultimi 120 giorni, il rendering della griglia viene eseguito in visualizzazione mensile e visualizza il conteggio di tutti gli elementi che hanno eseguito almeno un backup riuscito ogni settimana nel mese specificato. Per altri dettagli sulle visualizzazioni giornaliere, settimanali e [mensili, vedere](#conventions-used-in-backup-reports) Convenzioni usate in report di Backup.
 
-![Conformità dei criteri per periodo di tempo](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
+![Aderenza ai criteri per periodo di tempo](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
 
-* **Conformità dei criteri per istanza di backup**: utilizzando questa visualizzazione, è possibile rispettare i criteri di conformità a livello di istanza di backup. Una cella che è verde indica che l'istanza di backup ha almeno un backup completato nel giorno specificato. Una cella rossa indica che l'istanza di backup non ha ancora eseguito un backup corretto nel giorno specificato. Le aggregazioni giornaliere, settimanali e mensili seguono lo stesso comportamento dell'aderenza ai criteri in base alla visualizzazione del periodo di tempo. È possibile fare clic su una riga qualsiasi per visualizzare tutti i processi di backup nell'istanza di backup specificata nell'intervallo di tempo selezionato.
+* **Rispetto dei criteri per istanza di backup:** usando questa visualizzazione, è possibile specificare i dettagli di conformità dei criteri a livello di istanza di backup. Una cella verde indica che l'istanza di backup ha eseguito almeno un backup riuscito nel giorno specificato. Una cella rossa indica che l'istanza di backup non ha eseguito neanche un backup riuscito nel giorno specificato. Le aggregazioni giornaliere, settimanali e mensili seguono lo stesso comportamento della visualizzazione Rispetto dei criteri per periodo di tempo. È possibile fare clic su qualsiasi riga per visualizzare tutti i processi di backup nell'istanza di backup specificata nell'intervallo di tempo selezionato.
 
-![Conformità dei criteri per istanza di backup](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
+![Conformità dei criteri in base all'istanza di backup](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
 
-###### <a name="email-azure-backup-reports"></a>Inviare i report di backup di Azure
+###### <a name="email-azure-backup-reports"></a>Inviare report Backup di Azure posta elettronica
 
-Utilizzando la funzionalità **report di posta elettronica** disponibile nei report di backup, è possibile creare attività automatizzate per ricevere report periodici tramite posta elettronica. Questa funzionalità funziona distribuendo un'app per la logica nell'ambiente Azure che esegue query sui dati dalle aree di lavoro selezionate della Log Analytics (LA), in base agli input forniti.
+Usando la **funzionalità Report di** posta elettronica disponibile in report di Backup, è possibile creare attività automatizzate per ricevere report periodici tramite posta elettronica. Questa funzionalità funziona distribuendo un'app per la logica nell'ambiente di Azure che esegue query sui dati dalle aree di lavoro log analytics (LA) selezionate, in base agli input forniti.
 
-Una volta creata l'app per la logica, è necessario autorizzare le connessioni ai log di monitoraggio di Azure e a Office 365. A tale scopo, passare a **app** per la logica nella portale di Azure e cercare il nome dell'attività creata. Selezionando la voce di menu **connessioni API** si apre l'elenco delle connessioni API che è necessario autorizzare. [Altre informazioni su come configurare i messaggi di posta elettronica e risolvere i problemi](backup-reports-email.md).
+Dopo aver creato l'app per la logica, è necessario autorizzare le connessioni Monitoraggio di Azure log e Office 365. A tale scopo, passare ad **App per** la logica nel portale di Azure e cercare il nome dell'attività creata. Selezionando la voce di menu **Connessioni API** viene visualizzato l'elenco delle connessioni API che è necessario autorizzare. [Altre informazioni su come configurare i messaggi di posta elettronica e risolvere i problemi.](backup-reports-email.md)
 
-###### <a name="customize-azure-backup-reports"></a>Personalizzare i report di backup di Azure
+###### <a name="customize-azure-backup-reports"></a>Personalizzare Backup di Azure report
 
-I report di backup usano [funzioni di sistema nei log di monitoraggio di Azure](backup-reports-system-functions.md). Queste funzioni operano sui dati nelle tabelle di backup di Azure non elaborate in LA e restituiscono dati formattati che consentono di recuperare facilmente le informazioni di tutte le entità correlate al backup, usando query semplici. 
+report di Backup usa le [funzioni di sistema nei Monitoraggio di Azure log .](backup-reports-system-functions.md) Queste funzioni operano sui dati nelle tabelle Backup di Azure non elaborati in LA e restituiscono dati formattati che consentono di recuperare facilmente le informazioni di tutte le entità correlate al backup, usando query semplici. 
 
-Per creare cartelle di lavoro di creazione di report personalizzate utilizzando i report di backup come base, è possibile passare a report di backup, fare clic su **modifica** nella parte superiore del report e visualizzare/modificare le query utilizzate nei report. Per ulteriori informazioni su come creare report personalizzati, fare riferimento alla [documentazione di cartelle di lavoro di Azure](../azure-monitor/visualize/workbooks-overview.md) . 
+Per creare cartelle di lavoro di report personalizzate usando report di Backup come base,  è possibile passare a report di Backup, fare clic su Modifica nella parte superiore del report e visualizzare/modificare le query usate nei report. Per altre informazioni su come creare report personalizzati, vedere la documentazione di Cartelle di lavoro di [Azure.](../azure-monitor/visualize/workbooks-overview.md) 
 
 ## <a name="export-to-excel"></a>Eseguire l'esportazione in Excel
 
@@ -189,8 +189,8 @@ Se si usa [Azure Lighthouse](../lighthouse/index.yml) con accesso delegato alle 
 - Il report mostra i dettagli dei processi (a parte i processi di log) *attivati* nell'intervallo di tempo selezionato.
 - I valori visualizzati per **Archiviazione cloud** e **Istanze protette** sono alla *fine* dell'intervallo di tempo selezionato.
 - Gli elementi di backup visualizzati nei report sono gli elementi presenti alla *fine* dell'intervallo di tempo selezionato. Gli elementi di backup eliminati durante l'intervallo di tempo selezionato non vengono visualizzati. La stessa convenzione è valida anche per i criteri di backup.
-- Se l'intervallo di tempo selezionato si estende su un periodo di 30 giorni di minore, viene eseguito il rendering dei grafici nella visualizzazione giornaliera, in cui è presente un punto dati per ogni giorno. Se l'intervallo di tempo si estende su un punto maggiore di 30 giorni e minore o uguale a 90 giorni, viene eseguito il rendering dei grafici nella visualizzazione settimanale. Per intervalli di tempo maggiori, il rendering dei grafici viene eseguito in visualizzazione mensile. L'aggregazione dei dati settimanali o mensili aiuta a migliorare le prestazioni delle query e a semplificare la leggibilità dei dati nei grafici.
-- Le griglie di conformità dei criteri seguono anche una logica di aggregazione simile, come descritto in precedenza. Tuttavia, esistono alcune differenze minime. La prima differenza è che, per gli elementi con criteri di backup settimanali, non è disponibile alcuna visualizzazione giornaliera (sono disponibili solo visualizzazioni settimanali e mensili). Inoltre, nelle griglie per gli elementi con criteri di backup settimanali, un'month ' viene considerato come periodo di 4 settimane (28 giorni) e non per 30 giorni, per eliminare le settimane parziali dalla considerazione.
+- Se l'intervallo di tempo selezionato si estende per un periodo di 30 giorni in meno, il rendering dei grafici viene eseguito nella visualizzazione giornaliera, in cui è presente un punto dati per ogni giorno. Se l'intervallo di tempo si estende su un periodo maggiore di 30 giorni e minore o uguale a 90 giorni, il rendering dei grafici viene eseguito in visualizzazione settimanale. Per intervalli di tempo più ampi, il rendering dei grafici viene eseguito in visualizzazione mensile. L'aggregazione dei dati settimanali o mensili consente di migliorare le prestazioni delle query e di migliorare la leggibilità dei dati nei grafici.
+- Le griglie di conformità ai criteri seguono anche una logica di aggregazione simile a quella descritta in precedenza. Esistono tuttavia alcune piccole differenze. La prima differenza è che per gli elementi con criteri di backup settimanali non è disponibile alcuna visualizzazione giornaliera (sono disponibili solo visualizzazioni settimanali e mensili). Inoltre, nelle griglie per gli elementi con criteri di backup settimanali, un "mese" viene considerato un periodo di 4 settimane (28 giorni) e non 30 giorni, per eliminare le settimane parziali dalla considerazione.
 
 ## <a name="query-load-times"></a>Tempi di caricamento delle query
 
@@ -208,8 +208,8 @@ I widget del report di Backup sono basati sulle query kusto, che vengono eseguit
 
 - La precedente app modello di Power BI per la creazione di report, in cui i dati erano originati da un account di archiviazione di Azure, è in fase di deprecazione. È consigliabile iniziare a inviare i dati di diagnostica dell'insieme di credenziali a Log Analytics per visualizzare i report.
 
-- Anche lo [schema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) di invio dei dati di diagnostica a un account di archiviazione o a un'area di lavoro Log Analytics è in fase di deprecazione. Ciò significa che se sono state scritte query o automazione personalizzate basate sullo schema v1, è consigliabile aggiornare queste query per usare lo schema V2 attualmente supportato.
+- Anche lo [schema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) di invio dei dati di diagnostica a un account di archiviazione o a un'area di lavoro Log Analytics è in fase di deprecazione. Ciò significa che se sono state scritte query o automazioni personalizzate basate sullo schema V1, è consigliabile aggiornare queste query per usare lo schema V2 attualmente supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Altre informazioni sul monitoraggio e la creazione di report con Backup di Azure](./backup-azure-monitor-alert-faq.md)
+[Altre informazioni sul monitoraggio e la creazione di report con Backup di Azure](./backup-azure-monitor-alert-faq.yml)

@@ -1,6 +1,6 @@
 ---
-title: copia di azcopy | Microsoft Docs
-description: Questo articolo contiene informazioni di riferimento per il comando di copia di azcopy.
+title: azcopy copy| Microsoft Docs
+description: Questo articolo fornisce informazioni di riferimento per il comando azcopy copy.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -8,12 +8,12 @@ ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c676b92fd07c6e444aa22f25c48fdb1b1957ca7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7c1e265f473c1c6fb70fd97416722e7b863c429b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493765"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503559"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -21,40 +21,40 @@ Copia i dati di origine in un percorso di destinazione.
 
 ## <a name="synopsis"></a>Riepilogo
 
-Copia i dati di origine in un percorso di destinazione. Le direzioni supportate sono:
+Copia i dati di origine in un percorso di destinazione. Le indicazioni supportate sono:
 
-  - < locale-> BLOB di Azure (autenticazione SAS o OAuth)
-  - File di Azure < locale-> (autenticazione SAS condivisione/directory)
-  - < locale-> Azure Data Lake Storage generazione 2 (firma di accesso condiviso, OAuth o chiave condivisa)
-  - BLOB di Azure (SAS o Public)-> BLOB di Azure (autenticazione SAS o OAuth)
-  - BLOB di Azure (SAS o Public)-> File di Azure (SAS)
-  - File di Azure (SAS)-> File di Azure (SAS)
-  - File di Azure (SAS)-> BLOB di Azure (autenticazione SAS o OAuth)
-  - Amazon Web Services (AWS) S3 (chiave di accesso)-> BLOB in blocchi di Azure (autenticazione SAS o OAuth)
-  - Google Cloud Storage (chiave account del servizio)-> BLOB in blocchi di Azure (autenticazione SAS o OAuth) [Anteprima]
+  - BLOB <-> azure locale (firma di accesso condiviso o autenticazione OAuth)
+  - local <-> File di Azure (autenticazione di firma di accesso condiviso di condivisione/directory)
+  - local <-> Azure Data Lake Storage Gen 2 (firma di accesso condiviso, OAuth o autenticazione con chiave condivisa)
+  - BLOB di Azure (saS o public) -> BLOB di Azure (firma di accesso condiviso o autenticazione OAuth)
+  - BLOB di Azure (saS o public) -> File di Azure (SAS)
+  - File di Azure (SAS) -> File di Azure (SAS)
+  - File di Azure (SAS) -> BLOB di Azure (firma di accesso condiviso o autenticazione OAuth)
+  - Amazon Web Services (AWS) S3 (chiave di accesso) -> BLOB in blocchi di Azure (firma di accesso condiviso o autenticazione OAuth)
+  - Google Cloud Storage (chiave dell'account del servizio) -> BLOB in blocchi di Azure (firma di accesso condiviso o autenticazione OAuth) [anteprima]
 
-Per altre informazioni, vedere la sezione Esempi di questo articolo.
+Per altre informazioni, vedere la sezione relativa agli esempi di questo articolo.
 
 ## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-- [Trasferire i dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
+- [Esercitazione: Eseguire la migrazione dei dati locali in una risorsa di archiviazione nel cloud con AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
+- [Trasferire dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
-- [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="advanced"></a>Avanzato
 
-AzCopy rileva automaticamente il tipo di contenuto dei file quando vengono caricati dal disco locale. AzCopy rileva il tipo di contenuto in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
+AzCopy rileva automaticamente il tipo di contenuto dei file quando vengono caricati dal disco locale. AzCopy rileva il tipo di contenuto in base all'estensione di file o al contenuto (se non viene specificata alcuna estensione).
 
-La tabella di ricerca predefinita è di dimensioni ridotte, ma in UNIX viene aumentata in base ai file del sistema locale `mime.types` se sono disponibili con uno o più dei nomi seguenti:
+La tabella di ricerca predefinita è di piccole dimensioni, ma in Unix viene aumentata dai file del sistema locale se sono disponibili con uno o più di `mime.types` questi nomi:
 
 - /etc/mime.types
 - /etc/apache2/mime.types
 - /etc/apache/mime.types
 
-In Windows i tipi MIME vengono estratti dal registro di sistema. Questa funzionalità può essere disattivata con l'ausilio di un flag. Per altre informazioni, vedere la sezione flag di questo articolo.
+In Windows i tipi MIME vengono estratti dal Registro di sistema. Questa funzionalità può essere disattivata con l'aiuto di un flag. Per altre informazioni, vedere la sezione flag di questo articolo.
 
-Se si imposta una variabile di ambiente tramite la riga di comando, tale variabile sarà leggibile nella cronologia della riga di comando. Si consiglia di cancellare le variabili che contengono credenziali dalla cronologia della riga di comando. Per evitare che le variabili vengano visualizzate nella cronologia, è possibile utilizzare uno script per richiedere le credenziali dell'utente e per impostare la variabile di ambiente.
+Se si imposta una variabile di ambiente tramite la riga di comando, tale variabile sarà leggibile nella cronologia della riga di comando. Prendere in considerazione la possibilità di cancellare le variabili che contengono credenziali dalla cronologia della riga di comando. Per evitare che le variabili appaiano nella cronologia, è possibile usare uno script per richiedere all'utente le credenziali e impostare la variabile di ambiente.
 
 ```
 azcopy copy [source] [destination] [flags]
@@ -62,18 +62,18 @@ azcopy copy [source] [destination] [flags]
 
 ## <a name="examples"></a>Esempio
 
-Caricare un singolo file usando l'autenticazione OAuth. Se non è ancora stato effettuato l'accesso a AzCopy, eseguire il `azcopy login` comando prima di eseguire il comando seguente.
+Caricare un singolo file usando l'autenticazione OAuth. Se non è ancora stato eseguito l'accesso ad AzCopy, eseguire il `azcopy login` comando prima di eseguire il comando seguente.
 
 ```azcopy
 azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
-Come sopra, ma questa volta, calcola anche l'hash MD5 del contenuto del file e lo salva come proprietà Content-MD5 del BLOB:
+Come sopra, ma questa volta, calcolare anche l'hash MD5 del contenuto del file e salvarlo come proprietà Content-MD5 del BLOB:
 
 ```azcopy
 azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
 ```
 
-Caricare un singolo file usando un token SAS:
+Caricare un singolo file usando un token di firma di accesso condiviso:
 
 ```azcopy
 azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
@@ -85,7 +85,7 @@ Caricare un singolo file usando un token di firma di accesso condiviso e un pipi
 cat "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]
 ```
 
-Caricare un'intera directory usando un token SAS:
+Caricare un'intera directory usando un token di firma di accesso condiviso:
   
 ```azcopy
 azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
@@ -97,27 +97,27 @@ oppure
 azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive --put-md5
 ```
 
-Caricare un set di file usando un token SAS e caratteri jolly (*):
+Caricare un set di file usando un token di firma di accesso condiviso e caratteri jolly (*):
  
 ```azcopy
 azcopy cp "/path/*foo/*bar/*.pdf" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]"
 ```
 
-Caricare file e directory usando un token SAS e caratteri jolly (*):
+Caricare file e directory usando un token di firma di accesso condiviso e caratteri jolly (*):
 
 ```azcopy
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
 
-Caricare i file e le directory nell'account di archiviazione di Azure e impostare i tag codificati della stringa di query nel BLOB. 
+Caricare file e directory nell'account Archiviazione di Azure e impostare i tag con codifica stringa di query nel BLOB. 
 
-- Per impostare i tag {Key = "bla bla", Val = "foo"} e {Key = "bla bla 2", Val = "bar"}, usare la sintassi seguente: `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+- Per impostare i tag {key = "bla bla", val = "foo"} e {key = "bla bla 2", val = "bar"}, usare la sintassi seguente: `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
     
-- Chiavi e valori sono codificati in URL e le coppie chiave-valore sono separate da una e commerciale (' &')
+- Le chiavi e i valori sono codificati in URL e le coppie chiave-valore sono separate da una e commerciale ('&')
 
-- Durante l'impostazione dei tag nei BLOB, sono disponibili autorizzazioni aggiuntive (' t'per i tag) nella firma di accesso condiviso senza cui il servizio restituirà un errore di autorizzazione.
+- Durante l'impostazione dei tag nei BLOB, sono disponibili autorizzazioni aggiuntive ('t' per i tag) nella firma di accesso condiviso senza la quale il servizio restituirà l'errore di autorizzazione.
 
-Scaricare un singolo file usando l'autenticazione OAuth. Se non è ancora stato effettuato l'accesso a AzCopy, eseguire il `azcopy login` comando prima di eseguire il comando seguente.
+Scaricare un singolo file usando l'autenticazione OAuth. Se non è ancora stato eseguito l'accesso ad AzCopy, eseguire il `azcopy login` comando prima di eseguire il comando seguente.
 
 ```azcopy
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]" "/path/to/file.txt"
@@ -129,7 +129,7 @@ Scaricare un singolo file usando un token di firma di accesso condiviso:
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "/path/to/file.txt"
 ```
 
-Scaricare un singolo file usando un token di firma di accesso condiviso e quindi inviare tramite pipe l'output a un file (solo BLOB in blocchi):
+Scaricare un singolo file usando un token di firma di accesso condiviso e quindi piping dell'output in un file (solo BLOB in blocchi):
  
 ```azcopy
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" > "/path/to/file.txt"
@@ -145,9 +145,9 @@ Nota sull'uso di un carattere jolly (*) negli URL:
 
 Esistono solo due modi supportati per usare un carattere jolly in un URL. 
 
-- È possibile utilizzarne uno immediatamente dopo la barra (/) finale di un URL. Questo utilizzo del carattere jolly copia tutti i file di una directory direttamente nella destinazione senza inserirli in una sottodirectory. 
+- È possibile usarne una subito dopo la barra (/) finale di un URL. Questo uso del carattere jolly copia tutti i file di una directory direttamente nella destinazione senza posizionarli in una sottodirectory. 
 
-- È anche possibile un carattere jolly nel nome di un contenitore, purché l'URL faccia riferimento solo a un contenitore e non a un BLOB. È possibile usare questo approccio per ottenere i file da un subset di contenitori. 
+- È anche possibile usare un carattere jolly nel nome di un contenitore, purché l'URL faccia riferimento solo a un contenitore e non a un BLOB. È possibile usare questo approccio per ottenere file da un subset di contenitori. 
 
 Scaricare il contenuto di una directory senza copiare la directory che lo contiene.
  
@@ -161,101 +161,101 @@ Scaricare un intero account di archiviazione.
 azcopy cp "https://[srcaccount].blob.core.windows.net/" "/path/to/dir" --recursive
 ```
 
-Scaricare un subset di contenitori in un account di archiviazione usando un carattere jolly (*) nel nome del contenitore.
+Scaricare un subset di contenitori all'interno di un account di archiviazione usando un simbolo jolly (*) nel nome del contenitore.
 
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container*name]" "/path/to/dir" --recursive
 ```
 
-Copiare un singolo BLOB in un altro BLOB usando un token SAS.
+Copiare un singolo BLOB in un altro BLOB usando un token di firma di accesso condiviso.
 
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-Copiare un singolo BLOB in un altro BLOB usando un token di firma di accesso condiviso e un token di autenticazione. È necessario usare un token di firma di accesso condiviso alla fine dell'URL dell'account di origine, ma non ne è necessario l'account di destinazione se si accede a AzCopy con il `azcopy login` comando. 
+Copiare un singolo BLOB in un altro BLOB usando un token di firma di accesso condiviso e un token di autenticazione. È necessario usare un token di firma di accesso condiviso alla fine dell'URL dell'account di origine, ma l'account di destinazione non ne ha bisogno se si accede ad AzCopy usando il `azcopy login` comando . 
 
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
-Copiare una directory virtuale BLOB in un'altra usando un token SAS:
+Copiare una directory virtuale BLOB in un'altra usando un token di firma di accesso condiviso:
 
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
 
-Copiare tutti i contenitori BLOB, le directory e i BLOB dall'account di archiviazione a un altro usando un token SAS:
+Copiare tutti i contenitori BLOB, le directory e i BLOB dall'account di archiviazione a un altro usando un token di firma di accesso condiviso:
 
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
-Copiare un singolo oggetto nell'archivio BLOB da Amazon Web Services (AWS) S3 usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la `AWS_ACCESS_KEY_ID` variabile `AWS_SECRET_ACCESS_KEY` di ambiente e per l'origine AWS s3.
+Copiare un singolo oggetto in Archiviazione BLOB da Amazon Web Services (AWS) S3 usando una chiave di accesso e un token di firma di accesso condiviso. Impostare prima di tutto la variabile di ambiente `AWS_ACCESS_KEY_ID` e `AWS_SECRET_ACCESS_KEY` per l'origine AWS S3.
   
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-Copiare un'intera directory nell'archivio BLOB da AWS S3 usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la `AWS_ACCESS_KEY_ID` variabile `AWS_SECRET_ACCESS_KEY` di ambiente e per l'origine AWS s3.
+Copiare un'intera directory in Archiviazione BLOB da AWS S3 usando una chiave di accesso e un token di firma di accesso condiviso. Impostare prima di tutto la variabile di `AWS_ACCESS_KEY_ID` ambiente e `AWS_SECRET_ACCESS_KEY` per l'origine AWS S3.
  
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
     
-  https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.htmlPer comprendere meglio il segnaposto [cartella], fare riferimento a.
+  Fare riferimento https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html a per comprendere meglio il segnaposto [cartella].
 
-Copiare tutti i bucket nell'archiviazione BLOB da Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la `AWS_ACCESS_KEY_ID` variabile `AWS_SECRET_ACCESS_KEY` di ambiente e per l'origine AWS s3.
+Copiare tutti i bucket in Archiviazione BLOB da Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Impostare prima di tutto la variabile di ambiente `AWS_ACCESS_KEY_ID` e `AWS_SECRET_ACCESS_KEY` per l'origine AWS S3.
  
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
-Copiare tutti i bucket nell'archiviazione BLOB da un'area Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Per prima cosa, impostare la `AWS_ACCESS_KEY_ID` variabile `AWS_SECRET_ACCESS_KEY` di ambiente e per l'origine AWS s3.
+Copiare tutti i bucket in Archiviazione BLOB da un'area Amazon Web Services (AWS) usando una chiave di accesso e un token di firma di accesso condiviso. Impostare prima di tutto la variabile di `AWS_ACCESS_KEY_ID` ambiente e `AWS_SECRET_ACCESS_KEY` per l'origine AWS S3.
  
 ```azcopy
 - azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
-Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. Come gli esempi precedenti, sono necessari una chiave di accesso e un token di firma di accesso condiviso. Assicurarsi di impostare la variabile di ambiente `AWS_ACCESS_KEY_ID` e l' `AWS_SECRET_ACCESS_KEY` origine di AWS s3.
+Copiare un subset di bucket usando un simbolo jolly (*) nel nome del bucket. Come negli esempi precedenti, sono necessari una chiave di accesso e un token di firma di accesso condiviso. Assicurarsi di impostare la variabile di ambiente e `AWS_ACCESS_KEY_ID` per `AWS_SECRET_ACCESS_KEY` l'origine AWS S3.
 
 ```azcopy
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
-Trasferire i file e le directory nell'account di archiviazione di Azure e impostare i tag codificati della stringa di query specificati nel BLOB. 
+Trasferire file e directory in Archiviazione di Azure account e impostare i tag con codifica stringa di query specificata nel BLOB. 
 
-- Per impostare i tag {Key = "bla bla", Val = "foo"} e {Key = "bla bla 2", Val = "bar"}, usare la sintassi seguente: `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+- Per impostare i tag {key = "bla bla", val = "foo"} e {key = "bla bla 2", val = "bar"}, usare la sintassi seguente: `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
         
-- Chiavi e valori sono codificati in URL e le coppie chiave-valore sono separate da una e commerciale (' &')
+- Le chiavi e i valori sono codificati in URL e le coppie chiave-valore sono separate da una e commerciale ('&')
     
-- Durante l'impostazione dei tag nei BLOB, sono disponibili autorizzazioni aggiuntive (' t'per i tag) nella firma di accesso condiviso senza cui il servizio restituirà un errore di autorizzazione.
+- Durante l'impostazione dei tag nei BLOB, sono disponibili autorizzazioni aggiuntive ('t' per i tag) nella firma di accesso condiviso senza la quale il servizio restituirà l'errore di autorizzazione.
 
-Copiare un singolo oggetto nell'archivio BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente GOOGLE_APPLICATION_CREDENTIALS per Google Cloud Storage source.
+Copiare un singolo oggetto in Archiviazione BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Impostare prima di tutto la variabile di ambiente GOOGLE_APPLICATION_CREDENTIALS'origine di Google Cloud Storage.
   
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-Copiare un'intera directory nell'archivio BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente GOOGLE_APPLICATION_CREDENTIALS per Google Cloud Storage source.
+Copiare un'intera directory in Archiviazione BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Impostare prima di tutto la variabile di ambiente GOOGLE_APPLICATION_CREDENTIALS'origine di Google Cloud Storage.
  
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
 
-Copiare un intero bucket nell'archivio BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Per prima cosa, impostare la variabile di ambiente GOOGLE_APPLICATION_CREDENTIALS per Google Cloud Storage source.
+Copiare un intero bucket in Archiviazione BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Impostare prima di tutto la variabile di ambiente GOOGLE_APPLICATION_CREDENTIALS'origine di Google Cloud Storage.
 
 ```azcopy 
 azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-Copiare tutti i bucket nell'archivio BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Per prima cosa, impostare le variabili di ambiente GOOGLE_APPLICATION_CREDENTIALS e GOOGLE_CLOUD_PROJECT =<Project-ID> per l'origine cataloghi globali
+Copiare tutti i bucket in Archiviazione BLOB da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso. Impostare innanzitutto le variabili di ambiente GOOGLE_APPLICATION_CREDENTIALS e GOOGLE_CLOUD_PROJECT=<project-id> per l'origine GCS
 
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket di Google Cloud Storage usando una chiave dell'account del servizio e un token SAS per la destinazione. Per prima cosa, impostare le variabili di ambiente GOOGLE_APPLICATION_CREDENTIALS e GOOGLE_CLOUD_PROJECT =<Project-ID> per l'origine di archiviazione cloud Google.
+Copiare un subset di bucket usando un simbolo jolly (*) nel nome del bucket da Google Cloud Storage usando una chiave dell'account del servizio e un token di firma di accesso condiviso per la destinazione. Impostare innanzitutto le variabili di ambiente GOOGLE_APPLICATION_CREDENTIALS e GOOGLE_CLOUD_PROJECT=<project-id>'origine di Google Cloud Storage.
  
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
@@ -263,97 +263,97 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 ## <a name="options"></a>Opzioni
 
-**--backup** Attiva SeBackupPrivilege di Windows per i caricamenti o SeRestorePrivilege per i download, in modo da consentire a AzCopy di visualizzare e leggere tutti i file, indipendentemente dalle autorizzazioni file system e di ripristinare tutte le autorizzazioni. Richiede che l'account che esegue AzCopy disponga già di queste autorizzazioni (ad esempio, dispone di diritti di amministratore o è un membro del `Backup Operators` gruppo). Questo flag attiva i privilegi già presenti nell'account.
+**--backup** Attiva SeBackupPrivilege di Windows per i caricamenti o SeRestorePrivilege per i download, per consentire ad AzCopy di visualizzare e leggere tutti i file, indipendentemente dalle autorizzazioni file system e di ripristinare tutte le autorizzazioni. Richiede che l'account che esegue AzCopy abbia già queste autorizzazioni, ad esempio ha diritti di amministratore o è membro del `Backup Operators` gruppo. Questo flag attiva i privilegi già presenti nell'account.
 
-**--BLOB-Tag** set di stringhe sui BLOB per categorizzare i dati nell'account di archiviazione.
+**--blob-tags string** Imposta i tag nei BLOB per classificare i dati nell'account di archiviazione.
 
-**--BLOB-type** String definisce il tipo di BLOB nella destinazione. Viene usato per il caricamento di BLOB e per la copia tra gli account (impostazione predefinita `Detect` ). I valori validi includono `Detect`, `BlockBlob`, `PageBlob`e `AppendBlob`. Quando si esegue la copia tra gli account, un valore `Detect` fa sì che AzCopy usi il tipo di BLOB di origine per determinare il tipo di BLOB di destinazione. Quando si carica un file, `Detect` determina se il file è un disco rigido virtuale o un file VHDX basato sull'estensione del file. Se il file è un file VHD o VHDX, AzCopy considera il file come un BLOB di pagine. (valore predefinito "rileva")
+**--blob-type** string Definisce il tipo di BLOB nella destinazione. Viene usato per il caricamento di BLOB e per la copia tra account (impostazione predefinita `Detect` ). I valori validi includono `Detect`, `BlockBlob`, `PageBlob`e `AppendBlob`. Quando si esegue la copia tra account, il valore fa in modo che AzCopy usi il tipo di BLOB di origine `Detect` per determinare il tipo del BLOB di destinazione. Quando si carica un file, determina se il file è un disco rigido virtuale `Detect` o un file VHDX in base all'estensione di file. Se il file è un file VHD o VHDX, AzCopy considera il file come BLOB di pagine. (valore predefinito "Detect")
 
-**--Block-BLOB:** consente di caricare un BLOB in blocchi in archiviazione di Azure usando questo livello BLOB. (valore predefinito "None")
+**--block-blob-tier string** Carica BLOB in Archiviazione di Azure usando questo livello BLOB. (impostazione predefinita "None")
 
-**--block-size-MB** float usa questa dimensione del blocco (specificata in MIB) durante il caricamento in archiviazione di Azure e il download da archiviazione di Azure. Il valore predefinito viene calcolato automaticamente in base alle dimensioni del file. Sono consentite frazioni decimali, ad esempio: 0,25.
+**--block-size-mb** float Usare questa dimensione del blocco (specificata in MiB) durante il caricamento in Archiviazione di Azure e il download da Archiviazione di Azure. Il valore predefinito viene calcolato automaticamente in base alle dimensioni del file. Sono consentite frazioni decimali (ad esempio: 0,25).
 
-**--Cache-Control** stringa che imposta l'intestazione Cache-Control. Restituito durante il download.
+**--cache-control string** Imposta l'intestazione cache-control. Restituito al download.
 
-**--Check-length** Controllare la lunghezza di un file nella destinazione dopo il trasferimento. In caso di mancata corrispondenza tra origine e destinazione, il trasferimento viene contrassegnato come non riuscito. (il valore predefinito è `true` )
+**--check-length** Controllare la lunghezza di un file nella destinazione dopo il trasferimento. In caso di mancata corrispondenza tra origine e destinazione, il trasferimento viene contrassegnato come non riuscito. (il valore predefinito è `true` )
 
-**--Check-MD5** stringa specifica il modo in cui devono essere convalidati gli hash MD5 durante il download. Disponibile solo durante il download. Opzioni disponibili: `NoCheck` , `LogOnly` , `FailIfDifferent` , `FailIfDifferentOrMissing` . (impostazione predefinita `FailIfDifferent` ) (valore predefinito "FailIfDifferent")
+**--check-md5** string specifica in che modo convalidare rigorosamente gli hash MD5 durante il download. Disponibile solo durante il download. Opzioni disponibili: `NoCheck` , `LogOnly` , , `FailIfDifferent` `FailIfDifferentOrMissing` . (impostazione `FailIfDifferent` predefinita) (impostazione predefinita" FailIfDifferent")
 
-**--Content-Disposition** stringa ha impostato l'intestazione Content-Disposition. Restituito durante il download.
+**--content-disposition** string Imposta l'intestazione content-disposition. Restituito al download.
 
-**--Content-Encoding** String imposta l'intestazione Content-Encoding. Restituito durante il download.
+**--content-encoding** string Imposta l'intestazione content-encoding. Restituito al download.
 
-**--Content-Language** stringa ha impostato l'intestazione Content-Language. Restituito durante il download.
+**--content-language** string Imposta l'intestazione content-language. Restituito al download.
 
-**--Content-Type** String specifica il tipo di contenuto del file. Implica no-gues-MIME-Type. Restituito durante il download.
+**--content-type** string specifica il tipo di contenuto del file. Implica no-guess-mime-type. Restituito al download.
 
-**--Decomprimi** Decomprime automaticamente i file durante il download, se la codifica di contenuti indica che sono compressi. I valori supportati per la codifica del contenuto sono `gzip` e `deflate` . Le estensioni di file di `.gz` / `.gzip` o `.zz` non sono necessarie, ma verranno rimosse se presenti.
+**--decompress** Decomprimere automaticamente i file durante il download, se la codifica del contenuto indica che sono compressi. I valori di codifica del contenuto supportati sono `gzip` e `deflate` . Le estensioni di `.gz` / `.gzip` o non `.zz` sono necessarie, ma verranno rimosse se presenti.
 
-**--Exclude-Attributes** String (solo Windows) esclude i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S R
+**--exclude-attributes** string (solo Windows) Esclude i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S; R
 
-**--Exclude-BLOB-type** stringa consente di specificare il tipo di BLOB ( `BlockBlob` /  `PageBlob` /  `AppendBlob` ) da escludere durante la copia di BLOB dal contenitore o dall'account. L'uso di questo flag non è applicabile per la copia dei dati dal servizio non Azure al servizio. Più di un BLOB deve essere separato da `;` . 
+**--exclude-blob-type** string Specifica facoltativamente il tipo di BLOB ( ) da escludere durante la copia dei BLOB dal `BlockBlob` /  `PageBlob` /  `AppendBlob` contenitore o dall'account. L'uso di questo flag non è applicabile per la copia di dati dal servizio non Azure al servizio. Più BLOB devono essere separati da `;` . 
 
-**--Exclude-Path** String escludere questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo (ad esempio: `myFolder;myFolder/subDirName/file.pdf` ). Se usato in combinazione con l'attraversamento dell'account, i percorsi non includono il nome del contenitore.
+**--exclude-path string** Consente di escludere questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo(ad esempio: `myFolder;myFolder/subDirName/file.pdf` ). Se usati in combinazione con l'attraversamento dell'account, i percorsi non includono il nome del contenitore.
 
-**--Exclude-pattern** String escludere questi file durante la copia. Questa opzione supporta i caratteri jolly (*).
+**--exclude-pattern string** Consente di escludere questi file durante la copia. Questa opzione supporta i caratteri jolly (*).
 
-**--follow-collegamenti simbolici**  Seguire i collegamenti simbolici durante il caricamento da file system locali.
+**--follow-symlinks**  Seguire i collegamenti simbolici durante il caricamento da file system.
 
-**--Force-if-sola lettura** Quando si sovrascrive un file esistente in Windows o File di Azure, forzare il funzionamento della sovrascrittura anche se per il file esistente è impostato l'attributo di sola lettura.
+**--force-if-read-only** Quando si sovrascrive un file esistente in Windows o File di Azure, forzare il funzionamento della sovrascrittura anche se per il file esistente è impostato l'attributo di sola lettura.
 
-**--** la stringa from-to specifica facoltativamente la combinazione di destinazione di origine. Ad esempio: `LocalBlob` , `BlobLocal` , `LocalBlobFS` .
+**--from-to** stringa Specifica facoltativamente la combinazione di destinazione di origine. Ad esempio: `LocalBlob` , `BlobLocal` , `LocalBlobFS` .
 
-**--**  guida per la copia.
+**--help**  help per la copia.
 
-le stringhe **--include-after** includono solo i file modificati in o dopo la data/ora specificata. Il valore deve essere in formato ISO8601. Se non viene specificato alcun fuso orario, si presuppone che il valore si trovi nel fuso orario locale del computer che esegue AzCopy. ad esempio, `2020-08-19T15:04:00Z` per un'ora UTC o `2020-08-19` per la mezzanotte (00:00) nel fuso orario locale. Come in AzCopy 10,5, questo flag è valido solo per i file, non per le cartelle, quindi le proprietà delle cartelle non verranno copiate quando si usa questo flag con `--preserve-smb-info` o `--preserve-smb-permissions` .
+**--include-after** string Include solo i file modificati in base o dopo la data/ora specificata. Il valore deve essere in formato ISO8601. Se non viene specificato alcun fuso orario, si presuppone che il valore sia nel fuso orario locale del computer che esegue AzCopy. ad esempio per `2020-08-19T15:04:00Z` un'ora UTC o `2020-08-19` per la mezzanotte (00:00) nel fuso orario locale. Come in AzCopy 10.5, questo flag si applica solo ai file e non alle cartelle, pertanto le proprietà della cartella non verranno copiate quando si usa questo flag con `--preserve-smb-info` o `--preserve-smb-permissions` .
 
- **--include-before** stringa include solo i file modificati prima o nella data/ora specificata. Il valore deve essere in formato ISO8601. Se non viene specificato alcun fuso orario, si presuppone che il valore si trovi nel fuso orario locale del computer che esegue AzCopy. ad esempio `2020-08-19T15:04:00Z` per un'ora UTC o `2020-08-19` per la mezzanotte (00:00) nel fuso orario locale. A partire da AzCopy 10,7, questo flag è valido solo per i file, non per le cartelle, quindi le proprietà delle cartelle non verranno copiate quando si usa questo flag con `--preserve-smb-info` o `--preserve-smb-permissions` .
+ **--include-before** string Include solo i file modificati prima o alla data/ora specificata. Il valore deve essere in formato ISO8601. Se non viene specificato alcun fuso orario, si presuppone che il valore sia nel fuso orario locale del computer che esegue AzCopy. ad esempio `2020-08-19T15:04:00Z` per un'ora UTC o `2020-08-19` per la mezzanotte (00:00) nel fuso orario locale. A causa di AzCopy 10.7, questo flag si applica solo ai file e non alle cartelle, pertanto le proprietà della cartella non verranno copiate quando si usa questo flag `--preserve-smb-info` con o `--preserve-smb-permissions` .
 
-**--include-Attributes** String (solo Windows) include i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S R
+**--include-attributes** string (solo Windows) Include i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S; R
 
-**--include-percorso** stringa include solo questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo (ad esempio: `myFolder;myFolder/subDirName/file.pdf` ).
+**--include-path string** Includere solo questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo (ad esempio: `myFolder;myFolder/subDirName/file.pdf` ).
 
-**--include-pattern** String include solo questi file durante la copia. Questa opzione supporta i caratteri jolly (*). Separare i file usando `;` .
+**--include-pattern** string Includere solo questi file durante la copia. Questa opzione supporta i caratteri jolly (*). Separare i file usando un `;` oggetto .
 
-**--List-of-Versions** stringa specifica un file in cui ogni ID versione è elencato in una riga separata. Verificare che l'origine debba puntare a un singolo BLOB e che tutti gli ID versione specificati nel file con questo flag appartengano solo al BLOB di origine. AzCopy scaricherà le versioni specificate nella cartella di destinazione specificata. Per altre informazioni, vedere [scaricare le versioni precedenti di un BLOB](./storage-use-azcopy-v10.md#transfer-data).
+**--list-of-versions** string Specifica un file in cui ogni ID versione è elencato in una riga separata. Assicurarsi che l'origine punti a un singolo BLOB e che tutti gli ID versione specificati nel file usando questo flag appartengano solo al BLOB di origine. AzCopy scariderà le versioni specificate nella cartella di destinazione specificata. Per altre informazioni, vedere [Scaricare le versioni precedenti di un BLOB.](./storage-use-azcopy-v10.md#transfer-data)
 
-**--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log, i livelli disponibili: info (tutte le richieste/risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (impostazione predefinita `INFO` ). 
+**--log-level** string Consente di definire il livello di dettaglio del log per il file di log, i livelli disponibili: INFO(tutte le richieste/risposte), WARNING(risposte lente), ERROR (solo richieste non riuscite) e NONE (nessun log di output). (impostazione `INFO` predefinita). 
 
-**--** la stringa di metadati carica in archiviazione di Azure con queste coppie chiave-valore come metadati.
+**--metadata** string Upload to Archiviazione di Azure con queste coppie chiave-valore come metadati.
 
-**--No-gues-MIME-Type**  Impedisce a AzCopy di rilevare il tipo di contenuto in base all'estensione o al contenuto del file.
+**--no-guess-mime-type**  Impedisce ad AzCopy di rilevare il tipo di contenuto in base all'estensione o al contenuto del file.
 
-**--Sovrascrivi** stringa sovrascrive i file e i BLOB in conflitto nella destinazione se questo flag è impostato su true. (impostazione predefinita `true` ) I valori possibili sono `true` ,, `false` `prompt` e `ifSourceNewer` . Per le destinazioni che supportano le cartelle, le proprietà a livello di cartella in conflitto verranno sovrascritte questo flag è `true` o se viene fornita una risposta positiva al prompt. (valore predefinito "true")
+**--overwrite** string Sovrascrive i file e i BLOB in conflitto nella destinazione se questo flag è impostato su true. (impostazione `true` predefinita) I valori possibili `true` includono , , e `false` `prompt` `ifSourceNewer` . Per le destinazioni che supportano le cartelle, le proprietà a livello di cartella in conflitto verranno sovrascritte. Questo flag è o se viene fornita una risposta positiva `true` al prompt. (impostazione predefinita "true")
 
-**--page-blob** caricare il BLOB di pagine in archiviazione di Azure usando questo livello BLOB. (impostazione predefinita `None` ). (valore predefinito "None")
+**--page-blob-tier** string Carica blob di pagine Archiviazione di Azure usando questo livello BLOB. (impostazione `None` predefinita). (impostazione predefinita "None")
 
-**--Preserve-Ultima modifica-ora**  Disponibile solo quando la destinazione è file system.
+**--preserve-last-modified-time**  Disponibile solo quando la destinazione è file system.
 
-**--Preserve-Owner**    Ha un effetto solo nei download e solo quando `--preserve-smb-permissions` viene usato. Se true (impostazione predefinita), il proprietario e il gruppo del file vengono conservati nei download. Se è impostato su false, `--preserve-smb-permissions` manterrà gli ACL, ma Owner e Group saranno basati sull'utente che esegue AzCopy (impostazione predefinita: true)
+**--preserve-owner**    Ha effetto solo sui download e solo quando `--preserve-smb-permissions` viene usato. Se true (impostazione predefinita), il proprietario e il gruppo del file vengono mantenuti nei download. Se impostato su false, conserverà comunque gli ACL, ma Proprietario e Gruppo saranno basati sull'utente che `--preserve-smb-permissions` esegue AzCopy (impostazione predefinita true)
 
-**--Preserve-SMB-info**   False per impostazione predefinita. Conserva le informazioni sulle proprietà SMB (ora dell'ultima scrittura, ora di creazione, bit degli attributi) tra le risorse in grado di riconoscere SMB (Windows e File di Azure). Verranno trasferiti solo i bit di attributo supportati da File di Azure; tutti gli altri verranno ignorati. Questo flag si applica sia a file che a cartelle, a meno che non sia specificato un filtro di solo file (ad esempio, include-pattern). Le informazioni trasferite per le cartelle sono identiche a quelle per i file, ad eccezione dell'ora dell'ultima scrittura che non viene mai conservata per le cartelle.
+**--preserve-smb-info**   False per impostazione predefinita. Mantiene le informazioni sulle proprietà SMB (ora dell'ultima scrittura, ora di creazione, bit di attributo) tra le risorse in grado di riconoscere SMB (Windows e File di Azure). Verranno trasferiti solo i bit di attributo File di Azure' tutti gli altri verranno ignorati. Questo flag si applica sia ai file che alle cartelle, a meno che non venga specificato un filtro solo file (ad esempio, include-pattern). Le informazioni trasferite per le cartelle sono le stesse di quelle per i file, ad eccezione dell'ora dell'ultima scrittura che non viene mai mantenuta per le cartelle.
 
-**--Preserve-SMB-autorizzazioni**   False per impostazione predefinita. Conserva gli ACL SMB tra le risorse compatibili (Windows e File di Azure). Per i download, sarà necessario anche il `--backup` flag per ripristinare le autorizzazioni in cui il nuovo proprietario non sarà l'utente che esegue AzCopy. Questo flag si applica a file e cartelle, a meno che non sia specificato un filtro di solo file (ad esempio, `include-pattern` ).
+**--preserve-smb-permissions**   False per impostazione predefinita. Mantiene gli ACL SMB tra le risorse in grado di riconoscere (Windows e File di Azure). Per i download, sarà necessario anche il flag per ripristinare le autorizzazioni in cui il nuovo proprietario non sarà `--backup` l'utente che esegue AzCopy. Questo flag si applica sia ai file che alle cartelle, a meno che non venga specificato un filtro solo file (ad esempio, `include-pattern` ).
 
-**--put-MD5**    Creare un hash MD5 di ogni file e salvare l'hash come proprietà Content-MD5 del BLOB o del file di destinazione. Per impostazione predefinita, l'hash non viene creato. Disponibile solo durante il caricamento.
+**--put-md5**    Creare un hash MD5 di ogni file e salvarlo come proprietà Content-MD5 del BLOB o del file di destinazione. Per impostazione predefinita, l'hash NON viene creato. Disponibile solo durante il caricamento.
 
-**--ricorsivo**    Esaminare le sottodirectory in modo ricorsivo durante il caricamento da file system locali.
+**--recursive**    Esaminare le sottodirectory in modo ricorsivo durante il caricamento dall'file system.
 
-**--S2S-Detect-source-modificato**   Rilevare se il BLOB o il file di origine viene modificato durante la lettura. Questo parametro è valido solo per le copie da servizio a servizio, perché il controllo corrispondente è abilitato in modo permanente per il caricamento e il download.
+**--s2s-detect-source-changed**   Rilevare se il file o il BLOB di origine cambia durante la lettura. Questo parametro si applica solo alle copie da servizio a servizio, perché il controllo corrispondente è abilitato in modo permanente per i caricamenti e i download.
 
-**--S2S-handle-non valido-la stringa di metadati** specifica il modo in cui vengono gestite le chiavi di metadati non valide. Opzioni disponibili: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (impostazione predefinita `ExcludeIfInvalid` ). (valore predefinito "ExcludeIfInvalid")
+**--s2s-handle-invalid-metadata** string specifica come vengono gestite le chiavi di metadati non valide. Opzioni disponibili: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (impostazione `ExcludeIfInvalid` predefinita). (valore predefinito "ExcludeIfInvalid")
 
-**--S2S-Preserve-livello di accesso**   Mantenere il livello di accesso durante la copia da servizio a servizio. Vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md) per assicurarsi che l'account di archiviazione di destinazione supporti l'impostazione del livello di accesso. Nei casi in cui l'impostazione del livello di accesso non è supportata, usare s2sPreserveAccessTier = false per ignorare la copia del livello di accesso. (impostazione predefinita `true` ).  (valore predefinito "true")
+**--s2s-preserve-access-tier**   Mantenere il livello di accesso durante la copia da servizio a servizio. Per assicurarsi che [l'account](../blobs/storage-blob-storage-tiers.md) di archiviazione di destinazione supporti l'impostazione del livello di accesso, vedere Archiviazione BLOB di Azure: livelli di accesso ad accesso ad accesso rapido, ad accesso ad accesso archivio e ad accesso archivio. Nei casi in cui l'impostazione del livello di accesso non è supportata, usare s2sPreserveAccessTier=false per ignorare la copia del livello di accesso. (impostazione `true` predefinita).  (valore predefinito "true")
 
-**--S2S-Preserve-proprietà**   Mantieni le proprietà complete durante la copia da servizio a servizio. Per AWS S3 e l'origine file non singolo file di Azure, l'operazione list non restituisce proprietà complete di oggetti e file. Per mantenere le proprietà complete, AzCopy deve inviare un'altra richiesta per oggetto o file. (valore predefinito true)
+**--s2s-preserve-properties**   Mantenere le proprietà complete durante la copia da servizio a servizio. Per AWS S3 e l'origine file di Azure non a file singolo, l'operazione di elenco non restituisce proprietà complete di oggetti e file. Per mantenere le proprietà complete, AzCopy deve inviare una richiesta aggiuntiva per ogni oggetto o file. (valore predefinito true)
 
 ## <a name="options-inherited-from-parent-commands"></a>Opzioni ereditate dai comandi padre
 
-**--Cap-Mbps float**   Viene riversata la velocità di trasferimento, in megabit al secondo. Una velocità effettiva momentanea potrebbe variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non è limitata.
+**--cap-mbps float**   Consente di massimare la velocità di trasferimento, in megabit al secondo. La velocità effettiva momentanea può variare leggermente rispetto al limite. Se questa opzione è impostata su zero o viene omessa, la velocità effettiva non viene impostata.
 
-**--output-** formato stringa di tipo dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è `text`. (impostazione predefinita "testo")
+**--output-type** string Formato dell'output del comando. Le opzioni disponibili includono: text, json. Il valore predefinito è `text`. (testo predefinito)
 
-**--trusted-Microsoft-suffissi** stringa specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
+**--trusted-microsoft-suffixes** string Specifica suffissi di dominio aggiuntivi in Azure Active Directory i token di accesso.  Il valore predefinito è `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Tutti gli elementi elencati vengono aggiunti al valore predefinito. Per motivi di sicurezza, è consigliabile inserire Microsoft Azure domini qui. Separare più voci con punti e virgola.
 
 ## <a name="see-also"></a>Vedi anche
 

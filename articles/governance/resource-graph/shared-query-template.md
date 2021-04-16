@@ -3,13 +3,15 @@ title: 'Avvio rapido: Creare una query condivisa con i modelli'
 description: Questa guida di avvio rapido illustra come usare un modello di Azure Resource Manager (modello ATM) per creare una query condivisa di Resource Graph che conta le macchine virtuali in base al sistema operativo.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.openlocfilehash: 8d631ffcb14af93f10e578097470efc6156287d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: ac736d4371531bb38a8cd2cf095acbdfbc7c08a1
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594317"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535779"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Avvio rapido: Creare una query condivisa usando un modello di Resource Manager
 

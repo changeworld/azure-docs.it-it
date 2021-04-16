@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento facciale, riconoscimento volto, software di riconoscimento facciale, analisi del viso, corrispondenza dei volti, app di riconoscimento facciale, ricerca di volti per immagine, ricerca basata su riconoscimento facciale
-ms.openlocfilehash: 26076289d8c6659abdd55fa805c27b13690feccd
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: a999b2100dc57d7b623cebbbe261f821a80835e3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258742"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505123"
 ---
 # <a name="what-is-the-azure-face-service"></a>Che cos'è il servizio Viso di Azure?
 
@@ -29,18 +29,18 @@ Il servizio Viso di Azure offre algoritmi di intelligenza artificiale che rileva
 
 Il servizio Viso offre varie funzioni di analisi facciale, descritte nelle sezioni seguenti.
 
-Questa documentazione contiene i seguenti tipi di articoli:
+Questa documentazione contiene i tipi di articoli seguenti:
 * Le [guide introduttive](./Quickstarts/client-libraries.md) sono istruzioni dettagliate che consentono di effettuare chiamate al servizio e ottenere risultati in un breve periodo di tempo. 
-* Le [guide alle procedure](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.
-* Gli [articoli concettuali](./concepts/face-detection.md) forniscono spiegazioni approfondite sulle funzionalità e sulle funzionalità del servizio.
-* Le [esercitazioni](./Tutorials/FaceAPIinCSharpTutorial.md) sono guide più lunghe che illustrano come usare questo servizio come componente in soluzioni aziendali più ampie.
+* Le [guide dettagliate contengono](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) istruzioni per l'uso del servizio in modi più specifici o personalizzati.
+* Gli [articoli concettuali](./concepts/face-detection.md) forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.
+* Le [esercitazioni sono](./enrollment-overview.md) guide più lunghe che illustrano come usare questo servizio come componente in soluzioni aziendali più ampie.
 
 ## <a name="face-detection"></a>Rilevamento del viso
 
-L'API detect rileva i visi umani in un'immagine e restituisce le coordinate rettangolari delle rispettive posizioni. Facoltativamente, la funzionalità di rilevamento volto può estrarre una serie di attributi relativi al viso, come posizione della testa, sesso, età, emozione, barba/baffi e occhiali. Questi attributi sono stime generali, non classificazioni effettive. 
+L'API Detect rileva i visi umani in un'immagine e restituisce le coordinate del rettangolo delle relative posizioni. Facoltativamente, la funzionalità di rilevamento volto può estrarre una serie di attributi relativi al viso, come posizione della testa, sesso, età, emozione, barba/baffi e occhiali. Questi attributi sono stime generali, non classificazioni effettive. 
 
 > [!NOTE]
-> La funzionalità di rilevamento volto è disponibile anche tramite il [servizio Visione artificiale](../computer-vision/overview.md). Tuttavia, se si desidera eseguire ulteriori operazioni sui visi come identificare, verificare, trovare un tipo simile o gruppo, è necessario utilizzare questo servizio viso.
+> La funzionalità di rilevamento volto è disponibile anche tramite il [servizio Visione artificiale](../computer-vision/overview.md). Tuttavia, se si vogliono eseguire altre operazioni sul viso, ad esempio Identifica, Verifica, Trova simile o Gruppo, è consigliabile usare questo servizio Viso.
 
 ![Immagine di una donna e di un uomo, con rettangoli disegnati intorno ai visi e informazioni su età e sesso](./Images/Face.detection.jpg)
 
@@ -48,11 +48,11 @@ Per altre informazioni sul rilevamento del viso, vedere l'articolo che illustra 
 
 ## <a name="face-verification"></a>Verifica del viso
 
-L'API Verify si basa sul rilevamento e risolve la domanda "sono le due immagini della stessa persona?". La verifica è detta anche "corrispondenza uno-a-uno" perché l'immagine Probe viene confrontata con un solo modello registrato. La verifica può essere usata in scenari di verifica dell'identità o di controllo degli accessi per verificare che un'immagine corrisponda a un'immagine acquisita in precedenza, ad esempio da una foto di una scheda ID del governo emesso. Per altre informazioni, vedere [Concetti relativi al riconoscimento del viso](concepts/face-recognition.md) o la documentazione di riferimento dell'[API di verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+L'API Verify si basa sul rilevamento e risolve la domanda "Queste due immagini sono la stessa persona?". La verifica viene definita anche corrispondenza "uno-a-uno" perché l'immagine del probe viene confrontata con un solo modello registrato. La verifica può essere usata negli scenari di verifica dell'identità o controllo di accesso per verificare che un'immagine corrisponda a un'immagine acquisita in precedenza, ad esempio da una foto di una carta d'identità rilasciata dal governo. Per altre informazioni, vedere [Concetti relativi al riconoscimento del viso](concepts/face-recognition.md) o la documentazione di riferimento dell'[API di verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 ## <a name="face-identification"></a>Identificazione dei visi
 
-L'API di identificazione inizia inoltre con il rilevamento e risponde alla domanda: "è possibile rilevare che questo aspetto è stato associato a qualsiasi faccia registrata in un database?" Poiché è simile alla ricerca del riconoscimento della faccia, viene anche chiamato corrispondenza "uno-a-molti". Le corrispondenze candidate vengono restituite in base alla precisione con cui il modello di probe con la faccia rilevata corrisponde a ognuno dei modelli registrati.
+L'API Di identificazione inizia anche con Rilevamento e risponde alla domanda "È possibile associare questo viso rilevato a qualsiasi viso registrato in un database?" Poiché è simile alla ricerca di riconoscimento del viso, viene anche chiamata corrispondenza "uno-a-molti". Le corrispondenze candidate vengono restituite in base alla corrispondenza tra il modello di probe e il viso rilevato e ognuno dei modelli registrati.
 
 L'immagine seguente mostra un esempio di un database denominato `"myfriends"`. Ogni gruppo può contenere fino a 1 milione di oggetti persona diversi. Per ogni oggetto persona è possibile registrare fino a 248 visi.
 

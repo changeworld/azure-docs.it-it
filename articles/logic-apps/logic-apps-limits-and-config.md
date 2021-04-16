@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/05/2021
-ms.openlocfilehash: 2debf7d350f4f1fde5e86a60ad03a6858bc02743
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.date: 04/16/2021
+ms.openlocfilehash: 9887350842749809dd4c3708acc71a08f416e54f
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490336"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565883"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -37,8 +37,8 @@ Ecco i limiti per una singola definizione di app per la logica:
 | Numero massimo di `parameters` | 50 | |
 | Numero massimo di `outputs` | 10 | |
 | Dimensioni massime per `trackedProperties` | 16.000 caratteri |
-| Azione di codice inline: numero massimo di caratteri di codice | 1.024 caratteri | Per estendere questo limite a 100.000 caratteri, creare app per la logica con il tipo di risorsa app per la **logica (anteprima)** , [usando il portale di Azure](create-stateful-stateless-workflows-azure-portal.md) o [usando Visual Studio Code e l'estensione app per la **logica di Azure (anteprima)**](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Azione di codice inline-durata massima per l'esecuzione del codice | 5 secondi | Per estendere questo limite a 15 secondi, creare le app per la logica con il tipo di risorsa app per la **logica (anteprima)** , [usando il portale di Azure](create-stateful-stateless-workflows-azure-portal.md) o [con Visual Studio Code e l'estensione app per la **logica di Azure (anteprima)**](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Azione Codice inline - Numero massimo di caratteri di codice | 1.024 caratteri | Per estendere questo limite a 100.000 caratteri, creare le app per la logica con il tipo di risorsa App per la logica **(anteprima),** usando [il portale di Azure](create-stateful-stateless-workflows-azure-portal.md) o usando Visual Studio Code e [l'estensione App per la logica di Azure **(anteprima).**](create-stateful-stateless-workflows-visual-studio-code.md) |
+| Azione Codice inline - Durata massima per l'esecuzione del codice | 5 secondi | Per estendere questo limite a 15 secondi, creare le app per la logica con il tipo di risorsa App per la logica **(anteprima),** usando il [portale di Azure](create-stateful-stateless-workflows-azure-portal.md) o usando Visual Studio Code e [l'estensione App per la logica di Azure **(anteprima).**](create-stateful-stateless-workflows-visual-studio-code.md) |
 ||||
 
 <a name="run-duration-retention-limits"></a>
@@ -49,8 +49,8 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 | Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
-| Durata esecuzione | 90 giorni | 366 giorni | La durata dell'esecuzione viene calcolata usando l'ora di inizio dell'esecuzione e il limite specificato nell'impostazione del flusso di lavoro, la [**conservazione della cronologia di esecuzione in giorni**](#change-duration) all'ora di inizio. <p><p>Per modificare il limite predefinito, vedere la pagina relativa alla [durata dell'esecuzione delle modifiche e alla conservazione della cronologia nell'archiviazione](#change-duration). |
-| Conservazione della cronologia di esecuzione nell'archiviazione | 90 giorni | 366 giorni | Se la durata di un'esecuzione supera il limite di conservazione della cronologia di esecuzione corrente, l'esecuzione viene rimossa dalla cronologia esecuzioni nell'archivio. Se l'esecuzione viene completata o scade, il periodo di memorizzazione della cronologia di esecuzione viene sempre calcolato usando l'ora di inizio dell'esecuzione e il limite corrente specificato nell'impostazione del flusso di lavoro, [**conservazione della cronologia di esecuzione in giorni**](#change-retention). Indipendentemente dal limite precedente, il limite corrente viene sempre usato per il calcolo della conservazione. <p><p>Per modificare il limite predefinito e per altre informazioni, vedere [modifica della durata e conservazione della cronologia di esecuzione nell'archiviazione](#change-retention). Per aumentare il limite massimo, [contattare il team di App per la logica](mailto://logicappspm@microsoft.com) per ottenere assistenza per requisiti specifici. |
+| Durata esecuzione | 90 giorni | 366 giorni | La durata dell'esecuzione viene calcolata usando l'ora di inizio di un'esecuzione e il limite specificato nell'impostazione del flusso di lavoro, Conservazione della cronologia di esecuzione [**in**](#change-duration) giorni all'ora di inizio. <p><p>Per modificare il limite predefinito, vedere Modificare la durata [dell'esecuzione e la conservazione della cronologia nell'archiviazione.](#change-duration) |
+| Conservazione della cronologia di esecuzione nell'archiviazione | 90 giorni | 366 giorni | Se la durata di un'esecuzione supera il limite di conservazione corrente della cronologia di esecuzione, l'esecuzione viene rimossa dalla cronologia esecuzioni nell'archiviazione. Indipendentemente dal completamento o dal timeout dell'esecuzione, la conservazione della cronologia di esecuzione viene sempre calcolata usando l'ora di inizio dell'esecuzione e il limite corrente specificato nell'impostazione del flusso di lavoro, Conservazione cronologia di esecuzione [**in giorni**](#change-retention). Indipendentemente dal limite precedente, il limite corrente viene sempre usato per il calcolo della conservazione. <p><p>Per modificare il limite predefinito e per altre informazioni, vedere Modificare la durata e la conservazione [della cronologia di esecuzione nell'archiviazione](#change-retention). Per aumentare il limite massimo, [contattare il team di App per la logica](mailto://logicappspm@microsoft.com) per ottenere assistenza per requisiti specifici. |
 | Intervallo di ricorrenza minimo | 1 secondo | 1 secondo ||
 | Intervallo di ricorrenza massimo | 500 giorni | 500 giorni ||
 |||||
@@ -58,22 +58,22 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-history-retention-in-storage"></a>Durata dell'esecuzione della modifica e conservazione della cronologia nell'archiviazione
+### <a name="change-run-duration-and-history-retention-in-storage"></a>Modificare la durata dell'esecuzione e la conservazione della cronologia nell'archiviazione
 
-La stessa impostazione controlla il numero massimo di giorni per cui un flusso di lavoro può essere eseguito e per mantenere la cronologia di esecuzione nell'archiviazione. Per modificare il limite predefinito o corrente per queste proprietà, attenersi alla seguente procedura.
+La stessa impostazione controlla il numero massimo di giorni di esecuzione di un flusso di lavoro e per mantenere la cronologia di esecuzione nell'archiviazione. Per modificare il limite predefinito o corrente per queste proprietà, seguire questa procedura.
 
 * Per le app per la logica in Azure multi-tenant, il limite predefinito di 90 giorni corrisponde al limite massimo. È solo possibile ridurre questo valore.
 
 * Per le app per la logica in un ambiente del servizio di integrazione, è possibile diminuire o aumentare il limite predefinito di 90 giorni.
 
-Si supponga, ad esempio, di ridurre il limite di conservazione da 90 a 30 giorni. Un'esecuzione di 60 giorni viene rimossa dalla cronologia delle esecuzioni. Se si aumenta il periodo di conservazione da 30 a 60 giorni, una durata di 20 giorni rimane nella cronologia delle esecuzioni per altri 40 giorni.
+Si supponga, ad esempio, di ridurre il limite di conservazione da 90 a 30 giorni. Un'esecuzione precedente di 60 giorni viene rimossa dalla cronologia delle esecuzioni. Se si aumenta il periodo di conservazione da 30 a 60 giorni, un'esecuzione precedente di 20 giorni rimane nella cronologia delle esecuzioni per altri 40 giorni.
 
 > [!IMPORTANT]
-> Se la durata di un'esecuzione supera il limite di conservazione della cronologia di esecuzione corrente, l'esecuzione viene rimossa dalla cronologia esecuzioni nell'archivio. Per evitare di perdere la cronologia di esecuzione, assicurarsi che il limite di conservazione sia *sempre* maggiore della durata più lunga possibile dell'esecuzione.
+> Se la durata di un'esecuzione supera il limite di conservazione corrente della cronologia di esecuzione, l'esecuzione viene rimossa dalla cronologia di esecuzione nell'archiviazione. Per evitare di perdere la cronologia di esecuzione, assicurarsi che il limite di conservazione sia *sempre* superiore alla durata più lunga possibile dell'esecuzione.
 
-1. Nella casella di ricerca [portale di Azure](https://portal.azure.com) trovare e selezionare app per la **logica**.
+1. Nella casella [di portale di Azure](https://portal.azure.com) ricerca individuare e selezionare App per **la logica.**
 
-1. Trovare e selezionare l'app per la logica. Aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
+1. Trovare e selezionare l'app per la logica. Aprire l'app per la logica in Progettazione app per la logica.
 
 1. Nel menu dell'app per la logica selezionare **Impostazioni del flusso di lavoro**.
 
@@ -83,7 +83,7 @@ Si supponga, ad esempio, di ridurre il limite di conservazione da 90 a 30 giorni
 
 1. Al termine, sulla barra degli strumenti di **Impostazioni del flusso di lavoro** selezionare **Salva**.
 
-Se si genera un modello di Azure Resource Manager per l'app per la logica, questa impostazione viene visualizzata come proprietà nella definizione di risorsa del flusso di lavoro, descritta nel [riferimento del modello dei flussi di lavoro Microsoft. logici](/azure/templates/microsoft.logic/workflows):
+Se si genera un modello di Azure Resource Manager per l'app per la logica, questa impostazione viene visualizzata come proprietà nella definizione di risorsa del flusso di lavoro, descritta nel riferimento al modello dei flussi di lavoro [Microsoft.Logic:](/azure/templates/microsoft.logic/workflows)
 
 ```json
 {
@@ -110,14 +110,14 @@ Se si genera un modello di Azure Resource Manager per l'app per la logica, quest
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-### <a name="loops"></a>Loop
+### <a name="loops"></a>Cicli
 
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
 | Elementi della matrice foreach | 100,000 | Questo limite descrive il numero massimo di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](logic-apps-perform-data-operations.md#filter-array-action). |
-| Concorrenza foreach | Con concorrenza off: 20 <p><p>Con concorrenza su: <p><p>-Valore predefinito: 20 <br>-Min: 1 <br>-Max: 50 | Questo limite è il numero massimo di iterazioni del ciclo "for each" che possono essere eseguite contemporaneamente o in parallelo. <p><p>Per modificare questo limite, vedere [modificare "per ogni" limite di concorrenza](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [eseguire "per ogni" cicli sequenziali](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Iterazioni Until | - Impostazione predefinita: 60 <br>-Min: 1 <br>-Max: 5.000 | Numero massimo di cicli che possono essere presenti in un ciclo "until" durante un'esecuzione dell'app per la logica. <p><p>Per modificare questo limite, nella forma ciclo "until" selezionare **Modifica limiti** e specificare il valore per la proprietà **count** . |
-| Fino al timeout | -Valore predefinito: PT1H (1 ora) | La quantità di tempo che il ciclo "until" può eseguire prima di uscire ed è specificato nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. <p><p>Per modificare questo limite, nella forma ciclo "until" selezionare **Modifica limiti** e specificare il valore per la proprietà **timeout** . |
+| Concorrenza foreach | Con concorrenza disattivata: 20 <p><p>Con la concorrenza in: <p><p>- Impostazione predefinita: 20 <br>- Min: 1 <br>- Max: 50 | Questo limite è il numero massimo di iterazioni del ciclo "for each" che possono essere eseguite contemporaneamente o in parallelo. <p><p>Per modificare questo limite, vedere Modificare il limite di concorrenza ["for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Eseguire cicli "for each" in sequenza.](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each) |
+| Iterazioni Until | - Impostazione predefinita: 60 <br>- Min: 1 <br>- Max: 5.000 | Numero massimo di cicli che un ciclo "Until" può avere durante l'esecuzione di un'app per la logica. <p><p>Per modificare questo limite, nella forma del ciclo "Until" selezionare **Modifica limiti** e specificare il valore per la **proprietà** Count. |
+| Fino al timeout | - Impostazione predefinita: PT1H (1 ora) | La maggior parte del tempo che il ciclo "Until" può eseguire prima di uscire e viene specificato in [formato ISO 8601.](https://en.wikipedia.org/wiki/ISO_8601) Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. <p><p>Per modificare questo limite, nella forma ciclo "Until" selezionare **Modifica limiti** e specificare il valore per la **proprietà Timeout.** |
 ||||
 
 <a name="concurrency-debatching"></a>
@@ -126,9 +126,9 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
-| Concorrenza di trigger | Con concorrenza off: illimitato <p><p>Con la concorrenza on, che non è possibile annullare dopo l'abilitazione: <p><p>-Valore predefinito: 25 <br>-Min: 1 <br>-Max: 100 | Questo limite è il numero massimo di istanze di app per la logica che possono essere eseguite contemporaneamente o in parallelo. <p><p>**Nota**: quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi per le [matrici di debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Per modificare questo limite, vedere [modificare](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) in sequenza il limite di concorrenza per il trigger di modifica o le [istanze del trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Numero massimo di esecuzioni in attesa | Con concorrenza off: <p><p>-Min: 1 <br>-Max: 50 <p><p>Con concorrenza su: <p><p>-Min: 10 più il numero di esecuzioni simultanee (concorrenza dei trigger) <br>-Max: 100 | Questo limite è il numero massimo di istanze di app per la logica che possono attendere l'esecuzione quando l'app per la logica sta già eseguendo il numero massimo di istanze simultanee. <p><p>Per modificare questo limite, vedere [limite di esecuzioni in attesa di modifiche](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
-| Elementi SplitOn | Con concorrenza off: 100.000 <p><p>Con concorrenza in: 100 | Per i trigger che restituiscono una matrice, è possibile specificare un'espressione che usa una proprietà 'SplitOn' che [suddivide o esegue il debatch degli elementi della matrice in più istanze del flusso di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) per l'elaborazione, anziché usare un ciclo "Foreach". Questa espressione fa riferimento alla matrice da usare per la creazione e l'esecuzione di un'istanza del flusso di lavoro per ogni elemento della matrice. <p><p>**Nota**: quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi. |
+| Concorrenza di trigger | Con concorrenza disattivata: Illimitato <p><p>Con la concorrenza attivata, che non è possibile annullare dopo l'abilitazione: <p><p>- Impostazione predefinita: 25 <br>- Min: 1 <br>- Max: 100 | Questo limite è il numero massimo di istanze di app per la logica che possono essere eseguite contemporaneamente o in parallelo. <p><p>**Nota**: quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi per le [matrici di debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Per modificare questo limite, vedere [Modificare il limite di concorrenza](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) dei trigger o Attivare istanze in [sequenza.](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger) |
+| Numero massimo di esecuzioni in attesa | Con la concorrenza disattivata: <p><p>- Min: 1 <br>- Max: 50 <p><p>Con concorrenza su: <p><p>- Min: 10 più il numero di esecuzioni simultanee (concorrenza trigger) <br>- Max: 100 | Questo limite è il numero massimo di istanze dell'app per la logica che possono attendere l'esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare questo limite, vedere [Modificare il limite di esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Elementi SplitOn | Con concorrenza disattivata: 100.000 <p><p>Con concorrenza on: 100 | Per i trigger che restituiscono una matrice, è possibile specificare un'espressione che usa una proprietà 'SplitOn' che [suddivide o esegue il debatch degli elementi della matrice in più istanze del flusso di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) per l'elaborazione, anziché usare un ciclo "Foreach". Questa espressione fa riferimento alla matrice da usare per la creazione e l'esecuzione di un'istanza del flusso di lavoro per ogni elemento della matrice. <p><p>**Nota**: quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi. |
 ||||
 
 <a name="throughput-limits"></a>
@@ -141,10 +141,10 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
-| Azione: esecuzioni per intervallo in sequenza di 5 minuti | -100.000 esecuzioni (impostazione predefinita) <p><p>-300.000 esecuzioni (massime in modalità velocità effettiva elevata)  | Per aumentare il limite predefinito al limite massimo per l'app per la logica, vedere [eseguire in modalità a velocità effettiva elevata](#run-high-throughput-mode), disponibile in anteprima. In alternativa, è possibile [distribuire il carico di lavoro tra più app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) per la logica, se necessario. |
-| Azione: chiamate in uscita simultanee | ~2.500 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
+| Azione: Esecuzioni per intervallo in sequenza di 5 minuti | - 100.000 esecuzioni (impostazione predefinita) <p><p>- 300.000 esecuzioni (massimo in modalità velocità effettiva elevata)  | Per aumentare il limite predefinito al limite massimo per l'app per la logica, vedere Eseguire in modalità [a velocità effettiva elevata,](#run-high-throughput-mode)disponibile in anteprima. In caso contrario, è possibile [distribuire il carico di lavoro tra più app per la logica in](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) base alle esigenze. |
+| Azione: Chiamate in uscita simultanee | ~2.500 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
 | Endpoint di runtime: chiamate in ingresso simultanee | ~1,000 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
-| Endpoint di runtime: leggere le chiamate per 5 minuti  | 60.000 | Questo limite si applica alle chiamate che ottengono gli input e gli output non elaborati dalla cronologia di esecuzione di un'app per la logica. È possibile distribuire il carico di lavoro tra più app, se necessario. |
+| Endpoint di runtime: leggere le chiamate per 5 minuti  | 60.000 | Questo limite si applica alle chiamate che ottengono gli input e gli output non elaborati dalla cronologia di esecuzione di un'app per la logica. È possibile distribuire il carico di lavoro tra più app in base alle esigenze. |
 | Endpoint di runtime: richiamare le chiamate per 5 minuti | 45,000 | È possibile distribuire un carico di lavoro tra più app in base alle esigenze. |
 | Velocità effettiva del contenuto per 5 minuti | 600 MB | È possibile distribuire un carico di lavoro tra più app in base alle esigenze. |
 ||||
@@ -153,15 +153,15 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 #### <a name="run-in-high-throughput-mode"></a>Esecuzione in modalità velocità effettiva elevata
 
-Per una singola definizione di app per la logica, il numero di azioni eseguite ogni 5 minuti ha un [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Per aumentare il limite predefinito al [limite massimo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) per l'app per la logica, ovvero tre volte il limite predefinito, è possibile abilitare la modalità a velocità effettiva elevata, disponibile in anteprima. In alternativa, è possibile [distribuire il carico di lavoro tra più app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) per la logica, se necessario.
+Per una singola definizione di app per la logica, il numero di azioni eseguite ogni 5 minuti ha un [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Per aumentare il limite [](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) predefinito al limite massimo per l'app per la logica, ovvero tre volte il limite predefinito, è possibile abilitare la modalità di velocità effettiva elevata, disponibile in anteprima. In caso contrario, è possibile [distribuire il carico di lavoro tra più app per la logica in](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) base alle esigenze.
 
-1. Nel menu dell'app per la logica del portale di Azure scegliere **Impostazioni flusso di lavoro** in **Impostazioni**.
+1. Nel menu dell portale di Azure app per la logica in **Impostazioni** selezionare Impostazioni **flusso di lavoro.**
 
-1. In **Opzioni di runtime**  >  **alta velocità effettiva** modificare l'impostazione impostandola **su on**.
+1. In **Opzioni di runtime** Velocità effettiva  >  **elevata** modificare l'impostazione in **Attivata.**
 
-   ![Screenshot che mostra il menu dell'app per la logica in portale di Azure con "impostazioni del flusso di lavoro" e "velocità effettiva elevata" impostata su "on".](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
+   ![Screenshot che mostra il menu dell'app per la logica portale di Azure con "Impostazioni flusso di lavoro" e "Velocità effettiva elevata" impostata su "On".](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
 
-Per abilitare questa impostazione in un modello ARM per la distribuzione dell'app per la logica, nell' `properties` oggetto per la definizione di risorsa dell'app per la logica aggiungere l' `runtimeConfiguration` oggetto con la `operationOptions` proprietà impostata su `OptimizedForHighThroughput` :
+Per abilitare questa impostazione in un modello arm per la distribuzione dell'app per la logica, nell'oggetto per la definizione della risorsa dell'app per la logica aggiungere l'oggetto con la `properties` `runtimeConfiguration` proprietà `operationOptions` impostata su `OptimizedForHighThroughput` :
 
 ```json
 {
@@ -191,17 +191,17 @@ Per abilitare questa impostazione in un modello ARM per la distribuzione dell'ap
 }
 ```
 
-Per altre informazioni sulla definizione delle risorse dell'app per la logica, vedere [Panoramica: automatizzare la distribuzione per app per la logica di Azure usando modelli di Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition).
+Per altre informazioni sulla definizione della risorsa dell'app per la logica, vedere [Panoramica: Automatizzare](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)la distribuzione per App per la logica di Azure usando Azure Resource Manager modelli.
 
 ### <a name="integration-service-environment-ise"></a>Ambiente del servizio di integrazione
 
-* [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): fornisce fino a 500 esecuzioni al minuto, ma tenere presente le considerazioni seguenti:
+* [SKU ISE sviluppatore:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)offre fino a 500 esecuzioni al minuto, ma tenere presente queste considerazioni:
 
-  * Assicurarsi di usare questo SKU solo per esplorazione, esperimenti, sviluppo o test, non per la produzione o il test delle prestazioni. Questo SKU non prevede alcun contratto di servizio, funzionalità di scalabilità verticale o ridondanza durante il riciclo, il che significa che è possibile che si verifichino ritardi o tempi di inattività.
+  * Assicurarsi di usare questo SKU solo per l'esplorazione, gli esperimenti, lo sviluppo o il test, non per la produzione o i test delle prestazioni. Questo SKU non ha alcun contratto di servizio, funzionalità di scalabilità verticale o ridondanza durante il riciclo, il che significa che potrebbero verificarsi ritardi o tempi di inattività.
 
-  * Gli aggiornamenti back-end potrebbero interrompere il servizio in modo intermittente.
+  * Gli aggiornamenti del back-end potrebbero interrompere il servizio in modo intermittente.
 
-* [SKU Premium ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): la tabella seguente descrive i limiti di velocità effettiva dello SKU, ma per superare questi limiti nell'elaborazione normale o per eseguire test di carico che potrebbero superare questi limiti, [contattare il team di app per la logica](mailto://logicappsemail@microsoft.com) per assistenza per le proprie esigenze.
+* [SKU ISE Premium:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)la tabella seguente descrive i limiti di velocità effettiva di questo SKU, ma per superare questi limiti nell'elaborazione normale o per eseguire test di carico che potrebbero superare questi limiti, contattare il [team](mailto://logicappsemail@microsoft.com) di App per la logica per assistenza sui requisiti.
 
   | Nome | Limite | Note |
   |------|-------|-------|
@@ -224,14 +224,14 @@ Ecco i limiti per una singola chiamata in ingresso o in uscita:
 
 <a name="http-timeout-limits"></a>
 
-#### <a name="timeout-duration"></a>Durata timeout
+#### <a name="timeout-duration"></a>Durata del timeout
 
 Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto di richieste di webhook e di conseguenza il timeout per queste operazioni può essere più prolungato rispetto a questi limiti. Per altre informazioni, vedere i dettagli tecnici per il connettore specifico e anche [Trigger e azioni dei flussi di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
 | Nome | App per la logica (multi-tenant) | App per la logica (anteprima) | Ambiente del servizio di integrazione | Note |
 |------|---------------------------|----------------------|---------------------------------|-------|
-| Richiesta in uscita | 120 secondi <br>(2 minuti) | 230 secondi <br>(3,9 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in uscita includono chiamate effettuate dal trigger o dall'azione HTTP. Per altre informazioni sulla versione di anteprima, vedere [Anteprima di app](logic-apps-overview-preview.md)per la logica di Azure. <p><p>**Suggerimento**: Per operazioni di esecuzione più lunghe, usare un [modello di polling asincrono](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [ciclo until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Per ovviare ai limiti di timeout quando si chiama un'altra app per la logica che ha un [endpoint chiamabile](logic-apps-http-endpoint.md), è possibile usare l'azione App per la logica di Azure incorporata, disponibile nella selezione connettore in **Incorporato**. |
-| Richiesta in ingresso | 120 secondi <br>(2 minuti) | 230 secondi <br>(3,9 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in ingresso includono le chiamate ricevute dal trigger di richiesta, il trigger HTTP webhook e l'azione HTTP webhook. Per altre informazioni sulla versione di anteprima, vedere [Anteprima di app](logic-apps-overview-preview.md)per la logica di Azure. <p><p>**Nota**: affinché il chiamante originale ottenga la risposta, tutti i passaggi nella risposta devono terminare entro il limite, a meno che non venga chiamata un'altra app per la logica come flusso di lavoro annidato. Per altre informazioni, vedere [Chiamare, attivare o annidare app per la logica](../logic-apps/logic-apps-http-endpoint.md). |
+| Richiesta in uscita | 120 secondi <br>(2 minuti) | 230 secondi <br>(3,9 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in uscita includono le chiamate effettuate dal trigger o dall'azione HTTP. Per altre informazioni sulla versione di anteprima, vedere App per la logica di Azure [Preview.](logic-apps-overview-preview.md) <p><p>**Suggerimento**: Per operazioni di esecuzione più lunghe, usare un [modello di polling asincrono](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [ciclo until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Per ovviare ai limiti di timeout quando si chiama un'altra app per la logica che ha un [endpoint chiamabile](logic-apps-http-endpoint.md), è possibile usare l'azione App per la logica di Azure incorporata, disponibile nella selezione connettore in **Incorporato**. |
+| Richiesta in ingresso | 120 secondi <br>(2 minuti) | 230 secondi <br>(3,9 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in ingresso includono le chiamate ricevute dal trigger Di richiesta, il trigger webhook HTTP e l'azione Webhook HTTP. Per altre informazioni sulla versione di anteprima, vedere App per la logica di Azure [Preview.](logic-apps-overview-preview.md) <p><p>**Nota**: affinché il chiamante originale ottenga la risposta, tutti i passaggi nella risposta devono terminare entro il limite, a meno che non venga chiamata un'altra app per la logica come flusso di lavoro annidato. Per altre informazioni, vedere [Chiamare, attivare o annidare app per la logica](../logic-apps/logic-apps-http-endpoint.md). |
 ||||||
 
 <a name="message-size-limits"></a>
@@ -273,7 +273,7 @@ Ecco i limiti per un'app per la logica che inizia con un trigger di richiesta e 
 | ---- | ----- | ----- |
 | Criteri di autorizzazione di Azure AD | 5 | |
 | Attestazioni per criterio di autorizzazione | 10 | |
-| Valore attestazione-numero massimo di caratteri | 150 |
+| Valore attestazione - Numero massimo di caratteri | 150 |
 ||||
 
 <a name="custom-connector-limits"></a>
@@ -304,16 +304,16 @@ Limiti per i connettori personalizzati che è possibile creare da API Web.
 
 Ogni sottoscrizione di Azure prevede i limiti per l'account di integrazione seguenti:
 
-* Un account di integrazione del [livello gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) per ogni area di Azure. Questo livello è disponibile solo per le aree pubbliche in Azure, ad esempio Stati Uniti occidentali o Asia sudorientale, ma non per [Azure Cina 21ViaNet](/azure/china/overview-operations) o [Azure per enti](../azure-government/documentation-government-welcome.md)pubblici.
+* Un [account di integrazione del](../logic-apps/logic-apps-pricing.md#integration-accounts) livello gratuito per ogni area di Azure. Questo livello è disponibile solo per le aree pubbliche in Azure, ad esempio Stati Uniti occidentali o Asia sud-orientale, [ma](/azure/china/overview-operations) non per Azure China (21Vianet) o [Azure per enti pubblici](../azure-government/documentation-government-welcome.md).
 
 * 1\.000 account di integrazione in totale, inclusi gli account di integrazione in qualsiasi [ambiente del servizio di integrazione (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) per gli [SKU Developer e Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Ogni ISE, sia [sviluppatore che Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), può usare un unico account di integrazione senza costi aggiuntivi, anche se il tipo di account incluso varia in base allo SKU di ISE. È possibile creare altri account di integrazione per ISE fino al limite totale per un [costo aggiuntivo](logic-apps-pricing.md#fixed-pricing):
+* Ogni ISE, developer o [Premium,](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)può usare un singolo account di integrazione senza costi aggiuntivi, anche se il tipo di account incluso varia in base allo SKU ISE. È possibile creare più account di integrazione per l'ISE fino al limite totale per un [costo aggiuntivo:](logic-apps-pricing.md#fixed-pricing)
 
   | SKU ISE | Limiti dell'account di integrazione |
   |---------|----------------------------|
-  | **Premium** | 20 account totali, incluso un account standard senza costi aggiuntivi. Con questo SKU, è possibile avere solo account [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) . Gli account gratuiti o Basic non sono consentiti. |
-  | **Developer** | 20 account totali, incluso un account [gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitato a 1). Con questo SKU è possibile avere una combinazione di combinazioni: <p>-Un account gratuito e fino a 19 account [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) . <br>-Nessun account gratuito e un massimo di 20 account standard. <p>Non sono consentiti account di base o aggiuntivi gratuiti. <p><p>**Importante**: usare lo [SKU Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) per la sperimentazione, lo sviluppo e il testing, ma non per la produzione o il test delle prestazioni. |
+  | **Premium** | 20 account totali, incluso un account Standard senza costi aggiuntivi. Con questo SKU è possibile avere solo [account](../logic-apps/logic-apps-pricing.md#integration-accounts) Standard. Gli account gratuiti o Basic non sono consentiti. |
+  | **Developer** | 20 account totali, incluso un account [gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) (limitato a 1). Con questo SKU è possibile avere una delle due combinazioni seguenti: <p>- Un account gratuito e fino a 19 [account Standard.](../logic-apps/logic-apps-pricing.md#integration-accounts) <br>- Nessun account gratuito e fino a 20 account Standard. <p>Non sono consentiti account Basic o gratuiti aggiuntivi. <p><p>**Importante:** usare lo [SKU per sviluppatori](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) per esperimenti, sviluppo e test, ma non per test di produzione o prestazioni. |
   |||
 
 Per informazioni sul funzionamento dei prezzi e della fatturazione per gli ISE, vedere il [modello di determinazione prezzi di App per la logica](../logic-apps/logic-apps-pricing.md#fixed-pricing). Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -369,7 +369,7 @@ Ecco i limiti per le dimensioni dei messaggi che si applicano ai protocolli B2B:
 
 | Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
-| AS2 | v2 - 100 MB<br>V1-25 MB | v2 - 200 MB <br>V1-25 MB | Applicabile alla decodifica e alla codifica |
+| AS2 | v2 - 100 MB<br>v1 - 25 MB | v2 - 200 MB <br>v1 - 25 MB | Applicabile alla decodifica e alla codifica |
 | X12 | 50 MB | 50 MB | Applicabile alla decodifica e alla codifica |
 | EDIFACT | 50 MB | 50 MB | Applicabile alla decodifica e alla codifica |
 ||||
@@ -387,38 +387,38 @@ Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza 
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configurazione del firewall: Indirizzi IP e tag del servizio
 
-Quando l'app per la logica deve comunicare attraverso un firewall che limita il traffico a indirizzi IP specifici, il firewall deve consentire l'accesso *sia* per gli indirizzi [IP in](#outbound) [ingresso](#inbound) che in uscita usati dal servizio o dal runtime di app per la logica nell'area di Azure in cui è presente l'app per la logica. *Tutte* le app per la logica nella stessa area usano gli stessi intervalli di indirizzi IP.
+Quando l'app per la logica deve comunicare tramite un firewall che limita  il traffico a indirizzi IP specifici, tale firewall deve consentire l'accesso sia agli indirizzi [IP](#outbound) [in](#inbound) ingresso che in uscita usati dal servizio App per la logica o dal runtime nell'area di Azure in cui è presente l'app per la logica. *Tutte* le app per la logica nella stessa area usano gli stessi intervalli di indirizzi IP.
 
-Ad esempio, per supportare le chiamate che le app per la logica nell'area Stati Uniti occidentali inviano o ricevono tramite trigger e azioni predefiniti, ad esempio il [trigger o l'azione http](../connectors/connectors-native-http.md), il firewall deve consentire l'accesso per *tutti* gli indirizzi IP in ingresso del servizio app per la logica *e* gli indirizzi IP in uscita presenti nell'area Stati Uniti occidentali.
+Ad esempio, per supportare le chiamate che le app per la logica nell'area Stati Uniti occidentali inviano o  ricevono tramite trigger e azioni  predefiniti, ad esempio il [trigger HTTP](../connectors/connectors-native-http.md)o l'azione , il firewall deve consentire l'accesso a tutti gli indirizzi IP in ingresso e in uscita del servizio App per la logica presenti nell'area Stati Uniti occidentali.
 
-Se l'app per la logica usa anche [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), ad esempio il connettore Office 365 Outlook o il connettore SQL oppure usa [connettori personalizzati](/connectors/custom-connectors/), il firewall deve anche consentire l'accesso per *tutti* gli [indirizzi IP in uscita del connettore gestito](#outbound) nell'area di Azure dell'app per la logica. Inoltre, se si usano connettori personalizzati che accedono alle risorse locali tramite la [risorsa gateway dati locale in Azure](logic-apps-gateway-connection.md), è necessario configurare l'installazione del gateway per consentire l'accesso per gli *[indirizzi IP in uscita](#outbound)dei connettori gestiti* corrispondenti.
+Se l'app per la logica usa anche connettori [gestiti,](../connectors/apis-list.md#managed-api-connectors)ad esempio il connettore Outlook di Office 365 o il connettore SQL, o connettori [personalizzati,](/connectors/custom-connectors/)il firewall deve anche consentire l'accesso a tutti gli indirizzi [IP](#outbound) in uscita del connettore gestito nell'area di Azure dell'app per la logica.  Inoltre, se si usano connettori personalizzati che accedono alle risorse locali tramite la risorsa gateway dati [locale in Azure,](logic-apps-gateway-connection.md)è necessario configurare l'installazione del gateway per consentire l'accesso per gli indirizzi *[IP](#outbound)* in uscita dei connettori gestiti corrispondenti.
 
-Per ulteriori informazioni sulla configurazione delle impostazioni di comunicazione sul gateway, vedere gli argomenti seguenti:
+Per altre informazioni sulla configurazione delle impostazioni di comunicazione nel gateway, vedere questi argomenti:
 
 * [Configurazione delle impostazioni di comunicazione per il gateway dati locale](/data-integration/gateway/service-gateway-communication)
 * [Configurare le impostazioni proxy per il gateway dati locale](/data-integration/gateway/service-gateway-proxy)
 
 <a name="ip-setup-considerations"></a>
 
-### <a name="firewall-ip-configuration-considerations"></a>Considerazioni sulla configurazione IP del firewall
+### <a name="firewall-ip-configuration-considerations"></a>Considerazioni sulla configurazione ip del firewall
 
-Prima di configurare il firewall con gli indirizzi IP, esaminare le considerazioni seguenti:
+Prima di configurare il firewall con gli indirizzi IP, esaminare queste considerazioni:
 
-* Se si usa [Power Automate](/power-automate/getting-started), alcune azioni, ad esempio **http** e **http + openapi**, passano direttamente attraverso il servizio app per la logica di Azure e provengono dagli indirizzi IP elencati qui. Per altre informazioni sugli indirizzi IP usati da Power Automate, vedere [limiti e configurazione per l'automazione dell'energia elettrica](/flow/limits-and-config#ip-address-configuration).
+* Se si usa [Power Automate](/power-automate/getting-started), alcune azioni, ad esempio **HTTP** e HTTP **+ OpenAPI,** passano direttamente attraverso il servizio App per la logica di Azure e provengono dagli indirizzi IP elencati qui. Per altre informazioni sugli indirizzi IP usati da Power Automate, vedere [Limiti e configurazione per Power Automate](/flow/limits-and-config#ip-address-configuration).
 
-* Per [Azure Cina 21ViaNet](/azure/china/), gli indirizzi IP fissi o riservati non sono disponibili per i [connettori personalizzati](../logic-apps/custom-connector-overview.md) e per i [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), ad esempio archiviazione di Azure, SQL Server, Office 365 Outlook e così via.
+* Per [Azure China (21Vianet)](/azure/china/), gli indirizzi IP fissi [](../logic-apps/custom-connector-overview.md) o riservati non sono disponibili per i connettori personalizzati e per i connettori [gestiti,](../connectors/apis-list.md#managed-api-connectors)ad esempio Archiviazione di Azure, SQL Server, Office 365 Outlook e così via.
 
-* Se le app per la logica vengono eseguite in un [ambiente Integration Services (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), assicurarsi di [aprire anche queste porte](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+* Se le app per la logica vengono eseguite in un ambiente del servizio di integrazione [(ISE),](connect-virtual-network-vnet-isolated-environment-overview.md)assicurarsi di [aprire anche queste porte.](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise)
 
-* Per semplificare le regole di sicurezza che si desidera creare, è possibile utilizzare facoltativamente i [tag di servizio](../virtual-network/service-tags-overview.md) , anziché specificare i prefissi degli indirizzi IP per ogni area. Questi tag funzionano in tutte le aree in cui è disponibile il servizio App per la logica:
+* Per semplificare le regole di sicurezza che si desidera [](../virtual-network/service-tags-overview.md) creare, è possibile usare facoltativamente i tag di servizio anziché specificare prefissi di indirizzo IP per ogni area. Questi tag funzionano in tutte le aree in cui è disponibile il servizio App per la logica:
 
   * **LogicAppsManagement**: rappresenta i prefissi degli indirizzi IP in ingresso per il servizio App per la logica.
 
   * **LogicApps**: rappresenta i prefissi degli indirizzi IP in uscita per il servizio App per la logica.
 
-  * **AzureConnectors**: rappresenta i prefissi degli indirizzi IP per i connettori gestiti che rendono i callback del webhook in ingresso al servizio app per la logica e le chiamate in uscita ai rispettivi servizi, ad esempio archiviazione di Azure o hub eventi di Azure.
+  * **AzureConnectors:** rappresenta i prefissi degli indirizzi IP per i connettori gestiti che effettuano callback webhook in ingresso al servizio App per la logica e le chiamate in uscita ai rispettivi servizi, ad esempio Archiviazione di Azure o Hub eventi di Azure.
 
-* Se le app per la logica hanno problemi ad accedere agli account di archiviazione di Azure che usano [firewall e regole del firewall](../storage/common/storage-network-security.md), sono [disponibili diverse altre opzioni per abilitare l'accesso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+* Se le app per la logica hanno problemi di accesso agli account di archiviazione di Azure che usano firewall e regole [del firewall,](../storage/common/storage-network-security.md)sono disponibili diverse altre opzioni per [abilitare l'accesso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   Ad esempio, le app per la logica non possono accedere direttamente agli account di archiviazione che usano regole del firewall e si trovano nella stessa area. Se però si consentono gli [indirizzi IP in uscita per i connettori gestiti nella propria area](../logic-apps/logic-apps-limits-and-config.md#outbound), le app per la logica possono accedere agli account di archiviazione che si trovano in un'area diversa, eccetto quando si usano i connettori di archiviazione tabelle di Azure o di archiviazione code di Azure. Per accedere all'archiviazione tabelle o all'archiviazione code, è invece possibile usare azioni e trigger HTTP. Per altre opzioni, vedere [Accedere ad account di archiviazione protetti da firewall](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
@@ -429,13 +429,13 @@ Prima di configurare il firewall con gli indirizzi IP, esaminare le considerazio
 Questa sezione elenca gli indirizzi IP in ingresso solo per il servizio App per la logica di Azure. Se si usa Azure per enti pubblici, vedere [Azure per enti pubblici - Indirizzi IP in ingresso](#azure-government-inbound).
 
 > [!TIP]
-> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicAppsManagement** invece di specificare i prefissi di indirizzi IP di App per la logica in ingresso per ogni area. Facoltativamente, è anche possibile usare il tag del servizio **AzureConnectors** per i connettori gestiti che rendono i callback del webhook in ingresso al servizio app per la logica, anziché specificare i prefissi degli indirizzi IP del connettore gestito in ingresso per ogni area. Questi tag funzionano in tutte le aree in cui è disponibile il servizio app per la logica.
+> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicAppsManagement** invece di specificare i prefissi di indirizzi IP di App per la logica in ingresso per ogni area. Facoltativamente, è anche possibile usare il tag del servizio **AzureConnectors** per i connettori gestiti che effettuano callback webhook in ingresso al servizio App per la logica, anziché specificare i prefissi degli indirizzi IP del connettore gestito in ingresso per ogni area. Questi tag funzionano nelle aree in cui è disponibile il servizio App per la logica.
 >
-> I connettori seguenti rendono i callback del webhook in ingresso al servizio app per la logica:
+> I connettori seguenti effettuano callback webhook in ingresso al servizio App per la logica:
 >
-> Adobe Creative Cloud, Adobe Sign, Adobe Sign demo, Adobe Sign Preview, Adobe Sign stage, Azure Sentinel, business Central, caprestaly, Common Data Service, DocuSign, DocuSign demo, Dynamics 365 per pinna & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP *, turni per Microsoft teams, teamwork Projects, Typeform
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, Shifts for Microsoft Teams, Teamwork Projects, Typeform
 >
-> \***SAP**: il chiamante restituito varia a seconda che l'ambiente di distribuzione sia Azure o ISE multi-tenant. Nell'ambiente multi-tenant il gateway dati locale esegue nuovamente la chiamata al servizio app per la logica. In un ISE il connettore SAP richiama il servizio app per la logica.
+> \***SAP:** il chiamante restituito dipende dal fatto che l'ambiente di distribuzione sia Azure multi-tenant o ISE. Nell'ambiente multi-tenant, il gateway dati locale esegue la chiamata al servizio App per la logica. In un ISE, il connettore SAP esegue la chiamata al servizio App per la logica.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -446,7 +446,7 @@ Questa sezione elenca gli indirizzi IP in ingresso solo per il servizio App per 
 | Australia orientale | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
 | Australia sud-orientale | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
 | Brasile meridionale | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |
-| Brasile sudorientale | 20.40.32.59, 20.40.32.162, 20.40.32.80, 20.40.32.49 |
+| Brasile sud-orientale | 20.40.32.59, 20.40.32.162, 20.40.32.80, 20.40.32.49 |
 | Canada centrale | 13.88.249.209, 52.233.30.218, 52.233.29.79, 40.85.241.105 |
 | Canada orientale | 52.232.129.143, 52.229.125.57, 52.232.133.109, 40.86.202.42 |
 | India centrale | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
@@ -502,7 +502,7 @@ Questa sezione elenca gli indirizzi IP in ingresso solo per il servizio App per 
 Questa sezione elenca gli indirizzi IP in uscita per il servizio App per la logica di Azure e per i connettori gestiti. Se si usa Azure per enti pubblici, vedere [Azure per enti pubblici - Indirizzi IP in uscita](#azure-government-outbound).
 
 > [!TIP]
-> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicApps** invece di specificare i prefissi di indirizzi IP di App per la logica in uscita per ogni area. Facoltativamente, è anche possibile usare il tag del servizio **AzureConnectors** per i connettori gestiti che eseguono chiamate in uscita ai rispettivi servizi, ad esempio archiviazione di Azure o hub eventi di Azure, anziché specificare i prefissi degli indirizzi IP del connettore gestito in uscita per ogni area. Questi tag funzionano in tutte le aree in cui è disponibile il servizio app per la logica.
+> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicApps** invece di specificare i prefissi di indirizzi IP di App per la logica in uscita per ogni area. Facoltativamente, è anche possibile usare il tag di servizio **AzureConnectors** per i connettori gestiti che effettuano chiamate in uscita ai rispettivi servizi, ad esempio Archiviazione di Azure o Hub eventi di Azure, anziché specificare prefissi di indirizzo IP del connettore gestito in uscita per ogni area. Questi tag funzionano nelle aree in cui è disponibile il servizio App per la logica.
 
 <a name="multi-tenant-outbound"></a>
 
@@ -513,7 +513,7 @@ Questa sezione elenca gli indirizzi IP in uscita per il servizio App per la logi
 | Australia orientale | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 52.237.214.72, 13.72.243.10, 13.70.72.192 - 13.70.72.207, 13.70.78.224 - 13.70.78.255 |
 | Australia sud-orientale | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 52.255.48.202, 13.70.136.174, 13.77.50.240 - 13.77.50.255, 13.77.55.160 - 13.77.55.191 |
 | Brasile meridionale | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 191.232.191.157, 104.41.59.51, 191.233.203.192 - 191.233.203.207, 191.233.207.160 - 191.233.207.191 |
-| Brasile sudorientale | 20.40.32.81, 20.40.32.19, 20.40.32.85, 20.40.32.60, 20.40.32.116, 20.40.32.87, 20.40.32.61, 20.40.32.113 | 23.97.120.109, 23.97.121.26 |
+| Brasile sud-orientale | 20.40.32.81, 20.40.32.19, 20.40.32.85, 20.40.32.60, 20.40.32.116, 20.40.32.87, 20.40.32.61, 20.40.32.113 | 23.97.120.109, 23.97.121.26 |
 | Canada centrale | 52.233.29.92, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 52.237.32.212, 52.237.24.126, 13.71.170.208 - 13.71.170.223, 13.71.175.160 - 13.71.175.191 |
 | Canada orientale | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 52.242.30.112, 52.242.35.152, 40.69.106.240 - 40.69.106.255, 40.69.111.0 - 40.69.111.31 |
 | India centrale | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.212.129, 52.172.211.12, 20.43.123.0 - 20.43.123.31, 104.211.81.192 - 104.211.81.207 |
@@ -544,9 +544,9 @@ Questa sezione elenca gli indirizzi IP in uscita per il servizio App per la logi
 | Regno Unito meridionale | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.74.150, 51.140.80.51, 51.140.61.124, 51.105.77.96 - 51.105.77.127, 51.140.148.0 - 51.140.148.15 |
 | Regno Unito occidentale | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.141.52.185, 51.141.47.105, 51.141.124.13, 51.140.211.0 - 51.140.211.15, 51.140.212.224 - 51.140.212.255 |
 | Stati Uniti centro-occidentali | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 52.161.101.204, 52.161.102.22, 13.78.132.82, 13.71.195.32 - 13.71.195.47, 13.71.199.192 - 13.71.199.223 |
-| Europa occidentale | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 52.166.78.89, 52.174.88.118, 40.91.208.65, 13.69.64.208 - 13.69.64.223, 13.69.71.192 - 13.69.71.223 |
+| Europa occidentale | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126, 13.69.71.160, 13.69.71.161, 13.69.71.162, 13.69.71.163, 13.69.71.164, 13.69.71.165, 13.69.71.166, 13.69.71.167 | 52.166.78.89, 52.174.88.118, 40.91.208.65, 13.69.64.208 - 13.69.64.223, 13.69.71.192 - 13.69.71.223 |
 | India occidentale | 104.211.164.80, 104.211.162.205, 104.211.164.136, 104.211.158.127, 104.211.156.153, 104.211.158.123, 104.211.154.59, 104.211.154.7 | 104.211.189.124, 104.211.189.218, 20.38.128.224 - 20.38.128.255, 104.211.146.224 - 104.211.146.239 |
-| Stati Uniti occidentali | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32 | 13.93.148.62, 104.42.122.49, 40.112.195.87, 13.86.223.32 - 13.86.223.63, 40.112.243.160 - 40.112.243.175 |
+| Stati Uniti occidentali | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32, 13.86.223.0, 13.86.223.1, 13.86.223.2, 13.86.223.3, 13.86.223.4, 13.86.223.5 | 13.93.148.62, 104.42.122.49, 40.112.195.87, 13.86.223.32 - 13.86.223.63, 40.112.243.160 - 40.112.243.175 |
 | Stati Uniti occidentali 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 | 52.191.164.250, 52.183.78.157, 13.66.140.128 - 13.66.140.143, 13.66.145.96 - 13.66.145.127 |
 ||||
 
