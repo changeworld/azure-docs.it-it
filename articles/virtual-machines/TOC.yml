@@ -251,6 +251,8 @@
               href: hbv3-series.md
             - name: Serie HC
               href: hc-series.md
+        - name: Stati e fatturazione
+          href: states-billing.md
         - name: Quote vCPU
           items:
             - name: CLI
@@ -358,7 +360,7 @@
                   href: ./linux/tutorial-devops-azure-pipelines-classic.md
                 - name: Configurare la strategia di distribuzione di Canary
                   href: ./linux/tutorial-azure-devops-canary-strategy.md
-                - name: Configurare Blue-Green di distribuzione
+                - name: Configurare Blue-Green distribuzione aziendale
                   href: ./linux/tutorial-azure-devops-blue-green-strategy.md
                 - name: CI/CD con Azure Pipelines (YAML)
                   href: ./linux/tutorial-build-deploy-azure-pipelines.md
@@ -795,6 +797,8 @@
               href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
             - name: Creare una VM da una versione di immagine
               href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
+        - name: Ansible
+          href: 'https://docs.microsoft.com/azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible'
         - name: Risolvere i problemi relativi alle immagini condivise
           displayName: 'Shared Image Gallery, SIG, sig, gallery, image, troubleshooting'
           href: troubleshooting-shared-images.md
@@ -944,8 +948,6 @@
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
     - name: Informazioni sul riavvio delle macchine virtuali
       href: understand-vm-reboots.md
-    - name: Stati e fatturazione
-      href: states-billing.md
     - name: Aree di Azure
       href: regions.md
 - name: Dischi
@@ -1094,7 +1096,7 @@
         - name: Progettare per prestazioni elevate
           href: premium-storage-performance.md
           displayname: 'Performance, cost, perf, disks, disk'
-        - name: Metriche correlate al disco
+        - name: Metriche relative ai dischi
           href: disks-metrics.md
           displayname: 'Performance, cost, perf, disks, disk'
         - name: Modelli di burst del disco
@@ -1405,7 +1407,7 @@
               href: ./windows/key-vault-setup.md
     - name: Attenuazione dell'esecuzione speculativa
       href: mitigate-se.md
-    - name: Aggiungere una macchina virtuale Linux a Azure Active Directory
+    - name: Aggiungere una macchina virtuale Linux Azure Active Directory
       displayName: Azure AD
       items:
         - name: Red Hat Enterprise Linux
@@ -1449,7 +1451,7 @@
         - name: Panoramica
           displayName: 'Automatic OS image upgrade, image, upgrade, OS'
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
-        - name: Controllo della manutenzione per l'aggiornamento dell'immagine del sistema operativo
+        - name: Controllo di manutenzione per l'aggiornamento dell'immagine del sistema operativo
           items:
             - name: Panoramica (anteprima)
               displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'

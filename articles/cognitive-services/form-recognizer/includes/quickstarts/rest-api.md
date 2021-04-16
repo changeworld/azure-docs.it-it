@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: riconoscimento modulo'API REST"
+title: 'Guida introduttiva: riconoscimento modulo API REST'
 description: Usare l riconoscimento modulo API REST per creare un'app di elaborazione moduli che estrae coppie chiave/valore e dati di tabella dai documenti personalizzati.
 services: cognitive-services
 author: laujan
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 04/14/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8f729d3d2ebc41552919634c68557042a95649ec
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: cd9cf0e4a2abec1ad29d5b34f3d6f473ca5bf71d
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516419"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564697"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -23,7 +23,7 @@ ms.locfileid: "107516419"
 > [!NOTE]
 > Questa guida usa cURL per eseguire chiamate alle API REST.
 
-| [riconoscimento modulo API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) | REST [Informazioni di riferimento sulle API REST di](/rest/api/azure/) | Azure [Esempi](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer)|
+|[riconoscimento modulo API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) | REST [Informazioni di riferimento sulle API REST di Azure](/rest/api/azure/)|
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -758,7 +758,7 @@ Il nodo `"readResults"` contiene tutto il testo riconosciuto. Il testo è organi
 
 ![Biglietto da visita della società Contoso](../../media/business-card-english.jpg)
 
-Questo output JSON di esempio è stato abbreviato per la leggibilità. Vedere [l'output di esempio completo in GitHub.](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json)
+Questo output JSON di esempio è stato abbreviato per la leggibilità. Vedere [l'output di esempio completo su GitHub.](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json)
 
 ```json
 {
@@ -885,7 +885,7 @@ Lo script visualizzerà le risposte sulla console fino al completamento dell'ope
 
 ### <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
 
-Per iniziare ad analizzare una fattura, usare il comando cURL seguente. Per altre informazioni sull'analisi della fattura, vedere la [Guida concettuale della fattura.](../../concept-invoices.md) Prima di eseguire il comando, apportare queste modifiche:
+Per avviare l'analisi di una fattura, usare il comando cURL seguente. Per altre informazioni sull'analisi delle fatture, vedere la [Guida concettuale alle fatture.](../../concept-invoices.md) Prima di eseguire il comando, apportare queste modifiche:
 
 1. Sostituire `{Endpoint}` con l'endpoint ottenuto con la sottoscrizione di riconoscimento modulo.
 1. Sostituire `{your invoice URL}` con l'indirizzo URL del documento della fattura.
@@ -925,7 +925,7 @@ Vedere la fattura seguente e il corrispondente output JSON.
 
 * [Esempio di fattura](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice.pdf)
 
-Questo contenuto JSON è stato abbreviato per la leggibilità. Vedere [l'output di esempio completo in GitHub.](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-invoice-output.json)
+Questo contenuto JSON è stato abbreviato per una leggibilità. Vedere [l'output di esempio completo su GitHub.](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-invoice-output.json)
 
 ```json
 {
@@ -1092,7 +1092,7 @@ Questo contenuto JSON è stato abbreviato per la leggibilità. Vedere [l'output 
 
 ### <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
 
-Per avviare l'analisi di un documento di identificazione, usare il comando cURL seguente. Per altre informazioni sull'analisi dei documenti di identità, vedere la [Guida concettuale ai documenti di identità](../../concept-identification-cards.md). Per iniziare ad analizzare un documento di identità, chiamare l'API **[Analyze ID https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7738978e467c5fb8707) Document]** usando il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
+Per avviare l'analisi di un documento di identificazione, usare il comando cURL seguente. Per altre informazioni sull'analisi dei documenti di identità, vedere la [guida concettuale ai documenti di identità.](../../concept-identification-cards.md) Per iniziare ad analizzare un documento di identità, chiamare l'API **[Analyze ID https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7738978e467c5fb8707) Document]** usando il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
 
 1. Sostituire `{endpoint}` con l'endpoint ottenuto con la sottoscrizione di riconoscimento modulo.
 1. Sostituire `{your ID document URL}` con l'indirizzo URL dell'immagine di una ricevuta.
@@ -1111,15 +1111,15 @@ curl -i -X POST "https://{endpoint}/formrecognizer/v2.1-preview.3/prebuilt/idDoc
 
 ---
 
-Si riceverà una risposta `202 (Success)` che include un'intestazione **Operation-Location**. Il valore di questa intestazione contiene un ID risultato che è possibile usare per eseguire query sullo stato dell'operazione asincrona e ottenere i risultati. Nell'esempio seguente la stringa dopo `analyzeResults/` è l'ID risultato.
+Si riceverà una risposta `202 (Success)` che include un'intestazione **Operation-Location**. Il valore di questa intestazione contiene un ID risultato che è possibile usare per eseguire una query sullo stato dell'operazione asincrona e ottenere i risultati. Nell'esempio seguente la stringa dopo `analyzeResults/` è l'ID del risultato.
 
 ```console
 https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1-preview.3/prebuilt/idDocument/analyzeResults/0c6cb19e-538f-4b8d-98b7-e105c9995ba6
 ```
 
-### <a name="get-the-analyze-id-document-result"></a>Ottenere il risultato del documento DI ANALISI ID
+### <a name="get-the-analyze-id-document-result"></a>Ottenere il risultato dell'analisi del documento ID
 
-Dopo aver chiamato l'API **Analizza documento ID,** chiamare l'API Get **[Analyze Id Document Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7daad1f2612c46f5822)** per ottenere lo stato dell'operazione e i dati estratti.  Prima di eseguire il comando, apportare queste modifiche:
+Dopo aver chiamato l'API **Analyze ID Document,** chiamare l'API **[Get Analyze Id Document Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5f74a7daad1f2612c46f5822)** per ottenere lo stato dell'operazione e i dati estratti.  Prima di eseguire il comando, apportare queste modifiche:
 
 1. Sostituire `{endpoint}` con l'endpoint ottenuto con la chiave di sottoscrizione di riconoscimento modulo, disponibile nella scheda **Overview** (Panoramica) della risorsa di riconoscimento modulo.
 1. Sostituire `{resultId}` con l'ID operazione del passaggio precedente.
@@ -1348,7 +1348,7 @@ Si riceverà una risposta `201 (Success)` con l'intestazione **Location**. Il va
 
 ### <a name="train-a-model-with-labels"></a>Eseguire il training di un modello con etichette
 
-Per eseguire il training con etichette, è necessario avere file speciali di informazioni sulle etichette (`\<filename\>.pdf.labels.json`) nel contenitore di archiviazione BLOB insieme ai documenti di training. Lo [Strumento di etichettatura campioni Riconoscimento modulo](../../quickstarts/label-tool.md) fornisce un'interfaccia utente che consente di creare questi file di etichette. Dopo averle, è possibile chiamare l'API Train Custom Model (Train **[Custom Model)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync)** con il parametro `"useLabelFile"` impostato su nel corpo `true` JSON.
+Per eseguire il training con etichette, è necessario avere file speciali di informazioni sulle etichette (`\<filename\>.pdf.labels.json`) nel contenitore di archiviazione BLOB insieme ai documenti di training. Lo [Strumento di etichettatura campioni Riconoscimento modulo](../../quickstarts/label-tool.md) fornisce un'interfaccia utente che consente di creare questi file di etichette. Dopo averli, è possibile chiamare l'API **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync)** con il parametro impostato su nel corpo `"useLabelFile"` `true` JSON.
 
 Prima di eseguire il comando, apportare queste modifiche:
 
@@ -1493,7 +1493,7 @@ Si riceverà una risposta `202 (Success)` che include l'intestazione **Operation
 
 ### <a name="get-the-analyze-results"></a>Ottenere i risultati dell'analisi
 
-Chiamare l'API **[Get Analyze Form Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeFormResult)** per eseguire query sui risultati dell'operazione Di analisi.
+Chiamare l'API **[Get Analyze Form Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeFormResult)** per eseguire query sui risultati dell'operazione Analyze.
 
 1. Sostituire `{Endpoint}` con l'endpoint ottenuto dalla chiave di sottoscrizione di riconoscimento modulo, disponibile nella scheda **Overview** (Panoramica) della risorsa di riconoscimento modulo.
 1. Sostituire `{result ID}` con l'ID ricevuto nella sezione precedente.

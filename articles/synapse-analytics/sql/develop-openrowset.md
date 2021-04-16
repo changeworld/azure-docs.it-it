@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c37f6d89d5ebd3e18177db8add048739a62c883f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 28c54865ab9c2876d998896f5f536a11088962f8
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307946"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566427"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Creare e usare OPENROWSET con il pool SQL serverless in Azure Synapse Analytics
 
@@ -138,9 +138,9 @@ Se si specifica l'elemento unstructured_data_path come cartella, una query del p
 È possibile impostare il pool SQL serverless in modo da attraversare le cartelle specificando /* alla fine del percorso, come nell'esempio seguente: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> A differenza di Hadoop e PolyBase, il pool SQL serverless non restituisce le sottocartelle, a meno che non si specifichi /** alla fine del percorso.
+> A differenza di Hadoop e PolyBase, il pool SQL serverless non restituisce le sottocartelle, a meno che non si specifichi /** alla fine del percorso. Analogamente a Hadoop e PolyBase, non restituisce i file per i quali il nome del file inizia con una sottolineatura (_) o un punto (.).
 
-Nell'esempio seguente, se il unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , una query del pool SQL senza server restituirà righe da mydata.txt. Non restituirà mydata2.txt e mydata3.txt perché si trovano in una sottocartella.
+Nell'esempio seguente, se unstructured_data_path= , una query del pool SQL serverless restituirà `https://mystorageaccount.dfs.core.windows.net/webdata/` righe da mydata.txt. Non restituirà mydata2.txt e mydata3.txt perché si trovano in una sottocartella.
 
 ![Dati ricorsivi per tabelle esterne](./media/develop-openrowset/folder-traversal.png)
 
@@ -223,7 +223,7 @@ Specifiche del parser CSV versione 1.0:
 Specifiche del parser CSV versione 2.0:
 
 - Non sono supportati tutti i tipi di dati.
-- La lunghezza massima della colonna carattere è 8000.
+- La lunghezza massima della colonna di caratteri è 8000.
 - Il limite massimo delle dimensioni di riga è 8 MB.
 - Le opzioni seguenti non sono supportate: DATA_COMPRESSION.
 - La stringa vuota racchiusa tra virgolette ("") viene interpretata come stringa vuota.
@@ -239,9 +239,9 @@ DATAFILETYPE = { 'char' | 'widechar' }
 
 Specifica la codifica: char viene usato per UTF8, widechar per i file UTF16.
 
-CODEPAGE = {' ACP ' | ' OEM ' | ' RAW ' | ' code_page '}
+CODEPAGE = { 'ACP' | "OEM" | 'RAW' | 'code_page' }
 
-Specifica la tabella codici dei dati contenuti nel file di dati. Il valore predefinito è 65001 (codifica UTF-8). Per altre informazioni su questa opzione, vedere [qui](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage).
+Specifica la tabella codici dei dati contenuti nel file di dati. Il valore predefinito è 65001 (codifica UTF-8). Per altri dettagli su questa opzione, [vedere qui](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage).
 
 ## <a name="fast-delimited-text-parsing"></a>Analisi rapida del testo delimitato
 

@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2021
 ms.author: duau
-ms.openlocfilehash: d2c8d4179dbaa44929031ce7e14b597b145ed72a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 4291a7d46c723f799cf9d09ca0e7a3f6d614971f
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067606"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389741"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Esercitazione: Configurare HTTPS per un dominio personalizzato di Frontdoor
 
-Questa esercitazione illustra come abilitare il protocollo HTTPS per un dominio personalizzato associato alla frontdoor nella sezione degli host front-end. Usando il protocollo HTTPS nel dominio personalizzato (ad esempio, https: \/ /www.contoso.com), si garantisce che i dati sensibili vengano recapitati in modo sicuro tramite la crittografia TLS/SSL quando viene inviato attraverso Internet. Quando il Web browser è connesso a un sito Web tramite HTTPS, convalida il certificato di sicurezza del sito Web e verifica che sia emesso da un'autorità di certificazione legittima. Questo processo offre sicurezza e protezione delle applicazioni Web da attacchi.
+Questa esercitazione illustra come abilitare il protocollo HTTPS per un dominio personalizzato associato alla frontdoor nella sezione degli host front-end. Usando il protocollo HTTPS nel dominio personalizzato , ad esempio https: /www.contoso.com, è necessario assicurarsi che i dati sensibili siano recapitati in modo sicuro tramite la crittografia TLS/SSL quando vengono inviati tramite \/ Internet. Quando il Web browser è connesso a un sito Web tramite HTTPS, convalida il certificato di sicurezza del sito Web e verifica che sia emesso da un'autorità di certificazione legittima. Questo processo offre sicurezza e protezione delle applicazioni Web da attacchi.
 
-Il servizio Frontdoor di Azure supporta HTTPS per un nome host predefinito della frontdoor, per impostazione predefinita. Ad esempio, se si crea una frontdoor (ad esempio `https://contoso.azurefd.net`), HTTPS viene abilitato automaticamente per le richieste effettuate a `https://contoso.azurefd.net`. Tuttavia, dopo l'onboarding del dominio personalizzato ' www.contoso.com ', sarà necessario abilitare anche HTTPS per questo host front-end.   
+Il servizio Frontdoor di Azure supporta HTTPS per un nome host predefinito della frontdoor, per impostazione predefinita. Ad esempio, se si crea una frontdoor (ad esempio `https://contoso.azurefd.net`), HTTPS viene abilitato automaticamente per le richieste effettuate a `https://contoso.azurefd.net`. Tuttavia, dopo aver onboardato il dominio personalizzato "www.contoso.com" è necessario abilitare anche HTTPS per questo host front-end.   
 
 Di seguito sono riportati alcuni attributi chiave della funzionalità HTTPS personalizzato.
 
-- Nessun costo aggiuntivo: non sono previsti costi per l'acquisizione o il rinnovo del certificato e nessun costo aggiuntivo per il traffico HTTPS. 
+- Nessun costo aggiuntivo: non sono previsti costi per l'acquisizione o il rinnovo dei certificati e nessun costo aggiuntivo per il traffico HTTPS. 
 
 - Abilitazione semplice: il provisioning è disponibile con un unico clic nel [portale di Azure](https://portal.azure.com). È possibile anche usare l'API REST o altri strumenti per sviluppatori per abilitare la funzionalità.
 
-- Gestione completa dei certificati: tutta la fase di approvvigionamento e gestione di certificati viene gestita automaticamente. Viene eseguito automaticamente il provisioning e il rinnovo dei certificati prima della scadenza, che consente di rimuovere i rischi di interruzione del servizio a causa di un certificato in scadenza.
+- Gestione completa dei certificati: tutta la fase di approvvigionamento e gestione di certificati viene gestita automaticamente. I certificati vengono automaticamente provisioning e rinnovati prima della scadenza, rimuovendo i rischi di interruzione del servizio a causa della scadenza di un certificato.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
@@ -63,20 +63,19 @@ Per abilitare il protocollo HTTPS in un dominio personalizzato, seguire questa p
 
 2. Nell'elenco degli host front-end, selezionare il dominio personalizzato per cui si vuole abilitare HTTPS.
 
-3. Nella sezione **https dominio personalizzato** selezionare **abilitato** e selezionare **porta anteriore gestita** come origine del certificato.
+3. Nella sezione **Dominio personalizzato HTTPS** selezionare **Abilitato** e selezionare Front **door gestito** come origine del certificato.
 
 4. Selezionare Salva.
 
-5. Continuare a [convalidare il dominio](#validate-the-domain).
+5. Continuare a [Convalidare il dominio](#validate-the-domain).
 
 > [!NOTE]
-> Per i certificati gestiti del servizio Frontdoor di Azure viene applicato il limite di 64 caratteri di DigiCert. Se il limite viene superato, la convalida non riuscirà.
-
-! Si noti L'abilitazione di HTTPS tramite il certificato gestito da front-end non è supportata per i domini Apex/root (ad esempio: contoso.com). Per questo scenario è possibile usare il proprio certificato.  Per ulteriori informazioni, continuare con l'opzione 2.
+> * Per i certificati gestiti del servizio Frontdoor di Azure viene applicato il limite di 64 caratteri di DigiCert. Se il limite viene superato, la convalida non riuscirà.
+> * L'abilitazione di HTTPS tramite il certificato gestito front-door non è supportata per i domini apex/root (ad esempio: contoso.com). È possibile usare un certificato personalizzato per questo scenario.  Per altri dettagli, continuare con l'opzione 2.
 
 ### <a name="option-2-use-your-own-certificate"></a>Opzione 2: Usare un certificato personale
 
-Per abilitare la funzionalità HTTPS, è possibile usare un certificato personale. Questo processo avviene tramite un'integrazione con Azure Key Vault, che consente di archiviare i certificati in modo sicuro. Il front-end di Azure usa questo meccanismo sicuro per ottenere il certificato e richiede alcuni passaggi aggiuntivi. Quando si crea il certificato TLS/SSL, è necessario crearlo con un'autorità di certificazione consentita (CA). In caso contrario, se si usa una CA non consentita, la richiesta verrà rifiutata. Per un elenco delle autorità di certificazione consentite, vedere [Autorità di certificazione consentite per abilitare la funzionalità HTTPS personalizzata nel servizio Frontdoor di Azure](front-door-troubleshoot-allowed-ca.md).
+Per abilitare la funzionalità HTTPS, è possibile usare un certificato personale. Questo processo avviene tramite un'integrazione con Azure Key Vault, che consente di archiviare i certificati in modo sicuro. Frontdoor di Azure questo meccanismo sicuro per ottenere il certificato e richiede alcuni passaggi aggiuntivi. Quando si crea il certificato TLS/SSL, è necessario crearlo con un'autorità di certificazione consentita (CA). In caso contrario, se si usa una CA non consentita, la richiesta verrà rifiutata. Per un elenco delle autorità di certificazione consentite, vedere [Autorità di certificazione consentite per abilitare la funzionalità HTTPS personalizzata nel servizio Frontdoor di Azure](front-door-troubleshoot-allowed-ca.md).
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparare l'account e il certificato di Azure Key Vault
  
@@ -129,27 +128,27 @@ Concedere al servizio Frontdoor di Azure l'autorizzazione ad accedere ai certifi
 
 3. In Tipo di gestione dei certificati selezionare **Usa certificato personale**. 
 
-4. Il servizio Frontdoor di Azure richiede che la sottoscrizione dell'account Key Vault sia identica a quella della frontdoor. Selezionare un insieme di credenziali delle chiavi, il segreto e la versione del segreto.
+4. Il servizio Frontdoor di Azure richiede che la sottoscrizione dell'account Key Vault sia identica a quella della frontdoor. Selezionare un insieme di credenziali delle chiavi, un segreto e una versione privata.
 
     Il servizio Frontdoor di Azure elenca le informazioni seguenti: 
     - Account Key Vault per l'ID sottoscrizione. 
-    - I segreti nell'insieme di credenziali delle chiavi selezionato. 
-    - Versioni segrete disponibili.
+    - Segreti nell'insieme di credenziali delle chiavi selezionato. 
+    - Versioni dei segreti disponibili.
 
     > [!NOTE]
-    >  Per fare in modo che il certificato venga ruotato automaticamente alla versione più recente quando nel Key Vault è disponibile una versione più recente del certificato, impostare la versione del segreto su "Latest". Se è selezionata una versione specifica, è necessario selezionare di nuovo la nuova versione manualmente per la rotazione del certificato. Per la distribuzione della nuova versione del certificato/segreto sono necessarie fino a 24 ore. 
+    >  Per fare in modo che il certificato sia ruotato automaticamente alla versione più recente quando è disponibile una versione più recente del certificato nel Key Vault, impostare la versione del segreto su "Più recente". Se è selezionata una versione specifica, è necessario selezionare di nuovo manualmente la nuova versione per la rotazione del certificato. La distribuzione della nuova versione del certificato/segreto richiede fino a 24 ore. 
  
-5. Quando si usa il proprio certificato, la convalida del dominio non è obbligatoria. Continua ad [attendere la propagazione](#wait-for-propagation).
+5. Quando si usa un certificato personalizzato, la convalida del dominio non è necessaria. Continuare ad [attendere la propagazione.](#wait-for-propagation)
 
 ## <a name="validate-the-domain"></a>Convalidare il dominio
 
-Se è già in uso un dominio personalizzato che viene mappato all'endpoint personalizzato con un record CNAME o si usa il proprio certificato, continuare con il [dominio personalizzato viene eseguito il mapping alla porta anteriore](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). In caso contrario, se la voce di record CNAME per il dominio non esiste più o contiene il sottodominio afdverify, continuare con il [dominio personalizzato non verrà eseguito il mapping alla porta anteriore](#custom-domain-is-not-mapped-to-your-front-door).
+Se è già in uso un dominio personalizzato di cui viene eseguito il mapping all'endpoint personalizzato con un record CNAME o si usa un certificato personalizzato, continuare con Il dominio personalizzato viene mappato al [frontdominio.](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record) In caso contrario, se la voce di record CNAME per il dominio non esiste più o contiene il sottodominio afdverify, continuare con Il dominio personalizzato non viene mappato al [frontdominio.](#custom-domain-is-not-mapped-to-your-front-door)
 
 ### <a name="custom-domain-is-mapped-to-your-front-door-by-a-cname-record"></a>Il dominio personalizzato è mappato alla frontdoor con un record CNAME
 
-Quando viene aggiunto un dominio personalizzato agli host front-end della frontdoor, nella tabella DNS del registrar viene creato un record CNAME per mapparlo al nome host .azurefd.net predefinito della frontdoor. Se il record CNAME esiste ancora e non contiene il sottodominio afdverify, l'autorità di certificazione DigiCert la usa per convalidare automaticamente la proprietà del dominio personalizzato. 
+Quando viene aggiunto un dominio personalizzato agli host front-end della frontdoor, nella tabella DNS del registrar viene creato un record CNAME per mapparlo al nome host .azurefd.net predefinito della frontdoor. Se il record CNAME esiste ancora e non contiene il sottodominio afdverify, l'autorità di certificazione DigiCert lo usa per convalidare automaticamente la proprietà del dominio personalizzato. 
 
-Se si usa il proprio certificato, la convalida del dominio non è obbligatoria.
+Se si usa un certificato personalizzato, la convalida del dominio non è necessaria.
 
 Il record CNAME deve avere il formato seguente, dove *Nome* è il nome del dominio personalizzato e *Valore* è il nome host .azurefd.net predefinito della frontdoor:
 
@@ -159,7 +158,7 @@ Il record CNAME deve avere il formato seguente, dove *Nome* è il nome del domin
 
 Per altre informazioni sui record CNAME, vedere [Create the CNAME DNS record](../cdn/cdn-map-content-to-custom-domain.md) (Creare un record DNS CNAME).
 
-Se il record CNAME è nel formato corretto, DigiCert verifica automaticamente il nome di dominio personalizzato e crea un certificato dedicato per il nome di dominio. DigitCert non invia alcun messaggio di verifica e non sarà necessario approvare la richiesta. Il certificato è valido per un anno e verrà rinnovato automaticamente prima della scadenza. Continua ad [attendere la propagazione](#wait-for-propagation). 
+Se il record CNAME è nel formato corretto, DigiCert verifica automaticamente il nome di dominio personalizzato e crea un certificato dedicato per il nome di dominio. DigitCert non invia alcun messaggio di verifica e non sarà necessario approvare la richiesta. Il certificato è valido per un anno e verrà rinnovato automaticamente prima della scadenza. Continuare ad [attendere la propagazione.](#wait-for-propagation) 
 
 La convalida automatica richiede in genere qualche minuto. Se il dominio non viene convalidato entro un'ora, aprire un ticket di supporto.
 
@@ -182,13 +181,13 @@ webmaster@&lt;nome-dominio.com&gt;
 hostmaster@&lt;nome-dominio.com&gt;  
 postmaster@&lt;nome-dominio.com&gt;  
 
-Entro pochi minuti si dovrebbe ricevere un messaggio di posta elettronica simile all'esempio seguente, in cui viene chiesto di approvare la richiesta. Se si usa un filtro per la posta indesiderata, aggiungere admin@digicert.com al relativo oggetto allow. Se non si riceve un messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
+Entro pochi minuti si dovrebbe ricevere un messaggio di posta elettronica simile all'esempio seguente, in cui viene chiesto di approvare la richiesta. Se si usa un filtro per la posta indesiderata, admin@digicert.com aggiungerlo al relativo elenco di elementi consentiti. Se non si riceve un messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
 
 Quando si seleziona il collegamento di approvazione, si viene indirizzati a un modulo di approvazione online. Seguire le istruzioni nel modulo. Sono disponibili due opzioni di verifica:
 
 - È possibile approvare tutti gli ordini futuri effettuati con lo stesso account per lo stesso dominio radice, ad esempio contoso.com. Questo approccio è consigliato se si prevede di aggiungere altri domini personalizzati per lo stesso dominio radice.
 
-- È possibile approvare solo il nome host specifico usato in questa richiesta. L'approvazione aggiuntiva è necessaria per le richieste successive.
+- È possibile approvare solo il nome host specifico usato in questa richiesta. È necessaria un'approvazione aggiuntiva per le richieste successive.
 
 Dopo l'approvazione, DigiCert completa la creazione del certificato per il nome di dominio personalizzato. Il certificato è valido per un anno e verrà rinnovato automaticamente prima della scadenza.
 
@@ -198,14 +197,14 @@ Dopo la convalida del nome di dominio, per l'attivazione della funzionalità HTT
 
 ### <a name="operation-progress"></a>Avanzamento dell'operazione
 
-La tabella seguente illustra l'avanzamento dell'operazione per l'abilitazione di HTTPS. Dopo l'abilitazione di HTTPS, i quattro passaggi dell'operazione vengono visualizzati nella finestra di dialogo del dominio personalizzato. Quando ogni passaggio diventa attivo, vengono visualizzati più dettagli di sottopassaggio sotto il passaggio durante l'avanzamento. Non tutti i passaggi secondari verranno eseguiti. Al completamento di un passaggio, accanto viene visualizzato un segno di spunta verde. 
+La tabella seguente illustra l'avanzamento dell'operazione per l'abilitazione di HTTPS. Dopo l'abilitazione di HTTPS, i quattro passaggi dell'operazione vengono visualizzati nella finestra di dialogo del dominio personalizzato. Man mano che ogni passaggio diventa attivo, sotto il passaggio vengono visualizzati altri dettagli dei passaggi secondari man mano che avanza. Non tutti i passaggi secondari verranno eseguiti. Al completamento di un passaggio, accanto viene visualizzato un segno di spunta verde. 
 
 | Passaggio dell'operazione | Dettagli del passaggio secondario dell'operazione | 
 | --- | --- |
 | 1 Invio della richiesta | Invio della richiesta |
 | | La richiesta HTTPS è in fase di invio. |
 | | La richiesta HTTPS è stata inviata. |
-| 2 Convalida del dominio | Il dominio viene convalidato automaticamente se è stato eseguito il mapping di CNAME all'host front-end predefinito con estensione azurefd.net. In caso contrario, una richiesta di verifica verrà inviata all'indirizzo di posta elettronica elencato nel record di registrazione del dominio (registrante WHOIS). Verificare il dominio non appena possibile. |
+| 2 Convalida del dominio | Il dominio viene convalidato automaticamente se viene eseguito il mapping di CNAME all'host azurefd.net front-end predefinito della frontdoo. In caso contrario, una richiesta di verifica verrà inviata all'indirizzo di posta elettronica elencato nel record di registrazione del dominio (registrante WHOIS). Verificare il dominio non appena possibile. |
 | | La proprietà del dominio è stata convalidata. |
 | | La richiesta di convalida della proprietà del dominio è scaduta (probabilmente perché il cliente non ha risposto entro 6 giorni). HTTPS non verrà abilitato nel dominio. * |
 | | La richiesta di convalida della proprietà del dominio è stata rifiutata dal cliente. HTTPS non verrà abilitato nel dominio. * |
@@ -234,7 +233,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 3. *Cosa accade se non si riceve il messaggio di verifica del dominio da DigiCert?*
 
-    Se si dispone di una voce CNAME per il dominio personalizzato che punta direttamente al nome host dell'endpoint (e non si usa il nome del sottodominio afdverify), non si riceverà un messaggio di posta elettronica di verifica del dominio. La convalida viene eseguita automaticamente. In caso contrario, se non è disponibile alcuna voce CNAME e non è stato ricevuto alcun messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
+    Se si ha una voce CNAME per il dominio personalizzato che punta direttamente al nome host dell'endpoint (e non si usa il nome del sottodominio afdverify), non si riceverà un messaggio di posta elettronica di verifica del dominio. La convalida viene eseguita automaticamente. In caso contrario, se non è disponibile alcuna voce CNAME e non è stato ricevuto alcun messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
 
 4. *L'uso di un certificato SAN è meno sicuro rispetto a un certificato dedicato?*
     
@@ -242,27 +241,27 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 5. *È necessario avere un record di autorizzazione dell'autorità di certificazione presso il provider DNS?*
 
-    No, attualmente non è necessario un record di autorizzazione dell'autorità di certificazione. Se tuttavia se ne ha uno, deve includere DigiCert come CA valida.
+    No, non è attualmente necessario un record di autorizzazione dell'autorità di certificazione. Se tuttavia se ne ha uno, deve includere DigiCert come CA valida.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Nei passaggi precedenti è stato abilitato il protocollo HTTPS nel dominio personalizzato. Se non si vuole più usare il dominio personalizzato con HTTPS, è possibile disabilitare HTTPS attenendosi alla procedura seguente:
+Nei passaggi precedenti è stato abilitato il protocollo HTTPS nel dominio personalizzato. Se non si vuole più usare il dominio personalizzato con HTTPS, è possibile disabilitare HTTPS eseguendo questa procedura:
 
 ### <a name="disable-the-https-feature"></a>Disabilitare la funzionalità HTTPS 
 
 1. Nel [portale di Azure](https://portal.azure.com) passare alla configurazione del **servizio Frontdoor di Azure**.
 
-2. Nell'elenco degli host front-end selezionare il dominio personalizzato per il quale si desidera disabilitare HTTPS.
+2. Nell'elenco degli host front-end selezionare il dominio personalizzato per cui si vuole disabilitare HTTPS.
 
 3. Fare clic su **Disabilitato** per disabilitare HTTPS e quindi fare clic su **Salva**.
 
 ### <a name="wait-for-propagation"></a>Attendere la propagazione
 
-Per rendere effettiva la disabilitazione della funzionalità HTTPS per il dominio personalizzato possono essere necessarie 6-8 ore. Al termine del processo, lo stato HTTPS personalizzato nel portale di Azure viene impostato su **disabilitato** e i tre passaggi dell'operazione nella finestra di dialogo dominio personalizzato sono contrassegnati come completati. Il dominio personalizzato non può più usare HTTPS.
+Per rendere effettiva la disabilitazione della funzionalità HTTPS per il dominio personalizzato possono essere necessarie 6-8 ore. Al termine del processo, lo stato HTTPS personalizzato nel portale di Azure viene impostato su **Disabilitato** e i tre passaggi dell'operazione nella finestra di dialogo del dominio personalizzato vengono contrassegnati come completati. Il dominio personalizzato non può più usare HTTPS.
 
 #### <a name="operation-progress"></a>Avanzamento dell'operazione
 
-La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazione di HTTPS. Al termine, i tre passaggi dell'operazione vengono visualizzati nella finestra di dialogo del dominio personalizzato. Quando ogni passaggio diventa attivo, nel passaggio verranno visualizzati altri dettagli. Al completamento di un passaggio, accanto viene visualizzato un segno di spunta verde. 
+La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazione di HTTPS. Al termine, i tre passaggi dell'operazione vengono visualizzati nella finestra di dialogo del dominio personalizzato. Quando ogni passaggio diventa attivo, sotto il passaggio vengono visualizzati altri dettagli. Al completamento di un passaggio, accanto viene visualizzato un segno di spunta verde. 
 
 | Avanzamento dell'operazione | Dettagli dell'operazione | 
 | --- | --- |
@@ -278,7 +277,7 @@ In questa esercitazione sono state illustrate le procedure per:
 * Convalidare un dominio.
 * Abilitare HTTPS per il dominio personalizzato.
 
-Per informazioni su come configurare un criterio di filtro geografico per la porta anteriore, continuare con l'esercitazione successiva.
+Per informazioni su come configurare un criterio di filtro geografico per Front door, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
 > [Configurare un criterio di filtro geografico](front-door-geo-filtering.md)

@@ -1,7 +1,7 @@
 ---
-title: Pull Docker per il contenitore di Analisi del sentiment
+title: Docker pull per il contenitore Analisi del sentiment contenitore
 titleSuffix: Azure Cognitive Services
-description: Comando pull di Docker per Analisi del sentiment contenitore
+description: Comando docker pull per Analisi del sentiment contenitore
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,34 +9,39 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 549ecf940c53267db6b3caa576c4c24db414337a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32a550e120331a8255281d51725d2d5fc8ca1e05
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "90906034"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564450"
 ---
-#### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>Pull Docker per il contenitore Analisi del sentiment V3
+#### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>Docker pull per il contenitore Analisi del sentiment v3
 
-Il contenitore dell'analisi dei sentimenti V3 è disponibile in diverse lingue. Per scaricare il contenitore per il contenitore inglese, usare il comando seguente. 
+Il contenitore del contenitore di analisi del sentiment v3 è disponibile in diverse lingue. Per scaricare il contenitore per la lingua inglese, usare il comando seguente. 
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en
 ```
 
-Per scaricare il contenitore per un'altra lingua, sostituire `en` con uno dei codici di lingua indicati di seguito. 
+Per scaricare il contenitore per un'altra lingua, `en` sostituire con uno dei codici di lingua seguenti. 
 
-| Contenitore di Analisi del testo | Codice lingua |
+| Analisi del testo contenitore | Codice lingua |
 |--|--|
-| Inglese | `en` |
-| Spagnolo | `es` |
-| Francese | `fr` |
-| Italiano | `it` |
-| Tedesco | `de` |
-| Cinese semplificato | `zh` |
-| Cinese tradizionale | `zht` |
-| Giapponese | `ja` |
-| Portoghese | `pt` |
-| Olandese | `nl` |
+| Cinese semplificato    |   `zh-hans`   |
+| Cinese tradizionale   |   `zh-hant`   |
+| Olandese                 |     `nl`      |
+| Inglese               |     `en`      |
+| Francese                |     `fr`      |
+| Tedesco                |     `de`      |
+| Hindi                 |    `hi`       |
+| Italiano               |     `it`      |
+| Giapponese              |     `ja`      |
+| Coreano                |     `ko`      |
+| Norvegese (Bokmål)   |     `no`      |
+| Portoghese (Brasile)   |    `pt-BR`    |
+| Portoghese (Portogallo) |    `pt-PT`    |
+| Spagnolo               |     `es`      |
+| Turco               |     `tr`      |
 
-Per una descrizione completa dei tag disponibili per i contenitori di Analisi del testo, vedere [Hub Docker](https://go.microsoft.com/fwlink/?linkid=2018654).
+Per una descrizione completa dei tag disponibili per i contenitori Analisi del testo, [vedere Docker Hub](https://go.microsoft.com/fwlink/?linkid=2018654).

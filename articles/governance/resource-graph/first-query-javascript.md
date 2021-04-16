@@ -3,13 +3,15 @@ title: 'Avvio rapido: Eseguire la prima query JavaScript'
 description: Questa guida di avvio rapido descrive la procedura per abilitare la libreria di Resource Graph per JavaScript ed eseguire la prima query.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.custom: devx-track-js
-ms.openlocfilehash: 97cbd9ddf65a4135f55304f6dd67c704c6fcac5d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- devx-track-js
+- mode-api
+ms.openlocfilehash: ef93378acaf2c92cf4f7761345cea326af63d300
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98917522"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533053"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Avvio rapido: Eseguire la prima query di Resource Graph con JavaScript
 

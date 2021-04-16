@@ -1,23 +1,23 @@
 ---
-title: "Guida introduttiva: aggiungere una riunione ai team da un'app Web"
-description: In questa esercitazione si apprenderà come partecipare a una riunione dei team usando i servizi di comunicazione di Azure che chiamano SDK per JavaScript
+title: Guida introduttiva - Partecipare a una riunione di Teams da un'app Web
+description: Questa esercitazione illustra come partecipare a una riunione di Teams usando Servizi di comunicazione di Azure Calling SDK per JavaScript
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 4b6cf48c577bb6f22f497007c4b1c1b57ab6f187
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6747d1d3cfba1c9e2bee7a8a7a48d67d6bed9f8e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108190"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564626"
 ---
-In questa Guida introduttiva si apprenderà come partecipare a una riunione di Team usando i servizi di comunicazione di Azure che chiamano SDK per JavaScript.
+In questa guida introduttiva si apprenderà come partecipare a una riunione di Teams usando Servizi di comunicazione di Azure Calling SDK per JavaScript.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un servizio di comunicazione funzionante che [chiama l'app Web](../getting-started-with-calling.md).
+- Servizi di [comunicazione funzionante che chiama l'app Web](../getting-started-with-calling.md).
 - Una [distribuzione di Teams](/deployoffice/teams-install).
 
 
@@ -112,8 +112,8 @@ teamsMeetingJoinButton.addEventListener("click", () => {
 
 ## <a name="get-the-teams-meeting-link"></a>Ottenere il collegamento alla riunione di Teams
 
-Il collegamento alla riunione di Teams può essere recuperato usando le API Graph. Questa operazione è descritta in dettaglio nella [documentazione di Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-L'SDK per le chiamate di Servizi di comunicazione accetta un collegamento alla riunione di Teams completo. Questo collegamento viene restituito come parte della risorsa `onlineMeeting`, accessibile nella [proprietà `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta). È anche possibile ottenere le informazioni sulla riunione necessarie dall'URL di **Partecipa alla riunione** nell'invito alla riunione di Teams stesso.
+Il collegamento alla riunione di Teams può essere recuperato usando le API Graph. Questa operazione è descritta in dettaglio nella [documentazione di Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+L'SDK per le chiamate di Servizi di comunicazione accetta un collegamento alla riunione di Teams completo. Questo collegamento viene restituito come parte della risorsa `onlineMeeting`, accessibile nella [proprietà `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). È anche possibile ottenere le informazioni sulla riunione necessarie dall'URL di **Partecipa alla riunione** nell'invito alla riunione di Teams stesso.
 
 ## <a name="run-the-code"></a>Eseguire il codice
 

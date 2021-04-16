@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/24/2021
+ms.date: 04/15/2021
 ms.author: banders
-ms.openlocfilehash: b88a5bc10afeffe7e15ad7a90e28bd8b8ff28688
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 687db46ea2f6c9c4fae6e5355e3236cde3d7a401
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046556"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567248"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP
 
@@ -21,7 +21,7 @@ Questo articolo illustra i passaggi generali necessari per trasferire le sottosc
 
 Prima di avviare una richiesta di trasferimento, è necessario scaricare o esportare le informazioni relative ai costi e alla fatturazione da conservare. Le informazioni di fatturazione e le informazioni sull'utilizzo non vengono infatti trasferite con la sottoscrizione. Per altre informazioni sull'esportazione dei dati di gestione dei costi, vedere [Creare e gestire dati esportati](../costs/tutorial-export-acm-data.md). Per altre informazioni sul download delle fatture e dei dati sull'utilizzo, vedere [Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure](download-azure-invoice-daily-usage-date.md).
 
-Se si dispone di prenotazioni esistenti, si interrompe l'applicazione di 90 giorni dopo il trasferimento di una sottoscrizione. Assicurarsi di [annullare le prenotazioni e di rimborsarle](../reservations/exchange-and-refund-azure-reservations.md) prima di trasferire una sottoscrizione per evitare addebiti dopo il periodo di tolleranza di 90 giorni.
+Se sono presenti prenotazioni esistenti, l'applicazione viene interrotta 90 giorni dopo il trasferimento di una sottoscrizione. Assicurarsi di annullare [eventuali prenotazioni e rimborsarle prima](../reservations/exchange-and-refund-azure-reservations.md) di trasferire una sottoscrizione per evitare addebiti dopo il periodo di tolleranza di 90 giorni.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Trasferire sottoscrizioni con contratto Enterprise a un partner CSP
 
@@ -36,7 +36,7 @@ Quando la richiesta viene approvata, il CSP può fornire una fattura combinata a
 
 Per trasferire altre sottoscrizioni di Azure a un partner CSP, il sottoscrittore deve spostare le risorse dalle sottoscrizioni di origine alle sottoscrizioni CSP. Usare il materiale sussidiario seguente per spostare le risorse tra le sottoscrizioni.
 
-1. Stabilire una [relazione del rivenditore](/partner-center/request-a-relationship-with-a-customer) con il cliente. Esaminare la [Panoramica sull'autorizzazione](/partner-center/regional-authorization-overview) dell'area CSP per assicurarsi che sia il tenant del cliente che quello del partner si trovino nelle stesse aree autorizzate.
+1. Stabilire una [relazione di rivenditore](/partner-center/request-a-relationship-with-a-customer) con il cliente. Esaminare la [panoramica dell'autorizzazione a livello di](/partner-center/regional-authorization-overview) area CSP per assicurarsi che sia il tenant del cliente che quello del partner siano all'interno delle stesse aree autorizzate.
 1. Collaborare con il partner CSP per creare sottoscrizioni di Azure CSP di destinazione.
 1. Verificare che le sottoscrizioni CSP di origine e di destinazione si trovino nello stesso tenant di Azure Active Directory (Azure AD).  
     Non è possibile modificare il tenant di Azure AD per una sottoscrizione Azure CSP. Al contrario, è necessario aggiungere o associare la sottoscrizione di origine al tenant di Azure AD CSP. Per altre informazioni, vedere [Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
@@ -55,9 +55,9 @@ Per trasferire altre sottoscrizioni di Azure a un partner CSP, il sottoscrittore
 
 ## <a name="transfer-csp-subscription-to-other-offer"></a>Trasferire la sottoscrizione CSP a un'altra offerta
 
-Per trasferire altre sottoscrizioni da un partner CSP a qualunque altra offerta di Azure, il sottoscrittore deve spostare le risorse tra le sottoscrizioni CSP di origine e le sottoscrizioni CSP di destinazione.
+Per trasferire altre sottoscrizioni da un partner CSP a qualunque altra offerta di Azure, il sottoscrittore deve spostare le risorse tra le sottoscrizioni CSP di origine e le sottoscrizioni CSP di destinazione. Si tratta del lavoro svolto da un partner e da un cliente. Non è un lavoro eseguito da un rappresentante Microsoft.
 
-1. Creare sottoscrizioni di Azure di destinazione.
+1. Il cliente crea sottoscrizioni di Azure di destinazione.
 1. Verificare che le sottoscrizioni di origine e di destinazione si trovino nello stesso tenant di Azure Active Directory (Azure AD). Per altre informazioni sulla modifica di un tenant Azure AD, vedere [Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     Si noti che l'opzione per cambiare directory non è supportata per la sottoscrizione CSP. Ad esempio, se si esegue il trasferimento da una sottoscrizione CSP a una sottoscrizione con pagamento in base al consumo, è necessario modificare la directory della sottoscrizione con pagamento in base al consumo affinché corrisponda.
 
@@ -65,7 +65,7 @@ Per trasferire altre sottoscrizioni da un partner CSP a qualunque altra offerta 
     >  - Quando si associa una sottoscrizione a una directory diversa, gli utenti che dispongono di ruoli assegnati che usano [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) perdono l'accesso. Anche gli amministratori delle sottoscrizioni classiche, tra cui l'amministratore del servizio e i coamministratori, perdono l'accesso.
     >  - Anche le assegnazioni dei criteri vengono rimosse da una sottoscrizione quando la sottoscrizione è associata a una directory diversa.
 
-1. L'account utente usato per il trasferimento deve disporre dell'accesso come proprietario di [Controllo degli accessi in base al ruolo di Azure](add-change-subscription-administrator.md) per entrambe le sottoscrizioni.
+1. L'account utente del cliente che si usa per eseguire il trasferimento deve disporre dell'accesso del proprietario del controllo degli [accessi](add-change-subscription-administrator.md) in base al ruolo di Azure in entrambe le sottoscrizioni.
 1. Prima di iniziare, [convalidare](/rest/api/resources/resources/validatemoveresources) l'opzione secondo cui tutte le risorse di Azure possono essere spostate dalla sottoscrizione di origine alla sottoscrizione di destinazione.
     > [!IMPORTANT]
     >  - Alcune risorse di Azure non possono essere spostate tra le sottoscrizioni. Per visualizzare l'elenco completo di risorse di Azure che possono essere spostate, vedere [Supporto per lo spostamento delle risorse](../../azure-resource-manager/management/move-support-resources.md).

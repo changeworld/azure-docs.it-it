@@ -5,20 +5,20 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 773bca81694534346019e30e9d55190af6f51e74
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 49f9bac40ae803f980a22c19fd5d44d85fa99e9e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106795"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564583"
 ---
-## <a name="joining-the-meeting-chat"></a>Partecipare alla chat meeting 
+## <a name="joining-the-meeting-chat"></a>Partecipare alla chat della riunione 
 
-Una volta abilitata l'interoperabilità dei team, un utente di servizi di comunicazione può partecipare alla chiamata del team come utente esterno utilizzando l'SDK chiamante. Partecipando alla chiamata, l'utente viene aggiunto anche come partecipante alla chat, dove può inviare e ricevere messaggi con altri utenti che partecipano alla chiamata. L'utente non ha però accesso ai messaggi della chat inviati prima che venisse aggiunto alla chiamata. Per partecipare alla riunione e iniziare la chat, è possibile seguire i passaggi successivi.
+Dopo aver abilitato l'interoperabilità di Teams, un utente di Servizi di comunicazione può partecipare alla chiamata di Teams come utente esterno usando Calling SDK. Partecipando alla chiamata, l'utente viene aggiunto anche come partecipante alla chat, dove può inviare e ricevere messaggi con altri utenti che partecipano alla chiamata. L'utente non ha però accesso ai messaggi della chat inviati prima che venisse aggiunto alla chiamata. Per partecipare alla riunione e iniziare a chattare, è possibile seguire i passaggi successivi.
 
 ## <a name="install-the-chat-packages"></a>Installare i pacchetti di chat
 
-Usare il `npm install` comando per installare gli SDK di servizi di comunicazione necessari per JavaScript.
+Usare il `npm install` comando per installare gli SDK di Servizi di comunicazione necessari per JavaScript.
 
 ```console
 npm install @azure/communication-common --save
@@ -37,8 +37,8 @@ L'opzione `--save` elenca la libreria come dipendenza nel file **package.json**.
 ## <a name="add-the-teams-ui-controls"></a>Aggiungere i controlli dell'interfaccia utente di Teams
 
 Sostituire il codice in index.html con il frammento di codice seguente.
-Le caselle di testo nella parte superiore della pagina verranno utilizzate per immettere il contesto della riunione dei team e l'ID del thread di riunione. Il pulsante ' join teams meeting ' verrà usato per partecipare alla riunione specificata.
-Verrà visualizzata una finestra popup della chat nella parte inferiore della pagina. Può essere usato per inviare messaggi al thread della riunione e verrà visualizzato in tempo reale per tutti i messaggi inviati sul thread mentre l'utente ACS è membro.
+Le caselle di testo nella parte superiore della pagina verranno usate per immettere il contesto della riunione teams e l'ID thread della riunione. Il pulsante "Partecipa alla riunione dei team" verrà usato per partecipare alla riunione specificata.
+Nella parte inferiore della pagina verrà visualizzato un popup di chat. Può essere usato per inviare messaggi sul thread di riunione e verrà visualizzato in tempo reale qualsiasi messaggio inviato sul thread mentre l'utente ACS è un membro.
 
 ```html
 <!DOCTYPE html>
@@ -142,9 +142,9 @@ Verrà visualizzata una finestra popup della chat nella parte inferiore della pa
 
 ## <a name="enable-the-teams-ui-controls"></a>Abilitare i controlli dell'interfaccia utente di Teams
 
-Sostituire il contenuto del file di client.js con il frammento di codice seguente.
+Sostituire il contenuto del file client.js con il frammento di codice seguente.
 
-All'interno del frammento, sostituire 
+All'interno del frammento di codice sostituire 
 - `SECRET CONNECTION STRING` con la stringa di connessione del servizio di comunicazione 
 - `ENDPOINT URL` con l'URL dell'endpoint del servizio di comunicazione
 
@@ -286,10 +286,10 @@ sendMessageButton.addEventListener("click", async () =>
 
 ## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Ottenere un thread di chat della riunione di Teams per un utente di Servizi di comunicazione
 
-Il collegamento alla riunione e la chat per i team possono essere recuperate tramite le API Graph, descritte in dettaglio nella [documentazione Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta). L'SDK per le chiamate di Servizi di comunicazione accetta un collegamento alla riunione di Teams completo. Questo collegamento viene restituito come parte della `onlineMeeting` risorsa, accessibile sotto la [ `joinWebUrl` Proprietà](/graph/api/resources/onlinemeeting?view=graph-rest-beta) con le [API Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta), è anche possibile ottenere `threadId` . La risposta avrà un `chatInfo` oggetto che contiene `threadID` . 
+Il collegamento alla riunione e la chat di Teams possono essere recuperati usando le API Graph, come descritto in dettaglio nella [documentazione di Graph.](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true) L'SDK per le chiamate di Servizi di comunicazione accetta un collegamento alla riunione di Teams completo. Questo collegamento viene restituito come parte della risorsa, accessibile tramite la proprietà Con le `onlineMeeting` [API Graph,](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)è [ `joinWebUrl` ](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true) anche possibile ottenere `threadId` . La risposta avrà un `chatInfo` oggetto che contiene `threadID` . 
 
-È anche possibile ottenere le informazioni sulla riunione e l'ID del thread necessari dall'URL della **riunione di join** nell'invito della riunione dei team.
-Un collegamento a una riunione di Teams ha un aspetto simile al seguente: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. Il `threadId` sarà dove `meeting_chat_thread_id` si trova nel collegamento. Verificare che l'oggetto non sia preceduto da un carattere di `meeting_chat_thread_id` escape prima dell'utilizzo. Il formato deve essere il seguente: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
+È anche possibile ottenere le informazioni sulla riunione necessarie e l'ID thread dall'URL di partecipazione **alla** riunione nell'invito alla riunione di Teams.
+Un collegamento a una riunione di Teams ha un aspetto simile al seguente: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. sarà `threadId` dove `meeting_chat_thread_id` si trova nel collegamento. Prima dell'uso, verificare che non sia stato `meeting_chat_thread_id` utilizzato un carattere di escape. Il formato dovrebbe essere il seguente: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
 
 
 ## <a name="run-the-code"></a>Eseguire il codice
@@ -304,7 +304,7 @@ Aprire il browser e passare a http://localhost:8080/. Dovrebbe essere visualizza
 
 :::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Screenshot dell'applicazione JavaScript completata.":::
 
-Inserire il collegamento riunione team e l'ID thread nelle caselle di testo. Premere *join teams meeting* per partecipare alla riunione dei team. Una volta che l'utente ACS è stato ammesso alla riunione, è possibile chattare dall'applicazione Servizi di comunicazione. Passare alla casella nella parte inferiore della pagina per avviare la chat.
+Inserire il collegamento alla riunione di Teams e l'ID thread nelle caselle di testo. Premere *Partecipa alla riunione di Teams* per partecipare alla riunione di Teams. Dopo che l'utente ACS è stato ammesso alla riunione, è possibile chattare dall'interno dell'applicazione Servizi di comunicazione. Passare alla casella nella parte inferiore della pagina per iniziare a chattare.
 
 > [!NOTE] 
-> Attualmente, solo gli scenari di interoperabilità con i team supportano solo l'invio, la ricezione e la modifica dei messaggi. Altre funzionalità, come gli indicatori di digitazione e la possibilità per gli utenti di Servizi di comunicazione di aggiungere o rimuovere altri utenti dalla riunione di Teams, non sono ancora supportate.  
+> Attualmente è supportato solo l'invio, la ricezione e la modifica di messaggi per scenari di interoperabilità con Teams. Altre funzionalità, come gli indicatori di digitazione e la possibilità per gli utenti di Servizi di comunicazione di aggiungere o rimuovere altri utenti dalla riunione di Teams, non sono ancora supportate.  

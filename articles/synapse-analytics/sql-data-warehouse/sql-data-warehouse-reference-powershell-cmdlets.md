@@ -1,26 +1,26 @@
 ---
-title: API REST di & PowerShell per pool SQL dedicato (in precedenza SQL DW)
-description: Principali cmdlet di PowerShell per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics, inclusa la modalità di sospensione e ripresa di un database.
+title: PowerShell & API REST per il pool SQL dedicato (in precedenza SQL DW)
+description: I principali cmdlet di PowerShell per il pool SQL dedicato (in precedenza SQL DW) in Azure Synapse Analytics incluse le modalità di sospensione e ripresa di un database.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 83e6082025f068e91a3d531f052b746870ffd57a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1f00f470fb0aa8ac98b431c6fc9428f501b553ed
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104584109"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566444"
 ---
-# <a name="powershell--rest-apis-for-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>PowerShell & le API REST per per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics 
+# <a name="powershell--rest-apis-for-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>PowerShell & API REST per il pool SQL dedicato (in precedenza SQL DW) in Azure Synapse Analytics 
 
-Molte attività amministrative del pool SQL dedicate possono essere gestite tramite Azure PowerShell cmdlet o API REST.  Di seguito sono riportati alcuni esempi di come usare i comandi di PowerShell per automatizzare le attività comuni nel pool SQL dedicato (in precedenza SQL DW).  Per altri esempi di REST, vedere [Gestire la scalabilità con REST](sql-data-warehouse-manage-compute-rest-api.md).
+Molte attività amministrative dedicate del pool SQL possono essere gestite usando Azure PowerShell cmdlet o LE API REST.  Di seguito sono riportati alcuni esempi di come usare i comandi di PowerShell per automatizzare le attività comuni nel pool SQL dedicato (in precedenza SQL DW).  Per altri esempi di REST, vedere [Gestire la scalabilità con REST](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Molte attività amministrative del pool SQL dedicate possono essere gestite tram
     Select-AzSubscription -SubscriptionName "MySubscription"
     ```
 
-## <a name="pause-data-warehouse-example"></a>Sospendi data warehouse esempio
+## <a name="pause-data-warehouse-example"></a>Sospendere data warehouse esempio
 
 Sospende un database denominato "Database02" ospitato su un server denominato "Server01".  Il server si trova in un gruppo di risorse di Azure denominato "ResourceGroup1".
 
@@ -43,7 +43,7 @@ Sospende un database denominato "Database02" ospitato su un server denominato "S
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
-Una variante, questo esempio invia tramite pipe l'oggetto recuperato a [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Il database viene pertanto sospeso. Il comando finale mostra i risultati.
+Una variazione, in questo esempio l'oggetto recuperato viene reindirizzato tramite pipe a [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Il database viene pertanto sospeso. Il comando finale mostra i risultati.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -51,7 +51,7 @@ $resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
-## <a name="start-data-warehouse-example"></a>Esempio di avvio data warehouse
+## <a name="start-data-warehouse-example"></a>Esempio di data warehouse iniziale
 
 Fa riprendere le operazioni di un database denominato "Database02" ospitato su un server denominato "Server01". Il server è incluso in un gruppo di risorse denominato "ResourceGroup1".
 
@@ -59,7 +59,7 @@ Fa riprendere le operazioni di un database denominato "Database02" ospitato su u
 Resume-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-Come variazione, questo esempio recupera un database denominato "Database02" da un server denominato "Server01" incluso in un gruppo di risorse denominato "ResourceGroup1". Invia tramite pipe l'oggetto recuperato a [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Come variazione, questo esempio recupera un database denominato "Database02" da un server denominato "Server01" incluso in un gruppo di risorse denominato "ResourceGroup1". Tramite pipe l'oggetto recuperato viene [reindirizzato a Resume-AzSqlDatabase.](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -71,7 +71,7 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 
 ## <a name="other-supported-powershell-cmdlets"></a>Altri cmdlet di PowerShell supportati
 
-Questi cmdlet di PowerShell sono supportati con Azure sinapsi Analytics data warehouse.
+Questi cmdlet di PowerShell sono supportati con Azure Synapse Analytics data warehouse.
 
 * [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 * [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
@@ -87,7 +87,7 @@ Questi cmdlet di PowerShell sono supportati con Azure sinapsi Analytics data war
 
 Per altri esempi di PowerShell, vedere:
 
-* [Creare una data warehouse usando PowerShell](create-data-warehouse-powershell.md)
+* [Creare un data warehouse con PowerShell](create-data-warehouse-powershell.md)
 * [Ripristino del database](sql-data-warehouse-restore-points.md)
 
-Per altre attività che possono essere automatizzate con PowerShell, vedere [cmdlet del database SQL di Azure](/powershell/module/az.sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Non tutti i cmdlet del database SQL di Azure sono supportati per l'analisi delle sinapsi di Azure data warehouse. Per un elenco delle attività che possono essere automatizzate con REST, vedere [operazioni per il database SQL di Azure](/rest/api/sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Per altre attività che possono essere automatizzate con PowerShell, vedere database SQL di Azure [cmdlet](/powershell/module/az.sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Non tutti database SQL di Azure cmdlet sono supportati per Azure Synapse Analytics data warehouse. Per un elenco delle attività che possono essere automatizzate con REST, vedere [Operazioni per database SQL di Azure](/rest/api/sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).

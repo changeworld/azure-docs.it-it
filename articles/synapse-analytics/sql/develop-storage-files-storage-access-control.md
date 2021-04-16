@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: acfaa780f21f5264b546f97e9a3792aa43e9c30b
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 266a6c27261107b883fdc0c1cdd274e6345de6db
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029744"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483453"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless in Azure Synapse Analytics
 
@@ -26,10 +26,10 @@ Questo articolo descrive i tipi di credenziali che è possibile usare e il modo 
 
 ## <a name="storage-permissions"></a>Autorizzazioni di archiviazione
 
-Un pool SQL senza server nell'area di lavoro di sinapsi Analytics può leggere il contenuto dei file archiviati in Azure Data Lake archiviazione. È necessario configurare le autorizzazioni per l'archiviazione per consentire a un utente che esegue una query SQL di leggere i file. Sono disponibili tre metodi per abilitare l'accesso ai file>
-- Il **[controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md)** consente di assegnare un ruolo ad alcuni Azure ad utente nel tenant in cui si trova la risorsa di archiviazione. I ruoli RBAC possono essere assegnati a Azure AD utenti. Un reader deve avere `Storage Blob Data Reader` un `Storage Blob Data Contributor` ruolo, o `Storage Blob Data Owner` . Un utente che scrive i dati nell'archiviazione di Azure deve avere un `Storage Blob Data Writer` `Storage Blob Data Owner` ruolo o. Si noti che `Storage Owner` il ruolo non implica anche l'uso di un utente `Storage Data Owner` .
-- Gli **elenchi di controllo di accesso (ACL)** consentono di definire un modello di autorizzazione con granularità fine nei file e nelle directory di archiviazione di Azure. L'ACL può essere assegnato a Azure AD utenti. Se i lettori vogliono leggere un file in un percorso in archiviazione di Azure, devono avere l'ACL Execute (X) in ogni cartella del percorso del file e l'ACL Read (R) nel file. [Altre informazioni su come impostare le autorizzazioni ACL nel livello di archiviazione](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls)
-- La **firma di accesso condiviso** consente a un lettore di accedere ai file nella risorsa di archiviazione Azure Data Lake usando il token temporale limitato. Il lettore non deve neanche essere autenticato come Azure AD utente. Il token di firma di accesso condiviso contiene le autorizzazioni concesse al lettore e il periodo in cui il token è valido. Il token di firma di accesso condiviso è la scelta ideale per l'accesso vincolato al tempo a tutti gli utenti che non devono necessariamente trovarsi nello stesso tenant Azure AD. Il token SAS può essere definito nell'account di archiviazione o in directory specifiche. Altre informazioni sulla [concessione di accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso](../../storage/common/storage-sas-overview.md).
+Un pool SQL serverless nell'Synapse Analytics di lavoro può leggere il contenuto dei file archiviati in Azure Data Lake Storage. È necessario configurare le autorizzazioni per l'archiviazione per consentire a un utente che esegue una query SQL di leggere i file. Esistono tre metodi per abilitare l'accesso ai file>
+- **[Il controllo degli accessi](../../role-based-access-control/overview.md)** in base al ruolo consente di assegnare un ruolo ad Azure AD utente nel tenant in cui si trova l'archiviazione. I ruoli controllo degli accessi in base al ruolo possono essere assegnati Azure AD utenti. Un lettore deve `Storage Blob Data Reader` avere un ruolo , o `Storage Blob Data Contributor` `Storage Blob Data Owner` . Un utente che scrive dati nell'archiviazione di Azure deve avere `Storage Blob Data Writer` un ruolo o `Storage Blob Data Owner` . Si noti `Storage Owner` che il ruolo non implica che anche un utente sia `Storage Data Owner` .
+- **Gli elenchi di controllo di accesso (ACL)** consentono di definire un modello di autorizzazione con granularità fine per i file e le directory in Archiviazione di Azure. ACL può essere assegnato a Azure AD utenti. Se i lettori vogliono leggere un file in un percorso in Archiviazione di Azure, devono avere l'ACL di esecuzione (X) in ogni cartella nel percorso del file e l'ACL read(R) nel file. [Altre informazioni su come impostare le autorizzazioni ACL nel livello di archiviazione](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls)
+- **La firma di accesso condiviso consente** a un lettore di accedere ai file in Azure Data Lake Storage usando il token con limite di tempo. Il lettore non deve neanche essere autenticato come Azure AD utente. Il token di firma di accesso condiviso contiene le autorizzazioni concesse al lettore e il periodo in cui il token è valido. Il token di firma di accesso condiviso è la scelta ideale per l'accesso con vincoli di tempo a qualsiasi utente che non deve nemmeno essere nello stesso tenant Azure AD tempo. Il token di firma di accesso condiviso può essere definito nell'account di archiviazione o in directory specifiche. Altre informazioni sulla [concessione dell'accesso limitato Archiviazione di Azure risorse con firme di accesso condiviso.](../../storage/common/storage-sas-overview.md)
 
 ## <a name="supported-storage-authorization-types"></a>Tipi di autorizzazione supportati per l'archiviazione
 
@@ -43,9 +43,9 @@ Un utente connesso a un pool SQL serverless deve essere autorizzato ad accedere 
 L'**identità utente**, anche nota come "pass-through di Azure AD", è un tipo di autorizzazione per cui per autorizzare l'accesso ai dati viene usata l'identità dell'utente di Azure AD connesso al pool SQL serverless. Prima di accedere ai dati, l'amministratore di Archiviazione di Azure deve concedere le apposite autorizzazioni all'utente di Azure AD. Come indicato nella tabella seguente, il tipo di utente SQL non è supportato.
 
 > [!IMPORTANT]
-> Il token di autenticazione AAD potrebbe essere memorizzato nella cache dalle applicazioni client. Ad esempio, Power bi memorizza nella cache il token AAD e riutilizza lo stesso token per un'ora. Le query runing lunghe potrebbero avere esito negativo se il token scade al centro dell'esecuzione della query. Se si verificano errori di query causati dal token di accesso di AAD che scade al centro della query, provare a passare a [identità gestita](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) o a [firma di accesso condiviso](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+> Il token di autenticazione AAD potrebbe essere memorizzato nella cache dalle applicazioni client. Ad esempio, PowerBI memorizza nella cache il token AAD e riutilizza lo stesso token per un'ora. Le query a esecuzione lunga potrebbero non riuscire se il token scade durante l'esecuzione della query. Se si verificano errori di query causati dal token di accesso di AAD che [](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) scade al centro della query, provare a passare a Identità gestita o Firma di [accesso condiviso.](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)
 
-Per accedere ai dati con l'identità utente, è necessario avere il ruolo di proprietario/collaboratore/lettore dei dati dei BLOB di archiviazione. In alternativa, è possibile specificare regole ACL con granularità fine per accedere ai file e alle cartelle. Anche se si è proprietari di un account di archiviazione, è comunque necessario aggiungere se stessi in uno dei ruoli dei dati dei BLOB di archiviazione.
+Per accedere ai dati con l'identità utente, è necessario avere il ruolo di proprietario/collaboratore/lettore dei dati dei BLOB di archiviazione. In alternativa, è possibile specificare regole ACL con granularità fine per accedere a file e cartelle. Anche se si è proprietari di un account di archiviazione, è comunque necessario aggiungere se stessi in uno dei ruoli dei dati dei BLOB di archiviazione.
 Per altre informazioni sul controllo di accesso in Azure Data Lake Store Gen2, vedere l'articolo [Controllo di accesso in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
 
 
@@ -64,7 +64,7 @@ Per abilitare l'accesso tramite il token di firma di accesso condiviso, è neces
 
 
 > [!IMPORTANT]
-> Si Impossibile l'accesso agli account di archiviazione privati con il token SAS. Provare a passare all' [identità gestita](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) o a [Azure ad autenticazione pass-through](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) per accedere all'archiviazione protetta.
+> Non è possibile accedere agli account di archiviazione privati con il token di firma di accesso condiviso. Provare a passare all'identità gestita o [Azure AD'autenticazione pass-through](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) per accedere all'archiviazione protetta. [](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types)
 
 ### <a name="managed-identity"></a>[Identità gestita](#tab/managed-identity)
 
@@ -86,7 +86,7 @@ Nella tabella seguente è possibile trovare i tipi di autorizzazione disponibili
 | ------------------------------------- | ------------- | -----------    |
 | [Identità utente](?tabs=user-identity#supported-storage-authorization-types)       | Non supportate | Supportato      |
 | [Firma di accesso condiviso](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supportato     | Supportato      |
-| [Identità gestita](?tabs=managed-identity#supported-storage-authorization-types) | Non supportate | Supportato      |
+| [Identità gestita](?tabs=managed-identity#supported-storage-authorization-types) | Supportato | Supportato      |
 
 ### <a name="supported-storages-and-authorization-types"></a>Tipi di autorizzazione e archiviazione supportati
 
@@ -106,18 +106,18 @@ Nella tabella seguente è possibile trovare i tipi di autorizzazione disponibili
 Per accedere a un account di archiviazione protetto da firewall, è possibile usare l'**identità utente** o l'**identità gestita**.
 
 > [!NOTE]
-> La funzionalità firewall nell'archiviazione è in anteprima pubblica ed è disponibile in tutte le aree del cloud pubblico. 
+> La funzionalità firewall in Archiviazione è disponibile in anteprima pubblica ed è disponibile in tutte le aree del cloud pubblico. 
 
 #### <a name="user-identity"></a>Identità utente
 
-Per accedere allo spazio di archiviazione protetto con il firewall tramite l'identità dell'utente, è possibile usare portale di Azure interfaccia utente o il modulo di PowerShell AZ. storage.
+Per accedere all'archiviazione protetta con il firewall tramite l'identità utente, è possibile usare l'interfaccia portale di Azure o il modulo PowerShell Az.Storage.
 #### <a name="configuration-via-azure-portal"></a>Configurazione tramite portale di Azure
 
 1. Cercare l'account di archiviazione in portale di Azure.
-1. Passare a rete nella sezione Impostazioni.
-1. Nella sezione "istanze di risorse" aggiungere un'eccezione per l'area di lavoro sinapsi.
-1. Selezionare Microsoft. sinapsi/Workspaces come tipo di risorsa.
-1. Selezionare il nome dell'area di lavoro come nome dell'istanza.
+1. Passare a Rete nella sezione Impostazioni.
+1. Nella sezione "Istanze delle risorse" aggiungere un'eccezione per l'area di lavoro synapse.
+1. Selezionare Microsoft.Synapse/workspaces come Tipo di risorsa.
+1. Selezionare il nome dell'area di lavoro come Nome istanza.
 1. Fare clic su Salva.
 
 #### <a name="configuration-via-powershell"></a>Configurazione tramite PowerShell
@@ -125,13 +125,13 @@ Per accedere allo spazio di archiviazione protetto con il firewall tramite l'ide
 Seguire questa procedura per configurare il firewall dell'account di archiviazione e aggiungere un'eccezione per l'area di lavoro di Synapse.
 
 1. Aprire o [installare PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows)
-2. Installare il modulo AZ. Storage 3.4.0 e AZ. sinapsi 0.7.0: 
+2. Installare il modulo Az.Storage 3.4.0 e Az.Synapse 0.7.0: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.4.0
     Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
-    > Assicurarsi di usare la **versione 3.4.0**. È possibile verificare la versione di Az.Storage eseguendo questo comando:  
+    > Assicurarsi di usare la **versione 3.4.0.** È possibile verificare la versione di Az.Storage eseguendo questo comando:  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
@@ -142,10 +142,10 @@ Seguire questa procedura per configurare il firewall dell'account di archiviazio
     Connect-AzAccount
     ```
 4. Definire le variabili in PowerShell: 
-    - Nome del gruppo di risorse: è possibile trovarlo in portale di Azure nella panoramica dell'account di archiviazione.
+    - Nome del gruppo di risorse: è possibile trovarlo in portale di Azure panoramica dell'account di archiviazione.
     - Nome dell'account: nome dell'account di archiviazione protetto dalle regole del firewall.
     - ID tenant: è possibile trovarlo nel portale di Azure in Azure Active Directory nelle informazioni sul tenant.
-    - Nome area di lavoro: nome dell'area di lavoro sinapsi.
+    - Nome area di lavoro: nome dell'area di lavoro synapse.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
@@ -161,7 +161,7 @@ Seguire questa procedura per configurare il firewall dell'account di archiviazio
         $resourceId
     ```
     > [!IMPORTANT]
-    > Verificare che l'ID risorsa corrisponda a questo modello nella stampa della variabile resourceId.
+    > Assicurarsi che l'ID risorsa corrisponda a questo modello nella stampa della variabile resourceId.
     >
     > È importante scrivere **resourcegroups** in lettere minuscole.
     > Esempio di un ID risorsa: 
@@ -214,7 +214,7 @@ GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 
 ## <a name="server-scoped-credential"></a>Credenziali con ambito server
 
-Le credenziali con ambito server vengono usate quando l'account di accesso SQL chiama la funzione `OPENROWSET` senza `DATA_SOURCE` per leggere i file in un account di archiviazione. Il nome delle credenziali con ambito server **deve** corrispondere all'URL di base di archiviazione di Azure, seguito facoltativamente da un nome di contenitore. Per aggiungere una credenziale, eseguire [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). Sarà necessario specificare un argomento CREDENTIAL NAME,
+Le credenziali con ambito server vengono usate quando l'account di accesso SQL chiama la funzione `OPENROWSET` senza `DATA_SOURCE` per leggere i file in un account di archiviazione. Il nome delle credenziali con ambito server **deve corrispondere** all'URL di base di Archiviazione di Azure (facoltativamente seguito da un nome di contenitore). Per aggiungere una credenziale, eseguire [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). Sarà necessario specificare un argomento CREDENTIAL NAME,
 
 > [!NOTE]
 > L'argomento `FOR CRYPTOGRAPHIC PROVIDER` non è supportato.
@@ -248,7 +248,7 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-Facoltativamente, è possibile usare solo l'URL di base dell'account di archiviazione, senza nome del contenitore.
+Facoltativamente, è possibile usare solo l'URL di base dell'account di archiviazione, senza il nome del contenitore.
 
 ### <a name="managed-identity"></a>[Identità gestita](#tab/managed-identity)
 
@@ -259,7 +259,7 @@ CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 WITH IDENTITY='Managed Identity'
 ```
 
-Facoltativamente, è possibile usare solo l'URL di base dell'account di archiviazione, senza nome del contenitore.
+Facoltativamente, è possibile usare solo l'URL di base dell'account di archiviazione, senza il nome del contenitore.
 
 ### <a name="public-access"></a>[Accesso pubblico](#tab/public-access)
 

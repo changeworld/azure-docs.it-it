@@ -1,46 +1,46 @@
 ---
 title: Procedure consigliate per il caricamento di dati
-description: Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati in un pool SQL dedicato Azure sinapsi Analytics.
+description: Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento dei dati in un pool SQL Azure Synapse Analytics.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 33212d44fcb6be3f01cf968d00751d55e3bd7b8f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9fe7ef8e6ccbadd5e78de5bfd5f137132dbe6319
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585452"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567945"
 ---
-# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Procedure consigliate per il caricamento di dati in un pool SQL dedicato Azure sinapsi Analytics
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Procedure consigliate per il caricamento di dati in un pool SQL dedicato Azure Synapse Analytics
 
-In questo articolo sono disponibili indicazioni e ottimizzazioni delle prestazioni per il caricamento dei dati.
+Questo articolo contiene raccomandazioni e ottimizzazioni delle prestazioni per il caricamento dei dati.
 
-## <a name="prepare-data-in-azure-storage"></a>Preparare i dati in archiviazione di Azure
+## <a name="prepare-data-in-azure-storage"></a>Preparare i dati in Archiviazione di Azure
 
-Per ridurre al minimo la latenza, colocare il livello di archiviazione e il pool SQL dedicato.
+Per ridurre al minimo la latenza, spostare il livello di archiviazione e il pool SQL dedicato.
 
 In caso di esportazione di dati in un formato di file ORC, quando sono presenti colonne di testo di grandi dimensioni potrebbero verificarsi errori di memoria insufficiente di Java. Per risolvere questo problema, esportare solo un subset di colonne.
 
-La polibase non può caricare righe contenenti più di 1 milione byte di dati. I dati inseriti nei file di testo nell'archivio BLOB di Azure o in Azure Data Lake Store devono corrispondere a meno di 1.000.000 di byte. Questa limitazione in termini di byte vale indipendentemente dallo schema di tabella.
+PolyBase non può caricare righe con più di 1.000.000 di byte di dati. I dati inseriti nei file di testo nell'archivio BLOB di Azure o in Azure Data Lake Store devono corrispondere a meno di 1.000.000 di byte. Questa limitazione in termini di byte vale indipendentemente dallo schema di tabella.
 
 Tutti i formati di file hanno caratteristiche di prestazioni diverse. Per ottenere la velocità di caricamento massima, usare file di testo delimitati compressi. La differenza di prestazioni tra UTF-8 e UTF-16 è minima.
 
 Suddividere i file compressi di grandi dimensioni in file compressi di dimensioni inferiori.
 
-## <a name="run-loads-with-enough-compute"></a>Eseguire i caricamenti con un numero sufficiente di risorse di calcolo
+## <a name="run-loads-with-enough-compute"></a>Eseguire caricamenti con risorse di calcolo sufficienti
 
-Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se questo approccio non è fattibile, eseguire contemporaneamente un numero minimo di caricamenti. Se si prevede un processo di caricamento di grandi dimensioni, prendere in considerazione la scalabilità verticale del pool SQL dedicato prima del caricamento.
+Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se questo approccio non è fattibile, eseguire contemporaneamente un numero minimo di caricamenti. Se si prevede un processo di caricamento di grandi dimensioni, è consigliabile aumentare le dimensioni del pool SQL dedicato prima del caricamento.
 
-Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente di caricamento a una classe di risorse o a un gruppo di carico di lavoro specifico. Per eseguire un caricamento, effettuare l'accesso come uno degli utenti di caricamento, quindi eseguire il caricamento. Il caricamento viene eseguito con la classe di risorse dell'utente.  Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
+Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente di caricamento a una classe di risorse o a un gruppo di carico di lavoro specifico. Per eseguire un carico, accedere come uno degli utenti in fase di caricamento e quindi eseguire il carico. Il caricamento viene eseguito con la classe di risorse dell'utente.  Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
 
-### <a name="create-a-loading-user"></a>Creazione di un utente di caricamento
+### <a name="create-a-loading-user"></a>Creare un utente di caricamento
 
 Questo esempio crea un utente addetto al caricamento per la classe di risorse staticrc20. Il primo passaggio consiste nel **connettersi al master** e creare un account di accesso.
 
@@ -58,7 +58,7 @@ Connettersi al data warehouse e creare un utente. Il codice seguente presuppone 
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-Per eseguire un caricamento con risorse per le classi di risorse staticRC20, accedere come LoaderRC20 ed eseguire il caricamento.
+Per eseguire un caricamento con risorse per le classi di risorse staticRC20, accedere come LoaderRC20 ed eseguire il carico.
 
 Eseguire i caricamenti con classi di risorse statiche anziché dinamiche. L'uso di classi di risorse statiche garantisce le stesse risorse indipendentemente dalle [unità data warehouse](resource-consumption-models.md). Se si usa una classe di risorse dinamica, le risorse variano in base al livello di servizio. Per le classi dinamiche, un livello di servizio inferiore renderà probabilmente necessario usare una classe di risorse di maggiori dimensioni per l'utente addetto al caricamento.
 
@@ -73,7 +73,7 @@ Si supponga ad esempio che esistano gli schemi di database schema_A per il repar
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
-User_A e user_B sono ora bloccati dallo schema dell'altro reparto.
+User_A e user_B sono ora bloccati dallo schema dell'altro dept.
 
 ## <a name="load-to-a-staging-table"></a>Eseguire il caricamento in una tabella di staging
 
@@ -83,16 +83,16 @@ Il caricamento è in genere un processo in due fasi in cui i dati vengono prima 
 
 ## <a name="load-to-a-columnstore-index"></a>Caricare in un indice columnstore
 
-Gli indici columnstore richiedono una grande quantità di memoria per la compressione dei dati in rowgroup di qualità elevata. Per una compressione e un'efficienza dell'indice ottimali, l'indice columnstore deve comprimere il valore massimo di 1.048.576 righe in ogni rowgroup. In caso di utilizzo elevato di memoria, l'indice columnstore potrebbe non riuscire a raggiungere i tassi di compressione massimi. Questa operazione ha effetto sulle prestazioni di esecuzione delle query. Per un approfondimento, vedere l'articolo relativo alle [ottimizzazioni della memoria columnstore](data-load-columnstore-compression.md).
+Gli indici columnstore richiedono una grande quantità di memoria per la compressione dei dati in rowgroup di qualità elevata. Per una compressione e un'efficienza dell'indice ottimali, l'indice columnstore deve comprimere il valore massimo di 1.048.576 righe in ogni rowgroup. In caso di utilizzo elevato di memoria, l'indice columnstore potrebbe non riuscire a raggiungere i tassi di compressione massimi. Ciò ha effetto sulle prestazioni delle query. Per un approfondimento, vedere l'articolo relativo alle [ottimizzazioni della memoria columnstore](data-load-columnstore-compression.md).
 
 - Per garantire all'utente addetto al caricamento una quantità di memoria sufficiente per raggiungere i massimi tassi di compressione, usare utenti addetti al caricamento che siano membri di una classe di risorse di medie o grandi dimensioni.
-- Caricare un numero di righe sufficiente a riempire completamente i nuovi rowgroup. Durante un caricamento bulk ogni 1.048.576 di righe viene compresso direttamente nel columnstore come rowgroup completo. In caso di caricamenti con meno di 102.400 righe, le righe vengono inviate nell'archivio differenziale, in cui vengono mantenute in un indice albero B. Se si carica un numero troppo basso di righe, le righe potrebbero essere inserite tutte nell'archivio differenziale e non essere immediatamente compresse nel formato columnstore.
+- Caricare un numero di righe sufficiente a riempire completamente i nuovi rowgroup. Durante un caricamento bulk, ogni 1.048.576 righe viene compresso direttamente nel columnstore come rowgroup completo. In caso di caricamenti con meno di 102.400 righe, le righe vengono inviate nell'archivio differenziale, in cui vengono mantenute in un indice albero B. Se si carica un numero troppo basso di righe, le righe potrebbero essere inserite tutte nell'archivio differenziale e non essere immediatamente compresse nel formato columnstore.
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentare le dimensioni del batch quando si usa l'API SQLBulkCopy o BCP
 
-Come indicato in precedenza, il caricamento con polibase fornirà la massima velocità effettiva con il pool SQL sinapsi. Se non è possibile usare la modalità polibase per caricare e deve usare l'API SQLBulkCopy (o BCP), è consigliabile aumentare le dimensioni del batch per una migliore velocità effettiva. una regola empirica è una dimensione del batch compresa tra 100.000 e 1 milione di righe.
+Come accennato in precedenza, il caricamento con PolyBase fornirà la massima velocità effettiva con Synapse SQL pool. Se non è possibile usare PolyBase per il caricamento ed è necessario usare l'API SQLBulkCopy (o BCP), è consigliabile aumentare le dimensioni del batch per una migliore velocità effettiva. Una buona regola generale è una dimensione batch compresa tra 100.000 e 1 M righe.
 
-## <a name="manage-loading-failures"></a>Gestione degli errori di caricamento
+## <a name="manage-loading-failures"></a>Gestire gli errori di caricamento
 
 Un caricamento con una tabella esterna può avere esito negativo con l'errore *"Query interrotta. È stata raggiunta la soglia massima di rifiuti durante la lettura da un'origine esterna"*. Questo messaggio indica che i dati esterni contengono record dirty. Un record di dati viene considerato dirty se i tipi di dati e il numero di colonne non corrispondono alle definizioni di colonna della tabella esterna oppure se i dati non sono conformi al formato di file esterno specificato.
 
@@ -106,9 +106,9 @@ Se nel corso di una giornata si eseguono migliaia di singoli inserimenti o più,
 
 ## <a name="create-statistics-after-the-load"></a>Creare statistiche dopo il caricamento
 
-Per migliorare le prestazioni delle query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento oppure apportare modifiche sostanziali ai dati. Create Statistics può essere eseguita manualmente oppure è possibile abilitare la [creazione automatica delle statistiche](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Per migliorare le prestazioni delle query, è importante creare statistiche su tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo che si sono verificate modifiche importanti nei dati. La creazione di statistiche può essere eseguita manualmente oppure è possibile abilitare [la creazione automatica delle statistiche.](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
-Per una spiegazione dettagliata delle statistiche, vedere [Statistiche](develop-tables-statistics.md). Nell'esempio seguente viene illustrato come creare manualmente statistiche per cinque colonne della tabella Customer_Speed.
+Per una spiegazione dettagliata delle statistiche, vedere [Statistiche](develop-tables-statistics.md). Nell'esempio seguente viene illustrato come creare manualmente statistiche su cinque colonne della Customer_Speed tabella .
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -144,6 +144,6 @@ Non sono necessarie altre modifiche alle origini dati esterne.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su polibase e sulla progettazione di un processo di estrazione, caricamento e trasformazione (ELT), vedere la pagina relativa alla progettazione di un processo ELT [per l'analisi delle sinapsi di Azure](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-- Per un'esercitazione sul caricamento, [usare la polibase per caricare i dati dall'archiviazione BLOB di Azure ad Azure sinapsi Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
+- Per altre informazioni su PolyBase e sulla progettazione di un processo di estrazione, caricamento e trasformazione (ELT), vedere [Progettare ELT per](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)Azure Synapse Analytics .
+- Per un'esercitazione sul caricamento, [usare PolyBase per caricare dati dall'archivio BLOB di Azure Azure Synapse Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 - Per monitorare il caricamento dei dati, vedere [Monitoraggio del carico di lavoro mediante DMV](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

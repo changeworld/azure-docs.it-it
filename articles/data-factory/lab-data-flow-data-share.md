@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
-ms.openlocfilehash: d3924c38f760a9698735a2757bdad2af5beb0e24
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 04/16/2021
+ms.openlocfilehash: 392b1a1650ab40951704d003f2a5e5337cf3c0f5
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518823"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566707"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integrazione dei dati con Azure Data Factory e Condivisione dati di Azure
 
@@ -64,7 +64,7 @@ Nei servizi collegati di Azure Data Factory definire le informazioni per la conn
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Creare un servizio collegato Database SQL di Azure
 
-1. Per creare un servizio collegato, selezionare Gestisci hub nella  barra laterale  sinistra, nel riquadro Connessioni selezionare Servizi collegati e quindi selezionare **Nuovo** per aggiungere un nuovo servizio collegato. 
+1. Per creare un servizio collegato, selezionare Gestisci hub nella  barra laterale sinistra, nel  riquadro Connessioni selezionare **Servizi collegati** e quindi Selezionare Nuovo per aggiungere un nuovo servizio collegato. 
 
     ![Configurazione nel portale 2](media/lab-data-flow-data-share/configure2.png)
 1. Il primo servizio collegato da configurare è un database SQL di Azure. È possibile usare la barra di ricerca per filtrare l'elenco di archivi dati. Fare clic sul riquadro **Database SQL di Azure** e quindi su Continua.
@@ -100,7 +100,7 @@ Per attivare il debug, fare clic sul dispositivo di scorrimento **Debug** flusso
 
 ![Configurazione nel portale 10](media/lab-data-flow-data-share/configure10.png)
 
-![Configurazione del portale 11](media/lab-data-flow-data-share/configure11.png)
+![Screenshot che mostra dove si trova il dispositivo di scorrimento Debug flusso di dati.](media/lab-data-flow-data-share/configure-11.png)
 
 ## <a name="ingest-data-using-the-copy-activity"></a>Inserire i dati usando l'attività di copia
 

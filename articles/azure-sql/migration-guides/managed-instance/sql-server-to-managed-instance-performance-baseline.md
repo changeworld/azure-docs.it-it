@@ -1,89 +1,89 @@
 ---
-title: 'SQL Server al Istanza gestita SQL di Azure: analisi delle prestazioni'
-description: Informazioni su come creare e confrontare una baseline delle prestazioni quando si esegue la migrazione dei database di SQL Server al Istanza gestita SQL di Azure.
+title: 'SQL Server da Istanza gestita di SQL di Azure: Baseline delle prestazioni'
+description: Informazioni su come creare e confrontare una baseline delle prestazioni durante la migrazione dei database SQL Server a Istanza gestita di SQL di Azure.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: a97dabe36efb252b04c1b5c8fa741d33a6c92703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a47684bf29f1f34b8c9c59c04b7d33d234505cc2
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023674"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389707"
 ---
-# <a name="migration-performance-sql-server-to--azure-sql-managed-instance-performance-analysis"></a>Prestazioni della migrazione: analisi delle prestazioni da SQL Server ad Azure SQL Istanza gestita
+# <a name="migration-performance-sql-server-to--azure-sql-managed-instance-performance-baseline"></a>Prestazioni della migrazione: da SQL Server a Istanza gestita di SQL di Azure di base delle prestazioni
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
-Creare una baseline per le prestazioni per confrontare le prestazioni del carico di lavoro in un Istanza gestita SQL con il carico di lavoro originale in esecuzione in SQL Server. 
+Creare una baseline delle prestazioni per confrontare le prestazioni del carico di lavoro in un Istanza gestita SQL con il carico di lavoro originale in esecuzione SQL Server. 
 
-## <a name="create-a-baseline"></a>Creazione di una linea di base
+## <a name="create-a-baseline"></a>Creare una baseline
 
-Idealmente, le prestazioni sono simili o migliori dopo la migrazione, quindi è importante misurare e registrare i valori delle prestazioni di base nell'origine, quindi confrontarli con l'ambiente di destinazione. Una baseline per le prestazioni è un set di parametri che definiscono il carico di lavoro medio nell'origine. 
+Le prestazioni sono idealmente simili o migliori dopo la migrazione, quindi è importante misurare e registrare i valori delle prestazioni di base nell'origine e quindi confrontarli con l'ambiente di destinazione. Una baseline delle prestazioni è un set di parametri che definiscono il carico di lavoro medio nell'origine. 
 
-Selezionare un set di query importanti per e rappresentativo del carico di lavoro aziendale. Misurare e documentare la durata minima/media/massima e l'utilizzo della CPU per queste query, nonché le metriche delle prestazioni nel server di origine, ad esempio utilizzo della CPU medio/massimo, latenza di i/o del disco media/massima, velocità effettiva, IOPS, permanenza media/massima delle pagine e dimensioni medie massime del tempdb. 
+Selezionare un set di query importanti e rappresentative del carico di lavoro aziendale. Misurare e documentare la durata minima/media/massima e l'utilizzo della CPU per queste query, nonché le metriche delle prestazioni nel server di origine, ad esempio l'utilizzo medio/massimo della CPU, la latenza media/massima di I/O del disco, la velocità effettiva, le operazioni di I/O al secondo, l'aspettativa di vita media/massima delle pagine e le dimensioni massime medie di tempdb. 
 
-Le risorse seguenti consentono di definire una linea di base per le prestazioni: 
+Le risorse seguenti consentono di definire una baseline delle prestazioni: 
 
    - [Monitorare l'utilizzo della CPU ](https://techcommunity.microsoft.com/t5/azure-sql-database/monitor-cpu-usage-on-sql-server-and-azure-sql/ba-p/680777#M131)
-   - [Monitorare l'utilizzo](/sql/relational-databases/performance-monitor/monitor-memory-usage)   della memoria e determinano la quantità di memoria usata da diversi componenti, ad esempio pool di buffer, cache dei piani, pool di archivio colonne, [OLTP in memoria](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage)e così via. Inoltre, è necessario trovare i valori medi e massimi del contatore delle prestazioni della memoria permanenza presunta delle pagine. 
-   - Monitorare l'utilizzo dei dati di i/o su disco [](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)nell'istanza di SQL Server di origine utilizzando i    [contatori delle prestazioni](/sql/relational-databases/performance-monitor/monitor-disk-usage)o della sys.dm_io_virtual_file_stats. 
-   - Monitorare il carico di lavoro e le prestazioni delle query esaminando viste a gestione dinamica (o Query Store se si esegue la migrazione da SQL Server 2016 e versioni successive). Identificare la durata media e l'utilizzo della CPU delle query più importanti nel carico di lavoro. 
+   - [Monitorare l'utilizzo della memoria](/sql/relational-databases/performance-monitor/monitor-memory-usage)   e determinare la quantità di memoria usata dai diversi componenti, ad esempio pool di buffer, cache dei piani, pool di archivi colonne, [OLTP in](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage)memoria e così via. Inoltre, è necessario trovare i valori medi e massimi del contatore delle prestazioni Dell'aspettativa di vita della pagina. 
+   - Monitorare l'utilizzo di I/O del disco SQL Server'istanza di origine usando [la sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)o   i [contatori delle prestazioni](/sql/relational-databases/performance-monitor/monitor-disk-usage). 
+   - Monitorare le prestazioni del carico di lavoro e delle query esaminando le viste a gestione dinamica (o Query Store se si esegue la migrazione da SQL Server 2016 e versioni successive). Identificare la durata media e l'utilizzo della CPU delle query più importanti nel carico di lavoro. 
 
-Eventuali problemi di prestazioni nel SQL Server di origine devono essere risolti prima della migrazione. La migrazione di problemi noti a qualsiasi nuovo sistema può causare risultati imprevisti e invalidare qualsiasi confronto delle prestazioni. 
+Prima della migrazione, è consigliabile risolvere SQL Server problemi di prestazioni nell'origine. La migrazione di problemi noti a qualsiasi nuovo sistema potrebbe causare risultati imprevisti e invalidare qualsiasi confronto delle prestazioni. 
 
 
 ## <a name="compare-performance"></a>Confrontare le prestazioni 
 
-Dopo aver definito una linea di base, confrontare le prestazioni del carico di lavoro simili sul Istanza gestita SQL di destinazione. Per maggiore precisione, è importante che l'ambiente SQL Istanza gestita sia paragonabile al più possibile l'ambiente SQL Server. 
+Dopo aver definito una baseline, confrontare prestazioni del carico di lavoro simili nel database SQL di Istanza gestita. Per l'accuratezza, è importante che l'ambiente Istanza gestita SQL sia il più possibile paragonabile all'ambiente SQL Server locale. 
 
-Esistono differenze nell'infrastruttura di SQL Istanza gestita che rendono esattamente improbabile la corrispondenza delle prestazioni. Alcune query potrebbero essere eseguite più velocemente del previsto, mentre altre potrebbero risultare più lente. Lo scopo di questo confronto consiste nel verificare che le prestazioni del carico di lavoro nell'istanza gestita soddisfino le prestazioni in SQL Server (in media) e per identificare eventuali query critiche con prestazioni che non corrispondono alle prestazioni originali. 
+Esistono differenze di infrastruttura Istanza gestita SQL che rendono le prestazioni corrispondenti esattamente improbabili. Alcune query possono essere eseguite più velocemente del previsto, mentre altre potrebbero essere più lente. L'obiettivo di questo confronto è verificare che le prestazioni del carico di lavoro nell'istanza gestita corrispondano alle prestazioni in SQL Server (in media) e identificare le query critiche con prestazioni che non corrispondono alle prestazioni originali. 
 
-È probabile che il confronto delle prestazioni provochi i risultati seguenti: 
+Il confronto delle prestazioni può comportare i risultati seguenti: 
 
-- Le prestazioni dei carichi di lavoro nell'istanza gestita sono allineate o migliori rispetto alle prestazioni del carico di lavoro nel SQL Server di origine. In questo caso, è stato confermato che la migrazione è stata completata correttamente. 
+- Le prestazioni del carico di lavoro nell'istanza gestita sono allineate o migliori rispetto alle prestazioni del carico di lavoro nell'origine SQL Server. In questo caso, è stato confermato che la migrazione ha esito positivo. 
 
-- La maggior parte dei parametri delle prestazioni e delle query nel carico di lavoro viene eseguita come previsto, con alcune eccezioni che comportano un calo delle prestazioni. In questo caso, identificare le differenze e la loro importanza. Se sono presenti alcune query importanti con prestazioni ridotte, verificare se i piani SQL sottostanti sono stati modificati o se le query raggiungono i limiti delle risorse. È possibile ovviare a questo problema applicando alcuni suggerimenti sulle query critiche (ad esempio, modificare il livello di compatibilità e la stima di cardinalità legacy), direttamente o usando le guide di piano. Verificare che le statistiche e gli indici siano aggiornati e equivalenti in entrambi gli ambienti. 
+- La maggior parte dei parametri delle prestazioni e delle query nel carico di lavoro viene eseguita come previsto, con alcune eccezioni che causano prestazioni ridotte. In questo caso, identificare le differenze e la relativa importanza. Se sono presenti query importanti con prestazioni ridotte, verificare se i piani SQL sottostanti sono stati modificati o se le query stanno per raggiungere i limiti delle risorse. È possibile attenuare questo problema applicando alcuni hint alle query critiche (ad esempio, modificare il livello di compatibilità, lo strumento di stima della cardinalità legacy) direttamente o usando guide di piano. Assicurarsi che le statistiche e gli indici siano aggiornati ed equivalenti in entrambi gli ambienti. 
 
-- La maggior parte delle query è più lenta in un'istanza gestita rispetto all'istanza di SQL Server di origine. In questo caso, provare a identificare le cause principali della differenza, ad esempio il [raggiungimento di un limite di risorse](../../managed-instance/resource-limits.md#service-tier-characteristics) , ad esempio i limiti di velocità di i/o, memoria o di log dell'istanza. Se non sono presenti limiti per le risorse che determinano la differenza, provare a modificare il livello di compatibilità del database o modificare le impostazioni del database, ad esempio la stima della cardinalità legacy, e rieseguire il test. Esaminare le indicazioni fornite dall'istanza gestita o dalle viste Query Store per identificare le query con prestazioni regressioni. 
+- La maggior parte delle query è più lenta in un'istanza gestita rispetto all'SQL Server di origine. In questo caso, provare a identificare le [](../../managed-instance/resource-limits.md#service-tier-characteristics) cause radice della differenza, ad esempio il raggiungimento di un limite di risorse, ad esempio i limiti di I/O, memoria o frequenza del log dell'istanza. Se non sono presenti limiti di risorse che causano la differenza, provare a modificare il livello di compatibilità del database o modificare le impostazioni del database, ad esempio la stima della cardinalità legacy, ed eseguire nuovamente il test. Esaminare le raccomandazioni fornite dall'istanza gestita o dalle Query Store per identificare le query con prestazioni regredite. 
 
-SQL Istanza gestita dispone di una funzionalità di correzione automatica dei piani, abilitata per impostazione predefinita. Questa funzionalità garantisce che le query che hanno funzionato correttamente in passato non peggiorano in futuro. Se questa funzionalità non è abilitata, eseguire il carico di lavoro con le impostazioni precedenti in modo che SQL Istanza gestita possa apprendere la baseline delle prestazioni. Quindi, abilitare la funzionalità ed eseguire di nuovo il carico di lavoro con le nuove impostazioni. 
+SQL Istanza gestita dispone di una funzionalità di correzione automatica dei piani incorporata abilitata per impostazione predefinita. Questa funzionalità garantisce che le query che hanno funzionato correttamente in passato non si degradino in futuro. Se questa funzionalità non è abilitata, eseguire il carico di lavoro con le impostazioni predefinite in modo che SQL Istanza gestita possa apprendere la baseline delle prestazioni. Abilitare quindi la funzionalità ed eseguire di nuovo il carico di lavoro con le nuove impostazioni. 
 
-Apportare modifiche ai parametri del test o eseguire l'aggiornamento a livelli di servizio superiori per raggiungere la configurazione ottimale per le prestazioni del carico di lavoro adatte alle proprie esigenze. 
+Apportare modifiche ai parametri del test o eseguire l'aggiornamento a livelli di servizio più elevati per raggiungere la configurazione ottimale per le prestazioni del carico di lavoro che soddisfano le esigenze. 
 
 ## <a name="monitor-performance"></a>Monitorare le prestazioni 
 
-SQL Istanza gestita offre strumenti avanzati per il monitoraggio e la risoluzione dei problemi ed è consigliabile usarli per monitorare le prestazioni dell'istanza. Di seguito sono riportate alcune delle metriche principali da monitorare: 
+SQL Istanza gestita offre strumenti avanzati per il monitoraggio e la risoluzione dei problemi ed è consigliabile usarli per monitorare le prestazioni nell'istanza. Alcune delle metriche principali da monitorare sono: 
 
-- Utilizzo della CPU nell'istanza di per determinare se il numero di vcore di cui è stato effettuato il provisioning è la corrispondenza corretta per il carico di lavoro. 
-- Permanenza presunta della pagina nell'istanza gestita per determinare se è necessaria [memoria aggiuntiva](https://techcommunity.microsoft.com/t5/azure-sql-database/do-you-need-more-memory-on-azure-sql-managed-instance/ba-p/563444).
--  Statistiche come INSTANCE_LOG_GOVERNOR o PAGEIOLATCH che identificano i problemi di i/o di archiviazione, soprattutto nel livello di per utilizzo generico, in cui potrebbe essere necessario pre-allocare i file per ottenere migliori prestazioni di i/o. 
+- Utilizzo della CPU nell'istanza di per determinare se il numero di vCore di cui è stato effettuato il provisioning è la corrispondenza giusta per il carico di lavoro. 
+- Aspettativa di durata della pagina nell'istanza gestita per determinare se è necessaria [memoria aggiuntiva.](https://techcommunity.microsoft.com/t5/azure-sql-database/do-you-need-more-memory-on-azure-sql-managed-instance/ba-p/563444)
+-  Statistiche come INSTANCE_LOG_GOVERNOR o PAGEIOLATCH che identificano i problemi di I/O di archiviazione, in particolare nel livello per utilizzo generico, in cui potrebbe essere necessario preallocare i file per ottenere prestazioni di I/O migliori. 
 
 
 ## <a name="considerations"></a>Considerazioni  
 
 Quando si confrontano le prestazioni, tenere presente quanto segue: 
 
-- Impostazioni corrispondenti tra origine e destinazione. Verificare che varie impostazioni di istanza, database e tempdb siano equivalenti tra i due ambienti. Le differenze di configurazione, i livelli di compatibilità, le impostazioni di crittografia, i flag di traccia e così via possono comparire le prestazioni. 
+- Le impostazioni corrispondono tra l'origine e la destinazione. Verificare che varie impostazioni di istanza, database e tempdb siano equivalenti tra i due ambienti. Le differenze nella configurazione, nei livelli di compatibilità, nelle impostazioni di crittografia, nei flag di traccia e così via possono astrarre tutte le prestazioni. 
 
-- L'archiviazione viene configurata in base alle [procedure consigliate](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525). Ad esempio, per per utilizzo generico, potrebbe essere necessario pre-allocare le dimensioni dei file per migliorare le prestazioni. 
+- L'archiviazione viene configurata in base [alle procedure consigliate.](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525) Ad esempio, per per utilizzo generico, potrebbe essere necessario preallocare le dimensioni dei file per migliorare le prestazioni. 
 
-- Sono presenti [differenze di ambiente principali](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) che possono causare differenze nelle prestazioni tra un'istanza gestita e SQL Server. Identificare i rischi rilevanti per l'ambiente che possono contribuire a un problema di prestazioni. 
+- Esistono differenze [di ambiente chiave che](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) possono causare differenze di prestazioni tra un'istanza gestita e SQL Server. Identificare i rischi rilevanti per l'ambiente che potrebbero contribuire a un problema di prestazioni. 
 
-- L'archivio query e l'ottimizzazione automatica devono essere abilitati nella Istanza gestita SQL perché consentono di misurare le prestazioni del carico di lavoro e di ridurre automaticamente i potenziali problemi di prestazioni. 
+- L'archivio query e l'ottimizzazione automatica devono essere abilitati nel database SQL Istanza gestita consentono di misurare le prestazioni del carico di lavoro e di ridurre automaticamente i potenziali problemi di prestazioni. 
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sull'ottimizzazione del nuovo ambiente di Istanza gestita SQL di Azure, vedere le risorse seguenti: 
+Per altre informazioni su come ottimizzare il nuovo Istanza gestita di SQL di Azure, vedere le risorse seguenti: 
 
-- [Come identificare il motivo per cui le prestazioni dei carichi di lavoro in Azure SQL Istanza gestita sono diverse da SQL Server?](https://medium.com/azure-sqldb-managed-instance/what-to-do-when-azure-sql-managed-instance-is-slower-than-sql-server-dd39942aaadd)
-- [Principali cause delle differenze di prestazioni tra SQL Istanza gestita e SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)
-- [Procedure consigliate e considerazioni sulle prestazioni di archiviazione per Istanza gestita SQL di Azure (per utilizzo generico)](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525)
-- [Il monitoraggio delle prestazioni in tempo reale per Istanza gestita SQL di Azure (archiviato è la destinazione prevista?)](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)
+- [Come identificare perché le prestazioni del carico di lavoro Istanza gestita di SQL di Azure sono diverse da quelle SQL Server?](https://medium.com/azure-sqldb-managed-instance/what-to-do-when-azure-sql-managed-instance-is-slower-than-sql-server-dd39942aaadd)
+- [Cause principali delle differenze di prestazioni tra sql Istanza gestita e SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)
+- [Procedure consigliate e considerazioni sulle prestazioni di archiviazione per Istanza gestita di SQL di Azure (per utilizzo generico)](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525)
+- [Monitoraggio delle prestazioni in tempo reale per Istanza gestita di SQL di Azure (questa è archiviata, è la destinazione prevista?)](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)

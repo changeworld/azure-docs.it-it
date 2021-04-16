@@ -4,20 +4,20 @@ description: Installare Visual Studio e SQL Server Data Tools (SSDT) per Synapse
 services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
-author: gaursa
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 05/11/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: 6891176ff648e0f07b0f4921c3558df51f55388e
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c8c07997b3ef8cb050ea4609a650a3e3b1bd21fb
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279749"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568251"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Introduzione a Visual Studio 2019
 
@@ -43,8 +43,8 @@ In alcuni casi le versioni delle funzionalità per Synapse SQL possono non inclu
 - [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (incluse le funzioni con valori di tabella)
   - Inviare un [ticket di supporto o votare ](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security)per ottenere la funzionalità supportata.
   - Inviare un [ticket di supporto o votare ](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking)per ottenere la funzionalità supportata.
-- Alcune funzionalità T-SQL, ad esempio:
-   - Clausola *within Group* nella funzione [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql) String.
+- Alcune funzionalità di T-SQL, ad esempio:
+   - *Clausola WITHIN GROUP* nella [funzione STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql) stringa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

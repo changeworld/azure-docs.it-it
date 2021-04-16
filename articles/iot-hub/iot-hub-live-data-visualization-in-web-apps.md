@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 53b5add7526b0c20487e8fe3adb0b8ebe207a2ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4f2f0678b421ac6965b2848cc25564b4e95c7c6b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200037"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567065"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizzare i dati di un sensore in tempo reale dall'hub IoT di Azure in un'applicazione Web
 
@@ -25,23 +25,11 @@ ms.locfileid: "102200037"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-## <a name="what-you-learn"></a>Contenuto dell'esercitazione
+Questo articolo illustra come visualizzare i dati dei sensori in tempo reale ricevuti dall'hub IoT con un'app Web node.js in esecuzione nel computer locale. Dopo aver eseguito l'app Web in locale, è possibile seguire la procedura per ospitare l'app Web nel servizio app di Azure. Se si desidera provare a visualizzare i dati nell'hub IoT con Power BI, vedere [Usare Power BI per visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure](iot-hub-live-data-visualization-in-power-bi.md).
 
-In questa esercitazione si imparerà a visualizzare i dati del sensore in tempo reale che l'hub IoT riceve con un'app Web node.js in esecuzione sul computer locale. Dopo aver eseguito l'app Web in locale, è possibile seguire la procedura per ospitare l'app Web nel servizio app di Azure. Se si desidera provare a visualizzare i dati nell'hub IoT con Power BI, vedere [Usare Power BI per visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure](iot-hub-live-data-visualization-in-power-bi.md).
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="what-you-do"></a>Operazioni da fare
-
-* Aggiungere un gruppo di consumer all'hub IoT che l'applicazione Web userà per leggere i dati dei sensori
-* Scaricare il codice dell'app Web da GitHub
-* Esaminare il codice dell'app Web
-* Configurare le variabili di ambiente in modo che contengano gli artefatti dell'hub IoT necessari per l'app Web
-* Eseguire l'app Web sul computer di sviluppo
-* Aprire una pagina Web per visualizzare i dati di temperatura e umidità in tempo reale dall'hub IoT
-* (Opzionale) Usare l'interfaccia della riga di comando di Azure per ospitare l'app Web nel servizio app di Azure
-
-## <a name="what-you-need"></a>Elementi necessari
-
-* Completare l'esercitazione del [simulatore online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o una delle esercitazioni sui dispositivi; ad esempio, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Sono previsti i requisiti seguenti:
+* Completare [l'esercitazione sul simulatore online Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o una delle esercitazioni sul dispositivo. Ad esempio, è possibile passare a [Raspberry Pi ](iot-hub-raspberry-pi-kit-node-get-started.md) con node.jso a una delle [guide](quickstart-send-telemetry-dotnet.md) introduttive Inviare dati di telemetria. Questi articoli riguardano i requisiti seguenti:
 
   * Una sottoscrizione di Azure attiva
   * Un hub IoT nella sottoscrizione
@@ -184,7 +172,7 @@ In questa sezione si esegue il provisioning di un'app Web in Servizio app e si d
 
 5. Per distribuire il codice nel servizio app, si useranno le [credenziali di distribuzione livello utente](../app-service/deploy-configure-credentials.md). Le credenziali di distribuzione livello utente sono diverse dalle credenziali di Azure e vengono usate per le distribuzioni FTP e locali Git in un'app Web. Una volta impostate, sono valide in tutte le app del servizio app in tutte le sottoscrizioni dell'account Azure. Se in precedenza sono state impostate delle credenziali di distribuzione livello utente, è possibile usare tali credenziali.
 
-   Se in precedenza non sono state impostate delle credenziali di distribuzione livello utente o non è possibile ricordare la password, eseguire il comando seguente. Il nome utente della distribuzione deve essere univoco all'interno di Azure e non deve contenere il \@ simbolo '' per i push git locali. Quando viene richiesto, immettere e confermare la nuova password. La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli.
+   Se in precedenza non sono state impostate delle credenziali di distribuzione livello utente o non è possibile ricordare la password, eseguire il comando seguente. Il nome utente della distribuzione deve essere univoco all'interno di Azure e non deve contenere il \@ simbolo ' per i push Git locali. Quando viene richiesto, immettere e confermare la nuova password. La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>
@@ -202,7 +190,7 @@ In questa sezione si esegue il provisioning di un'app Web in Servizio app e si d
    git remote add webapp <Git clone URL>
    ```
 
-8. Per distribuire il codice nel servizio app, immettere il comando seguente nella finestra di comando. Se vengono richieste le credenziali, immettere le credenziali di distribuzione livello utente create nel passaggio 5. Assicurarsi di effettuare il push nel ramo principale del servizio app remoto.
+8. Per distribuire il codice nel servizio app, immettere il comando seguente nella finestra di comando. Se vengono richieste le credenziali, immettere le credenziali di distribuzione livello utente create nel passaggio 5. Assicurarsi di eseguire il push nel ramo principale del servizio app remoto.
 
     ```cmd
     git push webapp main:main

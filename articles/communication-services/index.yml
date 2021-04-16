@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 03/10/2021
-  ms.openlocfilehash: b2aec44f3e80267d18844d887f5e2607192ea208
-  ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+  ms.openlocfilehash: 4f1a8403cf298d7f5d37da7238bc641563119b9e
+  ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/25/2021
-  ms.locfileid: "105108078"
+  ms.lasthandoff: 04/16/2021
+  ms.locfileid: "107539073"
 landingContent:
 - title: Informazioni su Servizi di comunicazione di Azure
   linkLists:
@@ -24,9 +24,9 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
-    - text: Opzioni SDK
+    - text: Opzioni dell'SDK
       url: concepts/sdk-options.md
-    - text: Interoperabilità team
+    - text: Interoperabilità di Teams
       url: concepts/teams-interop.md
 - title: Introduzione
   linkLists:
@@ -46,19 +46,21 @@ landingContent:
       url: https://docs.microsoft.com/azure/event-grid/event-schema-communication-services
     - text: Notifiche
       url: concepts/notifications.md
+    - text: Risoluzione dei problemi
+      url: concepts/troubleshooting-info.md
 - title: Chiamate vocali e video
   linkLists:
   - linkListType: quickstart
     links:
     - text: Aggiungere chiamate vocali e video all'app
       url: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - text: Usare l'SDK chiamante
+    - text: Usare l'SDK di chiamata
       url: quickstarts/voice-video-calling/calling-client-samples.md
   - linkListType: concept
     links:
     - text: Concetti relativi alle chiamate vocali e video
       url: concepts/voice-video-calling/about-call-types.md
-    - text: Panoramica dell'SDK chiamante
+    - text: Panoramica delle chiamate all'SDK
       url: concepts/voice-video-calling/calling-sdk-features.md
     - text: Flussi di chiamate
       url: concepts/call-flows.md
@@ -82,6 +84,10 @@ landingContent:
       url: concepts/voice-video-calling/calling-sdk-features.md
     - text: Tipi di numero di telefono
       url: concepts/telephony-sms/plan-solution.md
+  - linkListType: learn
+    links:
+    - text: 'Inviare un SMS con C #'
+      url: https://docs.microsoft.com/learn/modules/communication-service-send-sms-console-app/
 - title: Chat
   linkLists:
   - linkListType: quickstart

@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva-inviare dati di telemetria alla Guida introduttiva all'hub Azure. (Python) | Microsoft Docs
+title: 'Avvio rapido: Inviare dati di telemetria hub IoT di Azure guida introduttiva (Python) | Microsoft Docs'
 description: In questa guida introduttiva si esegue un'applicazione Python di esempio per inviare dati di telemetria simulati a un hub IoT e usare un'utilità per leggere i dati di telemetria dall'hub IoT.
 author: wesmc7777
 manager: philmea
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/16/2020
-ms.openlocfilehash: bb86ccafaa0b9eac5ef35e96bbe3031a40f350ee
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 18163c3e5cdf83d736cdb52a3de028bf8890e728
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067521"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568574"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (Python)
 
@@ -34,7 +34,7 @@ In questa guida di avvio rapido si inviano dati di telemetria da un'applicazione
 
 * [Python 3.7+](https://www.python.org/downloads/). Per informazioni sulle altre versioni di Python supportate, vedere [Funzionalità per i dispositivi IoT di Azure](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
 
-* [Un progetto Python di esempio](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip).
+* [Un progetto Python di esempio](https://github.com/Azure-Samples/azure-iot-samples-python/) da GitHub. Scaricare o clonare gli esempi usando il **pulsante Codice** nel repository GitHub.
 
 * Porta 8883 aperta nel firewall. L'esempio di dispositivo di questo argomento di avvio rapido usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -91,6 +91,8 @@ In questa guida di avvio rapido si inviano dati di telemetria da un'applicazione
 ## <a name="send-simulated-telemetry"></a>Inviare dati di telemetria simulati
 
 L'applicazione del dispositivo simulato si connette a un endpoint specifico del dispositivo nell'hub IoT e invia dati di telemetria simulati di temperatura e umidità.
+
+1. Scaricare o clonare il repository azure-iot-samples-python usando il pulsante **Codice** nella pagina [del repository azure-iot-samples-python](https://github.com/Azure-Samples/azure-iot-samples-python/).
 
 1. In una finestra del terminale locale passare alla cartella radice del progetto Python di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device**.
 

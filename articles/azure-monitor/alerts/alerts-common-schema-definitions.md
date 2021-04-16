@@ -4,19 +4,19 @@ description: Informazioni sulle definizioni dello schema di avviso comuni per Mo
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 04/12/2021
-ms.openlocfilehash: 5ec2adc4594c71f640b027d799b0a3c133ca2333
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 6d835b6d2c3519bc47decf8256ab3f3380170df6
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308660"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565118"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
 Questo articolo presenta le [definizioni dello schema di avviso comuni](./alerts-common-schema.md) per Monitoraggio di Azure, incluse quelle per webhook, App per la logica di Azure, Funzioni di Azure e runbook di Automazione di Azure. 
 
 Tutte le istanze di avviso descrivono la risorsa interessata e la relativa causa. Queste istanze sono descritte nello schema comune nelle sezioni seguenti:
-* **Informazioni di base**: Set di campi standardizzati, comune in tutti i tipi di avviso, che descrivono la risorsa interessata dall'avviso, insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. Le definizioni di gravità sono reperibili nella [Panoramica degli avvisi](alerts-overview.md#overview). 
+* **Informazioni di base**: Set di campi standardizzati, comune in tutti i tipi di avviso, che descrivono la risorsa interessata dall'avviso, insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. Le definizioni della gravità sono disponibili nella panoramica [degli avvisi.](alerts-overview.md#overview) 
 * **Contesto avviso**: Set di campi che descrive il motivo dell'avviso, con campi che variano in base al tipo di avviso. Un avviso di metrica, ad esempio, include campi come il nome della metrica e il valore della metrica nel contesto dell'avviso, mentre un avviso del log attività contiene informazioni sull'evento che ha generato l'avviso. 
 
 **Payload di avvisi di esempio**
@@ -72,7 +72,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa causa
 
 | Campo | Descrizione|
 |:---|:---|
-| alertId | GUID che identifica in modo univoco l'istanza di avviso. |
+| alertId | ID risorsa univoco che identifica l'istanza di avviso. |
 | alertRule | Il nome della regola di avviso che ha generato l'istanza di avviso. |
 | Gravità | La gravità dell'avviso. Valori possibili: Sev0, Sev1, Sev2, Sev3, or Sev4. |
 | signalType | Identifica il segnale su cui è stata definita la regola di avviso. Valori possibili: Metrica, Log o Log attività. |
@@ -110,7 +110,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa causa
 
 ## <a name="alert-context"></a>Contesto dell'avviso
 
-### <a name="metric-alerts-excluding-availability-tests"></a>Avvisi metrica (esclusi i test di disponibilità)
+### <a name="metric-alerts-excluding-availability-tests"></a>Avvisi delle metriche (esclusi i test di disponibilità)
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -145,7 +145,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa causa
 }
 ```
 
-### <a name="metric-alerts-availability-tests"></a>Avvisi metrica (test di disponibilità)
+### <a name="metric-alerts-availability-tests"></a>Avvisi delle metriche (test di disponibilità)
 
 #### <a name="monitoringservice--platform"></a>`monitoringService` = `Platform`
 
@@ -179,7 +179,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa causa
 ### <a name="log-alerts"></a>Avvisi relativi ai log
 
 > [!NOTE]
-> Per gli avvisi di log con un oggetto del messaggio di posta elettronica personalizzato e/o un payload JSON definito, l'abilitazione dello schema comune ripristina l'oggetto del messaggio di posta elettronica e/o lo schema del payload a quello descritto di seguito. Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 kB per avviso. I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso. È possibile determinare ciò selezionando il flag `IncludeSearchResults`. Quando non sono inclusi i risultati della ricerca, è necessario usare `LinkToFilteredSearchResultsAPI` o `LinkToSearchResultsAPI` per accedere ai risultati delle query con l' [API log Analytics](/rest/api/loganalytics/dataaccess/query/get).
+> Per gli avvisi di log con un oggetto del messaggio di posta elettronica personalizzato e/o un payload JSON definito, l'abilitazione dello schema comune ripristina l'oggetto del messaggio di posta elettronica e/o lo schema del payload a quello descritto di seguito. Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 kB per avviso. I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso. È possibile determinare ciò selezionando il flag `IncludeSearchResults`. Quando i risultati della ricerca non sono inclusi, è necessario usare o per accedere ai risultati `LinkToFilteredSearchResultsAPI` `LinkToSearchResultsAPI` della query con [l'API Log Analytics](/rest/api/loganalytics/dataaccess/query/get).
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
