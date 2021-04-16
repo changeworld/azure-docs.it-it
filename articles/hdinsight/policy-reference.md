@@ -16,7 +16,7 @@ ms.locfileid: "107497125"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-hdinsight"></a>Criteri di Azure definizioni incorporate per Azure HDInsight
 
-Questa pagina è un indice delle [Criteri di Azure](../governance/policy/overview.md) di criteri predefiniti per Azure HDInsight. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
+Questa pagina è un indice [delle](../governance/policy/overview.md) Criteri di Azure di criteri predefiniti per Azure HDInsight. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
 Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 

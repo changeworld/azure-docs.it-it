@@ -11,9 +11,9 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: Novità
       href: whats-new.md
-    - name: Domande frequenti Analisi del testo
+    - name: Analisi del testo domande frequenti
       href: text-analytics-resource-faq.md
-- name: Guida introduttiva a Analisi del testo
+- name: Avvio rapido
   href: quickstarts/client-libraries-rest-api.md
 - name: Esempi
   items:
@@ -27,7 +27,7 @@
           href: 'https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics'
         - name: JavaScript
           href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples'
-    - name: v 3.1-anteprima
+    - name: v3.1-preview
       items:
         - name: C#
           href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples'
@@ -71,21 +71,25 @@
       displayName: 'NER, Named entity recognition, PII, redaction'
     - name: Analisi del testo per la sanità
       href: How-tos/text-analytics-for-health.md
-    - name: Distribuisci Analisi del testo
+    - name: Usare i contenitori
       items:
-        - name: Contenitori
-          items:
-            - name: Installare ed eseguire i contenitori
-              href: how-tos/text-analytics-how-to-install-containers.md
-            - name: Configurare i contenitori
-              href: text-analytics-resource-container-config.md
-            - name: Usare istanze di contenitore
-              maintainContext: true
-              href: ../containers/azure-container-instance-recipe.md
-            - name: Usare il servizio Kubernetes
-              href: how-tos/text-analytics-how-to-use-kubernetes-service.md
-            - name: Documentazione dei contenitori di Servizi cognitivi
-              href: ../containers/index.yml
+        - name: Installare ed eseguire i contenitori
+          href: how-tos/text-analytics-how-to-install-containers.md
+        - name: Configurare i contenitori
+          href: text-analytics-resource-container-config.md
+        - name: Usare istanze di contenitore
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
+        - name: Usare il servizio Kubernetes
+          href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+        - name: Documentazione dei contenitori di Servizi cognitivi
+          href: ../containers/index.yml
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Configurare le reti virtuali
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/text-analytics/context/context
+        - name: Usare l Azure AD autenticazione
+          href: ../authentication.md?context=/azure/cognitive-services/text-analytics/context/context
     - name: Eseguire la migrazione alla versione 3 dell'API
       href: migration-guide.md
 - name: Concetti
@@ -122,11 +126,11 @@
           href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/'
         - name: v3.0
           href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0'
-        - name: V2 (ritiro)
+        - name: v2 (ritiro)
           href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1'
     - name: SDK
       items:
-        - name: v 3.1-anteprima
+        - name: v3.1-preview
           items:
             - name: .NET
               href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview
@@ -146,7 +150,7 @@
               href: /java/api/overview/azure/ai-textanalytics-readme
             - name: Node.js
               href: /javascript/api/overview/azure/ai-text-analytics-readme
-        - name: V2 (ritiro)
+        - name: v2 (ritiro)
           items:
             - name: .NET
               href: /dotnet/api/overview/azure/cognitiveservices/client
@@ -164,13 +168,13 @@
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Risorse
   items:
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Supporto di area
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformità e certificazione
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/text-analytics/context/context
     - name: Contenuto esterno e della community
       href: text-analytics-resource-external-community.md
-    - name: Disponibilità a livello di area
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Conformità
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Prova
-      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'

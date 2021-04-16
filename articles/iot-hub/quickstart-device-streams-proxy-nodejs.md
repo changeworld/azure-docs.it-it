@@ -1,22 +1,22 @@
 ---
-title: "Guida introduttiva: flussi di dispositivi dell'hub Azure Internet Node.js avvio rapido per SSH e RDP"
+title: 'Guida introduttiva: hub IoT di Azure flussi di Node.js per SSH e RDP'
 description: In questo argomento di avvio rapido verrà eseguita un'applicazione Node.js di esempio che funge da proxy per consentire scenari SSH e RDP su flussi del dispositivo dell'hub IoT.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: ef45a6277adeff09a34fe22b7abeb21d3e603167
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16daee2855b8e493521c1b40468e7068dac9e759
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98624355"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107477940"
 ---
-# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Guida introduttiva: abilitare SSH e RDP su un flusso di dispositivi dell'hub Internet remoto usando un'applicazione proxy di Node.js (anteprima)
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Avvio rapido: Abilitare SSH e RDP su un flusso di dispositivo dell'hub IoT usando un'Node.js proxy (anteprima)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
@@ -68,7 +68,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-Se è stata completata la [Guida introduttiva: inviare dati di telemetria da un dispositivo a un hub](quickstart-send-telemetry-node.md)Internet, è possibile ignorare questo passaggio.
+Se è stata completata [l'avvio rapido: Inviare](quickstart-send-telemetry-node.md)dati di telemetria da un dispositivo a un hub IoT, è possibile ignorare questo passaggio.
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa sezione si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
@@ -104,7 +104,7 @@ In questa sezione si stabilisce un flusso end-to-end per il tunneling del traffi
 Come indicato in precedenza, l'SDK Node.js dell'hub IoT supporta solo i flussi del dispositivo sul lato servizio. Per l'applicazione locale del dispositivo, usare un'applicazione proxy del dispositivo disponibile in uno degli argomenti di avvio rapido seguenti:
 
    * [Abilitare SSH e RDP su flussi del dispositivo dell'hub IoT con un'applicazione proxy C](./quickstart-device-streams-proxy-c.md)
-   * [Abilitare SSH e RDP sui flussi di dispositivi dell'hub Internet remoto usando un'applicazione proxy C#](./quickstart-device-streams-proxy-csharp.md) 
+   * [Abilitare SSH e RDP su flussi di dispositivi dell'hub IoT usando un'applicazione proxy C#](./quickstart-device-streams-proxy-csharp.md) 
 
 Prima di procedere con il passaggio successivo, assicurarsi che l'applicazione proxy locale del dispositivo sia in esecuzione. Per una panoramica della configurazione, vedere l'[esempio di proxy locale](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 

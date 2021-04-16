@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/31/2021
+ms.date: 04/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: b4a89e39ec0be07a600fca4d9cf8bce32bf9bff9
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: e8d3269919f9674af5c5379c7995438a0781f58f
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094788"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497159"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark di sicurezza di Azure
 
@@ -20,8 +20,7 @@ Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure p
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Accesso con privilegi |PA-7 |Segui l'amministrazione sufficiente (principio dei privilegi minimi) |[Controlla l'uso di ruoli di controllo degli accessi in base al ruolo personalizzati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
-|Accesso con privilegi |PA-7 |Segui l'amministrazione sufficiente (principio dei privilegi minimi) |[Non devono esistere ruoli di proprietario della sottoscrizione personalizzati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
+|Accesso con privilegi |PA-7 |Seguire un'amministrazione sufficiente (principio dei privilegi minimi) |[Controlla l'uso di ruoli di controllo degli accessi in base al ruolo personalizzati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
 
 ## <a name="azure-security-benchmark-v1"></a>Azure Security Benchmark v1
 
@@ -42,23 +41,23 @@ Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft 
 |---|---|---|---|---|
 |Gestione delle identità e dell'accesso |1.23 |Assicurarsi che non siano stati creati ruoli di proprietario della sottoscrizione personalizzati |[Non devono esistere ruoli di proprietario della sottoscrizione personalizzati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
 
-## <a name="cis-microsoft-azure-foundations-benchmark-130"></a>1.3.0 benchmark di base di CIS Microsoft Azure
+## <a name="cis-microsoft-azure-foundations-benchmark-130"></a>CIS Microsoft Azure Foundations Benchmark 1.3.0
 
-Per esaminare il modo in cui i criteri di Azure disponibili predefiniti per tutti i servizi di Azure vengono mappati a questo standard di conformità, vedere [conformità normativa ai criteri di Azure-Microsoft Azure benchmark di](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md)base di 1.3.0.
+Per esaminare il mapping delle funzionalità Criteri di Azure disponibili per tutti i servizi di Azure a questo standard di conformità, vedere [Criteri di Azure Regulatory Compliance - CIS Microsoft Azure Foundations Benchmark 1.3.0 ( Conformità alle normative di Microsoft Azure Foundations Benchmark 1.3.0).](../../../../articles/governance/policy/samples/cis-azure-1-3-0.md)
 Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Gestione delle identità e dell'accesso |1,21 |Assicurarsi che non siano stati creati ruoli di proprietario della sottoscrizione personalizzati |[Non devono esistere ruoli di proprietario della sottoscrizione personalizzati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
+|Gestione delle identità e dell'accesso |1.21 |Assicurarsi che non siano stati creati ruoli di proprietario della sottoscrizione personalizzati |[Non devono esistere ruoli di proprietario della sottoscrizione personalizzati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
 
-## <a name="cmmc-level-3"></a>Livello CMMC 3
+## <a name="cmmc-level-3"></a>CMMC Livello 3
 
-Per verificare in che modo i criteri di Azure disponibili predefiniti per tutti i servizi di Azure siano mappati a questo standard di conformità, vedere conformità normativa per i criteri di Azure [-CMMC livello 3](../../../../articles/governance/policy/samples/cmmc-l3.md).
-Per ulteriori informazioni su questo standard di conformità, vedere [Cybersecurity maturità Model Certification (CMMC)](https://www.acq.osd.mil/cmmc/docs/CMMC_Model_Main_20200203.pdf).
+Per esaminare il mapping delle Criteri di Azure predefiniti disponibili per tutti i servizi di Azure a questo standard di conformità, vedere Criteri di Azure Regulatory Compliance - CMMC Level 3 (Conformità alle normative di [Criteri di Azure - CMMC livello 3).](../../../../articles/governance/policy/samples/cmmc-l3.md)
+Per altre informazioni su questo standard di conformità, vedere [Cybersecurity Maturity Model Certification (CMMC).](https://www.acq.osd.mil/cmmc/docs/CMMC_Model_Main_20200203.pdf)
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Controllo di accesso |AC. 3.018 |Impedire agli utenti senza privilegi di eseguire funzioni con privilegi e acquisire l'esecuzione di tali funzioni nei log di controllo. |[Controlla l'uso di ruoli di controllo degli accessi in base al ruolo personalizzati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
+|Controllo di accesso |AC.3.018 |Impedire agli utenti senza privilegi di eseguire funzioni con privilegi e acquisire l'esecuzione di tali funzioni nei log di controllo. |[Controlla l'uso di ruoli di controllo degli accessi in base al ruolo personalizzati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
 
 ## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
 
@@ -74,8 +73,8 @@ Per altre informazioni su questo standard di conformità, vedere [HIPAA HITRUST 
 
 ## <a name="iso-270012013"></a>ISO 27001:2013
 
-Per esaminare il mapping tra i criteri di Azure disponibili predefiniti per tutti i servizi di Azure e questo standard di conformità, vedere [conformità alle normative di criteri di Azure-ISO 27001:2013](../../../../articles/governance/policy/samples/iso-27001.md).
-Per ulteriori informazioni su questo standard di conformità, vedere [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html).
+Per esaminare il mapping dei Criteri di Azure predefiniti disponibili per tutti i servizi di Azure a questo standard di conformità, vedere [Criteri di Azure Regulatory Compliance - ISO 27001:2013 ( Conformità alle normative di Criteri di Azure - ISO 27001:2013).](../../../../articles/governance/policy/samples/iso-27001.md)
+Per altre informazioni su questo standard di conformità, vedere [ISO 27001:2013.](https://www.iso.org/isoiec-27001-information-security.html)
 
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

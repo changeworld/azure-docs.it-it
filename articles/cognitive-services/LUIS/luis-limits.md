@@ -1,6 +1,6 @@
 ---
 title: Limiti - LUIS
-description: Questo articolo illustra i limiti di LUIS (Language Understanding) dei Servizi cognitivi di Azure. LUIS ha diverse aree limite. Il limite del modello controlla finalità, entità e funzionalità in LUIS. I limiti di quota si basano sul tipo di chiave. La combinazione di tasti controlla il sito Web di LUIS.
+description: Questo articolo illustra i limiti di LUIS (Language Understanding) dei Servizi cognitivi di Azure. LUIS ha diverse aree di limiti. Il limite del modello controlla finalità, entità e funzionalità in LUIS. I limiti di quota si basano sul tipo di chiave. La combinazione di tasti controlla il sito Web di LUIS.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
@@ -13,24 +13,24 @@ ms.lasthandoff: 04/14/2021
 ms.locfileid: "107497201"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limiti per il modello LUIS e le chiavi
-LUIS ha diverse aree limite. Il primo è il [limite del modello,](#model-limits)che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è la [combinazione di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint).
+LUIS ha diverse aree limite. Il primo è il [limite del modello](#model-limits), che controlla finalità, entità e funzionalità in LUIS. La seconda area è [limiti di quota](#key-limits) basata sul tipo di chiave. Una terza area di limiti è la combinazione [di tasti](#keyboard-controls) per il controllo del sito Web LUIS. Una quarta area è data dal [mapping dell'area globale](luis-reference-regions.md) tra il sito Web di creazione LUIS e le API dell'[endpoint LUIS](luis-glossary.md#endpoint).
 
 <a name="model-boundaries"></a>
 
 ## <a name="model-limits"></a>Limiti del modello
 
-Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [luis dispatch](luis-concept-enterprise.md#dispatch-tool-and-model) o un [contenitore LUIS.](luis-container-howto.md)
+Se l'app supera i limiti del modello LUIS, è consigliabile usare un'app [luiS Dispatch](luis-concept-enterprise.md#dispatch-tool-and-model) o un [contenitore LUIS.](luis-container-howto.md)
 
 |Area|Limite|
 |--|:--|
 | [Nome app][luis-get-started-create-app] | *Numero max predefinito di caratteri |
-| Applicazioni| 500 applicazioni per ogni risorsa di creazione di Azure |
+| Applicazioni| 500 applicazioni per risorsa di creazione di Azure |
 | [Test in batch][batch-testing]| 10 set di dati, 1000 espressioni per ogni set di dati|
 | Elenco esplicito | 50 per applicazione|
 | Entità esterne | nessun limite |
-| [Intenti][intents]|500 per ogni applicazione: 499 finalità personalizzate e la _finalità None_ richiesta.<br>[L'applicazione basata su dispatch](https://aka.ms/dispatch-tool) ha 500 origini di invio corrispondenti.|
+| [Intenti][intents]|500 per applicazione: 499 finalità personalizzate e la _finalità None obbligatoria._<br>[L'applicazione basata su](https://aka.ms/dispatch-tool) dispatch ha 500 origini di invio corrispondenti.|
 | [Elencare entità](./luis-concept-entity-types.md) | Padre: 50, figlio: 20.000 elementi. Il nome canonico è il *numero max predefinito di caratteri. I sinonimi non hanno restrizioni di lunghezza. |
-| [entità di Machine Learning + ruoli](./luis-concept-entity-types.md):<br> Composito<br>Semplice<br>ruolo entità|Limite di 100 entità padre o 330 entità, a seconda del limite raggiunto per primo dall'utente. Un ruolo viene conteggiato come entità ai fini di questo limite. Un esempio è un composito con un'entità semplice, che ha 2 ruoli: 1 ruolo composito + 1 ruolo semplice + 2 = 4 delle 330 entità.<br>Le entità secondarie possono essere annidate fino a 5 livelli, con un massimo di 20 elementi figlio per ogni livello.|
+| [entità e ruoli di Machine Learning:](./luis-concept-entity-types.md)<br> Composito<br>Semplice<br>ruolo entità|Un limite di 100 entità padre o 330 entità, a seconda del limite raggiunto per primo dall'utente. Un ruolo viene conteggiato come entità ai fini di questo limite. Un esempio è un composito con un'entità semplice, che ha 2 ruoli: 1 ruolo composito + 1 ruolo semplice + 2 = 4 delle 330 entità.<br>Le entità secondarie possono essere annidate fino a 5 livelli, con un massimo di 20 elementi figlio per ogni livello.|
 |Modello come funzionalità| Numero massimo di modelli che possono essere usati come funzionalità per un modello specifico per essere 10 modelli. Il numero massimo di elenchi di frasi usato come funzionalità per un modello specifico è 10 elenchi di frasi.|
 | [Anteprima - Entità elenco dinamico](./luis-migration-api-v3.md)|2 elenchi di ~1.000 per ogni richiesta dell'endpoint di stima delle query|
 | [Modelli](luis-concept-patterns.md)|500 criteri per ogni applicazione.<br>Il criterio può contenere al massimo 400 caratteri.<br>3 entità pattern.any per criterio<br>Il criterio può contenere al massimo 2 testi facoltativi annidati|
@@ -54,16 +54,16 @@ I nomi degli oggetti devono essere univoci rispetto ad altri oggetti dello stess
 
 |Oggetti|Restrizioni|
 |--|--|
-|Finalità, entità|Tutti i nomi di finalità e entità devono essere univoci in una versione di un'app.|
-|Componenti dell'entità ML|Tutti i componenti dell'entità di Machine Learning (entità figlio) devono essere univoci all'interno di tale entità per i componenti dello stesso livello.|
+|Finalità, entità|Tutti i nomi di finalità ed entità devono essere univoci in una versione di un'app.|
+|Componenti dell'entità ml|Tutti i componenti dell'entità di Machine Learning (entità figlio) devono essere univoci, all'interno di tale entità per i componenti allo stesso livello.|
 |Funzionalità | Tutte le funzionalità denominate, ad esempio gli elenchi di frasi, devono essere univoche all'interno di una versione di un'app.|
-|Ruoli entità|Tutti i ruoli di un'entità o di un componente di entità devono essere univoci quando sono allo stesso livello di entità (padre, figlio, nipote e così via).|
+|Ruoli entità|Tutti i ruoli in un'entità o in un componente dell'entità devono essere univoci quando sono allo stesso livello di entità (padre, figlio, child e così via).|
 
 ## <a name="object-naming"></a>Denominazione degli oggetti
 
 Non usare i caratteri seguenti nei nomi seguenti.
 
-|Oggetto|Escludere caratteri|
+|Oggetto|Escludi caratteri|
 |--|--|
 |Nomi di finalità, entità e ruoli|`:`<br>`$` <br> `&`|
 |Nome della versione|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
@@ -76,7 +76,7 @@ Language Understand include risorse separate, un tipo per la creazione e un tipo
 
 ### <a name="authoring-resource-limits"></a>Limiti delle risorse di creazione
 
-Usare il _tipo_ `LUIS.Authoring` , , quando si filtrano le risorse nel portale di Azure. LUIS limita 500 applicazioni per ogni risorsa di creazione di Azure.
+Usare il _tipo_, `LUIS.Authoring` , per filtrare le risorse nel portale di Azure. LUIS limita 500 applicazioni per ogni risorsa di creazione di Azure.
 
 |Risorsa di creazione|Creazione di TPS|
 |--|--|
@@ -89,9 +89,9 @@ Usare il _tipo_ `LUIS.Authoring` , , quando si filtrano le risorse nel portale d
 
 ### <a name="query-prediction-resource-limits"></a>Limiti delle risorse di stima delle query
 
-Usare il _tipo_, `LUIS` , per filtrare le risorse nel portale di Azure. La risorsa endpoint di stima delle query LUIS, usata nel runtime, è valida solo per le query endpoint.
+Usare il _tipo_ `LUIS` , , quando si filtrano le risorse nel portale di Azure. La risorsa endpoint di stima delle query LUIS, usata nel runtime, è valida solo per le query dell'endpoint.
 
-|Risorsa Query Prediction|Query TPS|
+|Risorsa Stima query|Query TPS|
 |--|--|
 |F0 - Livello gratuito |10.000/mese, 5/secondo|
 |S0 - Livello Standard|50/secondo|
@@ -102,7 +102,7 @@ Usare il _tipo_, `LUIS` , per filtrare le risorse nel portale di Azure. La risor
 
 ### <a name="speech-integration"></a>Integrazione riconoscimento vocale
 
-[L'integrazione del](../speech-service/how-to-recognize-intents-from-speech-csharp.md) riconoscimento vocale offre 1.000 richieste di endpoint per costo unitario.
+[L'integrazione vocale](../speech-service/how-to-recognize-intents-from-speech-csharp.md) offre 1.000 richieste di endpoint per costo unitario.
 
 [Altre informazioni sui prezzi.][pricing]
 

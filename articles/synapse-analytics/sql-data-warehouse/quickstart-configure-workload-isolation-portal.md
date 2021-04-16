@@ -3,20 +3,22 @@ title: "Guida introduttiva: Configurare l'isolamento dei carichi di lavoro - Por
 description: Usare il portale di Azure per configurare l'isolamento del carico di lavoro per il pool SQL dedicato.
 services: synapse-analytics
 author: ronortloff
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: quickstart
-ms.subservice: sql-dw
-ms.date: 05/04/2020
 ms.author: rortloff
+manager: craigg
 ms.reviewer: jrasnick
-ms.custom: azure-synapse
-ms.openlocfilehash: 5773691852ddc723ec84503edee37c678bbbcfd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/04/2020
+ms.topic: quickstart
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.custom:
+- azure-synapse
+- mode-portal
+ms.openlocfilehash: c15f21064012c195315a7f91908b3160591dc6f8
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98677505"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534254"
 ---
 # <a name="quickstart-configure-dedicated-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Avvio rapido: Configurare l'isolamento del carico di lavoro del pool SQL dedicato usando un gruppo di carico di lavoro nel portale di Azure
 

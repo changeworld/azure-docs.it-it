@@ -1,6 +1,6 @@
 ---
-title: Archiviazione dei dati Identity per i clienti australiani e neozelandesi-Azure AD
-description: Informazioni su dove Azure Active Directory archivia i dati relativi all'identità per i clienti australiani e neozelandesi.
+title: Archiviazione dei dati di identità per i clienti australiani e della Nuova Zelanda - Azure AD
+description: Informazioni su dove Azure Active Directory i dati relativi all'identità per i clienti australiani e della Nuova Zelanda.
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -12,29 +12,29 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 498b75a6541da97e57e23465ae6eb23a6c854727
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bb095e93a3728835e26cbe283f79569c91b7487
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836955"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479067"
 ---
-# <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Archiviazione dei dati Identity per i clienti australiani e neozelandesi in Azure Active Directory
+# <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Archiviazione dei dati di identità per i clienti australiani e della Nuova Zelanda in Azure Active Directory
 
-I dati di identità vengono archiviati da Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione quando si sottoscrive un servizio online Microsoft, ad esempio Microsoft 365 e Azure. Per informazioni sulla posizione in cui vengono archiviati i dati dei clienti di identità, è possibile usare la sezione [dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) di Microsoft Trust Center.
+I dati di identità vengono archiviati Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione durante la sottoscrizione di un servizio Microsoft Online, ad esempio Microsoft 365 e Azure. Per informazioni sulla posizione in cui sono archiviati i dati dei clienti delle identità, è possibile usare la sezione [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Dove si trovano i dati) del Microsoft Trust Center.
 
 > [!NOTE]
-> I servizi e le applicazioni che si integrano con Azure AD hanno accesso ai dati dei clienti Identity. Valutare ogni servizio e applicazione usato per determinare il modo in cui i dati dei clienti Identity vengono elaborati da tale servizio e applicazione e se soddisfano i requisiti di archiviazione dei dati aziendali. Per altre informazioni sulla residenza dei dati dei servizi Microsoft, vedere la sezione Where is your data located? (Percorso di archiviazione dei dati) di Microsoft Trust Center.
+> I servizi e le applicazioni che si integrano con Azure AD hanno accesso ai dati dei clienti di identità. Valutare ogni servizio e applicazione in uso per determinare il modo in cui i dati dei clienti di identità vengono elaborati dal servizio e dall'applicazione specifici e se soddisfano i requisiti di archiviazione dei dati aziendali. Per altre informazioni sulla residenza dei dati dei servizi Microsoft, vedere la sezione Where is your data located? (Percorso di archiviazione dei dati) di Microsoft Trust Center.
 
-Per i clienti che hanno fornito un indirizzo in Australia o Nuova Zelanda, Azure AD mantiene i dati di identità per questi servizi nei data center australiani: 
-- Gestione di Azure AD directory 
-- Authentication
+Per i clienti che hanno fornito un indirizzo in Australia o Nuova Zelanda, Azure AD i dati di identità per questi servizi all'interno dei data center australiani: 
+- Azure AD gestione directory 
+- Autenticazione
 
-Tutti gli altri servizi Azure AD archiviano i dati dei clienti nei data center globali. Per trovare il Data Center per un servizio, vedere [Azure Active Directory: dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
+Tutti gli altri Azure AD archiviano i dati dei clienti in data center globali. Per individuare il data center per un servizio, [vedere Azure Active Directory : Dove si trovano i dati?](https://aka.ms/AADDataMap)
 
-## <a name="microsoft-azure-ad-multi-factor-authentication-mfa"></a>Microsoft Azure AD Multi-Factor Authentication (autenticazione a più fattori)
+## <a name="microsoft-azure-ad-multi-factor-authentication-mfa"></a>Microsoft Azure AD Multi-Factor Authentication (MFA)
 
-L'autenticazione a più fattori archivia i dati dei clienti Identity nei data center globali. Per altre informazioni sulle informazioni sugli utenti raccolte e archiviate dal server multi-factor authentication Azure AD e da Azure multi-factor authentication, vedere [raccolta di dati utente multi-factor authentication di Azure](../authentication/concept-mfa-data-residency.md).
+MFA archivia i dati dei clienti delle identità nei data center globali. Per altre informazioni sulle informazioni utente raccolte e archiviate da Azure AD MFA e server Azure MFA basate sul cloud, vedere Raccolta di dati utente di [Azure Multi-Factor Authentication.](../authentication/concept-mfa-data-residency.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle caratteristiche e le funzionalità descritte in precedenza, vedere questi articoli:

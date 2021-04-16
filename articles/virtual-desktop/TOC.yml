@@ -36,7 +36,7 @@
           href: connect-ios.md
         - name: Connettersi con il client Microsoft Store
           href: connect-microsoft-store.md
-        - name: Connessione con thin client
+        - name: Connettersi con thin client
           href: linux-overview.md
     - name: Configurare i reindirizzamenti dei dispositivi
       href: configure-device-redirections.md
@@ -66,7 +66,7 @@
           href: create-profile-container-adds.md
         - name: Usare File di Azure e Active Directory Domain Services
           href: create-file-share.md
-        - name: Installare Office con i contenitori di app FSLogix
+        - name: Installare Office con contenitori di app FSLogix
           href: fslogix-office-app-rule-editor.md
     - name: Configurare le impostazioni del pool di host
       items:
@@ -126,12 +126,14 @@
       href: disaster-recovery.md
     - name: Configurare il proxy KDC
       href: key-distribution-center-proxy.md
-    - name: Avvia macchina virtuale alla connessione
+    - name: Avviare la macchina virtuale alla connessione
       items:
-        - name: Configurare avvia macchina virtuale alla connessione
+        - name: Configurare Start VM on Connect
           href: start-virtual-machine-connect.md
-        - name: Domande frequenti sull'avvio della macchina virtuale su connessione
+        - name: Domande frequenti sull'avvio della macchina virtuale in Connect
           href: start-virtual-machine-connect-faq.md
+    - name: Impostare la modalità svuotamento
+      href: drain-mode.md
 - name: Concetti
   items:
     - name: Ruoli predefiniti
@@ -214,7 +216,7 @@
       href: linux-overview.md
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/desktopvirtualization/desktopvirtualization
-    - name: Stimare i costi di monitoraggio di Azure
+    - name: Stimare Monitoraggio di Azure costi
       href: azure-monitor-costs.md
     - name: Impostazioni supportate del file RDP
       href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context

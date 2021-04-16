@@ -1,34 +1,34 @@
 ---
-title: Manutenzione pianificata-database di Azure per PostgreSQL-server flessibile
-description: Questo articolo descrive la funzionalità di manutenzione pianificata nel database di Azure per PostgreSQL-server flessibile.
+title: Manutenzione pianificata - Database di Azure per PostgreSQL - Server flessibile
+description: Questo articolo descrive la funzionalità di manutenzione pianificata nel server flessibile di Database di Azure per PostgreSQL.
 author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: ffee15776a48b6495f78b6becf81c620e1dc4d69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 50ef040f1cb7d8c533ec5ee31e9bffa2e6dca2f5
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91336310"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478013"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Manutenzione pianificata in Database di Azure per PostgreSQL - Server flessibile
  
 Database di Azure per PostgreSQL: il server flessibile esegue una manutenzione periodica per mantenere il database gestito sicuro, stabile e aggiornato. Durante la manutenzione, il server ottiene nuove funzionalità, aggiornamenti e patch.
  
 > [!IMPORTANT]
-> Database di Azure per PostgreSQL: il server flessibile è in anteprima
+> Database di Azure per PostgreSQL - Il server flessibile è in anteprima
  
 ## <a name="selecting-a-maintenance-window"></a>Selezione di una finestra di manutenzione
  
-È possibile pianificare la manutenzione in un determinato giorno della settimana e in un intervallo di tempo in tale giorno. In alternativa, è possibile consentire al sistema di selezionare automaticamente un giorno e un'ora di intervallo di tempo. In entrambi i casi, il sistema segnalerà cinque giorni prima di eseguire qualsiasi operazione di manutenzione. Il sistema consente inoltre di stabilire quando viene avviata la manutenzione e quando viene completata correttamente.
+È possibile pianificare la manutenzione durante un giorno specifico della settimana e un intervallo di tempo all'interno di tale giorno. Oppure è possibile consentire al sistema di selezionare automaticamente un giorno e un'ora dell'intervallo di tempo. In entrambi i modi, il sistema avvisa l'utente cinque giorni prima di eseguire qualsiasi manutenzione. Il sistema consente anche di sapere quando viene avviata la manutenzione e quando viene completata correttamente.
  
 Le notifiche relative alla manutenzione pianificata imminente possono essere:
  
 * Inviato tramite posta elettronica a un indirizzo specifico
-* Inviato tramite posta elettronica a un ruolo Azure Resource Manager
-* Inviato in un messaggio di testo (SMS) ai dispositivi mobili
+* Inviato tramite posta elettronica a un Azure Resource Manager ruolo
+* Inviato in un SMS ai dispositivi mobili
 * un push di notifica a un'app di Azure
 * un messaggio vocale
  
@@ -39,12 +39,19 @@ Quando si specificano le preferenze per il programma di manutenzione, è possibi
 >
 > Tuttavia, nel caso di un aggiornamento critico di emergenza, ad esempio una vulnerabilità grave, la finestra di notifica potrebbe essere inferiore a cinque giorni. È possibile applicare l'aggiornamento critico al server anche se è stata eseguita correttamente una manutenzione pianificata negli ultimi 30 giorni.
 
-È possibile aggiornare le impostazioni di pianificazione in qualsiasi momento. Se è stata pianificata una manutenzione per il server flessibile e si aggiornano le preferenze di pianificazione, l'evento corrente continuerà come pianificato e la modifica delle impostazioni di pianificazione diventerà effettiva al completamento del processo. 
+È possibile aggiornare le impostazioni di pianificazione in qualsiasi momento. Se è stata pianificata una manutenzione per il server flessibile e si aggiornano le preferenze di pianificazione, l'implementazione corrente procederà come pianificato e la modifica delle impostazioni di pianificazione diventerà effettiva al completamento della successiva manutenzione pianificata.
 
-Se l'evento di manutenzione viene annullato dal sistema o non viene completato correttamente, il sistema creerà rispettivamente una notifica relativa all'evento di manutenzione annullato o non riuscito. Il tentativo successivo di eseguire la manutenzione verrà pianificato in base alle impostazioni di pianificazione correnti e si riceverà una notifica per cinque giorni prima.
+È possibile definire una pianificazione gestita dal sistema o una pianificazione personalizzata per ogni server flessibile nella sottoscrizione di Azure.  
+* Con la pianificazione personalizzata, è possibile specificare la finestra di manutenzione per il server scegliendo il giorno della settimana e un intervallo di tempo di un'ora.  
+* Con la pianificazione gestita dal sistema, il sistema sceglierà qualsiasi intervallo di un'ora tra le 23:00 e le 7:00 nell'ora dell'area del server.  
+
+Come parte dell'implementazione delle modifiche, vengono applicati gli aggiornamenti ai server configurati con pianificazione gestita dal sistema, seguiti prima dai server con pianificazione personalizzata dopo un intervallo minimo di 7 giorni all'interno di una determinata area. Se si prevede di ricevere aggiornamenti anticipati sulla flotta di server dell'ambiente di sviluppo e test, è consigliabile configurare la pianificazione gestita dal sistema per i server usati nell'ambiente di sviluppo e test. In questo modo sarà possibile ricevere prima l'aggiornamento più recente nell'ambiente di sviluppo/test per il test e la valutazione per la convalida. Se si verificano comportamenti o modifiche di rilievo, sarà possibile risolvere il problema prima che lo stesso aggiornamento venga eseguito nei server di produzione con pianificazione gestita personalizzata. L'aggiornamento inizia l'implementazione nei server flessibili con pianificazione personalizzata dopo 7 giorni e viene applicato al server nella finestra di manutenzione definita. Al momento, non è possibile posticipare l'aggiornamento dopo l'invio della notifica. La pianificazione personalizzata è consigliata solo per gli ambienti di produzione. 
+
+In rari casi, l'evento di manutenzione può essere annullato dal sistema o potrebbe non riuscire a completare correttamente. Se l'aggiornamento ha esito negativo, l'aggiornamento verrà ripristinato e verrà ripristinata la versione precedente dei file binari. In questi scenari di aggiornamento non riuscito, è comunque possibile che si verifichi il riavvio del server durante la finestra di manutenzione. Se l'aggiornamento viene annullato o non riuscito, il sistema creerà rispettivamente una notifica relativa all'evento di manutenzione annullato o non riuscito. Il successivo tentativo di eseguire la manutenzione verrà pianificato in base alle impostazioni di pianificazione correnti e si riceverà una notifica con cinque giorni di anticipo. 
+
  
 ## <a name="next-steps"></a>Passaggi successivi
  
-* Informazioni su come [modificare la pianificazione di manutenzione](how-to-maintenance-portal.md)
-* Informazioni su come [ricevere notifiche sulla manutenzione futura](../../service-health/service-notifications.md) con l'integrità dei servizi di Azure
-* Informazioni su come [configurare gli avvisi relativi agli eventi di manutenzione pianificata imminente](../../service-health/resource-health-alert-monitor-guide.md)
+* Informazioni su come [modificare la pianificazione della manutenzione](how-to-maintenance-portal.md)
+* Informazioni su come [ricevere notifiche sulla manutenzione futura](../../service-health/service-notifications.md) usando integrità dei servizi di Azure
+* Informazioni su come [configurare gli avvisi sugli eventi di manutenzione pianificati imminenti](../../service-health/resource-health-alert-monitor-guide.md)

@@ -1,25 +1,25 @@
 ---
-title: Dettagli di conformità alle normative per CIS Microsoft Azure Foundations benchmark 1.1.0
-description: Informazioni dettagliate sull'iniziativa incorporata per la conformità normativa di CIS Microsoft Azure Foundations benchmark 1.1.0. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 03/31/2021
+title: Dettagli sulla conformità alle normative per CIS Microsoft Azure Foundations Benchmark 1.1.0
+description: Dettagli dell'iniziativa incorporata CIS Microsoft Azure Foundations Benchmark 1.1.0 Regulatory Compliance. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
+ms.date: 04/14/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 1d21d04fe4347a2ff7735045e786520c106309c7
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 47e59a3ba1a31fd05ab9d1d87301b41c30c8bdfd
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091753"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497745"
 ---
-# <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Informazioni dettagliate sull'iniziativa incorporata per la conformità alle normative di CIS Microsoft Azure Foundations benchmark 1.1.0
+# <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata CIS Microsoft Azure Foundations Benchmark 1.1.0 Regulatory Compliance
 
-L'articolo seguente illustra in dettaglio come viene eseguito il mapping della definizione dell'iniziativa incorporata per la conformità alle normative di criteri di Azure ai domini e ai **controlli** di **conformità** in CIS Microsoft Azure fondazioni benchmark 1.1.0
-Per ulteriori informazioni su questo standard di conformità, vedere la pagina relativa al [benchmark di Microsoft Azure di CIS](https://www.cisecurity.org/benchmark/azure/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
+L'articolo seguente illustra in dettaglio Criteri di Azure definizione dell'iniziativa  incorporata conformità alle normative mappata ai domini e ai controlli **di** conformità in CIS Microsoft Azure Foundations Benchmark 1.1.0.
+Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft Azure Foundations Benchmark 1.1.0](https://www.cisecurity.org/benchmark/azure/). Per informazioni sulle _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
-I mapping seguenti sono ai controlli **CIS Microsoft Azure Foundations benchmark 1.1.0** . Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
-Quindi, trovare e selezionare la definizione di iniziativa predefinita di **CIS Microsoft Azure Foundations benchmark v 1.1.0** Regulatory Compliance.
+I mapping seguenti sono ai controlli **CIS Microsoft Azure Foundations Benchmark 1.1.0.** Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
+Individuare e selezionare quindi la definizione di iniziativa **predefinita CIS Microsoft Azure Foundations Benchmark v1.1.0** Regulatory Compliance.
 
-Questa iniziativa predefinita viene distribuita come parte dell'esempio di [progetto di benchmark 1.1.0 di CIS Microsoft Azure Foundations](../../blueprints/samples/cis-azure-1-1-0.md).
+Questa iniziativa incorporata viene distribuita come parte dell'esempio di [progetto CIS Microsoft Azure Foundations Benchmark 1.1.0.](../../blueprints/samples/cis-azure-1-1-0.md)
 
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../overview.md).
@@ -210,9 +210,9 @@ Questa iniziativa predefinita viene distribuita come parte dell'esempio di [prog
 |---|---|---|---|
 |[È consigliabile abilitare il trasferimento sicuro agli account di archiviazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |Requisito di controllo del trasferimento sicuro nell'account di archiviazione. Il trasferimento sicuro è un'opzione che impone all'account di archiviazione di accettare richieste solo da connessioni sicure (HTTPS). L'uso di HTTPS garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 
-### <a name="ensure-that-public-access-level-is-set-to-private-for-blob-containers"></a>Assicurarsi che ' livello di accesso pubblico ' sia impostato su privato per i contenitori BLOB
+### <a name="ensure-that-public-access-level-is-set-to-private-for-blob-containers"></a>Assicurarsi che "Livello di accesso pubblico" sia impostato su Privato per i contenitori BLOB
 
-**ID**: SID di Azure 3,6 **proprietario**: cliente
+**ID:** CIS Azure 3.6 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -258,7 +258,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'esempio di [prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[I server SQL con controllo per la destinazione dell'account di archiviazione devono essere configurati con una conservazione di 90 giorni o superiore](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Per finalità di analisi degli eventi imprevisti, è consigliabile impostare la conservazione dei dati per il controllo del SQL Server per la destinazione dell'account di archiviazione su almeno 90 giorni. Verificare di soddisfare le regole di conservazione necessarie per le aree in cui si opera. Questa operazione è talvolta necessaria per la conformità agli standard normativi. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
+|[I server SQL con controllo sulla destinazione dell'account di archiviazione devono essere configurati con una conservazione di 90 giorni o superiore](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Ai fini dell'analisi degli eventi imprevisti, è consigliabile impostare la conservazione dei dati per il controllo SQL Server'account di archiviazione sulla destinazione dell'account di archiviazione su almeno 90 giorni. Verificare di soddisfare le regole di conservazione necessarie per le aree in cui si opera. Questa operazione è talvolta necessaria per la conformità agli standard normativi. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
 
 ### <a name="ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>Assicurarsi che "Sicurezza dei dati avanzata" in un server SQL sia impostata su "Attivata"
 
@@ -376,9 +376,9 @@ Questa iniziativa predefinita viene distribuita come parte dell'esempio di [prog
 |---|---|---|---|
 |[Monitoraggio di Azure deve raccogliere i log attività da tutte le aree](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Questo criterio controlla il profilo del log di Monitoraggio di Azure che non esporta le attività da tutte le aree supportate da Azure, incluse quelle globali. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
 
-### <a name="ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible"></a>Verificare che il contenitore di archiviazione che archivia i log attività non sia accessibile pubblicamente
+### <a name="ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible"></a>Assicurarsi che il contenitore di archiviazione che archivia i log attività non sia accessibile pubblicamente
 
-**ID**: CIS Azure 5.1.5 **Proprietà**: Customer
+**ID:** CIS Azure 5.1.5 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -398,8 +398,8 @@ Questa iniziativa predefinita viene distribuita come parte dell'esempio di [prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[I log delle risorse nel modulo di protezione hardware gestito Azure Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) |Per ricreare percorsi attività a scopo di analisi quando si verifica un evento imprevisto di sicurezza o quando la rete è compromessa, è possibile eseguire il controllo abilitando i log delle risorse nei HSM gestiti. Seguire le istruzioni riportate qui: [https://docs.microsoft.com/azure/key-vault/managed-hsm/logging](https://docs.microsoft.com/azure/key-vault/managed-hsm/logging) . |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_AuditDiagnosticLog_Audit.json) |
-|[I log delle risorse in Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse Azure Key Vault HSM gestito devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) |Per ricreare i tracciati attività a scopo di analisi quando si verifica un evento imprevisto di sicurezza o quando la rete viene compromessa, è possibile eseguire il controllo abilitando i log delle risorse nei sistemi HMS gestiti. Seguire le istruzioni riportate qui: [https://docs.microsoft.com/azure/key-vault/managed-hsm/logging](https://docs.microsoft.com/azure/key-vault/managed-hsm/logging) . |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_AuditDiagnosticLog_Audit.json) |
+|[I log delle risorse Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |Controllare l'abilitazione dei log delle risorse. consentendo di ricreare la traccia delle attività da usare a fini di controllo se si verifica un problema di sicurezza o se la rete viene compromessa |AuditIfNotExists, Disabled |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>Assicurarsi che esista un avviso del log attività per l'assegnazione di criteri di creazione
 
@@ -551,17 +551,17 @@ Questa iniziativa predefinita viene distribuita come parte dell'esempio di [prog
 
 ## <a name="other-security-considerations"></a>Altre considerazioni sulla sicurezza
 
-### <a name="ensure-that-the-expiration-date-is-set-on-all-keys"></a>Verificare che la data di scadenza sia impostata su tutte le chiavi
+### <a name="ensure-that-the-expiration-date-is-set-on-all-keys"></a>Assicurarsi che la data di scadenza sia impostata su tutte le chiavi
 
-**ID**: SID di Azure 8,1 **proprietario**: cliente
+**ID:** CIS Azure 8.1 **Proprietà**: Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Le chiavi degli insiemi di credenziali delle chiavi devono avere una data di scadenza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |Le chiavi di crittografia devono avere una data di scadenza definita e non devono essere permanenti. Le chiavi sempre valide offrono a un potenziale utente malintenzionato più tempo per comprometterle. Impostare le date di scadenza per le chiavi di crittografia è una procedura di sicurezza consigliata. |Audit, Deny, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |
 
-### <a name="ensure-that-the-expiration-date-is-set-on-all-secrets"></a>Verificare che la data di scadenza sia impostata su tutti i segreti
+### <a name="ensure-that-the-expiration-date-is-set-on-all-secrets"></a>Assicurarsi che la data di scadenza sia impostata su tutti i segreti
 
-**ID**: SID di Azure 8,2 **proprietario**: cliente
+**ID:** CIS Azure 8.2 **Proprietà:** Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -573,7 +573,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'esempio di [prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Per Azure Key Vault HSM gestito deve essere abilitata la protezione ripulitura](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc39ba22d-4428-4149-b981-70acb31fc383) |L'eliminazione dannosa di un modulo di protezione hardware gestito da Azure Key Vault può causare una perdita di dati permanente. Un utente malintenzionato all'interno dell'organizzazione può potenzialmente eliminare ed eliminare Azure Key Vault HSM gestito. Il ripulitura della protezione protegge gli attacchi da insider applicando un periodo di conservazione obbligatorio per il modulo di protezione hardware gestito Azure Key Vault eliminato temporaneamente. Nessun utente all'interno dell'organizzazione o Microsoft potrà eliminare il modulo di protezione hardware Azure Key Vault gestito durante il periodo di memorizzazione dell'eliminazione temporanea. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_Recoverable_Audit.json) |
+|[Azure Key Vault HSM gestito deve avere la protezione di ripulitura abilitata](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc39ba22d-4428-4149-b981-70acb31fc383) |L'eliminazione dannosa di Azure Key Vault HSM gestito può causare la perdita permanente dei dati. Un insider malintenzionato nell'organizzazione può potenzialmente eliminare ed eliminare Azure Key Vault HSM gestito. La protezione da eliminazione consente di proteggersi dagli attacchi insider tramite l'applicazione di un periodo di conservazione obbligatorio per l'eliminazione Azure Key Vault HSM gestito. Nessuno all'interno dell'organizzazione o Microsoft sarà in grado di ripulire l'Azure Key Vault HSM gestito durante il periodo di conservazione dell'eliminazione soft. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_Recoverable_Audit.json) |
 |[Negli insiemi di credenziali delle chiavi deve essere abilitata la protezione dalla rimozione definitiva](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |L'eliminazione dolosa di un insieme di credenziali delle chiavi può causare la perdita permanente di dati. Un utente malintenzionato interno all'organizzazione può potenzialmente eliminare e rimuovere definitivamente gli insiemi di credenziali delle chiavi. La protezione dalla rimozione definitiva consente di rispondere a questi tipi di attacco imponendo un periodo di conservazione obbligatorio per gli insiemi di credenziali delle chiavi eliminati temporaneamente. Nessuno all'interno dell'organizzazione né Microsoft sarà in grado di rimuovere definitivamente gli insiemi di credenziali delle chiavi durante il periodo di conservazione associato all'eliminazione temporanea. |Audit, Deny, Disabled |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>Abilitare il controllo degli accessi in base al ruolo con il servizio Azure Kubernetes
