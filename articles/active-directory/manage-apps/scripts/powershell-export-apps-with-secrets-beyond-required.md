@@ -1,26 +1,26 @@
 ---
-title: 'Esempio di PowerShell: esportare app con segreti e certificati che scadono oltre la data richiesta nel tenant Azure Active Directory.'
-description: Esempio di PowerShell che esporta tutte le app con segreti e certificati che scadono oltre la data richiesta per le app specificate nel tenant di Azure Active Directory.
+title: 'Esempio di PowerShell: esportare app con segreti e certificati che scadono oltre la data richiesta Azure Active Directory tenant.'
+description: Esempio di PowerShell che esporta tutte le app con segreti e certificati che scadono oltre la data richiesta per le app specificate nel tenant Azure Active Directory servizio.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
-ms.openlocfilehash: daeea48758a9f08e7eedbfcaddcde3815f5c1e16
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 692ab2cfd480fd15760c13c63922fe76d23058ea
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729100"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375390"
 ---
-# <a name="export-apps-with-secrets-and-certificates-expiring-beyond-the-required-date"></a>Esporta app con segreti e certificati che scadono oltre la data richiesta
+# <a name="export-apps-with-secrets-and-certificates-expiring-beyond-the-required-date"></a>Esportare app con segreti e certificati che scadono oltre la data richiesta
 
-Questo esempio di script di PowerShell Esporta tutti i segreti e i certificati di registrazione delle app che scadono oltre un periodo di tempo necessario per le app specificate dalla directory in un file CSV in modo non interattivo.
+Questo esempio di script di PowerShell esporta tutti i segreti e i certificati di registrazione delle app che scadono oltre un periodo necessario per le app specificate dalla directory in un file CSV in modo non interattivo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,8 +30,8 @@ Questo esempio di script di PowerShell Esporta tutti i segreti e i certificati d
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script funziona in modo non interattivo. L'amministratore che lo usa deve modificare i valori nella sezione "#PARAMETERS TO CHANGE" con il proprio ID app, il segreto dell'applicazione, il nome del tenant, il periodo per la scadenza delle credenziali delle app e il percorso in cui verrà esportato il volume condiviso cluster.
-Questo script usa il [flusso di Client_Credential OAuth](../../develop/v2-oauth2-client-creds-grant-flow.md) . la funzione "RefreshToken" compilerà il token di accesso in base ai valori dei parametri modificati dall'amministratore.
+Questo script funziona in modo non interattivo. L'amministratore che lo usa dovrà modificare i valori nella sezione "#PARAMETERS TO CHANGE" con il proprio ID app, il segreto dell'applicazione, il nome del tenant, il periodo di scadenza delle credenziali delle app e il percorso in cui verrà esportato il file CSV.
+Questo script usa il [flusso Client_Credential Oauth](../../develop/v2-oauth2-client-creds-grant-flow.md) La funzione "RefreshToken" compila il token di accesso in base ai valori dei parametri modificati dall'amministratore.
 
 Il comando "Add-Member" è responsabile della creazione delle colonne nel file CSV.
 
@@ -43,4 +43,4 @@ Il comando "Add-Member" è responsabile della creazione delle colonne nel file C
 
 Per altre informazioni sul modulo Azure AD PowerShell, vedere la [panoramica del modulo di Azure AD PowerShell](/powershell/azure/active-directory/overview).
 
-Per altri esempi di PowerShell per la gestione delle applicazioni, vedere [Azure ad esempi di PowerShell per la gestione delle applicazioni](../app-management-powershell-samples.md).
+Per altri esempi di PowerShell per la gestione delle applicazioni, [Azure AD esempi di PowerShell per la gestione delle applicazioni](../app-management-powershell-samples.md).

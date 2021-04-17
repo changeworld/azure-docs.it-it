@@ -1,20 +1,20 @@
 ---
-title: 'Esercitazione: eseguire il mapping di un dominio personalizzato esistente al cloud Spring di Azure'
+title: 'Esercitazione: Eseguire il mapping di un dominio personalizzato esistente Azure Spring Cloud'
 description: Come eseguire il mapping di un nome DNS (Distributed Name Service) personalizzato esistente ad Azure Spring Cloud
 author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 7aa1982fc880ac5733cc4453808c18956969572f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java
+ms.openlocfilehash: 493752a3857b80b43668b6bf1b20480604442955
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627014"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567996"
 ---
-# <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Esercitazione: eseguire il mapping di un dominio personalizzato esistente al cloud Spring di Azure
+# <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>Esercitazione: Eseguire il mapping di un dominio personalizzato esistente Azure Spring Cloud
 
 **Questo articolo si applica a:** ✔️ Java ✔️ C#
 
@@ -28,9 +28,9 @@ I certificati crittografano il traffico Web. Questi certificati TLS/SSL possono 
 * Un certificato privato (ossia il certificato autofirmato) da un provider di terze parti. Il certificato deve corrispondere al dominio.
 * Un'istanza distribuita di [Azure Key Vault](../key-vault/general/overview.md)
 
-## <a name="keyvault-private-link-considerations"></a>Considerazioni sui collegamenti privati dell'insieme di credenziali
+## <a name="keyvault-private-link-considerations"></a>Considerazioni sul collegamento privato keyvault
 
-Gli IP di gestione cloud di Azure Spring non fanno parte dei servizi Microsoft attendibili di Azure. Pertanto, per consentire ad Azure Spring cloud di caricare i certificati da un Key Vault protetto con connessioni a endpoint privati, è necessario aggiungere gli indirizzi IP seguenti al firewall Azure Key Vault:
+Gli Azure Spring Cloud di gestione delle app non fanno ancora parte del servizio di gestione servizi Microsoft Azure. Pertanto, per consentire Azure Spring Cloud caricare certificati da un Key Vault protetto con connessioni endpoint privato, è necessario aggiungere gli indirizzi IP seguenti a Azure Key Vault firewall:
 
 ```
 20.53.123.160 52.143.241.210 40.65.234.114 52.142.20.14 20.54.40.121 40.80.210.49 52.253.84.152 20.49.137.168 40.74.8.134 51.143.48.243

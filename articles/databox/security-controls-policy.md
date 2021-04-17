@@ -1,22 +1,22 @@
 ---
-title: Controlli di conformità normativi di criteri di Azure per Azure Data Box
-description: Elenca i controlli di conformità normativi di criteri di Azure disponibili per Azure Data Box. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 03/31/2021
+title: Criteri di Azure controlli di conformità alle normative per Azure Data Box
+description: Elenca Criteri di Azure controlli di conformità alle normative disponibili per Azure Data Box. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
+ms.date: 04/14/2021
 ms.topic: sample
 author: alkohli
 ms.author: alkohli
 ms.service: databox
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: b337d1c99b32fddcca3dedaf33a78ebdc399ac6f
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 7ab48f4a65b615c691cac3f7846bf4fc74208ea4
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106094924"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499913"
 ---
-# <a name="azure-policy-regulatory-compliance-controls-for-azure-data-box"></a>Controlli di conformità normativi di criteri di Azure per Azure Data Box
+# <a name="azure-policy-regulatory-compliance-controls-for-azure-data-box"></a>Criteri di Azure controlli di conformità alle normative per Azure Data Box
 
-La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. In questa pagina sono elencati i **controlli di sicurezza** e i **domini di conformità** per Azure Data Box. È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
+La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i domini **di conformità e** i controlli di **sicurezza** per Azure Data Box. È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 

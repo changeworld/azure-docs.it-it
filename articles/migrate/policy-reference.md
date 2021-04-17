@@ -1,22 +1,22 @@
 ---
-title: Definizioni predefinite dei criteri per Azure Migrate
-description: Elenca le definizioni dei criteri predefiniti di criteri di Azure per Azure Migrate. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 03/31/2021
+title: Definizioni di criteri predefiniti per Azure Migrate
+description: Elenca Criteri di Azure definizioni di criteri predefiniti per Azure Migrate. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
+ms.date: 04/14/2021
 ms.topic: reference
 ms.service: azure-migrate
 author: rayne-wiselman
 ms.author: raynew
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 769faf5638602d9c78972c4cc7f0f7a6b19bda39
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: bb982075f4aa6eefb287def3b92f1fa24d13e1af
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096054"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505871"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-migrate"></a>Definizioni predefinite dei criteri di Azure per Azure Migrate
+# <a name="azure-policy-built-in-definitions-for-azure-migrate"></a>Criteri di Azure definizioni incorporate per Azure Migrate
 
-Questa pagina è un indice delle definizioni dei criteri predefiniti di [criteri di Azure](../governance/policy/overview.md) per Azure migrate. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
+Questa pagina è un indice delle [Criteri di Azure](../governance/policy/overview.md) di criteri predefiniti per Azure Migrate. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 
 Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 

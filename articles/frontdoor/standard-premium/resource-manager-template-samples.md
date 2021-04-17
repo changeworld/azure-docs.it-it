@@ -1,43 +1,45 @@
 ---
-title: Esempi di modelli di Gestione risorse-sportello anteriore di Azure
-description: Informazioni sui modelli di Azure Resource Manager di esempio forniti per il front-end di Azure.
+title: Resource Manager modelli di esempio - Frontdoor di Azure
+description: Informazioni sui modelli Azure Resource Manager di esempio forniti per Frontdoor di Azure.
 services: frontdoor
 author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 03/24/2021
-ms.openlocfilehash: 929adb0be948339af033d85b0dabd7e1cedf353e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/16/2021
+ms.openlocfilehash: 3559270710f56d43fe486e2e3d3e41c63e2a619b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561747"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565832"
 ---
-# <a name="azure-resource-manager-templates-for-azure-front-door"></a>Modelli di Azure Resource Manager per lo sportello anteriore di Azure
+# <a name="azure-resource-manager-templates-for-azure-front-door"></a>Azure Resource Manager modelli per Frontdoor di Azure
 
 > [!Note]
-> Questa documentazione è destinata a Azure front door standard/Premium (Preview). Stai cercando informazioni su Azure front door? Visualizza [qui](../front-door-overview.md).
+> Questa documentazione è relativa Frontdoor di Azure Standard/Premium (anteprima). Per informazioni sulle Frontdoor di Azure? Visualizzare [qui](../front-door-overview.md).
 
-La tabella seguente include i collegamenti ai modelli di Azure Resource Manager per lo sportello anteriore di Azure, con architetture di riferimento che includono altri servizi di Azure.
+La tabella seguente include collegamenti a modelli Azure Resource Manager per Frontdoor di Azure, con architetture di riferimento, inclusi altri servizi di Azure.
 
 | Esempio | Descrizione |
 |-|-|
-| [Set di regole](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set/) | Crea un profilo di sportello anteriore e un set di regole.  |
-|**Origini servizio app**| **Descrizione** |
-| [Servizio app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Consente di creare un'app del servizio app con un endpoint pubblico e un profilo di porta anteriore.  |
-| [Servizio app con collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Consente di creare un'app del servizio app con un endpoint privato e un profilo di porta anteriore.  |
-| [Ambiente del servizio app con collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-environment-internal-private-link) | Consente di creare un ambiente del servizio app, un'app con un endpoint privato e un profilo di porta anteriore.  |
-|**Origini di funzioni di Azure**| **Descrizione** |
-| [Funzioni di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-function-public/) | Consente di creare un'app funzioni di Azure con un endpoint pubblico e un profilo di porta anteriore.  |
-| [Funzioni di Azure con collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-function-private-link) | Consente di creare un'app funzioni di Azure con un endpoint privato e un profilo di porta anteriore.  |
-|**Origini di gestione API**| **Descrizione** |
-| [Gestione API (esterna)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-api-management-external) | Crea un'istanza di gestione API con integrazione VNet esterna e un profilo di porta anteriore.  |
-|**Origini archiviazione**| **Descrizione** |
-| [Sito Web statico di archiviazione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-storage-static-website) | Crea un account di archiviazione di Azure e un sito Web statico con un endpoint pubblico e un profilo di sportello anteriore.  |
-| [BLOB di archiviazione con collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-storage-blobs-private-link) | Crea un account di archiviazione di Azure e un contenitore BLOB con un endpoint privato e un profilo di sportello anteriore.  |
+| [Front door (creazione rapida)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium/) | Crea un profilo Front door di base che include un endpoint, un gruppo di origine, un'origine e una route.  |
+| [Set di regole](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set/) | Crea un profilo Front door e un set di regole.  |
+| [Criteri WAF con regola personalizzata](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-waf-custom/) | Crea un profilo Front door e waf con una regola personalizzata.  |
+|**Origini del servizio app**| **Descrizione** |
+| [Servizio app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Crea un'app del servizio app con un endpoint pubblico e un profilo Front door.  |
+| [Servizio app con collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-private-link) | Crea un'app del servizio app con un endpoint privato e un profilo Front door.  |
+| [Ambiente del servizio app con collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-app-service-environment-internal-private-link) | Crea un ambiente del servizio app, un'app con un endpoint privato e un profilo Front door.  |
+|**Funzioni di Azure origini**| **Descrizione** |
+| [Funzioni di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-function-public/) | Crea un Funzioni di Azure app con un endpoint pubblico e un profilo Front door.  |
+| [Funzioni di Azure con collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-function-private-link) | Crea un Funzioni di Azure app con un endpoint privato e un profilo Front door.  |
+|**API Management origini**| **Descrizione** |
+| [API Management (esterno)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-api-management-external) | Crea un'API Management con integrazione della rete virtuale esterna e un profilo Front door.  |
+|**Origini di archiviazione**| **Descrizione** |
+| [Sito Web statico di archiviazione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-storage-static-website) | Crea un account Archiviazione di Azure e un sito Web statico con un endpoint pubblico e un profilo Front door.  |
+| [BLOB di archiviazione con collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-storage-blobs-private-link) | Crea un account Archiviazione di Azure contenitore BLOB con un endpoint privato e un profilo Front door.  |
 |**Origini del gateway applicazione**| **Descrizione** |
-| [Gateway applicazione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-application-gateway-public) | Consente di creare un gateway applicazione e un profilo di porta anteriore. |
-|**Origini macchina virtuale**| **Descrizione** |
-| [Macchina virtuale con servizio di collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-vm-private-link) | Crea una macchina virtuale e un servizio di collegamento privato e un profilo di porta anteriore. |
+| [Gateway applicazione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-application-gateway-public) | Crea un gateway applicazione e un profilo Front door. |
+|**Origini delle macchine virtuali**| **Descrizione** |
+| [Macchina virtuale con il servizio Collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-vm-private-link) | Crea una macchina virtuale e un servizio Collegamento privato e un profilo Front door. |
 | | |

@@ -3,12 +3,14 @@ title: 'Avvio rapido: Creare un progetto con PowerShell'
 description: In questo argomento di avvio rapido viene usato Azure Blueprints per creare, definire e distribuire artefatti con PowerShell.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 002ba6fcf20b10bcc44fb486a85bc24bfdd12ae3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom:
+- mode-api
+ms.openlocfilehash: 29c43da0c1467c74ddc85a447a0cf9addb574c7e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559027"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538896"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con PowerShell
 
@@ -18,7 +20,7 @@ Informazioni su come creare e assegnare progetti consente di definire modelli co
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 - Se il modulo **Az.Blueprint** non è già installato, seguire le istruzioni contenute in [Aggiungere il modulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) per installarlo e convalidarlo da PowerShell Gallery.
-- Se in precedenza non sono stati usati i progetti di Azure, registrare il provider di risorse tramite Azure PowerShell con `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint` .
+- Se non è già stato usato Azure Blueprints, registrare il provider di risorse tramite Azure PowerShell con `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint` .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

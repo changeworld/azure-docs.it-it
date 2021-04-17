@@ -1,53 +1,53 @@
 ---
-title: Metriche personalizzate in monitoraggio di Azure (anteprima)
+title: Metriche personalizzate in Monitoraggio di Azure (anteprima)
 description: Informazioni sulle metriche personalizzate in Monitoraggio di Azure e sul modo in cui vengono modellate.
 author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 01/25/2021
-ms.openlocfilehash: c6e946d5aedb06899a44851b79581dbc518f41b0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/13/2021
+ms.openlocfilehash: f4ba3763dd781053349417fe3fed3a2848a06fc7
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052314"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515839"
 ---
-# <a name="custom-metrics-in-azure-monitor-preview"></a>Metriche personalizzate in monitoraggio di Azure (anteprima)
+# <a name="custom-metrics-in-azure-monitor-preview"></a>Metriche personalizzate in Monitoraggio di Azure (anteprima)
 
-Quando si distribuiscono risorse e applicazioni in Azure, è opportuno iniziare a raccogliere dati di telemetria per ottenere informazioni dettagliate sulle prestazioni e sulla stato relativi. Azure rende alcune metriche predefinite disponibili all'utente. Queste metriche sono denominate [standard o Platform](./metrics-supported.md). Tuttavia, esse sono intrinsecamente limitate. 
+Quando si distribuiscono risorse e applicazioni in Azure, è opportuno iniziare a raccogliere dati di telemetria per ottenere informazioni dettagliate sulle prestazioni e sulla stato relativi. Azure rende alcune metriche predefinite disponibili all'utente. Queste metriche sono denominate [standard o piattaforma](./metrics-supported.md). Tuttavia, esse sono intrinsecamente limitate. 
 
 È opportuno pertanto raccogliere alcuni indicatori delle prestazioni personalizzati o metriche specifiche dell'azienda per ottenere informazioni più dettagliate. Le metriche **personalizzate** possono essere raccolte tramite i dati di telemetria dell'applicazione o un agente in esecuzione sulle risorse di Azure o anche all'esterno del sistema di monitoraggio e inviate direttamente a Monitoraggio di Azure. Dopo la pubblicazione in Monitoraggio di Azure, è possibile esplorare le metriche personalizzate per le risorse e le applicazioni di Azure, nonché eseguire query e inviare avvisi in modo analogo a come si opera sulle metriche standard generate da Azure.
 
-Le metriche personalizzate di monitoraggio di Azure sono attualmente disponibili in anteprima pubblica. 
+Monitoraggio di Azure metriche personalizzate sono correnti nell'anteprima pubblica. 
 
-## <a name="methods-to-send-custom-metrics"></a>Metodi per l'invio di metriche personalizzate
+## <a name="methods-to-send-custom-metrics"></a>Metodi per inviare metriche personalizzate
 
 È possibile inviare le metriche personalizzate a Monitoraggio di Azure mediante diversi metodi:
 - Instrumentare l'applicazione usando Azure Application Insights SDK e inviare i dati di telemetria personalizzati a Monitoraggio di Azure. 
-- Installare l'agente di monitoraggio di Azure (anteprima) nella [macchina virtuale Windows o Linux di Azure](../agents/azure-monitor-agent-overview.md) e usare una [regola di raccolta dati](../agents/data-collection-rule-azure-monitor-agent.md) per inviare i contatori delle prestazioni alle metriche di monitoraggio di Azure.
+- Installare l Monitoraggio di Azure Agent (anteprima) nella macchina virtuale Windows [](../agents/data-collection-rule-azure-monitor-agent.md) o Linux di [Azure](../agents/azure-monitor-agent-overview.md) e usare una regola di raccolta dati per inviare contatori delle prestazioni Monitoraggio di Azure metriche.
 - Installare l'estensione Diagnostica di Azure per Windows (WAD) nella [macchina virtuale di Azure](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md), nel [set di scalabilità di macchine virtuali](../essentials/collect-custom-metrics-guestos-resource-manager-vmss.md), nella [macchina virtuale classica](../essentials/collect-custom-metrics-guestos-vm-classic.md) o nel [servizio cloud classico](../essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md) e inviare i contatori delle prestazioni a Monitoraggio di Azure. 
 - Installare l'[agente InfluxDB Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md) nella macchina virtuale Linux di Azure e inviare le metriche tramite il plug-in di output di Monitoraggio di Azure.
-- Inviare metriche personalizzate [direttamente all'API REST di monitoraggio di Azure](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
+- Inviare metriche [personalizzate direttamente all'API REST Monitoraggio di Azure ,](./metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
 ## <a name="pricing-model-and-retention"></a>Modello di determinazione dei prezzi e conservazione
 
-Vedere la [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate su quando verrà abilitata la fatturazione per le query metriche e metriche personalizzate. In questa pagina sono disponibili dettagli specifici sui prezzi per tutte le metriche, incluse le metriche personalizzate e le query sulle metriche. In breve, non è previsto alcun costo per inserire metriche standard (metriche della piattaforma) nell'archivio delle metriche di monitoraggio di Azure, ma le metriche personalizzate comportano costi quando entrano nella disponibilità generale. Le query dell'API metrica sono soggette a costi.
+Vedere la [Monitoraggio di Azure dei prezzi per](https://azure.microsoft.com/pricing/details/monitor/) informazioni dettagliate su quando la fatturazione verrà abilitata per le metriche personalizzate e le query sulle metriche. In questa pagina sono disponibili dettagli specifici sui prezzi per tutte le metriche, incluse le metriche personalizzate e le query sulle metriche. In sintesi, non sono previsti costi per l'inserimento di metriche standard (metriche della piattaforma) nell'archivio delle metriche Monitoraggio di Azure, ma le metriche personalizzate incorreranno nei costi quando immetteranno la disponibilità generale. Le query dell'API metrica comportano costi.
 
-Le metriche personalizzate vengono mantenute per la [stessa quantità di tempo delle metriche della piattaforma](../essentials/data-platform-metrics.md#retention-of-metrics). 
+Le metriche personalizzate vengono mantenute per lo [stesso periodo di tempo delle metriche della piattaforma.](../essentials/data-platform-metrics.md#retention-of-metrics) 
 
 > [!NOTE]  
-> Le metriche inviate a monitoraggio di Azure tramite il Application Insights SDK vengono fatturate come dati di log inseriti. Vengono addebitate solo le metriche aggiuntive solo se è stata selezionata la funzionalità Application Insights [Abilita avvisi sulle dimensioni metriche personalizzate](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) . Questa casella di controllo Invia i dati al database di metriche di monitoraggio di Azure usando l'API metrica personalizzata per consentire gli avvisi più complessi.  Scopri di più sul [modello di determinazione prezzi Application Insights](../app/pricing.md#pricing-model) e sui [prezzi nella tua area](https://azure.microsoft.com/pricing/details/monitor/).
+> Le metriche inviate Monitoraggio di Azure tramite Application Insights SDK vengono fatturate come dati di log inseriti. Comportano costi aggiuntivi solo se è stata selezionata la Application Insights abilita avvisi per le dimensioni [della](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) metrica personalizzata. Questa casella di controllo invia i dati al database Monitoraggio di Azure metriche personalizzate usando l'API metriche personalizzate per consentire l'invio di avvisi più complessi.  Altre informazioni sul modello Application Insights [prezzi e](../app/pricing.md#pricing-model) sui prezzi nella [propria area.](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 ## <a name="how-to-send-custom-metrics"></a>Come inviare metriche personalizzate
 
 Quando si inviano le metriche personalizzate a Monitoraggio di Azure, ogni punto dati (o valore) segnalato deve includere le informazioni seguenti.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticazione
 Per inviare le metriche personalizzate a Monitoraggio di Azure, l'entità a cui inviare la metrica deve disporre di un token di Azure Active Directory (Azure AD) valido nell'intestazione **Bearer** della richiesta. Sono supportati alcuni modi per acquisire un token di connessione valido:
-1. [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). Assegna un'identità a una risorsa di Azure, ad esempio una macchina virtuale. Identità del servizio gestita (MSI) è progettata per fornire alle risorse le autorizzazioni per eseguire determinate operazioni. Ad esempio può consentire a una risorsa di generare metriche su se stessa. Una risorsa o la relativa identità del servizio gestita possono ricevere autorizzazioni di **Autore delle metriche di monitoraggio** su di un'altra risorsa. Con questa autorizzazione, l'identità del servizio gestita può generare metriche anche per le altre risorse.
-2. [Azure ad entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). In questo scenario, a un'applicazione o servizio Azure AD possono essere concesse autorizzazioni per generare metriche su una risorsa di Azure.
+1. [Identità gestite per le risorse di Azure.](../../active-directory/managed-identities-azure-resources/overview.md) Assegna un'identità a una risorsa di Azure, ad esempio una macchina virtuale. Identità del servizio gestita (MSI) è progettata per fornire alle risorse le autorizzazioni per eseguire determinate operazioni. Ad esempio può consentire a una risorsa di generare metriche su se stessa. Una risorsa o la relativa identità del servizio gestita possono ricevere autorizzazioni di **Autore delle metriche di monitoraggio** su di un'altra risorsa. Con questa autorizzazione, l'identità del servizio gestita può generare metriche anche per le altre risorse.
+2. [Azure AD'entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). In questo scenario, a un'applicazione o servizio Azure AD possono essere concesse autorizzazioni per generare metriche su una risorsa di Azure.
 Per autenticare la richiesta, Monitoraggio di Azure convalida il token dell'applicazione usando le chiavi pubbliche di Azure AD. Il ruolo di **autore delle metriche di monitoraggio** dispone già di tale autorizzazione. È disponibile nel portale di Azure. All'entità servizio, in base alle risorse per cui genera le metriche personalizzate, può essere assegnato il ruolo di **autore delle metriche di monitoraggio** nell'ambito richiesto. Esempi possono essere una sottoscrizione, un gruppo di risorse o una risorsa specifica.
 
 > [!TIP]  
@@ -72,14 +72,14 @@ Questa proprietà consente di acquisire l'area di Azure in cui è distribuita la
 Ogni punto dati inviato a Monitoraggio di Azure deve essere contrassegnato con un timestamp. Il timestamp consente di acquisire il valore DateTime in corrispondenza del quale il valore della metrica viene misurato o raccolto. Monitoraggio di Azure accetta i dati di metrica con valori di timestamp non superiori a 20 minuti precedenti e 5 minuti successivi. Il timestamp deve essere in formato ISO 8601.
 
 ### <a name="namespace"></a>Spazio dei nomi
-Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Usando gli spazi dei nomi, è possibile isolare i gruppi di metriche per cui possono essere raccolte informazioni dettagliate o indicatori di prestazioni diversi. Ad esempio, si potrebbe avere uno spazio dei nomi denominato **contosomemorymetrics** che tiene traccia delle metriche di utilizzo della memoria che profilano l'app. Un altro spazio dei nomi denominato **contosoapptransaction** può tenere traccia di tutte le metriche sulle transazioni utente nell'applicazione.
+Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Usando gli spazi dei nomi, è possibile isolare i gruppi di metriche per cui possono essere raccolte informazioni dettagliate o indicatori di prestazioni diversi. Ad esempio, si potrebbe avere uno spazio dei nomi denominato **contosomemorymetrics** che tiene traccia delle metriche di utilizzo della memoria che profilano l'app. Un altro spazio dei **nomi denominato contosoapptransaction** potrebbe tenere traccia di tutte le metriche relative alle transazioni utente nell'applicazione.
 
 ### <a name="name"></a>Nome
 **Nome** è il nome della metrica che viene segnalata. In genere, il nome è sufficientemente descrittivo per aiutare a identificare l'elemento misurato. Un esempio è una metrica che misura il numero di byte di memoria utilizzati su una determinata macchina virtuale. Potrebbe avere un nome di metrica come ad esempio **Byte di memoria In uso**.
 
 ### <a name="dimension-keys"></a>Chiavi di dimensione
-Una dimensione è una coppia chiave o valore che consente di descrivere caratteristiche aggiuntive sulla metrica raccolta. Usando le caratteristiche aggiuntive, è possibile raccogliere altri dati sulla metrica, così da ottenere informazioni più dettagliate. Alla metrica **Byte di memoria in uso**, ad esempio, può essere associata una chiave di dimensione denominata **Processo** che acquisisce il numero di byte di memoria usati da ogni processo in una macchina virtuale. Utilizzando questa chiave, è possibile filtrare la metrica per verificare la quantità di processi specifici della memoria utilizzata o per identificare i primi cinque processi in base all'utilizzo della memoria.
-Le dimensioni sono facoltative e non tutte le metriche possono avere dimensioni. Una metrica personalizzata può avere fino a 10 dimensioni.
+Una dimensione è una coppia chiave o valore che consente di descrivere caratteristiche aggiuntive sulla metrica raccolta. Usando le caratteristiche aggiuntive, è possibile raccogliere altri dati sulla metrica, così da ottenere informazioni più dettagliate. Alla metrica **Byte di memoria in uso**, ad esempio, può essere associata una chiave di dimensione denominata **Processo** che acquisisce il numero di byte di memoria usati da ogni processo in una macchina virtuale. Usando questa chiave, è possibile filtrare la metrica per visualizzare la quantità di processi specifici della memoria utilizzata o per identificare i primi cinque processi in base all'utilizzo della memoria.
+Le dimensioni sono facoltative, non tutte le metriche possono avere dimensioni. Una metrica personalizzata può avere fino a 10 dimensioni.
 
 ### <a name="dimension-values"></a>Valori di dimensione
 Quando si segnala un punto dati delle metriche, per ogni chiave di dimensione per la metrica indicata è presente un valore di dimensione corrispondente. Se ad esempio si vuole indicare la memoria usata da ContosoApp nella macchina virtuale, lo scenario è il seguente:
@@ -89,7 +89,7 @@ Quando si segnala un punto dati delle metriche, per ogni chiave di dimensione pe
 * Il valore di dimensione è **ContosoApp.exe**.
 
 Quando si pubblica un valore della metrica, è possibile specificare solo un unico valore di dimensione per chiave di dimensione. Se si raccoglie la stessa metrica di uso della memoria per più processi nella macchina virtuale, è possibile indicare più valori di metrica per tale timestamp. Ogni valore della metrica specifica un valore di dimensione diverso per la chiave di dimensione **Processo**.
-Le dimensioni sono facoltative e non tutte le metriche possono avere dimensioni. Se una metrica post definisce le chiavi della dimensione, i valori della dimensione corrispondenti sono obbligatori.
+Le dimensioni sono facoltative, non tutte le metriche possono avere dimensioni. Se un post della metrica definisce chiavi di dimensione, i valori di dimensione corrispondenti sono obbligatori.
 
 ### <a name="metric-values"></a>Valori delle metriche
 Monitoraggio di Azure archivia tutte le metriche a intervalli di granularità di un minuto. Siamo consapevoli che durante un minuto specificato, potrebbe essere necessario campionare più volte una metrica. Un esempio è l'utilizzo della CPU. Oppure potrebbe essere necessario misurarla per diversi eventi discreti. Un esempio sono le latenze delle transazioni di accesso. Per limitare il numero di valori non elaborati che è necessario generare e pagare in Monitoraggio di Azure, è possibile pre-aggregare in locale e generare i valori in locale, come indicato di seguito.
@@ -99,7 +99,7 @@ Monitoraggio di Azure archivia tutte le metriche a intervalli di granularità di
 * **Somma**: somma di tutti i valori osservati da tutti i campioni e da tutte le misurazioni durante il minuto.
 * **Numero**: numero di campioni/misurazioni acquisiti durante il minuto.
 
-Se ad esempio sono presenti quattro transazioni di accesso all'app durante un determinato minuto, le latenze misurate risultanti per ognuna potrebbero essere le seguenti:
+Ad esempio, se sono state registrate quattro transazioni di accesso all'app in un determinato minuto, le latenze misurate risultanti per ognuna di essi potrebbero essere le seguenti:
 
 |Transazione 1|Transazione 2|Transazione 3|Transazione 4|
 |---|---|---|---|
@@ -173,7 +173,7 @@ Non è necessario predefinire una metrica personalizzata in Monitoraggio di Azur
 Dopo l'invio delle metriche personalizzate a Monitoraggio di Azure, è possibile esplorarle tramite il portale di Azure e sottoporle a query tramite le API REST di Monitoraggio di Azure. È inoltre possibile creare avvisi su di esse per ricevere una notifica quando vengono soddisfatte determinate condizioni.
 
 > [!NOTE]
-> È necessario essere un ruolo di lettore o collaboratore per visualizzare le metriche personalizzate. Vedere [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader). 
+> Per visualizzare le metriche personalizzate, è necessario avere il ruolo di lettore o collaboratore. Vedere [Lettore di monitoraggio.](../../role-based-access-control/built-in-roles.md#monitoring-reader) 
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Esplorare le metriche personalizzate tramite il portale di Azure
 1.    Accedere al [portale di Azure](https://portal.azure.com).
@@ -184,24 +184,24 @@ Dopo l'invio delle metriche personalizzate a Monitoraggio di Azure, è possibile
 6.    Selezionare la metrica personalizzata.
 
 > [!NOTE]
-> Per altre informazioni sulla visualizzazione delle metriche nel portale di Azure, vedere [Introduzione ad Azure Esplora metriche](./metrics-getting-started.md) .
+> Vedere [Introduzione ad Azure Esplora metriche](./metrics-getting-started.md) per altre informazioni sulla visualizzazione delle metriche nel portale di Azure.
 
 ## <a name="supported-regions"></a>Aree supportate
-Nella versione di anteprima pubblica la possibilità di pubblicare metriche personalizzate è disponibile solo in un subset di aree di Azure. Tale restrizione significa che le metriche possono essere pubblicate solo per le risorse in una delle aree supportate. Per altre informazioni sulle aree di Azure, vedere [geografie di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) . Il codice dell'area di Azure usato negli endpoint seguenti è solo il nome dell'area con spazi vuoti rimossi la tabella seguente elenca il set di aree di Azure supportate per le metriche personalizzate. Elenca inoltre gli endpoint corrispondenti nei quali le metriche per le risorse in tali aree devono essere pubblicate:
+Nella versione di anteprima pubblica la possibilità di pubblicare metriche personalizzate è disponibile solo in un subset di aree di Azure. Tale restrizione significa che le metriche possono essere pubblicate solo per le risorse in una delle aree supportate. Per [altre informazioni sulle aree di Azure,](https://azure.microsoft.com/global-infrastructure/geographies/) vedere Aree geografiche di Azure. Il codice dell'area di Azure usato negli endpoint seguenti è solo il nome dell'area con spazi vuoti rimossi La tabella seguente elenca il set di aree di Azure supportate per le metriche personalizzate. Elenca inoltre gli endpoint corrispondenti nei quali le metriche per le risorse in tali aree devono essere pubblicate:
 
 |Area di Azure |Prefisso di endpoint a livello di area|
 |---|---|
-| Tutte le aree del cloud pubblico | https://<azure_region_code>. monitoring.azure.com |
+| Tutte le aree del cloud pubblico | https://<azure_region_code>.monitoring.azure.com |
 | **Azure per enti pubblici** | |
-| US Gov Arizona | https: \/ /usgovarizona.Monitoring.Azure.US |
+| US Gov Arizona | https: \/ /usgovarizona.monitoring.azure.us |
 | **Cina** | |
-| Cina orientale 2 | https: \/ /chinaeast2.Monitoring.Azure.cn |
+| Cina orientale 2 | https: \/ /chinaeast2.monitoring.azure.cn |
 
-## <a name="latency-and-storage-retention"></a>Latenza e conservazione dell'archiviazione
+## <a name="latency-and-storage-retention"></a>Latenza e conservazione dello spazio di archiviazione
 
-L'aggiunta di una nuova metrica o di una nuova dimensione da aggiungere a una metrica potrebbe richiedere fino a 2-3 minuti. Una volta nel sistema, i dati dovrebbero essere visualizzati in meno di 30 secondi il 99% del tempo. 
+L'aggiunta di una nuova metrica o di una nuova dimensione a una metrica può richiedere fino a 2-3 minuti. Una volta nel sistema, i dati dovrebbero essere visualizzati in meno di 30 secondi il 99% del tempo. 
 
-Se si elimina una metrica o si rimuove una dimensione, la modifica può richiedere una settimana al mese per essere eliminata dal sistema.
+Se si elimina una metrica o si rimuove una dimensione, la modifica può richiedere da una settimana a un mese per essere eliminata dal sistema.
 
 ## <a name="quotas-and-limits"></a>Quote e limiti
 Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle metriche personalizzate:
@@ -213,6 +213,30 @@ Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle met
 |Lunghezza della stringa per gli spazi dei nomi delle metriche, i nomi delle metriche e le chiavi e i valori di dimensione|256 caratteri|
 
 Una serie temporale attiva è definita come una combinazione univoca di metrica, chiave di dimensione o valore di dimensione con valori della metrica pubblicati nelle 12 ore precedenti.
+
+Per comprendere il limite della serie temporale di 50.000, considerare la metrica seguente:
+
+*Tempo di risposta del server* con dimensioni: *Region,* *Department,* *CustomerID*
+
+Con questa metrica, se si dispone di 10 aree, 20 reparti e 100 clienti che offre 10 x 20 x 100 = serie temporiche 2000. 
+
+Se si dispone di 100 aree, 200 reparti e 2000 clienti 100 x 200 x 2000 = 40.000.000 di serie temporiche, che è molto oltre il limite solo per questa metrica. 
+
+Anche in questo caso, questo limite non è per una singola metrica. È per la somma di tutte queste metriche in una sottoscrizione e in un'area.  
+
+## <a name="design-limitations"></a>Limitazioni di progettazione
+
+**Non usare Application Insights per** il controllo: la pipeline Application Insights usa l'API delle metriche personalizzate in background. La pipeline è ottimizzata per un volume elevato di dati di telemetria con un impatto minimo sull'applicazione. Di conseguenza, applica una limitazione o un campione (accetta solo una percentuale dei dati di telemetria e ignora il resto) se il flusso di dati in ingresso diventa troppo grande. A causa di questo comportamento, non è possibile usarlo a scopo di controllo perché è probabile che alcuni record siano eliminati. 
+
+**Metriche con una variabile nel nome:** non usare una variabile come parte del nome della metrica, ad esempio un GUID o un timestamp. In questo modo si viene rapidamente a raggiunto il limite di 50.000 serie temporità. 
+ 
+**Dimensioni della metrica con** cardinalità elevata: le metriche con troppi valori validi in una dimensione (una "cardinalità elevata") hanno maggiori probabilità di raggiunto il limite di 50.000. In generale, è consigliabile non usare mai un valore in continua modifica nel nome di una dimensione o di una metrica. Il timestamp, ad esempio, non deve mai essere una dimensione. È possibile usare server, customer o productid, ma solo se si dispone di un numero inferiore di ognuno di questi tipi. Come test, chiedersi se si farebbe ogni grafico di tali dati in un grafico.  Se si hanno 10 o forse anche 100 server, potrebbe essere utile vederli tutti in un grafico per il confronto. Ma se si ha 1000, il grafico risultante sarebbe probabilmente difficile se non impossibile da leggere. La procedura consigliata consiste nel mantenere un numero inferiore a 100 valori validi. Fino a 300 è un'area grigia.  Se è necessario eseguire questa operazione, usare Monitoraggio di Azure log personalizzati.   
+
+Se nel nome o in una dimensione di cardinalità elevata è presente una variabile, è possibile che si verifichi quanto segue. 
+- Le metriche diventano inaffidabili a causa della limitazione
+- Esplora metriche non funziona
+- Avvisi e notifiche diventano imprevedibili
+- I costi possono aumentare in modo imprevisto: Microsoft non addebita mentre le metriche personalizzate con dimensioni sono in anteprima pubblica. Tuttavia, dopo l'avvio degli addebiti in futuro, si incorreranno in addebiti imprevisti. Il piano prevede l'addebito per l'utilizzo delle metriche in base al numero di serie tempormente monitorate e al numero di chiamate API effettuate.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 Usare le metriche personalizzate da servizi diversi: 
