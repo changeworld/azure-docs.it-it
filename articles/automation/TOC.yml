@@ -43,7 +43,7 @@
       href: automation-runbook-types.md
     - name: PowerShell DSC
       href: /powershell/scripting/dsc/overview/overview
-    - name: Dettagli della configurazione di rete di automazione
+    - name: Dettagli di configurazione della rete di Automazione
       href: automation-network-configuration.md
     - name: Sicurezza
       items:
@@ -66,19 +66,25 @@
           href: automation-create-standalone-account.md
         - name: Creare un account di Automazione con un modello di Resource Manager
           href: quickstart-create-automation-account-template.md
+        - name: Identità gestita
+          items:
+            - name: Abilitare l'identità gestita
+              href: enable-managed-identity-for-automation.md
+            - name: Disabilitare l'identità gestita
+              href: disable-managed-identity-for-automation.md
         - name: account RunAs
           items:
-            - name: Crea account RunAs
+            - name: Creare un account RunAs
               href: create-run-as-account.md
             - name: Eliminare un account RunAs
               href: delete-run-as-account.md
-            - name: Gestisci account RunAs
+            - name: Gestire l'account RunAs
               href: manage-runas-account.md
         - name: Configurare l'autenticazione con Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configurare l'autenticazione con Azure AD
           href: automation-use-azure-ad.md
-        - name: Gestire i record DNS usati dall'automazione
+        - name: Gestire i record DNS usati da Automazione
           href: how-to/automation-region-dns-records.md
         - name: Connettersi privatamente a un account di Automazione
           href: how-to/private-link-security.md
@@ -86,7 +92,7 @@
           href: automation-role-based-access-control.md
         - name: Spostare l'account di Automazione in un'altra sottoscrizione
           href: how-to/move-account.md
-        - name: Elimina account di automazione
+        - name: Eliminare un account di Automazione
           href: delete-account.md
         - name: Eseguire la migrazione da Orchestrator ad Automazione di Azure (Beta)
           href: automation-orchestrator-migration.md
@@ -116,7 +122,7 @@
           href: troubleshoot/shared-resources.md
     - name: Automazione dei processi
       items:
-        - name: USA manuali operativi e moduli esistenti
+        - name: Usare i runbook e i moduli esistenti
           href: automation-runbook-gallery.md
         - name: Informazioni sul flusso di lavoro di PowerShell
           href: automation-powershell-workflow.md
@@ -254,7 +260,7 @@
           href: automation-solution-vm-management-config.md
         - name: Eseguire query sui log da Avvio/Arresto di macchine virtuali durante gli orari di minore attività
           href: automation-solution-vm-management-logs.md
-        - name: Rimuovi Avvio/Arresto di macchine virtuali durante gli orari di minore attività
+        - name: Rimuovere Avvio/Arresto di macchine virtuali durante gli orari di minore attività
           href: automation-solution-vm-management-remove.md
         - name: Risolvere i problemi relativi ad Avvio/Arresto di macchine virtuali durante gli orari di minore attività
           href: troubleshoot/start-stop-vm.md

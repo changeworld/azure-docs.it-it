@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e1a0f4f22411e506cab3b54e955a4cdc16986fe2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0abef835e406b442239cecd81fed5751f1c9a92
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101667507"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378160"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Pool SQL serverless in Azure Synapse Analytics 
 
@@ -54,7 +54,7 @@ L'endpoint del pool SQL serverless è disponibile all'interno di ogni area di la
 
 ## <a name="client-tools"></a>Strumenti client
 
-Il pool SQL serverless consente di usare gli attuali strumenti di business intelligence e query ad hoc di SQL per accedere al data lake. Grazie alla familiare sintassi T-SQL, è possibile usare qualsiasi strumento in grado di stabilire connessioni TDS con le offerte SQL per [connettersi ed eseguire query su SQL](connect-overview.md) su richiesta. È possibile connettersi con Azure Data Studio ed eseguire query ad hoc oppure con Power BI per ottenere informazioni dettagliate in pochi minuti.
+Il pool SQL serverless consente di usare gli attuali strumenti di business intelligence e query ad hoc di SQL per accedere al data lake. Poiché fornisce una sintassi T-SQL familiare, qualsiasi strumento in grado di stabilire una connessione TDS alle offerte SQL può connettersi ed eseguire [query](connect-overview.md)Synapse SQL . È possibile connettersi con Azure Data Studio ed eseguire query ad hoc oppure con Power BI per ottenere informazioni dettagliate in pochi minuti.
 
 ## <a name="t-sql-support"></a>Supporto di T-SQL
 

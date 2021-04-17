@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: c98d88d66e89df3efe186212d8c004ec2a65158d
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 1166585c7291c4fe0d78cbc9540e3f08f985db6c
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106450215"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107589993"
 ---
 | Risorsa | Limite | Note |
 | --- | --- | --- |
@@ -35,9 +35,9 @@ ms.locfileid: "106450215"
 | Numero di set di regole di riscrittura |400| |
 | Numero di configurazioni di intestazioni o URL per set di regole di riscrittura|40| |
 | Numero di condizioni per set di regole di riscrittura|40| |
-| Connessioni WebSocket simultanee |Gateway medio 20.000<sup>2</sup><br> Gateway di grandi dimensioni 50.000<sup>2</sup>| |
+| Connessioni WebSocket simultanee |Gateway medi 20.000<sup>2</sup><br> Gateway di grandi dimensioni 50.000<sup>2</sup>| |
 | Lunghezza massima dell'URL|32 KB| |
-| Dimensioni massime delle intestazioni per HTTP/2 |4 KB| |
+| Dimensioni massime delle intestazioni per HTTP/2 |16 KB| |
 | Dimensioni massime di caricamento file, Standard |2 GB | |
 | Dimensioni massime caricamento file WAF |Gateway WAF medi V1, 100 MB<br>Gateway WAF di grandi dimensioni V1, 500 MB<br>WAF V2, 750 MB| |
 | Limite delle dimensioni del corpo WAF, senza file|128 KB||
@@ -46,4 +46,4 @@ ms.locfileid: "106450215"
 
 <sup>1</sup> Nel caso di SKU abilitati per WAF, è necessario limitare il numero di risorse a 40.
 
-<sup>2</sup> il limite è per istanza del gateway applicazione non per ogni risorsa del gateway applicazione.
+<sup>2</sup> Il limite è per ogni istanza del gateway applicazione non per ogni risorsa del gateway applicazione.

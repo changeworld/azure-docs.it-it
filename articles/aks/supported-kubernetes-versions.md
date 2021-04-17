@@ -6,22 +6,22 @@ ms.topic: article
 ms.date: 03/29/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ba75e11a067a257c659f8c659f68bb2bba6fa2e0
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: fac2eb75d210a34f4c5cd50c4649921aadfcd5ee
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012087"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588497"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
-La community di Kubernetes rilascia le versioni secondarie all'incirca ogni tre mesi. Recentemente, la community di Kubernetes ha [aumentato la finestra di supporto per ogni versione da 9 mesi a 12 mesi](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), a partire dalla versione 1,19. 
+La community di Kubernetes rilascia le versioni secondarie all'incirca ogni tre mesi. Di recente, la community di Kubernetes ha aumentato la finestra di supporto per ogni versione da 9 mesi a [12](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/)mesi, a partire dalla versione 1.19. 
 
-Le versioni secondarie includono nuove funzionalità e miglioramenti. Le versioni patch sono più frequenti (talvolta settimanali) e sono destinate a correzioni di bug critiche in una versione secondaria. Le versioni di patch includono correzioni per le vulnerabilità di sicurezza o i bug principali.
+Le versioni secondarie includono nuove funzionalità e miglioramenti. Le versioni delle patch sono più frequenti (talvolta settimanali) e sono destinate a correzioni di bug critiche all'interno di una versione secondaria. Le versioni delle patch includono correzioni per vulnerabilità della sicurezza o bug principali.
 
 ## <a name="kubernetes-versions"></a>Versioni di Kubernetes
 
-Kubernetes usa lo schema di controllo delle versioni [semantico](https://semver.org/) standard per ogni versione:
+Kubernetes usa lo schema di [controllo delle versioni semantico](https://semver.org/) standard per ogni versione:
 
 ```
 [major].[minor].[patch]
@@ -33,36 +33,36 @@ Example:
 
 Ogni numero nella versione indica la compatibilità generale con la versione precedente:
 
-* Le **versioni principali** cambiano quando gli aggiornamenti API incompatibili o la compatibilità con le versioni precedenti potrebbero essere interrotti.
-* Le **versioni secondarie** cambiano quando vengono eseguiti aggiornamenti delle funzionalità compatibili con le versioni precedenti.
-* Le **versioni delle patch** cambiano quando vengono apportate correzioni di bug compatibili con le versioni precedenti.
+* **Le versioni principali cambiano** quando gli aggiornamenti delle API incompatibili o la compatibilità con le versioni precedenti possono essere interrotte.
+* **Le versioni secondarie** cambiano quando vengono apportati aggiornamenti delle funzionalità compatibili con le versioni precedenti delle altre versioni secondarie.
+* **Le versioni delle** patch cambiano quando vengono apportate correzioni di bug compatibili con le versioni precedenti.
 
-Scopo di eseguire la versione patch più recente della versione secondaria che si sta eseguendo. Ad esempio, il cluster di produzione è on **`1.17.7`** . **`1.17.8`** è la versione più recente della patch disponibile per la serie *1,17* . È consigliabile eseguire l'aggiornamento a appena **`1.17.8`** possibile per verificare che il cluster sia completamente aggiornato e supportato.
+Eseguire la versione patch più recente della versione secondaria in esecuzione. Ad esempio, il cluster di produzione si trova in **`1.17.7`** . **`1.17.8`** è la versione patch più recente disponibile per la *serie 1.17.* È consigliabile eseguire **`1.17.8`** l'aggiornamento a appena possibile per assicurarsi che il cluster sia completamente aggiornato e supportato.
 
 ## <a name="kubernetes-version-support-policy"></a>Criteri di supporto della versione di Kubernetes
 
-AKS definisce una versione disponibile a livello generale come versione abilitata in tutte le misurazioni SLO o SLA e disponibile in tutte le aree. AKS supporta tre versioni secondarie GA di Kubernetes:
+Il servizio AKS definisce una versione disponibile a livello generale come versione abilitata in tutte le misurazioni SLO o sla e disponibile in tutte le aree. Il servizio Kubernetes supporta tre versioni secondarie ga di Kubernetes:
 
-* La versione secondaria di GA più recente rilasciata in AKS (a cui si farà riferimento come N).
+* L'ultima versione secondaria disponibile a tutti i costi rilasciata nel servizio Servizio Web di gestione degli aggiornamenti (che verrà referenziato come N).
 * Due versioni secondarie precedenti.
     * Ogni versione secondaria supportata supporta anche un massimo di due (2) patch stabili.
 
-AKS può supportare anche le versioni di anteprima, esplicitamente etichettate e soggette a [termini e condizioni][preview-terms]per l'anteprima.
+Il servizio Web Diaks può anche supportare le versioni di anteprima, etichettate in modo esplicito e soggette ai termini [e alle condizioni dell'anteprima.][preview-terms]
 
 > [!NOTE]
-> AKS USA procedure di distribuzione sicure che coinvolgono una distribuzione graduale dell'area. Ciò significa che possono essere importati fino a 10 giorni lavorativi perché una nuova versione o una nuova versione sia disponibile in tutte le aree.
+> Il servizio AKS usa procedure di distribuzione sicure che comportano una distribuzione graduale dell'area. Ciò significa che la disponibilità di una nuova versione o di una nuova versione in tutte le aree potrebbe richiedere fino a 10 giorni lavorativi.
 
-La finestra supportata di versioni di Kubernetes su AKS è nota come "N-2": (N (ultima versione)-2 (versioni secondarie).
+La finestra supportata delle versioni di Kubernetes nel servizio Kubernetes è nota come "N-2": (N (ultima versione) - 2 (versioni secondarie).)
 
-Ad esempio, se AKS introduce *1.17. a* oggi, viene fornito il supporto per le versioni seguenti:
+Ad esempio, se il servizio AKS introduce *oggi la versione 1.17.a,* viene fornito il supporto per le versioni seguenti:
 
-Nuova versione secondaria    |    Elenco versioni supportate
+Nuova versione secondaria    |    Elenco delle versioni supportate
 -----------------    |    ----------------------
-1.17. a               |    1.17. a, 1.17. b, 1.16. c, 1.16. d, 1.15. e, 1.15. f
+1.17.a               |    1.17.a, 1.17.b, 1.16.c, 1.16.d, 1.15.e, 1.15.f
 
-Dove ". Letter" è rappresentativo delle versioni patch.
+Dove ".letter" è rappresentativo delle versioni delle patch.
 
-Quando viene introdotta una nuova versione secondaria, la versione secondaria più recente e le versioni di patch supportate sono deprecate e rimosse. Ad esempio, l'elenco versione supportato corrente è:
+Quando viene introdotta una nuova versione secondaria, la versione secondaria meno recente e le versioni patch supportate vengono deprecate e rimosse. Ad esempio, l'elenco delle versioni attualmente supportate è:
 
 ```
 1.17.a
@@ -73,12 +73,12 @@ Quando viene introdotta una nuova versione secondaria, la versione secondaria pi
 1.15.f
 ```
 
-AKS rilascia 1,18. \* , rimuovendo tutte le versioni 1,15. non \* supportate in 30 giorni.
+AKS rilascia la versione 1.18. , rimuovendo tutte le versioni \* 1.15. non più \* supportate in 30 giorni.
 
 > [!NOTE]
-> Se i clienti eseguono una versione di Kubernetes non supportata, verrà richiesto di eseguire l'aggiornamento quando richiede il supporto per il cluster. I cluster che eseguono versioni Kubernetes non supportate non sono coperti dai [criteri di supporto di AKS](./support-policies.md).
+> Se i clienti eseguono una versione di Kubernetes non supportata, verrà chiesto loro di eseguire l'aggiornamento quando richiedono supporto per il cluster. I cluster che eseguono versioni di Kubernetes non supportate non sono coperti dai criteri di supporto [del servizio Kubernetes.](./support-policies.md)
 
-Oltre a quanto sopra, AKS supporta un massimo di due versioni di **patch** di una determinata versione secondaria. Quindi, date le seguenti versioni supportate:
+Oltre a quello riportato in precedenza, il servizio AKS supporta un massimo di due **versioni di patch** di una determinata versione secondaria. Di seguito sono riportate le versioni supportate:
 
 ```
 Current Supported Version List
@@ -86,7 +86,7 @@ Current Supported Version List
 1.17.8, 1.17.7, 1.16.10, 1.16.9
 ```
 
-Se AKS rilascia `1.17.9` e `1.16.11` , le versioni meno recenti della patch sono deprecate e rimosse e l'elenco delle versioni supportate diventa:
+Se AKS rilascia e , le versioni di patch meno recenti vengono deprecate e rimosse `1.17.9` `1.16.11` e l'elenco delle versioni supportate diventa:
 
 ```
 New Supported Version List
@@ -94,41 +94,42 @@ New Supported Version List
 1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
 ```
 
-### <a name="supported-kubectl-versions"></a>`kubectl`Versioni supportate
+### <a name="supported-kubectl-versions"></a>Versioni `kubectl` supportate
 
-È possibile usare una versione secondaria precedente o successiva `kubectl` rispetto alla versione di *Kube-apiserver* , coerente con i [criteri di supporto di Kubernetes per kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
+È possibile usare una versione secondaria precedente o più recente di rispetto alla versione `kubectl` *di kube-apiserver,* coerente con i criteri di supporto di [Kubernetes per kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
-Se, ad esempio, *Kube-apiserver* è in *1,17*, è possibile usare le versioni da *1,16* a *1,18* di `kubectl` con tale *Kube-apiserver*.
+Ad esempio, se *kube-apiserver* è alla *versione 1.17,* è possibile usare le versioni *da 1.16* a *1.18* di con `kubectl` tale *kube-apiserver*.
 
 Per installare o aggiornare la versione di `kubectl` , eseguire `az aks install-cli` .
 
-## <a name="release-and-deprecation-process"></a>Processo di rilascio e di deprecazione
+## <a name="release-and-deprecation-process"></a>Processo di rilascio e deprecazione
 
-È possibile fare riferimento a versioni imminenti e deprecazioni nel calendario della versione [AKS Kubernetes](#aks-kubernetes-release-calendar).
+È possibile fare riferimento alle versioni future e alle deprecazioni nel calendario delle versioni di [Kubernetes del servizio Kubernetes.](#aks-kubernetes-release-calendar)
 
-Per le nuove versioni **secondarie** di Kubernetes:
-  * AKS pubblica un annuncio preliminare con la data pianificata di una nuova versione della versione e la relativa deprecazione obsoleta nelle note sulla versione di [AKS](https://aka.ms/aks/releasenotes) almeno 30 giorni prima della rimozione.
-  * AKS pubblica una [notifica sull'integrità del servizio](../service-health/service-health-overview.md) disponibile per tutti gli utenti con accesso AKS e Portal e invia un messaggio di posta elettronica agli amministratori della sottoscrizione con le date di rimozione della versione pianificata.
+Per le **nuove versioni** secondarie di Kubernetes:
+  * Il servizio Web Diaks pubblica un pre-annuncio con la data pianificata di una nuova versione e la deprecazione della rispettiva versione precedente nelle note sulla versione del servizio Web Disattesa almeno 30 giorni prima della rimozione. [](https://aka.ms/aks/releasenotes)
+  * Il servizio Azure Advisor servizio [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) per avvisare gli utenti se una nuova versione causerà problemi nel cluster a causa di API deprecate. Azure Advisor viene usato anche per avvisare l'utente se attualmente non è più disponibile.
+  * Il servizio AzureKs pubblica una notifica sull'integrità del servizio disponibile per tutti gli utenti con accesso al portale e al servizio Azure Service Pack e invia un messaggio di posta elettronica agli amministratori della sottoscrizione con le date di rimozione della versione pianificate. [](../service-health/service-health-overview.md)
 
     ````
     To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
     ````
-  * Gli utenti hanno **30 giorni** dalla rimozione della versione per eseguire l'aggiornamento a una versione secondaria supportata per continuare a ricevere supporto.
+  * Gli utenti hanno **30 giorni dalla** rimozione della versione all'aggiornamento a una versione secondaria supportata per continuare a ricevere supporto.
 
-Per le nuove versioni di **patch** di Kubernetes:
+Per le **nuove versioni patch** di Kubernetes:
   * A causa della natura urgente delle versioni delle patch, possono essere introdotte nel servizio non appena diventano disponibili.
-  * In generale, AKS non comunica ampiamente il rilascio di nuove versioni di patch. Tuttavia, AKS monitora costantemente e convalida le patch CVE disponibili per il supporto in AKS in modo tempestivo. Se viene rilevata una patch critica o è richiesta un'azione da parte dell'utente, AKS invierà una notifica agli utenti per eseguire l'aggiornamento alla patch appena disponibile.
-  * Gli utenti hanno **30 giorni** dalla rimozione di una versione patch da AKS per eseguire l'aggiornamento a una patch supportata e continuare a ricevere supporto.
+  * In generale, il prodotto AKS non comunica ampiamente il rilascio di nuove versioni di patch. Tuttavia, il servizio AKS monitora e convalida costantemente le patch CVE disponibili per supportarle in modo appropriato. Se viene trovata una patch critica o è necessaria un'azione da parte dell'utente, il servizio AKS invierà una notifica agli utenti di eseguire l'aggiornamento alla patch appena disponibile.
+  * Gli utenti hanno a che fare con **30** giorni dalla rimozione di una versione di patch dal servizio Disacks per eseguire l'aggiornamento a una patch supportata e continuare a ricevere supporto.
 
 ### <a name="supported-versions-policy-exceptions"></a>Eccezioni dei criteri delle versioni supportate
 
-AKS si riserva il diritto di aggiungere o rimuovere versioni nuove/esistenti con uno o più errori critici di produzione o problemi di sicurezza senza preavviso.
+Il componente AKS si riserva il diritto di aggiungere o rimuovere versioni nuove o esistenti con uno o più bug critici che influiscono sulla produzione o problemi di sicurezza senza preavviso.
 
-Le versioni di patch specifiche possono essere ignorate o implementate con accelerazione, a seconda della gravità del bug o del problema di sicurezza.
+È possibile ignorare o accelerare l'implementazione di versioni di patch specifiche, a seconda della gravità del bug o del problema di sicurezza.
 
-## <a name="azure-portal-and-cli-versions"></a>Versioni di portale di Azure e CLI
+## <a name="azure-portal-and-cli-versions"></a>portale di Azure e dell'interfaccia della riga di comando
 
-Quando si distribuisce un cluster del servizio contenitore di Azure nel portale o con l'interfaccia della riga di comando di Azure, il cluster USA per impostazione predefinita la versione secondaria N-1 e la patch più recente. Ad esempio, se AKS supporta *1.17. a*, *1.17. b*, *1.16. c*, *1.16. d*, *1.15. e* e *1.15. f*, la versione predefinita selezionata è *1.16. c*.
+Quando si distribuisce un cluster del servizio AzureKs nel portale o con l'interfaccia della riga di comando di Azure, per impostazione predefinita il cluster è la versione secondaria N-1 e la patch più recente. Ad esempio, se il servizio Gateway Gateway supporta *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e* e *1.15.f*, la versione predefinita selezionata è *1.16.c*.
 
 Per scoprire quali versioni sono attualmente disponibili per la sottoscrizione e l'area in uso, usare il comando [az servizio Azure Kubernetes get-versions][az-aks-get-versions]. L'esempio seguente elenca le versioni di Kubernetes disponibili per l'area *EastUS*:
 
@@ -136,76 +137,78 @@ Per scoprire quali versioni sono attualmente disponibili per la sottoscrizione e
 az aks get-versions --location eastus --output table
 ```
 
-## <a name="aks-kubernetes-release-calendar"></a>Calendario della versione di AKS Kubernetes
+## <a name="aks-kubernetes-release-calendar"></a>Calendario delle versioni di Kubernetes del servizio Kubernetes del servizio Kubernetes
 
 Per la cronologia delle versioni precedenti, vedere [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
-|  Versione di K8s | Versione upstream  | Anteprima AKS  | AKS GA  | Fine vita |
+|  Versione K8s | Versione upstream  | Anteprima di AKS  | AKS GA  | Fine del ciclo di vita |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.17  | 09-19 dicembre  | Gennaio 2019   | 2020 luglio  | 1,20 GA | 
-| 1.18  | Mar-23-20  | Maggio 2020   | 2020 agosto  | 1,21 GA | 
-| 1,19  | Aug-04-20  | 2020 Sep   | 2020 novembre  | 1,22 GA | 
-| 1,20  | 08-20 dicembre  | Gennaio 2021   | Mar 2021  | 1,23 GA |
-| 1,21  | Apr-08-21 * | Maggio 2021   | 2021 giu  | 1,24 GA |
+| 1.18  | 23-20 marzo  | Maggio 2020   | Agosto 2020  | 1.21 Ga | 
+| 1,19  | 04-20 agosto  | Set 2020   | Novembre 2020  | 1.22 Ga | 
+| 1,20  | Dic-08-20  | Gennaio 2021   | Mar 2021  | 1.23 Ga |
+| 1.21  | Apr-08-21 | Maggio 2021   | Giugno 2021  | 1.24 Ga |
 
-\* La versione upstream di Kubernetes 1,21 è soggetta a modifiche come il calendario upstream.
 
 
 ## <a name="faq"></a>Domande frequenti
 
-**Con quale frequenza si prevede di aggiornare le versioni di Kubernetes per continuare a supportare?**
+**In che modo Microsoft invia una notifica delle nuove versioni di Kubernetes?**
 
-A partire da Kubernetes 1,19, la [community open source ha esteso il supporto per 1 anno](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS si impegna per abilitare le patch e supportare la corrispondenza degli impegni upstream. Per i cluster AKS in 1,19 e versioni successive, è possibile eseguire l'aggiornamento almeno una volta all'anno per rimanere in una versione supportata. 
+Il team del servizio Azure Kubernetes pubblica pre-annunci con date pianificate per le nuove versioni di Kubernetes nella documentazione, [gitHub](https://github.com/Azure/AKS/releases) e messaggi di posta elettronica agli amministratori della sottoscrizione proprietari di cluster che non saranno più supportati.  Oltre agli annunci, il servizio Azure Azure Advisor usa anche [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) per informare il cliente all'interno del portale di Azure per avvisare gli utenti che non sono più supportati, nonché per avvisarli di API deprecate che influiranno sull'applicazione o sul processo di sviluppo. 
 
-Per le versioni 1,18 o inferiori, la finestra del supporto rimane a 9 mesi, richiedendo un aggiornamento ogni 9 mesi per rimanere in una versione supportata. Testare regolarmente le nuove versioni e prepararsi all'aggiornamento a versioni più recenti per acquisire i miglioramenti più recenti stabili all'interno di Kubernetes.
+**Con quale frequenza è consigliabile aggiornare le versioni di Kubernetes per mantenere il supporto?**
+
+A partire da Kubernetes 1.19, la community open source ha esteso il supporto [a 1 anno.](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/) Il servizio AKS esegue il commit per abilitare le patch e supporta la corrispondenza degli impegni upstream. Per i cluster del servizio Web Diaks nella versione 1.19 e successive, sarà possibile eseguire l'aggiornamento almeno una volta all'anno per mantenere una versione supportata. 
+
+Per le versioni 1.18 o precedenti, la finestra di supporto rimane di 9 mesi, richiedendo un aggiornamento una volta ogni 9 mesi per mantenere una versione supportata. Testare regolarmente nuove versioni ed essere preparati a eseguire l'aggiornamento a versioni più recenti per acquisire i miglioramenti stabili più recenti all'interno di Kubernetes.
 
 **Cosa accade quando un utente aggiorna un cluster Kubernetes con una versione secondaria non supportata?**
 
-Se si usa la versione *n-3* o precedente, significa che l'utente non è più supportato e verrà richiesto di effettuare l'aggiornamento. Quando l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si torna all'interno dei criteri di supporto. Ad esempio:
+Se si ha la versione *n-3* o una versione precedente, significa che non si è supportati e verrà richiesto di eseguire l'aggiornamento. Quando l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si torna entro i criteri di supporto. Ad esempio:
 
-- Se la versione più recente di AKS supportata è *1.15. a* e l'utente si trova su *1.14. b* o versioni precedenti, l'utente non è più supportato.
-- Quando si esegue correttamente l'aggiornamento da *1.14. b* a *1.15. a* o versione successiva, si rientra nei criteri di supporto.
+- Se la versione del servizio AKS supportata meno recente è *1.15.a* e si è nella versione *1.14.b* o precedente, il supporto non è disponibile.
+- Quando si esegue correttamente l'aggiornamento *dalla versione 1.14.b* alla *versione 1.15.a* o successiva, si torna entro i criteri di supporto.
 
-Il downgrade non è supportato.
+I downgrade non sono supportati.
 
-**Cosa significa ' esterno al supporto tecnico '**
+**Cosa significa "Al di fuori del supporto"**
 
-"All'esterno del supporto" significa che:
-* La versione che si sta eseguendo è esterna all'elenco delle versioni supportate.
-* Verrà richiesto di aggiornare il cluster a una versione supportata durante la richiesta di supporto, a meno che non si sia entro il periodo di tolleranza di 30 giorni dopo la deprecazione della versione. 
+"Al di fuori del supporto" significa che:
+* La versione in esecuzione non è in linea con l'elenco delle versioni supportate.
+* Verrà richiesto di aggiornare il cluster a una versione supportata quando si richiede il supporto, a meno che non si sia entro il periodo di tolleranza di 30 giorni dopo la deprecazione della versione. 
 
-Inoltre, AKS non esegue alcun runtime o altre garanzie per i cluster al di fuori dell'elenco delle versioni supportate.
+Inoltre, il servizio AKS non garantisce il runtime o altre garanzie per i cluster al di fuori dell'elenco delle versioni supportate.
 
 **Cosa accade quando un utente ridimensiona un cluster Kubernetes con una versione secondaria non supportata?**
 
-Per le versioni secondarie non supportate da AKS, la scalabilità orizzontale o verticale dovrebbe continuare a funzionare. Poiché non sono disponibili garanzie di qualità del servizio, è consigliabile eseguire l'aggiornamento per ripristinare il supporto del cluster.
+Per le versioni secondarie non supportate dal server del supporto di Microsoft Office, il ridimensionamento deve continuare a funzionare. Poiché non sono presenti garanzie di qualità del servizio, è consigliabile eseguire l'aggiornamento per riportare il cluster in supporto.
 
-**Un utente può rimanere sempre in una versione di Kubernetes?**
+**Un utente può rimanere in una versione di Kubernetes per sempre?**
 
-Se un cluster non è più supportato per più di tre (3) versioni secondarie ed è stato trovato per portare a rischi per la sicurezza, Azure Contatta in modo proattivo per aggiornare il cluster. Se non si eseguono altre azioni, Azure si riserva il diritto di aggiornare automaticamente il cluster per conto dell'utente.
+Se un cluster non è più in supporto per più di tre (3) versioni secondarie ed è stato rilevato che comporta rischi per la sicurezza, Azure contatta in modo proattivo l'utente per aggiornare il cluster. Se non si prendono altre misure, Azure si riserva il diritto di aggiornare automaticamente il cluster per conto dell'utente.
 
-**Quale versione supporta il piano di controllo se il pool di nodi non si trova in una delle versioni AKS supportate?**
+**Quale versione supporta il piano di controllo se il pool di nodi non è in una delle versioni supportate del servizio AKS?**
 
-Il piano di controllo deve trovarsi all'interno di una finestra di versioni di tutti i pool di nodi. Per informazioni dettagliate sull'aggiornamento del piano di controllo o dei pool di nodi, vedere la documentazione sull' [aggiornamento dei pool di nodi](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Il piano di controllo deve essere all'interno di una finestra di versioni di tutti i pool di nodi. Per informazioni dettagliate sull'aggiornamento del piano di controllo o dei pool di nodi, vedere la documentazione [sull'aggiornamento dei pool di nodi.](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools)
 
-**È possibile ignorare più versioni AKS durante l'aggiornamento del cluster?**
+**È possibile ignorare più versioni del servizio AKS durante l'aggiornamento del cluster?**
 
-Quando si aggiorna un cluster AKS supportato, non è possibile ignorare le versioni secondarie di Kubernetes. Ad esempio, gli aggiornamenti tra:
-  * *1.12. x*  ->  *1.13. x*: consentito.
-  * *1.13. x*  ->  *1.14. x*: consentito.
-  * *1.12. x*  ->  *1.14. x*: non consentito.
+Quando si aggiorna un cluster del servizio Kubernetes supportato, le versioni secondarie di Kubernetes non possono essere ignorate. Ad esempio, gli aggiornamenti tra:
+  * *1.12.x*  ->  *1.13.x:* consentito.
+  * *1.13.x*  ->  *1.14.x:* consentito.
+  * *1.12.x*  ->  *1.14.x:* non consentito.
 
-Per eseguire l'aggiornamento da *1.12. x*  ->  *1.14. x*:
-1. Aggiornamento da *1.12. x*  ->  *1.13. x*.
-1. Aggiornamento da *1.13. x*  ->  *1.14. x*.
+Per eseguire *l'aggiornamento dalla versione 1.12.x*  ->  *1.14.x:*
+1. Eseguire *l'aggiornamento da 1.12.x*  ->  *1.13.x*.
+1. Eseguire *l'aggiornamento da 1.13.x*  ->  *1.14.x*.
 
-È possibile ignorare più versioni solo quando si effettua l'aggiornamento da una versione non supportata di nuovo in una versione supportata. Ad esempio, è possibile eseguire l'aggiornamento da *1.10. x* non supportato a una *1.15. x* supportata.
+È possibile ignorare più versioni solo quando si esegue l'aggiornamento da una versione non supportata a una versione supportata. Ad esempio, è possibile eseguire l'aggiornamento da una *versione 1.10.x* non supportata a una *versione 1.15.x supportata.*
 
-**È possibile creare un nuovo cluster 1. XX. x durante la finestra di supporto di 30 giorni?**
+**È possibile creare un nuovo cluster 1.xx.x durante la finestra di supporto di 30 giorni?**
 
-No. Quando una versione è deprecata o rimossa, non è possibile creare un cluster con tale versione. Quando viene implementata la modifica, si inizierà a visualizzare la versione precedente rimossa dall'elenco delle versioni. Questo processo può richiedere fino a due settimane dall'annuncio, progressivamente in base all'area.
+No. Dopo che una versione è stata deprecata o rimossa, non è possibile creare un cluster con tale versione. Durante l'implementazione della modifica, si inizierà a vedere la versione precedente rimossa dall'elenco delle versioni. Questo processo può richiedere fino a due settimane dall'annuncio, progressivamente in base all'area.
 
-**Sono in una versione appena deprecata, posso ancora aggiungere nuovi pool di nodi? Oppure dovrò eseguire l'aggiornamento?**
+**Se si è in una versione appena deprecata, è comunque possibile aggiungere nuovi pool di nodi? Oppure è necessario eseguire l'aggiornamento?**
 
 No. Non sarà consentito aggiungere pool di nodi della versione deprecata al cluster. È possibile aggiungere pool di nodi di una nuova versione. Tuttavia, potrebbe essere necessario aggiornare prima il piano di controllo. 
 

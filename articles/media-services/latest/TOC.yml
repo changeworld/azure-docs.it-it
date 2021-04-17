@@ -26,7 +26,7 @@
           href: ../../cloud-shell/overview.md
         - name: Connettersi a Servizi multimediali
           items:
-            - name: Connettersi con REST e postazione
+            - name: Connettersi con REST e Postman
               href: setup-postman-rest-how-to.md
             - name: Connettersi con Java
               href: configure-connect-java-howto.md
@@ -71,7 +71,7 @@
           displayName: 'AAD, Active Directory'
     - name: REST
       items:
-        - name: Abilita archiviazione attendibile
+        - name: Abilitare l'archiviazione attendibile
           href: security-trusted-storage-rest-tutorial.md
         - name: Codificare e trasmettere un file remoto - REST
           href: stream-files-tutorial-with-rest.md
@@ -87,7 +87,7 @@
           href: stream-files-nodejs-quickstart.md
     - name: Python
       items:
-        - name: Codifica Python Basic
+        - name: Codifica di base python
           href: encode-basic-encoding-python-quickstart.md
     - name: Portale di Azure
       items:
@@ -152,7 +152,7 @@
         - name: Panoramica
           href: analyze-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
-        - name: Rilevamento e offuscare (sfocatura) visi
+        - name: Rilevare e redigere (sfocatura) i visi
           href: analyze-face-redaction-concept.md
           displayName: 'analyze, redact, face, detect, presets, jobs, blur, faces, redaction'
     - name: Trasformazioni e processi
@@ -222,11 +222,11 @@
       items:
         - name: Monitorare con Monitoraggio di Azure
           items:
-            - name: Monitorare servizi multimediali
+            - name: Monitorare Servizi multimediali
               href: monitoring/monitor-media-services.md
-            - name: Riferimento ai dati di monitoraggio di servizi multimediali
+            - name: Informazioni di riferimento sui dati di Servizi multimediali di monitoraggio
               href: monitoring/monitor-media-services-data-reference.md
-        - name: Monitoraggio con griglia di eventi
+        - name: Monitorare con Griglia di eventi
           items:
             - name: Eventi con Griglia di eventi
               href: monitoring/reacting-to-media-services-events.md
@@ -234,7 +234,7 @@
               href: monitoring/media-services-event-schemas.md
     - name: Lettori compatibili
       items:
-        - name: Lettori multimediali per servizi multimediali
+        - name: Lettori multimediali per Servizi multimediali
           href: player-media-players-concept.md
     - name: Sviluppo con API versione 3
       items:
@@ -243,8 +243,6 @@
           displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name'
         - name: 'Organizzare in pagine, filtrare e ordinare entità'
           href: filter-order-page-entitites-how-to.md
-        - name: Controllo degli accessi in base al ruolo di Azure
-          href: security-rbac-concept.md
         - name: Codici di errore
           items:
             - name: Codici di errore degli endpoint di streaming
@@ -281,24 +279,24 @@
         - name: Introduzione alla guida alla migrazione
           href: migrate-v-2-v-3-migration-introduction.md
           displayName: migration
-        - name: 'Passaggio 1: vantaggi'
+        - name: Passaggio 1 - Vantaggi
           href: migrate-v-2-v-3-migration-benefits.md
           displayName: 'migration, benefits'
-        - name: Passaggio 2-differenze
+        - name: Passaggio 2 - Differenze
           items:
             - name: Accesso all'API
               href: migrate-v-2-v-3-differences-api-access.md
               displayName: 'migration, api'
-            - name: Gap delle funzionalità
+            - name: Lacune di funzionalità
               href: migrate-v-2-v-3-differences-feature-gaps.md
               displayName: 'migration, features'
             - name: Terminologia e modifiche alle entità
               href: migrate-v-2-v-3-differences-terminology.md
               displayName: 'migration, entity, api'
-        - name: 'Passaggio 3: installazione dell''SDK'
+        - name: Passaggio 3 - Configurazione dell'SDK
           href: migrate-v-2-v-3-migration-setup.md
           displayName: 'migration, SDK`'
-        - name: 'Passaggio 4: informazioni aggiuntive sulla migrazione basata su scenari'
+        - name: Passaggio 4 - Linee guida per la migrazione basata su scenario
           items:
             - name: Codifica
               href: migrate-v-2-v-3-migration-scenario-based-encoding.md
@@ -312,10 +310,10 @@
             - name: Protezione del contenuto
               href: migrate-v-2-v-3-migration-scenario-based-content-protection.md
               displayName: 'migration, content protection, DRM, digital rights management'
-            - name: Media reserved Unit (MRU)
+            - name: Media Reserved Units (MRU)
               href: migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md
               displayName: 'migration, media reserved units'
-        - name: Confronto degli esempi
+        - name: Confronto tra esempi
           href: migrate-v-2-v-3-migration-samples.md
           displayName: 'migration, samples'
 - name: Guide pratiche
@@ -344,26 +342,26 @@
           href: transform-create-thumbnail-sprites-how-to.md
         - name: Unire due o più file video con .NET
           href: transform-stitch-how-to.md
-        - name: Sottoclip di un video .NET
+        - name: Creare una clip secondaria di un video in .NET
           href: transform-subclip-video-dotnet-how-to.md
           displayName: 'subclipping, clip, edit, trim, clipping'
-        - name: Sottoclip di un REST video
+        - name: Creare una clip secondaria di un video REST
           href: transform-subclip-video-rest-how-to.md
           displayName: 'subclipping, clip, edit, trim, clipping'
         - name: Personalizzare i set di impostazioni del codificatore .NET
           href: transform-custom-presets-how-to.md
-        - name: Creare una sovrapposizione trasformazione .NET
+        - name: Creare una trasformazione di sovrimpressione .NET
           href: transform-create-overlay-how-to.md
         - name: Generare anteprime .NET
           href: transform-generate-thumbnails-dotnet-how-to.md
         - name: Ritagliare video con .NET
           href: crop-howto.md
-        - name: Personalizzare l'interfaccia della riga di comando del codificatore
+        - name: Personalizzare l'interfaccia della riga di comando dei set di impostazioni del codificatore
           href: transform-custom-preset-cli-how-to.md
-        - name: Personalizzare REST per i set di impostazioni del codificatore
+        - name: Personalizzare i set di impostazioni del codificatore REST
           displayName: 'encode, encoding, custom, transform'
           href: transform-custom-preset-rest-how-to.md
-        - name: Genera le anteprime REST
+        - name: Generare anteprime REST
           href: transform-generate-thumbnails-rest-how-to.md
         - name: Creare una trasformazione copyAllBitrateNonInterleaved con REST
           href: transform-create-copyallbitratenoninterleaved-how-to.md
@@ -380,7 +378,7 @@
           href: job-multiple-transform-outputs-how-to.md
         - name: HTTPS come input del processo
           href: job-input-from-http-how-to.md
-    - name: Scalabilità di media reserved unit
+    - name: Ridimensionare l'interfaccia della riga di comando di media reserved unit
       href: media-reserved-units-cli-how-to.md
     - name: Streaming live
       items:
@@ -416,7 +414,7 @@
       items:
         - name: Con .NET
           items:
-            - name: Usare funzioni di Azure .NET
+            - name: Usare Funzioni di Azure .NET
               href: integrate-azure-functions-dotnet-how-to.md
     - name: Creare filtri
       items:
@@ -443,8 +441,18 @@
           href: asset-publish-cli-how-to.md
     - name: Sicurezza
       items:
-        - name: Chiavi di accesso alla risorsa di archiviazione roll
+        - name: Controllo degli accessi in base al ruolo di Azure
+          href: security-rbac-concept.md
+        - name: Eseguire il roll-to-roll delle chiavi di accesso alle risorse di
           href: security-storage-roll-access-keys-how-to.md
+        - name: Abilitare l'archiviazione attendibile
+          href: security-trusted-storage-rest-tutorial.md
+        - name: Azure Media PlayerPass Token di autenticazione
+          href: security-pass-authentication-tokens-how-to.md
+        - name: Abilitare l'archiviazione attendibile
+          href: security-trusted-storage-rest-tutorial.md
+        - name: Chiavi gestite dal cliente con API REST
+          href: security-customer-managed-keys-rest-postman-tutorial.md
     - name: Usare lettori multimediali
       items:
         - name: Configurazione completa di Azure Media Player

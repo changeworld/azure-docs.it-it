@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: a7e709ba9a4de5ff77524a2d2b1b64a5933131a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 171e0c03dc6f246d0f56d11f793ca711b0082f49
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489413"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588293"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importare chiavi con protezione HSM in Key Vault
 
@@ -33,7 +33,7 @@ Il trasferimento delle chiavi con protezione HSM in Key Vault è supportato tram
 
 |Nome produttore|Tipo di fornitore|Modelli di moduli di protezione hardware supportati|Metodo di trasferimento supportato per le chiavi HSM|
 |---|---|---|---|
-|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Produttore,<br/>modulo di protezione hardware come servizio|<ul><li>Famiglia di moduli di protezione hardware nShield</li><li>nShield come servizio</ul>|**Metodo 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (deprecato)<br/>**Metodo 2:** [usare il nuovo metodo BYOK](hsm-protected-keys-byok.md) (scelta consigliata)|
+|[nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Produttore,<br/>modulo di protezione hardware come servizio|<ul><li>Famiglia di moduli di protezione hardware nShield</li><li>nShield come servizio</ul>|**Metodo 1:** [nCipher BYOK](hsm-protected-keys-ncipher.md) (deprecato). Questo metodo non sarà supportato dopo il <strong>30 giugno 2021</strong><br/>**Metodo 2: Usare** [il nuovo metodo BYOK](hsm-protected-keys-byok.md) (scelta consigliata)|
 |Thales|Produttore|<ul><li>Famiglia di prodotti Luna HSM 7 con firmware con versione 7.3 o successiva</li></ul>| [Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
 |Fortanix|Produttore,<br/>modulo di protezione hardware come servizio|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
 |Marvell|Produttore|Moduli di protezione hardware di All LiquidSecurity con<ul><li>Firmware con versione 2.0.4 o successiva</li><li>Firmware con versione 3.2 o successiva</li></ul>|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
@@ -41,7 +41,7 @@ Il trasferimento delle chiavi con protezione HSM in Key Vault è supportato tram
 |Securosys SA|Produttore,<br/>modulo di protezione hardware come servizio|Famiglia di moduli di protezione hardware Primus, Securosys Clouds HSM|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
 |StorMagic|ISV (Enterprise Key Management System)|Più marchi e modelli di moduli di protezione hardware, tra cui<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Per dettagli, vedere il [sito di StorMagic](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
 |IBM|Produttore|IBM 476x, CryptoExpress|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
-|Utimaco|Produttore,<br/>modulo di protezione hardware come servizio|u. trust anchor, CryptoServer|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
+|Utimaco|Produttore,<br/>modulo di protezione hardware come servizio|u.trust Anchor, CryptoServer|[Usare il nuovo metodo BYOK](hsm-protected-keys-byok.md)|
 |||||
 
 ## <a name="next-steps"></a>Passaggi successivi

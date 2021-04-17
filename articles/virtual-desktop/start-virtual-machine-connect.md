@@ -1,85 +1,85 @@
 ---
-title: Avvia connessione macchina virtuale-Azure
-description: Come configurare la funzionalità Avvia macchina virtuale in connessione.
+title: Avviare la connessione della macchina virtuale - Azure
+description: Come configurare la funzionalità Avvia macchina virtuale alla connessione.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/10/2021
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d3ef8e3656051c4a99ab52a7b52a0d623fdf9ce2
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: af95cf5d3e4112c717d653062f186797d48fb515
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303960"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389809"
 ---
-# <a name="start-virtual-machine-on-connect-preview"></a>Avvia macchina virtuale in connessione (anteprima)
+# <a name="start-virtual-machine-on-connect-preview"></a>Avviare la macchina virtuale alla connessione (anteprima)
 
 > [!IMPORTANT]
-> La funzionalità avvia VM on Connect è attualmente disponibile in anteprima pubblica.
+> La funzionalità Start VM on Connect è attualmente disponibile in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-La funzionalità Avvia macchina virtuale (VM) in fase di connessione (anteprima) consente di ridurre i costi consentendo di deallocare le macchine virtuali quando non vengono usate. Quando è necessario usare di nuovo la macchina virtuale, è sufficiente riattivare le macchine virtuali.
+La funzionalità Start Virtual Machine (VM) on Connect (preview) consente di risparmiare sui costi consentendo di deallocare le macchine virtuali quando non le si usa. Quando è necessario usare di nuovo la macchina virtuale, è necessario solo riattivare le macchine virtuali.
 
 >[!NOTE]
->Desktop virtuale Windows (classico) non supporta questa funzionalità.
+>Desktop virtuale Windows (versione classica) non supporta questa funzionalità.
 
 ## <a name="requirements-and-limitations"></a>Requisiti e limitazioni
 
-È possibile abilitare solo la funzionalità Avvia macchina virtuale in connessione per i pool host personali. Per ulteriori informazioni sui pool di host personali, vedere [ambiente desktop virtuale di Windows](environment-setup.md#host-pools).
+È possibile abilitare la funzionalità Start VM on Connect solo per i pool di host personali. Per altre informazioni sui pool di host personali, vedere [Ambiente Desktop virtuale Windows.](environment-setup.md#host-pools)
 
-I client desktop remoto seguenti supportano la funzionalità Avvia macchina virtuale in connessione:
+I client Desktop remoto seguenti supportano la funzionalità Avvia macchina virtuale in Connessione:
 
 - [Client Web](connect-web.md)
-- [Il client Windows (versione 1,2748 o successiva)](connect-windows-7-10.md)
+- [Client Windows (versione 1.2748 o successiva)](connect-windows-7-10.md)
 
-È possibile verificare la presenza di annunci sugli aggiornamenti e sul supporto client nel [Forum della community della tecnologia](https://aka.ms/wvdtc).
+È possibile controllare la disponibilità di annunci sugli aggiornamenti e sul supporto client nel [forum della community tecnica](https://aka.ms/wvdtc).
 
-Il cloud di Azure per enti pubblici attualmente non supporta l'avvio di una macchina virtuale in Connect.
+Il Azure per enti pubblici cloud non supporta attualmente Avvia macchina virtuale in Connect.
 
-## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Creare un ruolo personalizzato per avviare una macchina virtuale in Connect
+## <a name="create-a-custom-role-for-start-vm-on-connect"></a>Creare un ruolo personalizzato per Avviare una macchina virtuale in Connect
 
-Prima di poter configurare la funzionalità di avvio della macchina virtuale in Connect, è necessario assegnare alla VM un ruolo personalizzato di controllo degli accessi in base al ruolo. Questo ruolo consente al desktop virtuale di Windows di gestire le macchine virtuali nella sottoscrizione. È anche possibile usare questo ruolo per attivare le macchine virtuali, controllarne lo stato e segnalare le informazioni di diagnostica. Per altre informazioni sulle operazioni svolte da ogni ruolo, vedere [ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md).
+Prima di configurare la funzionalità Avvia macchina virtuale in Connect, è necessario assegnare alla macchina virtuale un ruolo controllo degli accessi in base al ruolo personalizzato (controllo degli accessi in base al ruolo). Questo ruolo consente a Desktop virtuale Windows di gestire le macchine virtuali nella sottoscrizione. È anche possibile usare questo ruolo per attivare le macchine virtuali, verificarne lo stato e segnalare informazioni di diagnostica. Per altre informazioni sulle funzioni di ogni ruolo, vedere Ruoli [personalizzati di Azure](../role-based-access-control/custom-roles.md).
 
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-Per usare il portale di Azure per assegnare un ruolo personalizzato per l'avvio della macchina virtuale in Connect:
+Per usare il portale di Azure per assegnare un ruolo personalizzato per Avviare la macchina virtuale in Connect:
 
-1. Aprire il portale di Azure e passare a **sottoscrizioni**.
+1. Aprire il portale di Azure e passare a **Sottoscrizioni**.
 
-2. Passare a **controllo di accesso (IAM)** e selezionare **Aggiungi un ruolo personalizzato**.
+2. Passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un ruolo personalizzato.**
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot di un menu a discesa del pulsante Aggiungi in controllo di accesso (IAM). "Aggiungi un ruolo personalizzato" è evidenziato in rosso.](media/add-custom-role.png)
+    > ![Screenshot di un menu a discesa dal pulsante Aggiungi in Controllo di accesso (IAM). "Aggiungi un ruolo personalizzato" è evidenziato in rosso.](media/add-custom-role.png)
 
-3. Assegnare quindi un nome al ruolo personalizzato e aggiungere una descrizione. Si consiglia di denominarlo "Avvia macchina virtuale in connessione".
+3. Assegnare quindi un nome al ruolo personalizzato e aggiungere una descrizione. È consigliabile assegnare il nome "avvia macchina virtuale alla connessione".
 
-4. Nella scheda **autorizzazioni** aggiungere le seguenti autorizzazioni alla sottoscrizione a cui si sta assegnando il ruolo: 
+4. Nella scheda **Autorizzazioni** aggiungere le autorizzazioni seguenti alla sottoscrizione a cui si assegna il ruolo: 
  
    - Microsoft.Compute/virtualMachines/start/action
    - Microsoft.Compute/virtualMachines/read
 
-5. Al termine, selezionare **OK**.
+5. Al termine, selezionare **OK.**
 
-Successivamente, sarà necessario assegnare il ruolo per concedere l'accesso al desktop virtuale di Windows.
+Successivamente, sarà necessario assegnare il ruolo per concedere l'accesso a Desktop virtuale Windows.
 
 Per assegnare il ruolo personalizzato:
 
-1. Nella **scheda controllo di accesso (IAM)** selezionare **Aggiungi assegnazioni di ruolo**.
+1. Nella scheda **Controllo di accesso (IAM)** selezionare **Aggiungi assegnazioni di ruolo**.
 
 2. Selezionare il ruolo appena creato.
 
-3. Nella barra di ricerca immettere e selezionare **desktop virtuale di Windows**.
+3. Nella barra di ricerca immettere e selezionare **Desktop virtuale Windows**.
 
       >[!NOTE]
-      >Se è stato distribuito desktop virtuale di Windows (classico), potrebbero essere visualizzate due app. Assegnare il ruolo a entrambe le app visualizzate.
+      >Se è stato distribuito Desktop virtuale Windows (versione classica), potrebbero essere disponibili due app. Assegnare il ruolo a entrambe le app.
       >
       > [!div class="mx-imgBorder"]
-      > ![Screenshot della scheda controllo di accesso (IAM). Nella barra di ricerca, il desktop virtuale Windows e il desktop virtuale Windows (classico) sono evidenziati in rosso.](media/add-role-assignment.png)
+      > ![Screenshot della scheda Controllo di accesso (IAM). Nella barra di ricerca sia Desktop virtuale Windows che Desktop virtuale Windows (versione classica) sono evidenziati in rosso.](media/add-role-assignment.png)
 
 ### <a name="create-a-custom-role-with-a-json-file-template"></a>Creare un ruolo personalizzato con un modello di file JSON
 
-Se si usa un file JSON per creare il ruolo personalizzato, l'esempio seguente mostra un modello di base che è possibile usare. Assicurarsi di sostituire il valore di ID sottoscrizione con l'ID sottoscrizione a cui si vuole assegnare il ruolo.
+Se si usa un file JSON per creare il ruolo personalizzato, l'esempio seguente mostra un modello di base che è possibile usare. Assicurarsi di sostituire il valore dell'ID sottoscrizione con l'ID sottoscrizione a cui si vuole assegnare il ruolo.
 
 ```json
 {
@@ -104,50 +104,50 @@ Se si usa un file JSON per creare il ruolo personalizzato, l'esempio seguente mo
 }
 ```
 
-## <a name="configure-the-start-vm-on-connect-feature"></a>Configurare la funzionalità Avvia macchina virtuale in connessione
+## <a name="configure-the-start-vm-on-connect-feature"></a>Configurare la funzionalità Start VM on Connect
 
-Ora che la sottoscrizione è stata assegnata al ruolo, è possibile configurare la funzionalità di avvio della macchina virtuale in fase di connessione.
+Ora che è stato assegnato il ruolo alla sottoscrizione, è possibile configurare la funzionalità Avvia macchina virtuale al momento della connessione.
 
 ### <a name="deployment-considerations"></a>Considerazioni sulla distribuzione 
 
-Avvio della macchina virtuale in Connect è un'impostazione del pool host. Se si desidera utilizzare questa funzionalità solo per un gruppo selezionato di utenti, assicurarsi di assegnare solo il ruolo richiesto agli utenti che si desidera aggiungere.
+Start VM on Connect è un'impostazione del pool di host. Se si vuole che questa funzionalità sia utilizzata solo da un gruppo selezionato di utenti, assicurarsi di assegnare solo il ruolo richiesto agli utenti da aggiungere.
 
 >[!IMPORTANT]
-> Questa funzionalità può essere configurata solo nei pool host esistenti. Questa funzionalità non è disponibile quando si crea un nuovo pool host.
+> È possibile configurare questa funzionalità solo nei pool host esistenti. Questa funzionalità non è disponibile quando si crea un nuovo pool di host.
 
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-Per usare il portale di Azure per configurare la macchina virtuale di avvio in Connect:
+Per usare l'portale di Azure per configurare Start VM on Connect (Avvia macchina virtuale alla connessione):
 
-1. Aprire il browser e passare al [portale di Azure](https://portal.azure.com/?feature.startVMonConnect=true#home). Si consiglia di aprire il portale di Azure in una finestra InPrivate.
+1. Aprire il browser e passare al [portale di Azure](https://portal.azure.com).
 
-2. Nella portale di Azure passare a **desktop virtuale di Windows**.
+2. Nel portale di Azure passare a **Desktop virtuale Windows.**
 
-3. Selezionare **pool host**, quindi individuare il pool host che contiene i desktop personali a cui è stato assegnato il ruolo.
+3. Selezionare **Pool di host** e quindi trovare il pool di host che contiene i desktop personali a cui è stato assegnato il ruolo.
 
    >[!NOTE]
-   > Il pool host in cui si configura questa funzionalità deve avere desktop personali con assegnazioni di ruolo dirette. Se i desktop nel pool host non sono configurati correttamente, il processo di configurazione non funzionerà.
+   > Il pool di host in cui si configura questa funzionalità deve avere desktop personali con assegnazioni di ruolo dirette. Se i desktop nel pool di host non sono configurati correttamente, il processo di configurazione non funzionerà.
 
-4. Nel pool host selezionare **Proprietà**. In **Avvia macchina virtuale in connessione** selezionare **Sì**, quindi selezionare **Salva** per applicare immediatamente l'impostazione.
+4. Nel pool di host selezionare **Proprietà.** In **Start VM on connect (Avvia macchina virtuale alla** connessione) selezionare **Yes**(Sì) e quindi selezionare **Save (Salva)** per applicare immediatamente l'impostazione.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot del Finestra Proprietà. L'opzione avvia VM on Connect è evidenziata in rosso.](media/properties-start-vm-on-connect.png)
+    > ![Screenshot del Finestra Proprietà. L'opzione Avvia macchina virtuale alla connessione è evidenziata in rosso.](media/properties-start-vm-on-connect.png)
 
 ### <a name="use-powershell"></a>Usare PowerShell
 
-Per configurare questa impostazione con PowerShell, è necessario assicurarsi di avere i nomi del gruppo di risorse e dei pool host che si desidera configurare. Sarà inoltre necessario installare [il modulo Azure PowerShell (versione 2.1.0 o successiva)](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.1.0).
+Per configurare questa impostazione con PowerShell, è necessario assicurarsi di avere i nomi del gruppo di risorse e dei pool di host da configurare. È anche necessario installare il modulo [Azure PowerShell (versione 2.1.0 o successiva).](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.1.0)
 
-Per configurare la macchina virtuale di avvio durante la connessione tramite PowerShell:
+Per configurare Start VM on Connect using PowerShell (Avvia macchina virtuale alla connessione tramite PowerShell):
 
 1. Aprire una finestra di comando di PowerShell.
 
-2. Eseguire il cmdlet seguente per abilitare l'avvio della macchina virtuale alla connessione:
+2. Eseguire il cmdlet seguente per abilitare Avvia macchina virtuale in Connect:
 
     ```powershell
     Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$true
     ```
 
-3. Eseguire il cmdlet seguente per disabilitare l'avvio della macchina virtuale in Connect:
+3. Eseguire il cmdlet seguente per disabilitare Avvia macchina virtuale in Connect:
 
     ```powershell
     Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$false
@@ -155,14 +155,14 @@ Per configurare la macchina virtuale di avvio durante la connessione tramite Pow
 
 ## <a name="user-experience"></a>Esperienza utente
 
-Nelle sessioni tipiche, il tempo necessario per la connessione di un utente a una macchina virtuale deallocata aumenta perché la macchina virtuale richiede tempo per riattivarsi, molto simile all'attivazione di un computer fisico. Il client Desktop remoto dispone di un indicatore che informa l'utente che il PC è acceso durante la connessione.
+Nelle sessioni tipiche, il tempo necessario per la connessione di un utente a una macchina virtuale deallocata aumenta perché la macchina virtuale necessita di tempo per riattivarla, in modo molto simile all'attivazione di un computer fisico. Il Desktop remoto client ha un indicatore che consente all'utente di sapere che il PC è acceso durante la connessione.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se si verificano problemi durante la funzionalità, è consigliabile utilizzare la [funzionalità diagnostica](diagnostics-log-analytics.md) desktop virtuali di Windows per verificare la presenza di problemi. Se viene visualizzato un messaggio di errore, assicurarsi di prestare attenzione al contenuto del messaggio e di copiare il nome dell'errore in un punto qualsiasi per riferimento.
+Se la funzionalità si verifica in caso di problemi, è consigliabile usare la funzionalità di [diagnostica](diagnostics-log-analytics.md) di Desktop virtuale Windows per verificare la presenza di problemi. Se viene visualizzato un messaggio di errore, assicurarsi di prestare particolare attenzione al contenuto del messaggio e copiare il nome dell'errore in un punto di riferimento.
 
-È anche possibile usare [monitoraggio di Azure per desktop virtuale Windows](azure-monitor.md) per ottenere suggerimenti su come risolvere i problemi.
+È anche possibile usare [Monitoraggio di Azure desktop virtuale Windows](azure-monitor.md) per ottenere suggerimenti su come risolvere i problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si verificano problemi che la documentazione o la funzionalità di diagnostica per la risoluzione dei problemi non è stata in grado di risolvere, consultare le [domande frequenti su come avviare una macchina virtuale](start-virtual-machine-connect-faq.md).
+Se si verificano problemi che la documentazione per la risoluzione dei problemi o la funzionalità di diagnostica non è stata in grado di risolvere, vedere le domande frequenti sull'avvio della macchina [virtuale in Connect](start-virtual-machine-connect-faq.md).

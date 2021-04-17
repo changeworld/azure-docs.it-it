@@ -3,7 +3,7 @@ title: Esempio di PowerShell - Visualizzare le informazioni estese per le app di
 description: Esempio di PowerShell che elenca tutte le applicazioni di Azure Active Directory (Azure AD) Application Proxy unitamente all'ID applicazione (AppId), al nome (DisplayName), all'URL esterno (ExternalUrl), all'URL interno (InternalUrl) e al tipo di autenticazione (ExternalAuthenticationType).
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: ccd0c7be7fd0dd533028faa0dc2bbdad30d74c79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b3234a13a0e3fac760a899ce66e7faa7e7b642c
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258694"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377362"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Recuperare tutte le app di Application Proxy e visualizzare le informazioni estese
 
-Questo esempio di script di PowerShell elenca le informazioni su tutte le applicazioni proxy di applicazione Azure Active Directory (Azure AD), tra cui ID applicazione (AppId), nome (DisplayName), URL esterno (ExternalUrl), URL interno (InternalUrl), tipo di autenticazione (ExternalAuthenticationType), modalità SSO e altre impostazioni.
+Questo esempio di script di PowerShell elenca informazioni su tutte le applicazioni Application Proxy Azure Active Directory (Azure AD), inclusi l'ID applicazione (AppId), il nome (DisplayName), l'URL esterno (ExternalUrl), l'URL interno (InternalUrl), il tipo di autenticazione (ExternalAuthenticationType), la modalità SSO e altre impostazioni.
 
-La modifica del valore della variabile $ssoMode Abilita un output filtrato in base alla modalità SSO. Ulteriori dettagli sono documentati nello script.
+La modifica del valore della variabile $ssoMode abilita un output filtrato in base alla modalità SSO. Altri dettagli sono documentati nello script.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +30,7 @@ La modifica del valore della variabile $ssoMode Abilita un output filtrato in ba
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Questo esempio richiede il [modulo AzureAD V2 PowerShell for Graph](/powershell/azure/active-directory/install-adv2) (AzureAD).
+Questo esempio richiede il [modulo AzureAD V2 PowerShell per Graph](/powershell/azure/active-directory/install-adv2) (AzureAD).
 
 ## <a name="sample-script"></a>Script di esempio
 

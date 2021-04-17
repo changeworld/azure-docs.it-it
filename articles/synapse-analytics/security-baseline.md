@@ -1,6 +1,6 @@
 ---
 title: Baseline di sicurezza di Azure per Synapse Analytics
-description: La baseline Synapse Analytics sicurezza fornisce indicazioni e risorse procedurali per l'implementazione delle raccomandazioni sulla sicurezza specificate in Azure Security Benchmark.
+description: La Synapse Analytics di sicurezza fornisce indicazioni procedurali e risorse per l'implementazione delle raccomandazioni sulla sicurezza specificate in Azure Security Benchmark.
 author: msmbaldwin
 ms.service: synapse-analytics
 ms.subservice: security
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c2fad393479f0ffce81a272919b8d12024001991
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 1a426a86ddb25733b8425c5887d2c0522f915e2d
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565458"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587715"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Baseline di sicurezza di Azure per Synapse Analytics
 
-Questa baseline di sicurezza applica le linee guida [di Azure Security Benchmark versione 1.0](../security/benchmarks/overview-v1.md) Synapse Analytics. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure.
-Il contenuto è raggruppato in base ai **controlli di** sicurezza definiti da Azure Security Benchmark e alle linee guida correlate applicabili a Synapse Analytics. **I** controlli non applicabili Synapse Analytics sono stati esclusi.
+Questa baseline di sicurezza applica le indicazioni di [Azure Security Benchmark versione 1.0](../security/benchmarks/overview-v1.md) a Synapse Analytics. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure.
+Il contenuto è raggruppato in base ai controlli **di** sicurezza definiti da Azure Security Benchmark e alle linee guida correlate applicabili a Synapse Analytics. **I** controlli non applicabili Synapse Analytics sono stati esclusi.
 
  
-Per informazioni su come Synapse Analytics completamente mappato ad Azure Security Benchmark, vedere il [file di mapping](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)completo Synapse Analytics baseline di sicurezza .
+Per informazioni sul Synapse Analytics completamente mappato a Azure Security Benchmark, vedere il file di mapping completo Synapse Analytics [baseline di sicurezza](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Sicurezza di rete
 
 *Per altre informazioni, vedere [Azure Security Benchmark: Sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Proteggere le risorse di Azure all'interno di reti virtuali
+### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Proteggere le risorse di Azure all'interno delle reti virtuali
 
 **Indicazioni:** proteggere il Azure SQL Server in una rete virtuale tramite collegamento privato. collegamento privato di Azure consente di accedere ai servizi PaaS di Azure tramite un endpoint privato nella rete virtuale. Il traffico tra la rete virtuale e il servizio attraversa la rete del backbone Microsoft.
 
@@ -43,7 +43,7 @@ In alternativa, quando ci si connette al pool Synapse SQL, limitare l'ambito del
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark è](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) per i servizi correlati.
+**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) è [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -51,7 +51,7 @@ In alternativa, quando ci si connette al pool Synapse SQL, limitare l'ambito del
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2: Monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e interfacce di rete
 
-**Indicazioni:** quando ci si connette al pool SQL dedicato ed è stato abilitato il gruppo di sicurezza di rete (NSG), i log vengono inviati in un account Archiviazione di Azure per il controllo del traffico.
+**Indicazioni:** quando ci si connette al pool SQL dedicato e sono stati abilitati i log dei flussi del gruppo di sicurezza di rete( NSG), i log vengono inviati in un account Archiviazione di Azure per il controllo del traffico.
 
 È anche possibile inviare i log dei flussi NSG a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, individuare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
 
@@ -65,11 +65,11 @@ In alternativa, quando ci si connette al pool Synapse SQL, limitare l'ambito del
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Negare le comunicazioni con indirizzi IP noti dannosi
+### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Negare le comunicazioni con indirizzi IP dannosi noti
 
-**Indicazioni:** usare Advanced Threat Protection (ATP) per Azure Synapse SQL. ATP rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database e può attivare vari avvisi, ad esempio "Potenziale sql injection" e "Accesso da una posizione insolita". ATP fa parte dell'offerta Advanced Data Security (ADS) ed è accessibile e gestito tramite il portale centrale di SQL ADS.
+**Indicazioni:** usare Advanced Threat Protection (ATP) per Azure Synapse SQL. ATP rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database e può attivare vari avvisi, ad esempio "Potenziale attacco SQL injection" e "Accesso da una posizione insolita". ATP fa parte dell'offerta Sicurezza dei dati avanzata ed è accessibile e gestito tramite il portale centrale di SQL ADS.
 
 Abilitare Protezione DDoS Standard nelle reti virtuali associate a Azure Synapse SQL per la protezione da attacchi Denial of Service distribuiti. Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per negare le comunicazioni con indirizzi IP Internet notoriamente dannosi o non usati.
 
@@ -85,11 +85,11 @@ Abilitare Protezione DDoS Standard nelle reti virtuali associate a Azure Synapse
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="15-record-network-packets"></a>1.5: Registrare i pacchetti di rete
 
-**Linee** guida: quando ci si connette al pool SQL dedicato ed è stato abilitato il gruppo di sicurezza di rete (NSG), inviare i log in un account Archiviazione di Azure per il controllo del traffico. È anche possibile inviare i log di flusso a un'area di lavoro Log Analytics o inviarli in streaming a Hub eventi.  Se necessario per analizzare l'attività anomaa, abilitare Network Watcher'acquisizione di pacchetti.
+**Indicazioni:** quando ci si connette al pool SQL dedicato e sono stati abilitati i log dei flussi del gruppo di sicurezza di rete(NSG), inviare i log in un account Archiviazione di Azure per il controllo del traffico. È anche possibile inviare i log dei flussi a un'area di lavoro Log Analytics o trasmettere i log a Hub eventi.  Se necessario per l'analisi delle attività anoma Network Watcher l'acquisizione di pacchetti.
 
 - [Come abilitare i log dei flussi NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -97,37 +97,37 @@ Abilitare Protezione DDoS Standard nelle reti virtuali associate a Azure Synapse
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Distribuire sistemi di rilevamento/prevenzione delle intrusioni basati sulla rete (IDS/IPS)
 
-**Indicazioni:** usare Advanced Threat Protection (ATP) per Azure Synapse SQL. ATP rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database e può attivare vari avvisi, ad esempio "Potenziale attacco SQL injection" e "Accesso da una posizione insolita". ATP fa parte dell'offerta Sicurezza dei dati avanzata ed è accessibile e gestito tramite il portale centrale di SQL ADS. ATP integra anche gli avvisi con Centro sicurezza di Azure.
+**Indicazioni:** usare Advanced Threat Protection (ATP) per Azure Synapse SQL. ATP rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database e può attivare vari avvisi, ad esempio "Potenziale sql injection" e "Accesso da una posizione insolita". ATP fa parte dell'offerta Advanced Data Security (ADS) ed è accessibile e gestito tramite il portale centrale di SQL ADS. ATP integra anche gli avvisi con Centro sicurezza di Azure.
 
 - [Informazioni su ATP per Azure Synapse SQL](../azure-sql/database/threat-detection-overview.md)
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** Nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: ridurre al minimo la complessità e il sovraccarico amministrativo delle regole di sicurezza di rete
 
 **Indicazioni:** usare i tag del servizio di rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o Firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Se si specifica il nome del tag di servizio (ad esempio ApiManagement) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi.
 
-Quando si usa un endpoint di servizio per il pool SQL dedicato, sono necessari indirizzi IP pubblici in uscita verso il database Azure SQL: i gruppi di sicurezza di rete (NSG) devono essere aperti agli indirizzi IP database SQL di Azure per consentire la connettività. A tale scopo, è possibile usare i tag di servizio del gruppo di database SQL di Azure.
+Quando si usa un endpoint di servizio per il pool SQL dedicato, gli indirizzi IP pubblici in uscita verso il database Azure SQL sono obbligatori: i gruppi di sicurezza di rete (NSG) devono essere aperti database SQL di Azure indirizzi IP per consentire la connettività. A tale scopo, è possibile usare i tag del servizio NSG per database SQL di Azure.
 
 - [Informazioni su tag di servizio con endpoint di servizio per database SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/vnet-service-endpoint-rule-overview#limitations)
 
-- [Comprendere e usare i tag del servizio](../virtual-network/service-tags-overview.md)
+- [Comprendere e usare i tag di servizio](../virtual-network/service-tags-overview.md)
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** Nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: gestire le configurazioni di sicurezza standard per i dispositivi di rete
 
-**Indicazioni:** definire e implementare configurazioni di sicurezza di rete per le risorse correlate al pool SQL dedicato con Criteri di Azure. È possibile usare lo spazio dei nomi "Microsoft.Sql" per definire definizioni di criteri personalizzate o usare una qualsiasi delle definizioni di criteri incorporate progettate per la protezione di rete Azure SQL database/server. Un esempio di un criterio di sicurezza di rete predefinito applicabile per database SQL di Azure server è: "SQL Server deve usare un endpoint servizio di rete virtuale".
+**Linee** guida: definire e implementare configurazioni di sicurezza di rete per le risorse correlate al pool SQL dedicato con Criteri di Azure. È possibile usare lo spazio dei nomi "Microsoft.Sql" per definire definizioni di criteri personalizzate o usare una delle definizioni di criteri incorporate progettate per la protezione di rete Azure SQL database/server. Un esempio di criteri di sicurezza di rete predefiniti applicabili per database SQL di Azure server è: "SQL Server usare un endpoint di servizio di rete virtuale".
 
-Usare Azure Blueprints per semplificare le distribuzioni di Azure su larga scala tramite la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio i modelli di Azure Resource Management, il controllo degli accessi in base al ruolo di Azure e i criteri, in un'unica definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
+Usare Azure Blueprints per semplificare le distribuzioni di Azure su larga scala con la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Gestione risorse di Azure, controllo degli accessi in base al ruolo di Azure e criteri, in un'unica definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -135,25 +135,25 @@ Usare Azure Blueprints per semplificare le distribuzioni di Azure su larga scala
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: documentare le regole di configurazione del traffico
 
 **Indicazioni:** usare i tag per i gruppi di sicurezza di rete (NSG) e altre risorse correlate alla sicurezza di rete e al flusso del traffico. Per le regole dei singoli gruppi di sicurezza di rete, usare il campo "Descrizione" per specificare le esigenze aziendali e/o la durata (e così via) per le regole che consentono il traffico da e verso una rete.
 
-Usare una qualsiasi delle definizioni di Criteri di Azure incorporate correlate all'assegnazione di tag, ad esempio "Richiedi tag e relativo valore" per assicurarsi che tutte le risorse siano create con tag e per notificare le risorse esistenti senza tag.
+Usare una delle definizioni di Criteri di Azure incorporate correlate all'assegnazione di tag, ad esempio "Richiedi tag e relativo valore" per assicurarsi che tutte le risorse siano create con tag e per notificare le risorse esistenti senza tag.
 
-È possibile usare Azure PowerShell'interfaccia della riga di comando di Azure per cercare o eseguire azioni sulle risorse in base ai tag.
+È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni sulle risorse in base ai relativi tag.
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usare strumenti automatizzati per monitorare le configurazioni delle risorse di rete e rilevare le modifiche
 
-**Indicazioni:** usare log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate al pool SQL dedicato. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
+**Indicazioni:** usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate al pool SQL dedicato. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
 - [Come visualizzare e recuperare gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
@@ -161,45 +161,45 @@ Usare una qualsiasi delle definizioni di Criteri di Azure incorporate correlate 
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [Azure Security Benchmark: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Logging and Monitoring (Azure Security Benchmark: registrazione e monitoraggio).](../security/benchmarks/security-control-logging-monitoring.md)*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 
 **Indicazioni:** è possibile definire criteri di controllo per un database specifico o come criteri server predefiniti in Azure (che ospita Azure Synapse). I criteri server si applicano a tutti i database nuovi ed esistenti in un server.
 
-Se il controllo del server è abilitato, si applica sempre al database. Il database verrà controllato, indipendentemente dalle impostazioni di controllo del database.
+Se il controllo del server è abilitato, viene sempre applicato al database. Il database verrà controllato, indipendentemente dalle impostazioni di controllo del database.
 
 Quando si abilita il controllo, è possibile scriverli in un log di controllo nell'account Archiviazione di Azure, nell'area di lavoro Log Analytics o in Hub eventi.
 
 In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o in un SIEM di terze parti.
 
-- [Come configurare il controllo per le risorse Azure SQL lavoro](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#server-vs-database-level)
+- [Come configurare il controllo per le Azure SQL risorse](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#server-vs-database-level)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: abilitare la registrazione di controllo per le risorse di Azure
 
-**Indicazioni:** abilitare il controllo Azure SQL livello di server per il pool SQL dedicato e scegliere un percorso di archiviazione per i log di controllo (Archiviazione di Azure, Log Analytics o Hub eventi).
+**Indicazioni:** abilitare il controllo Azure SQL livello di server per il pool SQL dedicato e scegliere una posizione di archiviazione per i log di controllo (Archiviazione di Azure, Log Analytics o Hub eventi).
 
-Il controllo può essere abilitato sia a livello di database che di server e viene suggerito di essere abilitato solo a livello di server, a meno che non sia necessario configurare un sink di dati o una conservazione separata per un database specifico.
+Il controllo può essere abilitato sia a livello di database che a livello di server e viene suggerito di essere abilitato solo a livello di server, a meno che non sia necessario configurare un sink di dati o una conservazione separata per un database specifico.
 
 - [Come abilitare il controllo per database SQL di Azure](../azure-sql/database/auditing-overview.md)
 
 - [Come abilitare il controllo per il server](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#setup-auditing)
 
-- [Differenze nei criteri di controllo a livello di server e a livello di database](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#server-vs-database-level)
+- [Differenze tra i criteri di controllo a livello di server e i criteri di controllo a livello di database](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#server-vs-database-level)
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark è](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) per i servizi correlati.
+**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) è [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -217,7 +217,7 @@ Il controllo può essere abilitato sia a livello di database che di server e vie
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark è](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) per i servizi correlati.
+**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) è [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/azure/security-center/azure-defender) piano per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -225,7 +225,7 @@ Il controllo può essere abilitato sia a livello di database che di server e vie
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: Monitorare ed esaminare i log
 
-**Indicazioni:** analizzare e monitorare i log per individuare comportamenti anomali ed esaminare regolarmente i risultati. Usare Advanced Threat Protection per database SQL di Azure in combinazione con Centro sicurezza di Azure avvisi in caso di attività insolite correlate al database SQL. In alternativa, configurare gli avvisi in base ai valori delle metriche o alle voci del log attività di Azure correlate al database SQL.
+**Linee** guida: analizzare e monitorare i log per individuare comportamenti anomali ed esaminare regolarmente i risultati. Usare Advanced Threat Protection per database SQL di Azure insieme Centro sicurezza di Azure per avvisare le attività insolite correlate al database SQL. In alternativa, configurare gli avvisi in base ai valori delle metriche o alle voci del log attività di Azure correlate al database SQL.
 
 In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o in un SIEM di terze parti.
 
@@ -239,13 +239,13 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** Nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: Abilitare gli avvisi per le attività anoma le
 
-**Linee** guida: usare Advanced Threat Protection (ATP) per database SQL di Azure in combinazione con Centro sicurezza di Azure per monitorare e avvisare le attività anoma le. ATP fa parte dell'offerta Advanced Data Security (ADS) ed è accessibile e gestito tramite SQL ADS centrale nel portale. ADS include funzionalità per l'individuazione e la classificazione di dati sensibili, l'individuazione e la mitigazione di potenziali vulnerabilità del database e il rilevamento di attività anomale che potrebbero indicare una minaccia per il database.
+**Indicazioni:** usare Advanced Threat Protection (ATP) per database SQL di Azure in combinazione con Centro sicurezza di Azure monitorare e avvisare in caso di attività anomase. ATP fa parte dell'offerta Sicurezza dei dati avanzata ed è accessibile e gestito tramite ADS SQL centrale nel portale. AdS include funzionalità per l'individuazione e la classificazione di dati sensibili, l'individuazione e la mitigazione di potenziali vulnerabilità del database e il rilevamento di attività anomale che potrebbero indicare una minaccia per il database.
 
-In alternativa, è possibile abilitare e eseguire l'on board dei dati per Azure Sentinel.
+In alternativa, è possibile abilitare e eseguire l'on board dei dati Azure Sentinel.
 
 - [Informazioni su Advanced Threat Protection e gli avvisi per database SQL di Azure](../azure-sql/database/threat-detection-overview.md)
 
@@ -257,7 +257,7 @@ In alternativa, è possibile abilitare e eseguire l'on board dei dati per Azure 
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) è [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) piano per i servizi correlati.
+**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark è](/azure/governance/policy/samples/azure-security-benchmark) [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -271,9 +271,9 @@ In alternativa, è possibile abilitare e eseguire l'on board dei dati per Azure 
 
 **Indicazioni:** gli utenti vengono autenticati con Azure Active Directory (Azure AD) o con l'autenticazione SQL.
 
-Quando si distribuisce per la Azure SQL, si specifica un account di accesso amministratore e una password associata per tale account di accesso. Questo account amministrativo è denominato amministratore del server. È possibile identificare gli account amministratore per un database aprendo il portale di Azure e passando alla scheda delle proprietà del server o dell'istanza gestita. È anche possibile configurare un account Azure AD amministratore con autorizzazioni amministrative complete. Questa operazione è necessaria se si vuole abilitare Azure AD autenticazione.
+Quando si distribuisce per la Azure SQL, si specifica un account di accesso amministratore e una password associata per tale account di accesso. Questo account amministrativo è denominato Amministratore del server. È possibile identificare gli account amministratore per un database aprendo il portale di Azure e passando alla scheda delle proprietà del server o dell'istanza gestita. È anche possibile configurare un account amministratore Azure AD con autorizzazioni amministrative complete. Questa operazione è necessaria se si vuole abilitare l Azure AD autenticazione.
 
-Per le operazioni di gestione, usare i ruoli predefiniti di Azure che devono essere assegnati in modo esplicito. Usare il Azure AD PowerShell per eseguire query ad hoc per individuare gli account membri di gruppi amministrativi.
+Per le operazioni di gestione, usare i ruoli predefiniti di Azure che devono essere assegnati in modo esplicito. Usare il Azure AD di PowerShell per eseguire query ad hoc per individuare gli account membri di gruppi amministrativi.
 
 - [Autenticazione per il database SQL](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
 
@@ -281,9 +281,9 @@ Per le operazioni di gestione, usare i ruoli predefiniti di Azure che devono ess
 
 - [Usare un account Azure AD per l'autenticazione](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-additional-logins-and-users-having-administrative-permissions)
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
+- [Come ottenere un ruolo di directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
+- [Come ottenere i membri di un ruolo di directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Come gestire gli account di accesso e gli account amministratore esistenti in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
@@ -291,11 +291,11 @@ Per le operazioni di gestione, usare i ruoli predefiniti di Azure che devono ess
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** Nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: modificare le password predefinite, ove applicabile
 
-**Indicazioni:** Azure Active Directory (Azure AD) non ha il concetto di password predefinite. Quando si effettua il provisioning di un pool SQL dedicato, è consigliabile scegliere di integrare l'autenticazione con Azure AD. Con questo metodo di autenticazione, l'utente invia un nome di account utente e richiede che il servizio usi le informazioni sulle credenziali archiviate in Azure AD.
+**Linee** guida: Azure Active Directory (Azure AD) non ha il concetto di password predefinite. Quando si esegue il provisioning di un pool SQL dedicato, è consigliabile scegliere di integrare l'autenticazione con Azure AD. Con questo metodo di autenticazione, l'utente invia un nome di account utente e richiede che il servizio usi le informazioni sulle credenziali archiviate in Azure AD.
 
 - [Come configurare e gestire l'Azure AD autenticazione con Azure SQL](../azure-sql/database/authentication-aad-configure.md)
 
@@ -303,11 +303,11 @@ Per le operazioni di gestione, usare i ruoli predefiniti di Azure che devono ess
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** Nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: usare account amministrativi dedicati
 
-**Indicazioni:** creare criteri e procedure per l'uso di account amministrativi dedicati. Usare Centro sicurezza di Azure Identity and Access Management per monitorare il numero di account amministrativi che accedono tramite Azure Active Directory (Azure AD).
+**Linee** guida: creare criteri e procedure per l'uso di account amministrativi dedicati. Usare Centro sicurezza di Azure Gestione identità e accessi per monitorare il numero di account amministrativi che accedono tramite Azure Active Directory (Azure AD).
 
 Per identificare gli account amministratore per un database, aprire il portale di Azure e passare alla scheda Proprietà del server o dell'istanza gestita.
 
@@ -317,7 +317,7 @@ Per identificare gli account amministratore per un database, aprire il portale d
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4: Usare Azure Active Directory Single Sign-On (SSO)
 
@@ -331,11 +331,11 @@ Per identificare gli account amministratore per un database, aprire il portale d
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Usare l'autenticazione a più fattori per tutti Azure Active Directory basato su autenticazione
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Usare l'autenticazione a più fattori per tutti gli accessi Azure Active Directory basato su autenticazione
 
-**Linee** guida: abilitare Azure Active Directory(Azure AD) a più fattori e seguire Centro sicurezza di Azure indicazioni su Gestione identità e accessi.
+**Indicazioni:** abilitare l'autenticazione Azure Active Directory (Azure AD) a più fattori e seguire le raccomandazioni Centro sicurezza di Azure gestione delle identità e degli accessi.
 
 - [Come abilitare l'autenticazione a più fattori in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -345,11 +345,11 @@ Per identificare gli account amministratore per un database, aprire il portale d
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6: Usare workstation protette gestite da Azure per attività amministrative
+### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6: Usare workstation protette gestite da Azure per le attività amministrative
 
-**Indicazioni:** usare una workstation PAW (Privileged Access Workstation) con autenticazione a più fattori configurata per accedere e configurare le risorse di Azure.
+**Indicazioni:** usare una workstation PAW (Privileged Access Workstation) con autenticazione a più fattori configurata per accedere alle risorse di Azure e configurarlo.
 
 - [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
@@ -357,19 +357,19 @@ Per identificare gli account amministratore per un database, aprire il portale d
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7: Registrare e avvisare le attività sospette da account amministrativi
+### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7: Registrare e avvisare in caso di attività sospette da account amministrativi
 
-**Linee** guida: usare Azure Active Directory (Azure AD) per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente.
+**Indicazioni:** usare Azure Active Directory (Azure AD) per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente.
 
-Usare Advanced Threat Protection per database SQL di Azure in combinazione con Centro sicurezza di Azure per rilevare e avvisare le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database.
+Usare Advanced Threat Protection per database SQL di Azure insieme a Centro sicurezza di Azure per rilevare e avvisare in caso di attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database.
 
 SQL Server Audit consente di creare controlli del server che possono contenere specifiche di controllo del server per gli eventi a livello di server e specifiche di controllo del database per gli eventi a livello di database. Gli eventi controllati possono essere scritti nei log eventi o in file di controllo.
 
 - [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Come monitorare l'identità e l'accesso degli utenti in Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
+- [Come monitorare le attività di identità e accesso degli utenti in Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
 - [Esaminare Advanced Threat Protection e i potenziali avvisi](https://docs.microsoft.com/azure/azure-sql/database/threat-detection-overview#alerts)
 
@@ -379,17 +379,17 @@ SQL Server Audit consente di creare controlli del server che possono contenere s
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** Nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: gestire le risorse di Azure solo dalle posizioni approvate
 
-**Indicazioni:** usare località denominate per l'accesso condizionale per consentire l'accesso al portale e a Gestione risorse di Azure solo da raggruppamenti logici specifici di intervalli di indirizzi IP o paesi/aree geografiche.
+**Indicazioni:** usare percorsi denominati di accesso condizionale per consentire l'accesso al portale e a Gestione risorse di Azure solo da raggruppamenti logici specifici di intervalli di indirizzi IP o paesi/aree geografiche.
 
 - [Come configurare località denominate in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** Nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
@@ -401,7 +401,7 @@ SQL Server Audit consente di creare controlli del server che possono contenere s
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark è](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) per i servizi correlati.
+**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) è [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -409,9 +409,9 @@ SQL Server Audit consente di creare controlli del server che possono contenere s
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: controllare e riconciliare regolarmente l'accesso utente
 
-**Indicazioni:** Azure Active Directory (Azure AD) fornisce log che consentono di individuare gli account non obsoleti. È anche possibile usare le Azure AD di accesso per gestire in modo efficiente le appartenenze ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso degli utenti può essere esaminato a intervalli regolari per assicurarsi che l'accesso continui solo agli utenti autorizzati.
+**Indicazioni:** Azure Active Directory (Azure AD) fornisce log che consentono di individuare gli account non obsoleti. È anche possibile usare le Azure AD di accesso per gestire in modo efficiente le appartenenze ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso degli utenti può essere esaminato regolarmente per assicurarsi che l'accesso continui solo agli utenti con diritti.
 
-Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel database. Assicurarsi di inserire uno o più utenti del database in un ruolo del database personalizzato con autorizzazioni specifiche appropriate per tale gruppo di utenti.
+Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel database. Assicurarsi di inserire uno o più utenti del database in un ruolo del database personalizzato con autorizzazioni specifiche appropriate per il gruppo di utenti.
 
 - [Come usare le verifiche di accesso](../active-directory/governance/access-reviews-overview.md)
 
@@ -419,13 +419,13 @@ Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel d
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** Nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11: Monitorare i tentativi di accesso alle credenziali disattivate
+### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11: Il monitoraggio tenta di accedere alle credenziali disattivate
 
 **Indicazioni:** configurare l'autenticazione Azure Active Directory (Azure AD) con Azure SQL e abilitare le impostazioni di diagnostica per gli account utente di Azure AD, inviando i log di controllo e i log di accesso a un'area di lavoro Log Analytics. Configurare gli avvisi desiderati in Log Analytics.
 
-Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel database. Assicurarsi di inserire uno o più utenti del database in un ruolo del database personalizzato con autorizzazioni specifiche appropriate per il gruppo di utenti.
+Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel database. Assicurarsi di inserire uno o più utenti del database in un ruolo del database personalizzato con autorizzazioni specifiche appropriate per tale gruppo di utenti.
 
 - [Come usare le verifiche di accesso](../active-directory/governance/access-reviews-overview.md)
 
@@ -437,13 +437,13 @@ Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel d
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Deviazione del comportamento di avviso per l'accesso all'account
 
-**Indicazioni:** usare Azure Active Directory (Azure AD) Identity Protection e le funzionalità di rilevamento dei rischi per configurare risposte automatiche alle azioni sospette rilevate correlate alle identità utente. Inoltre, l'on board e l'inserimento di dati Azure Sentinel per un'ulteriore analisi.
+**Indicazioni:** usare Azure Active Directory (Azure AD) Identity Protection e le funzionalità di rilevamento dei rischi per configurare risposte automatiche alle azioni sospette rilevate correlate alle identità utente. Inoltre, l'on board e l'inserimento di dati Azure Sentinel ulteriori indagini.
 
-Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel database. Assicurarsi di inserire uno o più utenti del database in un ruolo del database personalizzato con autorizzazioni specifiche appropriate per il gruppo di utenti.
+Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel database. Assicurarsi di inserire uno o più utenti del database in un ruolo del database personalizzato con autorizzazioni specifiche appropriate per tale gruppo di utenti.
 
 - [Come visualizzare gli Azure AD di rischio](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -455,7 +455,7 @@ Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel d
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto
 
@@ -465,7 +465,7 @@ Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel d
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio**: Nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ## <a name="data-protection"></a>Protezione dei dati
 
@@ -483,7 +483,7 @@ La classificazione &amp; dell'individuazione dati è incorporata Azure Synapse S
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark è](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) per i servizi correlati.
+**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) è [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -491,7 +491,7 @@ La classificazione &amp; dell'individuazione dati è incorporata Azure Synapse S
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
-**Indicazioni**: implementare sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Le risorse devono essere separate da rete virtuale/subnet, contrassegnate in modo appropriato e protette all'interno di un gruppo di sicurezza di rete o di Firewall di Azure. Le risorse che archiviano o elaborano dati sensibili devono essere isolate. Usare il collegamento privato; distribuire il server Azure SQL all'interno di una rete virtuale e connettersi in modo sicuro tramite collegamento privato.
+**Indicazioni**: implementare sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Le risorse devono essere separate da rete virtuale/subnet, contrassegnate in modo appropriato e protette all'interno di un gruppo di sicurezza di rete o Firewall di Azure. Le risorse che archiviano o elaborano dati sensibili devono essere isolate. Usare il collegamento privato; distribuire il Azure SQL Server all'interno di una rete virtuale e connettersi in modo sicuro tramite collegamento privato.
 
 - [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
@@ -503,17 +503,17 @@ La classificazione &amp; dell'individuazione dati è incorporata Azure Synapse S
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** Nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: monitorare e bloccare il trasferimento non autorizzato di informazioni riservate
 
-**Indicazioni:** per qualsiasi database SQL di Azure nel pool SQL dedicato che archivia o elabora informazioni riservate, contrassegnare il database e le risorse correlate come sensibili usando i tag. Configurare collegamento privato insieme ai tag di servizio del gruppo di sicurezza di rete (NSG) nelle istanze di database SQL di Azure per impedire l'esfiltrazione di informazioni riservate.
+**Indicazioni:** per qualsiasi database SQL di Azure nel pool SQL dedicato che archivia o elabora informazioni riservate, contrassegnare il database e le risorse correlate come sensibili usando i tag. Configurare collegamento privato in combinazione con i tag di servizio del gruppo di sicurezza di rete (NSG) nelle istanze database SQL di Azure per impedire l'esfiltrazione di informazioni riservate.
 
 Inoltre, Advanced Threat Protection per database SQL di Azure, Istanza gestita di SQL di Azure e Azure Synapse rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database.
 
 Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e si impegna per difendersi dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
-- [Come configurare il collegamento privato e i NSG per impedire l'esfiltrazione dei dati nelle istanze database SQL di Azure rete](../azure-sql/database/private-endpoint-overview.md)
+- [Come configurare il collegamento privato e i NSG per impedire l'esfiltrazione dei dati nelle istanze database SQL di Azure private](../azure-sql/database/private-endpoint-overview.md)
 
 - [Informazioni su Advanced Threat Protection per database SQL di Azure](../azure-sql/database/threat-detection-overview.md)
 
@@ -521,11 +521,11 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Responsabilità**: Condiviso
 
-**Centro sicurezza di Azure monitoraggio:** Nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: usare uno strumento di individuazione attivo per identificare i dati sensibili
 
-**Indicazioni:** usare la funzionalità Azure Synapse di individuazione dati &amp; SQL. Classificazione individuazione dati offre funzionalità avanzate integrate in database SQL di Azure per l'individuazione, la classificazione e l'etichettatura della protezione dei dati &amp; &amp; sensibili nei database.
+**Indicazioni:** usare la funzionalità Azure Synapse di classificazione dell'individuazione &amp; dati SQL. Classificazione individuazione dati offre funzionalità avanzate integrate in database SQL di Azure per l'individuazione, la classificazione e l'etichettatura della protezione dei dati &amp; &amp; sensibili nei database.
 
 La classificazione &amp; dell'individuazione dati fa parte dell'offerta Sicurezza dei dati avanzata, un pacchetto unificato per le funzionalità di sicurezza avanzate di SQL. La classificazione &amp; dell'individuazione dati è accessibile e gestita tramite il portale centrale di SQL ADS.
 
@@ -537,7 +537,7 @@ La classificazione &amp; dell'individuazione dati fa parte dell'offerta Sicurezz
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark è](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) per i servizi correlati.
+**Centro sicurezza di Azure:** [Azure Security Benchmark è](/azure/governance/policy/samples/azure-security-benchmark) [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -571,7 +571,7 @@ L'autorizzazione è controllata dalle appartenenze ai ruoli del database dell'ac
 
 **Responsabilità**: Condiviso
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) è [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) piano per i servizi correlati.
+**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) è [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/azure/security-center/azure-defender) piano per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -607,7 +607,7 @@ L'autorizzazione è controllata dalle appartenenze ai ruoli del database dell'ac
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark è](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) per i servizi correlati.
+**Centro sicurezza di Azure:** [Azure Security Benchmark è](/azure/governance/policy/samples/azure-security-benchmark) [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -635,7 +635,7 @@ La classificazione &amp; dell'individuazione dati è incorporata Azure Synapse S
 
 **Responsabilità**: Customer
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark è](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) per i servizi correlati.
+**Centro sicurezza di Azure:** [Azure Security Benchmark è](/azure/governance/policy/samples/azure-security-benchmark) [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -673,7 +673,7 @@ Anche se le risorse classiche di Azure possono essere individuate tramite Azure 
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: eliminare le risorse di Azure non autorizzate
 
-**Indicazioni:** usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, se necessario, per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
+**Indicazioni:** usare l'assegnazione di tag, i gruppi di gestione e sottoscrizioni separate, se necessario, per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
 - [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
@@ -812,7 +812,7 @@ Usare Azure Resource Graph per eseguire query o individuare risorse all'interno 
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: gestire le identità in modo sicuro e automatico
 
-**Indicazioni:** usare le identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). Identità gestite consente di eseguire l'autenticazione a qualsiasi servizio che supporta l Azure AD Azure Key Vault, senza credenziali nel codice.
+**Indicazioni:** usare identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). Identità gestite consente di eseguire l'autenticazione a qualsiasi servizio che supporta l Azure AD Azure Key Vault, senza credenziali nel codice.
 
 - [Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure SQL](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md)
 
@@ -860,7 +860,7 @@ Eseguire la pre-analisi di qualsiasi contenuto caricato in risorse di Azure non 
 
 **Responsabilità**: Condiviso
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) è [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) piano per i servizi correlati.
+**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) è [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -868,7 +868,7 @@ Eseguire la pre-analisi di qualsiasi contenuto caricato in risorse di Azure non 
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Eseguire backup completi del sistema ed eseguire il backup di tutte le chiavi gestite dal cliente
 
-**Indicazioni:** gli snapshot dei data warehouse automaticamente durante la giornata creando punti di ripristino disponibili per sette giorni. Questo periodo di conservazione non può essere modificato. Il pool SQL dedicato supporta un obiettivo del punto di ripristino (RPO) di otto ore. È possibile ripristinare il data warehouse nell'area primaria da uno qualsiasi degli snapshot acquisiti negli ultimi sette giorni. Si noti che è anche possibile attivare manualmente gli snapshot, se necessario.
+**Indicazioni:** gli snapshot del data warehouse automaticamente durante la giornata creando punti di ripristino disponibili per sette giorni. Questo periodo di conservazione non può essere modificato. Il pool SQL dedicato supporta un obiettivo del punto di ripristino (RPO) di otto ore. È possibile ripristinare il data warehouse nell'area primaria da uno qualsiasi degli snapshot acquisiti negli ultimi sette giorni. Si noti che è anche possibile attivare manualmente gli snapshot, se necessario.
 
 Se si usa una chiave gestita dal cliente per crittografare la chiave di crittografia del database, assicurarsi che venga eseguito il backup della chiave.
 
@@ -878,7 +878,7 @@ Se si usa una chiave gestita dal cliente per crittografare la chiave di crittogr
 
 **Responsabilità**: Condiviso
 
-**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark è](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) [l'iniziativa](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) per i servizi correlati.
+**Centro sicurezza di Azure:** [Azure Security Benchmark è](/azure/governance/policy/samples/azure-security-benchmark) [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [un piano Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
 **Criteri di Azure definizioni incorporate - Microsoft.Sql**:
 
@@ -984,7 +984,7 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 *Per altre informazioni, vedere [Azure Security Benchmark: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
-### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Eseguire regolarmente test di penetrazione delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Eseguire regolarmente test di penetrazione delle risorse di Azure e garantire la correzione di tutti i risultati critici sulla sicurezza
 
 **Indicazioni:** seguire le Regole di engagement di Microsoft per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 .
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 04/16/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28cc8a858d1779e17c893d64eda5f907bb4c808e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1aafcd8ace846d7da65d95d4148872d5a6eddeee
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104577989"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587851"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente i dispositivi aggiunti ad Azure Active Directory ibrido
 
@@ -76,7 +76,7 @@ Per i dispositivi Windows 10 versione 1703 o precedente, se l'organizzazione ric
 A partire da Windows 10 1803, anche se il tentativo di aggiunta ad Azure AD ibrido di un dispositivo in un dominio federato con AD FS non riesce e Azure AD Connect è configurato per la sincronizzazione degli oggetti computer/dispositivo con Azure AD, il dispositivo proverà a completare l'aggiunta ad Azure AD ibrido usando il computer/dispositivo sincronizzato.
 
 > [!NOTE]
-> Per ottenere un join di sincronizzazione della registrazione del dispositivo, come parte della configurazione di registrazione del dispositivo, non escludere gli attributi di dispositivo predefiniti dalla configurazione di sincronizzazione Azure AD Connect. Per ulteriori informazioni sugli attributi di dispositivo predefiniti sincronizzati con Azure AD, vedere [attributi sincronizzati da Azure ad Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
+> Per fare in modo che l'aggiunta alla sincronizzazione della registrazione del dispositivo riesca, come parte della configurazione della registrazione del dispositivo, non escludere gli attributi del dispositivo predefiniti dalla configurazione Azure AD Connect sincronizzazione. Per altre informazioni sugli attributi di dispositivo predefiniti sincronizzati con Azure AD, vedere [Attributi sincronizzati da Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
 
 Per verificare se il dispositivo può accedere alle risorse Microsoft sopra riportate con l'account di sistema, è possibile usare lo script disponibile per [testare la connettività durante la registrazione dei dispositivi](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
@@ -145,7 +145,7 @@ Lo script seguente mostra un esempio dell'uso del cmdlet. In questo script, `$aa
 
 Il `Initialize-ADSyncDomainJoinedComputerSync` cmdlet esegue queste operazioni:
 
-* Usa il modulo Active Directory PowerShell e gli strumenti Azure Active Directory Domain Services (Azure AD DS). Questi strumenti si basano sull'esecuzione di Servizi Web Active Directory in un controller di dominio. Il servizio Servizi Web Active Directory è supportato nei controller di dominio che eseguono Windows Server 2008 R2 e versioni successive.
+* Usa il modulo PowerShell di Active Directory e Active Directory Domain Services (AD DS). Questi strumenti si basano sull'esecuzione di Servizi Web Active Directory in un controller di dominio. Il servizio Servizi Web Active Directory è supportato nei controller di dominio che eseguono Windows Server 2008 R2 e versioni successive.
 * È supportato solo per il modulo MSOnline PowerShell versione 1.1.166.0. Per scaricare questo modulo, seguire [questo collegamento](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
 * Se gli strumenti Active Directory Domain Services non sono installati, `Initialize-ADSyncDomainJoinedComputerSync` avrà esito negativo. È possibile installare questi strumenti tramite Server Manager in **Funzionalità** > **Strumenti di amministrazione remota del server** > **Strumenti di amministrazione ruoli**.
 

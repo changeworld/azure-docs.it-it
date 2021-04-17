@@ -1,15 +1,17 @@
 ---
 title: Usare gli argomenti e le sottoscrizioni del bus di servizio di Azure con Java (azure-messaging-servicebus)
 description: In questa guida di avvio rapido viene scritto codice Java con il pacchetto azure-messaging-servicebus per inviare messaggi a un argomento del bus di servizio di Azure e quindi ricevere messaggi dalle sottoscrizioni di tale argomento.
-ms.devlang: Java
-ms.topic: quickstart
 ms.date: 02/13/2021
-ms.openlocfilehash: c5b930fb2c87a09a1f4801365936c62a7cf79f1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.devlang: Java
+ms.custom:
+- mode-api
+ms.openlocfilehash: 6fe0a3a91ebbd5b6daced95494b8eaa5b7db0c46
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100516176"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536384"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Inviare messaggi a un argomento del bus di servizio di Azure e ricevere messaggi dalle sottoscrizioni dell'argomento (Java)
 In questa guida di avvio rapido viene scritto codice Java con il pacchetto azure-messaging-servicebus per inviare messaggi a un argomento del bus di servizio di Azure e quindi ricevere messaggi dalle sottoscrizioni di tale argomento.
@@ -31,9 +33,9 @@ In questa sezione verrà creato un progetto di console Java, quindi verrà aggiu
 Creare un progetto Java usando Eclipse o un altro strumento a scelta. 
 
 ### <a name="configure-your-application-to-use-service-bus"></a>Configurare l'applicazione per l'uso del bus di servizio
-Aggiungere i riferimenti alle librerie di Azure core e del bus di servizio di Azure. 
+Aggiungere riferimenti alle librerie core e bus di servizio di Azure Azure. 
 
-Se si usa Eclipse e si crea un'applicazione console Java, convertire il progetto Java in Maven: fare clic con il pulsante destro del mouse sul progetto nella finestra **Esplora pacchetti** e selezionare **Configura**  ->  **Converti in progetto Maven**. Aggiungere quindi le dipendenze a queste due librerie, come illustrato nell'esempio seguente.
+Se si usa Eclipse e si è creata un'applicazione console Java, convertire il progetto Java in un progetto Maven: fare clic con il pulsante destro del mouse sul progetto nella finestra Package **Explorer (Esplora** pacchetti) e scegliere **Configure** Convert to Maven project (Configura converti in  ->  **progetto Maven).** Aggiungere quindi le dipendenze a queste due librerie, come illustrato nell'esempio seguente.
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -174,7 +176,7 @@ In questa sezione si aggiunge il codice per recuperare i messaggi dalla sottoscr
 1. Aggiungere un metodo denominato `receiveMessages` per ricevere messaggi dalla sottoscrizione. Questo metodo crea un oggetto `ServiceBusProcessorClient` per la sottoscrizione specificando un gestore per l'elaborazione di messaggi e un altro per la gestione degli errori. Quindi avvia il processore, aspetta alcuni secondi, stampa i messaggi ricevuti e infine arresta e chiude il processore.
 
     > [!IMPORTANT]
-    > Sostituire `ServiceBusTopicTest` in `ServiceBusTopicTest::processMessage` nel codice con il nome della classe. 
+    > Sostituire `ServiceBusTopicTest` in nel codice con il nome della `ServiceBusTopicTest::processMessage` classe. 
 
     ```java
     // handles received messages
@@ -209,7 +211,7 @@ In questa sezione si aggiunge il codice per recuperare i messaggi dalla sottoscr
             message.getSequenceNumber(), message.getBody());
     }    
     ```
-3. Aggiungere il `processError` metodo per gestire i messaggi di errore.
+3. Aggiungere il metodo `processError` per gestire i messaggi di errore.
 
     ```java
     private static void processError(ServiceBusErrorContext context, CountDownLatch countdownLatch) {

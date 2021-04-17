@@ -3,55 +3,55 @@ title: Risolvere i problemi relativi a Gestione aggiornamenti di Automazione di 
 description: Questo articolo mostra come risolvere i problemi relativi alla Gestione aggiornamenti di Automazione di Azure.
 services: automation
 ms.subservice: update-management
-ms.date: 01/13/2021
+ms.date: 04/16/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f23632ba6a6b83f92b2bfc90beb4c1a8613c090a
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579742"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587364"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
 Questo articolo descrive i problemi che potrebbero verificarsi durante la distribuzione della funzionalità Gestione aggiornamenti nei computer. È disponibile uno strumento di risoluzione dei problemi dell'agente che consente all'agente del ruolo di lavoro ibrido per runbook di determinare il problema sottostante. Per altre informazioni sullo strumento di risoluzione dei problemi, vedere [Risolvere i problemi relativi all'agente di aggiornamento Windows](update-agent-issues.md) e [Risolvere i problemi relativi all'agente di aggiornamento Linux](update-agent-issues-linux.md). Per altri problemi relativi alla distribuzione di funzionalità, vedere [Risolvere i problemi relativi alla distribuzione di funzionalità](onboarding.md).
 
 >[!NOTE]
->Se si verificano problemi durante la distribuzione di Gestione aggiornamenti in un computer Windows, aprire il Visualizzatore eventi di Windows e controllare il **Operations Manager** registro eventi in **registri applicazioni e servizi** nel computer locale. Cercare gli eventi con ID 4502 e dettagli evento che contengono `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+>Se si verificano problemi durante la distribuzione di Gestione aggiornamenti in un computer Windows, aprire Windows Visualizzatore eventi e  controllare il registro eventi di **Operations Manager** in Registri applicazioni e servizi nel computer locale. Cercare gli eventi con ID 4502 e dettagli evento che contengono `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
 ## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Scenario: gli aggiornamenti di Linux visualizzati come in sospeso e quelli installati variano
 
 ### <a name="issue"></a>Problema
 
-Per il computer Linux, Gestione aggiornamenti Mostra gli aggiornamenti specifici disponibili in **sicurezza** classificazione e **altri**. Tuttavia, quando una pianificazione di aggiornamento viene eseguita nel computer, ad esempio per installare solo gli aggiornamenti che corrispondono alla classificazione di **sicurezza** , gli aggiornamenti installati sono diversi da o da un subset degli aggiornamenti mostrati in precedenza corrispondenti a tale classificazione.
+Per il computer Linux, Gestione aggiornamenti aggiornamenti specifici disponibili nella classificazione **Sicurezza** e **Altri**. Tuttavia, quando nel computer viene eseguita una pianificazione degli  aggiornamenti, ad esempio per installare solo gli aggiornamenti corrispondenti alla classificazione Sicurezza, gli aggiornamenti installati sono diversi da o da un subset degli aggiornamenti mostrati in precedenza corrispondenti a tale classificazione.
 
 ### <a name="cause"></a>Causa
 
-Quando viene eseguita una valutazione degli aggiornamenti del sistema operativo in sospeso per il computer Linux, i file Oval ( [vulnerabilità e Assessment Language) aperti](https://oval.mitre.org/) forniti dal fornitore di distribuzioni Linux vengono usati da Gestione aggiornamenti per la classificazione. La categorizzazione viene eseguita per gli aggiornamenti Linux come **sicurezza** o **altri utenti**, in base ai file Oval che specificano gli aggiornamenti che indirizzano problemi di sicurezza o vulnerabilità. Tuttavia, quando viene eseguita, la pianificazione dell'aggiornamento viene eseguita nel computer Linux usando la gestione pacchetti appropriata, ad esempio YUM, APT o ZYPPER per installarli. Gestione pacchetti per la distribuzione Linux può avere un meccanismo diverso per classificare gli aggiornamenti, in cui i risultati possono essere diversi da quelli ottenuti da file OVAL per Gestione aggiornamenti.
+Quando viene eseguita una valutazione degli aggiornamenti del sistema operativo in sospeso per il computer Linux, i file OVAL [(Open Vulnerability and Assessment Language)](https://oval.mitre.org/) forniti dal fornitore della distribuzione Linux vengono usati da Gestione aggiornamenti per la classificazione. La categorizzazione viene  eseguita per gli aggiornamenti di Linux come Sicurezza o Altri **,** in base ai file OVAL che indica gli aggiornamenti che consentono di risolvere problemi di sicurezza o vulnerabilità. Tuttavia, quando viene eseguita, la pianificazione degli aggiornamenti viene eseguita nel computer Linux usando lo strumento di gestione pacchetti appropriato, ad esempio YUM, APT o ZYPPER per installarli. Lo strumento di gestione pacchetti per la distribuzione Linux può avere un meccanismo diverso per classificare gli aggiornamenti, in cui i risultati possono differire da quelli ottenuti dai file OVAL per Gestione aggiornamenti.
 
 ### <a name="resolution"></a>Soluzione
 
-È possibile controllare manualmente il computer Linux, gli aggiornamenti applicabili e la relativa classificazione in base a gestione pacchetti della distribuzione. Per comprendere quali aggiornamenti sono classificati come **sicurezza** da Gestione pacchetti, eseguire i comandi seguenti.
+È possibile controllare manualmente il computer Linux, gli aggiornamenti applicabili e la relativa classificazione in base alla gestione pacchetti della distribuzione. Per comprendere quali aggiornamenti sono classificati **come Sicurezza** da Gestione pacchetti, eseguire i comandi seguenti.
 
-Per YUM, il comando seguente restituisce un elenco diverso da zero degli aggiornamenti classificati come **sicurezza** da Red Hat. Si noti che nel caso di CentOS, viene sempre restituito un elenco vuoto e non viene eseguita alcuna classificazione di sicurezza.
+Per YUM, il comando seguente restituisce un elenco diverso da zero di aggiornamenti classificati **come Security** by Red Hat. Si noti che nel caso di CentOS restituisce sempre un elenco vuoto e non viene eseguita alcuna classificazione di sicurezza.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-Per ZYPPER, il comando seguente restituisce un elenco diverso da zero degli aggiornamenti classificati come **sicurezza** da SUSE.
+Per ZYPPER, il comando seguente restituisce un elenco diverso da zero di aggiornamenti classificati **come Security** by SUSE.
 
 ```bash
 sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
 ```
 
-Per APT, il comando seguente restituisce un elenco diverso da zero degli aggiornamenti classificati come **sicurezza** da Canonical per le distribuzioni Ubuntu Linux.
+Per APT, il comando seguente restituisce un elenco diverso da zero di aggiornamenti classificati come **Security** by Canonical per Ubuntu Linux distribuzione.
 
 ```bash
 sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
 ```
 
-Da questo elenco viene quindi eseguito il comando `grep ^Inst` per ottenere tutti gli aggiornamenti della sicurezza in sospeso.
+Da questo elenco si esegue quindi il comando per `grep ^Inst` ottenere tutti gli aggiornamenti della sicurezza in sospeso.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Scenario: viene visualizzato l'errore "Non è stato possibile abilitare la soluzione Aggiornamento"
 
@@ -79,7 +79,7 @@ Le cause di questo errore sono le seguenti:
 
 * Passare a [Configurazione di rete](../automation-hybrid-runbook-worker.md#network-planning) per informazioni sugli indirizzi e sulle porte che devono essere consentiti per il funzionamento di Gestione aggiornamenti.  
 
-* Verificare la presenza di problemi di configurazione dell'ambito. [Configurazione ambito](../update-management/scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti. Se il computer viene visualizzato nell'area di lavoro ma non in Gestione aggiornamenti, è necessario impostare la configurazione dell'ambito per le macchine virtuali. Per informazioni sulla configurazione dell'ambito, vedere [Abilitare i computer nell'area di lavoro](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
+* Verificare la presenza di problemi di configurazione dell'ambito. [Configurazione ambito](../update-management/scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti. Se il computer viene visualizzato nell'area di lavoro ma non Gestione aggiornamenti, è necessario impostare la configurazione dell'ambito per i computer. Per informazioni sulla configurazione dell'ambito, vedere [Abilitare i computer nell'area di lavoro](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Rimuovere la configurazione del ruolo di lavoro attenendosi ai passaggi descritti in [Rimuovere il ruolo di lavoro ibrido per runbook da un computer Windows locale](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) oppure [Rimuovere il ruolo di lavoro ibrido per runbook da un computer Linux locale](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker).
 
@@ -91,23 +91,23 @@ Gli aggiornamenti precedenti vengono visualizzati come mancanti per un account d
 
 ### <a name="cause"></a>Causa
 
-Gli aggiornamenti sostituiti non vengono rifiutati in Windows Server Update Services (WSUS), in modo che possano essere considerati non applicabili.
+Gli aggiornamenti sostituiti non vengono rifiutati in Windows Server Update Services (WSUS) in modo che possano essere considerati non applicabili.
 
 ### <a name="resolution"></a>Soluzione
 
-Quando un aggiornamento sostituito diventa il 100% non applicabile, è necessario modificare lo stato di approvazione di tale aggiornamento `Declined` in WSUS. Per modificare lo stato di approvazione di tutti gli aggiornamenti:
+Quando un aggiornamento sostituito diventa non applicabile al 100%, è necessario modificare lo stato di approvazione di tale aggiornamento `Declined` in WSUS. Per modificare lo stato di approvazione di tutti gli aggiornamenti:
 
 1. Selezionare **Gestione aggiornamenti** nell'account di Automazione per visualizzare lo stato del computer. Vedere [Visualizzare la valutazione degli aggiornamenti](../update-management/view-update-assessments.md).
 
 2. Controllare l'aggiornamento sostituito per assicurarsi che sia non disponibile al 100%.
 
-3. Nel server WSUS a cui si riferiscono i computer, [rifiutare l'aggiornamento](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
+3. Nel server WSUS a cui i computer segnalano [rifiutare l'aggiornamento](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
-4. Selezionare **Computer** e nella colonna **Conformità** forzare la ripetizione dell'analisi per la conformità. Vedere [gestire gli aggiornamenti per le macchine virtuali](../update-management/manage-updates-for-vm.md).
+4. Selezionare **Computer** e nella colonna **Conformità** forzare la ripetizione dell'analisi per la conformità. Vedere [Gestire gli aggiornamenti per le macchine virtuali](../update-management/manage-updates-for-vm.md).
 
 5. Ripetere i passaggi precedenti per gli altri aggiornamenti sostituiti.
 
-6. Per Windows Server Update Services (WSUS), pulire tutti gli aggiornamenti sostituiti per aggiornare l'infrastruttura utilizzando la [Pulitura guidata del server](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)WSUS.
+6. Per Windows Server Update Services (WSUS), pulire tutti gli aggiornamenti sostituiti per aggiornare l'infrastruttura usando la Pulizia guidata [server](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)WSUS .
 
 7. Ripetere questa procedura regolarmente per correggere il problema di visualizzazione e ridurre al minimo la quantità di spazio su disco usata per la gestione aggiornamenti.
 
@@ -135,7 +135,7 @@ Questo problema può essere causato da anomalie relative alla configurazione loc
 
 1. Eseguire lo strumento di risoluzione dei problemi per [Windows](update-agent-issues.md#troubleshoot-offline) o [Linux](update-agent-issues-linux.md#troubleshoot-offline), a seconda del sistema operativo.
 
-2. Controllare che il computer invii report all'area di lavoro corretta. Per indicazioni su come verificare questo aspetto, vedere [verificare la connettività dell'agente a monitoraggio di Azure](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Assicurarsi anche che l'area di lavoro sia collegata all'account di Automazione di Azure. Per confermare, passare all'account di Automazione e selezionare **Area di lavoro collegata** in **Risorse correlate**.
+2. Controllare che il computer invii report all'area di lavoro corretta. Per indicazioni su come verificare questo aspetto, vedere Verificare la [connettività dell'agente Monitoraggio di Azure](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Assicurarsi anche che l'area di lavoro sia collegata all'account di Automazione di Azure. Per confermare, passare all'account di Automazione e selezionare **Area di lavoro collegata** in **Risorse correlate**.
 
 3. Assicurarsi che i computer siano visualizzati nell'area di lavoro Log Analytics collegata all'account di Automazione. Eseguire la query seguente nell'area di lavoro Log Analytics.
 
@@ -146,7 +146,7 @@ Questo problema può essere causato da anomalie relative alla configurazione loc
 
     Se il computer non viene visualizzato nei risultati della query, non è stato sincronizzato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario [reinstallare l'agente](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-    Se il computer è elencato nei risultati della query, verificare nella proprietà **Solutions** che **gli aggiornamenti** siano elencati. Questo verifica che sia registrato con Gestione aggiornamenti. In caso contrario, verificare la presenza di problemi di configurazione dell'ambito. La [configurazione ambito](../update-management/scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti. Per configurare la configurazione dell'ambito per il computer di destinazione, vedere [abilitare i computer nell'area di lavoro](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
+    Se il computer è elencato nei risultati della query, verificare nella proprietà **Soluzioni** che **gli aggiornamenti** siano elencati. In questo modo viene verificato che sia registrato con Gestione aggiornamenti. In caso contrario, verificare la presenza di problemi di configurazione dell'ambito. La [configurazione ambito](../update-management/scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti. Per configurare la configurazione dell'ambito per il computer di destinazione, vedere [Abilitare i computer nell'area di lavoro](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 4. Eseguire la query nell'area di lavoro.
 
@@ -188,11 +188,13 @@ Per registrare il provider di risorse di Automazione, seguire questi passaggi ne
 
 5. Se non è elencato, registrare il provider Microsoft.Automation seguendo i passaggi descritti in [Risolvere gli errori per la registrazione del provider di risorse](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
-## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="scheduled-update-missed-machines"></a>Scenario: l'aggiornamento con pianificazione dinamica ha escluso alcuni computer
+## <a name="scenario-scheduled-update-did-not-patch-some-machines"></a><a name="scheduled-update-missed-machines"></a>Scenario: l'aggiornamento pianificato non ha patch per alcuni computer
 
 ### <a name="issue"></a>Problema
 
-I computer inclusi nell'anteprima di aggiornamento non vengono visualizzati nell'elenco dei computer con patch installate durante un'esecuzione pianificata.
+I computer inclusi in un'anteprima di aggiornamento non vengono tutti visualizzati nell'elenco di computer con patch durante un'esecuzione pianificata oppure le macchine virtuali per gli ambiti selezionati di un gruppo dinamico non vengono visualizzate nell'elenco di anteprima degli aggiornamenti nel portale.
+
+L'elenco di anteprima dell'aggiornamento è costituito da tutti i computer recuperati da una query [Azure Resource Graph](../../governance/resource-graph/overview.md) per gli ambiti selezionati. Gli ambiti vengono filtrati per i computer in cui è installato un ruolo di lavoro ibrido per runbook di sistema e per cui si dispone delle autorizzazioni di accesso.
 
 ### <a name="cause"></a>Causa
 
@@ -201,6 +203,12 @@ Le cause di questo problema possono essere le seguenti:
 * Le sottoscrizioni definite nell'ambito di una query dinamica non sono configurate per il provider di risorse di Automazione registrato.
 
 * I computer non erano disponibili o non avevano i tag appropriati quando è stata eseguita la pianificazione.
+
+* Non si dispone dell'accesso corretto agli ambiti selezionati.
+
+* La Azure Resource Graph query non recupera i computer previsti.
+
+* Il ruolo di lavoro ibrido per runbook di sistema non è installato nei computer.
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -238,31 +246,15 @@ Usare la procedura seguente se la sottoscrizione è configurata per il provider 
 
 7. Eseguire di nuovo la pianificazione degli aggiornamenti per assicurarsi che la distribuzione con i gruppi dinamici specificati includa tutti i computer.
 
-## <a name="scenario-expected-machines-dont-appear-in-preview-for-dynamic-group"></a><a name="machines-not-in-preview"></a>Scenario: i computer previsti non sono visualizzati in anteprima per il gruppo dinamico
-
-### <a name="issue"></a>Problema
-
-Le macchine virtuali per gli ambiti selezionati di un gruppo dinamico non vengono visualizzate nell'elenco di anteprima del portale di Azure. In questo elenco sono presenti tutti i computer recuperati da una query ARG per gli ambiti selezionati. Gli ambiti vengono filtrati per i computer in cui sono installati i ruoli di lavoro ibridi per runbook e per i quali si dispone di autorizzazioni di accesso.
-
-### <a name="cause"></a>Causa
-
-Possibili cause di questo problema:
-
-* Non si dispone dell'accesso corretto agli ambiti selezionati.
-* La query ARG non recupera i computer previsti.
-* Il ruolo di lavoro ibrido per runbook non è installato nei computer.
-
-### <a name="resolution"></a>Risoluzione 
-
 #### <a name="incorrect-access-on-selected-scopes"></a>Accesso errato agli ambiti selezionati
 
-Nel portale di Azure vengono visualizzati solo i computer per i quali si dispone dell'accesso in scrittura in un ambito specifico. Se non si dispone dell'accesso corretto per un ambito, vedere [esercitazione: concedere a un utente l'accesso alle risorse di Azure usando il portale di Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md).
+Nel portale di Azure vengono visualizzati solo i computer per i quali si dispone dell'accesso in scrittura in un ambito specifico. Se non si ha l'accesso corretto per un ambito, vedere [Esercitazione:](../../role-based-access-control/quickstart-assign-role-user-portal.md)Concedere a un utente l'accesso alle risorse di Azure usando il portale di Azure .
 
-#### <a name="arg-query-doesnt-return-expected-machines"></a>La query ARG non restituisce i computer previsti
+#### <a name="resource-graph-query-doesnt-return-expected-machines"></a>Resource Graph query non restituisce i computer previsti
 
 Attenersi ai passaggi seguenti per determinare se le query funzionano correttamente.
 
-1. Eseguire una query ARG formattata come illustrato qui sotto nel pannello Resource Graph explorer nel portale di Azure. Questa query simula i filtri selezionati al momento della creazione del gruppo dinamico in Gestione aggiornamenti. Vedere [Usare i gruppi dinamici con Gestione aggiornamenti](../update-management/configure-groups.md).
+1. Eseguire una Azure Resource Graph query formattata come illustrato di seguito nel pannello Resource Graph Explorer in portale di Azure. Se non si ha di Azure Resource Graph, [](../../governance/resource-graph/first-query-portal.md) vedere questa guida introduttiva per informazioni su come usare Resource Graph Explorer. Questa query simula i filtri selezionati al momento della creazione del gruppo dinamico in Gestione aggiornamenti. Vedere [Usare i gruppi dinamici con Gestione aggiornamenti](../update-management/configure-groups.md).
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -287,7 +279,7 @@ Attenersi ai passaggi seguenti per determinare se le query funzionano correttame
 
 #### <a name="hybrid-runbook-worker-not-installed-on-machines"></a>Ruolo di lavoro ibrido per runbook non installato nei computer
 
-I computer appaiono nei risultati delle query ARG ma non vengono ancora visualizzati nell'anteprima del gruppo dinamico. In questo caso, è possibile che i computer non siano designati come ruoli di lavoro ibridi e che quindi non possano eseguire i processi di Automazione di Azure e Gestione aggiornamenti. Per assicurarsi che i computer che si prevede di visualizzare siano configurati come ruoli di lavoro ibridi per runbook:
+I computer vengono visualizzati Azure Resource Graph risultati della query, ma non vengono ancora visualizzati nell'anteprima del gruppo dinamico. In questo caso, i computer potrebbero non essere designati come processi di lavoro ibridi per runbook di sistema e quindi non possono Automazione di Azure e Gestione aggiornamenti processi. Per assicurarsi che i computer che si prevede di visualizzare siano impostati come computer di lavoro ibridi per runbook di sistema:
 
 1. Nel portale di Azure, passare all'account di Automazione per un computer che non viene visualizzato correttamente.
 
@@ -297,11 +289,9 @@ I computer appaiono nei risultati delle query ARG ma non vengono ancora visualiz
 
 4. Verificare che il ruolo di lavoro ibrido sia presente per tale computer.
 
-5. Se il computer non è configurato come ruolo di lavoro ibrido, apportare rettifiche usando le istruzioni in [Automatizzare le risorse nel data center o nel cloud usando il ruolo di lavoro ibrido per runbook](../automation-hybrid-runbook-worker.md).
+5. Se il computer non è configurato come ruolo di lavoro ibrido per runbook di sistema, esaminare i metodi per abilitare il computer nella sezione Enable [Gestione aggiornamenti](../update-management/overview.md#enable-update-management) (Abilita Gestione aggiornamenti) dell'articolo Gestione aggiornamenti Panoramica. Il metodo da abilitare si basa sull'ambiente in cui è in esecuzione il computer.
 
-6. Aggiungere il computer al gruppo ruolo di lavoro ibrido per runbook.
-
-7. Ripetere i passaggi precedenti per tutti i computer che non sono stati visualizzati nell'anteprima.
+6. Ripetere i passaggi precedenti per tutti i computer che non sono stati visualizzati nell'anteprima.
 
 ## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Scenario: i componenti di Gestione aggiornamenti sono abilitati, mentre la macchina virtuale continua a risultare configurata
 
@@ -355,7 +345,7 @@ Se si usa un'immagine clonata, nomi computer diversi hanno lo stesso ID computer
 
 3. Eseguire `Restart-Service HealthService` per riavviare il servizio integrità. Questa operazione ricrea la chiave e genera un nuovo UUID.
 
-4. Se questo approccio non funziona, eseguire prima Sysprep sull'immagine, quindi installare l'agente di Log Analytics per Windows.
+4. Se questo approccio non funziona, eseguire prima sysprep nell'immagine e quindi installare l'agente di Log Analytics per Windows.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Scenario: viene visualizzato un errore di sottoscrizione collegata durante la creazione di una distribuzione degli aggiornamenti per i computer in un altro tenant di Azure
 
@@ -416,8 +406,8 @@ Questo errore può verificarsi per uno dei motivi seguenti:
 * Il computer non esiste più.
 * Il computer è disattivato e non è raggiungibile.
 * Il computer ha un problema di connettività di rete e quindi il ruolo di lavoro ibrido nel computer non è raggiungibile.
-* Aggiornamento dell'agente di Log Analytics che ha modificato l'ID del computer di origine.
-* L'esecuzione dell'aggiornamento è stata limitata se si raggiunge il limite di 200 processi simultanei in un account di automazione. Ogni distribuzione viene considerata un processo e ogni computer in una distribuzione di aggiornamenti conta come processo. Qualsiasi altro processo di automazione o distribuzione di aggiornamenti attualmente in esecuzione nell'account di Automazione viene conteggiato verso il limite di processi simultanei.
+* È stato aggiornato l'agente di Log Analytics che ha modificato l'ID computer di origine.
+* L'esecuzione dell'aggiornamento è stata limitata se si è raggiunto il limite di 200 processi simultanei in un account di Automazione. Ogni distribuzione viene considerata un processo e ogni computer in una distribuzione di aggiornamenti conta come processo. Qualsiasi altro processo di automazione o distribuzione di aggiornamenti attualmente in esecuzione nell'account di Automazione viene conteggiato verso il limite di processi simultanei.
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -519,7 +509,7 @@ La finestra di manutenzione predefinita per gli aggiornamenti è di 120 minuti. 
 
 ### <a name="resolution"></a>Risoluzione
 
-Per comprendere il motivo per cui si è verificata durante l'esecuzione di un aggiornamento dopo l'avvio, [controllare l'output del processo](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) dal computer interessato nell'esecuzione. È possibile trovare messaggi di errore specifici generati dai computer che possono essere esaminati per intervenire di conseguenza.  
+Per comprendere il motivo per cui ciò si è verificato durante l'esecuzione di un aggiornamento dopo l'avvio, controllare [l'output](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) del processo dal computer interessato nell'esecuzione. È possibile trovare messaggi di errore specifici generati dai computer che possono essere esaminati per intervenire di conseguenza.  
 
 Modificare le distribuzioni degli aggiornamenti pianificati con errori e aumentare la finestra di manutenzione.
 

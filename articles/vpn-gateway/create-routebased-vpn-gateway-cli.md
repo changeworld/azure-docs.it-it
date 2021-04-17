@@ -1,18 +1,18 @@
 ---
-title: 'Creare un gateway VPN di Azure basato su Route: interfaccia della riga di comando'
-description: Creare rapidamente un gateway VPN di Azure basato su Route usando l'interfaccia della riga di comando di Azure per una connessione VPN a una rete locale o per la connessione di reti virtuali.
+title: 'Creare un gateway VPN di Azure basato su route: interfaccia della riga di comando'
+description: Creare rapidamente un gateway VPN di Azure basato su route usando l'interfaccia della riga di comando di Azure, per una connessione VPN a una rete locale o per connettere reti virtuali.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2bbd7e39ee65ba304ec62697b6fcc77bea133b41
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87e3490711990944e017d2d463090f3c8697956c
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94737235"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107484222"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Creare un gateway VPN basato su route usando l'interfaccia della riga di comando
 
@@ -74,7 +74,7 @@ az network public-ip create \
 
 ## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Creare il gateway VPN
 
-Creare il gateway VPN usando il comando [az network vnet-gateway create](/cli/azure/group).
+Creare il gateway VPN usando il comando [az network vnet-gateway create](/cli/azure/network/vnet-gateway).
 
 Se si esegue questo comando usando il parametro `--no-wait`, non viene visualizzato alcun output o commento. Il parametro `--no-wait` consente la creazione in background del gateway. Questo non significa che il gateway VPN viene creato immediatamente.
 

@@ -7,12 +7,12 @@ ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
 ms.date: 04/16/2021
-ms.openlocfilehash: 3559270710f56d43fe486e2e3d3e41c63e2a619b
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: e939aec8f1cf5fa615904bb81bad82ea3cf22c61
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107565832"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587477"
 ---
 # <a name="azure-resource-manager-templates-for-azure-front-door"></a>Azure Resource Manager modelli per Frontdoor di Azure
 
@@ -25,6 +25,7 @@ La tabella seguente include collegamenti a modelli Azure Resource Manager per Fr
 |-|-|
 | [Front door (creazione rapida)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium/) | Crea un profilo Front door di base che include un endpoint, un gruppo di origine, un'origine e una route.  |
 | [Set di regole](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set/) | Crea un profilo Front door e un set di regole.  |
+| [Criteri WAF con set di regole gestite](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-waf-managed/) | Crea un profilo Front door e waf con set di regole gestite.  |
 | [Criteri WAF con regola personalizzata](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-waf-custom/) | Crea un profilo Front door e waf con una regola personalizzata.  |
 |**Origini del servizio app**| **Descrizione** |
 | [Servizio app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-app-service-public) | Crea un'app del servizio app con un endpoint pubblico e un profilo Front door.  |
@@ -36,10 +37,10 @@ La tabella seguente include collegamenti a modelli Azure Resource Manager per Fr
 |**API Management origini**| **Descrizione** |
 | [API Management (esterno)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-api-management-external) | Crea un'API Management con integrazione della rete virtuale esterna e un profilo Front door.  |
 |**Origini di archiviazione**| **Descrizione** |
-| [Sito Web statico di archiviazione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-storage-static-website) | Crea un account Archiviazione di Azure e un sito Web statico con un endpoint pubblico e un profilo Front door.  |
-| [BLOB di archiviazione con collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-storage-blobs-private-link) | Crea un account Archiviazione di Azure contenitore BLOB con un endpoint privato e un profilo Front door.  |
+| [Sito Web statico di archiviazione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-storage-static-website) | Crea un account Archiviazione di Azure sito Web statico con un endpoint pubblico e un profilo Front door.  |
+| [BLOB di archiviazione con collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-storage-blobs-private-link) | Crea un Archiviazione di Azure e un contenitore BLOB con un endpoint privato e un profilo Front door.  |
 |**Origini del gateway applicazione**| **Descrizione** |
-| [Gateway applicazione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-application-gateway-public) | Crea un gateway applicazione e un profilo Front door. |
+| [Gateway applicazione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-application-gateway-public) | Crea un gateway applicazione e un profilo front-door. |
 |**Origini delle macchine virtuali**| **Descrizione** |
-| [Macchina virtuale con il servizio Collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-vm-private-link) | Crea una macchina virtuale e un servizio Collegamento privato e un profilo Front door. |
+| [Macchina virtuale con servizio Collegamento privato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-premium-vm-private-link) | Crea una macchina virtuale e un servizio Collegamento privato e un profilo front-door. |
 | | |

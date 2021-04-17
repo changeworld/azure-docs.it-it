@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: configurare LogicGate per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a LogicGate.
+title: 'Esercitazione: Configurare LogicGate per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come effettuare automaticamente il provisioning e il de-provisioning degli account utente Azure AD a LogicGate.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: Zhchia
-ms.openlocfilehash: 7258aaba738b63db4d37af78389003d36874dcb9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c9c938ab344a7d861af713fa42e2e39afa1df1b3
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878077"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589466"
 ---
-# <a name="tutorial-configure-logicgate-for-automatic-user-provisioning"></a>Esercitazione: configurare LogicGate per il provisioning utenti automatico
+# <a name="tutorial-configure-logicgate-for-automatic-user-provisioning"></a>Esercitazione: Configurare LogicGate per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire sia in LogicGate che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi in [LogicGate](https://www.logicgate.com) usando il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
+Questa esercitazione descrive i passaggi da eseguire in LogicGate e Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Dopo la configurazione, Azure AD esegue automaticamente il provisioning di utenti e gruppi in [LogicGate](https://www.logicgate.com) usando il Azure AD provisioning. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
 > * Creare utenti in LogicGate
 > * Rimuovere gli utenti in LogicGate quando non richiedono più l'accesso
-> * Mantieni gli attributi utente sincronizzati tra Azure AD e LogicGate
+> * Mantenere gli attributi utente sincronizzati tra Azure AD e LogicGate
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,38 +39,38 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 * [Un tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Un account utente in Azure AD con l'[autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
-* Tenant di LogicGate con il piano Enterprise o superiore abilitato.
+* Tenant di LogicGate con piano Enterprise o più abilitato.
 * Un account utente in LogicGate con autorizzazioni di amministratore.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Acquisire informazioni su [come funziona il servizio di provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determinare quali dati eseguire il [mapping tra Azure ad e LogicGate](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+3. Determinare i dati [di cui eseguire il mapping Azure AD e LogicGate.](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) 
 
 ## <a name="step-2-configure-logicgate-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare LogicGate per supportare il provisioning con Azure AD
 
-1. Accedere a **LogicGate** Admin Console. Passare alla scheda **Home** e fare clic sull'icona del **profilo** nell'angolo superiore destro.
-2. Passare alla  **>** **chiave di accesso** del profilo.
+1. Accedere alla console **di amministrazione di LogicGate.** Passare alla scheda **Home e** fare clic sull'icona **Profilo** nell'angolo superiore destro.
+2. Passare a **Chiave di** accesso **>** **del profilo.**
 
     ![Scheda Profilo](./media/logicgate-provisioning-tutorial/profile.png)
 
 3. Fare clic su **Genera chiave di accesso**. 
     
-    ![Scheda accesso](./media/logicgate-provisioning-tutorial/key.png)
+    ![Scheda Accesso](./media/logicgate-provisioning-tutorial/key.png)
 
-4. Copiare e salvare la **chiave di accesso**. Questo valore verrà immesso nel campo **token segreto** * nella scheda provisioning dell'applicazione LogicGate nel portale di Azure. 
+4. Copiare e salvare la **chiave di accesso**. Questo valore verrà immesso nel campo **Token** segreto * nella scheda Provisioning dell'applicazione LogicGate nel portale di Azure. 
     
-    ![Scheda chiave](./media/logicgate-provisioning-tutorial/access.png)
+    ![Scheda Chiave](./media/logicgate-provisioning-tutorial/access.png)
 
-## <a name="step-3-add-logicgate-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere LogicGate dalla raccolta di applicazioni Azure AD
+## <a name="step-3-add-logicgate-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere LogicGate dalla raccolta Azure AD applicazioni
 
-Aggiungere LogicGate dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in LogicGate. Se in precedenza è stato configurato LogicGate per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Aggiungere LogicGate dalla raccolta di Azure AD per iniziare a gestire il provisioning in LogicGate. Se in precedenza è stato creato LogicGate per l'accesso Single Sign-On, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
 Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Quando si assegnano utenti e gruppi a LogicGate, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
+* Quando si assegnano utenti e gruppi a LogicGate, è necessario selezionare un ruolo diverso da **Accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
 
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -95,9 +95,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda automatica](common/provisioning-automatic.png)
+    ![Scheda Automatico](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere l'URL del tenant di LogicGate e il token segreto. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a LogicGate. Se la connessione non riesce, verificare che l'account LogicGate disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali amministratore immettere** l'URL del tenant LogicGate e il token segreto. Fare **clic su Test connessione** per assicurarsi Azure AD possibile connettersi a LogicGate. Se la connessione non riesce, verificare che l'account LogicGate abbia le autorizzazioni di amministratore e riprovare.
 
     ![token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -107,9 +107,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 7. Selezionare **Salva**.
 
-8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a LogicGate**.
+8. Nella sezione **Mapping selezionare** Synchronize Azure Active Directory Users **to LogicGate**.
 
-9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a LogicGate nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in LogicGate per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), sarà necessario assicurarsi che l'API LogicGate supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a LogicGate nella **sezione Mapping attributi.** Gli attributi selezionati come **proprietà corrispondenti** vengono usati per trovare corrispondenze con gli account utente in LogicGate per le operazioni di aggiornamento. Se si sceglie di modificare l'attributo [di destinazione](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)corrispondente, è necessario assicurarsi che l'API LogicGate supporti il filtro degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
    |Attributo|Type|Supportato per il filtro|
    |---|---|---|
@@ -121,11 +121,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Per abilitare il servizio di provisioning Azure AD per LogicGate, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+11. Per abilitare il Azure AD provisioning per LogicGate, impostare Stato **provisioning** su **Attivato** nella **sezione** Impostazioni.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in LogicGate selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
+12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in LogicGate scegliendo i valori desiderati in **Ambito** nella **sezione** Impostazioni.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -139,7 +139,7 @@ L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
 1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+2. Controllare l'[indicatore di stato](/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

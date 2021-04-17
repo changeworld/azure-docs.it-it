@@ -8,7 +8,7 @@
   expanded: true
   items:
     - name: Esplorare uno scenario di esempio
-      href: quickstart-adt-explorer.md
+      href: quickstart-azure-digital-twins-explorer.md
 - name: Esercitazioni
   items:
     - name: Scrivere il codice di un'app client
@@ -27,13 +27,13 @@
       href: concepts-models.md
     - name: Ontologie
       items:
-        - name: Che cos'è una ontologia?
+        - name: Che cos'è un'ontologia?
           href: concepts-ontologies.md
-        - name: Adozione di ontologie standard del settore
+        - name: Adozione di ontologi standard del settore
           href: concepts-ontologies-adopt.md
-        - name: Conversione di ontologie
+        - name: Conversione di ontologi
           href: concepts-ontologies-convert.md
-        - name: Estensione di ontologie
+        - name: Estensione di ontologi
           href: concepts-ontologies-extend.md
     - name: Gemelli digitali e grafo dei gemelli
       href: concepts-twins-graph.md
@@ -101,7 +101,7 @@
       items:
         - name: Usare le API e gli SDK
           href: how-to-use-apis-sdks.md
-        - name: Creare SDK in linguaggio personalizzato con autorest
+        - name: Creare SDK in linguaggio personalizzato con AutoRest
           href: how-to-create-custom-sdks.md
         - name: Effettuare richieste con Postman
           href: how-to-use-postman.md
@@ -123,7 +123,7 @@
               href: how-to-manage-routes-portal.md
             - name: Versione delle API e dell'interfaccia della riga di comando
               href: how-to-manage-routes-apis-cli.md
-        - name: Abilitare un'identità gestita per gli eventi di routing
+        - name: Abilitare un'identità gestita per il routing degli eventi
           items:
             - name: Versione del portale
               href: how-to-enable-managed-identities-portal.md
@@ -149,6 +149,10 @@
           items:
             - name: 403 (accesso negato)
               href: troubleshoot-error-403.md
+            - name: 404 Sub-Domain non trovato
+              href: troubleshoot-error-404.md
+            - name: Azure Digital Twins Explorer autenticazione
+              href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
 - name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sulle API REST
@@ -255,7 +259,7 @@
           href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus'
     - name: Strumenti e progetti di esempio
       items:
-        - name: Raccolta di post per i dispositivi digitali gemelli di Azure
+        - name: Gemelli digitali di Azure Postman Collection
           href: 'https://github.com/microsoft/azure-digital-twins-postman-samples'
         - name: Esempi end-to-end per Gemelli digitali di Azure
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
@@ -263,9 +267,9 @@
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: Validator DTDL (esempio)
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
-        - name: Caricatore modello (esempio)
+        - name: Caricatore di modelli (esempio)
           href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader'
-        - name: Visualizzatore modelli (esempio)
+        - name: Visualizzatore di modelli (esempio)
           href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer'
         - name: Convertitore OWL2DTDL
           href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL'
@@ -287,7 +291,7 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Specifica DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
-    - name: 'Informazioni: sviluppare con i dispositivi gemelli digitali di Azure'
+    - name: 'Informazioni: Sviluppare con Gemelli digitali di Azure'
       href: /learn/paths/develop-azure-digital-twins/
     - name: Video di Channel 9
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
@@ -303,5 +307,5 @@
           href: 'https://portal.azure.com'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json
-    - name: Glossario
+    - name: Glossario IoT
       href: ../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json

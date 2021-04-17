@@ -8,17 +8,17 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 3da4f8f946b11985d93be35fa2748e7f25015a71
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 98866a4f06df0380d52d1aee3eede8aa2f70aaed
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107564579"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588131"
 ---
-Il servizio metadati dell'istanza di Azure fornisce informazioni sulle istanze di macchina virtuale attualmente in esecuzione. È possibile usarlo per gestire e configurare le macchine virtuali.
+Il servizio metadati dell'istanza di Azure (IMDS) fornisce informazioni sulle istanze di macchina virtuale attualmente in esecuzione. È possibile usarlo per gestire e configurare le macchine virtuali.
 Queste informazioni includono lo SKU, l'archiviazione, le configurazioni di rete e gli eventi di manutenzione imminenti. Per un elenco completo dei dati disponibili, vedere Riepilogo delle [categorie di endpoint.](#endpoint-categories)
 
-IMDS è disponibile per l'esecuzione di istanze di macchine virtuali (VM) e istanze del set di scalabilità di macchine virtuali. Tutti gli endpoint supportano le macchine virtuali create e gestite [tramite](/rest/api/resources/)Azure Resource Manager . Solo la categoria Attestata e la parte Rete della categoria Istanza supportano le macchine virtuali create usando il modello di distribuzione classica. L'endpoint attestato esegue questa operazione solo in misura limitata.
+IMDS è disponibile per l'esecuzione di istanze di macchine virtuali (VM) e istanze del set di scalabilità di macchine virtuali. Tutti gli endpoint supportano le macchine virtuali create e gestite tramite [Azure Resource Manager](/rest/api/resources/). Solo la categoria Attestata e la parte Rete della categoria Istanza supportano le macchine virtuali create usando il modello di distribuzione classica. L'endpoint attestato esegue questa operazione solo in misura limitata.
 
 IMDS è un'API REST disponibile in un indirizzo IP noto e non instradabile ( `169.254.169.254` ). È possibile accedervi solo dall'interno della macchina virtuale. La comunicazione tra la macchina virtuale e IMDS non lascia mai l'host.
 I client HTTP ignorano i proxy Web all'interno della macchina virtuale durante l'esecuzione di query su IMDS e `169.254.169.254` trattano come [`168.63.129.16`](../articles/virtual-network/what-is-ip-address-168-63-129-16.md) .
@@ -333,8 +333,8 @@ Suddivisione dello schema:
 | Data | Descrizione | Versione introdotta |
 |------|-------------|--------------------|
 | `azEnvironment` | Ambiente di Azure in cui è in esecuzione la macchina virtuale | 2018-10-01
-| `customData` | Questa funzionalità è deprecata e disabilitata. È stato sostituito da `userData` | 2019-02-01
-| `evictionPolicy` | Imposta la modalità [di esezione](../articles/virtual-machines/spot-vms.md) di una macchina virtuale Spot. | 2020-12-01
+| `customData` | Questa funzionalità è deprecata e disabilitata [in IMDS.](#frequently-asked-questions) È stato sostituito da `userData` | 2019-02-01
+| `evictionPolicy` | Imposta la modalità [di esezione](../articles/virtual-machines/spot-vms.md) di una macchina virtuale spot. | 2020-12-01
 | `isHostCompatibilityLayerVm` | Identifica se la macchina virtuale viene eseguita nel livello di compatibilità host | 2020-06-01
 | `licenseType` | Tipo di licenza per [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit). Questa opzione è presente solo per le macchine virtuali abilitate per AHB | 2020-09-01
 | `location` | Area di Azure in cui la macchina virtuale è in esecuzione | 2017-04-02
@@ -531,7 +531,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 Department:IT;ReferenceNumber:123456;TestStatus:Pending
 ```
 
-Il campo `tags` è una stringa con i tag delimitati da punto e virgola. Questo output può essere un problema se nei tag stessi vengono usati punti e virgola. Se un parser viene scritto per estrarre i tag a livello di codice, è necessario fare affidamento sul `tagsList` campo . Il `tagsList` campo è una matrice JSON senza delimitatori e, di conseguenza, più facile da analizzare. L'elemento tagsList assegnato a una macchina virtuale può essere recuperato usando la richiesta seguente.
+Il campo `tags` è una stringa con i tag delimitati da punto e virgola. Questo output può essere un problema se nei tag stessi vengono usati punti e virgola. Se un parser viene scritto per estrarre i tag a livello di codice, è necessario fare affidamento sul `tagsList` campo . Il campo è una matrice JSON senza delimitatori e di conseguenza `tagsList` è più facile da analizzare. Il tagList assegnato a una macchina virtuale può essere recuperato usando la richiesta seguente.
 
 **Richiesta**
 
@@ -962,7 +962,7 @@ Il documento decodificato contiene i campi seguenti:
 
 | Data | Descrizione | Versione introdotta |
 |------|-------------|--------------------|
-| `licenseType` | Tipo di licenza per [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit). È presente solo per le macchine virtuali abilitate per AHB. | 2020-09-01
+| `licenseType` | Tipo di licenza per [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit). Questa opzione è presente solo per le macchine virtuali abilitate per AHB. | 2020-09-01
 | `nonce` | Stringa che può essere facoltativamente fornita con la richiesta. Se non `nonce` è stato specificato alcun valore, viene usato il timestamp Coordinated Universal Time corrente. | 2018-10-01
 | `plan` | Piano [Azure Marketplace immagine](/rest/api/compute/virtualmachines/createorupdate#plan). Contiene l'ID piano (nome), l'immagine del prodotto o l'offerta (prodotto) e l'ID editore (editore). | 2018-10-01
 | `timestamp.createdOn` | Timestamp UTC per la creazione del documento firmato | 2018-20-01
@@ -1177,7 +1177,7 @@ In caso di elementi dati non trovati o di richiesta non valida, il Servizio meta
   - Se la macchina virtuale è stata creata dopo settembre 2016, aggiungere un [tag per](../articles/azure-resource-manager/management/tag-resources.md) iniziare a visualizzare i metadati di calcolo. Se la macchina virtuale è stata creata prima di settembre 2016, aggiungere o rimuovere estensioni o dischi dati all'istanza della macchina virtuale per aggiornare i metadati.
 
 - I dati utente sono uguali ai dati personalizzati?
-  - I dati utente offrono funzionalità simili ai dati personalizzati, consentendo di passare metadati personalizzati all'istanza di macchina virtuale. La differenza è che i dati utente vengono recuperati tramite IMDS ed è persistente per tutta la durata dell'istanza di macchina virtuale. La funzionalità dati personalizzati esistente continuerà a funzionare come descritto in [questo articolo.](https://docs.microsoft.com/azure/virtual-machines/custom-data) Tuttavia, è possibile ottenere dati personalizzati solo tramite la cartella di sistema locale, non tramite IMDS.
+  - I dati utente offrono funzionalità simili ai dati personalizzati, consentendo di passare i propri metadati all'istanza della macchina virtuale. La differenza è che i dati utente vengono recuperati tramite IMDS ed è persistente per tutta la durata dell'istanza di macchina virtuale. La funzionalità dati personalizzati esistente continuerà a funzionare come descritto in [questo articolo.](https://docs.microsoft.com/azure/virtual-machines/custom-data) Tuttavia, è possibile ottenere dati personalizzati solo tramite la cartella di sistema locale, non tramite IMDS.
 
 - Perché non vengono visualizzati tutti i dati popolati per una nuova versione?
   - Se la macchina virtuale è stata creata dopo settembre 2016, aggiungere un [tag per](../articles/azure-resource-manager/management/tag-resources.md) iniziare a visualizzare i metadati di calcolo. Se la macchina virtuale è stata creata prima di settembre 2016, aggiungere o rimuovere estensioni o dischi dati nell'istanza di macchina virtuale per aggiornare i metadati.
@@ -1192,7 +1192,7 @@ In caso di elementi dati non trovati o di richiesta non valida, il Servizio meta
   - Attualmente i tag per i set di scalabilità di macchine virtuali vengono visualizzati nella macchina virtuale solo al riavvio, alla crea dell'immagine o alla modifica del disco nell'istanza.
 
 - Perché le informazioni sullo SKU per la macchina virtuale non vengono visualizzate nei `instance/compute` dettagli?
-  - Per le immagini personalizzate create da Azure Marketplace, la piattaforma Azure non conserva le informazioni sullo SKU per l'immagine personalizzata e i dettagli per le macchine virtuali create dall'immagine personalizzata. Si tratta di un'operazione da progettazione e pertanto non viene esata nei dettagli della `instance/compute` macchina virtuale.
+  - Per le immagini personalizzate create da Azure Marketplace, la piattaforma Azure non mantiene le informazioni sullo SKU per l'immagine personalizzata e i dettagli per le macchine virtuali create dall'immagine personalizzata. Si tratta di un'operazione da progettazione e pertanto non viene esata nei dettagli della `instance/compute` macchina virtuale.
 
 - Perché si è timeout della richiesta per la chiamata al servizio?
   - Le chiamate ai metadati devono essere effettuate dall'indirizzo IP primario assegnato alla scheda di rete primaria della macchina virtuale. Inoltre, se le route sono state modificate, deve essere presente una route per l'indirizzo 169.254.169.254/32 nella tabella di routing locale della macchina virtuale.
@@ -1247,7 +1247,7 @@ In caso di elementi dati non trovati o di richiesta non valida, il Servizio meta
 
     ### <a name="linux"></a>[Linux](#tab/linux/)
 
-    1. Eseguire il dump della tabella di routing locale con un comando come `netstat -r` e cercare la voce IMDS ,ad esempio:
+    1. Eseguire il dump della tabella di routing locale con un comando come e cercare `netstat -r` la voce IMDS ,ad esempio:
         ```console
         ~$ netstat -r
         Kernel IP routing table

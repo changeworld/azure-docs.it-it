@@ -31,7 +31,7 @@
           href: academy-attendance-tutorial.md
         - name: Acadia
           href: acadia-tutorial.md
-        - name: Accenture Academy
+        - name: Consere Academy
           href: accenture-academy-tutorial.md
         - name: Accredible
           href: accredible-tutorial.md
@@ -181,7 +181,7 @@
           href: awarego-tutorial.md
         - name: AWS ClientVPN
           href: aws-clientvpn-tutorial.md
-        - name: Aws Single Sign-On
+        - name: AWS Single Sign-On
           href: aws-single-sign-on-tutorial.md
         - name: Axiad Cloud
           href: axiad-cloud-tutorial.md
@@ -323,7 +323,7 @@
           href: chatwork-tutorial.md
         - name: Chargebee
           href: chargebee-tutorial.md
-        - name: Check Point riconoscimento delle identità
+        - name: Check Point consapevolezza delle identità
           href: check-point-identity-awareness-tutorial.md
         - name: Cherwell
           href: cherwell-tutorial.md
@@ -735,7 +735,7 @@
           href: github-ae-tutorial.md
         - name: GitHub Enterprise Cloud - Account aziendale
           href: github-enterprise-cloud-enterprise-account-tutorial.md
-        - name: GitHub Enterprise utente gestito
+        - name: GitHub Enterprise'utente gestito
           href: github-enterprise-managed-user-tutorial.md
         - name: GlassFrog
           href: glassfrog-tutorial.md
@@ -1015,9 +1015,9 @@
           href: kantegassoforjira-tutorial.md
         - name: Keeper Password Manager & Digital Vault
           href: keeperpasswordmanager-tutorial.md
-        - name: Integrazione dell'Azure AD Kemp LoadMaster
+        - name: Integrazione di Kemp LoadMaster Azure AD
           href: kemp-tutorial.md
-        - name: Kendis - Azure AD Integration
+        - name: Kendis - Azure AD integrazione
           href: kendis-scaling-agile-platform-tutorial.md
         - name: KFAdvance
           href: kfadvance-tutorial.md
@@ -1287,7 +1287,7 @@
           href: officespace-tutorial.md
         - name: Oktopost SAML
           href: oktopost-saml-tutorial.md
-        - name: Firma di accesso condiviso Olfeo
+        - name: Firma di accesso condiviso olfeo
           href: olfeo-saas-tutorial.md
         - name: ON24 Virtual Environment SAML Connection
           href: on24-tutorial.md
@@ -1317,7 +1317,7 @@
           href: oracle-cloud-tutorial.md
         - name: Oracle Fusion ERP
           href: oracle-fusion-erp-tutorial.md
-        - name: Oracle PeopleSoft - Protected by F5 BIG-IP APM
+        - name: Oracle PeopleSoft - Protetto da F5 BIG-IP APM
           href: oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md
         - name: OrgChart Now
           href: orgchartnow-tutorial.md
@@ -1357,7 +1357,7 @@
           href: panorays-tutorial.md
         - name: Pantheon
           href: pantheon-tutorial.md
-        - name: Parkalot - Gestione del carpark
+        - name: Parkalot - Gestione del parcheggio
           href: parkalot-car-park-management-tutorial.md
         - name: PatentSQUARE
           href: patentsquare-tutorial.md
@@ -1587,7 +1587,7 @@
           href: samlssojira-tutorial.md
         - name: Azure AD SAML Toolkit
           href: saml-toolkit-tutorial.md
-        - name: Samsung Knox e Servizi aziendali
+        - name: Samsung Knox e servizi aziendali
           href: samsung-knox-and-business-services-tutorial.md
         - name: Sansan
           href: sansan-tutorial.md
@@ -1629,7 +1629,7 @@
           href: screensteps-tutorial.md
         - name: SD Elements
           href: sd-elements-tutorial.md
-        - name: SDS & Chemical Information Management
+        - name: SDS & informazioni chimica
           href: sds-chemical-information-management-tutorial.md
         - name: Secret Server (On-Premises)
           href: secretserver-on-premises-tutorial.md
@@ -1653,7 +1653,7 @@
           href: sendsafely-tutorial.md
         - name: SensoScientific Wireless Temperature Monitoring System
           href: sensoscientific-tutorial.md
-        - name: Controllo di accesso di Genea
+        - name: Genea Access Control
           href: sequr-tutorial.md
         - name: Serraview Space Utilization Software Solutions
           href: serraview-space-utilization-software-solutions-tutorial.md
@@ -1867,7 +1867,7 @@
           href: thoughtworks-mingle-tutorial.md
         - name: ThousandEyes
           href: thousandeyes-tutorial.md
-        - name: Thrive LXP
+        - name: LXP disassocazione
           href: thrive-lxp-tutorial.md
         - name: TicketManager
           href: ticketmanager-tutorial.md
@@ -2057,7 +2057,7 @@
           href: workteam-tutorial.md
         - name: Wrike
           href: wrike-tutorial.md
-        - name: Wúru App
+        - name: App Wùru
           href: wuru-app-tutorial.md
         - name: XaitPorter
           href: xaitporter-tutorial.md
@@ -2148,8 +2148,10 @@
           href: atlassian-cloud-provisioning-tutorial.md
         - name: Azure Databricks SCIM Connector
           href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
-        - name: AWS Single Sign-On
+        - name: Aws Single Sign-On
           href: aws-single-sign-on-provisioning-tutorial.md
+        - name: Bentley - Provisioning utenti automatico
+          href: bentley-automatic-user-provisioning-tutorial.md
         - name: BitaBIZ
           href: bitabiz-provisioning-tutorial.md
         - name: Bizagi Studio for Digital Process Automation
@@ -2298,7 +2300,7 @@
           href: netsuite-provisioning-tutorial.md
         - name: OfficeSpace Software
           href: officespace-software-provisioning-tutorial.md
-        - name: Firma di accesso condiviso Olfeo
+        - name: Firma di accesso condiviso olfeo
           href: olfeo-saas-provisioning-tutorial.md
         - name: OpenText Directory Services
           href: open-text-directory-services-provisioning-tutorial.md
@@ -2394,7 +2396,7 @@
           href: tic-tac-mobile-provisioning-tutorial.md
         - name: Templafy SAML2
           href: templafy-saml-2-provisioning-tutorial.md
-        - name: Modello OpenID Connect
+        - name: Templafy OpenID Connect
           href: templafy-openid-connect-provisioning-tutorial.md
         - name: TheOrgWiki
           href: theorgwiki-provisioning-tutorial.md

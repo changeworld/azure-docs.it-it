@@ -1,6 +1,6 @@
 ---
 title: Gestire i dispositivi nell'applicazione Azure IoT Central | Microsoft Docs
-description: Informazioni su come gestire i dispositivi nell'applicazione Azure IoT Central come operatore. Informazioni su come gestire singoli dispositivi ed eseguire importazioni ed esportazioni in blocco dei dispositivi nell'applicazione.
+description: Informazioni su come gestire i dispositivi nell'applicazione Azure IoT Central come operatore. Informazioni su come gestire singoli dispositivi ed eseguire l'importazione e l'esportazione bulk dei dispositivi nell'applicazione.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/08/2020
@@ -9,34 +9,34 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5bab4a7a90101d3749571e0f2d4179f0fce14296
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 2ea75adfb7c2d990cfa543270f245113e15e4ee2
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378636"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389843"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gestire i dispositivi nell'applicazione Azure IoT Central
 
-Questo articolo descrive come gestire i dispositivi nell'applicazione Azure IoT Central operatore. Un operatore può:
+Questo articolo descrive come, come operatore, si gestiscono i dispositivi nell'Azure IoT Central applizione. Un operatore può:
 
-- Usare la **pagina** Dispositivi per visualizzare, aggiungere ed eliminare i dispositivi connessi all Azure IoT Central app Azure IoT Central lavoro.
+- Usare la **pagina** Dispositivi per visualizzare, aggiungere ed eliminare i dispositivi connessi all Azure IoT Central app.
 - Importare ed esportare i dispositivi in blocco.
 - Mantenere aggiornato un inventario di dispositivi.
 - Mantenere aggiornati i metadati del dispositivo modificando i valori archiviati nelle proprietà del dispositivo dalle visualizzazioni.
 - Controllare il comportamento dei dispositivi aggiornando un'impostazione in un dispositivo specifico dalle visualizzazioni.
 
-Per informazioni su come gestire gruppi personalizzati di dispositivi, vedere Esercitazione: Usare i gruppi di dispositivi per analizzare i [dati di telemetria dei dispositivi.](tutorial-use-device-groups.md)
+Per informazioni su come gestire gruppi personalizzati di dispositivi, vedere [Esercitazione: Usare i gruppi di dispositivi per analizzare i dati di telemetria dei dispositivi.](tutorial-use-device-groups.md)
 
 ## <a name="view-your-devices"></a>Visualizzare i dispositivi
 
 Per visualizzare un singolo dispositivo:
 
-1. Scegliere **Dispositivi** nel riquadro sinistro. Qui viene visualizzato un elenco di tutti i dispositivi e dei modelli di dispositivo.
+1. Scegliere **Dispositivi** nel riquadro sinistro. Viene visualizzato un elenco di tutti i dispositivi e dei modelli di dispositivo.
 
 1. Scegliere un modello di dispositivo.
 
-1. Nel riquadro di destra della pagina **Dispositivi** viene visualizzato un elenco di dispositivi creati da tale modello di dispositivo. Scegliere un singolo dispositivo per visualizzare la pagina dei dettagli dispositivo per questo dispositivo:
+1. Nel riquadro destro della **pagina** Dispositivi viene visualizzato un elenco di dispositivi creati da tale modello di dispositivo. Scegliere un singolo dispositivo per visualizzare la pagina dei dettagli dispositivo per questo dispositivo:
 
     ![Pagina dei dettagli dispositivo](./media/howto-manage-devices/devicelist.png)
 
@@ -50,7 +50,7 @@ Per aggiungere un dispositivo all'applicazione Azure IoT Central:
 
 1. Scegliere + **New** (Nuovo).
 
-1. Impostare **l'interruttore Simulato** **su On** o **Off.** Un dispositivo reale indica un dispositivo fisico che si connette a un'applicazione Azure IoT Central. Un dispositivo simulato contiene dati di esempio generati automaticamente da Azure IoT Central.
+1. Attivare o **disattivare** l'interruttore **Simulated (Simulated) su On (Attivato) o Off (Disattivato).**  Un dispositivo reale indica un dispositivo fisico che si connette a un'applicazione Azure IoT Central. Un dispositivo simulato contiene dati di esempio generati automaticamente da Azure IoT Central.
 
 1. Selezionare **Crea**.
 
@@ -58,12 +58,14 @@ Per aggiungere un dispositivo all'applicazione Azure IoT Central:
 
 ## <a name="import-devices"></a>Importare dispositivi
 
-Per connettere un numero elevato di dispositivi all'applicazione, è possibile importare in blocco i dispositivi da un file CSV. Il file CSV deve avere le intestazioni di colonna seguenti:
+Per connettere un numero elevato di dispositivi all'applicazione, è possibile importare in blocco i dispositivi da un file CSV. È possibile trovare un file CSV di esempio nel [repository degli esempi di Azure](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/bulk-upload-devices). Il file CSV deve includere le intestazioni di colonna seguenti:
 
 | Colonna | Descrizione 
 | - | - | 
-| IOTC_DEVICEID | L'ID dispositivo è un identificatore univoco che verrà utilizzato da questo dispositivo per la connessione. L'ID dispositivo può contenere lettere, numeri `-` e il carattere senza spazi. |
-| IOTC_DEVICENAME | facoltativo. Il nome del dispositivo è un nome descrittivo che verrà visualizzato in tutta l'applicazione. Se non specificato, corrisponderà all'ID dispositivo.   |
+| IOTC_DEVICEID | L'ID dispositivo è un identificatore univoco che verrà utilizzato da questo dispositivo per la connessione. L'ID dispositivo può contenere lettere, numeri e `-` il carattere senza spazi. |
+| IOTC_DEVICENAME | facoltativo. Il nome del dispositivo è un nome descrittivo che verrà visualizzato in tutta l'applicazione. Se non viene specificato, sarà uguale all'ID dispositivo.   |
+
+
 
 Per registrare in blocco i dispositivi nell'applicazione:
 
@@ -142,7 +144,7 @@ Per esportare in blocco i dispositivi dall'applicazione:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-Per altre informazioni sulle stringhe di connessione e sulla connessione di dispositivi reali all'applicazione IoT Central, vedere Connettività dei [dispositivi in Azure IoT Central](concepts-get-connected.md).
+Per altre informazioni sulle stringhe di connessione e sulla connessione di dispositivi reali all'applicazione IoT Central, vedere [Connettività dei dispositivi in Azure IoT Central](concepts-get-connected.md).
 
 ## <a name="delete-a-device"></a>Eliminare un dispositivo
 
@@ -154,22 +156,22 @@ Per eliminare un dispositivo simulato o reale dall'applicazione Azure IoT Centra
 
 1. Usare gli strumenti di filtro per filtrare e cercare i dispositivi. Selezionare la casella accanto ai dispositivi da eliminare.
 
-1. Scegliere **Elimina**. È possibile tenere traccia dello stato di questa eliminazione nel pannello Operazioni del dispositivo.
+1. Scegliere **Elimina**. È possibile tenere traccia dello stato di questa eliminazione nel pannello Operazioni dispositivo.
 
 ## <a name="change-a-property"></a>Modificare una proprietà
 
-Le proprietà cloud sono i metadati del dispositivo associati al dispositivo, ad esempio città e numero di serie. Le proprietà cloud esistono solo nell'IoT Central e non vengono sincronizzate con i dispositivi. Le proprietà scrivibili controllano il comportamento di un dispositivo e consentono di impostare lo stato di un dispositivo in remoto, ad esempio impostando la temperatura di destinazione di un dispositivo termostato.  Le proprietà del dispositivo vengono impostate dal dispositivo e sono di sola lettura all'interno IoT Central. È possibile visualizzare e aggiornare le proprietà nelle **visualizzazioni Dettagli** dispositivo per il dispositivo.
+Le proprietà cloud sono i metadati del dispositivo associati al dispositivo, ad esempio città e numero di serie. Le proprietà cloud esistono solo nell'IoT Central e non vengono sincronizzate con i dispositivi. Le proprietà scrivibili controllano il comportamento di un dispositivo e consentono di impostare lo stato di un dispositivo in modalità remota, ad esempio impostando la temperatura di destinazione di un dispositivo termostato.  Le proprietà del dispositivo vengono impostate dal dispositivo e sono di sola lettura all'interno IoT Central. È possibile visualizzare e aggiornare le proprietà nelle **visualizzazioni Dettagli** dispositivo per il dispositivo.
 
 1. Scegliere **Dispositivi** nel riquadro sinistro.
 
-1. Scegliere il modello di dispositivo del dispositivo di cui si vogliono modificare le proprietà e selezionare il dispositivo di destinazione.
+1. Scegliere il modello di dispositivo del dispositivo di cui si desidera modificare le proprietà e selezionare il dispositivo di destinazione.
 
 1. Scegliere la visualizzazione che contiene le proprietà per il dispositivo. Questa visualizzazione consente di immettere i valori e selezionare **Salva** nella parte superiore della pagina. Qui vengono visualizzati le proprietà del dispositivo e i relativi valori correnti. Le proprietà cloud e le proprietà scrivibili hanno campi modificabili, mentre le proprietà del dispositivo sono di sola lettura. Per le proprietà scrivibili, è possibile visualizzarne lo stato di sincronizzazione nella parte inferiore del campo. 
 
 1. Modificare le proprietà in base ai valori necessari. È possibile modificare più proprietà contemporaneamente e aggiornarle tutte contemporaneamente.
 
-1. Scegliere **Salva**. Se sono state salvate proprietà scrivibili, i valori vengono inviati al dispositivo. Quando il dispositivo conferma la modifica per la proprietà scrivibile, lo stato torna **a sincronizzato.** Se è stata salvata una proprietà cloud, il valore viene aggiornato.
+1. Scegliere **Salva**. Se sono state salvate proprietà scrivibili, i valori vengono inviati al dispositivo. Quando il dispositivo conferma la modifica per la proprietà scrivibile, lo stato torna a **sincronizzato.** Se è stata salvata una proprietà cloud, il valore viene aggiornato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso come gestire i dispositivi nell'applicazione Azure IoT Central, il passaggio successivo consigliato consiste nell'apprendere come configurare le regole[per](howto-configure-rules.md) i dispositivi.
+Ora che si è appreso come gestire i dispositivi nell'applicazione Azure IoT Central, il passaggio successivo consigliato consiste nell'apprendere come configurare le regole[per](howto-configure-rules.md) i dispositivi.

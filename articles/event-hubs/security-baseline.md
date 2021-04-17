@@ -1,84 +1,84 @@
 ---
-title: Baseline della sicurezza di Azure per hub eventi
-description: La linea di base di sicurezza di hub eventi fornisce linee guida procedurali e risorse per l'implementazione delle raccomandazioni di sicurezza specificate nel benchmark di sicurezza di Azure.
+title: Baseline di sicurezza di Azure per Hub eventi
+description: La baseline di sicurezza di Hub eventi fornisce indicazioni e risorse procedurali per l'implementazione delle raccomandazioni sulla sicurezza specificate in Azure Security Benchmark.
 author: msmbaldwin
 ms.service: event-hubs
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 57862a450d313f5d8850b14047ecc3d25d6ba5c1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 33417a9bda9ad4ce36dd6e14f74a53911f3c3473
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563685"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587154"
 ---
-# <a name="azure-security-baseline-for-event-hubs"></a>Baseline della sicurezza di Azure per hub eventi
+# <a name="azure-security-baseline-for-event-hubs"></a>Baseline di sicurezza di Azure per Hub eventi
 
-Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure versione 1,0](../security/benchmarks/overview-v1.md) a hub eventi. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure.
-Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili a hub eventi. I **controlli** non applicabili a hub eventi sono stati esclusi.
+Questa baseline di sicurezza applica le linee guida [di Azure Security Benchmark versione 1.0](../security/benchmarks/overview-v1.md) a Hub eventi. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure.
+Il contenuto è raggruppato in base ai **controlli di sicurezza** definiti da Azure Security Benchmark e alle linee guida correlate applicabili a Hub eventi. **I** controlli non applicabili a Hub eventi sono stati esclusi.
 
  
-Per informazioni sul modo in cui gli hub eventi sono completamente mappati al benchmark di sicurezza di Azure, vedere il [file di mapping Baseline della sicurezza di hub eventi](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+Per informazioni sul mapping completo di Hub eventi ad Azure Security Benchmark, vedere il file di mapping completo della baseline di [sicurezza di Hub eventi.](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
 
 ## <a name="network-security"></a>Sicurezza di rete
 
 *Per altre informazioni, vedere [Azure Security Benchmark: Sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
+### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Proteggere le risorse di Azure all'interno di reti virtuali
 
-**Linee guida**: l'integrazione di hub eventi di Azure con gli endpoint di servizio di rete virtuale consente di accedere in modo sicuro alle funzionalità di messaggistica da carichi di lavoro, ad esempio macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto su entrambe le estremità.
+**Indicazioni:** l'integrazione di Hub eventi di Azure con gli endpoint servizio di rete virtuale consente l'accesso sicuro alle funzionalità di messaggistica da carichi di lavoro quali macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto su entrambe le estremità.
 
-Una volta associato ad almeno un endpoint di servizio della subnet di rete virtuale, il rispettivo spazio dei nomi di hub eventi non accetta più il traffico da qualsiasi posizione, ma le subnet autorizzate nelle reti virtuali. Dal punto di vista della rete virtuale, il binding dello spazio dei nomi di hub eventi a un endpoint di servizio configura un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica. 
+Una volta associato ad almeno un endpoint servizio della subnet di rete virtuale, il rispettivo spazio dei nomi di Hub eventi non accetta più il traffico da qualsiasi posizione, ma da subnet autorizzate nelle reti virtuali. Dal punto di vista della rete virtuale, l'associazione dello spazio dei nomi di Hub eventi a un endpoint di servizio configura un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica. 
 
-È anche possibile creare un endpoint privato, che è un'interfaccia di rete che si connette privatamente e in modo sicuro al servizio Hub eventi usando il servizio di collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, portando il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. 
+È anche possibile creare un endpoint privato, ovvero un'interfaccia di rete che connette l'utente privatamente e in modo sicuro al servizio Hub eventi usando il collegamento privato di Azure servizio. L'endpoint privato usa un indirizzo IP privato della rete virtuale, portando in modo efficace il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute o connessioni VPN oppure indirizzi IP pubblici. 
 
-È anche possibile proteggere lo spazio dei nomi di hub eventi di Azure usando i firewall. Hub eventi supporta i controlli di accesso basato su IP per il supporto del firewall in ingresso. È possibile impostare le regole del firewall usando il portale di Azure, Azure Resource Manager modelli o tramite l'interfaccia della riga di comando di Azure o Azure PowerShell.
+È anche possibile proteggere lo spazio dei nomi Hub eventi di Azure usando i firewall. Hub eventi supporta i controlli di accesso basati su IP per il supporto del firewall in ingresso. È possibile impostare le regole del firewall usando i modelli portale di Azure, Azure Resource Manager o tramite l'interfaccia della riga di comando di Azure o Azure PowerShell.
 
-- [Come usare gli endpoint del servizio rete virtuale con hub eventi di Azure](event-hubs-service-endpoints.md)
+- [Come usare gli endpoint del servizio di rete virtuale con Hub eventi di Azure](event-hubs-service-endpoints.md)
 
 - [Integrare Hub eventi di Azure con Collegamento privato di Azure](private-link-service.md)
 
-- [Come configurare le regole del firewall IP per gli spazi dei nomi di hub eventi di Azure](event-hubs-ip-filtering.md)
+- [Come configurare le regole del firewall IP per Hub eventi di Azure spazi dei nomi](event-hubs-ip-filtering.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: il [benchmark di sicurezza di Azure](/azure/governance/policy/samples/azure-security-benchmark) è l'iniziativa di criteri predefinita per il Centro sicurezza ed è la base per le [raccomandazioni del Centro sicurezza](/azure/security-center/security-center-recommendations). Le definizioni di criteri di Azure correlate a questo controllo sono abilitate automaticamente dal centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere un piano di [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
+**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) è [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/azure/security-center/azure-defender) piano per i servizi correlati.
 
-**Definizioni predefinite di criteri di Azure-Microsoft. EventHub**:
+**Criteri di Azure definizioni incorporate - Microsoft.EventHub**:
 
 [!INCLUDE [Resource Policy for Microsoft.EventHub 1.1](../../includes/policy/standards/asb/rp-controls/microsoft.eventhub-1-1.md)]
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1,2: monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e interfacce di rete
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2: Monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e interfacce di rete
 
-**Linee guida**: usare il Centro sicurezza di Azure e seguire le raccomandazioni per la protezione della rete per proteggere le risorse di hub eventi in Azure. Se si usano macchine virtuali di Azure per accedere a hub eventi, abilitare i log di flusso dei gruppi di sicurezza di rete e inviare i log a un account di archiviazione per il controllo del traffico.
+**Linee** guida: usare Centro sicurezza di Azure e seguire le raccomandazioni sulla protezione di rete per proteggere le risorse di Hub eventi in Azure. Se si usano macchine virtuali di Azure per accedere agli hub eventi, abilitare i log di flusso del gruppo di sicurezza di rete e inviare i log in un account di archiviazione per il controllo del traffico.
 
 - [Come abilitare i log dei flussi NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](../security-center/security-center-network-recommendations.md)
+- [Informazioni sulla sicurezza di rete fornita da Centro sicurezza di Azure](../security-center/security-center-network-recommendations.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: negare le comunicazioni con indirizzi IP dannosi noti
+### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Negare le comunicazioni con indirizzi IP noti dannosi
 
-**Linee guida**: abilitare protezione DDoS standard nelle reti virtuali associate agli hub eventi per prevenire gli attacchi di tipo Denial of Service (DDoS) distribuiti. Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per negare le comunicazioni con indirizzi IP Internet notoriamente dannosi o non usati.
+**Indicazioni:** abilitare Protezione DDoS Standard nelle reti virtuali associate agli hub eventi per la protezione dagli attacchi DDoS (Distributed Denial of Service). Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per negare le comunicazioni con indirizzi IP Internet notoriamente dannosi o non usati.
 
 - [Come configurare la protezione DDoS](../ddos-protection/manage-ddos-protection.md)
 
-- [Per altre informazioni sul centro sicurezza di Azure-Intelligence per le minacce integrata](../security-center/azure-defender.md)
+- [Per altre informazioni sull'Centro sicurezza di Azure integrated threat intelligence](../security-center/azure-defender.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="15-record-network-packets"></a>1,5: registrare i pacchetti di rete
+### <a name="15-record-network-packets"></a>1.5: Registrare i pacchetti di rete
 
-**Linee guida**: se si usano macchine virtuali di Azure per accedere a hub eventi, abilitare i log di flusso dei gruppi di sicurezza di rete e inviare i log a un account di archiviazione per il controllo del traffico. È anche possibile inviare i log di flusso dei gruppi di sicurezza di rete a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, individuare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
+**Indicazioni:** se si usano macchine virtuali di Azure per accedere agli hub eventi, abilitare i log di flusso del gruppo di sicurezza di rete e inviare i log in un account di archiviazione per il controllo del traffico. È anche possibile inviare log di flusso del gruppo di sicurezza di rete a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, individuare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
 
-Se necessario per l'analisi dell'attività anomala, abilitare Network Watcher acquisizione pacchetti.
+Se necessario per analizzare l'attività anomaa, abilitare Network Watcher'acquisizione di pacchetti.
 
 - [Come abilitare i log dei flussi NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -88,53 +88,53 @@ Se necessario per l'analisi dell'attività anomala, abilitare Network Watcher ac
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: distribuire sistemi di rilevamento intrusioni/intrusioni basati su rete (ID/IP)
+### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Distribuire sistemi di rilevamento/prevenzione delle intrusioni basati sulla rete (IDS/IPS)
 
-**Linee guida**: se si usano macchine virtuali di Azure per accedere a hub eventi, selezionare un'offerta da Azure Marketplace che supporta la funzionalità di ID/IP con le funzionalità di ispezione del payload. Se il rilevamento delle intrusioni e/o la prevenzione basata sull'ispezione del payload non è necessario per l'organizzazione, è possibile usare la funzionalità firewall incorporata di hub eventi di Azure. È possibile limitare l'accesso allo spazio dei nomi di hub eventi per un intervallo limitato di indirizzi IP o un indirizzo IP specifico usando le regole del firewall.
+**Indicazioni:** se si usano macchine virtuali di Azure per accedere agli hub eventi, selezionare un'offerta dall'Azure Marketplace che supporti la funzionalità IDS/IPS con funzionalità di ispezione del payload. Se il rilevamento e/o la prevenzione delle intrusioni in base all'ispezione del payload non sono necessari per l'organizzazione, è possibile usare Hub eventi di Azure predefinita del firewall. È possibile limitare l'accesso allo spazio dei nomi di Hub eventi per un intervallo limitato di indirizzi IP o per un indirizzo IP specifico usando le regole del firewall.
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-- [Come aggiungere una regola del firewall in hub eventi per un indirizzo IP specifico](event-hubs-ip-filtering.md)
+- [Come aggiungere una regola del firewall in Hub eventi per un indirizzo IP specificato](event-hubs-ip-filtering.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: gestire le configurazioni di sicurezza standard per i dispositivi di rete
 
-**Linee guida**: definire e implementare configurazioni di sicurezza standard per le risorse di rete associate agli spazi dei nomi di hub eventi di Azure con criteri di Azure. Usare gli alias di criteri di Azure negli spazi dei nomi **Microsoft. EventHub** e **Microsoft. Network** per creare definizioni di criteri personalizzate per controllare o applicare la configurazione di rete degli spazi dei nomi di hub eventi. È anche possibile usare le definizioni di criteri predefinite correlate a hub eventi di Azure, ad esempio:
+**Indicazioni:** definire e implementare configurazioni di sicurezza standard per le risorse di rete associate Hub eventi di Azure spazi dei nomi con Criteri di Azure. Usare Criteri di Azure alias negli spazi dei nomi **Microsoft.EventHub** e **Microsoft.Network** per creare definizioni di criteri personalizzate per controllare o applicare la configurazione di rete degli spazi dei nomi di Hub eventi. È anche possibile usare le definizioni di criteri predefiniti correlate Hub eventi di Azure, ad esempio:
 
-- Hub eventi deve usare un endpoint di servizio di rete virtuale.
+- Hub eventi deve usare un endpoint servizio di rete virtuale.
 
-Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
+Altre informazioni sono disponibili nei collegamenti a cui si fa riferimento.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Criteri predefiniti di Azure per lo spazio dei nomi di hub eventi](../governance/policy/samples/built-in-policies.md#event-hub)
+- [Criteri predefiniti di Azure per lo spazio dei nomi di Hub eventi](../governance/policy/samples/built-in-policies.md#event-hub)
 
-- [Esempi di criteri di Azure per la rete](../governance/policy/samples/built-in-policies.md#network)
+- [Criteri di Azure esempi per la rete](../governance/policy/samples/built-in-policies.md#network)
 
 - [Come creare un progetto di Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: documentare le regole di configurazione del traffico
 
-**Indicazioni**: usare i tag per le reti virtuali e altre risorse correlate alla sicurezza di rete e al flusso del traffico associati all'hub eventi.
+**Indicazioni:** usare i tag per le reti virtuali e altre risorse correlate alla sicurezza di rete e al flusso del traffico associati agli hub eventi.
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usare strumenti automatizzati per monitorare le configurazioni delle risorse di rete e rilevare le modifiche
 
-**Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate a hub eventi di Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
+**Indicazioni:** usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate Hub eventi di Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
 - [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
@@ -142,57 +142,57 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: registrazione e monitoraggio](../security/benchmarks/security-control-logging-monitoring.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Logging and Monitoring (Azure Security Benchmark: registrazione e monitoraggio).](../security/benchmarks/security-control-logging-monitoring.md)*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 
-**Linee guida**: all'interno di monitoraggio di Azure, configurare i log correlati a hub eventi nelle impostazioni di diagnostica del log attività e dell'hub eventi per inviare i log in un'area di lavoro di log Analytics per eseguire query o in un account di archiviazione per l'archiviazione a lungo termine dell'archivio.
+**Indicazioni:** in Monitoraggio di Azure configurare i log correlati agli hub eventi all'interno delle impostazioni di diagnostica del log attività e dell'hub eventi per inviare i log in un'area di lavoro Log Analytics su cui eseguire query o in un account di archiviazione per l'archiviazione a lungo termine.
 
-- [Come configurare le impostazioni di diagnostica per hub eventi di Azure](event-hubs-diagnostic-logs.md)
+- [Come configurare le impostazioni di diagnostica per Hub eventi di Azure](event-hubs-diagnostic-logs.md)
 
 - [Informazioni sul log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: abilitare la registrazione di controllo per le risorse di Azure
 
-**Linee guida**: abilitare le impostazioni di diagnostica per lo spazio dei nomi di hub eventi di Azure. Sono disponibili tre categorie di impostazioni di diagnostica per hub eventi di Azure: log di archivio, log operativi e log di ridimensionamento automatico. Consentire ai log operativi di acquisire informazioni su ciò che accade durante le operazioni di hub eventi, in particolare il tipo di operazione, tra cui la creazione dell'hub eventi, le risorse usate e lo stato dell'operazione.
+**Linee** guida: abilitare le impostazioni di diagnostica per lo spazio Hub eventi di Azure dati. Esistono tre categorie di impostazioni di diagnostica per Hub eventi di Azure: log di archiviazione, log operativi e log di scalabilità automatica. Abilitare i log operativi per acquisire informazioni su ciò che accade durante le operazioni di Hub eventi, in particolare il tipo di operazione, tra cui la creazione dell'hub eventi, le risorse usate e lo stato dell'operazione.
 
-Inoltre, è possibile abilitare le impostazioni di diagnostica del log attività di Azure e inviarle a un account di archiviazione di Azure, a un hub eventi o a un'area di lavoro Log Analytics. I log attività forniscono informazioni approfondite sulle operazioni eseguite sull'hub eventi di Azure e altre risorse. Usando i log attività, è possibile determinare il "cosa, chi e quando" per qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sugli spazi dei nomi di hub eventi di Azure.
+È anche possibile abilitare le impostazioni di diagnostica del log attività di Azure e inviarle a un account Archiviazione di Azure, a un hub eventi o a un'area di lavoro Log Analytics. I log attività forniscono informazioni dettagliate sulle operazioni eseguite sul Hub eventi di Azure e altre risorse. Usando i log attività, è possibile determinare "cosa, chi e quando" per qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sugli spazi dei nomi Hub eventi di Azure dati.
 
-- [Come abilitare le impostazioni di diagnostica per hub eventi di Azure](event-hubs-diagnostic-logs.md)
+- [Come abilitare le impostazioni di diagnostica per Hub eventi di Azure](event-hubs-diagnostic-logs.md)
 
 - [Come abilitare le impostazioni di diagnostica per il log attività di Azure](../azure-monitor/essentials/activity-log.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: il [benchmark di sicurezza di Azure](/azure/governance/policy/samples/azure-security-benchmark) è l'iniziativa di criteri predefinita per il Centro sicurezza ed è la base per le [raccomandazioni del Centro sicurezza](/azure/security-center/security-center-recommendations). Le definizioni di criteri di Azure correlate a questo controllo sono abilitate automaticamente dal centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere un piano di [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
+**Centro sicurezza di Azure monitoraggio:** [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark) è [l'iniziativa](/azure/security-center/security-center-recommendations)dei criteri predefinita per il Centro sicurezza ed è alla base delle raccomandazioni del Centro sicurezza. Le Criteri di Azure relative a questo controllo vengono abilitate automaticamente dal Centro sicurezza. Gli avvisi correlati a questo controllo possono richiedere [Azure Defender](/azure/security-center/azure-defender) per i servizi correlati.
 
-**Definizioni predefinite di criteri di Azure-Microsoft. EventHub**:
+**Criteri di Azure definizioni incorporate - Microsoft.EventHub**:
 
 [!INCLUDE [Resource Policy for Microsoft.EventHub 2.3](../../includes/policy/standards/asb/rp-controls/microsoft.eventhub-2-3.md)]
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: configurare la conservazione dell'archiviazione dei log di sicurezza
 
-**Linee guida**: all'interno di monitoraggio di Azure impostare il periodo di conservazione dell'area di lavoro log Analytics in base alle normative di conformità dell'organizzazione per acquisire e verificare gli eventi imprevisti correlati all'hub eventi.
+**Indicazioni:** nell'Monitoraggio di Azure, impostare il periodo di conservazione dell'area di lavoro Log Analytics in base alle normative di conformità dell'organizzazione per acquisire ed esaminare gli eventi imprevisti correlati all'hub eventi.
 
-- [Come impostare i parametri di conservazione dei log per aree di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
+- [Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="26-monitor-and-review-logs"></a>2,6: monitorare ed esaminare i log
+### <a name="26-monitor-and-review-logs"></a>2.6: Monitorare ed esaminare i log
 
-**Linee guida**: analizzare e monitorare i log per un comportamento anomalo ed esaminare periodicamente i risultati correlati all'hub eventi. Usare Log Analytics di Monitoraggio di Azure per esaminare i log ed eseguire query sui relativi dati. In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in una soluzione di gestione degli eventi e delle informazioni di sistema di terze parti.
+**Indicazioni:** analizzare e monitorare i log per individuare comportamenti anomali ed esaminare regolarmente i risultati correlati agli hub eventi. Usare Log Analytics di Monitoraggio di Azure per esaminare i log ed eseguire query sui relativi dati. In alternativa, è possibile abilitare e eseguire l'on board dei dati Azure Sentinel una soluzione di gestione di eventi e informazioni di sistema di terze parti.
 
-- [Per ulteriori informazioni sull'area di lavoro Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
+- [Per altre informazioni sull'area di lavoro Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
 - [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/logs/get-started-queries.md)
 
@@ -200,33 +200,33 @@ Inoltre, è possibile abilitare le impostazioni di diagnostica del log attività
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: abilitare gli avvisi per le attività anomale
+### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: Abilitare gli avvisi per le attività anoma le
 
-**Indicazioni**: all'interno di monitoraggio di Azure, configurare i log correlati all'hub eventi di Azure nel log attività e le impostazioni di diagnostica di hub eventi per inviare i log in un'area di lavoro di log Analytics per eseguire query o in un account di archiviazione per l'archiviazione a lungo termine dell'archivio. Utilizzare Log Analytics area di lavoro per creare avvisi per attività anomale rilevate negli eventi e nei registri di sicurezza.
+**Indicazioni:** in Monitoraggio di Azure configurare i log correlati a Hub eventi di Azure all'interno del log attività e le impostazioni di diagnostica di Hub eventi per inviare i log in un'area di lavoro Log Analytics su cui eseguire query o in un account di archiviazione per l'archiviazione a lungo termine. Usare l'area di lavoro Log Analytics per creare avvisi per le attività anomae trovate nei log di sicurezza e negli eventi.
 
-In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure. 
+In alternativa, è possibile abilitare e eseguire l'on board dei dati Azure Sentinel. 
 
 - [Informazioni sul log attività di Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Come configurare le impostazioni di diagnostica per hub eventi di Azure](event-hubs-diagnostic-logs.md)
+- [Come configurare le impostazioni di diagnostica per Hub eventi di Azure](event-hubs-diagnostic-logs.md)
 
-- [Come inviare un avviso sui dati del log dell'area di lavoro Log Analytics](../azure-monitor/alerts/tutorial-response.md)
+- [Come creare un avviso per i dati di log dell'area di lavoro Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ## <a name="identity-and-access-control"></a>Gestione delle identità e controllo di accesso
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: identità e controllo di accesso](../security/benchmarks/security-control-identity-access-control.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Linee guida**: Azure Active Directory (Azure ad) include ruoli predefiniti che devono essere assegnati in modo esplicito e possono essere sottoposte a query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
+**Indicazioni:** Azure Active Directory (Azure AD) ha ruoli predefiniti che devono essere assegnati in modo esplicito e sono disponibili per query. Usare il Azure AD PowerShell per eseguire query ad hoc per individuare gli account membri di gruppi amministrativi.
 
 - [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
@@ -234,19 +234,19 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: modificare le password predefinite, ove applicabile
 
-**Linee guida**: l'accesso del piano di controllo a hub eventi è controllato tramite Azure Active Directory (Azure ad). Azure AD non è il concetto di password predefinite.
+**Linee** guida: l'accesso del piano di controllo a Hub eventi è controllato tramite Azure Active Directory (Azure AD). Azure AD non ha il concetto di password predefinite.
 
-L'accesso al piano dati a hub eventi è controllato tramite Azure AD con identità gestite o Registrazioni app, nonché con firme di accesso condiviso. Le firme di accesso condiviso vengono usate dai client che si connettono a hub eventi e possono essere rigenerate in qualsiasi momento.
+L'accesso al piano dati a Hub eventi è controllato tramite Azure AD con identità gestite o Registrazioni app nonché firme di accesso condiviso. Le firme di accesso condiviso vengono usate dai client che si connettono agli hub eventi e possono essere rigenerate in qualsiasi momento.
 
-- [Informazioni sulle firme di accesso condiviso per hub eventi](authenticate-shared-access-signature.md)
+- [Informazioni sulla firma di accesso condiviso per Hub eventi](authenticate-shared-access-signature.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: usare account amministrativi dedicati
 
@@ -260,7 +260,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 - Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
 
-Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
+Altre informazioni sono disponibili nei collegamenti a cui si fa riferimento.
 
 - [Come usare il Centro sicurezza di Azure per monitorare l'identità e l'accesso (Anteprima)](../security-center/security-center-identity-access.md)
 
@@ -268,23 +268,23 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: usare Azure Active Directory Single Sign-On (SSO)
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4: Usare Azure Active Directory Single Sign-On (SSO)
 
-**Linee guida**: Microsoft Azure offre la gestione integrata del controllo degli accessi per le risorse e le applicazioni basate su Azure Active Directory (Azure ad). Un vantaggio fondamentale dell'uso di Azure AD con hub eventi di Azure consiste nel fatto che non è più necessario archiviare le credenziali nel codice. È invece possibile richiedere un token di accesso OAuth 2,0 dalla piattaforma di identità Microsoft. Il nome della risorsa per richiedere un token è https: \/ /Eventhubs.Azure.NET/. Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce un token di accesso all'applicazione e l'applicazione può quindi usare il token di accesso per autorizzare la richiesta alle risorse di hub eventi di Azure.
+**Linee** guida: Microsoft Azure fornisce la gestione integrata del controllo di accesso per risorse e applicazioni basate Azure Active Directory (Azure AD). Un vantaggio principale dell'Azure AD con Hub eventi di Azure è che non è più necessario archiviare le credenziali nel codice. È invece possibile richiedere un token di accesso OAuth 2.0 dalla piattaforma Microsoft Identity. Il nome della risorsa per richiedere un token è https: \/ /eventhubs.azure.net/. Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD un token di accesso all'applicazione e l'applicazione può quindi usare il token di accesso per autorizzare la richiesta Hub eventi di Azure risorse.
 
-- [Come autenticare un'applicazione con Azure AD per accedere alle risorse di hub eventi](authenticate-application.md)
+- [Come autenticare un'applicazione con Azure AD accedere alle risorse di Hub eventi](authenticate-application.md)
 
-- [Informazioni su SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
+- [Informazioni sull'accesso SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: usare l'autenticazione a più fattori per tutti gli accessi in base al Azure Active Directory
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Usare l'autenticazione a più fattori per tutti Azure Active Directory basato sull'accesso
 
-**Linee guida**: abilitare l'autenticazione a più fattori di Azure Active Directory (Azure ad) e seguire le indicazioni sulla gestione delle identità e dell'accesso del Centro sicurezza di Azure per proteggere le risorse abilitate per hub eventi.
+**Indicazioni:** abilitare l'autenticazione Azure Active Directory (Azure AD) a più fattori e seguire le raccomandazioni di gestione delle identità e degli accessi di Centro sicurezza di Azure per proteggere le risorse abilitate per l'hub eventi.
 
 - [Come abilitare l'autenticazione a più fattori in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -292,11 +292,11 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usare computer dedicati (workstation con accesso con privilegi) per tutte le attività amministrative
 
-**Indicazioni**: usare workstation con accesso con privilegi (Paw) con l'autenticazione a più fattori configurata per accedere e configurare le risorse abilitate per hub eventi.
+**Indicazioni:** usare workstation con accesso con privilegi (PAW) con l'autenticazione a più fattori configurata per accedere e configurare le risorse abilitate per Hub eventi.
 
 - [Informazioni sulle workstation con accesso con privilegi](/security/compass/privileged-access-devices)
 
@@ -304,11 +304,11 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: registrare e inviare avvisi sulle attività sospette dagli account amministrativi
+### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7: Registrare e avvisare in caso di attività sospette da account amministrativi
 
-**Linee guida**: usare Azure Active Directory (Azure AD) Privileged Identity Management per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente. Usare Azure AD i rilevamenti dei rischi per visualizzare gli avvisi e i report sul comportamento utente rischioso. Per la registrazione aggiuntiva, inviare avvisi di rilevamento dei rischi del Centro sicurezza di Azure in monitoraggio di Azure e configurare avvisi/notifiche personalizzati usando i gruppi di azioni.
+**Indicazioni:** usare Azure Active Directory (Azure AD) Privileged Identity Management per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente. Usare Azure AD rilevamento dei rischi per visualizzare avvisi e report sul comportamento degli utenti rischiosi. Per una registrazione aggiuntiva, inviare Centro sicurezza di Azure avvisi di rilevamento dei rischi Monitoraggio di Azure e configurare avvisi/notifiche personalizzati usando i gruppi di azioni.
 
 - [Informazioni sui rilevamenti di rischi di Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -316,7 +316,7 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: Gestire le risorse di Azure solo dalle posizioni approvate
 
@@ -326,53 +326,53 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
-**Linee guida**: usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale per le risorse di Azure, ad esempio hub eventi. Questo consente il controllo degli accessi in base al ruolo di Azure (RBAC) per le risorse amministrative riservate.
+**Indicazioni:** usare Azure Active Directory (Azure AD) come sistema centrale di autenticazione e autorizzazione per le risorse di Azure, ad esempio Hub eventi. Ciò consente il controllo degli accessi in base al ruolo di Azure alle risorse sensibili amministrative.
 
-- [ Come creare e configurare un'istanza di Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [ Come creare e configurare un'istanza Azure AD servizio](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Autorizzare l'accesso alle risorse di hub eventi usando Azure AD](authorize-access-azure-active-directory.md)
+- [Autorizzare l'accesso alle risorse di Hub eventi usando Azure AD](authorize-access-azure-active-directory.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: controllare e riconciliare regolarmente l'accesso utente
 
-Materiale sussidiario **: Azure Active Directory**(Azure ad) fornisce log che consentono di individuare gli account obsoleti. Usare inoltre le verifiche di accesso alle identità di Azure per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. È possibile verificare regolarmente l'accesso degli utenti per assicurarsi che solo le persone appropriate dispongano di accesso continuo.
+**Indicazioni:** Azure Active Directory (Azure AD) fornisce log che consentono di individuare gli account non obsoleti. Usare anche le verifiche di accesso delle identità di Azure per gestire in modo efficiente le appartenenze ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. È possibile verificare regolarmente l'accesso degli utenti per assicurarsi che solo le persone appropriate dispongano di accesso continuo.
 
-Inoltre, ruotare regolarmente le firme di accesso condiviso di hub eventi.
+Inoltre, ruotare regolarmente le firme di accesso condiviso di Hub eventi.
 
-- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
+- [Informazioni Azure AD report](../active-directory/reports-monitoring/index.yml)
 
 - [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
-- [Informazioni sulle firme di accesso condiviso per hub eventi](authenticate-shared-access-signature.md)
+- [Informazioni sulle firme di accesso condiviso per Hub eventi](authenticate-shared-access-signature.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: il monitoraggio tenta di accedere alle credenziali disattivate
+### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11: Monitorare i tentativi di accesso alle credenziali disattivate
 
-**Linee guida**: è possibile accedere alle origini dei registri eventi di attività di accesso, controllo e rischio di Azure Active Directory (Azure ad), che consentono di eseguire l'integrazione con qualsiasi soluzione di sistema di gestione degli eventi e informazioni di sistema di terze parti o con uno strumento di monitoraggio.
+**Indicazioni:** è possibile accedere alle origini del log eventi di Azure Active Directory (Azure AD), di controllo e di rischio, che consentono di integrarsi con qualsiasi soluzione di gestione degli eventi e delle informazioni di sistema di terze parti o con uno strumento di monitoraggio.
 
-È possibile semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi del log desiderati all'interno Log Analytics.
+È possibile semplificare questo processo creando impostazioni di diagnostica Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro Log Analytics. È possibile configurare gli avvisi di log desiderati in Log Analytics.
 
 - [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Autorizzare l'accesso alle risorse di hub eventi usando Azure AD](authorize-access-azure-active-directory.md)
+- [Autorizzare l'accesso alle risorse di Hub eventi usando Azure AD](authorize-access-azure-active-directory.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3,12: deviazione dell'avviso sulla deviazione del comportamento di accesso dell'account
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Deviazione del comportamento di avviso per l'accesso all'account
 
-**Linee guida**: usare le funzionalità di protezione delle identità e rilevamento dei rischi all'interno Azure Active Directory (Azure ad) per configurare risposte automatiche per rilevare azioni sospette correlate alle risorse abilitate per hub eventi. È necessario abilitare le risposte automatiche tramite Sentinel di Azure per implementare le risposte di sicurezza dell'organizzazione.
+**Linee** guida: usare Identity Protection e le funzionalità di rilevamento dei rischi all'interno di Azure Active Directory (Azure AD) per configurare risposte automatiche alle azioni sospette rilevate correlate alle risorse abilitate per Hub eventi. È consigliabile abilitare le risposte automatiche tramite Azure Sentinel per implementare le risposte di sicurezza dell'organizzazione.
 
 - [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -382,17 +382,17 @@ Inoltre, ruotare regolarmente le firme di accesso condiviso di hub eventi.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto
 
-**Linee guida**: attualmente non disponibile; Customer Lockbox non è ancora supportato per gli hub eventi.
+**Linee guida:** attualmente non disponibile; Customer Lockbox non è ancora supportato per Hub eventi.
 
 - [Elenco dei servizi Customer Lockbox supportati](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="data-protection"></a>Protezione dei dati
 
@@ -400,25 +400,25 @@ Inoltre, ruotare regolarmente le firme di accesso condiviso di hub eventi.
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: gestire un inventario delle informazioni riservate
 
-**Indicazioni**: usare i tag sulle risorse correlate all'hub eventi per semplificare il monitoraggio delle risorse di Azure che archiviano o elaborano informazioni riservate.
+**Indicazioni:** usare i tag nelle risorse correlate a Hub eventi per tenere traccia delle risorse di Azure che archiviano o elaborano informazioni riservate.
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
-**Linee guida**: implementare sottoscrizioni separate, facoltativamente con i gruppi di gestione per lo sviluppo, il test e la produzione. Gli spazi dei nomi di hub eventi devono essere separati da una rete virtuale con gli endpoint di servizio abilitati e contrassegnati in modo appropriato.
+**Linee** guida: implementare sottoscrizioni separate, facoltativamente con gruppi di gestione per lo sviluppo, il test e la produzione. Gli spazi dei nomi di Hub eventi devono essere separati dalla rete virtuale con endpoint di servizio abilitati e contrassegnati in modo appropriato.
 
-È anche possibile proteggere lo spazio dei nomi di hub eventi di Azure usando i firewall. Hub eventi di Azure supporta i controlli di accesso basato su IP per il supporto del firewall in ingresso. È possibile impostare le regole del firewall usando il portale di Azure, Azure Resource Manager modelli o tramite l'interfaccia della riga di comando di Azure o Azure PowerShell.
+È anche possibile proteggere lo spazio dei nomi Hub eventi di Azure usando i firewall. Hub eventi di Azure supporta i controlli di accesso basati su IP per il supporto del firewall in ingresso. È possibile impostare le regole del firewall usando i modelli portale di Azure, Azure Resource Manager o tramite l'interfaccia della riga di comando di Azure o Azure PowerShell.
 
 - [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
 - [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Configurare le regole del firewall IP per gli spazi dei nomi di hub eventi di Azure](event-hubs-ip-filtering.md)
+- [Configurare le regole del firewall IP per Hub eventi di Azure spazi dei nomi](event-hubs-ip-filtering.md)
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
@@ -426,31 +426,31 @@ Inoltre, ruotare regolarmente le firme di accesso condiviso di hub eventi.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: monitorare e bloccare il trasferimento non autorizzato di informazioni riservate
 
-**Linee guida**: quando si usano le macchine virtuali per accedere a hub eventi, usare le reti virtuali, gli endpoint di servizio, il firewall di hub eventi, i gruppi di sicurezza di rete e i tag di servizio per attenuare la possibilità di exfiltration di dati.
+**Indicazioni:** quando si usano macchine virtuali per accedere agli hub eventi, usare reti virtuali, endpoint di servizio, firewall di Hub eventi, gruppi di sicurezza di rete e tag di servizio per ridurre la possibilità di esfiltrazione dei dati.
 
-Microsoft gestisce l'infrastruttura sottostante per hub eventi di Azure e ha implementato severi controlli per impedire la perdita o l'esposizione dei dati del cliente.
+Microsoft gestisce l'infrastruttura sottostante per Hub eventi di Azure e ha implementato rigorosi controlli per impedire la perdita o l'esposizione dei dati dei clienti.
 
-- [Configurare le regole del firewall IP per gli spazi dei nomi di hub eventi di Azure](event-hubs-ip-filtering.md)
+- [Configurare le regole del firewall IP per Hub eventi di Azure spazi dei nomi](event-hubs-ip-filtering.md)
 
-- [Informazioni sugli endpoint del servizio rete virtuale con hub eventi di Azure](event-hubs-service-endpoints.md)
+- [Informazioni su endpoint servizio di rete virtuale con Hub eventi di Azure](event-hubs-service-endpoints.md)
 
 - [Integrare Hub eventi di Azure con Collegamento privato di Azure](private-link-service.md)
 
-- [Informazioni sui gruppi di sicurezza di rete e sui tag di servizio](../virtual-network/network-security-groups-overview.md)
+- [Informazioni su gruppi di sicurezza di rete e tag di servizio](../virtual-network/network-security-groups-overview.md)
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: usare uno strumento di individuazione attivo per identificare i dati sensibili
 
-**Linee guida**: identificazione dei dati, classificazione e funzionalità di prevenzione della perdita non ancora disponibili per hub eventi di Azure. Implementare una soluzione di terze parti, se necessaria ai fini della conformità.
+**Indicazioni:** le funzionalità di identificazione, classificazione e prevenzione della perdita dei dati non sono ancora disponibili per Hub eventi di Azure. Implementare una soluzione di terze parti, se necessaria ai fini della conformità.
 
 Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e si impegna per difendersi dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
@@ -458,45 +458,45 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
 
-**Linee guida**: Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure ad) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione.
+**Indicazioni:** Hub eventi di Azure supporta l'Azure Active Directory (Azure AD) per autorizzare le richieste alle risorse di Hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione.
 
-- [Informazioni sui ruoli disponibili e RBAC di Azure per hub eventi di Azure](authorize-access-azure-active-directory.md)
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure e sui ruoli disponibili per Hub eventi di Azure](authorize-access-azure-active-directory.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: crittografare le informazioni riservate inattive
 
-**Linee guida**: Hub eventi di Azure supporta l'opzione di crittografia dei dati inattivi con chiavi gestite da Microsoft o chiavi gestite dal cliente. Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia dei dati inattivi di hub eventi di Azure.
+**Indicazioni:** Hub eventi di Azure supporta la possibilità di crittografare i dati in stato di inquieto con chiavi gestite da Microsoft o chiavi gestite dal cliente. Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per crittografare Hub eventi di Azure dati inattivi.
 
-- [Come configurare le chiavi gestite dal cliente per la crittografia di hub eventi di Azure](configure-customer-managed-key.md)
+- [Come configurare le chiavi gestite dal cliente per la crittografia Hub eventi di Azure](configure-customer-managed-key.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: registrare e inviare avvisi per le modifiche alle risorse di Azure critiche
 
-**Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione di hub eventi di Azure e altre risorse critiche o correlate.
+**Indicazioni:** usare Monitoraggio di Azure log attività di Azure per creare avvisi per quando vengono apportate modifiche alle istanze di produzione di Hub eventi di Azure e ad altre risorse critiche o correlate.
 
 - [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="inventory-and-asset-management"></a>Gestione asset e inventario
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: inventario e gestione delle risorse](../security/benchmarks/security-control-inventory-asset-management.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
-### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usare la soluzione automazione Asset Discovery
+### <a name="61-use-automated-asset-discovery-solution"></a>6.1: Usare la soluzione di individuazione automatica degli asset
 
-**Linee guida**: usare Azure Resource Graph per eseguire query e individuare tutte le risorse, inclusi gli spazi dei nomi di hub eventi di Azure, all'interno delle sottoscrizioni. Assicurarsi di disporre delle autorizzazioni (di lettura) appropriate nel tenant e di poter enumerare tutte le sottoscrizioni di Azure e le risorse all'interno delle sottoscrizioni.
+**Linee** guida: usare Azure Resource Graph per eseguire query e individuare tutte le risorse (inclusi Hub eventi di Azure spazi dei nomi) all'interno delle sottoscrizioni. Assicurarsi di disporre delle autorizzazioni (di lettura) appropriate nel tenant e di poter enumerare tutte le sottoscrizioni di Azure e le risorse all'interno delle sottoscrizioni.
 
 - [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
@@ -506,7 +506,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: gestire i metadati degli asset
 
@@ -516,11 +516,11 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: eliminare le risorse di Azure non autorizzate
 
-**Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, laddove appropriato, per organizzare e tenere traccia degli spazi dei nomi e delle risorse correlate di hub eventi di Azure. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
+**Linee** guida: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, ove appropriato, per organizzare e tenere traccia Hub eventi di Azure spazi dei nomi e le risorse correlate. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
 - [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
@@ -530,17 +530,17 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: monitorare la presenza di risorse di Azure non approvate
 
-**Linee guida**: usare i criteri di Azure per limitare il tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefinite seguenti:
+**Indicazioni:** usare Criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefiniti seguenti:
 
 - Tipi di risorse non consentiti
 
 - Tipi di risorse consentiti
 
-Inoltre, usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni.
+È anche possibile usare Azure Resource Graph per eseguire query o individuare risorse all'interno delle sottoscrizioni.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -548,17 +548,17 @@ Inoltre, usare Azure Resource Graph per eseguire query e individuare le risorse 
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: usare solo servizi di Azure approvati
 
-**Linee guida**: usare i criteri di Azure per limitare il tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefinite seguenti:
+**Indicazioni:** usare Criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefiniti seguenti:
 
 - Tipi di risorse non consentiti
 
 - Tipi di risorse consentiti
 
-Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
+Altre informazioni sono disponibili nei collegamenti a cui si fa riferimento.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -566,9 +566,9 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: limitare la capacità degli utenti di interagire con Azure Resource Manager
+### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: Limitare la capacità degli utenti di interagire con Azure Resource Manager
 
 **Indicazioni**: usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "Blocca accesso" per l'app di gestione di Microsoft Azure.
 
@@ -576,100 +576,100 @@ Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: configurazione sicura](../security/benchmarks/security-control-secure-configuration.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Configurazione sicura.](../security/benchmarks/security-control-secure-configuration.md)*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Definire configurazioni sicure per tutte le risorse di Azure
 
-**Linee guida**: definire e implementare configurazioni di sicurezza standard per le distribuzioni di hub eventi di Azure. Usare gli alias di criteri di Azure nello spazio dei nomi **Microsoft. EventHub** per creare criteri personalizzati per il controllo o l'applicazione delle configurazioni. È anche possibile usare le definizioni di criteri predefinite per hub eventi di Azure, ad esempio:
+**Indicazioni:** definire e implementare configurazioni di sicurezza standard per Hub eventi di Azure distribuzione. Usare Criteri di Azure alias nello spazio dei **nomi Microsoft.EventHub** per creare criteri personalizzati per controllare o applicare le configurazioni. È anche possibile usare definizioni di criteri predefiniti per Hub eventi di Azure ad esempio:
 
 - È consigliabile abilitare i log di diagnostica in Hub eventi
 
 - Gli hub eventi devono usare un endpoint servizio di rete virtuale
 
-Ulteriori informazioni sono disponibili in collegamenti a cui si fa riferimento.
+Altre informazioni sono disponibili nei collegamenti a cui si fa riferimento.
 
-- [Criteri predefiniti di Azure per lo spazio dei nomi di hub eventi](../governance/policy/samples/built-in-policies.md#event-hub)
+- [Criteri predefiniti di Azure per lo spazio dei nomi di Hub eventi](../governance/policy/samples/built-in-policies.md#event-hub)
 
-- [Come visualizzare gli alias dei criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias)
+- [Come visualizzare gli alias Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: garantire la sicurezza delle configurazioni delle risorse di Azure
 
-**Linee guida**: usare i criteri di Azure [deny] e gli effetti [Distribuisci se non esistono] per applicare impostazioni sicure tra le risorse abilitate per hub eventi. 
+**Indicazioni:** usare Criteri di Azure effetti [nega] e [distribuisci se non esiste] per applicare impostazioni sicure tra le risorse abilitate per Hub eventi. 
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
  
-- [Per altre informazioni sugli effetti dei criteri di Azure](../governance/policy/concepts/effects.md)
+- [Per altre informazioni sugli effetti Criteri di Azure](../governance/policy/concepts/effects.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: distribuire gli strumenti di gestione della configurazione per le risorse di Azure
+### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Distribuire gli strumenti di gestione della configurazione per le risorse di Azure
 
-**Linee guida**: usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. EventHub" per creare criteri personalizzati per avvisare, controllare e applicare le configurazioni di sistema. Sviluppare inoltre un processo e una pipeline per la gestione delle eccezioni relative ai criteri.
+**Indicazioni:** usare Criteri di Azure alias nello spazio dei nomi "Microsoft.EventHub" per creare criteri personalizzati per avvisare, controllare e applicare le configurazioni di sistema. Sviluppare inoltre un processo e una pipeline per la gestione delle eccezioni relative ai criteri.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: implementare il monitoraggio della configurazione automatizzata per le risorse di Azure
+### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Implementare il monitoraggio automatizzato della configurazione per le risorse di Azure
 
-**Linee guida**: usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. EventHub" per creare criteri personalizzati per avvisare, controllare e applicare le configurazioni di sistema. Usare gli effetti criteri di Azure [audit], [deny] e [Distribuisci se non esistono] per applicare automaticamente le configurazioni per le distribuzioni di hub eventi di Azure e le risorse correlate.
+**Indicazioni:** usare Criteri di Azure alias nello spazio dei nomi "Microsoft.EventHub" per creare criteri personalizzati per avvisare, controllare e applicare le configurazioni di sistema. Usare Criteri di Azure effetti [audit], [deny] e [deploy if not exist] per applicare automaticamente le configurazioni per le distribuzioni Hub eventi di Azure e le risorse correlate.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: gestire i segreti di Azure in modo sicuro
 
-**Linee guida**: per le macchine virtuali o le applicazioni Web di Azure in esecuzione in app Azure servizio usato per accedere a hub eventi, usare identità del servizio gestita insieme a Azure Key Vault per semplificare e proteggere la gestione delle firme di accesso condiviso per le distribuzioni di hub eventi di Azure. Assicurarsi che Key Vault sia configurato con l'eliminazione temporanea abilitata.
+**Indicazioni:** per le macchine virtuali di Azure o le applicazioni Web in esecuzione in Servizio app di Azure usate per accedere agli hub eventi, usare l'identità del servizio gestita in combinazione con Azure Key Vault per semplificare e proteggere la gestione delle firme di accesso condiviso per le distribuzioni Hub eventi di Azure. Assicurarsi Key Vault sia configurata con l'eliminazione soft abilitata.
 
-- [Autenticare un'identità gestita con Azure Active Directory (Azure AD) per accedere alle risorse di hub eventi](./authenticate-managed-identity.md?tabs=latest)
+- [Autenticare un'identità gestita con Azure Active Directory (Azure AD) per accedere alle risorse di Hub eventi](./authenticate-managed-identity.md?tabs=latest)
 
-- [Configurare le chiavi gestite dal cliente per gli hub eventi](configure-customer-managed-key.md)
+- [Configurare le chiavi gestite dal cliente per Hub eventi](configure-customer-managed-key.md)
 
-- [Come eseguire l'integrazione con le identità gestite di Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+- [Come eseguire l'integrazione con identità gestite di Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Come creare una Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [Come creare un Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/general/assign-access-policy-portal.md)
+- [Come fornire l'Key Vault con un'identità gestita](../key-vault/general/assign-access-policy-portal.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: gestire le identità in modo sicuro e automatico
 
-**Linee guida**: per le macchine virtuali o le applicazioni Web di Azure in esecuzione in app Azure servizio usato per accedere a hub eventi, usare identità del servizio gestita insieme a Azure Key Vault per semplificare e proteggere Hub eventi di Azure. Assicurarsi che Key Vault sia configurato con l'eliminazione temporanea abilitata.
+**Linee** guida: per le macchine virtuali di Azure o le applicazioni Web in esecuzione in Servizio app di Azure usate per accedere agli hub eventi, usare l'identità del servizio gestita in combinazione con Azure Key Vault per semplificare e proteggere le Hub eventi di Azure. Assicurarsi Key Vault configurata con l'eliminazione soft abilitata.
 
-Usare identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD, incluso Azure Key Vault, senza credenziali nel codice.
+Usare identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). Identità gestite consente di eseguire l'autenticazione a qualsiasi servizio che supporta l Azure AD Azure Key Vault, senza credenziali nel codice.
 
-- [Autenticare un'identità gestita con Azure AD per accedere alle risorse di hub eventi](./authenticate-managed-identity.md?tabs=latest)
+- [Autenticare un'identità gestita con Azure AD accedere alle risorse di Hub eventi](./authenticate-managed-identity.md?tabs=latest)
 
-- [Configurare le chiavi gestite dal cliente per gli hub eventi](configure-customer-managed-key.md)
+- [Configurare le chiavi gestite dal cliente per Hub eventi](configure-customer-managed-key.md)
 
 - [Come configurare le identità gestite](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-- [Come eseguire l'integrazione con le identità gestite di Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+- [Come eseguire l'integrazione con identità gestite di Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: eliminare l'esposizione involontaria delle credenziali
 
@@ -679,75 +679,75 @@ Usare identità gestite per fornire ai servizi di Azure un'identità gestita aut
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="malware-defense"></a>Difesa da malware
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: eseguire l'analisi preliminare dei file da caricare in risorse di Azure non di calcolo
 
-**Linee guida**: pre-analizzare i contenuti caricati in risorse di Azure non di calcolo, ad esempio hub eventi di Azure, servizio App, data Lake storage, archiviazione BLOB, database di Azure per PostgreSQL e così via. Microsoft non è in grado di accedere ai dati in tali istanze.
+**Linee** guida: eseguire la pre-analisi di qualsiasi contenuto caricato in risorse di Azure non di calcolo, ad esempio Hub eventi di Azure, Servizio app, Data Lake Storage, Archiviazione BLOB, Database di Azure per PostgreSQL e così via. Microsoft non può accedere ai dati in queste istanze.
 
-Microsoft anti-malware è abilitato nell'host sottostante che supporta i servizi di Azure (ad esempio, cache di Azure per Redis), ma non viene eseguito sui contenuti dei clienti.
+L'antimalware Microsoft è abilitato nell'host sottostante che supporta i servizi di Azure (ad esempio, cache di Azure per Redis), ma non viene eseguito sul contenuto del cliente.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="data-recovery"></a>Ripristino dei dati
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: ripristino dei dati](../security/benchmarks/security-control-data-recovery.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Ripristino dei dati.](../security/benchmarks/security-control-data-recovery.md)*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9,1: garantire il backup automatico regolare
+### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantire backup automatizzati regolari
 
-**Linee guida**: configurare il ripristino di emergenza geografico per hub eventi di Azure. In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate zone di disponibilità), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il ripristino di emergenza geografico e la replica geografica sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
+**Indicazioni:** configurare il ripristino di emergenza geografico per Hub eventi di Azure. In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate zone di disponibilità), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il ripristino di emergenza geografico e la replica geografica sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
 
-- [Informazioni sul ripristino di emergenza geografico per hub eventi di Azure](./event-hubs-geo-dr.md#availability-zones)
-
-**Responsabilità**: Customer
-
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
-
-### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: eseguire backup completi del sistema ed eseguire il backup di tutte le chiavi gestite dal cliente
-
-**Linee guida**: Hub eventi di Azure fornisce la crittografia dei dati inattivi con Azure crittografia del servizio di archiviazione (Azure SSE). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. Se si usano Azure Key Vault per archiviare le chiavi gestite dal cliente, assicurarsi che i backup automatici delle chiavi siano regolari.
-
-Verificare la regolarità dei backup automatici dei segreti di Key Vault con il comando di PowerShell seguente: Backup-AzKeyVaultSecret
-
-- [Come configurare le chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure](configure-customer-managed-key.md)
-
-- [Come eseguire il backup di Key Vault segreti](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
+- [Informazioni sul ripristino di emergenza geografico per Hub eventi di Azure](./event-hubs-geo-dr.md#availability-zones)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: convalidare tutti i backup, incluse le chiavi gestite dal cliente
+### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Eseguire backup di sistema completi ed eseguire il backup di tutte le chiavi gestite dal cliente
 
-**Indicazioni**: ripristino di test delle chiavi gestite dal cliente sottoposte a backup.
+**Indicazioni:** Hub eventi di Azure la crittografia dei dati in pausa con Archiviazione di Azure Service Encryption (Azure SSE). Hub eventi si basa Archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con Archiviazione di Azure vengono crittografati usando chiavi gestite da Microsoft. Se si usa Azure Key Vault per archiviare le chiavi gestite dal cliente, assicurarsi di eseguire backup automatici regolari delle chiavi.
+
+Assicurarsi di eseguire backup automatici regolari dei segreti Key Vault con il comando powershell seguente: Backup-AzKeyVaultSecret
+
+- [Come configurare le chiavi gestite dal cliente per crittografare Hub eventi di Azure dati in stato di inquieto](configure-customer-managed-key.md)
+
+- [Come eseguire il backup Key Vault segreti](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
+
+**Responsabilità**: Customer
+
+**Centro sicurezza di Azure monitoraggio:** Nessuno
+
+### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Convalidare tutti i backup, incluse le chiavi gestite dal cliente
+
+**Indicazioni:** testare il ripristino delle chiavi gestite dal cliente di cui è stato eseguito il backup.
 
 - [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantire la protezione dei backup e delle chiavi gestite dal cliente
+### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantire la protezione dei backup e delle chiavi gestite dal cliente
 
-**Linee guida**: abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. Hub eventi di Azure richiede chiavi gestite dal cliente per l'eliminazione temporanea e non ripulisce la configurazione.
+**Indicazioni:** abilitare l'eliminazione Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. Hub eventi di Azure richiede che le chiavi gestite dal cliente siano configurate per l'eliminazione e la non ripulitura.
 
-Configurare l'eliminazione temporanea per l'account di archiviazione di Azure usato per l'acquisizione dei dati di hub eventi. Si noti che questa funzionalità non è ancora supportata per Azure Data Lake Storage generazione 2.
+Configurare l'eliminazione soft per l'account di archiviazione di Azure usato per l'acquisizione dei dati di Hub eventi. Si noti che questa funzionalità non è ancora supportata Azure Data Lake Storage generazione 2.
 
-- [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Come abilitare l'eliminazione soft in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-- [Configurare un insieme di credenziali delle chiavi con chiavi](configure-customer-managed-key.md)
+- [Configurare un insieme di credenziali delle chiavi con le chiavi](configure-customer-managed-key.md)
 
-- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](/azure/storage/blobs/soft-delete-blob-overview)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
@@ -755,31 +755,31 @@ Configurare l'eliminazione temporanea per l'account di archiviazione di Azure us
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare un piano di risposta agli eventi imprevisti
 
-**Indicazioni**: assicurarsi che siano stati scritti piani di risposta agli eventi imprevisti che definiscono i ruoli del personale, nonché le fasi di gestione/gestione degli eventi imprevisti.
+**Linee** guida: assicurarsi che siano presenti piani di risposta agli eventi imprevisti scritti che definiscono i ruoli del personale e le fasi di gestione/gestione degli eventi imprevisti.
 
 - [Come configurare le automazioni del flusso di lavoro nel Centro sicurezza di Azure](../security-center/security-center-planning-and-operations-guide.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: creare una procedura per l'assegnazione di punteggi e la classificazione in ordine di priorità per gli eventi imprevisti
 
-**Linee guida**: il Centro sicurezza assegna un livello di gravità agli avvisi, in modo da consentire la priorità dell'ordine in cui si partecipa a ogni avviso, in modo che, quando una risorsa viene compromessa, è possibile accedervi immediatamente. Il livello di gravità è basato sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'analisi utilizzata per emettere l'avviso, oltre che sul livello di confidenza che ha causato l'intento dannoso dietro l'attività che ha portato all'avviso.
+**Linee** guida: il Centro sicurezza assegna una gravità agli avvisi, per consentire di classificare in ordine di priorità l'ordine in cui si partecipa a ogni avviso, in modo che quando una risorsa viene compromessa, è possibile ottenerla immediatamente. La gravità si basa sulla sicurezza del Centro sicurezza nella ricerca o nell'analisi usata per emettere l'avviso, nonché sul livello di attendibilità che dietro l'attività era presente una finalità dannosa che ha generato l'avviso.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testare le procedure di risposta per la sicurezza
 
-**Linee guida**: eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi a cadenza regolare. Identificare i punti deboli e le lacune e rivedere il piano in base alle esigenze.
+**Linee** guida: eseguire esercizi per testare le funzionalità di risposta agli eventi imprevisti dei sistemi in base a una cadenza regolare. Identificare i punti deboli e le lacune e rivedere il piano in base alle esigenze.
 
 - [Fare riferimento alla pubblicazione NIST, ovvero guida ai programmi di test, formazione ed esercitazione per i piani e le funzionalità IT](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: specificare i dettagli di contatto e configurare le notifiche di avviso per gli eventi imprevisti della sicurezza
 
@@ -789,7 +789,7 @@ Configurare l'eliminazione temporanea per l'account di archiviazione di Azure us
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporare gli avvisi di sicurezza nel sistema di risposta agli eventi imprevisti
 
@@ -801,7 +801,7 @@ Configurare l'eliminazione temporanea per l'account di archiviazione di Azure us
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 
@@ -811,15 +811,15 @@ Configurare l'eliminazione temporanea per l'account di archiviazione di Azure us
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: test di penetrazione e esercizi Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
-### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
-**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft. 
+**Linee** guida: seguire le regole di engagement per i test di penetrazione del cloud Microsoft per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usare la strategia e l'esecuzione di Microsoft red teaming e i test di penetrazione del sito in tempo reale rispetto all'infrastruttura cloud gestita da Microsoft, ai servizi e alle applicazioni. 
 
 - [Regole di partecipazione dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
@@ -827,7 +827,7 @@ Configurare l'eliminazione temporanea per l'account di archiviazione di Azure us
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="next-steps"></a>Passaggi successivi
 

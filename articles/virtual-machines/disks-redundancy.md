@@ -1,6 +1,6 @@
 ---
-title: Opzioni di ridondanza per Azure Managed Disks
-description: Informazioni sull'archiviazione con ridondanza della zona e l'archiviazione con ridondanza locale per Azure Managed Disks.
+title: Opzioni di ridondanza per i dischi gestiti di Azure
+description: Informazioni sull'archiviazione con ridondanza della zona e sull'archiviazione con ridondanza locale per i dischi gestiti di Azure.
 author: roygara
 ms.author: rogarana
 ms.date: 03/02/2021
@@ -8,55 +8,55 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f0f3baf1bf56f958408f789961812c0555f289f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0882efeccfc8dc83686d75ab39b8364219c3b5f1
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043644"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588089"
 ---
-# <a name="redundancy-options-for-managed-disks"></a>Opzioni di ridondanza per Managed Disks
+# <a name="redundancy-options-for-managed-disks"></a>Opzioni di ridondanza per i dischi gestiti
 
-Azure Managed Disks offre due opzioni di ridondanza di archiviazione, archiviazione con ridondanza della zona (ZRS) come anteprima e archiviazione con ridondanza locale. ZRS offre una disponibilità più elevata per i dischi gestiti rispetto all'archiviazione con ridondanza locale (con ridondanza locale). Tuttavia, la latenza di scrittura per i dischi con ridondanza locale è migliore rispetto ai dischi ZRS, perché i dischi con ridondanza locale scrivono i dati in modo sincrono in tre copie in un'unica data center.
+I dischi gestiti di Azure offrono due opzioni di ridondanza di archiviazione, l'archiviazione con ridondanza della zona (ZRS) come anteprima e l'archiviazione con ridondanza locale. L'archiviazione con ridondanza locale offre una disponibilità più elevata per i dischi gestiti rispetto all'archiviazione con ridondanza locale. Tuttavia, la latenza di scrittura per i dischi LRS è migliore rispetto ai dischi ZRS perché i dischi LRS scrivono dati in modo sincrono in tre copie in un singolo data center.
 
-## <a name="locally-redundant-storage-for-managed-disks"></a>Archiviazione con ridondanza locale per Managed Disks
+## <a name="locally-redundant-storage-for-managed-disks"></a>Archiviazione con ridondanza locale per i dischi gestiti
 
-Archiviazione con ridondanza locale (con ridondanza locale) replica i dati tre volte all'interno di una singola data center nell'area selezionata. L'archiviazione con ridondanza locale protegge i dati dagli errori del rack di server e delle unità. 
+L'archiviazione con ridondanza locale replica i dati tre volte in un singolo data center nell'area selezionata. L'archiviazione con ridondanza locale protegge i dati dagli errori del rack di server e delle unità. 
 
-Esistono diversi modi per proteggere l'applicazione con i dischi con ridondanza locale da un errore dell'intera zona che può verificarsi a causa di calamità naturali o problemi hardware:
-- Usare un'applicazione come SQL Server AlwaysOn, in grado di scrivere i dati in modo sincrono in due zone e di eseguire automaticamente il failover in un'altra area durante un'emergenza.
-- Eseguire backup frequenti dei dischi con ridondanza locale con snapshot ZRS.
-- Abilitare il ripristino di emergenza tra zone per i dischi con ridondanza locale tramite [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md). Tuttavia, il ripristino di emergenza tra zone non fornisce l'obiettivo del punto di ripristino (RPO) zero.
+Esistono alcuni modi per proteggere l'applicazione usando dischi LRS da un errore di zona intero che può verificarsi a causa di calamità naturali o problemi hardware:
+- Usare un'applicazione SQL Server AlwaysOn, in grado di scrivere dati in modo sincrono in due zone e di eseguire automaticamente il failover in un'altra zona durante un'emergenza.
+- Eseguire backup frequenti dei dischi LRS con snapshot ZRS.
+- Abilitare il ripristino di emergenza tra zone per i dischi LRS [tramite Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md). Tuttavia, il ripristino di emergenza tra zone non fornisce un obiettivo del punto di ripristino (RPO) pari a zero.
 
-Se il flusso di lavoro non supporta le scritture sincrone a livello di applicazione tra le zone o se l'applicazione deve soddisfare zero RPO, i dischi ZRS sarebbero ideali.
+Se il flusso di lavoro non supporta scritture sincrone a livello di applicazione tra zone o l'applicazione deve soddisfare zero RPO, i dischi ZRS sono ideali.
 
-## <a name="zone-redundant-storage-for-managed-disks-preview"></a>Archiviazione con ridondanza della zona per Managed Disks (anteprima)
+## <a name="zone-redundant-storage-for-managed-disks-preview"></a>Archiviazione con ridondanza della zona per i dischi gestiti (anteprima)
 
-Archiviazione con ridondanza della zona (ZRS) replica in modo sincrono il disco gestito di Azure in tre zone di disponibilità di Azure nell'area selezionata. Ogni zona di disponibilità è una posizione fisica separata con alimentazione, raffreddamento e rete indipendenti. 
+L'archiviazione con ridondanza della zona replica il disco gestito di Azure in modo sincrono in tre zone di disponibilità di Azure nell'area selezionata. Ogni zona di disponibilità è una posizione fisica separata con alimentazione, raffreddamento e rete indipendenti. 
 
-I dischi ZRS consentono di eseguire il ripristino dagli errori nelle zone di disponibilità. Se un'intera zona è inattiva, un disco ZRS può essere collegato a una macchina virtuale in un'area diversa. È anche possibile usare i dischi ZRS come disco condiviso per offrire una maggiore disponibilità per applicazioni cluster o distribuite come FCI SQL, SAP ASC/SCS o GFS2. È possibile aggiungere un disco ZRS condiviso alle macchine virtuali primarie e secondarie in zone diverse per sfruttare i vantaggi di ZRS e [zone di disponibilità](../availability-zones/az-overview.md). Se la zona primaria ha esito negativo, è possibile eseguire rapidamente il failover alla macchina virtuale secondaria usando la [prenotazione permanente SCSI](disks-shared-enable.md#supported-scsi-pr-commands).
+I dischi ZRS consentono di eseguire il ripristino in caso di errori nelle zone di disponibilità. Se un'intera zona si è insediata, è possibile collegare un disco ZRS a una macchina virtuale in una zona diversa. È anche possibile usare dischi ZRS come disco condiviso per offrire una maggiore disponibilità per le applicazioni in cluster o distribuite, ad esempio SQL FCI, SAP ASCS/SCS o GFS2. È possibile collegare un disco ZRS condiviso alle macchine virtuali primarie e secondarie in zone diverse per sfruttare i vantaggi sia dell'archiviazione con zone di disponibilità [.](../availability-zones/az-overview.md) Se si verifica un errore nella zona primaria, è possibile eseguire rapidamente il failover nella macchina virtuale secondaria usando la [prenotazione persistente SCSI.](disks-shared-enable.md#supported-scsi-pr-commands)
 
 ### <a name="limitations"></a>Limitazioni
 
-Durante l'anteprima, ZRS per Managed disks presenta le restrizioni seguenti:
+Durante l'anteprima, l'archiviazione con archiviazione con restrizioni per i dischi gestiti presenta le restrizioni seguenti:
 
-- Supportato solo con unità SSD (Solid-State Drive) Premium e SSD standard.
+- Supportato solo con unità SSD Premium e SSD Standard.
 - Attualmente disponibile solo nell'area EastUS2EUAP.
-- I dischi ZRS possono essere creati solo con Azure Resource Manager modelli usando l' `2020-12-01` API.
+- I dischi ZRS possono essere creati solo con Azure Resource Manager usando `2020-12-01` l'API.
 
-Iscriversi per l'anteprima [qui](https://aka.ms/ZRSDisksPreviewSignUp).
+Iscriversi per l'anteprima [qui.](https://aka.ms/ZRSDisksPreviewSignUp)
 
 ### <a name="billing-implications"></a>Implicazioni relative alla fatturazione
 
-Per informazioni dettagliate, vedere la [pagina dei prezzi di Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
+Per informazioni dettagliate, vedere la [pagina dei prezzi di Azure.](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-### <a name="comparison-with-other-disk-types"></a>Confronto con altri tipi di dischi
+### <a name="comparison-with-other-disk-types"></a>Confronto con altri tipi di disco
 
-Ad eccezione della latenza di scrittura, i dischi che usano ZRS sono identici ai dischi che usano con ridondanza locale. Hanno gli stessi obiettivi di prestazioni.
+Fatta eccezione per una maggiore latenza di scrittura, i dischi che usano LRS sono identici ai dischi che usano l'archiviazione con archiviazione con accesso in lettura. Hanno gli stessi obiettivi di prestazioni. È consigliabile eseguire il [benchmarking](disks-benchmarks.md) dei dischi per simulare il carico di lavoro dell'applicazione per confrontare la latenza tra i dischi di archiviazione con accesso in lettura. 
 
-### <a name="create-zrs-managed-disks"></a>Creare dischi gestiti ZRS
+### <a name="create-zrs-managed-disks"></a>Creare dischi gestiti dell'archiviazione con archiviazione
 
-Usare l' `2020-12-01` API con il modello di Azure Resource Manager per creare un disco ZRS.
+Usare `2020-12-01` l'API con il modello Azure Resource Manager per creare un disco ZRS.
 
 #### <a name="create-a-vm-with-zrs-disks"></a>Creare una macchina virtuale con dischi ZRS
 
@@ -123,4 +123,4 @@ New-AzResourceGroupDeployment -ResourceGroupName zrstesting `
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Usare questi [modelli di Azure Resource Manager di esempio per creare una macchina virtuale con dischi ZRS](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/ZRSDisks).
+- Usare questi modelli Azure Resource Manager [esempio per creare una macchina virtuale con dischi ZRS.](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/ZRSDisks)

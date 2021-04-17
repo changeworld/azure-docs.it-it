@@ -1,7 +1,7 @@
 ---
-title: Esercitazione per la configurazione di Azure Active Directory B2C con Nevis
+title: Esercitazione per configurare Azure Active Directory B2C con Nevis
 titleSuffix: Azure AD B2C
-description: Informazioni su come integrare Azure AD B2C autenticazione con Nevis per l'autenticazione senza password
+description: Informazioni su come integrare l'Azure AD B2C con Nevis per l'autenticazione senza password
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
@@ -11,67 +11,67 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: b8e72cab6d6220b71e93550eec7649752201180a
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 42e244249ecb0539637918ae2439bdb4f5da4b38
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256583"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588480"
 ---
-# <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Esercitazione per configurare Nevis con Azure Active Directory B2C per l'autenticazione senza password
+# <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Esercitazione per configurare Nevis con l'Azure Active Directory B2C per l'autenticazione senza password
 
-In questa esercitazione di esempio viene illustrato come estendere Azure AD B2C con  [Nevis](https://www.nevis.net/solution/authentication-cloud) per abilitare l'autenticazione senza password. Nevis offre un'esperienza utente finale per dispositivi mobili e completamente personalizzata con l'app di accesso Nevis per offrire un'autenticazione avanzata dei clienti e conforme ai requisiti delle transazioni PSD2 (Payment Services Directive 2).
+In questa esercitazione di esempio si apprenderà come estendere Azure AD B2C  [con Nevis](https://www.nevis.net/en/solution/authentication-cloud) per abilitare l'autenticazione senza password. Nevis offre un'esperienza utente finale completamente personalizzata per dispositivi mobili con l'app Nevis Access per fornire un'autenticazione avanzata ai clienti e rispettare i requisiti di transazione di Payment Services Directive 2 (PSD2).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per iniziare, è necessario:
+Per iniziare, sono necessari:
 
-- Un [account di valutazione](https://www.nevis-security.com/aadb2c/) Nevis
+- Un [account](https://www.nevis-security.com/aadb2c/) di valutazione di Nevis
 
-- Una sottoscrizione di Azure AD. Se non si ha un account, ottenere un [account gratuito](https://azure.microsoft.com/free/).
+- Una sottoscrizione di Azure AD. Se non si ha un account, ottenere un [account gratuito.](https://azure.microsoft.com/free/)
 
-- Un [tenant Azure ad B2C](./tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
+- Un [Azure AD B2C tenant](./tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
 
-- Configurato Azure AD B2C ambiente per l'uso di [criteri personalizzati](./tutorial-create-user-flows.md?pivots=b2c-custom-policy), se si vuole integrare Nevis nel flusso dei criteri di iscrizione.
+- Configurato Azure AD B2C'ambiente per [l'uso](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)di criteri personalizzati, se si vuole integrare Nevis nel flusso dei criteri di iscrizione.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
-In questo scenario, aggiungere un'app di Access completamente personalizzata all'applicazione back-end per l'autenticazione senza password. I componenti seguenti costituiscono la soluzione:
+In questo scenario, aggiungere un'app di accesso completamente personalizzazione all'applicazione back-end per l'autenticazione senza password. I componenti seguenti costituiscono la soluzione:
 
-- Un tenant di Azure AD B2C con un criterio di accesso e iscrizione combinato al back-end
-- Istanza di Nevis e relativa API REST per migliorare Azure AD B2C
-- App con personalizzazione
+- Un tenant Azure AD B2C, con criteri di accesso e iscrizione combinati al back-end
+- L'istanza di Nevis e la relativa API REST per migliorare Azure AD B2C
+- App di accesso personalizzato
 
-Nel diagramma viene illustrata l'implementazione di.
+Il diagramma mostra l'implementazione.
 
 ![Flusso di accesso con password di alto livello con Azure AD B2C e Nevis](./media/partner-nevis/nevis-architecture-diagram.png)
 
 |Passaggio | Descrizione |
 |:-----| :-----------|
-| 1. | Un utente tenta di accedere o di accedere a un'applicazione tramite Azure AD B2C i criteri di accesso e di iscrizione.
-| 2. | Durante l'iscrizione, l'app di accesso Nevis viene registrata nel dispositivo utente usando un codice a matrice. Nel dispositivo utente viene generata una chiave privata che viene usata per firmare le richieste dell'utente.
-| 3. |  Azure AD B2C usa un profilo tecnico RESTful per avviare l'accesso con la soluzione Nevis.
-| 4. | La richiesta di accesso viene inviata all'app Access, come messaggio push, codice a matrice o come collegamento profondo.
-| 5. | L'utente approva il tentativo di accesso con la biometria. Un messaggio viene quindi restituito a Nevis, che verifica l'accesso con la chiave pubblica archiviata.
-| 6. | Azure AD B2C Invia un'ultima richiesta a Nevis per verificare che l'account di accesso sia stato completato correttamente.
-| 7. |In base al messaggio di esito positivo o negativo di Azure AD B2C utente viene concesso o negato l'accesso all'applicazione.
+| 1. | Un utente tenta di accedere a un'applicazione o di effettuare l'iscrizione Azure AD B2C criteri di accesso e iscrizione.
+| 2. | Durante l'iscrizione, l'app Nevis Access viene registrata nel dispositivo utente usando un codice a codici a capo. Una chiave privata viene generata nel dispositivo utente e viene usata per firmare le richieste dell'utente.
+| 3. |  Azure AD B2C un profilo tecnico RESTful per avviare l'accesso con la soluzione Nevis.
+| 4. | La richiesta di accesso viene inviata all'app di accesso, come messaggio push, codice a coda o come collegamento diretto.
+| 5. | L'utente approva il tentativo di accesso con la biometria. Viene quindi restituito un messaggio a Nevis, che verifica l'account di accesso con la chiave pubblica archiviata.
+| 6. | Azure AD B2C invia un'ultima richiesta a Nevis per verificare che l'accesso sia stato completato correttamente.
+| 7. |In base al messaggio di esito positivo/negativo Azure AD B2C utente viene concesso/negato l'accesso all'applicazione.
 
-## <a name="integrate-your-azure-ad-b2c-tenant"></a>Integrare il tenant di Azure AD B2C
+## <a name="integrate-your-azure-ad-b2c-tenant"></a>Integrare il tenant Azure AD B2C
 
-### <a name="onboard-to-nevis"></a>Onboarding in Nevis 
+### <a name="onboard-to-nevis"></a>Eseguire l'onboard in Nevis 
 
-[Iscriversi per un account Nevis](https://www.nevis-security.com/aadb2c/).
+[Iscriversi per un account Nevis.](https://www.nevis-security.com/aadb2c/)
 Si riceveranno due messaggi di posta elettronica:
 
-1. Notifica di un account di gestione
+1. Notifica dell'account di gestione
 
-2. Invito A un'app per dispositivi mobili.
+2. Invito di un'app per dispositivi mobili.
 
-### <a name="add-your-azure-ad-b2c-tenant-to-your-nevis-account"></a>Aggiungere il tenant di Azure AD B2C al proprio account Nevis
+### <a name="add-your-azure-ad-b2c-tenant-to-your-nevis-account"></a>Aggiungere il Azure AD B2C tenant all'account Nevis
 
-1. Dalla versione di valutazione dell'account di gestione Nevis, copiare la chiave di gestione negli Appunti.
+1. Dal messaggio di posta elettronica di valutazione dell'account di gestione Nevis copiare la chiave di gestione negli Appunti.
 
-2. Apri https://console.nevis.cloud/ in un browser.
+2. Aprire https://console.nevis.cloud/ in un browser.
 
 3. Accedere alla console di gestione con la chiave.
 
@@ -79,148 +79,148 @@ Si riceveranno due messaggi di posta elettronica:
 
 5. Selezionare l'istanza appena creata per aprirla.
 
-6. Nella barra di spostamento laterale selezionare **integrazioni personalizzate** .
+6. Nella barra di spostamento laterale selezionare **Integrazioni personalizzate**
 
 7. Selezionare **Aggiungi integrazione personalizzata**.
 
-8. Per nome integrazione immettere il nome del tenant Azure AD B2C.
+8. In Integration Name (Nome integrazione) immettere il nome Azure AD B2C tenant.
 
-9. Per URL/dominio immettere `https://yourtenant.onmicrosoft.com`
+9. Per URL/Dominio immettere `https://yourtenant.onmicrosoft.com`
 
 10. Selezionare **Avanti**
 
 >[!NOTE]
->Il token di accesso Nevis sarà necessario in un secondo momento.
+>Il token di accesso nevis sarà necessario in un secondo momento.
 
 11. Selezionare **Fine**.
 
-### <a name="install-the-nevis-access-app-on-your-phone"></a>Installare l'app di accesso Nevis sul telefono
+### <a name="install-the-nevis-access-app-on-your-phone"></a>Installare l'app Nevis Access nel telefono
 
-1. Dalla versione di valutazione dell'app per dispositivi mobili di Nevis aprire l'invito all' **app di test Flight** .
+1. Dal messaggio di posta elettronica di valutazione dell'app nevis per dispositivi mobili aprire **l'invito all'app Test Flight.**
 
 2. Installare l'app.
 
-3. Seguire le istruzioni fornite per installare l'app di Access Nevis.
+3. Seguire le istruzioni fornite per installare l'app Nevis Access.
 
 ### <a name="integrate-azure-ad-b2c-with-nevis"></a>Integrare Azure AD B2C con Nevis
 
 1. Aprire il [portale di Azure](https://portal.azure.com/).
 
-2. Passa al tenant di Azure AD B2C. Assicurarsi di aver selezionato il tenant appropriato, perché il tenant Azure AD B2C in genere si trova in un tenant separato.
+2. Passare al tenant Azure AD B2C. Assicurarsi di aver selezionato il tenant giusto, perché il tenant Azure AD B2C in genere si trova in un tenant separato.
 
-3. Nel menu selezionare Framework dell' **esperienza di identità (Framework dell'esperienza)**
+3. Nel menu selezionare Identity Experience Framework **(IEF)**
 
-4. Selezionare le **chiavi dei criteri**
+4. Selezionare **Chiavi dei criteri**
 
 5. Selezionare **Aggiungi** e creare una nuova chiave con le impostazioni seguenti:
 
-      a. Selezionare le opzioni **manuali** in
+      a. Selezionare **Manuale** in Opzioni
 
-      b. Impostare nome su **AuthCloudAccessToken**
+      b. Impostare Nome su **AuthCloudAccessToken**
 
-      c. Incollare il token di **accesso Nevis** archiviato in precedenza nel campo Secret
+      c. Incollare il token **di accesso Nevis archiviato** in precedenza nel campo Segreto
 
-      d. Per l'utilizzo della chiave selezionare **crittografia**
+      d. Per Utilizzo chiavi selezionare **Crittografia**
 
       e. Selezionare **Crea**
 
-### <a name="configure-and-upload-the-nevishtml-to-azure-blob-storage"></a>Configurare e caricare il nevis.html nell'archivio BLOB di Azure
+### <a name="configure-and-upload-the-nevishtml-to-azure-blob-storage"></a>Configurare e caricare l'nevis.html nell'archivio BLOB di Azure
 
-1. Nell'ambiente di identità (IDE) passare alla cartella dei [**criteri**](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) .
+1. Nell'ambiente di gestione delle identità (IDE) passare alla [**cartella dei**](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) criteri.
 
-2. Aprire il file  [**nevis.html**](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/nevis.html) .
+2. Aprire il file [**nevis.html.**](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/nevis.html)
 
-3. Sostituire il  **authentication_cloud_url** con l'URL della console di amministrazione di Nevis- `https://<instance_id>.mauth.nevis.cloud` .
+3. Sostituire il  **authentication_cloud_url** con l'URL della console di amministrazione di Nevis - `https://<instance_id>.mauth.nevis.cloud` .
 
 4. **Salvare** le modifiche apportate al file.
 
-5. Seguire le [istruzioni](./customize-ui-with-html.md#2-create-an-azure-blob-storage-account) e caricare il file **nevis.html** nell'archivio BLOB di Azure.
+5. Seguire le [istruzioni e](./customize-ui-with-html.md#2-create-an-azure-blob-storage-account) caricare il file **nevis.html** nell'archivio BLOB di Azure.
 
-6. Seguire le [istruzioni](./customize-ui-with-html.md#3-configure-cors) e abilitare la condivisione di risorse tra le origini (CORS) per questo file.
+6. Seguire le [istruzioni](./customize-ui-with-html.md#3-configure-cors) e abilitare Condivisione risorse tra le origini (CORS) per questo file.
 
-7. Una volta completato il caricamento e CORS è abilitato, selezionare il file **nevis.html** nell'elenco.
+7. Dopo aver completato il caricamento e abilitato CORS, selezionare il file **nevis.html** nell'elenco.
 
-8. Nella scheda **Panoramica** , accanto all' **URL**, selezionare l'icona **copia collegamento** .
+8. Nella scheda **Panoramica,** accanto **all'URL,** selezionare **l'icona di collegamento di** copia.
 
-9. Aprire il collegamento in una nuova scheda del browser per assicurarsi che venga visualizzata una casella grigia.
+9. Aprire il collegamento in una nuova scheda del browser per assicurarsi che visualizzi una casella grigia.
 
 >[!NOTE]
->Il collegamento al BLOB sarà necessario in un secondo momento.
+>Il collegamento BLOB sarà necessario in un secondo momento.
 
 ### <a name="customize-your-trustframeworkbasexml"></a>Personalizzare la TrustFrameworkBase.xml
 
-1. Nell'IDE passare alla cartella dei [**criteri**](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) .
+1. Nell'IDE passare alla cartella [**dei**](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) criteri.
 
-2. Aprire il file di [**TrustFrameworkBase.xml**](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/TrustFrameworkBase.xml) .
+2. Aprire il file [**TrustFrameworkBase.xml.**](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/TrustFrameworkBase.xml)
 
-3. Sostituire **tenantinuso** con il nome dell'account del tenant di Azure in **TenantId**.
+3. Sostituire **yourtenant** con il nome dell'account tenant di Azure in **TenantId**.
 
-4. Sostituire **tenantinuso** con il nome dell'account tenant di Azure in **PublicPolicyURI**.
+4. Sostituire **yourtenant** con il nome dell'account tenant di Azure in **PublicPolicyURI**.
 
-5. Sostituire tutte le istanze di **authentication_cloud_url** con l'URL della console di amministrazione di Nevis
+5. Sostituire tutte **authentication_cloud_url** con l'URL della console di amministrazione di Nevis
 
 6. **Salvare** le modifiche apportate al file.
 
 ### <a name="customize-your-trustframeworkextensionsxml"></a>Personalizzare la TrustFrameworkExtensions.xml
 
-1. Nell'IDE passare alla cartella dei [**criteri**](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) .
+1. Nell'IDE passare alla cartella [**dei**](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) criteri.
 
-2. Aprire il file di [**TrustFrameworkExtensions.xml**](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/TrustFrameworkExtensions.xml) .
+2. Aprire il [**fileTrustFrameworkExtensions.xml.**](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/TrustFrameworkExtensions.xml)
 
-3. Sostituire **tenantinuso** con il nome dell'account del tenant di Azure in **TenantId**.
+3. Sostituire **yourtenant** con il nome dell'account tenant di Azure in **TenantId**.
 
-4. Sostituire **tenantinuso** con il nome dell'account tenant di Azure in **PublicPolicyURI**.
+4. Sostituire **yourtenant** con il nome dell'account tenant di Azure in **PublicPolicyURI**.
 
-5. In **BasePolicy**, in **TenantId** sostituire _tenantinuso_ con il nome dell'account del tenant di Azure.
+5. In **BasePolicy** in **TenantId** sostituire anche _il_ tenant con il nome dell'account tenant di Azure.
 
-6. In **BuildingBlocks** sostituire **elemento LOADURI** con l'URL del collegamento BLOB della _nevis.html_ nell'account di archiviazione BLOB.
+6. In **BuildingBlocks** sostituire **LoadUri** con l'URL del collegamento BLOBnevis.htm _l nell'account_ di archiviazione BLOB.
 
 7. **Salvare** il file.
 
 ### <a name="customize-your-signuporsigninxml"></a>Personalizzare la SignUpOrSignin.xml
 
-1. Nell'IDE passare alla cartella dei [**criteri**](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) .
+1. Nell'IDE passare alla cartella [**dei**](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) criteri.
 
-2. Aprire il file di [**SignUpOrSignin.xml**](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/SignUpOrSignin.xml) .
+2. Aprire il [**fileSignUpOrSignin.xml.**](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/SignUpOrSignin.xml)
 
-3. Sostituire **tenantinuso** con il nome dell'account del tenant di Azure in **TenantId**.
+3. Sostituire **yourtenant** con il nome dell'account tenant di Azure in **TenantId**.
 
-4. Sostituire **tenantinuso** con il nome dell'account tenant di Azure in **PublicPolicyUri**.
+4. Sostituire **yourtenant** con il nome dell'account tenant di Azure in **PublicPolicyUri**.
 
-5. In **BasePolicy**, in **TenantId**, sostituire anche **tenantinuso** con il nome dell'account tenant di Azure.
+5. In **BasePolicy** in **TenantId** sostituire **anche il** tenant con il nome dell'account tenant di Azure.
 
 6. **Salvare** il file.
 
 ### <a name="upload-your-custom-policies-to-azure-ad-b2c"></a>Caricare i criteri personalizzati in Azure AD B2C
 
-1. Aprire la Home page del [tenant Azure ad B2C](https://portal.azure.com/#blade/Microsoft_AAD_B2CAdmin/TenantManagementMenuBlade/overview) .
+1. Aprire la home [Azure AD B2C tenant.](https://portal.azure.com/#blade/Microsoft_AAD_B2CAdmin/TenantManagementMenuBlade/overview)
 
 2. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 
 3. Selezionare **Carica criteri personalizzati**.
 
-4. Selezionare il file **TrustFrameworkBase.xml** modificato.
+4. Selezionare il **TrustFrameworkBase.xml** file modificato.
 
-5. Selezionare la casella di controllo **Sovrascrivi il criterio personalizzato se esiste già** .
+5. Selezionare la **casella di controllo Sovrascrivi i criteri** personalizzati se esiste già.
 6. Selezionare **Carica**.
 
-7. Ripetere i passaggi 5 e 6 per **TrustFrameworkExtensions.xml**.
+7. Ripetere i passaggi 5 e 6 **perTrustFrameworkExtensions.xml**.
 
-8. Ripetere i passaggi 5 e 6 per **SignUpOrSignin.xml**.
+8. Ripetere i passaggi 5 e 6 **perSignUpOrSignin.xml**.
 
 ## <a name="test-the-user-flow"></a>Testare il flusso utente
 
-### <a name="test-account-creation-and-nevis-access-app-setup"></a>Creazione dell'account di test e configurazione dell'app Access Nevis
+### <a name="test-account-creation-and-nevis-access-app-setup"></a>Testare la creazione dell'account e la configurazione dell'app Nevis Access
 
-1. Aprire la Home page del [tenant Azure ad B2C](https://portal.azure.com/#blade/Microsoft_AAD_B2CAdmin/TenantManagementMenuBlade/overview) .
+1. Aprire la home [Azure AD B2C tenant.](https://portal.azure.com/#blade/Microsoft_AAD_B2CAdmin/TenantManagementMenuBlade/overview)
 
 2. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 
-3. Scorrere verso il basso fino a criteri personalizzati e selezionare **B2C_1A_signup_signin**.
+3. Scorrere verso il basso fino a Criteri personalizzati e **selezionare B2C_1A_signup_signin**.
 
 4. Selezionare **Esegui adesso**.
 
-5. Nella finestra popup fare clic **su Iscriviti ora**.
+5. Nella finestra popup selezionare **Iscriviti ora.**
 
 6. Aggiungere l'indirizzo di posta elettronica.
 
@@ -234,39 +234,39 @@ Si riceveranno due messaggi di posta elettronica:
 
 11. Selezionare **Crea**.
 
-12. Si passerà alla pagina di analisi del codice a matrice.
+12. Verrà visualizzata la pagina di analisi del codice a codici a codici.
 
-13. Sul telefono aprire l'app di **Access Nevis**.
+13. Nel telefono aprire **l'app Nevis Access**.
 
-14. Selezionare **ID Face**.
+14. Selezionare **Face ID**.
 
-15. Quando la schermata indica che la **registrazione dell'autenticatore è stata completata**, selezionare **continua**.
+15. Quando la schermata indica che **la registrazione di Authenticator è riuscita,** selezionare **Continua.**
 
-16. Sul telefono, eseguire di nuovo l'autenticazione con la faccia.
+16. Sul telefono eseguire nuovamente l'autenticazione con il viso.
 
-17. Si passerà alla pagina di destinazione [JWT.ms](https://jwt.ms) che Visualizza i dettagli del token decodificato.
+17. Verrà visualizzata la pagina di destinazione [jwt.ms](https://jwt.ms) i dettagli del token decodificato.
 
 ### <a name="test-the-pure-passwordless-sign-in"></a>Testare l'accesso senza password puro
 
-1. In **Framework dell'esperienza di identità** selezionare il **B2C_1A_signup_signin**.
+1. In **Identity Experience Framework** selezionare il **B2C_1A_signup_signin**.
 
 2. Selezionare **Esegui adesso**.
 
-3. Nella finestra popup selezionare autenticazione senza **password**.
+3. Nella finestra popup selezionare **Autenticazione senza password.**
 
 4. Immettere l'indirizzo di posta elettronica.
 
 5. Selezionare **Continua**.
 
-6. Nel telefono, in notifiche, selezionare **Nevis Access notifica app**.
+6. Nel telefono, in Notifiche, selezionare Notifica **dell'app Nevis Access.**
 
-7. Eseguire l'autenticazione con la propria faccia.
+7. Eseguire l'autenticazione con il viso.
 
-8. Verrà automaticamente visualizzata la pagina di destinazione di [JWT.ms](https://jwt.ms) che Visualizza i token.
+8. Verrà visualizzata automaticamente la pagina [jwt.ms](https://jwt.ms) di destinazione in cui vengono visualizzati i token.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere gli articoli seguenti.
+Per altre informazioni, vedere gli articoli seguenti
 
 - [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 

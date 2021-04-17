@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 3a86f0eb88ba0a56f0887d71f649cf9b9d5ec7a3
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 41e93584937ca10740e9ee0be3353d1edf5efb3e
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227263"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587681"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Esercitazione: Creare un progetto di etichettatura per la classificazione delle immagini multi-classe 
 
@@ -210,4 +210,5 @@ Le etichette delle immagini possono essere esportate in [formato COCO](http://co
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare un progetto di etichettatura dei dati ed esportare le etichette](how-to-create-labeling-projects.md).
+> [Eseguire il training di un modello di Machine Learning di riconoscimento delle immagini](/azure/machine-learning/how-to-use-labeled-dataset)
+

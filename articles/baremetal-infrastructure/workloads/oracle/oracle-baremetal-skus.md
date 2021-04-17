@@ -1,15 +1,15 @@
 ---
 title: SKU BareMetal per carichi di lavoro Oracle
-description: Informazioni sugli SKU per i carichi di lavoro oracle BareMetal Infrastructure.
+description: Informazioni sugli SKU per i carichi di lavoro dell'infrastruttura Oracle BareMetal.
 ms.topic: reference
 ms.subservice: workloads
-ms.date: 04/14/2021
-ms.openlocfilehash: 2482f8ed682a982ee3c8c4907e21b4e6c6ebbb4f
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.date: 04/15/2021
+ms.openlocfilehash: 42ff26b9ea9bcc022f1ddbf3dddcb041b2cea3a2
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107559092"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588854"
 ---
 # <a name="baremetal-skus-for-oracle-workloads"></a>SKU BareMetal per carichi di lavoro Oracle
 
@@ -19,11 +19,11 @@ L'infrastruttura BareMetal per gli SKU Oracle va da due socket fino a quattro so
  
 | **Hardware certificato**  **Oracle** | **Modello** | **Memoria totale** | **Archiviazione** | **Disponibilità** |
 | --- | --- | --- | --- | --- |
-| YES | SAP HANA in Azure S32m- 2 x Intel® Xeon® processori I623416 core CPU e 32 thread CPU | 1,5 TB | --- | Disponibile |
-| YES | SAP HANA in Azure S64m- 4 x Intel® Xeon® processori I623432 core CPU e 64 thread CPU | 3 TB | --- | Disponibile |
-| YES | SAP HANA in Azure S96- 2 x Intel® Xeon® processori E7-8890 v448 core CPU e 96 thread CPU | 768 GB | 3 TB | Disponibile |
-| YES | SAP HANA in Azure S224 - 4 x Intel® Xeon® processore Platinum 8276 112 core CPU e 224 thread CPU | 3 TB | 6,3 TB | Disponibile |
-| YES | SAP HANA su Azure S224m– 4 x Intel® Xeon® processore Platinum 8276 112 core CPU e 224 thread CPU | 6 TB | 10,5 TB | Disponibile |
+| YES | SAP HANA su Azure S32m- 2 x Intel® Xeon® processore I6234 con 16 core CPU e 32 thread CPU | 1,5 TB | --- | Disponibile |
+| YES | SAP HANA su Azure S64m- 4 x Intel® Xeon® processore I6234 con 32 core CPU e 64 thread CPU | 3 TB | --- | Disponibile |
+| YES | SAP HANA su Azure S96- 2 x Intel® Xeon® E7-8890 v4 Processor 48 core CPU e 96 thread CPU | 768 GB | 3 TB | Disponibile |
+| YES | SAP HANA su Azure S224 - 4 x Intel® Xeon® processore Platinum 8276 112 core CPU e 224 thread CPU | 3 TB | 6,3 TB | Disponibile |
+| YES | SAP HANA su Azure S224m– 4 x Intel® Xeon® processori Platinum 8276 112 core CPU e 224 thread CPU | 6 TB | 10,5 TB | Disponibile |
 
 - Core CPU = somma dei core CPU non hyper-threaded (numero totale di processori fisici) dell'unità server. 
 - Thread CPU = somma dei thread di calcolo forniti dai core CPU con hyperthread (il numero totale di processori logici) dell'unità server. Per impostazione predefinita, la maggior parte delle unità sono configurate per l'uso di Hyper-Threading Technology.
