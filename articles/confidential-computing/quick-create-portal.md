@@ -2,18 +2,20 @@
 title: 'Avvio rapido: Creare una macchia virtuale di confidential computing di Azure nel portale di Azure'
 description: Informazioni su come creare rapidamente una macchina virtuale di confidential computing nel portale di Azure per avviare le distribuzioni.
 author: JBCook
+ms.author: JenCook
+ms.date: 04/23/2020
+ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
-ms.topic: quickstart
-ms.date: 04/23/2020
-ms.author: JenCook
-ms.openlocfilehash: 3f0984acd66bd5d6c148be8451938d3152fb9ca7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: f43229570f6bab942cc57a2ea3be163d37f02f89
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566669"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536170"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Avvio rapido: Distribuire una macchina virtuale di confidential computing di Azure nel portale di Azure
 
@@ -148,7 +150,7 @@ Per altre informazioni sulla connessione alle VM Linux, vedere l'articolo su com
 
 Seguire le istruzioni dettagliate per installare [OE SDK](https://github.com/openenclave/openenclave) nella macchina virtuale serie DCsv2 che esegue un'immagine Ubuntu 18.04 LTS Gen 2. 
 
-Se la macchina virtuale è in esecuzione in Ubuntu 16.04 LTS Gen 2, è necessario seguire le [istruzioni per l'installazione di Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md).
+Se la macchina virtuale viene eseguita in Ubuntu 18.04 LTS Gen 2, è necessario seguire le istruzioni di installazione per [Ubuntu 18.04.](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
 
 #### <a name="1-configure-the-intel-and-microsoft-apt-repositories"></a>1. Configurare i repository Intel e Microsoft APT
 

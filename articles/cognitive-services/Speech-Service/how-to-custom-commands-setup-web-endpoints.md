@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6f2dfdbb5833b34441b4abba7359ad70c4717d1d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95f27827950c5ed38caa1f83ede266afb57a1697
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98602164"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515635"
 ---
 # <a name="set-up-web-endpoints"></a>Configurare endpoint Web
 
@@ -27,13 +27,118 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
 - Integrare la risposta degli endpoint Web in un payload JSON personalizzato, inviarla e visualizzarla in un'applicazione client Speech SDK della piattaforma UWP in C#
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 > * Una chiave di sottoscrizione di Azure per il servizio Voce: È possibile [ottenerne una gratuitamente](overview.md#try-the-speech-service-for-free) o crearla nel [portale di Azure](https://portal.azure.com)
 > * Un'[app di comandi personalizzati creata](quickstart-custom-commands-application.md) in precedenza
 > * Un'app client abilitata per Speech SDK: [Procedura: Inviare attività a un'applicazione client](./how-to-custom-commands-setup-speech-sdk.md)
 
-## <a name="setup-web-endpoints"></a>Configurare gli endpoint Web
+## <a name="deploy-an-external-web-endpoint-using-azure-function-app"></a>Distribuire un endpoint Web esterno usando l'app per le funzioni di Azure
+
+* Ai fini di questa esercitazione, è necessario un endpoint HTTP che mantenga gli stati per tutti i dispositivi impostati nel comando **TurnOnOff** dell'applicazione di comandi personalizzati.
+
+* Se si ha già un endpoint Web che si vuole chiamare, passare alla [sezione successiva.](#setup-web-endpoints-in-custom-commands) In alternativa, nella sezione successiva è stato fornito un endpoint Web ospitato predefinito che è possibile usare se si vuole ignorare questa sezione.
+
+### <a name="input-format-of-azure-function"></a>Formato di input della funzione di Azure
+* Successivamente, si distribuirà un endpoint [usando Funzioni di Azure](../../azure-functions/index.yml).
+Di seguito è riportato il formato generale di comandi personalizzati evento che viene passato alla funzione di Azure. Usare queste informazioni quando si scrive l'app per le funzioni.
+
+    ```json
+    {
+      "conversationId": "string",
+      "currentCommand": {
+        "name": "string",
+        "parameters": {
+          "SomeParameterName": "string",
+          "SomeOtherParameterName": "string"
+        }
+      },
+      "currentGlobalParameters": {
+          "SomeGlobalParameterName": "string",
+          "SomeOtherGlobalParameterName": "string"
+      }
+    }
+    ```
+
+    
+* Di seguito sono esaminati gli attributi chiave di questo input:
+        
+    | Attributo | Spiegazione |
+    | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
+    | **conversationId** | Identificatore univoco della conversazione. Si noti che questo ID può essere generato dall'app client. |
+    | **currentCommand** | Comando attualmente attivo nella conversazione. |
+    | **nome** | Nome del comando. `parameters`L'attributo è una mappa con i valori correnti dei parametri. |
+    | **currentGlobalParameters** | Mappa come `parameters` , ma usata per i parametri globali. |
+
+
+* Per la funzione di Azure **DeviceState,** un esempio comandi personalizzati'evento sarà simile al seguente. Questo fungerà da **input per** l'app per le funzioni.
+    
+    ```json
+    {
+      "conversationId": "someConversationId",
+      "currentCommand": {
+        "name": "TurnOnOff",
+        "parameters": {
+          "item": "tv",
+          "value": "on"
+        }
+      }
+    }
+    ```
+
+### <a name="output-format-of-azure-function"></a>Formato di output della funzione di Azure
+
+#### <a name="output-consumed-by-a-custom-commands--application"></a>Output utilizzato da un'comandi personalizzati applicazione
+In questo caso è possibile impostare il formato di output deve essere conforme al formato seguente. Per [altri dettagli, vedere Aggiornare un comando](./how-to-custom-commands-update-command-from-web-endpoint.md) da un endpoint Web.
+
+```json
+{
+  "updatedCommand": {
+    "name": "SomeCommandName",
+    "updatedParameters": {
+      "SomeParameterName": "SomeParameterValue"
+    },
+    "cancel": false
+  },
+  "updatedGlobalParameters": {
+    "SomeGlobalParameterName": "SomeGlobalParameterValue"
+  }
+}
+```
+
+#### <a name="output-consumed-by-a-client-application"></a>Output utilizzato da un'applicazione client
+In questo caso è possibile impostare il formato di output in base alle esigenze del client.
+* Per **l'endpoint DeviceState,** l'output della funzione di Azure viene utilizzato da un'applicazione client anziché dall'comandi personalizzati predefinita. **L'output** di esempio della funzione di Azure dovrebbe essere simile al seguente:
+    
+    ```json
+    {
+      "TV": "on",
+      "Fan": "off"
+    }
+    ``` 
+
+*  Inoltre, questo output deve essere scritto in una archiviazione esterna, in modo che sia possibile mantenere di conseguenza lo stato dei dispositivi. Lo stato di archiviazione esterno verrà usato nella sezione [Integrare con l'applicazione client](#integrate-with-client-application).
+
+
+### <a name="host-azure-function"></a>Ospitare una funzione di Azure
+
+1. Creare un account di archiviazione tabelle per salvare lo stato del dispositivo.
+    1. Passare a portale di Azure e creare una nuova risorsa di tipo **Account di archiviazione** in base al nome **devicestate.**
+        1. Copiare il **valore stringa di** connessione da **devicestate -> chiavi di accesso**.
+        1. Sarà necessario aggiungere questa stringa al codice dell'app per le funzioni di esempio scaricato.
+    1. Scaricare il codice [dell'app per le funzioni di esempio](https://aka.ms/speech/cc-function-app-sample).
+    1. Aprire la soluzione scaricata in Visual Studio 2019. Nel file **Connections.jsin** sostituire **STORAGE_ACCOUNT_SECRET_CONNECTION_STRING** valore con il segreto copiato dal *passaggio a*.
+1.  Scaricare il **codice DeviceStateAzureFunction.**
+1. [Distribuire l'app](../../azure-functions/index.yml) per le funzioni in Azure.
+    
+    1.  Attendere che la distribuzione riesca e passare alla risorsa distribuita nel portale di Azure. 
+    1. Selezionare **Funzioni** nel riquadro sinistro e quindi **Selezionare DeviceState.**
+    1.  Nella nuova finestra selezionare **Code + Test** e quindi Selezionare Get function URL **(Ottieni URL funzione).**
+ 
+## <a name="setup-web-endpoints-in-custom-commands"></a>Configurare gli endpoint Web in comandi personalizzati
+Associare la funzione di Azure all'applicazione comandi personalizzati esistente.
+In questa sezione si userà un endpoint **DeviceState predefinito** esistente. Se è stato creato un endpoint Web personalizzato usando la funzione di Azure o in caso contrario, usare invece del valore predefinito https://webendpointexample.azurewebsites.net/api/DeviceState .
 
 1. Aprire l'applicazione di comandi personalizzati creata in precedenza.
 1. Passare a "Web endpoint" (Endpoint Web) e fare clic su "New web endpoint" (Nuovo endpoint Web).
@@ -49,7 +154,7 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
    | Intestazioni | Chiave: app, Valore: usare le prime 8 cifre dell'ID applicazione | I parametri dell'intestazione da includere nell'intestazione della richiesta.|
 
     > [!NOTE]
-    > - L'endpoint Web di esempio, creato con [Funzioni di Azure](../../azure-functions/index.yml), si collega al database e salva lo stato dispositivo della TV e del ventilatore
+    > - L'endpoint Web di esempio creato con la funzione [di Azure](../../azure-functions/index.yml), che si collega al database che salva lo stato del dispositivo della tv e della ventola
     > - L'intestazione suggerita è necessaria solo per l'endpoint di esempio
     > - Per assicurarsi che il valore dell'intestazione sia univoco nell'endpoint di esempio, usare le prime 8 cifre dell'ID applicazione
     > - Nella realtà, l'endpoint Web può essere l'endpoint per l'[hub IoT](../../iot-hub/about-iot-hub.md) che gestisce i dispositivi
@@ -79,7 +184,7 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
     In **Simple editor** (Editor semplice) immettere `{SubjectDevice} is {OnOff}`.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot che mostra la schermata in seguito alla riuscita-azione da eseguire.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Screenshot che mostra la schermata In esito positivo - Azione da eseguire.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Impostazione | Valore consigliato | Descrizione |
    | ------- | --------------- | ----------- |
@@ -107,7 +212,7 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
 - Risposta in caso di esito positivo\
 Salvare, eseguire il training e testare
    > [!div class="mx-imgBorder"]
-   > ![Screenshot che mostra l'esito positivo della risposta.](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![Screenshot che mostra la risposta In esito positivo.](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - Risposta in caso di esito negativo\
 Rimuovere uno dei parametri di query, salvare, ripetere il training e testare
    > [!div class="mx-imgBorder"]
@@ -115,7 +220,7 @@ Rimuovere uno dei parametri di query, salvare, ripetere il training e testare
 
 ## <a name="integrate-with-client-application"></a>Integrazione con l'applicazione client
 
-In [Procedura: Inviare attività all'applicazione client (anteprima)](./how-to-custom-commands-send-activity-to-client.md) è stata aggiunta un'azione **Send activity to client** (Invia attività a client). L'attività viene inviata all'applicazione client indipendentemente dall'esito positivo o negativo dell'azione **Call Web endpoint** (Chiamata a endpoint Web).
+In [Procedura: Inviare un'attività all'applicazione client](./how-to-custom-commands-send-activity-to-client.md)è stata aggiunta **un'azione Invia attività al client.** L'attività viene inviata all'applicazione client indipendentemente dall'esito positivo o negativo dell'azione **Call Web endpoint** (Chiamata a endpoint Web).
 Tuttavia, nella maggior parte dei casi è preferibile che l'attività venga inviata all'applicazione client solo quando la chiamata all'endpoint Web ha esito positivo. In questo esempio si tratta del momento in cui lo stato del dispositivo viene aggiornato correttamente.
 
 1. Eliminare l'azione **Send activity to client** (Invia attività a client) aggiunta in precedenza.
@@ -205,5 +310,5 @@ Se l'app è stata testata con `turn on tv` nella sezione precedente, lo stato de
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esporta l'applicazione comandi personalizzati come abilità remota](./how-to-custom-commands-integrate-remote-skills.md)
+> [Esportare comandi personalizzati'applicazione come competenza remota](./how-to-custom-commands-integrate-remote-skills.md)
 

@@ -75,13 +75,15 @@ items:
             href: manage-integration-runtimes.md
           - name: Risolvere i problemi di connessione
             href: troubleshoot-connections.md
+          - name: Regole del modello di set di risorse
+            href: how-to-resource-set-pattern-rules.md
           - name: Origini
             items:
               - name: Gestire le origini dati
                 href: manage-data-sources.md
               - name: Panoramica dei connettori di Purview
                 href: purview-connector-overview.md
-              - name: Origine multipla di Azure
+              - name: Più origini di Azure
                 href: register-scan-azure-multiple-sources.md
               - name: Azure Synapse Analytics (area di lavoro)
                 href: register-scan-synapse-workspace.md
@@ -180,11 +182,11 @@ items:
     items:
       - name: Classificazioni supportate
         href: supported-classifications.md
-      - name: Guida alla distribuzione delle funzioni ABAP
+      - name: Guida alla distribuzione della funzione ABAP
         href: abap-functions-deployment-guide.md
   - name: Risorse
     items:
-      - name: Commenti e suggerimenti sulla funzionalità (Voce utente)
+      - name: Feedback delle funzionalità (User voice)
         href: 'https://feedback.azure.com/forums/932437-azure-purview'
       - name: Calcolatore prezzi
         href: 'https://azure.microsoft.com/pricing/details/azure-purview/'

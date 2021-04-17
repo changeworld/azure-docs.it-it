@@ -1,28 +1,28 @@
 ---
-title: Test case per test Toolkit
-description: Descrive i test eseguiti da ARM template test Toolkit.
+title: Test case per il toolkit di test
+description: Descrive i test eseguiti dal toolkit di test dei modelli di Arm.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 04/12/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 31e30b4853da03e28a4a2d15292050805f5bc292
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 7805d6dbdb8b93968a2792ed6dfaf2ac8fea9ae5
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064147"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363394"
 ---
-# <a name="default-test-cases-for-arm-template-test-toolkit"></a>Test case predefiniti per ARM template test Toolkit
+# <a name="default-test-cases-for-arm-template-test-toolkit"></a>Test case predefiniti per il toolkit di test del modello di Arm
 
-Questo articolo descrive i test predefiniti che vengono eseguiti con il [Toolkit di test del modello](test-toolkit.md) per i modelli di Azure Resource Manager (modelli ARM). Fornisce esempi che superano o non superano il test. Include il nome di ogni test. Per eseguire un test specifico, vedere [parametri di test](test-toolkit.md#test-parameters).
+Questo articolo descrive i test predefiniti che vengono eseguiti con il toolkit di [test](test-toolkit.md) del modello per i Azure Resource Manager (modelli arm). Fornisce esempi che superano o non superano il test. Include il nome di ogni test. Per eseguire un test specifico, vedere [Parametri di test.](test-toolkit.md#test-parameters)
 
-## <a name="use-correct-schema"></a>Usa schema corretto
+## <a name="use-correct-schema"></a>Usare lo schema corretto
 
-Nome test: lo **schema DeploymentTemplate è corretto**
+Nome test: **Schema DeploymentTemplate corretto**
 
 Nel modello è necessario specificare un valore di schema valido.
 
-Nell'esempio seguente viene **passato** questo test.
+Nell'esempio seguente **viene superato** questo test.
 
 ```json
 {
@@ -33,7 +33,7 @@ Nell'esempio seguente viene **passato** questo test.
 }
 ```
 
-È necessario impostare la proprietà dello schema nel modello su uno degli schemi seguenti:
+La proprietà dello schema nel modello deve essere impostata su uno degli schemi seguenti:
 
 * `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`
 * `https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`
@@ -43,11 +43,11 @@ Nell'esempio seguente viene **passato** questo test.
 
 ## <a name="parameters-must-exist"></a>I parametri devono esistere
 
-Nome test: la **Proprietà Parameters deve esistere**
+Nome test: **La proprietà Parameters deve esistere**
 
-Il modello deve avere un elemento Parameters. I parametri sono essenziali per rendere i modelli riutilizzabili in ambienti diversi. Aggiungere parametri al modello per i valori che cambiano quando si esegue la distribuzione in ambienti diversi.
+Il modello deve avere un elemento parameters. I parametri sono essenziali per rendere i modelli riutilizzabili in ambienti diversi. Aggiungere parametri al modello per i valori che cambiano durante la distribuzione in ambienti diversi.
 
-L'esempio seguente **supera** il test:
+L'esempio seguente **supera** questo test:
 
 ```json
 {
@@ -65,23 +65,23 @@ L'esempio seguente **supera** il test:
   ...
 ```
 
-## <a name="declared-parameters-must-be-used"></a>È necessario usare i parametri dichiarati
+## <a name="declared-parameters-must-be-used"></a>I parametri dichiarati devono essere usati
 
-Nome test: **è necessario fare riferimento ai parametri**
+Nome test: è **necessario fare riferimento ai parametri**
 
-Per ridurre la confusione nel modello, eliminare tutti i parametri definiti ma non utilizzati. Questo test trova tutti i parametri che non vengono usati in alcun punto del modello. L'eliminazione di parametri inutilizzati facilita anche la distribuzione del modello perché non è necessario fornire valori non necessari.
+Per ridurre la confusione nel modello, eliminare tutti i parametri definiti ma non usati. Questo test trova tutti i parametri che non vengono usati in nessun punto del modello. L'eliminazione dei parametri inutilizzati semplifica anche la distribuzione del modello perché non è necessario specificare valori non necessari.
 
-## <a name="secure-parameters-cant-have-hardcoded-default"></a>I parametri sicuri non possono avere un valore predefinito hardcoded
+## <a name="secure-parameters-cant-have-hardcoded-default"></a>I parametri protetti non possono avere impostazioni predefinite hardcoded
 
-Nome test: i **parametri della stringa sicura non possono avere valori predefiniti**
+Nome test: **I parametri di stringa sicura non possono avere valori predefiniti**
 
-Non specificare un valore predefinito hardcoded per un parametro sicuro nel modello. Una stringa vuota è corretta per il valore predefinito.
+Non specificare un valore predefinito hard-coded per un parametro sicuro nel modello. Una stringa vuota è valida per il valore predefinito.
 
-Usare i tipi **SecureString** o **SecureObject** nei parametri che contengono valori sensibili, ad esempio le password. Quando un parametro utilizza un tipo protetto, il valore del parametro non viene registrato né archiviato nella cronologia di distribuzione. Questa azione impedisce a un utente malintenzionato di individuare il valore sensibile.
+I tipi **SecureString o SecureObject** vengono utilizzati **nei** parametri che contengono valori sensibili, ad esempio le password. Quando un parametro usa un tipo sicuro, il valore del parametro non viene registrato o archiviato nella cronologia di distribuzione. Questa azione impedisce a un utente malintenzionato di individuare il valore sensibile.
 
-Tuttavia, quando si specifica un valore predefinito, tale valore può essere individuato da chiunque possa accedere al modello o alla cronologia di distribuzione.
+Tuttavia, quando si specifica un valore predefinito, tale valore è individuabile da chiunque possa accedere al modello o alla cronologia di distribuzione.
 
-Nell'esempio seguente viene **superato** il test:
+L'esempio seguente **non supera** questo test:
 
 ```json
 "parameters": {
@@ -92,7 +92,7 @@ Nell'esempio seguente viene **superato** il test:
 }
 ```
 
-L'esempio seguente **supera** il test:
+L'esempio successivo **supera** questo test:
 
 ```json
 "parameters": {
@@ -106,9 +106,9 @@ L'esempio seguente **supera** il test:
 
 Nome test: **DeploymentTemplate non deve contenere URI hardcoded**
 
-Non impostare come hardcoded gli URL di ambiente nel modello. Usare invece la [funzione Environment](template-functions-deployment.md#environment) per ottenere in modo dinamico questi URL durante la distribuzione. Per un elenco degli host URL bloccati, vedere la [test case](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
+Non codificare gli URL dell'ambiente nel modello. Usare invece la funzione [di ambiente per](template-functions-deployment.md#environment) ottenere in modo dinamico questi URL durante la distribuzione. Per un elenco degli host URL bloccati, vedere l'test case [.](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1)
 
-Nell'esempio seguente il test **non viene superato** perché l'URL è hardcoded.
+L'esempio seguente **non supera** questo test perché l'URL è hardcoded.
 
 ```json
 "variables":{
@@ -116,7 +116,7 @@ Nell'esempio seguente il test **non viene superato** perché l'URL è hardcoded.
 }
 ```
 
-Anche il test ha **esito negativo** se usato con [Concat](template-functions-string.md#concat) o [URI](template-functions-string.md#uri).
+Il test ha **esito negativo anche** quando viene usato con [concat](template-functions-string.md#concat) o [uri](template-functions-string.md#uri).
 
 ```json
 "variables":{
@@ -125,7 +125,7 @@ Anche il test ha **esito negativo** se usato con [Concat](template-functions-str
 }
 ```
 
-Nell'esempio seguente viene **passato** questo test.
+Nell'esempio seguente **viene superato** questo test.
 
 ```json
 "variables": {
@@ -133,17 +133,17 @@ Nell'esempio seguente viene **passato** questo test.
 },
 ```
 
-## <a name="location-uses-parameter"></a>Il percorso usa il parametro
+## <a name="location-uses-parameter"></a>La posizione usa il parametro
 
-Nome test: il **percorso non deve essere hardcoded**
+Nome test: **La posizione non deve essere hardcoded**
 
-I modelli devono avere un parametro denominato location. Usare questo parametro per impostare la posizione delle risorse nel modello. Nel modello principale (denominato _azuredeploy.json_ o _mainTemplate.json_), questo parametro può essere impostato come predefinito nella posizione del gruppo di risorse. Nei modelli collegati o annidati il parametro location non deve avere un percorso predefinito.
+I modelli devono avere un parametro denominato location. Usare questo parametro per impostare la posizione delle risorse nel modello. Nel modello principale (denominatoazuredeploy.js _in o_ _mainTemplate.js_ in ), questo parametro può essere impostato sul percorso del gruppo di risorse per impostazione predefinita. Nei modelli collegati o annidati, il parametro location non deve avere un percorso predefinito.
 
-È possibile che agli utenti del modello siano disponibili aree limitate. Quando si codifica il percorso della risorsa, è possibile che agli utenti venga impedito di creare una risorsa in tale area. Gli utenti possono essere bloccati anche se il percorso della risorsa è impostato su `"[resourceGroup().location]"` . Il gruppo di risorse potrebbe essere stato creato in un'area a cui gli altri utenti non possono accedere. A questi utenti viene impedito l'uso del modello.
+Gli utenti del modello potrebbero avere aree limitate disponibili. Quando si codifica a hard code la posizione della risorsa, è possibile che agli utenti venga impedito di creare una risorsa in tale area. Gli utenti potrebbero essere bloccati anche se si imposta il percorso della risorsa su `"[resourceGroup().location]"` . È possibile che il gruppo di risorse sia stato creato in un'area a cui altri utenti non possono accedere. A tali utenti viene impedito di usare il modello.
 
-Se si specifica un parametro location che usa per impostazione predefinita il percorso del gruppo di risorse, gli utenti possono usare il valore predefinito quando è utile, ma anche specificare un percorso diverso.
+Fornendo un parametro di posizione che per impostazione predefinita corrisponde alla posizione del gruppo di risorse, gli utenti possono usare il valore predefinito quando opportuno, ma specificare anche una località diversa.
 
-Nell'esempio seguente il test **non viene superato** perché il percorso della risorsa è impostato su `resourceGroup().location` .
+L'esempio **seguente non** supera questo test perché la posizione nella risorsa è impostata su `resourceGroup().location` .
 
 ```json
 {
@@ -167,7 +167,7 @@ Nell'esempio seguente il test **non viene superato** perché il percorso della r
 }
 ```
 
-Nell'esempio seguente viene usato un parametro location, ma il test **non riesce** perché il parametro location è impostato su una posizione hardcoded.
+L'esempio seguente usa un parametro location ma **non supera** questo test perché il parametro location usa una posizione hardcoded per impostazione predefinita.
 
 ```json
 {
@@ -197,7 +197,7 @@ Nell'esempio seguente viene usato un parametro location, ma il test **non riesce
 }
 ```
 
-In alternativa, creare un parametro che per impostazione predefinita è il percorso del gruppo di risorse, ma consente agli utenti di fornire un valore diverso. Nell'esempio seguente viene **passato** questo test quando il modello viene utilizzato come modello principale.
+Creare invece un parametro che per impostazione predefinita corrisponde alla posizione del gruppo di risorse, ma consente agli utenti di specificare un valore diverso. L'esempio **seguente** supera questo test quando il modello viene usato come modello principale.
 
 ```json
 {
@@ -230,15 +230,15 @@ In alternativa, creare un parametro che per impostazione predefinita è il perco
 }
 ```
 
-Tuttavia, se l'esempio precedente viene usato come modello collegato, il test ha **esito negativo**. Quando viene usato come modello collegato, rimuovere il valore predefinito.
+Tuttavia, se l'esempio precedente viene usato come modello collegato, il test ha **esito negativo.** Se usato come modello collegato, rimuovere il valore predefinito.
 
-## <a name="resources-should-have-location"></a>Le risorse devono avere un percorso
+## <a name="resources-should-have-location"></a>Le risorse devono avere una posizione
 
-Nome test: **le risorse devono avere il percorso**
+Nome test: **Le risorse devono avere una posizione**
 
-Il percorso di una risorsa deve essere impostato su un' [espressione di modello](template-expressions.md) o `global` . L'espressione modello USA in genere il parametro location descritto nel test precedente.
+La posizione di una risorsa deve essere impostata su [un'espressione modello](template-expressions.md) o `global` . L'espressione modello in genere usa il parametro location descritto nel test precedente.
 
-Nell'esempio seguente il test **non viene superato** perché il percorso non è un'espressione o `global` .
+Nell'esempio seguente **il** test ha esito negativo perché il percorso non è un'espressione o `global` .
 
 ```json
 {
@@ -264,7 +264,7 @@ Nell'esempio seguente il test **non viene superato** perché il percorso non è 
 }
 ```
 
-Nell'esempio seguente viene **passato** questo test.
+Nell'esempio seguente **viene superato** questo test.
 
 ```json
 {
@@ -289,7 +289,7 @@ Nell'esempio seguente viene **passato** questo test.
 }
 ```
 
-L'esempio successivo **supera** anche questo test.
+Anche l'esempio successivo **supera** questo test.
 
 ```json
 {
@@ -322,13 +322,13 @@ L'esempio successivo **supera** anche questo test.
 }
 ```
 
-## <a name="vm-size-uses-parameter"></a>Dimensioni macchina virtuale usa parametro
+## <a name="vm-size-uses-parameter"></a>Le dimensioni della macchina virtuale utilizzano il parametro
 
-Nome test: le **dimensioni della macchina virtuale devono essere un parametro**
+Nome test: **le dimensioni della macchina virtuale devono essere un parametro**
 
-Non impostare come hardcoded le dimensioni della macchina virtuale. Fornire un parametro in modo che gli utenti del modello possano modificare le dimensioni della macchina virtuale distribuita.
+Non hardcoded le dimensioni della macchina virtuale. Specificare un parametro in modo che gli utenti del modello possano modificare le dimensioni della macchina virtuale distribuita.
 
-Nell'esempio seguente il test **non viene superato** .
+Nell'esempio seguente il test **ha esito** negativo.
 
 ```json
 "hardwareProfile": {
@@ -336,7 +336,7 @@ Nell'esempio seguente il test **non viene superato** .
 }
 ```
 
-Specificare invece un parametro.
+Fornire invece un parametro .
 
 ```json
 "vmSize": {
@@ -348,7 +348,7 @@ Specificare invece un parametro.
 },
 ```
 
-Quindi, impostare le dimensioni della macchina virtuale su tale parametro.
+Impostare quindi le dimensioni della macchina virtuale su tale parametro.
 
 ```json
 "hardwareProfile": {
@@ -356,13 +356,13 @@ Quindi, impostare le dimensioni della macchina virtuale su tale parametro.
 },
 ```
 
-## <a name="min-and-max-values-are-numbers"></a>I valori min e Max sono numeri
+## <a name="min-and-max-values-are-numbers"></a>I valori minimi e massimi sono numeri
 
-Nome test: il **valore minimo e massimo sono numeri**
+Nome test: **i valori minimo e massimo sono numeri**
 
-Se si definiscono i valori min e Max per un parametro, specificarli come numeri.
+Se si definiscono i valori min e max per un parametro, specificarli come numeri.
 
-Nell'esempio seguente viene **superato** il test:
+L'esempio seguente **non supera** questo test:
 
 ```json
 "exampleParameter": {
@@ -372,7 +372,7 @@ Nell'esempio seguente viene **superato** il test:
 },
 ```
 
-Specificare invece i valori come numeri. L'esempio seguente **supera** il test:
+Specificare invece i valori come numeri. L'esempio seguente **supera** questo test:
 
 ```json
 "exampleParameter": {
@@ -384,34 +384,34 @@ Specificare invece i valori come numeri. L'esempio seguente **supera** il test:
 
 Questo avviso viene visualizzato anche se si specifica un valore minimo o massimo, ma non l'altro.
 
-## <a name="artifacts-parameter-defined-correctly"></a>Parametro degli artefatti definito correttamente
+## <a name="artifacts-parameter-defined-correctly"></a>Parametro Artifacts definito correttamente
 
-Nome test: **parametro artefatti**
+Nome test: **parametro artifacts**
 
-Quando si includono parametri per `_artifactsLocation` e `_artifactsLocationSasToken` , utilizzare i tipi e le impostazioni predefinite corretti. Per superare il test, è necessario che siano soddisfatte le condizioni seguenti:
+Quando si includono parametri per `_artifactsLocation` e , usare i valori predefiniti e i tipi `_artifactsLocationSasToken` corretti. Per superare questo test, è necessario che siano soddisfatte le condizioni seguenti:
 
-* Se si specifica un parametro, è necessario fornire l'altro
+* Se si specifica un parametro, è necessario specificare l'altro parametro
 * `_artifactsLocation` deve essere una **stringa**
 * `_artifactsLocation` deve avere un valore predefinito nel modello principale
-* `_artifactsLocation` non è possibile avere un valore predefinito in un modello annidato
-* `_artifactsLocation` deve avere `"[deployment().properties.templateLink.uri]"` o l'URL del repository non elaborato per il valore predefinito
-* `_artifactsLocationSasToken` deve essere un oggetto **secureString**
+* `_artifactsLocation` non può avere un valore predefinito in un modello annidato
+* `_artifactsLocation` deve avere o `"[deployment().properties.templateLink.uri]"` l'URL del repo non elaborato per il valore predefinito
+* `_artifactsLocationSasToken` deve essere **secureString**
 * `_artifactsLocationSasToken` può avere solo una stringa vuota per il valore predefinito
-* `_artifactsLocationSasToken` non è possibile avere un valore predefinito in un modello annidato
+* `_artifactsLocationSasToken` non può avere un valore predefinito in un modello annidato
 
-## <a name="declared-variables-must-be-used"></a>È necessario usare le variabili dichiarate
+## <a name="declared-variables-must-be-used"></a>Le variabili dichiarate devono essere usate
 
-Nome test: **è necessario fare riferimento alle variabili**
+Nome test: è **necessario fare riferimento alle variabili**
 
-Per ridurre la confusione nel modello, eliminare tutte le variabili definite ma non utilizzate. Questo test trova le variabili che non vengono usate in alcun punto del modello.
+Per ridurre la confusione nel modello, eliminare tutte le variabili definite ma non usate. Questo test trova tutte le variabili che non vengono usate in alcun punto del modello.
 
-## <a name="dynamic-variable-should-not-use-concat"></a>La variabile dinamica non deve usare Concat
+## <a name="dynamic-variable-should-not-use-concat"></a>La variabile dinamica non deve usare concat
 
-Nome test: i **riferimenti a variabili dinamiche non devono usare Concat**
+Nome test: **i riferimenti a variabili dinamiche non devono usare Concat**
 
-In alcuni casi è necessario costruire dinamicamente una variabile in base al valore di un'altra variabile o parametro. Non usare la funzione [Concat](template-functions-string.md#concat) durante l'impostazione del valore. Usare invece un oggetto che include le opzioni disponibili e ottenere dinamicamente una delle proprietà dall'oggetto durante la distribuzione.
+In alcuni casi è necessario costruire dinamicamente una variabile in base al valore di un'altra variabile o parametro. Non usare la funzione [concat](template-functions-string.md#concat) quando si imposta il valore. Usare invece un oggetto che include le opzioni disponibili e ottenere dinamicamente una delle proprietà dall'oggetto durante la distribuzione.
 
-Nell'esempio seguente viene **passato** questo test. La variabile **currentImage** viene impostata in modo dinamico durante la distribuzione.
+Nell'esempio seguente **viene superato** questo test. La **variabile currentImage** viene impostata dinamicamente durante la distribuzione.
 
 ```json
 {
@@ -447,19 +447,19 @@ Nell'esempio seguente viene **passato** questo test. La variabile **currentImage
 }
 ```
 
-## <a name="use-recent-api-version"></a>USA versione API recente
+## <a name="use-recent-api-version"></a>Usare la versione recente dell'API
 
-Nome test: **ApiVersions dovrebbe essere recente**
+Nome test: **apiVersions Should Be Recent**
 
-La versione dell'API per ogni risorsa deve usare una versione recente. Il test valuta la versione usata per le versioni disponibili per quel tipo di risorsa.
+La versione dell'API per ogni risorsa deve usare una versione recente. Il test valuta la versione in uso rispetto alle versioni disponibili per il tipo di risorsa.
 
-## <a name="use-hardcoded-api-version"></a>Usa la versione dell'API hardcoded
+## <a name="use-hardcoded-api-version"></a>Usare la versione dell'API hardcoded
 
-Nome del test: i **provider ApiVersions non sono consentiti**
+Nome test: **Provider apiVersions non consentito**
 
-La versione dell'API per un tipo di risorsa determina quali proprietà sono disponibili. Specificare una versione dell'API hardcoded nel modello. Non recuperare una versione dell'API che viene determinata durante la distribuzione. Non si sa quali proprietà sono disponibili.
+La versione dell'API per un tipo di risorsa determina le proprietà disponibili. Specificare una versione dell'API hard-coded nel modello. Non recuperare una versione dell'API determinata durante la distribuzione. Non si saprà quali proprietà sono disponibili.
 
-Nell'esempio seguente il test **non viene superato** .
+L'esempio seguente **ha esito negativo** per questo test.
 
 ```json
 "resources": [
@@ -471,7 +471,7 @@ Nell'esempio seguente il test **non viene superato** .
 ]
 ```
 
-Nell'esempio seguente viene **passato** questo test.
+Nell'esempio seguente **viene superato** questo test.
 
 ```json
 "resources": [
@@ -485,22 +485,22 @@ Nell'esempio seguente viene **passato** questo test.
 
 ## <a name="properties-cant-be-empty"></a>Le proprietà non possono essere vuote
 
-Nome test: il **modello non deve contenere spazi vuoti**
+Nome test: **il modello non deve contenere spazi vuoti**
 
-Non impostare come hardcoded le proprietà su un valore vuoto. I valori vuoti includono stringhe null e vuote, oggetti o matrici. Se è stata impostata una proprietà su un valore vuoto, rimuovere tale proprietà dal modello. Tuttavia, è accettabile impostare una proprietà su un valore vuoto durante la distribuzione, ad esempio tramite un parametro.
+Non impostare come hardcoded le proprietà in un valore vuoto. I valori vuoti includono stringhe, oggetti o matrici null e vuoti. Se una proprietà è stata impostata su un valore vuoto, rimuoverla dal modello. Tuttavia, è possibile impostare una proprietà su un valore vuoto durante la distribuzione, ad esempio tramite un parametro .
 
-## <a name="use-resource-id-functions"></a>Usare le funzioni di ID risorsa
+## <a name="use-resource-id-functions"></a>Usare le funzioni id risorsa
 
-Nome test: gli **ID devono essere derivati da ResourceIDs**
+Nome test: **gli ID devono essere derivati dagli ID risorsa**
 
-Quando si specifica un ID risorsa, usare una delle funzioni ID risorsa. Le funzioni consentite sono:
+Quando si specifica un ID risorsa, usare una delle funzioni id risorsa. Le funzioni consentite sono:
 
 * [resourceId](template-functions-resource.md#resourceid)
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 * [extensionResourceId](template-functions-resource.md#extensionresourceid)
 
-Non usare la funzione concat per creare un ID risorsa. Nell'esempio seguente il test **non viene superato** .
+Non usare la funzione concat per creare un ID risorsa. L'esempio seguente **non supera** questo test.
 
 ```json
 "networkSecurityGroup": {
@@ -508,7 +508,7 @@ Non usare la funzione concat per creare un ID risorsa. Nell'esempio seguente il 
 }
 ```
 
-L'esempio successivo **supera** questo test.
+L'esempio seguente **supera** questo test.
 
 ```json
 "networkSecurityGroup": {
@@ -516,13 +516,13 @@ L'esempio successivo **supera** questo test.
 }
 ```
 
-## <a name="resourceid-function-has-correct-parameters"></a>La funzione ResourceId presenta parametri corretti
+## <a name="resourceid-function-has-correct-parameters"></a>La funzione ResourceId ha parametri corretti
 
-Nome del test: **ResourceIds non deve contenere**
+Nome test: **ResourceIds non deve contenere**
 
-Quando si generano gli ID risorsa, non usare funzioni superflue per i parametri facoltativi. Per impostazione predefinita, la funzione [resourceId](template-functions-resource.md#resourceid) usa la sottoscrizione e il gruppo di risorse correnti. Non è necessario specificare tali valori.
+Quando si generano ID risorsa, non usare funzioni non necessarie per i parametri facoltativi. Per impostazione predefinita, la [funzione resourceId](template-functions-resource.md#resourceid) usa la sottoscrizione e il gruppo di risorse correnti. Non è necessario specificare tali valori.
 
-Nell'esempio seguente il test **non viene superato** perché non è necessario fornire l'ID sottoscrizione corrente e il nome del gruppo di risorse.
+L'esempio seguente **non** supera questo test perché non è necessario specificare l'ID sottoscrizione corrente e il nome del gruppo di risorse.
 
 ```json
 "networkSecurityGroup": {
@@ -530,7 +530,7 @@ Nell'esempio seguente il test **non viene superato** perché non è necessario f
 }
 ```
 
-L'esempio successivo **supera** questo test.
+L'esempio seguente **supera** questo test.
 
 ```json
 "networkSecurityGroup": {
@@ -547,15 +547,15 @@ Questo test si applica a:
 * [reference](template-functions-resource.md#reference)
 * [list*](template-functions-resource.md#list)
 
-Per `reference` e `list*` , il test ha **esito negativo** quando si usa `concat` per costruire l'ID risorsa.
+Per `reference` e , il test ha esito `list*` **negativo** quando si usa per `concat` costruire l'ID risorsa.
 
-## <a name="dependson-best-practices"></a>procedure consigliate per dependsOn
+## <a name="dependson-best-practices"></a>Procedure consigliate per dependsOn
 
-Nome test: **DependsOn Best Practices**
+Nome test: **Procedure consigliate dependsOn**
 
-Quando si impostano le dipendenze di distribuzione, non usare la funzione [if](template-functions-logical.md#if) per testare una condizione. Se una risorsa dipende da una risorsa [distribuita in modo condizionale](conditional-resource-deployment.md), impostare la dipendenza come si farebbe con qualsiasi risorsa. Quando una risorsa condizionale non viene distribuita, Azure Resource Manager la rimuove automaticamente dalle dipendenze richieste.
+Quando si impostano le dipendenze di distribuzione, non usare la [funzione if](template-functions-logical.md#if) per testare una condizione. Se una risorsa dipende da una risorsa distribuita in [modo condizionale,](conditional-resource-deployment.md)impostare la dipendenza come si farebbe con qualsiasi risorsa. Quando una risorsa condizionale non viene distribuita, Azure Resource Manager automaticamente dalle dipendenze necessarie.
 
-Nell'esempio seguente il test **non viene superato** .
+Nell'esempio seguente il test **ha esito** negativo.
 
 ```json
 "dependsOn": [
@@ -573,17 +573,17 @@ L'esempio successivo **supera** questo test.
 
 ## <a name="nested-or-linked-deployments-cant-use-debug"></a>Le distribuzioni nidificate o collegate non possono usare il debug
 
-Nome test: **le risorse di distribuzione non devono essere debug**
+Nome test: **Le risorse di distribuzione non devono essere di debug**
 
-Quando si definisce un [modello annidato o collegato](linked-templates.md) con il tipo di risorsa **Microsoft. resources/Deployments** , è possibile abilitare il debug per quel modello. Il debug è corretto quando è necessario eseguire il test del modello, ma deve essere attivato quando si è pronti a usare il modello nell'ambiente di produzione.
+Quando si definisce un [modello annidato](linked-templates.md) o collegato con il tipo di risorsa **Microsoft.Resources/deployments,** è possibile abilitare il debug per tale modello. Il debug va bene quando è necessario testare il modello, ma deve essere attivato quando si è pronti per usare il modello nell'ambiente di produzione.
 
 ## <a name="admin-user-names-cant-be-literal-value"></a>I nomi utente amministratore non possono essere valori letterali
 
-Nome test: **con valori AdminUsername non deve essere un valore letterale**
+Nome test: **adminUsername non deve essere un valore letterale**
 
 Quando si imposta un nome utente amministratore, non usare un valore letterale.
 
-Nell'esempio seguente viene **superato** il test:
+L'esempio seguente **non supera** questo test:
 
 ```json
 "osProfile":  {
@@ -591,7 +591,7 @@ Nell'esempio seguente viene **superato** il test:
 },
 ```
 
-Usare invece un parametro. L'esempio seguente **supera** il test:
+Usare invece un parametro . L'esempio seguente **supera** questo test:
 
 ```json
 "osProfile": {
@@ -599,19 +599,19 @@ Usare invece un parametro. L'esempio seguente **supera** il test:
 }
 ```
 
-## <a name="use-latest-vm-image"></a>Usa l'immagine di macchina virtuale più recente
+## <a name="use-latest-vm-image"></a>Usare l'immagine della macchina virtuale più recente
 
-Nome test: le **Immagini di macchina virtuale devono usare la versione più recente**
+Nome test: Le **immagini della macchina virtuale devono usare la versione più recente**
 
-Se il modello include una macchina virtuale con un'immagine, assicurarsi che usi la versione più recente dell'immagine.
+Se il modello include una macchina virtuale con un'immagine, assicurarsi che sia in uso la versione più recente dell'immagine.
 
-## <a name="use-stable-vm-images"></a>Usare immagini di VM stabili
+## <a name="use-stable-vm-images"></a>Usare immagini di macchine virtuali stabili
 
-Nome test: le **macchine virtuali non devono essere in anteprima**
+Nome test: **Le macchine virtuali non devono essere in anteprima**
 
 Le macchine virtuali non devono usare immagini di anteprima.
 
-Nell'esempio seguente il test **non viene superato** .
+L'esempio seguente **non supera** questo test.
 
 ```json
 "imageReference": {
@@ -622,7 +622,7 @@ Nell'esempio seguente il test **non viene superato** .
 }
 ```
 
-Nell'esempio seguente viene **passato** questo test.
+Nell'esempio seguente **viene superato** questo test.
 
 ```json
 "imageReference": {
@@ -635,17 +635,17 @@ Nell'esempio seguente viene **passato** questo test.
 
 ## <a name="dont-use-managedidentity-extension"></a>Non usare l'estensione ManagedIdentity
 
-Nome del test: **ManagedIdentityExtension non deve essere usato**
+Nome test: **ManagedIdentityExtension non deve essere usato**
 
-Non applicare l'estensione ManagedIdentity a una macchina virtuale. Per altre informazioni, vedere [come interrompere l'uso dell'estensione identità gestite della macchina virtuale e iniziare a usare il servizio metadati dell'istanza di Azure](../../active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md).
+Non applicare l'estensione ManagedIdentity a una macchina virtuale. L'estensione è stata deprecata nel 2019 e non deve più essere usata.
 
 ## <a name="outputs-cant-include-secrets"></a>Gli output non possono includere segreti
 
-Nome test: gli **output non devono contenere segreti**
+Nome test: **Gli output non devono contenere segreti**
 
-Non includere alcun valore nella sezione outputs che potenzialmente esponga segreti. L'output di un modello viene archiviato nella cronologia di distribuzione, quindi un utente malintenzionato potrebbe trovare le informazioni.
+Non includere valori nella sezione outputs che espongono potenzialmente segreti. L'output di un modello viene archiviato nella cronologia di distribuzione, in modo che un utente malintenzionato possa trovare queste informazioni.
 
-Nell'esempio seguente viene **superato** il test perché include un parametro sicuro in un valore di output.
+L'esempio seguente **non** supera il test perché include un parametro sicuro in un valore di output.
 
 ```json
 {
@@ -668,7 +668,7 @@ Nell'esempio seguente viene **superato** il test perché include un parametro si
 }
 ```
 
-L'esempio seguente ha **esito negativo** perché usa una funzione [List *](template-functions-resource.md#list) negli output.
+L'esempio **seguente ha** esito negativo perché usa una funzione [list*](template-functions-resource.md#list) negli output.
 
 ```json
 {
@@ -693,14 +693,14 @@ L'esempio seguente ha **esito negativo** perché usa una funzione [List *](templ
 
 ## <a name="use-protectedsettings-for-commandtoexecute-secrets"></a>Usare protectedSettings per i segreti commandToExecute
 
-Nome del test: **CommandToExecute deve usare ProtectedSettings per i segreti**
+Nome test: **CommandToExecute deve usare ProtectedSettings per i segreti**
 
-In un'estensione di script personalizzata usare la proprietà Encrypted `protectedSettings` quando `commandToExecute` include i dati segreti, ad esempio una password. Esempi di tipi di dati Secret sono `secureString` , `secureObject` , `list()` funzioni o script.
+In un'estensione script personalizzata usare la proprietà crittografata quando `protectedSettings` include `commandToExecute` dati segreti, ad esempio una password. Esempi di tipi di dati segreti `secureString` sono , , funzioni o `secureObject` `list()` script.
 
-Per ulteriori informazioni sull'estensione script personalizzata per le macchine virtuali, vedere [Windows](
-/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)e lo schema [Microsoft. Compute virtualMachines/Extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+Per altre informazioni sull'estensione script personalizzata per le macchine virtuali, vedere [Windows](
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux)e lo schema [Microsoft.Compute virtualMachines/extensions.](/azure/templates/microsoft.compute/virtualmachines/extensions)
 
-In questo esempio, un modello con un parametro denominato `adminPassword` e un tipo `secureString` **passa** il test perché la proprietà crittografata `protectedSettings` include `commandToExecute` .
+In questo esempio, un modello con un parametro denominato e il tipo `adminPassword` `secureString` **supera il** test perché la proprietà crittografata `protectedSettings` include `commandToExecute` .
 
 ```json
 "properties": [
@@ -712,7 +712,7 @@ In questo esempio, un modello con un parametro denominato `adminPassword` e un t
 ]
 ```
 
-Il test ha **esito negativo** se la proprietà non crittografata `settings` include `commandToExecute` .
+Il test **ha esito** negativo se la proprietà non crittografata `settings` include `commandToExecute` .
 
 ```json
 "properties": [
@@ -726,5 +726,5 @@ Il test ha **esito negativo** se la proprietà non crittografata `settings` incl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sull'esecuzione del Toolkit di test, vedere [use ARM template test Toolkit](test-toolkit.md).
-* Per un modulo Microsoft Learn che illustra l'uso del Toolkit di test, vedere visualizzare [in anteprima le modifiche e convalidare le risorse di Azure usando simulazione di simulazione e il Toolkit di test del modello ARM](/learn/modules/arm-template-test/).
+* Per informazioni sull'esecuzione del toolkit di test, vedere [Usare il toolkit di test dei modelli di Arm.](test-toolkit.md)
+* Per un Microsoft Learn modulo che illustra l'uso del toolkit di test, vedere Anteprima delle modifiche e convalidare le risorse di Azure usando [what-if](/learn/modules/arm-template-test/)e il toolkit di test del modello di Arm.

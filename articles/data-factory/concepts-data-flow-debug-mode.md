@@ -1,103 +1,105 @@
 ---
-title: Mapping della modalità di debug del flusso di dati
+title: Modalità di debug del flusso di dati di mapping
 description: Avviare una sessione di debug interattivo durante la compilazione di flussi di dati
 ms.author: makromer
 author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/19/2021
-ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/14/2021
+ms.openlocfilehash: ac0e088c587132b32f2112d21bce936eac35dc72
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699760"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515870"
 ---
-# <a name="mapping-data-flow-debug-mode"></a>Mapping della modalità di debug del flusso di dati
+# <a name="mapping-data-flow-debug-mode"></a>Modalità di debug del flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="overview"></a>Panoramica
 
-Azure Data Factory modalità di debug del flusso di dati di mapping consente di controllare in modo interattivo la trasformazione della forma dei dati durante la compilazione e il debug dei flussi di dati. La sessione di debug può essere usata sia nelle sessioni di progettazione del flusso di dati che durante l'esecuzione del debug di pipeline di flussi di dati. Per attivare la modalità di debug, utilizzare il pulsante "debug flusso di dati" nella parte superiore dell'area di progettazione.
+Azure Data Factory modalità di debug del flusso di dati di mapping consente di osservare in modo interattivo la trasformazione della forma dei dati durante la compilazione e il debug dei flussi di dati. La sessione di debug può essere usata sia nelle sessioni Flusso di dati di progettazione sia durante l'esecuzione del debug della pipeline dei flussi di dati. Per attivare la modalità di debug, usare il Flusso di dati **Debug** nella barra superiore dell'area di disegno del flusso di dati o dell'area di disegno della pipeline quando sono presenti attività flusso di dati.
 
-![Dispositivo di scorrimento debug](media/data-flow/debugbutton.png "Dispositivo di scorrimento debug")
+![Dispositivo di scorrimento debug 1](media/data-flow/debugbutton.png "Dispositivo di scorrimento debug")
 
-Una volta acceso il dispositivo di scorrimento, verrà richiesto di selezionare la configurazione del runtime di integrazione che si desidera utilizzare. Se si sceglie AutoResolveIntegrationRuntime, viene attivato un cluster con otto core di calcolo generale con una durata predefinita di 60 minuti. Se si desidera consentire più team inattivi prima del timeout della sessione, è possibile scegliere un'impostazione TTL superiore. Per ulteriori informazioni sui runtime di integrazione del flusso di dati, vedere [prestazioni del flusso di dati](concepts-data-flow-performance.md#ir).
+![Dispositivo di scorrimento debug 2](media/data-flow/debug-button-4.png "Dispositivo di scorrimento debug")
 
-![Esegui debug selezione IR](media/data-flow/debug-new-1.png "Esegui debug selezione IR")
+Quando si attiva il dispositivo di scorrimento, verrà richiesto di selezionare la configurazione del runtime di integrazione da usare. Se si sceglie AutoResolveIntegrationRuntime, verrà riattivato un cluster con otto core di calcolo generale con un tempo di vita predefinito di 60 minuti. Se si vuole consentire un team più inattivo prima del timeout della sessione, è possibile scegliere un'impostazione TTL più alta. Per altre informazioni sui runtime di integrazione del flusso di dati, vedere [Prestazioni del flusso di dati](concepts-data-flow-performance.md#ir).
+
+![Debug della selezione di IR](media/data-flow/debug-new-1.png "Selezione del debug del motore di esecuzione del debug")
 
 Quando la modalità di debug è attivata, il flusso di dati verrà compilato in modo interattivo con un cluster Spark attivo. La sessione verrà chiusa quando si disattiva il debug in Azure Data Factory. È bene tenere conto dei costi orari addebitati da Azure Databricks durante il periodo in cui è attivata la sessione di debug.
 
-Nella maggior parte dei casi, è consigliabile compilare i flussi di dati in modalità di debug, in modo da poter convalidare la logica di business e visualizzare le trasformazioni dei dati prima di pubblicare il lavoro in Azure Data Factory. Usare il pulsante "debug" nel pannello della pipeline per testare il flusso di dati in una pipeline.
+Nella maggior parte dei casi, è consigliabile compilare i flussi di dati in modalità di debug in modo da poter convalidare la logica di business e visualizzare le trasformazioni dei dati prima di pubblicare il lavoro in Azure Data Factory. Usare il pulsante "Debug" nel pannello della pipeline per testare il flusso di dati in una pipeline.
 
 ![Visualizzare le sessioni di debug del flusso di dati](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
 
 > [!NOTE]
-> Ogni sessione di debug avviata da un utente dall'interfaccia utente del browser ADF è una nuova sessione con il proprio cluster Spark. È possibile utilizzare la visualizzazione monitoraggio per le sessioni di debug sopra indicate per visualizzare e gestire le sessioni di debug per Factory. Viene addebitata ogni ora di esecuzione di ogni sessione di debug, inclusa la durata TTL.
+> Ogni sessione di debug avviata da un utente dall'interfaccia utente del browser ADF è una nuova sessione con il proprio cluster Spark. È possibile usare la visualizzazione di monitoraggio per le sessioni di debug precedenti per visualizzare e gestire le sessioni di debug per ogni factory. Viene addebitato ogni ora di esecuzione di ogni sessione di debug, inclusa l'ora TTL.
 
 ## <a name="cluster-status&quot;></a>Stato del cluster
 
-L'indicatore di stato del cluster nella parte superiore dell'area di progettazione viene trasformato in verde quando il cluster è pronto per il debug. Se il cluster è già pronto, l'indicatore verde viene visualizzato quasi immediatamente. Se il cluster non è ancora in esecuzione quando è stata attivata la modalità di debug, il cluster Spark eseguirà un avvio a freddo. L'indicatore verrà ruotato fino a quando l'ambiente non è pronto per il debug interattivo.
+L'indicatore di stato del cluster nella parte superiore dell'area di progettazione diventa verde quando il cluster è pronto per il debug. Se il cluster è già pronto, l'indicatore verde viene visualizzato quasi immediatamente. Se il cluster non era già in esecuzione quando è stata attivata la modalità di debug, il cluster Spark eseguirà un avvio a freddo. L'indicatore verrà ruotato fino a quando l'ambiente non sarà pronto per il debug interattivo.
 
-Al termine del debug, disattivare lo switch di debug in modo che il cluster Spark possa terminare e non verrà più addebitato l'attività di debug.
+Al termine del debug, disattivare l'opzione Debug in modo che il cluster Spark possa terminare e non verrà più fatturata l'attività di debug.
 
 ## <a name=&quot;debug-settings&quot;></a>Impostazioni di debug
 
-Una volta attivata la modalità di debug, è possibile modificare il modo in cui un flusso di dati Visualizza in anteprima i dati. È possibile modificare le impostazioni di debug facendo clic su &quot;impostazioni di debug&quot; sulla barra degli strumenti dell'area di disegno flusso di dati. È possibile selezionare il limite di righe o l'origine file da usare per ognuna delle trasformazioni di origine. I limiti delle righe in questa impostazione sono solo per la sessione di debug corrente. È anche possibile selezionare il servizio collegato di gestione temporanea da usare per un'origine di analisi sinapsi di Azure. 
+Dopo aver attivata la modalità di debug, è possibile modificare la modalità di anteprima dei dati in un flusso di dati. Le impostazioni di debug possono essere modificate facendo clic su &quot;Impostazioni di debug&quot; sulla barra Flusso di dati canvas. È possibile selezionare qui il limite di righe o l'origine file da usare per ogni trasformazione Origine. I limiti di riga in questa impostazione sono solo per la sessione di debug corrente. È anche possibile selezionare il servizio collegato di staging da usare per un'Azure Synapse Analytics origine. 
 
 ![Impostazioni di debug](media/data-flow/debug-settings.png &quot;Impostazioni di debug")
 
-Se sono presenti parametri nel flusso di dati o in uno dei set di dati a cui viene fatto riferimento, è possibile specificare i valori da usare durante il debug selezionando la scheda **parametri** .
+Se sono presenti parametri nel Flusso di dati o in uno dei set di dati a cui si fa riferimento, è possibile specificare i valori da usare durante il debug selezionando la **scheda** Parametri.
 
-Utilizzare qui le impostazioni di campionamento per puntare a file di esempio o a tabelle di esempio di dati, in modo da non dover modificare i set di dati di origine. Utilizzando un file o una tabella di esempio, è possibile mantenere le stesse impostazioni della logica e delle proprietà nel flusso di dati durante il testing su un subset di dati.
+Usare le impostazioni di campionamento qui per puntare a file di esempio o tabelle di dati di esempio in modo che non sia necessario modificare i set di dati di origine. Usando qui un file o una tabella di esempio, è possibile mantenere le stesse impostazioni di logica e proprietà nel flusso di dati durante il test su un subset di dati.
 
 ![Parametri delle impostazioni di debug](media/data-flow/debug-settings2.png "Parametri delle impostazioni di debug")
 
-Il runtime di integrazione predefinito usato per la modalità di debug nei flussi di dati di ADF è un piccolo nodo a 4 core di un singolo ruolo di lavoro con un singolo nodo di driver a 4 core. Questa operazione può essere eseguita correttamente con esempi di dati più piccoli durante il test della logica del flusso di dati. Se si espandono i limiti delle righe nelle impostazioni di debug durante l'anteprima dei dati oppure si imposta un numero maggiore di righe campionate nell'origine durante il debug della pipeline, è consigliabile impostare un ambiente di calcolo più ampio in una nuova Azure Integration Runtime. Sarà quindi possibile riavviare la sessione di debug usando l'ambiente di calcolo più grande.
+L'IR predefinito usato per la modalità di debug nei flussi di dati di AdF è un piccolo nodo di lavoro singolo a 4 core con un nodo di driver singolo a 4 core. Questa operazione funziona correttamente con esempi di dati più piccoli durante il test della logica del flusso di dati. Se si espandono i limiti di riga nelle impostazioni di debug durante l'anteprima dei dati o si imposta un numero più elevato di righe campionate nell'origine durante il debug della pipeline, è consigliabile impostare un ambiente di calcolo più grande in un nuovo Azure Integration Runtime. È quindi possibile riavviare la sessione di debug usando l'ambiente di calcolo più grande.
 
 ## <a name="data-preview"></a>Anteprima dati
 
-Quando il debug è attivato, la scheda Anteprima dati sarà attivata nel pannello inferiore. Senza la modalità di debug in, il flusso di dati visualizzerà solo i metadati correnti all'interno e all'esterno di ognuna delle trasformazioni nella scheda controlla. Nell'anteprima dei dati viene eseguita una query solo sul numero di righe impostate come limite nelle impostazioni di debug. Fare clic su **Aggiorna** per recuperare l'anteprima dei dati.
+Quando il debug è attivato, la scheda Anteprima dati sarà attivata nel pannello inferiore. Senza la modalità di debug attivata, Flusso di dati verranno visualizzati solo i metadati correnti all'interno e all'interno di ogni trasformazione nella scheda Ispeziona. L'anteprima dei dati eseguirà una query solo sul numero di righe impostate come limite nelle impostazioni di debug. Fare **clic su** Aggiorna per recuperare l'anteprima dei dati.
 
 ![Anteprima dati](media/data-flow/datapreview.png "Anteprima dati")
 
 > [!NOTE]
-> Le origini file limitano solo le righe visualizzate, non le righe lette. Per i set di impostazioni di grandi dimensioni, è consigliabile eseguire una piccola parte del file e usarlo per i test. È possibile selezionare un file temporaneo nelle impostazioni di debug per ogni origine che corrisponde a un tipo di set di dati di file.
+> Le origini file limitano solo le righe visualizzate, non le righe lette. Per i set di dati di dimensioni molto grandi, è consigliabile prendere una piccola parte del file e usarlo per i test. È possibile selezionare un file temporaneo in Impostazioni di debug per ogni origine che è un tipo di set di dati di file.
 
-Quando è attiva la modalità di debug nel flusso di dati, i dati non vengono scritti nella trasformazione sink. Una sessione di debug è destinata a fungere da test harness per le trasformazioni. I sink non sono necessari durante il debug e vengono ignorati nel flusso di dati. Se si desidera testare la scrittura dei dati nel sink, eseguire il flusso di dati da una pipeline Azure Data Factory e utilizzare l'esecuzione del debug da una pipeline.
+Quando è attiva la modalità di debug nel flusso di dati, i dati non vengono scritti nella trasformazione sink. Una sessione di debug è destinata a fungere da test harness per le trasformazioni. I sink non sono necessari durante il debug e vengono ignorati nel flusso di dati. Se si vuole testare la scrittura dei dati nel sink, eseguire il Flusso di dati da una pipeline Azure Data Factory e usare l'esecuzione di debug da una pipeline.
 
-Data Preview è uno snapshot dei dati trasformati usando i limiti di riga e il campionamento dei dati dei frame di dati nella memoria di Spark. I driver di sink non vengono pertanto utilizzati o testati in questo scenario.
+Anteprima dati è uno snapshot dei dati trasformati usando i limiti di riga e il campionamento dei dati dai frame di dati nella memoria Spark. Pertanto, i driver sink non vengono utilizzati o testati in questo scenario.
 
 ### <a name="testing-join-conditions"></a>Test delle condizioni di join
 
-Quando si esegue il testing unità join, esiste o trasforma ricerca, assicurarsi di usare un piccolo set di dati noti per il test. È possibile usare l'opzione debug Settings precedente per impostare un file temporaneo da usare per il test. Questa operazione è necessaria perché quando si limitano o si campionano righe da un set di dati di grandi dimensioni, non è possibile prevedere quali righe e quali chiavi verranno lette nel flusso per il test. Il risultato è non deterministico, vale a dire che le condizioni di join potrebbero non riuscire.
+Quando si eserciteranno le trasformazioni Join, Exists o Lookup di unit test, assicurarsi di usare un piccolo set di dati noti per il test. È possibile usare l'opzione Impostazioni di debug precedente per impostare un file temporaneo da usare per i test. Questa operazione è necessaria perché quando si limitano o si esegue il campionamento di righe da un set di dati di grandi dimensioni, non è possibile stimare quali righe e quali chiavi verranno lette nel flusso per il test. Il risultato è non deterministico, ovvero le condizioni di join potrebbero non riuscire.
 
 ### <a name="quick-actions"></a>Azioni rapide
 
-Una volta visualizzata l'anteprima dei dati, è possibile generare una trasformazione rapida per typecast, rimuovere o apportare modifiche a una colonna. Fare clic sull'intestazione di colonna e quindi selezionare una delle opzioni dalla barra degli strumenti Anteprima dati.
+Dopo aver visualizzato l'anteprima dei dati, è possibile generare una trasformazione rapida per eseguire il typecast, rimuovere o eseguire una modifica in una colonna. Fare clic sull'intestazione di colonna e quindi selezionare una delle opzioni dalla barra degli strumenti di anteprima dei dati.
 
-![Screenshot mostra la barra degli strumenti Anteprima dati con opzioni: typecast, modifica, statistiche e Rimuovi.](media/data-flow/quick-actions1.png "Azioni rapide")
+![Screenshot che mostra la barra degli strumenti di anteprima dei dati con opzioni: Typecast, Modify, Statistics e Remove.](media/data-flow/quick-actions1.png "Azioni rapide")
 
-Dopo aver selezionato una modifica, l'anteprima dei dati viene aggiornata immediatamente. Fare clic su **conferma** nell'angolo superiore destro per generare una nuova trasformazione.
+Dopo aver selezionato una modifica, l'anteprima dei dati verrà aggiornata immediatamente. Fare **clic su** Conferma nell'angolo in alto a destra per generare una nuova trasformazione.
 
-![Screenshot che mostra il pulsante conferma.](media/data-flow/quick-actions2.png "Azioni rapide")
+![Screenshot che mostra il pulsante Conferma.](media/data-flow/quick-actions2.png "Azioni rapide")
 
-**Typecast** e **Modify** genereranno una trasformazione colonna derivata e **Remove** genererà una trasformazione Select.
+**Typecast** e **Modify** genereranno una trasformazione Colonna derivata e **Rimuovi** genererà una trasformazione Seleziona.
 
-![Screenshot mostra le impostazioni della colonna derivata.](media/data-flow/quick-actions3.png "Azioni rapide")
+![Screenshot che mostra le impostazioni della colonna derivata.](media/data-flow/quick-actions3.png "Azioni rapide")
 
 > [!NOTE]
-> Se si modifica il flusso di dati, è necessario recuperare nuovamente l'anteprima dei dati prima di aggiungere una trasformazione rapida.
+> Se si modifica il Flusso di dati, è necessario recuperare nuovamente l'anteprima dei dati prima di aggiungere una trasformazione rapida.
 
-### <a name="data-profiling"></a>Profiling dati
+### <a name="data-profiling"></a>Profilatura dei dati
 
-Se si seleziona una colonna nella scheda Anteprima dati e si fa clic su **statistiche** nella barra degli strumenti di anteprima dati, viene visualizzato un grafico all'estrema destra della griglia dei dati con statistiche dettagliate su ogni campo. Azure Data Factory determina quale tipo di grafico visualizzare in base al campionamento dei dati. I campi con cardinalità elevata verranno predefiniti per i grafici null/NOT NULL, mentre i dati categorici e numerici con cardinalità bassa visualizzeranno grafici a barre che mostrano la frequenza del valore dei dati. Verrà inoltre visualizzata la lunghezza massima/Len dei campi stringa, i valori min/max in campi numerici, lo sviluppo standard, i percentile, i conteggi e la media.
+Se si seleziona una colonna  nella scheda dell'anteprima dei dati e si fa clic su Statistiche nella barra degli strumenti dell'anteprima dei dati, verrà visualizzato un grafico all'estrema destra della griglia dei dati con statistiche dettagliate su ogni campo. Azure Data Factory determina quale tipo di grafico visualizzare in base al campionamento dei dati. Per impostazione predefinita, i campi con cardinalità elevata vengono visualizzati nei grafici NULL/NOT NULL, mentre i dati categorici e numerici con cardinalità bassa visualizzano grafici a barre che mostrano la frequenza dei valori dei dati. Verranno visualizzati anche la lunghezza massima/minima dei campi stringa, i valori min/max nei campi numerici, lo sviluppo standard, i percentili, i conteggi e la media.
 
 ![Statistiche della colonna](media/data-flow/stats.png "Statistiche della colonna")
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Al termine della compilazione e del debug del flusso di dati, [eseguirlo da una pipeline.](control-flow-execute-data-flow-activity.md)
-* Quando si esegue il test della pipeline con un flusso di dati, usare l' [opzione Esegui esecuzione del debug](iterative-development-debugging.md) della pipeline.
+* Quando si testa la pipeline con un flusso di dati, usare l'opzione Di esecuzione [dell'esecuzione del debug della pipeline.](iterative-development-debugging.md)

@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata di SAP HANA in macchine virtuali di Azure in SLES | Microsoft Docs
+title: Disponibilità elevata dei SAP HANA nelle macchine virtuali di Azure in SLES | Microsoft Docs
 description: Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 42a4c4a41f6c8bdf9d4a8e78f634893722c8f389
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea1296fd4e31c2deaed79e980ab764c523a2bfd7
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104576399"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364363"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -60,8 +60,8 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
   * Software SAP e combinazioni di sistemi operativi e database supportati.
   * Versione del kernel SAP richiesta per Windows e Linux in Microsoft Azure.
 * Nota SAP [2015553], che elenca i prerequisiti per le distribuzioni di software SAP supportate da SAP in Azure.
-* La nota SAP [2205917] include impostazioni del sistema operativo consigliate per SUSE Linux Enterprise Server per le applicazioni SAP.
-* La nota SAP [1944799] include SAP Hana linee guida per SUSE Linux Enterprise Server per le applicazioni SAP.
+* La nota SAP [2205917] contiene le impostazioni del sistema operativo consigliate per SUSE Linux Enterprise Server per le applicazioni SAP.
+* La nota SAP [1944799] contiene SAP HANA per SUSE Linux Enterprise Server per le applicazioni SAP.
 * Nota SAP [2178632], che contiene informazioni dettagliate su tutte le metriche di monitoraggio segnalate per SAP in Azure.
 * La nota SAP [2191498] contiene la versione dell'agente host SAP per Linux necessaria in Azure.
 * La nota SAP [2243692] contiene informazioni sulle licenze SAP in Linux in Azure.
@@ -71,7 +71,7 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes), che contiene tutte le note SAP necessarie per Linux.
 * [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) (Piattaforme IaaS certificate per SAP HANA)
 * [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP in Linux][planning-guide].
-* [Distribuzione di macchine virtuali di Azure per SAP in Linux][deployment-guide] (questo articolo).
+* [Distribuzione di Macchine virtuali di Azure per SAP in Linux][deployment-guide] (questo articolo).
 * Guida [Distribuzione di DBMS in macchine virtuali di Azure per SAP in Linux][dbms-guide].
 * [Guide alle procedure consigliate per SUSE Linux Enterprise Server for SAP Applications 12 SP3][sles-for-sap-bp]
   * Configurazione di un'infrastruttura ottimizzata per le prestazioni per la replica di sistema SAP HANA (SLES for SAP Applications 12 SP1). La guida contiene tutte le informazioni necessarie per configurare la replica di sistema SAP HANA per lo sviluppo locale. Usare la guida per le indicazioni di base.
@@ -105,14 +105,14 @@ Per distribuire il modello, seguire questi passaggi:
 
 1. Immettere i parametri seguenti:
     - **Sap System ID**: Immettere l'ID del sistema SAP che si vuole installare. L'ID viene usato come prefisso per le risorse distribuite.
-    - **Tipo di stack**: questo parametro è applicabile solo se si usa il modello convergente. Selezionare il tipo di stack SAP NetWeaver.
+    - **Tipo di stack:**(questo parametro è applicabile solo se si usa il modello convergente). Selezionare il tipo di stack SAP NetWeaver.
     - **Tipo di sistema operativo**: Selezionare una delle distribuzioni Linux. Per questo esempio, selezionare **SLES 12**.
     - **Tipo di database**: Selezionare **HANA**.
     - **Sap System Size** (Dimensioni sistema SAP): immettere il numero di istanze SAP fornite dal nuovo sistema. Se non si è certi del numero di istanze SAP necessarie per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP.
     - **Disponibilità del sistema**: Selezionare **HA**.
-    - **Nome utente amministratore e password amministratore**: viene creato un nuovo utente che può essere usato per accedere al computer.
+    - **Nome utente amministratore e Password** amministratore: viene creato un nuovo utente che può essere usato per accedere al computer.
     - **New Or Existing Subnet** (Subnet nuova o esistente): determina se devono essere create una nuova rete virtuale e una nuova subnet o se deve essere usata una subnet esistente. Se è già presente una rete virtuale connessa alla rete locale, selezionare **Esistente**.
-    - **ID subnet**: Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come **/Subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name>**.
+    - **ID subnet**: Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID è in genere simile **a /subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /subnets/ \<subnet name>**.
 
 ### <a name="manual-deployment"></a>Distribuzione manuale
 
@@ -135,7 +135,7 @@ Per distribuire il modello, seguire questi passaggi:
 1. Aggiungere dischi dati.
 
 > [!IMPORTANT]
-> L'IP mobile non è supportato in una configurazione IP secondaria di NIC negli scenari di bilanciamento del carico. Per informazioni dettagliate, vedere limitazioni del servizio di [bilanciamento del carico di Azure](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se è necessario un indirizzo IP aggiuntivo per la macchina virtuale, distribuire una seconda scheda di interfaccia di rete.   
+> L'indirizzo IP mobile non è supportato in una configurazione IP secondaria della scheda di interfaccia di rete negli scenari di bilanciamento del carico. Per informazioni dettagliate, vedere [Limitazioni di Azure Load Balancer.](../../../load-balancer/load-balancer-multivip-overview.md#limitations) Se è necessario un indirizzo IP aggiuntivo per la macchina virtuale, distribuire una seconda scheda di interfaccia di rete.   
 
 > [!Note]
 > Se vengono inserite macchine virtuali senza indirizzi IP pubblici nel pool back-end di Load Balancer Standard interno ad Azure (nessun indirizzo IP pubblico), non sarà presente alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -153,7 +153,7 @@ Per distribuire il modello, seguire questi passaggi:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Pool back-end** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo pool back-end (ad esempio, **hana-backend**).
-      1. Selezionare **rete virtuale**.
+      1. Selezionare **Rete virtuale.**
       1. Selezionare **Aggiungi una macchina virtuale**.
       1. Selezionare **Macchina virtuale**.
       1. Selezionare le macchine virtuali del cluster SAP HANA e il rispettivo indirizzo IP.
@@ -172,7 +172,6 @@ Per distribuire il modello, seguire questi passaggi:
       1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, **hana-lb**).
       1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**, **hana-backend** e **hana-hp**).
       1. Selezionare **Porte a disponibilità elevata**.
-      1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
       1. Selezionare **OK**.
 
@@ -418,7 +417,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 1. **[1]** Configurare la replica di sistema nel primo nodo:
 
-   Eseguire il backup dei database come <hanasid \> adm:
+   Eseguire il backup dei database <hanasid \> adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -499,6 +498,71 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
+## <a name="implement-the-python-system-replication-hook-saphanasr"></a>Implementare l'hook di replica di sistema Python SAPHanaSR
+
+Questo è un passaggio importante per ottimizzare l'integrazione con il cluster e migliorare il rilevamento quando è necessario un failover del cluster. È consigliabile configurare l'hook Python SAPHanaSR.    
+
+1. **[A] Installare** l'hook di replica di sistema HANA. L'hook deve essere installato in entrambi i nodi del database HANA.           
+
+   > [!TIP]
+   > Verificare che il pacchetto SAPHanaSR sia almeno la versione 0.153 per poter usare la funzionalità hook Python sapHanaSR.       
+   > L'hook Python può essere implementato solo per HANA 2.0.        
+
+   1. Preparare l'hook come `root` .  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Arrestare HANA in entrambi i nodi. Eseguire come <sid \> adm:  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Modificare `global.ini` in ogni nodo del cluster.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** Il cluster richiede la configurazione sudoers in ogni nodo del cluster per <sid \> adm. In questo esempio si ottiene creando un nuovo file. Eseguire i comandi come `root` .    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+Per altri dettagli sull'implementazione dell'hook SAP HANA di replica di sistema, vedere Configurare i provider [hana ha/dr](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html#_set_up_sap_hana_hadr_providers).  
+
+3. **[A]** Avviare SAP HANA su entrambi i nodi. Eseguire come <sid \> adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1] Verificare** l'installazione dell'hook. Eseguire come <sid adm nel sito di replica di \> sistema HANA attivo.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
+
+    ```
+
 ## <a name="create-sap-hana-cluster-resources"></a>Creare le risorse cluster SAP HANA
 
 Prima di tutto, creare la topologia HANA. Eseguire i comandi seguenti in uno dei nodi del cluster Pacemaker:
@@ -531,7 +595,7 @@ Creare quindi le risorse HANA:
 
 
 > [!NOTE]
-> Questo articolo contiene riferimenti ai termini *Master* e *slave*, che non vengono più utilizzati da Microsoft. Quando questi termini vengono rimossi dal software, verranno rimossi da questo articolo.
+> Questo articolo contiene riferimenti ai termini *master* *e slave,* termini che Microsoft non usa più. Quando questi termini vengono rimossi dal software, verranno rimossi da questo articolo.
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
@@ -593,49 +657,49 @@ Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano a
 #     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
 </code></pre>
 
-## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Configurare la replica di sistema HANA Active/Read Enabled nel cluster Pacemaker
+## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Configurare la replica di sistema attiva/abilitata per la lettura di HANA nel cluster Pacemaker
 
-A partire da SAP HANA 2,0 SPS 01 SAP consente la configurazione abilitata per l'attivazione/lettura per la replica del sistema SAP HANA, in cui i sistemi secondari di SAP HANA la replica di sistema possono essere usati attivamente per carichi di lavoro con intensa attività di lettura. Per supportare tale configurazione in un cluster, è necessario un secondo indirizzo IP virtuale che consente ai client di accedere al database di SAP HANA abilitato per la lettura secondario. Per assicurarsi che sia ancora possibile accedere al sito di replica secondaria dopo che si è verificata un'acquisizione, il cluster deve spostare l'indirizzo IP virtuale intorno al database secondario della risorsa SAPHana.
+A partire da SAP HANA 2.0 SPS 01 SAP consente l'installazione attiva/abilitata per la lettura per la replica di sistema SAP HANA, in cui i sistemi secondari della replica di sistema SAP HANA possono essere usati attivamente per carichi di lavoro con intensità di lettura. Per supportare tale configurazione in un cluster, è necessario un secondo indirizzo IP virtuale che consenta ai client di accedere al database secondario abilitato SAP HANA lettura. Per assicurarsi che il sito di replica secondario sia ancora accessibile dopo un'acquisizione, il cluster deve spostare l'indirizzo IP virtuale con il sito secondario della risorsa SAPHana.
 
-Questa sezione descrive i passaggi aggiuntivi necessari per gestire la replica di sistema HANA Active/Read Enabled in un cluster SUSE a disponibilità elevata con secondo indirizzo IP virtuale.    
-Prima di procedere, assicurarsi di avere configurato completamente il cluster SUSE a disponibilità elevata gestendo SAP HANA database come descritto nei segmenti precedenti della documentazione.  
+Questa sezione descrive i passaggi aggiuntivi necessari per gestire la replica di sistema abilitata per HANA attiva/lettura in un cluster a disponibilità elevata SUSE con secondo IP virtuale.    
+Prima di procedere, assicurarsi di aver configurato completamente il cluster a disponibilità elevata SUSE per la gestione SAP HANA database, come descritto nei segmenti precedenti della documentazione.  
 
-![SAP HANA disponibilità elevata con la replica secondaria abilitata per la lettura](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
+![SAP HANA disponibilità elevata con secondario abilitato per la lettura](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
 
-### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>Installazione aggiuntiva in Azure Load Balancer per la configurazione abilitata per Active/Read
+### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>Configurazione aggiuntiva nel servizio di bilanciamento del carico di Azure per la configurazione attiva/abilitata per la lettura
 
-Per procedere con ulteriori passaggi per il provisioning di un secondo indirizzo IP virtuale, assicurarsi di aver configurato Azure Load Balancer come descritto nella sezione [distribuzione manuale](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#manual-deployment) .
+Per procedere con altri passaggi per il provisioning di un secondo ip virtuale, assicurarsi di aver configurato Azure Load Balancer come descritto nella [sezione Distribuzione](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#manual-deployment) manuale.
 
-1. Per Load Balancer **standard** , attenersi alla procedura aggiuntiva seguente nello stesso servizio di bilanciamento del carico creato nella sezione precedente.
+1. Per Load Balancer **Standard,** seguire i passaggi aggiuntivi seguenti nello stesso servizio di bilanciamento del carico creato nella sezione precedente.
 
    a. Creare un secondo pool di indirizzi IP front-end: 
 
    - Aprire il servizio di bilanciamento del carico, selezionare **Pool di indirizzi IP front-end** e quindi **Aggiungi**.
-   - Immettere il nome del secondo pool di indirizzi IP front-end (ad esempio, **Hana-secondaryIP**).
-   - Impostare l' **assegnazione** su **statico** e immettere l'indirizzo IP (ad esempio, **10.0.0.14**).
+   - Immettere il nome del secondo pool di indirizzi IP front-end, ad esempio **hana-secondaryIP.**
+   - Impostare **Assegnazione su** **Statico e** immettere l'indirizzo IP, ad esempio **10.0.0.14.**
    - Selezionare **OK**.
    - Dopo aver creato il nuovo pool di indirizzi IP front-end, prendere nota dell'indirizzo IP front-end.
 
    b. Creare quindi un probe di integrità:
 
    - Aprire il servizio di bilanciamento del carico, selezionare **Probe integrità** e quindi **Aggiungi**.
-   - Immettere il nome del nuovo probe di integrità, ad esempio **Hana-secondaryhp**.
-   - Selezionare **TCP** come protocollo e la porta **62603**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
+   - Immettere il nome del nuovo probe di integrità, ad esempio **hana-secondaryhp.**
+   - Selezionare **TCP** come protocollo e la **porta 62603.** Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
    - Selezionare **OK**.
 
    c. Successivamente, creare le regole del servizio di bilanciamento del carico:
 
    - Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-   - Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **Hana-secondarylb**.
-   - Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creato in precedenza (ad esempio, **Hana-secondaryIP**, **Hana-backend** e **Hana-secondaryhp**).
+   - Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **hana-secondarylb**.
+   - Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza( ad esempio, **hana-secondaryIP**, **hana-backend** e **hana-secondaryhp**).
    - Selezionare **Porte a disponibilità elevata**.
    - Aumentare il valore di **Timeout di inattività** a 30 minuti.
    - Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
    - Selezionare **OK**.
 
-### <a name="configure-hana-activeread-enabled-system-replication"></a>Configurare la replica di sistema abilitata per HANA Active/Read
+### <a name="configure-hana-activeread-enabled-system-replication"></a>Configurare la replica di sistema attiva/abilitata per la lettura di HANA
 
-I passaggi per configurare la replica di sistema HANA sono descritti nella sezione [configurare SAP HANA 2,0 replica di sistema](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication) . Se si distribuisce uno scenario secondario abilitato per la lettura, durante la configurazione della replica di sistema nel secondo nodo, eseguire il comando seguente come **hanasid** ADM:
+I passaggi per configurare la replica di sistema HANA sono descritti nella [sezione Configurare SAP HANA 2.0.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication) Se si distribuisce uno scenario secondario abilitato per la lettura, durante la configurazione della replica di sistema nel secondo nodo, eseguire il comando seguente come **hanasid** adm:
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 
@@ -643,9 +707,9 @@ sapcontrol -nr 03 -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 --operationMode=logreplay_readaccess 
 ```
 
-### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>Aggiunta di una risorsa indirizzo IP virtuale secondario per un'installazione abilitata per la lettura/attiva
+### <a name="adding-a-secondary-virtual-ip-address-resource-for-an-activeread-enabled-setup"></a>Aggiunta di una risorsa indirizzo IP virtuale secondario per un'installazione attiva/abilitata per la lettura
 
-Il secondo indirizzo IP virtuale e il vincolo di condivisione percorso appropriato possono essere configurati con i comandi seguenti:
+Il secondo IP virtuale e il vincolo di colocation appropriato possono essere configurati con i comandi seguenti:
 
 ```
 crm configure property maintenance-mode=true
@@ -666,7 +730,7 @@ crm configure colocation col_saphana_secip_HN1_HDB03 4000: g_secip_HN1_HDB03:Sta
 
 crm configure property maintenance-mode=false
 ```
-Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano avviate. Il secondo indirizzo IP virtuale viene eseguito sul sito secondario insieme alla risorsa secondaria SAPHana.
+Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano avviate. Il secondo IP virtuale verrà eseguito nel sito secondario insieme alla risorsa secondaria SAPHana.
 
 ```
 sudo crm_mon -r
@@ -690,17 +754,17 @@ sudo crm_mon -r
 
 ```
 
-Nella sezione successiva è possibile trovare il set tipico di test di failover da eseguire.
+Nella sezione successiva è possibile trovare il tipico set di test di failover da eseguire.
 
-Tenere presente il secondo comportamento IP virtuale, durante il test di un cluster HANA configurato con la replica secondaria abilitata per la lettura:
+Tenere presente il secondo comportamento ip virtuale, durante il test di un cluster HANA configurato con secondario abilitato per la lettura:
 
-1. Quando si esegue la migrazione di **SAPHana_HN1_HDB03** risorsa cluster a **HN1-DB-1**, il secondo indirizzo IP virtuale viene spostato nell'altro server **HN1-DB-0**. Se è stato configurato AUTOMATED_REGISTER = "false" e la replica di sistema HANA non è registrata automaticamente, il secondo indirizzo IP virtuale verrà eseguito in **HN1-DB-0,** perché il server è disponibile e i servizi cluster sono online.  
+1. Quando si esegue **SAPHana_HN1_HDB03** della risorsa cluster a **hn1-db-1,** il secondo IP virtuale verrà spostato nell'altro server **hn1-db-0.** Se è stato configurato AUTOMATED_REGISTER="false" e la replica di sistema HANA non viene registrata automaticamente, il secondo IP virtuale verrà eseguito in **hn1-db-0,** perché il server è disponibile e i servizi cluster sono online.  
 
-2. Quando si esegue il test di un arresto anomalo del server, le seconde risorse IP virtuali (**rsc_secip_HN1_HDB03**) e la risorsa di porta di Azure Load Balancer (**rsc_secnc_HN1_HDB03**) vengono eseguite sul server primario insieme alle risorse IP virtuali primarie. Mentre il server secondario è inattivo, le applicazioni connesse al database HANA abilitato per la lettura si connetteranno al database HANA primario. Il comportamento è previsto perché non si desidera che le applicazioni connesse al database HANA abilitato per la lettura siano inaccessibili quando il server secondario non è disponibile.
+2. Durante il test di un arresto anomalo del server, le seconde risorse IP virtuali (**rsc_secip_HN1_HDB03**) e la risorsa porta del servizio di bilanciamento del carico di Azure (**rsc_secnc_HN1_HDB03**) verranno eseguite nel server primario insieme alle risorse IP virtuali primarie. Mentre il server secondario non è attivo, le applicazioni connesse al database HANA abilitato per la lettura si connettono al database HANA primario. Il comportamento è previsto perché non si vuole che le applicazioni connesse al database HANA abilitato per la lettura siano inaccessibili mentre il server secondario non è disponibile.
   
-3. Quando il server secondario è disponibile e i servizi cluster sono online, il secondo indirizzo IP virtuale e le risorse porta verranno spostati automaticamente nel server secondario, anche se la replica di sistema HANA non può essere registrata come secondaria. È necessario assicurarsi di registrare il database HANA secondario come abilitato per la lettura prima di avviare i servizi cluster in tale server. È possibile configurare la risorsa cluster dell'istanza HANA per registrare automaticamente il database secondario impostando il parametro AUTOMATED_REGISTER = true.       
+3. Quando il server secondario è disponibile e i servizi cluster sono online, il secondo indirizzo IP virtuale e le risorse porta verranno spostate automaticamente nel server secondario, anche se la replica di sistema HANA potrebbe non essere registrata come secondaria. È necessario assicurarsi di registrare il database HANA secondario come abilitato per la lettura prima di avviare i servizi cluster in tale server. È possibile configurare la risorsa cluster dell'istanza haNA per registrare automaticamente il database secondario impostando il parametro AUTOMATED_REGISTER=true.       
 
-4. Durante il failover e il fallback, le connessioni esistenti per le applicazioni che usano il secondo indirizzo IP virtuale per la connessione al database HANA potrebbero essere interrotte.  
+4. Durante il failover e il fallback, le connessioni esistenti per le applicazioni che usano il secondo indirizzo IP virtuale per connettersi al database HANA potrebbero essere interrotte.  
 
 ## <a name="test-the-cluster-setup"></a>Testare la configurazione del cluster
 
@@ -711,6 +775,9 @@ Questa sezione descrive come testare la configurazione. Ogni test presuppone che
 Prima di iniziare il test, assicurarsi che in Pacemaker non vi siano azioni non riuscite (tramite crm_mon - r), non siano presenti vincoli di posizione imprevisti (ad esempio rimasti da un test di migrazione precedente) e che HANA si trovi nello stato di sincronizzazione, ad esempio con SAPHanaSR-showAttr:
 
 <pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
+Sites    srHook
+----------------
+SITE2    SOK
 
 Global cib-time
 --------------------------------
@@ -724,7 +791,7 @@ hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:
 
 È possibile eseguire la migrazione del nodo master SAP HANA eseguendo il comando seguente:
 
-<pre><code>crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
+<pre><code>crm resource move msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b> force
 </code></pre>
 
 Se si imposta `AUTOMATED_REGISTER="false"`, questa sequenza di comandi esegue la migrazione del nodo master SAP HANA e del gruppo contenente l'indirizzo IP virtuale a hn1-db-1.
@@ -763,7 +830,7 @@ La migrazione crea vincoli di posizione che devono essere eliminati di nuovo:
 
 <pre><code># Switch back to root and clean up the failed state
 exit
-hn1-db-0:~ # crm resource unmigrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+hn1-db-0:~ # crm resource clear msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
 </code></pre>
 
 È anche necessario eseguire la pulizia dello stato della risorsa nodo secondario:
@@ -876,7 +943,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come <hanasid \> ADM sul nodo HN1-DB-0:
+   Eseguire i comandi seguenti come <hanasid \> adm nel nodo hn1-db-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -917,7 +984,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Eseguire i comandi seguenti come <hanasid \> ADM sul nodo HN1-DB-1:
+   Eseguire i comandi seguenti come <hanasid \> adm nel nodo hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -958,7 +1025,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come <hanasid \> ADM sul nodo HN1-DB-0:
+   Eseguire i comandi seguenti come <hanasid \> adm nel nodo hn1-db-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -999,7 +1066,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Eseguire i comandi seguenti come <hanasid \> ADM sul nodo HN1-DB-1:
+   Eseguire i comandi seguenti come <hanasid \> adm nel nodo hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1142,7 +1209,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come <hanasid \> ADM sul nodo HN1-DB-1:
+   Eseguire i comandi seguenti come <hanasid \> adm nel nodo hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1179,7 +1246,7 @@ NOTA: i test seguenti sono progettati per essere eseguiti in sequenza e dipendon
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Eseguire i comandi seguenti come <hanasid \> ADM sul nodo HN1-DB-1:
+   Eseguire i comandi seguenti come <hanasid \> adm nel nodo hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>

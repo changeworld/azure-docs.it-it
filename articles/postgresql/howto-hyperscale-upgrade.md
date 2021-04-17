@@ -1,40 +1,40 @@
 ---
-title: Aggiornamento del gruppo di server-iperscala (CITUS)-database di Azure per PostgreSQL
-description: Questo articolo descrive come è possibile aggiornare PostgreSQL e CITUS in database di Azure per PostgreSQL-iperscalabilità (CITUS).
+title: Aggiornare il gruppo di server - Hyperscale (Citus) - Database di Azure per PostgreSQL
+description: Questo articolo descrive come aggiornare PostgreSQL e Citus in Database di Azure per PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 4/5/2021
-ms.openlocfilehash: 3758e2d458e1a6bd052ac746ac361de033d508e9
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 161204bf02ac36c1f5a3969cf57c61e98560c9b5
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107024026"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518899"
 ---
-# <a name="upgrade-hyperscale-citus-server-group"></a>Aggiornamento gruppo di server iperscalare (CITUS)
+# <a name="upgrade-hyperscale-citus-server-group"></a>Aggiornare Hyperscale (Citus) gruppo di server
 
 Queste istruzioni descrivono come eseguire l'aggiornamento a una nuova versione principale di PostgreSQL in tutti i nodi del gruppo di server.
 
 ## <a name="test-the-upgrade-first"></a>Testare prima l'aggiornamento
 
-L'aggiornamento di PostgreSQL causa un numero maggiore di modifiche rispetto a quanto si può immaginare, perché l'aggiornamento iperscalabile (CITUS) aggiornerà anche le [estensioni del database](concepts-hyperscale-extensions.md), inclusa l'estensione CITUS.
-È consigliabile testare l'applicazione con la nuova versione di PostgreSQL e CITUS prima di aggiornare l'ambiente di produzione.
+L'aggiornamento di PostgreSQL comporta più modifiche di quanto si possa immaginare, perché Hyperscale (Citus) anche le estensioni di [database](concepts-hyperscale-extensions.md), inclusa l'estensione Citus.
+È consigliabile testare l'applicazione con la nuova versione PostgreSQL e Citus prima di aggiornare l'ambiente di produzione.
 
-Un modo pratico per eseguire il test consiste nell'eseguire una copia del gruppo di server usando il [ripristino temporizzato](concepts-hyperscale-backup.md#point-in-time-restore-pitr). Aggiornare la copia e testare l'applicazione. Dopo aver verificato che tutto funzioni correttamente, aggiornare il gruppo di server originale.
+Un modo pratico per testare è creare una copia del gruppo di server usando il ripristino [temporato.](concepts-hyperscale-backup.md#restore) Aggiornare la copia e testare l'applicazione. Dopo aver verificato che tutto funzioni correttamente, aggiornare il gruppo di server originale.
 
 ## <a name="upgrade-a-server-group-in-the-azure-portal"></a>Aggiornare un gruppo di server nel portale di Azure
 
-1. Nella sezione **Panoramica** di un gruppo di server con iperscalabilità (CITUS) selezionare il pulsante **Aggiorna** .
-1. Viene visualizzata una finestra di dialogo che mostra la versione corrente di PostgreSQL e CITUS.
-   Scegliere una nuova versione di PostgreSQL nell'elenco **Aggiorna a** .
-1. Verificare il valore in **CITUS Version dopo l'aggiornamento** è quello previsto.
-   Questo valore viene modificato in base alla versione di PostgreSQL selezionata.
-1. Per continuare, selezionare il pulsante **Aggiorna** .
+1. Nella sezione **Panoramica** di un gruppo Hyperscale (Citus) server selezionare il **pulsante** Aggiorna.
+1. Verrà visualizzata una finestra di dialogo che mostra la versione corrente di PostgreSQL e Citus.
+   Scegliere una nuova versione di PostgreSQL **nell'elenco Aggiorna a.**
+1. Verificare che il valore nella **versione di Citus dopo l'aggiornamento** sia quello previsto.
+   Questo valore cambia in base alla versione di PostgreSQL selezionata.
+1. Selezionare il **pulsante** Aggiorna per continuare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle [versioni supportate di PostgreSQL](concepts-hyperscale-versions.md).
-* Vedere [quali estensioni](concepts-hyperscale-extensions.md) vengono assemblate con ogni versione di PostgreSQL in un gruppo di server con iperscalabilità (CITUS).
+* Informazioni sulle [versioni di PostgreSQL supportate.](concepts-hyperscale-versions.md)
+* Vedere [quali estensioni sono](concepts-hyperscale-extensions.md) in pacchetto con ogni versione di PostgreSQL in un gruppo Hyperscale (Citus) server.

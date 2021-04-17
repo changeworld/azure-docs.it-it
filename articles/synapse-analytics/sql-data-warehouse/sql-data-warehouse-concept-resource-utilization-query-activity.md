@@ -2,21 +2,21 @@
 title: Facilità di gestione e monitoraggio - Attività di query, utilizzo delle risorse
 description: Informazioni sulle funzionalità disponibili per gestire e monitorare Azure Synapse Analytics. Usare il portale di Azure e Dynamic Management View (DMV, viste a gestione dinamica) per comprendere l'attività di query e l'utilizzo delle risorse del data warehouse.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/09/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: e7f093860e9962db055a7551f5cdb608ecad9b29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b103991e22ffab8ed5bd2b3c10400330e1d09b3
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585673"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568404"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitoraggio dell'attività di query e dell'utilizzo delle risorse in Azure Synapse Analytics
 
@@ -46,7 +46,7 @@ Nel portale di Azure sono disponibili le metriche seguenti per Synapse SQL. Tali
 Aspetti da considerare quando si visualizzano le metriche e si configurano gli avvisi:
 
 - Uso DWU è solo una **rappresentazione di alto livello dell'utilizzo** nel pool SQL e non deve essere inteso come un indicatore complessivo dell'utilizzo. Per determinare se aumentarlo o ridurlo, prendere in considerazione tutti i fattori che possono essere interessati dal valore DWU, ad esempio concorrenza, memoria, tempdb e capacità della cache adattiva. È consigliabile [eseguire il carico di lavoro con impostazioni DWU diverse](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) per determinare l'impostazione più adatta a soddisfare gli obiettivi di business.
-- Le connessioni non riuscite e riuscite vengono segnalate per una data warehouse particolare, non per il server stesso.
+- Le connessioni non riuscite e non riuscite vengono segnalate per un data warehouse specifico, non per il server stesso.
 - La percentuale di memoria riflette l'utilizzo anche se il data warehouse è in stato di inattività, ma non riflette il consumo di memoria del carico di lavoro attivo. Usare e tenere traccia di questa metrica insieme ad altri fattori (tempdb, cache Gen2) per un approccio olistico per determinare se il ridimensionamento con l'aggiunta di capacità della cache aumenterà le prestazioni del carico di lavoro per soddisfare i requisiti.
 
 ## <a name="query-activity"></a>Attività di query

@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: lajanuar
-ms.openlocfilehash: 324fde5198fe3469e3979cf5cd102715118a49aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfd2b32094aae06675ea8ee9157370f9d2833e91
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467322"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107518227"
 ---
 Il riconoscimento modulo funziona su documenti di input che soddisfano questi requisiti:
 
@@ -22,6 +22,5 @@ Il riconoscimento modulo funziona su documenti di input che soddisfano questi re
 * Le dimensioni totali del training set non devono superare le 500 pagine.
 * Se i file PDF sono bloccati da password, è necessario rimuovere il blocco prima di inviarli.
 * Se digitalizzati da documenti cartacei, i moduli devono essere scansioni di alta qualità.
-* Per il testo deve essere usato l'alfabeto latino (caratteri in lingua inglese).
 * Per l'apprendimento non supervisionato (senza dati etichettati), i dati devono contenere chiavi e valori.
 * Per l'apprendimento non supervisionato (senza dati etichettati), le chiavi devono essere visualizzate sopra o a sinistra dei valori; non possono essere visualizzate sotto o a destra.

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2021
+ms.date: 04/14/2021
 ms.author: aldomel
-ms.openlocfilehash: 0dd053fa268e88c281c1fe6c00339fe6a6edf27a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 232b83fef2da312828f4f9f332ab2505e3a68100
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732602"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107503644"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -96,22 +96,22 @@ Le route personalizzate vengono create con route [definite dall'utente](#user-de
 
 Non è possibile specificare **Peering di rete virtuale** o **VirtualNetworkServiceEndpoint** come tipo di hop successivo nelle route definite dall'utente. Le route con tipi di hop successivi **Peering di rete virtuale** o **VirtualNetworkServiceEndpoint** vengono create da Azure solo quando si configura un peering di rete virtuale oppure un endpoint di servizio.
 
-### <a name="service-tags-for-user-defined-routes-preview"></a>Tag di servizio per le route definite dall'utente (anteprima)
+### <a name="service-tags-for-user-defined-routes-preview"></a>Tag di servizio per route definite dall'utente (anteprima)
 
-È ora possibile specificare un [tag di servizio](service-tags-overview.md) come prefisso dell'indirizzo per una route definita dall'utente anziché un intervallo IP esplicito. Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi, riducendo al minimo la complessità degli aggiornamenti frequenti alle route definite dall'utente e riducendo il numero di route che è necessario creare. È attualmente possibile creare 25 o meno route con tag di servizio in ogni tabella di route. </br>
+È ora possibile specificare un [tag di servizio](service-tags-overview.md) come prefisso dell'indirizzo per una route definita dall'utente anziché un intervallo IP esplicito. Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo racchiusi nel tag del servizio e aggiorna automaticamente il tag del servizio quando gli indirizzi cambiano, riducendo al minimo la complessità degli aggiornamenti frequenti alle route definite dall'utente e riducendo il numero di route che è necessario creare. È attualmente possibile creare 25 o meno route con tag di servizio in ogni tabella di route. </br>
 
 > [!IMPORTANT]
 > I tag di servizio per le route definite dall'utente sono attualmente in anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 #### <a name="exact-match"></a>Corrispondenza esatta
-Quando esiste una corrispondenza esatta con prefisso tra una route con un prefisso IP esplicito e una route con un tag di servizio, la preferenza viene assegnata alla route con il prefisso esplicito. Quando più route con tag di servizio hanno prefissi IP corrispondenti, le route verranno valutate nell'ordine seguente: 
+Quando esiste una corrispondenza esatta del prefisso tra una route con un prefisso IP esplicito e una route con un tag di servizio, viene data una preferenza alla route con il prefisso esplicito. Quando più route con tag di servizio hanno prefissi IP corrispondenti, le route verranno valutate nell'ordine seguente: 
 
-   1. Tag a livello di area (ad esempio Storage. Eastus, AppService. AustraliaCentral)
-   2. Tag di primo livello (ad esempio Archiviazione, AppService)
-   3. Tag internazionali di AzureCloud (ad esempio AzureCloud. canadacentral, AzureCloud. eastasia)
+   1. Tag di regione (ad esempio Storage.EastUS, AppService.AustraliaCentral)
+   2. Tag di primo livello (ad esempio Storage, AppService)
+   3. Tag di azurecloud a livello di regione (ad esempio AzureCloud.canadacentral, AzureCloud.eastasia)
    4. Tag AzureCloud </br></br>
 
-Per usare questa funzionalità, specificare un nome di tag di servizio per il parametro del prefisso dell'indirizzo nei comandi della tabella di route. Ad esempio, in PowerShell è possibile creare una nuova route per indirizzare il traffico inviato a un prefisso IP di archiviazione di Azure a un'appliance virtuale usando: </br>
+Per usare questa funzionalità, specificare un nome di tag di servizio per il parametro del prefisso dell'indirizzo nei comandi della tabella di route. Ad esempio, in PowerShell è possibile creare una nuova route per indirizzare il traffico inviato a un prefisso IP Archiviazione di Azure a un'appliance virtuale usando: </br></br>
 
 ```azurepowershell-interactive
 New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
@@ -124,9 +124,13 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 ```
 </br>
 
+#### <a name="known-issues-april-2021"></a>Problemi noti (aprile 2021)
+
+Quando sono presenti route BGP o nella subnet è configurato un endpoint di servizio, le route potrebbero non essere valutate con la priorità corretta. È in corso una correzione per questi scenari </br>
+
 
 > [!NOTE] 
-> Durante l'anteprima pubblica, esistono diverse limitazioni. La funzionalità non è attualmente supportata nel portale di Azure ed è disponibile solo tramite PowerShell e l'interfaccia della riga di comando. Non è disponibile alcun supporto per l'uso con i contenitori. 
+> Nell'anteprima pubblica sono presenti diverse limitazioni. La funzionalità non è attualmente supportata nel portale di Azure ed è disponibile solo tramite PowerShell e l'interfaccia della riga di comando. Non è disponibile alcun supporto per l'uso con i contenitori. 
 
 ## <a name="next-hop-types-across-azure-tools"></a>Tipi di hop successivi tra gli strumenti di Azure
 

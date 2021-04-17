@@ -1,75 +1,75 @@
-- name: Documentazione sull'aggiornamento del dispositivo per l'hub Internet
+- name: Documentazione dell'aggiornamento dei dispositivi per l'hub IoT
   href: index.yml
 - name: Panoramica
   items:
-    - name: Che cos'è l'aggiornamento dei dispositivi per l'hub Internet?
+    - name: Che cos'è l'aggiornamento dei dispositivi per l'hub IoT?
       href: understand-device-update.md
 - name: Esercitazioni
   items:
-    - name: Aggiornamento dell'immagine in Raspberry Pi
+    - name: Aggiornamento delle immagini in Raspberry Pi
       href: device-update-raspberry-pi.md
     - name: Usare l'aggiornamento del dispositivo in un simulatore
       href: device-update-simulator.md
-    - name: 'Aggiornamento del pacchetto in Ubuntu server 18,04 x64'
+    - name: Aggiornamento del pacchetto in Ubuntu Server 18.04 x64
       href: device-update-ubuntu-agent.md
-    - name: Aggiornamento del dispositivo per Azure in tempo reale-sistema operativo
+    - name: Aggiornamento del dispositivo per il sistema operativo in tempo reale di Azure
       href: device-update-azure-real-time-operating-system.md
 - name: Concetti
   items:
-    - name: Istanza e account di aggiornamento del dispositivo
+    - name: Account e istanza dell'aggiornamento del dispositivo
       href: device-update-resources.md
-    - name: Accesso e ruoli utente per l'aggiornamento del dispositivo
+    - name: Ruoli utente e accesso per l'aggiornamento del dispositivo
       href: device-update-control-access.md
-    - name: Manifesto apt aggiornamento dispositivo
+    - name: Manifesto apt per l'aggiornamento del dispositivo
       href: device-update-apt-manifest.md
-    - name: Conformità degli aggiornamenti del dispositivo
+    - name: Conformità degli aggiornamenti dei dispositivi
       href: device-update-compliance.md
-    - name: Gruppi di aggiornamento del dispositivo
+    - name: Gruppi di aggiornamento dei dispositivi
       href: device-update-groups.md
-    - name: Modalità di utilizzo dell'aggiornamento dispositivo Plug and Play
+    - name: Come l'aggiornamento del dispositivo usa Plug and Play
       href: device-update-plug-and-play.md
-    - name: Requisiti di rete per l'aggiornamento del dispositivo
+    - name: Requisiti di rete per l'aggiornamento dei dispositivi
       href: device-update-networking.md
-    - name: Agente di aggiornamento dispositivo
+    - name: Agente di aggiornamento del dispositivo
       href: device-update-agent-overview.md
     - name: File di configurazione dell'aggiornamento del dispositivo
       href: device-update-configuration-file.md
-    - name: Aggiorna manifesto
+    - name: Aggiornare il manifesto
       href: update-manifest.md
-    - name: Modalità di protezione dell'aggiornamento del dispositivo
+    - name: Come viene protetto l'aggiornamento del dispositivo
       href: device-update-security.md
     - name: Supporto per i dispositivi disconnessi
       href: connected-cache-disconnected-device-update.md
-    - name: Configurare la cache connessa Microsoft per l'aggiornamento del dispositivo per l'hub Internet
+    - name: Configurare Microsoft cache connessa per l'aggiornamento dei dispositivi per l'hub IoT
       href: connected-cache-configure.md
-    - name: Importazione degli aggiornamenti del dispositivo
+    - name: Importazione dell'aggiornamento del dispositivo
       href: import-concepts.md
     - name: Schema correlato all'importazione
       href: import-schema.md
 - name: Guide pratiche
   items:
-    - name: Creazione di un account di aggiornamento del dispositivo
+    - name: Creare un account di aggiornamento del dispositivo
       href: create-device-update-account.md
-    - name: Agente di aggiornamento dispositivo di provisioning
+    - name: Provisioning dell'agente di aggiornamento dei dispositivi
       href: device-update-agent-provisioning.md
-    - name: Importazione di un aggiornamento
+    - name: Importare un aggiornamento
       href: import-update.md
-    - name: Creare un gruppo di aggiornamento del dispositivo
+    - name: Creare un gruppo di aggiornamento dei dispositivi
       href: create-update-group.md
     - name: Distribuire un aggiornamento del dispositivo
       href: deploy-update.md
-    - name: Cache connessa Microsoft a livello singolo
+    - name: Microsoft cache connessa
       href: connected-cache-single-level.md
-    - name: Cache connessa Microsoft a livello annidato
+    - name: Livello annidato Microsoft cache connessa
       href: connected-cache-nested-level.md
-    - name: Microsoft Connected cache per l'it industriale (IIOT)
+    - name: Microsoft cache connessa for Industrial IoT (IIOT)
       href: connected-cache-industrial-iot-nested.md
     - name: Risolvere problemi
       items:
-        - name: Risolvere i problemi relativi agli aggiornamenti del dispositivo
+        - name: Risolvere i problemi relativi agli aggiornamenti dei dispositivi
           href: troubleshoot-device-update.md
-        - name: Codici di errore client di aggiornamento dispositivo
-      href: device-update-error-codes.md
+        - name: Codici di errore del client di aggiornamento del dispositivo
+          href: device-update-error-codes.md
 - name: Informazioni di riferimento
   items:
     - name: API REST

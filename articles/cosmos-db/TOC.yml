@@ -80,15 +80,15 @@
           href: synapse-link-frequently-asked-questions.md
     - name: Backup e ripristino
       items:
-        - name: Introduzione a backup e ripristino
+        - name: Introduzione al backup e al ripristino
           href: online-backup-and-restore.md
         - name: Backup continuo
           items:
-            - name: Backup continuo-introduzione
+            - name: Backup continuo - Introduzione
               href: continuous-backup-restore-introduction.md
-            - name: Backup continuo-domande frequenti
+            - name: Backup continuo - Domande frequenti
               href: continuous-backup-restore-frequently-asked-questions.md
-            - name: Backup continuo-modello di risorse
+            - name: Backup continuo - Modello di risorsa
               href: continuous-backup-restore-resource-model.md
     - name: Ottimizzare i costi di Azure Cosmos DB
       items:
@@ -152,6 +152,8 @@
               href: create-sql-api-java.md
             - name: App Spring Data
               href: create-sql-api-spring-data.md
+            - name: App Spark v3
+              href: create-sql-api-spark.md
             - name: App Node.js
               href: create-sql-api-nodejs.md
             - name: App Python
@@ -755,9 +757,9 @@
                   href: troubleshoot-not-found.md
                 - name: Risolvere il problema relativo a elementi non autorizzati
                   href: troubleshoot-unauthorized.md
-                - name: Risoluzione dei problemi non consentito
+                - name: Risoluzione dei problemi non consentiti
                   href: troubleshoot-forbidden.md
-                - name: Risolvere i problemi della richiesta non valida
+                - name: Risolvere i problemi relativi a una richiesta non valida
                   href: troubleshoot-bad-request.md
                 - name: Problemi di disponibilità in ambienti composti da più aree
                   href: troubleshoot-sdk-availability.md
@@ -835,7 +837,7 @@
               href: visualize-qlik-sense.md
         - name: Analisi predefinita con Apache Spark
           items:
-            - name: Connettore Azure Databricks Spark
+            - name: Azure Databricks connettore OLTP spark 2
               href: spark-connector.md
             - name: Streaming con Apache Kafka e Cosmos DB
               href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
@@ -915,7 +917,9 @@
               href: sql-api-sdk-java-spring-v2.md
             - name: Connettore Spring Data v3
               href: sql-api-sdk-java-spring-v3.md
-            - name: Connettore Spark
+            - name: Connettore OLTP spark 3 (anteprima)
+              href: sql-api-sdk-java-spark-v3.md
+            - name: Connettore OLTP Spark 2
               href: sql-api-sdk-java-spark.md
             - name: Libreria di esecuzione bulk Java v2
               href: sql-api-sdk-bulk-executor-java.md
@@ -1101,11 +1105,11 @@
           href: tutorial-global-distribution-mongodb.md
     - name: Concetti
       items:
-        - name: 'API versione 4,0'
+        - name: API versione 4.0
           href: mongodb-feature-support-40.md
-        - name: 'API versione 3,6'
+        - name: API versione 3.6
           href: mongodb-feature-support-36.md
-        - name: 'API versione 3,2'
+        - name: API versione 3.2
           href: mongodb-feature-support.md
         - name: Domande frequenti
           href: mongodb-api-faq.md
@@ -1125,7 +1129,7 @@
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Guida alla post-migrazione
               href: mongodb-post-migration.md
-        - name: 'Eseguire l''aggiornamento alla versione API 4,0 o 3,6'
+        - name: Eseguire l'aggiornamento all'API versione 4.0 o 3.6
           href: mongodb-version-upgrade.md
         - name: Ottenere la stringa di connessione
           href: connect-mongodb-account.md
@@ -1386,17 +1390,17 @@
           href: synapse-link-power-bi.md
     - name: Backup e ripristino
       items:
-        - name: Gestisci backup continuo
+        - name: Gestire il backup continuo
           items:
-            - name: 'Backup continuo: autorizzazioni e ruoli'
+            - name: Backup continuo - Autorizzazioni e ruoli
               href: continuous-backup-restore-permissions.md
-            - name: Backup continuo-portale
+            - name: Backup continuo - Portale
               href: continuous-backup-restore-portal.md
-            - name: Backup continuo-PowerShell
+            - name: Backup continuo - PowerShell
               href: continuous-backup-restore-powershell.md
-            - name: Backup continuo-interfaccia della riga di comando
+            - name: Backup continuo - Interfaccia della riga di comando
               href: continuous-backup-restore-command-line.md
-            - name: Backup continuo-Gestione risorse
+            - name: Backup continuo - Resource Manager
               href: continuous-backup-restore-template.md
         - name: Gestire il backup periodico
           href: configure-periodic-backup-restore.md

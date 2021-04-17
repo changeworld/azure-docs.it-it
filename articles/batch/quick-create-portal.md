@@ -1,15 +1,17 @@
 ---
 title: 'Avvio rapido di Azure: Eseguire il primo processo batch nel portale di Azure'
 description: Questa guida di avvio rapido illustra come usare il portale di Azure per creare un account Batch, un pool di nodi di calcolo e un processo che esegue attività di base nel pool.
-ms.topic: quickstart
 ms.date: 08/17/2020
-ms.custom: mvc
-ms.openlocfilehash: 1234a932a732cdb6fda1c412a423ae0b1ea089e9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.topic: quickstart
+ms.custom:
+- mvc
+- mode-portal
+ms.openlocfilehash: 3333097b4bd55173725aa33bc4bfbae318510cf1
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102184016"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538545"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Guida introduttiva: Eseguire il primo processo Batch nel portale di Azure
 
