@@ -1,4 +1,4 @@
-- name: Advisor metriche
+- name: Advisor metriche documentazione
   href: index.yml
 - name: Panoramica
   expanded: true
@@ -9,7 +9,7 @@
       href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
     - name: Novità
       href: whats-new.md
-- name: Guide introduttive per la metrica di Advisor
+- name: Avvi rapidi
   items:
     - name: Portale Web
       href: quickstarts/web-portal.md
@@ -35,13 +35,17 @@
       href: how-tos/anomaly-feedback.md
     - name: Creare un grafo delle metriche
       href: how-tos/metrics-graph.md
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Usare chiavi gestite dal cliente
+          href: encryption.md
 - name: Concetti
   items:
-    - name: Termini chiave di Advisor metrica
+    - name: Advisor metriche termini chiave
       href: glossary.md
 - name: Riferimento
   items:
-    - name: API REST di Advisor per le metriche
+    - name: Advisor metriche API REST
       href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
     - name: Informazioni di riferimento sull'interfaccia della riga di comando di Azure
       href: /cli/azure/cognitiveservices#az_cognitiveservices_list
@@ -49,11 +53,11 @@
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Risorse
   items:
-    - name: Supporto di area
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Supporto di area
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformità e certificazione
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
-    - name: Conformità
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Crittografia
-      href: encryption.md

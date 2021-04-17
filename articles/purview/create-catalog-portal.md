@@ -3,16 +3,18 @@ title: 'Avvio rapido: Creare un account Azure Purview nel portale di Azure (ante
 description: Questo argomento di avvio rapido illustra come creare un account Azure Purview e configurare le autorizzazioni per iniziare a usarlo.
 author: nayenama
 ms.author: nayenama
+ms.date: 10/23/2020
+ms.topic: quickstart
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.topic: quickstart
-ms.date: 10/23/2020
-ms.openlocfilehash: 0346b467bc299b4eb6125df04a4449e94c035e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-portal
+ms.openlocfilehash: 72f4ac8df39b9511fd98a1dd5a3eca76e11e34bf
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666468"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535162"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Avvio rapido: Creare un account Azure Purview nel portale di Azure
 
@@ -117,7 +119,7 @@ Se necessario, seguire questa procedura per configurare la sottoscrizione in mod
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot che illustra come creare un'istanza dell'account Azure Purview nel portale di Azure.":::
 
     > [!Note] 
-    > Azure competenza non supporta lo stato di trasferimento dell'account tra le aree. Per ulteriori informazioni su questa pagina, vedere la [pagina relativa ai servizi supportati di Azure](../azure-resource-manager/management/region-move-support.md).
+    > Azure Purview non supporta lo spostamento del proprio account tra aree. Per altre informazioni, vedere la pagina [servizi supportati di Azure](../azure-resource-manager/management/region-move-support.md).
 
 1. Nella scheda **Informazioni di base** eseguire le operazioni seguenti:
     1. Selezionare un **gruppo di risorse**.

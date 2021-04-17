@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 036a1d3f8cad4ba9cda03a9001cfec1bb7de86b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60f67ea618746c9f2b0cd65a9fbc7fb2b5fbfe86
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715038"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520004"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Informazioni generali sulla sicurezza di Macchine virtuali di Azure
-Questo articolo fornisce una panoramica delle funzionalità di sicurezza principali di Azure che possono essere usate con le macchine virtuali.
+Questo articolo offre una panoramica delle principali funzionalità di sicurezza di Azure che possono essere usate con le macchine virtuali.
 
 Con le Macchine virtuali di Azure è possibile distribuire in modo flessibile un'ampia gamma di soluzioni di elaborazione. Il servizio supporta Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e servizi BizTalk di Azure. In questo modo è possibile distribuire qualsiasi carico di lavoro e implementare qualsiasi lingua su quasi tutti i sistemi operativi.
 
@@ -46,7 +46,7 @@ Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure è una funz
 
 Microsoft Antimalware per Azure è una soluzione con un agente singolo per applicazioni e ambienti tenant, progettata per l'esecuzione in background senza intervento da parte dell'utente. È possibile distribuire la protezione in base alle esigenze dei carichi di lavoro dell'applicazione, con una configurazione sicura per impostazione predefinita o avanzata personalizzata, incluso il monitoraggio antimalware.
 
-Scopri di più su [Microsoft antimalware per Azure](antimalware.md) e sulle funzionalità di base disponibili.
+Altre informazioni sulle [Microsoft Antimalware per Azure e](antimalware.md) sulle funzionalità principali disponibili.
 
 Per altre informazioni sul software antimalware per la protezione delle macchine virtuali:
 
@@ -84,7 +84,7 @@ Altre informazioni:
 
 ## <a name="virtual-machine-disk-encryption"></a>Crittografia dischi delle macchine virtuali
 
-Crittografia dischi di Azure è una nuova funzionalità che consente di crittografare i dischi delle macchine virtuali Windows e Linux. Crittografia dischi di Azure usa la funzionalità [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) standard di settore di Windows e la funzionalità [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia del volume per il sistema operativo e i dischi dati.
+Crittografia dischi di Azure è una nuova funzionalità che consente di crittografare i dischi delle macchine virtuali Windows e Linux. Crittografia dischi di Azure usa la funzionalità [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) standard del settore di Windows e la funzionalità [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) di Linux per fornire la crittografia dei volumi per il sistema operativo e i dischi dati.
 
 La soluzione è integrata con Azure Key Vault per consentire di controllare e gestire le chiavi di crittografia dei dischi e i segreti nella sottoscrizione dell'insieme di credenziali delle chiavi. Questa soluzione assicura anche che tutti i dati nei dischi delle macchine virtuali vengano crittografati quando inattivi in Archiviazione di Azure.
 
@@ -100,7 +100,7 @@ Backup di Azure è una soluzione scalabile che consente di proteggere i dati del
 Altre informazioni:
 
 * [Informazioni su Backup di Azure](../../backup/backup-overview.md)
-* [Domande frequenti sul servizio backup di Azure](../../backup/backup-azure-backup-faq.md)
+* [Backup di Azure domande frequenti sul servizio](../../backup/backup-azure-backup-faq.yml)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -116,9 +116,9 @@ Site Recovery:
 
 Altre informazioni:
 
-* [Che cos'è Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
-* [In che modo Azure Site Recovery funziona?](../../site-recovery/azure-to-azure-architecture.md)
-* [Quali carichi di lavoro sono protetti da Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
+* [Che cos'Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
+* [Come funziona Azure Site Recovery?](../../site-recovery/azure-to-azure-architecture.md)
+* [Quali carichi di lavoro sono protetti Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Reti virtuali
 
@@ -158,9 +158,9 @@ Altre informazioni:
 
 ## <a name="confidential-computing"></a>Confidential computing
 
-Sebbene il computing riservato non sia tecnicamente parte della sicurezza delle macchine virtuali, l'argomento relativo alla sicurezza della macchina virtuale appartiene al soggetto di livello superiore della sicurezza "calcolo". Il computing riservato appartiene alla categoria "calcolo" della sicurezza.
+Anche se il confidential computing non fa tecnicamente parte della sicurezza delle macchine virtuali, l'argomento relativo alla sicurezza delle macchine virtuali appartiene al soggetto di livello superiore della sicurezza "calcolo". Il confidential computing appartiene alla categoria di sicurezza "calcolo".
 
-Il computing riservato garantisce che, quando i dati sono "in chiaro", che è necessario per un'elaborazione efficiente, i dati sono protetti in un ambiente di esecuzione attendibile  https://en.wikipedia.org/wiki/Trusted_execution_environment (Tee, noto anche come enclave), un esempio di come illustrato nella figura seguente.  
+Il confidential computing garantisce che quando i dati sono "in chiaro", necessari per un'elaborazione efficiente, i dati siano protetti all'interno di un ambiente di esecuzione attendibile (TEE, noto anche come enclave), un esempio di cui è illustrato nella figura  https://en.wikipedia.org/wiki/Trusted_execution_environment seguente.  
 
 Gli ambienti di esecuzione attendibili impediscono qualsiasi tentativo di visualizzare operazioni o dati interni dall'esterno, anche con un debugger. Consentono inoltre l'accesso ai dati solo a codice autorizzato. Se il codice è stato modificato o manomesso, le operazioni vengono negate e l'ambiente viene disabilitato. Gli ambienti di esecuzione attendibili applicano queste protezioni a tutto il ciclo di esecuzione del codice in essi contenuto.
 
@@ -171,4 +171,4 @@ Altre informazioni:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulle [procedure di sicurezza consigliate](iaas.md) per le macchine virtuali e i sistemi operativi.
+Informazioni sulle [procedure consigliate per la sicurezza](iaas.md) per macchine virtuali e sistemi operativi.

@@ -1,6 +1,6 @@
 ---
-title: Reimposta lo stato di riscatto di un utente Guest-Azure AD
-description: Informazioni su come reimpostare lo stato di riscatto dell'invito per un Azure Active Directory utenti Guest B2B in Azure AD identità esterne.
+title: Reimpostare lo stato di riscatto di un utente guest - Azure AD
+description: Informazioni su come reimpostare lo stato di riscatto dell'invito per Azure Active Directory utenti guest B2B in Azure AD per identità esterne.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -10,38 +10,40 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0396698fe63cb62fc1cfaf5d930b8a97a7b1bbc
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: f5bfce7ef2621cbe3bbbfdd95bf9a75e427c8cbd
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552258"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531870"
 ---
-# <a name="reset-redemption-status-for-a-guest-user-preview"></a>Reimposta lo stato di riscatto per un utente Guest (anteprima)
+# <a name="reset-redemption-status-for-a-guest-user-preview"></a>Reimpostare lo stato di riscatto per un utente guest (anteprima)
 
-Dopo che un utente Guest ha riscattato l'invito per la collaborazione B2B, potrebbe essere necessario aggiornare le informazioni di accesso, ad esempio nei casi seguenti:
+Dopo che un utente guest ha riscattato l'invito per Collaborazione B2B, in alcuni casi potrebbe essere necessario aggiornare le informazioni di accesso, ad esempio quando:
 
-- L'utente vuole accedere usando un indirizzo di posta elettronica e un provider di identità diversi
-- L'account per l'utente nel tenant principale è stato eliminato e ricreato
-- L'utente è stato spostato in un'altra società, ma necessita comunque dello stesso accesso alle risorse
+- L'utente vuole eseguire l'accesso usando un provider di identità e di posta elettronica diverso
+- L'account per l'utente nel tenant principale è stato eliminato e ri-creato
+- L'utente si è spostato in un'altra società, ma deve comunque avere lo stesso accesso alle risorse
 - Le responsabilità dell'utente sono state passate a un altro utente
 
-Per gestire questi scenari in precedenza, era necessario eliminare manualmente l'account dell'utente guest dalla directory e reinvitare l'utente. A questo punto è possibile usare PowerShell o l'API di invito Microsoft Graph per reimpostare lo stato di riscatto dell'utente e reinvitare l'utente conservando l'ID oggetto dell'utente, le appartenenze ai gruppi e le assegnazioni di app. Quando l'utente riscatta il nuovo invito, l'UPN dell'utente non cambia, ma il nome di accesso dell'utente viene modificato nel nuovo messaggio di posta elettronica. L'utente può successivamente accedere usando il nuovo messaggio di posta elettronica o un messaggio di posta elettronica aggiunto alla `otherMails` proprietà dell'oggetto utente.
+Per gestire questi scenari in precedenza, era necessario eliminare manualmente l'account dell'utente guest dalla directory e reinviare l'utente. È ora possibile usare PowerShell o l'API di invito di Microsoft Graph per reimpostare lo stato di riscatto dell'utente e reinviare l'utente mantenendo l'ID oggetto dell'utente, le appartenenze ai gruppi e le assegnazioni di app. Quando l'utente riscatta il nuovo invito, l'UPN dell'utente non cambia, ma il nome di accesso dell'utente viene modificato nel nuovo messaggio di posta elettronica. L'utente può successivamente accedere usando il nuovo messaggio di posta elettronica o un messaggio di posta elettronica aggiunto alla `otherMails` proprietà dell'oggetto utente.
 
-## <a name="reset-the-email-address-used-for-sign-in"></a>Reimposta l'indirizzo di posta elettronica usato per l'accesso
+## <a name="reset-the-email-address-used-for-sign-in"></a>Reimpostare l'indirizzo di posta elettronica usato per l'accesso
 
-Se un utente vuole accedere con un indirizzo di posta elettronica diverso:
+Se un utente vuole accedere usando un indirizzo di posta elettronica diverso:
 
-1. Verificare che il nuovo indirizzo di posta elettronica venga aggiunto `mail` alla `otherMails` proprietà o dell'oggetto utente. 
+1. Assicurarsi che il nuovo indirizzo di posta elettronica sia aggiunto alla `mail` proprietà `otherMails` o dell'oggetto utente. 
 2.  Sostituire l'indirizzo di posta elettronica nella `InvitedUserEmailAddress` proprietà con il nuovo indirizzo di posta elettronica.
-3. Usare uno dei metodi riportati di seguito per reimpostare lo stato di riscatto dell'utente.
+3. Usare uno dei metodi seguenti per reimpostare lo stato di riscatto dell'utente.
 
 > [!NOTE]
->Durante l'anteprima pubblica, quando si ripristina l'indirizzo di posta elettronica dell'utente, è consigliabile impostare la `mail` proprietà sul nuovo indirizzo di posta elettronica. In questo modo l'utente può riscattare l'invito eseguendo l'accesso alla directory oltre a usare il collegamento di riscatto nell'invito.
+>Durante l'anteprima pubblica sono disponibili due raccomandazioni:
+>- Quando si reimposta l'indirizzo di posta elettronica dell'utente su un nuovo indirizzo, è consigliabile impostare la `mail` proprietà . In questo modo l'utente può riscattare l'invito accedendo alla directory oltre a usare il collegamento di riscatto nell'invito.
+>- Quando si reimposta lo stato per un utente guest B2B, assicurarsi di eseguire questa operazione nel contesto utente. Le chiamate solo app non sono attualmente supportate.
 >
 ## <a name="use-powershell-to-reset-redemption-status"></a>Usare PowerShell per reimpostare lo stato di riscatto
 
-Installare il modulo AzureADPreview PowerShell più recente e creare un nuovo invito con `InvitedUserEmailAddress` impostato sul nuovo indirizzo di posta elettronica e `ResetRedemption` impostare su `true` .
+Installare il modulo PowerShell AzureADPreview più recente e creare un nuovo invito con impostato sul nuovo indirizzo di posta elettronica `InvitedUserEmailAddress` e `ResetRedemption` impostare su `true` .
 
 ```powershell  
 Uninstall-Module AzureADPreview 
@@ -52,9 +54,9 @@ $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGra
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser -ResetRedemption $True 
 ```
 
-## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Usare Microsoft Graph API per reimpostare lo stato di riscatto
+## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Usare l Microsoft Graph aPI per reimpostare lo stato di riscatto
 
-Usando l' [API di invito Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-1.0), impostare la `resetRedemption` proprietà su `true` e specificare il nuovo indirizzo di posta elettronica nella `invitedUserEmailAddress` Proprietà.
+Usando [l Microsoft Graph aPI di invito,](/graph/api/resources/invitation?view=graph-rest-beta&preserve-view=true)impostare la proprietà su e specificare il nuovo indirizzo di posta `resetRedemption` `true` elettronica nella proprietà `invitedUserEmailAddress` .
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  
@@ -86,4 +88,4 @@ ContentType: application/json
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Add Azure Active Directory B2B collaboration users by using PowerShell (Aggiungere utenti di Collaborazione B2B di Azure Active Directory usando PowerShell)](customize-invitation-api.md#powershell)
-- [Proprietà di un utente Guest B2B Azure AD](user-properties.md)
+- [Proprietà di un Azure AD guest B2B](user-properties.md)

@@ -1,18 +1,19 @@
 ---
 title: "Avvio rapido: usare l'API Python per eseguire un processo di Azure Batch"
 description: Questo argomento di avvio rapido illustra come eseguire un processo e le attività di esempio di Azure Batch usando la libreria client Python. Apprendere i concetti chiave del servizio Batch.
-ms.topic: quickstart
 ms.date: 08/17/2020
+ms.topic: quickstart
 ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: e213ec7aee7172bb5ebb49097ad9fd09f9106255
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+- mode-api
+ms.openlocfilehash: 75f83e0ea4823796ace348084bab0915babc8979
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046811"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107535570"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Guida introduttiva: Usare l'API Python per eseguire un processo di Azure Batch
 
@@ -28,7 +29,7 @@ Completando questo argomento di avvio rapido si apprenderanno i concetti di base
 
 - Un account Batch e un account di archiviazione di Azure collegato. Per creare questi account, vedere le guide introduttive di Batch usando il [portale di Azure](quick-create-portal.md) o l'[interfaccia della riga di comando di Azure](quick-create-cli.md).
 
-- [Python](https://python.org/downloads) versione 2,7 o 3,6, incluso Gestione pacchetti [PIP](https://pip.pypa.io/en/stable/installing/)
+- [Python](https://python.org/downloads) versione 2.7 o 3.6, incluso gestione [pacchetti pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
