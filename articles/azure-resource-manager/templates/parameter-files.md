@@ -2,21 +2,21 @@
 title: Creare il file di parametri
 description: Creare il file di parametri per passare i valori durante la distribuzione di un modello di Azure Resource Manager
 ms.topic: conceptual
-ms.date: 04/12/2021
-ms.openlocfilehash: d557bcdfe246dc2c9bfccde17b7f9590c2686358
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 04/15/2021
+ms.openlocfilehash: ddeaed94396aa662b795ae5701aa367ba13d869b
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312043"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531207"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creare il file di parametri di Resource Manager
 
-Invece di passare i parametri come valori inline nello script, può risultare più facile usare un file JSON che contenga i valori dei parametri. Questo articolo illustra come creare il file di parametri.
+Anziché passare parametri come valori inline nello script, è possibile usare un file JSON contenente i valori dei parametri. Questo articolo illustra come creare un file di parametri da usare con un modello JSON o un file Bicep.
 
 ## <a name="parameter-file"></a>File di parametri
 
-Il file di parametri ha il formato seguente:
+Un file di parametri usa il formato seguente:
 
 ```json
 {
@@ -33,9 +33,9 @@ Il file di parametri ha il formato seguente:
 }
 ```
 
-Notare che i valori dei parametri sono archiviati come testo normale nel file di parametri. Questo approccio funziona per i valori non sensibili, ad esempio quando si specifica lo SKU per una risorsa. Non funziona per i valori sensibili, ad esempio le password. Se è necessario passare un valore sensibile come parametro, archiviare il valore in un insieme di credenziali delle chiavi e fare riferimento a quest'ultimo nel file di parametri. Il valore sensibile verrà recuperato in modo sicuro durante la distribuzione.
+Si noti che il file di parametri archivia i valori dei parametri come testo normale. Questo approccio funziona per i valori che non sono sensibili, ad esempio uno SKU della risorsa. Il testo normale non funziona per i valori sensibili, ad esempio le password. Se è necessario passare un parametro contenente un valore sensibile, archiviare il valore in un insieme di credenziali delle chiavi. Fare quindi riferimento all'insieme di credenziali delle chiavi nel file dei parametri. Il valore sensibile verrà recuperato in modo sicuro durante la distribuzione.
 
-Il file di parametri seguente include un valore in testo normale e uno archiviato in un insieme di credenziali delle chiavi.
+Il file di parametri seguente include un valore di testo normale e un valore sensibile archiviato in un insieme di credenziali delle chiavi.
 
 ```json
 {
@@ -61,7 +61,9 @@ Per altre informazioni sull'uso dei valori contenuti in un insieme di credenzial
 
 ## <a name="define-parameter-values"></a>Definire i valori dei parametri
 
-Per comprendere come definire i valori dei parametri aprire il modello che si sta distribuendo. Esaminare la sezione del modello relativa ai parametri. L'esempio seguente illustra i parametri di un modello.
+Per determinare come definire i nomi e i valori dei parametri, aprire il modello JSON o Bicep. Esaminare la sezione del modello relativa ai parametri. Gli esempi seguenti illustrano i parametri dei modelli JSON e Bicep.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 "parameters": {
@@ -82,7 +84,24 @@ Per comprendere come definire i valori dei parametri aprire il modello che si st
 }
 ```
 
-Il primo dettaglio da osservare è il nome di ogni parametro. I valori presenti nel file di parametri devono corrispondere ai nomi.
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+@maxLength(11)
+param storagePrefix string
+
+@allowed([
+  'Standard_LRS'
+  'Standard_GRS'
+  'Standard_ZRS'
+  'Premium_LRS'
+])
+param storageAccountType string = 'Standard_LRS'
+```
+
+---
+
+Nel file dei parametri il primo dettaglio da notare è il nome di ogni parametro. I nomi dei parametri nel file di parametri devono corrispondere ai nomi dei parametri nel modello.
 
 ```json
 {
@@ -97,7 +116,7 @@ Il primo dettaglio da osservare è il nome di ogni parametro. I valori presenti 
 }
 ```
 
-Osservare il tipo di parametro. I valori presenti nel file di parametri devono avere gli stessi tipi. Per questo modello, è possibile specificare entrambi i parametri come stringhe.
+Si noti il tipo di parametro. I tipi di parametro nel file di parametri devono usare gli stessi tipi del modello. In questo esempio entrambi i tipi di parametro sono stringhe.
 
 ```json
 {
@@ -114,7 +133,7 @@ Osservare il tipo di parametro. I valori presenti nel file di parametri devono a
 }
 ```
 
-Cercare quindi un valore predefinito. Se un parametro ha un valore predefinito, è possibile specificare un valore, ma non è obbligatorio.
+Controllare il modello per i parametri con un valore predefinito. Se un parametro ha un valore predefinito, è possibile specificare un valore nel file dei parametri, ma non è obbligatorio. Il valore del file di parametri esegue l'override del valore predefinito del modello.
 
 ```json
 {
@@ -131,7 +150,7 @@ Cercare quindi un valore predefinito. Se un parametro ha un valore predefinito, 
 }
 ```
 
-Esaminare infine i valori consentiti ed eventuali restrizioni come la lunghezza massima. Questi indicano l'intervallo di valori che è possibile specificare per il parametro.
+Controllare i valori consentiti del modello ed eventuali restrizioni, ad esempio la lunghezza massima. Questi valori specificano l'intervallo di valori che è possibile specificare per un parametro. In questo esempio può `storagePrefix` avere un massimo di 11 caratteri e deve specificare un valore `storageAccountType` consentito.
 
 ```json
 {
@@ -148,11 +167,12 @@ Esaminare infine i valori consentiti ed eventuali restrizioni come la lunghezza 
 }
 ```
 
-Il file dei parametri può contenere solo valori per i parametri definiti nel modello. Se il file di parametri contiene parametri aggiuntivi che non corrispondono a parametri nel modello, viene visualizzato un errore.
+> [!NOTE]
+> Il file di parametri può contenere solo valori per i parametri definiti nel modello. Se il file di parametri contiene parametri aggiuntivi che non corrispondono ai parametri del modello, viene visualizzato un errore.
 
 ## <a name="parameter-type-formats"></a>Formati dei tipi di parametro
 
-L'esempio seguente illustra i formati di diversi tipi di parametro.
+L'esempio seguente illustra i formati dei diversi tipi di parametro: string, integer, boolean, array e object.
 
 ```json
 {
@@ -180,13 +200,13 @@ L'esempio seguente illustra i formati di diversi tipi di parametro.
         "property2": "value2"
       }
     }
-   }
+  }
 }
 ```
 
-## <a name="deploy-template-with-parameter-file"></a>Distribuire un modello con un file di parametri
+## <a name="deploy-template-with-parameter-file"></a>Distribuire il modello con il file di parametri
 
-Per passare un file di parametri locale con l'interfaccia della riga di comando di Azure, usare @ e il nome del file di parametri.
+Dall'interfaccia della riga di comando di Azure si passa un file di parametri locale usando `@` e il nome del file dei parametri. Ad esempio: `@storage.parameters.json`.
 
 ```azurecli
 az deployment group create \
@@ -196,28 +216,29 @@ az deployment group create \
   --parameters @storage.parameters.json
 ```
 
-Per altre informazioni, vedere [distribuire le risorse con i modelli ARM e l'interfaccia](./deploy-cli.md#parameters)della riga di comando di Azure.
+Per altre informazioni, vedere Distribuire risorse con i modelli arm e l'interfaccia [della riga di comando di Azure.](./deploy-cli.md#parameters) Per distribuire i _file con estensione bicep_ è necessaria la versione 2.20 o successiva dell'interfaccia della riga di comando di Azure.
 
-Per passare un file di parametri locale con Azure PowerShell, usare il `TemplateParameterFile` parametro.
+Da Azure PowerShell si passa un file di parametri locale usando il `TemplateParameterFile` parametro .
 
 ```azurepowershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
-  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+  -TemplateFile C:\MyTemplates\storage.json `
+  -TemplateParameterFile C:\MyTemplates\storage.parameters.json
 ```
 
-Per altre informazioni, vedere [distribuire le risorse con i modelli ARM e Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+Per altre informazioni, vedere [Distribuire risorse con modelli di Arm e Azure PowerShell](./deploy-powershell.md#pass-parameter-values). Per distribuire _i file con estensione bicep_ è Azure PowerShell versione 5.6.0 o successiva.
 
 > [!NOTE]
-> Non è possibile usare un file di parametri con il pannello modello personalizzato nel portale.
+> Non è possibile usare un file di parametri con il pannello del modello personalizzato nel portale.
 
-Se si usa il [progetto gruppo di risorse di Azure in Visual Studio](create-visual-studio-deployment-project.md), assicurarsi che l' **azione di compilazione** del file di parametri sia impostata su **contenuto**.
+> [!TIP]
+> Se si usa il progetto Gruppo di risorse di [Azure in](create-visual-studio-deployment-project.md)Visual Studio , assicurarsi che l'azione di compilazione del file di parametri sia **impostata** su **Contenuto**.
 
 ## <a name="file-name"></a>Nome file
 
-La convenzione generale per la denominazione del file di parametri è l'aggiunta di **.parameters** al nome del modello. Ad esempio, se il modello è denominato **azuredeploy.json**, il file di parametri sarà denominato **azuredeploy.parameters.json**. Questa convenzione di denominazione consente di vedere la connessione tra il modello e i parametri.
+La convenzione di denominazione generale per il file di parametri è includere _i parametri_ nel nome del modello. Ad esempio, se il modello è denominato _azuredeploy.json_, il file di parametri sarà denominato _azuredeploy.parameters.json_. Questa convenzione di denominazione consente di vedere la connessione tra il modello e i parametri.
 
-Per la distribuzione in ambienti diversi, creare più di un file di parametri. Quando si denomina il file di parametri, identificarne l'uso in qualche modo. Ad esempio, usare **azuredeploy.parameters-dev.json** e **azuredeploy.parameters-prod.json**.
+Per eseguire la distribuzione in ambienti diversi, creare più di un file di parametri. Quando si denotono i file dei parametri, identificarne l'uso, ad esempio sviluppo e produzione. Ad esempio, usareazuredeploy.parameters-dev.js _su_ e _azuredeploy.parameters-prod.jsper_ distribuire le risorse.
 
 ## <a name="parameter-precedence"></a>Precedenza dei parametri
 
@@ -227,11 +248,9 @@ Per la distribuzione in ambienti diversi, creare più di un file di parametri. Q
 
 ## <a name="parameter-name-conflicts"></a>Conflitti nei nomi di parametro
 
-Se il modello include un parametro con lo stesso nome di uno dei parametri nel comando di PowerShell, PowerShell aggiunge al parametro del modello il suffisso **FromTemplate**. Ad esempio, un parametro denominato **ResourceGroupName** nel modello sarà in conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Verrà quindi richiesto di fornire un valore per **ResourceGroupNameFromTemplate**. È possibile evitare questa confusione usando nomi di parametro non usati per i comandi di distribuzione.
-
+Se il modello include un parametro con lo stesso nome di uno dei parametri nel comando di PowerShell, PowerShell presenta il parametro del modello con il suffisso `FromTemplate` . Ad esempio, un parametro `ResourceGroupName` denominato nel modello è in conflitto con il parametro nel cmdlet `ResourceGroupName` [New-AzResourceGroupDeployment.](/powershell/module/az.resources/new-azresourcegroupdeployment) Viene richiesto di specificare un valore per `ResourceGroupNameFromTemplate` . Per evitare questa confusione, usare nomi di parametro che non vengono usati per i comandi di distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come definire i parametri nel modello, vedere [Parametri nei modelli di Azure Resource Manager](template-parameters.md).
+- Per altre informazioni su come definire i parametri in un modello, vedere [Parametri nei modelli arm.](template-parameters.md)
 - Per altre informazioni sull'uso dei valori contenuti in un insieme di credenziali delle chiavi, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](key-vault-parameter.md).
-- Per altre informazioni sui parametri, vedere [Parametri nei modelli di Azure Resource Manager](template-parameters.md).

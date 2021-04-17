@@ -4,17 +4,19 @@ titleSuffix: Azure DNS
 description: Informazioni su come creare una zona e un record DNS in DNS Azure. Si tratta di un argomento di avvio rapido dettagliato per la creazione e la gestione della prima zona e del primo record DNS con un modello di Azure Resource Manager.
 services: dns
 author: duongau
-ms.service: dns
-ms.topic: quickstart
-ms.date: 09/8/2020
 ms.author: duau
-ms.custom: subject-armqs
-ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/8/2020
+ms.topic: quickstart
+ms.service: dns
+ms.custom:
+- subject-armqs
+- mode-arm
+ms.openlocfilehash: 34e810fa8244cf3ff00e57f193624a2c1fa4d755
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92791002"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539024"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Creare una zona e un record DNS di Azure con un modello di Azure Resource Manager
 

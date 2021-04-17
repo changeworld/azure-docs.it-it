@@ -2,26 +2,23 @@
 title: Configurazione dell'accesso Single Sign-On (SSO) con un clic dell'applicazione di Azure Marketplace | Microsoft Docs
 description: Procedura per la configurazione dell'accesso SSO con un clic per l'applicazione di Azure Marketplace.
 services: active-directory
-documentationCenter: na
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.reviewer: kenwith
 ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50f705e587010d956c29a71127e97dd85cb517ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e14944bc92b0d728a917402a1bd2f01b8b9012e4
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258253"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375645"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configurazione dell'accesso Single Sign-On con un clic per l'app
 

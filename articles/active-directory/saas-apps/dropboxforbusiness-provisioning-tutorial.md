@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 04d17e17ef11696efd52f04ea83639f2a9b81fea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e718ef30d029995c49efe36f19a6efcf7de0616
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96938750"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107589602"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Esercitazione: Configurare Dropbox for Business per il provisioning utenti automatico
 
 Questa esercitazione descrive la procedura da eseguire in Dropbox for Business e Azure Active Directory (Azure AD) per configurare Azure AD in modo da effettuare automaticamente il provisioning e il de-provisioning di utenti e/o gruppi in Dropbox for Business.
 
 > [!IMPORTANT]
-> Microsoft e Dropbox deprecheranno l'integrazione precedente di Dropbox a partire dal 01/04/2021. Per evitare l'interruzione del servizio, è consigliabile eseguire la migrazione alla nuova integrazione di Dropbox che supporta Gruppi. Per eseguire la migrazione alla nuova integrazione di Dropbox, seguire questa procedura per aggiungere e configurare una nuova istanza di Dropbox for Provisioning nel tenant di Azure AD. Dopo aver configurato la nuova integrazione di Dropbox, disabilitare il provisioning nell'integrazione precedente di Dropbox per evitare conflitti di provisioning. Per istruzioni più dettagliate sulla migrazione alla nuova integrazione di Dropbox, vedere l'articolo sull'[aggiornamento alla versione più recente dell'applicazione Dropbox for Business con Azure AD](https://help.dropbox.com/installs-integrations/third-party/update-dropbox-azure-ad-connector).
+> In futuro, Microsoft e Dropbox depreceranno l'integrazione di Dropbox precedente. Inizialmente era prevista per il 1°/4/2021, ma è stata posticipata per un periodo illimitato. Tuttavia, per evitare l'interruzione del servizio, è consigliabile eseguire la migrazione alla nuova integrazione di Dropbox SCIM 2.0 che supporta i gruppi. Per eseguire la migrazione alla nuova integrazione di Dropbox, seguire questa procedura per aggiungere e configurare una nuova istanza di Dropbox for Provisioning nel tenant di Azure AD. Dopo aver configurato la nuova integrazione di Dropbox, disabilitare il provisioning nell'integrazione precedente di Dropbox per evitare conflitti di provisioning. Per istruzioni più dettagliate sulla migrazione alla nuova integrazione di Dropbox, vedere l'articolo sull'[aggiornamento alla versione più recente dell'applicazione Dropbox for Business con Azure AD](https://help.dropbox.com/installs-integrations/third-party/update-dropbox-azure-ad-connector).
 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).

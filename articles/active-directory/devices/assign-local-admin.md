@@ -1,5 +1,5 @@
 ---
-title: Come gestire gli amministratori locali nei dispositivi Azure AD aggiunti
+title: Come gestire gli amministratori locali nei Azure AD aggiunti
 description: Informazioni su come assegnare i ruoli di Azure al gruppo di amministratori locale di un dispositivo Windows.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56e0f92593d185890e34a1a5120093d68cf45484
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 806ff92fcf75ff8d1c8e092d7ff4435751a9e7db
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388416"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107529909"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
@@ -71,13 +71,13 @@ Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti 
 A partire Windows 10 2004, è possibile usare i gruppi Azure AD per gestire i privilegi di amministratore Azure AD dispositivi aggiunti con i criteri [MDM](/windows/client-management/mdm/policy-csp-restrictedgroups) gruppi con restrizioni. Questo criterio consente di assegnare singoli utenti o gruppi Azure AD al gruppo administrators locale in un dispositivo aggiunto Azure AD, fornendo la granularità per configurare amministratori distinti per gruppi diversi di dispositivi. 
 
 >[!NOTE]
-> A Windows 10 20H2, è consigliabile [](/windows/client-management/mdm/policy-csp-localusersandgroups) usare i criteri Utenti e gruppi locali anziché i criteri Gruppi con restrizioni
+> A Windows 10 aggiornamento 20H2, è [](/windows/client-management/mdm/policy-csp-localusersandgroups) consigliabile usare i criteri Utenti e gruppi locali anziché i criteri Gruppi con restrizioni
 
 
-Attualmente, non è disponibile alcuna interfaccia utente in Intune per gestire questi criteri e devono essere configurati usando [impostazioni URI OMA personalizzate](/mem/intune/configuration/custom-settings-windows-10). Alcune considerazioni sull'uso di uno di questi criteri: 
+Attualmente, non è disponibile alcuna interfaccia utente in Intune per gestire questi criteri e devono essere configurati usando [impostazioni URI OMA personalizzate.](/mem/intune/configuration/custom-settings-windows-10) Alcune considerazioni sull'uso di uno di questi criteri: 
 
-- L Azure AD di gruppi tramite i criteri richiede il SID del gruppo che può essere ottenuto eseguendo l'API Microsoft Graph [per i gruppi](/graph/api/resources/group?view=graph-rest-beta). Il SID è definito dalla proprietà nella `securityIdentifier` risposta dell'API.
-- Quando viene applicato il criterio Gruppi con restrizioni, tutti i membri correnti del gruppo non presenti nell'elenco Membri vengono rimossi. Pertanto, l'applicazione di questo criterio con nuovi membri o gruppi rimuoverà gli amministratori esistenti, ad esempio l'utente che ha aggiunto il dispositivo, il ruolo amministratore del dispositivo e amministratore globale ruolo dal dispositivo. Per evitare la rimozione di membri esistenti, è necessario configurarli come parte dell'elenco Membri nei criteri Gruppi con restrizioni. Questa limitazione viene affrontata se si usa il criterio Utenti e gruppi locali che consente aggiornamenti incrementali all'appartenenza ai gruppi
+- L Azure AD di gruppi tramite i criteri richiede il SID del gruppo che può essere ottenuto eseguendo l'API Microsoft Graph [per i gruppi](/graph/api/resources/group). Il SID è definito dalla proprietà nella `securityIdentifier` risposta dell'API.
+- Quando viene applicato il criterio Gruppi con restrizioni, tutti i membri correnti del gruppo non presenti nell'elenco Membri vengono rimossi. Pertanto, l'applicazione di questo criterio con nuovi membri o gruppi rimuoverà gli amministratori esistenti, ad esempio l'utente che ha aggiunto il dispositivo, il ruolo amministratore del dispositivo e amministratore globale ruolo dal dispositivo. Per evitare la rimozione di membri esistenti, è necessario configurarli come parte dell'elenco Membri nei criteri Gruppi con restrizioni. Questa limitazione viene affrontata se si usano i criteri Utenti e gruppi locali che consentono aggiornamenti incrementali dell'appartenenza ai gruppi
 - I privilegi di amministratore che usano entrambi i criteri vengono valutati solo per i gruppi noti seguenti in un dispositivo Windows 10: Administrators, Users, Guests, Power Users, Desktop remoto Users e Remote Management Users. 
 - La gestione degli amministratori locali Azure AD gruppi non è applicabile Azure AD ibrido dispositivi aggiunti o Azure AD registrati.
 - Anche se il criterio Gruppi con restrizioni esisteva prima di Windows 10 versione 2004, non supportava i gruppi Azure AD come membri del gruppo administrators locale di un dispositivo. 
@@ -106,7 +106,7 @@ Non è possibile assegnare gruppi al ruolo Amministratore dispositivo. Sono cons
 
 Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti ad Azure AD. Non possono essere inclusi nell'ambito di un set specifico di dispositivi.
 
-Quando si rimuovono gli utenti dal ruolo Amministratore dispositivo, questi hanno ancora il privilegio di amministratore locale su un dispositivo, purché abbiano effettuato l'accesso. Il privilegio viene revocato durante il successivo accesso quando viene emesso un nuovo token di aggiornamento primario. Questa revoca, simile all'elevazione dei privilegi, potrebbe richiedere fino a 4 ore.
+Quando si rimuovono gli utenti dal ruolo Amministratore dispositivo, questi hanno ancora il privilegio di amministratore locale su un dispositivo, purché abbiano effettuato l'accesso. Il privilegio viene revocato durante l'accesso successivo quando viene emesso un nuovo token di aggiornamento primario. Questa revoca, simile all'elevazione dei privilegi, potrebbe richiedere fino a 4 ore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

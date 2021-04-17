@@ -1,28 +1,28 @@
 ---
-title: Consigli Azure Advisor del pool SQL dedicato
+title: Raccomandazioni per la gestione Azure Advisor pool SQL dedicato
 description: Informazioni sulle raccomandazioni di Synapse SQL e su come vengono generate
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 06/26/2020
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 698c14d23e8e64c777260410c625129cd87d49b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b418b46199c524ca92d60dece6031073938e159b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585707"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107568421"
 ---
-# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Advisor raccomandazioni per il pool SQL dedicato in Azure sinapsi Analytics
+# <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Advisor raccomandazioni per il pool SQL dedicato in Azure Synapse Analytics
 
-Questo articolo descrive le raccomandazioni del pool SQL dedicato disponibili in Azure Advisor.  
+Questo articolo descrive le raccomandazioni per il pool SQL dedicato disponibili in Azure Advisor.  
 
-Il pool SQL dedicato fornisce consigli per garantire che il carico di lavoro data warehouse sia costantemente ottimizzato per le prestazioni. Grazie alla stretta integrazione con [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), le procedure consigliate vengono presentate direttamente nel [portale di Azure](https://aka.ms/Azureadvisor). Il pool SQL dedicato raccoglie i dati di telemetria e i consigli relativi alle superfici per il carico di lavoro attivo a cadenza giornaliera. Di seguito vengono descritti gli scenari per i quali è supportata la presentazione di raccomandazioni e viene illustrato come applicare le azioni consigliate.
+Il pool SQL dedicato offre raccomandazioni per garantire che il carico data warehouse carico di lavoro sia ottimizzato in modo coerente per le prestazioni. Grazie alla stretta integrazione con [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), le procedure consigliate vengono presentate direttamente nel [portale di Azure](https://aka.ms/Azureadvisor). Il pool SQL dedicato raccoglie dati di telemetria ed elementi consigliati per il carico di lavoro attivo a cadenza giornaliera. Di seguito vengono descritti gli scenari per i quali è supportata la presentazione di raccomandazioni e viene illustrato come applicare le azioni consigliate.
 
 È possibile [verificare la disponibilità di raccomandazioni](https://aka.ms/Azureadvisor) oggi stesso. 
 
@@ -71,6 +71,6 @@ Quando il working set è di grandi dimensioni, la percentuale di riscontri nella
 
 Quando si verifica un conflitto di tempdb significativo, le prestazioni delle query possono peggiorare.  Un conflitto di tempdb può verificarsi per via delle tabelle temporanee definite dall'utente o nel caso in cui venga spostato un grande quantitativo di dati. In questo tipo di scenario è possibile eseguire un ridimensionamento per aumentare l'allocazione di tempdb e [configurare le classi di risorse e la gestione del carico di lavoro](./sql-data-warehouse-workload-management.md) in modo da rendere disponibile più memoria per le query. 
 
-## <a name="data-loading-misconfiguration"></a>Configurazione errata del caricamento dei dati
+## <a name="data-loading-misconfiguration"></a>Errore di configurazione del caricamento dei dati
 
-È necessario caricare sempre i dati da un account di archiviazione nella stessa area del pool SQL dedicato per ridurre al minimo la latenza. Usare l' [istruzione Copy per l'inserimento di dati con velocità effettiva elevata](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) e suddividere i file di gestione temporanea nell'account di archiviazione per ottimizzare la velocità effettiva. Se non è possibile usare l'istruzione COPY, è possibile usare l'API SqlBulkCopy o BCP con una dimensione di batch elevata per una migliore velocità effettiva. Per informazioni aggiuntive sul caricamento dei dati, vedere la [documentazione](./guidance-for-loading-data.md)seguente.
+È consigliabile caricare sempre i dati da un account di archiviazione nella stessa area del pool SQL dedicato per ridurre al minimo la latenza. Usare [l'istruzione COPY per l'inserimento](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) di dati con velocità effettiva elevata e suddividere i file a fasi nell'account di archiviazione per ottimizzare la velocità effettiva. Se non è possibile usare l'istruzione COPY, è possibile usare l'API SqlBulkCopy o bcp con dimensioni di batch elevate per una velocità effettiva migliore. Per altre indicazioni sul caricamento dei dati, vedere la documentazione [seguente.](./guidance-for-loading-data.md)

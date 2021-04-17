@@ -7,12 +7,12 @@ ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 562ec4cf19d15772b2dec5adf59582f1feb5363a
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a7617a36ed800f1765ed7723568a4b612fcb6518
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478465"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587596"
 ---
 # <a name="tutorial-mock-api-responses"></a>Esercitazione: Simulare le risposte di un'API
 
@@ -20,7 +20,7 @@ Le API back-end possono essere importate in un'API di Gestione API o essere crea
 
 La possibilità di simulare le risposte può essere utile in diversi scenari:
 
-+ Quando l'API faE§ade viene progettata per prima e l'implementazione back-end viene fornita in un secondo momento. o quando il back-end viene sviluppato in parallelo.
++ Quando la facciata dell'API viene progettata prima e l'implementazione del back-end viene eseguita in seguito o quando il back-end viene sviluppato in parallelo.
 + Quando il back-end è temporaneamente non operativo o non è possibile ridimensionarlo.
 
 In questa esercitazione verranno illustrate le procedure per:
@@ -110,7 +110,7 @@ az apim api operation list --resource-group apim-hello-word-resource-group \
     --api-id test-api --service-name apim-hello-world --output table
 ```
 
-Per rimuovere un'operazione, usare il [comando az apim api operation delete.](/cli/azure/apim/api/operation#az_apim_api_operation_delete) Ottenere l'ID operazione dal comando precedente.
+Per rimuovere un'operazione, usare [il comando az apim api operation delete.](/cli/azure/apim/api/operation#az_apim_api_operation_delete) Ottenere l'ID operazione dal comando precedente.
 
 ```azurecli
 az apim api operation delete --resource-group apim-hello-word-resource-group \
@@ -118,7 +118,7 @@ az apim api operation delete --resource-group apim-hello-word-resource-group \
     --service-name apim-hello-world
 ```
 
-Mantenere questa operazione per l'uso nel resto di questo articolo.
+Mantenere questa operazione per l'uso nella parte restante di questo articolo.
 
 ---
 

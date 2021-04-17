@@ -1,6 +1,6 @@
 ---
-title: Creazione di un account di competenza con .NET SDK
-description: Creare un account Azure per la competenza usando .NET SDK.
+title: Creare un account Purview con .NET SDK
+description: Creare un account Azure Purview usando .NET SDK.
 author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
@@ -8,16 +8,16 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 4/2/2021
 ms.author: nayenama
-ms.openlocfilehash: 04ed5cef351c81355a2390dd0b983c162f2b9532
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: b3dc7bf8ac7650a7219c15a09a31d4dcf84a40bf
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387515"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587800"
 ---
-# <a name="quickstart-create-a-purview-account-using-net-sdk"></a>Guida introduttiva: creare un account di competenza con .NET SDK
+# <a name="quickstart-create-a-purview-account-using-net-sdk"></a>Guida introduttiva: Creare un account Purview con .NET SDK
 
-Questa Guida introduttiva descrive come usare .NET SDK per creare un account Azure per le competenze 
+Questa guida introduttiva descrive come usare .NET SDK per creare un account Azure Purview 
 
 > [!IMPORTANT]
 > Azure Purview è attualmente in anteprima. Le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) includono termini legali aggiuntivi che si applicano a funzionalità di Azure in versione beta, in anteprima o in altro modo non ancora disponibili a livello generale.
@@ -30,7 +30,7 @@ Questa Guida introduttiva descrive come usare .NET SDK per creare un account Azu
 
 * L'account deve avere l'autorizzazione per creare risorse nella sottoscrizione
 
-* Se sono impostati **Criteri di Azure** che impediscono a tutte le applicazioni di creare un **account di archiviazione** e uno **spazio dei nomi EventHub**, è necessario creare un'eccezione dei criteri usando un tag, che può essere immesso durante il processo di creazione di un account Purview. Il motivo principale è che per ogni account Purview creato occorre creare un gruppo di risorse gestito e, all'interno di tale gruppo, un account di archiviazione e uno spazio dei nomi EventHub. Per altre informazioni, vedere [creare il portale del catalogo](create-catalog-portal.md)
+* Se sono impostati **Criteri di Azure** che impediscono a tutte le applicazioni di creare un **account di archiviazione** e uno **spazio dei nomi EventHub**, è necessario creare un'eccezione dei criteri usando un tag, che può essere immesso durante il processo di creazione di un account Purview. Il motivo principale è che per ogni account Purview creato occorre creare un gruppo di risorse gestito e, all'interno di tale gruppo, un account di archiviazione e uno spazio dei nomi EventHub. Per altre informazioni, vedere [Creare il portale del catalogo](create-catalog-portal.md)
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -55,13 +55,13 @@ Creare quindi un'applicazione console C# .NET in Visual Studio:
 
 1. Avviare **Visual Studio**.
 2. Nella finestra di avvio selezionare **Crea un nuovo progetto** > **App console (.NET Framework)** . È necessario .NET versione 4.5.2 o successiva.
-3. In **Nome progetto** immettere **ADFv2QuickStart**.
+3. In **Nome progetto** immettere **PurviewQuickStart.**
 4. Selezionare **Crea** per creare il progetto.
 
 ## <a name="install-nuget-packages"></a>Installare i pacchetti NuGet
 
 1. Fare clic su **Strumenti** > **Gestione Pacchetti NuGet** > **Console di Gestione pacchetti**.
-2. Nel riquadro **Console di Gestione pacchetti** eseguire questi comandi per installare i pacchetti. Per altre informazioni, vedere il [pacchetto NuGet Microsoft. Azure. Management. competenza](https://www.nuget.org/packages/Microsoft.Azure.Management.Purview/).
+2. Nel riquadro **Console di Gestione pacchetti** eseguire questi comandi per installare i pacchetti. Per altre informazioni, vedere il [pacchetto NuGet Microsoft.Azure.Management.Purview](https://www.nuget.org/packages/Microsoft.Azure.Management.Purview/).
 
     ```powershell
     Install-Package Microsoft.Azure.Management.Purview
@@ -69,7 +69,7 @@ Creare quindi un'applicazione console C# .NET in Visual Studio:
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
-## <a name="create-a-purview-client"></a>Creazione di un client di competenza
+## <a name="create-a-purview-client"></a>Creare un client Purview
 
 1. Aprire **Program.cs** e includere le istruzioni seguenti per aggiungere riferimenti agli spazi dei nomi.
 
@@ -85,7 +85,7 @@ Creare quindi un'applicazione console C# .NET in Visual Studio:
       using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Aggiungere il codice seguente al metodo **Main** per impostare le variabili. Sostituire i segnaposto con i valori personalizzati. Per un elenco delle aree di Azure in cui è attualmente disponibile la competenza, cercare in **Azure competenza** e selezionare le aree che interessano nella pagina seguente: [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/).
+2. Aggiungere il codice seguente al metodo **Main** per impostare le variabili. Sostituire i segnaposto con i valori personalizzati. Per un elenco delle aree di Azure in cui Purview è attualmente disponibile, cercare in **Azure Purview** e selezionare le aree di interesse nella pagina seguente: Prodotti disponibili per [area](https://azure.microsoft.com/global-infrastructure/services/).
 
    ```csharp
    // Set variables
@@ -99,7 +99,7 @@ Creare quindi un'applicazione console C# .NET in Visual Studio:
        "<specify the name of purview account to create. It must be globally unique.>";
    ```
 
-3. Aggiungere il codice seguente al metodo **Main** per creare un'istanza della classe **PurviewManagementClient** . Usare questo oggetto per creare un account di competenza.
+3. Aggiungere il codice seguente al **metodo Main** che crea un'istanza della **classe PurviewManagementClient.** Questo oggetto viene utilizzato per creare un account Purview.
 
    ```csharp
    // Authenticate and create a purview management client
@@ -114,9 +114,9 @@ Creare quindi un'applicazione console C# .NET in Visual Studio:
    };
    ```
 
-## <a name="create-a-purview-account"></a>Creare un account di competenza
+## <a name="create-a-purview-account"></a>Creare un account Purview
 
-Aggiungere il codice seguente al metodo **Main** per creare un **account di competenza**. 
+Aggiungere il codice seguente al **metodo Main** che crea un **account Purview.** 
 
 ```csharp
     // Create a purview Account
@@ -151,7 +151,7 @@ Aggiungere il codice seguente al metodo **Main** per creare un **account di comp
 
 Compilare e avviare l'applicazione, quindi verificare l'esecuzione.
 
-La console stampa lo stato di avanzamento della creazione dell'account di competenza.
+La console stampa lo stato di avanzamento della creazione dell'account Purview.
 
 ### <a name="sample-output"></a>Output di esempio
 
@@ -174,20 +174,20 @@ Press any key to exit...
 
 ## <a name="verify-the-output"></a>Verificare l'output
 
-Passare alla pagina **account di competenza** nella [portale di Azure](https://portal.azure.com) e verificare l'account creato con il codice precedente. 
+Passare alla pagina **Purview accounts** (Visualizza account) nel [portale di Azure](https://portal.azure.com) e verificare l'account creato usando il codice precedente. 
 
-## <a name="delete-purview-account"></a>Elimina account di competenza
+## <a name="delete-purview-account"></a>Eliminare l'account Purview
 
-Per eliminare a livello di codice un account di competenza, aggiungere le righe di codice seguenti al programma: 
+Per eliminare un account Purview a livello di codice, aggiungere le righe di codice seguenti al programma: 
 
 ```csharp
     Console.WriteLine("Deleting the Purview Account");
     client.Accounts.Delete(resourceGroup, purviewAccountName);
 ```
 
-## <a name="check-if-purview-account-name-is-available"></a>Verificare se il nome dell'account di competenza è disponibile
+## <a name="check-if-purview-account-name-is-available"></a>Controllare se il nome dell'account Purview è disponibile
 
-Per verificare la disponibilità di un account di competenza, usare il codice seguente: 
+Per controllare la disponibilità di un account purview, usare il codice seguente: 
 
 ```csharp
     CheckNameAvailabilityRequest checkNameAvailabilityRequest = new CheckNameAvailabilityRequest()
@@ -199,12 +199,12 @@ Per verificare la disponibilità di un account di competenza, usare il codice se
     Console.WriteLine(client.Accounts.CheckNameAvailability(checkNameAvailabilityRequest).NameAvailable);
 ```
 
-Il codice precedente con Print ' true ' se il nome è disponibile è false ' se il nome non è disponibile.
+Il codice precedente con stampa 'True' se il nome è disponibile e 'False' se il nome non è disponibile.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il codice in questa esercitazione crea un account di competenza, Elimina un account di competenza e controlla la disponibilità dei nomi dell'account di competenza. È ora possibile scaricare .NET SDK e ottenere informazioni sulle altre azioni del provider di risorse che è possibile eseguire per un account di competenza.
+Il codice di questa esercitazione crea un account di visualizzazione, elimina un account di visualizzazione e verifica la disponibilità del nome dell'account di visualizzazione. È ora possibile scaricare .NET SDK e ottenere informazioni sulle altre azioni del provider di risorse che è possibile eseguire per un account Purview.
 
 Passare all'articolo successivo per informazioni su come consentire agli utenti di accedere all'account Azure Purview. 
 

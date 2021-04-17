@@ -5,12 +5,14 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: 92d954a865a2d4a8c55177b132139dcd7d0444ef
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+author: lzchen
+ms.author: lechen
+ms.openlocfilehash: 548cfd9d593e9adaeaaf984f756e58d242ca9f45
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515924"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576551"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurare Monitoraggio di Azure per l'applicazione Python
 
@@ -20,7 +22,7 @@ Monitoraggio di Azure supporta la traccia distribuita, la raccolta di metriche e
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Installazione di Python. Questo articolo usa [Python 3.7.0,](https://www.python.org/downloads/release/python-370/)anche se è probabile che altre versioni funzionino con modifiche secondarie. L'SDK supporta solo Python v2.7 e v3.4-v3.7.
-- Creazione di una[risorsa](./create-new-resource.md) di Application Insights. Verrà assegnata la propria chiave di strumentazione (ikey) per la risorsa.
+- Creazione di una[risorsa](./create-new-resource.md) di Application Insights. Verrà assegnata la chiave di strumentazione (ikey) per la risorsa.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentare con l'SDK OpenCensus Python per Monitoraggio di Azure
 
@@ -33,17 +35,17 @@ python -m pip install opencensus-ext-azure
 > [!NOTE]
 > Il comando `python -m pip install opencensus-ext-azure` presuppone la presenza di una variabile di ambiente `PATH` impostata per l'installazione di Python. Se questa non è stata configurata, sarà necessario specificare il percorso completo della directory in cui si trova l'eseguibile di Python. Il risultato è un comando simile al seguente: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-L'SDK usa tre Monitoraggio di Azure di esportazione per inviare diversi tipi di dati di telemetria Monitoraggio di Azure. Si tratta di traccia, metriche e log. Per altre informazioni su questi tipi di telemetria, vedere la [panoramica della piattaforma dati](../data-platform.md). Usare le istruzioni seguenti per inviare questi tipi di dati di telemetria tramite le tre utilità di esportazione.
+L'SDK usa tre Monitoraggio di Azure esportatori per inviare diversi tipi di dati di telemetria Monitoraggio di Azure. Si tratta di traccia, metriche e log. Per altre informazioni su questi tipi di telemetria, vedere la [panoramica della piattaforma dati](../data-platform.md). Usare le istruzioni seguenti per inviare questi tipi di dati di telemetria tramite le tre utilità di esportazione.
 
 ## <a name="telemetry-type-mappings"></a>Mapping dei tipi di telemetria
 
-Di seguito sono riportate le unità di esportazione fornite da OpenCensus mappate ai tipi di dati di telemetria visualizzati in Monitoraggio di Azure.
+Di seguito sono riportate le esportatrici fornite da OpenCensus mappate ai tipi di dati di telemetria visualizzati in Monitoraggio di Azure.
 
-| Pilastro dell'osservabilità | Tipo di telemetria Monitoraggio di Azure    | Spiegazione                                         |
+| Pilastro dell'osservabilità | Tipo di telemetria in Monitoraggio di Azure    | Spiegazione                                         |
 |-------------------------|------------------------------------|-----------------------------------------------------|
-| Log                    | Tracce, eccezioni, customEvents   | Telemetria dei log, telemetria delle eccezioni, telemetria degli eventi |
+| Log                    | Tracce, eccezioni, eventi personalizzati   | Telemetria del log, telemetria delle eccezioni, telemetria degli eventi |
 | Metriche                 | customMetrics, performanceCounters | Contatori delle prestazioni delle metriche personalizzate                |
-| Traccia                 | Richiede le dipendenze             | Richieste in ingresso, richieste in uscita                |
+| Traccia                 | Richiede dipendenze             | Richieste in ingresso, richieste in uscita                |
 
 ### <a name="logs"></a>Log
 
@@ -107,12 +109,12 @@ Di seguito sono riportate le unità di esportazione fornite da OpenCensus mappat
 1. L'esportatore invia i dati di log Monitoraggio di Azure. È possibile trovare i dati in `traces`. 
 
     > [!NOTE]
-    > In questo contesto, `traces` non è uguale a `tracing` . In questo caso, si riferisce al tipo di telemetria che verrà visualizzato in Monitoraggio di Azure `traces` quando si usa `AzureLogHandler` . Ma `tracing` fa riferimento a un concetto in OpenCensus e si riferisce alla traccia [distribuita](./distributed-tracing.md).
+    > In questo `traces` contesto, non è uguale a `tracing` . In questo caso, fa riferimento al tipo di telemetria che verrà visualizzato `traces` in Monitoraggio di Azure quando si usa `AzureLogHandler` . Ma `tracing` fa riferimento a un concetto in OpenCensus e si riferisce alla traccia [distribuita](./distributed-tracing.md).
 
     > [!NOTE]
-    > Il logger radice è configurato con il livello WARNING. Ciò significa che tutti i log inviati con una gravità inferiore vengono ignorati e, a loro volta, non verranno inviati a Monitoraggio di Azure. Per altre informazioni, vedere la [documentazione](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel).
+    > Il logger radice è configurato con il livello WARNING. Ciò significa che tutti i log inviati con un livello di gravità inferiore vengono ignorati e, a loro volta, non verranno inviati a Monitoraggio di Azure. Per altre informazioni, vedere la [documentazione](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel).
 
-1. È anche possibile aggiungere proprietà personalizzate ai messaggi di log nell'argomento *della* parola chiave aggiuntivo usando il custom_dimensions campo. Queste proprietà vengono visualizzate come coppie chiave-valore `customDimensions` in Monitoraggio di Azure.
+1. È anche possibile aggiungere proprietà personalizzate ai messaggi di log *nell'argomento* della parola chiave aggiuntivo usando il custom_dimensions campo. Queste proprietà vengono visualizzate come coppie chiave-valore `customDimensions` in Monitoraggio di Azure.
     > [!NOTE]
     > Per il corretto funzionamento di questa caratteristica, è necessario passare un dizionario al campo custom_dimensions. Se si passano argomenti di qualsiasi altro tipo, il logger li ignora.
 
@@ -135,7 +137,7 @@ Di seguito sono riportate le unità di esportazione fornite da OpenCensus mappat
 
 #### <a name="configure-logging-for-django-applications"></a>Configurare la registrazione per le applicazioni Django
 
-È possibile configurare la registrazione in modo esplicito nel codice dell'applicazione come sopra per le applicazioni Django oppure è possibile specificarla nella configurazione di registrazione di Django. Questo codice può essere inserito in qualsiasi file utilizzato per la configurazione delle impostazioni Django. Per informazioni su come configurare le impostazioni django, vedere [Impostazioni django](https://docs.djangoproject.com/en/3.0/topics/settings/). Per altre informazioni sulla configurazione della registrazione, vedere [Registrazione Django](https://docs.djangoproject.com/en/3.0/topics/logging/).
+È possibile configurare la registrazione in modo esplicito nel codice dell'applicazione come sopra per le applicazioni Django oppure è possibile specificarla nella configurazione di registrazione di Django. Questo codice può essere inserito in qualsiasi file utilizzato per la configurazione delle impostazioni Django. Per informazioni su come configurare le impostazioni django, vedere [Impostazioni django.](https://docs.djangoproject.com/en/3.0/topics/settings/) Per altre informazioni sulla configurazione della registrazione, vedere [Registrazione Django.](https://docs.djangoproject.com/en/3.0/topics/logging/)
 
 ```json
 LOGGING = {
@@ -168,7 +170,7 @@ logger.warning("this will be tracked")
 
 #### <a name="send-exceptions"></a>Inviare eccezioni
 
-OpenCensus Python non tiene traccia e invia automaticamente dati `exception` di telemetria. Vengono inviati tramite `AzureLogHandler` tramite le eccezioni tramite la libreria di registrazione Python. È possibile aggiungere proprietà personalizzate, come con la registrazione normale.
+OpenCensus Python non tiene traccia e invia automaticamente i dati di `exception` telemetria. Vengono inviati tramite usando `AzureLogHandler` le eccezioni tramite la libreria di registrazione Python. È possibile aggiungere proprietà personalizzate, come con la registrazione normale.
 
 ```python
 import logging
@@ -189,11 +191,11 @@ try:
 except Exception:
     logger.exception('Captured an exception.', extra=properties)
 ```
-Poiché è necessario registrare le eccezioni in modo esplicito, è l'utente a voler registrare le eccezioni non gestite. OpenCensus non posiziona restrizioni su come un utente vuole eseguire questa operazione, purché registri in modo esplicito i dati di telemetria delle eccezioni.
+Poiché è necessario registrare le eccezioni in modo esplicito, è l'utente che vuole registrare le eccezioni non gestite. OpenCensus non imposta restrizioni su come un utente vuole eseguire questa operazione, purché registri in modo esplicito i dati di telemetria delle eccezioni.
 
 #### <a name="send-events"></a>Inviare eventi
 
-È possibile inviare i dati di telemetria esattamente nello stesso modo in cui si inviano i dati `customEvent` `trace` di telemetria, ad eccezione dell'uso `AzureEventHandler` di .
+È possibile inviare i dati di telemetria esattamente nello stesso modo in cui si inviano i dati `customEvent` di `trace` telemetria, tranne usando `AzureEventHandler` .
 
 ```python
 import logging
@@ -216,21 +218,21 @@ Per informazioni dettagliate su come arricchire i log con i dati del contesto di
 
 #### <a name="modify-telemetry"></a>Modificare la telemetria
 
-Per informazioni dettagliate su come modificare i dati di telemetria tracciati prima che siano inviati Monitoraggio di Azure, vedere Processori di telemetria di OpenCensus [Python.](./api-filtering-sampling.md#opencensus-python-telemetry-processors)
+Per informazioni dettagliate su come modificare i dati di telemetria tracciati prima che siano inviati Monitoraggio di Azure, vedere Processori di telemetria python openCensus [.](./api-filtering-sampling.md#opencensus-python-telemetry-processors)
 
 
 ### <a name="metrics"></a>Metriche
 
-OpenCensus.stats supporta 4 metodi di aggregazione, ma fornisce supporto parziale per Monitoraggio di Azure:
+OpenCensus.stats supporta 4 metodi di aggregazione, ma fornisce il supporto parziale per Monitoraggio di Azure:
 
-- **Conteggio:** Conteggio del numero di punti di misurazione. Il valore è cumulativo, può aumentare e reimpostarlo su 0 solo al riavvio. 
-- **Somma:** Somma dei punti di misurazione. Il valore è cumulativo, può aumentare e reimpostarlo su 0 solo al riavvio. 
+- **Conteggio:** Conteggio del numero di punti di misurazione. Il valore è cumulativo, può aumentare e reimpostarlo su 0 al riavvio. 
+- **Somma:** Somma dei punti di misurazione. Il valore è cumulativo, può aumentare e reimpostarlo su 0 al riavvio. 
 - **LastValue:** Mantiene l'ultimo valore registrato, elimina tutto il resto.
 - **Distribuzione:** Distribuzione dell'istogramma dei punti di misurazione. Questo metodo NON **è supportato dall'esportazione di Azure.**
 
 ### <a name="count-aggregation-example"></a>Esempio di aggregazione count
 
-1. Prima di tutto, generare alcuni dati di metrica locali. Verrà creata una metrica semplice per tenere traccia del numero di volte in cui l'utente seleziona **il tasto** INVIO.
+1. Prima di tutto, generare alcuni dati di metrica locali. Verrà creata una metrica semplice per tenere traccia del numero di volte in cui l'utente seleziona il **tasto** INVIO.
 
     ```python
     from datetime import datetime
@@ -270,7 +272,7 @@ OpenCensus.stats supporta 4 metodi di aggregazione, ma fornisce supporto parzial
     if __name__ == "__main__":
         main()
     ```
-1. L'esecuzione ripetuta del codice richiede di premere **INVIO.** Viene creata una metrica per tenere traccia del numero di volte in cui **viene selezionato** INVIO. Con ogni voce, il valore viene incrementato e le informazioni sulla metrica vengono visualizzate nella console. Le informazioni includono il valore corrente e il timestamp corrente al momento dell'aggiornamento della metrica.
+1. L'esecuzione ripetuta del codice richiede di selezionare **Invio.** Viene creata una metrica per tenere traccia del numero di volte in cui **viene** selezionato Invio. Con ogni voce, il valore viene incrementato e le informazioni sulla metrica vengono visualizzate nella console. Le informazioni includono il valore corrente e il timestamp corrente al momento dell'aggiornamento della metrica.
 
     ```output
     Press enter.
@@ -329,7 +331,7 @@ OpenCensus.stats supporta 4 metodi di aggregazione, ma fornisce supporto parzial
         main()
     ```
 
-1. L'esportatore invia i dati delle metriche Monitoraggio di Azure a un intervallo fisso. Il valore predefinito è ogni 15 secondi. Si sta verificando una singola metrica, quindi i dati della metrica, con qualsiasi valore e timestamp che contiene, vengono inviati a ogni intervallo. Il valore è cumulativo, può aumentare e reimpostarlo su 0 solo al riavvio. È possibile trovare i dati in , ma le proprietà `customMetrics` `customMetrics` valueCount, valueSum, valueMin, valueMax e valueStdDev non vengono effettivamente usate.
+1. L'esportatore invia i dati delle metriche Monitoraggio di Azure a un intervallo fisso. Il valore predefinito è ogni 15 secondi. Si sta verificando una singola metrica, quindi i dati della metrica, con qualsiasi valore e timestamp in esso contenuti, vengono inviati a ogni intervallo. Il valore è cumulativo, può aumentare e reimpostarlo su 0 al riavvio. È possibile trovare i dati in , ma le proprietà `customMetrics` `customMetrics` valueCount, valueSum, valueMin, valueMax e valueStdDev non vengono usate in modo efficace.
 
 ### <a name="setting-custom-dimensions-in-metrics"></a>Impostazione di dimensioni personalizzate nelle metriche
 
@@ -474,7 +476,7 @@ Per informazioni su come modificare i dati di telemetria tracciati prima che sia
     ```
 
 1. A questo punto, quando si esegue lo script Python, verrà ancora richiesto di immettere valori, ma verrà stampato nella shell solo il valore. `SpanData`L'oggetto creato viene inviato Monitoraggio di Azure. È possibile trovare i dati di span emessi in `dependencies`. Per altre informazioni sulle richieste in uscita, vedere Dipendenze [di](./opencensus-python-dependency.md)OpenCensus Python.
-Per altre informazioni sulle richieste in ingresso, vedere Richieste [Python](./opencensus-python-request.md)OpenCensus.
+Per altre informazioni sulle richieste in ingresso, vedere Richieste [Python](./opencensus-python-request.md)di OpenCensus.
 
 #### <a name="sampling"></a>campionamento
 
@@ -486,22 +488,22 @@ Per altre informazioni sulla correlazione dei dati di telemetria nei dati di tra
 
 #### <a name="modify-telemetry"></a>Modificare la telemetria
 
-Per altre informazioni su come modificare i dati di telemetria tracciati prima che siano inviati Monitoraggio di Azure, vedere Processori di telemetria di OpenCensus [Python.](./api-filtering-sampling.md#opencensus-python-telemetry-processors)
+Per altre informazioni su come modificare i dati di telemetria tracciati prima che siano inviati Monitoraggio di Azure, vedere Processori di telemetria Python openCensus [.](./api-filtering-sampling.md#opencensus-python-telemetry-processors)
 
 ## <a name="configure-azure-monitor-exporters"></a>Configurare Monitoraggio di Azure esportatori
 
-Come illustrato, esistono tre diversi tipi di Monitoraggio di Azure che supportano OpenCensus. Ognuno invia tipi diversi di dati di telemetria Monitoraggio di Azure. Per visualizzare i tipi di dati di telemetria inviati da ogni esportatore, vedere l'elenco seguente.
+Come illustrato, esistono tre diversi Monitoraggio di Azure esportatori che supportano OpenCensus. Ognuno invia diversi tipi di dati di telemetria Monitoraggio di Azure. Per visualizzare i tipi di dati di telemetria inviati da ogni esportatore, vedere l'elenco seguente.
 
 Ogni esportatore accetta gli stessi argomenti per la configurazione, passati tramite i costruttori. È possibile visualizzare i dettagli su ognuno di essi qui:
 
-- `connection_string`: stringa di connessione usata per connettersi alla Monitoraggio di Azure risorsa. Ha la priorità rispetto a `instrumentation_key` .
+- `connection_string`: stringa di connessione usata per connettersi alla risorsa Monitoraggio di Azure locale. Ha la priorità su `instrumentation_key` .
 - `enable_standard_metrics`: usato per `AzureMetricsExporter` . Segnala all'esportatore di inviare [automaticamente le metriche dei contatori](../essentials/app-insights-metrics.md#performance-counters) delle prestazioni Monitoraggio di Azure. Il valore predefinito è `True`.
 - `export_interval`: usato per specificare la frequenza in secondi di esportazione.
-- `instrumentation_key`: chiave di strumentazione usata per connettersi alla Monitoraggio di Azure risorsa.
+- `instrumentation_key`: chiave di strumentazione usata per connettersi alla risorsa Monitoraggio di Azure locale.
 - `logging_sampling_rate`: usato per `AzureLogHandler` . Fornisce una frequenza di campionamento [0,1.0] per l'esportazione dei log. Il valore predefinito è 1.0.
 - `max_batch_size`: specifica le dimensioni massime dei dati di telemetria esportati contemporaneamente.
-- `proxies`: specifica una sequenza di proxy da usare per l'invio di dati Monitoraggio di Azure. Per altre informazioni, vedere [proxy](https://requests.readthedocs.io/en/master/user/advanced/#proxies).
-- `storage_path`: percorso in cui è presente la cartella di archiviazione locale (telemetria non ent). A causa `opencensus-ext-azure` della versione 1.0.3, il percorso predefinito è la directory temporanea del sistema operativo + `opencensus-python`  +  `your-ikey` . Prima della versione 1.0.3, il percorso predefinito è $USER + `.opencensus`  +  `.azure`  +  `python-file-name` .
+- `proxies`: specifica una sequenza di proxy da usare per l'invio di dati Monitoraggio di Azure. Per altre informazioni, vedere [proxy.](https://requests.readthedocs.io/en/master/user/advanced/#proxies)
+- `storage_path`: percorso in cui si trova la cartella di archiviazione locale (telemetria non ent). A data `opencensus-ext-azure` v1.0.3, il percorso predefinito è la directory temporanea del sistema operativo + `opencensus-python`  +  `your-ikey` . Prima della versione 1.0.3, il percorso predefinito è $USER + `.opencensus`  +  `.azure`  +  `python-file-name` .
 
 ## <a name="view-your-data-with-queries"></a>Visualizzare i dati usando query
 

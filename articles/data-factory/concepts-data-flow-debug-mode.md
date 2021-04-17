@@ -6,13 +6,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/14/2021
-ms.openlocfilehash: ac0e088c587132b32f2112d21bce936eac35dc72
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 04/16/2021
+ms.openlocfilehash: 681a3643c04472cc42c1f672f4c9433da30e3955
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515870"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565501"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modalità di debug del flusso di dati di mapping
 
@@ -20,24 +20,24 @@ ms.locfileid: "107515870"
 
 ## <a name="overview"></a>Panoramica
 
-Azure Data Factory modalità di debug del flusso di dati di mapping consente di osservare in modo interattivo la trasformazione della forma dei dati durante la compilazione e il debug dei flussi di dati. La sessione di debug può essere usata sia nelle sessioni Flusso di dati di progettazione sia durante l'esecuzione del debug della pipeline dei flussi di dati. Per attivare la modalità di debug, usare il Flusso di dati **Debug** nella barra superiore dell'area di disegno del flusso di dati o dell'area di disegno della pipeline quando sono presenti attività flusso di dati.
+Azure Data Factory modalità di debug del flusso di dati di mapping consente di osservare in modo interattivo la trasformazione della forma dei dati durante la compilazione e il debug dei flussi di dati. La sessione di debug può essere usata sia in Flusso di dati di progettazione che durante l'esecuzione del debug della pipeline dei flussi di dati. Per attivare la modalità di debug, usare il Flusso di dati **Debug** nella barra superiore dell'area di disegno del flusso di dati o dell'area di disegno della pipeline quando sono presenti attività flusso di dati.
 
-![Dispositivo di scorrimento debug 1](media/data-flow/debugbutton.png "Dispositivo di scorrimento debug")
+![Screenshot che mostra dove si trova il dispositivo di scorrimento Debug 1](media/data-flow/debug-button.png)
 
-![Dispositivo di scorrimento debug 2](media/data-flow/debug-button-4.png "Dispositivo di scorrimento debug")
+![Screenshot che mostra dove si trova il dispositivo di scorrimento Debug 2](media/data-flow/debug-button-4.png)
 
-Quando si attiva il dispositivo di scorrimento, verrà richiesto di selezionare la configurazione del runtime di integrazione da usare. Se si sceglie AutoResolveIntegrationRuntime, verrà riattivato un cluster con otto core di calcolo generale con un tempo di vita predefinito di 60 minuti. Se si vuole consentire un team più inattivo prima del timeout della sessione, è possibile scegliere un'impostazione TTL più alta. Per altre informazioni sui runtime di integrazione del flusso di dati, vedere [Prestazioni del flusso di dati](concepts-data-flow-performance.md#ir).
+Quando si attiva il dispositivo di scorrimento, verrà richiesto di selezionare la configurazione del runtime di integrazione da usare. Se si sceglie AutoResolveIntegrationRuntime, verrà riattivato un cluster con otto core di calcolo generale con un tempo di vita predefinito di 60 minuti. Se si vuole consentire un team più inattivo prima del timeout della sessione, è possibile scegliere un'impostazione TTL superiore. Per altre informazioni sui runtime di integrazione del flusso di dati, vedere [Prestazioni del flusso di dati.](concepts-data-flow-performance.md#ir)
 
-![Debug della selezione di IR](media/data-flow/debug-new-1.png "Selezione del debug del motore di esecuzione del debug")
+![Selezione di Debug IR](media/data-flow/debug-new-1.png "Selezione di Debug IR")
 
-Quando la modalità di debug è attivata, il flusso di dati verrà compilato in modo interattivo con un cluster Spark attivo. La sessione verrà chiusa quando si disattiva il debug in Azure Data Factory. È bene tenere conto dei costi orari addebitati da Azure Databricks durante il periodo in cui è attivata la sessione di debug.
+Quando la modalità debug è attivata, il flusso di dati verrà compilato in modo interattivo con un cluster Spark attivo. La sessione verrà chiusa quando si disattiva il debug in Azure Data Factory. È bene tenere conto dei costi orari addebitati da Azure Databricks durante il periodo in cui è attivata la sessione di debug.
 
-Nella maggior parte dei casi, è consigliabile compilare i flussi di dati in modalità di debug in modo da poter convalidare la logica di business e visualizzare le trasformazioni dei dati prima di pubblicare il lavoro in Azure Data Factory. Usare il pulsante "Debug" nel pannello della pipeline per testare il flusso di dati in una pipeline.
+Nella maggior parte dei casi, è consigliabile compilare i flussi di dati in modalità di debug per poter convalidare la logica di business e visualizzare le trasformazioni dei dati prima di pubblicare il lavoro in Azure Data Factory. Usare il pulsante "Debug" nel pannello della pipeline per testare il flusso di dati in una pipeline.
 
 ![Visualizzare le sessioni di debug del flusso di dati](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
 
 > [!NOTE]
-> Ogni sessione di debug avviata da un utente dall'interfaccia utente del browser ADF è una nuova sessione con il proprio cluster Spark. È possibile usare la visualizzazione di monitoraggio per le sessioni di debug precedenti per visualizzare e gestire le sessioni di debug per ogni factory. Viene addebitato ogni ora di esecuzione di ogni sessione di debug, inclusa l'ora TTL.
+> Ogni sessione di debug avviata da un utente dall'interfaccia utente del browser ADF è una nuova sessione con il proprio cluster Spark. È possibile usare la visualizzazione di monitoraggio per le sessioni di debug precedente per visualizzare e gestire le sessioni di debug per ogni factory. Vengono addebitati costi per ogni ora in cui è in esecuzione ogni sessione di debug, incluso il tempo TTL.
 
 ## <a name="cluster-status&quot;></a>Stato del cluster
 
@@ -82,7 +82,7 @@ Dopo aver visualizzato l'anteprima dei dati, è possibile generare una trasforma
 
 ![Screenshot che mostra la barra degli strumenti di anteprima dei dati con opzioni: Typecast, Modify, Statistics e Remove.](media/data-flow/quick-actions1.png "Azioni rapide")
 
-Dopo aver selezionato una modifica, l'anteprima dei dati verrà aggiornata immediatamente. Fare **clic su** Conferma nell'angolo in alto a destra per generare una nuova trasformazione.
+Dopo aver selezionato una modifica, l'anteprima dei dati verrà aggiornata immediatamente. Fare **clic su** Conferma nell'angolo superiore destro per generare una nuova trasformazione.
 
 ![Screenshot che mostra il pulsante Conferma.](media/data-flow/quick-actions2.png "Azioni rapide")
 

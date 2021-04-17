@@ -8,83 +8,70 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0efdf48e78d0cc48e288bea354f5de5f9635c760
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 8c2559315e3bfffc41c138be6826adae95dd7b07
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106841"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588106"
 ---
 # <a name="what-is-azure-communication-services"></a>Che cos'è l'offerta Servizi di comunicazione di Azure?
 
-> [!IMPORTANT]
-> Le applicazioni compilate con i servizi di comunicazione di Azure possono comunicare con Microsoft teams. Per altre informazioni, visita la documentazione di [interoperabilità dei team](./quickstarts/voice-video-calling/get-started-teams-interop.md) .
+Servizi di comunicazione di Azure consente di aggiungere facilmente comunicazioni vocali, video e telefoniche in tempo reale alle applicazioni. Gli SDK di Servizi di comunicazione consentono anche di aggiungere funzionalità SMS alle soluzioni di comunicazione. Servizi di comunicazione di Azure è indipendente dall'identità e si ha il controllo completo sul modo in cui gli utenti finali vengono identificati e autenticati. È possibile connettere gli utenti al piano dati di comunicazione o ai servizi (bot).
 
+Le applicazioni includono:
 
-Servizi di comunicazione di Azure consente di aggiungere in modo semplice funzionalità di comunicazione vocale, video e telefonia tramite IP in tempo reale alle applicazioni. Le librerie SDK per i servizi di comunicazione consentono inoltre di aggiungere funzionalità di chat e SMS alle soluzioni di comunicazione.
+- **Business to Consumer (B2C).** I dipendenti e i servizi di un'azienda possono interagire con i consumer usando chat vocali, video e testo rtf in un browser personalizzato o in un'applicazione per dispositivi mobili. Un'organizzazione può inviare e ricevere messaggi SMS o usare un sistema IVR (Interactive Voice Response System) usando un numero di telefono acquisito tramite Azure. [L'integrazione con Microsoft Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md) consente agli utenti di partecipare alle riunioni di Teams ospitate dai dipendenti; ideale per scenari di assistenza sanitaria remota, bancaria e di supporto dei prodotti in cui i dipendenti potrebbero avere già familiarità con Teams.
+- **Da consumer a consumer.** Creare spazi social coinvolgenti per l'interazione consumer-consumer con voce, video e chat di testo rtf. È possibile creare qualsiasi tipo di interfaccia utente Servizi di comunicazione di Azure SDK, ma sono disponibili esempi completi di applicazioni e asset dell'interfaccia utente per iniziare rapidamente.
 
-<br>
-
-> [!VIDEO https://www.youtube.com/embed/apBX7ASurgM]
-
-<br>
-<br>
-
-È possibile usare Servizi di comunicazione per la comunicazione vocale, video, di testo e dati in diversi scenari:
-
-- Comunicazione da browser a browser, da browser ad app e da app ad app
-- Interazione dell'utente con bot o altri servizi
-- Interazione di utenti e bot tramite PSTN
-
-Sono supportati scenari misti. Ad esempio, in un'applicazione di Servizi di comunicazione possono essere presenti utenti che parlano contemporaneamente da browser e dispositivi tradizionali di telefonia. Servizi di comunicazione può anche combinarsi con il servizio Azure Bot per creare sistemi IVR (Interactive Voice Response) basati su bot.
+Per altre informazioni, vedere il [video di Microsoft Mechanics](https://www.youtube.com/watch?v=apBX7ASurgM) o le risorse collegate di seguito.
 
 ## <a name="common-scenarios"></a>Scenari comuni
 
-Le risorse seguenti sono un ottimo punto di partenza per iniziare a usare i servizi di comunicazione di Azure.
 <br>
 
 | Risorsa                               |Descrizione                           |
 |---                                    |---                                   |
-|**[Creare una risorsa di Servizi di comunicazione](./quickstarts/create-communication-resource.md)**|È possibile iniziare a usare i servizi di comunicazione di Azure usando il portale di Azure o Communication Services SDK per eseguire il provisioning della prima risorsa di servizi di comunicazione. Dopo aver ottenuto la stringa di connessione della risorsa di Servizi di comunicazione, è possibile effettuare il provisioning dei primi token di accesso utente.|
-|**[Ottenere un numero di telefono](./quickstarts/telephony-sms/get-phone-number.md)**|È possibile usare Servizi di comunicazione di Azure per effettuare il provisioning e rilasciare i numeri di telefono. Questi numeri di telefono possono essere usati per avviare le chiamate in uscita e creare soluzioni di comunicazione SMS.|
+|**[Creare una risorsa di Servizi di comunicazione](./quickstarts/create-communication-resource.md)**|Iniziare a Servizi di comunicazione di Azure usando portale di Azure o Communication Services SDK per effettuare il provisioning della prima risorsa di Servizi di comunicazione. Dopo aver ottenuto la stringa di connessione della risorsa di Servizi di comunicazione, è possibile effettuare il provisioning dei primi token di accesso utente.|
+|**[Ottenere un numero di telefono](./quickstarts/telephony-sms/get-phone-number.md)**|È possibile usare Servizi di comunicazione di Azure per effettuare il provisioning e rilasciare i numeri di telefono. Questi numeri di telefono possono essere usati per avviare o ricevere chiamate telefoniche e compilare soluzioni SMS.|
+|**[Inviare un SMS dall'app](./quickstarts/telephony-sms/send.md)**|Il Servizi di comunicazione di Azure SMS SDK viene usato per inviare e ricevere messaggi SMS dalle applicazioni di servizio.|
 
-Dopo aver creato una risorsa di servizi di comunicazione è possibile iniziare a creare scenari client, ad esempio la chiamata vocale e video o la chat di testo.
+Dopo aver creato una risorsa di Servizi di comunicazione, è possibile iniziare a creare scenari client, ad esempio chiamate vocali e video o sms:
 
 | Risorsa                               |Descrizione                           |
 |---                                    |---                                   |
-|**[Creare i primi token di accesso utente](./quickstarts/access-tokens.md)**|I token di accesso utente vengono usati per autenticare i servizi con la risorsa di Servizi di comunicazione di Azure. Questi token vengono sottoposti a provisioning e rilasciati tramite Communication Services SDK.|
-|**[Introduzione alle chiamate vocali e video](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Servizi di comunicazione di Azure consente di aggiungere chiamate vocali e video alle app usando l'SDK chiamante. Questa libreria si basa su WebRTC e consente di stabilire comunicazioni peer-to-peer, multimediali e in tempo reale all'interno delle applicazioni.|
-|**[Aggiungere l'app di chiamata a una riunione di Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|È possibile usare Servizi di comunicazione di Azure per creare esperienze personalizzate di riunioni che interagiscono con Microsoft Teams. Gli utenti delle soluzioni per i servizi di comunicazione possono interagire con i team partecipanti attraverso la voce, il video, la chat e la condivisione dello schermo.|
-|**[Introduzione alle chat](./quickstarts/chat/get-started.md)**|Azure Communication Services Chat SDK può essere usato per integrare la chat in tempo reale nelle applicazioni.|
-|**[Inviare un SMS dall'app](./quickstarts/telephony-sms/send.md)**|Azure Communication Services SMS SDK consente di inviare e ricevere messaggi SMS dalle applicazioni .NET e JavaScript.|
+|**[Creare i primi token di accesso utente](./quickstarts/access-tokens.md)**|I token di accesso utente vengono usati per autenticare i client nella Servizi di comunicazione di Azure risorsa. Il provisioning e la nuova emissione di questi token vengono evasi tramite l'SDK di Servizi di comunicazione.|
+|**[Introduzione alle chiamate vocali e video](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Servizi di comunicazione di Azure consente di aggiungere chiamate vocali e video al browser o alle app native usando Calling SDK. |
+|**[Aggiungere l'app di chiamata a una riunione di Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|È possibile usare Servizi di comunicazione di Azure per creare esperienze personalizzate di riunioni che interagiscono con Microsoft Teams. Gli utenti delle soluzioni di Servizi di comunicazione possono interagire con i partecipanti di Teams tramite voce, video, chat e condivisione dello schermo.|
+|**[Introduzione alle chat](./quickstarts/chat/get-started.md)**|L Servizi di comunicazione di Azure Chat SDK viene usato per aggiungere chat di testo in tempo reale alle applicazioni.|
 
 ## <a name="samples"></a>Esempi
 
-Gli esempi seguenti illustrano l'uso end-to-end delle librerie di Azure Communication Services SDK. È possibile usare questi esempi per il bootstrap di soluzioni di Servizi di comunicazione personalizzate.
+Gli esempi seguenti illustrano l'utilizzo end-to-end del Servizi di comunicazione di Azure. Usare questi esempi per avviare le proprie soluzioni di Servizi di comunicazione.
 <br>
 
 | Nome esempio                               | Descrizione                           |
 |---                                    |---                                   |
-|**[Esempio hero di chiamate di gruppo](./samples/calling-hero-sample.md)**|Scopri in che modo è possibile usare le librerie SDK di Communication Services per creare un'esperienza di chiamata di gruppo.|
-|**[Esempio hero di chat di gruppo](./samples/chat-hero-sample.md)**|Scopri in che modo è possibile usare le librerie SDK di Communication Services per creare un'esperienza di chat di gruppo.|
+|**[Esempio hero di chiamate di gruppo](./samples/calling-hero-sample.md)**| Scaricare un esempio di applicazione progettata per le chiamate di gruppo per browser, dispositivi iOS e Android. |
+|**[Esempio hero di chat di gruppo](./samples/chat-hero-sample.md)**| Scaricare un esempio di applicazione progettata per la chat di testo di gruppo per i browser. |
 
 
 ## <a name="platforms-and-sdk-libraries"></a>Piattaforme e librerie SDK
 
-Le risorse seguenti consentono di ottenere informazioni sulle librerie SDK di servizi di comunicazione Azure:
+Altre informazioni sugli SDK Servizi di comunicazione di Azure con le risorse seguenti. Le API REST sono disponibili per la maggior parte delle funzionalità se si vogliono creare client personalizzati o accedere in altro modo al servizio tramite Internet.
 
 | Risorsa                               | Descrizione                           |
 |---                                    |---                                   |
-|**[Librerie SDK e API REST](./concepts/sdk-options.md)**|Le funzionalità dei servizi di comunicazione di Azure sono organizzate concettualmente in sei aree, ciascuna rappresentata da un SDK. È possibile scegliere le librerie SDK da usare in base alle esigenze di comunicazione in tempo reale.|
-|**[Panoramica dell'SDK chiamante](./concepts/voice-video-calling/calling-sdk-features.md)**|Esaminare i servizi di comunicazione Cenni preliminari sull'SDK.|
-|**[Panoramica di Chat SDK](./concepts/chat/sdk-features.md)**|Vedere la Panoramica di Communication Services Chat SDK.|
-|**[Panoramica di SMS SDK](./concepts/telephony-sms/sdk-features.md)**|Vedere la Panoramica di Communication Services SMS SDK.|
+|**[Librerie SDK e API REST](./concepts/sdk-options.md)**|Servizi di comunicazione di Azure funzionalità sono organizzate concettualmente in sei aree, ognuna rappresentata da un SDK. È possibile decidere quali librerie SDK usare in base alle esigenze di comunicazione in tempo reale.|
+|**[Panoramica delle chiamate all'SDK](./concepts/voice-video-calling/calling-sdk-features.md)**|Esaminare la panoramica dell'SDK per le chiamate di Servizi di comunicazione.|
+|**[Panoramica di Chat SDK](./concepts/chat/sdk-features.md)**|Esaminare la panoramica di Communication Services Chat SDK.|
+|**[Panoramica di SMS SDK](./concepts/telephony-sms/sdk-features.md)**|Esaminare la panoramica di Communication Services SMS SDK.|
 
 ## <a name="other-microsoft-communication-services"></a>Altri servizi di comunicazione Microsoft
 
-Sono disponibili altri due prodotti Microsoft per la comunicazione che attualmente non sono direttamente interoperabili con Servizi di comunicazione:
+Esistono altri due prodotti di comunicazione Microsoft che è possibile usare che non sono direttamente interoperabili con Servizi di comunicazione in questo momento:
 
- - [Microsoft Graph API di comunicazione cloud](/graph/cloud-communications-concept-overview) consentono alle organizzazioni di creare esperienze di comunicazione associate agli utenti Azure Active Directory con licenze Microsoft 365. Questa soluzione è ideale per le applicazioni associate ad Azure Active Directory o in cui si vuole estendere le esperienze di produttività di Microsoft Teams. Sono anche disponibili API per la creazione di applicazioni e la personalizzazione all'interno dell'esperienza [Teams](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest).
+ - [Microsoft Graph le API di comunicazione](/graph/cloud-communications-concept-overview) cloud consentono alle organizzazioni di creare esperienze di comunicazione associate Azure Active Directory utenti con Microsoft 365 licenze. Questa soluzione è ideale per le applicazioni associate ad Azure Active Directory o in cui si vuole estendere le esperienze di produttività di Microsoft Teams. Sono anche disponibili API per la creazione di applicazioni e la personalizzazione all'interno dell'esperienza [Teams](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest).
 
  - [Azure PlayFab Party](/gaming/playfab/features/multiplayer/networking/), che semplifica l'aggiunta di comunicazioni di dati e chat a bassa latenza ai giochi. Anche se è possibile usare sistemi di rete e chat per il gioco con Servizi di comunicazione, PlayFab è un'opzione personalizzata e gratuita su Xbox.
 

@@ -1,17 +1,23 @@
 ---
-title: "Guida introduttiva: creare un'app Spring boot in Azure Service Fabric"
+title: "Avvio rapido: Creare un'app Spring Boot in Azure Service Fabric"
 description: In questa guida introduttiva viene distribuita un'applicazione Spring Boot per Azure Service Fabric usando un'applicazione Spring Boot di esempio.
-ms.topic: quickstart
 ms.date: 01/29/2019
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 84ce5920af95113801f468e3149421f3b9bd8901
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: quickstart
+ms.custom:
+- mvc
+- devcenter
+- seo-java-august2019
+- seo-java-september2019
+- devx-track-java
+- mode-api
+ms.openlocfilehash: ad01697349eab20aa55fc6f6b59bc0d317c5a7e2
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91530001"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530849"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Guida introduttiva: distribuire un'app Spring boot Java in Azure Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Guida introduttiva: Distribuire un'app Java Spring Boot in Azure Service Fabric
 
 In questo argomento di avvio rapido si distribuisce un'applicazione Spring Boot Java in Azure Service Fabric usando strumenti della riga di comando familiari in Linux o MacOS. Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori. 
 
@@ -53,7 +59,7 @@ All'interno della directory *gs-spring-boot/complete* eseguire il comando seguen
 
     ![Voci di Yeoman in Spring Boot](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
-1. Nella cartella *SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code* creare un file denominato *EntryPoint.sh*. Aggiungere il codice seguente al file *EntryPoint.sh* . 
+1. Nella cartella *SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code* creare un file denominato *entryPoint.sh*. Aggiungere il codice seguente al file *entryPoint.sh.* 
 
     ```bash
     #!/bin/bash

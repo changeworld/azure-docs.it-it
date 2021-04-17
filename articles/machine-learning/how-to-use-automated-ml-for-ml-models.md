@@ -1,27 +1,27 @@
 ---
 title: Usare AutoML per creare modelli & distribuire
 titleSuffix: Azure Machine Learning
-description: Creare, rivedere e distribuire modelli di Machine Learning automatici con Azure Machine Learning Studio.
+description: Creare, rivedere e distribuire modelli di Machine Learning automatizzati con studio di Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
-author: aniththa
+author: cartacioS
 ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5718e0e3732f57b46500f9d2cdb1165e883ca44f
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562723"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575582"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 
 
-Questo articolo illustra come creare, esplorare e distribuire modelli di Machine Learning automatici senza una singola riga di codice in Azure Machine Learning Studio.
+Questo articolo illustra come creare, esplorare e distribuire modelli di Machine Learning automatizzati senza una singola riga di codice studio di Azure Machine Learning.
 
 Machine Learning automatizzato è un processo in cui viene selezionato il migliore algoritmo di Machine Learning da usare per i dati specifici. Questo processo consente di generare rapidamente modelli di Machine Learning. [Altre informazioni sulle funzionalità di Machine Learning automatizzato](concept-automated-ml.md).
  
@@ -53,22 +53,22 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
 
 1. Selezionare **+ Nuova esecuzione di ML automatizzato** e popolare il modulo.
 
-1. Selezionare un set di dati dal contenitore di archiviazione o creare un nuovo set di dati. I set di dati possono essere creati da file locali, URL Web, archivi dati o set di dati aperti di Azure. Altre informazioni sulla [creazione del set di dati](how-to-create-register-datasets.md).  
+1. Selezionare un set di dati dal contenitore di archiviazione o creare un nuovo set di dati. I set di dati possono essere creati da file locali, URL Web, archivi dati o set di dati aperti di Azure. Altre informazioni sulla creazione [del set di dati](how-to-create-register-datasets.md).  
 
     >[!Important]
     > Requisiti per i dati di training:
     >* I dati devono essere in formato tabulare.
     >* Il valore che si desidera prevedere (colonna di destinazione) deve essere presente nei dati.
 
-    1. Per creare un nuovo set di dati da un file nel computer locale, selezionare **+ Crea set di dati** e quindi selezionare **da file locale**. 
+    1. Per creare un nuovo set di dati da un file nel computer locale, selezionare **+Crea set** di dati e quindi **selezionare Da file locale**. 
 
-    1. Nel modulo **informazioni di base** assegnare un nome univoco al set di dati e specificare una descrizione facoltativa. 
+    1. Nel modulo **Informazioni di base** assegnare un nome univoco al set di dati e specificare una descrizione facoltativa. 
 
     1. Selezionare **Avanti** per aprire il **modulo di selezione file e archivio dati**. In questo modulo è possibile selezionare la posizione in cui caricare il set di dati, il contenitore di archiviazione predefinito creato automaticamente con l'area di lavoro o scegliere un contenitore di archiviazione da usare per l'esperimento. 
     
-        1. Se i dati sono protetti da una rete virtuale, è necessario abilitare la funzione **Ignora la convalida** per assicurarsi che l'area di lavoro sia in grado di accedere ai dati. Per altre informazioni, vedere [usare Azure Machine Learning Studio in una rete virtuale di Azure](how-to-enable-studio-virtual-network.md). 
+        1. Se i dati sono dietro una rete virtuale, è necessario abilitare la funzione **ignora** la convalida per assicurarsi che l'area di lavoro possa accedere ai dati. Per altre informazioni, vedere [Usare studio di Azure Machine Learning in una rete virtuale di Azure.](how-to-enable-studio-virtual-network.md) 
     
-    1. Selezionare **Browse (Sfoglia** ) per caricare il file di dati per il set di dati. 
+    1. Selezionare **Sfoglia** per caricare il file di dati per il set di dati. 
 
     1. Esaminare il modulo **Impostazioni e anteprima** per verificarne l'accuratezza. Il modulo viene popolato in modo intelligente in base al tipo di file. 
 
@@ -91,7 +91,7 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
         Selezionare **Avanti**.
 1. Selezionare il set di dati appena creato quando viene visualizzato. È anche possibile visualizzare un'anteprima del set di dati e delle statistiche di esempio. 
 
-1. Nel **Configura esecuzione** modulo selezionare **Crea nuovo** e immettere **tutorial-automl-deploy** per il nome dell'esperimento.
+1. Nel modulo **Configura esecuzione** selezionare **Crea** nuovo e immettere **Tutorial-automl-deploy** come nome dell'esperimento.
 
 1. Selezionare una colonna di destinazione. Si tratta della colonna su cui si desidera eseguire le previsioni.
 
@@ -102,7 +102,7 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
     Campo|Descrizione
     ---|---
     Nome del calcolo| Immettere un nome univoco che identifichi il contesto di calcolo.
-    Priorità macchina virtuale| Le macchine virtuali con priorità bassa sono più economiche, ma non garantiscono i nodi di calcolo. 
+    Priorità macchina virtuale| Le macchine virtuali con priorità bassa sono più convenienti, ma non garantiscono i nodi di calcolo. 
     Tipo di macchina virtuale| Selezionare CPU o GPU per tipo di macchina virtuale.
     Dimensioni della macchina virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.
     Nodi min/max| Per profilare i dati, è necessario specificare almeno un nodo. Immettere il numero massimo di nodi per l’ambiente di calcolo. Il valore predefinito è 6 nodi per un ambiente di calcolo di AML.
@@ -115,56 +115,56 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
 
     Selezionare **Avanti**.
 
-1. Nel modulo **Tipo di attività e impostazioni** selezionare il tipo di attività: classificazione, regressione o previsione. Per ulteriori informazioni, vedere [tipi di attività supportati](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
+1. Nel modulo **Tipo di attività e impostazioni** selezionare il tipo di attività: classificazione, regressione o previsione. Per [altre informazioni, vedere](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) Tipi di attività supportati.
 
-    1. Per la **classificazione**, è anche possibile abilitare l'apprendimento avanzato.
+    1. Per **la classificazione**, è anche possibile abilitare il Deep Learning.
     
-        Se l'apprendimento avanzato è abilitato, la convalida è limitata a _train_validation divisione_. [Altre informazioni sulle opzioni di convalida](how-to-configure-cross-validation-data-splits.md).
+        Se l'apprendimento approfondito è abilitato, la convalida è limitata train_validation _divisione._ [Altre informazioni sulle opzioni di convalida.](how-to-configure-cross-validation-data-splits.md)
 
 
-    1. Per la **previsione** è possibile, 
+    1. Per **la previsione** è possibile, 
     
-        1. Abilitare l'apprendimento avanzato.
+        1. Abilitare l'apprendimento approfondito.
     
-        1. Seleziona *colonna temporale*: questa colonna contiene i dati relativi all'ora da usare.
+        1. Seleziona *colonna ora:* questa colonna contiene i dati relativi all'ora da usare.
 
-        1. Select *Forecast Horizon*: indica il numero di unità di tempo (minuti/ore/giorni/settimane/mesi/anni) che il modello sarà in grado di stimare in futuro. Maggiore è il tempo per il quale il modello deve effettuare previsioni nel futuro, minore sarà il livello di precisione. [Altre informazioni sulla previsione e sull'orizzonte di previsione](how-to-auto-train-forecast.md).
+        1. Selezionare *l'orizzonte* di previsione: indicare il numero di unità di tempo (minuti/ore/giorni/settimane/mesi/anni) che il modello sarà in grado di stimare per il futuro. Maggiore è il tempo per il quale il modello deve effettuare previsioni nel futuro, minore sarà il livello di precisione. [Altre informazioni sulla previsione e sull'orizzonte di previsione](how-to-auto-train-forecast.md).
 
 1. (Facoltativo) Visualizzare le impostazioni di configurazione aggiuntive: altre impostazioni che è possibile usare per controllare meglio il processo di training. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati. 
 
     Configurazioni aggiuntive|Descrizione
     ------|------
     Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche dei modelli](how-to-configure-auto-train.md#primary-metric).
-    Modello esplicativo migliore | Selezionare questa opzione per abilitare o disabilitare, in modo da visualizzare le spiegazioni per il modello migliore consigliato. <br> Questa funzionalità non è attualmente disponibile per [determinati algoritmi di previsione](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
-    Algoritmo bloccato| Selezionare gli algoritmi da escludere dal processo di training. <br><br> Consentire gli algoritmi è disponibile solo per gli [esperimenti SDK](how-to-configure-auto-train.md#supported-models). <br> Vedere i [modelli supportati per ogni tipo di attività](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
+    Modello esplicativo migliore | Selezionare questa opzione per abilitare o disabilitare per visualizzare le spiegazioni per il modello migliore consigliato. <br> Questa funzionalità non è attualmente disponibile per [determinati algoritmi di previsione.](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model) 
+    Algoritmo bloccato| Selezionare gli algoritmi da escludere dal processo di training. <br><br> L'autorizzazione degli algoritmi è disponibile solo per [gli esperimenti dell'SDK.](how-to-configure-auto-train.md#supported-models) <br> Vedere i [modelli supportati per ogni tipo di attività.](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels)
     Exit criterion (Esci da criterio)| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Durata del processo di training (ore)* : per quanto tempo consentire l'esecuzione del processo di training. <br> *Soglia di punteggio metrica*:  punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo del necessario al processo di training.
     Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. <br> [Altre informazioni sulla convalida incrociata](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>La previsione supporta solo la convalida incrociata k-fold.
-    Concorrenza| *Numero massimo di iterazioni simultanee*: numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più volte del numero specificato di iterazioni. Altre informazioni sul modo in cui Machine Learning esegue [più esecuzioni figlio nei cluster](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
+    Concorrenza| *Numero massimo di iterazioni simultanee*: numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più volte del numero specificato di iterazioni. Altre informazioni sul modo in cui Machine Learning automatizzato [esegue più esecuzioni figlio nei cluster](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
-1. Opzionale Visualizza impostazioni conteggi: se si sceglie di abilitare **conteggi automatici** nel modulo **impostazioni di configurazione aggiuntive** , vengono applicate le tecniche conteggi predefinite. Nelle **impostazioni di visualizzazione conteggi** è possibile modificare queste impostazioni predefinite e personalizzarle di conseguenza. Informazioni su come [personalizzare featurizations](#customize-featurization). 
+1. (Facoltativo) Visualizzare le impostazioni di esezione delle funzionalità:  se si sceglie di abilitare La funzionalità automatica nel modulo Impostazioni di configurazione aggiuntive, vengono applicate le tecniche di esetuazione delle funzionalità predefinite.  Nelle impostazioni **di visualizzazione delle funzionalità è** possibile modificare queste impostazioni predefinite e personalizzarlo di conseguenza. Informazioni su come [personalizzare le evolzioni delle featurization.](#customize-featurization) 
 
-    ![Screenshot mostra la finestra di dialogo Seleziona tipo di attività con Visualizza impostazioni conteggi.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
+    ![Screenshot che mostra la finestra di dialogo Seleziona tipo di attività con l'opzione Visualizza impostazioni di estrazione delle funzionalità selezionata.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
-## <a name="customize-featurization"></a>Personalizzare conteggi
+## <a name="customize-featurization"></a>Personalizzare la configurazione delle featurization
 
-Nel modulo **conteggi** è possibile abilitare o disabilitare conteggi automatici e personalizzare le impostazioni conteggi automatiche per l'esperimento. Per aprire questo modulo, vedere il passaggio 10 nella sezione [creare ed eseguire l'esperimento](#create-and-run-experiment) . 
+Nel modulo **Disabilitazione** delle funzionalità è possibile abilitare o disabilitare la funzionalità automatica e personalizzare le impostazioni di esetuazione automatica delle funzionalità per l'esperimento. Per aprire questo modulo, vedere il passaggio 10 nella sezione [Creare ed eseguire l'esperimento.](#create-and-run-experiment) 
 
-Nella tabella seguente sono riepilogate le personalizzazioni attualmente disponibili tramite Studio. 
+La tabella seguente riepiloga le personalizzazioni attualmente disponibili tramite Studio. 
 
 Colonna| Personalizzazione
 ---|---
 Incluso | Specifica le colonne da includere per il training.
 Tipo di funzionalità| Modificare il tipo di valore per la colonna selezionata.
-Imputa con| Selezionare il valore in cui si desidera imputare i valori mancanti nei dati.
+Imputare con| Selezionare il valore con cui imputare i valori mancanti nei dati.
 
-![Conteggi personalizzato di Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
+![studio di Azure Machine Learning di featurizzazione personalizzata](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>Eseguire l'esperimento e visualizzare i risultati
 
 Selezionare **Fine** per eseguire l'esperimento. L'esperimento di preparazione del processo può richiedere fino a 10 minuti. Per completare l'esecuzione di ogni pipeline, i processi di training possono richiedere altri 2-3 minuti.
 
 > [!NOTE]
-> Gli algoritmi automatizzati di Machine Learning utilizzano una casualità intrinseca che può causare una lieve variazione del punteggio finale delle metriche di un modello consigliato, ad esempio l'accuratezza. Automatizzato ML esegue anche operazioni su dati come la suddivisione del test di training, la suddivisione del training e la convalida incrociata, se necessario. Quindi, se si esegue un esperimento con le stesse impostazioni di configurazione e la metrica primaria più volte, è probabile che si verifichino variazioni in ogni esperimento Punteggio della metrica finale a causa di questi fattori. 
+> Gli algoritmi adottati da Machine Learning automatizzato hanno una casualità intrinseca che può causare lievi variazioni nel punteggio delle metriche finali di un modello consigliato, ad esempio l'accuratezza. Machine Learning automatizzato esegue anche operazioni sui dati, ad esempio la suddivisione del test di training, la suddivisione della convalida del training o la convalida incrociata, se necessario. Pertanto, se si esegue un esperimento con le stesse impostazioni di configurazione e la stessa metrica primaria più volte, è probabile che si vedano variazioni in ogni punteggio delle metriche finali degli esperimenti a causa di questi fattori. 
 
 ### <a name="view-experiment-details"></a>Visualizzare i dettagli sull'esperimento
 
@@ -176,46 +176,46 @@ La scheda **Modelli** contiene un elenco dei modelli creati, ordinati in base al
 
 ### <a name="view-training-run-details"></a>Visualizzare i dettagli relativi all'esecuzione del training
 
-Eseguire il drill-down su uno dei modelli completati per visualizzare i dettagli delle esecuzioni di training, ad esempio un riepilogo del modello nella scheda **modello** o i grafici delle metriche delle prestazioni nella scheda **metriche** . [altre informazioni sui grafici](how-to-understand-automated-ml.md).
+Eseguire il drill-down su uno dei modelli completati per  visualizzare i dettagli dell'esecuzione del training, ad esempio un riepilogo del modello nella scheda Modello o i grafici delle metriche delle prestazioni nella **scheda Metriche.** Altre informazioni [sui grafici](how-to-understand-automated-ml.md).
 
 [![Dettagli sull'iterazione](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
-## <a name="model-explanations"></a>Spiegazioni del modello
+## <a name="model-explanations-preview"></a>Spiegazioni del modello (anteprima)
 
-Per comprendere meglio il modello, vedere quali funzionalità dei dati (RAW o ingegnerizzate) hanno influenzato le stime del modello con il dashboard spiegazioni del modello. 
+Per comprendere meglio il modello, è possibile vedere quali funzionalità dei dati (non elaborati o progettati) hanno influenzato le stime del modello con il dashboard delle spiegazioni del modello. 
 
-Il dashboard spiegazione modello fornisce un'analisi complessiva del modello sottoposto a training insieme alle relative stime e spiegazioni. Consente inoltre di eseguire il drill-down di un singolo punto dati e della relativa importanza delle singole funzionalità. [Scopri di più sulla spiegazione delle visualizzazioni del dashboard e dei tracciati specifici](how-to-machine-learning-interpretability-aml.md#visualizations).
+Il dashboard delle spiegazioni del modello fornisce un'analisi complessiva del modello con training insieme alle stime e alle spiegazioni. Consente inoltre di esaminare un singolo punto dati e le relative priorità delle singole funzionalità. [Altre informazioni sulle visualizzazioni del dashboard di spiegazione.](how-to-machine-learning-interpretability-aml.md#visualizations)
 
-Per ottenere spiegazioni per un particolare modello, 
+Per ottenere spiegazioni per un modello specifico, 
 
-1. Nella scheda **modelli** selezionare il modello che si desidera utilizzare. 
-1. Selezionare il pulsante **spiega modello** e fornire un calcolo che può essere usato per generare le spiegazioni.
-1. Selezionare la scheda **esecuzioni figlio** per lo stato. 
-1. Al termine, passare alla scheda **spiegazioni (anteprima)** che contiene il dashboard spiegazioni. 
+1. Nella scheda **Modelli** selezionare il modello che si vuole comprendere. 
+1. Selezionare il **pulsante Spiega** modello e specificare un calcolo che può essere usato per generare le spiegazioni.
+1. Controllare lo **stato nella** scheda Esecuzioni figlio. 
+1. Al termine, passare alla **scheda Spiegazioni (anteprima)** che contiene il dashboard delle spiegazioni. 
 
-    ![Dashboard spiegazione modello](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
+    ![Dashboard di spiegazione del modello](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
 ## <a name="deploy-your-model"></a>Distribuire il modello
 
 Una volta ottenuto il modello migliore, è necessario distribuirlo come servizio Web per eseguire previsioni sui nuovi dati.
 
 >[!TIP]
-> Se si sta cercando di distribuire un modello generato tramite il `automl` pacchetto con Python SDK, è necessario [registrare il modello](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) nell'area di lavoro. 
+> Se si sta cercando di distribuire un modello generato tramite il pacchetto con Python SDK, è necessario `automl` [registrare il](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) modello nell'area di lavoro. 
 >
-> Dopo aver registrato il modello, trovarlo in Studio selezionando **modelli** nel riquadro sinistro. Una volta aperto il modello, è possibile selezionare il pulsante **Distribuisci** nella parte superiore della schermata, quindi seguire le istruzioni descritte nel **passaggio 2** della sezione **distribuire il modello** .
+> Dopo aver registrato il modello, trovarlo in studio selezionando **Modelli** nel riquadro sinistro. Dopo aver aperto il modello,  è possibile selezionare il pulsante Distribuisci nella parte superiore della schermata e quindi seguire le istruzioni descritte nel passaggio **2** della sezione Distribuire **il** modello.
 
 ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
 
 1. Per la distribuzione sono disponibili due opzioni. 
 
-    + Opzione 1: distribuire il modello migliore in base ai criteri della metrica definiti. 
-        1. Al termine dell'esperimento, passare alla pagina esecuzione padre selezionando **Esegui 1** nella parte superiore della schermata. 
-        1.  Selezionare il modello elencato nella sezione **Riepilogo del modello migliore** . 
-        1. Selezionare **Distribuisci** nella parte superiore sinistra della finestra. 
+    + Opzione 1: distribuire il modello migliore, in base ai criteri delle metriche definiti. 
+        1. Al termine dell'esperimento, passare alla pagina di esecuzione padre selezionando **Esegui 1** nella parte superiore della schermata. 
+        1.  Selezionare il modello elencato nella **sezione Riepilogo modello** migliore. 
+        1. Selezionare **Distribuisci** in alto a sinistra nella finestra. 
 
     + Opzione 2: per distribuire un'iterazione del modello specifica da questo esperimento.
         1. Selezionare il modello desiderato dalla scheda **Modelli**
-        1. Selezionare **Distribuisci** nella parte superiore sinistra della finestra.
+        1. Selezionare **Distribuisci** in alto a sinistra nella finestra.
 
 1. Inserire i dati nel riquadro **Distribuisci modello**.
 

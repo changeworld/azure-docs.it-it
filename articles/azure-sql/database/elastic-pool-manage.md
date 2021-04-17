@@ -1,6 +1,6 @@
 ---
 title: Gestire i pool elastici
-description: Creare e gestire pool elastici del database SQL di Azure usando il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, Transact-SQL (T-SQL) e l'API REST.
+description: Creare e gestire database SQL di Azure pool elastici usando portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, Transact-SQL (T-SQL) e l'API REST.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -10,21 +10,21 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
-ms.openlocfilehash: 9c9af6e3bc3dfd798f4b3f0cad9319aa573c425d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc2bb24880b77eae24e9bb2ef0baf70ac0b92ac7
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96456000"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588633"
 ---
-# <a name="manage-elastic-pools-in-azure-sql-database"></a>Gestire i pool elastici nel database SQL di Azure
+# <a name="manage-elastic-pools-in-azure-sql-database"></a>Gestire pool elastici in database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Con un pool elastico si determina la quantità di risorse di cui il pool elastico necessita per gestire il carico di lavoro dei propri database e la quantità di risorse per ogni database in pool.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
-Tutte le impostazioni del pool sono reperibili in una stessa area dell'interfaccia, ovvero il pannello **Configura pool**. Per accedere a questa pagina, trovare un pool elastico nella portale di Azure e fare clic su **Configura pool** nella parte superiore del pannello oppure dal menu delle risorse a sinistra.
+Tutte le impostazioni del pool sono reperibili in una stessa area dell'interfaccia, ovvero il pannello **Configura pool**. Per iniziare, trovare un pool elastico nel portale di Azure e fare clic su Configura **pool** nella parte superiore del pannello o nel menu delle risorse a sinistra.
 
 Da qui è possibile eseguire una combinazione qualsiasi di modifiche tra quelle elencate di seguito e salvarle in un unico batch:
 
@@ -42,7 +42,7 @@ Da qui è possibile eseguire una combinazione qualsiasi di modifiche tra quelle 
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
 
-Per creare e gestire i pool elastici e i database in pool del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). Per creare e gestire i server per un pool elastico, vedere [creare e gestire server](logical-servers.md). Per creare e gestire regole del firewall, vedere [Creare e gestire le regole del firewall con PowerShell](firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules).
+Per creare e gestire i pool elastici e i database in pool del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). Per creare e gestire i server per un pool elastico, vedere [Creare e gestire server.](logical-servers.md) Per creare e gestire regole del firewall, vedere [Creare e gestire le regole del firewall con PowerShell](firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules).
 
 > [!TIP]
 > Per gli script di esempio di PowerShell, vedere [Creare pool elastici e spostare i database tra i pool e al loro esterno usando PowerShell](scripts/move-database-between-elastic-pools-powershell.md) e [Usare PowerShell per il monitoraggio e il ridimensionamento di un pool elastico SQL nel database SQL di Azure](scripts/monitor-and-scale-pool-powershell.md).
@@ -68,7 +68,7 @@ Per creare e gestire i pool elastici e i database in pool del database SQL con A
 Per creare e gestire pool elastici del database SQL con l'[interfaccia della riga di comando di Azure](/cli/azure), usare i comandi seguenti del [database SQL per l'interfaccia della riga di comando di Azure](/cli/azure/sql/db). Usare [Cloud Shell](../../cloud-shell/overview.md) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows.
 
 > [!TIP]
-> Per gli script di esempio dell'interfaccia della riga di comando di Azure vedere usare l'interfaccia della riga [di comando per spostare un database nel database SQL in un pool elastico SQL](scripts/move-database-between-elastic-pools-cli.md) e [usare l'interfaccia della riga di comando di Azure per ridimensionare un pool](scripts/scale-pool-cli.md)
+> Per gli script di esempio dell'interfaccia della riga di comando di Azure, vedere Usare l'interfaccia della riga di comando per spostare un database nel database SQL in un [pool elastico SQL](scripts/move-database-between-elastic-pools-cli.md) e Usare l'interfaccia della riga di comando di Azure per ridimensionare un [pool elastico SQL database SQL di Azure](scripts/scale-pool-cli.md).
 >
 
 | Cmdlet | Descrizione |
@@ -82,7 +82,7 @@ Per creare e gestire pool elastici del database SQL con l'[interfaccia della rig
 
 ## <a name="transact-sql-t-sql"></a>Transact-SQL (T-SQL)
 
-Per creare e spostare i database all'interno dei pool elastici esistenti o per restituire informazioni su un pool elastico del database SQL con Transact-SQL, usare i comandi T-SQL seguenti. È possibile eseguire questi comandi utilizzando la portale di Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs)o qualsiasi altro programma in grado di connettersi a un server e passare i comandi Transact-SQL. Per creare e gestire regole del firewall con T-SQL, vedere [Gestire le regole del firewall con Transact-SQL](firewall-configure.md#use-transact-sql-to-manage-ip-firewall-rules).
+Per creare e spostare i database all'interno dei pool elastici esistenti o per restituire informazioni su un pool elastico del database SQL con Transact-SQL, usare i comandi T-SQL seguenti. È possibile eseguire questi comandi usando portale di Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), Visual Studio Code o [qualsiasi](https://code.visualstudio.com/docs)altro programma in grado di connettersi a un server e passare comandi Transact-SQL. Per creare e gestire regole del firewall con T-SQL, vedere [Gestire le regole del firewall con Transact-SQL](firewall-configure.md#use-transact-sql-to-manage-ip-firewall-rules).
 
 > [!IMPORTANT]
 > Non è possibile creare, aggiornare o eliminare un pool elastico del database SQL di Azure con Transact-SQL. È possibile aggiungere o rimuovere i database da un pool elastico ed è possibile usare le DMV per restituire informazioni sui pool elastici esistenti.
@@ -94,7 +94,7 @@ Per creare e spostare i database all'interno dei pool elastici esistenti o per r
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Consente di spostare un database all'interno, all'esterno o tra pool elastici.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Questo comando elimina un database.|
 |[sys.elastic_pool_resource_stats (Database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Restituisce le statistiche di utilizzo delle risorse per tutti i pool elastici in un server. Per ogni pool elastico è presente una riga per ogni finestra di report di 15 secondi (quattro righe al minuto). Sono inclusi CPU, IO, Log, uso dell'archiviazione e uso di richieste/sessioni simultanee da parte di tutti i database nel pool.|
-|[sys.database_service_objectives (database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Restituisce l'edizione (livello di servizio), l'obiettivo di servizio (piano tariffario) e il nome del pool elastico, se presente, per un database nel database SQL o in Azure sinapsi Analytics. Se si è connessi al database master in un server, in vengono restituite informazioni su tutti i database. Per Azure sinapsi Analytics, è necessario essere connessi al database master.|
+|[sys.database_service_objectives (database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Restituisce l'edizione (livello di servizio), l'obiettivo di servizio (piano tariffario) e il nome del pool elastico, se presente, per un database nel database SQL o Azure Synapse Analytics. Se si è connessi al database master in un server, restituisce informazioni su tutti i database. Per Azure Synapse Analytics, è necessario essere connessi al database master.|
 
 ## <a name="rest-api"></a>API REST
 
@@ -102,17 +102,18 @@ Per creare e gestire i pool elastici e i database in pool del database SQL, usar
 
 | Comando | Descrizione |
 | --- | --- |
-|[Pool elastici-crea o aggiorna](/rest/api/sql/elasticpools/createorupdate)|Crea un nuovo pool elastico o aggiorna un pool elastico esistente.|
-|[Pool elastici-eliminazione](/rest/api/sql/elasticpools/delete)|Consente di eliminare un pool elastico.|
-|[Pool elastici-Ottieni](/rest/api/sql/elasticpools/get)|Ottiene un pool elastico.|
-|[Pool elastici-elenca per server](/rest/api/sql/elasticpools/listbyserver)|Restituisce un elenco di pool elastici in un server.|
-|[Pool elastici-aggiornamento](/rest/api/sql/elasticpools/listbyserver)|Consente di aggiornare un pool elastico esistente.|
+|[Pool elastici - Creare o aggiornare](/rest/api/sql/elasticpools/createorupdate)|Crea un nuovo pool elastico o aggiorna un pool elastico esistente.|
+|[Pool elastici - Eliminazione](/rest/api/sql/elasticpools/delete)|Consente di eliminare un pool elastico.|
+|[Pool elastici - Ottenere](/rest/api/sql/elasticpools/get)|Ottiene un pool elastico.|
+|[Pool elastici - Elenco per server](/rest/api/sql/elasticpools/listbyserver)|Restituisce un elenco di pool elastici in un server.|
+|[Pool elastici - Aggiornamento] (/rest/api/sql/2020-11-01-preview/elasticpools/update
+)|Consente di aggiornare un pool elastico esistente.|
 |[Attività del pool elastico](/rest/api/sql/elasticpoolactivities)|Restituisce le attività del pool elastico.|
 |[Attività del database del pool elastico](/rest/api/sql/elasticpooldatabaseactivities)|Restituisce l'attività sul database all'interno di un pool elastico.|
 |[Databases - Create or update](/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
 |[Databases - Get](/rest/api/sql/databases/get)|Ottiene un database.|
-|[Database-elenca per pool elastico](/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
-|[Database-elenco per server](/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
+|[Database - Elenco per pool elastico](/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
+|[Database - Elenco per server](/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
 |[Databases - Update](/rest/api/sql/databases/update)|Aggiorna un database esistente.|
 
 ## <a name="next-steps"></a>Passaggi successivi

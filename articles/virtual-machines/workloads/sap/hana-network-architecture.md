@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92cfa5b2e399811754b57bda64569753ccfa6be8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1e37b2de2a3d4be0250d3e900fe48a36e45240e
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668759"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309561"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architettura di rete di SAP HANA (istanze Large)
 
@@ -186,7 +186,7 @@ I dati trasferiti tra le istanze Large di HANA e le VM non vengono crittografati
 
 ## <a name="use-hana-large-instance-units-in-multiple-regions"></a>Usare le unità di istanze Large di HANA in più aree
 
-Per realizzare set di ripristino di emergenza, è necessario avere unità di istanze large di SHANA in più aree di Azure. Anche con l'uso di Azure [peering VNET globale], per impostazione predefinita il routing transitivo non funziona tra i tenant di istanze large di HANA in due aree diverse. Tuttavia, Copertura globale apre il percorso di comunicazione tra le unità di istanze large di HANA di cui è stato effettuato il provisioning in due aree diverse. Questo scenario di utilizzo di ExpressRoute Copertura globale consente di:
+Per realizzare set di ripristino di emergenza, è necessario disporre di unità di istanze large di HANA in più aree di Azure. Anche con l'uso di Azure [peering VNET globale], per impostazione predefinita il routing transitivo non funziona tra i tenant di istanze large di HANA in due aree diverse. Tuttavia, Copertura globale apre il percorso di comunicazione tra le unità di istanze large di HANA di cui è stato effettuato il provisioning in due aree diverse. Questo scenario di utilizzo di ExpressRoute Copertura globale consente di:
 
  - Replica di sistema HANA senza proxy o firewall aggiuntivi
  - Copia di backup tra unità di istanze large di HANA in due aree diverse per eseguire copie di sistema o aggiornamenti del sistema
