@@ -1,29 +1,29 @@
 ---
-title: "Guida introduttiva: aggiungere una riunione ai team da un'app iOS"
-description: In questa esercitazione si apprenderà come partecipare a una riunione dei team usando i servizi di comunicazione di Azure che chiamano SDK per iOS
+title: Guida introduttiva - Partecipare a una riunione di Teams da un'app iOS
+description: Questa esercitazione illustra come partecipare a una riunione di Teams usando Servizi di comunicazione di Azure Calling SDK per iOS
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 8ff85dc5571f549027e208409db3f4e80c68b205
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 363799cee5d66b718bb8ba06f4afd442add15148
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108188"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564535"
 ---
-In questa Guida introduttiva si apprenderà come partecipare a una riunione di Team usando i servizi di comunicazione di Azure che chiamano SDK per iOS.
+In questa guida introduttiva si apprenderà come partecipare a una riunione di Teams usando Servizi di comunicazione di Azure Calling SDK per iOS.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un servizio di comunicazione funzionante che [chiama l'app iOS](../getting-started-with-calling.md).
+- Un'app [di Servizi di comunicazione funzionante che chiama l'app iOS](../getting-started-with-calling.md).
 - Una [distribuzione di Teams](/deployoffice/teams-install).
 
 
-## <a name="add-the-teams-ui-controls-and-enable-the-teams-ui-controls"></a>Aggiungere i controlli dell'interfaccia utente dei team e abilitare i controlli dell'interfaccia utente dei team
+## <a name="add-the-teams-ui-controls-and-enable-the-teams-ui-controls"></a>Aggiungere i controlli dell'interfaccia utente di Teams e Abilitare i controlli dell'interfaccia utente di Teams
 
-Sostituire il codice in ContentView. Swift con il frammento di codice seguente. La casella di testo verrà usata per accedere al contesto della riunione di Teams e il pulsante per partecipare alla riunione specificata:
+Sostituire il codice in ContentView.swift con il frammento di codice seguente. La casella di testo verrà usata per accedere al contesto della riunione di Teams e il pulsante per partecipare alla riunione specificata:
 
 ```swift
 
@@ -177,10 +177,10 @@ struct ContentView_Previews: PreviewProvider {
 
 ## <a name="get-the-teams-meeting-link"></a>Ottenere il collegamento alla riunione di Teams
 
-Il collegamento alla riunione di Teams può essere recuperato usando le API Graph. Questa operazione è descritta in dettaglio nella [documentazione di Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-L'SDK per le chiamate di Servizi di comunicazione accetta un collegamento alla riunione di Teams completo. Questo collegamento viene restituito come parte della `onlineMeeting` risorsa, accessibile nella [ `joinWebUrl` proprietà](/graph/api/resources/onlinemeeting?view=graph-rest-beta). È anche possibile ottenere le informazioni sulla riunione richieste dall'URL della riunione di **join** nell'invito stesso alla riunione dei team.
+Il collegamento alla riunione di Teams può essere recuperato usando le API Graph. Questa operazione è descritta in dettaglio nella [documentazione di Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+L'SDK per le chiamate di Servizi di comunicazione accetta un collegamento alla riunione di Teams completo. Questo collegamento viene restituito come parte della `onlineMeeting` risorsa, accessibile tramite la [ `joinWebUrl` proprietà](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). È anche possibile ottenere le informazioni necessarie sulla riunione dall'URL di partecipazione **alla** riunione nell'invito alla riunione di Teams stesso.
 
-## <a name="launch-the-app-and-join-teams-meeting"></a>Avviare l'app e partecipare alla riunione dei team
+## <a name="launch-the-app-and-join-teams-meeting"></a>Avviare l'app e partecipare alla riunione di Teams
 
 È possibile creare ed eseguire un'app nel simulatore iOS selezionando **Product** > **Run** (Prodotto > Esegui) o premendo i tasti di scelta rapida &#8984;+R.
 

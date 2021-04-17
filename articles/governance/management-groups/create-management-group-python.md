@@ -1,17 +1,19 @@
 ---
-title: 'Guida introduttiva: creare un gruppo di gestione con Python'
-description: In questa Guida introduttiva si userà Python per creare un gruppo di gestione per organizzare le risorse in una gerarchia di risorse.
+title: 'Guida introduttiva: Creare un gruppo di gestione con Python'
+description: In questa guida introduttiva si usa Python per creare un gruppo di gestione per organizzare le risorse in una gerarchia di risorse.
 ms.date: 01/29/2021
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: e3c55cc14a8ac980318fd0de9485a3e0ca31b582
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: 9aec47e067ca62f4902df2dafb6a5d6d50a26d0e
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100101765"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533174"
 ---
-# <a name="quickstart-create-a-management-group-with-python"></a>Guida introduttiva: creare un gruppo di gestione con Python
+# <a name="quickstart-create-a-management-group-with-python"></a>Guida introduttiva: Creare un gruppo di gestione con Python
 
 I gruppi di gestione sono contenitori che semplificano la gestione dell'accesso, dei criteri e della conformità tra più sottoscrizioni. Creare questi contenitori per creare una gerarchia efficiente ed efficace utilizzabile con [Criteri di Azure](../policy/overview.md) e [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). Per altre informazioni sui gruppi di gestione, vedere [Organizzare le risorse con i gruppi di gestione di Azure](overview.md).
 
@@ -27,7 +29,7 @@ La creazione del primo gruppo di gestione nella directory può richiedere fino a
 
 ## <a name="add-the-resource-graph-library"></a>Aggiungere la libreria Resource Graph
 
-Per abilitare Python per la gestione dei gruppi di gestione, è necessario aggiungere la libreria. Questa libreria funziona ovunque sia possibile usare Python, sia con [bash in Windows 10](/windows/wsl/install-win10) o con installazione locale.
+Per consentire a Python di gestire i gruppi di gestione, è necessario aggiungere la libreria. Questa libreria funziona ovunque sia possibile usare Python, sia con [bash in Windows 10](/windows/wsl/install-win10) o con installazione locale.
 
 1. Controllare che sia installata la versione di Python più recente o almeno la versione **3.8**. Se non è ancora installata, scaricarla dal sito [Python.org](https://www.python.org/downloads/).
 
@@ -42,7 +44,7 @@ Per abilitare Python per la gestione dei gruppi di gestione, è necessario aggiu
    az login
    ```
 
-1. Nell'ambiente Python scelto installare le librerie necessarie per i gruppi di gestione:
+1. Nell'ambiente Python preferito installare le librerie necessarie per i gruppi di gestione:
 
    ```bash
    # Add the management groups library for Python
@@ -58,7 +60,7 @@ Per abilitare Python per la gestione dei gruppi di gestione, è necessario aggiu
    > [!NOTE]
    > Se Python è installato per tutti gli utenti, questi comandi devono essere eseguiti da una console con privilegi elevati.
 
-1. Verificare che le librerie siano state installate. `azure-mgmt-managementgroups` deve essere **0.2.0** o una versione successiva, `azure-mgmt-resource` deve essere **9.0.0** o una versione successiva e `azure-cli-core` deve essere **2.5.0** o una versione successiva.
+1. Verificare che le librerie siano state installate. `azure-mgmt-managementgroups` deve essere **0.2.0** o versione successiva, deve essere `azure-mgmt-resource` **9.0.0** o successiva e deve `azure-cli-core` essere **2.5.0** o successiva.
 
    ```bash
    # Check each installed library
@@ -102,7 +104,7 @@ Per abilitare Python per la gestione dei gruppi di gestione, è necessario aggiu
    createmanagementgroup("MyNewMG")
    ```
 
-1. Eseguire l'autenticazione con l'interfaccia della riga di `az login` comando di Azure
+1. Eseguire l'autenticazione con l'interfaccia della riga di comando di Azure con `az login` .
 
 1. Immettere il comando seguente nel terminale:
 
@@ -110,7 +112,7 @@ Per abilitare Python per la gestione dei gruppi di gestione, è necessario aggiu
    py mgCreate.py
    ```
 
-Il risultato della creazione del gruppo di gestione viene restituito alla console come `LROPoller` oggetto.
+Il risultato della creazione del gruppo di gestione viene restituito alla console come `LROPoller` oggetto .
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

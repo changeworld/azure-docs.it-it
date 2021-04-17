@@ -19,7 +19,7 @@
           href: 4me-tutorial.md
         - name: 8X8
           href: 8x8virtualoffice-tutorial.md
-    - name: A
+    - name: Una
       items:
         - name: abintegro
           href: abintegro-tutorial.md
@@ -31,7 +31,7 @@
           href: academy-attendance-tutorial.md
         - name: Acadia
           href: acadia-tutorial.md
-        - name: Artere Academy
+        - name: Accenture Academy
           href: accenture-academy-tutorial.md
         - name: Accredible
           href: accredible-tutorial.md
@@ -181,7 +181,7 @@
           href: awarego-tutorial.md
         - name: AWS ClientVPN
           href: aws-clientvpn-tutorial.md
-        - name: AWS Single Sign-On
+        - name: Aws Single Sign-On
           href: aws-single-sign-on-tutorial.md
         - name: Axiad Cloud
           href: axiad-cloud-tutorial.md
@@ -323,7 +323,7 @@
           href: chatwork-tutorial.md
         - name: Chargebee
           href: chargebee-tutorial.md
-        - name: Check Point Identity Awareness
+        - name: Check Point riconoscimento delle identità
           href: check-point-identity-awareness-tutorial.md
         - name: Cherwell
           href: cherwell-tutorial.md
@@ -339,6 +339,8 @@
           href: ciscocloud-tutorial.md
         - name: Cloud Security Fabric
           href: ciscocloudlock-tutorial.md
+        - name: Cisco Intersight
+          href: cisco-intersight-tutorial.md
         - name: Cisco Webex
           href: cisco-spark-tutorial.md
         - name: Cisco Umbrella
@@ -489,6 +491,8 @@
           href: degreed-tutorial.md
         - name: Deputy
           href: deputy-tutorial.md
+        - name: NEO di desknet
+          href: desknets-neo-tutorial.md
         - name: Deskradar
           href: deskradar-tutorial.md
         - name: DigiCert

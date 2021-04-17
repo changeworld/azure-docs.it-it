@@ -103,7 +103,7 @@
       href: ./linux/tutorial-elasticsearch.md
     - name: Re-hosting del mainframe
       href: ./workloads/mainframe-rehosting/overview.md
-    - name: Calcolo riservato di Azure
+    - name: Azure Confidential Compute
       href: ../confidential-computing/overview.md
     - name: SQL in macchine virtuali
       href: ../azure-sql/virtual-machines/index.yml
@@ -360,7 +360,7 @@
                   href: ./linux/tutorial-devops-azure-pipelines-classic.md
                 - name: Configurare la strategia di distribuzione di Canary
                   href: ./linux/tutorial-azure-devops-canary-strategy.md
-                - name: Configurare Blue-Green distribuzione aziendale
+                - name: Configurare Blue-Green di distribuzione
                   href: ./linux/tutorial-azure-devops-blue-green-strategy.md
                 - name: CI/CD con Azure Pipelines (YAML)
                   href: ./linux/tutorial-build-deploy-azure-pipelines.md
@@ -1786,6 +1786,8 @@
       href: /azure/cloud-adoption-framework/get-started/
     - name: Centro architetture
       href: /azure/architecture/
+    - name: Strumenti di migrazione
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools'
     - name: Domande e risposte Microsoft
       href: /answers/topics/azure-virtual-machines.html
     - name: Modelli di avvio rapido di Azure

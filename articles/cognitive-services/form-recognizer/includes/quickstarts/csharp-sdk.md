@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 03/19/2021
+ms.date: 04/14/2021
 ms.author: lajanuar
-ms.openlocfilehash: 6407f6af4b142333d2a52f60eb0b05024e64d88e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b7a35046a7f170365974c50a5be99f35cb4a868f
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104761138"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516433"
 ---
 <!-- markdownlint-disable MD024 -->
 > [!IMPORTANT]
@@ -45,7 +45,7 @@ Spostarsi nella cartella dell'app appena creata. È possibile compilare l'applic
 dotnet build
 ```
 
-L'output di compilazione non deve contenere alcun avviso o errore. 
+L'output di compilazione non deve contenere alcun avviso o errore.
 
 ```console
 ...
@@ -62,11 +62,11 @@ Nella directory dell'applicazione installare la libreria client di Riconosciment
 #### <a name="v21-preview"></a>[v2.1.preview](#tab/preview)
 
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
+dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
 ```
 
 > [!NOTE]
-> Il form Recognizer 3.1.0 SDK riflette l' _API versione 2,1 Preview. 2_. Usare l' [**API REST**](../../quickstarts/client-library.md) per l' _API versione 2,1 Preview. 3_.
+> La riconoscimento modulo 3.1.0-beta.4 SDK riflette _API versione 2.1-preview.3.
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -75,7 +75,7 @@ dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
 
 > [!NOTE]
-> Il form Recognizer 3.0.0 SDK riflette l'API v 2.0
+> L riconoscimento modulo SDK 3.0.0 riflette l'API v2.0
 
 ---
 
@@ -89,7 +89,7 @@ Dalla directory del progetto aprire il file *Program.cs* nell'ambiente di svilup
 Nella classe **Program** dell'applicazione creare le variabili per l'endpoint e la chiave della risorsa.
 
 > [!IMPORTANT]
-> Accedere al portale di Azure. Se la risorsa di Riconoscimento modulo creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. 
+> Accedere al portale di Azure. Se la risorsa di Riconoscimento modulo creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**.
 >
 > Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](../../../cognitive-services-security.md) di Servizi cognitivi.
 
@@ -105,28 +105,26 @@ Nel metodo **Main** dell'applicazione aggiungere una chiamata alle attività asi
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
 
-
 ---
 
+## <a name="object-model"></a>Modello a oggetti
 
-## <a name="object-model"></a>Modello a oggetti 
-
-Con Riconoscimento modulo è possibile creare due diversi tipi di client. Il primo, `FormRecognizerClient`, viene usato per eseguire query sul servizio per riconoscere campi modulo e contenuti. Il secondo, `FormTrainingClient`, viene usato per creare e gestire modelli personalizzati da usare per migliorare il riconoscimento. 
+Con Riconoscimento modulo è possibile creare due diversi tipi di client. Il primo, `FormRecognizerClient`, viene usato per eseguire query sul servizio per riconoscere campi modulo e contenuti. Il secondo, `FormTrainingClient`, viene usato per creare e gestire modelli personalizzati da usare per migliorare il riconoscimento.
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
 `FormRecognizerClient` fornisce le operazioni per:
 
-* Riconoscimento dei campi del modulo e del contenuto, utilizzo di modelli personalizzati con training per l'analisi dei moduli personalizzati.  Questi valori vengono restituiti in una raccolta di oggetti `RecognizedForm`. Vedere l'esempio [Analizzare moduli personalizzati](#analyze-forms-with-a-custom-model).
+* Riconoscimento dei campi e del contenuto del modulo, usando modelli personalizzati con training per analizzare i moduli personalizzati.  Questi valori vengono restituiti in una raccolta di oggetti `RecognizedForm`. Vedere l'esempio [Analizzare moduli personalizzati](#analyze-forms-with-a-custom-model).
 * Riconoscere i contenuti dei moduli, incluse tabelle, righe e parole, senza la necessità di eseguire il training di un modello.  I contenuti dei moduli vengono restituiti in una raccolta di oggetti `FormPage`. Vedere l'esempio [Analizzare il layout](#analyze-layout).
-* Riconoscere i campi comuni delle ricevute degli Stati Uniti, usando un modello di ricevuta con training preliminare nel servizio Riconoscimento modulo. Questi campi e i metadati vengono restituiti in una raccolta di oggetti `RecognizedForm`. Vedere l'esempio [Analizzare ricevute](#analyze-receipts).
+* Riconoscimento di campi comuni da ricevute, biglietti da visita, fatture e documenti di identità degli Stati Uniti usando un modello con training preliminare nel riconoscimento modulo servizio.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
 `FormTrainingClient` fornisce le operazioni per:
 
-* Training di modelli personalizzati per analizzare tutti i campi e i valori trovati nei moduli personalizzati.  `CustomFormModel`Viene restituito un oggetto che indica i tipi di form che verrà analizzato dal modello e i campi da estrarre per ogni tipo di form.
-* Training di modelli personalizzati per l'analisi di campi e valori specifici specificati tramite l'assegnazione di etichette ai moduli personalizzati.  Viene restituito un `CustomFormModel` che indica i campi che verranno estratti dal modello e l'accuratezza stimata per ogni campo.
+* Training di modelli personalizzati per analizzare tutti i campi e i valori presenti nei moduli personalizzati.  Viene restituito un valore che indica i tipi di modulo che verranno analizzati dal modello e i campi che `CustomFormModel` estrarrà per ogni tipo di modulo.
+* Training di modelli personalizzati per analizzare campi e valori specifici specificati etichettando i moduli personalizzati.  Viene restituito un `CustomFormModel` che indica i campi che verranno estratti dal modello e l'accuratezza stimata per ogni campo.
 * Gestire i modelli creati nell'account.
 * Copiare un modello personalizzato da una risorsa Riconoscimento modulo a un'altra.
 
@@ -147,6 +145,7 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 * [Analizzare ricevute](#analyze-receipts)
 * [Analizzare biglietti da visita](#analyze-business-cards)
 * [Analizzare fatture](#analyze-invoices)
+* [Analizzare i documenti di identità](#analyze-identity-documents)
 * [Eseguire il training di un modello personalizzato](#train-a-custom-model)
 * [Analizzare i moduli con un modello personalizzato](#analyze-forms-with-a-custom-model)
 * [Gestire i modelli personalizzati](#manage-your-custom-models)
@@ -167,7 +166,7 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 Sotto **Main** creare un nuovo metodo denominato `AuthenticateClient`. Verrà usato in altre attività per autenticare le richieste al servizio Riconoscimento modulo. Questo metodo usa un oggetto `AzureKeyCredential` in modo che, se necessario, sia possibile aggiornare la chiave API senza creare nuovi oggetti client.
 
 > [!IMPORTANT]
-> Ottenere la chiave e l'endpoint nel portale di Azure. Se la risorsa di Riconoscimento modulo creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. 
+> Ottenere la chiave e l'endpoint nel portale di Azure. Se la risorsa di Riconoscimento modulo creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**.
 >
 > Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, ad esempio [Azure Key Vault](../../../../key-vault/general/overview.md).
 
@@ -177,7 +176,7 @@ Ripetere i passaggi precedenti per un nuovo metodo che autentica un client di tr
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth_training)]
 
-## <a name="get-assets-for-testing"></a>Ottenere le risorse per il test 
+## <a name="get-assets-for-testing"></a>Ottenere le risorse per il test
 
 Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training e di test. Aggiungerli alla radice della classe **Program**.
 
@@ -199,9 +198,9 @@ Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training 
 
 ## <a name="analyze-layout"></a>Analizzare il layout
 
-È possibile utilizzare il riconoscimento moduli per analizzare tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello. Il valore restituito è una raccolta di oggetti **FormPage**: uno per ogni pagina nel documento inviato. Per ulteriori informazioni sull'estrazione del layout, vedere la [Guida concettuale sul layout](../../concept-layout.md).
+È possibile usare riconoscimento modulo per analizzare tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello. Il valore restituito è una raccolta di oggetti **FormPage**: uno per ogni pagina nel documento inviato. Per altre informazioni sull'estrazione del layout, vedere la [guida concettuale Layout](../../concept-layout.md).
 
-Per analizzare il contenuto di un file in un determinato URL, utilizzare il `StartRecognizeContentFromUri` metodo.
+Per analizzare il contenuto di un file in corrispondenza di un URL specificato, usare il `StartRecognizeContentFromUri` metodo .
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_call)]
 
@@ -247,22 +246,129 @@ Table 0 has 2 rows and 6 columns.
     Cell (1, 5) contains text: 'PT'.
 ```
 
+## <a name="analyze-receipts"></a>Analizzare ricevute
+
+Questa sezione illustra come analizzare ed estrarre campi comuni dalle ricevute degli Stati Uniti usando un modello di ricevuta con training preliminare. Per altre informazioni sull'analisi delle ricevute, vedere la [guida concettuale Ricevute](../../concept-receipts.md).
+
+Per analizzare le ricevute da un URL, usare il `StartRecognizeReceiptsFromUri` metodo .
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
+
+> [!TIP]
+> È anche possibile analizzare le immagini delle ricevute locali. Vedere i metodi [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeReceipts**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+
+Il valore restituito è una raccolta di oggetti `RecognizedForm`, uno per ogni pagina del documento inviato. Il codice seguente elabora una ricevuta in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_print)]
+
+### <a name="output"></a>Output
+
+```console
+Form Page 1 has 18 lines.
+    Line 0 has 1 word, and text: 'Contoso'.
+    Line 1 has 1 word, and text: 'Address:'.
+    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
+    Line 3 has 4 words, and text: '1 Redmond way Suite'.
+    Line 4 has 3 words, and text: '1020 Enterprise Way'.
+    Line 5 has 3 words, and text: '6000 Redmond, WA'.
+    Line 6 has 3 words, and text: 'Sunnayvale, CA 87659'.
+    Line 7 has 1 word, and text: '99243'.
+    Line 8 has 2 words, and text: 'Invoice Number'.
+    Line 9 has 2 words, and text: 'Invoice Date'.
+    Line 10 has 3 words, and text: 'Invoice Due Date'.
+    Line 11 has 1 word, and text: 'Charges'.
+    Line 12 has 2 words, and text: 'VAT ID'.
+    Line 13 has 1 word, and text: '34278587'.
+    Line 14 has 1 word, and text: '6/18/2017'.
+    Line 15 has 1 word, and text: '6/24/2017'.
+    Line 16 has 1 word, and text: '$56,651.49'.
+    Line 17 has 1 word, and text: 'PT'.
+Table 0 has 2 rows and 6 columns.
+    Cell (0, 0) contains text: 'Invoice Number'.
+    Cell (0, 1) contains text: 'Invoice Date'.
+    Cell (0, 2) contains text: 'Invoice Due Date'.
+    Cell (0, 3) contains text: 'Charges'.
+    Cell (0, 5) contains text: 'VAT ID'.
+    Cell (1, 0) contains text: '34278587'.
+    Cell (1, 1) contains text: '6/18/2017'.
+    Cell (1, 2) contains text: '6/24/2017'.
+    Cell (1, 3) contains text: '$56,651.49'.
+    Cell (1, 5) contains text: 'PT'.
+Merchant Name: 'Contoso Contoso', with confidence 0.516
+Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
+Item:
+    Name: '8GB RAM (Black)', with confidence 0.916
+    Total Price: '999', with confidence 0.559
+Item:
+    Name: 'SurfacePen', with confidence 0.858
+    Total Price: '99.99', with confidence 0.386
+Total: '1203.39', with confidence '0.774'
+```
+
+## <a name="analyze-business-cards"></a>Analizzare biglietti da visita
+
+####  <a name="v21-preview"></a>[v2.1.preview](#tab/preview)
+
+Questa sezione illustra come analizzare ed estrarre campi comuni dai biglietti da visita in inglese usando un modello con training preliminare. Per altre informazioni sull'analisi dei biglietti da visita, vedere la [Guida concettuale ai biglietti da visita](../../concept-business-cards.md).
+
+Per analizzare i biglietti da visita da un URL, usare il `StartRecognizeBusinessCardsFromUriAsync` metodo .
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
+
+> [!TIP]
+> È anche possibile analizzare le immagini delle ricevute locali. Vedere i metodi di [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeBusinessCards**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+
+Il codice seguente elabora il biglietto da visita in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Questa funzionalità non è disponibile nella versione dell'API selezionata.
+
+---
+
 ## <a name="analyze-invoices"></a>Analizzare fatture
 
 #### <a name="v21-preview"></a>[v2.1.preview](#tab/preview)
 
-Questa sezione illustra come analizzare ed estrarre campi comuni dalle fatture di vendita, usando un modello con training preliminare. Per ulteriori informazioni sull'analisi delle fatture, vedere la [Guida concettuale](../../concept-invoices.md)relativa alla fatturazione.
+Questa sezione illustra come analizzare ed estrarre campi comuni dalle fatture di vendita usando un modello con training preliminare. Per altre informazioni sull'analisi della fattura, vedere la [Guida concettuale della fattura.](../../concept-invoices.md)
 
-Per analizzare le fatture da un URL, usare il `StartRecognizeInvoicesFromUriAsync` metodo. 
+Per analizzare le fatture da un URL, usare il `StartRecognizeInvoicesFromUriAsync` metodo .
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
 
 > [!TIP]
 > È anche possibile analizzare le immagini della fattura locale. Vedere i metodi di [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeInvoices**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
 
-Il valore restituito è una raccolta di oggetti `RecognizedForm`, uno per ogni fattura presente nel documento inviato. Il codice seguente elabora la fattura in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
+Il codice seguente elabora la fattura in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
+
+#### <a name="v20"></a>[v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Questa funzionalità non è disponibile nella versione dell'API selezionata.
+
+---
+
+## <a name="analyze-identity-documents"></a>Analizzare i documenti di identità
+
+#### <a name="v21-preview"></a>[v2.1.preview](#tab/preview)
+
+Questa sezione illustra come analizzare ed estrarre le informazioni chiave dai documenti di identificazione rilasciati dal governo, ovvero passaporti a livello mondiale e licenze del driver statunitense, usando il modello di ID predefinito riconoscimento modulo. Per altre informazioni sull'analisi dei documenti di identità, vedere la guida [concettuale al modello di identificazione predefinito](../../concept-identification-cards.md).
+
+Per analizzare i documenti di identità da un URI, usare il `StartRecognizeIdDocumentsFromUriAsync` metodo .
+
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_call":::
+
+> [!TIP]
+> È anche possibile analizzare le immagini del documento di identità locale. Vedere i [metodi FormRecognizerClient,](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) ad esempio **StartRecognizeIdDocumentsAsync.** Vedere anche il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) per scenari che coinvolgono immagini locali.
+
+Il codice seguente elabora il documento di identità in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
+
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_print":::
 
 #### <a name="v20"></a>[v2.0](#tab/ga)
 
@@ -280,14 +386,11 @@ Questa sezione illustra come eseguire il training di un modello con i dati perso
 
 ### <a name="train-a-model-without-labels"></a>Eseguire il training di un modello senza etichette
 
-Eseguire il training di modelli personalizzati per analizzare tutti i campi e i valori trovati nei moduli personalizzati senza etichettare manualmente i documenti di training. Il metodo seguente esegue il training di un modello su un set di documenti specificato e ne stampa lo stato nella console. 
-
+Eseguire il training di modelli personalizzati per analizzare tutti i campi e i valori presenti nei moduli personalizzati senza etichettare manualmente i documenti di training. Il metodo seguente esegue il training di un modello su un set di documenti specificato e ne stampa lo stato nella console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train)]
 
-
-L' `CustomFormModel` oggetto restituito contiene informazioni sui tipi di form che il modello è in grado di analizzare e sui campi che è possibile estrarre da ogni tipo di form. Il blocco di codice seguente stampa queste informazioni all'interno della console.
-
+L'oggetto restituito contiene informazioni sui tipi di modulo che il modello può analizzare e sui campi che `CustomFormModel` può estrarre da ogni tipo di modulo. Il blocco di codice seguente stampa queste informazioni all'interno della console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train_response)]
 
@@ -321,7 +424,7 @@ Table 0 has 2 rows and 6 columns.
     Cell (0, 1) contains text: 'Invoice Date'.
     Cell (0, 2) contains text: 'Invoice Due Date'.
     Cell (0, 3) contains text: 'Charges'.
-    ... 
+    ...
 Custom Model Info:
     Model Id: 95035721-f19d-40eb-8820-0c806b42798b
     Model Status: Ready
@@ -331,7 +434,7 @@ Submodel Form Type: form-95035721-f19d-40eb-8820-0c806b42798b
     FieldName: CompanyAddress
     FieldName: CompanyName
     FieldName: CompanyPhoneNumber
-    ... 
+    ...
 Custom Model Info:
     Model Id: e7a1181b-1fb7-40be-bfbe-1ee154183633
     Model Status: Ready
@@ -353,7 +456,7 @@ Submodel Form Type: form-0
 
 ### <a name="train-a-model-with-labels"></a>Eseguire il training di un modello con etichette
 
-È inoltre possibile eseguire il training di modelli personalizzati etichettando manualmente i documenti di training. Il training con etichette consente prestazioni migliori in alcuni scenari. Per eseguire il training con etichette, è necessario avere file speciali di informazioni sulle etichette (`\<filename\>.pdf.labels.json`) nel contenitore di archiviazione BLOB insieme ai documenti di training. Lo [Strumento di etichettatura campioni Riconoscimento modulo](../../quickstarts/label-tool.md) fornisce un'interfaccia utente che consente di creare questi file di etichette. Quando sono disponibili è possibile chiamare il metodo `StartTrainingAsync` con il parametro `uselabels` impostato su `true`. 
+È inoltre possibile eseguire il training di modelli personalizzati etichettando manualmente i documenti di training. Il training con etichette consente prestazioni migliori in alcuni scenari. Per eseguire il training con etichette, è necessario avere file speciali di informazioni sulle etichette (`\<filename\>.pdf.labels.json`) nel contenitore di archiviazione BLOB insieme ai documenti di training. Lo [Strumento di etichettatura campioni Riconoscimento modulo](../../quickstarts/label-tool.md) fornisce un'interfaccia utente che consente di creare questi file di etichette. Quando sono disponibili è possibile chiamare il metodo `StartTrainingAsync` con il parametro `uselabels` impostato su `true`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels)]
 
@@ -378,7 +481,7 @@ Table 0 has 2 rows and 6 columns.
     Cell (0, 0) contains text: 'Invoice Number'.
     Cell (0, 1) contains text: 'Invoice Date'.
     Cell (0, 2) contains text: 'Invoice Due Date'.
-    ... 
+    ...
 Merchant Name: 'Contoso Contoso', with confidence 0.516
 Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
 Item:
@@ -400,7 +503,7 @@ Submodel Form Type: form-63c013e3-1cab-43eb-84b0-f4b20cb9214c
     FieldName: DatedAs
     FieldName: Email
     FieldName: Merchant
-    ... 
+    ...
 ```
 
 ## <a name="analyze-forms-with-a-custom-model"></a>Analizzare i moduli con un modello personalizzato
@@ -410,7 +513,7 @@ Questa sezione illustra come estrarre informazioni chiave-valore e altro contenu
 > [!IMPORTANT]
 > Per implementare questo scenario è necessario avere già eseguito il training di un modello in modo da poter passare il relativo ID al metodo seguente.
 
-Verrà usato il metodo `StartRecognizeCustomFormsFromUri`. 
+Verrà usato il metodo `StartRecognizeCustomFormsFromUri`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze)]
 
@@ -468,7 +571,7 @@ Submodel Form Type: form-0
     FieldName: field-2, FieldLabel: Company Name:
     FieldName: field-3, FieldLabel: Company Phone:
     FieldName: field-4, FieldLabel: Dated As:
-    ... 
+    ...
 Form of type: custom:form
 Field 'Azure.AI.FormRecognizer.Models.FieldValue:
     Value: '$56,651.49
@@ -482,95 +585,11 @@ Field 'Azure.AI.FormRecognizer.Models.FieldValue:
    ...
 ```
 
-## <a name="analyze-receipts"></a>Analizzare ricevute
-
-Questa sezione illustra come analizzare ed estrarre i campi comuni dalle ricevute degli Stati Uniti, usando un modello di ricezione con training preliminare. Per ulteriori informazioni sull'analisi della ricezione, vedere la [Guida concettuale relativa alle ricevute](../../concept-receipts.md).
-
-Per analizzare le ricevute da un URL, usare il `StartRecognizeReceiptsFromUri` metodo. 
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
-
-> [!TIP]
-> È anche possibile analizzare le immagini di ricezione locali. Vedere i metodi [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeReceipts**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
-
-Il valore restituito è una raccolta di oggetti `RecognizedReceipt`, uno per ogni pagina del documento inviato. Il codice seguente elabora una ricevuta in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_print)]
-
-### <a name="output"></a>Output 
-
-```console
-Form Page 1 has 18 lines.
-    Line 0 has 1 word, and text: 'Contoso'.
-    Line 1 has 1 word, and text: 'Address:'.
-    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
-    Line 3 has 4 words, and text: '1 Redmond way Suite'.
-    Line 4 has 3 words, and text: '1020 Enterprise Way'.
-    Line 5 has 3 words, and text: '6000 Redmond, WA'.
-    Line 6 has 3 words, and text: 'Sunnayvale, CA 87659'.
-    Line 7 has 1 word, and text: '99243'.
-    Line 8 has 2 words, and text: 'Invoice Number'.
-    Line 9 has 2 words, and text: 'Invoice Date'.
-    Line 10 has 3 words, and text: 'Invoice Due Date'.
-    Line 11 has 1 word, and text: 'Charges'.
-    Line 12 has 2 words, and text: 'VAT ID'.
-    Line 13 has 1 word, and text: '34278587'.
-    Line 14 has 1 word, and text: '6/18/2017'.
-    Line 15 has 1 word, and text: '6/24/2017'.
-    Line 16 has 1 word, and text: '$56,651.49'.
-    Line 17 has 1 word, and text: 'PT'.
-Table 0 has 2 rows and 6 columns.
-    Cell (0, 0) contains text: 'Invoice Number'.
-    Cell (0, 1) contains text: 'Invoice Date'.
-    Cell (0, 2) contains text: 'Invoice Due Date'.
-    Cell (0, 3) contains text: 'Charges'.
-    Cell (0, 5) contains text: 'VAT ID'.
-    Cell (1, 0) contains text: '34278587'.
-    Cell (1, 1) contains text: '6/18/2017'.
-    Cell (1, 2) contains text: '6/24/2017'.
-    Cell (1, 3) contains text: '$56,651.49'.
-    Cell (1, 5) contains text: 'PT'.
-Merchant Name: 'Contoso Contoso', with confidence 0.516
-Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
-Item:
-    Name: '8GB RAM (Black)', with confidence 0.916
-    Total Price: '999', with confidence 0.559
-Item:
-    Name: 'SurfacePen', with confidence 0.858
-    Total Price: '99.99', with confidence 0.386
-Total: '1203.39', with confidence '0.774'
-```
-
-## <a name="analyze-business-cards"></a>Analizzare biglietti da visita
-
-#### <a name="v20"></a>[v2.0](#tab/ga)
-
-> [!IMPORTANT]
-> Questa funzionalità non è disponibile nella versione dell'API selezionata.
-
-#### <a name="v21-preview"></a>[v2.1.preview](#tab/preview)
-
-In questa sezione viene illustrato come analizzare ed estrarre campi comuni da schede business inglesi, usando un modello con training preliminare. Per ulteriori informazioni sull'analisi dei biglietti da visita, vedere la [Guida concettuale](../../concept-business-cards.md)relativa ai biglietti da visita.
-
-Per analizzare le schede business da un URL, utilizzare il `StartRecognizeBusinessCardsFromUriAsync` metodo. 
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
-
-> [!TIP]
-> È anche possibile analizzare le immagini di ricezione locali. Vedere i metodi di [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeBusinessCards**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
-
-Il valore restituito è una raccolta di oggetti `RecognizedForm`, uno per ogni biglietto presente nel documento. Il codice seguente elabora il biglietto da visita in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
-
----
-
 ## <a name="manage-custom-models"></a>Gestire i modelli personalizzati
 
 Questa sezione illustra come gestire modelli personalizzati archiviati nell'account. Verranno eseguite più operazioni all'interno del metodo seguente:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage)]
-
 
 ### <a name="check-the-number-of-models-in-the-formrecognizer-resource-account"></a>Verificare il numero dei modelli all'interno dell'account della risorsa FormRecognizer
 
@@ -578,7 +597,7 @@ Il blocco di codice seguente consente di controllare il numero di modelli salvat
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_count)]
 
-### <a name="output"></a>Output 
+### <a name="output"></a>Output
 
 ```console
 Account has 20 models.
@@ -591,8 +610,7 @@ Il blocco di codice seguente elenca i modelli attuali presenti nell'account e st
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_list)]
 
-
-### <a name="output"></a>Output 
+### <a name="output"></a>Output
 
 Questa risposta è stata troncata per migliorare la leggibilità.
 
@@ -620,7 +638,7 @@ Il blocco di codice seguente esegue il training di un nuovo modello, come descri
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_get)]
 
-### <a name="output"></a>Output 
+### <a name="output"></a>Output
 
 Questa risposta è stata troncata per migliorare la leggibilità.
 
@@ -655,7 +673,6 @@ Submodel Form Type: form-150828c4-2eb2-487e-a728-60d5d504bd16
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_delete)]
 
-
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
 Eseguire l'applicazione dalla directory dell'applicazione con il comando `dotnet run`.
@@ -663,7 +680,6 @@ Eseguire l'applicazione dalla directory dell'applicazione con il comando `dotnet
 ```dotnet
 dotnet run
 ```
-
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -691,25 +707,14 @@ catch (RequestFailedException e)
 
 Si noterà che vengono registrate informazioni aggiuntive, ad esempio l'ID richiesta client dell'operazione.
 
-```
-Message:
-    Azure.RequestFailedException: Service request failed.
-    Status: 400 (Bad Request)
+``
 
-Content:
-    {"error":{"code":"FailedToDownloadImage","innerError":
-    {"requestId":"8ca04feb-86db-4552-857c-fde903251518"},
-    "message":"Failed to download image from input URL."}}
+Messaggio: Azure.RequestFailedException: Richiesta di servizio non riuscita.
+Stato: 400 (richiesta non valida)
 
-Headers:
-    Transfer-Encoding: chunked
-    x-envoy-upstream-service-time: REDACTED
-    apim-request-id: REDACTED
-    Strict-Transport-Security: REDACTED
-    X-Content-Type-Options: REDACTED
-    Date: Mon, 20 Apr 2020 22:48:35 GMT
-    Content-Type: application/json; charset=utf-8
-```
+Contenuto: {"error":{"code":"FailedToDownloadImage","innerError": {"requestId":"8ca04feb-86db-4552-857c-fde903251518"}, "message":"Failed to download image from input URL."}}
+
+Intestazioni: Transfer-Encoding: chunked x-envoy-upstream-service-time: REDACTED apim-request-id: REDACTED Strict-Transport-Security: REDACTED X-Content-Type-Options: REDACTED Date: Mon, 20 Apr 2020 22:48:35 GMT Content-Type: application/json; charset=utf-8 ''
 
 ## <a name="next-steps"></a>Passaggi successivi
 

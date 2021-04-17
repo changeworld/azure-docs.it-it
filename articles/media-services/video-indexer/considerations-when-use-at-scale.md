@@ -1,7 +1,7 @@
 ---
-title: Aspetti da considerare quando si usa Video Indexer su larga scala-Azure
+title: Aspetti da considerare quando si usa Video Indexer su larga scala - Azure
 titleSuffix: Azure Media Services
-description: In questo argomento vengono illustrati gli aspetti da considerare quando si usa Video Indexer su larga scala.
+description: Questo argomento illustra gli aspetti da considerare quando si usa Video Indexer su larga scala.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,98 +10,98 @@ ms.subservice: video-indexer
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: juliako
-ms.openlocfilehash: b955c0f494b757fd29c400194ef8b11314a89a03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f941d81df670f017d24a7c5011c55fcc4f082605
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96483611"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531566"
 ---
 # <a name="things-to-consider-when-using-video-indexer-at-scale"></a>Aspetti da considerare quando si usa Video Indexer su larga scala
 
-Quando si usa l'indicizzatore video di servizi multimediali di Azure per indicizzare i video e l'archivio dei video cresce, provare a ridimensionare. 
+Quando si usa Servizi multimediali di Azure'indicizzatore video per indicizzare i video e l'archivio dei video è in crescita, prendere in considerazione la scalabilità. 
 
 Questo articolo risponde a domande come:
 
-* Sono presenti vincoli tecnologici che è necessario tenere in considerazione?
-* Esiste un modo intelligente ed efficiente per eseguire questa operazione?
-* È possibile evitare di spendere denaro in eccesso nel processo?
+* Sono presenti vincoli tecnologici da prendere in considerazione?
+* Esiste un modo intelligente ed efficiente per farlo?
+* È possibile evitare la spesa in eccesso nel processo?
 
-Questo articolo fornisce sei procedure consigliate per l'uso di Video Indexer su larga scala.
+L'articolo illustra sei procedure consigliate per l'uso Video Indexer su larga scala.
 
 ## <a name="when-uploading-videos-consider-using-a-url-over-byte-array"></a>Quando si caricano video, è consigliabile usare un URL su una matrice di byte
 
-Video Indexer offre la possibilità di caricare i video dall'URL o direttamente inviando il file come matrice di byte, il secondo presenta alcuni vincoli. Per altre informazioni, vedere [caricamento di considerazioni e limitazioni](upload-index-videos.md#uploading-considerations-and-limitations) .
+Video Indexer consente di caricare video dall'URL o direttamente inviando il file come matrice di byte, quest'ultimo presenta alcuni vincoli. Per altre informazioni, vedere [Considerazioni e limitazioni sul caricamento)](upload-index-videos.md#uploading-considerations-and-limitations)
 
-In primo luogo, presenta limitazioni alle dimensioni del file. Le dimensioni del file della matrice di byte sono limitate a 2 GB rispetto alla limitazione delle dimensioni di caricamento di 30 GB durante l'utilizzo dell'URL.
+In primo luogo, presenta limitazioni relative alle dimensioni dei file. Le dimensioni del file di matrice di byte sono limitate a 2 GB rispetto alla limitazione delle dimensioni di caricamento di 30 GB durante l'uso dell'URL.
 
-In secondo luogo, prendere in considerazione solo alcuni dei problemi che possono influire sulle prestazioni e quindi la possibilità di ridimensionare:
+In secondo piano, prendere in considerazione solo alcuni dei problemi che possono influire sulle prestazioni e quindi la possibilità di ridimensionare:
 
-* L'invio di file con più parti significa una dipendenza elevata dalla rete, 
-* affidabilità del servizio 
-* connettività 
+* L'invio di file con più parti implica un'elevata dipendenza dalla rete, 
+* affidabilità del servizio, 
+* Connettività 
 * velocità di caricamento, 
-* perdita di pacchetti in un punto qualsiasi del World Wide Web.
+* pacchetti persi da qualche parte nel World Wide Web.
 
-:::image type="content" source="./media/considerations-when-use-at-scale/first-consideration.png" alt-text="Prima considerazione per l'uso di Video Indexer su larga scala":::
+:::image type="content" source="./media/considerations-when-use-at-scale/first-consideration.png" alt-text="Prima considerazione per l'uso Video Indexer su larga scala":::
 
-Quando si caricano video usando l'URL, è sufficiente specificare un percorso per il percorso di un file multimediale e Video Indexer si occupi del resto (vedere il `videoUrl` campo nell'API di [caricamento video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload) ).
+Quando si caricano video usando l'URL, è sufficiente specificare un percorso per il percorso di un file multimediale e Video Indexer si occupa del resto (vedere il campo `videoUrl` nell'API [carica video).](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video)
 
 > [!TIP]
-> Usare il `videoUrl` parametro facoltativo dell'API upload video.
+> Usare il `videoUrl` parametro facoltativo dell'API carica video.
 
-Per un esempio di come caricare video usando l'URL, vedere [questo esempio](upload-index-videos.md#code-sample). In alternativa, è possibile usare [AzCopy](../../storage/common/storage-use-azcopy-v10.md) per un modo rapido e affidabile per ottenere i contenuti in un account di archiviazione da cui è possibile inviarli a video Indexer usando l' [URL SAS](../../storage/common/storage-sas-overview.md).
+Per un esempio di come caricare video usando l'URL, vedere [questo esempio.](upload-index-videos.md#code-sample) In caso contrario, è possibile usare [AzCopy](../../storage/common/storage-use-azcopy-v10.md) per ottenere il contenuto in modo rapido e affidabile in un account di archiviazione da cui è possibile inviarlo a Video Indexer usando l'URL di firma di [accesso condiviso.](../../storage/common/storage-sas-overview.md)
 
-## <a name="increase-media-reserved-units-if-needed"></a>Aumenta le media reserved Unit, se necessario
+## <a name="increase-media-reserved-units-if-needed"></a>Aumentare le unità riservate dei supporti, se necessario
 
-In genere, nella fase del modello di verifica quando si inizia a usare Video Indexer, non è necessaria una grande potenza di calcolo. Quando si inizia a disporre di un archivio di video più ampio che è necessario indicizzare e si vuole che il processo sia in grado di adattare il caso d'uso, è necessario aumentare il livello di utilizzo del Video Indexer. Pertanto, è necessario considerare l'aumento del numero di risorse di calcolo utilizzate se la quantità corrente di potenza di elaborazione non è sufficiente.
+In genere nella fase del modello di verifica quando si inizia a usare Video Indexer, non è necessaria una grande quantità di potenza di calcolo. Quando si inizia a disporre di un archivio più ampio di video da indicizzare e si vuole che il processo si adatti al caso d'uso, è necessario aumentare l'utilizzo di Video Indexer. È quindi consigliabile aumentare il numero di risorse di calcolo usate se la quantità corrente di potenza di calcolo non è sufficiente.
 
-In servizi multimediali di Azure, quando si vuole aumentare la potenza di calcolo e la parallelizzazione, è necessario prestare attenzione a media [reserved Unit](../latest/concept-media-reserved-units.md)(UR). Le UR sono le unità di calcolo che determinano i parametri per le attività di elaborazione di contenuti multimediali. Il numero di ur influiscono sul numero di attività multimediali che possono essere elaborate contemporaneamente in ogni account e il tipo determina la velocità di elaborazione e un video potrebbe richiedere più di un'unità richiesta se la relativa indicizzazione è complessa. Quando le UR sono occupate, le nuove attività verranno mantenute in una coda finché non sarà disponibile un'altra risorsa.
+In Servizi multimediali di Azure, quando si vuole aumentare la potenza di calcolo e la parallelizzazione, è necessario prestare attenzione alle unità riservate [dei](../latest/concept-media-reserved-units.md)supporti. Le unità di calcolo sono le unità di calcolo che determinano i parametri per le attività di elaborazione dei supporti. Il numero di unità richiesta influisce sul numero di attività multimediali che possono essere elaborate contemporaneamente in ogni account e il relativo tipo determina la velocità di elaborazione e un video potrebbe richiedere più di un'unità richiesta se l'indicizzazione è complessa. Quando le unità richiesta sono occupate, le nuove attività verranno mantenute in una coda fino a quando non sarà disponibile un'altra risorsa.
 
-Per operare in modo efficiente e per evitare che le risorse siano inattive in parte del tempo, Video Indexer offre un sistema di scalabilità automatica che ruota le UR quando è necessaria una minore elaborazione e spine le UR quando si è nelle ore di punta (fino a usare completamente tutte le UR). È possibile abilitare questa funzionalità attivando [la scalabilità](manage-account-connected-to-azure.md#autoscale-reserved-units) automatica nelle impostazioni dell'account o usando l' [API Update-paid-account-Azure-Media-Services](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&pattern=update).
+Per operare in modo efficiente ed evitare che le risorse rimangano inattive parte del tempo, Video Indexer offre un sistema di scalabilità automatica che ruota le unità richiesta quando è necessaria una minore elaborazione e fa aumentare le unità richiesta durante le ore di punta (fino a usare completamente tutte le unità richiesta). È possibile abilitare questa funzionalità [attivando](manage-account-connected-to-azure.md#autoscale-reserved-units) la scalabilità automatica nelle impostazioni dell'account o usando [l'API Update-Paid-Account-Azure-Media-Services](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Paid-Account-Azure-Media-Services).
 
-:::image type="content" source="./media/considerations-when-use-at-scale/second-consideration.jpg" alt-text="Seconda considerazione per l'uso di Video Indexer su larga scala":::
+:::image type="content" source="./media/considerations-when-use-at-scale/second-consideration.jpg" alt-text="Seconda considerazione per l'uso Video Indexer su larga scala":::
 
 :::image type="content" source="./media/considerations-when-use-at-scale/reserved-units.jpg" alt-text="Unità riservate AMS":::
 
-Per ridurre al minimo la durata dell'indicizzazione e la velocità effettiva bassa, è consigliabile iniziare con 10 UR di tipo S3. In seguito, se si aumentano le prestazioni per supportare più contenuti o una concorrenza più elevata ed è necessario disporre di più risorse, è possibile [contattarci usando il sistema di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (solo per gli account a pagamento) per richiedere una maggiore allocazione di ur.
+Per ridurre al minimo la durata dell'indicizzazione e la velocità effettiva bassa, è consigliabile iniziare con 10 UNITÀ RICHIESTA di tipo S3. In un secondo momento, se si scala l'utente per supportare più contenuto o una concorrenza superiore e sono necessarie più risorse per eseguire questa operazione, è possibile contattare Microsoft usando il sistema di supporto [(solo](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) per gli account a pagamento) per richiedere altre allocazioni di unità richiesta.
 
 ## <a name="respect-throttling"></a>Rispettare la limitazione
 
-Video Indexer è progettato per gestire l'indicizzazione su larga scala e quando si desidera sfruttare al meglio le funzionalità del sistema e progettare di conseguenza l'integrazione. Non si vuole inviare una richiesta di caricamento per un batch di video solo per scoprire che alcuni dei film non sono stati caricati e si riceve un codice di risposta HTTP 429 (troppe richieste). Questo può accadere a causa del fatto che sono state inviate più richieste rispetto al [limite dei film al minuto supportati](upload-index-videos.md#uploading-considerations-and-limitations). Video Indexer aggiunge un' `retry-after` intestazione nella risposta http, l'intestazione specifica quando provare a eseguire il tentativo successivo. Assicurarsi di rispettarlo prima di provare la richiesta successiva.
+Video Indexer è progettato per gestire l'indicizzazione su larga scala e, quando si vuole ottenere il massimo, è necessario anche essere consapevoli delle funzionalità del sistema e progettare l'integrazione di conseguenza. Non si vuole inviare una richiesta di caricamento per un batch di video solo per scoprire che alcuni film non sono stati caricati e si riceve un codice di risposta HTTP 429 (troppe richieste). Può verificarsi a causa del fatto che sono stati inviati più richieste rispetto al [limite di film al minuto supportati.](upload-index-videos.md#uploading-considerations-and-limitations) Video Indexer aggiunge un'intestazione nella risposta HTTP, l'intestazione specifica quando tentare `retry-after` il successivo tentativo. Assicurarsi di rispettarlo prima di provare la richiesta successiva.
 
-:::image type="content" source="./media/considerations-when-use-at-scale/respect-throttling.jpg" alt-text="Progettare correttamente l'integrazione, rispettare la limitazione delle richieste":::
+:::image type="content" source="./media/considerations-when-use-at-scale/respect-throttling.jpg" alt-text="Progettare bene l'integrazione, rispettare la limitazione":::
 
-## <a name="use-callback-url"></a>Usa URL callback
+## <a name="use-callback-url"></a>Usare l'URL di callback
 
-Invece di eseguire il polling dello stato della richiesta in modo costante dal secondo invio della richiesta di caricamento, è possibile aggiungere un [URL di callback](upload-index-videos.md#callbackurl)e attendere che video Indexer aggiorni l'utente. Non appena viene apportata una modifica di stato nella richiesta di caricamento, si riceverà una notifica POST per l'URL specificato.
+È consigliabile aggiungere un URL di [callback](upload-index-videos.md#callbackurl)anziché eseguire costantemente il polling dello stato della richiesta dal momento in cui è stata inviata la richiesta di caricamento e attendere Video Indexer'aggiornamento. Non appena viene apportata una modifica dello stato nella richiesta di caricamento, si ottiene una notifica POST all'URL specificato.
 
-È possibile aggiungere un URL di callback come uno dei parametri dell' [API carica video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload). Vedere gli esempi di codice nel [repository GitHub](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/). 
+È possibile aggiungere un URL di callback come uno dei parametri [dell'API di caricamento video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). Vedere gli esempi di codice nel [repository GitHub.](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/) 
 
-Per l'URL callback è anche possibile usare funzioni di Azure, una piattaforma guidata dagli eventi senza server che può essere attivata da HTTP e implementare un flusso seguente.
+Per l'URL di callback è anche possibile usare Funzioni di Azure, una piattaforma serverless basata su eventi che può essere attivata da HTTP e implementare un flusso seguente.
 
-### <a name="callback-url-definition"></a>definizione URL callBack
+### <a name="callback-url-definition"></a>definizione dell'URL callBack
 
 [!INCLUDE [callback url](./includes/callback-url.md)]
 
 ## <a name="use-the-right-indexing-parameters-for-you"></a>Usare i parametri di indicizzazione corretti
 
-Quando si prendono decisioni relative all'uso di Video Indexer su larga scala, è possibile vedere come sfruttare al meglio i parametri appropriati per le proprie esigenze. Per quanto riguarda il caso d'uso, definendo parametri diversi, è possibile risparmiare denaro e rendere più veloce il processo di indicizzazione per i video.
+Quando si prendono decisioni relative all'Video Indexer su larga scala, vedere come ottenere il massimo con i parametri corretti per le proprie esigenze. Si pensi al caso d'uso, definendo parametri diversi è possibile risparmiare denaro e velocizzare il processo di indicizzazione per i video.
 
-Prima di caricare e indicizzare il video, leggere questa breve [documentazione](upload-index-videos.md), controllare [indexingPreset](upload-index-videos.md#indexingpreset) e [streamingPreset](upload-index-videos.md#streamingpreset) per ottenere un'idea più approfondita delle opzioni disponibili.
+Prima di caricare e indicizzare il video, leggere questa breve [documentazione,](upload-index-videos.md)vedere [indexingPreset](upload-index-videos.md#indexingpreset) e [streamingPreset](upload-index-videos.md#streamingpreset) per avere un'idea più chiara delle opzioni disponibili.
 
-Ad esempio, non impostare il set di impostazioni su streaming se non si prevede di guardare il video, non indicizzare le informazioni dettagliate video se è necessario solo l'audio Insights.
+Ad esempio, non impostare il set di impostazioni per lo streaming se non si prevede di guardare il video, non indicizzare le informazioni dettagliate sui video se sono necessarie solo informazioni dettagliate sull'audio.
 
-## <a name="index-in-optimal-resolution-not-highest-resolution"></a>Indice con risoluzione ottimale, senza risoluzione più elevata
+## <a name="index-in-optimal-resolution-not-highest-resolution"></a>Indice con risoluzione ottimale, non con risoluzione massima
 
-È possibile che si stia chiedendo quale qualità video è necessario per l'indicizzazione dei video? 
+Potrebbe essere necessario sapere quale qualità video è necessaria per l'indicizzazione dei video? 
 
-In molti casi, le prestazioni di indicizzazione non hanno quasi alcuna differenza tra video HD (720P) e video 4K. Alla fine, otterrete quasi tutte le stesse informazioni con la stessa confidenza. Maggiore è la qualità del film caricato, le dimensioni del file sono superiori e questo comporta una maggiore potenza di elaborazione e il tempo necessario per caricare il video.
+In molti casi, le prestazioni di indicizzazione non hanno quasi alcuna differenza tra i video HD (720P) e i video 4K. Alla fine, si otterrà quasi le stesse informazioni dettagliate con la stessa attendibilità. Maggiore è la qualità del film caricato, maggiore sarà la dimensione del file, con una maggiore potenza di calcolo e il tempo necessario per caricare il video.
 
-Per la funzionalità di rilevamento viso, ad esempio, una risoluzione più elevata può essere utile per lo scenario in cui sono presenti molti visi di dimensioni ridotte ma contestuali. Questa operazione, tuttavia, verrà rilevata con un aumento quadratico del runtime e un rischio maggiore di falsi positivi.
+Ad esempio, per la funzionalità di rilevamento viso, una risoluzione più elevata può essere utile nello scenario in cui sono presenti molti visi piccoli ma contestualmente importanti. Tuttavia, ciò si verifica con un aumento quadratico del runtime e un maggiore rischio di falsi positivi.
 
-Si consiglia pertanto di verificare di ottenere i risultati corretti per il caso d'uso e di testarli in locale. Caricare lo stesso video in 720P e in 4K e confrontare le informazioni riportate.
+È quindi consigliabile verificare di ottenere i risultati corretti per il caso d'uso e di testarlo prima in locale. Caricare lo stesso video in 720P e in 4K e confrontare le informazioni dettagliate che si ottengono.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esaminare l'output del Video Indexer di Azure prodotto dall'API](video-indexer-output-json-v2.md)
+[Esaminare l'output Video Indexer azure generato dall'API](video-indexer-output-json-v2.md)

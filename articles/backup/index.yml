@@ -9,12 +9,12 @@ metadata:
   author: v-amallick
   ms.author: v-amallick
   ms.date: 12/01/2019
-  ms.openlocfilehash: 0ad0f1aec1ce4e0718952d82d08672df42924f51
-  ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+  ms.openlocfilehash: bb23dc8b692bfbbad6d44fb0dc78929da4485b63
+  ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/04/2021
-  ms.locfileid: "106293618"
+  ms.lasthandoff: 04/15/2021
+  ms.locfileid: "107518988"
 landingContent:
 - title: Informazioni su Backup di Azure
   linkLists:
@@ -54,7 +54,7 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
-    - text: Backup BLOB di Azure
+    - text: Backup di BLOB di Azure
       url: blob-backup-overview.md
     - text: Backup di dischi di Azure
       url: disk-backup-overview.md
@@ -88,15 +88,15 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Panoramica di backup su disco di Azure
+    - text: Panoramica di Backup su disco di Azure
       url: disk-backup-overview.md
-    - text: Matrice di supporto per il backup su disco di Azure
+    - text: Matrice di supporto per Backup su disco di Azure
       url: disk-backup-support-matrix.md
     - text: Eseguire il backup di Azure Managed Disks
       url: backup-managed-disks.md
-    - text: Domande frequenti-Azure Managed Disks
-      url: disk-backup-faq.md
-    - text: Risolvere i problemi di backup di Azure Managed Disks
+    - text: Domande frequenti - Azure Managed Disks
+      url: disk-backup-faq.yml
+    - text: Risolvere i problemi relativi al backup Managed Disks Azure
       url: disk-backup-troubleshoot.md
 - title: Eseguire il backup di SQL Server in VM di Azure
   linkLists:
@@ -105,7 +105,7 @@ landingContent:
     - text: Informazioni sul backup di SQL Server in VM di Azure
       url: backup-azure-sql-database.md
     - text: Domande frequenti - Backup di SQL Server in VM di Azure
-      url: faq-backup-sql-server.md
+      url: faq-backup-sql-server.yml
     - text: Eseguire il backup di database SQL Server in macchine virtuali di Azure
       url: backup-sql-server-database-azure-vms.md
     - text: Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
@@ -119,7 +119,7 @@ landingContent:
     - text: Gestire e monitorare i database SAP HANA di cui è stato eseguito il backup
       url: sap-hana-db-manage.md
     - text: Domande frequenti - Backup di database SAP HANA in VM di Azure
-      url: sap-hana-faq-backup-azure-vm.md
+      url: sap-hana-faq-backup-azure-vm.yml
     - text: Matrice di supporto per il backup di database di SAP HANA in VM di Azure
       url: sap-hana-backup-support-matrix.md
 - title: Eseguire il backup di condivisione file di Azure
@@ -129,7 +129,7 @@ landingContent:
     - text: Eseguire il backup e il ripristino di condivisioni file di Azure
       url: backup-afs.md
     - text: Domande frequenti - Backup di file di Azure
-      url: backup-azure-files-faq.md
+      url: backup-azure-files-faq.yml
 - title: Eseguire il backup con l'agente di Servizi di ripristino di Microsoft Azure
   linkLists:
   - linkListType: concept
@@ -141,7 +141,7 @@ landingContent:
     - text: Matrice di supporto per l'agente MARS
       url: backup-support-matrix-mars-agent.md
     - text: Domande frequenti - Agente MARS
-      url: backup-azure-file-folder-backup-faq.md
+      url: backup-azure-file-folder-backup-faq.yml
 - title: Eseguire il backup con il Server di Backup di Microsoft Azure e DPM
   linkLists:
   - linkListType: concept
@@ -151,7 +151,7 @@ landingContent:
     - text: Matrice di supporto del Server di Backup di Microsoft Azure/DPM
       url: backup-support-matrix-mabs-dpm.md
     - text: Domande frequenti - Server di Backup di Microsoft Azure e DPM
-      url: backup-azure-dpm-azure-server-faq.md
+      url: backup-azure-dpm-azure-server-faq.yml
     - text: Installare e aggiornare il Server di Backup di Microsoft Azure
       url: backup-azure-microsoft-azure-backup.md
 - title: Gestire su larga scala

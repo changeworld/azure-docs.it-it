@@ -1,118 +1,116 @@
 ---
-title: Registrare e analizzare un tenant di Power BI (anteprima)
-description: Informazioni su come usare il portale di Azure per la registrazione e l'analisi di un tenant di Power BI.
+title: Registrare ed analizzare un tenant Power BI (anteprima)
+description: Informazioni su come usare il portale di Azure Purview per registrare e analizzare un tenant Power BI servizio.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6646f131488a5ae4aa9b20fe614d7ebb46133444
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695746"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107538872"
 ---
-# <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare e analizzare un tenant di Power BI (anteprima)
+# <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare ed analizzare un tenant Power BI (anteprima)
 
-Questo articolo illustra come usare il portale di Azure per la registrazione e l'analisi di un tenant di Power BI.
+Questo articolo illustra come usare il portale di Azure Purview per registrare e analizzare un tenant Power BI servizio.
 
 > [!Note]
-> Se l'istanza di ambito e il tenant di Power BI si trovano nello stesso tenant di Azure, è possibile usare solo l'autenticazione identità gestita (MSI) per configurare un'analisi di un tenant di Power BI. 
+> Se l'istanza di Purview e il tenant Power BI sono nello stesso tenant di Azure, è possibile usare solo l'autenticazione con identità gestita per configurare un'analisi di un tenant Power BI. 
 
 ## <a name="create-a-security-group-for-permissions"></a>Creare un gruppo di sicurezza per le autorizzazioni
 
-Per configurare l'autenticazione, creare un gruppo di sicurezza e aggiungervi l'identità gestita di competenza.
+Per configurare l'autenticazione, creare un gruppo di sicurezza e aggiungerne l'identità gestita Purview.
 
-1. Nella [portale di Azure](https://portal.azure.com)cercare **Azure Active Directory**.
-1. Creare un nuovo gruppo di sicurezza nel Azure Active Directory, seguendo la procedura [creare un gruppo di base e aggiungere membri utilizzando Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+1. Nel [portale di Azure](https://portal.azure.com)cercare **Azure Active Directory**.
+1. Creare un nuovo gruppo di sicurezza nel Azure Active Directory, seguendo le procedure riportate in Creare un gruppo di base e [aggiungere membri usando Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     > [!Tip]
-    > È possibile ignorare questo passaggio se si dispone già di un gruppo di sicurezza che si desidera utilizzare.
+    > È possibile ignorare questo passaggio se si dispone già di un gruppo di sicurezza che si vuole usare.
 
-1. Selezionare **sicurezza** come **tipo di gruppo**.
+1. Selezionare **Sicurezza** come **Tipo di gruppo.**
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Tipo di gruppo di sicurezza":::
 
-1. Aggiungere l'identità gestita di competenza a questo gruppo di sicurezza. Selezionare **membri**, quindi selezionare **+ Aggiungi membri**.
+1. Aggiungere l'identità gestita Purview a questo gruppo di sicurezza. Selezionare **Membri** e quindi **+ Aggiungi membri.**
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Aggiungere l'istanza gestita del catalogo al gruppo.":::
 
-1. Cercare l'identità gestita di competenza e selezionarla.
+1. Cercare l'identità gestita purview e selezionarla.
 
-    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Aggiungi catalogo eseguendo una ricerca":::
+    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Aggiungere il catalogo cercandolo":::
 
-    Verrà visualizzata una notifica di esito positivo che mostra che è stata aggiunta.
+    Verrà visualizzata una notifica di operazione riuscita che indica che è stata aggiunta.
 
-    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/success-add-catalog-msi.png" alt-text="Aggiunta del file MSI del catalogo completata":::
+    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/success-add-catalog-msi.png" alt-text="Aggiunta del catalogo MSI riuscita":::
 
 ## <a name="associate-the-security-group-with-the-tenant"></a>Associare il gruppo di sicurezza al tenant
 
-1. Accedere al [portale di amministrazione Power bi](https://app.powerbi.com/admin-portal/tenantSettings).
-1. Selezionare la pagina **Impostazioni tenant** .
+1. Accedere al portale [Power BI di amministrazione.](https://app.powerbi.com/admin-portal/tenantSettings)
+1. Selezionare la **pagina Impostazioni tenant.**
 
     > [!Important]
-    > Per visualizzare la pagina delle impostazioni del tenant, è necessario essere un amministratore Power BI.
+    > È necessario essere un amministratore Power BI per visualizzare la pagina delle impostazioni del tenant.
 
-1. Selezionare **le impostazioni dell'API**  >  **di amministrazione Consenti alle entità servizio di usare Power BI di sola lettura API di amministrazione (anteprima)**.
-1. Selezionare **gruppi di sicurezza specifici**.
+1. Selezionare **Impostazioni API di amministrazione** Consenti alle entità servizio di usare le API di Power BI di amministrazione  >  **(anteprima).**
+1. Selezionare **Gruppi di sicurezza specifici**.
 
-    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Immagine che illustra come consentire alle entità servizio di ottenere le autorizzazioni di sola lettura Power BI API di amministrazione":::
+    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Immagine che illustra come consentire alle entità servizio di ottenere le autorizzazioni dell'API di Power BI di sola lettura":::
 
     > [!Caution]
-    > Quando si consente al gruppo di sicurezza creato (che ha l'identità gestita di competenza come membro) di usare le API di amministrazione di Power BI di sola lettura, si consente anche di accedere ai metadati (ad esempio, i nomi di dashboard e report, i proprietari, le descrizioni e così via) per tutti gli elementi di Power BI nel tenant. Una volta che i metadati sono stati inseriti nell'ambito di Azure, le autorizzazioni di competenza, non Power BI autorizzazioni, determinano chi può visualizzare tali metadati.
+    > Quando si consente al gruppo di sicurezza creato (che ha l'identità gestita purview come membro) di usare le API di amministrazione di Power BI di sola lettura, si consente anche al gruppo di sicurezza di accedere ai metadati (ad esempio nomi di dashboard e report, proprietari, descrizioni e così via) per tutti gli artefatti Power BI in questo tenant. Dopo aver estratto i metadati in Azure Purview, le autorizzazioni di Purview, Power BI autorizzazioni, determinano chi può visualizzare i metadati.
 
     > [!Note]
-    > È possibile rimuovere il gruppo di sicurezza dalle impostazioni dello sviluppatore, ma i metadati estratti in precedenza non verranno rimossi dall'account di competenza. Se lo si desidera, è possibile eliminarlo separatamente.
+    > È possibile rimuovere il gruppo di sicurezza dalle impostazioni dello sviluppatore, ma i metadati estratti in precedenza non verranno rimossi dall'account Purview. Se lo si desidera, è possibile eliminarlo separatamente.
 
 ## <a name="register-your-power-bi-and-set-up-a-scan"></a>Registrare il Power BI e configurare un'analisi
 
-Ora che sono state concesse le autorizzazioni di gestione delle identità gestite per la connessione all'API di amministrazione del tenant di Power BI, è possibile configurare l'analisi da Azure competenza Studio.
+Dopo aver assegnato le autorizzazioni di Purview Managed Identity per connettersi all'API di amministrazione del tenant di Power BI, è possibile configurare l'analisi da Azure Purview Studio.
 
-Aggiungere prima di tutto un flag di funzionalità speciale all'URL di competenza 
+1. Selezionare **l'icona Del Centro** gestione.
 
-1. Selezionare l'icona del **centro di gestione** .
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Icona del Centro gestione.":::
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Icona del centro di gestione.":::
-
-1. Quindi selezionare **+ nuovo** nelle **origini dati**.
+1. Selezionare quindi **+ Nuovo** in **Origini dati**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/data-sources.png" alt-text="Immagine del pulsante nuova origine dati":::
 
-    Selezionare **Power bi** come origine dati.
+    Selezionare **Power BI** come origine dati.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Immagine che mostra l'elenco di origini dati disponibili per la scelta":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Immagine che mostra l'elenco delle origini dati disponibili per la scelta":::
 
-3. Assegnare al Power BI istanza un nome descrittivo.
+3. Assegnare all'Power BI un nome descrittivo.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Immagine che mostra Power BI nome descrittivo dell'origine dati":::
 
-    Il nome deve avere una lunghezza compresa tra 3-63 caratteri e deve contenere solo lettere, numeri, caratteri di sottolineatura e trattini.  Gli spazi non sono consentiti.
+    Il nome deve avere una lunghezza compresa tra 3 e 63 caratteri e deve contenere solo lettere, numeri, caratteri di sottolineatura e trattini.  Gli spazi non sono consentiti.
 
-    Per impostazione predefinita, il sistema troverà il tenant Power BI esistente nella stessa sottoscrizione di Azure.
+    Per impostazione predefinita, il sistema troverà Power BI tenant esistente nella stessa sottoscrizione di Azure.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Power BI origine dati registrata":::
-
-    > [!Note]
-    > Per Power BI, la registrazione e l'analisi dell'origine dati sono consentite solo per un'istanza.
-
-
-4. Assegnare un nome all'analisi. Selezionare quindi l'opzione per includere o escludere le aree di lavoro personali. Si noti che l'unico metodo di autenticazione supportato è **Identity gestito**.
-
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Immagine che mostra la configurazione dell'analisi Power BI":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Power BI'origine dati registrata":::
 
     > [!Note]
-    > * Il cambio della configurazione di un'analisi per includere o escludere un'area di lavoro personale attiverà un'analisi completa dell'origine Power bi
-    > * Il nome dell'analisi deve avere una lunghezza compresa tra 3-63 caratteri e deve contenere solo lettere, numeri, caratteri di sottolineatura e trattini. Gli spazi non sono consentiti.
+    > Ad Power BI, la registrazione e l'analisi dell'origine dati sono consentite per una sola istanza.
 
-5. Configurare un trigger di analisi. Le opzioni disponibili sono **una sola volta**, **ogni 7 giorni** e **ogni 30 giorni**.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Immagine del trigger Scan":::
+4. Assegnare un nome alla scansione. Selezionare quindi l'opzione per includere o escludere le aree di lavoro personali. Si noti che l'unico metodo di autenticazione supportato è **Identità gestita.**
 
-6. In **Verifica nuova analisi** selezionare **Salva ed Esegui** per avviare l'analisi.
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Immagine che mostra la Power BI di analisi":::
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Salva ed Esegui Power BI immagine della schermata":::
+    > [!Note]
+    > * Se si cambia la configurazione di un'analisi per includere o escludere un'area di lavoro personale, verrà attivata un'analisi completa dell'origine PowerBI
+    > * Il nome dell'analisi deve avere una lunghezza compresa tra 3 e 63 caratteri e deve contenere solo lettere, numeri, caratteri di sottolineatura e trattini. Gli spazi non sono consentiti.
+
+5. Configurare un trigger di analisi. Le opzioni disponibili **sono Una** volta, **Ogni 7** giorni e **Ogni 30 giorni.**
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Analizzare l'immagine del trigger":::
+
+6. In **Rivedi nuova analisi** selezionare Salva ed esegui **per** avviare l'analisi.
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Salvare ed eseguire un'Power BI schermata":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

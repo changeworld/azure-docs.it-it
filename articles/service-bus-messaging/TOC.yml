@@ -7,7 +7,7 @@
     - name: Confrontare i servizi di messaggistica
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
-    - name: 'Usare il bus di servizio con Java Message Service (JMS) 2,0'
+    - name: Usare il bus di servizio con Java Message Service (JMS) 2.0
       href: how-to-use-java-message-service-20.md
 - name: Avvi rapidi
   items:
@@ -92,22 +92,34 @@
   items:
     - name: 'Code, argomenti e sottoscrizioni del bus di servizio'
       href: service-bus-queues-topics-subscriptions.md
-    - name: Sessioni di messaggistica
-      href: message-sessions.md
-    - name: Filtri e azioni per gli argomenti
-      href: topic-filters.md
     - name: Messaggistica Premium
       href: service-bus-premium-messaging.md
     - name: Confronto tra code di Azure e code del bus di servizio
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-    - name: 'Trasferimenti, blocchi e finalizzazione dei messaggi'
-      href: message-transfers-locks-settlement.md
-    - name: Coda di messaggi non recapitabili
-      href: service-bus-dead-letter-queues.md
-    - name: Contatori di messaggi
-      href: message-counters.md
-    - name: Ottimizzare le prestazioni
-      href: service-bus-performance-improvements.md
+    - name: Funzionalità avanzate
+      items:
+        - name: Sessioni di messaggistica
+          href: message-sessions.md
+        - name: Filtri e azioni per gli argomenti
+          href: topic-filters.md
+        - name: Esplorazione dei messaggi
+          href: message-browsing.md
+        - name: 'Trasferimenti, blocchi e finalizzazione dei messaggi'
+          href: message-transfers-locks-settlement.md
+        - name: Coda di messaggi non recapitabili
+          href: service-bus-dead-letter-queues.md
+        - name: Contatori di messaggi
+          href: message-counters.md
+        - name: Ottimizzare le prestazioni
+          href: service-bus-performance-improvements.md
+        - name: Ripristino di emergenza geografico e replica geografica
+          href: service-bus-geo-dr.md
+        - name: Messaggistica asincrona e disponibilità elevata
+          href: service-bus-async-messaging.md
+        - name: Gestione di emergenze e interruzioni
+          href: service-bus-outages-disasters.md
+        - name: Limitazione
+          href: service-bus-throttling.md
     - name: Federazione
       items:
         - name: Replica di messaggi e federazione tra aree
@@ -124,14 +136,6 @@
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
         - name: Acquisire messaggi da Hub eventi
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
-    - name: Ripristino di emergenza geografico e replica geografica
-      href: service-bus-geo-dr.md
-    - name: Messaggistica asincrona e disponibilità elevata
-      href: service-bus-async-messaging.md
-    - name: Gestione di emergenze e interruzioni
-      href: service-bus-outages-disasters.md
-    - name: Limitazione
-      href: service-bus-throttling.md
     - name: Sicurezza
       items:
         - name: Baseline di sicurezza
@@ -158,7 +162,7 @@
           href: network-security.md
     - name: Integrazione con altri servizi
       items:
-        - name: Integrazione di Azure Service Bus e griglia di eventi di Azure
+        - name: bus di servizio di Azure e Griglia di eventi di Azure'integrazione
           href: service-bus-to-event-grid-integration-concept.md
 - name: Guide pratiche
   items:
@@ -166,11 +170,11 @@
       items:
         - name: Creare uno spazio dei nomi
           href: service-bus-create-namespace-portal.md
-        - name: Impostare le azioni e i filtri della sottoscrizione
+        - name: Impostare i filtri e le azioni delle sottoscrizioni
           href: service-bus-filter-examples.md
         - name: Gestione dei messaggi
           items:
-            - name: 'Entità Java Message Service (JMS) 2,0'
+            - name: Entità del servizio messaggi Java (JMS) 2.0
               href: java-message-service-20-entities.md
             - name: Java Message Service (JMS) Developer guide.md
               href: jms-developer-guide.md
@@ -206,8 +210,6 @@
               href: duplicate-detection.md
             - name: Differimento di messaggi
               href: message-deferral.md
-            - name: Esplorazione dei messaggi
-              href: message-browsing.md
             - name: Concatenare entità con l'inoltro automatico
               href: service-bus-auto-forwarding.md
             - name: Elaborazione di transazioni
@@ -226,7 +228,7 @@
           href: service-bus-end-to-end-tracing.md
         - name: Log di diagnostica
           href: service-bus-diagnostic-logs.md
-        - name: Metriche di monitoraggio di Azure
+        - name: Monitoraggio di Azure metriche
           href: service-bus-metrics-azure-monitor.md
     - name: Integrare
       items:

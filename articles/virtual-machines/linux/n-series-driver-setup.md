@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/11/2019
 ms.author: vikancha
-ms.openlocfilehash: c4c6bee6d3f9e423d83458ad48d213fe65223514
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd9461e30138ee1a59a93db45aa5f739bfe88f94
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551761"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107565305"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
@@ -42,16 +42,16 @@ Verrà visualizzato un output simile all'esempio seguente (che rappresenta una s
 
 ![Output del comando Ispci](./media/n-series-driver-setup/lspci.png)
 
-lspci elenca i dispositivi PCIe nella macchina virtuale, incluse le schede di interfaccia di rete InfiniBand e le GPU, se presenti. Se lspci non viene restituito correttamente, potrebbe essere necessario installare LIS in CentOS/RHEL (istruzioni seguenti).
+lspci elenca i dispositivi PCIe nella macchina virtuale, incluse la scheda di interfaccia di rete e le GPU InfiniBand, se presenti. Se lspci non viene restituito correttamente, potrebbe essere necessario installare LIS in CentOS/RHEL (istruzioni riportate di seguito).
 Quindi eseguire i comandi di installazione specifici per la distribuzione.
 
 ### <a name="ubuntu"></a>Ubuntu 
 
 1. Scaricare e installare i driver CUDA dal sito Web NVIDIA. 
     > [!NOTE]
-   >  L'esempio seguente illustra il percorso del pacchetto CUDA per Ubuntu 16,04. Sostituire il percorso specifico della versione che si intende usare. 
+   >  L'esempio seguente mostra il percorso del pacchetto CUDA per Ubuntu 16.04. Sostituire il percorso specifico della versione che si prevede di usare. 
    >  
-   >  Visitare il [area Download NVIDIA] ( https://developer.download.nvidia.com/compute/cuda/repos/) per il percorso completo specifico per ogni versione. 
+   >  Visitare l'[Area download Nvidia] ( https://developer.download.nvidia.com/compute/cuda/repos/) per il percorso completo specifico di ogni versione. 
    > 
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
@@ -98,10 +98,10 @@ sudo reboot
    sudo reboot
    ```
 
-2. Installare la versione più recente [di Linux Integration Services per Hyper-V e Azure](https://www.microsoft.com/download/details.aspx?id=55106). Verificare se LIS è necessario verificando i risultati di lspci. Se tutti i dispositivi GPU sono elencati come previsto (e documentati in precedenza), l'installazione di LIS non è obbligatoria.
+2. Installare la versione [più recente Integration Services Linux per Hyper-V e Azure](https://www.microsoft.com/download/details.aspx?id=55106). Controllare se è necessario lis verificando i risultati di lspci. Se tutti i dispositivi GPU sono elencati come previsto (e documentati in precedenza), l'installazione di LIS non è necessaria.
 
-   Si noti che LIS è applicabile a Red Hat Enterprise Linux, CentOS e al Oracle Linux kernel compatibile con Red Hat 5.2-5.11, 6.0-6.10 e 7.0-7,7. Per informazioni dettagliate, vedere la [documentazione di Linux Integration Services] https://www.microsoft.com/en-us/download/details.aspx?id=55106) . 
-   Ignorare questo passaggio se si prevede di usare CentOS/RHEL 7,8 (o versioni successive) perché LIS non è più necessario per queste versioni.
+   Si noti che LIS è applicabile a Red Hat Enterprise Linux, CentOS e al kernel compatibile con Oracle Linux Red Hat 5.2-5.11, 6.0-6.10 e 7.0-7.7. Per altre informazioni, vedere la [documentazione Integration Services https://www.microsoft.com/en-us/download/details.aspx?id=55106) Linux]. 
+   Ignorare questo passaggio se si prevede di usare CentOS/RHEL 7.8 (o versioni successive) perché LIS non è più necessario per queste versioni.
 
       ```bash
       wget https://aka.ms/lis
@@ -128,6 +128,25 @@ sudo reboot
    ```
 
    L'installazione può richiedere alcuni minuti. 
+   
+    > [!NOTE]
+   >  Visitare [il repo Fedora](https://dl.fedoraproject.org/pub/epel/) e [Nvidia CUDA](https://developer.download.nvidia.com/compute/cuda/repos/) per selezionare il pacchetto corretto per la versione centOS o RHEL che si vuole usare.
+   >  
+
+Ad esempio, CentOS 8 e RHEL 8 dovranno seguire questa procedura.
+
+   ```bash
+   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+   sudo yum install dkms
+   
+   CUDA_REPO_PKG=cuda-repo-rhel8-10.2.89-1.x86_64.rpm
+   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+
+   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+   rm -f /tmp/${CUDA_REPO_PKG}
+
+   sudo yum install cuda-drivers
+   ```
 
 4. Per installare facoltativamente il toolkit di CUDA completo, digitare:
 
@@ -135,7 +154,7 @@ sudo reboot
    sudo yum install cuda
    ```
    > [!NOTE]
-   >  Se viene visualizzato un messaggio di errore relativo a pacchetti mancanti, ad esempio Vulkan-filesystem, potrebbe essere necessario modificare/etc/yum.Repos.d/RH-cloud, cercare facoltativo-rpm e impostare abilitato su 1
+   >  Se viene visualizzato un messaggio di errore relativo a pacchetti mancanti come vulkan-filesystem, potrebbe essere necessario modificare /etc/yum.repos.d/rh-cloud, cercare optional-rpms e impostare enabled su 1
    >  
 
 5. Riavviare la VM e procedere a verificare l'installazione.
@@ -150,7 +169,7 @@ Se il driver è installato, l'output sarà simile al seguente. Si noti che **GPU
 
 ## <a name="rdma-network-connectivity"></a>Connettività di rete RDMA
 
-La connettività di rete RDMA può essere abilitata in macchine virtuali serie N con supporto per RDMA, ad esempio NC24r distribuite nello stesso set di disponibilità o in un singolo gruppo di posizionamento in un set di scalabilità di macchine virtuali (VM). La rete RDMA supporta il traffico Message Passing Interface (MPI) per le applicazioni in esecuzione con Intel MPI 5.x o una versione più recente. Seguono i requisiti aggiuntivi:
+La connettività di rete RDMA può essere abilitata nelle macchine virtuali serie N con supporto per RDMA, ad esempio NC24r distribuite nello stesso set di disponibilità o in un singolo gruppo di posizionamento in un set di scalabilità di macchine virtuali. La rete RDMA supporta il traffico Message Passing Interface (MPI) per le applicazioni in esecuzione con Intel MPI 5.x o una versione più recente. Seguono i requisiti aggiuntivi:
 
 ### <a name="distributions"></a>Distribuzioni
 
@@ -162,21 +181,21 @@ Distribuire le VM serie N abilitate per RDMA da una delle immagini in Azure Mark
 
 * **CentOS-based 7.4 HPC**: i driver RDMA e Intel MPI 5.1 vengono installati nella VM.
 
-* **HPC basato su CentOS** -CentOS-HPC 7,6 e versioni successive (per SKU in cui InfiniBand è supportato su SR-IOV). Queste immagini hanno Mellanox OFED e le librerie MPI pre-installate.
+* **HPC basato su CentOS** - CentOS-HPC 7.6 e versioni successive (per gli SKU in cui InfiniBand è supportato su SR-IOV). Queste immagini hanno librerie Mellanox OFED e MPI preinstallate.
 
 > [!NOTE]
-> Le schede CX3-Pro sono supportate solo tramite le versioni LTS di Mellanox OFED. Usare LTS Mellanox OFED Version (4.9-0.1.7.0) sulle VM serie N con le schede ConnectX3-Pro. Per altre informazioni, vedere [driver Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
+> CX3-Pro sono supportate solo tramite le versioni LTS di Mellanox OFED. Usare la versione LTS Mellanox OFED (4.9-0.1.7.0) nelle macchine virtuali serie N con schede ConnectX3-Pro rete. Per altre informazioni, vedere [Driver Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
 >
-> Inoltre, alcune delle più recenti immagini HPC di Azure Marketplace hanno Mellanox OFED 5,1 e versioni successive, che non supportano le schede ConnectX3-Pro. Verificare la versione di Mellanox OFED nell'immagine HPC prima di usarla nelle VM con ConnectX3-Pro card.
+> Inoltre, alcune delle immagini HPC Azure Marketplace più recenti hanno Mellanox OFED 5.1 e versioni successive, che non supportano ConnectX3-Pro schede. Controllare la versione di Mellanox OFED nell'immagine HPC prima di usarla nelle macchine virtuali con ConnectX3-Pro virtuali.
 >
-> Le immagini seguenti sono le immagini CentOS-HPC più recenti che supportano le schede ConnectX3-Pro:
+> Le immagini seguenti sono le immagini CentOS-HPC più recenti che supportano ConnectX3-Pro seguenti:
 >
-> - OpenLogic: CentOS-HPC: 7.6:7.6.2020062900
-> - OpenLogic: CentOS-HPC: 7_6gen2:7.6.2020062901
-> - OpenLogic: CentOS-HPC: 7,7:7.7.2020062600
-> - OpenLogic: CentOS-HPC: 7_7-Gen2:7.7.2020062601
-> - OpenLogic: CentOS-HPC: 8_1:8.1.2020062400
-> - OpenLogic: CentOS-HPC: 8_1-Gen2:8.1.2020062401
+> - OpenLogic:CentOS-HPC:7.6:7.6.2020062900
+> - OpenLogic:CentOS-HPC:7_6gen2:7.6.2020062901
+> - OpenLogic:CentOS-HPC:7.7:7.7.2020062600
+> - OpenLogic:CentOS-HPC:7_7-gen2:7.7.2020062601
+> - OpenLogic:CentOS-HPC:8_1:8.1.2020062400
+> - OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
 >
 
 ## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Installare i driver GRID nelle macchine virtuali serie NV o NVv3
@@ -253,16 +272,16 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, sta
    sudo yum install hyperv-daemons
    ```
 
-2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. (Usare solo il driver NVIDIA nelle VM NV o NV3). A tale scopo, creare un file `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
+2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NV3. A tale scopo, creare un file in `/etc/modprobe.d` denominato con il contenuto `nouveau.conf` seguente:
 
    ```
    blacklist nouveau
    blacklist lbm-nouveau
    ```
 
-3. Riavviare la macchina virtuale e installare i [servizi di integrazione di Linux più recenti per Hyper-V e Azure](https://www.microsoft.com/download/details.aspx?id=55106). Verificare se LIS è necessario verificando i risultati di lspci. Se tutti i dispositivi GPU sono elencati come previsto (e documentati in precedenza), l'installazione di LIS non è obbligatoria. 
+3. Riavviare la macchina virtuale e installare i [servizi di integrazione di Linux più recenti per Hyper-V e Azure](https://www.microsoft.com/download/details.aspx?id=55106). Controllare se LIS è necessario verificando i risultati di lspci. Se tutti i dispositivi GPU sono elencati come previsto (e documentati in precedenza), l'installazione di LIS non è necessaria. 
 
-   Ignorare questo passaggio se si prevede di usare CentOS/RHEL 7,8 (o versioni successive) perché LIS non è più necessario per queste versioni.
+   Ignorare questo passaggio se si prevede di usare CentOS/RHEL 7.8 (o versioni successive) perché LIS non è più necessario per queste versioni.
 
       ```bash
       wget https://aka.ms/lis
@@ -359,7 +378,7 @@ Creare quindi una voce per lo script di aggiornamento in `/etc/rc.d/rc3.d`, in m
 
 * È possibile impostare la modalità di persistenza tramite `nvidia-smi`. In questo modo l'output del comando sarà più veloce per l'esecuzione di query sulle schede. Per impostare la modalità di persistenza, eseguire `nvidia-smi -pm 1`. Si noti che se la macchina virtuale viene riavviata, l'impostazione della modalità scompare. È sempre possibile generare script che impostino la modalità affinché venga eseguita all'avvio.
 * Se i driver NVIDIA CUDA sono stati aggiornati alla versione più recente e si rileva che la connettività RDMA non funziona più, [reinstallare i driver RDMA](#rdma-network-connectivity) per ristabilire la connettività. 
-* Durante l'installazione di LIS, se una determinata versione del sistema operativo CentOS/RHEL (o kernel) non è supportata per LIS, viene generato un errore "versione kernel non supportata". Segnalare questo errore insieme al sistema operativo e alle versioni del kernel.
+* Durante l'installazione di LIS, se una determinata versione del sistema operativo CentOS/RHEL (o kernel) non è supportata per LIS, viene generato un errore "Versione del kernel non supportata". Segnalare questo errore insieme alle versioni del sistema operativo e del kernel.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

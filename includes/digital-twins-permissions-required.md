@@ -1,16 +1,16 @@
 ---
 author: baanders
-description: include il file che descrive le autorizzazioni elevate necessarie per alcuni passaggi di gestione
+description: file di inclusione che descrive le autorizzazioni elevate necessarie per alcuni passaggi di gestione
 ms.service: digital-twins
 ms.topic: include
 ms.date: 2/23/2021
 ms.author: baanders
-ms.openlocfilehash: f93f52b0e076411f96db38f704a88325ef64f8e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2dff590fbff7822db3ee55a5cc485927f1e4d7e5
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101703092"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107480756"
 ---
 >[!NOTE]
-> Questa sezione deve essere completata da un utente di Azure con le autorizzazioni per gestire l'accesso degli utenti alle risorse di Azure (incluse le autorizzazioni di concessione e delega). I ruoli comuni che soddisfano questo requisito sono *proprietario*, *amministratore account* o la combinazione di *amministratore accesso utenti* e *collaboratore*. Per altre informazioni sui requisiti di autorizzazione per i ruoli di Azure Digital gemelli, vedere [*How-to: set up instance and Authentication*](../articles/digital-twins/how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+> Questa sezione deve essere completata da un utente di Azure che dispone delle autorizzazioni per gestire l'accesso utente alle risorse di Azure, tra cui la concessione e la delega delle autorizzazioni. I ruoli comuni che soddisfano questo requisito sono *Proprietario,* *Amministratore account* o la combinazione di Amministratore *accesso utenti* e *Collaboratore*. Per altre informazioni sui requisiti di autorizzazione per Gemelli digitali di Azure ruoli, vedere [Configurare un'istanza e l'autenticazione](../articles/digital-twins/how-to-set-up-instance-portal.md#prerequisites-permission-requirements).

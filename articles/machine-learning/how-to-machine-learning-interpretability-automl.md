@@ -1,7 +1,7 @@
 ---
-title: Spiegabilità in Machine Learning Machine Learning (anteprima)
+title: Spiegabilità in Machine Learning automatizzato (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni su come ottenere spiegazioni sul modo in cui il modello di Machine Learning automatico determina l'importanza della funzionalità ed esegue stime quando si usa il Azure Machine Learning SDK.
+description: Informazioni su come ottenere spiegazioni sul modo in cui il modello di Machine Learning automatizzato determina l'importanza delle funzionalità ed esegue stime quando si usa Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,50 +10,50 @@ ms.custom: how-to, automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 535ff489060c8099ba3c695f2b615f3c38309698
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 3258a1d53c4aa5010758bcd93ef32c53611f4684
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167941"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576466"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretabilità: spiegazioni del modello in Machine Learning automatizzato (anteprima)
 
 
+In questo articolo si apprenderà come ottenere spiegazioni per machine learning automatizzato (machine learning automatizzato) in Azure Machine Learning usando Python SDK. Machine Learning automatizzato consente di comprendere l'importanza delle funzionalità dei modelli generati. 
 
-In questo articolo si apprenderà come ottenere spiegazioni per automatizzare Machine Learning (AutoML) in Azure Machine Learning. AutoML consente di comprendere l'importanza della funzionalità dei modelli generati. 
+Tutte le versioni dell'SDK successive alla 1.0.85 sono impostate `model_explainability=True` per impostazione predefinita. In SDK versione 1.0.85 e versioni precedenti gli utenti devono impostare nell'oggetto per usare `model_explainability=True` `AutoMLConfig` l'interpretabilità del modello. 
 
-Tutte le versioni dell'SDK dopo 1.0.85 impostate `model_explainability=True` per impostazione predefinita. Nella versione SDK 1.0.85 e nelle versioni precedenti, gli utenti devono impostare `model_explainability=True` nell'oggetto per poter `AutoMLConfig` usare l'interpretazione del modello. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-- Eseguire l'interpretazione durante il training per il modello migliore o qualsiasi modello.
+- Eseguire l'interpretabilità durante il training per un modello migliore o qualsiasi modello.
 - Abilitare le visualizzazioni per visualizzare i modelli nei dati e nelle spiegazioni.
-- Implementare l'interpretazione durante l'inferenza o il punteggio.
+- Implementare l'interpretabilità durante l'inferenza o l'assegnazione dei punteggi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Funzionalità di interpretazione. Eseguire `pip install azureml-interpret` per ottenere il pacchetto necessario.
-- Conoscenza della creazione di esperimenti AutoML. Per altre informazioni su come usare l'SDK Azure Machine Learning, completare questa [esercitazione sul modello di regressione](tutorial-auto-train-models.md) o vedere come [configurare gli esperimenti AutoML](how-to-configure-auto-train.md).
+- Funzionalità di interpretabilità. Eseguire `pip install azureml-interpret` per ottenere il pacchetto necessario.
+- Conoscenza della creazione di esperimenti automatizzati di Machine Learning. Per altre informazioni su come usare Azure Machine Learning SDK, completare questa esercitazione sul modello di [regressione](tutorial-auto-train-models.md) o vedere come configurare esperimenti [automatizzati di Machine](how-to-configure-auto-train.md)Learning.
 
-## <a name="interpretability-during-training-for-the-best-model"></a>Interpretazione durante il training per il modello migliore
+## <a name="interpretability-during-training-for-the-best-model"></a>Interpretabilità durante il training per il modello migliore
 
-Recuperare la spiegazione da `best_run` , che include spiegazioni per le funzionalità non elaborate e progettate.
+Recuperare la spiegazione da , che include spiegazioni sia per le funzionalità non elaborate `best_run` che per le funzionalità progettate.
 
 > [!NOTE]
-> L'interpretazione, la migliore spiegazione del modello, non è disponibile per gli esperimenti di previsione di auto machine learning che suggeriscono gli algoritmi seguenti come modello ottimale: 
+> L'interpretabilità, la migliore spiegazione del modello, non è disponibile per gli esperimenti di previsione di Machine Learning automatico che consigliano gli algoritmi seguenti come modello migliore: 
 > * TCNForecaster
-> * ARIMA
+> * AutoArima
 > * ExponentialSmoothing
 > * Prophet
 > * Media 
 > * Naive
 > * Media stagionale 
-> * Naive stagionali
+> * Naive stagionale
 
-### <a name="download-the-engineered-feature-importances-from-the-best-run"></a>Scarica le priorità della funzionalità progettata dalla migliore esecuzione
+### <a name="download-the-engineered-feature-importances-from-the-best-run"></a>Scaricare le priorità delle funzionalità progettate dalla migliore esecuzione
 
-È possibile usare `ExplanationClient` per scaricare le spiegazioni delle funzionalità progettate dall'archivio di artefatti di `best_run` . 
+È possibile usare `ExplanationClient` per scaricare le spiegazioni delle funzionalità progettate dall'archivio artefatti di `best_run` . 
 
 ```python
 from azureml.interpret import ExplanationClient
@@ -63,9 +63,9 @@ engineered_explanations = client.download_model_explanation(raw=False)
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### <a name="download-the-raw-feature-importances-from-the-best-run"></a>Scarica le priorità della funzionalità RAW dalla migliore esecuzione
+### <a name="download-the-raw-feature-importances-from-the-best-run"></a>Scaricare le priorità delle funzionalità non elaborati dalla migliore esecuzione
 
-È possibile usare `ExplanationClient` per scaricare le spiegazioni sulle funzionalità non elaborate dall'archivio di artefatti di `best_run` .
+È possibile usare `ExplanationClient` per scaricare le spiegazioni delle funzionalità non elaborato dall'archivio artefatti di `best_run` .
 
 ```python
 from azureml.interpret import ExplanationClient
@@ -75,11 +75,11 @@ raw_explanations = client.download_model_explanation(raw=True)
 print(raw_explanations.get_feature_importance_dict())
 ```
 
-## <a name="interpretability-during-training-for-any-model"></a>Interpretazione durante il training di qualsiasi modello 
+## <a name="interpretability-during-training-for-any-model"></a>Interpretabilità durante il training per qualsiasi modello 
 
-Quando si calcolano le spiegazioni dei modelli e le si visualizza, non si è limitati a una spiegazione del modello esistente per un modello AutoML. È anche possibile ottenere una spiegazione per il modello con dati di test diversi. I passaggi descritti in questa sezione illustrano come calcolare e visualizzare l'importanza della funzionalità progettata in base ai dati di test.
+Quando si calcolano le spiegazioni del modello e le si visualizza, non si è limitati a una spiegazione del modello esistente per un modello AutoML. È anche possibile ottenere una spiegazione per il modello con dati di test diversi. I passaggi descritti in questa sezione illustrano come calcolare e visualizzare l'importanza delle caratteristiche progettate in base ai dati di test.
 
-### <a name="retrieve-any-other-automl-model-from-training"></a>Recuperare qualsiasi altro modello di AutoML da training
+### <a name="retrieve-any-other-automl-model-from-training"></a>Recuperare qualsiasi altro modello AutoML dal training
 
 ```python
 automl_run, fitted_model = local_run.get_output(metric='accuracy')
@@ -87,13 +87,13 @@ automl_run, fitted_model = local_run.get_output(metric='accuracy')
 
 ### <a name="set-up-the-model-explanations"></a>Configurare le spiegazioni del modello
 
-Usare `automl_setup_model_explanations` per ottenere le spiegazioni non elaborate e progettate. `fitted_model`Può generare gli elementi seguenti:
+Usare `automl_setup_model_explanations` per ottenere le spiegazioni progettate e non elaborate. può `fitted_model` generare gli elementi seguenti:
 
 - Dati in primo piano da esempi di training o di test
-- Elenchi di nomi di funzionalità progettati
-- Classi trovabili nella colonna con etichetta negli scenari di classificazione
+- Elenchi di nomi di funzionalità progettate
+- Classi individuabili nella colonna con etichetta negli scenari di classificazione
 
-`automl_explainer_setup_obj`Contiene tutte le strutture dall'elenco precedente.
+contiene `automl_explainer_setup_obj` tutte le strutture dell'elenco precedente.
 
 ```python
 from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
@@ -103,15 +103,15 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
                                                              task='classification')
 ```
 
-### <a name="initialize-the-mimic-explainer-for-feature-importance"></a>Inizializzare il Explainer MIME per l'importanza della funzionalità
+### <a name="initialize-the-mimic-explainer-for-feature-importance"></a>Inizializzare l'elemento Mimic Explainer per l'importanza delle funzionalità
 
-Per generare una spiegazione per i modelli AutoML, usare la `MimicWrapper` classe. È possibile inizializzare MimicWrapper con questi parametri:
+Per generare una spiegazione per i modelli di Machine Learning automatizzato, usare la `MimicWrapper` classe . È possibile inizializzare MimicWrapper con questi parametri:
 
-- Oggetto di installazione di Explainer
+- Oggetto di configurazione dello spiegatore
 - Area di lavoro
-- Modello surrogato per la spiegazione del `fitted_model` modello AutoML
+- Un modello surrogato per spiegare il modello di Machine Learning `fitted_model` automatizzato
 
-Il MimicWrapper accetta anche l' `automl_run` oggetto in cui verranno caricate le spiegazioni progettate.
+MimicWrapper accetta anche l'oggetto in cui verranno caricate le spiegazioni `automl_run` progettate.
 
 ```python
 from azureml.interpret import MimicWrapper
@@ -126,15 +126,15 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
                          explainer_kwargs=automl_explainer_setup_obj.surrogate_model_params)
 ```
 
-### <a name="use-mimic-explainer-for-computing-and-visualizing-engineered-feature-importance"></a>Usare il Visualizzatore di simulazioni per l'elaborazione e la visualizzazione dell'importanza della funzionalità progettata
+### <a name="use-mimic-explainer-for-computing-and-visualizing-engineered-feature-importance"></a>Usare Mimic Explainer per il calcolo e la visualizzazione dell'importanza delle funzionalità progettate
 
-È possibile chiamare il `explain()` metodo in MimicWrapper con gli esempi di test trasformati per ottenere l'importanza della funzionalità per le funzionalità di progettazione generate. È anche possibile accedere a [Azure Machine Learning Studio](https://ml.azure.com/) per visualizzare la visualizzazione del dashboard dei valori di importanza delle funzionalità delle funzionalità di progettazione generate da AutoML featurizers.
+È possibile chiamare il metodo in MimicWrapper con gli esempi di test trasformati per ottenere l'importanza delle funzionalità `explain()` generate. È anche possibile accedere a [studio di Azure Machine Learning](https://ml.azure.com/) visualizzare la visualizzazione del dashboard delle spiegazioni dei valori di importanza delle funzionalità generate dalle funzionalità di ML automatizzate.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
 ```
-Per i modelli con training automatizzato, è possibile ottenere il modello migliore usando il `get_output()` metodo e le spiegazioni di calcolo in locale.  È possibile visualizzare i risultati della spiegazione con `ExplanationDashboard` dal `interpret-community` pacchetto.
+Per i modelli con training con Machine Learning automatizzato, è possibile ottenere il modello migliore usando il metodo e `get_output()` le spiegazioni di calcolo in locale.  È possibile visualizzare i risultati della spiegazione con `ExplanationDashboard` dal `interpret-community` pacchetto.
 
 ```python
 best_run, fitted_model = remote_run.get_output()
@@ -170,9 +170,9 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipeline, datasetX=automl_explainer_setup_obj.X_test_raw)
 ```
 
-### <a name="use-mimic-explainer-for-computing-and-visualizing-raw-feature-importance"></a>Usare il Visualizzatore di simulazioni per l'elaborazione e la visualizzazione dell'importanza della funzionalità RAW
+### <a name="use-mimic-explainer-for-computing-and-visualizing-raw-feature-importance"></a>Usare Mimic Explainer per il calcolo e la visualizzazione dell'importanza delle funzionalità non elaborato
 
-È possibile chiamare il `explain()` metodo in MimicWrapper con gli esempi di test trasformati per ottenere l'importanza della funzionalità per le funzionalità non elaborate. In [Machine Learning Studio](https://ml.azure.com/), è possibile visualizzare la visualizzazione del dashboard dei valori di importanza della funzionalità delle funzionalità non elaborate.
+È possibile chiamare il metodo in MimicWrapper con gli esempi di test trasformati per ottenere l'importanza della funzionalità `explain()` per le funzionalità non elaborati. In Machine Learning [Studio](https://ml.azure.com/)è possibile visualizzare la visualizzazione del dashboard dei valori di importanza delle funzionalità non elaborati.
 
 ```python
 raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
@@ -182,15 +182,15 @@ raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
 print(raw_explanations.get_feature_importance_dict())
 ```
 
-## <a name="interpretability-during-inference"></a>Interpretazione durante l'inferenza
+## <a name="interpretability-during-inference"></a>Interpretabilità durante l'inferenza
 
-In questa sezione si apprenderà come rendere operativo un modello AutoML con il Explainer usato per calcolare le spiegazioni nella sezione precedente.
+In questa sezione si apprenderà come operazionare un modello di Machine Learning automatizzato con lo strumento di spiegazione usato per calcolare le spiegazioni nella sezione precedente.
 
-### <a name="register-the-model-and-the-scoring-explainer"></a>Registrare il modello e il spiegazione del Punteggio
+### <a name="register-the-model-and-the-scoring-explainer"></a>Registrare il modello e lo spiegatore di assegnazione dei punteggi
 
-Usare `TreeScoringExplainer` per creare il Explainer di assegnazione dei punteggi che calcolerà i valori di importanza della funzionalità progettata in fase di inferenza. Si inizializza il Explainer di assegnazione dei punteggi con il `feature_map` che è stato calcolato in precedenza. 
+Usare per creare lo strumento di spiegazione dei punteggi che calcola i valori di importanza delle funzionalità progettate `TreeScoringExplainer` al momento dell'inferenza. Inizializzare lo explainer di assegnazione dei punteggi con `feature_map` l'oggetto calcolato in precedenza. 
 
-Salvare il Explainer di assegnazione dei punteggi, quindi registrare il modello e il Explainer di assegnazione dei punteggi con il servizio Gestione modelli. Eseguire il codice seguente:
+Salvare lo spiegatore di assegnazione dei punteggi e quindi registrare il modello e lo spiegatore di assegnazione dei punteggi con il Gestione modelli servizio. Eseguire il codice seguente:
 
 ```python
 from azureml.interpret.scoring.scoring_explainer import TreeScoringExplainer, save
@@ -212,7 +212,7 @@ scoring_explainer_model = automl_run.register_model(model_name='scoring_explaine
 
 ### <a name="create-the-conda-dependencies-for-setting-up-the-service"></a>Creare le dipendenze conda per la configurazione del servizio
 
-Successivamente, creare le dipendenze di ambiente necessarie nel contenitore per il modello distribuito. Si noti che azureml-defaults con Version >= 1.0.45 deve essere elencato come una dipendenza PIP, perché contiene la funzionalità necessaria per ospitare il modello come servizio Web.
+Creare quindi le dipendenze di ambiente necessarie nel contenitore per il modello distribuito. Si noti che azureml-defaults con versione >= 1.0.45 deve essere elencato come dipendenza pip, perché contiene le funzionalità necessarie per ospitare il modello come servizio Web.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -235,7 +235,7 @@ with open("myenv.yml","r") as f:
 
 ### <a name="create-the-scoring-script"></a>Creare lo script di assegnazione dei punteggi
 
-Scrivere uno script per caricare il modello e produrre stime e spiegazioni basate su un nuovo batch di dati.
+Scrivere uno script che carica il modello e produce stime e spiegazioni basate su un nuovo batch di dati.
 
 ```python
 %%writefile score.py
@@ -304,7 +304,7 @@ service.wait_for_deployment(show_output=True)
 
 ### <a name="inference-with-test-data"></a>Inferenza con dati di test
 
-Inferenza con alcuni dati di test per visualizzare il valore stimato del modello AutoML, attualmente supportato solo in Azure Machine Learning SDK. Consente di visualizzare le priorità della funzionalità che contribuiscono a un valore stimato. 
+Inferenza con alcuni dati di test per visualizzare il valore previsto dal modello AutoML, attualmente supportato solo in Azure Machine Learning SDK. Visualizzare le priorità delle caratteristiche che contribuiscono a un valore previsto. 
 
 ```python
 if service.state == 'Healthy':
@@ -321,14 +321,14 @@ if service.state == 'Healthy':
     print('raw_local_importance_values:\n{}\n'.format(output['raw_local_importance_values']))
 ```
 
-### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Visualizza per individuare i modelli nei dati e le spiegazioni in fase di training
+## <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Visualizzare per individuare modelli nei dati e spiegazioni in fase di training
 
-È possibile visualizzare il grafico importanza funzionalità nell'area di lavoro in [Machine Learning Studio](https://ml.azure.com). Al termine dell'esecuzione del AutoML, selezionare **Visualizza dettagli modello** per visualizzare un'esecuzione specifica. Selezionare la scheda **spiegazioni** per visualizzare il dashboard di visualizzazione spiegazione.
+È possibile visualizzare il grafico di importanza delle funzionalità nell'area di lavoro in [studio di Azure Machine Learning](https://ml.azure.com). Al termine dell'esecuzione di AutoML, selezionare **Visualizza i dettagli del modello** per visualizzare un'esecuzione specifica. Selezionare la **scheda Spiegazioni** per visualizzare le visualizzazioni nel dashboard delle spiegazioni.
 
-[![Architettura di interpretazione Machine Learning](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
+[![Machine Learning di interpretabilità dei dati](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 
-Per altre informazioni sulla spiegazione delle visualizzazioni del dashboard e dei tracciati specifici, vedere la [documentazione relativa alle procedure](how-to-machine-learning-interpretability-aml.md)per l'interpretazione.
+Per altre informazioni sulle visualizzazioni del dashboard di spiegazione e sui tracciati specifici, vedere la documentazione sulle modalità [di interpretazione.](how-to-machine-learning-interpretability-aml.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su come abilitare le spiegazioni dei modelli e l'importanza delle funzionalità nelle aree di Azure Machine Learning SDK, ad eccezione dell'apprendimento automatico automatico, vedere l' [articolo relativo al concetto di interpretazione](how-to-machine-learning-interpretability.md).
+Per altre informazioni su come abilitare le spiegazioni dei modelli e l'importanza delle funzionalità in aree di Azure Machine Learning SDK diverse dall'apprendimento automatico, vedere l'articolo sui concetti [sull'interpretabilità.](how-to-machine-learning-interpretability.md)

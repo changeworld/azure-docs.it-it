@@ -17,12 +17,12 @@ ms.date: 01/12/2021
 ms.author: matthewp
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: e7d4206de1e097c30e9f5e96bbd935e94892ce0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c97da77619a395a8e2839ea672fe7a78f0501c47
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98221035"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575837"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Esercitazione: Inviare notifiche push alle app Xamarin.Android con Hub di notifica di Azure
 
@@ -85,9 +85,9 @@ L'hub di notifica è configurato per l'uso con FCM e sono disponibili le stringh
 3. Nella finestra **Esplora soluzioni** espandere **Proprietà** e fare clic su **AndroidManifest.xml**. Aggiornare il nome del pacchetto in modo che corrisponda al nome del pacchetto immesso durante l'aggiunta di Firebase Cloud Messaging al progetto in Google Firebase Console.
 
     ![Nome del pacchetto in GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
-4. Impostare la versione di destinazione di Android per il progetto su **android 10,0** attenendosi alla procedura seguente: 
+4. Impostare la versione android di destinazione per il progetto **su Android 10.0** seguendo questa procedura: 
     1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Proprietà**. 
-    1. Per il campo **Compila usando Android versione: (Framework di destinazione)** selezionare **Android 10,0**. 
+    1. Per il **campo Compila con versione Android: (framework di destinazione)** selezionare Android **10.0**. 
     1. Selezionare **Sì** nella finestra di messaggio per continuare con la modifica del framework di destinazione.
 1. Aggiungere i pacchetti NuGet necessari al progetto seguendo questa procedura:
     1. Fare clic con il pulsante destro del mouse sul progetto e selezionare **Gestisci pacchetti NuGet**.
@@ -111,7 +111,7 @@ L'hub di notifica è configurato per l'uso con FCM e sono disponibili le stringh
 
 #### <a name="registering-with-firebase-cloud-messaging"></a>Registrazione con Firebase Cloud Messaging
 
-1. Se si esegue la migrazione da Google Cloud Messaging a Firebase, il file del progetto `AndroidManifest.xml` potrebbe contenere una configurazione GCM obsoleta, che potrebbe causare la duplicazione delle notifiche. Modificare il file e rimuovere le righe seguenti all'interno della `<application>` sezione, se presente:
+1. Se si esegue la migrazione da Google Cloud Messaging a Firebase, il file del progetto potrebbe contenere una configurazione GCM obsoleta, che potrebbe causare la `AndroidManifest.xml` duplicazione delle notifiche. Modificare il file e rimuovere le righe seguenti all'interno `<application>` della sezione, se presente:
 
     ```xml
     <receiver
@@ -156,7 +156,7 @@ L'hub di notifica è configurato per l'uso con FCM e sono disponibili le stringh
 6. Aggiungere le istruzioni using seguenti a `MainActivity.cs`:
 
     ```csharp
-    using Azure.Messaging.NotificationHubs;
+    using WindowsAzure.Messaging.NotificationHubs;
     ```
 
 7. Aggiungere le proprietà seguenti alla classe MainActivity:
@@ -182,7 +182,7 @@ L'hub di notifica è configurato per l'uso con FCM e sono disponibili le stringh
     using WindowsAzure.Messaging.NotificationHubs;
     ```
 
-11. Aggiungere il codice seguente sopra la dichiarazione di classe e fare in che la classe erediti da `Java.Lang.Object` e implementi `INotificationListener` :
+11. Aggiungere quanto segue sopra la dichiarazione di classe e fare in modo che la classe erediti da `Java.Lang.Object` e implementi `INotificationListener` :
 
     ```csharp
     public class AzureListener : Java.Lang.Object, INotificationListener

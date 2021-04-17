@@ -1,145 +1,147 @@
 ---
-title: Risolvere i problemi di rete con il registro di sistema
-description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure in una rete virtuale o dietro a un firewall
+title: Risolvere i problemi di rete con il Registro di sistema
+description: Sintomi, cause e risoluzione di problemi comuni quando si accede a un registro Azure Container in una rete virtuale o dietro un firewall
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: ae75959028e19ec61e6dcf41308e54df38139d59
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 0fdedf109703eb443904989d2c0b2d75a6ba5bb1
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220114"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481226"
 ---
-# <a name="troubleshoot-network-issues-with-registry"></a>Risolvere i problemi di rete con il registro di sistema
+# <a name="troubleshoot-network-issues-with-registry"></a>Risolvere i problemi di rete con il Registro di sistema
 
-Questo articolo consente di risolvere i problemi che possono verificarsi durante l'accesso a un registro contenitori di Azure in una rete virtuale o dietro un firewall o un server proxy. 
+Questo articolo consente di risolvere i problemi che possono verificarsi quando si accede a un registro Azure Container in una rete virtuale o dietro un firewall o un server proxy. 
 
 ## <a name="symptoms"></a>Sintomi
 
 Può includere uno o più degli elementi seguenti:
 
-* Non è possibile eseguire il push o il pull delle immagini e si riceve un errore `dial tcp: lookup myregistry.azurecr.io`
-* Non è possibile eseguire il push o il pull delle immagini e si riceve un errore `Client.Timeout exceeded while awaiting headers`
-* Non è possibile eseguire il push o il pull delle immagini e si riceve un errore dell'interfaccia della `Could not connect to the registry login server`
-* Non è possibile estrarre le immagini dal registro di sistema al servizio Azure Kubernetes o a un altro servizio di Azure
-* Non è possibile accedere a un registro di sistema dietro un proxy HTTPS e si riceve un errore `Error response from daemon: login attempt failed with status: 403 Forbidden` o `Error response from daemon: Get <registry>: proxyconnect tcp: EOF Login failed`
-* Non è possibile configurare le impostazioni della rete virtuale e viene visualizzato l'errore `Failed to save firewall and virtual network settings for container registry`
-* Non è possibile accedere alle impostazioni del registro di sistema o visualizzarle in portale di Azure o gestire il registro di sistema con l'interfaccia
-* Non è possibile aggiungere o modificare le impostazioni della rete virtuale o le regole di accesso pubblico
-* Le attività ACR non sono in grado di eseguire il push o il pull delle immagini
-* Il Centro sicurezza di Azure non può analizzare le immagini nel registro di sistema o i risultati dell'analisi non vengono visualizzati nel centro sicurezza di Azure
+* Non è possibile eseguire il push o il pull di immagini e viene visualizzato un errore `dial tcp: lookup myregistry.azurecr.io`
+* Non è possibile eseguire il push o il pull di immagini e viene visualizzato un errore `Client.Timeout exceeded while awaiting headers`
+* Non è possibile eseguire il push o il pull di immagini e viene visualizzato un errore dell'interfaccia della riga di comando di Azure `Could not connect to the registry login server`
+* Impossibile eseguire il pull di immagini dal Registro di sistema servizio Azure Kubernetes o un altro servizio di Azure
+* Non è possibile accedere a un registro dietro un proxy HTTPS e viene visualizzato un errore `Error response from daemon: login attempt failed with status: 403 Forbidden` o `Error response from daemon: Get <registry>: proxyconnect tcp: EOF Login failed`
+* Non è possibile configurare le impostazioni della rete virtuale e viene visualizzato un errore `Failed to save firewall and virtual network settings for container registry`
+* Non è possibile accedere o visualizzare le impostazioni del Registro di sistema in portale di Azure o gestire il Registro di sistema usando l'interfaccia della riga di comando di Azure
+* Impossibile aggiungere o modificare le impostazioni di rete virtuale o le regole di accesso pubblico
+* ACR Tasks non è in grado di eseguire il push o il pull di immagini
+* Centro sicurezza di Azure possibile analizzare le immagini nel Registro di sistema o i risultati dell'analisi non vengono visualizzati in Centro sicurezza di Azure
+* Viene visualizzato un errore `host is not reachable` quando si tenta di accedere a un registro configurato con un endpoint privato.
 
 ## <a name="causes"></a>Cause
 
-* Un firewall o un proxy client impedisce l'accesso- [soluzione](#configure-client-firewall-access)
-* Le regole di accesso alla rete pubblica nel registro di sistema impediscono l'accesso- [soluzione](#configure-public-access-to-registry)
-* La configurazione della rete virtuale impedisce l'accesso- [soluzione](#configure-vnet-access)
-* Si tenta di integrare il Centro sicurezza di Azure o altri servizi di Azure con un registro con un endpoint privato, un endpoint del servizio o regole di accesso IP pubblico- [soluzione](#configure-service-access)
+* Un firewall client o un proxy impedisce l'accesso - [soluzione](#configure-client-firewall-access)
+* Le regole di accesso alla rete pubblica nel Registro di sistema impediscono l'accesso - [Soluzione](#configure-public-access-to-registry)
+* La configurazione della rete virtuale impedisce l'accesso - [Soluzione](#configure-vnet-access)
+* Si tenta di integrare Centro sicurezza di Azure o altri servizi di Azure con un registro con un endpoint privato, un endpoint di servizio o regole di accesso IP pubblico - [soluzione](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>Ulteriore diagnosi 
 
-Eseguire il comando [AZ ACR check-Health](/cli/azure/acr#az-acr-check-health) per ottenere altre informazioni sull'integrità dell'ambiente del registro di sistema e, facoltativamente, l'accesso a un registro di sistema di destinazione. Ad esempio, diagnosticare determinati problemi di configurazione o connettività di rete. 
+Eseguire il [comando az acr check-health](/cli/azure/acr#az-acr-check-health) per ottenere altre informazioni sull'integrità dell'ambiente del Registro di sistema e, facoltativamente, per accedere a un registro di destinazione. Ad esempio, diagnosticare determinati problemi di configurazione o connettività di rete. 
 
-Vedere [verificare l'integrità di un registro contenitori di Azure](container-registry-check-health.md) per gli esempi di comando. Se vengono segnalati errori, esaminare il [riferimento all'errore](container-registry-health-error-reference.md) e le sezioni seguenti per le soluzioni consigliate.
+Per esempi di comandi, vedere Controllare [l'integrità](container-registry-check-health.md) di un Registro Azure Container. Se vengono segnalati errori, esaminare le informazioni [di riferimento sull'errore](container-registry-health-error-reference.md) e le sezioni seguenti per le soluzioni consigliate.
 
-Se si verificano problemi durante l'uso di un servizio Azure Kubernetes con un registro integrato, eseguire il comando [AZ AKS check-ACR](/cli/azure/aks#az_aks_check_acr) per verificare che il cluster AKS possa raggiungere il registro di sistema.
+Se si verificano problemi durante l'uso di un servizio Azure Kubernetes con un registro integrato, eseguire il comando az servizio Web Active Directory [check-acr](/cli/azure/aks#az_aks_check_acr) per verificare che il cluster del servizio Web Diaz possa raggiungere il registro.
 
 > [!NOTE]
-> Alcuni sintomi della connettività di rete possono verificarsi anche in caso di problemi con l'autenticazione o l'autorizzazione del registro di sistema. Vedere [risolvere i problemi di accesso al registro di sistema](container-registry-troubleshoot-login.md).
+> Alcuni sintomi di connettività di rete possono verificarsi anche in caso di problemi con l'autenticazione o l'autorizzazione del Registro di sistema. Vedere Risolvere i [problemi di accesso al Registro di sistema.](container-registry-troubleshoot-login.md)
 
 ## <a name="potential-solutions"></a>Possibili soluzioni
 
 ### <a name="configure-client-firewall-access"></a>Configurare l'accesso al firewall client
 
-Per accedere a un registro da dietro un firewall client o un server proxy, configurare le regole del firewall per accedere agli endpoint di dati e REST pubblici del registro di sistema. Se gli [endpoint dati dedicati](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) sono abilitati, è necessario disporre di regole per accedere a:
+Per accedere a un registro da dietro un firewall client o un server proxy, configurare le regole del firewall per accedere agli endpoint dati e REST pubblici del registro. Se [gli endpoint dati dedicati sono abilitati,](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) sono necessarie regole per accedere a:
 
 * Endpoint REST: `<registryname>.azurecr.io`
 * Endpoint dati: `<registry-name>.<region>.data.azurecr.io`
 
-Per un registro con replica geografica, configurare l'accesso all'endpoint dati per ogni replica regionale.
+Per un registro con replica geografica, configurare l'accesso all'endpoint dati per ogni replica a livello di area.
 
-Dietro un proxy HTTPS, assicurarsi che il client Docker e il daemon Docker siano configurati per il comportamento del proxy. Se si modificano le impostazioni proxy per il daemon Docker, assicurarsi di riavviare il daemon. 
+Dietro un proxy HTTPS, assicurarsi che sia il client Docker che il daemon Docker siano configurati per il comportamento del proxy. Se si modificano le impostazioni proxy per il daemon Docker, assicurarsi di riavviare il daemon. 
 
-I log delle risorse del registro di sistema nella tabella ContainerRegistryLoginEvents possono aiutare a diagnosticare una connessione tentata bloccata.
+I log delle risorse del Registro di sistema nella tabella ContainerRegistryLoginEvents possono aiutare a diagnosticare un tentativo di connessione bloccato.
 
 Collegamenti correlati:
 
-* [Configurare le regole per accedere a un registro contenitori di Azure dietro un firewall](container-registry-firewall-access-rules.md)
-* [Configurazione proxy HTTP/HTTPS](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-* [Replica geografica in Azure Container Registry](container-registry-geo-replication.md)
-* [Log di Azure Container Registry per la valutazione diagnostica e il controllo](container-registry-diagnostics-audit-logs.md)
+* [Configurare le regole per accedere a un Registro Azure Container dietro un firewall](container-registry-firewall-access-rules.md)
+* [Configurazione del proxy HTTP/HTTPS](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+* [Replica geograficain Registro Azure Container](container-registry-geo-replication.md)
+* [Registro Azure Container log per la valutazione diagnostica e il controllo](container-registry-diagnostics-audit-logs.md)
 
-### <a name="configure-public-access-to-registry"></a>Configurare l'accesso pubblico al registro di sistema
+### <a name="configure-public-access-to-registry"></a>Configurare l'accesso pubblico al Registro di sistema
 
-Se si accede a un registro di sistema tramite Internet, verificare che il registro di sistema consenta l'accesso alla rete pubblica dal client. Per impostazione predefinita, un registro contenitori di Azure consente l'accesso agli endpoint del registro di sistema pubblici da tutte le reti. Un registro può limitare l'accesso alle reti selezionate o agli indirizzi IP selezionati. 
+Se si accede a un registro tramite Internet, verificare che il Registro di sistema consenta l'accesso alla rete pubblica dal client. Per impostazione predefinita, un registro Azure Container consente l'accesso agli endpoint del Registro di sistema pubblici da tutte le reti. Un registro può limitare l'accesso alle reti selezionate o agli indirizzi IP selezionati. 
 
-Se il registro di sistema è configurato per una rete virtuale con un endpoint del servizio, disabilitando l'accesso alla rete pubblica viene disabilitato anche l'accesso tramite l'endpoint del servizio. Se il registro di sistema è configurato per una rete virtuale con collegamento privato, le regole di rete IP non si applicano agli endpoint privati del registro di sistema. 
+Se il Registro di sistema è configurato per una rete virtuale con un endpoint di servizio, la disabilitazione dell'accesso alla rete pubblica disabilita anche l'accesso sull'endpoint di servizio. Se il registro è configurato per una rete virtuale con collegamento privato, le regole di rete IP non si applicano agli endpoint privati del Registro di sistema. 
 
 Collegamenti correlati:
 
 * [Configurare le regole di rete IP pubblico](container-registry-access-selected-networks.md)
-* [Connettersi privatamente a un registro contenitori di Azure usando il collegamento privato di Azure](container-registry-private-link.md)
+* [Connettersi privatamente a un registro Azure Container usando collegamento privato di Azure](container-registry-private-link.md)
 * [Limitare l'accesso a un registro contenitori usando un endpoint di servizio in una rete virtuale di Azure](container-registry-vnet.md)
 
 
-### <a name="configure-vnet-access"></a>Configurare l'accesso a VNet
+### <a name="configure-vnet-access"></a>Configurare l'accesso alla rete virtuale
 
-Verificare che la rete virtuale sia configurata con un endpoint privato per il collegamento privato o un endpoint servizio (anteprima). Attualmente un endpoint di Azure Bastion non è supportato.
+Verificare che la rete virtuale sia configurata con un endpoint privato per Collegamento privato o un endpoint di servizio (anteprima). Attualmente un endpoint Azure Bastion non è supportato.
 
-Esaminare le regole e i tag del servizio NSG usati per limitare il traffico da altre risorse della rete al registro di sistema. 
+Se è configurato un endpoint privato, verificare che DNS risolva l'FQDN pubblico del registro, ad esempio *myregistry.azurecr.io'indirizzo* IP privato del Registro di sistema. Usare un'utilità di rete, ad `dig` esempio o per la ricerca `nslookup` DNS. Assicurarsi che i [record DNS siano configurati per](container-registry-private-link.md#dns-configuration-options) l'FQDN del Registro di sistema e per ogni FQDN dell'endpoint dati.
 
-Se è configurato un endpoint di servizio per il registro di sistema, verificare che venga aggiunta una regola di rete al registro di sistema che consenta l'accesso da tale subnet di rete. L'endpoint servizio supporta solo l'accesso da macchine virtuali e cluster AKS nella rete.
+Esaminare le regole del gruppo di sicurezza di rete e i tag di servizio usati per limitare il traffico da altre risorse della rete al Registro di sistema. 
 
-Se si vuole limitare l'accesso al registro di sistema usando una rete virtuale in un'altra sottoscrizione di Azure, assicurarsi di registrare il `Microsoft.ContainerRegistry` provider di risorse nella sottoscrizione. [Registrare il provider di risorse](../azure-resource-manager/management/resource-providers-and-types.md) per Azure container Registry usando il portale di Azure, l'interfaccia della riga di comando di Azure o altri strumenti di Azure.
+Se è configurato un endpoint di servizio nel Registro di sistema, verificare che al Registro di sistema sia stata aggiunta una regola di rete che consenta l'accesso da tale subnet di rete. L'endpoint di servizio supporta solo l'accesso dalle macchine virtuali e dai cluster del servizio Azure Service Pack nella rete.
 
-Se nella rete è configurato un firewall di Azure o una soluzione simile, verificare che il traffico in uscita da altre risorse, ad esempio un cluster AKS, sia abilitato per raggiungere gli endpoint del registro di sistema.
+Se si vuole limitare l'accesso al Registro di sistema usando una rete virtuale in una sottoscrizione di Azure diversa, assicurarsi di registrare il provider di `Microsoft.ContainerRegistry` risorse in tale sottoscrizione. [Registrare il provider di risorse per](../azure-resource-manager/management/resource-providers-and-types.md) l'Registro Azure Container usando portale di Azure, l'interfaccia della riga di comando di Azure o altri strumenti di Azure.
 
-Se viene configurato un endpoint privato, verificare che DNS risolva il nome FQDN pubblico del registro di sistema, ad esempio *MyRegistry.azurecr.io* , nell'indirizzo IP privato del registro di sistema. Usare un'utilità di rete, ad esempio `dig` o `nslookup` per la ricerca DNS.
+Se Firewall di Azure o una soluzione simile è configurata nella rete, verificare che il traffico in uscita da altre risorse, ad esempio un cluster del servizio AKS, sia abilitato per raggiungere gli endpoint del Registro di sistema.
 
 Collegamenti correlati:
 
-* [Connettersi privatamente a un registro contenitori di Azure usando il collegamento privato di Azure](container-registry-private-link.md)
+* [Connettersi privatamente a un registro Azure Container usando collegamento privato di Azure](container-registry-private-link.md)
+* [Risolvere i problemi di connettività all'endpoint privato di Azure](../private-link/troubleshoot-private-endpoint-connectivity.md)
 * [Limitare l'accesso a un registro contenitori usando un endpoint di servizio in una rete virtuale di Azure](container-registry-vnet.md)
-* [Regole di rete in uscita obbligatorie e FQDN per i cluster AKS](../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
-* [Kubernetes: debug della risoluzione DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
+* [Regole di rete in uscita obbligatorie e FQDN per i cluster del servizio Gateway Gateway](../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+* [Kubernetes: Debug della risoluzione DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [Tag del servizio di rete virtuale](../virtual-network/service-tags-overview.md)
 
 ### <a name="configure-service-access"></a>Configurare l'accesso al servizio
 
 Attualmente, l'accesso a un registro contenitori con restrizioni di rete non è consentito da diversi servizi di Azure:
 
-* Il Centro sicurezza di Azure non può eseguire l' [analisi delle vulnerabilità delle immagini](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in un registro che limita l'accesso a endpoint privati, subnet selezionate o indirizzi IP. 
-* Le risorse di determinati servizi di Azure non sono in grado di accedere a un registro contenitori con restrizioni di rete, tra cui app Azure servizio e istanze di contenitore di Azure.
+* Centro sicurezza di Azure possibile eseguire l'analisi della vulnerabilità delle immagini [in](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) un Registro di sistema che limita l'accesso a endpoint privati, subnet selezionate o indirizzi IP. 
+* Le risorse di determinati servizi di Azure non sono in grado di accedere a un registro contenitori con restrizioni di rete, tra cui Servizio app di Azure e Istanze di Azure Container.
 
-Se è necessario l'accesso o l'integrazione di questi servizi di Azure con il registro contenitori, rimuovere la restrizione di rete. Ad esempio, rimuovere gli endpoint privati del registro di sistema oppure rimuovere o modificare le regole di accesso pubbliche del registro di sistema.
+Se è necessario l'accesso o l'integrazione di questi servizi di Azure con il registro contenitori, rimuovere la restrizione di rete. Ad esempio, rimuovere gli endpoint privati del Registro di sistema o rimuovere o modificare le regole di accesso pubblico del Registro di sistema.
 
-A partire dal 2021 gennaio è possibile configurare un registro di sistema con restrizioni di rete per [consentire l'accesso](allow-access-trusted-services.md) da servizi attendibili selezionati.
+A partire da gennaio 2021, è possibile configurare un registro con restrizioni di rete per consentire [l'accesso](allow-access-trusted-services.md) da servizi attendibili selezionati.
 
 Collegamenti correlati:
 
-* [Analisi delle immagini del Container Registry di Azure per Centro sicurezza](../security-center/defender-for-container-registries-introduction.md)
-* Invia [commenti e suggerimenti](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Registro Azure Container di immagini dal Centro sicurezza](../security-center/defender-for-container-registries-introduction.md)
+* Inviare [commenti e suggerimenti](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
 * [Consentire ai servizi attendibili di accedere in modo sicuro a un registro contenitori con restrizioni di rete](allow-access-trusted-services.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Risoluzione dei problemi avanzata
 
-Se nel registro di sistema è abilitata la [raccolta di log delle risorse](container-registry-diagnostics-audit-logs.md) , esaminare il log ContainterRegistryLoginEvents. Questo log archivia gli eventi e lo stato di autenticazione, inclusi l'identità in ingresso e l'indirizzo IP. Eseguire una query sul log per individuare gli [errori di autenticazione del registro](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
+Se [la raccolta di log delle risorse](container-registry-diagnostics-audit-logs.md) è abilitata nel Registro di sistema, esaminare il log ContainterRegistryLoginEvents. Questo log archivia gli eventi di autenticazione e lo stato, inclusi l'identità in ingresso e l'indirizzo IP. Eseguire una query nel log per gli [errori di autenticazione del Registro di sistema.](container-registry-diagnostics-audit-logs.md#registry-authentication-failures) 
 
 Collegamenti correlati:
 
-* [Log per la valutazione diagnostica e il controllo](container-registry-diagnostics-audit-logs.md)
+* [Log per la valutazione e il controllo di diagnostica](container-registry-diagnostics-audit-logs.md)
 * [Domande frequenti sul registro contenitori](container-registry-faq.md)
-* [Baseline della sicurezza di Azure per Azure Container Registry](security-baseline.md)
+* [Baseline di sicurezza di Azure per Registro Azure Container](security-baseline.md)
 * [Procedure consigliate per Registro Azure Container](container-registry-best-practices.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non si risolve il problema, vedere le opzioni seguenti.
+Se il problema persiste, vedere le opzioni seguenti.
 
-* Altri argomenti sulla risoluzione dei problemi del registro di sistema includono:
-  * [Risolvere i problemi di accesso al registro](container-registry-troubleshoot-login.md) 
-  * [Risolvere i problemi relativi alle prestazioni del registro](container-registry-troubleshoot-performance.md)
-* Opzioni di [supporto della community](https://azure.microsoft.com/support/community/)
+* Altri argomenti relativi alla risoluzione dei problemi del Registro di sistema includono:
+  * [Risolvere i problemi di accesso al Registro di sistema](container-registry-troubleshoot-login.md) 
+  * [Risolvere i problemi relativi alle prestazioni del Registro di sistema](container-registry-troubleshoot-performance.md)
+* [Opzioni di supporto della](https://azure.microsoft.com/support/community/) community
 * [Domande e risposte Microsoft](/answers/products/)
 * [Aprire un ticket di supporto](https://azure.microsoft.com/support/create-ticket/)

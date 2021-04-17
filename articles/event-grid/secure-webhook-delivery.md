@@ -1,35 +1,35 @@
 ---
-title: Distribuzione sicura di webhook con Azure AD in Griglia di eventi di Azure
-description: Descrive come recapitare eventi agli endpoint HTTPS protetti da Azure Active Directory usando Griglia di eventi di Azure
+title: Proteggere il recapito di webhook con Azure AD in Griglia di eventi di Azure
+description: Viene descritto come recapitare eventi agli endpoint HTTPS protetti da Azure Active Directory tramite Griglia di eventi di Azure
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.openlocfilehash: 4238087d977fa1102d1dd31d0cc9080d6308c175
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 6a0f9059e17d96d497b425abc9749e69c5ab4d41
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389690"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575548"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Pubblicare eventi per endpoint protetti di Azure Active Directory
 Questo articolo descrive come usare Azure Active Directory (Azure AD) per proteggere la connessione  tra la sottoscrizione di eventi e l'endpoint **del webhook.** Per una panoramica delle Azure AD e delle entità servizio, vedere Panoramica di [Microsoft Identity Platform (v2.0).](../active-directory/develop/v2-overview.md)
 
-Questo articolo usa il portale di Azure per la dimostrazione, ma la funzionalità può essere abilitata anche usando l'interfaccia della riga di comando, PowerShell o gli SDK.
+Questo articolo usa il portale di Azure a scopo dimostrativo, ma la funzionalità può essere abilitata anche tramite l'interfaccia della riga di comando, PowerShell o gli SDK.
 
 > [!IMPORTANT]
-> È stato introdotto un controllo di accesso aggiuntivo come parte della creazione o dell'aggiornamento della sottoscrizione di eventi il 30 marzo 2021 per risolvere una vulnerabilità di sicurezza. L'entità servizio del client sottoscrittore deve essere un proprietario o avere un ruolo assegnato nell'entità servizio dell'applicazione di destinazione. Riconfigurare l'applicazione AAD seguendo le nuove istruzioni riportate di seguito.
+> Il controllo di accesso aggiuntivo è stato introdotto come parte della creazione o dell'aggiornamento della sottoscrizione di eventi il 30 marzo 2021 per risolvere una vulnerabilità di sicurezza. L'entità servizio del client sottoscrittore deve essere un proprietario o avere un ruolo assegnato nell'entità servizio dell'applicazione di destinazione. Riconfigurare l'applicazione AAD seguendo le nuove istruzioni riportate di seguito.
 
 
 ## <a name="create-an-azure-ad-application"></a>Creare un'Azure AD applicazione
-Registrare il webhook con Azure AD creando un'applicazione Azure AD per l'endpoint protetto. Vedere [Scenario: API Web protetta](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview). Configurare l'API protetta affinché venga chiamata da un'app daemon.
+Registrare il webhook con Azure AD creando un'applicazione Azure AD per l'endpoint protetto. Vedere [Scenario: API Web protetta.](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview) Configurare l'API protetta affinché venga chiamata da un'app daemon.
     
-## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Abilitare Griglia di eventi per l'uso dell Azure AD app
-Questa sezione illustra come abilitare Griglia di eventi per l'uso dell'Azure AD applicazione. 
+## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Abilitare Griglia di eventi per l'uso dell Azure AD appalto
+Questa sezione illustra come abilitare Griglia di eventi per l'uso dell Azure AD app Azure AD eventi. 
 
 > [!NOTE]
 > Per eseguire questo script, è necessario essere un membro del [ruolo di amministratore dell'applicazione Azure AD](../active-directory/roles/permissions-reference.md#all-roles).
 
 ### <a name="connect-to-your-azure-tenant"></a>Connettersi al tenant di Azure
-Per prima cosa, connettersi al tenant di Azure usando il `Connect-AzureAD` comando . 
+Prima di tutto, connettersi al tenant di Azure usando il `Connect-AzureAD` comando . 
 
 ```PowerShell
 $myWebhookAadTenantId = "<Your Webhook's Azure AD tenant id>"
@@ -49,9 +49,7 @@ $eventGridSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventGridApp
 if ($eventGridSP -match "Microsoft.EventGrid")
 {
     Write-Host "The Service principal is already defined.`n"
-}
-else
-{
+} else {
     # Create a service principal for the "Azure Event Grid" AAD Application and add it to the role
     Write-Host "Creating the Azure Event Grid service principal"
     $eventGridSP = New-AzureADServicePrincipal -AppId $eventGridAppId
@@ -94,9 +92,7 @@ Write-Host $myAppRoles
 if ($myAppRoles -match $eventGridRoleName)
 {
     Write-Host "The Azure Event Grid role is already defined.`n"
-}
-else
-{      
+} else {      
     # Add our new role to the Azure AD Application
     Write-Host "Creating the Azure Event Grid role in Azure Ad Application: " $myWebhookAadApplicationObjectId
     $newRole = CreateAppRole -Name $eventGridRoleName -Description "Azure Event Grid Role"
@@ -154,7 +150,7 @@ Eseguire il New-AzureADServiceAppRoleAssignment comando per assegnare l'entità 
 
 ```powershell
 $eventGridAppRole = $myApp.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId -PrincipalId $eventGridSP.ObjectId
+New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
 ```
 
 Eseguire i comandi seguenti per ottenere informazioni che verranno usate in un secondo momento.
@@ -177,7 +173,7 @@ Quando si crea una sottoscrizione di eventi, seguire questa procedura:
 1. Nella scheda **Funzionalità aggiuntive** seguire questa procedura:
     1. Selezionare **Usa autenticazione AAD** e configurare l'ID tenant e l'ID applicazione:
     1. Copiare Azure AD'ID tenant dall'output dello script e immetterlo nel campo **AAD Tenant ID (ID tenant AAD).**
-    1. Copiare Azure AD'ID applicazione dall'output dello script e immetterlo nel campo **ID applicazione AAD.** In alternativa, è possibile usare l'URI ID applicazione AAD. Per altre informazioni sull'URI DELL'ID applicazione, vedere [questo articolo.](../app-service/configure-authentication-provider-aad.md)
+    1. Copiare Azure AD'ID applicazione dall'output dello script e immetterlo nel campo **AAD Application ID (ID applicazione AAD).** In alternativa, è possibile usare l'URI ID applicazione AAD. Per altre informazioni sull'URI DELL'ID applicazione, vedere [questo articolo.](../app-service/configure-authentication-provider-aad.md)
 
         ![Usare l'azione Webhook](./media/secure-webhook-delivery/aad-configuration.png)
 

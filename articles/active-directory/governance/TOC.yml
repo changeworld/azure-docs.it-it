@@ -14,9 +14,9 @@
 - name: Esercitazioni
   expanded: true
   items:
-    - name: Gestire l'accesso alle risorse-portale di Azure
+    - name: Gestire l'accesso alle risorse - portale di Azure
       href: entitlement-management-access-package-first.md
-    - name: Gestire l'accesso alle risorse-Microsoft Graph
+    - name: Gestire l'accesso alle risorse - Microsoft Graph
       href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
 - name: Concetti
   expanded: true
@@ -144,6 +144,6 @@
   expanded: true
   items:
     - name: Verifiche di accesso - API Graph
-      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta
+      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true
     - name: Gestione entitlement - API Graph
-      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta
+      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta&preserve-view=true

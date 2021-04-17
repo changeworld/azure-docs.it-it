@@ -1,96 +1,120 @@
 ---
 title: Modelli DTDL
 titleSuffix: Azure Digital Twins
-description: Informazioni sul modo in cui i dispositivi gemelli digitali di Azure usano modelli personalizzati per descrivere le entità nell'ambiente.
+description: Comprendere come Gemelli digitali di Azure modelli personalizzati per descrivere le entità nell'ambiente.
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d3570a22fdd935237e673ea3e43ab5e463b66456
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8942262c2e02670d57b1db324eb154dcc38f00f8
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590535"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575395"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Informazioni sui modelli gemelli in Gemelli digitali di Azure
 
-Una caratteristica chiave dei dispositivi gemelli digitali di Azure è la possibilità di definire un vocabolario personalizzato e di creare un grafico a gemelli in termini autonomi dell'azienda. Questa funzionalità viene fornita tramite **modelli** forniti dall'utente. È possibile considerare i modelli come Sostantivi in una descrizione del mondo. 
+Una caratteristica chiave di Gemelli digitali di Azure è la possibilità di definire il proprio vocabolario e creare il grafo dei gemelli in termini autodefiniti dell'azienda. Questa funzionalità viene fornita tramite modelli forniti **dall'utente.** È possibile pensare ai modelli come ai sostantivi in una descrizione del mondo. 
 
-Un modello è simile a una **classe** in un linguaggio di programmazione orientato a oggetti, definendo una forma dati per un particolare concetto nell'ambiente di lavoro reale. I modelli hanno nomi, ad esempio *room* o *sensore*, e contengono elementi quali proprietà, telemetria/eventi e comandi che descrivono il tipo di entità nell'ambiente. Successivamente, questi modelli vengono usati per creare i dispositivi [**gemelli digitali**](concepts-twins-graph.md) che rappresentano entità specifiche che soddisfano questa descrizione del tipo.
+Un modello è simile a una **classe** in un linguaggio di programmazione orientato a oggetti, definendo una forma di dati per un particolare concetto nell'ambiente di lavoro reale. I modelli hanno nomi (ad esempio *Room* o *TemperatureSensor)* e contengono elementi come proprietà, dati di telemetria/eventi e comandi che descrivono le attività che questo tipo di entità può eseguire nell'ambiente. In un secondo momento questi modelli verranno utilizzati per creare [**gemelli digitali che**](concepts-twins-graph.md) rappresentano entità specifiche che soddisfano questa descrizione del tipo.
 
-I modelli di dispositivi gemelli digitali di Azure sono rappresentati nel **DTDL (Digital Twin Definition Language)** basato su JSON-LD.  
+Gemelli digitali di Azure modelli sono rappresentati nel linguaggio **DTDL (Digital Twin Definition Language) basato su** JSON-LD.  
 
-## <a name="digital-twin-definition-language-dtdl-for-models"></a>Digital Twin Definition Language (DTDL) per i modelli
+## <a name="digital-twin-definition-language-dtdl-for-models"></a>DTDL (Digital Twin Definition Language) per i modelli
 
-I modelli per i dispositivi gemelli digitali di Azure vengono definiti tramite il linguaggio DTDL (Digital Gemini Definition Language). 
+I modelli Gemelli digitali di Azure vengono definiti usando il linguaggio DTDL (Digital Twins Definition Language). 
 
-È possibile visualizzare le specifiche della lingua completa per DTDL in GitHub: [**Digital Gemini Definition Language (DTDL)-versione 2**](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+È possibile visualizzare le specifiche di linguaggio complete per DTDL in GitHub: [**DTDL (Digital Twins Definition Language) - Versione 2.**](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)
 
-DTDL è basato su JSON-LD ed è indipendente dal linguaggio di programmazione. DTDL non è esclusivo per i dispositivi gemelli digitali di Azure, ma viene usato anche per rappresentare i dati dei dispositivi in altri servizi Internet, ad esempio [plug and Play](../iot-pnp/overview-iot-plug-and-play.md). I dispositivi gemelli digitali di Azure usano DTDL **versione 2** (l'uso di DTDL versione 1 con i dispositivi gemelli digitali di Azure è ora deprecato). 
+DTDL è basato su JSON-LD ed è indipendente dal linguaggio di programmazione. DTDL non è esclusivo per Gemelli digitali di Azure, ma viene usato anche per rappresentare i dati dei dispositivi in altri servizi IoT, ad esempio [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Gemelli digitali di Azure usa DTDL **versione 2** (l'uso di DTDL versione 1 con Gemelli digitali di Azure è stato deprecato). 
 
-Il resto di questo articolo riepiloga il modo in cui viene usata la lingua nei dispositivi gemelli digitali di Azure.
+Nella parte restante di questo articolo viene riepilogato il modo in cui il linguaggio viene usato in Gemelli digitali di Azure.
 
-> [!NOTE] 
-> Non tutti i servizi che usano DTDL implementano esattamente le stesse funzionalità di DTDL. Ad esempio, il Plug and Play Internet delle cose non usa le funzionalità di DTDL per i grafici, mentre i dispositivi gemelli digitali di Azure attualmente non implementano i comandi di DTDL.
->
-> Per altre informazioni sulle funzionalità di DTDL specifiche per i dispositivi gemelli digitali di Azure, vedere la sezione più avanti in questo articolo sulle specifiche di implementazione di DTDL per i dispositivi [digitali gemelli di Azure](#azure-digital-twins-dtdl-implementation-specifics).
+### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Gemelli digitali di Azure specifiche dell'implementazione DTDL
+
+Non tutti i servizi che usano DTDL implementano esattamente le stesse funzionalità di DTDL. Ad esempio, IoT Plug and Play non usa le funzionalità DTDL per i grafi, mentre Gemelli digitali di Azure attualmente non implementa i comandi DTDL. 
+
+Perché un modello DTDL sia compatibile con Gemelli digitali di Azure, deve soddisfare questi requisiti:
+
+* Tutti gli elementi DTDL di primo livello in un modello devono essere di tipo *interface*. Ciò è dovuto Gemelli digitali di Azure le API del modello possono ricevere oggetti JSON che rappresentano un'interfaccia o una matrice di interfacce. Di conseguenza, non sono consentiti altri tipi di elementi DTDL al livello superiore.
+* DTDL per Gemelli digitali di Azure non deve definire *comandi*.
+* Gemelli digitali di Azure solo un singolo livello di annidamento dei componenti. Ciò significa che un'interfaccia usata come componente non può avere componenti. 
+* Le interfacce non possono essere definite inline all'interno di altre interfacce DTDL. devono essere definite come entità di primo livello separate con i propri ID. Quindi, quando un'altra interfaccia vuole includere tale interfaccia come componente o tramite ereditarietà, può fare riferimento al relativo ID.
+
+Gemelli digitali di Azure non osserva l'attributo `writable` su proprietà o relazioni. Anche se può essere impostato in base alle specifiche DTDL, il valore non viene usato da Gemelli digitali di Azure. Al contrario, vengono sempre considerati scrivibili dai client esterni che dispongono di autorizzazioni di scrittura generali per il Gemelli digitali di Azure servizio.
 
 ## <a name="elements-of-a-model"></a>Elementi di un modello
 
-All'interno di una definizione del modello, l'elemento di codice di primo livello è un' **interfaccia**. che incapsula l'intero modello, mentre il resto del modello viene definito all'interno dell'interfaccia. 
+All'interno di una definizione di modello, l'elemento di codice di primo livello è **un'interfaccia**. che incapsula l'intero modello, mentre il resto del modello viene definito all'interno dell'interfaccia. 
 
-Un'interfaccia del modello DTDL può contenere zero, uno o molti dei seguenti campi:
-* **Proprietà** -le proprietà sono campi dati che rappresentano lo stato di un'entità (ad esempio le proprietà in molti linguaggi di programmazione orientati a oggetti). Le proprietà dispongono di archiviazione di backup e possono essere lette in qualsiasi momento.
-* I campi di **telemetria: i** campi di telemetria rappresentano misurazioni o eventi e vengono spesso usati per descrivere le letture dei sensori del dispositivo. Diversamente dalle proprietà, i dati di telemetria non vengono archiviati in un dispositivo gemello digitale. si tratta di una serie di eventi di dati associati al tempo che devono essere gestiti non appena si verificano. Per altre informazioni sulle differenze tra la proprietà e la telemetria, vedere la sezione [*proprietà e telemetria*](#properties-vs-telemetry) riportata di seguito.
-* **Component** -Components consente di compilare l'interfaccia del modello come assembly di altre interfacce, se lo si desidera. Un esempio di componente è costituito da un'interfaccia *frontCamera* (e da un'altra *backcamera* di interfaccia componente) utilizzata per la definizione di un modello per un *telefono*. È necessario innanzitutto definire un'interfaccia per *frontCamera* come se fosse un modello proprio, quindi è possibile farvi riferimento durante la definizione del *telefono*.
+Un'interfaccia del modello DTDL può contenere zero, uno o molti dei campi seguenti:
+* **Proprietà:** le proprietà sono campi dati che rappresentano lo stato di un'entità, ad esempio le proprietà in molti linguaggi di programmazione orientati a oggetti. Le proprietà dispongono di archiviazione di backup e possono essere lette in qualsiasi momento.
+* **Telemetria:** i campi di telemetria rappresentano misurazioni o eventi e vengono spesso usati per descrivere le letture dei sensori del dispositivo. A differenza delle proprietà, i dati di telemetria non vengono archiviati in un dispositivo gemello digitale. è una serie di eventi dati associati a tempo che devono essere gestiti non appena si verificano. Per altre informazioni sulle differenze tra proprietà e telemetria, vedere la sezione [*Proprietà e telemetria*](#properties-vs-telemetry) riportata di seguito.
+* **Componente:** i componenti consentono di compilare l'interfaccia del modello come assembly di altre interfacce, se necessario. Un esempio di componente è un'interfaccia *frontCamera* (e un'altra interfaccia del componente *backCamera*) che vengono usate nella definizione di un modello per un *telefono.* È prima necessario definire un'interfaccia *per frontCamera* come se fosse un proprio modello e quindi è possibile fare riferimento a essa quando si definisce *Phone*.
 
-    Usare un componente per descrivere una parte integrante della soluzione, ma non è necessaria un'identità separata e non è necessario crearla, eliminarla o riordinarla in modo indipendente. Se si vuole che le entità dispongano di esistenza indipendente nel grafo gemello, rappresentarle come gemelli digitali distinti di modelli diversi, connessi da *relazioni* (vedere il punto successivo).
+    Usare un componente per descrivere un elemento che è parte integrante della soluzione, ma non richiede un'identità separata e non deve essere creato, eliminato o riorganizzato nel grafico gemello in modo indipendente. Se si vuole che le entità presentino esistenze indipendenti nel grafo gemello, rappresentarle come gemelli digitali separati di modelli diversi, connessi da relazioni *(vedere* il punto successivo).
     
     >[!TIP] 
-    >I componenti possono inoltre essere utilizzati per l'organizzazione per raggruppare set di proprietà correlate all'interno di un'interfaccia del modello. In questa situazione è possibile considerare ogni componente come uno spazio dei nomi o una "cartella" all'interno dell'interfaccia.
-* **Relazioni: le** relazioni consentono di rappresentare il modo in cui un dispositivo gemello digitale può essere associato ad altri dispositivi gemelli digitali. Le relazioni possono rappresentare significati semantici diversi, ad esempio *Contains* ("Floor Contains room"), *Cools* ("HVAC Cools room"), *isBilledTo* ("commediator is fatturated to User") e così via. Le relazioni consentono alla soluzione di fornire un grafico delle entità correlate.
+    >I componenti possono essere usati anche per l'organizzazione, per raggruppare set di proprietà correlate all'interno di un'interfaccia del modello. In questo caso, è possibile pensare a ogni componente come a uno spazio dei nomi o a una "cartella" all'interno dell'interfaccia.
+* **Relazione:** le relazioni consentono di rappresentare il modo in cui un gemello digitale può essere coinvolto con altri gemelli digitali. Le relazioni possono rappresentare significati semantici diversi, ad esempio *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("il refrigeratore viene fatturato all'utente") e così via. Le relazioni consentono alla soluzione di fornire un grafo di entità correlate.
 
 > [!NOTE]
-> La [specifica per DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definisce anche i **comandi**, che sono metodi che possono essere eseguiti su un dispositivo gemello digitale, ad esempio un comando reset, o un comando per attivare o disattivare un ventilatore. Tuttavia, *i comandi non sono attualmente supportati nei dispositivi gemelli digitali di Azure.*
+> La [specifica per DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definisce anche **i** comandi , che sono metodi che possono essere eseguiti su un gemello digitale ,ad esempio un comando di reimpostazione o un comando per attivare o disattivare una ventola. Tuttavia, *i comandi non sono attualmente supportati in Gemelli digitali di Azure.*
 
-### <a name="properties-vs-telemetry"></a>Confronto tra proprietà e telemetria
+### <a name="properties-vs-telemetry"></a>Proprietà e telemetria
 
-Di seguito sono riportate alcune informazioni aggiuntive sulla distinzione tra i campi della **Proprietà** DTDL e di **telemetria** nei dispositivi gemelli digitali di Azure.
+Ecco alcune indicazioni aggiuntive sulla distinzione  tra la proprietà DTDL e i campi di **telemetria** in Gemelli digitali di Azure.
 
-La differenza tra proprietà e telemetria per i modelli di dispositivi gemelli digitali di Azure è la seguente:
-* Si prevede che le **Proprietà** dispongano di archiviazione di backup. Ciò significa che è possibile leggere una proprietà in qualsiasi momento e recuperare il relativo valore. Se la proprietà è scrivibile, è anche possibile archiviare un valore nella proprietà.  
-* La **telemetria** è più simile a un flusso di eventi; si tratta di un set di messaggi di dati che hanno una durata breve. Se non si configura l'ascolto dell'evento e le azioni da intraprendere quando si verifica, non è presente alcuna traccia dell'evento in un secondo momento. Non è possibile tornare a questa pagina e leggerla in un secondo momento. 
-  - Nei termini di C#, la telemetria è come un evento C#. 
-  - In termini di utilizzo generale, la telemetria è in genere una singola misurazione inviata da un dispositivo.
+La differenza tra proprietà e telemetria per Gemelli digitali di Azure modelli è la seguente:
+* **Si** prevede che le proprietà presentino spazio di archiviazione di backup. Ciò significa che è possibile leggere una proprietà in qualsiasi momento e recuperarne il valore. Se la proprietà è scrivibile, è anche possibile archiviare un valore nella proprietà .  
+* **La telemetria** è più simile a un flusso di eventi. è un set di messaggi di dati con una durata breve. Se non si configura l'ascolto dell'evento e delle azioni da intraprendere quando si verifica, non esiste alcuna traccia dell'evento in un secondo momento. Non è possibile tornare a questa pagina e leggerla in un secondo momento. 
+  - In termini di C#, la telemetria è simile a un evento C#. 
+  - In termini IoT, i dati di telemetria sono in genere una singola misura inviata da un dispositivo.
 
-I dati di **telemetria** vengono spesso usati con i dispositivi Internet, perché molti dispositivi non sono idonei o interessati a archiviare i valori di misurazione che generano. Li inviano semplicemente come flusso di eventi di telemetria. In questo caso, non è possibile chiedere al dispositivo in qualsiasi momento l'ultimo valore del campo di telemetria. Al contrario, sarà necessario ascoltare i messaggi dal dispositivo e intraprendere le azioni all'arrivo dei messaggi. 
+**I** dati di telemetria vengono spesso usati con i dispositivi IoT, perché molti dispositivi non sono in grado di archiviare o di cui sono interessati i valori di misurazione generati. Li inviano semplicemente come flusso di eventi di "telemetria". In questo caso, non è possibile chiedere al dispositivo in qualsiasi momento il valore più recente del campo di telemetria. Sarà invece necessario restare in ascolto dei messaggi dal dispositivo ed eseguire azioni all'arrivo dei messaggi. 
 
-Di conseguenza, quando si progetta un modello in Azure Digital Twins, probabilmente si useranno le **Proprietà** nella maggior parte dei casi per modellare i dispositivi gemelli. In questo modo è possibile avere l'archiviazione di backup e la possibilità di leggere ed eseguire query sui campi dati.
+Di conseguenza, quando si progetta un modello in  Gemelli digitali di Azure, nella maggior parte dei casi si useranno le proprietà per modellare i gemelli. In questo modo è possibile avere l'archiviazione di backup e la possibilità di leggere ed eseguire query sui campi dati.
 
-I dati di telemetria e le proprietà spesso interagiscono per gestire i dati in ingresso dai dispositivi. Poiché tutti i dati in ingresso nei dispositivi gemelli digitali di Azure sono tramite [API](how-to-use-apis-sdks.md), in genere si userà la funzione di ingresso per leggere i dati di telemetria o gli eventi delle proprietà dai dispositivi e impostare una proprietà nei dispositivi gemelli digitali di Azure in risposta. 
+I dati di telemetria e le proprietà spesso funzionano insieme per gestire l'ingresso dei dati dai dispositivi. Poiché tutti i dati in ingresso Gemelli digitali di Azure tramite le API [,](how-to-use-apis-sdks.md)in genere si usa la funzione in ingresso per leggere i dati di telemetria o gli eventi delle proprietà dai dispositivi e impostare una proprietà in Gemelli digitali di Azure in risposta. 
 
-È anche possibile pubblicare un evento di telemetria dall'API dei dispositivi gemelli digitali di Azure. Come per gli altri dati di telemetria, si tratta di un evento di breve durata che richiede un listener per la gestione.
+È anche possibile pubblicare un evento di telemetria dall'API Gemelli digitali di Azure dati. Come per altri dati di telemetria, si tratta di un evento di breve durata che richiede la gestione di un listener.
 
-### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Specifiche di implementazione DTDL di dispositivi digitali gemelli di Azure
+## <a name="model-inheritance"></a>Ereditarietà del modello
 
-Per garantire la compatibilità di un modello DTDL con i dispositivi gemelli digitali di Azure, è necessario che soddisfi questi requisiti.
+In alcuni casi può essere necessario specializzare ulteriormente un modello. Ad esempio, potrebbe essere utile avere un modello generico *Room* e varianti specializzate *ConferenceRoom* e *Gym.* Per esprimere la specializzazione, DTDL supporta l'ereditarietà: le interfacce possono ereditare da una o più altre interfacce. 
 
-* Tutti gli elementi DTDL di primo livello in un modello devono essere di tipo *Interface*. Questo perché le API del modello di dispositivi gemelli digitali di Azure possono ricevere oggetti JSON che rappresentano un'interfaccia o una matrice di interfacce. Di conseguenza, non sono consentiti altri tipi di elementi DTDL al livello principale.
-* DTDL per i dispositivi gemelli digitali di Azure non deve definire alcun *comando*.
-* I dispositivi gemelli digitali di Azure consentono solo un singolo livello di annidamento dei componenti. Ciò significa che un'interfaccia usata come componente non può avere alcun componente. 
-* Le interfacce non possono essere definite inline all'interno di altre interfacce DTDL. devono essere definite come entità di primo livello separate con i rispettivi ID. Quindi, quando un'altra interfaccia vuole includere tale interfaccia come componente o tramite ereditarietà, può fare riferimento al relativo ID.
+L'esempio seguente ri-immagina il modello *Planet* dell'esempio DTDL precedente come sottotipo di un modello *CelestialBody più* grande. Il modello "padre" viene definito per primo e quindi il modello "figlio" si basa su di esso usando il campo `extends` .
 
-I dispositivi gemelli digitali di Azure non osservano inoltre l' `writable` attributo per le proprietà o le relazioni. Sebbene possa essere impostata in base alle specifiche DTDL, il valore non viene usato dai dispositivi gemelli digitali di Azure. Al contrario, questi vengono sempre trattati come scrivibili da client esterni che dispongono di autorizzazioni di scrittura generali per il servizio Azure Digital Twins.
+:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
 
-## <a name="example-model-code"></a>Esempio di codice del modello
+In questo *esempio, CelestialBody* contribuisce con un nome, una massa e una temperatura a *Planet*. La sezione è un nome di interfaccia o una matrice di nomi di interfaccia ,consentendo all'interfaccia di estensione di ereditare `extends` da più modelli padre, se lo si desidera.
 
-I modelli di tipo gemello possono essere scritti in qualsiasi editor di testo. Il linguaggio DTDL segue la sintassi JSON, quindi è necessario archiviare i modelli con estensione *JSON*. L'uso dell'estensione JSON consentirà a molti editor di testo di programmazione di fornire il controllo della sintassi di base ed evidenziare i documenti DTDL. Per [Visual Studio Code](https://code.visualstudio.com/)è disponibile anche un' [estensione DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) .
+Dopo l'applicazione dell'ereditarietà, l'interfaccia che estende espone tutte le proprietà dell'intera catena di ereditarietà.
 
-Questa sezione contiene un esempio di un modello tipico, scritto come interfaccia DTDL. Il modello descrive i **pianeti**, ognuno con un nome, una massa e una temperatura.
+L'interfaccia di estensione non può modificare le definizioni delle interfacce padre. può essere aggiunto solo ad essi. Non può anche ridefinire una funzionalità già definita in nessuna delle interfacce padre (anche se le funzionalità sono definite come uguali). Ad esempio, se un'interfaccia padre definisce una massa di proprietà , l'interfaccia che estende non può contenere una dichiarazione di massa , anche se `double` è anche un   `double` .
+
+## <a name="model-code"></a>Codice del modello
+
+I modelli di tipo gemello possono essere scritti in qualsiasi editor di testo. Il linguaggio DTDL segue la sintassi JSON, pertanto è consigliabile archiviare i modelli con estensione *json*. L'uso dell'estensione JSON consentirà a molti editor di testo di programmazione di fornire il controllo della sintassi di base e l'evidenziazione per i documenti DTDL. È disponibile anche [un'estensione DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) [per](https://code.visualstudio.com/)Visual Studio Code .
+
+### <a name="possible-schemas"></a>Possibili schemi
+
+In base a DTDL, lo schema per gli attributi *Property* e *Telemetry* può essere di tipi primitivi standard, ad esempio , , e , e altri `integer` `double` `string` `Boolean` tipi, `DateTime` ad esempio e `Duration` . 
+
+Oltre ai tipi primitivi, i *campi Proprietà* *e Telemetria* possono avere questi tipi complessi:
+* `Object`
+* `Map`
+* `Enum`
+
+*I campi* di telemetria supportano anche `Array` .
+
+### <a name="example-model"></a>Modello di esempio
+
+Questa sezione contiene un esempio di un modello tipico, scritto come interfaccia DTDL. Il modello descrive **i pianeta,** ognuno con un nome, una massa e una temperatura.
  
-Tenere presente che i pianeti possono interagire anche con le **lune** che sono i loro satelliti e possono contenere **crateri**. Nell'esempio seguente il `Planet` modello esprime le connessioni a queste altre entità facendo riferimento a due modelli esterni, `Moon` e `Crater` . Questi modelli sono definiti anche nel codice di esempio riportato di seguito, ma sono conservati molto semplici, in modo da evitare di detrarre dall' `Planet` esempio principale.
+Si consideri che i satelliti possono anche interagire con **le** lune che sono i loro satelliti e possono contenere **i 10.** Nell'esempio seguente il modello esprime le connessioni a queste altre entità facendo riferimento `Planet` a due modelli esterni, e `Moon` `Crater` . Questi modelli sono definiti anche nel codice di esempio seguente, ma vengono mantenuti molto semplici per non tralzare dall'esempio `Planet` principale.
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Crater-Moon.json":::
 
@@ -99,72 +123,47 @@ I campi del modello sono:
 | Campo | Descrizione |
 | --- | --- |
 | `@id` | Identificatore per il modello. Deve essere nel formato `dtmi:<domain>:<unique model identifier>;<model version number>` . |
-| `@type` | Identifica il tipo di informazioni da descrivere. Per un'interfaccia, il tipo è *Interface*. |
+| `@type` | Identifica il tipo di informazioni descritte. Per un'interfaccia, il tipo è *Interface*. |
 | `@context` | Imposta il [contesto](https://niem.github.io/json/reference/json-ld/context/) per il documento JSON. I modelli devono usare `dtmi:dtdl:context;2` . |
-| `displayName` | opzionale Consente di assegnare al modello un nome descrittivo, se lo si desidera. |
-| `contents` | Tutti i dati dell'interfaccia rimanenti vengono inseriti qui come una matrice di definizioni di attributo. Ogni attributo deve fornire un `@type` (*Proprietà*, *telemetria*, *comando*, *relazione* o *componente*) per identificare l'ordinamento delle informazioni di interfaccia descritte, quindi un set di proprietà che definiscono l'attributo effettivo (ad esempio, `name` e `schema` per definire una *Proprietà*). |
+| `displayName` | [facoltativo] Consente di assegnare al modello un nome descrittivo, se necessario. |
+| `contents` | Tutti i dati di interfaccia rimanenti vengono inseriti qui, come matrice di definizioni di attributi. Ogni attributo deve fornire ( Proprietà , Telemetria , Comando , Relazione o Componente ) per identificare il tipo di informazioni sull'interfaccia che descrive e quindi un set di proprietà che definiscono l'attributo effettivo `@type` (ad esempio,  e per definire una  `name` `schema` *proprietà*). |
 
 > [!NOTE]
-> Si noti che l'interfaccia componente (*cratere* in questo esempio) è definita nella stessa matrice dell'interfaccia che la utilizza (*Planet*). I componenti devono essere definiti in questo modo nelle chiamate API per poter trovare l'interfaccia.
-
-### <a name="possible-schemas"></a>Schemi possibili
-
-Come per DTDL, lo schema per gli attributi di *Proprietà* e *telemetria* può essere di tipi primitivi standard `integer` , ovvero,, `double` `string` e `Boolean` altri tipi quali `DateTime` e `Duration` . 
-
-Oltre ai tipi primitivi, i campi di *Proprietà* e *telemetria* possono avere questi tipi complessi:
-* `Object`
-* `Map`
-* `Enum`
-
-I campi di *telemetria* supportano anche `Array` .
-
-### <a name="model-inheritance"></a>Ereditarietà del modello
-
-In alcuni casi può essere necessario specializzare ulteriormente un modello. Ad esempio, potrebbe essere utile disporre di una *stanza* del modello generica e di varianti specializzate *conferenceroom* e *Gym*. Per esprimere la specializzazione, DTDL supporta l'ereditarietà: le interfacce possono ereditare da una o più interfacce. 
-
-Nell'esempio seguente viene nuovamente immaginato il modello *Planet* dell'esempio precedente DTDL come sottotipo di un modello *CelestialBody* più grande. Il modello "Parent" viene definito per primo e quindi il modello "Child" si basa su di esso tramite il campo `extends` .
-
-:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
-
-In questo esempio, *CelestialBody* contribuisce con un nome, una massa e una temperatura al *pianeta*. La `extends` sezione è un nome di interfaccia o una matrice di nomi di interfaccia (che consente all'interfaccia di estensione di ereditare da più modelli padre, se lo si desidera).
-
-Una volta applicata l'ereditarietà, l'interfaccia di estensione espone tutte le proprietà dell'intera catena di ereditarietà.
-
-L'interfaccia di estensione non può modificare alcuna definizione delle interfacce padre. può solo aggiungerli. Non è inoltre in grado di ridefinire una funzionalità già definita in una delle interfacce padre (anche se le funzionalità sono definite come uguali). Se, ad esempio, un'interfaccia padre definisce `double` una *massa* di proprietà, l'interfaccia di estensione non può contenere una dichiarazione di *massa*, anche se è anche un oggetto `double` .
+> Si noti che l'interfaccia del componente ( In questo *esempio)* è definita nella stessa matrice dell'interfaccia che la usa (*Planet*). I componenti devono essere definiti in questo modo nelle chiamate API per poter trovare l'interfaccia.
 
 ## <a name="best-practices-for-designing-models"></a>Procedure consigliate per la progettazione di modelli
 
-Quando si progettano i modelli in modo da riflettere le entità nell'ambiente in uso, può essere utile esaminare e valutare le implicazioni delle [query](concepts-query-language.md) della progettazione. Si consiglia di progettare le proprietà in modo da evitare set di risultati di grandi dimensioni dall'attraversamento del grafo. È inoltre possibile modellare le relazioni per le quali verrà fornita una risposta in una singola query come relazioni a livello singolo.
+Durante la progettazione di modelli per riflettere le entità nell'ambiente, può essere utile guardare avanti e considerare le implicazioni delle [query](concepts-query-language.md) della progettazione. È possibile progettare le proprietà in modo da evitare set di risultati di grandi dimensioni dall'attraversamento del grafico. È anche possibile modellare le relazioni a cui si risponderà in una singola query come relazioni a livello singolo.
 
-### <a name="validating-models"></a>Convalida di modelli
+### <a name="validating-models"></a>Convalida dei modelli
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## <a name="tools-for-models"></a>Strumenti per i modelli 
 
-Sono disponibili diversi esempi per semplificare ulteriormente la gestione di modelli e ontologie. Si trovano in questo repository: [Tools for Digital Gemini Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
+Sono disponibili diversi esempi per semplificare la gestione di modelli e ontologi. Si trovano in questo repository: [Tools for Digital Twins Definition Language (DTDL).](https://github.com/Azure/opendigitaltwins-tools)
 
-In questa sezione viene descritto in modo più dettagliato il set di esempi corrente.
+Questa sezione descrive il set corrente di esempi in modo più dettagliato.
 
-### <a name="model-uploader"></a>Caricatore modello 
+### <a name="model-uploader"></a>Caricatore di modelli 
 
-_**Per il caricamento di modelli in dispositivi gemelli digitali di Azure**_
+_**Per il caricamento di modelli in Gemelli digitali di Azure**_
 
-Al termine della creazione, dell'estensione o della selezione dei modelli, è possibile caricarli nell'istanza di Azure Digital Twins per renderli disponibili per l'uso nella soluzione. Questa operazione viene eseguita usando le API dei dispositivi [gemelli digitali di Azure](how-to-use-apis-sdks.md), come descritto in [*procedura: gestire i modelli di DTDL*](how-to-manage-model.md#upload-models).
+Al termine della creazione, dell'estensione o della selezione dei modelli, è possibile caricarli nell'istanza Gemelli digitali di Azure per renderli disponibili per l'uso nella soluzione. Questa operazione viene eseguita [usando le API Gemelli digitali di Azure](how-to-use-apis-sdks.md), come descritto in [*Procedura: Gestire i modelli DTDL.*](how-to-manage-model.md#upload-models)
 
-Tuttavia, se si dispone di molti modelli da caricare, o se sono presenti molte interdipendenze che rendono complessa l'ordinamento di caricamenti singoli, è possibile usare questo esempio per caricare molti modelli contemporaneamente: il caricamento del [**modello di Azure Digital Twins**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Seguire le istruzioni fornite con l'esempio per configurare e usare questo progetto per caricare i modelli nell'istanza personalizzata.
+Tuttavia, se sono disponibili molti modelli da caricare o se hanno molte interdipendenze che renderebbero complicato l'ordinamento dei singoli caricamenti, è possibile usare questo esempio per caricare molti modelli [**contemporaneamente: Gemelli digitali di Azure Model Uploader**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Seguire le istruzioni fornite con l'esempio per configurare e usare questo progetto per caricare i modelli nella propria istanza.
 
-### <a name="model-visualizer"></a>Visualizzatore modelli 
+### <a name="model-visualizer"></a>Visualizzatore di modelli 
 
-_**Per la visualizzazione di modelli**_
+_**Per visualizzare i modelli**_
 
-Dopo aver caricato i modelli nell'istanza di Azure Digital gemelli, è possibile visualizzare i modelli nell'istanza di Azure Digital Twins, incluse eventuali relazioni di ereditarietà e modello, usando il [**Visualizzatore di modelli di Azure Digital gemelli**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Questo esempio si trova attualmente in uno stato bozza. Invitiamo la community di sviluppo di Digital gemelli a estendere e contribuire all'esempio. 
+Dopo aver caricato i modelli nell'istanza di Gemelli digitali di Azure, è possibile visualizzare i modelli nell'istanza di Gemelli digitali di Azure, incluse eventuali relazioni di ereditarietà e modello, usando Gemelli digitali di Azure [**Model Visualizer**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Questo esempio è attualmente in uno stato bozza. Si consiglia alla community di sviluppo di gemelli digitali di estendere e contribuire all'esempio. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulla creazione di modelli basati su ontologie standard del settore: [ *concetti: che cos'è un'ontologia?*](concepts-ontologies.md)
+* Informazioni sulla creazione di modelli basati su ontologi standard del settore: [ *Concetti: Che cos'è un'ontologia?*](concepts-ontologies.md)
 
-* Approfondimento sulla gestione dei modelli con le operazioni API: [ *procedura: gestire i modelli DTDL*](how-to-manage-model.md)
+* Approfondimento sulla gestione dei modelli con le operazioni API: [ *Procedura: Gestire i modelli DTDL*](how-to-manage-model.md)
 
-* Informazioni sul modo in cui i modelli vengono usati per creare i dispositivi gemelli digitali: [ *concetti: i gemelli digitali e il grafo gemello*](concepts-twins-graph.md)
+* Informazioni su come vengono usati i modelli per creare gemelli digitali: [ *Concetti: Gemelli digitali e grafo dei gemelli*](concepts-twins-graph.md)
 

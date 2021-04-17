@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f0fb9ab5c53c3fd1bfb32ac7b112a116301cba7
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99593334"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575344"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -23,7 +23,7 @@ In alcuni casi, durante il [collegamento di un account di archiviazione](../how-
 
 ## <a name="client-cant-connect-to-server"></a>Il client non riesce a connettersi al server
 
-Assicurarsi che i firewall (sul dispositivo, all'interno dei router e così via) non blocchino le porte indicate nei [requisiti di sistema](../overview/system-requirements.md#network-firewall).
+Assicurarsi che i firewall (nel dispositivo, all'interno dei router e così via) non blocchino le porte indicate nei requisiti [di sistema](../overview/system-requirements.md#network-firewall).
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Errore ' `Disconnected: VideoFormatNotAvailable` '
 
@@ -31,17 +31,17 @@ Verificare che la GPU supporti la decodifica video hardware. Vedere [PC di svilu
 
 Se si lavora su un computer portatile con due GPU, è possibile che la GPU su cui l'utente esegue operazioni per impostazione predefinita non fornisca funzionalità di decodifica video hardware. In tal caso, provare a forzare l'uso dell'altra GPU nell'app. Per svolgere l'operazione spesso è necessario accedere alle impostazioni del driver della GPU.
 
-## <a name="retrieve-sessionconversion-status-fails"></a>Il recupero dello stato della sessione/conversione non riesce
+## <a name="retrieve-sessionconversion-status-fails"></a>Recupero dello stato sessione/conversione non riuscito
 
-L'invio troppo frequente dei comandi dell'API REST provocherà la limitazione del server e la restituzione di un errore. Il codice di stato HTTP nel case di limitazione delle richieste è 429 ("numero eccessivo di richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra chiamate successive**.
+L'invio troppo frequente di comandi API REST causerà la limitazione del server e la restituzione dell'errore alla fine. Il codice di stato HTTP nel caso di limitazione è 429 ("troppe richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra chiamate successive**.
 
-Si noti che questo limite non solo influiscono sulle chiamate all'API REST quando viene chiamato direttamente, ma anche sulle rispettive controparti C#/C + +, ad esempio `Session.GetPropertiesAsync` , `Session.RenewAsync` o `Frontend.GetAssetConversionStatusAsync` .
+Si noti che questo limite influisce non solo sulle chiamate API REST quando vengono chiamate direttamente, ma anche sulle controparti C#/C++, ad esempio `Session.GetPropertiesAsync` `Session.RenewAsync` , o `Frontend.GetAssetConversionStatusAsync` .
 
-Se si verifica la limitazione lato server, modificare il codice per eseguire le chiamate con minore frequenza. Il server Reimposta lo stato di limitazione ogni minuto, quindi è sicuro eseguire di nuovo il codice dopo un minuto.
+Se si verifica la limitazione sul lato server, modificare il codice per eseguire le chiamate meno frequentemente. Il server reimposta lo stato di limitazione ogni minuto, quindi è possibile rieseguire il codice dopo un minuto.
 
 ## <a name="h265-codec-not-available"></a>Il codec H265 non è disponibile
 
-Esistono due motivi per cui il server potrebbe rifiutare la connessione con un `codec not available` errore.
+Esistono due motivi per cui il server potrebbe rifiutarsi di connettersi con un `codec not available` errore.
 
 **Il codec H265 non è installato:**
 
@@ -88,7 +88,7 @@ La qualità del video può essere compromessa dalla qualità della rete o dall'a
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>I video registrati con MRC non riflettono la qualità dell'esperienza dal vivo
 
-Un video può essere registrato in HoloLens tramite l' [acquisizione di realtà mista (MRC)](/windows/mixed-reality/mixed-reality-capture-for-developers). Il video risultante presenta tuttavia una qualità peggiore rispetto all'esperienza dal vivo per due motivi:
+È possibile registrare un video in HoloLens [tramite Acquisizione realtà mista (MRC).](/windows/mixed-reality/mixed-reality-capture-for-developers) Il video risultante presenta tuttavia una qualità peggiore rispetto all'esperienza dal vivo per due motivi:
 * La frequenza di fotogrammi del video è limitata a 30 Hz e non a 60 Hz.
 * Le immagini del video saltano il passaggio di elaborazione della [riproiezione con ritardo della fase](../overview/features/late-stage-reprojection.md), pertanto il video ha un aspetto maggiormente mosso.
 
@@ -109,9 +109,9 @@ Se questi due passaggi non sono stati utili, è necessario verificare se i fotog
 
 **Il modello supera i limiti della macchina virtuale selezionata, in particolare il numero massimo di poligoni:**
 
-Vedere limiti specifici per le [dimensioni del server](../reference/limits.md#overall-number-of-polygons).
+Vedere limiti [specifici per le dimensioni del server.](../reference/limits.md#overall-number-of-polygons)
 
-**Il modello non si trova all'interno della fotocamera tronco:**
+**Il modello non si trova all'interno del frustum della fotocamera:**
 
 In molti casi, il modello viene visualizzato correttamente ma si trova al di fuori del frustum della fotocamera. Una causa frequente potrebbe essere legata al fatto che il modello è stato esportato con una trasformazione tramite pivot decentrata in modo che venga ritagliato dal piano di ritaglio anteriore della fotocamera. Consente di eseguire una query sul rettangolo di selezione del modello a livello di codice e di visualizzare il riquadro di Unity come riquadro della riga o di stamparne i valori nel log di debug.
 
@@ -148,18 +148,18 @@ Con questo rettangolo di selezione possono sorgere due problemi da ricondurre al
 
 Rendering remoto di Azure include gli hook alla pipeline di rendering di Unity per eseguire la composizione del fotogramma con il video ed eseguire la riproiezione. Per verificare che questi hook esistano, aprire il menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Abilitarlo e verificare la presenza di due voci per `HolographicRemotingCallbackPass` nella pipeline:
 
-![Pipeline di rendering Unity](./media/troubleshoot-unity-pipeline.png)
+![Pipeline di rendering unity](./media/troubleshoot-unity-pipeline.png)
 
-## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Il rendering del modello a scacchi viene eseguito dopo il caricamento
+## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Il rendering del modello a scacchiera viene eseguito dopo il caricamento del modello
 
-Se l'immagine di cui è stato eseguito il rendering è simile alla seguente: ![ screenshot mostra una griglia di quadrati neri e bianchi con un menu strumenti.](../reference/media/checkerboard.png)
-il renderer raggiunge quindi i [limiti del poligono per le dimensioni di configurazione standard](../reference/vm-sizes.md). Per attenuare, passare a dimensioni di configurazione **Premium** o ridurre il numero di poligoni visibili.
+Se l'immagine sottoposta a rendering è simile alla seguente: Screenshot mostra una griglia di quadratini in bianco e ![ nero con un menu Strumenti.](../reference/media/checkerboard.png)
+quindi il renderer raggiunge i limiti [del poligono per le dimensioni di configurazione standard.](../reference/vm-sizes.md) Per attenuare il rischio, passare alle dimensioni di configurazione **Premium** o ridurre il numero di poligoni visibili.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>L'immagine sottoposta a rendering in Unity è capovolta
 
-Assicurarsi di seguire l' [esercitazione Unity: visualizzare esattamente i modelli remoti](../tutorials/unity/view-remote-models/view-remote-models.md) . Un'immagine rovesciata indica che Unity è necessario per creare una destinazione di rendering fuori schermo. Questo comportamento non è attualmente supportato e crea un notevole effetto sulle prestazioni in HoloLens 2.
+Assicurarsi di seguire l'esercitazione [di Unity: Visualizzare esattamente i modelli](../tutorials/unity/view-remote-models/view-remote-models.md) remoti. Un'immagine capovolta indica che Unity è necessario per creare una destinazione di rendering fuori schermo. Questo comportamento non è attualmente supportato e crea un notevole impatto sulle prestazioni HoloLens 2.
 
-I motivi di questo problema potrebbero essere MSAA, HDR o abilitare la post-elaborazione. Verificare che il profilo di bassa qualità sia selezionato e impostato come predefinito in Unity. A tale scopo, passare a *modifica > impostazioni progetto... > qualità*.
+I motivi di questo problema potrebbero essere MSAA, HDR o l'abilitazione della post-elaborazione. Assicurarsi che il profilo di bassa qualità sia selezionato e impostato come predefinito in Unity. A tale scopo, passare *a Modifica impostazioni > progetto... > Qualità.*
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Il codice Unity che usa l'API di Rendering remoto non viene compilato
 
@@ -177,15 +177,15 @@ Provando a compilare esempi di Unity (avvio rapido, ShowCaseApp...) per HoloLens
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
-### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Le compilazioni Arm64 per i progetti Unity hanno esito negativo perché manca AudioPluginMsHRTF.dll
+### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Le compilazioni Arm64 per i progetti Unity hanno esito negativo perché AudioPluginMsHRTF.dll è mancante
 
-`AudioPluginMsHRTF.dll`Per Arm64 è stato aggiunto al pacchetto di *realtà misto Windows* *(com. Unity. XR. windowsmr. metro)* nella versione 3.0.1. Assicurarsi che la versione 3.0.1 o successiva sia installata tramite Gestione pacchetti Unity. Dalla barra dei menu di Unity passare a *finestra > gestione pacchetti* e cercare il pacchetto di *realtà mista di Windows* .
+Per Arm64 è stato aggiunto al pacchetto `AudioPluginMsHRTF.dll` *Windows Mixed Reality* *(com.unity.xr.windowsmr.metro)* nella versione 3.0.1. Assicurarsi di avere installato la versione 3.0.1 o successiva tramite unity Gestione pacchetti. Dalla barra dei menu di Unity passare a *Window > Gestione pacchetti* e cercare il *pacchetto Windows Mixed Reality.*
 
 ## <a name="native-c-based-application-does-not-compile"></a>L'applicazione nativa basata su C++ non viene compilata
 
-### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Errore ' libreria non trovata ' per l'applicazione o la dll UWP
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Errore "Libreria non trovata" per l'applicazione UWP o la DLL
 
-Nel pacchetto NuGet C++ è presente un `microsoft.azure.remoterendering.Cpp.targets` file di file che definisce quale versione binaria usare. Per identificare `UWP` , le condizioni nel file verificano la presenza di `ApplicationType == 'Windows Store'` . Quindi, è necessario verificare che questo tipo sia impostato nel progetto. Questa situazione si verifica quando si crea un'applicazione UWP o una dll tramite la creazione guidata progetto di Visual Studio.
+All'interno del pacchetto NuGet C++ è presente un `microsoft.azure.remoterendering.Cpp.targets` file che definisce quale versione binaria usare. Per identificare `UWP` , le condizioni nel file verificano la presenza di `ApplicationType == 'Windows Store'` . È quindi necessario assicurarsi che questo tipo sia impostato nel progetto. Ciò dovrebbe verificarsi quando si crea un'applicazione UWP o una DLL Visual Studio creazione guidata del progetto.
 
 ## <a name="unstable-holograms"></a>Ologrammi instabili
 
@@ -193,62 +193,95 @@ Se gli oggetti di cui è stato eseguito il rendering sembrano sportarsi con i mo
 
 Gli ologrammi instabili (oscillazione, distorsione, tremolio o salto degli ologrammi) possono derivare anche da una connettività di rete insufficiente, in particolare da una larghezza di banda di rete insufficiente o una latenza troppo elevata. Un buon indicatore per la qualità della connessione di rete è il valore sulle [statistiche delle prestazioni](../overview/features/performance-queries.md)`ServiceStatistics.VideoFramesReused`. I fotogrammi riusati indicano situazioni in cui è necessario riusare un fotogramma video precedente sul lato client perché non è disponibile alcun nuovo fotogramma video, ad esempio a causa di una perdita di pacchetti o di variazioni nella latenza di rete. Se il valore `ServiceStatistics.VideoFramesReused` è spesso superiore a 0, significa che si è riscontrato un problema di rete.
 
-Un altro valore da esaminare è `ServiceStatistics.LatencyPoseToReceiveAvg`. Deve essere sempre inferiore a 100 ms. La visualizzazione di valori più alti potrebbe indicare che si è connessi a un data center troppo lontano.
+Un altro valore da esaminare è `ServiceStatistics.LatencyPoseToReceiveAvg`. Deve essere sempre inferiore a 100 ms. La visualizzazione di valori più elevati potrebbe indicare che si è connessi a un data center troppo lontano.
 
 Per un elenco delle possibili mitigazioni, vedere le [Linee guida per la connettività di rete](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
 ## <a name="z-fighting"></a>Z-fighting
 
-Sebbene ARR offra la [funzionalità di mitigazione per il combattimento z](../overview/features/z-fighting-mitigation.md), il combattimento z può comunque essere visualizzato nella scena. Questa guida mira a risolvere questi problemi rimanenti.
+Mentre ARR offre [la funzionalità di mitigazione z-fighting,](../overview/features/z-fighting-mitigation.md)z-fighting può comunque essere visualizzato nella scena. Questa guida ha lo scopo di risolvere questi problemi rimanenti.
 
 ### <a name="recommended-steps"></a>Procedure consigliate
 
-Usare il flusso di lavoro seguente per attenuare la lotta z:
+Usare il flusso di lavoro seguente per attenuare z-fighting:
 
-1. Testare la scena con le impostazioni predefinite di ARR (mitigazione z-Fighting su)
+1. Testare la scena con le impostazioni predefinite di ARR (z-fighting mitigation on)
 
-1. Disabilitare la mitigazione del combattimento z tramite la relativa [API](../overview/features/z-fighting-mitigation.md) 
+1. Disabilitare la mitigazione z-fighting tramite la relativa [API](../overview/features/z-fighting-mitigation.md) 
 
-1. Modificare la fotocamera vicino a un piano più vicino a un intervallo più vicino
+1. Cambiare il piano vicino e lontano della fotocamera in un intervallo più vicino
 
 1. Risolvere i problemi relativi alla scena tramite la sezione successiva
 
-### <a name="investigating-remaining-z-fighting"></a>Analisi delle rimanenti lotte z
+### <a name="investigating-remaining-z-fighting"></a>Analisi dello z-fighting rimanente
 
-Se i passaggi precedenti sono stati esauriti e la restante z-Fighting è inaccettabile, è necessario analizzare la cause sottostante del combattimento z. Come indicato nella [pagina della funzionalità di mitigazione per il combattimento z](../overview/features/z-fighting-mitigation.md), esistono due motivi principali per il combattimento z: la perdita di precisione della profondità all'estremità dell'intervallo di profondità e le superfici che si intersecano durante l'esecuzione complanare. La perdita di precisione della profondità è un'eventualità matematica e può essere mitigata solo seguendo il passaggio 3 precedente. Le superfici complanari indicano un difetto dell'asset di origine e sono più corrette nei dati di origine.
+Se i passaggi precedenti sono stati esauriti e il rimanente z-fighting è inammissibile, è necessario indagare sulla causa sottostante dello z-fighting. Come indicato nella pagina della funzionalità di mitigazione [z-fighting,](../overview/features/z-fighting-mitigation.md)esistono due motivi principali per la lotta con z: la perdita di precisione della profondità all'estremità più lontana dell'intervallo di profondità e le superfici che si intersecano mentre sono coplanari. La perdita di precisione della profondità è un'eventualità matematica e può essere mitigata solo seguendo il passaggio 3 precedente. Le superfici copianere indicano un difetto dell'asset di origine e sono meglio fisse nei dati di origine.
 
-ARR presenta una funzionalità che consente di determinare se le superfici potrebbero combattere z: [evidenziazione della scacchiera](../overview/features/z-fighting-mitigation.md). È anche possibile determinare visivamente la causa della lotta z. La prima animazione seguente mostra un esempio di perdita della precisione della profondità nella distanza e la seconda mostra un esempio di superfici quasi complanari:
+ARR include una funzionalità per determinare se le superfici possono essere evidenziate con z-combat: [Checkerboard che evidenzia](../overview/features/z-fighting-mitigation.md). È anche possibile determinare visivamente cosa causa lo z-fighting. La prima animazione seguente mostra un esempio di perdita di precisione della profondità in distanza e la seconda mostra un esempio di superfici quasi coplanari:
 
-![L'animazione mostra un esempio di perdita della precisione della profondità nella distanza.](./media/depth-precision-z-fighting.gif)  ![L'animazione mostra un esempio di superfici quasi complanante.](./media/coplanar-z-fighting.gif)
+![L'animazione mostra un esempio di perdita di precisione della profondità nella distanza.](./media/depth-precision-z-fighting.gif)  ![L'animazione mostra un esempio di superfici quasi coplanari.](./media/coplanar-z-fighting.gif)
 
-Confrontare questi esempi con la z-Fighting per determinare la causare o, facoltativamente, seguire questo flusso di lavoro Step-by-Step:
+Confrontare questi esempi con lo z-fighting per determinare la causa o, facoltativamente, seguire questo flusso di lavoro procedura dettagliata:
 
-1. Posizionare la fotocamera sopra le superfici di combattimento z per esaminare direttamente la superficie.
-1. Spostare lentamente la fotocamera indietro, lontano dalle superfici.
-1. Se il combattimento z è sempre visibile, le superfici sono perfettamente complanari. 
-1. Se il combattimento z è visibile nella maggior parte dei casi, le superfici sono quasi complanari.
-1. Se il combattimento z è visibile solo da lontano, la causa è la mancanza di precisione della profondità.
+1. Posizionare la fotocamera sopra le superfici di attacco z per osservare direttamente la superficie.
+1. Spostare lentamente la fotocamera all'indietro, lontano dalle superfici.
+1. Se lo z-fighting è sempre visibile, le superfici sono perfettamente coplanari. 
+1. Se lo z-fighting è visibile nella maggior parte dei casi, le superfici sono quasi coplanari.
+1. Se lo z-fighting è visibile solo da lontano, la causa è la mancanza di precisione della profondità.
 
-Le superfici complanari possono avere diverse cause:
+Le superfici copianere possono avere diverse cause:
 
-* Un oggetto è stato duplicato dall'applicazione di esportazione a causa di un errore o di approcci del flusso di lavoro diversi.
+* Un oggetto è stato duplicato dall'applicazione di esportazione a causa di un errore o di approcci diversi del flusso di lavoro.
 
-    Verificare questi problemi con le rispettive applicazioni e il supporto dell'applicazione.
+    Verificare questi problemi con il supporto dell'applicazione e dell'applicazione corrispondente.
 
-* Le superfici vengono duplicate e capovolte per apparire a doppio lato nei renderer che usano la selezione front-end o back-face.
+* Le superfici vengono duplicate e capovolte per apparire su due lati nei renderer che usano l'culling front-face o back-face.
 
-    L'importazione tramite la [conversione del modello](../how-tos/conversion/model-conversion.md) determina la facciata principale del modello. Per impostazione predefinita viene utilizzato il doppio lato. Il rendering della superficie verrà eseguito come un sottile muro con un'illuminazione fisicamente corretta da entrambi i lati. L'unilateralità può essere implicita dai flag nell'asset di origine o forzata in modo esplicito durante la [conversione del modello](../how-tos/conversion/model-conversion.md). Inoltre, facoltativamente, la [modalità a singolo lato](../overview/features/single-sided-rendering.md) può essere impostata su "normale".
+    L'importazione [tramite la conversione](../how-tos/conversion/model-conversion.md) del modello determina il lato principale del modello. Come impostazione predefinita si presuppone la doppia sidedness. Il rendering della superficie verrà eseguito come una superficie sottile con illuminazione fisicamente corretta da entrambi i lati. Il lato singolo può essere implicito da flag nell'asset di origine o forzato in modo esplicito durante la [conversione del modello.](../how-tos/conversion/model-conversion.md) Inoltre, ma facoltativamente, la [modalità a lato singolo](../overview/features/single-sided-rendering.md) può essere impostata su "normale".
 
 * Gli oggetti si intersecano negli asset di origine.
 
-     Gli oggetti trasformati in modo tale che alcune delle superfici si sovrappongono creano anche un combattimento z. Anche la trasformazione di parti dell'albero della scena nella scena importata in ARR può creare questo problema.
+     Anche gli oggetti trasformati in modo che alcune superfici si sovrappongano creino z-fighting. Anche la trasformazione di parti dell'albero della scena nella scena importata in ARR può creare questo problema.
 
-* Le superfici vengono create espressamente per il tocco, ad esempio decalcomanie o testo sulle pareti.
+* Le superfici vengono appositamente scritte per il tocco, ad esempio decalcomanie o testo sulle pareti.
 
-## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefatti grafici che usano il rendering stereo a più passaggi in app C++ native
+## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Artefatti grafici che usano il rendering stereo a più passi nelle app C++ native
 
-In alcuni casi, le app C++ native personalizzate che usano una modalità di rendering stereo a più passaggi per il contenuto locale (il rendering a destra e a sinistra in sessioni separate) dopo la chiamata di [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) possono attivare un bug del driver. Il bug produce problemi di rasterizzazione non deterministici, causando la scomparsa casuale di singoli triangoli o parti di triangoli del contenuto locale. Per motivi di prestazioni, è comunque consigliabile eseguire il rendering del contenuto locale con una tecnica di rendering stereo a un singolo passaggio più moderna, ad esempio usando **SV_RenderTargetArrayIndex**.
+In alcuni casi, le app C++ native personalizzate che usano una modalità di rendering stereo a più passaggi per il contenuto locale (rendering a sinistra e a destra in passaggi separati) dopo la chiamata a [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) possono attivare un bug del driver. Il bug causa anomalie di rasterizzazione non deterministiche, causando la scomparsa casuale di singoli triangoli o parti di triangoli del contenuto locale. Per motivi di prestazioni, è comunque consigliabile eseguire il rendering del contenuto locale con una tecnica di rendering stereo a singolo passaggio più moderna, ad esempio usando **SV_RenderTargetArrayIndex**.
 
+## <a name="conversion-file-download-errors"></a>Errori di download del file di conversione
+
+Il servizio di conversione potrebbe riscontrare errori durante il download dei file dall'archivio BLOB a causa dei limiti di lunghezza del percorso imposti da Windows e dal servizio. I percorsi e i nomi file nell'archivio BLOB non devono superare i 178 caratteri. Ad esempio, dato `blobPrefix` un di cui è di `models/Assets` 13 caratteri:
+
+`models/Assets/<any file or folder path greater than 164 characters will fail the conversion>`
+
+Il servizio di conversione scarica tutti i file specificati in `blobPrefix` , non solo i file usati nella conversione. I file o le cartelle che causano problemi possono essere meno evidenti in questi casi, quindi è importante controllare tutti gli elementi contenuti nell'account di archiviazione in `blobPrefix` . Per informazioni su ciò che viene scaricato, vedere gli input di esempio seguenti.
+``` json
+{
+  "settings": {
+    "inputLocation": {
+      "storageContainerUri": "https://contosostorage01.blob.core.windows.net/arrInput",
+      "blobPrefix": "models/Assets",
+      "relativeInputAssetPath": "myAsset.fbx"
+    ...
+  }
+}
+```
+
+```
+models
+├───Assets
+│   │   myAsset.fbx                 <- Asset
+│   │
+│   └───Textures
+│   |       myTexture.png           <- Used in conversion
+│   |
+|   └───MyFiles
+|          myOtherFile.txt          <- File also downloaded under blobPrefix      
+|           
+└───OtherFiles
+        myReallyLongFileName.txt    <- Ignores files not under blobPrefix             
+```
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Requisiti di sistema](../overview/system-requirements.md)

@@ -1,56 +1,56 @@
 ---
-title: Inserire i dati in un pool SQL dedicato
-description: Informazioni su come inserire dati in un pool SQL dedicato in Azure sinapsi Analytics
+title: Inserire dati in un pool SQL dedicato
+description: Informazioni su come inserire dati in un pool SQL dedicato in Azure Synapse Analytics
 services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: sql
+ms.subservice: pipeline
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: a02abff712fc26f653307108fcc3bb284444d0c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79f0b1a6942f141f0a2d2d38adc5875d82e86d50
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676654"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567622"
 ---
-# <a name="ingest-data-into-a-dedicated-sql-pool"></a>Inserire i dati in un pool SQL dedicato
+# <a name="ingest-data-into-a-dedicated-sql-pool"></a>Inserire dati in un pool SQL dedicato
 
-Questo articolo illustra come inserire dati da un account di archiviazione Azure Data Lake generazione 2 a un pool SQL dedicato in Azure sinapsi Analytics.
+Questo articolo illustra come inserire dati da un account di archiviazione di Azure Data Lake Gen2 in un pool SQL dedicato in Azure Synapse Analytics.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: si usa Azure Data Lake storage generazione 2 come archivio dati di *origine* . Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md) per informazioni su come crearne uno.
-* **Analisi delle sinapsi di Azure**: si usa un pool SQL dedicato come archivio dati *sink* . Se non è disponibile un'istanza di Azure Synapse Analytics, vedere [Creare un pool SQL dedicato](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per crearne una.
+* **Account di archiviazione di Azure:** usare Azure Data Lake Storage Gen 2 come archivio *dati* di origine. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md) per informazioni su come crearne uno.
+* **Azure Synapse Analytics:** si usa un pool SQL dedicato come archivio *dati sink.* Se non è disponibile un'istanza di Azure Synapse Analytics, vedere [Creare un pool SQL dedicato](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per crearne una.
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
-In Azure Synapse Analytics si usano i servizi collegati per definire le informazioni di connessione ad altri servizi. In questa sezione si aggiungerà un servizio di analisi delle sinapsi di Azure e Azure Data Lake Storage Gen2 il servizio collegato.
+In Azure Synapse Analytics si usano i servizi collegati per definire le informazioni di connessione ad altri servizi. In questa sezione si aggiungerà un Azure Synapse Analytics e Azure Data Lake Storage Gen2 collegato.
 
 1. Aprire l'interfaccia utente di Azure Synapse Analytics e passare alla scheda **Gestisci**.
 1. In **Connessioni esterne** selezionare **Servizi collegati**.
 1. Per aggiungere un servizio collegato, selezionare **Nuovo**.
-1. Selezionare il riquadro Azure Data Lake Storage Gen2 dall'elenco e selezionare **continua**.
+1. Selezionare il Azure Data Lake Storage Gen2 dall'elenco e selezionare **Continua.**
 1. Immettere le credenziali di autenticazione. I tipi di autenticazione attualmente supportati sono la chiave dell'account, l'entità servizio e l'identità gestita. Selezionare Test connessione per verificare che le credenziali siano corrette. Selezionare **Create** (Crea) al termine.
-1. Ripetere i passaggi 3-5, ma invece di Azure Data Lake Storage Gen2 selezionare il riquadro Azure sinapsi Analytics e immettere le credenziali di connessione corrispondenti. Per l'analisi delle sinapsi di Azure, l'autenticazione SQL, l'identità gestita e l'entità servizio sono attualmente supportate.
+1. Ripetere i passaggi da 3 a 5, ma anziché Azure Data Lake Storage Gen2, selezionare il riquadro Azure Synapse Analytics e immettere le credenziali di connessione corrispondenti. Ad Azure Synapse Analytics, l'autenticazione SQL, l'identità gestita e l'entità servizio sono attualmente supportate.
 
 ## <a name="create-pipeline"></a>Creare una pipeline
 
-Una pipeline contiene il flusso logico per un'esecuzione di un set di attività. In questa sezione verrà creata una pipeline contenente un'attività di copia che inserisce i dati da ADLS Gen2 in un pool SQL dedicato.
+Una pipeline contiene il flusso logico per un'esecuzione di un set di attività. In questa sezione si creerà una pipeline contenente un'attività di copia che inserisce i dati ADLS Gen2 in un pool SQL dedicato.
 
-1. Passare alla scheda **integrazione** . Selezionare l'icona più accanto all'intestazione pipeline e selezionare **pipeline**.
+1. Passare alla **scheda Integrazione.** Selezionare l'icona con il segno più accanto all'intestazione della pipeline e selezionare **Pipeline.**
 1. In **Move and Transform** (Sposta e trasforma) nel riquadro delle attività trascinare **Copia dati** sul canvas della pipeline.
-1. Selezionare nell'attività di copia e passare alla scheda **origine** . Selezionare **nuovo** per creare un nuovo set di dati di origine.
-1. Selezionare Azure Data Lake Storage Gen2 come archivio dati e selezionare continua.
-1. Selezionare DelimitedText come formato e selezionare continua.
+1. Selezionare l'attività di copia e passare alla **scheda** Origine. Selezionare **Nuovo per** creare un nuovo set di dati di origine.
+1. Selezionare Azure Data Lake Storage Gen2 come archivio dati e selezionare Continua.
+1. Selezionare DelimitedText come formato e selezionare Continua.
 1. Nel riquadro di impostazione delle proprietà selezionare il servizio collegato Azure Data Lake Storage creato. Specificare il percorso del file dei dati di origine e indicare se la prima riga contiene un'intestazione. È possibile importare lo schema dall'archivio file o da un file di esempio. Selezionare OK al termine.
-1. Passare alla scheda **sink** . Selezionare **nuovo** per creare un nuovo set di dati sink.
-1. Selezionare Azure sinapsi Analytics come archivio dati e selezionare continua.
-1. Nel riquadro imposta proprietà selezionare il servizio collegato Azure sinapsi Analytics creato. Se si sta scrivendo in una tabella esistente, selezionarla dall'elenco a discesa. In caso contrario, selezionare **modifica** e immettere il nome della nuova tabella. Al termine, selezionare OK.
-1. Se si sta creando una tabella, abilitare **creazione automatica tabella** nel campo opzione tabella.
+1. Passare alla **scheda Sink.** Selezionare **Nuovo per** creare un nuovo set di dati sink.
+1. Selezionare Azure Synapse Analytics come archivio dati e selezionare Continua.
+1. Nel riquadro imposta proprietà selezionare il Azure Synapse Analytics servizio collegato creato. Se si sta scrivendo in una tabella esistente, selezionarla dall'elenco a discesa. In caso contrario, **selezionare Modifica** e immettere il nome della nuova tabella. Al termine, selezionare OK
+1. Se si sta creando una tabella, abilitare **Creazione automatica tabella** nel campo dell'opzione tabella.
 
 ## <a name="debug-and-publish-pipeline"></a>Eseguire il debug della pipeline e pubblicarla
 
@@ -73,4 +73,4 @@ In questo passaggio si attiverà manualmente la pipeline pubblicata nel passaggi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'integrazione dei dati per Azure sinapsi Analytics, vedere l'articolo sull'inserimento di [dati in Azure Data Lake storage Gen2 ](data-integration-data-lake.md) .
+Per altre informazioni sull'integrazione dei dati Azure Synapse Analytics, vedere l'articolo [Inserimento ](data-integration-data-lake.md) di dati in Azure Data Lake Storage Gen2.

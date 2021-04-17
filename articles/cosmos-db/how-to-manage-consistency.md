@@ -1,19 +1,19 @@
 ---
 title: Gestire la coerenza in Azure Cosmos DB
-description: Informazioni su come configurare e gestire i livelli di coerenza in Azure Cosmos DB usando portale di Azure, .NET SDK, Java SDK e diversi altri SDK
+description: Informazioni su come configurare e gestire i livelli di coerenza in Azure Cosmos DB usando portale di Azure, .NET SDK, Java SDK e vari altri SDK
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b0c03c2f5313605fbdf288a9262df0852e066efd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b7cab67b49196a3d50ce5483282971bbb7b9ece1
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93333478"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107483266"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gestire i livelli di coerenza in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -46,7 +46,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --def
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Creare un account Cosmos con coerenza di sessione, quindi aggiornare la coerenza predefinita.
+Creare un account Cosmos con coerenza di sessione e quindi aggiornare la coerenza predefinita.
 
 ```azurepowershell-interactive
 # Create a new account with Session consistency
@@ -65,7 +65,7 @@ Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
 Nei client è possibile impostare un livello di coerenza diverso dall'impostazione predefinita del servizio. Il livello di coerenza può essere impostato per singole richieste, che esegue l'override del livello di coerenza predefinito impostato a livello di account.
 
 > [!TIP]
-> La coerenza può essere **rilassata** solo a livello di richiesta. Per passare dalla coerenza più debole a quella più avanzata, aggiornare la coerenza predefinita per l'account Cosmos.
+> La coerenza può essere **allenta** solo a livello di richiesta. Per passare da una coerenza più debole a una più solida, aggiornare la coerenza predefinita per l'account Cosmos.
 
 ### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>.NET SDK
 
@@ -115,7 +115,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 # <a name="async"></a>[Asincrona](#tab/api-async)
 
-Async Java V2 SDK (Maven com. Microsoft. Azure:: Azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -131,7 +131,7 @@ AsyncDocumentClient client =
 
 # <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
 
-Sync Java V2 SDK (Maven com. Microsoft. Azure:: Azure-documentdb)
+SyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Override consistency at the client level
@@ -153,7 +153,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>SDK Python
+### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>Python SDK
 
 ```python
 # Override consistency at the client level
@@ -216,7 +216,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
 # <a name="async"></a>[Asincrona](#tab/api-async)
 
-Async Java V2 SDK (Maven com. Microsoft. Azure:: Azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -240,7 +240,7 @@ Observable<ResourceResponse<Document>> readObservable = client.readDocument(docu
 
 # <a name="sync"></a>[Sincronizzazione](#tab/api-sync)
 
-Sync Java V2 SDK (Maven com. Microsoft. Azure:: Azure-documentdb)
+SyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response
@@ -265,7 +265,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>SDK Python
+### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>Python SDK
 
 ```python
 // Get the session token from the last response headers
@@ -281,7 +281,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS)
 
-Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadimento ristretto rispetto alla cronologia delle versioni e al tempo. La metrica del decadimento ristretto probabilistico ([**Probabilistic Bounded Staleness, PBS)**](https://pbs.cs.berkeley.edu/) cerca di quantificare la probabilità di decadimento e la mostra come metrica. Per visualizzare la metrica PBS, passare all'account Azure Cosmos nel portale di Azure. Aprire il riquadro **metriche** e selezionare la scheda **coerenza** . Esaminare il grafo denominato **probabilità di letture fortemente coerenti in base al carico di lavoro (vedere PBS)**.
+Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadimento ristretto rispetto alla cronologia delle versioni e al tempo. La metrica del decadimento ristretto probabilistico ([**Probabilistic Bounded Staleness, PBS)**](https://pbs.cs.berkeley.edu/) cerca di quantificare la probabilità di decadimento e la mostra come metrica. Per visualizzare la metrica PBS, passare all'account Azure Cosmos nel portale di Azure. Aprire il **riquadro** Metriche e selezionare la **scheda Coerenza.** Esaminare il grafico denominato Probabilità di operazioni di lettura fortemente coerenti in base al carico di **lavoro (vedere PBS).**
 
 :::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Grafico PBS nel portale di Azure":::
 
@@ -289,10 +289,10 @@ Com'è la coerenza finale? Per il caso medio, è possibile offrire un decadiment
 
 Scoprire di più su come gestire i conflitti di dati o passare al concetto chiave successivo di Azure Cosmos DB. Vedere gli articoli seguenti:
 
-* [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
+* [Livelli di coerenza Azure Cosmos DB](consistency-levels.md)
 * [Partizionamento e distribuzione dei dati](./partitioning-overview.md)
 * [Gestire i conflitti tra le aree](how-to-manage-conflicts.md)
 * [Partizionamento e distribuzione dei dati](partitioning-overview.md)
-* [Compromessi sulla coerenza nella progettazione di sistemi di database distribuiti moderni](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [Compromessi di coerenza nella progettazione moderna di sistemi di database distribuiti](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [Disponibilità elevata](high-availability.md)
 * [Contratto di servizio Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

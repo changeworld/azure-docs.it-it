@@ -1,30 +1,31 @@
 ---
-title: Informazioni sulle condizioni dell'infrastruttura BareMetal di Azure
-description: Informazioni sulle condizioni dell'infrastruttura BareMetal di Azure.
+title: Conoscere le condizioni dell'infrastruttura BareMetal di Azure
+description: Conoscere i termini dell'infrastruttura BareMetal di Azure.
 ms.topic: conceptual
 ms.subservice: workloads
 ms.date: 04/06/2021
-ms.openlocfilehash: 53a601cc4556198479d8ca5d7495942d4dc2762c
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: aa7d9693b3417ff0bb6c6a61800aee72cd416c48
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580133"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536766"
 ---
-# <a name="know-the-terms-for-baremetal-infrastructure"></a>Informazioni sulle condizioni per l'infrastruttura BareMetal
+# <a name="know-the-terms-for-baremetal-infrastructure"></a>Conoscere i termini per l'infrastruttura BareMetal
 
-In questo articolo verranno illustrati alcuni termini importanti correlati all'infrastruttura di BareMetal.
+Questo articolo illustra alcuni termini importanti relativi all'infrastruttura BareMetal.
 
-- **Revisione**: è presente una revisione del timbro originale nota come revisione 3 (Rev 3) e due revisioni di timbro aggiuntive per gli indicatori di istanza di Baremetal. Ogni timbro è diverso nell'architettura e nelle vicinanze degli host di macchine virtuali di Azure:
-    - **Revisione 4** (Rev 4): progettazione più recente che consente di avvicinarsi più vicino agli host della macchina virtuale (VM) di Azure e di ridurre la latenza tra le macchine virtuali di Azure e le istanze di SAP Hana. 
-    - **Revisione 4,2** (Rev 4,2): l'ultima infrastruttura Baremetal rimarchiata con l'architettura Rev 4 esistente. Il Rev 4 fornisce una prossimità più vicina agli host della macchina virtuale (VM) di Azure. Offre miglioramenti significativi nella latenza di rete tra le macchine virtuali di Azure e le istanze di BareMetal distribuite in indicatori o righe Rev 4. È possibile accedere alle istanze di BareMetal e gestirle tramite il portale di Azure.    
+- **Revisione:** è presente una revisione del timbro originale nota come Revisione 3 (Rev 3) e due revisioni aggiuntive del timbro per i timbri dell'istanza BareMetal. Ogni timbro è diverso per architettura e prossimità agli host di macchine virtuali di Azure:
+    - **Revisione 4** (Versione 4): una progettazione più recente che offre una prossimità più vicina agli host delle macchine virtuali di Azure e riduce la latenza tra le macchine virtuali di Azure e le istanze SAP HANA azure. 
+    - **Revisione 4.2** (Rev 4.2): l'ultima infrastruttura BareMetal ridefinito con l'architettura Rev 4 esistente. Rev 4 offre una prossimità più vicina agli host di macchine virtuali (VM) di Azure. Ha miglioramenti significativi nella latenza di rete tra le macchine virtuali di Azure e le istanze BareMetal distribuite in stamp o righe Rev 4. È possibile accedere e gestire le istanze di BareMetal tramite il portale di Azure.    
 
-- **Timbro**: definisce la dimensione di distribuzione interna Microsoft delle istanze di Baremetal. Prima di poter distribuire le istanze, è necessario distribuire un timbro dell'istanza di BareMetal costituito da rack di calcolo, rete e archiviazione in una posizione del Data Center. Una distribuzione di questo tipo è detta timbro dell'istanza di BareMetal.
+- **Stamp:** definisce le dimensioni di distribuzione interna Microsoft delle istanze BareMetal. Prima di poter distribuire le istanze, è necessario distribuire un stamp di istanza BareMetal costituito da rack di calcolo, rete e archiviazione in una posizione del data center. Una distribuzione di questo tipo è detta indicatore di istanza BareMetal.
 
-- **Tenant**: un cliente che distribuisce un indicatore di istanza Baremetal viene isolato come *tenant.* Un tenant è isolato a livello di rete, archiviazione e calcolo dagli altri tenant, Le unità di archiviazione e di calcolo assegnate ai diversi tenant non possono vedersi reciprocamente o comunicare tra loro a livello di timbro dell'istanza di BareMetal. Un cliente può scegliere di avere distribuzioni in tenant diversi. Anche in questo caso, non esiste alcuna comunicazione tra i tenant sul livello di timbro dell'istanza di BareMetal.
+- **Tenant:** un cliente che distribuisce un stamp di istanza BareMetal viene isolato come *tenant.* Un tenant è isolato a livello di rete, archiviazione e calcolo dagli altri tenant, Le unità di archiviazione e di calcolo assegnate ai diversi tenant non possono vedersi o comunicare tra loro a livello di stamp dell'istanza BareMetal. Un cliente può scegliere di avere distribuzioni in tenant diversi. Anche in questo caso, non esiste alcuna comunicazione tra tenant a livello di stamp dell'istanza BareMetal.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che è stata introdotta la terminologia importante dell'infrastruttura BareMetal, è possibile ottenere informazioni su:
-- Altre informazioni sull' [infrastruttura di Baremetal](concepts-baremetal-infrastructure-overview.md).
-- Come [connettere istanze di infrastruttura Baremetal in Azure](connect-baremetal-infrastructure.md).
+
+Dopo aver introdotto l'importante terminologia dell'infrastruttura BareMetal, è possibile ottenere informazioni su:
+- Altri dettagli [dell'infrastruttura BareMetal](concepts-baremetal-infrastructure-overview.md).
+- Come connettere [istanze dell'infrastruttura BareMetal in Azure](connect-baremetal-infrastructure.md).
 

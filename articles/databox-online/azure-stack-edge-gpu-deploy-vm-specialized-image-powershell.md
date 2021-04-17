@@ -1,62 +1,53 @@
 ---
-title: Creare immagini di VM da un'immagine specializzata del disco rigido virtuale Windows per il dispositivo GPU Pro Azure Stack Edge
-description: Viene descritto come creare immagini di VM da immagini specializzate a partire da un disco rigido virtuale Windows o da un VHDX. Usare questa immagine specializzata per creare immagini di VM da usare con le macchine virtuali distribuite nel dispositivo GPU Azure Stack Edge Pro.
+title: Creare immagini di vm da un'immagine specializzata del disco rigido virtuale Windows per il Azure Stack Edge Pro GPU
+description: Viene descritto come creare immagini di vm da immagini specializzate a partire da un disco rigido virtuale Windows o da un VHDX. Usare questa immagine specializzata per creare immagini di VM da usare con le macchine virtuali distribuite nel dispositivo AZURE STACK EDGE PRO GPU.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: d03aeb9759fb321b580fa65e06dc09ccde4a44a0
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6bfa42e99f295b429eba40a27eb59becb8aa80a1
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106556131"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575948"
 ---
-# <a name="deploy-a-vm-from-a-specialized-image-on-your-azure-stack-edge-pro-device-via-azure-powershell"></a>Distribuire una macchina virtuale da un'immagine specializzata nel dispositivo Azure Stack Edge Pro tramite Azure PowerShell 
+# <a name="deploy-a-vm-from-a-specialized-image-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Distribuire una macchina virtuale da un'immagine specializzata nel Azure Stack Edge Pro GPU tramite Azure PowerShell 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Questo articolo descrive i passaggi necessari per distribuire una macchina virtuale (VM) nel dispositivo Azure Stack Edge Pro da un'immagine specializzata. 
+Questo articolo descrive i passaggi necessari per distribuire una macchina virtuale (VM) nel dispositivo GPU Azure Stack Edge Pro da un'immagine specializzata. 
 
-## <a name="about-specialized-images"></a>Informazioni sulle immagini specializzate
+Per preparare un'immagine generalizzata per la distribuzione di macchine virtuali Azure Stack Edge Pro GPU, vedere Preparare un'immagine [generalizzata](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) dal disco rigido virtuale Windows o Preparare un'immagine generalizzata da [un'immagine ISO.](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
 
-È possibile usare un disco rigido virtuale Windows o VHDX per creare un'immagine *specializzata* o un'immagine *generalizzata* . Nella tabella seguente sono riepilogate le differenze principali tra le immagini *specializzate* e quelle *generalizzate* .
+## <a name="about-vm-images"></a>Informazioni sulle immagini delle macchine virtuali
 
+Un disco rigido virtuale Windows o VHDX può essere usato per creare *un'immagine specializzata* o *un'immagine generalizzata.* La tabella seguente riepiloga le differenze principali tra *le immagini specializzate* e *generalizzate.*
 
-|Tipo di immagine  |Generalizzata  |Specializzata  |
-|---------|---------|---------|
-|Destinazione     |Distribuito in qualsiasi sistema         | Destinato a un sistema specifico        |
-|Installazione dopo l'avvio     | Il programma di installazione è necessario al primo avvio della macchina virtuale.          | Il programma di installazione non è necessario. <br> Piattaforma attiva la macchina virtuale.        |
-|Configurazione     |Sono necessari il nome host, l'utente amministratore e altre impostazioni specifiche per le macchine virtuali.         |Pre-configurato.         |
-|Utilizzato per     |Creare più macchine virtuali nuove dalla stessa immagine.         |Eseguire la migrazione di un computer specifico o il ripristino di una VM dal backup precedente.         |
+[!INCLUDE [about-vm-images-for-azure-stack-edge](../../includes/azure-stack-edge-about-vm-images.md)]
 
+## <a name="workflow"></a>Flusso di lavoro
 
-Questo articolo illustra i passaggi necessari per eseguire la distribuzione da un'immagine specializzata. Per eseguire la distribuzione da un'immagine generalizzata, vedere [usare un disco rigido virtuale di Windows generalizzato](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md) per il dispositivo.
+Il flusso di lavoro di alto livello per distribuire una macchina virtuale da un'immagine specializzata è:
 
-
-## <a name="vm-image-workflow"></a>Flusso di lavoro delle immagini di VM
-
-Il flusso di lavoro di alto livello per la distribuzione di una macchina virtuale da un'immagine specializzata è:
-
-1. Copiare il disco rigido virtuale in un account di archiviazione locale sul dispositivo GPU Azure Stack Edge Pro.
+1. Copiare il disco rigido virtuale in un account di archiviazione locale nel Azure Stack Edge Pro GPU.
 1. Creare un nuovo disco gestito dal disco rigido virtuale.
-1. Creare una nuova macchina virtuale dal disco gestito e alleghi il disco gestito.
-
+1. Creare una nuova macchina virtuale dal disco gestito e collegare il disco gestito.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter distribuire una macchina virtuale nel dispositivo tramite PowerShell, verificare che:
+Prima di poter distribuire una macchina virtuale nel dispositivo tramite PowerShell, assicurarsi che:
 
-- Si ha accesso a un client che verrà usato per connettersi al dispositivo.
-    - Il client esegue un [sistema operativo supportato](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
-    - Il client è configurato per connettersi alla Azure Resource Manager locale del dispositivo in base alle istruzioni riportate in [connettersi a Azure Resource Manager per il dispositivo](azure-stack-edge-gpu-connect-resource-manager.md).
+- Si ha accesso a un client che verrà utilizzato per connettersi al dispositivo.
+    - Il client esegue un [sistema operativo supportato.](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device)
+    - Il client è configurato per connettersi al Azure Resource Manager locale del dispositivo in base alle istruzioni riportate in Connettersi a Azure Resource Manager [per il dispositivo.](azure-stack-edge-gpu-connect-resource-manager.md)
 
-## <a name="verify-the-local-azure-resource-manager-connection"></a>Verificare la connessione di Azure Resource Manager locale
+## <a name="verify-the-local-azure-resource-manager-connection"></a>Verificare la connessione Azure Resource Manager locale
 
-Verificare che il client sia in grado di connettersi al Azure Resource Manager locale. 
+Verificare che il client sia in grado di connettersi al Azure Resource Manager. 
 
 1. Chiamare le API del dispositivo locale per l'autenticazione:
 
@@ -64,22 +55,21 @@ Verificare che il client sia in grado di connettersi al Azure Resource Manager l
     Login-AzureRMAccount -EnvironmentName <Environment Name>
     ```
 
-2. Specificare il nome utente `EdgeArmUser` e la password per la connessione tramite Azure Resource Manager. Se non si richiama la password, [reimpostare la password per Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) e usare questa password per accedere.
- 
+2. Specificare il nome utente `EdgeArmUser` e la password per connettersi tramite Azure Resource Manager. Se non si richiama la password, [reimpostare la password](azure-stack-edge-gpu-set-azure-resource-manager-password.md) per Azure Resource Manager e usarla per accedere.
 
 ## <a name="deploy-vm-from-specialized-image"></a>Distribuire una macchina virtuale da un'immagine specializzata
 
-Le sezioni seguenti contengono istruzioni dettagliate per la distribuzione di una macchina virtuale da un'immagine specializzata.
+Le sezioni seguenti contengono istruzioni dettagliate per distribuire una macchina virtuale da un'immagine specializzata.
 
-## <a name="copy-vhd-to-local-storage-account-on-device"></a>Copiare un disco rigido virtuale nell'account di archiviazione locale nel dispositivo
+## <a name="copy-vhd-to-local-storage-account-on-device"></a>Copiare il disco rigido virtuale nell'account di archiviazione locale nel dispositivo
 
-Per copiare il disco rigido virtuale nell'account di archiviazione locale, seguire questa procedura:
+Seguire questa procedura per copiare il disco rigido virtuale nell'account di archiviazione locale:
 
-1. Copiare il disco rigido virtuale di origine in un account di archiviazione BLOB locale nell'Azure Stack Edge. 
+1. Copiare il disco rigido virtuale di origine in un account di archiviazione BLOB locale nel Azure Stack Edge.
 
-1. Prendere nota dell'URI risultante. Questo URI verrà usato in un passaggio successivo.
-    
-    Per creare e accedere a un account di archiviazione locale, vedere le sezioni [creare un account di archiviazione](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#create-a-storage-account) tramite il [caricamento di un disco rigido virtuale](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) nell'articolo: [distribuire macchine virtuali nel dispositivo Azure stack Edge tramite Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). 
+1. Prendere nota dell'URI risultante. Questo URI verrà utilizzato in un passaggio successivo.
+
+    Per creare e accedere a un account di archiviazione locale, vedere le sezioni Creare un [account](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#create-a-storage-account) di archiviazione tramite Caricare un [disco](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) rigido virtuale nell'articolo Distribuire macchine virtuali nel dispositivo Azure Stack Edge [tramite Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). 
 
 ## <a name="create-a-managed-disk-from-vhd"></a>Creare un disco gestito dal disco rigido virtuale
 
@@ -92,7 +82,7 @@ Seguire questa procedura per creare un disco gestito da un disco rigido virtuale
     $DiskRG = <managed disk resource group>
     $DiskName = <managed disk name>    
     ```
-    Di seguito è riportato un esempio di output.
+    Di seguito è riportato un output di esempio.
 
     ```powershell
     PS C:\WINDOWS\system32> $VHDURI = "https://myasevmsa.blob.myasegpudev.wdshcsso.com/vhds/WindowsServer2016Datacenter.vhd"
@@ -106,7 +96,7 @@ Seguire questa procedura per creare un disco gestito da un disco rigido virtuale
     $disk = New-AzureRMDisk -ResourceGroupName $DiskRG -DiskName $DiskName -Disk $DiskConfig
     ```
 
-    Di seguito è riportato un esempio di output. Il percorso è impostato sul percorso dell'account di archiviazione locale ed è sempre `DBELocal` per tutti gli account di archiviazione locali sul dispositivo GPU Azure stack Edge Pro. 
+    Di seguito è riportato un output di esempio. La località qui è impostata sulla posizione dell'account di archiviazione locale ed è sempre per tutti gli account di archiviazione locali nel dispositivo `DBELocal` Azure Stack Edge Pro GPU. 
 
     ```powershell
     PS C:\WINDOWS\system32> $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri $VHDURI
@@ -115,7 +105,7 @@ Seguire questa procedura per creare un disco gestito da un disco rigido virtuale
     ```
 ## <a name="create-a-vm-from-managed-disk"></a>Creare una macchina virtuale da un disco gestito
 
-Per creare una macchina virtuale da un disco gestito, seguire questa procedura:
+Seguire questa procedura per creare una macchina virtuale da un disco gestito:
 
 1. Impostare alcuni parametri.
 
@@ -131,9 +121,9 @@ Per creare una macchina virtuale da un disco gestito, seguire questa procedura:
     ```
 
     >[!NOTE]
-    > `PrivateIP` è facoltativo. Usare questo parametro per assegnare un indirizzo IP statico. il valore predefinito è un indirizzo IP dinamico che usa DHCP.
+    > `PrivateIP` è facoltativo. Usare questo parametro per assegnare un indirizzo IP statico, altrimenti l'impostazione predefinita è un indirizzo IP dinamico che usa DHCP.
 
-    Di seguito è riportato un esempio di output. In questo esempio viene specificato lo stesso gruppo di risorse per tutte le risorse della macchina virtuale, anche se è possibile creare e specificare gruppi di risorse separati per le risorse, se necessario.
+    Di seguito è riportato un output di esempio. In questo esempio viene specificato lo stesso gruppo di risorse per tutte le risorse della macchina virtuale, anche se è possibile creare e specificare gruppi di risorse separati per le risorse, se necessario.
 
     ```powershell
     PS C:\WINDOWS\system32> $NicRG = "myasevm1rg"
@@ -147,7 +137,7 @@ Per creare una macchina virtuale da un disco gestito, seguire questa procedura:
 
 1. Ottenere le informazioni sulla rete virtuale e creare una nuova interfaccia di rete.
 
-    Questo esempio presuppone che si stia creando una singola interfaccia di rete nella rete virtuale predefinita `ASEVNET` associata al gruppo di risorse predefinito `ASERG` . Se necessario, è possibile specificare una rete virtuale alternativa o creare più interfacce di rete. Per altre informazioni, vedere [aggiungere un'interfaccia di rete a una VM tramite il portale di Azure](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
+    Questo esempio presuppone che si crei una singola interfaccia di rete nella rete virtuale `ASEVNET` predefinita associata al gruppo di risorse predefinito `ASERG` . Se necessario, è possibile specificare una rete virtuale alternativa o creare più interfacce di rete. Per altre informazioni, vedere [Aggiungere un'interfaccia di rete a una macchina virtuale tramite portale di Azure](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
 
     ```powershell
     $armVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG
@@ -155,7 +145,7 @@ Per creare una macchina virtuale da un disco gestito, seguire questa procedura:
     $nic = New-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $NicRG -Location DBELocal -IpConfiguration $ipConfig
     ```
 
-    Di seguito è riportato un esempio di output.
+    Di seguito è riportato un output di esempio.
 
     ```powershell
     PS C:\WINDOWS\system32> $armVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG
@@ -182,7 +172,7 @@ Per creare una macchina virtuale da un disco gestito, seguire questa procedura:
     ```powershell
     $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -StorageAccountType StandardLRS -CreateOption Attach –[Windows/Linux]
     ```
-    L'ultimo flag in questo comando sarà `-Windows` o `-Linux` a seconda del sistema operativo usato per la VM.
+    L'ultimo flag in questo comando sarà o a seconda del sistema operativo `-Windows` in uso per la macchina `-Linux` virtuale.
 
 1. Creare la macchina virtuale
 
@@ -190,7 +180,7 @@ Per creare una macchina virtuale da un disco gestito, seguire questa procedura:
     New-AzureRmVM -ResourceGroupName $VMRG -Location DBELocal -VM $vm 
     ```
 
-    Di seguito è riportato un esempio di output. 
+    Di seguito è riportato un output di esempio. 
 
     ```powershell
     PS C:\WINDOWS\system32> $vmConfig = New-AzureRmVMConfig -VMName $VMName -VMSize $VMSize
@@ -205,16 +195,16 @@ Per creare una macchina virtuale da un disco gestito, seguire questa procedura:
     PS C:\WINDOWS\system32>
     ```
 
-## <a name="delete-vm-and-resources"></a>Eliminare VM e risorse
+## <a name="delete-vm-and-resources"></a>Eliminare macchine virtuali e risorse
 
-Questo articolo ha usato un solo gruppo di risorse per creare tutte le risorse della macchina virtuale. Eliminando il gruppo di risorse, la macchina virtuale e tutte le risorse associate vengono eliminate. 
+Questo articolo ha usato un solo gruppo di risorse per creare tutte le risorse della macchina virtuale. L'eliminazione di tale gruppo di risorse eliminerà la macchina virtuale e tutte le risorse associate. 
 
-1. Prima di tutto, visualizzare tutte le risorse create nel gruppo di risorse.
+1. Visualizzare prima di tutto tutte le risorse create nel gruppo di risorse.
 
     ```powershell
     Get-AzureRmResource -ResourceGroupName <Resource group name>
     ```
-    Di seguito è riportato un esempio di output.
+    Di seguito è riportato un output di esempio.
     
     ```powershell
     PS C:\WINDOWS\system32> Get-AzureRmResource -ResourceGroupName myasevm1rg
@@ -256,7 +246,7 @@ Questo articolo ha usato un solo gruppo di risorse per creare tutte le risorse d
     ```powershell
     Remove-AzureRmResourceGroup -ResourceGroupName <Resource group name>
     ```
-    Di seguito è riportato un esempio di output.
+    Di seguito è riportato un output di esempio.
     
     ```powershell
     PS C:\WINDOWS\system32> Remove-AzureRmResourceGroup -ResourceGroupName myasevm1rg
@@ -273,7 +263,7 @@ Questo articolo ha usato un solo gruppo di risorse per creare tutte le risorse d
     ```powershell
     Get-AzureRmResourceGroup
     ```
-    Di seguito è riportato un esempio di output.
+    Di seguito è riportato un output di esempio.
 
     ```powershell
     PS C:\WINDOWS\system32> Get-AzureRmResourceGroup
@@ -301,7 +291,5 @@ Questo articolo ha usato un solo gruppo di risorse per creare tutte le risorse d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A seconda della natura della distribuzione, è possibile scegliere una delle procedure riportate di seguito.
-
-- [Distribuire una macchina virtuale da un'immagine generalizzata tramite Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)  
-- [Distribuire una macchina virtuale tramite portale di Azure](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
+- [Preparare un'immagine generalizzata da un disco rigido virtuale Windows per distribuire macchine virtuali Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
+- [Preparare un'immagine generalizzata da un'immagine ISO per distribuire macchine virtuali in Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md) d

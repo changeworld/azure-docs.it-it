@@ -2,18 +2,20 @@
 title: Avvio rapido per il servizio Azure SignalR serverless - Python
 description: Argomento di avvio rapido per usare il Servizio Azure SignalR e Funzioni di Azure per la creazione di una chat room con Python.
 author: anthonychu
+ms.author: antchu
+ms.date: 12/14/2019
+ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
-ms.topic: quickstart
-ms.date: 12/14/2019
-ms.author: antchu
-ms.custom: devx-track-python
-ms.openlocfilehash: 82a2e64d27fcbbb3801e6dab347343e086a0b70f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom:
+- devx-track-python
+- mode-api
+ms.openlocfilehash: a279c1ed16cac69932001146d4108cec19203e22
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048222"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107536638"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Guida introduttiva: Creare una chat room con Funzioni di Azure e il servizio SignalR usando Python
 
@@ -27,7 +29,7 @@ Assicurarsi di disporre di un editor di codice installato, ad esempio [Visual St
 
 Installare [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (versione 2.7.1505 o successiva) per eseguire le app per le funzioni di Azure Python in locale.
 
-Funzioni di Azure richiede [Python 3.6 +](https://www.python.org/downloads/). (Vedere [versioni di Python supportate](/azure/azure-functions/functions-reference-python#python-version))
+Funzioni di Azure richiede [Python 3.6+](https://www.python.org/downloads/). (Vedere [Versioni di Python supportate)](/azure/azure-functions/functions-reference-python#python-version)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -116,4 +118,3 @@ In questo avvio reale è stata creata ed eseguita un'applicazione serverless in 
 
 > [!div class="nextstepaction"]
 > [Distribuire Funzioni di Azure con VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
-

@@ -3,12 +3,14 @@ title: 'Guida introduttiva: La prima query di PowerShell'
 description: Questo argomento di avvio rapido illustra la procedura per abilitare il modulo Resource Graph per Azure PowerShell ed eseguire la prima query.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 131bed4fe60035682a317e186f11561bc005b298
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom:
+- mode-api
+ms.openlocfilehash: e5e276e3be80354eeaaeba2821eb9e3242b368ad
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98917674"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107533074"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure PowerShell
 

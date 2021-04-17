@@ -1,6 +1,6 @@
 ---
-title: Eseguire automaticamente il provisioning dei dispositivi con DPS usando i certificati X. 509-Azure IoT Edge | Microsoft Docs
-description: Usare i certificati X. 509 per testare il provisioning automatico dei dispositivi per Azure IoT Edge con il servizio Device provisioning
+title: Effettuare automaticamente il provisioning dei dispositivi con DPS usando certificati X.509 - Azure IoT Edge | Microsoft Docs
+description: Usare i certificati X.509 per testare il provisioning automatico dei dispositivi Azure IoT Edge con il servizio Device Provisioning
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -10,62 +10,62 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 44ea6546eb2099165071fd493ec8f890820c0688
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3c783c57b49b45943882703aec6d735d12bf830
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199825"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107481957"
 ---
-# <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando certificati X. 509
+# <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Creare ed effettuare il provisioning di IoT Edge dispositivo con certificati X.509
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
-Con il [servizio Device provisioning in hub Azure (DPS)](../iot-dps/index.yml), è possibile effettuare automaticamente il provisioning dei dispositivi IOT Edge usando i certificati X. 509. Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica sul [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) prima di continuare.
+Con il [hub IoT di Azure Device Provisioning Service (DPS)](../iot-dps/index.yml)è possibile effettuare automaticamente il provisioning IoT Edge dispositivi usando certificati X.509. Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica sul [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) prima di continuare.
 
-Questo articolo illustra come creare una registrazione del servizio Device provisioning usando i certificati X. 509 in un dispositivo IoT Edge con i passaggi seguenti:
+Questo articolo illustra come creare una registrazione del servizio Device Provisioning usando certificati X.509 in un dispositivo IoT Edge con la procedura seguente:
 
 * Generare certificati e chiavi.
 * Creare una registrazione singola per un dispositivo o una registrazione di gruppo per un set di dispositivi.
-* Installare il runtime di IoT Edge e registrare il dispositivo con l'hub Internet.
+* Installare il IoT Edge runtime e registrare il dispositivo con l'hub IoT.
 
-L'uso di certificati X.509 come meccanismo di attestazione è un ottimo approccio per ridimensionare la produzione e semplificare il provisioning di dispositivi. I certificati X. 509 vengono in genere disposti in una catena di certificati attendibili. A partire da un certificato radice autofirmato o attendibile, ogni certificato nella catena firma il certificato inferiore successivo. Questo modello crea una catena delegata di trust dal certificato radice attraverso ogni certificato intermedio al certificato "foglia" finale installato in un dispositivo.
+L'uso di certificati X.509 come meccanismo di attestazione è un ottimo approccio per ridimensionare la produzione e semplificare il provisioning di dispositivi. In genere, i certificati X.509 sono disposti in una catena di certificati di attendibilità. A partire da un certificato radice autofirmato o attendibile, ogni certificato nella catena firma il certificato inferiore successivo. Questo modello crea una catena delegata di attendibilità dal certificato radice fino a ogni certificato intermedio fino al certificato "foglia" finale installato in un dispositivo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un hub IoT attivo.
 * Un dispositivo fisico o virtuale da IoT Edge dispositivo.
-* È installata la versione più recente di [git](https://git-scm.com/download/) .
-* Un'istanza del servizio Device provisioning nell'hub Internet in Azure, collegata all'hub Internet delle cose.
-  * Se non si dispone di un'istanza del servizio Device provisioning, seguire le istruzioni riportate in [configurare l'hub Internet delle](../iot-dps/quick-setup-auto-provision.md)cose.
+* La versione più recente di [Git](https://git-scm.com/download/) installata.
+* Istanza del servizio Device Provisioning dell'hub IoT in Azure, collegata all'hub IoT.
+  * Se non si ha un'istanza del servizio Device Provisioning, seguire le istruzioni in [Configurare il DPS dell'hub IoT.](../iot-dps/quick-setup-auto-provision.md)
   * Con il servizio Device Provisioning in esecuzione, copiare il valore di **Ambito ID** dalla pagina di panoramica. Questo valore viene usato quando si configura il runtime IoT Edge.
 
 ## <a name="generate-device-identity-certificates"></a>Generare certificati di identità del dispositivo
 
-Il certificato di identità del dispositivo è un certificato foglia che si connette tramite una catena di certificati di trust al certificato dell'autorità di certificazione X. 509 principale (CA). Il certificato di identità del dispositivo deve avere il nome comune (CN) impostato sull'ID del dispositivo che si vuole includere nel dispositivo nell'hub Internet.
+Il certificato di identità del dispositivo è un certificato foglia che si connette tramite una catena di certificati di attendibilità al certificato dell'autorità di certificazione (CA) X.509 superiore. Il certificato di identità del dispositivo deve avere il nome comune (CN) impostato sull'ID dispositivo che si vuole che il dispositivo abbia nell'hub IoT.
 
-I certificati di identità del dispositivo vengono usati solo per il provisioning del dispositivo IoT Edge e per l'autenticazione del dispositivo con l'hub Azure. Non firmano certificati, a differenza dei certificati della CA che il dispositivo IoT Edge presenta ai moduli o ai dispositivi foglia per la verifica. Per ulteriori informazioni, vedere [Azure IOT Edge dettagli sull'utilizzo del certificato](iot-edge-certs.md).
+I certificati di identità del dispositivo vengono usati solo per il provisioning IoT Edge dispositivo e l'autenticazione del dispositivo con hub IoT di Azure. Non firmano i certificati, a differenza dei certificati CA che il dispositivo IoT Edge presenta ai moduli o ai dispositivi foglia per la verifica. Per altre informazioni, vedere dettagli [sull'utilizzo Azure IoT Edge certificato.](iot-edge-certs.md)
 
-Dopo aver creato il certificato di identità del dispositivo, è necessario disporre di due file: un file con estensione cer o PEM che contiene la parte pubblica del certificato e un file con estensione cer o PEM con la chiave privata del certificato. Se si prevede di usare la registrazione di gruppo in DPS, è necessaria anche la parte pubblica di un certificato CA intermedio o radice nella stessa catena di certificati di attendibilità.
+Dopo aver creato il certificato di identità del dispositivo, è necessario avere due file: un file con estensione cer o pem contenente la parte pubblica del certificato e un file con estensione cer o pem con la chiave privata del certificato. Se si prevede di usare la registrazione di gruppo in DPS, è necessaria anche la parte pubblica di un certificato CA intermedio o radice nella stessa catena di certificati di attendibilità.
 
-Per configurare il provisioning automatico con X. 509 sono necessari i file seguenti:
+Per configurare il provisioning automatico con X.509 sono necessari i file seguenti:
 
-* Il certificato di identità del dispositivo e il relativo certificato di chiave privata. Il certificato di identità del dispositivo viene caricato in DPS se si crea una registrazione singola. La chiave privata viene passata al runtime IoT Edge.
-* Un certificato a catena completa, che deve avere almeno l'identità del dispositivo e i certificati intermedi. Il certificato a catena completa viene passato al runtime IoT Edge.
+* Il certificato di identità del dispositivo e il relativo certificato di chiave privata. Il certificato di identità del dispositivo viene caricato in DPS se si crea una registrazione singola. La chiave privata viene passata al IoT Edge runtime.
+* Certificato a catena completo, che deve contenere almeno l'identità del dispositivo e i certificati intermedi. Il certificato della catena completa viene passato al IoT Edge runtime.
 * Un certificato CA intermedio o radice dalla catena di certificati di attendibilità. Questo certificato viene caricato in DPS se si crea una registrazione di gruppo.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 > [!NOTE]
-> Attualmente, una limitazione in libiothsm impedisce l'utilizzo di certificati che scadono il 1 ° gennaio 2038 o successivo.
+> Attualmente, una limitazione in libiothsm impedisce l'uso di certificati che scadono il 1° gennaio 2038 o dopo il 1° gennaio 2038.
 
 :::moniker-end
 
-### <a name="use-test-certificates-optional"></a>Usa certificati di test (facoltativo)
+### <a name="use-test-certificates-optional"></a>Usare certificati di test (facoltativo)
 
-Se non si dispone di un'autorità di certificazione disponibile per creare nuovi certificati di identità e si vuole provare questo scenario, il Azure IoT Edge repository git contiene gli script che è possibile usare per generare i certificati di test. Questi certificati sono progettati solo per i test di sviluppo e non devono essere utilizzati nell'ambiente di produzione.
+Se non è disponibile un'autorità di certificazione per creare nuovi certificati di identità e si vuole provare questo scenario, il repository Git di Azure IoT Edge contiene script che è possibile usare per generare certificati di test. Questi certificati sono progettati solo per i test di sviluppo e non devono essere usati nell'ambiente di produzione.
 
-Per creare certificati di test, seguire la procedura descritta in [creare certificati demo per testare le funzionalità del dispositivo IOT Edge](how-to-create-test-certificates.md). Completare le due sezioni necessarie per configurare gli script di generazione del certificato e creare un certificato CA radice. Seguire quindi la procedura per creare un certificato di identità del dispositivo. Al termine, è necessario disporre della catena di certificati e della coppia di chiavi seguenti:
+Per creare certificati di test, seguire la procedura descritta in Creare certificati demo per testare IoT Edge [funzionalità del dispositivo.](how-to-create-test-certificates.md) Completare le due sezioni necessarie per configurare gli script di generazione del certificato e per creare un certificato ca radice. Seguire quindi la procedura per creare un certificato di identità del dispositivo. Al termine, si dovrebbero avere la catena di certificati e la coppia di chiavi seguenti:
 
 Linux:
 
@@ -77,40 +77,40 @@ Windows:
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
-Sono necessari entrambi i certificati nel dispositivo IoT Edge. Se si prevede di usare la registrazione singola in DPS, si caricherà il file. cert. pem. Se si intende usare la registrazione di gruppo in DPS, è necessario anche un certificato CA intermedio o radice nella stessa catena di certificati di attendibilità da caricare. Se si usano i certificati demo, usare il `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` certificato per la registrazione di gruppo.
+Entrambi i certificati sono necessari nel dispositivo IoT Edge dispositivo. Se si usa la registrazione singola in DPS, caricare il file con estensione cert.pem. Se si usa la registrazione di gruppo in DPS, è necessario anche un certificato CA intermedio o radice nella stessa catena di certificati di attendibilità per il caricamento. Se si usano certificati demo, usare il certificato per la `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` registrazione del gruppo.
 
 ## <a name="create-a-dps-individual-enrollment"></a>Creare una registrazione singola DPS
 
-Usare i certificati e le chiavi generati per creare una registrazione singola in DPS per un singolo dispositivo IoT Edge. Le registrazioni singole accettano la parte pubblica del certificato di identità del dispositivo e corrispondono al certificato nel dispositivo.
+Usare i certificati e le chiavi generati per creare una registrazione singola in DPS per un singolo IoT Edge dispositivo. Le registrazioni singole accettano la parte pubblica del certificato di identità di un dispositivo e corrispondono al certificato nel dispositivo.
 
-Se si intende eseguire il provisioning di più dispositivi IoT Edge, seguire i passaggi nella sezione successiva [creare una registrazione del gruppo DPS](#create-a-dps-group-enrollment).
+Se si sta cercando di effettuare il provisioning di IoT Edge dispositivi, seguire la procedura descritta nella sezione successiva Creare una registrazione del gruppo [DPS.](#create-a-dps-group-enrollment)
 
 Quando si crea una registrazione nel servizio Device Provisioning, si ha la possibilità di dichiarare un valore di **Stato dispositivo gemello iniziale**. Nel dispositivo gemello è possibile impostare tag per raggruppare i dispositivi in base a una qualsiasi metrica necessaria nella propria soluzione, come l'area, l'ambiente, la località o il tipo di dispositivo. Questi tag vengono usati per creare [distribuzioni automatiche](how-to-deploy-at-scale.md).
 
-Per ulteriori informazioni sulle registrazioni nel servizio Device provisioning, vedere [come gestire le registrazioni dei dispositivi](../iot-dps/how-to-manage-enrollments.md).
+Per altre informazioni sulle registrazioni nel servizio Device Provisioning, vedere [Come gestire le registrazioni dei dispositivi.](../iot-dps/how-to-manage-enrollments.md)
 
    > [!TIP]
-   > Nell'interfaccia della riga di comando di Azure è possibile creare un gruppo di registrazione o di [registrazione](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) e usare il flag di **Abilitazione Edge** per specificare che un [dispositivo o un](/cli/azure/ext/azure-iot/iot/dps/enrollment) gruppo di dispositivi è un dispositivo IOT Edge.
+   > Nell'interfaccia della riga di [](/cli/azure/iot/dps/enrollment) comando [](/cli/azure/iot/dps/enrollment-group) di Azure è possibile creare una registrazione o un gruppo di registrazione e usare il **flag** abilitato per le funzionalità perimetrali per specificare che un dispositivo o un gruppo di dispositivi è un dispositivo IoT Edge dispositivo.
 
-1. Nella [portale di Azure](https://portal.azure.com)passare all'istanza del servizio Device provisioning in hub Internet.
+1. Nel [portale di Azure](https://portal.azure.com)passare all'istanza del servizio Device Provisioning dell'hub IoT.
 
 1. In **le impostazioni** selezionare **Gestisci registrazioni**.
 
 1. Selezionare **Aggiungi registrazione singola**, quindi completare la procedura seguente per configurare la registrazione:  
 
-   * **Meccanismo**: selezionare **X. 509**.
+   * **Meccanismo:** selezionare **X.509**.
 
-   * **File con estensione PEM o cer del certificato primario**: caricare il file pubblico dal certificato di identità del dispositivo. Se sono stati usati gli script per generare un certificato di prova, scegliere il file seguente:
+   * **File con estensione pem o cer** del certificato primario: caricare il file pubblico dal certificato di identità del dispositivo. Se sono stati usati gli script per generare un certificato di test, scegliere il file seguente:
 
       `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 
-   * **ID dispositivo hub** Internet: specificare un ID per il dispositivo, se si vuole. È possibile usare gli ID dispositivo per identificare come destinazione un singolo dispositivo per la distribuzione di moduli. Se non si specifica un ID dispositivo, viene usato il nome comune (CN) nel certificato X. 509.
+   * **ID dispositivo dell'hub IoT:** specificare un ID per il dispositivo, se lo si desidera. È possibile usare gli ID dispositivo per identificare come destinazione un singolo dispositivo per la distribuzione di moduli. Se non si specifica un ID dispositivo, viene usato il nome comune (CN) nel certificato X.509.
 
-   * **IOT Edge dispositivo**: selezionare **true** per dichiarare che la registrazione è per un dispositivo IOT Edge.
+   * **IoT Edge dispositivo:** selezionare **True** per dichiarare che la registrazione è per un IoT Edge dispositivo.
 
-   * **Selezionare gli hub di Internet delle cose a cui è possibile assegnare il dispositivo**: scegliere l'hub delle cose collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati.
+   * **Selezionare gli hub IoT a** cui è possibile assegnare il dispositivo: scegliere l'hub IoT collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati.
 
-   * **Stato iniziale del dispositivo gemello**: aggiungere un valore di tag da aggiungere al dispositivo gemello, se lo si desidera. È possibile usare i tag per i gruppi di destinazione dei dispositivi per la distribuzione automatica. Ad esempio:
+   * **Stato iniziale del dispositivo gemello:** aggiungere un valore di tag da aggiungere al dispositivo gemello, se si desidera. È possibile usare i tag per impostare come destinazione gruppi di dispositivi per la distribuzione automatica. Ad esempio:
 
       ```json
       {
@@ -125,37 +125,37 @@ Per ulteriori informazioni sulle registrazioni nel servizio Device provisioning,
 
 1. Selezionare **Salva**.
 
-Ora che è presente una registrazione per questo dispositivo, il runtime di IoT Edge può effettuare automaticamente il provisioning del dispositivo durante l'installazione. Passare alla sezione [Install the IOT Edge Runtime](#install-the-iot-edge-runtime) per configurare il dispositivo IOT Edge.
+Ora che esiste una registrazione per questo dispositivo, il runtime IoT Edge eseguire automaticamente il provisioning del dispositivo durante l'installazione. Passare alla [sezione Installare il runtime IoT Edge](#install-the-iot-edge-runtime) per configurare il IoT Edge dispositivo.
 
 ## <a name="create-a-dps-group-enrollment"></a>Creare una registrazione del gruppo DPS
 
-Usare i certificati e le chiavi generati per creare una registrazione di gruppo in DPS per più dispositivi IoT Edge. Le registrazioni di gruppo usano un certificato CA intermedio o radice dalla catena di certificati di attendibilità usata per generare i singoli certificati di identità del dispositivo.
+Usare i certificati e le chiavi generati per creare una registrazione di gruppo nel servizio Device IoT Edge dispositivi. Le registrazioni di gruppo usano un certificato CA intermedio o radice della catena di certificati usata per generare i singoli certificati di identità del dispositivo.
 
-Se invece si vuole eseguire il provisioning di un singolo dispositivo IoT Edge, seguire la procedura descritta nella sezione precedente, [creare una registrazione singola DPS](#create-a-dps-individual-enrollment).
+Se invece si sta cercando di effettuare il provisioning di un singolo dispositivo IoT Edge, seguire la procedura descritta nella sezione precedente Creare una registrazione singola del servizio Device [Provisioning.](#create-a-dps-individual-enrollment)
 
 Quando si crea una registrazione nel servizio Device Provisioning, si ha la possibilità di dichiarare un valore di **Stato dispositivo gemello iniziale**. Nel dispositivo gemello è possibile impostare tag per raggruppare i dispositivi in base a una qualsiasi metrica necessaria nella propria soluzione, come l'area, l'ambiente, la località o il tipo di dispositivo. Questi tag vengono usati per creare [distribuzioni automatiche](how-to-deploy-at-scale.md).
 
 ### <a name="verify-your-root-certificate"></a>Verificare il certificato radice
 
-Quando si crea un gruppo di registrazione, è possibile usare un certificato verificato. È possibile verificare un certificato con DPS dimostrando di avere la proprietà del certificato radice. Per ulteriori informazioni, vedere [come eseguire la verifica del possesso per i certificati della CA X. 509](../iot-dps/how-to-verify-certificates.md).
+Quando si crea un gruppo di registrazioni, è possibile usare un certificato verificato. È possibile verificare un certificato con DPS dimostrando di avere la proprietà del certificato radice. Per altre informazioni, vedere [How to do proof-of-possession for X.509 CA certificates (Come eseguire il proof-of-possession per i certificati della CA X.509).](../iot-dps/how-to-verify-certificates.md)
 
-1. Nella [portale di Azure](https://portal.azure.com)passare all'istanza del servizio Device provisioning in hub Internet.
+1. Nel [portale di Azure](https://portal.azure.com)passare all'istanza del servizio Device Provisioning in hub IoT.
 
-1. Selezionare **certificati** dal menu a sinistra.
+1. Selezionare **Certificati** dal menu a sinistra.
 
 1. Selezionare **Aggiungi** per aggiungere un nuovo certificato.
 
-1. Immettere un nome descrittivo per il certificato, quindi selezionare il file con estensione cer o PEM che rappresenta la parte pubblica del certificato X. 509.
+1. Immettere un nome descrittivo per il certificato, quindi passare al file cer o pem che rappresenta la parte pubblica del certificato X.509.
 
    Se si usano i certificati demo, caricare il `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` certificato.
 
 1. Selezionare **Salva**.
 
-1. Il certificato verrà ora elencato nella pagina **certificati** . Selezionarlo per aprire i dettagli del certificato.
+1. Il certificato dovrebbe ora essere elencato nella **pagina** Certificati. Selezionarlo per aprire i dettagli del certificato.
 
-1. Selezionare **genera codice di verifica** e quindi copiare il codice generato.
+1. Selezionare **Genera codice di verifica** e quindi copiare il codice generato.
 
-1. Indipendentemente dal fatto che il certificato della CA sia stato usato o che usi i certificati dimostrativi, è possibile usare lo strumento di verifica disponibile nel repository IoT Edge per verificare la prova del possesso. Lo strumento di verifica usa il certificato della CA per firmare un nuovo certificato con il codice di verifica specificato come nome del soggetto.
+1. Indipendentemente dal fatto che sia stato portato il proprio certificato ca o che si usino i certificati demo, è possibile usare lo strumento di verifica fornito nel repository IoT Edge per verificare la prova di possesso. Lo strumento di verifica usa il certificato della CA per firmare un nuovo certificato con il codice di verifica fornito come nome soggetto.
 
    * Windows:
 
@@ -169,33 +169,33 @@ Quando si crea un gruppo di registrazione, è possibile usare un certificato ver
      ./certGen.sh create_verification_certificate <verification code>
      ```
 
-1. Nella pagina dei dettagli del certificato nella portale di Azure caricare il certificato di verifica appena generato.
+1. Nella stessa pagina dei dettagli del certificato nel portale di Azure caricare il certificato di verifica appena generato.
 
 1. Selezionare **Verifica**.
 
-### <a name="create-enrollment-group"></a>Crea gruppo di registrazione
+### <a name="create-enrollment-group"></a>Creare un gruppo di registrazione
 
-Per ulteriori informazioni sulle registrazioni nel servizio Device provisioning, vedere [come gestire le registrazioni dei dispositivi](../iot-dps/how-to-manage-enrollments.md).
+Per altre informazioni sulle registrazioni nel servizio Device Provisioning, vedere [Come gestire le registrazioni dei dispositivi.](../iot-dps/how-to-manage-enrollments.md)
 
-1. Nella [portale di Azure](https://portal.azure.com)passare all'istanza del servizio Device provisioning in hub Internet.
+1. Nel [portale di Azure](https://portal.azure.com)passare all'istanza del servizio Device Provisioning in hub IoT.
 
 1. In **le impostazioni** selezionare **Gestisci registrazioni**.
 
-1. Selezionare **Aggiungi gruppo di registrazione** e quindi completare i passaggi seguenti per configurare la registrazione:
+1. Selezionare **Aggiungi gruppo di registrazione** e quindi completare la procedura seguente per configurare la registrazione:
 
-   * **Nome gruppo**: specificare un nome memorabile per la registrazione del gruppo.
+   * **Nome gruppo:** specificare un nome facile da ricordare per la registrazione del gruppo.
 
-   * **Tipo di attestazione**: selezionare **certificato**.
+   * **Tipo di attestazione:** selezionare **Certificato**.
 
-   * **IOT Edge dispositivo**: selezionare **true**. Per la registrazione di un gruppo, tutti i dispositivi devono essere IoT Edge dispositivi o nessuno di essi può essere.
+   * **IoT Edge dispositivo**: selezionare **True**. Per la registrazione di un gruppo, tutti i dispositivi devono IoT Edge dispositivi o nessuno di essi può esserlo.
 
-   * **Tipo di certificato**: selezionare **certificato CA** se si dispone di un certificato CA verificato archiviato con DPS o un **certificato intermedio** se si vuole caricare un nuovo file solo per questa registrazione.
+   * **Tipo di certificato:** selezionare **Certificato CA** se si dispone  di un certificato CA verificato archiviato con DPS o Certificato intermedio se si vuole caricare un nuovo file solo per questa registrazione.
 
-   * **Certificato primario**: se si sceglie certificato CA nell'ultima sezione, scegliere il certificato dall'elenco a discesa. Se si sceglie certificato intermedio, caricare il file pubblico da un certificato della CA nella catena di certificati di attendibilità utilizzata per generare i certificati di identità del dispositivo.
+   * **Certificato primario:** se è stato scelto il certificato della CA nell'ultima sezione, scegliere il certificato nell'elenco a discesa. Se si sceglie un certificato intermedio, caricare il file pubblico da un certificato CA nella catena di certificati di attendibilità usata per generare i certificati di identità del dispositivo.
 
-   * **Selezionare gli hub di Internet delle cose a cui è possibile assegnare il dispositivo**: scegliere l'hub delle cose collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati.
+   * **Selezionare gli hub IoT a** cui il dispositivo può essere assegnato: scegliere l'hub IoT collegato a cui si vuole connettere il dispositivo. È possibile scegliere più hub e il dispositivo verrà assegnato a uno di essi in base ai criteri di allocazione selezionati.
 
-   * **Stato iniziale del dispositivo gemello**: aggiungere un valore di tag da aggiungere al dispositivo gemello, se lo si desidera. È possibile usare i tag per i gruppi di destinazione dei dispositivi per la distribuzione automatica. Ad esempio:
+   * **Stato iniziale del dispositivo gemello:** aggiungere un valore di tag da aggiungere al dispositivo gemello, se lo si desidera. È possibile usare i tag per impostare come destinazione gruppi di dispositivi per la distribuzione automatica. Ad esempio:
 
       ```json
       {
@@ -210,25 +210,25 @@ Per ulteriori informazioni sulle registrazioni nel servizio Device provisioning,
 
 1. Selezionare **Salva**.
 
-Ora che è presente una registrazione per questo dispositivo, il runtime di IoT Edge può effettuare automaticamente il provisioning del dispositivo durante l'installazione. Passare alla sezione successiva per configurare il dispositivo IoT Edge.
+Ora che esiste una registrazione per questo dispositivo, il runtime IoT Edge eseguire automaticamente il provisioning del dispositivo durante l'installazione. Passare alla sezione successiva per configurare il dispositivo IoT Edge dispositivo.
 
 ## <a name="install-the-iot-edge-runtime"></a>Installare il runtime IoT Edge.
 
 Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale.
 
-Seguire i passaggi in [installare il runtime di Azure IOT Edge](how-to-install-iot-edge.md), quindi tornare a questo articolo per effettuare il provisioning del dispositivo.
+Seguire la procedura descritta in [Installare il runtime Azure IoT Edge](how-to-install-iot-edge.md), quindi tornare a questo articolo per effettuare il provisioning del dispositivo.
 
-Il provisioning X. 509 con DPS è supportato solo in IoT Edge versione 1.0.9 o successiva.
+Il provisioning X.509 con DPS è supportato solo IoT Edge versione 1.0.9 o successiva.
 
 ## <a name="configure-the-device-with-provisioning-information"></a>Configurare il dispositivo con le informazioni di provisioning
 
-Una volta installato il runtime nel dispositivo, configurare il dispositivo con le informazioni usate per connettersi al servizio Device provisioning e all'hub Internet.
+Dopo aver installato il runtime nel dispositivo, configurare il dispositivo con le informazioni che usa per connettersi al servizio Device Provisioning e all'hub IoT.
 
-Sono disponibili le informazioni seguenti:
+Disporre delle informazioni seguenti:
 
-* Valore dell' **ambito dell'ID** DPS. È possibile recuperare questo valore dalla pagina Panoramica dell'istanza di DPS nell'portale di Azure.
+* Valore ambito **ID DPS.** È possibile recuperare questo valore dalla pagina di panoramica dell'istanza del servizio Data Services nel portale di Azure.
 * File della catena di certificati di identità del dispositivo nel dispositivo.
-* Il file di chiave di identità del dispositivo nel dispositivo.
+* File della chiave di identità del dispositivo nel dispositivo.
 * ID di registrazione facoltativo. Se non viene specificato, l'ID viene estratto dal nome comune nel certificato di identità del dispositivo.
 
 ### <a name="linux-device"></a>Dispositivo Linux
@@ -236,15 +236,15 @@ Sono disponibili le informazioni seguenti:
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 
-1. Aprire il file di configurazione nel dispositivo IoT Edge.
+1. Aprire il file di configurazione nel IoT Edge dispositivo.
 
    ```bash
    sudo nano /etc/iotedge/config.yaml
    ```
 
-1. Trovare la sezione configurazioni di provisioning del file. Rimuovere il commento dalle righe per il provisioning del certificato X. 509 DPS e verificare che le altre righe di provisioning siano impostate come commento.
+1. Trovare la sezione relativa alle configurazioni di provisioning del file. Rimuovere il commento delle righe per il provisioning del certificato X.509 DPS e assicurarsi che tutte le altre righe di provisioning siano commentate.
 
-   La `provisioning:` riga non deve contenere spazi vuoti precedenti ed è necessario rientrare gli elementi annidati di due spazi.
+   La riga non deve contenere spazi vuoti precedenti e gli elementi annidati `provisioning:` devono essere rientrati di due spazi.
 
    ```yml
    # DPS X.509 provisioning configuration
@@ -261,18 +261,18 @@ Sono disponibili le informazioni seguenti:
    #  dynamic_reprovisioning: false
    ```
 
-1. Aggiornare i valori di `scope_id` , `identity_cert` e `identity_pk` con le informazioni sul dispositivo e sul DPS.
+1. Aggiornare i valori di , e con il servizio Device Backup e `scope_id` `identity_cert` le informazioni sul `identity_pk` dispositivo.
 
-   Quando si aggiungono le informazioni sulla chiave e sul certificato X. 509 al file config. YAML, i percorsi devono essere specificati come URI di file. Ad esempio:
+   Quando si aggiungono il certificato X.509 e le informazioni sulla chiave al file config.yaml, i percorsi devono essere specificati come URI del file. Ad esempio:
 
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
 
-1. Facoltativamente, specificare un `registration_id` per il dispositivo. In caso contrario, lasciare la riga impostata come commento per registrare il dispositivo con il nome CN del certificato di identità.
+1. Facoltativamente, specificare un `registration_id` per il dispositivo. In caso contrario, lasciare la riga come commento per registrare il dispositivo con il nome CN del certificato di identità.
 
-1. Facoltativamente, usare le `always_reprovision_on_startup` `dynamic_reprovisioning` linee o per configurare il comportamento del nuovo provisioning del dispositivo. Se un dispositivo è impostato per eseguire un nuovo provisioning all'avvio, tenterà sempre di eseguire il provisioning con DPS prima e quindi di eseguire il fallback al backup del provisioning in caso di errore. Se un dispositivo è impostato in modo da eseguire un nuovo provisioning dinamico, IoT Edge verrà riavviato ed eseguito un nuovo provisioning se viene rilevato un evento di reprovisioning. Per altre informazioni, vedere [concetti relativi al nuovo provisioning dei dispositivi dell'hub](../iot-dps/concepts-device-reprovision.md).
+1. Facoltativamente, usare le righe o per configurare il comportamento di `always_reprovision_on_startup` `dynamic_reprovisioning` reprovisioning del dispositivo. Se un dispositivo è impostato per il nuovo provisioning all'avvio, tenterà sempre di effettuare il provisioning con DPS e quindi eseguirà il fall back al backup di provisioning in caso di errore. Se un dispositivo è impostato per il nuovo provisioning dinamico, IoT Edge riavvio e di nuovo il provisioning se viene rilevato un evento di reprovisioning. Per altre informazioni, vedere Concetti relativi al [reprovisioning](../iot-dps/concepts-device-reprovision.md)dei dispositivi dell'hub IoT.
 
-1. Salvare e chiudere il file config. yaml.
+1. Salvare e chiudere il file config.yaml.
 
 1. Riavviare il runtime IoT Edge in modo che accetti tutte le modifiche alla configurazione apportate nel dispositivo.
 
@@ -286,19 +286,19 @@ Sono disponibili le informazioni seguenti:
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-1. Creare un file di configurazione per il dispositivo in base a un file di modello fornito come parte dell'installazione del IoT Edge.
+1. Creare un file di configurazione per il dispositivo in base a un file modello fornito come parte dell IoT Edge installazione.
 
    ```bash
    sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
    ```
 
-1. Aprire il file di configurazione nel dispositivo IoT Edge.
+1. Aprire il file di configurazione nel IoT Edge dispositivo.
 
    ```bash
    sudo nano /etc/aziot/config.toml
    ```
 
-1. Trovare la sezione del **provisioning** del file. Rimuovere il commento dalle righe per il provisioning di DPS con il certificato X. 509 e verificare che tutte le altre righe di provisioning siano impostate come commento.
+1. Trovare la **sezione Provisioning** del file. Rimuovere il commento delle righe per il provisioning DPS con il certificato X.509 e assicurarsi che tutte le altre righe di provisioning siano commentate.
 
    ```toml
    # DPS provisioning with X.509 certificate
@@ -316,19 +316,19 @@ Sono disponibili le informazioni seguenti:
    identity_pk = "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
    ```
 
-1. Aggiornare i valori di `id_scope` , `identity_cert` e `identity_pk` con le informazioni sul dispositivo e sul DPS.
+1. Aggiornare i valori di `id_scope` , e con le informazioni sul dispositivo e sul `identity_cert` `identity_pk` DPS.
 
-   Il valore del certificato di identità può essere fornito come URI di file oppure può essere emesso dinamicamente utilizzando l'autorità di certificazione EST o locale. Rimuovere il commento da una sola riga, in base al formato che si sceglie di usare.
+   Il valore del certificato di identità può essere fornito come URI di file o può essere rilasciato dinamicamente usando EST o un'autorità di certificazione locale. Rimuovere il commento da una sola riga, in base al formato che si sceglie di usare.
 
-   Il valore della chiave privata Identity può essere fornito come URI di file o PKCS # 11. Rimuovere il commento da una sola riga, in base al formato che si sceglie di usare.
+   Il valore della chiave privata identity può essere fornito come URI di file o PKCS#11. Rimuovere il commento da una sola riga, in base al formato che si sceglie di usare.
 
-   Se si usano gli URI PKCS # 11, trovare la sezione **PKCS # 11** nel file di configurazione e fornire informazioni sulla configurazione PKCS # 11.
+   Se si usano URI PKCS#11, trovare la sezione **PKCS#11** nel file di configurazione e fornire informazioni sulla configurazione PKCS#11.
 
-1. Facoltativamente, specificare un `registration_id` per il dispositivo. In caso contrario, lasciare la riga impostata come commento per registrare il dispositivo con il nome comune del certificato di identità.
+1. Facoltativamente, specificare un `registration_id` per il dispositivo. In caso contrario, lasciare la riga come commento per registrare il dispositivo con il nome comune del certificato di identità.
 
 1. Salvare e chiudere il file.
 
-1. Applicare le modifiche di configurazione apportate al IoT Edge.
+1. Applicare le modifiche di configurazione apportate a IoT Edge.
 
    ```bash
    sudo iotedge config apply
@@ -339,13 +339,13 @@ Sono disponibili le informazioni seguenti:
 
 ### <a name="windows-device"></a>Dispositivo Windows
 
-1. Aprire una finestra di PowerShell in modalità amministratore. Assicurarsi di usare una sessione AMD64 di PowerShell durante l'installazione di IoT Edge, non di PowerShell (x86).
+1. Aprire una finestra di PowerShell in modalità amministratore. Assicurarsi di usare una sessione AMD64 di PowerShell durante l'IoT Edge, non PowerShell (x86).
 
-1. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. Per impostazione predefinita, il comando esegue il provisioning manuale con i contenitori di Windows, quindi usare il `-DpsX509` flag per usare il provisioning automatico con l'autenticazione del certificato X. 509.
+1. Il comando **Initialize-IoTEdge** configura il runtime IoT Edge nel computer. Per impostazione predefinita, il comando usa il provisioning manuale con contenitori Windows, quindi usare il flag per usare il provisioning automatico con l'autenticazione del certificato `-DpsX509` X.509.
 
-   Sostituire i valori segnaposto per `{scope_id}` , `{identity cert chain path}` e `{identity key path}` con i valori appropriati dall'istanza di DPS e i percorsi dei file nel dispositivo.
+   Sostituire i valori segnaposto per `{scope_id}` , e con i valori appropriati dall'istanza del servizio Device Backup `{identity cert chain path}` e i percorsi di file nel `{identity key path}` dispositivo.
 
-   Aggiungere la `-RegistrationId {registration_id}` se si vuole impostare l'ID del dispositivo come un valore diverso dal nome CN del certificato di identità.
+   Aggiungere se si vuole impostare l'ID dispositivo come diverso `-RegistrationId {registration_id}` dal nome CN del certificato di identità.
 
    Aggiungere il `-ContainerOs Linux` parametro se si usano contenitori Linux in Windows.
 
@@ -355,13 +355,13 @@ Sono disponibili le informazioni seguenti:
    ```
 
    >[!TIP]
-   >Il file di configurazione archivia le informazioni relative al certificato e alla chiave come URI di file. Tuttavia, il comando Initialize-IoTEdge gestisce automaticamente questo passaggio di formattazione, quindi è possibile specificare il percorso assoluto dei file di certificato e di chiave nel dispositivo.
+   >Il file di configurazione archivia le informazioni relative al certificato e alla chiave come URI di file. Tuttavia, il Initialize-IoTEdge di formattazione gestisce automaticamente questo passaggio di formattazione, quindi è possibile specificare il percorso assoluto dei file di certificato e di chiave nel dispositivo.
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 
 Se il runtime è stato avviato correttamente, è possibile passare all'hub IoT e iniziare la distribuzione di moduli IoT Edge nel dispositivo.
 
-È possibile verificare che sia stata usata la registrazione singola creata nel servizio Device provisioning. Passare all'istanza del servizio Device provisioning nel portale di Azure. Aprire i dettagli di registrazione per la registrazione singola creata. Si noti che lo stato della registrazione viene **assegnato** e viene elencato l'ID del dispositivo.
+È possibile verificare che sia stata usata la registrazione singola creata nel servizio Device Provisioning. Passare all'istanza del servizio Device Provisioning nella portale di Azure. Aprire i dettagli di registrazione per la registrazione singola creata. Si noti che lo stato della registrazione è **assegnato e** l'ID dispositivo è elencato.
 
 Usare i comandi seguenti sul dispositivo per verificare che il runtime sia stato installato e avviato correttamente.
 
@@ -433,4 +433,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il processo di registrazione del servizio Device Provisioning consente di impostare l'ID dispositivo e i tag del dispositivo gemello mentre si effettua il provisioning del nuovo dispositivo. È possibile usare questi valori per identificare come destinazione singoli dispositivi o gruppi di dispositivi usando la gestione automatica dei dispositivi. Informazioni su come [distribuire e monitorare IOT Edge moduli su larga scala usando l'portale di Azure o l'interfaccia della](how-to-deploy-at-scale.md) riga di comando di [Azure](how-to-deploy-cli-at-scale.md).
+Il processo di registrazione del servizio Device Provisioning consente di impostare l'ID dispositivo e i tag del dispositivo gemello mentre si effettua il provisioning del nuovo dispositivo. È possibile usare questi valori per identificare come destinazione singoli dispositivi o gruppi di dispositivi usando la gestione automatica dei dispositivi. Informazioni su come distribuire [e monitorare i moduli IoT Edge su](how-to-deploy-at-scale.md) larga scala usando il portale di Azure o [l'interfaccia della riga di comando di Azure.](how-to-deploy-cli-at-scale.md)

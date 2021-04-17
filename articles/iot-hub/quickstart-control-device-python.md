@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: controllare un dispositivo dalla Guida introduttiva all'hub Internet Azure (Python) | Microsoft Docs"
+title: 'Guida introduttiva: Controllare un dispositivo da hub IoT di Azure guida introduttiva (Python) | Microsoft Docs'
 description: In questa guida introduttiva vengono eseguite due applicazioni Python di esempio. Una è un'applicazione back-end che può controllare in remoto i dispositivi connessi all'hub. L'altra applicazione simula un dispositivo connesso all'hub che può essere controllato in remoto.
 author: wesmc7777
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ms.date: 09/14/2020
-ms.openlocfilehash: d252aa15fef29f7c22e224fd7b6021a469530287
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2ecc1ceb624f2f98bca47d4d1331f67c52fa54b4
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067742"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566912"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Python)
 
@@ -33,7 +33,7 @@ In questa guida di avvio rapido si usa un metodo diretto per controllare un disp
 
 * [Python 3.7+](https://www.python.org/downloads/). Per informazioni sulle altre versioni di Python supportate, vedere [Funzionalità per i dispositivi IoT di Azure](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
 
-* [Un progetto Python di esempio](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip).
+* [Un progetto Python di esempio](https://github.com/Azure-Samples/azure-iot-samples-python/) da GitHub. Scaricare o clonare gli esempi usando il **pulsante Codice** nel repository GitHub.
 
 * Porta 8883 aperta nel firewall. L'esempio di dispositivo di questo argomento di avvio rapido usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
