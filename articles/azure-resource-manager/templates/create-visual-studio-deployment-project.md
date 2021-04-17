@@ -2,13 +2,13 @@
 title: Creare e distribuire progetti Gruppo di risorse con Visual Studio
 description: Usare Visual Studio per creare un progetto Gruppo di risorse di Azure e distribuire le risorse in Azure.
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 4c0e19042506e0cf1772398b0a02b81f0245b1c7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704415"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306977"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
@@ -45,9 +45,9 @@ In questa sezione verrà creato un progetto Gruppo di risorse di Azure con un mo
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Script di PowerShell che esegue i comandi di PowerShell per la distribuzione in Azure Resource Manager. Visual Studio usa questo script di PowerShell per distribuire il modello. |
    | WebSite.json |Modello di Resource Manager che definisce l'infrastruttura da distribuire in Azure e parametri che si possono specificare durante la distribuzione. Definisce anche le dipendenze tra le risorse, per consentire a Resource Manager di distribuire le risorse nell'ordine corretto. |
-   | WebSite.parameters.json |File di parametri contenente i valori necessari per il modello, che vengono passati per personalizzare ogni distribuzione. |
+   | WebSite.parameters.json |File di parametri contenente i valori necessari per il modello, che vengono passati per personalizzare ogni distribuzione. Si noti che **azione di compilazione** è impostato su **contenuto**. Se si aggiungono altri file dei parametri, assicurarsi che l'azione di compilazione sia impostata su **contenuto**. |
 
-    Tutti i progetti di distribuzione di tipo Gruppo di risorse contengono questi file di base. Altri progetti potrebbero includere file aggiuntivi per supportare altre funzionalità.
+    Tutti i progetti di distribuzione di tipo Gruppo di risorse contengono questi file di base. Altri progetti possono avere più file per supportare altre funzionalità.
 
 ## <a name="customize-resource-manager-template"></a>Personalizzare il modello di Resource Manager
 
@@ -245,7 +245,7 @@ Il risultato dovrebbe essere simile al seguente:
 "packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
 ```
 
-Si noti che nell'esempio precedente non è presente alcuna `'/',` fra **parameters('_artifactsLocation')** e **parameters('ExampleAppPackageFolder')**.
+Si noti che nell'esempio precedente non esiste `'/',` alcun **parametro between (' _artifactsLocation ')** e **Parameters (' ExampleAppPackageFolder ')**.
 
 Ricompilare il progetto. Con la compilazione del progetto ci si assicura che i file che è necessario distribuire vengano aggiunti alla cartella di gestione temporanea.
 

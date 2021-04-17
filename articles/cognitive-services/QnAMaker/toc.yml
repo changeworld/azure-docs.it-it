@@ -8,7 +8,7 @@
       href: whats-new.md
 - name: Avvi rapidi
   items:
-    - name: Creare ed eseguire query su Knowledgebase
+    - name: Creare ed eseguire query nella Knowledge Base
       items:
         - name: Portale di QnA Maker
           href: Quickstarts/create-publish-knowledge-base.md
@@ -47,14 +47,14 @@
       href: choose-natural-language-processing-service.md
 - name: Guide pratiche
   items:
-    - name: Gestisci risorse QnA Maker
+    - name: Gestire QnA Maker risorse
       items:
-        - name: Configurare QnA Maker risorse
+        - name: Configurare le QnA Maker locali
           href: How-To/set-up-qnamaker-service-azure.md
           displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: Gestire l'accesso alle risorse QnA Maker
+        - name: Gestire l QnA Maker accesso alle risorse
           href: How-To/manage-qna-maker-app.md
-        - name: Configurare le risorse di QnA Maker
+        - name: Configurare QnA Maker risorse
           href: How-To/configure-qna-maker-resources.md
         - name: Isolamento rete per le risorse di Azure
           href: How-To/network-isolation.md
@@ -67,7 +67,7 @@
         - name: Eseguire la migrazione a una nuova knowledge base
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Knowledge base test
+        - name: Testare la Knowledge Base
           href: How-To/test-knowledge-base.md
     - name: Gestire coppie di domande e risposte
       items:
@@ -87,13 +87,21 @@
         - name: Uso dell'API GenerateAnswer
           href: How-To/metadata-generateanswer-usage.md
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
-        - name: Filtrare QnAs per metadati
+        - name: Filtrare le domande di accesso in base ai metadati
           href: How-To/query-knowledge-base-with-metadata.md
-    - name: Ricevi domande alternative suggerite tramite l'apprendimento attivo
+    - name: Ottenere domande alternative suggerite tramite l'apprendimento attivo
       href: How-to/improve-knowledge-base.md
       displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
     - name: Analisi e telemetria
       href: How-To/get-analytics-knowledge-base.md
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Configurare le reti virtuali
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/qnamaker/context/context
+        - name: Usare chiavi gestite dal cliente
+          href: encrypt-data-at-rest.md
+        - name: Usare Azure AD autenticazione
+          href: ../authentication.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Informazioni di riferimento
   items:
     - name: Lingue supportate
@@ -167,12 +175,14 @@
               href: 'https://rubygems.org/gems/azure_cognitiveservices_qnamaker'
 - name: Risorse
   items:
+    - name: Soluzione pronta per l'azienda
+      items:
+        - name: Supporto di area
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformità e certificazione
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Opzioni di supporto tecnico e assistenza
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
-    - name: Disponibilità a livello di area
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Conformità
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prezzi e limiti

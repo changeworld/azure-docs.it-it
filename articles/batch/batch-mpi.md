@@ -2,13 +2,13 @@
 title: Usare attività a istanze multiple per eseguire applicazioni MPI
 description: Informazioni su come eseguire applicazioni MPI (Message Passing Interface) usando il tipo di attività a istanze multiple in Azure Batch.
 ms.topic: how-to
-ms.date: 03/25/2021
-ms.openlocfilehash: 02764f8dd8a6bb3e4224b8b44fe78ab7e15ba85d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.date: 04/13/2021
+ms.openlocfilehash: e96cfb89b186d69f6ad969949b8df609956114d2
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106219850"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389401"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Batch
 
@@ -21,22 +21,22 @@ Le attività a istanze multiple permettono di eseguire un'attività di Azure Bat
 
 In Batch ogni attività viene in genere eseguita in un singolo nodo di calcolo, si inviano più attività a un processo e il servizio Batch pianifica l'esecuzione di ogni attività in un nodo. Tuttavia, configurando le **impostazioni per istanze multiple**, si indica a Batch invece di creare un'attività primaria e svariate sottoattività per che quindi sono eseguite su più nodi.
 
-:::image type="content" source="media/batch-mpi/batch-mpi-01.png" alt-text="Diagramma che mostra una panoramica delle impostazioni di istanze diverse.":::
+:::image type="content" source="media/batch-mpi/batch-mpi-01.png" alt-text="Diagramma che mostra una panoramica delle impostazioni a più istanze.":::
 
 Quando si invia a un processo un'attività con impostazioni per istanze multiple, Batch esegue diversi passaggi relativi esclusivamente alle attività a istanze multiple:
 
 1. Il servizio Batch crea un'attività **primaria** e diverse **sottoattività** in base alle impostazioni multi-istanza. Il numero totale di attività, ovvero quella primaria e tutte le sottoattività, corrisponde al numero di **istanze** (nodi di calcolo) specificato nelle impostazioni per istanze multiple.
 2. Il servizio Batch definisce uno dei nodi di calcolo come **master** e pianifica l'attività primaria da eseguire sul master. Pianifica le sottoattività da eseguire sugli altri nodi di calcolo allocati all'attività a istanze multiple, una sottoattività per ogni nodo.
 3. L'attività primaria e tutte le sottoattività scaricano gli eventuali **file di risorse comuni** specificati nelle impostazioni per istanze multiple.
-4. Dopo aver scaricato i file di risorse comuni, l'attività primaria e le sottoattività eseguono il **comando di coordinamento** specificato nelle impostazioni per istanze multiple. Il comando di coordinamento viene usato in genere per preparare i nodi per l'esecuzione dell'attività. Ciò può includere l'avvio di servizi in background, ad esempio [Microsoft MPI](/message-passing-interface/microsoft-mpi) `smpd.exe` , e la verifica che i nodi siano pronti per elaborare i messaggi tra i nodi.
-5. L'attività primaria esegue il **comando applicazione** sul nodo master *dopo* il completamento del comando di coordinamento da parte dell'attività primaria e di tutte le sottoattività. Il comando applicazione, vale a dire la riga di comando dell'attività a istanze multiple stessa, viene eseguito solo dall'attività primaria. In una soluzione basata su [MS-MPI](/message-passing-interface/microsoft-mpi) , questo è il punto in cui si esegue l'applicazione abilitata per MPI usando `mpiexec.exe` .
+4. Dopo aver scaricato i file di risorse comuni, l'attività primaria e le sottoattività eseguono il **comando di coordinamento** specificato nelle impostazioni per istanze multiple. Il comando di coordinamento viene usato in genere per preparare i nodi per l'esecuzione dell'attività. Ciò può includere l'avvio di servizi in background (ad esempio [Microsoft MPI)](/message-passing-interface/microsoft-mpi) e la verifica che i nodi siano pronti per elaborare i `smpd.exe` messaggi tra nodi.
+5. L'attività primaria esegue il **comando applicazione** sul nodo master *dopo* il completamento del comando di coordinamento da parte dell'attività primaria e di tutte le sottoattività. Il comando applicazione, vale a dire la riga di comando dell'attività a istanze multiple stessa, viene eseguito solo dall'attività primaria. In una [soluzione basata su MS-MPI](/message-passing-interface/microsoft-mpi) viene eseguita l'applicazione abilitata per MPI usando `mpiexec.exe` .
 
 > [!NOTE]
 > Anche se distinta a livello funzionale, l'attività a istanze multiple non è un tipo di attività univoco come ad esempio [StartTask](/dotnet/api/microsoft.azure.batch.starttask) o [JobPreparationTask](/dotnet/api/microsoft.azure.batch.jobpreparationtask). Si tratta semplicemente di un'attività Batch standard, [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) in Batch .NET, per cui sono state configurate le impostazioni per istanze multiple. In questo articolo viene definita **attività a istanze multiple**.
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Requisiti delle attività a istanze multiple
 
-Per le attività a istanze multiple è necessario un pool in cui sia **abilitata la comunicazione tra i nodi** e **disabilitata l'esecuzione di attività simultanee**. Per disabilitare l'esecuzione simultanea di attività, impostare la proprietà [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) su 1.
+Per le attività a istanze multiple è necessario un pool in cui sia **abilitata la comunicazione tra i nodi** e **disabilitata l'esecuzione di attività simultanee**. Per disabilitare l'esecuzione simultanea di attività, impostare la [proprietà CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) su 1.
 
 > [!NOTE]
 > Batch [limita](batch-quota-limit.md#pool-size-limits) le dimensioni di un pool per cui è abilitata la comunicazione tra i nodi.
@@ -49,7 +49,13 @@ CloudPool myCloudPool =
         poolId: "MultiInstanceSamplePool",
         targetDedicatedComputeNodes: 3
         virtualMachineSize: "standard_d1_v2",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+        VirtualMachineConfiguration: new VirtualMachineConfiguration(
+        imageReference: new ImageReference(
+                        publisher: "MicrosoftWindowsServer",
+                        offer: "WindowsServer",
+                        sku: "2019-datacenter-core",
+                        version: "latest"),
+        nodeAgentSkuId: "batch.node.windows amd64");
 
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
@@ -58,7 +64,7 @@ myCloudPool.TaskSlotsPerNode = 1;
 ```
 
 > [!NOTE]
-> Se si tenta di eseguire un'attività a istanze diverse in un pool con la comunicazione tra nodi disabilitata o con un valore *taskSlotsPerNode* maggiore di 1, l'attività non viene mai pianificata, ma rimane indefinitamente nello stato "attivo".
+> Se si tenta di eseguire un'attività a più istanze in un pool con la comunicazione interno disabilitata o con un valore *taskSlotsPerNode* maggiore di 1, l'attività non viene mai pianificata, perché rimane indefinitamente nello stato "attivo".
 
 ### <a name="use-a-starttask-to-install-mpi"></a>Utilizzare uno StartTask per installare MPI
 
@@ -85,7 +91,7 @@ await myCloudPool.CommitAsync();
 
 Quando si sceglie [una dimensione che supporta RDMA](../virtual-machines/sizes-hpc.md?toc=/azure/virtual-machines/windows/toc.json) come ad esempio A9 per i nodi di calcolo nel pool Batch, l'applicazione MPI può sfruttare i vantaggi legati alle prestazioni elevate e alla latenza ridotta della rete con Accesso diretto a memoria remota (RDMA) di Azure.
 
-Cercare le dimensioni specificate come "RDMA Capable" in [dimensioni per le macchine virtuali in Azure](../virtual-machines/sizes.md) (per i pool VirtualMachineConfiguration) o le [dimensioni per i servizi cloud](../cloud-services/cloud-services-sizes-specs.md) (per i pool CloudServicesConfiguration).
+Cercare le dimensioni specificate come "idonee per RDMA" in Dimensioni per le macchine virtuali [in Azure](../virtual-machines/sizes.md) (per i pool VirtualMachineConfiguration) o Dimensioni per i servizi [cloud](../cloud-services/cloud-services-sizes-specs.md) (per i pool CloudServicesConfiguration).
 
 > [!NOTE]
 > Per sfruttare i RDMA in [nodi di calcolo Linux](batch-linux-nodes.md), è necessario utilizzare **Intel MPI** sui nodi.
@@ -121,7 +127,7 @@ await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask
 
 Quando si creano le impostazioni per istanze multiple per un'attività, è necessario specificare il numero di nodi di calcolo che devono eseguire l'attività. Quando si invia l'attività a un processo, il servizio Batch crea un'attività **primaria** e un numero sufficiente di **sottoattività** che, insieme, corrispondono al numero di nodi specificato.
 
-A queste attività viene assegnato un ID intero compreso tra 0 e *numberOfInstances* -1. L'attività con ID 0 è l'attività primaria e tutti gli altri ID sono sottoattività. Se, ad esempio, si creano le seguenti impostazioni a istanze diverse per un'attività, l'attività primaria avrà un ID pari a 0 e le sottoattività avranno gli ID da 1 a 9.
+A queste attività viene assegnato un ID intero compreso tra 0 e *numberOfInstances* - 1. L'attività con ID 0 è l'attività primaria e tutti gli altri ID sono sottoattività. Ad esempio, se si creano le impostazioni a più istanze seguenti per un'attività, l'attività primaria con id 0 e le sottoattività con ID da 1 a 9.
 
 ```csharp
 int numberOfNodes = 10;
@@ -151,7 +157,7 @@ Per le applicazioni di MS-MPI, usare il comando applicazione per eseguire l'appl
 `cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe`
 
 > [!NOTE]
-> Poiché MS-MPI `mpiexec.exe` Usa la `CCP_NODES` variabile per impostazione predefinita (vedere [variabili di ambiente](#environment-variables)), la riga di comando dell'applicazione di esempio precedente lo esclude.
+> Poiché MS-MPI usa la variabile per impostazione predefinita (vedere Variabili di ambiente ), la riga di comando dell'applicazione di esempio precedente `mpiexec.exe` `CCP_NODES` la esclude. [](#environment-variables)
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 
@@ -169,7 +175,7 @@ Le variabili di ambiente seguenti vengono create dal servizio Batch per l'uso da
 Per informazioni dettagliate su queste e altre variabili di ambiente dei nodi di calcolo, inclusi i contenuti e la visibilità, vedere l'argomento relativo alle [variabili di ambiente dei nodi di calcolo](batch-compute-node-environment-variables.md).
 
 > [!TIP]
-> L' [esempio di codice MPI per Linux in batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch/article_samples/mpi) contiene un esempio di come è possibile usare alcune di queste variabili di ambiente.
+> [L'esempio di codice MPI](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch/article_samples/mpi) di Batch Linux contiene un esempio di come è possibile usare diverse di queste variabili di ambiente.
 
 ## <a name="resource-files"></a>File di risorse
 
@@ -190,13 +196,13 @@ Se una delle sottoattività ha esito negativo e viene chiusa con un codice resti
 
 Quando si elimina un'attività a istanze multiple, il servizio Batch elimina anche l'attività primaria e tutte le sottoattività. Dai nodi di calcolo vengono eliminate tutte le directory delle sottoattività e i relativi file, come avviene per un'attività standard.
 
-Le proprietà [TaskConstraints](/dotnet/api/microsoft.azure.batch.taskconstraints) per un'attività a istanze multiple, ad esempio[ MaxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount), [MaxWallClockTime](/dotnet/api/microsoft.azure.batch.taskconstraints.maxwallclocktime) e [RetentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime), vengono rispettate come avviene per un'attività standard e si applicano all'attività primaria e a tutte le sottoattività. Tuttavia, se si modifica la proprietà theRetentionTime dopo aver aggiunto l'attività a istanze diverse al processo, questa modifica viene applicata solo all'attività primaria e tutte le sottoattività continuano a utilizzare il RetentionTime originale.
+Le proprietà [TaskConstraints](/dotnet/api/microsoft.azure.batch.taskconstraints) per un'attività a istanze multiple, ad esempio[ MaxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount), [MaxWallClockTime](/dotnet/api/microsoft.azure.batch.taskconstraints.maxwallclocktime) e [RetentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime), vengono rispettate come avviene per un'attività standard e si applicano all'attività primaria e a tutte le sottoattività. Tuttavia, se si modifica la proprietà RetentionTime dopo aver aggiunto l'attività a più istanze al processo, questa modifica viene applicata solo all'attività primaria e tutte le sottoattività continuano a usare retentionTime originale.
 
-L'elenco di attività recenti di un nodo di calcolo riflette l'ID di una sottoattività se l'attività recente faceva parte di un'attività a istanze diverse.
+L'elenco di attività recenti di un nodo di calcolo riflette l'ID di una sottoattività se l'attività recente fa parte di un'attività a più istanze.
 
 ## <a name="obtain-information-about-subtasks"></a>Ottenere informazioni sulle sottoattività
 
-Per ottenere informazioni sulle sottoattività usando la libreria Batch .NET, chiamare il metodo [CloudTask.ListSubtasks](/dotnet/api/microsoft.azure.batch.cloudtask.listsubtasks). Questo metodo restituisce informazioni su tutte le sottoattività e sul nodo di calcolo che ha eseguito le attività. Da queste informazioni è possibile determinare la directory radice di ogni sottoattività, l'ID del pool, lo stato corrente, il codice di uscita e altro ancora. È possibile usare queste informazioni in combinazione con il metodo [PoolOperations.GetNodeFile](/dotnet/api/microsoft.azure.batch.pooloperations.getnodefile) per ottenere i file della sottoattività. Si noti che questo metodo non restituisce informazioni per l'attività primaria (ID 0).
+Per ottenere informazioni sulle sottoattività usando la libreria Batch .NET, chiamare il metodo [CloudTask.ListSubtasks](/dotnet/api/microsoft.azure.batch.cloudtask.listsubtasks). Questo metodo restituisce informazioni su tutte le sottoattività e sul nodo di calcolo che ha eseguito le attività. Da queste informazioni è possibile determinare la directory radice di ogni sottoattività, l'ID pool, lo stato corrente, il codice di uscita e altro ancora. È possibile usare queste informazioni in combinazione con il metodo [PoolOperations.GetNodeFile](/dotnet/api/microsoft.azure.batch.pooloperations.getnodefile) per ottenere i file della sottoattività. Si noti che questo metodo non restituisce informazioni per l'attività primaria (ID 0).
 
 > [!NOTE]
 > Se non diversamente specificato, i metodi Batch .NET che operano sull'attività a istanze multiple [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) stessa si applicano *solo* all'attività primaria. Ad esempio, quando si chiama il metodo [CloudTask.ListNodeFiles](/dotnet/api/microsoft.azure.batch.cloudtask.listnodefiles) in un'attività a istanze multiple, vengono restituiti solo i file dell'attività primaria.
@@ -242,21 +248,21 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## <a name="code-sample"></a>Esempio di codice
 
-Il codice di esempio [MultiInstanceTasks](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks) su GitHub illustra come usare un'attività a più istanze per eseguire un'applicazione [MS-MPI](/message-passing-interface/microsoft-mpi) nei nodi di calcolo di Batch. Per eseguire l'esempio, attenersi alla procedura riportata di seguito.
+Il codice di esempio [MultiInstanceTasks](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks) su GitHub illustra come usare un'attività a più istanze per eseguire un'applicazione [MS-MPI](/message-passing-interface/microsoft-mpi) nei nodi di calcolo di Batch. Seguire questa procedura per eseguire l'esempio.
 
 ### <a name="preparation"></a>Preparazione
 
-1. Scaricare i [programmi di installazione MS-MPI SDK e Redist](/message-passing-interface/microsoft-mpi) e installarli. Dopo l'installazione è possibile verificare che le variabili di ambiente MS-MPI siano state impostate.
+1. Scaricare i [programmi di installazione di MS-MPI SDK e Redist](/message-passing-interface/microsoft-mpi) e installarli. Dopo l'installazione è possibile verificare che le variabili di ambiente MS-MPI siano state impostate.
 1. Compilare una versione *Release* del programma MPI di esempio [MPIHelloWorld](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld). Questo è il programma che verrà eseguito sui nodi di calcolo dall'attività a più istanze.
-1. Creare un file zip contenente `MPIHelloWorld.exe` (compilato nel passaggio 2) e `MSMpiSetup.exe` (scaricato nel passaggio 1). Il file zip verrà caricato come un pacchetto dell'applicazione nel passaggio successivo.
+1. Creare un file ZIP `MPIHelloWorld.exe` contenente (compilato nel passaggio 2) e `MSMpiSetup.exe` (scaricato nel passaggio 1). Il file zip verrà caricato come un pacchetto dell'applicazione nel passaggio successivo.
 1. Usare il [portale di Azure](https://portal.azure.com) per creare un'[applicazione](batch-application-packages.md) Batch chiamata "MPIHelloWorld" e specificare il file zip creato nel passaggio precedente come versione "1.0" del pacchetto dell'applicazione. Vedere [Caricare e gestire le applicazioni](batch-application-packages.md#upload-and-manage-applications) per maggiori informazioni.
 
 > [!TIP]
-> La compilazione di una versione di *rilascio* di `MPIHelloWorld.exe` garantisce che non sia necessario includere altre dipendenze (ad esempio, `msvcp140d.dll` o `vcruntime140d.dll` ) nel pacchetto dell'applicazione.
+> La compilazione *di* una versione di rilascio di garantisce che non sia necessario includere dipendenze aggiuntive `MPIHelloWorld.exe` (ad esempio, `msvcp140d.dll` o ) nel pacchetto `vcruntime140d.dll` dell'applicazione.
 
 ### <a name="execution"></a>Esecuzione
 
-1. Scaricare il [file Azure-batch-Samples. zip](https://github.com/Azure/azure-batch-samples/archive/master.zip) da GitHub.
+1. Scaricare il file con estensione [zip azure-batch-samples](https://github.com/Azure/azure-batch-samples/archive/master.zip) da GitHub.
 1. Aprire la **soluzione** MultiInstanceTasks in Visual Studio 2019. Il `MultiInstanceTasks.sln` file della soluzione si trova:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
@@ -265,7 +271,7 @@ Il codice di esempio [MultiInstanceTasks](https://github.com/Azure/azure-batch-s
 1. *Facoltativo*: usare il [portale di Azure](https://portal.azure.com) o [Batch Explorer](https://azure.github.io/BatchExplorer/) per esaminare il pool di esempio, il processo e l'attività ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask") prima di eliminare le risorse.
 
 > [!TIP]
-> È possibile scaricare gratuitamente [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/) se non si ha già Visual Studio.
+> È possibile scaricare [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/) gratuitamente se non si dispone già di Visual Studio.
 
 L'output di `MultiInstanceTasks.exe`è simile al seguente:
 
@@ -304,5 +310,5 @@ Sample complete, hit ENTER to exit...
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri di più sul [supporto MPI per Linux in Azure batch](https://docs.microsoft.com/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
+- Altre informazioni sul [supporto MPI per Linux in Azure Batch](https://docs.microsoft.com/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch).
 - Leggere le informazioni su come [creare pool di nodi di calcolo Linux](batch-linux-nodes.md) per utilizzarle con le soluzioni Azure Batch MPI.

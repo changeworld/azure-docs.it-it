@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: a386b214c4372c9d8de729a8b6bed4aac9edd9f3
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: af050ae95b4ab161028229299a8de5ed3426430b
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043462"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482834"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -37,7 +37,7 @@ L'esportazione dati è disponibile per vari tipi di account di Azure, inclusi i 
 
 - Proprietario: può creare, modificare o eliminare esportazioni pianificate per una sottoscrizione.
 - Collaboratore: può creare, modificare o eliminare le proprie esportazioni pianificate. Può modificare il nome delle esportazioni pianificate create da altri.
-- Lettore: può pianificare le esportazioni per cui ha le autorizzazioni.
+- Reader â€" Può pianificare le esportazioni per cui hanno l'autorizzazione.
 
 Per gli account di archiviazione di Azure:
 - Sono necessarie autorizzazioni in scrittura per modificare l'account di archiviazione configurato, indipendentemente dalle autorizzazioni per l'esportazione.
@@ -63,10 +63,10 @@ Per creare o visualizzare un'esportazione di dati o pianificare un'esportazione,
     - **Costo effettivo (utilizzo e acquisti)** : selezionare questa opzione per esportare dati su utilizzo e acquisti standard
     - **Costo ammortizzato (utilizzo e acquisti)** : selezionare questa opzione per esportare dati sui costi ammortizzati per gli acquisti, come le prenotazioni di Azure
 1. Per **Tipo di esportazione**, effettuare una selezione:
-    - **Esportazione giornaliera dei costi da inizio mese**: fornisce un nuovo file di esportazione giornaliera per i costi da inizio mese. I dati più recenti vengono aggregati dalle esportazioni giornaliere precedenti.
-    - **Esportazione settimanale dei costi per gli ultimi sette giorni**: crea un'esportazione settimanale dei costi relativi agli ultimi sette giorni a partire dalla data di inizio dell'esportazione selezionata.
-    - **Esportazione mensile dei costi dell'ultimo mese**: consente di esportare i costi del mese scorso rispetto al mese corrente in cui si crea l'esportazione. In futuro, la pianificazione esegue un'esportazione il quinto giorno di ogni nuovo mese con i costi dei mesi precedenti.
-    - **Esportazione occasionale**: consente di scegliere un intervallo di date per i dati cronologici da esportare in archiviazione BLOB di Azure. È possibile esportare i costi cronologici relativi a un massimo di 90 giorni a partire dal giorno scelto. Questa esportazione viene eseguita immediatamente ed è disponibile nell'account di archiviazione entro due ore.
+    - **Esportazione giornaliera dei costi da** inizio mese: fornisce un nuovo file di esportazione giornaliero per i costi da inizio mese. I dati più recenti vengono aggregati dalle esportazioni giornaliere precedenti.
+    - **Esportazione settimanale dei costi per** gli ultimi sette giorni: crea un'esportazione settimanale dei costi per gli ultimi sette giorni dalla data di inizio selezionata dell'esportazione.
+    - **Esportazione mensile dei** costi del mese scorso: consente di esportare i costi dell'ultimo mese rispetto al mese corrente in cui si crea l'esportazione. In futuro, la pianificazione esegue un'esportazione il quinto giorno di ogni nuovo mese con i costi dei mesi precedenti.
+    - **Esportazione una sola** volta: consente di scegliere un intervallo di date per i dati cronologici da esportare nell'archivio BLOB di Azure. È possibile esportare i costi cronologici relativi a un massimo di 90 giorni a partire dal giorno scelto. Questa esportazione viene eseguita immediatamente ed è disponibile nell'account di archiviazione entro due ore.
         A seconda del tipo di esportazione, scegliere una data di inizio oppure scegliere le date **Da** e **A**.
 1. Specificare la sottoscrizione per l'account di archiviazione di Azure, quindi selezionare un gruppo di risorse o crearne uno nuovo.
 1. Selezionare il nome dell'account di archiviazione o crearne uno nuovo.
@@ -81,7 +81,7 @@ Inizialmente, possono essere necessarie 12-24 ore prima che l'esportazione venga
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Quando si crea un'esportazione a livello di codice, è necessario registrare manualmente il `Microsoft.CostManagementExports` provider di risorse con la sottoscrizione in cui risiede l'account di archiviazione. La registrazione viene eseguita automaticamente quando si crea l'esportazione usando il portale di Azure. Per altre informazioni su come registrare i provider di risorse, vedere [registrare il provider di risorse](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+Quando si crea un'esportazione a livello di codice, è necessario registrare manualmente il provider di risorse con la sottoscrizione in cui risiede `Microsoft.CostManagementExports` l'account di archiviazione. La registrazione viene eseguita automaticamente quando si crea l'esportazione usando il portale di Azure. Per altre informazioni su come registrare i provider di risorse, vedere [Registrare il provider di risorse.](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
 Per iniziare, preparare l'ambiente per l'interfaccia della riga di comando di Azure:
 
@@ -151,7 +151,7 @@ az costmanagement export delete --name DemoExport --scope "subscriptions/0000000
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-Quando si crea un'esportazione a livello di codice, è necessario registrare manualmente il `Microsoft.CostManagementExports` provider di risorse con la sottoscrizione in cui risiede l'account di archiviazione. La registrazione viene eseguita automaticamente quando si crea l'esportazione usando il portale di Azure. Per altre informazioni su come registrare i provider di risorse, vedere [registrare il provider di risorse](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+Quando si crea un'esportazione a livello di codice, è necessario registrare manualmente il provider di risorse con la sottoscrizione in cui risiede `Microsoft.CostManagementExports` l'account di archiviazione. La registrazione viene eseguita automaticamente quando si crea l'esportazione usando il portale di Azure. Per altre informazioni su come registrare i provider di risorse, vedere [Registrare il provider di risorse.](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
 Per iniziare, preparare l'ambiente per Azure PowerShell:
 
