@@ -1,24 +1,24 @@
 ---
 title: Presentazione dell'interfaccia utente di Azure IoT Central | Microsoft Docs
-description: Acquisire familiarità con le aree principali dell'interfaccia utente di Azure IoT Central che consente di creare, gestire e usare la soluzione IoT.
-author: TheJasonAndrew
-ms.author: v-anjaso
+description: Acquisire familiarità con le aree chiave dell'interfaccia Azure IoT Central interfaccia utente che si usa per creare, gestire e usare la soluzione IoT.
+author: ankitscribbles
+ms.author: ankitgup
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: ff795281b3471d5c6f57397edf5a52e0df9bbd32
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 564e7d3d2353661d0a69cbd15ad8b281defacf87
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589121"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600569"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Presentazione dell'interfaccia utente di Azure IoT Central
 
-In questo articolo viene presentata l'interfaccia utente di Microsoft Azure IoT Central. È possibile usare l'interfaccia utente per creare, gestire e usare una soluzione Azure IoT Central e i relativi dispositivi connessi.
+Questo articolo illustra come Azure IoT Central'interfaccia utente. È possibile usare l'interfaccia utente per creare, gestire e usare un'IoT Central e i dispositivi connessi.
 
 ## <a name="iot-central-homepage"></a>Home page di IoT Central
 
@@ -28,7 +28,7 @@ La [IoT Central home](https://aka.ms/iotcentral-get-started) page è la posizion
 
 ### <a name="create-an-application"></a>Creare un'applicazione
 
-Nella sezione Compilazione è possibile esplorare l'elenco dei modelli di IoT Central rilevanti per il settore o iniziare da zero usando un modello di app personalizzata.  
+Nella sezione Compilazione è possibile esplorare l'elenco dei modelli di IoT Central rilevanti per il settore o iniziare da zero usando un modello di app personalizzato.  
 
 :::image type="content" source="media/overview-iot-central-tour/iot-central-build.png" alt-text="Pagina di compilazione di IoT Central":::
 
@@ -42,7 +42,7 @@ Avviare l'applicazione IoT Central passando all'URL scelto durante la creazione 
 
 ## <a name="navigate-your-application"></a>Esplorare l'applicazione
 
-All'interno dell'applicazione IoT, usare il riquadro sinistro per accedere alle diverse aree. È possibile espandere o comprimere il riquadro sinistro selezionando l'icona con tre linee nella parte superiore del riquadro:
+Una volta all'interno dell'applicazione IoT, usare il riquadro sinistro per accedere a varie funzionalità. È possibile espandere o comprimere il riquadro sinistro selezionando l'icona con tre linee nella parte superiore del riquadro:
 
 > [!NOTE]
 > Le voci visualizzate nel riquadro sinistro dipendono dal ruolo utente. Altre informazioni sulla [gestione di utenti e ruoli](howto-manage-users-roles.md). 
@@ -53,23 +53,25 @@ All'interno dell'applicazione IoT, usare il riquadro sinistro per accedere alle 
 
   :::column-end:::
   :::column span="2":::
-     **I dashboard visualizzano** tutti i dashboard personali e dell'applicazione. 
+     **I dashboard** visualizzano tutti i dashboard personali e dell'applicazione. 
      
-     **Dispositivi** consente di gestire i dispositivi connessi, reali e simulati.
+     **I** dispositivi consentono di gestire tutti i dispositivi.
 
-     **I gruppi** di dispositivi consentono di visualizzare e creare raccolte di dispositivi specificati da una query. I gruppi di dispositivi vengono usati tramite l'applicazione per eseguire operazioni in blocco.
+     **I gruppi di** dispositivi consentono di visualizzare e creare raccolte di dispositivi specificati da una query. I gruppi di dispositivi vengono usati tramite l'applicazione per eseguire operazioni bulk.
 
-     **Regole** consente di creare e modificare le regole per monitorare i dispositivi. Le regole vengono valutate in base ai dati di telemetria del dispositivo e attivano azioni personalizzabili.
+     **Regole** consente di creare e modificare le regole per monitorare i dispositivi. Le regole vengono valutate in base ai dati del dispositivo e attivano azioni personalizzabili.
 
-     **Analytics** consente di visualizzare graficamente i dati di telemetria dai dispositivi.
+     **Analytics** espone funzionalità avanzate per analizzare le tendenze cronologiche e correlare varie telemetrie dai dispositivi.
 
      **Processi** consente di gestire i dispositivi con scalabilità eseguendo operazioni in blocco.
 
-     **Modelli di dispositivo** consente di creare e gestire le caratteristiche dei dispositivi che si connettono all'applicazione.
+     **I modelli** di dispositivo consentono di creare e gestire le caratteristiche dei dispositivi che si connettono all'applicazione.
 
-     **Esportazione dati** consente di configurare un'esportazione continua a servizi esterni, ad esempio archiviazione e code.
+     **L'esportazione** dati consente di configurare un'esportazione continua in servizi esterni, ad esempio l'archiviazione e le code.
 
-     **Amministrazione** consente di gestire le impostazioni dell'applicazione, la personalizzazione, la fatturazione, gli utenti e i ruoli.
+     **L'amministrazione** consente di gestire le impostazioni, la personalizzazione, la fatturazione, gli utenti e i ruoli dell'applicazione.
+
+     **App personali** consente di tornare al gestore IoT Central app.
      
    :::column-end:::
 :::row-end:::
@@ -80,7 +82,7 @@ Il menu superiore viene visualizzato in ogni pagina:
 
 :::image type="content" source="media/overview-iot-central-tour/toolbar.png" alt-text="IoT Central barra degli strumenti":::
 
-* Per cercare i dispositivi, immettere un **valore di** ricerca.
+* Per cercare i dispositivi, immettere un **valore Di** ricerca.
 * Per cambiare la lingua o il tema dell'interfaccia utente, scegliere l'icona **Settings** (Impostazioni). Altre informazioni sulla [gestione delle preferenze dell'applicazione](howto-manage-preferences.md)
 * Per accedere alla guida e al supporto tecnico, fare clic sul menu a discesa **Help** (Guida) per visualizzare un elenco di risorse. È possibile [ottenere informazioni sull'applicazione](./howto-get-app-info.md) dal collegamento **Informazioni sull'app**. Nelle applicazioni del piano tariffario gratuito le risorse di supporto includono l'accesso alla [live chat](howto-show-hide-chat.md).
 * Per disconnettersi dall'applicazione, scegliere l'icona **Account**.
@@ -90,13 +92,13 @@ Il menu superiore viene visualizzato in ogni pagina:
 > [!NOTE]
 > L'opzione per scegliere il tema chiaro o scuro non è disponibile se l'amministratore ha configurato un tema personalizzato per l'applicazione.
 
-:::image type="content" source="media/overview-iot-central-tour/themes.png" alt-text="Screenshot della IoT Central Scegliere un tema.":::
+:::image type="content" source="media/overview-iot-central-tour/themes.png" alt-text="Screenshot della IoT Central scegliere un tema.":::
 
 ### <a name="dashboard"></a>Dashboard
 
 :::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Screenshot di IoT Central Dashboard.":::
 
-* Il dashboard è la prima pagina visualizzata quando si accede all'applicazione Azure IoT Central. È possibile creare e personalizzare più dashboard dell'applicazione. Altre informazioni sull'[aggiunta di riquadri al dashboard](howto-add-tiles-to-your-dashboard.md)
+* Il dashboard è la prima pagina visualizzata quando si accede all'applicazione IoT Central applicazione. È possibile creare e personalizzare più dashboard dell'applicazione. Altre informazioni sull'[aggiunta di riquadri al dashboard](howto-add-tiles-to-your-dashboard.md)
 
 * È anche possibile creare dashboard personali per monitorare ciò che interessa. Per altre informazioni, vedere la procedura dettagliata [Creare dashboard personali di Azure IoT Central](howto-create-personal-dashboards.md).
 
@@ -104,7 +106,7 @@ Il menu superiore viene visualizzato in ogni pagina:
 
 :::image type="content" source="Media/overview-iot-central-tour/devices.png" alt-text="Screenshot della pagina Dispositivi.":::
 
-La pagina Explorer visualizza i _dispositivi_ presenti nell'applicazione Azure IoT Central raggruppati per _modello di dispositivo_. 
+Questa pagina mostra i dispositivi nell'applicazione IoT Central raggruppati per modello _di dispositivo_. 
 
 * Un modello di dispositivo consente di definire un tipo di dispositivo in grado di connettersi all'applicazione.
 * Per dispositivo si intende un dispositivo simulato o reale presente nell'applicazione.
@@ -115,37 +117,30 @@ Per altre informazioni, vedere la Guida introduttiva [Monitorare i dispositivi](
 
 :::image type="content" source="Media/overview-iot-central-tour/device-groups.png" alt-text="Pagina Gruppo di dispositivi":::
 
-Per gruppo di dispositivi si intende una raccolta di dispositivi correlati. I gruppi di dispositivi vengono usati per eseguire operazioni in blocco nell'applicazione. Per altre informazioni, vedere l'articolo [Usare gruppi di dispositivi nell'applicazione Azure IoT Central](tutorial-use-device-groups.md).
+Questa pagina consente di creare e visualizzare i gruppi di dispositivi nell'IoT Central applicazione. È possibile usare i gruppi di dispositivi per eseguire operazioni in blocco nell'applicazione o per analizzare i dati. Per altre informazioni, vedere l'articolo [Usare gruppi di dispositivi nell'applicazione Azure IoT Central](tutorial-use-device-groups.md).
 
 ### <a name="rules"></a>Regole
 :::image type="content" source="Media/overview-iot-central-tour/rules.png" alt-text="Screenshot della pagina Regole.":::
 
-La pagina Regole consente di definire regole in base ai dati di telemetria, allo stato o agli eventi relativi ai dispositivi. Quando una regola viene generata, può attivare una o più azioni, ad esempio l'invio di un messaggio di posta elettronica, la notifica a un sistema esterno tramite gli avvisi del webhook e così via. Per altre informazioni, vedere l'esercitazione [Configurazione di regole](tutorial-create-telemetry-rules.md). 
+Questa pagina consente di visualizzare e creare regole basate sui dati del dispositivo. Quando una regola viene attivata, può attivare una o più azioni, ad esempio inviare un messaggio di posta elettronica o richiamare un webhook. Per altre informazioni, vedere l'esercitazione [Configurazione di regole](tutorial-create-telemetry-rules.md). 
 
 ### <a name="analytics"></a>Analytics
 
 :::image type="content" source="Media/overview-iot-central-tour/analytics.png" alt-text="Screenshot della pagina Analytics.":::
 
-La pagina di analisi consente di visualizzare graficamente i dati di telemetria dai dispositivi in una serie temporale. Per altre informazioni, vedere l'articolo [Creare analisi per l'applicazione Azure IoT Central](howto-create-analytics.md).
+Analytics espone funzionalità avanzate per analizzare le tendenze cronologiche e correlare varie telemetrie dai dispositivi. Per altre informazioni, vedere l'articolo [Creare analisi per l'applicazione Azure IoT Central](howto-create-analytics.md).
 
 ### <a name="jobs"></a>Processi
 
 :::image type="content" source="Media/overview-iot-central-tour/jobs.png" alt-text="Pagina Processi":::
 
-La pagina dei processi consente di eseguire operazioni in blocco nei dispositivi. È possibile aggiornare le proprietà del dispositivo, le impostazioni e i comandi di esecuzione nei gruppi di dispositivi. Per altre informazioni, vedere l'articolo [Eseguire un processo](howto-run-a-job.md).
+Questa pagina consente di visualizzare e creare processi che possono essere usati per operazioni di gestione dei dispositivi in blocco nei dispositivi. È possibile aggiornare le proprietà del dispositivo, le impostazioni e i comandi di esecuzione nei gruppi di dispositivi. Per altre informazioni, vedere l'articolo [Eseguire un processo](howto-run-a-job.md).
 
 ### <a name="device-templates"></a>Modelli di dispositivo
 
 :::image type="content" source="Media/overview-iot-central-tour/templates.png" alt-text="Screenshot dei modelli di dispositivo.":::
 
-La pagina modelli di dispositivo consente di creare e gestire i modelli di dispositivo nell'applicazione. Un modello di dispositivo specifica le caratteristiche del dispositivo, ad esempio:
-
-* Dati di telemetria, stato e misure di evento
-* Proprietà
-* Comandi
-* Viste
-
-Per altre informazioni, vedere l'esercitazione sulla [definizione di un nuovo tipo di dispositivo nell'applicazione Azure IoT Central](howto-set-up-template.md). 
+Nella pagina modelli di dispositivo è possibile visualizzare e creare modelli di dispositivo nell'applicazione. Per altre informazioni, vedere l'esercitazione sulla [definizione di un nuovo tipo di dispositivo nell'applicazione Azure IoT Central](howto-set-up-template.md). 
 
 ### <a name="data-export"></a>Esportazione dati
 

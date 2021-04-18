@@ -1,115 +1,119 @@
 ---
 title: Configurare il controllo degli accessi in base al ruolo per l'account Azure Cosmos DB con Azure AD
-description: Informazioni su come configurare il controllo degli accessi in base al ruolo con Azure Active Directory per l'account Azure Cosmos DB
+description: Informazioni su come configurare il controllo degli accessi in base al ruolo con Azure Active Directory per l'account Azure Cosmos DB ruolo
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/16/2021
 ms.author: thweiss
-ms.openlocfilehash: 1a6bdf55e52a7060423d2a016f07eee3608f50d4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 145c60784ec9cef60d0863e1eb03aa564dea2b55
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063475"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600829"
 ---
-# <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurare il controllo degli accessi in base al ruolo con Azure Active Directory per l'account Azure Cosmos DB (anteprima)
+# <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurare il controllo degli accessi in base al ruolo Azure Active Directory per l'account Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
-> Azure Cosmos DB controllo degli accessi in base al ruolo è attualmente in fase di anteprima. Questa versione di anteprima viene fornita senza una Contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Cosmos DB controllo degli accessi in base al ruolo è attualmente in anteprima. Questa versione di anteprima viene fornita senza un Contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> Questo articolo illustra il controllo degli accessi in base al ruolo per le operazioni del piano dati in Azure Cosmos DB. Se si usano le operazioni del piano di gestione, vedere [l'articolo relativo al controllo degli accessi in base al ruolo](role-based-access-control.md) applicato alle operazioni del piano di gestione.
+> Questo articolo riguarda il controllo degli accessi in base al ruolo per le operazioni del piano dati in Azure Cosmos DB. Se si usano operazioni del piano di gestione, vedere l'articolo [Controllo degli](role-based-access-control.md) accessi in base al ruolo applicato alle operazioni del piano di gestione.
 
-Azure Cosmos DB espone un sistema di controllo degli accessi in base al ruolo (RBAC) incorporato che consente di:
+Azure Cosmos DB un sistema di controllo degli accessi in base al ruolo predefinito che consente di:
 
-- Autenticare le richieste di dati con un'identità Azure Active Directory (Azure AD).
-- Autorizzare le richieste di dati con un modello di autorizzazione con granularità fine e basato sui ruoli.
+- Autenticare le richieste di dati con Azure Active Directory (Azure AD).
+- Autorizzare le richieste di dati con un modello di autorizzazione basato sui ruoli con granularità fine.
 
 ## <a name="concepts"></a>Concetti
 
-Il Azure Cosmos DB del piano dati RBAC si basa su concetti comunemente individuati in altri sistemi RBAC come il controllo degli accessi in base al ruolo di [Azure](../role-based-access-control/overview.md):
+Il Azure Cosmos DB controllo degli accessi in base al ruolo del piano dati si basa sui concetti comunemente disponibili in altri sistemi di controllo degli accessi in base al ruolo di Azure, ad esempio il controllo degli accessi in base [al ruolo di Azure:](../role-based-access-control/overview.md)
 
-- Il [modello di autorizzazione](#permission-model) è costituito da un set di **azioni**. ognuna di queste azioni esegue il mapping a una o più operazioni di database. Alcuni esempi di azioni includono la lettura di un elemento, la scrittura di un elemento o l'esecuzione di una query.
-- Azure Cosmos DB gli utenti creano **[definizioni di ruolo](#role-definitions)** contenenti un elenco di azioni consentite.
-- Le definizioni di ruolo vengono assegnate a specifiche Azure AD identità tramite **[assegnazioni di ruolo](#role-assignments)**. Un'assegnazione di ruolo definisce anche l'ambito a cui viene applicata la definizione di ruolo. Attualmente, attualmente sono disponibili tre ambiti:
-    - Un account Azure Cosmos DB,
-    - Un database di Azure Cosmos DB,
-    - Contenitore Azure Cosmos DB.
+- Il [modello di autorizzazione](#permission-model) è costituito da un set di **azioni**. ognuna di queste azioni viene mappata a una o più operazioni di database. Alcuni esempi di azioni includono la lettura di un elemento, la scrittura di un elemento o l'esecuzione di una query.
+- Azure Cosmos DB utenti creano **[definizioni di ruolo](#role-definitions)** contenenti un elenco di azioni consentite.
+- Le definizioni di ruolo vengono assegnate a identità Azure AD tramite **[assegnazioni di ruolo](#role-assignments)**. Un'assegnazione di ruolo definisce anche l'ambito a cui si applica la definizione del ruolo. Attualmente, tre ambiti sono:
+    - Un Azure Cosmos DB account,
+    - Un database Azure Cosmos DB,
+    - Oggetto Azure Cosmos DB contenitore.
 
-  :::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="Concetti RBAC":::
+  :::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="Concetti relativi al controllo degli accessi in base al ruolo":::
 
 > [!NOTE]
-> Il Azure Cosmos DB RBAC non espone attualmente alcuna definizione di ruolo incorporata.
+> Il Azure Cosmos DB controllo degli accessi in base al ruolo non espone attualmente alcuna definizione di ruolo incorporata.
 
 ## <a name="permission-model"></a><a id="permission-model"></a> Modello di autorizzazione
 
-Nella tabella seguente sono elencate tutte le azioni esposte dal modello di autorizzazione.
+> [!IMPORTANT]
+> Questo modello di autorizzazione riguarda solo le operazioni di database che consentono di leggere e scrivere dati. Non copre **alcun** tipo di operazioni di gestione, ad esempio la creazione di contenitori o la modifica della velocità effettiva. Ciò significa che non è **possibile usare alcun SDK Azure Cosmos DB piano** dati per autenticare le operazioni di gestione con un'identità AAD. È invece necessario usare il controllo degli accessi in [base al ruolo di Azure](role-based-access-control.md) tramite:
+> - [Modelli di Gestione risorse di Azure](manage-with-templates.md)
+> - [Azure PowerShell script](manage-with-powershell.md),
+> - [Script dell'interfaccia della riga di comando di Azure,](manage-with-cli.md)
+> - [Librerie di gestione di Azure.](https://azure.github.io/azure-sdk/releases/latest/index.html)
+
+La tabella seguente elenca tutte le azioni esposte dal modello di autorizzazione.
 
 | Nome | Operazioni di database corrispondenti |
 |---|---|
-| `Microsoft.DocumentDB/databaseAccounts/readMetadata` | Leggere i metadati dell'account. Per informazioni dettagliate, vedere [richieste di metadati](#metadata-requests) . |
+| `Microsoft.DocumentDB/databaseAccounts/readMetadata` | Legge i metadati dell'account. Per [informazioni dettagliate, vedere](#metadata-requests) Richieste di metadati. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create` | Creare un nuovo elemento. |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read` | Legge un singolo elemento in base all'ID e alla chiave di partizione (punto-lettura). |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read` | Leggere un singolo elemento in base all'ID e alla chiave di partizione (lettura da punto). |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/replace` | Sostituire un elemento esistente. |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upsert" elemento, che significa crearlo se non esiste o sostituirlo se esiste. |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upsert" un elemento, ovvero crearlo se non esiste o sostituirlo se esiste. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete` | Eliminare un elemento. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` | Eseguire una [query SQL](sql-query-getting-started.md). |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` | Leggere dal [feed delle modifiche](read-change-feed.md)del contenitore. |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeStoredProcedure` | Eseguire un [stored procedure](stored-procedures-triggers-udfs.md). |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/manageConflicts` | Gestire i [conflitti](conflict-resolution-policies.md) per gli account di area con più scritture (ovvero, elencare ed eliminare elementi dal feed dei conflitti). |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` | Leggere dal feed di [modifiche del contenitore.](read-change-feed.md) |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeStoredProcedure` | Eseguire [un'stored procedure](stored-procedures-triggers-udfs.md). |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/manageConflicts` | Gestire [i conflitti](conflict-resolution-policies.md) per gli account con più aree di scrittura, ovvero elencare ed eliminare elementi dal feed dei conflitti. |
 
-I caratteri jolly sono supportati sia a livello di *contenitori* che di *elementi* :
+I caratteri jolly sono supportati sia a *livello di contenitori* *che di* elementi:
 
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
 
-> [!IMPORTANT]
-> Questo modello di autorizzazione copre solo le operazioni di database che consentono di leggere e scrivere i dati. **Non copre alcun** tipo di operazioni di gestione, ad esempio la creazione di contenitori o la modifica della velocità effettiva. Per autenticare le operazioni di gestione con un'identità di AAD, usare invece [RBAC di Azure](role-based-access-control.md) .
-
 ### <a name="metadata-requests"></a><a id="metadata-requests"></a> Richieste di metadati
 
-Quando si usano Azure Cosmos DB SDK, questi SDK inviano richieste di metadati di sola lettura durante l'inizializzazione e servono richieste di dati specifiche. Queste richieste di metadati recuperano vari dettagli di configurazione, ad esempio: 
+Quando si Azure Cosmos DB SDK, questi SDK elaggono richieste di metadati di sola lettura durante l'inizializzazione e per gestire richieste di dati specifiche. Queste richieste di metadati recuperano vari dettagli di configurazione, ad esempio: 
 
 - Configurazione globale dell'account, che include le aree di Azure in cui è disponibile l'account.
-- La chiave di partizione dei contenitori o i relativi criteri di indicizzazione.
-- Elenco di partizioni fisiche che rendono un contenitore e i relativi indirizzi.
+- Chiave di partizione dei contenitori o dei relativi criteri di indicizzazione.
+- Elenco di partizioni fisiche che costituiscono un contenitore e i relativi indirizzi.
 
-*Non* recuperano i dati archiviati nell'account.
+Non *recuperano* i dati archiviati nell'account.
 
-Per garantire la massima trasparenza del modello di autorizzazione, queste richieste di metadati sono descritte in modo esplicito dall' `Microsoft.DocumentDB/databaseAccounts/readMetadata` azione. Questa azione deve essere consentita in ogni situazione in cui è possibile accedere all'account Azure Cosmos DB tramite uno degli SDK di Azure Cosmos DB. È possibile assegnarlo (tramite un'assegnazione di ruolo) a qualsiasi livello della gerarchia di Azure Cosmos DB (ovvero account, database o contenitore).
+Per garantire la massima trasparenza del modello di autorizzazione, queste richieste di metadati sono coperte in modo esplicito `Microsoft.DocumentDB/databaseAccounts/readMetadata` dall'azione. Questa azione deve essere consentita in ogni situazione in cui l'account Azure Cosmos DB è accessibile tramite uno dei Azure Cosmos DB SDK. Può essere assegnato (tramite un'assegnazione di ruolo) a qualsiasi livello della gerarchia Azure Cosmos DB,ovvero account, database o contenitore.
 
-Le richieste di metadati effettive consentite dall' `Microsoft.DocumentDB/databaseAccounts/readMetadata` azione dipendono dall'ambito a cui è assegnata l'azione:
+Le richieste di metadati effettive consentite `Microsoft.DocumentDB/databaseAccounts/readMetadata` dall'azione dipendono dall'ambito a cui è assegnata l'azione:
 
 | Ambito | Richieste consentite dall'azione |
 |---|---|
-| Account | -Elenco dei database nell'account<br>-Per ogni database con l'account, le azioni consentite nell'ambito del database |
-| Database | -Lettura dei metadati del database<br>-Elenco dei contenitori nel database<br>-Per ogni contenitore nel database, le azioni consentite nell'ambito del contenitore |
-| Contenitore | -Lettura dei metadati del contenitore<br>-Elenco delle partizioni fisiche nel contenitore<br>-Risoluzione dell'indirizzo di ogni partizione fisica |
+| Account | - Elenco dei database nell'account<br>- Per ogni database nell'account, le azioni consentite nell'ambito del database |
+| Database | - Lettura dei metadati del database<br>- Elenco dei contenitori nel database<br>- Per ogni contenitore nel database, le azioni consentite nell'ambito del contenitore |
+| Contenitore | - Lettura dei metadati del contenitore<br>- Elenco delle partizioni fisiche nel contenitore<br>- Risoluzione dell'indirizzo di ogni partizione fisica |
 
-## <a name="create-role-definitions"></a><a id="role-definitions"></a> Creazione di definizioni di ruolo
+## <a name="create-role-definitions"></a><a id="role-definitions"></a> Creare definizioni di ruolo
 
-Quando si crea una definizione di ruolo, è necessario fornire:
+Quando si crea una definizione di ruolo, è necessario specificare:
 
-- Nome dell'account Azure Cosmos DB.
-- Il gruppo di risorse contenente l'account.
-- Tipo della definizione di ruolo. `CustomRole` attualmente è supportato solo.
-- Nome della definizione di ruolo.
-- Elenco di [azioni](#permission-model) che si desidera consentire al ruolo.
-- Uno o più ambiti a cui può essere assegnata la definizione del ruolo. gli ambiti supportati sono:
+- Nome dell'account Azure Cosmos DB utente.
+- Gruppo di risorse contenente l'account.
+- Tipo della definizione del ruolo. è `CustomRole` attualmente supportato solo .
+- Nome della definizione del ruolo.
+- Elenco di [azioni](#permission-model) che il ruolo deve consentire.
+- Uno o più ambiti a cui è possibile assegnare la definizione del ruolo. Gli ambiti supportati sono:
     - `/` (a livello di account),
     - `/dbs/<database-name>` (a livello di database),
     - `/dbs/<database-name>/colls/<container-name>` (a livello di contenitore).
 
 > [!NOTE]
 > Le operazioni descritte di seguito sono attualmente disponibili in:
-> - Azure PowerShell: [AZ. CosmosDB versione 2.0.1-Preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
-> - INTERFACCIA della riga [di comando di Azure: versione dell'estensione ' cosmosdb-Preview ' 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+> - Azure PowerShell: [Az.CosmosDB versione 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Interfaccia della riga di comando di Azure: estensione ['cosmosdb-preview' versione 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
 
-Creare un ruolo denominato *MyReadOnlyRole* che contenga solo le azioni di lettura:
+Creare un ruolo denominato *MyReadOnlyRole che* contiene solo azioni di lettura:
 
 ```powershell
 $resourceGroupName = "<myResourceGroup>"
@@ -125,7 +129,7 @@ New-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
     -AssignableScope "/"
 ```
 
-Creare un ruolo denominato *MyReadWriteRole* contenente tutte le azioni:
+Creare un ruolo denominato *MyReadWriteRole* che contiene tutte le azioni:
 
 ```powershell
 New-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
@@ -165,7 +169,7 @@ AssignableScopes : {/subscriptions/<mySubscriptionId>/resourceGroups/<myResource
 
 ### <a name="using-the-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
-Creare un ruolo denominato *MyReadOnlyRole* che contenga solo le azioni di lettura:
+Creare un ruolo denominato *MyReadOnlyRole che* contiene solo azioni di lettura:
 
 ```json
 // role-definition-ro.json
@@ -268,26 +272,26 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ## <a name="create-role-assignments"></a><a id="role-assignments"></a> Creare assegnazioni di ruolo
 
-Dopo aver creato le definizioni di ruolo, è possibile associarle alle identità di AAD. Quando si crea un'assegnazione di ruolo, è necessario fornire:
+Dopo aver creato le definizioni dei ruoli, è possibile associarle alle identità di AAD. Quando si crea un'assegnazione di ruolo, è necessario specificare:
 
-- Nome dell'account Azure Cosmos DB.
-- Il gruppo di risorse contenente l'account.
-- ID della definizione di ruolo da assegnare.
+- Nome dell'account Azure Cosmos DB account.
+- Gruppo di risorse contenente l'account.
+- ID della definizione del ruolo da assegnare.
 - ID entità dell'identità a cui deve essere assegnata la definizione del ruolo.
-- Ambito dell'assegnazione di ruolo. gli ambiti supportati sono:
+- Ambito dell'assegnazione di ruolo. Gli ambiti supportati sono:
     - `/` (a livello di account)
     - `/dbs/<database-name>` (a livello di database)
     - `/dbs/<database-name>/colls/<container-name>` (a livello di contenitore)
 
-  L'ambito deve corrispondere o essere un ambito secondario di uno degli ambiti assegnabili della definizione di ruolo.
+  L'ambito deve corrispondere o essere un ambito secondario di uno degli ambiti assegnabili della definizione del ruolo.
 
 > [!NOTE]
-> Se si vuole creare un'assegnazione di ruolo per un'entità servizio, assicurarsi di usare il relativo **ID oggetto** come disponibile nella sezione **applicazioni aziendali** del pannello del portale di **Azure Active Directory** .
+> Se si vuole creare un'assegnazione di ruolo per un'entità servizio, assicurarsi di usare il relativo **ID** oggetto, come illustrato nella sezione **Applicazioni** aziendali del pannello Azure Active Directory **portale.**
 
 > [!NOTE]
 > Le operazioni descritte di seguito sono attualmente disponibili in:
-> - Azure PowerShell: [AZ. CosmosDB versione 2.0.1-Preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
-> - INTERFACCIA della riga [di comando di Azure: versione dell'estensione ' cosmosdb-Preview ' 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+> - Azure PowerShell: [Az.CosmosDB versione 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Interfaccia della riga di comando di Azure: [estensione "cosmosdb-preview" versione 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
 
@@ -319,19 +323,19 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Inizializzare l'SDK con Azure AD
 
-Per usare la Azure Cosmos DB RBAC nell'applicazione, è necessario aggiornare la modalità di inizializzazione dell'SDK di Azure Cosmos DB. Anziché passare la chiave primaria dell'account, è necessario passare un'istanza di una `TokenCredential` classe. Questa istanza fornisce il Azure Cosmos DB SDK con il contesto necessario per recuperare un token AAD per conto dell'identità che si vuole usare.
+Per usare il controllo Azure Cosmos DB controllo degli accessi in base al ruolo nell'applicazione, è necessario aggiornare la modalità di inizializzazione dell'SDK Azure Cosmos DB. Anziché passare la chiave primaria dell'account, è necessario passare un'istanza di una `TokenCredential` classe . Questa istanza fornisce all'SDK Azure Cosmos DB il contesto necessario per recuperare un token AAD per conto dell'identità che si vuole usare.
 
-Il modo in cui si crea un' `TokenCredential` istanza esula dall'ambito di questo articolo. Esistono diversi modi per creare un'istanza di questo tipo, a seconda del tipo di identità di AAD che si vuole usare (entità utente, entità servizio, gruppo e così via). In particolare, l' `TokenCredential` istanza deve essere risolta nell'identità (ID entità) a cui sono stati assegnati i ruoli. È possibile trovare esempi di creazione di una `TokenCredential` classe:
+Il modo in cui si crea `TokenCredential` un'istanza es supera l'ambito di questo articolo. Esistono molti modi per creare un'istanza di questo tipo a seconda del tipo di identità di AAD che si vuole usare (entità utente, entità servizio, gruppo e così via). Soprattutto, `TokenCredential` l'istanza deve risolversi nell'identità (ID entità) a cui sono stati assegnati i ruoli. È possibile trovare esempi di creazione di una `TokenCredential` classe:
 
 - [in .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [in Java](/java/api/overview/azure/identity-readme#credential-classes)
 - [in JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
 
-Gli esempi seguenti usano un'entità servizio con un' `ClientSecretCredential` istanza di.
+Negli esempi seguenti viene utilizzata un'entità servizio con `ClientSecretCredential` un'istanza di .
 
 ### <a name="in-net"></a>In .NET
 
-La Azure Cosmos DB RBAC è attualmente supportata nella `preview` versione di [.NET SDK V3](sql-api-sdk-dotnet-standard.md).
+Il Azure Cosmos DB controllo degli accessi in base al ruolo è attualmente supportato nella `preview` versione [di .NET SDK V3.](sql-api-sdk-dotnet-standard.md)
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(
@@ -343,7 +347,7 @@ CosmosClient client = new CosmosClient("<account-endpoint>", servicePrincipal);
 
 ### <a name="in-java"></a>In Java
 
-Il Azure Cosmos DB RBAC è attualmente supportato in [Java SDK v4](sql-api-sdk-java-v4.md).
+Il Azure Cosmos DB controllo degli accessi in base al ruolo è attualmente supportato in [Java SDK V4.](sql-api-sdk-java-v4.md)
 
 ```java
 TokenCredential ServicePrincipal = new ClientSecretCredentialBuilder()
@@ -360,7 +364,7 @@ CosmosAsyncClient Client = new CosmosClientBuilder()
 
 ### <a name="in-javascript"></a>In JavaScript
 
-Il Azure Cosmos DB RBAC è attualmente supportato in [JavaScript SDK V3](sql-api-sdk-node.md).
+Il Azure Cosmos DB controllo degli accessi in base al ruolo è attualmente supportato in [JavaScript SDK V3.](sql-api-sdk-node.md)
 
 ```javascript
 const servicePrincipal = new ClientSecretCredential(
@@ -375,20 +379,20 @@ const client = new CosmosClient({
 
 ## <a name="auditing-data-requests"></a>Controllo delle richieste di dati
 
-Quando si usa il Azure Cosmos DB RBAC, i [log di diagnostica](cosmosdb-monitor-resource-logs.md) vengono aumentati con le informazioni di identità e autorizzazione per ogni operazione sui dati. In questo modo è possibile eseguire un controllo dettagliato e recuperare l'identità AAD usata per ogni richiesta di dati inviata all'account Azure Cosmos DB.
+Quando si usa il controllo Azure Cosmos DB controllo degli accessi in base al ruolo, i [log](cosmosdb-monitor-resource-logs.md) di diagnostica vengono aumentati con informazioni sull'identità e sull'autorizzazione per ogni operazione sui dati. In questo modo è possibile eseguire un controllo dettagliato e recuperare l'identità di AAD usata per ogni richiesta di dati inviata all'account Azure Cosmos DB servizio.
 
 Queste informazioni aggiuntive passano nella categoria di log **DataPlaneRequests** ed è costituita da due colonne aggiuntive:
 
-- `aadPrincipalId_g` Mostra l'ID entità dell'identità AAD usato per autenticare la richiesta.
-- `aadAppliedRoleAssignmentId_g` Mostra l' [assegnazione di ruolo](#role-assignments) che è stata rispettata quando si autorizza la richiesta.
+- `aadPrincipalId_g` mostra l'ID entità dell'identità di AAD usata per autenticare la richiesta.
+- `aadAppliedRoleAssignmentId_g` mostra [l'assegnazione di](#role-assignments) ruolo rispettata durante l'autorizzazione della richiesta.
 
 ## <a name="limits"></a>Limiti
 
-- È possibile creare fino a 100 definizioni di ruolo e 2.000 assegnazioni di ruolo per ogni account Azure Cosmos DB.
-- È possibile assegnare definizioni di ruolo solo a Azure AD identità appartenenti allo stesso tenant di Azure AD dell'account Azure Cosmos DB.
-- La risoluzione del gruppo di Azure AD non è attualmente supportata per le identità che appartengono a più di 200 gruppi.
-- Il token Azure AD viene attualmente passato come intestazione a ogni singola richiesta inviata al servizio Azure Cosmos DB, aumentando la dimensione complessiva del payload.
-- L'accesso ai dati con Azure AD tramite [Azure Cosmos DB Explorer](data-explorer.md) non è ancora supportato. L'uso di Esplora Azure Cosmos DB richiede ancora che l'utente abbia accesso alla chiave primaria dell'account per il momento.
+- È possibile creare fino a 100 definizioni di ruolo e 2.000 assegnazioni di ruolo per Azure Cosmos DB account.
+- È possibile assegnare definizioni di ruolo solo Azure AD identità appartenenti allo stesso tenant Azure AD del proprio account Azure Cosmos DB locale.
+- Azure AD la risoluzione dei gruppi non è attualmente supportata per le identità che appartengono a più di 200 gruppi.
+- Il Azure AD token viene attualmente passato come intestazione con ogni singola richiesta inviata al servizio Azure Cosmos DB, aumentando le dimensioni complessive del payload.
+- L'accesso ai dati Azure AD tramite [Azure Cosmos DB Explorer](data-explorer.md) non è ancora supportato. L'Azure Cosmos DB Explorer richiede ancora che l'utente abbia accesso alla chiave primaria dell'account per il momento.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -400,9 +404,9 @@ Attualmente è supportata solo l'API SQL.
 
 Il supporto per la gestione dei ruoli non è ancora disponibile nel portale di Azure.
 
-### <a name="which-sdks-in-azure-cosmos-db-sql-api-support-rbac"></a>Quali SDK in Azure Cosmos DB API SQL supportano RBAC?
+### <a name="which-sdks-in-azure-cosmos-db-sql-api-support-rbac"></a>Quali SDK in Azure Cosmos DB'API SQL supportano il controllo degli accessi in base al ruolo?
 
-Gli SDK di [.NET V3](sql-api-sdk-dotnet-standard.md) e [Java V4](sql-api-sdk-java-v4.md) sono attualmente supportati.
+Gli SDK [.NET V3](sql-api-sdk-dotnet-standard.md) [e Java V4](sql-api-sdk-java-v4.md) sono attualmente supportati.
 
 ### <a name="is-the-azure-ad-token-automatically-refreshed-by-the-azure-cosmos-db-sdks-when-it-expires"></a>Il token di Azure AD viene aggiornato automaticamente dagli SDK di Azure Cosmos DB quando scade?
 
@@ -415,4 +419,4 @@ La disabilitazione della chiave primaria per l'account non è attualmente possib
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Ottenere una panoramica dell'[accesso sicuro ai dati in Cosmos DB](secure-access-to-data.md).
-- Scopri di più su [RBAC per la gestione Azure Cosmos DB](role-based-access-control.md).
+- Altre informazioni sul [controllo degli accessi in base al ruolo Azure Cosmos DB gestione.](role-based-access-control.md)

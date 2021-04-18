@@ -1,22 +1,22 @@
 ---
 title: Che cosa sono i modelli di applicazione in Azure IoT Central | Microsoft Docs
-description: I modelli di applicazione IoT Central di Azure consentono di passare allo sviluppo di soluzioni Internet.
-author: philmea
-ms.author: philmea
+description: Azure IoT Central modelli di applicazione consentono di passare allo sviluppo di soluzioni IoT.
+author: ankitscribbles
+ms.author: ankitgup
 ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 27f054cb085e5064ffed0e75b77d53a1406b566e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8309a567436d1526c1341f3d7db774acf4879dc2
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97797129"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600620"
 ---
 # <a name="what-are-application-templates"></a>Che cosa i modelli di applicazione?
 
-I modelli di applicazione in Azure IoT Central sono uno strumento che consente ai generatori di soluzioni di eseguire il proprio sviluppo di soluzioni. È possibile usare i modelli di app per tutti gli elementi, in modo da ottenere un'idea di ciò che è possibile, per personalizzare completamente e l'applicazione per la rivendita ai clienti.
+I modelli di applicazione Azure IoT Central sono uno strumento che consente ai generatori di soluzioni di avviare lo sviluppo di soluzioni IoT. È possibile usare i modelli di app per tutto ciò che è possibile, da quello che è possibile fare, alla personalizzazione completa dell'applicazione da rivendere ai clienti.
 
 I modelli di applicazione sono costituiti da:
 
@@ -24,39 +24,35 @@ I modelli di applicazione sono costituiti da:
 - Modelli di dispositivo di esempio
 - Dispositivi simulati che producono dati in tempo reale
 - Regole e processi preconfigurati
-- Documentazione avanzata, incluse le esercitazioni e le procedure
+- Documentazione completa che include esercitazioni e esercitazioni
 
-Il modello di applicazione viene scelto quando si crea l'applicazione. Non è possibile modificare il modello dopo la creazione dell'applicazione.
+È possibile scegliere il modello di applicazione quando si crea l'applicazione. Non è possibile modificare il modello dopo la creazione dell'applicazione.
 
 ## <a name="custom-templates"></a>Modelli personalizzati
 
-Se si vuole creare l'applicazione da zero, scegliere uno dei modelli di **applicazione personalizzati** .
+Se si vuole creare l'applicazione da zero, scegliere uno dei **modelli di applicazione** personalizzati.
 
-## <a name="industry-focused-templates"></a>Modelli mirati al settore
+## <a name="industry-focused-templates"></a>Modelli incentrati sul settore
 
-Azure IoT Central è una piattaforma applicativa indipendente dal settore. I modelli di applicazione sono esempi specifici del settore attualmente disponibili per questi settori, con un maggiore futuro:
+Azure IoT Central è una piattaforma applicativa indipendente dal settore. I modelli di applicazione sono esempi incentrati sul settore attualmente disponibili per questi settori, con altri esempi futuri:
 
 - [Retail](../retail/overview-iot-central-retail.md)
   - Logistica connessa
   - Centro di distribuzione digitale
   - Analisi punti vendita - Monitoraggio delle condizioni
   - Analisi punti vendita - Pagamento
-  - Gestione Smart Inventory
+  - Gestione inventario intelligente
   - Analisi video - rilevamento movimento e oggetti
 - [Energia](../energy/overview-iot-central-energy.md)
-  - Monitoraggio Smart Meter
-  - Monitoraggio pannelli solari
+  - Monitoraggio contatore intelligente
+  - Monitoraggio di pannelli solari
 - [Enti pubblici](../government/overview-iot-central-government.md)
-  - Gestione dello spreco connesso
-  - Monitoraggio del consumo di acqua
+  - Gestione rifiuti connessa
+  - Monitoraggio del consumo idrico
   - Monitoraggio della qualità dell'acqua
-- [Assistenza sanitaria](../healthcare/overview-iot-central-healthcare.md).
-  - Monitoraggio continuo del paziente
-
-## <a name="application-versions"></a>Versioni dell'applicazione
-
-I modelli sono associati a specifiche versioni dell'applicazione IoT Central. È possibile trovare la versione di un'applicazione nella pagina [informazioni sull'app](./howto-get-app-info.md) dal collegamento alla **Guida** .
+- [Sanità](../healthcare/overview-iot-central-healthcare.md).
+  - Monitoraggio continuo dei pazienti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si conoscono i modelli di applicazione IoT Central, iniziare [creando un'applicazione IoT Central](quick-deploy-iot-central.md).
+Ora che si conoscono i IoT Central di applicazione, iniziare creando [un'IoT Central App.](quick-deploy-iot-central.md)

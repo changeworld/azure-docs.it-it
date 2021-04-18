@@ -24,13 +24,13 @@
       items:
         - name: Angular
           href: quickstart-v2-angular.md
-        - name: Flusso del codice di autenticazione angolare
+        - name: Angular - Flusso del codice di autenticazione
           href: quickstart-v2-javascript-auth-code-angular.md
         - name: JavaScript - Flusso del codice di autenticazione
           href: quickstart-v2-javascript-auth-code.md
         - name: JavaScript - Flusso implicito
           href: quickstart-v2-javascript.md
-        - name: Flusso del codice di autenticazione React
+        - name: React - Flusso del codice di autenticazione
           href: quickstart-v2-javascript-auth-code-react.md
     - name: app Web
       items:
@@ -40,7 +40,7 @@
           href: quickstart-v2-aspnet-core-webapp.md
         - name: ASP.NET Core (chiamata a Microsoft Graph)
           href: quickstart-v2-aspnet-core-webapp-calls-graph.md
-        - name: Node.js-MSAL
+        - name: Node.js - MSAL
           href: quickstart-v2-nodejs-webapp-msal.md
         - name: Node.js - Passport.js
           displayName: 'OIDC, express'
@@ -66,7 +66,7 @@
           href: quickstart-v2-uwp.md
         - name: .NET per Windows Desktop
           href: quickstart-v2-windows-desktop.md
-        - name: Node.js elettrone
+        - name: Node.js Electron
           href: quickstart-v2-nodejs-desktop.md
     - name: Daemon o servizio back-end
       items:
@@ -74,9 +74,9 @@
           href: quickstart-v2-netcore-daemon.md
         - name: Console daemon Python
           href: quickstart-v2-python-daemon.md
-        - name: Daemon della console Node.js
+        - name: Node.js daemon della console
           href: quickstart-v2-nodejs-console.md
-        - name: Daemon console Java
+        - name: Daemon della console Java
           href: quickstart-v2-java-daemon.md
 - name: Esercitazioni
   items:
@@ -96,7 +96,7 @@
           href: tutorial-v2-asp-webapp.md
         - name: Server Blazor
           href: tutorial-blazor-server.md
-        - name: Esercitazione sull'app Web Node.js
+        - name: Node.js'esercitazione sull'app Web
           href: tutorial-v2-nodejs-webapp-msal.md
     - name: Per dispositivi mobili e desktop
       items:
@@ -111,13 +111,13 @@
           href: tutorial-v2-windows-desktop.md
         - name: Usare la modalità dispositivo condiviso nell'app Android
           href: tutorial-v2-shared-device-mode.md
-        - name: App desktop Electron
+        - name: App desktop di Electron
           href: tutorial-v2-nodejs-desktop.md
     - name: Daemon o servizio back-end
       items:
         - name: App Web daemon ASP.NET
           href: tutorial-v2-aspnet-daemon-web-app.md
-        - name: Daemon della console Node.js
+        - name: Node.js daemon della console
           href: tutorial-v2-nodejs-console.md
 - name: Esempi
   href: sample-v2-code.md
@@ -489,9 +489,9 @@
           href: reference-third-party-cookies-spas.md
         - name: Gestire le modifiche ai cookie SameSite in Chrome
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
-    - name: Supportare l'autenticazione con password
+    - name: Supporto dell'autenticazione senza password
       items:
-        - name: Supportare l'autenticazione FIDO2
+        - name: Supporto dell'autenticazione FIDO2
           href: support-fido2-authentication.md
     - name: Autenticare app e servizi
       items:
@@ -551,7 +551,7 @@
           href: vs-active-directory-error.md
     - name: Rimuovere una registrazione dell'app
       href: quickstart-remove-app.md
-    - name: Ripristinare o rimuovere la registrazione di un'app eliminata
+    - name: Ripristinare o rimuovere una registrazione di app eliminata
       href: quickstart-restore-app.md
 - name: Informazioni di riferimento
   items:
@@ -633,6 +633,8 @@
       href: reference-v2-libraries.md
     - name: API di identità e accesso in Microsoft Graph
       href: /graph/api/resources/azure-ad-overview
+    - name: Tipo di criteri di mapping di attestazioni
+      href: reference-claims-mapping-policy-type.md
     - name: Codici di errore di autenticazione e autorizzazione
       displayName: AADSTS
       href: reference-aadsts-error-codes.md

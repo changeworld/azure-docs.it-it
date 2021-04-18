@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e4a41d508d15c3d8f41cc727776f233cc56c0817
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b85e1fc74688f2883531bd3a6e724a2ce326a9db
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480937"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600251"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usare le identità gestite assegnate dal sistema per accedere Azure Cosmos DB dati
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -91,12 +91,12 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 ## <a name="programmatically-access-the-azure-cosmos-db-keys"></a>Accedere alle chiavi Azure Cosmos DB a livello di codice
 
-È ora disponibile un'app per le funzioni con un'identità gestita assegnata dal sistema con il ruolo **Collaboratore Account DocumentDB** nelle autorizzazioni Azure Cosmos DB sistema. Il codice dell'app per le funzioni seguente otterrà le chiavi Azure Cosmos DB, creerà un oggetto CosmosClient, otterrà la temperatura del acquario e quindi lo salverà Azure Cosmos DB.
+È ora disponibile un'app per le funzioni con un'identità gestita assegnata dal sistema con il ruolo **Collaboratore account DocumentDB** nelle autorizzazioni Azure Cosmos DB sistema. Il codice dell'app per le funzioni seguente otterrà le chiavi Azure Cosmos DB, creerà un oggetto CosmosClient, otterrà la temperatura del acquario e quindi lo salverà Azure Cosmos DB.
 
-Questo esempio usa [l'API List Keys](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) per accedere alle chiavi Azure Cosmos DB account.
+Questo esempio usa [l'API List Keys](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listkeys) per accedere alle chiavi Azure Cosmos DB account.
 
 > [!IMPORTANT] 
-> Per assegnare il [ruolo lettore Cosmos DB](#grant-access-to-your-azure-cosmos-account) account, è necessario usare l'API Elenca chiavi di [sola lettura](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys). Verranno popolate solo le chiavi di sola lettura.
+> Per assegnare il [ruolo lettore Cosmos DB](#grant-access-to-your-azure-cosmos-account) account, è necessario usare l'API Elenca chiavi di [sola lettura](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listreadonlykeys). Verranno popolate solo le chiavi di sola lettura.
 
 L'API List Keys restituisce `DatabaseAccountListKeysResult` l'oggetto . Questo tipo non è definito nelle librerie C#. Il codice seguente illustra l'implementazione di questa classe:  
 

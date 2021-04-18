@@ -9,11 +9,11 @@
       items:
         - name: Creare un nuovo account del Centro per i partner
           href: create-account.md
-        - name: Aggiungi nuovi editori
+        - name: Aggiungere nuovi server di pubblicazione
           href: add-publishers.md
         - name: Gestire l'account
           href: manage-account.md
-        - name: Cambia account
+        - name: Cambiare account
           href: switch-accounts.md
         - name: Gestire i tenant
           href: manage-tenants.md
@@ -37,7 +37,7 @@
   items:
     - name: Opzioni di presentazione
       href: determine-your-listing-type.md
-    - name: Funzionalità Transact
+    - name: Funzionalità di transazione
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
     - name: Offerte private
       href: private-offers.md
@@ -61,7 +61,7 @@
           href: test-drive-hosted-detailed-config.md
         - name: Configurare la sottoscrizione di Azure per i test drive ospitati
           href: test-drive-azure-subscription-setup.md
-    - name: Attribuzione dell'utilizzo dei clienti di Azure
+    - name: Attribuzione dell'utilizzo da parte dei clienti di Azure
       href: azure-partner-customer-usage-attribution.md
     - name: Opzioni go-to-market
       items:
@@ -70,13 +70,13 @@
           items: null
         - name: Co-selling con Microsoft
           items:
-            - name: Panoramica di co-selling
+            - name: Panoramica del co-selling
               href: co-sell-overview.md
             - name: Requisiti di co-selling
               href: co-sell-requirements.md
-            - name: Configurare la co-selling
+            - name: Configurare il co-selling
               href: co-sell-configure.md
-            - name: Verificare lo stato di co-selling
+            - name: Verificare lo stato del co-selling
               href: co-sell-status.md
             - name: Eseguire la migrazione di soluzioni di co-selling da OCP GTM
               href: co-sell-solution-migration.md
@@ -228,7 +228,7 @@
           href: partner-center-portal/azure-iot-edge-module-creation.md
         - name: Preparare gli asset tecnici dei moduli IoT Edge
           href: partner-center-portal/create-iot-edge-module-asset.md
-        - name: Elenco di controllo pre-certificazione
+        - name: Elenco di controllo per la precertificazione
           href: iot-edge-checklist.md
     - name: Offerte di servizi gestiti
       items:
@@ -280,7 +280,7 @@
               href: create-saas-dev-test-offer.md
             - name: Testare e pubblicare un'offerta SaaS
               href: test-publish-saas-offer.md
-        - name: Vendi l'offerta SaaS
+        - name: Vendere l'offerta SaaS
           href: create-new-saas-offer-marketing.md
     - name: Rivedere e pubblicare le offerte
       href: review-publish-offer.md
@@ -328,7 +328,7 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Dashboard Recensioni e valutazioni
       href: partner-center-portal/ratings-reviews.md
-    - name: Accesso a livello di codice a Analytics
+    - name: Accesso a livello di codice all'analisi
       items:
         - name: Introduzione
           href: analytics-get-started.md
@@ -336,7 +336,7 @@
           href: analytics-prerequisites.md
         - name: Paradigma di accesso a livello di codice
           href: analytics-programmatic-access.md
-        - name: Eseguire la prima chiamata API
+        - name: Effettuare la prima chiamata API
           href: analytics-make-your-first-api-call.md
         - name: Elenco di query di sistema
           href: analytics-system-queries.md
@@ -344,31 +344,31 @@
           href: analytics-sample-queries.md
         - name: Applicazione di esempio
           href: analytics-sample-application.md
-        - name: Specifica di query personalizzata
+        - name: Specifica di query personalizzate
           href: analytics-custom-query-specification.md
         - name: Domande frequenti sull'analisi a livello di codice
           href: analytics-programmatic-faq.md
-        - name: Informazioni di riferimento sulle API di analisi
+        - name: Informazioni di riferimento sulle API di Analytics
           items:
             - name: Elenco delle API
               href: analytics-available-apis.md
             - name: Ottenere tutti i set di dati
               href: analytics-api-get-all-datasets.md
-            - name: Ottenere l'API per le query di report
+            - name: API Per ottenere query di report
               href: analytics-api-get-report-queries.md
-            - name: Elimina API query report
+            - name: API Elimina query di report
               href: analytics-api-delete-report-queries.md
-            - name: Provare l'API per le query di report
+            - name: Provare l'API query di report
               href: analytics-api-try-report-queries.md
             - name: Ottenere l'API del report
               href: analytics-api-get-report.md
-            - name: Aggiornare l'API report
+            - name: Aggiornare l'API del report
               href: analytics-api-update-report.md
-            - name: Elimina API report
+            - name: Eliminare l'API del report
               href: analytics-api-delete-report.md
-            - name: Sospendere l'API per le esecuzioni di report
+            - name: Sospendi l'API esecuzioni di report
               href: analytics-api-pause-report-executions.md
-            - name: Riprendere l'API per le esecuzioni di report
+            - name: API Riprendi esecuzioni report
               href: analytics-api-resume-report-executions.md
     - name: Gestire le anomalie di fatturazione a consumo
       href: anomaly-detection.md
@@ -384,6 +384,10 @@
       href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
     - name: Condizioni di Azure Marketplace
       href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+    - name: Contratto Microsoft Publisher
+      href: /legal/marketplace/msft-publisher-agreement
+    - name: Cronologia delle modifiche per il Contratto di Microsoft Publisher
+      href: /legal/marketplace/mpa-change-history
 - name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sulle API CPP

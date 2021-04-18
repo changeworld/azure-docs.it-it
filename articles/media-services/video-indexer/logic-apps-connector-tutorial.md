@@ -8,16 +8,16 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: f3504ca4a706e92081209f4eaaa86af9f71c52b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: caff6a2496e907da1bdc140860c47476d1842df4
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880912"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600676"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Esercitazione: Usare Video Indexer con App per la logica e Power Automate
 
-L'[API REST Video Indexer v2](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Delete-Video?) di Servizi multimediali di Azure supporta la comunicazione da server a server e da client a server e consente agli utenti di Video Indexer di integrare facilmente informazioni dettagliate su video e audio nella logica dell'applicazione, sbloccando nuove esperienze e opportunità di monetizzazione.
+L'[API REST Video Indexer v2](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Video) di Servizi multimediali di Azure supporta la comunicazione da server a server e da client a server e consente agli utenti di Video Indexer di integrare facilmente informazioni dettagliate su video e audio nella logica dell'applicazione, sbloccando nuove esperienze e opportunità di monetizzazione.
 
 Per semplificare ulteriormente l'integrazione, sono supportati i connettori per  [App per la logica](https://azure.microsoft.com/services/logic-apps/) e [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) compatibili con l'API. È possibile usare i connettori per configurare flussi di lavoro personalizzati per indicizzare ed estrarre in modo efficiente informazioni dettagliate da una grande quantità di file audio e video, senza scrivere una sola riga di codice. Inoltre, l'uso dei connettori per l'integrazione offre una maggiore visibilità sull'integrità del flusso di lavoro e un modo semplice per eseguirne il debug.  
 

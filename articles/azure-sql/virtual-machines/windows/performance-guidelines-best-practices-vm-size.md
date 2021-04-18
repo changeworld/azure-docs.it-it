@@ -1,6 +1,6 @@
 ---
-title: 'Dimensioni macchina virtuale: procedure consigliate per le prestazioni & linee guida'
-description: Fornisce le linee guida e le procedure consigliate per ottimizzare le prestazioni della SQL Server in una macchina virtuale (VM) di Azure.
+title: 'Dimensioni della macchina virtuale: procedure consigliate per le prestazioni & linee guida'
+description: Fornisce linee guida sulle dimensioni delle macchine virtuali e procedure consigliate per ottimizzare le prestazioni SQL Server macchina virtuale di Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: dplessMSFT
@@ -14,174 +14,174 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 9427ae1b9bd68f63df40d24122cc13b5460fbc27
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 88adef7ea50744f913780d99594ce3baadade84b
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572503"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600897"
 ---
-# <a name="vm-size-performance-best-practices-for-sql-server-on-azure-vms"></a>Dimensioni macchina virtuale: procedure consigliate per le prestazioni per SQL Server in macchine virtuali di Azure
+# <a name="vm-size-performance-best-practices-for-sql-server-on-azure-vms"></a>Dimensioni della macchina virtuale: procedure consigliate per le prestazioni per SQL Server nelle macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Questo articolo fornisce indicazioni sulle dimensioni delle VM, una serie di procedure consigliate e linee guida per ottimizzare le prestazioni per la SQL Server in macchine virtuali (VM) di Azure.
+Questo articolo fornisce indicazioni sulle dimensioni delle macchine virtuali con una serie di procedure consigliate e linee guida per ottimizzare le prestazioni per l'SQL Server in macchine virtuali (VM) di Azure.
 
-Vi è in genere un compromesso tra l'ottimizzazione per i costi e l'ottimizzazione per le prestazioni. Questa serie di procedure consigliate per le prestazioni è incentrata su come ottenere le *migliori* prestazioni per SQL Server in macchine virtuali di Azure. Se il carico di lavoro è meno impegnativo, potrebbe non essere necessario ogni ottimizzazione consigliata. Prendere in considerazione le esigenze di prestazione, i costi e i modelli di carico di lavoro durante la valutazione di questi elementi consigliati.
+Vi è in genere un compromesso tra l'ottimizzazione per i costi e l'ottimizzazione per le prestazioni. Questa serie di procedure consigliate  per le prestazioni è incentrata su come ottenere le prestazioni migliori per SQL Server in macchine virtuali di Azure. Se il carico di lavoro è meno impegnativo, potrebbe non essere necessaria ogni ottimizzazione consigliata. Prendere in considerazione le esigenze di prestazione, i costi e i modelli di carico di lavoro durante la valutazione di questi elementi consigliati.
 
 
 ## <a name="checklist"></a>Elenco di controllo
 
-Esaminare l'elenco di controllo seguente per una breve panoramica delle procedure consigliate per le dimensioni delle macchine virtuali che il resto dell'articolo illustra in modo più dettagliato: 
+Esaminare l'elenco di controllo seguente per una breve panoramica delle procedure consigliate per le dimensioni delle macchine virtuali descritte più in dettaglio nel resto dell'articolo: 
 
-- Usare le dimensioni delle macchine virtuali con 4 o più vCPU come [Standard_M8-4ms](/../../virtual-machines/m-series), il [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series)o il [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) o superiore. 
-- Usare le dimensioni delle macchine virtuali con ottimizzazione per la [memoria](../../../virtual-machines/sizes-memory.md) per ottimizzare le prestazioni dei carichi di lavoro SQL Server. 
-- [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), serie [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) , [M-](../../../virtual-machines/m-series.md)e la serie [Mv2](../../../virtual-machines/mv2-series.md) offrono il rapporto ottimale tra memoria e vCore richiesto per i carichi di lavoro OLTP. Entrambe le VM serie M offrono il rapporto massimo tra memoria e vCore richiesto per i carichi di lavoro mission-critical e sono ideali anche per carichi di lavoro data warehouse. 
-- Prendere in considerazione un rapporto più elevato tra memoria e vCore per carichi di lavoro mission-critical e data warehouse. 
-- Usare le immagini del Marketplace per macchine virtuali di Azure perché le impostazioni di SQL Server e le opzioni di archiviazione sono configurate per ottimizzare le prestazioni di SQL Server. 
-- Raccogliere le caratteristiche di prestazioni del carico di lavoro di destinazione e usarle per determinare le dimensioni appropriate della macchina virtuale per l'azienda.
+- Usare le dimensioni delle macchine virtuali con 4 o più vCPU, ad esempio [Standard_M8-4ms,](/azure/virtual-machines/m-series) [E4ds_v4](../../../virtual-machines/edv4-edsv4-series.md#edv4-series)o DS12_v2 [o](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) versione successiva. 
+- Usare [le dimensioni delle macchine](../../../virtual-machines/sizes-memory.md) virtuali ottimizzate per la memoria per ottenere prestazioni ottimali SQL Server carichi di lavoro. 
+- Le serie [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4,](../../../virtual-machines/edv4-edsv4-series.md) [M-](/azure/virtual-machines/m-series)e [Mv2 offrono](../../../virtual-machines/mv2-series.md) il rapporto ottimale tra memoria e vCore richiesto per i carichi di lavoro OLTP. Entrambe le macchine virtuali della serie M offrono il rapporto memoria-vCore più elevato necessario per i carichi di lavoro cruciali e sono ideali anche per data warehouse di lavoro. 
+- Si consideri un rapporto memoria-vCore più elevato per i carichi di lavoro cruciali e data warehouse virtuali. 
+- Sfruttare le immagini del Marketplace delle macchine virtuali di Azure SQL Server le opzioni di archiviazione e le impostazioni di archiviazione sono configurate per ottenere prestazioni ottimali SQL Server prestazioni. 
+- Raccogliere le caratteristiche delle prestazioni del carico di lavoro di destinazione e usarle per determinare le dimensioni appropriate della macchina virtuale per l'azienda.
 
-Per confrontare l'elenco di controllo delle dimensioni delle VM con gli altri, vedere l' [elenco di controllo delle procedure consigliate](performance-guidelines-best-practices-checklist.md)per le prestazioni. 
+Per confrontare l'elenco di controllo delle dimensioni della macchina virtuale con gli altri, vedere l'elenco di controllo completo [sulle procedure consigliate per le prestazioni](performance-guidelines-best-practices-checklist.md). 
 
 ## <a name="overview"></a>Panoramica
 
-Quando si crea un SQL Server in una macchina virtuale di Azure, valutare attentamente il tipo di carico di lavoro necessario. Se si esegue la migrazione di un ambiente esistente, [raccogliere una baseline](performance-guidelines-best-practices-collect-baseline.md) per le prestazioni per determinare la SQL Server nei requisiti delle macchine virtuali di Azure. Se si tratta di una nuova macchina virtuale, creare la nuova macchina virtuale SQL Server in base ai requisiti del fornitore. 
+Quando si crea un SQL Server in una macchina virtuale di Azure, considerare attentamente il tipo di carico di lavoro necessario. Se si esegue la migrazione di un ambiente esistente, raccogliere [una baseline delle prestazioni](performance-guidelines-best-practices-collect-baseline.md) per determinare SQL Server requisiti delle macchine virtuali di Azure. Se si tratta di una nuova macchina virtuale, creare la nuova macchina SQL Server in base ai requisiti del fornitore. 
 
-Se si crea una nuova macchina virtuale SQL Server con una nuova applicazione compilata per il cloud, è possibile ridimensionare facilmente la macchina virtuale SQL Server Man mano che i dati e i requisiti di utilizzo si evolvono.
-Avviare gli ambienti di sviluppo con la serie D di livello inferiore, la serie B o AV2 e aumentare l'ambiente nel tempo. 
+Se si sta creando una nuova macchina virtuale SQL Server con una nuova applicazione creata per il cloud, è possibile ridimensionare facilmente la macchina virtuale SQL Server con l'evolversi dei requisiti di dati e utilizzo.
+Avviare gli ambienti di sviluppo con la serie D di livello inferiore, la serie B o la serie Av2 e aumentare le dimensioni dell'ambiente nel tempo. 
 
-Usare le immagini del Marketplace SQL Server VM con la configurazione di archiviazione nel portale. Questo renderà più semplice creare correttamente i pool di archiviazione necessari per ottenere le dimensioni, le operazioni di IOPS e la velocità effettiva necessarie per i carichi di lavoro. È importante scegliere SQL Server VM che supportano archiviazione Premium e la memorizzazione nella cache di archiviazione Premium. Per altre informazioni, vedere l'articolo [archiviazione](performance-guidelines-best-practices-storage.md) . 
+Usare le SQL Server del marketplace delle macchine virtuali con la configurazione di archiviazione nel portale. In questo modo sarà più semplice creare correttamente i pool di archiviazione necessari per ottenere le dimensioni, le operazioni di I/O al secondo e la velocità effettiva necessarie per i carichi di lavoro. È importante scegliere le macchine virtuali SQL Server che supportano l'archiviazione Premium e la memorizzazione nella cache di Archiviazione Premium. Per altre [informazioni,](performance-guidelines-best-practices-storage.md) vedere l'articolo sull'archiviazione. 
 
-Il valore minimo consigliato per un ambiente OLTP di produzione è 4 vCore, 32 GB di memoria e un rapporto tra memoria e vCore pari a 8. Per i nuovi ambienti, iniziare con 4 macchine vCore e scalare fino a 8, 16, 32 Vcore o più quando i dati e i requisiti di calcolo cambiano. Per la velocità effettiva OLTP, usare come destinazione SQL Server VM con 5000 IOPS per ogni vCore. 
+Il minimo consigliato per un ambiente OLTP di produzione è 4 vCore, 32 GB di memoria e un rapporto tra memoria e vCore di 8. Per i nuovi ambienti, iniziare con 4 computer vCore e ridimensionare fino a 8, 16, 32 vCore o più quando cambiano i requisiti di dati e calcolo. Per la velocità effettiva OLTP, SQL Server macchine virtuali con 5000 OPERAZIONI DI I/O al secondo per ogni vCore. 
 
-SQL Server data warehouse e gli ambienti mission-critical dovranno spesso essere ridimensionati oltre il rapporto 8 tra memoria e vCore. Per gli ambienti di medie dimensioni, è possibile scegliere un rapporto tra memoria e vCore e un rapporto 32 tra memoria e vCore per ambienti data warehouse più grandi. 
+SQL Server data warehouse e gli ambienti cruciali dovranno spesso essere ridimensionati oltre il rapporto tra 8 memoria e vCore. Per gli ambienti di medie dimensioni, è possibile scegliere un rapporto tra 16 memoria e vCore e un rapporto tra memoria e vCore di 32 per ambienti di dimensioni maggiori data warehouse virtuali. 
 
-SQL Server ambienti data warehouse spesso traggono vantaggio dall'elaborazione parallela di computer più grandi. Per questo motivo, la serie M e la serie Mv2 sono opzioni complesse per ambienti data warehouse più grandi.
+SQL Server data warehouse ambienti spesso traggono vantaggio dall'elaborazione parallela di computer di dimensioni maggiori. Per questo motivo, la serie M e la serie Mv2 sono opzioni avanzate per ambienti data warehouse grandi dimensioni.
 
-Usare la configurazione vCPU e Memory dal computer di origine come base per la migrazione di un database di SQL Server locale corrente per SQL Server in macchine virtuali di Azure. Usa la tua licenza Core in Azure per sfruttare i vantaggi del [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) e risparmiare sui costi SQL Server delle licenze.
+Usare la configurazione della memoria e della vCPU dal computer di origine come base per la migrazione di un database di SQL Server locale corrente SQL Server nelle macchine virtuali di Azure. Portare la licenza di base in Azure per sfruttare i vantaggi Vantaggio Azure Hybrid [e](https://azure.microsoft.com/pricing/hybrid-benefit/) risparmiare sui costi SQL Server licenze.
 
 ## <a name="memory-optimized"></a>Ottimizzate per la memoria
 
-Le [dimensioni delle macchine virtuali con ottimizzazione](../../../virtual-machines/sizes-memory.md) per la memoria rappresentano una destinazione primaria per le macchine virtuali SQL Server e la scelta consigliata da Microsoft. Le macchine virtuali con ottimizzazione per la memoria offrono un rapporto più elevato tra memoria e CPU e opzioni di cache medio-grandi. 
+Le [dimensioni delle macchine virtuali ottimizzate per la](../../../virtual-machines/sizes-memory.md) memoria sono una destinazione primaria per SQL Server macchine virtuali e la scelta consigliata da Microsoft. Le macchine virtuali ottimizzate per la memoria offrono rapporti più ampi tra memoria e CPU e opzioni di cache medio-grandi. 
 
 ### <a name="m-mv2-and-mdsv2-series"></a>Serie M, Mv2 e Mdsv2
 
-La [serie M](../../../virtual-machines/m-series.md) offre conteggi di vCore e memoria per alcuni dei più grandi SQL Server carichi di lavoro.  
+La [serie M offre](/azure/virtual-machines/m-series) conteggi vCore e memoria per alcuni dei carichi di lavoro SQL Server più grandi.  
 
-La [serie Mv2](../../../virtual-machines/mv2-series.md) presenta i conteggi e la memoria vCore più elevati ed è consigliata per carichi di lavoro mission-critical e data warehouse. Le istanze della serie Mv2 sono dimensioni di VM con ottimizzazione per la memoria che offrono prestazioni di calcolo ineguagliabili per supportare database in memoria di grandi dimensioni e carichi di lavoro con un rapporto elevato tra memoria e CPU, ideale per server di database relazionali, cache di grandi dimensioni e analisi in memoria.
+La [serie Mv2 ha](../../../virtual-machines/mv2-series.md) i conteggi e la memoria vCore più elevati ed è consigliata per i carichi di lavoro cruciali e data warehouse lavoro. Le istanze della serie Mv2 sono dimensioni di macchine virtuali ottimizzate per la memoria che offrono prestazioni di calcolo senza pari per supportare carichi di lavoro e database in memoria di grandi dimensioni con un rapporto elevato tra memoria e CPU, ideale per server di database relazionali, cache di grandi dimensioni e analisi in memoria.
 
-Il [Standard_M64ms](../../../virtual-machines/m-series.md) ha un rapporto da 28 a vCore, ad esempio.
+Il [Standard_M64ms](/azure/virtual-machines/m-series) ha ad esempio un rapporto tra 28 memoria e vCore.
 
-[Mdsv2 Media Memory Series](../../..//virtual-machines/msv2-mdsv2-series.md) è una nuova serie m attualmente in [Anteprima](https://aka.ms/Mv2MedMemoryPreview) che offre una gamma di macchine virtuali di Azure a livello di serie m con un'offerta di memoria MidTier. Questi computer sono particolarmente adatti per carichi di lavoro di SQL Server con un minimo di 10 vCore di memoria fino a 30.
+[La serie Mdsv2 Medium Memory](../../..//virtual-machines/msv2-mdsv2-series.md) è una nuova serie M attualmente [in](https://aka.ms/Mv2MedMemoryPreview) anteprima che offre una gamma di macchine virtuali di Azure a livello di serie M con un'offerta di memoria intermedia. Questi computer sono particolarmente adatti per SQL Server carichi di lavoro con almeno 10 supporto da memoria a vCore fino a 30.
 
-Alcune delle funzionalità della serie M e Mv2 sono attraenti per le prestazioni SQL Server includono [archiviazione Premium](../../../virtual-machines/premium-storage-performance.md) e supporto per la [memorizzazione nella cache di archiviazione Premium](../../../virtual-machines/premium-storage-performance.md#disk-caching) , supporto di più [dischi](../../../virtual-machines/disks-enable-ultra-ssd.md) e [accelerazione in scrittura](../../../virtual-machines/how-to-enable-write-accelerator.md).
+Alcune delle funzionalità della serie M e Mv2 interessanti per le prestazioni di SQL Server includono il supporto per l'archiviazione [Premium](../../../virtual-machines/premium-storage-performance.md) e la memorizzazione nella cache di archiviazione [Premium,](../../../virtual-machines/premium-storage-performance.md#disk-caching) il supporto [per ultra disk](../../../virtual-machines/disks-enable-ultra-ssd.md) e l'accelerazione di [scrittura.](../../../virtual-machines/how-to-enable-write-accelerator.md)
 
 ### <a name="edsv4-series"></a>Serie Edsv4
 
-La [serie Edsv4](../../../virtual-machines/edv4-edsv4-series.md) è progettata per applicazioni con utilizzo intensivo della memoria. Queste VM hanno una capacità SSD di archiviazione locale di grandi dimensioni, un numero elevato di IOPS del disco locale, fino a 504 GiB di RAM. Sono presenti 8 GiB di memoria quasi coerenti per ogni vCore per la maggior parte di queste macchine virtuali, ideale per carichi di lavoro SQL Server standard. 
+La [serie Edsv4 è progettata](../../../virtual-machines/edv4-edsv4-series.md) per applicazioni a elevato utilizzo di memoria. Queste macchine virtuali hanno una capacità SSD di archiviazione locale di grandi dimensioni, operazioni di I/O al secondo per disco locale, fino a 504 GiB di RAM. La maggior parte di queste macchine virtuali è quasi coerente con 8 GiB di memoria per ogni vCore, ideale per carichi di lavoro SQL Server standard. 
 
-In questo gruppo è presente una nuova macchina virtuale con la [Standard_E80ids_v4](../../../virtual-machines/edv4-edsv4-series.md) che offre 80 vcore, 504 GB di memoria, con un rapporto tra memoria e vCore pari a 6. Questa macchina virtuale è rilevante perché è [isolata](../../../virtual-machines/isolation.md) , ovvero è garantita l'unica macchina virtuale in esecuzione nell'host e pertanto è isolata da altri carichi di lavoro dei clienti. Questo ha un rapporto tra memoria e vCore inferiore rispetto a quello consigliato per SQL Server, quindi deve essere usato solo se è necessario l'isolamento.
+In questo gruppo è disponibile una nuova macchina virtuale [con il Standard_E80ids_v4 che](../../../virtual-machines/edv4-edsv4-series.md) offre 80 vCore, 504 GBs di memoria, con un rapporto memoria-vCore di 6. Questa macchina virtuale è importante [](../../../virtual-machines/isolation.md) perché è isolata, il che significa che è l'unica macchina virtuale in esecuzione nell'host e pertanto è isolata dagli altri carichi di lavoro dei clienti. Questo rapporto tra memoria e vCore è inferiore a quello consigliato per SQL Server, quindi deve essere usato solo se è necessario l'isolamento.
 
-Le macchine virtuali della serie Edsv4 supportano [archiviazione Premium](../../../virtual-machines/premium-storage-performance.md)e la [memorizzazione nella cache di archiviazione Premium](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+Le macchine virtuali della serie Edsv4 supportano [l'archiviazione Premium](../../../virtual-machines/premium-storage-performance.md)e la [memorizzazione nella cache di Archiviazione Premium](../../../virtual-machines/premium-storage-performance.md#disk-caching).
 
 ### <a name="dsv2-series-11-15"></a>DSv2-series 11-15
 
-La [serie DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) presenta le stesse configurazioni di memoria e disco della serie D precedente. Questa serie presenta un rapporto coerente tra memoria e CPU di 7 tra tutte le macchine virtuali. Questa è la più piccola delle serie ottimizzate per la memoria ed è un'ottima opzione a basso costo per i carichi di lavoro di SQL Server a livello di voce.
+La [serie DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) ha le stesse configurazioni di memoria e disco della serie D precedente. Questa serie ha un rapporto coerente tra memoria e CPU di 7 in tutte le macchine virtuali. Questa è la più piccola della serie ottimizzata per la memoria ed è una buona opzione a basso costo per i carichi di lavoro SQL Server base.
 
-La [serie DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) supporta l' [archiviazione Premium](../../../virtual-machines/premium-storage-performance.md) e la [memorizzazione nella cache di archiviazione Premium](../../../virtual-machines/premium-storage-performance.md#disk-caching), che è fortemente consigliata per prestazioni ottimali.
+La [serie DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) supporta l'archiviazione [Premium](../../../virtual-machines/premium-storage-performance.md) e la memorizzazione nella cache di Archiviazione [Premium,](../../../virtual-machines/premium-storage-performance.md#disk-caching)che è fortemente consigliata per prestazioni ottimali.
 
-## <a name="general-purpose"></a>Scopo generico
+## <a name="general-purpose"></a>Utilizzo generico
 
-Le [dimensioni delle macchine virtuali per utilizzo generico](../../../virtual-machines/sizes-general.md) sono progettate per fornire rapporti bilanciati tra memoria e vCore per carichi di lavoro a livello di voce più piccoli, ad esempio sviluppo e test, server Web e server di database più piccoli. 
+Le [dimensioni delle](../../../virtual-machines/sizes-general.md) macchine virtuali per utilizzo generico sono progettate per offrire rapporti bilanciati tra memoria e vCore per carichi di lavoro entry-level più piccoli, ad esempio sviluppo e test, server Web e server di database più piccoli. 
 
-Dato che i rapporti tra memoria e vCore sono inferiori rispetto alle macchine virtuali per utilizzo generico, è importante monitorare attentamente i contatori delle prestazioni basati sulla memoria per assicurarsi che SQL Server sia in grado di ottenere la memoria cache del buffer necessaria. Per ulteriori informazioni, vedere [baseline Performance Memory](performance-guidelines-best-practices-collect-baseline.md#memory) . 
+A causa dei rapporti tra memoria e vCore più piccoli con le macchine virtuali per utilizzo generico, è importante monitorare attentamente i contatori delle prestazioni basati sulla memoria per assicurarsi che SQL Server sia in grado di ottenere la memoria cache del buffer di cui ha bisogno. Per altre [informazioni, vedere Baseline delle](performance-guidelines-best-practices-collect-baseline.md#memory) prestazioni di memoria. 
 
-Poiché la raccomandazione iniziale per i carichi di lavoro di produzione è un rapporto tra memoria e vCore pari a 8, la configurazione minima consigliata per una macchina virtuale per utilizzo generico che esegue SQL Server è 4 vCPU e 32 GB di memoria. 
+Poiché la raccomandazione iniziale per i carichi di lavoro di produzione è un rapporto tra memoria e vCore di 8, la configurazione minima consigliata per una macchina virtuale per utilizzo generico che esegue SQL Server è 4 vCPU e 32 GB di memoria. 
 
 ### <a name="ddsv4-series"></a>Serie Ddsv4
 
-La [serie Ddsv4](../../../virtual-machines/ddv4-ddsv4-series.md) offre una combinazione equa di vCPU, memoria e disco temporaneo, ma con supporto più piccolo per la memoria a vCore. 
+La [serie Ddsv4](../../../virtual-machines/ddv4-ddsv4-series.md) offre una combinazione equa di vCPU, memoria e disco temporaneo, ma con un supporto da memoria a vCore ridotto. 
 
-Le macchine virtuali Ddsv4 includono latenza più bassa e archiviazione locale ad alta velocità.
+Le macchine virtuali Ddsv4 includono una latenza inferiore e una maggiore velocità di archiviazione locale.
 
-Questi computer sono ideali per le distribuzioni di applicazioni e SQL affiancate che richiedono l'accesso rapido ai database relazionali di archiviazione temporanea e di reparto. In tutte le macchine virtuali di questa serie è presente un rapporto tra memoria e vCore standard di 4. 
+Questi computer sono ideali per distribuzioni side-by-side di SQL e app che richiedono l'accesso rapido all'archiviazione temporanea e ai database relazionali di reparto. Esiste un rapporto memoria-vCore standard di 4 in tutte le macchine virtuali di questa serie. 
 
-Per questo motivo, è consigliabile usare la D8ds_v4 come macchina virtuale iniziale in questa serie, con 8 Vcore e 32 GB di memoria. Il computer più grande è il D64ds_v4, che include 64 Vcore e 256 GB di memoria.
+Per questo motivo, è consigliabile sfruttare il D8ds_v4 come macchina virtuale iniziale in questa serie, con 8 vCore e 32 GB di memoria. Il computer più grande è D64ds_v4, che ha 64 vCore e 256 GBs di memoria.
 
-Le macchine virtuali della [serie Ddsv4](../../../virtual-machines/ddv4-ddsv4-series.md) supportano [archiviazione Premium](../../../virtual-machines/premium-storage-performance.md) e [caching archiviazione Premium](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+Le [macchine virtuali serie Ddsv4](../../../virtual-machines/ddv4-ddsv4-series.md) supportano [l'archiviazione Premium e](../../../virtual-machines/premium-storage-performance.md) la [memorizzazione nella cache di archiviazione Premium.](../../../virtual-machines/premium-storage-performance.md#disk-caching)
 
 > [!NOTE]
-> La [serie Ddsv4](../../../virtual-machines/ddv4-ddsv4-series.md) non ha un rapporto tra memoria e vCore pari a 8 consigliato per i carichi di lavoro SQL Server. In questo modo, è possibile considerare l'uso di queste macchine virtuali solo per carichi di lavoro di sviluppo e applicazioni più piccoli.
+> La [serie Ddsv4](../../../virtual-machines/ddv4-ddsv4-series.md) non ha il rapporto memoria-vCore di 8 consigliato per i carichi di lavoro SQL Server lavoro. Di conseguenza, prendere in considerazione l'uso di queste macchine virtuali solo per carichi di lavoro di applicazioni e sviluppo più piccoli.
 
 ### <a name="b-series"></a>Serie B
 
-Le dimensioni delle macchine virtuali [serie B](../../../virtual-machines/sizes-b-series-burstable.md) sono ideali per i carichi di lavoro che non necessitano di prestazioni coerenti, ad esempio il modello di verifica e i server di sviluppo e applicazioni molto piccoli. 
+Le [dimensioni delle macchine virtuali](../../../virtual-machines/sizes-b-series-burstable.md) serie B burstable sono ideali per i carichi di lavoro che non necessitano di prestazioni coerenti, ad esempio il modello di verifica e i server di applicazioni e sviluppo di dimensioni molto ridotte. 
 
-Per la maggior parte delle dimensioni delle macchine virtuali [serie B](../../../virtual-machines/sizes-b-series-burstable.md) è possibile ottenere un rapporto tra memoria e vCore pari a 4. Il più grande di questi computer è la [Standard_B20ms](../../../virtual-machines/sizes-b-series-burstable.md) con 20 vcore e 80 GB di memoria.
+La maggior parte [delle dimensioni delle](../../../virtual-machines/sizes-b-series-burstable.md) macchine virtuali della serie B burstable ha un rapporto memoria-vCore di 4. Il più grande di questi computer è [Standard_B20ms](../../../virtual-machines/sizes-b-series-burstable.md) con 20 vCore e 80 GB di memoria.
 
-Questa serie è univoca in quanto le app hanno la possibilità di **irrompere** durante l'orario di lavoro con crediti di espansione che variano in base alle dimensioni del computer. 
+Questa serie è univoca perché le app hanno la possibilità di effettuare il **burst** durante l'orario di ufficio con crediti che possono variare in base alle dimensioni del computer. 
 
-Quando i crediti sono esauriti, la macchina virtuale Torna alle prestazioni della macchina di base.
+Quando i crediti sono esauriti, la macchina virtuale torna alle prestazioni della macchina di base.
 
-Il vantaggio della serie B è costituito dal risparmio di calcolo che è possibile ottenere rispetto alle altre dimensioni delle macchine virtuali in altre serie, soprattutto se è necessaria una potenza di elaborazione sporadica nel corso della giornata.
+Il vantaggio della serie B è il risparmio di calcolo che è possibile ottenere rispetto alle altre dimensioni delle macchine virtuali in altre serie, soprattutto se è necessaria la potenza di elaborazione in tutta la giornata.
 
-Questa serie supporta [archiviazione Premium](../../../virtual-machines/premium-storage-performance.md), ma **non supporta la** [memorizzazione nella cache di archiviazione Premium](../../../virtual-machines/premium-storage-performance.md#disk-caching).
+Questa serie supporta [l'archiviazione Premium,](../../../virtual-machines/premium-storage-performance.md)ma **non la memorizzazione** [nella cache dell'archiviazione Premium.](../../../virtual-machines/premium-storage-performance.md#disk-caching)
 
 > [!NOTE] 
-> La [serie B](../../../virtual-machines/sizes-b-series-burstable.md) di espansione non ha il rapporto tra memoria e vCore di 8 consigliato per i carichi di lavoro SQL Server. In questo modo, è consigliabile usare queste macchine virtuali solo per le applicazioni più piccole, i server Web e i carichi di lavoro di sviluppo.
+> La [serie B burstable](../../../virtual-machines/sizes-b-series-burstable.md) non ha il rapporto memoria-vCore di 8 consigliato per i carichi di lavoro SQL Server burst. Di conseguenza, è consigliabile usare queste macchine virtuali solo per applicazioni, server Web e carichi di lavoro di sviluppo più piccoli.
 
 ### <a name="av2-series"></a>Serie Av2
 
-Le macchine virtuali della [serie AV2](../../../virtual-machines/av2-series.md) sono più adatte per carichi di lavoro di livello superiore, ad esempio sviluppo e test, server Web con traffico ridotto, database di piccole e medie app e modelli di prova.
+Le macchine virtuali della serie [Av2](../../../virtual-machines/av2-series.md) sono più adatte per carichi di lavoro entry-level come sviluppo e test, server Web a traffico ridotto, database di app di piccole e medie dimensioni e strumenti di verifica.
 
-Solo i [Standard_A2m_v2](../../../virtual-machines/av2-series.md) (2 Vcore e 16GBs di memoria), [Standard_A4m_v2](../../../virtual-machines/av2-series.md) (4 Vcore e 32GBs di memoria) e il [Standard_A8m_v2](../../../virtual-machines/av2-series.md) (8 Vcore e 64GBs di memoria) hanno un rapporto di memoria-vCore ottimale pari a 8 per le prime tre macchine virtuali. 
+Solo i [Standard_A2m_v2](../../../virtual-machines/av2-series.md) (2 vCore e 16 GB di memoria), [Standard_A4m_v2](../../../virtual-machines/av2-series.md) (4 vCore e 32 GBs di memoria) e il [Standard_A8m_v2](../../../virtual-machines/av2-series.md) (8 vCore e 64 GBs di memoria) hanno un buon rapporto memoria-vCore di 8 per queste prime tre macchine virtuali. 
 
-Queste macchine virtuali sono opzioni valide per le macchine SQL Server di sviluppo e di test più piccole. 
+Queste macchine virtuali sono entrambe opzioni buone per macchine di sviluppo e test di SQL Server più piccole. 
 
-Il [Standard_A8m_v2](../../../virtual-machines/av2-series.md) 8 vCore può anche essere una soluzione ideale per piccoli server Web e applicazioni.
+L'Standard_A8m_v2 8 [vCore](../../../virtual-machines/av2-series.md) può essere anche un'opzione valida per applicazioni e server Web di piccole dimensioni.
 
 > [!NOTE] 
-> La serie AV2 non supporta l'archiviazione Premium e, di conseguenza, non è consigliata per i carichi di lavoro di produzione SQL Server anche con le macchine virtuali con un rapporto da memoria a vCore pari a 8.
+> La serie Av2 non supporta l'archiviazione Premium e, di conseguenza, non è consigliata per i carichi di lavoro SQL Server di produzione anche con le macchine virtuali con un rapporto tra memoria e vCore pari a 8.
 
-## <a name="storage-optimized"></a>Ottimizzate per l'archiviazione
+## <a name="storage-optimized"></a>Con ottimizzazione per l'archiviazione
 
-Le [dimensioni delle macchine virtuali ottimizzate](../../../virtual-machines/sizes-storage.md) per l'archiviazione sono per casi d'uso specifici. Queste macchine virtuali sono progettate in modo specifico con velocità effettiva del disco ottimizzate e i/o. 
+Le [dimensioni delle macchine virtuali ottimizzate per l'archiviazione](../../../virtual-machines/sizes-storage.md) sono per casi d'uso specifici. Queste macchine virtuali sono progettate in modo specifico con velocità effettiva del disco ottimizzata e I/O. 
 
 ### <a name="lsv2-series"></a>Serie Lsv2
 
-La [serie Lsv2](../../../virtual-machines/lsv2-series.md) offre una velocità effettiva elevata, bassa latenza e archiviazione NVMe locale. Le macchine virtuali della serie Lsv2 sono ottimizzate per l'uso del disco locale nel nodo collegato direttamente alla macchina virtuale anziché usare dischi dati durevoli. 
+La [serie Lsv2 offre](../../../virtual-machines/lsv2-series.md) velocità effettiva elevata, bassa latenza e archiviazione NVMe locale. Le macchine virtuali serie Lsv2 sono ottimizzate per l'uso del disco locale nel nodo collegato direttamente alla macchina virtuale invece di usare dischi dati durevoli. 
 
-Queste macchine virtuali sono opzioni complesse per i carichi di lavoro Big Data, data warehouse, Reporting e ETL. La velocità effettiva elevata e gli IOPS dell'archiviazione NVMe locale sono un caso d'uso valido per l'elaborazione di file che verranno caricati nel database e altri scenari in cui i dati possono essere ricreati dal sistema di origine o da altri repository, ad esempio archiviazione BLOB di Azure o Azure Data Lake. [Serie Lsv2](../../../virtual-machines/lsv2-series.md) Le macchine virtuali possono anche incrementare le prestazioni del disco per un massimo di 30 minuti alla volta.
+Queste macchine virtuali sono opzioni avanzate per i carichi di lavoro big data, data warehouse, creazione di report ed ETL. La velocità effettiva elevata e le operazioni di I/O al secondo dell'archiviazione NVMe locale sono un buon caso d'uso per l'elaborazione dei file che verranno caricati nel database e in altri scenari in cui i dati possono essere ricreati dal sistema di origine o da altri repository, ad esempio Archiviazione BLOB di Azure o Azure Data Lake. [Serie Lsv2](../../../virtual-machines/lsv2-series.md) Le macchine virtuali possono anche eseguire il burst delle prestazioni del disco per un massimo di 30 minuti alla volta.
 
-Queste macchine virtuali sono da 8 a 80 vCPU con 8 GiB di memoria per vCPU e ogni 8 vCPU è 1,92 TB di NVMe SSD. Questo significa che per la macchina virtuale più grande di questa serie, l' [L80s_v2](../../../virtual-machines/lsv2-series.md), sono presenti 80 vCPU e 640 Bib di memoria con 10 TB 1.92 di spazio di archiviazione NVMe.  Il rapporto tra memoria e vCore di 8 per tutte le macchine virtuali è coerente.
+Queste macchine virtuali hanno dimensioni da 8 a 80 vCPU con 8 GiB di memoria per ogni vCPU e ogni 8 vCPU è presente 1,92 TB di unità SSD NVMe. Ciò significa che per la macchina virtuale più grande di questa serie, [L80s_v2](../../../virtual-machines/lsv2-series.md), sono presenti 80 vCPU e 640 BIB di memoria con 10x1,92 TB di spazio di archiviazione NVMe.  Esiste un rapporto coerente tra memoria e vCore di 8 in tutte queste macchine virtuali.
 
-L'archiviazione NVMe è effimera, in quanto i dati andranno persi in questi dischi se la macchina virtuale viene deallocata o se viene spostata in un host diverso per la correzione del servizio.
+L'archiviazione NVMe è effimera, vale a dire che i dati andranno persi in questi dischi se si dealloca la macchina virtuale o se viene spostata in un host diverso per la correzione del servizio.
 
-Le serie Lsv2 e LS supportano [archiviazione Premium](../../../virtual-machines/premium-storage-performance.md), ma non la memorizzazione nella cache di archiviazione Premium. La creazione di una cache locale per aumentare i IOPs non è supportata. 
+Le serie Lsv2 e Ls supportano [l'archiviazione Premium,](../../../virtual-machines/premium-storage-performance.md)ma non la memorizzazione nella cache di archiviazione Premium. La creazione di una cache locale per aumentare le operazioni di I/O al secondo non è supportata. 
 
 > [!WARNING]
-> L'archiviazione dei file di dati nell'archiviazione NVMe temporanea potrebbe causare la perdita di dati quando la macchina virtuale viene deallocata. 
+> L'archiviazione dei file di dati nell'archiviazione NVMe temporanea può comportare la perdita di dati quando la macchina virtuale viene deallocata. 
 
-## <a name="constrained-vcores"></a>VCore vincolato
+## <a name="constrained-vcores"></a>VCore vincolati
 
-Carichi di lavoro a prestazioni elevate SQL Server spesso richiedono quantità maggiori di memoria, I/O e velocità effettiva senza i conteggi vCore più elevati. 
+I carichi SQL Server ad alte prestazioni spesso necessitano di grandi quantità di memoria, I/O e velocità effettiva senza i conteggi di vCore più elevati. 
 
-La maggior parte dei carichi di lavoro OLTP sono database di applicazioni basati su un numero elevato di transazioni più piccole. Con i carichi di lavoro OLTP, viene letta o modificata solo una piccola quantità di dati, ma i volumi di transazioni basate sui conteggi degli utenti sono molto più elevati. È importante fare in modo che la memoria SQL Server disponibile per i piani della cache, archiviare i dati a cui si accede di recente per le prestazioni e assicurarsi che le letture fisiche possano essere lette rapidamente in memoria. 
+La maggior parte dei carichi di lavoro OLTP sono database dell'applicazione guidati da un numero elevato di transazioni più piccole. Con i carichi di lavoro OLTP, solo una piccola quantità di dati viene letta o modificata, ma i volumi di transazioni guidati dai conteggi degli utenti sono molto più elevati. È importante avere a disposizione la memoria SQL Server per memorizzare nella cache i dati a cui si accede di recente per ottenere prestazioni e assicurarsi che le operazioni di lettura fisica possano essere lette rapidamente in memoria. 
 
-Questi ambienti OLTP richiedono maggiori quantità di memoria, archiviazione veloce e la larghezza di banda di I/O necessaria per prestazioni ottimali. 
+Questi ambienti OLTP necessitano di una maggiore quantità di memoria, di archiviazione veloce e della larghezza di banda di I/O necessaria per ottenere prestazioni ottimali. 
 
-Per mantenere questo livello di prestazioni senza i costi di licenza SQL Server più elevati, Azure offre dimensioni di VM con [conteggi vCPU vincolati](../../../virtual-machines/constrained-vcpu.md). 
+Per mantenere questo livello di prestazioni senza i costi SQL Server licenze, Azure offre dimensioni di macchine virtuali con conteggi [vCPU vincolati.](../../../virtual-machines/constrained-vcpu.md) 
 
-Questo consente di controllare i costi di licenza riducendo il vcore disponibile mantenendo la stessa memoria, l'archiviazione e la larghezza di banda di I/O della macchina virtuale padre.
+Ciò consente di controllare i costi delle licenze riducendo i vCore disponibili mantenendo allo stesso tempo la stessa larghezza di banda di memoria, archiviazione e I/O della macchina virtuale padre.
 
-Il numero di vCPU può essere limitato a una metà a un trimestre delle dimensioni originali della macchina virtuale. La riduzione del valore di Vcore disponibile per la macchina virtuale condurrà un rapporto tra memoria e vCore superiore, ma il costo di calcolo rimarrà invariato.
+Il numero di vCPU può essere vincolato a metà-un quarto delle dimensioni della macchina virtuale originale. La riduzione dei vCore disponibili per la macchina virtuale consente di ottenere rapporti più elevati tra memoria e vCore, ma il costo di calcolo rimarrà invariato.
 
-Queste nuove dimensioni di VM hanno un suffisso che specifica il numero di vCPU attive per facilitarne l'identificazione. 
+Queste nuove dimensioni di macchine virtuali hanno un suffisso che specifica il numero di vCCU attive per facilitarne l'identificazione. 
 
-Ad esempio, [M64-32ms standard](../../../virtual-machines/constrained-vcpu.md) richiede la licenza solo 32 SQL Server Vcore con memoria, i/O e velocità effettiva di [M64ms](../../../virtual-machines/m-series.md) e [M64-16ms standard](../../../virtual-machines/constrained-vcpu.md) richiede solo 16 vcore.  Sebbene il [M64-16ms standard](../../../virtual-machines/constrained-vcpu.md) abbia un trimestre del costo della licenza SQL Server della M64ms, il costo di calcolo della macchina virtuale sarà lo stesso.
+Ad esempio, [M64-32ms](../../../virtual-machines/constrained-vcpu.md) richiede solo 32 vCore SQL Server con memoria, I/O e velocità effettiva [degli M64ms](/azure/virtual-machines/m-series) e [M64-16ms](../../../virtual-machines/constrained-vcpu.md) richiede solo 16 vCore.  Anche se [M64-16ms](../../../virtual-machines/constrained-vcpu.md) ha un quarto del costo di licenza SQL Server di M64ms, il costo di calcolo della macchina virtuale sarà lo stesso.
 
 > [!NOTE] 
-> - I carichi di lavoro di data warehouse medio-grandi possono comunque trarre vantaggio dalle [macchine virtuali vCore vincolate](../../../virtual-machines/constrained-vcpu.md), ma i carichi di lavoro data warehouse sono comunemente caratterizzati da un numero minore di utenti e processi che indirizzano grandi quantità di dati tramite piani di query eseguiti in parallelo. 
-> - Il costo di calcolo, che include le licenze del sistema operativo, rimarrà uguale a quello della macchina virtuale padre. 
+> - I carichi di lavoro di data warehouse medio-grandi possono comunque trarre vantaggio dalle macchine virtuali [vCore](../../../virtual-machines/constrained-vcpu.md)vincolate, ma i carichi di lavoro data warehouse sono in genere caratterizzati da un minor numero di utenti e processi che indirizzano grandi quantità di dati tramite piani di query eseguiti in parallelo. 
+> - Il costo di calcolo, che include le licenze del sistema operativo, rimarrà invariato per la macchina virtuale padre. 
 
 
 
@@ -190,8 +190,8 @@ Ad esempio, [M64-32ms standard](../../../virtual-machines/constrained-vcpu.md) r
 Per altre informazioni, vedere gli altri articoli di questa serie:
 - [Elenco di controllo rapido](performance-guidelines-best-practices-checklist.md)
 - [Archiviazione](performance-guidelines-best-practices-storage.md)
-- [Raccogli Baseline](performance-guidelines-best-practices-collect-baseline.md)
+- [Raccogliere la baseline](performance-guidelines-best-practices-collect-baseline.md)
 
-Per le procedure di sicurezza consigliate, vedere [considerazioni sulla sicurezza per SQL Server in macchine virtuali di Azure](security-considerations-best-practices.md).
+Per le procedure consigliate per la sicurezza, vedere [Considerazioni sulla sicurezza SQL Server nelle macchine virtuali di Azure.](security-considerations-best-practices.md)
 
-Esaminare altri articoli relativi alle macchine virtuali di SQL Server in [Panoramica di SQL Server in Macchine virtuali di Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). In caso di domande sulle macchine virtuali SQL Server, vedere le [domande frequenti](frequently-asked-questions-faq.md).
+Esaminare altri articoli relativi alle macchine virtuali di SQL Server in [Panoramica di SQL Server in Macchine virtuali di Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). In caso di domande sulle macchine virtuali SQL Server, vedere le [domande frequenti](frequently-asked-questions-faq.md). 

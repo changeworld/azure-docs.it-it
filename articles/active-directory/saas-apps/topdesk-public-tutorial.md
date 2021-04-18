@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 5d16fd87b01db69d3f55e22aad573b7847b9048c
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: b787102065f93588cd796027123d61072e9d5aea
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518082"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107601016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Esercitazione: Integrazione di Azure Active Directory con TOPdesk - Public
 
@@ -95,7 +95,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     f. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<companyname>.topdesk.net/tas/public/login/verify`
     
     > [!NOTE] 
-    > Se i valori di **Identificatore** e **URL di risposta** non vengono immessi automaticamente, è necessario specificarli manualmente. Per Identificatore, seguire il modello descritto sopra e ottenere il valore di URL di risposta come indicato più avanti nella sezione **Configurare l'accesso Single Sign-On di TOPdesk - Public** dell'esercitazione. Poiché il valore di **URL accesso** non è reale, è necessario aggiornarlo con l'effettivo URL di accesso. Per ottenere questo valore, contattare il [team di supporto clienti di TOPdesk - Public](https://help.topdesk.com/saas/enterprise/user/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Se i valori di **Identificatore** e **URL di risposta** non vengono immessi automaticamente, è necessario specificarli manualmente. Per Identificatore, seguire il modello descritto sopra e ottenere il valore di URL di risposta come indicato più avanti nella sezione **Configurare l'accesso Single Sign-On di TOPdesk - Public** dell'esercitazione. Poiché il valore di **URL accesso** non è reale, è necessario aggiornarlo con l'effettivo URL di accesso. Per ottenere questo valore, contattare il [team di supporto clienti di TOPdesk - Public](https://my.topdesk.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 

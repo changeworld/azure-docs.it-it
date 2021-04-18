@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c9e1de7b5dee8e351cd8744287c07b0bbb174512
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cbccc3fb4cc513d7c86253ae07fbced4626a15e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516461"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Esercitazione: Integrazione di Azure Active Directory con Tidemark
 
@@ -113,7 +113,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Tidemark, seguire quest
     - `https://<subdomain>.tidemark.net/saml`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto client di Tidemark](http://www.tidemark.com/contact-us). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il team di supporto client di Tidemark. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -131,7 +131,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Tidemark, seguire quest
 
 ### <a name="configure-tidemark-single-sign-on"></a>Configurare l'accesso Single Sign-On di Tidemark
 
-Per configurare l'accesso Single Sign-On sul lato **Tidemark**, è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Tidemark](http://www.tidemark.com/contact-us). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Tidemark,** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati da portale di Azure al team di supporto di Tidemark. La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
@@ -185,7 +185,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ### <a name="create-tidemark-test-user"></a>Creare l'utente di test di Tidemark
 
-In questa sezione viene creato un utente di nome Britta Simon in Tidemark. Collaborare con il [team di supporto di Tidemark](http://www.tidemark.com/contact-us) per aggiungere gli utenti alla piattaforma Tidemark. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Tidemark. Collaborare con il team di supporto di Tidemark per aggiungere gli utenti alla piattaforma Tidemark. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

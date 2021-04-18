@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: d9377ba22f1461762e53b1004dfe5f06c2d7b972
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3eecb0b9628ae889ac22bfe6d621266f06abc83
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89420218"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598925"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Dimensioni delle macchine virtuali in Azure
 
-Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine virtuali di Azure che è possibile usare per eseguire le app e i carichi di lavoro. Offre anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. 
+Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine virtuali di Azure che è possibile usare per eseguire app e carichi di lavoro. Offre anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. 
 
-| Tipo | Dimensioni | Descrizione |
+| Type | Dimensioni | Descrizione |
 |------|-------|-------------|
-| [Utilizzo generico](sizes-general.md)   | B, Dsv3, dv3, Dasv4, Dav4, DSv2, dv2, AV2, DC, DCv2, dv4, Dsv4, Ddv4, Ddsv4  | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
-| [Con ottimizzazione per il calcolo](sizes-compute.md) | F, FS, Fsv2 | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni. |
-| [Ottimizzate per la memoria](sizes-memory.md) | Esv3, EV3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, dv2 | Rapporto elevato tra memoria e CPU. Soluzione ideale per server di database relazionali, cache medio-grandi e analisi in memoria.                 |
+| [Utilizzo generico](sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4  | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
+| [Con ottimizzazione per il calcolo](sizes-compute.md) | F, Fs, Fsv2 | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni. |
+| [Ottimizzate per la memoria](sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, Dv2 | Rapporto elevato tra memoria e CPU. Soluzione ideale per server di database relazionali, cache medio-grandi e analisi in memoria.                 |
 | [Ottimizzate per l'archiviazione](sizes-storage.md) | Lsv2 | I/O e velocità effettiva del disco elevati ideali per i database NoSQL, SQL e Big Data, data warehousing e database transazionali di grandi dimensioni.  |
-| [GPU](sizes-gpu.md) | NC, NCv2, NCv3, NCasT4_v3 (anteprima), ND, NDv2 (anteprima), NV, NVv3, NVv4 | Macchine virtuali specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video, nonché per il training e l'inferenza dei modelli (ND) con apprendimento profondo. disponibili con GPU singole o più GPU. |
+| [GPU](sizes-gpu.md) | NC, NCv2, NCv3, NCasT4_v3, ND, NDv2, NV, NVv3, NVv4 | Macchine virtuali specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video, nonché per il training e l'inferenza dei modelli (ND) con apprendimento profondo. disponibili con GPU singole o più GPU. |
 | [High Performance Computing (HPC)](sizes-hpc.md) | HB, HBv2, HC, H | Le nostre macchine virtuali con CPU più veloci e potenti, con interfacce di rete ad alta velocità effettiva facoltative (RDMA). |
 
-- Per informazioni sui prezzi delle varie dimensioni, vedere le pagine relative ai prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) o [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/Windows/#Windows).
+- Per informazioni sui prezzi delle diverse dimensioni, vedere le pagine dei prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) o [Windows.](https://azure.microsoft.com/pricing/details/virtual-machines/Windows/#Windows)
 - Per la disponibilità delle dimensioni di VM nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 - Per trovare i limiti generali delle VM di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Per altre informazioni sul modo in cui Azure denomina le proprie macchine virtuali, vedere [convenzioni di denominazione di macchine virtuali di Azure](./vm-naming-conventions.md).
+- Per altre informazioni sul modo in cui Azure assegna un nome alle macchine virtuali, vedere [Convenzioni di](./vm-naming-conventions.md)denominazione delle dimensioni delle macchine virtuali di Azure .
 
 ## <a name="rest-api"></a>API REST
 
@@ -49,7 +49,7 @@ Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di
 
 Altre informazioni sulle prestazioni di calcolo per le macchine virtuali Linux usando i [punteggi di benchmark CoreMark](./linux/compute-benchmark-scores.md).
 
-Altre informazioni sulle prestazioni di calcolo per le macchine virtuali Windows con i [punteggi di benchmark SPECInt](./windows/compute-benchmark-scores.md).
+Altre informazioni sulle prestazioni di calcolo per le macchine virtuali Windows usando i punteggi [di benchmark SPECInt](./windows/compute-benchmark-scores.md).
 
 ## <a name="manage-costs"></a>Gestire i costi
 

@@ -3,12 +3,12 @@ title: Application Insights panoramica della disponibilità
 description: Configurare test Web ricorrenti per monitorare la disponibilità e la velocità di risposta dell'app o del sito Web.
 ms.topic: conceptual
 ms.date: 04/15/2021
-ms.openlocfilehash: c3b7a1d0bf8c50c77e5062a702bcdd7600d98d7a
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 3c2d248df98fcb9f75f5de9c05b9f600955cbac7
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107520737"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600795"
 ---
 # <a name="availability-tests-overview"></a>Panoramica dei test di disponibilità
 
@@ -18,11 +18,9 @@ Dopo aver distribuito l'app Web o il sito Web, è possibile configurare test ric
 
 ## <a name="types-of-availability-tests"></a>Tipi di test di disponibilità
 
-Esistono quattro tipi di test di disponibilità:
+Esistono tre tipi di test di disponibilità:
 
 * [Test ping URL:](monitor-web-app-availability.md)questa categoria include due semplici test che è possibile creare tramite il portale.
-    - Test ping di base: un semplice test che è possibile creare nel portale di Azure.
-    - Test ping standard: test ping standard più avanzato con funzionalità come l'uso di qualsiasi metodo di richiesta HTTP(ad esempio , , e così via) o `GET` `HEAD` `POST` l'aggiunta di intestazioni personalizzate.
 * [Test Web in più passaggi:](availability-multistep.md)registrazione di una sequenza di richieste Web, che possono essere riprodotte per testare scenari più complessi. I test Web in più passaggi vengono creati in Visual Studio Enterprise e caricati nel portale per l'esecuzione.
 * [Test di disponibilità personalizzati:](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability)se si decide di creare un'applicazione personalizzata per eseguire i test di disponibilità, è possibile usare il metodo per inviare i risultati `TrackAvailability()` Application Insights.
 

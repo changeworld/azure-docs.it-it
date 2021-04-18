@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d6274f3e1356a8ff8a997e830f0ebee43f50cff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c2520c8e209ab8319cbc5a369b70d247a52232c
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92893069"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Esercitazione: Integrazione di Azure Active Directory con PolicyStat
 
@@ -110,7 +110,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di PolicyStat](http://www.policystat.com/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di PolicyStat](https://rldatix.com/services-support/support). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -154,13 +154,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con PolicyStat, seguire que
 
     c. URL di chiusura sessione
 
-### <a name="configure-policystat-single-sign-on"></a>Configurare l'accesso Single Sign-On di PolicyStat
+### <a name="configure-policystat-single-sign-on&quot;></a>Configurare l'accesso Single Sign-On di PolicyStat
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di PolicyStat come amministratore.
 
 2. Scegliere la scheda **Admin**, quindi fare clic su **Configurazione di Single Sign-On** nel riquadro di spostamento a sinistra.
    
-    ![Administrator Menu](./media/policystat-tutorial/ic808633.png "Menu Amministratore")
+    ![Administrator Menu](./media/policystat-tutorial/ic808633.png &quot;Menu Amministratore")
 
 3. Fare clic su **Metadati del provider di identità** quindi, nella sezione **Metadati del provider di identità**, eseguire la procedura seguente:
    

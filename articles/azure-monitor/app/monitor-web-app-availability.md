@@ -4,65 +4,37 @@ description: Configurare i test ping in Application Insights. Ottenere avvisi se
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.reviewer: sdash
-ms.openlocfilehash: ecfd4ffee3582ff37411e59c75d8be8fca5e945f
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 60698862e26175425221940a4b69867cb414fe86
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516623"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598874"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorare la disponibilità di un sito Web
 
-Il nome "URL ping test" è un po' un errore. Per essere chiari, questi test non usano ICMP (Internet Control Message Protocol) per controllare la disponibilità del sito. Usano invece funzionalità di richiesta HTTP più avanzate per convalidare se un endpoint risponde. Misurano anche le prestazioni associate a tale risposta e aggiungono la possibilità di impostare criteri di esito positivo personalizzati associati a funzionalità più avanzate, ad esempio l'analisi delle richieste dipendenti e la possibilità di tentativi.
+Il nome "URL ping test" è un po' erta. Per essere chiari, questi test non usano ICMP (Internet Control Message Protocol) per verificare la disponibilità del sito. Usano invece funzionalità di richiesta HTTP più avanzate per convalidare se un endpoint risponde. Misurano anche le prestazioni associate a tale risposta e aggiungono la possibilità di impostare criteri di riuscita personalizzati associati a funzionalità più avanzate, ad esempio l'analisi delle richieste dipendenti e la possibilità di ritentare.
 
-Esistono due tipi di test ping URL che è possibile creare, test ping di base e standard.
+Per creare un test di disponibilità, è necessario usare una risorsa di Application Insight esistente o [creare una risorsa Application Insights esistente.](create-new-resource.md)
 
-> [!NOTE]
-> I test ping Basic e Standard sono attualmente in anteprima pubblica. Queste versioni di anteprima vengono fornite senza un contratto di servizio. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+Per creare la prima richiesta di disponibilità, aprire il riquadro Disponibilità e selezionare  **Crea test.**
 
-Basic e Standard:
+:::image type="content" source="./media/monitor-web-app-availability/availability-create-test-001.png" alt-text="Screenshot della creazione di un test.":::
 
-- Basic è limitato a cinque posizioni per ogni test.
-- I test standard possono avere intestazioni personalizzate o corpo della richiesta.
-- I test standard possono usare qualsiasi metodo di richiesta HTTP, mentre di base può usare solo `GET` .
-- Il controllo della durata del certificato SSL avvisa l'utente di un periodo di tempo impostato prima della scadenza del certificato.
-- I test standard sono una funzionalità a pagamento.
+## <a name="create-a-test"></a>Creare un test
 
-> [!NOTE]
-> Attualmente non sono disponibili costi aggiuntivi per i test Ping standard della funzionalità di anteprima. I prezzi per le funzionalità disponibili in anteprima verranno annunciati in futuro e verrà fornito un avviso prima dell'inizio della fatturazione. Se si sceglie di continuare a usare i test Ping Standard dopo il periodo di preavviso, verrà addebitata la tariffa applicabile.
-
-## <a name="create-a-url-ping-test"></a>Creare un test di ping URL
-
-Per creare un test di disponibilità, è necessario usare una risorsa di Application Insight esistente o creare una Application Insights [risorsa .](create-new-resource.md)
-
-Per creare la prima richiesta di disponibilità, aprire il riquadro Disponibilità e selezionare Crea test & scegliere lo SKU di test.
-
-:::image type="content" source="./media/monitor-web-app-availability/create-basic-test.png" alt-text="Screenshot della creazione di un test ping dell'URL di base nel portale di Azure":::
-
-|Impostazione | Spiegazione |
-|--------|-------------|
+|Impostazione| Spiegazione
+|----|----|----|
 |**URL** |  L'URL può essere qualsiasi pagina Web che si vuole testare, ma deve essere visibile da Internet pubblico. L'URL può includere una stringa di query. In questo modo, ad esempio, è possibile esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione viene effettuata fino a un numero massimo di 10 reindirizzamenti.|
-|**Analizzare le richieste dipendenti**| Il test richiede immagini, script, file di stile e altri file che fanno parte della pagina Web testata. Il tempo di risposta registrato include il tempo impiegato per ottenere questi file. Il test ha esito negativo se una di queste risorse non può essere scaricata correttamente entro il timeout per l'intero test. Se l'opzione non viene selezionata, il test richiede solo il file in corrispondenza dell'URL specificato. L'abilitazione di questa opzione comporta un controllo più rigoroso. Il test potrebbe non riuscire per i casi, che potrebbero non essere evidenti durante l'esplorazione manuale del sito. |
-|**Abilitare i tentativi**| Quando il test ha esito negativo, viene ritentato dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti in base alla frequenza di test normale. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni località di test. **È consigliabile usare questa opzione.** In media, circa l'80% degli errori non si ripresenta al nuovo tentativo.|
-| **Test di convalida del certificato SSL** | È possibile verificare il certificato SSL nel sito Web per assicurarsi che sia installato correttamente, valido, attendibile e non presenti errori agli utenti. |
-| **Controllo proattivo della durata** | In questo modo è possibile definire un periodo di tempo impostato prima della scadenza del certificato SSL. Una volta scaduto, il test avrà esito negativo. |
+|**Analizzare le richieste dipendenti**| Il test richiede immagini, script, file di stile e altri file che fanno parte della pagina Web testata. Il tempo di risposta registrato include il tempo impiegato per ottenere questi file. Il test ha esito negativo se una di queste risorse non può essere scaricata correttamente entro il timeout per l'intero test. Se l'opzione non viene selezionata, il test richiede solo il file in corrispondenza dell'URL specificato. L'abilitazione di questa opzione comporta un controllo più rigoroso. Il test potrebbe non riuscire per i casi, che potrebbero non essere evidenti quando si esplora manualmente il sito.
+|**Abilitare i tentativi**|Quando il test ha esito negativo, viene ritentato dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti in base alla frequenza di test normale. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni località di test. **È consigliabile usare questa opzione.** In media, circa l'80% degli errori non si ripresenta al nuovo tentativo.|
 |**Frequenza test**| impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza predefinita di cinque minuti e cinque località di test, il sito verrà testato in media ogni minuto.|
-|**Località di test**| Sono le posizioni da cui i server inviano richieste Web all'URL indicato. **Il numero minimo di località di test consigliate è cinque** per essere certi di poter distinguere i problemi del sito Web da quelli della rete. È possibile selezionare più di cinque posizioni con test standard e fino a 16 posizioni.|
+|**Località di test**| Sono le posizioni da cui i server inviano richieste Web all'URL indicato. **Il numero minimo di località di test consigliate è cinque** per essere certi di poter distinguere i problemi del sito Web da quelli della rete. È possibile selezionare fino a 16 località.
 
 **Se l'URL non è visibile dalla** rete Internet pubblica, è possibile scegliere di aprire in modo selettivo il firewall per consentire solo le transazioni di test tramite . Per altre informazioni sulle eccezioni del firewall per gli agenti di test di disponibilità, vedere la [guida all'indirizzo IP](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
-> È consigliabile eseguire test da più posizioni **con un minimo di cinque posizioni.** Questo serve a evitare falsi allarmi che possono essere dovuti a problemi temporanei di una località specifica. Inoltre, è stato rilevato che la configurazione ottimale è che il numero di posizioni di test è uguale alla soglia di posizione dell'avviso **+ 2**.
-
-## <a name="standard-test"></a>Standard Test
-
-:::image type="content" source="./media/monitor-web-app-availability/standard-test-post.png" alt-text="Screenshot della scheda delle informazioni di test standard." border="false":::
-
-|Impostazione | Spiegazione |
-|--------|-------------|
-| **Intestazioni personalizzate** | Coppie chiave-valore che definiscono i parametri operativi. |
-| **Verbo di richiesta HTTP** | Indicare l'azione da intraprendere con la richiesta. Se il verbo scelto non è disponibile nell'interfaccia utente, è possibile distribuire un test standard usando Azure Monitoraggio risorse con la scelta desiderata. |
-| **Testo della richiesta** | Dati personalizzati associati alla richiesta HTTP. È possibile caricare il tipo di file nel contenuto o disabilitare questa funzionalità. Per il contenuto del corpo non elaborato sono supportati TEXT, JSON, HTML, XML e JavaScript. |
+> È consigliabile eseguire test da più posizioni **con almeno cinque posizioni.** Questo serve a evitare falsi allarmi che possono essere dovuti a problemi temporanei di una località specifica. Inoltre, è stato rilevato che la configurazione ottimale è che il numero di percorsi di test sia uguale alla soglia di posizione dell'avviso **+ 2**.
 
 ## <a name="success-criteria"></a>Criteri di superamento
 
@@ -83,7 +55,7 @@ Per creare la prima richiesta di disponibilità, aprire il riquadro Disponibilit
 
 I tag di popolamento seguenti possono essere usati per l'attributo geo-location quando si distribuisce un test ping dell'URL di disponibilità usando Azure Resource Manager.
 
-#### <a name="azure-gov"></a>Azure gov
+### <a name="azure-gov"></a>Azure gov
 
 | Nome visualizzato   | Nome del popolamento     |
 |----------------|---------------------|
@@ -95,7 +67,7 @@ I tag di popolamento seguenti possono essere usati per l'attributo geo-location 
 
 #### <a name="azure"></a>Azure
 
-| Nome visualizzato                           | Nome del popolamento   |
+| Nome visualizzato                           | Nome popolamento   |
 |----------------------------------------|-------------------|
 | Australia orientale                         | emea-au-syd-edge  |
 | Brasile meridionale                           | latam-br-gru-edge |
@@ -144,7 +116,7 @@ Selezionare un punto rosso.
 
 Dal risultato di un test di disponibilità è possibile visualizzare i dettagli delle transazioni in tutti i componenti. A questo punto è possibile:
 
-* Esaminare il report sulla risoluzione dei problemi per determinare ciò che potrebbe aver causato l'esito negativo del test, ma l'applicazione è ancora disponibile.
+* Esaminare il report sulla risoluzione dei problemi per determinare cosa potrebbe aver causato l'esito negativo del test, ma l'applicazione è ancora disponibile.
 * Controllare la risposta ricevuta dal server.
 * Diagnosticare l'errore con i dati di telemetria lato server correlati, raccolti durante l'elaborazione del test di disponibilità non riuscito.
 * Registrare un problema o elemento di lavoro in Git o Azure Boards per tenere traccia del problema. Il bug conterrà un collegamento a questo evento.
@@ -156,7 +128,7 @@ Fare clic sulla riga dell'eccezione per visualizzare i dettagli dell'eccezione l
 
 :::image type="content" source="./media/monitor-web-app-availability/open-instance-4.png" alt-text="Diagnostica lato server.":::
 
-Oltre ai risultati non elaborati, è anche possibile visualizzare due metriche chiave di disponibilità in [Esplora metriche](../essentials/metrics-getting-started.md):
+Oltre ai risultati non elaborati, è anche possibile visualizzare due metriche di disponibilità chiave in [Esplora metriche](../essentials/metrics-getting-started.md):
 
 1. Disponibilità: percentuale dei test riusciti rispetto a tutte le esecuzioni di test.
 2. Durata test: durata media dei test rispetto a tutte le esecuzioni di test.

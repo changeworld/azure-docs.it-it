@@ -1,6 +1,6 @@
 ---
-title: Spostare le macchine virtuali di Azure crittografate tra le aree con Azure Resource Mover
-description: Informazioni su come spostare le macchine virtuali di Azure crittografate in un'altra area con Azure Resource Mover
+title: Spostare macchine virtuali di Azure crittografate tra aree usando Spostamento risorse di Azure
+description: Informazioni su come spostare macchine virtuali di Azure crittografate in un'altra area usando Spostamento risorse di Azure.
 manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
@@ -8,239 +8,245 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 014b4d09a991ae4d0bb31ec0b9adee0c9e3b3553
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 457c4c4752b4d78434b1fb90710472b1998f1c4e
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361010"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600693"
 ---
-# <a name="tutorial-move-encrypted-azure-vms-across-regions"></a>Esercitazione: spostare macchine virtuali di Azure crittografate tra le aree
+# <a name="tutorial-move-encrypted-azure-vms-across-regions"></a>Esercitazione: Spostare macchine virtuali di Azure crittografate tra aree
 
-Questo articolo illustra come spostare le macchine virtuali di Azure crittografate in un'area di Azure diversa usando il [motore di risorse di Azure](overview.md). Ecco cosa si intende per crittografia:
+Questo articolo illustra come spostare macchine virtuali di Azure crittografate in un'area di Azure diversa usando [Spostamento risorse di Azure](overview.md). 
 
-- Macchine virtuali con dischi con crittografia dischi di Azure abilitata. [Scopri di più](../virtual-machines/windows/disk-encryption-portal-quickstart.md)
-- In alternativa, le macchine virtuali che usano chiavi gestite dal cliente (CMK) per la crittografia inattiva (crittografia lato server). [Scopri di più](../virtual-machines/disks-enable-customer-managed-keys-portal.md)
+Le macchine virtuali crittografate possono essere descritte come:
+
+- Macchine virtuali con dischi con Crittografia dischi di Azure abilitata. Per altre informazioni, vedere [Creare e crittografare una macchina virtuale Windows usando il portale di Azure](../virtual-machines/windows/disk-encryption-portal-quickstart.md).
+- Macchine virtuali che usano chiavi gestite dal cliente (CMK) per la crittografia dei dati in pausa o la crittografia lato server. Per altre informazioni, vedere Usare il portale di Azure per abilitare la crittografia lato server con chiavi gestite dal cliente [per i dischi gestiti.](../virtual-machines/disks-enable-customer-managed-keys-portal.md)
 
 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Verificare i prerequisiti. 
-> * Per le macchine virtuali con crittografia dischi di Azure abilitata, copiare le chiavi e i segreti dall'insieme di credenziali delle chiavi nell'area di destinazione.
-> * Preparare le macchine virtuali per spostarle e selezionare le risorse nell'area di origine che si desidera spostare.
+> * Per le macchine virtuali con Crittografia dischi di Azure abilitata, copiare le chiavi e i segreti dall'insieme di credenziali delle chiavi dell'area di origine all'insieme di credenziali delle chiavi dell'area di destinazione.
+> * Preparare lo spostamento delle macchine virtuali e selezionare le risorse nell'area di origine da cui si vuole spostarle.
 > * Risolvere le dipendenze delle risorse.
-> * Per le macchine virtuali con crittografia dischi di Azure abilitata, assegnare manualmente l'insieme di credenziali delle chiavi di destinazione. Per le macchine virtuali che usano la crittografia lato server con chiavi gestite dal cliente, assegnare manualmente un set di crittografia del disco nell'area di destinazione.
-> * Spostare l'insieme di credenziali delle chiavi e/o il set di crittografia del disco.
+> * Per le macchine virtuali con l'Crittografia dischi di Azure abilitata, assegnare manualmente l'insieme di credenziali delle chiavi di destinazione. Per le macchine virtuali che usano la crittografia lato server con chiavi gestite dal cliente, assegnare manualmente un set di crittografia del disco nell'area di destinazione.
+> * Spostare l'insieme di credenziali delle chiavi o il set di crittografia del disco.
 > * Preparare e spostare il gruppo di risorse di origine. 
 > * Preparare e spostare le altre risorse.
-> * Decidere se si vuole rimuovere lo spostamento o eseguirne il commit. 
+> * Decidere se annullare o eseguire il commit dello spostamento. 
 > * Facoltativamente, rimuovere le risorse nell'area di origine dopo lo spostamento.
 
 > [!NOTE]
-> Le esercitazioni illustrano il percorso più rapido per provare uno scenario e prevedono l'uso delle opzioni predefinite. 
+> Questa esercitazione illustra il percorso più rapido per provare uno scenario. Usa solo le opzioni predefinite. 
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare. Accedere quindi al [portale di Azure](https://portal.azure.com).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare. Accedere quindi al portale di Azure [.](https://portal.azure.com)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-**Requisito** |**Dettagli**
+Requisito |Dettagli
 --- | ---
-**Autorizzazioni di sottoscrizione** | Verificare di avere accesso come *Proprietario* nella sottoscrizione che contiene le risorse da spostare.<br/><br/> **Perché è necessario l'accesso del proprietario?** La prima volta che si aggiunge una risorsa per una coppia di origine e destinazione specifica in una sottoscrizione di Azure, Spostamento risorse crea un'[identità gestita assegnata dal sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (nota in precedenza come identità del servizio gestita) che viene considerata attendibile dalla sottoscrizione. Per creare l'identità e assegnarle il ruolo richiesto (collaboratore e amministratore accesso utenti nella sottoscrizione di origine), l'account usato per aggiungere risorse richiede le autorizzazioni di *proprietario* per la sottoscrizione. [Altre informazioni](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sui ruoli di Azure.
-**Supporto per macchine virtuali** | Controllare che le macchine virtuali da spostare siano supportate.<br/><br/> - [Verificare](support-matrix-move-region-azure-vm.md#windows-vm-support) le VM Windows supportate.<br/><br/> - [Verificare](support-matrix-move-region-azure-vm.md#linux-vm-support) le VM Linux e le versioni del kernel supportate.<br/><br/> -Controllare le impostazioni di [calcolo](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [archiviazione](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings)e [rete](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) supportate.
-**Requisiti di Key Vault (crittografia dischi di Azure)** | Se crittografia dischi di Azure è abilitata per le macchine virtuali, oltre all'insieme di credenziali delle chiavi nell'area di origine, è necessario un insieme di credenziali delle chiavi nell'area di destinazione. [Creare un insieme di](../key-vault/general/quick-create-portal.md)credenziali delle chiavi.<br/><br/> Per gli insiemi di credenziali delle chiavi nell'area di origine e di destinazione, sono necessarie le autorizzazioni seguenti:<br/><br/> -Autorizzazioni per chiavi: operazioni di gestione delle chiavi (Get, List); Operazioni di crittografia (decrittografia e crittografia).<br/><br/> -Autorizzazioni segrete: operazioni di gestione dei segreti (Get, List e set)<br/><br/> -Certificate (List e Get).
-**Crittografia del disco impostata (crittografia lato server con CMK)** | Se si usano macchine virtuali con la crittografia lato server usando un CMK, oltre alla crittografia del disco impostata nell'area di origine, è necessario un set di crittografia del disco nell'area di destinazione. [Creare un set di crittografia del disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set).<br/><br/> Il passaggio tra le aree non è supportato se si usano chiavi HSM per le chiavi gestite dal cliente.
-**Quota area di destinazione** | La quota disponibile nella sottoscrizione deve essere sufficiente per creare le risorse che si intende spostare nell'area di destinazione. Se non è disponibile alcuna quota, [richiedere limiti aggiuntivi](../azure-resource-manager/management/azure-subscription-service-limits.md).
-**Addebiti per l'area di destinazione** | Verificare i prezzi e gli addebiti associati all'area di destinazione in cui si intende spostare le macchine virtuali. Per facilitare l'operazione, usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/).
+**Autorizzazioni per la sottoscrizione** | Verificare di avere accesso *come* proprietario alla sottoscrizione che contiene le risorse da spostare.<br/><br/> *Perché è necessario l'accesso come proprietario?* La prima volta che si aggiunge una risorsa per una coppia di origine e destinazione specifica in una sottoscrizione di Azure, Resource Mover crea un'identità gestita assegnata dal [sistema,](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)nota in precedenza come identità del servizio gestito. Questa identità è attendibile dalla sottoscrizione. Prima di poter creare l'identità e assegnarle i ruoli necessari *(Collaboratore* e Amministratore  accesso utenti nella sottoscrizione di origine), l'account utilizzato per aggiungere le risorse richiede le autorizzazioni di proprietario nella sottoscrizione.  Per altre informazioni, vedere [Ruoli di amministratore della sottoscrizione classica, Ruoli di Azure e](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)ruoli Azure AD.
+**Supporto per macchine virtuali** | Verificare che le macchine virtuali da spostare siano supportate eseguendo le operazioni seguenti:<li>[Verificare](support-matrix-move-region-azure-vm.md#windows-vm-support) le macchine virtuali Windows supportate.<li>[Verificare](support-matrix-move-region-azure-vm.md#linux-vm-support) le macchine virtuali Linux e le versioni del kernel supportate.<li>Controllare le impostazioni di [calcolo](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [archiviazione](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) e [rete](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) supportate.
+**Requisiti dell'insieme di credenziali delle chiavi (Crittografia dischi di Azure)** | Se sono state abilitate Crittografia dischi di Azure per le macchine virtuali, è necessario un insieme di credenziali delle chiavi sia nell'aree di origine che in quello di destinazione. Per altre informazioni, vedere [Creare un insieme di credenziali delle chiavi.](../key-vault/general/quick-create-portal.md)<br/><br/> Per gli insiemi di credenziali delle chiavi nelle aree di origine e di destinazione, sono necessarie le autorizzazioni seguenti:<li>Autorizzazioni chiave: operazioni di gestione delle chiavi (Get, List) e operazioni di crittografia (decrittografia e crittografia)<li>Autorizzazioni segrete: Operazioni di gestione dei segreti (Get, List e Set)<li>Certificato (elenco e get)
+**Set di crittografia del disco (crittografia lato server con CMK)** | Se si usano macchine virtuali con crittografia lato server che usa una chiave CMK, è necessario un set di crittografia del disco sia nell'aree di origine che in quella di destinazione. Per altre informazioni, vedere [Creare un set di crittografia del disco.](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set)<br/><br/> Lo spostamento tra aree non è supportato se si usa il modulo di sicurezza hardware (chiavi HSM) per le chiavi gestite dal cliente.
+**Quota dell'area di destinazione** | La quota disponibile nella sottoscrizione deve essere sufficiente per creare le risorse che si intende spostare nell'area di destinazione. Se non è disponibile alcuna quota, [richiedere limiti aggiuntivi](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**Addebiti per l'area di destinazione** | Verificare i prezzi e gli addebiti associati all'area di destinazione in cui si stanno spostando le macchine virtuali. Usare il [calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/).
 
 
-## <a name="verify-user-permissions-on-key-vault-for-vms-using-azure-disk-encryption-ade"></a>Verificare le autorizzazioni utente nell'insieme di credenziali delle chiavi per le macchine virtuali con crittografia dischi di Azure (ADE)
+## <a name="verify-permissions-in-the-key-vault"></a>Verificare le autorizzazioni nell'insieme di credenziali delle chiavi
 
-Se si stanno migrando macchine virtuali con crittografia dischi di Azure abilitata, è necessario eseguire uno script come indicato di [seguito](#copy-the-keys-to-the-destination-key-vault) per il quale l'utente che esegue lo script deve disporre delle autorizzazioni appropriate. Per conoscere le autorizzazioni necessarie, fare riferimento alla tabella seguente. Le opzioni per modificare le autorizzazioni sono disponibili passando all'insieme di credenziali delle chiavi nella portale di Azure, in **Impostazioni**, selezionare criteri di **accesso**.
+Se si spostano macchine virtuali con Crittografia dischi di Azure abilitata, è necessario eseguire uno script come indicato nella sezione Copiare le chiavi nell'insieme di credenziali delle [chiavi di](#copy-the-keys-to-the-destination-key-vault) destinazione. Gli utenti che eseguono lo script devono disporre delle autorizzazioni appropriate a tale scopo. Per informazioni sulle autorizzazioni necessarie, vedere la tabella seguente. Le opzioni per la modifica delle autorizzazioni sono disponibili nell'insieme di credenziali delle chiavi nel portale di Azure. In **Impostazioni** selezionare **Criteri di accesso.**
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Pulsante per aprire i criteri di accesso dell'insieme di credenziali delle chiavi." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Screenshot del collegamento &quot;Criteri di accesso&quot; nel riquadro Impostazioni dell'insieme di credenziali delle chiavi." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
-Se non sono disponibili autorizzazioni utente, selezionare **Aggiungi criteri di accesso** e specificare le autorizzazioni. Se l'account utente dispone già di un criterio, in **utente** impostare le autorizzazioni in base alla tabella seguente.
+Se le autorizzazioni utente non sono disponibili, selezionare Aggiungi criteri **di accesso** e quindi specificare le autorizzazioni. Se l'account utente dispone già di un criterio, in **Utente** impostare le autorizzazioni in base alle istruzioni riportate nella tabella seguente.
 
-Le macchine virtuali di Azure che usano ADE possono avere le seguenti varianti e le autorizzazioni devono essere impostate di conseguenza per i componenti pertinenti.
-- Opzione predefinita in cui il disco è crittografato usando solo segreti
-- Sicurezza aggiunta tramite [chiave di crittografia della chiave](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
+Le macchine virtuali di Azure Crittografia dischi di Azure possono avere le varianti seguenti ed è necessario impostare le autorizzazioni in base ai componenti pertinenti. Le macchine virtuali potrebbero avere:
+- Opzione predefinita in cui il disco è crittografato solo con segreti.
+- Aggiunta della sicurezza che usa [una chiave di crittografia della chiave (KEK).](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
 
-### <a name="source-region-keyvault"></a>Insieme di credenziali delle credenziali dell'area di origine
+### <a name="source-region-key-vault"></a>Insieme di credenziali delle chiavi dell'area di origine
 
-È necessario impostare le autorizzazioni seguenti per l'utente che esegue lo script 
+Per gli utenti che eseguono lo script, impostare le autorizzazioni per i componenti seguenti: 
 
-**Componente** | **Autorizzazione necessaria**
+Componente | Autorizzazioni necessarie
 --- | ---
-Segreti|  Ottenere l'autorizzazione <br> </br> In **Secret Permissions** >   **Secret Operation Management** selezionare **Get** 
-Chiavi <br> </br> Se si usa la chiave di crittografia della chiave (KEK), è necessaria questa autorizzazione oltre ai segreti| Autorizzazione Get e Decrypt <br> </br> Nelle operazioni di gestione delle chiavi di **autorizzazioni chiave**  >  selezionare **Get**. In **operazioni crittografiche** selezionare **Decrypt**.
+Segreti |  *Ottieni* <br></br> Selezionare **Autorizzazioni segrete** Operazioni di gestione  >  **dei** segreti e quindi selezionare **Ottieni**. 
+Chiavi <br></br> Se si usa una kek, sono necessarie queste autorizzazioni oltre alle autorizzazioni per i segreti. | *Ottenere e* decrittografare  <br></br> Selezionare **Key Permissions** Key Management Operations (Operazioni di gestione delle chiavi per le autorizzazioni  >  chiave) e quindi selezionare **Get (Ottieni).** In **Operazioni di crittografia** selezionare Decrittografa . 
 
-### <a name="destination-region-keyvault"></a>Insieme di credenziali delle credenziali dell'area di destinazione
+### <a name="destination-region-key-vault"></a>Insieme di credenziali delle chiavi dell'area di destinazione
 
-In **criteri di accesso**, assicurarsi che **crittografia dischi di Azure per la crittografia del volume** sia abilitata. 
+In **Criteri di accesso** assicurarsi che l'Crittografia dischi di Azure per la crittografia dei **volumi** sia abilitata. 
 
-È necessario impostare le autorizzazioni seguenti per l'utente che esegue lo script 
+Per gli utenti che eseguono lo script, impostare le autorizzazioni per i componenti seguenti: 
 
-**Componente** | **Autorizzazione necessaria**
+Componente | Autorizzazioni necessarie
 --- | ---
-Segreti|  Imposta autorizzazione <br> </br> In **Secret Permissions** >   **Secret Operation Management**, Select **set** 
-Chiavi <br> </br> Se si usa la chiave di crittografia della chiave (KEK), è necessaria questa autorizzazione oltre ai segreti| Ottenere, creare e crittografare l'autorizzazione <br> </br> Nelle operazioni di gestione delle chiavi di **autorizzazioni chiave**  >  selezionare **Get** e **create** . In **operazioni di crittografia** selezionare **Crittografa**.
+Segreti |  *Set* <br></br> Selezionare **Autorizzazioni segrete Operazioni** di gestione  >  **dei** segreti e quindi selezionare **Imposta**. 
+Chiavi <br></br> Se si usa una kek, sono necessarie queste autorizzazioni oltre alle autorizzazioni per i segreti. | *Ottenere*, *creare* e *crittografare* <br></br> Selezionare **Key Permissions** Key Management Operations (Operazioni di gestione delle chiavi per le autorizzazioni  >  chiave) e quindi selezionare Get and Create **(Ottieni** e **crea).** In **Operazioni di crittografia** selezionare **Crittografa**.
 
-Oltre alle autorizzazioni sopra riportate, nell'insieme di credenziali delle chiavi di destinazione è necessario aggiungere le autorizzazioni per l' [identità del sistema gestito](./common-questions.md#how-is-managed-identity-used-in-resource-mover) usato da Mover per accedere alle risorse di Azure per conto dell'utente. 
+<br>
+
+Oltre alle autorizzazioni precedenti, nell'insieme di credenziali delle chiavi [](./common-questions.md#how-is-managed-identity-used-in-resource-mover) di destinazione è necessario aggiungere le autorizzazioni per l'identità di sistema gestita utilizzata da Resource Mover per accedere alle risorse di Azure per conto dell'utente. 
 
 1. In **Impostazioni** selezionare **Aggiungi criteri di accesso**. 
-2. In **Seleziona entità** cercare il file MSI. Il nome MSI è ```movecollection-<sourceregion>-<target-region>-<metadata-region>``` . 
-3. Aggiungere le autorizzazioni seguenti per il file MSI
+1. In **Selezionare l'entità** cercare il file MSI. Il nome dell'msi è ```movecollection-<sourceregion>-<target-region>-<metadata-region>``` . 
+1. Per l'msi, aggiungere le autorizzazioni seguenti:
 
-**Componente** | **Autorizzazione necessaria**
---- | ---
-Segreti|  Autorizzazione Get ed List <br> </br> In **Secret Permissions** >   **Secret Operation Management** selezionare **Get** ed **List** 
-Chiavi <br> </br> Se si usa la chiave di crittografia della chiave (KEK), è necessaria questa autorizzazione oltre ai segreti| Get, elenco delle autorizzazioni <br> </br> In operazioni di gestione delle chiavi di **autorizzazioni chiave**  >  selezionare **Get** ed **elenco**
+    Componente | Autorizzazioni necessarie
+    --- | ---
+    Segreti|  *Ottenere* ed *elencare* <br></br> Selezionare **Autorizzazioni segrete** Operazioni di gestione  >  **dei** segreti e quindi selezionare **Ottieni** ed **elenca**. 
+    Chiavi <br></br> Se si usa una kek, sono necessarie queste autorizzazioni oltre alle autorizzazioni per i segreti. | *Get* ed *List* <br></br> Selezionare **Key Permissions** Key Management Operations (Operazioni di gestione delle chiavi con autorizzazioni  >  chiave) e quindi selezionare Get and List **(Ottieni** **ed elenca).**
 
-
+<br>
 
 ### <a name="copy-the-keys-to-the-destination-key-vault"></a>Copiare le chiavi nell'insieme di credenziali delle chiavi di destinazione
 
-È necessario copiare i segreti e le chiavi di crittografia dall'insieme di credenziali delle chiavi di origine all'insieme di credenziali delle chiavi di destinazione usando uno script fornito.
+Copiare i segreti e le chiavi di crittografia dall'insieme di credenziali delle chiavi di origine all'insieme di credenziali delle chiavi di destinazione usando [uno script](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) fornito.
 
-- Eseguire lo script in PowerShell. È consigliabile eseguire la versione più recente di PowerShell.
-- In particolare, lo script richiede i moduli seguenti:
+- Eseguire lo script in PowerShell. È consigliabile usare la versione più recente di PowerShell.
+- In particolare, lo script richiede questi moduli:
     - Az.Compute
-    - AZ. tovault (versione 3.0.0
-    - AZ. Accounts (versione 2.2.3)
+    - Az.KeyVault (versione 3.0.0)
+    - Az.Accounts (versione 2.2.3)
 
-Eseguire come indicato di seguito:
+Per eseguire lo script, eseguire queste operazioni:
 
-1. Passare allo [script](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) in GitHub.
-2. Copiare il contenuto dello script in un file locale e denominarlo *Copy-keys.ps1*.
-3. Eseguire lo script.
-4. Accedere ad Azure.
-5. Nella finestra popup **input utente** selezionare la sottoscrizione di origine, il gruppo di risorse e la macchina virtuale di origine. Selezionare quindi il percorso di destinazione e gli insiemi di credenziali di destinazione per la crittografia del disco e della chiave.
+1. Aprire lo [script](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) in GitHub.
+1. Copiare il contenuto dello script in un file locale e assegnare al file il *nomeCopy-keys.ps1*.
+1. Eseguire lo script.
+1. Accedere al portale di Azure.
+1. Negli elenchi a discesa nella finestra **Input** utente selezionare la sottoscrizione di origine, il gruppo di risorse e la macchina virtuale di origine, quindi selezionare il percorso di destinazione e gli insiemi di credenziali di destinazione per la crittografia di dischi e chiavi.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/script-input.png" alt-text="Popup nei valori di script di input." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/script-input.png" alt-text="Screenshot della finestra &quot;Input utente&quot; per l'immissione dei valori dello script." :::
 
-
-6. Al termine dello script, l'output dello schermo indica che CopyKeys è riuscito.
+1. Fare clic sul pulsante **Seleziona**. 
+   
+   Al termine dell'esecuzione dello script, viene visualizzato un messaggio che informa che CopyKeys ha avuto esito positivo.
 
 ## <a name="prepare-vms"></a>Preparare le macchine virtuali
 
-1. Dopo aver [verificato che le macchine virtuali soddisfino i requisiti](#prerequisites), assicurarsi che le macchine virtuali che si desidera spostare siano attivate. Tutti i dischi delle macchine virtuali che si desidera siano disponibili nell'area di destinazione devono essere collegati e inizializzati nella macchina virtuale.
-3. Verificare che le macchine virtuali dispongano dei certificati radice attendibili più recenti e un elenco di revoche di certificati (CRL) aggiornato. Per eseguire questa operazione:
+1. Dopo aver verificato che le macchine virtuali soddisfino i [prerequisiti,](#prerequisites)assicurarsi che le macchine virtuali da spostare siano attivate. Tutti i dischi delle macchine virtuali che si desidera siano disponibili nell'area di destinazione devono essere collegati e inizializzati nella macchina virtuale.
+1. Per assicurarsi che le macchine virtuali siano in grado di disporre dei certificati radice attendibili più recenti e di un elenco di revoche di certificati (CRL) aggiornato, eseguire le operazioni seguenti:
     - Nelle macchine virtuali Windows installare gli ultimi aggiornamenti di Windows.
-    - Nelle macchine virtuali Linux seguire le indicazioni fornite dal distributore in modo nelle macchine siano disponibili i certificati e l'elenco di revoche di certificati più recenti. 
-4. Consenti connettività in uscita dalle macchine virtuali come indicato di seguito:
-    - Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, consentire l'accesso a questi [URL](support-matrix-move-region-azure-vm.md#url-access)
+    - Nelle macchine virtuali Linux seguire le indicazioni del distributore in modo che i computer diseguano i certificati e l'elenco di revoche di certificati più recenti. 
+1. Per consentire la connettività in uscita dalle macchine virtuali, eseguire una delle operazioni seguenti:
+    - Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, consentire [l'accesso agli URL](support-matrix-move-region-azure-vm.md#url-access).
     - Se si usano le regole del gruppo di sicurezza di rete per controllare la connettività in uscita, creare queste [regole del tag di servizio](support-matrix-move-region-azure-vm.md#nsg-rules).
 
-## <a name="select-resources-to-move"></a>Selezionare le risorse da spostare
+## <a name="select-the-resources-to-move"></a>Selezionare le risorse da spostare
 
+- È possibile selezionare qualsiasi tipo di risorsa supportato in uno dei gruppi di risorse nell'area di origine selezionata.  
+- È possibile spostare le risorse in un'area di destinazione nella stessa sottoscrizione dell'area di origine. Se si vuole modificare la sottoscrizione, è possibile farlo dopo lo spostamento delle risorse.
 
-- È possibile selezionare qualsiasi tipo di risorsa supportato in qualsiasi gruppo di risorse nell'area di origine selezionata.  
-- Si spostano le risorse in un'area di destinazione che si trova nella stessa sottoscrizione dell'area di origine. Se si vuole cambiare la sottoscrizione, è possibile eseguire questa operazione dopo lo spostamento delle risorse.
+Per selezionare le risorse, eseguire le operazioni seguenti:
 
-Selezionare le risorse come segue:
+1. Nel portale di Azure cercare **spostamento risorse**. In **Servizi** selezionare quindi **Spostamento risorse di Azure**.
 
-1. Nel portale di Azure cercare *spostamento risorse*. In **Servizi** selezionare quindi **Spostamento risorse di Azure**.
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/search.png" alt-text="Screenshot dei risultati della ricerca per Spostamento risorse di Azure nel portale di Azure." :::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/search.png" alt-text="Risultati della ricerca per il motore di risorse nell'portale di Azure." :::
+1. Nel riquadro Spostamento risorse di Azure **panoramica** selezionare **Sposta tra aree.**
 
-2. In **Panoramica** fare clic su **sposta tra le aree**.
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png" alt-text="Screenshot del pulsante &quot;Sposta tra aree&quot; per aggiungere risorse da spostare in un'altra area." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png":::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png" alt-text="Per aggiungere risorse per lo spostamento in un'altra area." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/move-across-regions.png":::
+1. Nel riquadro **Sposta risorse** selezionare la scheda **Origine e** destinazione. Negli elenchi a discesa selezionare quindi la sottoscrizione e l'area di origine.
 
-3. In **Sposta risorse** > **Origine e destinazione** selezionare l'area e la sottoscrizione di origine.
-4. In **Destinazione** selezionare l'area in cui spostare le macchine virtuali. Quindi fare clic su **Next**.
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/source-target.png" alt-text="Pagina per selezionare l'area di origine e di destinazione." :::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/source-target.png" alt-text="Per selezionare l'area di origine e di destinazione." :::
+1. In **Destinazione** selezionare l'area in cui si vogliono spostare le macchine virtuali e quindi selezionare **Avanti.**
 
-5. In **Risorse da spostare** fare clic su **Selezionare le risorse**.
+1. Selezionare la **scheda Risorse da spostare** e quindi selezionare Seleziona **risorse**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-resources.png" alt-text="Pulsante per selezionare la risorsa da spostare.]." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-resources.png" alt-text="Screenshot del riquadro &quot;Sposta risorse&quot; e del pulsante &quot;Seleziona risorse&quot;." :::
 
-6. In **Seleziona risorse** selezionare le macchine virtuali. È possibile aggiungere solo le risorse [supportate per lo spostamento](#prepare-vms). Fare quindi clic su **Done**.
+1. Nel riquadro **Seleziona risorse** selezionare le macchine virtuali da spostare. Come accennato [nella sezione Selezionare](#select-the-resources-to-move) le risorse da spostare, è possibile aggiungere solo le risorse supportate per uno spostamento.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-vm.png" alt-text="Per selezionare le macchine virtuali da spostare." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-vm.png" alt-text="Screenshot del riquadro &quot;Seleziona risorse&quot; per la selezione delle macchine virtuali da spostare." :::
 
     > [!NOTE]
-    >  In questa esercitazione viene selezionata una macchina virtuale che usa la crittografia lato server (Rayne-VM) con una chiave gestita dal cliente e una macchina virtuale con crittografia del disco abilitata (Rayne-VM-ADE).
+    >  In questa esercitazione si seleziona una macchina virtuale che usa la crittografia lato server (rayne-vm) con una chiave gestita dal cliente e una macchina virtuale con la crittografia del disco abilitata (rayne-vm-ade).
 
-7.  In **Risorse da spostare** fare clic su **Avanti**.
-8. In verifica verificare le impostazioni di origine **e di destinazione**. 
+1. Selezionare **Fine**.
+1. Selezionare la **scheda Risorse da spostare** e quindi selezionare **Avanti.**
+1. Selezionare la **scheda Rivedi** e quindi controllare le impostazioni di origine e destinazione. 
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/review.png" alt-text="Per rivedere le impostazioni e procedere con lo spostamento." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/review.png" alt-text="Screenshot del riquadro per esaminare le impostazioni di origine e destinazione." :::
 
-9. Per iniziare ad aggiungere le risorse, fare clic su **Continua**.
-10. Selezionare l'icona notifiche per tenere traccia dello stato di avanzamento. Una volta completato il processo di aggiunta, selezionare **risorse aggiunte per lo spostamento** nelle notifiche.
+1. Selezionare **Proceed** (Continua) per iniziare ad aggiungere le risorse.
+1. Selezionare l'icona delle notifiche per tenere traccia dello stato di avanzamento. Al termine del processo, nel riquadro **Notifiche** selezionare **Risorse aggiunte per lo spostamento.**
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png" alt-text="La notifica per confermare le risorse è stata aggiunta." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png" alt-text="Screenshot del riquadro &quot;Notifiche&quot; per confermare che le risorse sono state aggiunte correttamente." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/added-resources-notification.png":::
     
-    
-11. Dopo aver fatto clic sulla notifica, esaminare le risorse nella pagina **Tra aree**.
+1. Dopo aver selezionato la notifica, esaminare le risorse nella **pagina Tra** aree.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-prepare-pending.png" alt-text="Pagine che mostrano le risorse aggiunte con la preparazione in sospeso." :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-prepare-pending.png" alt-text="Screenshot delle risorse aggiunte con stato &quot;Prepara in sospeso&quot;." :::
 
 > [!NOTE]
-> - Le risorse aggiunte vengono inserite in uno stato di *preparazione in sospeso* .
-> - Il gruppo di risorse per le VM viene aggiunto automaticamente.
-> - Se si modificano le voci di **configurazione di destinazione** in modo da usare una risorsa già esistente nell'area di destinazione, lo stato della risorsa viene impostato su *commit in sospeso*, perché non è necessario avviare uno spostamento per esso.
-> - Se si vuole rimuovere una risorsa che è stata aggiunta, il metodo per eseguire questa operazione dipende dalla posizione in cui si trova il processo di spostamento. [Altre informazioni](remove-move-resources.md)
+> - Le risorse che si aggiungono vengono inserite in uno *stato Prepara in* sospeso.
+> - Il gruppo di risorse per le macchine virtuali viene aggiunto automaticamente.
+> - Se si  modificano le voci di configurazione destinazione per usare una risorsa già esistente nell'area di destinazione, lo stato della risorsa viene impostato su *Commit* in sospeso, perché non è necessario avviare uno spostamento per tale risorsa.
+> - Se si vuole rimuovere una risorsa aggiunta, il metodo da usare dipende dalla posizione in cui ci si trova nel processo di spostamento. Per altre informazioni, vedere Gestire [le raccolte di spostamento e i gruppi di risorse.](remove-move-resources.md)
 
 
 ## <a name="resolve-dependencies"></a>Risolvere gli errori relativi alle risorse di Azure non trovate
 
-1. Se una risorsa Mostra un messaggio di *convalida delle dipendenze* nella colonna **problemi** , selezionare il pulsante **convalida dipendenze** .
+1. Se le risorse visualizzano *un messaggio Convalida dipendenze* nella **colonna Problemi,** selezionare il **pulsante Convalida dipendenze.**
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png" alt-text="Npulsante per verificare le dipendenze." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png" alt-text="Screenshot che mostra il pulsante &quot;Convalida dipendenze&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/check-dependencies.png":::
 
     Viene avviato il processo di convalida.
-2. Se vengono trovate dipendenze, fare clic su **Aggiungi dipendenze**  
+1. Se vengono trovate dipendenze, selezionare **Aggiungi dipendenze.**  
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png" alt-text="Pulsante per l'aggiunta di dipendenze." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png" alt-text="Screenshot del pulsante &quot;Aggiungi dipendenze&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/add-dependencies.png":::
 
 
-3. In **Aggiungi dipendenze** lasciare l'opzione predefinita **Mostra tutte le dipendenze** .
+1. Nel riquadro **Aggiungi dipendenze** lasciare l'opzione **mostra tutte le dipendenze** predefinita.
 
-    - **Mostra tutte le dipendenze** esegue l'iterazione in tutte le dipendenze dirette e indirette per una risorsa. Per una macchina virtuale, ad esempio, vengono visualizzati la scheda NIC, la rete virtuale, i gruppi di sicurezza di rete (gruppi) e così via.
-    - **Mostra dipendenze di primo livello** Mostra solo le dipendenze dirette. Per una macchina virtuale, ad esempio, viene visualizzata la scheda di interfaccia di rete, ma non la rete virtuale.
+    - **Mostra tutte le dipendenze** scorre tutte le dipendenze dirette e indirette per una risorsa. Ad esempio, per una macchina virtuale, mostra la scheda di interfaccia di rete, la rete virtuale, i gruppi di sicurezza di rete (NSG) e così via.
+    - **Mostra dipendenze di primo livello mostra solo** le dipendenze dirette. Ad esempio, per una macchina virtuale mostra la scheda di interfaccia di rete, ma non la rete virtuale.
  
-4. Selezionare le risorse dipendenti che si desidera aggiungere > **Aggiungi dipendenze**.
+1. Selezionare le risorse dipendenti da aggiungere e quindi **selezionare Aggiungi dipendenze**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png" alt-text="Selezionare dipendenze dall'elenco dipendenze." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png" alt-text="Screenshot dell'elenco delle dipendenze e del pulsante &quot;Aggiungi dipendenze&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-dependencies.png":::
 
-5. Convalidare di nuovo le dipendenze. 
+1. Convalidare di nuovo le dipendenze. 
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png" alt-text="Per eseguire di nuovo la convalida." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png" alt-text="Screenshot del riquadro per la riconvalida delle dipendenze." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/validate-again.png":::
 
 ## <a name="assign-destination-resources"></a>Assegnare le risorse di destinazione
 
-Per le risorse di destinazione associate alla crittografia è necessaria l'assegnazione manuale.
+È necessario assegnare manualmente le risorse di destinazione associate alla crittografia.
 
-- Se si sta migrando una VM con crittografia dischi di Azure, l'insieme di credenziali delle chiavi nell'area di destinazione verrà visualizzato come dipendenza.
-- Se si sta migrando una macchina virtuale con crittografia lato server che usa chiavi gestite personalizzate (CMK), la crittografia del disco impostata nell'area di destinazione viene visualizzata come dipendenza. 
-- Poiché questa esercitazione sta migrando una VM con ADE abilitato e una macchina virtuale che usa un CMK, l'insieme di credenziali delle chiavi di destinazione e il set di crittografia del disco vengono visualizzati come dipendenze.
+- Se si sposta una macchina virtuale con Crittografia dischi di Azure abilitata, l'insieme di credenziali delle chiavi nell'area di destinazione viene visualizzato come dipendenza.
+- Se si sposta una macchina virtuale con crittografia lato server che usa LEK, il set di crittografia del disco nell'area di destinazione viene visualizzato come dipendenza. 
+- Poiché questa esercitazione illustra lo spostamento di una macchina virtuale Crittografia dischi di Azure abilitata e che usa un CMK, sia l'insieme di credenziali delle chiavi di destinazione che il set di crittografia del disco vengono visualizzati come dipendenze.
 
-Assegnare manualmente come segue:
+Per assegnare manualmente le risorse di destinazione, eseguire le operazioni seguenti:
 
-1. Nella voce del set di crittografia del disco selezionare **risorsa non assegnata** nella colonna **configurazione di destinazione** .
-2. In **impostazioni di configurazione** selezionare il set di crittografia del disco di destinazione. Quindi selezionare **Salva modifiche**.
-3. È possibile scegliere di salvare e convalidare le dipendenze per la risorsa che si sta modificando. in alternativa, è possibile salvare le modifiche e convalidare tutti gli elementi modificati in un'unica operazione.
+1. Nella voce del set di crittografia del disco selezionare **Risorsa non assegnata** nella colonna Configurazione **di** destinazione.
+1. In **Impostazioni di configurazione** selezionare il set di crittografia del disco di destinazione e quindi selezionare Salva **modifiche**.
+1. È possibile salvare e convalidare le dipendenze per la risorsa che si sta modificando oppure è possibile salvare solo le modifiche e quindi convalidare tutte le modifiche apportate contemporaneamente.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png" alt-text="Per selezionare la crittografia del disco impostata nell'area di destinazione." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png" alt-text="Screenshot del riquadro &quot;Configurazione destinazione&quot; per salvare le modifiche nell'area di destinazione." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/select-destination-set.png":::
 
-    Dopo aver aggiunto la risorsa di destinazione, lo stato del set di crittografia del disco si *Sposta su commit in sospeso*.
-3. Nella voce dell'insieme di credenziali delle chiavi selezionare **risorsa non assegnata** nella colonna **configurazione di destinazione** . **Impostazioni di configurazione** selezionare l'insieme di credenziali delle chiavi di destinazione. Salvare le modifiche. 
+    Dopo aver aggiunto la risorsa di destinazione, lo stato del set di crittografia del disco viene modificato in *Commit move pending*.
 
-In questa fase sia la crittografia del disco che lo stato dell'insieme di credenziali delle chiavi si *spostano su commit in sospeso*.
+1. Nella voce Dell'insieme di credenziali delle chiavi **selezionare Risorsa non assegnata** nella colonna Configurazione **di** destinazione. In **Impostazioni di configurazione** selezionare l'insieme di credenziali delle chiavi di destinazione e quindi salvare le modifiche. 
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png" alt-text="Per selezionare prepara per altre risorse." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png":::
+In questa fase, gli stati del set di crittografia del disco e dell'insieme di credenziali delle chiavi vengono modificati in *Commit move pending*.
 
-Per eseguire il commit e terminare il processo di spostamento per le risorse di crittografia.
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png" alt-text="Screenshot del riquadro per la preparazione di altre risorse." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-other-resources.png":::
 
-1. In **aree diverse** selezionare la risorsa (set di crittografia del disco o Key vault) > **Sposta commit**.
-2. In **Sposta risorse** fare clic su **Commit**.
+Per eseguire il commit e completare il processo di spostamento per le risorse di crittografia, eseguire le operazioni seguenti:
+
+1. In **Tra aree selezionare** la risorsa (set di crittografia del disco o insieme di credenziali delle chiavi) e quindi selezionare Commit move **(Esegui commit spostamento).**
+1. In **Sposta risorse** selezionare **Commit.**
 
 > [!NOTE]
-> Dopo aver eseguito il commit dello spostamento, la risorsa si trova in uno stato di *eliminazione origine in sospeso* .
+> Dopo aver eseguito il commit dello spostamento, lo stato della risorsa cambia in *Elimina origine in sospeso.*
 
 
 ## <a name="move-the-source-resource-group"></a>Spostare il gruppo di risorse di origine 
@@ -249,157 +255,158 @@ Prima di poter preparare e spostare le macchine virtuali, il gruppo di risorse d
 
 ### <a name="prepare-to-move-the-source-resource-group"></a>Preparare lo spostamento del gruppo di risorse di origine
 
-Durante il processo di preparazione Spostamento risorse genera modelli di Azure Resource Manager usando le impostazioni del gruppo di risorse. Le risorse all'interno di un gruppo di risorse non sono interessate.
+Durante il processo di preparazione, Spostamento risorse genera modelli Azure Resource Manager (ARM) dalle impostazioni del gruppo di risorse. Le risorse all'interno del gruppo di risorse non sono interessate.
 
-Eseguire la preparazione nel modo seguente:
+Per preparare lo spostamento del gruppo di risorse di origine, eseguire le operazioni seguenti:
 
-1. In **Tra aree** selezionare il gruppo di risorse di origine > **Prepara**.
+1. In **Tra aree** selezionare il gruppo di risorse di origine e quindi selezionare **Prepara.**
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png" alt-text="Preparare il gruppo di risorse." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png" alt-text="Screenshot del pulsante &quot;Prepara&quot; nel riquadro &quot;Prepara risorse&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/prepare-resource-group.png":::
 
-2. In **Prepara risorse** fare clic su **Prepara**.
+1. In **Preparare le risorse** selezionare **Prepara**.
 
 > [!NOTE]
-> Dopo la preparazione il gruppo di risorse si trova nello stato *Avvio spostamento in sospeso*. 
+> Dopo aver preparato lo spostamento, lo stato del gruppo di risorse cambia in *Avvia spostamento in sospeso.* 
 
  
 ### <a name="move-the-source-resource-group"></a>Spostare il gruppo di risorse di origine
 
-Avviare lo spostamento come descritto di seguito:
+Iniziare a spostare il gruppo di risorse di origine seguendo questa procedura:
 
-1. In **Tra aree** selezionare il gruppo di risorse di origine > **Avvia spostamento**.
+1. Nel riquadro **Tra aree** selezionare il gruppo di risorse e quindi selezionare **Avvia spostamento.**
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png" alt-text="Pulsante per avviare lo spostamento." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png" alt-text="Screenshot del pulsante &quot;Avvia spostamento&quot; nel riquadro &quot;Tra aree&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/initiate-move-resource-group.png":::
 
-2. In **Sposta risorse** fare clic su **Avvia spostamento**. Il gruppo di risorse passa allo stato *Avvio spostamento in corso*.   
-3. Dopo l'avvio dello spostamento, viene creato il gruppo di risorse di destinazione in base al modello di Resource Manager generato. Il gruppo di risorse di origine passa allo stato *Commit spostamento in sospeso*.
+1. Nel riquadro **Sposta risorse** selezionare Avvia **spostamento.** Lo stato del gruppo di risorse cambia *in Avvio spostamento in corso.*   
+1. Dopo aver avviato lo spostamento, viene creato il gruppo di risorse di destinazione, in base al modello DI RESOURCE generato. Lo stato del gruppo di risorse di origine cambia in *Commit spostamento in sospeso.*
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png" alt-text="Esaminare lo stato di spostamento commit in sospeso." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png":::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png" alt-text="Screenshot del riquadro &quot;Sposta risorse&quot; che mostra lo stato del gruppo di risorse modificato in &quot;Commit spostamento in sospeso&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-commit-move-pending.png":::
 
-Per eseguire il commit e terminare il processo di spostamento:
+Per eseguire il commit dello spostamento e completare il processo, eseguire le operazioni seguenti:
 
-1. In **Tra aree** selezionare il gruppo di risorse di origine > **Commit spostamento**.
-2. In **Sposta risorse** fare clic su **Commit**.
+1. Nel riquadro **Tra aree** selezionare il gruppo di risorse e quindi selezionare **Commit spostamento**.
+1. Nel riquadro **Sposta risorse** selezionare **Commit**.
 
 > [!NOTE]
-> Dopo il commit dello spostamento il gruppo di risorse di origine si trova nello stato *Eliminazione origine in sospeso*.
+> Dopo aver eseguito il commit dello spostamento, lo stato del gruppo di risorse di origine cambia in *Elimina origine in sospeso.*
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Esaminare lo stato di eliminazione dello spostamento in sospeso." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Screenshot del gruppo di risorse di origine che mostra lo stato modificato in &quot;Elimina origine in sospeso&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
 
 ## <a name="prepare-resources-to-move"></a>Preparare le risorse da spostare
 
-Ora che le risorse di crittografia e il gruppo di risorse di origine vengono spostati, è possibile preparare lo spostamento di altre risorse nello stato di *preparazione in sospeso* .
+Ora che le risorse di crittografia e il gruppo di risorse di origine vengono spostati, è possibile prepararsi a spostare altre risorse il cui stato corrente *è Prepara* in sospeso .
 
 
-1. In **aree diverse**, eseguire di nuovo la convalida e risolvere eventuali problemi.
-2. Se si vogliono modificare le impostazioni relative alla destinazione prima di avviare lo spostamento, selezionare il collegamento nella colonna **Configurazione della destinazione** per la risorsa e modificare le impostazioni. Se si modificano le impostazioni della macchina virtuale di destinazione, le dimensioni della macchina virtuale di destinazione non devono essere inferiori a quelle della macchina virtuale di origine.
-3. Selezionare **prepara** per le risorse nello stato di *preparazione in sospeso* che si desidera spostare.
-3. In **preparare le risorse** selezionare **prepara**
+1. Nel riquadro **Tra aree** convalidare nuovamente lo spostamento e risolvere eventuali problemi.
+1. Se si desidera modificare le impostazioni di destinazione prima di iniziare lo spostamento, selezionare il collegamento nella colonna **Configurazione** di destinazione per la risorsa e quindi modificare le impostazioni. Se si modificano le impostazioni della macchina virtuale di destinazione, le dimensioni della macchina virtuale di destinazione non devono essere inferiori a quelle della macchina virtuale di origine.
+1. Per le risorse con *stato Prepara* in sospeso da spostare, selezionare **Prepara**.
+1. Nel riquadro **Prepara risorse** selezionare **Prepara**.
 
-    - Durante il processo di preparazione nelle macchine virtuali viene installato l'agente del servizio di mobilità di Azure Site Recovery per consentirne la replica.
-    - I dati delle macchine virtuali vengono replicati periodicamente nell'area di destinazione. Tale operazione non ha effetto sulla macchina virtuale di origine.
+    - Durante la preparazione, l Azure Site Recovery di mobilità viene installato nelle macchine virtuali per replicarle.
+    - I dati della macchina virtuale vengono replicati periodicamente nell'area di destinazione. Tale operazione non ha effetto sulla macchina virtuale di origine.
     - Spostamento risorse genera modelli di Resource Manager per le altre risorse di origine.
 
-Dopo la preparazione le risorse si trovano nello stato *Avvio spostamento in sospeso*.
+> [!NOTE]
+> Dopo aver preparato le risorse, lo stato cambia in *Avvia spostamento in sospeso.*
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png" alt-text="Pagina che mostra le risorse nello stato di inizio spostamento in sospeso." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png" alt-text="Screenshot del riquadro &quot;Prepara risorse&quot;, che mostra le risorse nello stato &quot;Avvia spostamento in sospeso&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png":::
 
 
 
 ## <a name="initiate-the-move"></a>Avviare lo spostamento
 
-Dopo aver preparato le risorse è ora possibile avviare lo spostamento. 
+Dopo aver preparato le risorse preparate, è possibile avviare lo spostamento. 
 
-1. In **Tra aree** selezionare le risorse con lo stato *Avvio spostamento in sospeso*. Fare quindi clic su **Avvia spostamento**.
-2. In **Sposta risorse** fare clic su **Avvia spostamento**.
-3. Tenere traccia dello stato di avanzamento dello spostamento nella barra delle notifiche.
+1. Nel riquadro **Tra aree** selezionare le risorse il cui stato è Avvia spostamento *in* sospeso e quindi selezionare **Avvia spostamento**.
+1. Nel riquadro **Sposta risorse** selezionare Avvia **spostamento**.
+1. Tenere traccia dello stato di avanzamento dello spostamento nella barra delle notifiche.
 
     - Nel caso delle macchine virtuali vengono create macchine virtuali di replica nell'area di destinazione. La macchina virtuale di origine viene arrestata e rimane inattiva per qualche minuto.
-    - Spostamento risorse ricrea altre risorse usando i modelli di Resource Manager che sono stati preparati. Questa operazione non comporta in genere tempi di inattività.
-    - Dopo lo spostamento le risorse si trovano in uno stato *Commit spostamento in sospeso*.
+    - Resource Mover ri-crea altre risorse usando i modelli arm preparati. Questa operazione non comporta in genere tempi di inattività.
+    - Dopo aver spostato le risorse, lo stato cambia in *Commit move pending (Commit spostamento in sospeso).*
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Pagina che mostra le risorse in uno stato di spostamento in sospeso di commit." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Screenshot di un elenco di risorse con stato &quot;Commit spostamento in sospeso&quot;." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
 
 
 ## <a name="discard-or-commit"></a>Rimozione o commit?
 
-Dopo lo spostamento iniziale è possibile decidere se si vuole rimuovere lo spostamento o eseguirne il commit. 
+Dopo lo spostamento iniziale, è possibile decidere se eseguire il commit dello spostamento o eliminarlo. 
 
-- **Rimozione**: è possibile eliminare uno spostamento se si sta eseguendo un test e non si vuole realmente spostare la risorsa di origine. In seguito alla rimozione dello spostamento, la risorsa torna allo stato *Avvio spostamento in sospeso*.
-- **Commit**: il commit consente di completare lo spostamento nell'area di destinazione. Dopo il commit una risorsa di origine si troverà nello stato *Eliminazione origine in sospeso* e sarà possibile decidere se eliminarla.
+- **Ignora:** è possibile rimuovere uno spostamento se lo si sta testando e non si vuole effettivamente spostare la risorsa di origine. Se si elimina lo spostamento, la risorsa viene impostata su Initiate move pending status *(Avvia spostamento in* sospeso).
+- **Commit**: il commit consente di completare lo spostamento nell'area di destinazione. Dopo aver eseguito il commit di una risorsa di origine, lo stato cambia in Elimina origine *in* sospeso ed è possibile decidere se eliminarla.
 
 
 ## <a name="discard-the-move"></a>Rimuovere lo spostamento 
 
-È possibile rimuovere lo spostamento come descritto di seguito:
+Per annullare lo spostamento, eseguire le operazioni seguenti:
 
-1. In **Tra aree** selezionare le risorse con lo stato *Commit spostamento in sospeso* e fare clic su **Rimuovi spostamento**.
-2. In **Rimuovi spostamento** fare clic su **Rimuovi**.
-3. Tenere traccia dello stato di avanzamento dello spostamento nella barra delle notifiche.
+1. Nel riquadro **Tra aree** selezionare le risorse il cui stato è Commit spostamento *in sospeso* e quindi selezionare Ignora **spostamento**.
+1. Nel riquadro **Rimuovi spostamento** selezionare **Ignora**.
+1. Tenere traccia dello stato di avanzamento dello spostamento nella barra delle notifiche.
 
 
 > [!NOTE]
-> Dopo la rimozione delle risorse, le macchine virtuali si trovano nello stato *Avvio spostamento in sospeso*.
+> Dopo aver eliminato le risorse, lo stato della macchina virtuale cambia in *Avvio spostamento in sospeso.*
 
 ## <a name="commit-the-move"></a>Eseguire il commit dello spostamento
 
-Se si vuole completare il processo di spostamento, eseguire il commit dello spostamento. 
+Per completare il processo di spostamento, eseguire il commit dello spostamento eseguendo le operazioni seguenti: 
 
-1. In **Tra aree** selezionare le risorse con lo stato *Commit spostamento in sospeso* e fare clic su **Commit spostamento**.
-2. In **Commit delle risorse** fare clic su **Commit**.
+1. Nel riquadro **Tra aree** selezionare le risorse il cui stato è Commit spostamento *in sospeso* e quindi selezionare Commit **spostamento**.
+1. Nel riquadro **Commit resources (Esegui** commit risorse) selezionare **Commit**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" alt-text="Pagina in cui eseguire il commit delle risorse per finalizzare lo spostamento." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" alt-text="Screenshot di un elenco di risorse per il commit delle risorse per finalizzare lo spostamento." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move.png" :::
 
-3. Tenere traccia dello stato di avanzamento del commit nella barra delle notifiche.
+1. Tenere traccia dello stato di avanzamento del commit nella barra delle notifiche.
 
 > [!NOTE]
-> - Dopo il commit dello spostamento la replica delle macchine virtuali viene arrestata. Il commit non influisce sulla macchina virtuale di origine.
-> - Il commit non influisce sulle risorse di rete di origine.
-> - Dopo il commit dello spostamento le risorse si trovano nello stato *Eliminazione origine in sospeso*.
+> - Dopo aver eseguito il commit dello spostamento, la replica delle macchine virtuali viene interrotta. La macchina virtuale di origine non è influenzata dal commit.
+> - Il processo di commit non influisce sulle risorse di rete di origine.
+> - Dopo aver eseguito il commit dello spostamento, lo stato della risorsa cambia in *Elimina origine in sospeso.*
 
 
 
 ## <a name="configure-settings-after-the-move"></a>Configurare le impostazioni dopo lo spostamento
 
-- Il servizio di mobilità non viene disinstallato automaticamente dalle macchine virtuali. Disinstallarlo manualmente oppure lasciarlo installato se si prevede di spostare nuovamente il server.
+- Il servizio Mobility non viene disinstallato automaticamente dalle macchine virtuali. Disinstallarlo manualmente oppure lasciarlo installato se si prevede di spostare nuovamente il server.
 - Modificare le regole di controllo degli accessi in base al ruolo di Azure dopo lo spostamento.
 
 ## <a name="delete-source-resources-after-commit"></a>Eliminare le risorse di origine dopo il commit
 
 Facoltativamente, dopo lo spostamento è possibile eliminare le risorse nell'area di origine. 
 
-1. In **aree diverse** selezionare ogni risorsa di origine che si desidera eliminare. Selezionare quindi **Elimina origine**.
-2. In **Elimina origine** esaminare gli elementi che si intende eliminare e, in **Conferma eliminazione**, digitare **Sì**. L'azione è irreversibile, quindi controllare con attenzione.
-3. Dopo aver digitato **Sì**, selezionare **Elimina origine**.
+1. Nel riquadro **Tra aree** selezionare ogni risorsa di origine che si vuole eliminare e quindi selezionare **Elimina origine.**
+1. In **Elimina origine** esaminare gli elementi che si intende eliminare e in Conferma **eliminazione** digitare **yes**. L'azione è irreversibile, quindi controllare attentamente.
+1. Dopo aver digitato **sì,** selezionare **Elimina origine**.
 
 > [!NOTE]
->  Nel portale di spostamento delle risorse non è possibile eliminare gruppi di risorse, insiemi di credenziali delle chiavi o server SQL Server. È necessario eliminarli singolarmente dalla pagina delle proprietà per ogni risorsa.
+>  Nel portale di spostamento risorse non è possibile eliminare gruppi di risorse, insiemi di credenziali delle chiavi o istanze SQL Server risorse. È necessario eliminare ognuno singolarmente dalla pagina delle proprietà per ogni risorsa.
 
 
-## <a name="delete-additional-resources-created-for-move"></a>Eliminare le risorse aggiuntive create per lo spostamento
+## <a name="delete-resources-that-you-created-for-the-move"></a>Eliminare le risorse create per lo spostamento
 
-Dopo lo spostamento è possibile eliminare manualmente la raccolta di spostamento e le risorse di Site Recovery create.
+Dopo lo spostamento, è possibile eliminare manualmente la raccolta di spostamento e Site Recovery risorse create durante questo processo.
 
 - La raccolta di spostamento è nascosta per impostazione predefinita. Per visualizzarla, è necessario attivare le risorse nascoste.
 - Prima di eliminare l'archiviazione cache è necessario eliminare il relativo blocco.
 
-La procedura di eliminazione è la seguente: 
+Per eliminare le risorse, eseguire le operazioni seguenti: 
 1. Individuare le risorse nel gruppo di risorse ```RegionMoveRG-<sourceregion>-<target-region>```.
-2. Controllare che tutte le macchine virtuali e le altre risorse di origine nell'area di origine siano state spostate o eliminate, per assicurarsi che non vi siano risorse in sospeso che le usano.
-2. Eliminare le risorse seguenti:
+1. Verificare che tutte le macchine virtuali e le altre risorse di origine nell'area di origine siano state spostate o eliminate. Questo passaggio garantisce che non siano presenti risorse in sospeso che le usano.
+1. Eliminare le risorse seguenti:
 
-    - Il nome della raccolta di spostamento è ```movecollection-<sourceregion>-<target-region>```.
-    - Il nome dell'account di archiviazione cache è ```resmovecache<guid>```.
-    - Il nome dell'insieme di credenziali è ```ResourceMove-<sourceregion>-<target-region>-GUID```.
+    - Spostare il nome della raccolta: ```movecollection-<sourceregion>-<target-region>```
+    - Nome dell'account di archiviazione della cache: ```resmovecache<guid>```
+    - Nome dell'insieme di credenziali: ```ResourceMove-<sourceregion>-<target-region>-GUID```
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione:
 
 > [!div class="checklist"]
-> * Sono state spostate le VM di Azure crittografate e le risorse dipendenti in un'altra area di Azure.
+> * Le macchine virtuali di Azure crittografate e le relative risorse dipendenti sono stati spostati in un'altra area di Azure.
 
 
-A questo punto provare a spostare pool elastici e database SQL di Azure in un'altra area.
+Come passaggio successivo, provare a spostare Azure SQL database e pool elastici in un'altra area.
 
 > [!div class="nextstepaction"]
 > [Spostare le risorse SQL di Azure](./tutorial-move-region-sql.md)

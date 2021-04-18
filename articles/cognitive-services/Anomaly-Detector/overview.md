@@ -12,12 +12,12 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: rilevamento anomalie, Machine Learning, algoritmi
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 3bfa30cc5d3d57cfcd2677bb4b2719061541d5a9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: d63399d0f492f85a4a2d57a595a6d8ef5b606d92
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278865"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599520"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Cos'è l'API Rilevamento anomalie?
 
@@ -29,11 +29,11 @@ L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dat
 
 L'uso del Rilevamento anomalie non richiede alcuna esperienza precedente in apprendimento automatico e l'API RESTful consente di integrare facilmente il servizio nelle applicazioni e nei processi.
 
-Questa documentazione contiene i seguenti tipi di articoli:
+Questa documentazione contiene i tipi di articoli seguenti:
 * Le [guide introduttive](./Quickstarts/client-libraries.md) sono istruzioni dettagliate che consentono di effettuare chiamate al servizio e ottenere risultati in un breve periodo di tempo. 
-* Le [guide alle procedure](./how-to/identify-anomalies.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.
-* Gli [articoli concettuali](./concepts/anomaly-detection-best-practices.md) forniscono spiegazioni approfondite sulle funzionalità e sulle funzionalità del servizio.
-* Le [esercitazioni](./tutorials/batch-anomaly-detection-powerbi.md) sono guide più lunghe che illustrano come usare questo servizio come componente in soluzioni aziendali più ampie.
+* Le [guide dettagliate contengono](./how-to/identify-anomalies.md) istruzioni per l'uso del servizio in modi più specifici o personalizzati.
+* Gli [articoli concettuali](./concepts/anomaly-detection-best-practices.md) forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.
+* Le [esercitazioni sono](./tutorials/batch-anomaly-detection-powerbi.md) guide più lunghe che illustrano come usare questo servizio come componente in soluzioni aziendali più ampie.
 
 ## <a name="features"></a>Funzionalità
 
@@ -44,7 +44,7 @@ Con il Rilevamento anomalie è possibile rilevare automaticamente le anomalie in
 |Rilevamento anomalie in tempo reale. | Rilevare le anomalie nei dati di streaming usando i punti dati visualizzati in precedenza per determinare se la versione più recente è un'anomalia. Questa operazione genera un modello usando i punti dati inviati dall'utente e determina se il punto di destinazione è un'anomalia. Chiamando l'API con ogni nuovo punto dati generato, è possibile monitorare i dati durante la creazione. |
 |Rilevare le anomalie nel set di dati come batch. | Usare le serie temporali per rilevare eventuali anomalie che potrebbero esistere in tutti i dati. Questa operazione genera un modello usando tutti i dati di serie temporali, in cui ogni punto è analizzato con lo stesso modello.         |
 |Rilevare i punti di modifica nel set di dati come batch. | Usare la serie temporale per rilevare eventuali punti di modifica della tendenza presenti nei dati. Questa operazione genera un modello usando tutti i dati di serie temporali, in cui ogni punto è analizzato con lo stesso modello.    |
-| Ottenere informazioni aggiuntive sui dati. | Ottenere informazioni utili sui dati e sulle anomalie osservate, inclusi i valori previsti, i limiti delle anomalie e le posizioni. |
+| Ottenere informazioni aggiuntive sui dati. | Ottenere dettagli utili sui dati e su eventuali anomalie osservate, inclusi i valori previsti, i limiti delle anomalie e le posizioni. |
 | Regolare i limiti di rilevamento anomalie. | L'API Rilevamento anomalie crea automaticamente limiti per il rilevamento anomalie. Modificare questi limiti in modo da aumentare o diminuire la sensibilità dell'API alle anomalie di dati e adeguare i dati. |
 
 ## <a name="demo"></a>Demo
@@ -59,13 +59,13 @@ Per informazioni su come chiamare l'API Rilevamento anomalie, provare questo [no
 Per eseguire il notebook, seguire questa procedura:
 
 1. Ottenere una chiave di sottoscrizione valida dell'API Rilevamento anomalie e un endpoint API. La sezione seguente contiene le istruzioni per l'iscrizione.
-1. Accedere e selezionare Clone (clona) nell'angolo superiore destro.
-1. Deselezionare l'opzione "public" nella finestra di dialogo prima di completare l'operazione di clonazione. in caso contrario, il notebook, incluse le chiavi di sottoscrizione, sarà pubblico.
-1. Selezionare **Esegui su calcolo gratuito**
+1. Accedere e selezionare Clona nell'angolo superiore destro.
+1. Deselezionare l'opzione "public" nella finestra di dialogo prima di completare l'operazione di clonazione. In caso contrario, il notebook, incluse le chiavi di sottoscrizione, sarà pubblico.
+1. Selezionare **Esegui al calcolo gratuito**
 1. Selezionare uno dei notebook.
 1. Aggiungere una chiave di sottoscrizione valida dell'API Rilevamento anomalie alla variabile `subscription_key`.
 1. Modificare la variabile `endpoint` in modo nel proprio endpoint. Ad esempio: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. Nella barra dei menu superiore selezionare **cella**, quindi **Esegui tutto**.
+1. Nella barra dei menu superiore selezionare **Cella**, quindi **Esegui tutto**.
 
 ## <a name="workflow"></a>Flusso di lavoro
 
@@ -103,7 +103,7 @@ Non è necessaria alcuna configurazione del cliente per abilitare la resilienza 
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Distribuire in locale con i contenitori Docker
 
-[Usare i contenitori di Rilevamento anomalie](anomaly-detector-container-howto.md) per distribuire le funzionalità dell'API in locale. I contenitori Docker consentono di avvicinare il servizio ai dati per la conformità, la sicurezza o altri motivi operativi.
+[Usare i contenitori di Rilevamento anomalie](anomaly-detector-container-howto.md) per distribuire le funzionalità dell'API in locale. I contenitori Docker consentono di avvicinare il servizio ai dati per motivi di conformità, sicurezza o altri motivi operativi.
 
 ## <a name="join-the-anomaly-detector-community"></a>Partecipare alla community di Rilevamento anomalie
 
@@ -113,5 +113,5 @@ Non è necessaria alcuna configurazione del cliente per abilitare la resilienza 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite Rilevamento anomalie](quickstarts/client-libraries.md)
-* [Demo online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) dell'API Rilevamento anomalie
+* [Demo online](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook) dell'API Rilevamento anomalie
 * [Informazioni di riferimento sulle API del servizio REST](https://aka.ms/anomaly-detector-rest-api-ref) dell'API Rilevamento anomalie

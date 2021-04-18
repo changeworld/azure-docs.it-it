@@ -1,25 +1,25 @@
 ---
-title: Il Centro sicurezza di Azure è disponibile rispetto ad Azure Defender abilitato
-description: Informazioni sui vantaggi derivanti dall'abilitazione di Azure Defender per la protezione dei carichi di lavoro nel cloud nel centro sicurezza
+title: Centro sicurezza di Azure gratuito e Azure Defender abilitata
+description: Informazioni sui vantaggi dell'abilitazione Azure Defender protezione dei carichi di lavoro cloud in Centro sicurezza di Azure
 author: memildin
 ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 03/23/2021
-ms.openlocfilehash: 1825f5be8a4f8a8ddfba931dfbc7e77186b4331f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa65989953f761ff915383fcb59da7f36ea98dab
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889451"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600483"
 ---
-# <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Il Centro sicurezza di Azure è disponibile rispetto ad Azure Defender abilitato
+# <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Centro sicurezza di Azure gratuito e Azure Defender abilitata
 Azure Defender è gratuito per i primi 30 giorni. Al termine dei 30 giorni, se si sceglie di continuare a usare il servizio, l'utilizzo inizierà a essere addebitato automaticamente.
 
-È possibile eseguire l'aggiornamento dalla pagina dei **prezzi & impostazioni** , come descritto in [Guida introduttiva: abilitare Azure Defender](enable-azure-defender.md). Per informazioni dettagliate sui prezzi nella valuta scelta e in base alla propria area, vedere [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+È possibile eseguire **l'aggiornamento dalla pagina impostazioni &** prezzi, come descritto in Avvio [rapido: Abilitare Azure Defender](enable-azure-defender.md). Per informazioni dettagliate sui prezzi nella valuta scelta e in base alla propria area, vedere [Prezzi del Centro sicurezza.](https://azure.microsoft.com/pricing/details/security-center/)
 
-## <a name="what-are-the-benefits-of-enabling-azure-defender"></a>Quali sono i vantaggi dell'abilitazione di Azure Defender?
+## <a name="what-are-the-benefits-of-enabling-azure-defender"></a>Quali sono i vantaggi dell'abilitazione Azure Defender?
 
 Il Centro sicurezza è disponibile in due modalità:
 
@@ -48,7 +48,7 @@ Il Centro sicurezza è disponibile in due modalità:
 - [Se un agente di Log Analytics è associato a più aree di lavoro, l'addebito verrà applicato due volte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
 - [Se l'agente di Log Analytics è associato a più aree di lavoro, la funzionalità gratuita di inserimento di 500 MB di dati è disponibile per tutte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
 - [L'inserimento gratuito di 500 MB di dati viene calcolato per un'intera area di lavoro o rigorosamente per computer?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
-- [Quali tipi di dati sono inclusi nei dati giornalieri di 500 MB?](#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
+- [Quali tipi di dati sono inclusi nella memoria giornaliera di 500 MB?](#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
 
 
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Come è possibile verificare chi nell'organizzazione ha abilitato le modifiche di Azure Defender nel Centro sicurezza di?
@@ -90,18 +90,18 @@ Se si ha già una licenza per Microsoft Defender per endpoint, non sarà necessa
 Per confermare lo sconto, contattare il team di supporto del Centro sicurezza e fornire le informazioni appropriate per ID area di lavoro, area e licenza per ogni licenza pertinente.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Se nella sottoscrizione è abilitato Azure Defender per i server, sono previsti addebiti per i server non in esecuzione? 
-No. Quando si abilita [Azure Defender per i server](defender-for-servers-introduction.md) in una sottoscrizione, non verrà addebitato alcun costo per i computer che si trovano nello stato di alimentazione deallocato mentre si trovano in tale stato. Le macchine virtuali vengono fatturate in base allo stato di alimentazione, come illustrato nella tabella seguente:
+No. Quando si abilita [Azure Defender](defender-for-servers-introduction.md) per i server in una sottoscrizione, non verranno addebitati costi per i computer in stato di alimentazione deallocato mentre sono in tale stato. I computer vengono fatturati in base al relativo stato di alimentazione, come illustrato nella tabella seguente:
 
 | State        | Descrizione                                                                                                                                      | Utilizzo dell'istanza fatturato |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | Avvio in corso     | Avvio della macchina virtuale in corso.                                                                                                                               | Non fatturato            |
-| In esecuzione      | Stato di funzionamento normale per una macchina virtuale                                                                                                                    | Fatturato                |
-| Stopping     | Si tratta di uno stato transitorio. Al termine, verrà visualizzato lo stato Arrestato.                                                                           | Fatturato                |
-| Arrestato      | La macchina virtuale è stato chiusa dall'interno del sistema operativo guest o tramite le API PowerOff. L'hardware è ancora allocata alla macchina virtuale e rimane nell'host. | Fatturato                |
+| In esecuzione      | Stato di funzionamento normale per una macchina virtuale                                                                                                                    | Fatturati                |
+| Stopping     | Si tratta di uno stato transitorio. Al termine, verrà visualizzato lo stato Arrestato.                                                                           | Fatturati                |
+| Arrestato      | La macchina virtuale è stato chiusa dall'interno del sistema operativo guest o tramite le API PowerOff. L'hardware è ancora allocata alla macchina virtuale e rimane nell'host. | Fatturati                |
 | Deallocazione | Stato transitorio. Al termine, lo stato visualizzato per la macchina virtuale sarà Deallocato.                                                                             | Non fatturato            |
 | Deallocato  | La macchina virtuale è stata arrestata correttamente e rimossa dall'host.                                                                                  | Non fatturato            |
 
-:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Macchine virtuali di Azure che mostrano un computer deallocato":::
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Macchine virtuali di Azure con una macchina deallocata":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Si riceveranno addebiti per i computer senza l'agente di Log Analytics installato?
 Sì. Se si abilita [Azure Defender per i server](defender-for-servers-introduction.md) in una sottoscrizione, i computer al suo interno ottengono una gamma di protezioni anche se l'agente di Log Analytics non è stato installato.
@@ -117,9 +117,9 @@ Si ottiene l'inserimento gratuito di 500 MB di dati al giorno, per ogni computer
 
 Questi dati vengono calcolati come media di frequenza giornaliera tra tutti i nodi. Quindi se alcuni computer inviano 100 MB di dati e altri ne inviano 800 MB, se il totale non supera il limite gratuito **[numero di computer] x 500 MB**, non verranno addebitati altri costi.
 
-### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>Quali tipi di dati sono inclusi nei dati giornalieri di 500 MB?
+### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>Quali tipi di dati sono inclusi nella memoria giornaliera di 500 MB?
 
-La fatturazione del Centro sicurezza è strettamente legata alla fatturazione per Log Analytics. Il Centro sicurezza offre un'allocazione di 500 MB/nodo/giorno rispetto ai seguenti subset di [tipi di dati di sicurezza](/azure/azure-monitor/reference/tables/tables-category.md#security):
+La fatturazione del Centro sicurezza è strettamente collegata alla fatturazione per Log Analytics. Il Centro sicurezza offre un'allocazione di 500 MB/nodo al giorno per il subset seguente di tipi [di dati di sicurezza:](/azure/azure-monitor/reference/tables/tables-category#security)
 - WindowsEvent
 - SecurityAlert
 - SecurityBaseline
@@ -131,9 +131,9 @@ La fatturazione del Centro sicurezza è strettamente legata alla fatturazione pe
 - LinuxAuditLog
 - SysmonEvent
 - ProtectionStatus
-- Aggiornare i tipi di dati UpdateSummary quando la soluzione Gestione aggiornamenti non è in esecuzione nell'area di lavoro o la destinazione della soluzione è abilitata
+- Tipi di dati Update e UpdateSummary quando la soluzione Gestione aggiornamenti non è in esecuzione nell'area di lavoro o la destinazione della soluzione è abilitata
 
-Se l'area di lavoro è nel piano tariffario legacy per nodo, il Centro sicurezza e le allocazioni di Log Analytics vengono combinate e applicate congiuntamente a tutti i dati inseriti fatturabili.
+Se l'area di lavoro si trova nel piano tariffario Legacy Per Nodo, le allocazioni del Centro sicurezza e di Log Analytics vengono combinate e applicate congiuntamente a tutti i dati inseriti fatturabili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha illustrato le opzioni per i prezzi del Centro sicurezza. Per informazioni correlate, vedere:

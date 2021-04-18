@@ -10,12 +10,12 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
-ms.openlocfilehash: dc2bb24880b77eae24e9bb2ef0baf70ac0b92ac7
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 2ccc34d1fc48c54bce90a2cde5b14bdc7059d480
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588633"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598908"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gestire pool elastici in database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -106,8 +106,7 @@ Per creare e gestire i pool elastici e i database in pool del database SQL, usar
 |[Pool elastici - Eliminazione](/rest/api/sql/elasticpools/delete)|Consente di eliminare un pool elastico.|
 |[Pool elastici - Ottenere](/rest/api/sql/elasticpools/get)|Ottiene un pool elastico.|
 |[Pool elastici - Elenco per server](/rest/api/sql/elasticpools/listbyserver)|Restituisce un elenco di pool elastici in un server.|
-|[Pool elastici - Aggiornamento] (/rest/api/sql/2020-11-01-preview/elasticpools/update
-)|Consente di aggiornare un pool elastico esistente.|
+|[Pool elastici - Aggiornamento](/rest/api/sql/2020-11-01-preview/elasticpools/update)|Consente di aggiornare un pool elastico esistente.|
 |[Attività del pool elastico](/rest/api/sql/elasticpoolactivities)|Restituisce le attività del pool elastico.|
 |[Attività del database del pool elastico](/rest/api/sql/elasticpooldatabaseactivities)|Restituisce l'attività sul database all'interno di un pool elastico.|
 |[Databases - Create or update](/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|

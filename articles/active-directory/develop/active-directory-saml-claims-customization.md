@@ -1,7 +1,7 @@
 ---
 title: Personalizzare le attestazioni del token SAML dell'app
 titleSuffix: Microsoft identity platform
-description: Informazioni su come personalizzare le attestazioni rilasciate dalla piattaforma di identità Microsoft nel token SAML per le applicazioni aziendali.
+description: Informazioni su come personalizzare le attestazioni rilasciate da Microsoft Identity Platform nel token SAML per le applicazioni aziendali.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,20 +13,20 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0cccf45037320b476b1a44cafa8074bacadacbc8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25e737afb524cb8c6f45ac8e99f46a8064ae7855
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103600950"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107598840"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
-Attualmente, la piattaforma di identità Microsoft supporta la Single Sign-On (SSO) con la maggior parte delle applicazioni aziendali, incluse le applicazioni preintegrate nella raccolta di app Azure AD e applicazioni personalizzate. Quando un utente esegue l'autenticazione a un'applicazione tramite la piattaforma Microsoft Identity usando il protocollo SAML 2,0, la piattaforma Microsoft Identity Invia un token all'applicazione (tramite un HTTP POST). che l'applicazione convalida e usa per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente, note come *attestazioni*.
+Microsoft Identity Platform supporta attualmente l'accesso Single Sign-On (SSO) con la maggior parte delle applicazioni aziendali, incluse sia le applicazioni pre-integrate nella raccolta di app Azure AD che le applicazioni personalizzate. Quando un utente esegue l'autenticazione a un'applicazione tramite Microsoft Identity Platform usando il protocollo SAML 2.0, Microsoft Identity Platform invia un token all'applicazione (tramite HTTP POST). che l'applicazione convalida e usa per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente, note come *attestazioni*.
 
 Un'*attestazione* è un insieme di informazioni relative ad un utente dichiarate da un provider di identità all'interno del token rilasciato per tale utente. Nel [token SAML](https://en.wikipedia.org/wiki/SAML_2.0) questi dati sono in genere contenuti nell'istruzione degli attributi SAML. L'ID univoco dell'utente viene in genere rappresentato nel soggetto SAML definito anche identificatore del nome.
 
-Per impostazione predefinita, la piattaforma di identità Microsoft rilascia un token SAML all'applicazione che contiene un' `NameIdentifier` attestazione con un valore del nome utente dell'utente (noto anche come nome dell'entità utente) in Azure ad, che può identificare in modo univoco l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell'utente.
+Per impostazione predefinita, Microsoft Identity Platform pubblica un token SAML per l'applicazione che contiene un'attestazione con un valore del nome utente (noto anche come nome dell'entità utente) in Azure AD, che può identificare in modo univoco `NameIdentifier` l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell'utente.
 
 Per visualizzare o modificare le attestazioni generate nel token SAML per l'applicazione, aprire l'applicazione nel portale di Azure. Quindi aprire la sezione **Attributi utente e attestazioni**.
 
@@ -48,18 +48,18 @@ Per modificare NameID (valore dell'identificatore del nome):
 
 ### <a name="nameid-format"></a>Formato di NameID
 
-Se la richiesta SAML contiene l'elemento NameIDPolicy con un formato specifico, la piattaforma di identità Microsoft rispetterà il formato nella richiesta.
+Se la richiesta SAML contiene l'elemento NameIDPolicy con un formato specifico, Microsoft Identity Platform rispetta il formato nella richiesta.
 
-Se la richiesta SAML non contiene un elemento per NameIDPolicy, la piattaforma Microsoft Identity rilascerà il NameID con il formato specificato. Se non viene specificato alcun formato, la piattaforma Microsoft Identity utilizzerà il formato di origine predefinito associato all'origine attestazione selezionata.
+Se la richiesta SAML non contiene un elemento per NameIDPolicy, Microsoft Identity Platform riemettere nameID con il formato specificato. Se non viene specificato alcun formato, Microsoft Identity Platform userà il formato di origine predefinito associato all'origine dell'attestazione selezionata.
 
 Nell'elenco a discesa **Scegliere il formato per l'identificatore del nome** è possibile selezionare una delle opzioni seguenti.
 
 | Formato di NameID | Descrizione |
 |---------------|-------------|
-| **Default** | La piattaforma Microsoft Identity utilizzerà il formato di origine predefinito. |
-| **Persistente** | La piattaforma Microsoft Identity utilizzerà il formato persistente come NameID. |
-| **EmailAddress** | Microsoft Identity Platform utilizzerà EmailAddress come formato NameID. |
-| **Non specificato** | La piattaforma Microsoft Identity utilizzerà il formato NameID non specificato. |
+| **Default** | Microsoft Identity Platform userà il formato di origine predefinito. |
+| **Persistente** | Microsoft Identity Platform userà Persistent come formato NameID. |
+| **EmailAddress** | Microsoft Identity Platform userà EmailAddress come formato NameID. |
+| **Non specificato** | Microsoft Identity Platform userà Unspecified come formato NameID. |
 
 È supportato anche un formato temporaneo di NameID, ma non è disponibile nell'elenco a discesa e non può essere configurato sul lato di Azure. Per alter informazioni sull'attributo NameIDPolicy, vedere [Protocollo SAML per Single Sign-On](single-sign-on-saml-protocol.md).
 
@@ -77,7 +77,7 @@ Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID).
 | Estensioni della directory | Estensioni di directory [sincronizzate da Active Directory locale mediante la sincronizzazione di Azure AD Connect](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Attributi di estensione 1-15 | Attributi di estensione utilizzati per estendere lo schema di Azure AD locale |
 
-Per altre informazioni, vedere [Tabella 3: Valori di ID validi per origine](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
+Per altre informazioni, vedere [Tabella 3: Valori di ID validi per origine](reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source).
 
 È anche possibile assegnare qualsiasi valore costante (statico) a tutte le attestazioni definite in Azure AD. Per assegnare un valore costante, seguire questa procedura:
 
@@ -85,11 +85,11 @@ Per altre informazioni, vedere [Tabella 3: Valori di ID validi per origine](acti
 1. Fare clic sull'attestazione richiesta da modificare.
 1. In **Attributo di origine** immettere il valore costante senza virgolette in base ai requisiti dell'organizzazione e fare clic su **Salva**.
 
-    ![Attributi dell'organizzazione & sezione delle attestazioni nell'portale di Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
+    ![Attributi dell'& attestazioni dell'organizzazione nella portale di Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
 1. Il valore costante verrà visualizzato come indicato di seguito.
 
-    ![Modificare gli attributi & sezione delle attestazioni nell'portale di Azure](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+    ![Modificare gli attributi & attestazioni nella portale di Azure](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>Attestazioni speciali - Trasformazioni
 
@@ -126,14 +126,14 @@ Per trasformare le attestazioni, è possibile usare le funzioni seguenti.
 |----------|-------------|
 | **ExtractMailPrefix()** | Rimuove il suffisso del dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente. In questo modo viene estratta solo la prima parte del nome utente passata, ad esempio "joe_smith" anziché joe_smith@contoso.com. |
 | **Join()** | Crea un nuovo valore creando un join tra due attributi. Facoltativamente, è possibile usare un separatore tra i due attributi. Per la trasformazione dell'attestazione NameID, il join è limitato solo a un dominio verificato. Se il valore dell'ID utente selezionato ha un dominio, estrarrà il nome utente per accodare il dominio verificato selezionato. Ad esempio, se si seleziona l'indirizzo e-mail (joe_smith@contoso.com) come valore dell'ID utente e si seleziona contoso.onmicrosoft.com come dominio verificato, si avrà come risultato joe_smith@contoso.onmicrosoft.com. |
-| **Tominuscolo ()** | Converte i caratteri dell'attributo selezionato in minuscole. |
-| **Tomaiuscole ()** | Converte i caratteri dell'attributo selezionato in maiuscole. |
+| **ToLowercase()** | Converte i caratteri dell'attributo selezionato in minuscole. |
+| **ToUppercase()** | Converte i caratteri dell'attributo selezionato in maiuscole. |
 | **Contains()** | Restituisce un attributo o una costante se l'input corrisponde al valore specificato. In caso contrario, se non esistono corrispondenze, è possibile specificare un altro output.<br/>Ad esempio, è possibile scegliere che venga creata un'attestazione in cui il valore corrisponde all'indirizzo di posta elettronica dell'utente se contiene il dominio "@contoso.com" e in caso contrario che venga restituito il nome dell'entità utente. A questo scopo, configurare i valori seguenti:<br/>*Parametro 1 (input)* : user.email<br/>*Valore*: "@contoso.com"<br/>Parametro 2 (output): user.email<br/>Parametro 3 (output se non esistono corrispondenze): user.userprincipalname |
 | **EndWith()** | Restituisce un attributo o una costante se l'input termina con il valore specificato. In caso contrario, se non esistono corrispondenze, è possibile specificare un altro output.<br/>Ad esempio, è possibile scegliere che venga creata un'attestazione in cui il valore corrisponde all'ID dipendente dell'utente se termina con "000" e in caso contrario che venga restituito un attributo di estensione. A questo scopo, configurare i valori seguenti:<br/>*Parametro 1 (input)* : user.employeeid<br/>*Value*: "000"<br/>Parametro 2 (output): user.employeeid<br/>Parametro 3 (output se non esistono corrispondenze): user.extensionattribute1 |
 | **StartWith()** | Restituisce un attributo o una costante se l'input inizia con il valore specificato. In caso contrario, se non esistono corrispondenze, è possibile specificare un altro output.<br/>Ad esempio, è possibile scegliere che venga creata un'attestazione in cui il valore corrisponde all'ID dipendente dell'utente se il paese/area geografica inizia con "US" e in caso contrario che venga restituito un attributo di estensione. A questo scopo, configurare i valori seguenti:<br/>*Parametro 1 (input)* : user.country<br/>*Value*: "US"<br/>Parametro 2 (output): user.employeeid<br/>Parametro 3 (output se non esistono corrispondenze): user.extensionattribute1 |
 | **Extract() - Dopo la corrispondenza** | Restituisce la sottostringa dopo aver trovato una corrispondenza con il valore specificato.<br/>Ad esempio, se il valore di input è "Finance_BSimon", il valore corrispondente è "Finance_", allora l'output dell'attestazione è "BSimon". |
 | **Extract() - Prima della corrispondenza** | Restituisce la sottostringa finché non trova una corrispondenza con il valore specificato.<br/>Ad esempio, se il valore di input è "BSimon_US", il valore corrispondente è "_US", allora l'output dell'attestazione è "BSimon". |
-| **Extract() - Tra corrispondenze** | Restituisce la sottostringa finché non trova una corrispondenza con il valore specificato.<br/>Se, ad esempio, il valore di input è "Finance_BSimon_US", il primo valore corrispondente è "Finance \_ ", il secondo valore corrispondente è " \_ US", quindi l'output dell'attestazione è "BSimon". |
+| **Extract() - Tra corrispondenze** | Restituisce la sottostringa finché non trova una corrispondenza con il valore specificato.<br/>Ad esempio, se il valore dell'input è "Finance_BSimon_US", il primo valore corrispondente è "Finance", il secondo valore corrispondente è \_ \_ "US", l'output dell'attestazione è "BSimon". |
 | **ExtractAlpha() - Prefisso** | Restituisce la parte alfabetica del prefisso della stringa.<br/>Ad esempio, se il valore di input è "BSimon_123", restituisce "BSimon". |
 | **ExtractAlpha() - Suffisso** | Restituisce la parte alfabetica del suffisso della stringa.<br/>Ad esempio, se il valore di input è "123_Simon", restituisce "Simon". |
 | **ExtractNumeric() - Prefisso** | Restituisce la parte numerica del prefisso della stringa.<br/>Ad esempio, se il valore di input è "123_BSimon", restituisce "123". |
@@ -166,9 +166,9 @@ Per aggiungere una condizione per l'attestazione:
 
 L'ordine in cui si aggiungono le condizioni è importante. Azure AD valuta le condizioni dall'alto verso il basso per decidere quale valore generare nell'attestazione. L'ultimo valore che corrisponde all'espressione verrà generato nell'attestazione.
 
-Britta Simon, ad esempio, è un utente guest nel tenant di Contoso. Appartiene a un'altra organizzazione che usa Azure AD. Considerata la configurazione seguente per l'applicazione Fabrikam, quando Britta tenta di accedere a Fabrikam, la piattaforma Microsoft Identity valuterà le condizioni come segue.
+Britta Simon, ad esempio, è un utente guest nel tenant di Contoso. Appartiene a un'altra organizzazione che usa Azure AD. Data la configurazione seguente per l'applicazione Fabrikam, quando Britta prova ad accedere a Fabrikam, Microsoft Identity Platform valuterà le condizioni come segue.
 
-Per prima cosa, la piattaforma di identità Microsoft verifica se il tipo di utente di Britta è `All guests` . Poiché questo è vero, la piattaforma Microsoft Identity assegna l'origine per l'attestazione a `user.extensionattribute1` . In secondo luogo, la piattaforma di identità Microsoft verifica se il tipo di utente di Britta è `AAD guests` , poiché questo è vero anche se la piattaforma Microsoft Identity assegna l'origine per l'attestazione a `user.mail` . Infine, l'attestazione viene creata con il valore `user.mail` per Britta.
+In primo luogo, Microsoft Identity Platform verifica se il tipo di utente di Britta è `All guests` . Poiché questo è vero, Microsoft Identity Platform assegna l'origine per l'attestazione a `user.extensionattribute1` . In secondo piano, Microsoft Identity Platform verifica se il tipo di utente di Britta è , poiché anche questo è vero, Microsoft Identity Platform assegna l'origine per `AAD guests` l'attestazione a `user.mail` . Infine, l'attestazione viene creata con il valore `user.mail` per Britta.
 
 ![Configurazione condizionale delle attestazioni](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
