@@ -1,20 +1,21 @@
 ---
 title: Che cosa sono i servizi dati con abilitazione di Azure Arc
 description: Introduzione ai servizi dati con abilitazione di Azure Arc
+ms.custom: references_regions
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: overview
-ms.openlocfilehash: ef16a4c0b6ea40fb4934307916f1fe79ccea72f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d866dcb5b2a0be9e6468b3d40258e37ac93834e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97609140"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107716098"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Che cosa sono i servizi dati con abilitazione di Azure Arc (anteprima)?
 
@@ -46,6 +47,16 @@ Usando strumenti familiari come il portale di Azure, Azure Data Studio e l'[!INC
 ## <a name="disconnected-scenario-support"></a>Supporto di scenari disconnessi
 
 Molti dei servizi, ad esempio il provisioning self-service, i backup o il ripristino automatico e il monitoraggio possono essere eseguiti localmente nell'infrastruttura con o senza connessione diretta ad Azure. La connessione diretta ad Azure offre opzioni aggiuntive per l'integrazione con altri servizi di Azure, ad esempio Monitoraggio di Azure, e la possibilità di usare le API del portale di Azure e di Azure Resource Manager da qualsiasi parte del mondo per gestire i propri servizi dati con abilitazione di Azure Arc.
+
+## <a name="supported-regions"></a>Aree supportate
+
+La tabella seguente descrive gli scenari attualmente supportati per i servizi dati abilitati per Arc.
+
+|Aree di Azure  |Modalità con connessione diretta  |Modalità con connessione indiretta  |
+|---------|---------|---------|
+|Stati Uniti orientali|Disponibile|Disponibile
+|Europa occidentale |Disponibile |Disponibile
+|Europa settentrionale|Disponibile|Disponibile
 
 ## <a name="next-steps"></a>Passaggi successivi
 
