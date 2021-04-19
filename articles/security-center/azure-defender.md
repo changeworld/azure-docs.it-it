@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: aafd4c6695101042cb30a44e1d2bd30611256779
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0bd0d9c2230b8400aa3197044f944daceb93c715
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096157"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718522"
 ---
 # <a name="introduction-to-azure-defender"></a>Introduzione ad Azure Defender
 
@@ -20,7 +20,7 @@ Le funzionalità del Centro sicurezza di Azure riguardano due concetti fondament
 
 - **Cloud Security Postures Management (CSPM)** - Il centro sicurezza è disponibile **gratuitamente** per tutti gli utenti di Azure. In questa esperienza gratuita sono incluse le funzionalità di CSPM, quali il punteggio di sicurezza, il rilevamento di errori di configurazione della sicurezza nelle macchine di Azure, l'inventario delle risorse e altre ancora. Usare queste funzionalità di CSPM per potenziare il comportamento del cloud ibrido e monitorare la conformità ai criteri predefiniti.
 
-- **Cloud Workload Protection (CWP)** - **Azure Defender**, lo strumento CWPP (Cloud Workload Protection Platform) integrato nel centro di sicurezza, offre una protezione avanzata e intelligente delle risorse e dei carichi di lavoro di Azure e ibridi. L'abilitazione di Azure Defender introduce una gamma di funzionalità di sicurezza aggiuntive, come descritto in questa pagina. Oltre ad avere a disposizione i criteri predefiniti, con l'abilitazione di un piano di Azure Defender è possibile anche aggiungere iniziative e criteri personalizzati. È possibile, ad esempio, aggiungere standard normativi, come NIST e Azure CIS, nonché il benchmark di sicurezza di Azure per una visione realmente personalizzata della conformità.
+- **Cloud Workload Protection (CWP)** - **Azure Defender**, lo strumento CWPP (Cloud Workload Protection Platform) integrato nel centro di sicurezza, offre una protezione avanzata e intelligente delle risorse e dei carichi di lavoro di Azure e ibridi. L'abilitazione di Azure Defender introduce una gamma di funzionalità di sicurezza aggiuntive, come descritto in questa pagina. Oltre ad avere a disposizione i criteri predefiniti, con l'abilitazione di un piano di Azure Defender è possibile anche aggiungere iniziative e criteri personalizzati. È possibile aggiungere standard normativi, ad esempio NIST e Azure CIS, nonché [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction) per una visualizzazione realmente personalizzata della conformità.
 
 Il dashboard di Azure Defender disponibile nel centro sicurezza offre visibilità e controllo delle funzionalità di CWP per l'ambiente in uso:
 

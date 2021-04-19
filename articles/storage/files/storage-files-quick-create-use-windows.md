@@ -4,15 +4,15 @@ description: Creare e usare una condivisione di File di Azure nel portale di Azu
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4c5629f80c37c9f79dc9a39c4d8304acbee9679d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a3c664f6c6c0532ef915357cfbcbc8228202502
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92489575"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718240"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Avvio rapido: Creare e gestire una condivisione file di Azure con macchine virtuali Windows
 
@@ -42,19 +42,19 @@ Prima di poter utilizzare una condivisione file di Azure, è necessario creare u
 Quindi, creare una condivisione file.
 
 1. Una volta completata la distribuzione dell'account di archiviazione di Azure, selezionare **Vai alla risorsa**.
-1. Nel riquadro dell'account di archiviazione selezionare **File**.
+1. Selezionare **Condivisioni file** nel riquadro dell'account di archiviazione.
 
-    ![Selezione dei file](./media/storage-files-quick-create-use-windows/click-files.png)
+    ![Selezionare Condivisioni file.](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. Selezionare **Condivisione file**.
+1. Selezionare **+ Condivisione file**.
 
-    ![Selezionare il pulsante Aggiungi condivisione file](./media/storage-files-quick-create-use-windows/create-file-share.png)
+    ![Selezionare + condivisione file per creare una nuova condivisione file.](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
-1. Denominare la nuova condivisione file *qsfileshare* > immettere "1" come **Quota** > selezionare **Crea**. Le dimensioni della quota non possono superare i 5 TiB, ma ai fini di questa guida introduttiva è necessario solo 1 GiB.
+1. Assegnare alla nuova condivisione file il nome *qsfileshare,* immettere "1" per **Quota**, lasciare selezionata l'opzione **Ottimizzazione** transazione e selezionare **Crea**. La quota può essere massima di 5 TiB (100 TiB, con condivisioni file di grandi dimensioni abilitate), ma per questa guida introduttiva sono necessari solo 1 GiB.
 1. Creare un nuovo file txt chiamato *qsTestFile* nel computer locale.
 1. Selezionare la nuova condivisione file, quindi nel percorso della condivisione file, selezionare **Carica**.
 
-    ![Caricare un file](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
+    ![Caricare un file.](./media/storage-files-quick-create-use-windows/create-file-share-portal5.png)
 
 1. Passare al percorso in cui è stato creato il file .txt > selezionare *qsTestFile.txt* > selezionare **Carica**.
 
@@ -63,14 +63,14 @@ Finora, sono stati creati un account di archiviazione e una condivisione file di
 ### <a name="deploy-a-vm"></a>Distribuire una macchina virtuale
 
 1. In seguito, espandere il menu a sinistra del portale e scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
-1. Nella casella di ricerca sopra l'elenco delle risorse di **Azure Marketplace**, cercare e selezionare **Windows Server 2016 Datacenter** e quindi scegliere **Crea**.
+1. Nella casella di ricerca sopra l'elenco delle **Azure Marketplace,** cercare e selezionare **Windows Server 2016 Datacenter**.
 1. Nella scheda **Informazioni di base** in **Dettagli del progetto** selezionare il gruppo di risorse creato per questa guida introduttiva.
 
-   ![Immettere le informazioni di base sulla VM nel pannello del portale](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
+   ![Immettere le informazioni di base sulla macchina virtuale nel pannello del portale.](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. In **Dettagli dell'istanza** denominare la VM *qsVM*.
 1. Lasciare invariate le impostazioni predefinite per **Area**, **Opzioni di disponibilità**, **Immagine** e **Dimensioni**.
-1. In **Account amministratore** aggiungere *VMadmin* come **Nome utente** e immettere una **Password** per la macchina virtuale.
+1. In **Account amministratore** aggiungere un nome **utente** e immettere una password **per** la macchina virtuale.
 1. Sotto **Regole porta in ingresso**, scegliere **Consentire porte selezionate**, quindi selezionare **RDP (3389)** e **HTTP** dall'elenco a discesa.
 1. Selezionare **Rivedi e crea**.
 1. Selezionare **Crea**. Il completamento della creazione di una nuova macchina virtuale richiederà alcuni minuti.
@@ -96,60 +96,50 @@ A questo punto, è stata creata una nuova macchina virtuale e collegato un disco
 ## <a name="map-the-azure-file-share-to-a-windows-drive"></a>Eseguire il mapping della condivisione file di Azure a un'unità di Windows
 
 1. Nel portale di Azure passare alla condivisione file *qsfileshare* e selezionare **Connetti**.
-1. Copiare il contenuto della seconda casella e incollarlo nel **Blocco note**.
+1. Selezionare una lettera di unità, quindi copiare il contenuto della seconda casella e incollarlo nel Blocco **note.**
 
-   ![Screenshot che mostra il contenuto della seconda casella da copiare e incollare in Blocco note.](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
+   :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot che mostra il contenuto della casella da copiare e incollare nel Blocco note." lightbox="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png":::
 
-1. Nella macchina virtuale, aprire **Esplora file** e selezionare **Questo PC** nella finestra. Questa selezione modifica i menu disponibili sulla barra multifunzione. Scegliere **Connetti unità di rete** dal menu **Computer**.
-1. Selezionare la lettera di unità e immettere il percorso UNC. Se sono stati seguiti i suggerimenti di denominazione in questa guida introduttiva, copiare *\\qsstorageacct.file.core.windows.net\qsfileshare* dal **Blocco note**.
-
-   Assicurarsi che siano selezionate entrambe le caselle di controllo.
-
-   ![Screenshot della finestra di dialogo "Connetti unità di rete"](./media/storage-files-quick-create-use-windows/mountonwindows10.png)
-
-1. Selezionare **Fine**.
-1. Nella finestra di dialogo **Sicurezza di Windows**:
-
-   - Dal blocco note, copiare il nome dell'account di archiviazione preceduto da AZURE\ e incollarlo nella finestra di dialogo **Sicurezza di Windows** come nome utente. Se sono stati seguiti i suggerimenti di denominazione in questa guida introduttiva, copiare *AZURE\qsstorageacct*.
-   - Dal blocco note, copiare la chiave dell'account di archiviazione e incollarla nella finestra di dialogo **Sicurezza di Windows** come password.
-
-      ![Il percorso UNC dal riquadro Connetti di File di Azure](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
+1. Nella macchina virtuale aprire **PowerShell** e incollare il contenuto del Blocco **note,** quindi premere INVIO per eseguire il comando. Deve eseguire il mapping dell'unità.
 
 ## <a name="create-a-share-snapshot"></a>Creare uno snapshot della condivisione
 
 Ora che è stato eseguito il mapping dell'unità, è possibile creare uno snapshot.
 
-1. Nel portale, passare alla condivisione file e selezionare **Creare uno snapshot**.
+1. Nel portale passare alla condivisione file, selezionare **Snapshot** e quindi **+ Aggiungi snapshot.**
 
-   ![Creare uno snapshot](./media/storage-files-quick-create-use-windows/create-snapshot.png)
+   ![Selezionare snapshot nella sezione operazioni e quindi selezionare Aggiungi snapshot.](./media/storage-files-quick-create-use-windows/create-snapshot.png)
 
 1. Nella macchina virtuale, aprire il file *qstestfile.txt* e digitare "questo file è stato modificato" > salvare e chiudere il file.
 1. Creare un altro snapshot.
 
 ## <a name="browse-a-share-snapshot"></a>Esplorare uno snapshot di condivisione
 
-1. Nella condivisione file, selezionare **Visualizza snapshot**.
-1. Nel riquadro **Snapshot di condivisioni file** selezionare il primo snapshot nell'elenco.
+1. Nella condivisione file selezionare **Snapshot**.
+1. Nel **pannello Snapshot** selezionare il primo snapshot nell'elenco.
 
    ![Snapshot selezionato nell'elenco dei timestamp](./media/storage-files-quick-create-use-windows/snapshot-list.png)
 
-1. Nel riquadro per tale snapshot, selezionare *qsTestFile.txt*.
+1. Aprire lo snapshot e *selezionare* qsTestFile.txt.
 
 ## <a name="restore-from-a-snapshot"></a>Ripristino da uno snapshot
 
 1. Nel pannello dello snapshot della condivisione file fare clic con il pulsante destro del mouse su *qsTestFile* e scegliere il pulsante **Ripristina**.
+
+    :::image type="content" source="media/storage-files-quick-create-use-windows/restore-share-snapshot.png" alt-text="Screenshot del pannello snapshot, qstestfile selezionato, ripristino evidenziato.":::
+
 1. Selezionare **Sovrascrivi file originale**.
 
-   ![Pulsanti Scarica e Ripristina](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
+   ![Screenshot del popup di ripristino, sovrascrivere il file originale selezionato.](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
 
 1. Nella macchina virtuale, aprire il file. È stata ripristinata la versione non modificata.
 
 ## <a name="delete-a-share-snapshot"></a>Eliminare uno snapshot di condivisione
 
-1. Nella condivisione file, selezionare **Visualizza snapshot**.
-1. Nel riquadro **Snapshot di condivisioni file** selezionare l'ultimo snapshot nell'elenco e fare clic su **Elimina**.
+1. Nella condivisione file selezionare **Snapshot**.
+1. Nel pannello **Snapshot selezionare** l'ultimo snapshot nell'elenco e selezionare **Elimina**.
 
-   ![Pulsante Elimina](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
+   ![Screenshot del pannello snapshot, ultimo snapshot selezionato, pulsante Elimina evidenziato.](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Usare uno snapshot di condivisione in Windows
 
@@ -173,7 +163,10 @@ Proprio come con gli snapshot VSS in locale, è possibile visualizzare gli snaps
 
 1. Selezionare **Ripristina**. Questa azione copia il contenuto dell'intera directory in modo ricorsivo nel percorso originale al momento della creazione dello snapshot di condivisione.
 
-   ![Pulsante Ripristina nel messaggio di avviso](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Nota: se il file non è stato modificato, non ne verrà visualizzata una versione precedente perché la versione corrente è uguale a quella dello snapshot. Questo comportamento è coerente con il funzionamento in un file server Windows.
+   ![Pulsante Ripristina nel messaggio di avviso](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+    
+    > [!NOTE]
+    > Se il file non è stato modificato, non verrà visualizzata una versione precedente per tale file perché tale file è la stessa versione dello snapshot. Questo comportamento è coerente con il funzionamento in un file server Windows.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -1,5 +1,5 @@
 ---
-title: Distribuire un servizio cloud (supporto esteso)-PowerShell
+title: Distribuire un servizio cloud (supporto esteso) - PowerShell
 description: Distribuire un servizio cloud (supporto esteso) con PowerShell
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
@@ -8,23 +8,23 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: bcf6b2f6b964a056b9d90f08c0586fcbdec5b260
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: a7e4e76aa0619d78a91d766a9a43c0b1a02a48d3
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167278"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717388"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Distribuire un servizio cloud (supporto esteso) usando Azure PowerShell
 
-Questo articolo illustra come usare il `Az.CloudService` modulo PowerShell per distribuire i servizi cloud (supporto esteso) in Azure con più ruoli (WebRole e WorkerRole) e l'estensione desktop remoto. 
+Questo articolo illustra come usare il modulo PowerShell per distribuire Servizi cloud (supporto esteso) in Azure con più ruoli (WebRole e WorkerRole) ed estensione `Az.CloudService` desktop remoto. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i servizi cloud (supporto esteso) e creare le risorse associate. 
+Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per Servizi cloud (supporto esteso) e creare le risorse associate. 
 
-## <a name="deploy-a-cloud-services-extended-support"></a>Distribuire un servizio cloud (supporto esteso)
-1. Installare il modulo di PowerShell AZ. CloudService  
+## <a name="deploy-a-cloud-services-extended-support"></a>Distribuire servizi cloud (supporto esteso)
+1. Installare il modulo Az.CloudService di PowerShell  
 
     ```powershell
     Install-Module -Name Az.CloudService 
@@ -36,7 +36,7 @@ Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i serviz
     New-AzResourceGroup -ResourceGroupName “ContosOrg” -Location “East US” 
     ```
 
-3. Creare un account e un contenitore di archiviazione che verranno usati per archiviare il pacchetto del servizio cloud (. cspkg) e i file di configurazione del servizio (. cscfg). È necessario usare un nome univoco per il nome dell'account di archiviazione. 
+3. Creare un account di archiviazione e un contenitore che verranno usati per archiviare i file del pacchetto del servizio cloud (con estensione cspkg) e di configurazione del servizio (con estensione cscfg). È necessario usare un nome univoco per il nome dell'account di archiviazione. 
 
     ```powershell
     $storageAccount = New-AzStorageAccount -ResourceGroupName “ContosOrg” -Name “contosostorageaccount” -Location “East US” -SkuName “Standard_RAGRS” -Kind “StorageV2” 
@@ -62,21 +62,21 @@ Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i serviz
     $cscfgUrl = $cscfgBlob.ICloudBlob.Uri.AbsoluteUri + $cscfgToken 
     ```
 
-6. Creare una rete virtuale e una subnet. Questo passaggio è facoltativo se si usa una rete e una subnet esistenti. Questo esempio usa una singola rete virtuale e una subnet per entrambi i ruoli del servizio cloud (WebRole e WorkerRole). 
+6. Creare una rete virtuale e una subnet. Questo passaggio è facoltativo se si usano una rete e una subnet esistenti. Questo esempio usa una singola rete virtuale e una sola subnet per entrambi i ruoli del servizio cloud (WebRole e WorkerRole). 
 
     ```powershell
     $subnet = New-AzVirtualNetworkSubnetConfig -Name "ContosoWebTier1" -AddressPrefix "10.0.0.0/24" -WarningAction SilentlyContinue 
     $virtualNetwork = New-AzVirtualNetwork -Name “ContosoVNet” -Location “East US” -ResourceGroupName “ContosOrg” -AddressPrefix "10.0.0.0/24" -Subnet $subnet 
     ```
  
-7. Creare un indirizzo IP pubblico e impostare la proprietà etichetta DNS dell'indirizzo IP pubblico. Servizi cloud (supporto esteso) supporta solo [Basic] ( https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) indirizzi IP pubblici dello SKU). Gli indirizzi IP pubblici con SKU standard non funzionano con i servizi cloud.
-Se si usa un indirizzo IP statico, è necessario farvi riferimento come IP riservato nel file di configurazione del servizio (con estensione cscfg) 
+7. Creare un indirizzo IP pubblico e impostare la proprietà etichetta DNS dell'indirizzo IP pubblico. Servizi cloud (supporto esteso) supporta solo indirizzi IP pubblici dello SKU [Basic.](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) Gli IP pubblici dello SKU Standard non funzionano con i servizi cloud.
+Se si usa un indirizzo IP statico, è necessario fare riferimento a esso come IP riservato nel file di configurazione del servizio (con estensione cscfg) 
 
     ```powershell
     $publicIp = New-AzPublicIpAddress -Name “ContosIp” -ResourceGroupName “ContosOrg” -Location “East US” -AllocationMethod Dynamic -IpAddressVersion IPv4 -DomainNameLabel “contosoappdns” -Sku Basic 
     ```
 
-8. Creare un oggetto profilo di rete e associare l'indirizzo IP pubblico al front-end del servizio di bilanciamento del carico. La piattaforma Azure crea automaticamente una risorsa di bilanciamento del carico SKU "classica" nella stessa sottoscrizione della risorsa del servizio cloud. La risorsa del servizio di bilanciamento del carico è una risorsa di sola lettura in ARM. Tutti gli aggiornamenti alla risorsa sono supportati solo tramite i file di distribuzione del servizio cloud (. cscfg &. csdef)
+8. Creare un oggetto profilo di rete e associare l'indirizzo IP pubblico al front-end del servizio di bilanciamento del carico. La piattaforma Azure crea automaticamente una risorsa di bilanciamento del carico con SKU "classico" nella stessa sottoscrizione della risorsa del servizio cloud. La risorsa di bilanciamento del carico è una risorsa di sola lettura in Arm. Gli aggiornamenti alla risorsa sono supportati solo tramite i file di distribuzione del servizio cloud (con estensione cscfg & .csdef)
 
     ```powershell
     $publicIP = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp  
@@ -85,34 +85,34 @@ Se si usa un indirizzo IP statico, è necessario farvi riferimento come IP riser
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-9. Creare un insieme di credenziali delle chiavi. Questa Key Vault verrà usata per archiviare i certificati associati ai ruoli del servizio cloud (supporto esteso). Il Key Vault deve trovarsi nella stessa area e nella stessa sottoscrizione del servizio cloud e avere un nome univoco. Per altre informazioni, vedere [usare i certificati con servizi cloud di Azure (supporto esteso)](certificates-and-key-vault.md).
+9. Creare un insieme di credenziali delle chiavi. Questa Key Vault verrà usata per archiviare i certificati associati ai ruoli del servizio cloud (supporto esteso). Il Key Vault deve trovarsi nella stessa area e nella stessa sottoscrizione del servizio cloud e avere un nome univoco. Per altre informazioni, vedere [Usare i certificati con Servizi cloud di Azure (supporto esteso).](certificates-and-key-vault.md)
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
     ```
 
-10. Aggiornare i criteri di accesso Key Vault e concedere le autorizzazioni per il certificato all'account utente. 
+10. Aggiornare i criteri Key Vault di accesso e concedere le autorizzazioni del certificato all'account utente. 
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -EnabledForDeployment
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete 
     ```
 
-    In alternativa, impostare i criteri di accesso tramite ObjectId (che è possibile ottenere eseguendo `Get-AzADUser` ) 
+    In alternativa, impostare i criteri di accesso tramite ObjectId (che può essere ottenuto eseguendo `Get-AzADUser` ) 
     
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates create,get,list,delete 
     ```
  
 
-11. Ai fini di questo esempio, verrà aggiunto un certificato autofirmato a un Key Vault. È necessario aggiungere l'identificazione personale del certificato nel file di configurazione del servizio cloud (. cscfg) per la distribuzione nei ruoli del servizio cloud. 
+11. Ai fini di questo esempio si aggiungerà un certificato autofirmato a un Key Vault. L'identificazione personale del certificato deve essere aggiunta nel file di configurazione del servizio cloud (con estensione cscfg) per la distribuzione nei ruoli del servizio cloud. 
 
     ```powershell
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
     Add-AzKeyVaultCertificate -VaultName "ContosKeyVault" -Name "ContosCert" -CertificatePolicy $Policy 
     ```
  
-12. Creare un oggetto in memoria del profilo del sistema operativo. Profilo del sistema operativo specifica i certificati associati ai ruoli del servizio cloud. Si tratta dello stesso certificato creato nel passaggio precedente. 
+12. Creare un oggetto profilo del sistema operativo in memoria. Profilo del sistema operativo specifica i certificati associati ai ruoli del servizio cloud. Si tratta dello stesso certificato creato nel passaggio precedente. 
 
     ```powershell
     $keyVault = Get-AzKeyVault -ResourceGroupName ContosOrg -VaultName ContosKeyVault 
@@ -121,7 +121,7 @@ Se si usa un indirizzo IP statico, è necessario farvi riferimento come IP riser
     $osProfile = @{secret = @($secretGroup)} 
     ```
 
-13. Creazione di un oggetto in memoria del profilo del ruolo. Il profilo del ruolo definisce proprietà specifiche dello SKU dei ruoli, ad esempio nome, capacità e livello. Per questo esempio, sono stati definiti due ruoli: frontendRole e backendRole. Le informazioni sul profilo del ruolo devono corrispondere alla configurazione del ruolo definita in file di configurazione (cscfg) e file di definizione del servizio (csdef). 
+13. Creare un oggetto profilo ruolo in memoria. Il profilo del ruolo definisce le proprietà specifiche dello sku dei ruoli, ad esempio il nome, la capacità e il livello. Per questo esempio sono stati definiti due ruoli: frontendRole e backendRole. Le informazioni sul profilo del ruolo devono corrispondere alla configurazione del ruolo definita nel file di configurazione (cscfg) e nel file di definizione del servizio (csdef). 
 
     ```powershell
     $frontendRole = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2 
@@ -129,7 +129,7 @@ Se si usa un indirizzo IP statico, è necessario farvi riferimento come IP riser
     $roleProfile = @{role = @($frontendRole, $backendRole)} 
     ```
 
-14. Opzionale Creare un oggetto in memoria del profilo di estensione che si desidera aggiungere al servizio cloud. Per questo esempio verrà aggiunta l'estensione RDP. 
+14. (Facoltativo) Creare un oggetto profilo di estensione in memoria da aggiungere al servizio cloud. Per questo esempio verrà aggiunta l'estensione RDP. 
 
     ```powershell
     $credential = Get-Credential 
@@ -148,13 +148,13 @@ Se si usa un indirizzo IP statico, è necessario farvi riferimento come IP riser
         ...............
     </PublicConfig>
     ```
-15. Opzionale Definire i tag come tabella hash di PowerShell che si vuole aggiungere al servizio cloud. 
+15. (Facoltativo) Definire tag come tabella hash di PowerShell da aggiungere al servizio cloud. 
 
     ```powershell
     $tag=@{"Owner" = "Contoso"} 
     ```
 
-17. Creare una distribuzione del servizio cloud usando oggetti profilo & URL SAS.
+17. Creare la distribuzione del servizio cloud usando oggetti profilo & URL di firma di accesso condiviso.
 
     ```powershell
     $cloudService = New-AzCloudService ` 
@@ -172,6 +172,6 @@ Se si usa un indirizzo IP statico, è necessario farvi riferimento come IP riser
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi 
-- Esaminare le [domande frequenti](faq.md) per i servizi cloud (supporto esteso).
-- Distribuire un servizio cloud (supporto esteso) usando il [portale di Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), il [modello](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
-- Visitare il [repository di esempi di servizi cloud (supporto esteso)](https://github.com/Azure-Samples/cloud-services-extended-support)
+- Esaminare [le domande frequenti su](faq.md) Servizi cloud (supporto esteso).
+- Distribuire un servizio cloud (supporto esteso) usando [portale di Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) [o Visual Studio](deploy-visual-studio.md).
+- Visitare il repository di esempi di Servizi [cloud (supporto esteso)](https://github.com/Azure-Samples/cloud-services-extended-support)

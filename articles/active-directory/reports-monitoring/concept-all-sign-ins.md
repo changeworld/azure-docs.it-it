@@ -4,7 +4,7 @@ description: Introduzione ai report delle attività di accesso nel portale Azure
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,20 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/16/2021
+ms.date: 04/19/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 781cafd9b382868d0aa4f6b77ff7338c4ee15ed2
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: dc9aa77b3fdc3cda94670545f847bb9de31e1160
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589654"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718954"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Azure Active Directory di attività di accesso - anteprima
 
-Il Azure Active Directory consente di accedere a tre log attività:
+L'amministratore IT vuole conoscere le modalità di funzionamento dell'ambiente IT. Le informazioni sull'integrità del sistema consentono di valutare se e come è necessario rispondere a potenziali problemi. 
+
+Per supportare l'utente con questo obiettivo, il portale Azure Active Directory consente di accedere a tre log attività:
 
 - **Sign-ins (Account** di accesso) : informazioni sugli account di accesso e sul modo in cui le risorse vengono usate dagli utenti.
 - **[Controllo:](concept-audit-logs.md)** informazioni sulle modifiche applicate al tenant, ad esempio la gestione di utenti e gruppi o gli aggiornamenti applicati alle risorse del tenant.
@@ -76,11 +78,11 @@ Il report degli accesso fornisce le risposte alle domande seguenti:
 - Qual è lo stato di questi accessi?
 
 
-Nel pannello del report degli errori di accesso è possibile passare tra:
+Nel pannello del report di accesso è possibile passare da uno all'altro:
 
 - **Accesso utente interattivo:** accesso in cui un utente fornisce un fattore di autenticazione, ad esempio una password, una risposta tramite un'app MFA, un fattore biometrico o un codice a matrice.
 
-- **Accesso utente non interattivo:** gli account di accesso eseguiti da un client per conto di un utente. Questi account di accesso non richiedono alcun fattore di interazione o autenticazione da parte dell'utente. Ad esempio, l'autenticazione e l'autorizzazione che usano token di accesso e aggiornamento che non richiedono l'immissione delle credenziali da parte di un utente.
+- **Accesso utente non interattivo:** gli account di accesso eseguiti da un client per conto di un utente. Questi account di accesso non richiedono alcun fattore di interazione o autenticazione da parte dell'utente. Ad esempio, l'autenticazione e l'autorizzazione che usano token di accesso e aggiornamento che non richiedono l'immissione di credenziali da parte di un utente.
 
 - **Accessi all'entità servizio:** accessi da parte di app ed entità servizio che non coinvolgono alcun utente. In questi accessi, l'app o il servizio fornisce credenziali per conto proprio per autenticare o accedere alle risorse.
 
@@ -102,7 +104,7 @@ Nel pannello del report degli errori di accesso è possibile passare tra:
 
 ## <a name="user-sign-ins&quot;></a>Accesso utente
 
-Ogni scheda nel pannello Degli account di accesso mostra le colonne predefinite riportate di seguito. Alcune schede hanno colonne aggiuntive:
+Ogni scheda nel pannello degli account di accesso mostra le colonne predefinite riportate di seguito. Alcune schede hanno colonne aggiuntive:
 
 - Data di accesso
 
@@ -110,7 +112,7 @@ Ogni scheda nel pannello Degli account di accesso mostra le colonne predefinite 
 
 - Nome utente o ID utente
 
-- Nome dell'applicazione o ID applicazione
+- Nome applicazione o ID applicazione
 
 - Stato dell'accesso
 
@@ -121,7 +123,7 @@ Ogni scheda nel pannello Degli account di accesso mostra le colonne predefinite 
 ### <a name=&quot;interactive-user-sign-ins&quot;></a>Accesso utente interattivo
 
 
-Gli accesso utente interattivi sono gli account di accesso in cui un utente fornisce un fattore di autenticazione per Azure AD o interagisce direttamente con Azure AD o un'app helper, ad esempio l'app Microsoft Authenticator. I fattori che gli utenti forniscono includono password, risposte alle sfide dell'autenticazione a più fattori, fattori biometrici o codici A QR forniti da un utente Azure AD o a un'app helper.
+Gli account di accesso utente interattivi sono gli account di accesso in cui un utente fornisce un fattore di autenticazione Azure AD o interagisce direttamente con Azure AD o un'app helper, ad esempio l'app Microsoft Authenticator. I fattori forniti dagli utenti includono password, risposte a problemi di autenticazione a più fattori, fattori biometrici o codici a chiave che un utente fornisce per Azure AD o per un'app helper.
 
 > [!NOTE]
 > Questo report include anche gli accesso federati da provider di identità federati Azure AD.  
@@ -129,7 +131,7 @@ Gli accesso utente interattivi sono gli account di accesso in cui un utente forn
 
 
 > [!NOTE] 
-> Il report degli account di accesso utente interattivo usato per contenere alcuni account di accesso non interattivi dai client di Microsoft Exchange. Anche se tali account di accesso non erano interattivi, sono stati inclusi nel report degli utenti interattivi per una maggiore visibilità. Dopo che il report degli utenti non interattivi è stato visualizzato in anteprima pubblica nel mese di novembre 2020, i log eventi di accesso non interattivi sono stati spostati nel report di accesso utente non interattivo per una maggiore accuratezza. 
+> Report degli account di accesso utente interattivo usato per contenere alcuni account di accesso non interattivi dai client di Microsoft Exchange. Anche se gli account di accesso non erano interattivi, sono stati inclusi nel report degli utenti interattivi per una maggiore visibilità. Quando il report degli utenti non interattivi è stato inserito nell'anteprima pubblica nel novembre 2020, i log eventi di accesso non interattivi sono stati spostati nel report di accesso utente non interattivo per una maggiore accuratezza. 
 
 
 **Dimensioni del report:** piccole <br> 
@@ -137,14 +139,14 @@ Gli accesso utente interattivi sono gli account di accesso in cui un utente forn
 
 - Un utente fornisce nome utente e password nella Azure AD di accesso.
 
-- Un utente passa una richiesta di autenticazione a più fattori tramite SMS.
+- Un utente supera una richiesta di autenticazione a più fattori tramite SMS.
 
 - Un utente fornisce un movimento biometrico per sbloccare il PC Windows con Windows Hello for Business.
 
-- Un utente è federato per Azure AD con un'AD FS SAML.
+- Un utente è federato per Azure AD con un AD FS'asserzione SAML.
 
 
-Oltre ai campi predefiniti, il report degli accesso interattivi mostra anche: 
+Oltre ai campi predefiniti, il report degli account di accesso interattivo mostra anche: 
 
 - Percorso di accesso
 
@@ -152,7 +154,7 @@ Oltre ai campi predefiniti, il report degli accesso interattivi mostra anche:
 
 
 
-È possibile personalizzare la visualizzazione elenco facendo clic **su Colonne** sulla barra degli strumenti.
+È possibile personalizzare la visualizzazione elenco facendo clic **su Colonne sulla** barra degli strumenti.
 
 ![Colonne di accesso utente interattivo](./media/concept-all-sign-ins/columns-interactive.png &quot;Colonne di accesso utente interattivo")
 
@@ -160,7 +162,7 @@ Oltre ai campi predefiniti, il report degli accesso interattivi mostra anche:
 
 
 
-La personalizzazione della visualizzazione consente di visualizzare campi aggiuntivi o rimuovere i campi già visualizzati.
+La personalizzazione della visualizzazione consente di visualizzare campi aggiuntivi o di rimuovere campi già visualizzati.
 
 ![Tutte le colonne interattive](./media/concept-all-sign-ins/all-interactive-columns.png)
 
@@ -173,7 +175,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere informazioni p
 
 ### <a name="non-interactive-user-sign-ins"></a>Accesso utente non interattivo
 
-Gli account di accesso utente non interattivi sono gli account di accesso eseguiti da un'app client o da componenti del sistema operativo per conto di un utente. Come gli account di accesso degli utenti interattivi, questi vengono evasi per conto di un utente. A differenza degli account di accesso utente interattivi, questi non richiedono all'utente di fornire un fattore di autenticazione. L'app client o il dispositivo usa invece un token o un codice per autenticare o accedere a una risorsa per conto di un utente. In generale, l'utente percepirà questi accesso come in background dell'attività dell'utente.
+Gli account di accesso utente non interattivi sono gli account di accesso eseguiti da un'app client o da componenti del sistema operativo per conto di un utente. Come gli account di accesso degli utenti interattivi, questi vengono evasi per conto di un utente. A differenza degli account di accesso utente interattivi, questi account di accesso non richiedono all'utente di fornire un fattore di autenticazione. L'app client o il dispositivo usa invece un token o un codice per autenticare o accedere a una risorsa per conto di un utente. In generale, l'utente percepirà questi accesso come in background dell'attività dell'utente.
 
 
 **Dimensioni report:** Grande <br>
@@ -185,7 +187,7 @@ Gli account di accesso utente non interattivi sono gli account di accesso esegui
 
 - Un utente esegue l'accesso Single Sign-On (SSO) a un'app Web o Windows in un PC Azure AD aggiunto.
 
-- Un utente accede a una seconda Microsoft Office app mentre ha una sessione in un dispositivo mobile usando l'apicino DISA (Family of Client ID).
+- Un utente accede a una seconda app Microsoft Office mentre ha una sessione in un dispositivo mobile usando l'apicino TEI (Family of Client ID).
 
 
 
@@ -204,7 +206,7 @@ Non è possibile personalizzare i campi visualizzati in questo report.
 
 ![Colonne disabilitate](./media/concept-all-sign-ins/disabled-columns.png "Colonne disabilitate")
 
-Per semplificare la digestione dei dati, vengono raggruppati gli eventi di accesso non interattivi. I client spesso creano molti account di accesso non interattivi per conto dello stesso utente in un breve periodo di tempo, che condividono tutte le stesse caratteristiche, ad eccezione del momento in cui è stato tentato l'accesso. Ad esempio, un client può ottenere un token di accesso una volta all'ora per conto di un utente. Se l'utente o il client non modifica lo stato, l'indirizzo IP, la risorsa e tutte le altre informazioni sono uguali per ogni richiesta di token di accesso. Quando Azure AD registra più account di accesso identici diversi da ora e data, tali account verranno aggregati in una singola riga. Una riga con più account di accesso identici (ad eccezione di data e ora di emissione) avrà un valore maggiore di 1 nella colonna #sign-ins. È possibile espandere la riga per visualizzare tutti i diversi account di accesso e i relativi timestamp diversi. Gli accesso vengono aggregati negli utenti non interattivi quando i dati seguenti corrispondono:
+Per semplificare la digestione dei dati, vengono raggruppati gli eventi di accesso non interattivi. I client spesso creano molti account di accesso non interattivi per conto dello stesso utente in un breve periodo di tempo, che condividono tutte le stesse caratteristiche, ad eccezione del momento in cui è stato tentato l'accesso. Ad esempio, un client può ottenere un token di accesso una volta all'ora per conto di un utente. Se l'utente o il client non modifica lo stato, l'indirizzo IP, la risorsa e tutte le altre informazioni sono uguali per ogni richiesta di token di accesso. Quando Azure AD registra più account di accesso identici diversi da ora e data, gli account di accesso della stessa entità vengono aggregati in un'unica riga. Una riga con più account di accesso identici (ad eccezione di data e ora di emissione) avrà un valore maggiore di 1 nella colonna # sign-ins . È possibile espandere la riga per visualizzare tutti i diversi account di accesso e i relativi timestamp. Gli accesso vengono aggregati negli utenti non interattivi quando i dati seguenti corrispondono:
 
 
 - Applicazione
@@ -265,7 +267,7 @@ Non è possibile personalizzare i campi visualizzati in questo report.
 
 ![Colonne disabilitate](./media/concept-all-sign-ins/disabled-columns.png &quot;Colonne disabilitate")
 
-Per semplificare il digest dei dati nei log di accesso dell'entità servizio, vengono raggruppati gli eventi di accesso dell'entità servizio. Gli accesso dalla stessa entità nelle stesse condizioni vengono aggregati in un'unica riga. È possibile espandere la riga per visualizzare tutti i diversi account di accesso e i relativi timestamp. Gli account di accesso vengono aggregati nel report dell'entità servizio quando i dati seguenti corrispondono:
+Per semplificare il digest dei dati nei log di accesso dell'entità servizio, vengono raggruppati gli eventi di accesso dell'entità servizio. Gli accesso dalla stessa entità nelle stesse condizioni vengono aggregati in una singola riga. È possibile espandere la riga per visualizzare tutti i diversi account di accesso e i relativi timestamp diversi. Gli account di accesso vengono aggregati nel report dell'entità servizio quando i dati seguenti corrispondono:
 
 - ID o nome dell'entità servizio
 
@@ -289,7 +291,7 @@ Per semplificare il digest dei dati nei log di accesso dell'entità servizio, ve
 
 ## <a name="managed-identity-for-azure-resources-sign-ins"></a>Identità gestita per gli account di accesso delle risorse di Azure 
 
-L'identità gestita per gli account di accesso delle risorse di Azure è un accesso eseguito dalle risorse con i propri segreti gestiti da Azure per semplificare la gestione delle credenziali.
+L'identità gestita per gli account di accesso delle risorse di Azure è un accesso eseguito dalle risorse con i segreti gestiti da Azure per semplificare la gestione delle credenziali.
 
 **Dimensioni report:** Piccolo <br> 
 **Esempi:**
@@ -312,15 +314,15 @@ Questo report ha una visualizzazione elenco predefinita che mostra:
 
 Non è possibile personalizzare i campi visualizzati in questo report.
 
-Per semplificare il digest dei dati, le identità gestite per i log di accesso delle risorse di Azure, gli eventi di accesso non interattivi vengono raggruppati. Gli accesso dalla stessa entità vengono aggregati in una singola riga. È possibile espandere la riga per visualizzare tutti i diversi account di accesso e i relativi timestamp diversi. Gli account di accesso vengono aggregati nel report delle identità gestite quando tutti i dati seguenti corrispondono:
+Per semplificare il digest dei dati, le identità gestite per i log di accesso delle risorse di Azure, gli eventi di accesso non interattivi vengono raggruppati. Gli accesso dalla stessa entità vengono aggregati in un'unica riga. È possibile espandere la riga per visualizzare tutti i diversi account di accesso e i relativi timestamp. Gli account di accesso vengono aggregati nel report delle identità gestite quando tutti i dati seguenti corrispondono:
 
-- ID o nome dell'identità gestita
+- Id o nome dell'identità gestita
 
 - Stato
 
 - indirizzo IP
 
-- Id o nome della risorsa
+- Nome o ID risorsa
 
 Selezionare un elemento nella visualizzazione elenco per visualizzare tutti gli account di accesso raggruppati in un nodo.
 
@@ -341,7 +343,7 @@ Anche se l'elemento di log fornisce un motivo di errore, in alcuni casi è possi
 
 ## <a name="filter-sign-in-activities"></a>Filtrare le attività di accesso
 
-Impostando un filtro, è possibile restringere l'ambito dei dati di accesso restituiti. Azure AD offre un'ampia gamma di filtri aggiuntivi che è possibile impostare. Quando si imposta il filtro, è sempre consigliabile prestare particolare attenzione al filtro **intervallo** di date configurato. Un filtro di intervallo di date appropriato garantisce che Azure AD restituisca solo i dati effettivamente a cui si è realmente a cui si è molto a cui si è di grande attenzione.     
+Impostando un filtro, è possibile restringere l'ambito dei dati di accesso restituiti. Azure AD offre un'ampia gamma di filtri aggiuntivi che è possibile impostare. Quando si imposta il filtro, è necessario prestare sempre particolare attenzione al filtro **Intervallo** di date configurato. Un filtro di intervallo di date appropriato garantisce che Azure AD restituisca solo i dati effettivamente a cui si è realmente a cui si è molto a cui si è molto a cui si è di grande attenzione.     
 
 Il **filtro** Intervallo di date consente di definire un intervallo di tempo per i dati restituiti.
 I valori possibili sono:
@@ -362,16 +364,16 @@ I valori possibili sono:
 
 ### <a name="filter-user-sign-ins"></a>Filtrare gli account di accesso utente
 
-Il filtro per gli accesso interattivi e non interattivi è lo stesso. Per questo problema, il filtro configurato per gli account di accesso interattivi viene salvato in modo permanente per gli account di accesso non interattivi e viceversa. 
+Il filtro per gli accesso interattivi e non interattivi è lo stesso. Per questo scopo, il filtro configurato per gli accesso interattivi viene mantenuto per gli accesso non interattivi e viceversa. 
 
 
 
 
 
 
-## <a name="access-the-new-sign-in-activity-reports"></a>Accedere ai nuovi report delle attività di accesso 
+## <a name="access-the-new-sign-in-activity-reports"></a>Accedere ai nuovi report attività di accesso 
 
-Il report delle attività di accesso nel portale di Azure offre un metodo semplice per attivare e disattivare il report di anteprima. Se i report di anteprima sono abilitati, viene visualizzato un nuovo menu che consente di accedere a tutti i tipi di report attività di accesso.     
+Il report attività di accesso nel portale di Azure offre un metodo semplice per attivare e disattivare il report di anteprima. Se i report di anteprima sono abilitati, viene visualizzato un nuovo menu che consente di accedere a tutti i tipi di report attività di accesso.     
 
 
 Per accedere ai nuovi report di accesso con accessi non interattivi e dell'applicazione: 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.openlocfilehash: a901e71da640f8413e5714ad59073324f582c1b9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a41696ba92757550f9cbaa08ccf78d9a5da528d2
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441058"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718900"
 ---
 # <a name="create-custom-security-initiatives-and-policies"></a>Creare iniziative e criteri di sicurezza personalizzati
 
@@ -24,7 +24,7 @@ Con questa funzionalità è possibile aggiungere iniziative *personalizzate* . S
 Come illustrato nella [documentazione sui criteri di Azure](../governance/policy/concepts/definition-structure.md#definition-location), quando si specifica una posizione per l'iniziativa personalizzata, è necessario indicare un gruppo di gestione o una sottoscrizione. 
 
 > [!TIP]
-> Per una panoramica dei concetti chiave di questa pagina, vedere [che cosa sono i criteri di sicurezza, le iniziative e i consigli?](security-policy-concept.md).
+> Per una panoramica dei concetti chiave in questa pagina, vedere Che cosa sono i criteri [di sicurezza, le iniziative e le raccomandazioni?](security-policy-concept.md).
 
 ::: zone pivot="azure-portal"
 
@@ -78,29 +78,29 @@ Come illustrato nella [documentazione sui criteri di Azure](../governance/policy
 
 ::: zone pivot="rest-api"
 
-## <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurare i criteri di sicurezza in criteri di Azure usando l'API REST
+## <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurare un criterio di sicurezza in Criteri di Azure'API REST
 
 Nell'ambito dell'integrazione nativa con Criteri di Azure, Centro sicurezza di Azure consente di sfruttare l'API REST di Criteri di Azure per creare le assegnazioni dei criteri. Le istruzioni seguenti descrivono la creazione delle assegnazioni dei criteri, nonché la personalizzazione delle assegnazioni esistenti. 
 
 Concetti importanti in Criteri di Azure 
 
-- Una **definizione dei criteri** è una regola 
+- Una **definizione di criteri** è una regola 
 
-- Un' **iniziativa** è una raccolta di definizioni di criteri (regole) 
+- **Un'iniziativa** è una raccolta di definizioni di criteri (regole) 
 
-- Un' **assegnazione** è un'applicazione di un'iniziativa o un criterio a un ambito specifico (gruppo di gestione, sottoscrizione e così via) 
+- **Un'assegnazione** è un'applicazione di un'iniziativa o di un criterio a un ambito specifico (gruppo di gestione, sottoscrizione e così via) 
 
-Il Centro sicurezza ha un'iniziativa predefinita, benchmark di sicurezza di Azure, che include tutti i criteri di sicurezza. Per valutare i criteri del Centro sicurezza per le risorse di Azure, è necessario creare un'assegnazione per il gruppo di gestione o la sottoscrizione che si vuole valutare.
+Il Centro sicurezza include un'iniziativa predefinita, [Azure Security Benchmark,](https://docs.microsoft.com/security/benchmark/azure/introduction)che include tutti i criteri di sicurezza. Per valutare i criteri del Centro sicurezza nelle risorse di Azure, è necessario creare un'assegnazione nel gruppo di gestione o nella sottoscrizione da valutare.
 
-Nell'iniziativa integrata sono presenti tutti i criteri del Centro sicurezza abilitati per impostazione predefinita. È possibile scegliere di disabilitare determinati criteri dall'iniziativa incorporata. Ad esempio, per applicare tutti i criteri del Centro sicurezza ad eccezione di **Web Application Firewall**, modificare il valore del parametro Effect del criterio in **disabled**.
+Nell'iniziativa integrata sono presenti tutti i criteri del Centro sicurezza abilitati per impostazione predefinita. È possibile scegliere di disabilitare determinati criteri dall'iniziativa incorporata. Ad esempio, per applicare tutti i criteri del **Centro** sicurezza ad web application firewall , modificare il valore del parametro effect del criterio in **Disabled.**
 
 ## <a name="api-examples"></a>Esempi di API
 
 Negli esempi seguenti sostituire queste variabili:
 
-- **{scope}** immettere il nome del gruppo di gestione o della sottoscrizione a cui si sta applicando il criterio
-- **{policyAssignmentName}** immettere il nome dell'assegnazione dei criteri pertinente
-- **{Name}** immettere il nome o il nome dell'amministratore che ha approvato la modifica dei criteri
+- **{scope}** immettere il nome del gruppo di gestione o della sottoscrizione a cui si stanno applicando i criteri
+- **{policyAssignmentName}** immettere il nome dell'assegnazione di criteri pertinente
+- **{name} immettere** il proprio nome o il nome dell'amministratore che ha approvato la modifica dei criteri
 
 Questo esempio illustra come assegnare l'iniziativa del Centro sicurezza integrata in una sottoscrizione oppure in un gruppo di gestione:
  
@@ -181,7 +181,7 @@ Questo esempio illustra come rimuovere un'assegnazione:
 ::: zone-end
 
 
-## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Migliora le tue raccomandazioni personalizzate con informazioni dettagliate
+## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Migliorare le raccomandazioni personalizzate con informazioni dettagliate
 
 Le raccomandazioni predefinite integrate nel Centro sicurezza di Azure includono dettagli come i livelli di gravità e istruzioni per la correzione. Per aggiungere questo tipo di informazioni alle raccomandazioni personalizzate in modo che vengano visualizzate nel portale di Azure o in qualsiasi altra posizione da cui si accede alle raccomandazioni, è necessario usare l'API REST. 
 

@@ -10,18 +10,18 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 4423eea6c35ad44d55ad17f5703a95c6273422b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebd2759d4dfb8ee79130f9b4876eba8d45226d04
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585860"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718792"
 ---
-# <a name="iot-central-device-development-guide"></a>Guida allo sviluppo del dispositivo IoT Central
+# <a name="iot-central-device-development-guide"></a>IoT Central di sviluppo di dispositivi
 
 *Questo articolo si applica agli sviluppatori di dispositivi.*
 
-Un'applicazione IoT Central consente di monitorare e gestire milioni di dispositivi durante il relativo ciclo di vita. Questa guida è destinata agli sviluppatori di dispositivi che implementano il codice per l'esecuzione nei dispositivi che si connettono a IoT Central.
+Un'applicazione IoT Central consente di monitorare e gestire milioni di dispositivi durante il relativo ciclo di vita. Questa guida è destinata agli sviluppatori di dispositivi che implementano il codice da eseguire nei dispositivi che si connettono IoT Central.
 
 I dispositivi interagiscono con un'applicazione IoT Central tramite le primitive seguenti:
 
@@ -68,7 +68,7 @@ Con il servizio Device Provisioning:
 - È possibile usare ID dispositivo personalizzati per registrare i dispositivi in IoT Central. L'uso di ID dispositivo personalizzati semplifica l'integrazione con i sistemi back-office esistenti.
 - È disponibile un singolo modo coerente per connettere i dispositivi a IoT Central.
 
-Per altre informazioni, vedere [connettersi ad Azure IOT Central](./concepts-get-connected.md) e [procedure consigliate](concepts-best-practices.md).
+Per altre informazioni, vedere [Ottenere la connessione a Azure IoT Central](./concepts-get-connected.md) e Procedure [consigliate.](concepts-best-practices.md)
 
 ### <a name="security"></a>Sicurezza
 
@@ -105,7 +105,7 @@ Un modello DTDL può essere _senza componenti_ o a _più componenti_:
 - Modello senza componenti: un modello semplice non usa componenti incorporati o a cascata. Tutti i dati di telemetria, le proprietà e i comandi vengono definiti come singolo _componente predefinito_. Per un esempio, vedere il modello di [Termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json).
 - Modello a più componenti: un modello più complesso che include due o più componenti. Questi componenti includono un singolo componente predefinito e uno o più componenti annidati aggiuntivi. Per un esempio, vedere il modello di [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-Per altre informazioni, vedere la [Guida alla modellazione degli plug and Play](../../iot-pnp/concepts-modeling-guide.md)
+Per altre informazioni, vedere IoT Plug and Play [di modellazione](../../iot-pnp/concepts-modeling-guide.md)
 
 ### <a name="conventions"></a>Convenzioni
 
@@ -125,7 +125,7 @@ Per altre informazioni sulle convenzioni di Plug and Play IoT, vedere [Convenzio
 
 ### <a name="device-sdks"></a>SDK del dispositivo
 
-Usare uno degli [Azure IoT SDK per dispositivi](#languages-and-sdks) per implementare il comportamento del dispositivo. Il codice deve:
+Usare uno degli [Azure IoT SDK per dispositivi](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) per implementare il comportamento del dispositivo. Il codice deve:
 
 - Registrare il dispositivo con DPM e usare le informazioni di DPM per connettersi all'hub IoT interno nell'applicazione IoT Central.
 - Annunciare l'identificatore DTMI del modello implementato dal dispositivo.

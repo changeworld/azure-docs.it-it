@@ -4,7 +4,7 @@ description: Introduzione ai report delle attività di accesso nel portale di Az
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,38 +13,40 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/16/2021
+ms.date: 04/19/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99f1f27cb087dc83295dddade4c0fca551a0d9c9
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 2a4cd69224daa05a3e5931fbde1c85bb8dc9e46a
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589687"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719008"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
-Il Azure Active Directory portale consente di accedere a tre log attività:
+L'amministratore IT vuole conoscere le modalità di funzionamento dell'ambiente IT. Le informazioni sull'integrità del sistema consentono di valutare se e come è necessario rispondere a potenziali problemi. 
 
-- **Accesso: informazioni sugli** account di accesso e sul modo in cui le risorse vengono usate dagli utenti.
+Per supportare l'utente con questo obiettivo, il portale Azure Active Directory consente di accedere a tre log attività:
+
+- **Sign-ins (Account** di accesso) - Informazioni sugli account di accesso e sul modo in cui le risorse vengono usate dagli utenti.
 - **[Controllo:](concept-audit-logs.md)** informazioni sulle modifiche applicate al tenant, ad esempio la gestione di utenti e gruppi o gli aggiornamenti applicati alle risorse del tenant.
 - **[Provisioning:](concept-provisioning-logs.md)** attività eseguite dal servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o un utente importato da Workday.
 
-Questo articolo offre una panoramica del report di accesso.
+Questo articolo offre una panoramica del report degli account di accesso.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
 
-* Utenti con i ruoli Amministratore sicurezza, Lettore sicurezza, Lettore globale e Lettore di report
+* Utenti con i ruoli Amministratore della sicurezza, Ruolo con autorizzazioni di lettura per la sicurezza, Ruolo con autorizzazioni di lettura globali e Lettore di report
 * Amministratori globali
 * Qualsiasi utente (non amministratore) può visualizzare i propri accessi 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Quale licenza di Azure AD è necessaria per visualizzare le attività di accesso?
 
-Il report attività di accesso è disponibile in tutte [le edizioni](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) di Azure AD ed è accessibile anche tramite l'API Microsoft Graph.
+Il report delle attività di accesso è disponibile in tutte le edizioni di [Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) ed è accessibile anche tramite l'API Microsoft Graph.
 
 ## <a name="sign-ins-report"></a>Report sugli accessi
 
@@ -54,13 +56,13 @@ Il report relativo agli accessi utente fornisce le risposte alle domande seguent
 * Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
 * Qual è lo stato di questi accessi?
 
-Nel menu [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory** oppure cercare e selezionare Azure Active Directory **da** qualsiasi pagina.
+Nel menu [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory** oppure cercare e **selezionare** Azure Active Directory da qualsiasi pagina.
 
 ![Selezionare Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-In **Monitoraggio** selezionare **Sign-ins (Accedi)** per aprire il [report Sign-ins (Accedi).](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
+In **Monitoraggio** selezionare **Sign-ins (Accesso)** per aprire il [report Sign-ins (Accesso).](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
-![Screenshot che mostra gli accesso selezionati dal menu Monitoraggio.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Attività di accesso")
+![Screenshot che mostra l'opzione Sign-ins selezionata nel menu Monitoraggio.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Attività di accesso")
 
 La visualizzazione di alcuni record di accesso nel portale può richiedere fino a due ore.
 
@@ -78,11 +80,11 @@ Un log di accesso ha una visualizzazione elenco predefinita che include:
 
 ![Screenshot che mostra gli accesso a Office 365 SharePoint Online.](./media/concept-sign-ins/sign-in-activity.png "Attività di accesso")
 
-È possibile personalizzare la visualizzazione elenco facendo clic **su Colonne** sulla barra degli strumenti.
+È possibile personalizzare la visualizzazione elenco facendo clic **su Colonne sulla** barra degli strumenti.
 
-![Screenshot che mostra l'opzione Colonne nella pagina Accedi.](./media/concept-sign-ins/19.png "Attività di accesso")
+![Screenshot che mostra l'opzione Colonne nella pagina Di accesso.](./media/concept-sign-ins/19.png "Attività di accesso")
 
-La **finestra** di dialogo Colonne consente di accedere agli attributi selezionabili. In un report di accesso non è possibile avere campi con più di un valore per una determinata richiesta di accesso come colonna. Questo vale, ad esempio, per i dettagli dell'autenticazione, i dati di accesso condizionale e il percorso di rete.   
+La **finestra** di dialogo Colonne consente di accedere agli attributi selezionabili. In un report di accesso non è possibile avere campi con più di un valore per una determinata richiesta di accesso come colonna. Questo vale, ad esempio, per i dettagli di autenticazione, i dati di accesso condizionale e il percorso di rete.   
 
 ![Screenshot che mostra la finestra di dialogo Colonne in cui è possibile selezionare gli attributi.](./media/concept-sign-ins/columns.png "Attività di accesso")
 
@@ -91,17 +93,17 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 ![Screenshot che mostra una visualizzazione dettagliata delle informazioni.](./media/concept-sign-ins/basic-sign-in.png "Attività di accesso")
 
 > [!NOTE]
-> I clienti possono ora risolvere i problemi relativi ai criteri di accesso condizionale tramite tutti i report di accesso. Facendo clic sulla scheda **Accesso** condizionale per un record di accesso, i clienti possono esaminare lo stato di accesso condizionale e approfondire i dettagli dei criteri applicati all'accesso e il risultato per ogni criterio.
+> I clienti possono ora risolvere i problemi relativi ai criteri di accesso condizionale tramite tutti i report di accesso. Facendo clic  sulla scheda Accesso condizionale per un record di accesso, i clienti possono esaminare lo stato di accesso condizionale ed esaminare i dettagli dei criteri applicati all'accesso e il risultato per ogni criterio.
 > Per altre informazioni, vedere [Domande frequenti sulle informazioni di CA in tutti gli accessi](reports-faq.md#conditional-access).
 
 
 ## <a name="sign-in-error-code"></a>Codice dell'errore di accesso
 
-Se un accesso non è riuscito, è possibile ottenere altre informazioni sul motivo nella sezione **Informazioni di base** dell'elemento di log correlato. 
+Se un accesso non è riuscito, è possibile ottenere altre informazioni sul motivo nella sezione **Informazioni di** base dell'elemento di log correlato. 
 
-![codice di errore di accesso](./media/concept-all-sign-ins/error-code.png)
+![Codice di errore di accesso](./media/concept-all-sign-ins/error-code.png)
  
-Anche se l'elemento di log fornisce un motivo di errore, in alcuni casi è possibile ottenere altre informazioni usando lo strumento di ricerca degli [errori di accesso](https://login.microsoftonline.com/error). Ad esempio, se disponibile, questo strumento fornisce i passaggi di correzione.  
+Anche se l'elemento di log fornisce un motivo di errore, in alcuni casi è possibile ottenere altre informazioni usando lo strumento di ricerca degli errori [di accesso](https://login.microsoftonline.com/error). Ad esempio, se disponibile, questo strumento fornisce i passaggi di correzione.  
 
 ![Strumento di ricerca del codice di errore](./media/concept-all-sign-ins/error-code-lookup-tool.png)
 
@@ -109,17 +111,17 @@ Anche se l'elemento di log fornisce un motivo di errore, in alcuni casi è possi
 
 ## <a name="filter-sign-in-activities&quot;></a>Filtrare le attività di accesso
 
-In primo luogo, restringere i dati segnalati a un livello che funzioni per l'utente. Filtrare quindi i dati di accesso usando il campo data come filtro predefinito. Azure AD offre un'ampia gamma di filtri aggiuntivi che è possibile impostare:
+Per prima cosa, restringere i dati segnalati a un livello che funzioni per l'utente. In secondo momento, filtrare i dati di accesso usando il campo data come filtro predefinito. Azure AD offre un'ampia gamma di filtri aggiuntivi che è possibile impostare:
 
 ![Screenshot che mostra l'opzione Aggiungi filtri.](./media/concept-sign-ins/04.png &quot;Attività di accesso")
 
-**ID richiesta:** ID della richiesta che interessa.
+**ID richiesta:** ID della richiesta a cui si è a cuore.
 
-**Utente:** il nome o il nome dell'entità utente (UPN) dell'utente a cui si è a cui si è a cui si è in cura.
+**Utente:** nome o nome dell'entità utente (UPN) dell'utente a cui si è a cuore.
 
 **Applicazione:** nome dell'applicazione di destinazione.
  
-**Stato:** lo stato di accesso a cui si è a cui si è attenzione:
+**Stato:** lo stato di accesso a cui si è a cuore:
 
 - Operazione completata
 
@@ -130,7 +132,7 @@ In primo luogo, restringere i dati segnalati a un livello che funzioni per l'ute
 
 **Indirizzo IP:** l'indirizzo IP del dispositivo usato per connettersi al tenant.
 
-**Percorso:** la posizione da cui è stata avviata la connessione:
+Posizione  : posizione da cui è stata avviata la connessione:
 
 - City
 
@@ -157,7 +159,7 @@ In primo luogo, restringere i dati segnalati a un livello che funzioni per l'ute
 |Exchange ActiveSync| |Questo filtro mostra tutti i tentativi di accesso in cui è stato tentato il protocollo EAS.|
 |Browser|![Segno di spunta blu.](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti tramite Web browser|
 |Exchange ActiveSync| | Mostra tutti i tentativi di accesso degli utenti con app client che usano Exchange ActiveSync per connettersi a Exchange Online|
-|PowerShell per Exchange Online| |Usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [Connettersi a Exchange Online PowerShell con l'autenticazione a più fattori](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|PowerShell per Exchange Online| |Usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell per Exchange Online per connettersi. Per istruzioni, vedere [Connettersi a Exchange Online PowerShell con l'autenticazione a più fattori](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Servizi Web Exchange| |Interfaccia di programmazione usata da Outlook, Outlook per Mac e app di terze parti.|
 |IMAP4| |Un client di posta elettronica legacy che usa IMAP per recuperare la posta elettronica.|
 |MAPI su HTTP| |Usato da Outlook 2010 e versioni successive.|
@@ -200,7 +202,7 @@ In primo luogo, restringere i dati segnalati a un livello che funzioni per l'ute
 
 ## <a name="download-sign-in-activities"></a>Scaricare le attività di accesso
 
-Fare clic **sull'opzione** Download per creare un file CSV o JSON dei 250.000 record più recenti. Per [iniziare, scaricare i dati di accesso](quickstart-download-sign-in-report.md) se si vuole usare i dati all'esterno del portale di Azure.  
+Fare clic **sull'opzione** Download per creare un file CSV o JSON dei 250.000 record più recenti. Per [iniziare, scaricare i dati di accesso](quickstart-download-sign-in-report.md) se si vuole lavorare all'esterno del portale di Azure.  
 
 ![Scaricare](./media/concept-sign-ins/71.png "Scarica")
 
@@ -210,7 +212,7 @@ Fare clic **sull'opzione** Download per creare un file CSV o JSON dei 250.000 re
 
 ## <a name="sign-ins-data-shortcuts"></a>Tasti di scelta rapida per i dati degli accessi
 
-Azure AD e il portale di Azure forniscono entrambi punti di ingresso aggiuntivi per i dati di accesso:
+Azure AD e portale di Azure forniscono punti di ingresso aggiuntivi per i dati di accesso:
 
 - Panoramica Identity Security e Protection
 - Utenti
@@ -219,7 +221,7 @@ Azure AD e il portale di Azure forniscono entrambi punti di ingresso aggiuntivi 
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dati degli accessi degli utenti in Identity Security e Protection
 
-Il grafico di accesso utente nella pagina di panoramica **della protezione della** sicurezza delle identità mostra le aggregazioni settimanali degli account di accesso. Il valore predefinito per il periodo di tempo è 30 giorni.
+Il grafico di accesso utente nella pagina **di panoramica di Identity Security Protection** mostra le aggregazioni settimanali degli account di accesso. Il valore predefinito per il periodo di tempo è 30 giorni.
 
 ![Screenshot che mostra un grafico degli accesso in un mese.](./media/concept-sign-ins/06.png "Attività di accesso")
 
@@ -251,7 +253,7 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 
 Nella pagina **Utenti** è possibile accedere a una panoramica completa di tutti i accessi degli utenti facendo clic su **Accessi** nella sezione **Attività**.
 
-![Screenshot che mostra la sezione Attività in cui è possibile selezionare Gli accesso.](./media/concept-sign-ins/08.png "Attività di accesso")
+![Screenshot che mostra la sezione Attività in cui è possibile selezionare Accedi.](./media/concept-sign-ins/08.png "Attività di accesso")
 
 ## <a name="usage-of-managed-applications"></a>Utilizzo di applicazioni gestite
 
@@ -261,11 +263,11 @@ Con una visualizzazione dei dati di accesso basata sulle applicazioni, è possib
 * Quali sono le prime tre applicazioni dell'organizzazione?
 * Come funziona l'applicazione più recente?
 
-Il punto di ingresso a questi dati è le prime tre applicazioni dell'organizzazione. I dati sono contenuti nel report degli ultimi 30 giorni nella sezione **Panoramica** in **Applicazioni aziendali**.
+Il punto di ingresso a questi dati è la prima tre applicazioni dell'organizzazione. I dati sono contenuti nel report degli ultimi 30 giorni nella **sezione Panoramica** in **Applicazioni aziendali.**
 
 ![Screenshot che mostra dove è possibile selezionare Panoramica.](./media/concept-sign-ins/10.png "Attività di accesso")
 
-L'utilizzo delle app rappresenta le aggregazioni settimanali di accesso per le prime tre applicazioni in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
+Il grafico di utilizzo delle app mostra le aggregazioni settimanali degli account di accesso per le prime tre applicazioni in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
 ![Screenshot che mostra l'utilizzo dell'app per un periodo di un mese.](./media/concept-sign-ins/graph-chart.png "Attività di accesso")
 
@@ -279,9 +281,9 @@ L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di acces
 
 ## <a name="microsoft-365-activity-logs"></a>Microsoft 365 log attività
 
-È possibile visualizzare Microsoft 365 log attività dal [interfaccia di amministrazione di Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Si consideri il punto che, Microsoft 365 attività e Azure AD log attività condividono un numero significativo di risorse della directory. Solo il interfaccia di amministrazione di Microsoft 365 fornisce una visualizzazione completa dei log attività Microsoft 365 attività. 
+È possibile visualizzare Microsoft 365 log attività dal [interfaccia di amministrazione di Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Si consideri il punto che, Microsoft 365 attività e Azure AD log attività condividono un numero significativo di risorse della directory. Solo il interfaccia di amministrazione di Microsoft 365 fornisce una visualizzazione completa dei log Microsoft 365 attività. 
 
-È anche possibile accedere ai log Microsoft 365 attività a livello di codice usando le API di gestione [di Office 365](/office/office-365-management-api/office-365-management-apis-overview).
+È anche possibile accedere ai log Microsoft 365 attività a livello di codice usando le API di [gestione di Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

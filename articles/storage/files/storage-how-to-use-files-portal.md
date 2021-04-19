@@ -4,15 +4,15 @@ description: Informazioni su come creare e gestire condivisioni file di Azure ne
 author: roygara
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6a88124397812f7599ce54b46b23d22e626cf520
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7867a4bd60bb179c18fff49691072d683660f7e
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629819"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717843"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con il portale di Azure 
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows, Linux e macOS. Questa guida contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con il [portale di Azure](https://portal.azure.com/).
@@ -26,12 +26,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per creare una condivisione file di Azure:
 
 1. Selezionare l'account di archiviazione dal proprio dashboard.
-2. Nella sezione **Servizi** della pagina dell'account di archiviazione selezionare **File**.
-    ![Screenshot della sezione Servizi dell'account di archiviazione; selezionare il servizio File](media/storage-how-to-use-files-portal/create-file-share-1.png)
+1. Nella sezione **Servizi** della pagina dell'account di archiviazione selezionare **File**.
+    
+    ![Screenshot della sezione relativa all'archiviazione dei dati dell'account di archiviazione. Selezionare condivisioni file.](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. Nel menu in alto nella pagina **Servizio file** fare clic su **Condivisione file**. Verrà visualizzata la pagina **Nuova condivisione file**.
-4. In **Nome** digitare *myshare*.
-5. Fare clic su **OK** per creare la condivisione file di Azure.
+1. Nel menu in alto nella pagina **Servizio file** fare clic su **Condivisione file**. Verrà visualizzata la pagina **Nuova condivisione file**.
+1. In **Nome** digitare *myshare,* immettere un quoate e lasciare selezionata l'opzione **Transaction optimized** (Ottimizzato per le transazioni) **per Tiers (Livelli).**
+1. Selezionare **Crea per** creare la condivisione file di Azure.
 
 I nomi condivisione devono essere costituiti da lettere minuscole, numeri e trattini singoli, ma non possono iniziare con un trattino. Per dettagli su come denominare condivisioni e file, vedere [Denominazione e riferimento a condivisioni, directory, file e metadati](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
@@ -60,20 +61,21 @@ Dopo avere creato una condivisione file di Azure, è possibile montare la condiv
 Per creare una nuova directory denominata *myDirectory* nella radice della condivisione file di Azure:
 
 1. Nella pagina **Servizio file** selezionare la condivisione file **myshare**. Verrà visualizzata la pagina della condivisione file.
-2. Dal menu nella parte superiore della pagina selezionare **Aggiungi directory**. Verrà visualizzata la pagina **Nuova directory**.
-3. Digitare *myDirectory* e quindi fare clic su **OK**.
+1. Dal menu nella parte superiore della pagina selezionare **Aggiungi directory**. Verrà visualizzata la pagina **Nuova directory**.
+1. Digitare *myDirectory* e quindi fare clic su **OK**.
 
 #### <a name="upload-a-file"></a>Caricare un file 
 Per illustrare il caricamento di un file, è prima di tutto necessario creare o selezionare un file da caricare. È possibile farlo in qualsiasi modo desiderato. Dopo aver selezionato il file da caricare:
 
 1. Fare clic sulla directory **myDirectory**. Si aprirà il pannello **myDirectory**.
-2. Scegliere **Upload** (Carica) dal menu in alto. Si aprirà il pannello **Carica file**.  
+1. Scegliere **Upload** (Carica) dal menu in alto. Si aprirà il pannello **Carica file**.  
+    
     ![Screenshot del pannello di caricamento file](media/storage-how-to-use-files-portal/upload-file-1.png)
 
-3. Fare clic sull'icona della cartella per aprire una finestra per esplorare i file locali. 
-4. Selezionare un file e fare clic su **Apri**. 
-5. Nella pagina **Carica file** verificare il nome del file e quindi fare clic su **Upload** (Carica).
-6. Al termine, il file sarà visualizzato nell'elenco nella pagina **myDirectory**.
+1. Fare clic sull'icona della cartella per aprire una finestra per esplorare i file locali. 
+1. Selezionare un file e fare clic su **Apri**. 
+1. Nella pagina **Carica file** verificare il nome del file e quindi fare clic su **Upload** (Carica).
+1. Al termine, il file sarà visualizzato nell'elenco nella pagina **myDirectory**.
 
 #### <a name="download-a-file"></a>Scaricare un file
 È possibile scaricare una copia del file caricato facendo clic con il pulsante destro del mouse sul file. Dopo aver fatto clic sul pulsante di download, i passaggi successivi varieranno in base al sistema operativo e al browser in uso.

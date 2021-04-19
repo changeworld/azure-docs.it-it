@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6ecf01838b8fe3104626f8ada5f832c3f52dc378
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 8fca05f8718fc5e44da33b19447895f5daafc905
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515907"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107716750"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Backup di Azure e componenti
 
@@ -23,7 +23,7 @@ Backup di Azure backup dei dati, dello stato del computer e dei carichi di lavor
 È possibile eseguire il backup di computer e dati usando diversi metodi:
 
 - **Backup di computer locali**:
-  - È possibile eseguire il backup di computer Windows locali direttamente in Azure usando l Backup di Azure Microsoft Azure di Servizi di ripristino di Microsoft Azure. I computer Linux non sono supportati.
+  - È possibile eseguire il backup di computer Windows locali direttamente in Azure usando l Backup di Azure Microsoft Azure di Servizi di ripristino di microsoft Azure. I computer Linux non sono supportati.
   - È possibile eseguire il backup di computer locali in un server di backup, System Center Data Protection Manager (DPM) o Backup di Microsoft Azure Server (MABS). È quindi possibile eseguire il backup del server di backup in un insieme di credenziali di Servizi di ripristino in Azure.
 
 - **Eseguire il backup di macchine virtuali di Azure:**
@@ -68,7 +68,7 @@ La tabella seguente illustra i diversi tipi di backup e quando vengono usati:
 **Tipo di backup** | **Dettagli** | **Utilizzo**
 --- | --- | ---
 **Completo** | Un backup completo contiene l'intera origine dati. Richiede più larghezza di banda di rete rispetto ai backup differenziali o incrementali. | Usato per il backup iniziale.
-**Differenziale** |  Un backup differenziale archivia i blocchi modificati dopo il backup completo iniziale. Usa una quantità inferiore di rete e archiviazione e non mantiene copie ridondanti di dati non modificati.<br/><br/> Inefficiente perché i blocchi di dati che rimangono invariati tra i backup successivi vengono trasferiti e archiviati. | Non è usato da Backup di Azure.
+**Differenziale** |  Un backup differenziale archivia i blocchi modificati dopo il backup completo iniziale. Usa una quantità inferiore di rete e archiviazione e non mantiene copie ridondanti di dati non modificati.<br/><br/> Inefficiente perché i blocchi di dati non modificati tra i backup successivi vengono trasferiti e archiviati. | Non è usato da Backup di Azure.
 **Incrementale** | Un backup incrementale archivia solo i blocchi di dati modificati dopo il backup precedente. Efficienza elevata per rete e archiviazione. <br/><br/> Con il backup incrementale non è necessario integrare i backup completi. | Usato da DPM/MABS per i backup su disco e usato in tutti i backup in Azure. Non usato per il SQL Server backup.
 
 ## <a name="sql-server-backup-types"></a>Tipi di backup di SQL Server
@@ -78,7 +78,7 @@ La tabella seguente illustra i diversi tipi di backup usati per SQL Server datab
 **Tipo di backup** | **Dettagli** | **Utilizzo**
 --- | --- | ---
 **Backup completo** | un backup completo è un backup eseguito per l'intero database. Contiene tutti i dati in un database specifico o in un set di filegroup o file. Un backup completo contiene anche un numero sufficiente di log per ripristinare i dati. | Al massimo, è possibile attivare un backup completo al giorno.<br/><br/> È possibile scegliere di eseguire un backup completo a intervalli giornalieri o settimanali.
-**Backup differenziale** | Un backup differenziale è basato sul backup completo dei dati più recente e precedente.<br/><br/> Acquisisce solo i dati che sono stati modificati dopo il backup completo. |  Al massimo, è possibile attivare un backup differenziale al giorno.<br/><br/> Non è possibile configurare un backup completo e un backup differenziale nella stessa giornata.
+**Backup differenziale** | Un backup differenziale si basa sul backup completo dei dati più recente e precedente.<br/><br/> Acquisisce solo i dati che sono stati modificati dopo il backup completo. |  Al massimo, è possibile attivare un backup differenziale al giorno.<br/><br/> Non è possibile configurare un backup completo e un backup differenziale nella stessa giornata.
 **Backup del log delle transazioni** | un backup del log consente il ripristino temporizzato fino a uno specifico secondo. | Al massimo, è possibile configurare backup del log delle transazioni ogni 15 minuti.
 
 ### <a name="comparison-of-backup-types"></a>Confronto dei tipi di backup
@@ -142,46 +142,30 @@ Backup di dischi deduplicati | | | ![Parziale][yellow]<br/><br/> Solo per i serv
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Architettura: Backup di macchine virtuali di Azure incorporato
 
-1. Quando si abilita il backup per una macchina virtuale di Azure, viene eseguito un backup in base alla pianificazione specificata.
-1. Durante il primo backup, nella macchina virtuale viene installata un'estensione di backup se la macchina virtuale è in esecuzione.
-    - Per le macchine virtuali Windows, viene installata l'estensione VMSnapshot.
-    - Per le macchine virtuali Linux, è installata l'estensione VMSnapshot di Linux.
-1. L'estensione accetta uno snapshot a livello di archiviazione.
-    - Per le macchine virtuali Windows in esecuzione, Backup si coordina con Windows Servizio Copia Shadow del volume (VSS) per creare uno snapshot coerente con l'app della macchina virtuale. Per impostazione predefinita, Backup accetta backup VSS completi. Se Backup di Azure non riesce a creare uno snapshot coerente con l'app, acquisisce uno snapshot coerente con i file.
-    - Per le macchine virtuali Linux, Backup accetta uno snapshot coerente con i file. Per gli snapshot coerenti con l'app, è necessario personalizzare manualmente gli script di pre/post-
-    - Il backup viene ottimizzato eseguendo in parallelo il backup di ogni disco di macchina virtuale. Per ogni disco di cui si esegue il backup, Backup di Azure legge i blocchi nel disco e archivia solo i dati modificati.
-1. Dopo la creazione dello snapshot, i dati vengono trasferiti nell'insieme di credenziali.
-    - Vengono copiati solo i blocchi di dati modificati dopo l'ultimo backup.
-    - I dati non vengono crittografati. Backup di Azure possibile eseguire il backup di macchine virtuali di Azure crittografate usando Crittografia dischi di Azure.
-    - È possibile che i dati dello snapshot non vengano copiati immediatamente nell'insieme di credenziali. Nelle ore di punta, il backup potrebbe richiedere alcune ore. Il tempo totale di backup per una macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
-1. Dopo l'invio dei dati all'insieme di credenziali, viene creato un punto di ripristino. Per impostazione predefinita, gli snapshot vengono conservati per due giorni prima dell'eliminazione. Questa funzionalità consente l'operazione di ripristino da questi snapshot, riducendo così i tempi di ripristino. Riduce il tempo necessario per trasformare e copiare i dati dall'insieme di credenziali. Vedere [Backup di Azure instant restore capability (Funzionalità di ripristino istantaneo).](./backup-instant-restore-capability.md)
-
-Non è necessario consentire esplicitamente alla connettività Internet di eseguire il backup delle macchine virtuali di Azure.
-
-![Backup di macchine virtuali di Azure](./media/backup-architecture/architecture-azure-vm.png)
+[!INCLUDE [azure-vm-backup-process.md](../../includes/azure-vm-backup-process.md)]
 
 ## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>Architettura: backup diretto di computer Windows Server locali o file o cartelle di macchine virtuali di Azure
 
 1. Per configurare lo scenario, scaricare e installare l'agente MARS nel computer. È quindi possibile selezionare gli elementi di cui eseguire il backup, quando verranno eseguiti e per quanto tempo verranno conservati in Azure.
 1. Il backup iniziale viene eseguito in base alle impostazioni di backup.
-1. L'agente MARS usa VSS per creare uno snapshot tempormente dei volumi selezionati per il backup.
+1. L'agente MARS usa VSS per creare uno snapshot temporato dei volumi selezionati per il backup.
     - L'agente MARS usa solo l'operazione di scrittura del sistema Windows per acquisire lo snapshot.
-    - Poiché l'agente non usa vss writer dell'applicazione, non acquisisce snapshot coerenti con l'app.
-1. Dopo aver creato lo snapshot con vss, l'agente MARS crea un disco rigido virtuale (VHD) nella cartella cache specificata durante la configurazione del backup. L'agente archivia anche i checksum per ogni blocco di dati. Che verranno successivamente usati per rilevare i blocchi modificati per i backup incrementali successivi.
+    - Poiché l'agente non usa writer VSS dell'applicazione, non acquisisce snapshot coerenti con l'app.
+1. Dopo aver creato lo snapshot con VSS, l'agente MARS crea un disco rigido virtuale (VHD) nella cartella della cache specificata al momento della configurazione del backup. L'agente archivia anche i checksum per ogni blocco di dati. In seguito vengono usati per rilevare i blocchi modificati per i backup incrementali successivi.
 1. I backup incrementali vengono eseguiti in base alla pianificazione specificata, a meno che non venga eseguito un backup su richiesta.
 1. Nei backup incrementali, i file modificati vengono identificati e viene creato un nuovo disco rigido virtuale, Il disco rigido virtuale viene compresso e crittografato e quindi inviato all'insieme di credenziali.
 1. Al termine del backup incrementale, il nuovo disco rigido virtuale viene unito al disco rigido virtuale creato dopo la replica iniziale. Questo disco rigido virtuale unito fornisce lo stato più recente da usare per il confronto per il backup in corso.
 
-![Backup di computer Windows Server locali con l'agente MARS](./media/backup-architecture/architecture-on-premises-mars.png)
+![Backup di computer Windows Server locali con agente MARS](./media/backup-architecture/architecture-on-premises-mars.png)
 
 ## <a name="architecture-back-up-to-dpmmabs"></a>Architettura: Eseguire il backup in DPM/MABS
 
 1. Installare l'agente protezione DPM o MABS nei computer da proteggere. I computer vengono quindi aggiunti a un gruppo protezione dati DPM.
     - Per proteggere i computer locali, il server DPM o MABS deve essere in locale.
     - Per proteggere le macchine virtuali di Azure, il server MABS deve trovarsi in Azure, in esecuzione come macchina virtuale di Azure.
-    - Con DPM/MABS è possibile proteggere volumi, condivisioni, file e cartelle di backup. È anche possibile proteggere lo stato del sistema di un computer (bare metal) ed è possibile proteggere app specifiche con impostazioni di backup con supporto delle app.
-1. Quando si configura la protezione per un computer o un'app in DPM/MABS, si sceglie di eseguire il backup nel disco locale mabs/DPM per l'archiviazione a breve termine e in Azure per la protezione online. È anche possibile specificare quando eseguire il backup nell'archiviazione dpm/mabs locale e quando eseguire il backup online in Azure.
-1. Il backup del disco del carico di lavoro protetto viene eseguito nei dischi maBS/DPM locali, in base alla pianificazione specificata.
+    - Con DPM/MABS è possibile proteggere volumi, condivisioni, file e cartelle di backup. È anche possibile proteggere lo stato del sistema di un computer (bare metal) ed è possibile proteggere app specifiche con impostazioni di backup in grado di riconoscere le app.
+1. Quando si configura la protezione per un computer o un'app in DPM/MABS, si sceglie di eseguire il backup nel disco locale MABS/DPM per l'archiviazione a breve termine e in Azure per la protezione online. È anche possibile specificare quando eseguire il backup nell'archiviazione DPM/MABS locale e quando deve essere eseguito il backup online in Azure.
+1. Il backup del disco del carico di lavoro protetto viene eseguito nei dischi MABS/DPM locali, in base alla pianificazione specificata.
 1. I dischi DPM/MABS vengono sottoposti a backup nell'insieme di credenziali dall'agente MARS in esecuzione nel server DPM/MABS.
 
 ![Backup di computer e carichi di lavoro protetti da DPM o MABS](./media/backup-architecture/architecture-dpm-mabs.png)
@@ -210,7 +194,7 @@ Per altre informazioni sull'archiviazione su disco e sui tipi di disco disponibi
 
 È possibile eseguire il backup di macchine virtuali di Azure usando l'archiviazione Premium con Backup di Azure:
 
-- Durante il processo di backup di macchine virtuali con Archiviazione Premium, il servizio Backup crea un percorso di gestione temporanea, *denominato AzureBackup-*, nell'account di archiviazione. Le dimensioni del percorso di gestione temporanea sono uguali alle dimensioni dello snapshot del punto di ripristino.
+- Durante il processo di backup delle macchine virtuali con archiviazione Premium, il servizio Backup crea un percorso di staging temporaneo, denominato *AzureBackup-*, nell'account di archiviazione. Le dimensioni del percorso di staging sono uguali alle dimensioni dello snapshot del punto di ripristino.
 - Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di gestione temporanea. Per altre informazioni, vedere [Obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium.](../storage/blobs/scalability-targets-premium-page-blobs.md) Non modificare il percorso di gestione temporanea.
 - Al termine del processo di backup, il percorso di gestione temporanea viene eliminato.
 - Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con i [prezzi dell'archiviazione Premium](../virtual-machines/disks-types.md#billing).

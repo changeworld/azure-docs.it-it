@@ -1,24 +1,27 @@
 ---
-title: Disponibilità elevata in istanze large di Azure per SAP in RHEL
-description: Informazioni su come automatizzare un failover del database di SAP HANA usando un cluster Pacemaker in Red Hat Enterprise Linux.
+title: Disponibilità elevata di Istanze Large di Azure per SAP in RHEL
+description: Informazioni su come automatizzare un failover SAP HANA del database usando un cluster Pacemaker in Red Hat Enterprise Linux.
 author: jaawasth
 ms.author: jaawasth
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: how-to
 ms.date: 02/08/2021
-ms.openlocfilehash: 99e9994d01e4579bf6ef2e369e0fe85c48af52ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dc27fd67a3801815464ecd37fea567c02dee6e49
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182435"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719044"
 ---
-# <a name="azure-large-instances-high-availability-for-sap-on-rhel"></a>Disponibilità elevata in istanze large di Azure per SAP in RHEL
+# <a name="azure-large-instances-high-availability-for-sap-on-rhel"></a>Disponibilità elevata di Istanze Large di Azure per SAP in RHEL
 
-Questo articolo illustra come configurare il cluster Pacemaker in RHEL 7,6 per automatizzare un failover del database SAP HANA. Per completare i passaggi illustrati in questa guida, è necessario avere una conoscenza corretta di Linux, SAP HANA e pacemaker.
+> [!NOTE]
+> Questo articolo contiene riferimenti al termine *blacklist,* un termine che Microsoft non usa più. Quando questo termine viene rimosso dal software, verrà rimosso da questo articolo.
 
-La tabella seguente include i nomi host usati in questo articolo. I blocchi di codice nell'articolo mostrano i comandi che devono essere eseguiti, nonché l'output di tali comandi. Prestare molta attenzione al nodo a cui si fa riferimento in ogni comando.
+Questo articolo illustra come configurare il cluster Pacemaker in RHEL 7.6 per automatizzare un failover SAP HANA database locale. Per completare i passaggi descritti in questa guida, è necessario avere una buona conoscenza di Linux, SAP HANA e Pacemaker.
+
+La tabella seguente include i nomi host usati in questo articolo. I blocchi di codice nell'articolo mostrano i comandi che devono essere eseguiti, nonché l'output di tali comandi. Prestare particolare attenzione al nodo a cui viene fatto riferimento in ogni comando.
 
 | Tipo | Nome dell'host | Nodo|
 |-------|-------------|------|
@@ -28,9 +31,9 @@ La tabella seguente include i nomi host usati in questo articolo. I blocchi di c
 ## <a name="configure-your-pacemaker-cluster"></a>Configurare il cluster Pacemaker
 
 
-Prima di iniziare la configurazione del cluster, configurare lo scambio di chiavi SSH per stabilire una relazione di trust tra i nodi.
+Prima di iniziare a configurare il cluster, configurare lo scambio di chiavi SSH per stabilire una relazione di trust tra i nodi.
 
-1. Usare i comandi seguenti per creare un identico `/etc/hosts` in entrambi i nodi.
+1. Usare i comandi seguenti per creare identici `/etc/hosts` in entrambi i nodi.
 
     ```
     root@sollabdsm35 ~]# cat /etc/hosts
@@ -55,14 +58,14 @@ Prima di iniziare la configurazione del cluster, configurare lo scambio di chiav
 
     ```
 
-2.  Creare ed scambiare le chiavi SSH.
-    1. Genera chiavi SSH.
+2.  Creare e scambiare le chiavi SSH.
+    1. Generare chiavi ssh.
 
        ```
        [root@sollabdsm35 ~]# ssh-keygen -t rsa -b 1024
        [root@sollabdsm36 ~]# ssh-keygen -t rsa -b 1024
        ```
-    2. Copiare le chiavi negli altri host per SSH con password.
+    2. Copiare le chiavi in altri host per ssh senza password.
     
        ```
        [root@sollabdsm35 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm35
@@ -71,7 +74,7 @@ Prima di iniziare la configurazione del cluster, configurare lo scambio di chiav
        [root@sollabdsm36 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm36
        ```
 
-3.  Disabilitare SELinux in entrambi i nodi.
+3.  Disabilitare selinux in entrambi i nodi.
     ```
     [root@sollabdsm35 ~]# vi /etc/selinux/config
 
@@ -89,7 +92,7 @@ Prima di iniziare la configurazione del cluster, configurare lo scambio di chiav
 
     ```  
 
-4. Riavviare i server e usare il comando seguente per verificare lo stato di SELinux.
+4. Riavviare i server e quindi usare il comando seguente per verificare lo stato di selinux.
     ```
     [root@sollabdsm35 ~]# sestatus
 
@@ -102,8 +105,8 @@ Prima di iniziare la configurazione del cluster, configurare lo scambio di chiav
     SELinux status: disabled
     ```
 
-5. Configurare NTP (Network Time Protocol). I fusi orari e temporali per entrambi i nodi del cluster devono corrispondere. Usare il comando seguente per aprire `chrony.conf` e verificare il contenuto del file.
-    1. Il contenuto seguente deve essere aggiunto al file di configurazione. Modificare i valori effettivi in base all'ambiente in uso.
+5. Configurare NTP (Network Time Protocol). L'ora e i fusi orari per entrambi i nodi del cluster devono corrispondere. Usare il comando seguente per aprire `chrony.conf` e verificare il contenuto del file.
+    1. Il contenuto seguente deve essere aggiunto al file di configurazione. Modificare i valori effettivi in base all'ambiente.
         ```
         vi /etc/chrony.conf
     
@@ -114,7 +117,7 @@ Prima di iniziare la configurazione del cluster, configurare lo scambio di chiav
         server 0.rhel.pool.ntp.org iburst
        ```
     
-    2. Abilitare il servizio Chrony. 
+    2. Abilitare il servizio chrony. 
       
         ```
         systemctl enable chronyd
@@ -149,8 +152,8 @@ Prima di iniziare la configurazione del cluster, configurare lo scambio di chiav
         ```
 
 6. Aggiornare il sistema
-    1. Installare prima di tutto gli aggiornamenti più recenti nel sistema prima di iniziare a installare il dispositivo SBD.
-    1. Se non si desidera un aggiornamento completo del sistema, anche se si consiglia di aggiornare i pacchetti seguenti come minimo.
+    1. Prima di iniziare a installare il dispositivo SBD, installare gli aggiornamenti più recenti nel sistema.
+    1. Se non si vuole un aggiornamento completo del sistema, anche se consigliato, aggiornare almeno i pacchetti seguenti.
         1. `resource-agents-sap-hana`
         1. `selinux-policy`
         1. `iscsi-initiator-utils`
@@ -161,7 +164,7 @@ Prima di iniziare la configurazione del cluster, configurare lo scambio di chiav
         ```
  
 
-7. Installare i repository SAP HANA e RHEL-HA.
+7. Installare i SAP HANA e RHEL-HA.
 
     ```
     subscription-manager repos –list
@@ -173,18 +176,18 @@ Prima di iniziare la configurazione del cluster, configurare lo scambio di chiav
     ```
       
 
-8. Installare gli strumenti pacemaker, SBD, OpenIPMI, ipmitools e fencing_sbd in tutti i nodi.
+8. Installare Pacemaker, SBD, OpenIPMI, ipmitools e fencing_sbd in tutti i nodi.
 
     ``` 
     yum install pcs sbd fence-agent-sbd.x86_64 OpenIPMI
     ipmitools
     ```
 
-  ## <a name="configure-watchdog"></a>Configura watchdog
+  ## <a name="configure-watchdog"></a>Configurare watchdog
 
-In questa sezione viene illustrato come configurare watchdog. In questa sezione vengono usati gli stessi due host `sollabdsm35` e `sollabdsm36` , a cui si fa riferimento all'inizio di questo articolo.
+Questa sezione illustra come configurare Watchdog. Questa sezione usa gli stessi due host, e , a `sollabdsm35` cui si fa riferimento `sollabdsm36` all'inizio di questo articolo.
 
-1. Verificare che il daemon watchdog non sia in esecuzione in alcun sistema.
+1. Assicurarsi che il daemon watchdog non sia in esecuzione in alcun sistema.
     ```
     [root@sollabdsm35 ~]# systemctl disable watchdog
     [root@sollabdsm36 ~]# systemctl disable watchdog
@@ -205,8 +208,8 @@ In questa sezione viene illustrato come configurare watchdog. In questa sezione 
 
     ```
 
-2. Il watchdog predefinito di Linux, che verrà installato durante l'installazione, è il watchdog iTCO, che non è supportato dai sistemi UCS e HPE SDFlex. Questo watchdog deve pertanto essere disabilitato.
-    1. Il watchdog errato è installato e caricato nel sistema:
+2. Il watchdog Linux predefinito, che verrà installato durante l'installazione, è il watchdog iTCO che non è supportato dai sistemi UCS e HPE SDFlex. Pertanto, questo watchdog deve essere disabilitato.
+    1. Il watchdog errato viene installato e caricato nel sistema:
        ```
    
        sollabdsm35:~ # lsmod |grep iTCO
@@ -223,7 +226,7 @@ In questa sezione viene illustrato come configurare watchdog. In questa sezione 
        sollabdsm36:~ # modprobe -r iTCO_wdt iTCO_vendor_support
        ```  
         
-    3. Per assicurarsi che il driver non venga caricato durante il successivo avvio del sistema, il driver deve essere Blocklisting. Per bloccare i moduli iTCO, aggiungere quanto segue alla fine del `50-blacklist.conf` file:
+    3. Per assicurarsi che il driver non sia caricato durante l'avvio successivo del sistema, il driver deve essere in elenco bloccate. Per bloccare i moduli iTCO, aggiungere quanto segue alla fine del `50-blacklist.conf` file:
        ```
    
        sollabdsm35:~ # vi /etc/modprobe.d/50-blacklist.conf
@@ -240,7 +243,7 @@ In questa sezione viene illustrato come configurare watchdog. In questa sezione 
        /etc/modprobe.d/50-blacklist.conf
        ```  
 
-    5. Verificare se il servizio IPMI è stato avviato. È importante che il timer IPMI non sia in esecuzione. La gestione del timer viene eseguita dal servizio pacemaker SBD.
+    5. Verificare se il servizio ipmi è stato avviato. È importante che il timer IPMI non sia in esecuzione. La gestione del timer verrà eseguita dal servizio pacemaker SBD.
        ```
        sollabdsm35:~ # ipmitool mc watchdog get
    
@@ -260,7 +263,7 @@ In questa sezione viene illustrato come configurare watchdog. In questa sezione 
    
        ``` 
 
-3. Per impostazione predefinita, il dispositivo richiesto è/dev/watchdog non verrà creato.
+3. Per impostazione predefinita, il dispositivo richiesto è /dev/watchdog non verrà creato.
 
     ```
     No watchdog device was created
@@ -286,12 +289,12 @@ In questa sezione viene illustrato come configurare watchdog. In questa sezione 
     IPMI_POWERCYCLE=no
     IPMI_IMB=no
     ```
-5. Copiare il file di configurazione del watchdog nel database secondario.
+5. Copiare il file di configurazione watchdog nel database secondario.
     ```
     sollabdsm35:~ # scp /etc/sysconfig/ipmi
     sollabdsm36:/etc/sysconfig/ipmi
     ```
-6.  Abilitare e avviare il servizio IPMI.
+6.  Abilitare e avviare il servizio ipmi.
     ```
     [root@sollabdsm35 ~]# systemctl enable ipmi
 
@@ -309,8 +312,8 @@ In questa sezione viene illustrato come configurare watchdog. In questa sezione 
 
     [root@sollabdsm36 ~]# systemctl start ipmi
     ```
-     Ora il servizio IPMI viene avviato e viene creato il/dev/watchdog del dispositivo, ma il timer è ancora arrestato. Successivamente, SBD gestirà la reimpostazione del watchdog e Abilita il timer IPMI.
-7.  Verificare che/dev/watchdog esista ma non è in uso.
+     Ora viene avviato il servizio IPMI e viene creato il dispositivo /dev/watchdog, ma il timer è ancora arrestato. Successivamente, il servizio SBD gestirà la reimpostazione watchdog e a abilita il timer IPMI.
+7.  Verificare che /dev/watchdog esista ma non sia in uso.
     ```
     [root@sollabdsm35 ~]# ipmitool mc watchdog get
     Watchdog Timer Use: SMS/OS (0x04)
@@ -326,13 +329,13 @@ In questa sezione viene illustrato come configurare watchdog. In questa sezione 
     [root@sollabdsm35 ~]# lsof /dev/watchdog
     ```
 
-## <a name="sbd-configuration"></a>Configurazione di SBD
-In questa sezione viene illustrato come configurare SBD. In questa sezione vengono usati gli stessi due host `sollabdsm35` e `sollabdsm36` , a cui si fa riferimento all'inizio di questo articolo.
+## <a name="sbd-configuration"></a>Configurazione SBD
+In questa sezione si apprenderà come configurare SBD. In questa sezione vengono utilizzati gli stessi due host, e , a cui `sollabdsm35` `sollabdsm36` si fa riferimento all'inizio di questo articolo.
 
-1.  Verificare che il disco iSCSI o FC sia visibile in entrambi i nodi. Questo esempio usa un dispositivo SBD basato su FC. Per ulteriori informazioni sulla schermatura SBD, vedere la [documentazione di riferimento](http://www.linux-ha.org/wiki/SBD_Fencing).
-2.  Il LUN-ID deve essere identico in tutti i nodi.
+1.  Assicurarsi che il disco iSCSI o FC sia visibile in entrambi i nodi. Questo esempio usa un dispositivo SBD basato su FC. Per altre informazioni sulla scherma SBD, vedere la documentazione [di riferimento](http://www.linux-ha.org/wiki/SBD_Fencing).
+2.  L'ID LUN deve essere identico in tutti i nodi.
   
-3.  Controllare lo stato dei percorsi multipli per il dispositivo SBD.
+3.  Controllare lo stato multipercorso per il dispositivo sbd.
     ```
     multipath -ll
     3600a098038304179392b4d6c6e2f4b62 dm-5 NETAPP ,LUN C-Mode
@@ -346,7 +349,7 @@ In questa sezione viene illustrato come configurare SBD. In questa sezione vengo
     `- 10:0:3:2 sdl 8:176 active ready running
     ```
 
-4.  Creazione dei dischi SBD e configurazione della schermatura primitiva del cluster. Questo passaggio deve essere eseguito nel primo nodo.
+4.  Creazione dei dischi SBD e configurazione dell'fencing primitivo del cluster. Questo passaggio deve essere eseguito nel primo nodo.
     ```
     sbd -d /dev/mapper/3600a098038304179392b4d6c6e2f4b62 -4 20 -1 10 create 
 
@@ -359,7 +362,7 @@ In questa sezione viene illustrato come configurare SBD. In questa sezione vengo
     Device /dev/mapper/3600a098038304179392b4d6c6e2f4b62 is initialized.
     ```
 
-5.  Copiare la configurazione di SBD in Node2.
+5.  Copiare la configurazione SBD in node2.
     ```
     vi /etc/sysconfig/sbd
 
@@ -396,7 +399,7 @@ In questa sezione viene illustrato come configurare SBD. In questa sezione vengo
     ==Header on disk /dev/mapper/3600a098038304179392b4d6c6e2f4b62 is dumped
     ```
 
-7.  Aggiungere il dispositivo SBD nel file di configurazione di SBD.
+7.  Aggiungere il dispositivo SBD nel file di configurazione SBD.
 
     ```
     \# SBD_DEVICE specifies the devices to use for exchanging sbd messages
@@ -415,19 +418,19 @@ In questa sezione viene illustrato come configurare SBD. In questa sezione vengo
     ```
 
 ## <a name="cluster-initialization"></a>Inizializzazione del cluster
-In questa sezione si inizializza il cluster. In questa sezione vengono usati gli stessi due host `sollabdsm35` e `sollabdsm36` , a cui si fa riferimento all'inizio di questo articolo.
+In questa sezione viene inizializzato il cluster. Questa sezione usa gli stessi due host, e , a `sollabdsm35` cui si fa riferimento `sollabdsm36` all'inizio di questo articolo.
 
 1.  Configurare la password utente del cluster (tutti i nodi).
     ```
     passwd hacluster
     ```
-2.  Avviare i PC in tutti i sistemi.
+2.  Avviare PCS in tutti i sistemi.
     ```
     systemctl enable pcsd
     ```
   
 
-3.  Arrestare il firewall e disabilitarlo (tutti i nodi).
+3.  Arrestare il firewall e disabilitarlo in (tutti i nodi).
     ```
     systemctl disable firewalld 
 
@@ -436,14 +439,14 @@ In questa sezione si inizializza il cluster. In questa sezione vengono usati gli
     systemctl stop firewalld
     ```
 
-4.  Avviare il servizio PCSD.
+4.  Avviare il servizio pcsd.
     ```
     systemctl start pcsd
     ```
   
   
 
-5.  Eseguire l'autenticazione del cluster solo da Node1.
+5.  Eseguire l'autenticazione del cluster solo da node1.
 
     ```
     pcs cluster auth sollabdsm35 sollabdsm36
@@ -466,7 +469,7 @@ In questa sezione si inizializza il cluster. In questa sezione vengono usati gli
     ```
   
 
-7.  Verificare lo stato del cluster.
+7.  Controllare lo stato del cluster.
 
     ```
     pcs cluster status
@@ -504,7 +507,7 @@ In questa sezione si inizializza il cluster. In questa sezione vengono usati gli
     pcsd: active/disabled
     ```
 
-8. Se un nodo non partecipa al controllo del cluster se il firewall è ancora in esecuzione.
+8. Se un nodo non viene unito al cluster, verificare se il firewall è ancora in esecuzione.
 
   
 
@@ -514,14 +517,14 @@ In questa sezione si inizializza il cluster. In questa sezione vengono usati gli
     ```
   
 
-10. Arrestare il cluster riavviare i servizi cluster in tutti i nodi.
+10. Arrestare il cluster riavviare i servizi cluster (in tutti i nodi).
 
     ```
     pcs cluster stop --all
     ```
 
 
-11. Riavviare i servizi cluster in tutti i nodi.
+11. Riavviare i servizi cluster (in tutti i nodi).
 
     ```
     systemctl stop pcsd
@@ -546,7 +549,7 @@ In questa sezione si inizializza il cluster. In questa sezione vengono usati gli
     Active: active (running) since Wed 2021-01-20 01:43:41 EST; 9min ago
     ```
 
-13. Riavviare il cluster, se non è stato avviato automaticamente da PCSD.
+13. Riavviare il cluster (se non avviato automaticamente da pcsd).
 
     ```
     pcs cluster start –-all
@@ -561,7 +564,7 @@ In questa sezione si inizializza il cluster. In questa sezione vengono usati gli
     ```
   
 
-14. Abilitare le impostazioni di STONITH.
+14. Abilitare le impostazioni stonith.
     ```
     pcs stonith enable SBD --device=/dev/mapper/3600a098038304179392b4d6c6e2f4d65
     pcs property set stonith-watchdog-timeout=20
@@ -569,7 +572,7 @@ In questa sezione si inizializza il cluster. In questa sezione vengono usati gli
     ```
   
 
-15. Verificare lo stato del nuovo cluster con una sola risorsa.
+15. Controllare lo stato del nuovo cluster con ora una risorsa.
     ```
     pcs status
 
@@ -609,7 +612,7 @@ In questa sezione si inizializza il cluster. In questa sezione vengono usati gli
     ```
   
 
-16. Ora è necessario eseguire il timer IPMI e il dispositivo/dev/watchdog deve essere aperto da SBD.
+16. Ora il timer IPMI deve essere eseguito e il dispositivo /dev/watchdog deve essere aperto da sbd.
 
     ```
     ipmitool mc watchdog get
@@ -635,7 +638,7 @@ In questa sezione si inizializza il cluster. In questa sezione vengono usati gli
     sbd 117569 root 5w CHR 10,130 0t0 323812 /dev/watchdog
     ```
 
-17. Controllare lo stato di SBD.
+17. Controllare lo stato SBD.
 
     ```
     sbd -d /dev/mapper/3600a098038304445693f4c467446447a list
@@ -646,7 +649,7 @@ In questa sezione si inizializza il cluster. In questa sezione vengono usati gli
     ```
   
 
-18. Testare la schermatura SBD arrestando in modo anomalo il kernel.
+18. Testare la scherma SBD arrestando in modo anomalo il kernel.
 
     * Attivare l'arresto anomalo del kernel.
 
@@ -657,34 +660,34 @@ In questa sezione si inizializza il cluster. In questa sezione vengono usati gli
       set as panic_wdt_timeout in the /etc/sysconfig/ipmi config file.
       ```
   
-    * Il secondo test da eseguire consiste nel recintare un nodo usando i comandi PCS.
+    * Il secondo test da eseguire è quello di recintare un nodo usando i comandi PCS.
 
       ```
       pcs stonith fence sollabdsm36
       ```
   
 
-19. Per il resto del clustering di SAP HANA è possibile disabilitare STONITH impostando:
+19. Per il resto del SAP HANA clustering, è possibile disabilitare STONITH impostando:
 
-   * set di proprietà PCS `stonith-enabled=false`
-   * Questo parametro deve essere impostato su true per l'utilizzo produttivo. Se questo parametro non è impostato su true, il cluster non sarà supportato.
-   * set di proprietà PCS `stonith-enabled=true`
+   * set di proprietà pcs `stonith-enabled=false`
+   * Questo parametro deve essere impostato su true per un utilizzo produttivo. Se questo parametro non è impostato su true, il cluster non sarà supportato.
+   * set di proprietà pcs `stonith-enabled=true`
 
 ## <a name="hana-integration-into-the-cluster"></a>Integrazione di HANA nel cluster
 
-In questa sezione si integra HANA nel cluster. In questa sezione vengono usati gli stessi due host `sollabdsm35` e `sollabdsm36` , a cui si fa riferimento all'inizio di questo articolo.
+In questa sezione si integra HANA nel cluster. In questa sezione vengono utilizzati gli stessi due host, e , a cui `sollabdsm35` `sollabdsm36` si fa riferimento all'inizio di questo articolo.
 
-Sono disponibili due opzioni per l'integrazione di HANA. La prima opzione è una soluzione ottimizzata per i costi in cui è possibile utilizzare il sistema secondario per eseguire il sistema QAS. Questo metodo non è consigliato perché non lascia alcun sistema per testare gli aggiornamenti sul software del cluster, sul sistema operativo o su HANA e gli aggiornamenti della configurazione possono causare tempi di inattività non pianificati del sistema PRD. Inoltre, se il sistema PRD deve essere attivato nel sistema secondario, il QAS deve essere arrestato nel nodo secondario. La seconda opzione consiste nell'installare il sistema QAS in un cluster e usare un secondo cluster per il PRD. Questa opzione consente inoltre di testare tutti i componenti prima che vengano inseriti nell'ambiente di produzione. Questo articolo illustra come configurare la seconda opzione.
+Sono disponibili due opzioni per l'integrazione di HANA. La prima opzione è una soluzione ottimizzata per i costi in cui è possibile usare il sistema secondario per eseguire il sistema QAS. Questo metodo non è consigliabile perché non lascia alcun sistema per testare gli aggiornamenti del software del cluster, del sistema operativo o di HANA e gli aggiornamenti di configurazione possono causare tempi di inattività non pianificati del sistema PRD. Inoltre, se il sistema PRD deve essere attivato nel sistema secondario, il qas deve essere arrestato nel nodo secondario. La seconda opzione è installare il sistema QAS in un cluster e usare un secondo cluster per il PRD. Questa opzione consente anche di testare tutti i componenti prima che siano inseriti nell'ambiente di produzione. Questo articolo illustra come configurare la seconda opzione.
 
 
-* Questo processo è la compilazione della descrizione RHEL sulla pagina:
+* Questo processo è la compilazione della descrizione di RHEL nella pagina:
 
   * https://access.redhat.com/articles/3004101
 
- ### <a name="steps-to-follow-to-configure-hsr"></a>Passaggi da seguire per configurare HSR
+ ### <a name="steps-to-follow-to-configure-hsr"></a>Procedura da seguire per configurare HSR
 
-1.  Queste sono le azioni da eseguire su node1 (primario).
-    1. Verificare che la modalità log del database sia impostata su Normal.
+1.  Queste sono le azioni da eseguire nel nodo 1 (primario).
+    1. Assicurarsi che la modalità del log del database sia impostata su normale.
 
        ```  
    
@@ -699,7 +702,7 @@ Sono disponibili due opzioni per l'integrazione di HANA. La prima opzione è una
    
        "normal"
        ```
-    2. SAP HANA la replica di sistema funzionerà solo dopo l'esecuzione del backup iniziale. Il comando che segue crea un backup iniziale nella `/tmp/` Directory. Selezionare un file System di backup appropriato per il database. 
+    2. SAP HANA la replica di sistema funzionerà solo dopo l'esecuzione del backup iniziale. Il comando seguente crea un backup iniziale nella `/tmp/` directory . Selezionare un file system di backup appropriato per il database. 
        ```
        * hdbsql -i 00 -u system -p SAPhana10 "BACKUP DATA USING FILE
        ('/tmp/backup')"
@@ -721,7 +724,7 @@ Sono disponibili due opzioni per l'integrazione di HANA. La prima opzione è una
        ```
     
 
-    3. Esegui backup di tutti i contenitori di database di questo database.
+    3. Eseguire il backup di tutti i contenitori di database di questo database.
        ```
    
        * hdbsql -i 00 -u system -p SAPhana10 -d SYSTEMDB "BACKUP DATA USING
@@ -745,7 +748,7 @@ Sono disponibili due opzioni per l'integrazione di HANA. La prima opzione è una
        done.
        ```
 
-    5. Verificare lo stato del sistema primario.
+    5. Controllare lo stato del sistema primario.
        ```
        hdbnsutil -sr_state
     
@@ -793,7 +796,7 @@ Sono disponibili due opzioni per l'integrazione di HANA. La prima opzione è una
        done.
        ```
 
- 2. Queste sono le azioni da eseguire su NODE2 (secondario).
+ 2. Queste sono le azioni da eseguire nel nodo 2 (secondario).
      1. Arrestare il database.
        ```
        su – hr2adm
@@ -802,7 +805,7 @@ Sono disponibili due opzioni per l'integrazione di HANA. La prima opzione è una
        ```
     
 
-     2. Solo per SAP HANA 2.0, copiare il sistema di SAP HANA `PKI SSFS_HR2.KEY` e `SSFS_HR2.DAT` i file dal nodo primario a quello secondario.
+     2. Solo per SAP HANA2.0, copiare il SAP HANA e i `PKI SSFS_HR2.KEY` file dal nodo primario al nodo `SSFS_HR2.DAT` secondario.
        ```
        scp
        root@node1:/usr/sap/HR2/SYS/global/security/rsecssfs/key/SSFS_HR2.KEY
@@ -815,7 +818,7 @@ Sono disponibili due opzioni per l'integrazione di HANA. La prima opzione è una
        /usr/sap/HR2/SYS/global/security/rsecssfs/data/SSFS_HR2.DAT
        ```
 
-     3. Abilitare secondario come sito di replica.
+     3. Abilitare il sito secondario come sito di replica.
        ``` 
        su - hr2adm
    
@@ -843,7 +846,7 @@ Sono disponibili due opzioni per l'integrazione di HANA. La prima opzione è una
        sapcontrol -nr 00 -function StartSystem 
        ```
     
-     5. Verificare lo stato del database.
+     5. Controllare lo stato del database.
        ```
        hdbnsutil -sr_state
    
@@ -916,7 +919,7 @@ Sono disponibili due opzioni per l'integrazione di HANA. La prima opzione è una
        ~~~~~~~~~~~~~~
        ```
 
-3. È anche possibile ottenere ulteriori informazioni sullo stato della replica:
+3. È anche possibile ottenere altre informazioni sullo stato della replica:
     ```
     ~~~~~
     hr2adm@node1:/usr/sap/HR2/HDB00> python
@@ -954,73 +957,73 @@ Sono disponibili due opzioni per l'integrazione di HANA. La prima opzione è una
     ```
   
 
-#### <a name="log-replication-mode-description"></a>Descrizione della modalità di replica log
+#### <a name="log-replication-mode-description"></a>Descrizione della modalità di replica dei log
 
-Per ulteriori informazioni sulla modalità di replica dei log, vedere la [documentazione di SAP ufficiale](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/c039a1a5b8824ecfa754b55e0caffc01.html).
+Per altre informazioni sulla modalità di replica dei log, vedere la [documentazione ufficiale di SAP.](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/c039a1a5b8824ecfa754b55e0caffc01.html)
   
 
 #### <a name="network-setup-for-hana-system-replication"></a>Configurazione di rete per la replica di sistema HANA
 
 
-Per assicurarsi che il traffico di replica usi la VLAN corretta per la replica, è necessario configurarlo correttamente in `global.ini` . Se si ignora questo passaggio, HANA utilizzerà la VLAN di accesso per la replica, che potrebbe essere indesiderata.
+Per assicurarsi che il traffico di replica utilizzi la VLAN corretta per la replica, deve essere configurato correttamente in `global.ini` . Se si ignora questo passaggio, HANA userà la VLAN di accesso per la replica, che potrebbe non essere consigliabile.
 
 
-Gli esempi seguenti illustrano la configurazione della risoluzione dei nomi host per la replica di sistema in un sito secondario. È possibile identificare tre reti distinte:
+Negli esempi seguenti viene illustrata la configurazione della risoluzione dei nomi host per la replica di sistema in un sito secondario. È possibile identificare tre reti distinte:
 
-* Rete pubblica con indirizzi nell'intervallo di 10.0.1. *
+* Rete pubblica con indirizzi nell'intervallo 10.0.1.*
 
-* Rete per la comunicazione interna del SAP HANA tra host in ogni sito: 192.168.1. *
+* Rete per la SAP HANA tra host in ogni sito: 192.168.1.*
 
-* Rete dedicata per la replica di sistema: 10.5.1. *
+* Rete dedicata per la replica di sistema: 10.5.1.*
 
-Nel primo esempio, il `[system_replication_communication]listeninterface` parametro è stato impostato su `.global` e vengono specificati solo gli host del sito di replica adiacente.
+Nel primo esempio il parametro è stato impostato su e vengono specificati solo gli host del sito `[system_replication_communication]listeninterface` `.global` di replica adiacente.
 
-Nell'esempio seguente il `[system_replication_communication]listeninterface` parametro è stato impostato su `.internal` e vengono specificati tutti gli host di entrambi i siti.
-
-  
-
-### <a name="source-sap-ag-sap-hana-hrs-networking"></a>Rete SAP AG SAP HANA HRS di origine
+Nell'esempio seguente il `[system_replication_communication]listeninterface` parametro è stato impostato su e vengono specificati tutti gli host di entrambi i `.internal` siti.
 
   
 
-Per la replica di sistema, non è necessario modificare il `/etc/hosts` file, i nomi host interni ("virtuali") devono essere mappati agli indirizzi IP nel `global.ini` file per creare una rete dedicata per la replica di sistema. La sintassi è la seguente:
+### <a name="source-sap-ag-sap-hana-hrs-networking"></a>Gruppo di disponibilità SAP di SAP HANA risorse umane di origine
+
+  
+
+Per la replica di sistema, non è necessario modificare il file. I nomi host interni ('virtuali') devono essere mappati agli indirizzi IP nel file per creare una rete dedicata per la replica `/etc/hosts` `global.ini` di sistema. La sintassi è la seguente:
 
 global.ini
 
 [system_replication_hostname_resolution]
 
-<IP-address_site>=<Internal-host-name_site>
+<ip-address_site>=<-internal-host-name_site>
 
 
 ## <a name="configure-sap-hana-in-a-pacemaker-cluster"></a>Configurare SAP HANA in un cluster Pacemaker
-In questa sezione viene illustrato come configurare SAP HANA in un cluster pacemaker. In questa sezione vengono usati gli stessi due host `sollabdsm35` e `sollabdsm36` , a cui si fa riferimento all'inizio di questo articolo.
+In questa sezione si apprenderà come configurare SAP HANA in un cluster Pacemaker. Questa sezione usa gli stessi due host, e , a `sollabdsm35` cui si fa riferimento `sollabdsm36` all'inizio di questo articolo.
 
 Assicurarsi di aver soddisfatto i prerequisiti seguenti:  
 
-* Il cluster Pacemaker è configurato in base alla documentazione e ha una schermatura corretta e funzionante
+* Il cluster Pacemaker è configurato in base alla documentazione e dispone di una configurazione corretta e funzionante
 
-* SAP HANA avvio all'avvio è disabilitato in tutti i nodi del cluster perché l'avvio e l'arresto verranno gestiti dal cluster
+* SAP HANA'avvio all'avvio è disabilitato in tutti i nodi del cluster perché l'avvio e l'arresto verranno gestiti dal cluster
 
-* SAP HANA la replica e l'acquisizione del sistema con gli strumenti di SAP funzionano correttamente tra i nodi del cluster
+* SAP HANA la replica di sistema e l'acquisizione della proprietà usando gli strumenti di SAP funzionano correttamente tra i nodi del cluster
 
-* SAP HANA contiene un account di monitoraggio che può essere usato dal cluster da entrambi i nodi del cluster
+* SAP HANA contiene l'account di monitoraggio che può essere usato dal cluster da entrambi i nodi del cluster
 
-* Entrambi i nodi hanno sottoscritto i canali "disponibilità elevata" e "RHEL for SAP HANA" (RHEL 6, RHEL 7)
+* Entrambi i nodi sono sottoscritti ai canali "Disponibilità elevata" e "RHEL for SAP HANA" (RHEL 6,RHEL 7)
 
   
 
-* In generale, eseguire tutti i comandi PC solo dal nodo on, perché il CIB verrà aggiornato automaticamente dalla shell PC.
+* In generale, eseguire tutti i comandi pcs solo da nel nodo perché il CIB verrà aggiornato automaticamente dalla shell pcs.
 
 * [Altre informazioni sui criteri quorum](https://access.redhat.com/solutions/645843)
 
 ### <a name="steps-to-configure"></a>Passaggi per la configurazione 
-1. Configurare i PC.
+1. Configurare pcs.
     ```
     [root@node1 ~]# pcs property unset no-quorum-policy (optional – only if it was set before)
     [root@node1 ~]# pcs resource defaults resource-stickiness=1000
     [root@node1 ~]# pcs resource defaults migration-threshold=5000
     ```
-2.  Configurare Corosync.
+2.  Configurare corosync.
     ```
     https://access.redhat.com/solutions/1293523 --> quorum information RHEL7
 
@@ -1268,7 +1271,7 @@ Assicurarsi di aver soddisfatto i prerequisiti seguenti:
         stop interval=0s timeout=20s (vip_HR2_00-stop-interval-0s)
     ```
 
-7.  Creazione di vincoli.
+7.  Creare vincoli.
 
     ```
     For correct operation we need to ensure that SAPHanaTopology resources are started before starting the SAPHana resources and also that  the virtual IP address is present on the node where the Primary resource of SAPHana is running. To achieve this, the following 2    constraints need to be created.
@@ -1279,13 +1282,13 @@ Assicurarsi di aver soddisfatto i prerequisiti seguenti:
 
 ###  <a name="testing-the-manual-move-of-saphana-resource-to-another-node"></a>Test dello spostamento manuale della risorsa SAPHana in un altro nodo
 
-#### <a name="sap-hana-takeover-by-cluster"></a>(Acquisizione di SAP HANA per cluster)
+#### <a name="sap-hana-takeover-by-cluster"></a>(acquisizione dell'acquisizione di SAP Hana per cluster)
 
 
-Per testare lo spostamento della risorsa SAPHana da un nodo a un altro, usare il comando seguente. Si noti che l'opzione `--primary` non deve essere usata quando si esegue il comando seguente a causa del funzionamento interno della risorsa SAPHana.
+Per testare lo spostamento della risorsa SAPHana da un nodo a un altro, usare il comando seguente. Si noti che l'opzione non deve essere usata quando si esegue il comando seguente a causa del funzionamento interno `--primary` della risorsa SAPHana.
 ```pcs resource move SAPHana_HR2_00-primary```
 
-Quando ogni risorsa PC sposta la chiamata al comando, il cluster crea vincoli di posizione per ottenere lo spostamento della risorsa. Questi vincoli devono essere rimossi per consentire il failover automatico in futuro.
+Dopo ogni chiamata al comando pcs resource move, il cluster crea vincoli di posizione per ottenere lo spostamento della risorsa. Questi vincoli devono essere rimossi per consentire il failover automatico in futuro.
 Per rimuoverli, è possibile usare il comando seguente.
 ```
 pcs resource clear SAPHana_HR2_00-primary
@@ -1319,7 +1322,7 @@ Node Attributes:
 
 * Accedere a HANA come verifica.
 
-  * host abbassato di sotto:
+  * host abbassato di livello:
 
     ```
     hdbsql -i 00 -u system -p SAPhana10 -n 10.7.0.82
@@ -1330,7 +1333,7 @@ Node Attributes:
     failed, rc=111:Connection refused (10.7.0.82:30015))
     ```
   
-  * Host promosso:
+  * Host alzato di livello:
 
     ```
     hdbsql -i 00 -u system -p SAPhana10 -n 10.7.0.84
@@ -1354,9 +1357,9 @@ Node Attributes:
     ```
   
 
-Con l'opzione `AUTOMATED_REGISTER=false` , non è possibile spostarsi avanti e indietro.
+Con l'opzione `AUTOMATED_REGISTER=false` , non è possibile passare avanti e indietro.
 
-Se questa opzione è impostata su false, è necessario ripetere la registrazione del nodo:
+Se questa opzione è impostata su false, è necessario registrare nuovamente il nodo:
 
   
 ```
@@ -1364,9 +1367,9 @@ hdbnsutil -sr_register --remoteHost=node2 --remoteInstance=00 --replicationMode=
 ```
   
 
-Ora node2, che era il primario, funge da host secondario.
+Ora node2, che era l'host primario, funge da host secondario.
 
-Si consiglia di impostare questa opzione su true per automatizzare la registrazione dell'host abbassato di livello.
+Provare a impostare questa opzione su true per automatizzare la registrazione dell'host abbassato di livello.
 
   
 ```

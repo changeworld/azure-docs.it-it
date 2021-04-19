@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 04/04/2021
 ms.author: memildin
-ms.openlocfilehash: ecdaf6a8509583cf93857e24fabc059e38d23b67
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 9d376a374d1934f55b6a6fb15f1642c81b30b2fc
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383457"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107718666"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivio delle novità del Centro sicurezza di Azure
 
@@ -76,9 +76,9 @@ Per altre informazioni su questa e su tutte le altre raccomandazioni del Centro 
 
 Il dashboard Conformità con le normative del Centro sicurezza fornisce informazioni dettagliate sul comportamento di conformità in base a come vengono soddisfatti specifici controlli e requisiti.
 
-Il dashboard include un set predefinito di standard normativi. Se uno degli standard forniti non è pertinente per l'organizzazione, è ora un processo semplice per rimuoverli dall'interfaccia utente per una sottoscrizione. Gli standard possono essere rimossi solo a livello della *sottoscrizione*, non nell'ambito del gruppo di gestione.
+Il dashboard include un set predefinito di standard normativi. Se uno degli standard forniti non è pertinente per l'organizzazione, è ora un semplice processo per rimuoverli dall'interfaccia utente per una sottoscrizione. Gli standard possono essere rimossi solo a livello della *sottoscrizione*, non nell'ambito del gruppo di gestione.
 
-Per altre informazioni, vedere [rimuovere uno standard dal dashboard](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
+Per altre [informazioni, vedere Rimuovere uno standard dal dashboard.](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard)
 
 
 ### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Rimossa la tabella Microsoft.Security/securityStatuses da Azure Resource Graph (ARG)
@@ -200,7 +200,7 @@ Gli aggiornamenti del mese di settembre includono quanto segue:
 
 ### <a name="security-center-gets-a-new-look"></a>Nuovo aspetto per il Centro sicurezza
 
-È stata rilasciata un'interfaccia utente aggiornata per le pagine del portale del Centro sicurezza. Le nuove pagine includono una nuova pagina di panoramica e dashboard per il Punteggio sicuro, l'inventario delle risorse e Azure Defender.
+È stata rilasciata un'interfaccia utente aggiornata per le pagine del portale del Centro sicurezza. Le nuove pagine includono una nuova pagina di panoramica e dashboard per il punteggio di sicurezza, l'inventario degli asset e Azure Defender.
 
 La pagina di panoramica riprogettata include ora un riquadro per l'accesso al punteggio di sicurezza, all'inventario delle risorse e ai dashboard di Azure Defender. Include anche un riquadro di collegamento al dashboard di conformità alle normative.
 
@@ -246,7 +246,7 @@ Per altre informazioni, vedere [Azure Defender per Key Vault](defender-for-key-v
 
 È ora disponibile a livello generale il supporto per [File di Azure](../storage/files/storage-files-introduction.md) e [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-Dal 1 ° ottobre 2020 verrà addebitato un addebito per la protezione delle risorse in questi servizi.
+Dal 1° ottobre 2020 inizieremo a pagare per la protezione delle risorse in questi servizi.
 
 Per altre informazioni, vedere [Azure Defender per Archiviazione](defender-for-storage-introduction.md).
 
@@ -356,7 +356,7 @@ Le raccomandazioni di sicurezza seguenti correlate ai gruppi di sicurezza di ret
 
 La raccomandazione in anteprima "I criteri di sicurezza pod devono essere definiti nei servizi Kubernetes" verrà deprecata come illustrato nella documentazione del [servizio Azure Kubernetes](../aks/use-pod-security-policies.md).
 
-La funzionalità criteri di sicurezza pod (anteprima) è impostata per la deprecazione e non sarà più disponibile dopo il 15 ottobre 2020, a favore di criteri di Azure per AKS.
+La funzionalità dei criteri di sicurezza dei pod (anteprima) è impostata per essere deprecata e non sarà più disponibile dopo il 15 ottobre 2020 a favore di Criteri di Azure servizio Criteri di Azure servizio Contenitore di Microsoft.
 
 Dopo la deprecazione di Criteri di sicurezza dei pod (anteprima), sarà necessario disabilitare la funzionalità in eventuali cluster esistenti che usano la funzionalità deprecata per eseguire aggiornamenti futuri del cluster e mantenere il supporto tecnico di Azure.
 
@@ -419,7 +419,7 @@ Altre informazioni sull'[inventario delle risorse](asset-inventory.md).
 
 ### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Aggiunta di supporto per le impostazioni predefinite per la sicurezza di Azure Active Directory per l'autenticazione a più fattori
 
-Il Centro sicurezza ha aggiunto il supporto completo per le [impostazioni predefinite di sicurezza](../active-directory/fundamentals/concept-fundamentals-security-defaults.md), le protezioni Microsoft per la sicurezza delle identità gratuite.
+Il Centro sicurezza ha aggiunto il supporto completo per [le impostazioni predefinite per la sicurezza,](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)le protezioni microsoft gratuite per la sicurezza delle identità.
 
 Le impostazioni predefinite per la sicurezza offrono impostazioni preconfigurate per la sicurezza delle identità per proteggere l'organizzazione da attacchi comuni correlati alle identità. Le impostazioni predefinite per la sicurezza proteggono già più di 5 milioni di tenant complessivamente. 50.000 tenant sono protetti anche dal Centro sicurezza.
 
@@ -449,8 +449,8 @@ Per assicurare un'esperienza coerente per tutti gli utenti, indipendentemente da
 
 |Raccomandazione unificata|Descrizione delle modifiche|
 |----|:----|
-|**È consigliabile abilitare una soluzione di valutazione della vulnerabilità nelle macchine virtuali**|Sostituisce le due raccomandazioni seguenti:<br> Abilitare la soluzione di valutazione della vulnerabilità incorporata nelle macchine virtuali (con tecnologia Qualys (ora deprecata) (inclusa nel livello standard)<br> La soluzione di valutazione della vulnerabilità deve essere installata nelle macchine virtuali (ora deprecate) (livelli standard e gratuito)|
-|**È consigliabile correggere le vulnerabilità nelle macchine virtuali**|Sostituisce le due raccomandazioni seguenti:<br>Correggere le vulnerabilità rilevate nelle macchine virtuali (basate su Qualys) (ora deprecate)<br>Le vulnerabilità devono essere risolte da una soluzione di valutazione della vulnerabilità (ora deprecata)|
+|**È consigliabile abilitare una soluzione di valutazione della vulnerabilità nelle macchine virtuali**|Sostituisce le due raccomandazioni seguenti:<br> Abilitare la soluzione di valutazione della vulnerabilità incorporata nelle macchine virtuali (con tecnologia Qualys (ora deprecata) (inclusa nel livello Standard)<br> La soluzione di valutazione della vulnerabilità deve essere installata nelle macchine virtuali (ora deprecata) (livelli Standard e gratuito)|
+|**È consigliabile correggere le vulnerabilità nelle macchine virtuali**|Sostituisce le due raccomandazioni seguenti:<br>Correggere le vulnerabilità trovate nelle macchine virtuali (con tecnologia Qualys) (ora deprecate)<br>Le vulnerabilità devono essere corretti da una soluzione di valutazione della vulnerabilità (ora deprecata)|
 |||
 
 Sarà ora possibile usare la stessa raccomandazione per distribuire l'estensione di valutazione delle vulnerabilità del Centro sicurezza o una soluzione con licenza privata ("BYOL") da un partner quale Qualys o Rapid7.
@@ -501,8 +501,8 @@ La fase iniziale di questo progetto include un'anteprima privata e l'aggiunta di
 
 È possibile ignorare questi criteri, senza impatto sull'ambiente. Se si vogliono abilitare i criteri, iscriversi all'anteprima in https://aka.ms/SecurityPrP e selezionare una delle opzioni seguenti:
 
-1. **Anteprima singola**: per partecipare solo a questa anteprima privata. Specificare in modo esplicito "ASC Continuous Scan" come anteprima che si desidera aggiungere.
-1. **Programma in corso**: per partecipare a questa anteprima privata e alle anteprime private future. È necessario completare un profilo e un accordo sulla privacy.
+1. **Anteprima singola**: per partecipare solo a questa anteprima privata. Indicare in modo esplicito "AsC Continuous Scan" (Analisi continua ASC) come anteprima a cui si vuole partecipare.
+1. **Programma in corso**: per partecipare a questa anteprima privata e alle anteprime private future. È necessario completare un profilo e un contratto sulla privacy.
 
 
 ## <a name="july-2020"></a>Luglio 2020
@@ -626,7 +626,7 @@ Altre informazioni sui [criteri predefiniti](./policy-reference.md).
 Gli aggiornamenti del mese di giugno includono quanto segue:
 
 - [API Secure Score (anteprima)](#secure-score-api-preview)
-- [Sicurezza dei dati avanzata per computer SQL (Azure, altri cloud e in locale) (anteprima)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview)
+- [Sicurezza dei dati avanzata per computer SQL (Azure, altri cloud e locali) (anteprima)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview)
 - [Due nuove raccomandazioni per distribuire l'agente di Log Analytics in computer Azure Arc (anteprima)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
 - [Nuovi criteri per creare configurazioni di esportazione continua e di automazione dei flussi di lavoro su larga scala](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
 - [Nuova raccomandazione per l'uso dei gruppi di sicurezza di rete per proteggere macchine virtuali non connesse a Internet](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
@@ -644,7 +644,7 @@ Altre informazioni sul [punteggio di sicurezza e i controlli di sicurezza nel Ce
 
 
 
-### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview"></a>Sicurezza dei dati avanzata per computer SQL (Azure, altri cloud e in locale) (anteprima)
+### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview"></a>Sicurezza dei dati avanzata per computer SQL (Azure, altri cloud e locali) (anteprima)
 
 La funzionalità Sicurezza dei dati avanzata per computer SQL del Centro sicurezza di Azure protegge ora i server SQL ospitati in Azure, in altri ambienti cloud e anche in computer locali. Le protezioni per i server SQL nativi di Azure vengono quindi estese in modo da supportare completamente gli ambienti ibridi.
 
@@ -891,7 +891,7 @@ Ora è possibile aggiungere standard come:
 - **Canada Federal PBMM**
 - **Azure CIS 1.1.0 (novità)** (una rappresentazione più completa di Azure CIS 1.1.0)
 
-Inoltre, è stato aggiunto di recente **Azure Security Benchmark**, le linee guida specifiche di Azure, create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. Nel dashboard verranno supportati altri standard non appena saranno disponibili.  
+Inoltre, è stato aggiunto di recente [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction), le linee guida specifiche di Azure, create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. Nel dashboard verranno supportati altri standard non appena saranno disponibili.  
  
 Sono disponibili altre informazioni sulla [personalizzazione del set di standard nel dashboard di conformità alle normative](update-regulatory-compliance-packages.md).
 
@@ -910,7 +910,7 @@ Se si hanno sottoscrizioni nel piano tariffario gratuito, il punteggio di sicure
 
 Sono disponibili altre informazioni sulle [raccomandazioni relative a identità e accesso](recommendations-reference.md#recs-identityandaccess).
 
-Altre informazioni sulla [gestione dell'applicazione dell'autenticazione a più fattori (multi-factor authentication) nelle sottoscrizioni](security-center-identity-access.md).
+Altre informazioni sulla gestione dell'imposizione dell'autenticazione a più fattori [(MFA) nelle sottoscrizioni.](security-center-identity-access.md)
 
 
 
@@ -938,9 +938,9 @@ Sono disponibili altre informazioni sulla [creazione di app per la logica](../lo
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integrazione del Centro sicurezza di Azure con Windows Admin Center
 
-È ora possibile spostare i server Windows locali dall'interfaccia di amministrazione di Windows direttamente nel centro sicurezza di Azure. Il Centro sicurezza diventa quindi il punto centrale in cui visualizzare le informazioni di sicurezza per tutte le risorse Windows Admin Center, inclusi i server locali, le macchine virtuali e carichi di lavoro PaaS aggiuntivi.
+È ora possibile spostare i server Windows locali dal Windows Admin Center direttamente al Centro sicurezza di Azure. Il Centro sicurezza diventa quindi il punto centrale in cui visualizzare le informazioni di sicurezza per tutte le risorse Windows Admin Center, inclusi i server locali, le macchine virtuali e carichi di lavoro PaaS aggiuntivi.
 
-Dopo aver spostato un server dal centro di amministrazione di Windows al centro sicurezza di Azure, sarà possibile:
+Dopo lo spostamento di un server Windows Admin Center a Centro sicurezza di Azure, sarà possibile:
 
 - Visualizzare gli avvisi di sicurezza e le raccomandazioni nell'estensione del Centro sicurezza di Windows Admin Center.
 - Visualizzare il comportamento di sicurezza e recuperare informazioni dettagliate aggiuntive dei server gestiti di Windows Admin Center nel Centro sicurezza all'interno del portale di Azure (o tramite un'API).
@@ -952,12 +952,12 @@ Sono disponibili altre informazioni su [come integrare il Centro sicurezza di Az
 
 Il Centro sicurezza di Azure espande le funzionalità di sicurezza dei contenitori per proteggere il servizio Azure Kubernetes.
 
-La diffusa piattaforma open source Kubernetes è stata adottata in modo da essere ora uno standard di settore per l'orchestrazione dei contenitori. Nonostante questa implementazione diffusa, c'è ancora la mancanza di informazioni su come proteggere un ambiente Kubernetes. Per difendere le aree di attacco di un'applicazione aggiunta a un contenitore, è necessario avere una certa esperienza per garantire che l'infrastruttura sia configurata in modo sicuro e costantemente monitorata per potenziali minacce.
+La popolare piattaforma open source Kubernetes è stata adottata in modo così ampio che è ora uno standard di settore per l'orchestrazione dei contenitori. Nonostante questa implementazione diffusa, non è ancora possibile comprendere come proteggere un ambiente Kubernetes. Per difendere le aree di attacco di un'applicazione aggiunta a un contenitore, è necessario avere una certa esperienza per garantire che l'infrastruttura sia configurata in modo sicuro e costantemente monitorata per potenziali minacce.
 
 La difesa del Centro sicurezza include:
 
 - **Individuazione e visibilità**: individuazione continua delle istanze gestite del servizio Azure Kubernetes all'interno delle sottoscrizioni registrate nel Centro sicurezza.
-- **Raccomandazioni sulla sicurezza**: raccomandazioni utili per la conformità alle procedure consigliate sulla sicurezza per il servizio Azure Kubernetes. Queste raccomandazioni sono incluse nel punteggio sicuro per assicurarsi che siano visualizzate come parte del comportamento di sicurezza dell'organizzazione. Un esempio di raccomandazione relativa al servizio Azure Kubernetes potrebbe essere "Il controllo degli accessi in base al ruolo deve essere usato per limitare l'accesso a un cluster del servizio Kubernetes".
+- **Raccomandazioni sulla sicurezza**: raccomandazioni utili per la conformità alle procedure consigliate sulla sicurezza per il servizio Azure Kubernetes. Queste raccomandazioni sono incluse nel punteggio di sicurezza per assicurarsi che siano visualizzate come parte del sistema di sicurezza dell'organizzazione. Un esempio di raccomandazione relativa al servizio Azure Kubernetes potrebbe essere "Il controllo degli accessi in base al ruolo deve essere usato per limitare l'accesso a un cluster del servizio Kubernetes".
 - **Protezione dalle minacce**: grazie all'analisi continua della distribuzione del servizio Azure Kubernetes, il Centro sicurezza avvisa l'utente in merito a minacce e attività dannose rilevate a livello di host e del cluster del servizio.
 
 Sono disponibili altre informazioni sull'[integrazione del servizio Azure Kubernetes con il Centro sicurezza](defender-for-kubernetes-introduction.md).
@@ -967,7 +967,7 @@ Sono disponibili altre informazioni sulle [funzionalità di sicurezza dei conten
 
 ### <a name="improved-just-in-time-experience"></a>Esperienza JIT migliorata
 
-Le funzionalità, l'operazione e l'interfaccia utente per gli strumenti JIT del Centro sicurezza di Azure che proteggono le porte di gestione sono state migliorate come segue: 
+Le funzionalità, le operazioni e l'interfaccia utente Centro sicurezza di Azure strumenti JUST-IN-TIME che consentono di proteggere le porte di gestione sono state migliorate nel modo seguente: 
 
 - **Campo di giustificazione**: quando si richiede l'accesso a una macchina virtuale tramite la pagina JIT del portale di Azure, è disponibile un nuovo campo facoltativo per immettere una giustificazione per la richiesta. Le informazioni immesse in questo campo possono essere rilevate nel log attività. 
 - **Pulizia automatica di regole JIT ridondanti**: ogni volta che si aggiorna un criterio JIT, viene eseguito automaticamente uno strumento di pulizia per verificare la validità dell'intero set di regole. Lo strumento cerca eventuali mancate corrispondenze tra le regole nei criteri e le regole nel gruppo di sicurezza di rete. Se lo strumento di pulizia rileva una mancata corrispondenza, determina la cause e, se l'operazione è sicura, rimuove le regole incorporate che non sono più necessarie. Lo strumento di pulizia non elimina mai le regole create dall'utente. 
@@ -1013,14 +1013,14 @@ Una versione migliorata della funzionalità di punteggio di sicurezza del Centro
 
 Acquisire familiarità con le modifiche apportate al punteggio di sicurezza durante la fase di anteprima e determinare altre correzioni che consentiranno di proteggere ulteriormente l'ambiente.
 
-Altre informazioni su [Punteggio sicuro avanzato (anteprima)](secure-score-security-controls.md).
+Altre informazioni sul [punteggio di sicurezza avanzato (anteprima)](secure-score-security-controls.md).
 
 
 
 ## <a name="november-2019"></a>Novembre 2019
 
 Gli aggiornamenti del mese di novembre includono quanto segue:
- - [Protezione dalle minacce per Azure Key Vault in aree America del Nord (anteprima)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
+ - [Threat Protection per Azure Key Vault nelle aree America del Nord (anteprima)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
  - [La protezione dalle minacce per Archiviazione di Azure include lo screening della reputazione del malware](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
  - [Automazione del flusso di lavoro con App per la logica (anteprima)](#workflow-automation-with-logic-apps-preview)
  - [Correzione rapida per le risorse bulk disponibili a livello generale](#quick-fix-for-bulk-resources-generally-available)
@@ -1034,11 +1034,11 @@ Gli aggiornamenti del mese di novembre includono quanto segue:
  - [Integrazioni avanzate con l'esportazione di raccomandazioni e avvisi (anteprima)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
  - [Eseguire l'onboarding dei server locali nel Centro sicurezza da Windows Admin Center (anteprima)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
 
-### <a name="threat-protection-for-azure-key-vault-in-north-america-regions-preview"></a>Protezione dalle minacce per Azure Key Vault in aree America del Nord (anteprima)
+### <a name="threat-protection-for-azure-key-vault-in-north-america-regions-preview"></a>Threat Protection per Azure Key Vault nelle aree America del Nord (anteprima)
 
 Azure Key Vault è un servizio essenziale per la protezione dei dati e il miglioramento delle prestazioni delle applicazioni cloud che offre la possibilità di gestire in modo centralizzato chiavi, segreti, chiavi crittografiche e criteri nel cloud. Poiché Azure Key Vault archivia dati sensibili e aziendali critici, richiede la massima sicurezza per gli insiemi di credenziali delle chiavi e i dati archiviati.
 
-Il supporto del Centro sicurezza di Azure per la protezione dalle minacce per Azure Key Vault offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli insiemi di credenziali delle chiavi. Questo nuovo livello di protezione consente ai clienti di affrontare le minacce agli insiemi di credenziali delle chiavi senza dover essere esperti di sicurezza o dover gestire sistemi di monitoraggio della sicurezza. La funzionalità è in anteprima pubblica nelle aree dell'America del Nord.
+Centro sicurezza di Azure supporto di Threat Protection per Azure Key Vault offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli insiemi di credenziali delle chiavi. Questo nuovo livello di protezione consente ai clienti di affrontare le minacce agli insiemi di credenziali delle chiavi senza dover essere esperti di sicurezza o dover gestire sistemi di monitoraggio della sicurezza. La funzionalità è in anteprima pubblica nelle aree dell'America del Nord.
 
 
 ### <a name="threat-protection-for-azure-storage-includes-malware-reputation-screening"></a>La protezione dalle minacce per Archiviazione di Azure include lo screening della reputazione del malware
@@ -1050,7 +1050,7 @@ La protezione dalle minacce per Archiviazione di Azure offre nuovi rilevamenti b
 
 Le organizzazioni con sicurezza gestita a livello centralizzato e IT/operazioni implementano processi di flusso di lavoro interni per condurre le azioni necessarie all'interno dell'organizzazione quando le discrepanze vengono individuate nei propri ambienti. In molti casi, questi flussi di lavoro sono processi ripetibili e l'automazione può semplificare significativamente i processi all'interno dell'organizzazione.
 
-Attualmente viene introdotta una nuova funzionalità del Centro sicurezza che consente ai clienti di creare configurazioni di automazione sfruttando App per la logica di Azure e di creare criteri che li attiveranno automaticamente in base a risultati del certificato del servizio app specifici, ad esempio raccomandazioni o avvisi. L'app per la logica di Azure può essere configurata in modo da eseguire qualsiasi azione personalizzata supportata dalla vasta community di connettori di app per la logica oppure usare uno dei modelli forniti dal centro sicurezza, ad esempio l'invio di un messaggio di posta elettronica o l'apertura di un &trade; ticket ServiceNow.
+Attualmente viene introdotta una nuova funzionalità del Centro sicurezza che consente ai clienti di creare configurazioni di automazione sfruttando App per la logica di Azure e di creare criteri che li attiveranno automaticamente in base a risultati del certificato del servizio app specifici, ad esempio raccomandazioni o avvisi. App per la logica di Azure può essere configurata per eseguire qualsiasi azione personalizzata supportata dalla vasta community di connettori di App per la logica oppure usare uno dei modelli forniti dal Centro sicurezza, ad esempio l'invio di un messaggio di posta elettronica o l'apertura di un &trade; ticket ServiceNow.
 
 Per altre informazioni sulle funzionalità automatiche e manuali del Centro sicurezza per l'esecuzione dei flussi di lavoro, vedere [automazione del flusso di lavoro](workflow-automation.md).
 
@@ -1094,21 +1094,21 @@ Kubernetes sta diventando rapidamente il nuovo standard per la distribuzione e l
 
 Le nuove funzionalità di questa versione di anteprima pubblica includono:
 
-- **Individuazione &** l'individuazione continua della visibilità delle istanze di AKS gestite nelle sottoscrizioni registrate del Centro sicurezza.
-- **Raccomandazioni per il Punteggio sicuro** : elementi utilizzabili per aiutare i clienti a rispettare le procedure consigliate per la sicurezza per AKS e ad aumentare il Punteggio sicuro. Le raccomandazioni includono elementi come il controllo degli accessi in base al ruolo da usare per limitare l'accesso a un cluster del servizio Kubernetes ".
-- **Rilevamento delle minacce** : analisi basata su cluster e host, ad esempio "rilevato contenitore con privilegi".
+- **Visibilità & di** individuazione: individuazione continua delle istanze del servizio AzureKs gestite all'interno delle sottoscrizioni registrate del Centro sicurezza.
+- **Raccomandazioni sul punteggio di sicurezza:** elementi utilizzabili per aiutare i clienti a rispettare le procedure consigliate per la sicurezza per il servizio AKS e aumentare il punteggio di sicurezza. Le raccomandazioni includono elementi come "Il controllo degli accessi in base al ruolo deve essere usato per limitare l'accesso a un cluster del servizio Kubernetes".
+- **Rilevamento minacce:** analisi basata su host e cluster, ad esempio "È stato rilevato un contenitore con privilegi".
 
 
 ### <a name="virtual-machine-vulnerability-assessment-preview"></a>Valutazione della vulnerabilità della macchina virtuale (anteprima)
 
-Le applicazioni installate in macchine virtuali possono spesso avere vulnerabilità che potrebbero causare una violazione della macchina virtuale. Si sta annunciando che il livello standard del Centro sicurezza include la valutazione della vulnerabilità incorporata per le macchine virtuali senza costi aggiuntivi. La valutazione della vulnerabilità, basata su Qualys nell'anteprima pubblica, consentirà di analizzare continuamente tutte le applicazioni installate in una macchina virtuale per individuare le applicazioni vulnerabili e presentare i risultati nell'esperienza del portale del Centro sicurezza. Il Centro sicurezza si occupa di tutte le operazioni di distribuzione in modo che non sia necessario alcun lavoro aggiuntivo da parte dell'utente. In futuro si prevede di fornire opzioni di valutazione della vulnerabilità per supportare le esigenze aziendali specifiche dei clienti.
+Le applicazioni installate in macchine virtuali possono spesso avere vulnerabilità che potrebbero causare una violazione della macchina virtuale. Si annuncia che il livello standard del Centro sicurezza include la valutazione della vulnerabilità incorporata per le macchine virtuali senza costi aggiuntivi. La valutazione della vulnerabilità, basata su Qualys nell'anteprima pubblica, consentirà di analizzare continuamente tutte le applicazioni installate in una macchina virtuale per individuare le applicazioni vulnerabili e presentare i risultati nell'esperienza del portale del Centro sicurezza. Il Centro sicurezza si occupa di tutte le operazioni di distribuzione in modo che non sia necessario alcun lavoro aggiuntivo da parte dell'utente. In futuro si prevede di fornire opzioni di valutazione della vulnerabilità per supportare le esigenze aziendali specifiche dei clienti.
 
 [Altre informazioni sulle valutazioni della vulnerabilità per le macchine virtuali di Azure](deploy-vulnerability-assessment-vm.md).
 
 
 ### <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Sicurezza dei dati avanzata per i server SQL in macchine virtuali di Azure (anteprima)
 
-Il supporto del Centro sicurezza di Azure per la protezione dalle minacce e la valutazione della vulnerabilità per i database SQL in esecuzione sulle macchine virtuali IaaS è ora disponibile in anteprima.
+Centro sicurezza di Azure supporto della protezione dalle minacce e della valutazione delle vulnerabilità per i database SQL in esecuzione nelle macchine virtuali IaaS è ora disponibile in anteprima.
 
 [Valutazione della vulnerabilità](../azure-sql/database/sql-vulnerability-assessment.md) è un servizio semplice da configurare che consente di individuare, tenere traccia e risolvere potenziali vulnerabilità del database. Consente di visualizzare il comportamento di sicurezza come parte del punteggio di sicurezza di Azure e prevede passaggi per risolvere i problemi di sicurezza e migliorare la protezione del database.
 
@@ -1121,12 +1121,12 @@ Il Centro sicurezza di Azure supporta ora criteri personalizzati (in anteprima).
 
 I clienti Microsoft attendono da tempo la possibilità di estendere la copertura attuale della valutazione della sicurezza nel Centro sicurezza con le proprie valutazioni della sicurezza in base ai criteri creati in Criteri di Azure. Con il supporto per i criteri personalizzati, l'estensione della copertura è ora possibile.
 
-Questi nuovi criteri faranno parte delle raccomandazioni del Centro sicurezza, del punteggio di sicurezza e del dashboard degli standard di conformità con le normative. Con il supporto per i criteri personalizzati, è ora possibile creare un'iniziativa personalizzata in criteri di Azure, quindi aggiungerla come criterio nel centro sicurezza e visualizzarla come indicazione.
+Questi nuovi criteri faranno parte delle raccomandazioni del Centro sicurezza, del punteggio di sicurezza e del dashboard degli standard di conformità con le normative. Con il supporto per i criteri personalizzati, è ora possibile creare un'iniziativa personalizzata in Criteri di Azure, quindi aggiungerla come criterio nel Centro sicurezza e visualizzarla come raccomandazione.
 
 
 ### <a name="extending-azure-security-center-coverage-with-platform-for-community-and-partners"></a>Estensione della copertura del Centro sicurezza di Azure con piattaforma per community e partner
 
-Usare il Centro sicurezza per ricevere raccomandazioni non solo da Microsoft, ma anche da soluzioni esistenti di partner quali Check Point, Tenable e CyberArk con molte altre integrazioni in arrivo.  Il semplice flusso di caricamento del Centro sicurezza è in grado di connettere le soluzioni esistenti al centro sicurezza, consentendo di visualizzare i consigli sul comportamento di sicurezza in un'unica posizione, eseguire report unificati e sfruttare tutte le funzionalità del Centro sicurezza in base alle raccomandazioni predefinite e ai partner. È anche possibile esportare le raccomandazioni del Centro sicurezza nei prodotti partner.
+Usare il Centro sicurezza per ricevere raccomandazioni non solo da Microsoft, ma anche da soluzioni esistenti di partner quali Check Point, Tenable e CyberArk con molte altre integrazioni in arrivo.  Il semplice flusso di onboarding del Centro sicurezza consente di connettere le soluzioni esistenti al Centro sicurezza, consentendo di visualizzare le raccomandazioni sul percorso di sicurezza in un'unica posizione, eseguire report unificati e sfruttare tutte le funzionalità del Centro sicurezza rispetto alle raccomandazioni incorporate e ai partner. È anche possibile esportare le raccomandazioni del Centro sicurezza nei prodotti partner.
 
 [Altre informazioni su Microsoft Intelligent Security Association](https://www.microsoft.com/security/partnerships/intelligent-security-association).
 
@@ -1134,10 +1134,10 @@ Usare il Centro sicurezza per ricevere raccomandazioni non solo da Microsoft, ma
 
 ### <a name="advanced-integrations-with-export-of-recommendations-and-alerts-preview"></a>Integrazioni avanzate con l'esportazione di raccomandazioni e avvisi (anteprima)
 
-Per abilitare gli scenari a livello aziendale sul centro sicurezza, è ora possibile usare gli avvisi del Centro sicurezza e le raccomandazioni in altre posizioni, ad eccezione del portale di Azure o dell'API. È possibile esportarli direttamente in un hub eventi e nelle aree di lavoro Log Analytics. Ecco alcuni flussi di lavoro che è possibile creare con queste nuove funzionalità:
+Per abilitare scenari a livello aziendale nel Centro sicurezza, è ora possibile usare gli avvisi e le raccomandazioni del Centro sicurezza in altre posizioni, ad eccezione del portale di Azure o dell'API. È possibile esportarli direttamente in un hub eventi e nelle aree di lavoro Log Analytics. Ecco alcuni flussi di lavoro che è possibile creare con queste nuove funzionalità:
 
 - Con l'esportazione nell'area di lavoro Log Analytics è possibile creare dashboard personalizzati con Power BI.
-- Con l'esportazione nell'hub eventi, sarà possibile esportare gli avvisi del Centro sicurezza e le raccomandazioni per gli SIEM di terze parti, una soluzione di terze parti in tempo reale o Azure Esplora dati.
+- Con l'esportazione in Hub eventi, sarà possibile esportare gli avvisi e le raccomandazioni del Centro sicurezza nei SIEM di terze parti, in una soluzione di terze parti in tempo reale o Esplora dati di Azure.
 
 
 ### <a name="onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview"></a>Eseguire l'onboarding dei server locali nel Centro sicurezza da Windows Admin Center (anteprima)
@@ -1163,7 +1163,7 @@ L'esperienza di gestione delle regole per le macchine virtuali che usano i contr
 
 ### <a name="control-container-security-recommendation-using-azure-policy"></a>Controllare la raccomandazione sulla sicurezza del contenitore usando Criteri di Azure
 
-La raccomandazione del Centro sicurezza di Azure per correggere le vulnerabilità nella sicurezza del contenitore ora può essere abilitata o disabilitata tramite criteri di Azure.
+Centro sicurezza di Azure la raccomandazione di correggere le vulnerabilità nella sicurezza dei contenitori può ora essere abilitata o disabilitata tramite Criteri di Azure.
 
 Per visualizzare i criteri di sicurezza abilitati, dal Centro sicurezza aprire la pagina Criteri di sicurezza.
 
@@ -1193,7 +1193,7 @@ Le richieste vengono registrate nel log attività di Azure, in modo che sia poss
 
 Il punteggio di sicurezza è uno strumento che consente di valutare le condizioni di sicurezza del carico di lavoro. Esamina i consigli sulla sicurezza e assegna a ciascuno un livello di priorità che indica quali consigli implementare per primi. Questo è utile per trovare le vulnerabilità della sicurezza più gravi e stabilire le priorità di indagine.
 
-Per semplificare la correzione di configurazioni di sicurezza non corrette e contribuire a migliorare rapidamente il Punteggio sicuro, è stata aggiunta una nuova funzionalità che consente di correggere una raccomandazione su una quantità di risorse in un singolo clic.
+Per semplificare la correzione degli errori di configurazione della sicurezza e contribuire a migliorare rapidamente il punteggio di sicurezza, è stata aggiunta una nuova funzionalità che consente di correggere una raccomandazione su una maggior parte delle risorse con un solo clic.
 
 Questa operazione consente di selezionare le risorse a cui si vuole applicare la correzione e di avviare un'azione di correzione che configurerà l'impostazione per conto dell'utente.
 

@@ -6,19 +6,19 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d33c7f87d77f371d4eb4bf903e4d534f334e39c4
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 196a449f25d97fb1c1b7b8d79ee8889e0d31a5ae
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599503"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717748"
 ---
 # <a name="import-new-update"></a>Importa nuovo aggiornamento
 Informazioni su come importare un nuovo aggiornamento in Aggiornamento dispositivo per l'hub IoT. Se non è già stato fatto, assicurarsi di acquisire familiarità con i concetti di base [relativi all'importazione.](import-concepts.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un file di aggiornamento esistente che si vuole distribuire nei dispositivi. Può essere un file di immagine per l'aggiornamento basato su immagine o un [file manifesto APT](device-update-apt-manifest.md) per l'aggiornamento basato su pacchetto. ([Ricerca per categorie scegliere?](understand-device-update.md#support-for-a-wide-range-of-update-artifacts))
+* Un file di aggiornamento esistente che si vuole distribuire nei dispositivi. Può trattarsi di un file di immagine per l'aggiornamento basato su immagine o di un [file manifesto APT](device-update-apt-manifest.md) per l'aggiornamento basato su pacchetto. ([Ricerca per categorie scegliere?](understand-device-update.md#support-for-a-wide-range-of-update-artifacts))
 * [Accesso a un hub IoT con Aggiornamento dispositivo per l'hub IoT abilitato.](create-device-update-account.md) 
 * Un dispositivo IoT (o simulatore) di cui è stato effettuato il provisioning per l'aggiornamento del dispositivo all'interno dell'hub IoT.
 * [PowerShell 5 o](/powershell/scripting/install/installing-powershell) versione successiva (include le installazioni di Linux, macOS e Windows)
@@ -27,11 +27,11 @@ Informazioni su come importare un nuovo aggiornamento in Aggiornamento dispositi
   * Google Chrome
 
 > [!NOTE]
-> Alcuni dati inviati a questo servizio potrebbero essere elaborati in un'area esterna all'area in cui è stata creata questa istanza.
+> Alcuni dati inviati a questo servizio potrebbero essere elaborati in un'area esterna all'area in cui è stata creata l'istanza.
 
 ## <a name="create-device-update-import-manifest"></a>Creare il manifesto di importazione dell'aggiornamento dispositivo
 
-1. Se non è già stato fatto, ottenere un file di immagine o un file manifesto APT da distribuire nei dispositivi. Può trattarsi del produttore dei dispositivi o di un integratore di sistemi con cui si lavora o anche di un gruppo all'interno dell'organizzazione. Assicurarsi che il file di immagine di aggiornamento o il file manifesto APT si trovi in una directory accessibile da PowerShell.
+1. Se non è già stato fatto, ottenere un file di immagine o un file manifesto APT da distribuire nei dispositivi. Può trattarsi del produttore dei dispositivi, di un integratore di sistemi con cui si lavora o anche di un gruppo all'interno dell'organizzazione. Assicurarsi che il file di immagine di aggiornamento o il file manifesto APT si trovi in una directory accessibile da PowerShell.
 
 2. Creare un file di testo **denominato AduUpdate.psm1** nella directory in cui si trova il file di immagine di aggiornamento o il file manifesto APT. Aprire quindi il cmdlet di PowerShell [AduUpdate.psm1,](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) copiare il contenuto nel file di testo e quindi salvare il file di testo.
 
@@ -60,10 +60,10 @@ Informazioni su come importare un nuovo aggiornamento in Aggiornamento dispositi
     | deviceManufacturer | Produttore del dispositivo con cui l'aggiornamento è compatibile, ad esempio Contoso. Deve corrispondere alla _proprietà del_ [dispositivo produttore](./device-update-plug-and-play.md#device-properties).
     | deviceModel | Modello del dispositivo con cui l'aggiornamento è compatibile, ad esempio Toaster. Deve corrispondere alla _proprietà del_ [dispositivo del modello](./device-update-plug-and-play.md#device-properties).
     | updateProvider | Entità che crea o è direttamente responsabile dell'aggiornamento. Spesso sarà il nome di una società.
-    | updateName | Identificatore per una classe di aggiornamenti. La classe può essere qualsiasi elemento scelto. Spesso sarà il nome di un dispositivo o di un modello.
+    | updateName | Identificatore per una classe di aggiornamenti. La classe può essere qualsiasi elemento scelto. Sarà spesso un nome di dispositivo o modello.
     | updateVersion | Numero di versione che distingue questo aggiornamento da altri che hanno lo stesso provider e lo stesso nome. Non ha una versione di un singolo componente software nel dispositivo (ma può essere scelta).
     | updateType | <ul><li>Specificare per `microsoft/swupdate:1` l'aggiornamento dell'immagine</li><li>Specificare per `microsoft/apt:1` l'aggiornamento del pacchetto</li></ul>
-    | installedCriteria | <ul><li>Specificare il valore SWVersion per il `microsoft/swupdate:1` tipo di aggiornamento</li><li>Specificare **name-version,** dove _name_ è il nome del manifesto APT e _version_ è la versione del manifesto APT. Ad esempio, contoso-iot-edge-1.0.0.0.
+    | installedCriteria | <ul><li>Specificare il valore swVersion per il `microsoft/swupdate:1` tipo di aggiornamento</li><li>Specificare **name-version,** dove _name_ è il nome del manifesto APT e _version_ è la versione del manifesto APT. Ad esempio, contoso-iot-edge-1.0.0.0.
     | updateFilePath(s) | Percorso dei file di aggiornamento nel computer
 
 
@@ -112,10 +112,10 @@ Esempio:
 
 ## <a name="import-update"></a>Importare l'aggiornamento
 
-[!NOTE]
-Le istruzioni seguenti illustrano come importare un aggiornamento tramite l'interfaccia portale di Azure interfaccia utente. È anche possibile usare [l'aggiornamento del dispositivo per le API dell'hub IoT per](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) importare un aggiornamento. 
+> [!NOTE]
+> Le istruzioni seguenti illustrano come importare un aggiornamento tramite l'interfaccia portale di Azure interfaccia utente. È anche possibile usare [l'aggiornamento del dispositivo per le API dell'hub IoT](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) per importare un aggiornamento. 
 
-1. Accedere al portale di Azure [e](https://portal.azure.com) passare all'hub IoT con l'aggiornamento del dispositivo.
+1. Accedere al portale di Azure [e](https://portal.azure.com) passare all'hub IoT con Aggiornamento dispositivo.
 
 2. Sul lato sinistro della pagina selezionare "Aggiornamenti del dispositivo" in "Gestione automatica dei dispositivi".
 
@@ -145,7 +145,7 @@ Le istruzioni seguenti illustrano come importare un aggiornamento tramite l'inte
 
    :::image type="content" source="media/import-update/publish-update.png" alt-text="Pubblicare l'aggiornamento" lightbox="media/import-update/publish-update.png":::
 
-9. Viene avviato il processo di importazione e la schermata passa alla sezione "Cronologia importazione". Selezionare "Aggiorna" per visualizzare lo stato di avanzamento fino al completamento del processo di importazione( a seconda delle dimensioni dell'aggiornamento, l'operazione potrebbe essere completata in pochi minuti, ma potrebbe richiedere più tempo).
+9. Viene avviato il processo di importazione e la schermata passa alla sezione "Cronologia importazione". Selezionare "Aggiorna" per visualizzare lo stato di avanzamento fino al completamento del processo di importazione(a seconda delle dimensioni dell'aggiornamento, l'operazione potrebbe essere completata in pochi minuti, ma potrebbe richiedere più tempo).
 
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Aggiornare la sequenziazione dell'importazione" lightbox="media/import-update/update-publishing-sequence-2.png":::
 

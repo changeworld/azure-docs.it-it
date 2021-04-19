@@ -107,8 +107,6 @@
       href: reference-reports-data-retention.md
     - name: Latenze della creazione di report
       href: reference-reports-latencies.md
-    - name: Codici errore di accesso
-      href: reference-sign-ins-error-codes.md
     - name: Domande frequenti
       href: reports-faq.md
     - name: Schema del log di controllo

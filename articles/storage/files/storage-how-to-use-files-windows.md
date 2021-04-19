@@ -1,19 +1,19 @@
 ---
 title: Usare una condivisione file di Azure con Windows | Microsoft Docs
-description: Informazioni su come usare le condivisioni file di Azure con Windows e Windows Server. Usare condivisioni file di Azure con SMB 3,0 nelle installazioni di Windows in esecuzione in locale o in macchine virtuali di Azure.
+description: Informazioni su come usare le condivisioni file di Azure con Windows e Windows Server. Usare condivisioni file di Azure con SMB 3.0 in installazioni Windows in esecuzione in locale o in macchine virtuali di Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e64b7efdd430287a7a3a969c5bf62b0c0e2aec9c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9121774af0a1cfac6f677b4b8e2f4cd4b535042e
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94626895"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717203"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -43,7 +43,7 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-Assicurarsi che la porta 445 sia aperta: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se il firewall sta bloccando la porta 445 con il `Test-NetConnection` cmdlet. Per informazioni sui modi per aggirare una porta 445 bloccata, vedere la sezione [cause 1: porta 445 è bloccata](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) nella Guida alla risoluzione dei problemi di Windows.
+Assicurarsi che la porta 445 sia aperta: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile controllare se il firewall blocca la porta 445 con il `Test-NetConnection` cmdlet . Per informazioni su come aggirare una porta 445 bloccata, vedere la sezione Causa 1: La porta [445](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) è bloccata della guida alla risoluzione dei problemi di Windows.
 
 ## <a name="using-an-azure-file-share-with-windows"></a>Uso di una condivisione file di Azure con Windows
 Per usare una condivisione file di Azure con Windows, è necessario montare la condivisione, ossia assegnarle una lettera di unità o il percorso di un punto di montaggio, oppure accedervi tramite il relativo [percorso UNC](/windows/win32/fileio/naming-a-file). 
@@ -54,29 +54,29 @@ Un modello comune per il trasferimento in modalità lift-and-shift in Azure di a
 
 ### <a name="mount-the-azure-file-share"></a>Montare la condivisione file di Azure
 
-Il portale di Azure fornisce uno script che è possibile usare per montare la condivisione file direttamente in un host. Si consiglia di usare questo script specificato.
+Il portale di Azure fornisce uno script che è possibile usare per montare la condivisione file direttamente in un host. È consigliabile usare questo script fornito.
 
-Per ottenere lo script seguente:
+Per ottenere questo script:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Passare all'account di archiviazione che contiene la condivisione file che si vuole montare.
+1. Passare all'account di archiviazione che contiene la condivisione file che si desidera montare.
 1. Selezionare **Condivisioni file**.
 1. Selezionare la condivisione file che si desidera montare.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="esempio":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="Screenshot del pannello Condivisioni file, in cui è evidenziata la condivisione file.":::
 
 1. Selezionare **Connetti**.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Screenshot dell'icona Connetti per la condivisione file.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Screenshot dell'icona di connessione per la condivisione file.":::
 
 1. Selezionare la lettera di unità in cui montare la condivisione.
-1. Copiare lo script specificato.
+1. Copiare lo script fornito.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Testo di esempio":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot del pannello Di connessione, il pulsante Copia nello script è evidenziato.":::
 
-1. Incollare lo script in una shell nell'host in cui si vuole montare la condivisione file ed eseguirlo.
+1. Incollare lo script in una shell dell'host in cui si desidera montare la condivisione file ed eseguirla.
 
-A questo punto è stata montata la condivisione file di Azure.
+La condivisione file di Azure è stata montata.
 
 ### <a name="mount-the-azure-file-share-with-file-explorer"></a>Montare la condivisione file di Azure con Esplora file
 > [!Note]  
@@ -84,7 +84,7 @@ A questo punto è stata montata la condivisione file di Azure.
 
 1. Aprire Esplora file. Per eseguire questa operazione, aprire il menu Start o premere i tasti di scelta rapida Win+E.
 
-1. Passare a **questo PC** sul lato sinistro della finestra. Verranno cambiati i menu disponibili sulla barra multifunzione. Scegliere **Connetti unità di rete** dal menu Computer.
+1. Passare a **Questo PC** sul lato sinistro della finestra. Verranno cambiati i menu disponibili sulla barra multifunzione. Scegliere **Connetti unità di rete** dal menu Computer.
     
     ![Screenshot del menu a discesa "Connetti unità di rete"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
@@ -103,7 +103,7 @@ A questo punto è stata montata la condivisione file di Azure.
 1. Quando si è pronti per smontare la condivisione file di Azure, fare clic con il pulsante destro del mouse sulla voce relativa alla condivisione in **Percorsi di rete** in Esplora file e scegliere **Disconnetti**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Accedere agli snapshot di condivisione da Windows
-Se è stato creato uno snapshot di condivisione manualmente o automaticamente con uno script o un servizio come Backup di Azure, è possibile visualizzare le versioni precedenti di una condivisione, di una directory o di un determinato file dalla condivisione file in Windows. È possibile creare uno snapshot di condivisione usando [Azure PowerShell](storage-how-to-use-files-powershell.md), l'interfaccia della riga di comando di [Azure](storage-how-to-use-files-cli.md)o l' [portale di Azure](storage-how-to-use-files-portal.md).
+Se è stato creato uno snapshot di condivisione manualmente o automaticamente con uno script o un servizio come Backup di Azure, è possibile visualizzare le versioni precedenti di una condivisione, di una directory o di un determinato file dalla condivisione file in Windows. È possibile creare uno snapshot di condivisione usando [Azure PowerShell](storage-how-to-use-files-powershell.md), l'interfaccia della riga di comando di [Azure](storage-how-to-use-files-cli.md) [o](storage-how-to-use-files-portal.md)portale di Azure .
 
 #### <a name="list-previous-versions"></a>Elencare le versioni precedenti
 Passare all'elemento o all'elemento padre da ripristinare. Fare doppio clic per passare alla directory desiderata. Fare clic con il pulsante destro del mouse e scegliere **Proprietà** dal menu.

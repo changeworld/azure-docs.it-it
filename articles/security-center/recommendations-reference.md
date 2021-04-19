@@ -1,28 +1,29 @@
 ---
 title: Tabella di riferimento per tutte le raccomandazioni del Centro sicurezza di Azure
-description: Questo articolo elenca le raccomandazioni sulla sicurezza del Centro sicurezza di Azure che consentono di rafforzare e proteggere le risorse.
+description: Questo articolo elenca le Centro sicurezza di Azure sulla sicurezza che consentono di proteggere le risorse in modo più rigido.
 author: memildin
 ms.service: security-center
 ms.topic: reference
 ms.date: 04/06/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: a44a5e4e715238c42e51e65dfe16d4f70dfcf54d
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: e994aead1840fd3ef9b57e92cf95e94837608d7a
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504814"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719134"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Raccomandazioni sulla sicurezza: una guida di riferimento
 
 Questo articolo elenca le raccomandazioni che è possibile visualizzare nel Centro sicurezza di Azure. Le raccomandazioni visualizzate all'interno dell'ambiente dipendono dalle risorse protette e dalla configurazione personalizzata.
 
-Le raccomandazioni del Centro sicurezza sono basate sul [benchmark di sicurezza di Azure](../security/benchmarks/introduction.md). Azure Security Benchmark è il set di linee guida specifiche di Azure create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. Questo benchmark ampiamente rispettato si basa sui controlli di [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
+Le raccomandazioni del Centro sicurezza si basano su [Azure Security Benchmark.](https://docs.microsoft.com/security/benchmark/azure/introduction)
+Azure Security Benchmark è il set di linee guida specifiche di Azure create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. Questo benchmark ampiamente rispettato si basa sui controlli del [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e del National Institute of Standards and Technology [(NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
 
 Per informazioni su come rispondere a queste raccomandazioni, vedere [Correzione delle raccomandazioni nel Centro sicurezza di Azure](security-center-remediate-recommendations.md).
 
-Il Punteggio sicuro si basa sul numero di raccomandazioni del Centro sicurezza completate. Per decidere quali raccomandazioni risolvere prima, esaminare la gravità di ciascuna di esse e il relativo impatto potenziale sul punteggio sicuro.
+Il punteggio di sicurezza si basa sul numero di raccomandazioni del Centro sicurezza completate. Per decidere quali raccomandazioni risolvere per prime, esaminare la gravità di ognuna e il potenziale impatto sul punteggio di sicurezza.
 
 > [!TIP]
 > Se la descrizione di una raccomandazione mostra "No related policy" (Nessun criterio correlato), è in genere dovuto al fatto che la raccomandazione dipende da una raccomandazione diversa e dai _relativi_ criteri. Ad esempio, la raccomandazione "È consigliabile correggere gli errori di integrità di Endpoint Protection nei set di scalabilità di macchine virtuali", si basa sulla raccomandazione che controlla se una soluzione di Endpoint Protection è anche _installata_ ("La soluzione Endpoint Protection deve essere installata nei set di scalabilità di macchine virtuali"). La raccomandazione sottostante _dispone_ di un criterio.
@@ -48,7 +49,7 @@ Il Punteggio sicuro si basa sul numero di raccomandazioni del Centro sicurezza c
 
 [!INCLUDE [asc-recs-identityandaccess](../../includes/asc-recs-identityandaccess.md)]
 
-## <a name="iot-recommendations"></a><a name='recs-iot'></a>Suggerimenti per le cose
+## <a name="iot-recommendations"></a><a name='recs-iot'></a>Raccomandazioni IoT
 
 [!INCLUDE [asc-recs-iot](../../includes/asc-recs-iot.md)]
 
@@ -61,7 +62,7 @@ Il Punteggio sicuro si basa sul numero di raccomandazioni del Centro sicurezza c
 |Recommendation|Descrizione e criteri correlati|Gravità|
 |----|----|----|
 |L'accesso ai Servizi app deve essere limitato|Limitare l'accesso a Servizi app modificando la configurazione di rete per negare il traffico in ingresso da intervalli troppo ampi.<br>(Criterio correlato: [Anteprima]: l'accesso ai Servizi app deve essere limitato)|Alto|
-|È consigliabile applicare la protezione avanzata alle regole per le applicazioni Web nei gruppi di sicurezza di rete IaaS|Rafforzare il gruppo di sicurezza di rete (NSG) delle macchine virtuali che eseguono applicazioni Web, con regole NSG che sono eccessivamente permissive per quanto concerne le porte dell'applicazione Web.<br>(Criterio correlato: le regole per i gruppi di sicurezza di rete delle applicazioni Web in IaaS devono essere rafforzate)|Alto|
+|È consigliabile applicare la protezione avanzata alle regole per le applicazioni Web nei gruppi di sicurezza di rete IaaS|Harden the network security group (NSG) of your virtual machines that are running web applications, with NSG rules that are overly permissive with regard to web application ports.<br>(Criterio correlato: le regole per i gruppi di sicurezza di rete delle applicazioni Web in IaaS devono essere rafforzate)|Alto|
 |I criteri di sicurezza pod devono essere definiti per ridurre il vettore di attacco rimuovendo i privilegi delle applicazioni non necessari (Anteprima)|Consente di definire i criteri di sicurezza pod per ridurre il vettore di attacco rimuovendo i privilegi delle applicazioni non necessari. È consigliabile configurare i criteri di sicurezza pod per consentire ai pod di accedere solo alle risorse per cui sono autorizzati.<br>(Criterio correlato: [Anteprima]: i criteri di sicurezza pod devono essere definiti nei servizi Kubernetes)|Media|
 |Install Azure Security Center for IoT security module to get more visibility into your IoT devices (Installare il modulo di protezione del Centro sicurezza di Azure per IoT per ottenere maggiore visibilità nei dispositivi IoT)|Installare il modulo di protezione del Centro sicurezza di Azure per IoT per ottenere maggiore visibilità nei dispositivi IoT.|Basso|
 |È consigliabile riavviare i computer per applicare gli aggiornamenti del sistema|Riavviare i computer per applicare gli aggiornamenti del sistema e proteggere i computer dalle vulnerabilità. (Criterio correlato: gli aggiornamenti di sistema devono essere installati nelle macchine)|Medio|
