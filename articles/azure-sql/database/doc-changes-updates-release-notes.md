@@ -11,17 +11,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/17/2021
 ms.author: sstein
-ms.openlocfilehash: 81c306ac2a8a5c00c5d06877974db7e04964c76b
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: d0522fe2c8b6d6b623903a720e6c8e760bd6aa92
+ms.sourcegitcommit: 089c2bd1ac4861f43c4b89396d3d056a6eef4913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600914"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107602089"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità di SQL database SQL di Azure & sql Istanza gestita?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Questo articolo elenca database SQL di Azure e Istanza gestita di SQL di Azure funzionalità attualmente disponibili in anteprima pubblica. Per gli aggiornamenti e i miglioramenti Istanza gestita database SQL e SQL, vedere Aggiornamenti del [& SQL Istanza gestita](https://azure.microsoft.com/updates/?product=sql-database)SQL. Per gli aggiornamenti e i miglioramenti apportati ad altri servizi di Azure, vedere [Aggiornamenti del servizio](https://azure.microsoft.com/updates).
+Questo articolo elenca database SQL di Azure e Istanza gestita di SQL di Azure funzionalità attualmente disponibili in anteprima pubblica. Per aggiornamenti e miglioramenti del database SQL Istanza gestita SQL, vedere Aggiornamenti del servizio & [SQL Istanza gestita](https://azure.microsoft.com/updates/?product=sql-database)SQL . Per gli aggiornamenti e i miglioramenti apportati ad altri servizi di Azure, vedere [Aggiornamenti del servizio](https://azure.microsoft.com/updates).
 
 ## <a name="whats-new"></a>Novità
 
@@ -86,7 +86,7 @@ Nel modello di distribuzione sql Istanza gestita 2019 sono abilitate le funziona
   - Supporto per <a href="/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e <a href="/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central. </a>
   - Creare un'istanza gestita con <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">regole di confronto</a> a livello di istanza e un <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso</a> orario di propria scelta.
   - Le istanze gestite ora sono protette con un [firewall predefinito](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Configurare SQL Istanza gestita per l'uso di [endpoint](../managed-instance/public-endpoint-configure.md)pubblici, connessione di [sostituzione](connectivity-architecture.md#connection-policy) proxy per ottenere prestazioni di rete migliori, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCore</a> per la generazione di hardware gen5 o configurare la conservazione dei backup fino a <a href="/azure/azure-sql/database/automated-backups-overview">35</a> giorni per il ripristino temporizzazione. [La conservazione dei backup a lungo](long-term-retention-overview.md) termine (fino a 10 anni) è attualmente disponibile in anteprima pubblica.  
+  - Configurare sql Istanza gestita per l'uso di [endpoint](../managed-instance/public-endpoint-configure.md)pubblici, connessione di [sostituzione](connectivity-architecture.md#connection-policy) proxy per ottenere prestazioni di rete migliori, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCore</a> per la generazione di hardware gen5 o configurare la conservazione dei backup fino a <a href="/azure/azure-sql/database/automated-backups-overview">35</a> giorni per il ripristino temporizzazione. [La conservazione dei backup a lungo](long-term-retention-overview.md) termine (fino a 10 anni) è attualmente disponibile in anteprima pubblica.  
   - Le nuove funzionalità consentono di <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">eseguire il ripristino geografico del database in un altro data center tramite PowerShell</a>, [rinominare il database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [eliminare il cluster virtuale](../managed-instance/virtual-cluster-delete.md).
   - Il nuovo [ruolo Collaboratore Istanza](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) predefinito abilita la conformità della separazione dei compiti con i principi di sicurezza e la conformità agli standard aziendali.
   - SQL Istanza gestita è disponibile nelle aree Azure per enti pubblici seguenti per la disponibilità a disponibilità US Gov Texas (US Gov Arizona) e in Cina settentrionale 2 e Cina orientale 2. È disponibile anche nelle aree pubbliche seguenti: Australia centrale, Australia centrale 2, Brasile meridionale, Francia meridionale, Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali, Sudafrica settentrionale, Sudafrica occidentale.
@@ -99,10 +99,10 @@ Nel modello di distribuzione sql Istanza gestita 2019 sono abilitate le funziona
 |[L'sp_send_dbmail della procedura può avere esito negativo temporaneo @query quando si usa il parametro](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Gennaio 2021|Ha una soluzione alternativa||
 |[Le transazioni distribuite possono essere eseguite dopo la rimozione di Istanza gestita dal gruppo di trust del server](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Ottobre 2020|Ha una soluzione alternativa||
 |[Le transazioni distribuite non possono essere eseguite dopo l'Istanza gestita di ridimensionamento](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Ottobre 2020|Ha una soluzione alternativa||
-|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / [OPENROWSET nell'Azure SQL](/sql/t-sql/functions/openrowset-transact-sql) `BACKUP` e nell'istruzione in Istanza gestita non è possibile Azure AD gestire l'identità per / `RESTORE` l'autenticazione in Archiviazione di Azure|Settembre 2020|Ha una soluzione alternativa||
+|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / [OPENROWSET nell'Azure SQL](/sql/t-sql/functions/openrowset-transact-sql) `BACKUP` / `RESTORE` e nell'istruzione in Istanza gestita non è possibile Azure AD gestire l'identità per l'autenticazione in Archiviazione di Azure|Settembre 2020|Ha una soluzione alternativa||
 |[L'entità servizio non può accedere Azure AD e AKV](#service-principal-cannot-access-azure-ad-and-akv)|Agosto 2020|Ha una soluzione alternativa||
 |[Il ripristino del backup manuale senza CHECKSUM potrebbe avere esito negativo](#restoring-manual-backup-without-checksum-might-fail)|Maggio 2020|Risolto|Giugno 2020|
-|[L'agente non risponde dopo la modifica, la disabilitazione o l'abilitazione di processi esistenti](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maggio 2020|Risolto|Giugno 2020|
+|[Agent non risponde dopo la modifica, la disabilitazione o l'abilitazione di processi esistenti](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maggio 2020|Risolto|Giugno 2020|
 |[Autorizzazioni per il gruppo di risorse non applicate a SQL Istanza gestita](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Febbraio 2020|Risolto|Novembre 2020|
 |[Limitazione del failover manuale tramite il portale per i gruppi di failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Gennaio 2020|Ha una soluzione alternativa||
 |[Per i ruoli SQL Agent sono necessarie autorizzazioni EXECUTE esplicite per gli accessi diversi da sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dicembre 2019|Ha una soluzione alternativa||
@@ -112,7 +112,7 @@ Nel modello di distribuzione sql Istanza gestita 2019 sono abilitate le funziona
 |[Errore sbagliato restituito durante il tentativo di rimozione di un file non vuoto](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Ottobre 2019|Ha una soluzione alternativa||
 |[Le operazioni che consentono di modificare il livello di servizio e creare istanze sono bloccate dal ripristino di database in corso](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Settembre 2019|Ha una soluzione alternativa||
 |[Potrebbe essere necessario riconfigurare Resource Governor sul livello di servizio business critical dopo il failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Settembre 2019|Ha una soluzione alternativa||
-|[È necessario reinizializzare Service Broker tra database dopo l'aggiornamento del livello di servizio](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|Agosto 2019|Ha una soluzione alternativa||
+|[Le finestre di dialogo Service Broker tra database devono essere reinizializzare dopo l'aggiornamento del livello di servizio](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|Agosto 2019|Ha una soluzione alternativa||
 |[La rappresentazione dei Azure AD di accesso non è supportata](#impersonation-of-azure-ad-login-types-is-not-supported)|Luglio 2019|Nessuna soluzione alternativa||
 |[Parametro @query non supportato in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|April 2019|Risolto|Gennaio 2021|
 |[È necessario riconfigurare la replica transazionale dopo il failover geografico](#transactional-replication-must-be-reconfigured-after-geo-failover)|Marzo 2019|Nessuna soluzione alternativa||
@@ -159,11 +159,11 @@ END
 
 ### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Le transazioni distribuite possono essere eseguite dopo la rimozione di Istanza gestita dal gruppo di trust del server
 
-[I gruppi di trust](../managed-instance/server-trust-group-overview.md) del server vengono usati per stabilire l'attendibilità tra istanze gestite che è prerequisito per l'esecuzione [di transazioni distribuite.](./elastic-transactions-overview.md) Dopo la rimozione Istanza gestita dal gruppo di trust del server o l'eliminazione del gruppo, è comunque possibile eseguire transazioni distribuite. È possibile applicare una soluzione alternativa per assicurarsi che le transazioni distribuite siano disabilitate e che si tratta di [un failover](../managed-instance/user-initiated-failover.md) manuale avviato dall'utente Istanza gestita.
+[I gruppi di trust](../managed-instance/server-trust-group-overview.md) del server vengono usati per stabilire l'attendibilità tra istanze gestite che è prerequisito per l'esecuzione [di transazioni distribuite.](./elastic-transactions-overview.md) Dopo aver rimosso Istanza gestita dal gruppo di trust del server o aver eliminato il gruppo, è comunque possibile eseguire transazioni distribuite. È possibile applicare una soluzione alternativa per assicurarsi che le transazioni distribuite siano disabilitate e che si tratta di [un failover](../managed-instance/user-initiated-failover.md) manuale avviato dall'utente Istanza gestita.
 
 ### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>Le transazioni distribuite non possono essere eseguite dopo l'Istanza gestita di ridimensionamento
 
-Istanza gestita operazioni di ridimensionamento che includono la modifica del livello di servizio o del numero di vCore reimposta le impostazioni del gruppo di attendibilità del server nel back-end e disabilita l'esecuzione [delle transazioni distribuite.](./elastic-transactions-overview.md) Come soluzione alternativa, eliminare e creare un nuovo [gruppo di trust del server](../managed-instance/server-trust-group-overview.md) portale di Azure.
+Istanza gestita operazioni di ridimensionamento che includono la modifica del livello di servizio o del numero di vCore reimposta le impostazioni del gruppo di attendibilità del server nel back-end e disabilita l'esecuzione [delle transazioni distribuite.](./elastic-transactions-overview.md) Come soluzione alternativa, eliminare e creare un nuovo gruppo di [trust del](../managed-instance/server-trust-group-overview.md) server portale di Azure.
 
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT e BACKUP/RESTORE non possono usare l'identità gestita per accedere ad Archiviazione di Azure
 
@@ -178,11 +178,11 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Soluzione alternativa:** usare la [firma di accesso condiviso per eseguire l'autenticazione all'archiviazione.](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage)
+**Soluzione** alternativa: usare la [firma di accesso condiviso per eseguire l'autenticazione nell'archiviazione.](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage)
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>L'entità servizio non può accedere Azure AD e AKV
 
-In alcune circostanze potrebbe verificarsi un problema con l'entità servizio usata per accedere Azure AD e Azure Key Vault (AKV). Di conseguenza, questo problema influisce sull'utilizzo dell'autenticazione Azure AD e transparent database encryption (TDE) con SQL Istanza gestita. Può trattarsi di un problema di connettività intermittente o non essere in grado di eseguire istruzioni come CREATE LOGIN/USER FROM EXTERNAL PROVIDER o EXECUTE AS LOGIN/USER. Anche la configurazione di TDE con una chiave gestita dal cliente in un nuovo Istanza gestita di SQL di Azure potrebbe non funzionare in alcune circostanze.
+In alcune circostanze potrebbe verificarsi un problema con l'entità servizio usata per accedere Azure AD e Azure Key Vault (AKV). Di conseguenza, questo problema influisce sull'utilizzo dell'autenticazione Azure AD e transparent database encryption (TDE) con SQL Istanza gestita. Può trattarsi di un problema di connettività intermittente o di non essere in grado di eseguire istruzioni come CREATE LOGIN/USER FROM EXTERNAL PROVIDER o EXECUTE AS LOGIN/USER. Anche la configurazione di TDE con una chiave gestita dal cliente in un nuovo Istanza gestita di SQL di Azure potrebbe non funzionare in alcune circostanze.
 
 **Soluzione** alternativa: per evitare che questo problema si verifichi nel Istanza gestita SQL prima di eseguire comandi di aggiornamento o nel caso in cui il problema sia già stato riscontrato dopo i comandi di aggiornamento, passare a portale di Azure, accedere al pannello di amministrazione di SQL Istanza gestita [Active Directory.](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal) Verificare se è possibile visualizzare il messaggio di errore "Istanza gestita richiede un'entità servizio per accedere Azure Active Directory. Fare clic qui per creare un'entità servizio". Nel caso in cui sia stato visualizzato questo messaggio di errore, fare clic su di esso e seguire le istruzioni dettagliate fornite fino a quando l'errore non viene risolto.
 
@@ -192,9 +192,9 @@ In alcuni casi il backup manuale dei database evasi in un'istanza gestita senza 
 
 **Soluzione** alternativa: eseguire backup manuali dei database in istanze gestite con CHECKSUM abilitato.
 
-### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>L'agente non risponde dopo la modifica, la disabilitazione o l'abilitazione di processi esistenti
+### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>L'agente non risponde alla modifica, alla disabilitazione o all'abilitazione di processi esistenti
 
-In alcuni casi, la modifica, la disabilitazione o l'abilitazione di un processo esistente possono causare la non risposta dell'agente. Il problema viene risolto automaticamente al rilevamento, determinando un riavvio del processo dell'agente.
+In determinate circostanze, la modifica, la disabilitazione o l'abilitazione di un processo esistente possono causare la non risposta dell'agente. Il problema viene risolto automaticamente al rilevamento, determinando un riavvio del processo dell'agente.
 
 ### <a name="permissions-on-resource-group-not-applied-to-sql-managed-instance"></a>Autorizzazioni per il gruppo di risorse non applicate a SQL Istanza gestita
 
@@ -212,7 +212,7 @@ Se un gruppo di failover si estende tra istanze in sottoscrizioni o gruppi di ri
 
 Se gli account di accesso non sysadmin vengono aggiunti SQL Agent qualsiasi ruolo predefinito del database , esiste un problema [per](/sql/ssms/agent/sql-server-agent-fixed-database-roles)cui è necessario concedere autorizzazioni EXECUTE esplicite alle stored procedure master per il funzionamento di questi account di accesso. Se si verifica questo problema, si riceve l'errore "The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229) [L'autorizzazione EXECUTE è stata negata per l'oggetto <object_name> (Microsoft SQL Server, Error: 229)]".
 
-**Soluzione** alternativa: dopo aver aggiunto gli account di accesso a un ruolo predefinito del database SQL Agent (SQLAgentUserRole, SQLAgentReaderRole o SQLAgentOperatorRole), per ognuno degli account di accesso aggiunti a questi ruoli, eseguire lo script T-SQL seguente per concedere esplicitamente le autorizzazioni EXECUTE alle stored procedure elencate.
+**Soluzione** alternativa: dopo aver aggiunto account di accesso a un ruolo predefinito del database SQL Agent (SQLAgentUserRole, SQLAgentReaderRole o SQLAgentOperatorRole), per ognuno degli account di accesso aggiunti a questi ruoli, eseguire lo script T-SQL seguente per concedere esplicitamente le autorizzazioni EXECUTE alle stored procedure elencate.
 
 ```tsql
 USE [master]
@@ -230,7 +230,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>I limiti di memoria di OLTP in memoria non vengono applicati
 
-In business critical livello di servizio non verranno applicati correttamente i limiti massimi di memoria per gli oggetti [ottimizzati](../managed-instance/resource-limits.md#in-memory-oltp-available-space) per la memoria. Sql Istanza gestita può consentire al carico di lavoro di usare più memoria per le operazioni OLTP in memoria, che possono influire sulla disponibilità e la stabilità dell'istanza. Le query di OLTP in memoria che raggiungono i limiti potrebbero non avere subito esito negativo. Questo problema verrà risolto a breve. Le query che usano più memoria OLTP in memoria avranno esito negativo prima se raggiungono i [limiti](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
+In business critical livello di servizio non verranno applicati correttamente i limiti massimi di memoria per gli oggetti [ottimizzati per](../managed-instance/resource-limits.md#in-memory-oltp-available-space) la memoria. Sql Istanza gestita può consentire al carico di lavoro di usare più memoria per le operazioni OLTP in memoria, che possono influire sulla disponibilità e la stabilità dell'istanza. Le query di OLTP in memoria che raggiungono i limiti potrebbero non avere subito esito negativo. Questo problema verrà risolto a breve. Le query che usano più memoria OLTP in memoria avranno esito negativo prima se raggiungono i [limiti](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
 **Soluzione** alternativa: [monitorare l'utilizzo dello](../in-memory-oltp-monitor-space.md) spazio di archiviazione OLTP in memoria [usando SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) per assicurarsi che il carico di lavoro non utilizzi più della memoria disponibile. Aumentare i limiti di memoria che dipendono dal numero di vCore oppure ottimizzare il carico di lavoro per usare meno memoria.
  
@@ -254,7 +254,7 @@ La [funzionalità Resource Governor](/sql/relational-databases/resource-governor
 
 **Soluzione** alternativa: eseguire periodicamente o come parte di un processo SQL Agent che esegue l'attività SQL all'avvio dell'istanza se si usa `ALTER RESOURCE GOVERNOR RECONFIGURE` [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
 
-### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>È necessario reinizializzare Service Broker tra database dopo l'aggiornamento del livello di servizio
+### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>Le finestre di dialogo Service Broker tra database devono essere reinizializzare dopo l'aggiornamento del livello di servizio
 
 Le finestre di dialogo Service Broker tra database interromperanno l'invio di messaggi ai servizi di altri database dopo l'operazione di modifica del livello di servizio. I messaggi non *vengono persi* e sono disponibili nella coda del mittente. Qualsiasi modifica di vCore o delle dimensioni di archiviazione dell'istanza in SQL Istanza gestita causerà la modifica di un valore nella vista `service_broke_guid` [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) per tutti i database. Qualsiasi `DIALOG` elemento creato usando [un'istruzione BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) che fa riferimento a Service Brokers in un altro database interromperà il recapito dei messaggi al servizio di destinazione.
 
@@ -298,12 +298,12 @@ Le istruzioni `CREATE DATABASE`, `ALTER DATABASE ADD FILE`e `RESTORE DATABASE` p
 
 Ogni per utilizzo generico istanza di SQL Istanza gestita ha fino a 35 TB di spazio di archiviazione riservato per lo spazio su disco Premium di Azure. Ogni file di database si trova in un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato sul disco non viene conteggiato, ma la somma delle dimensioni dei dischi Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni delle risorse di archiviazione a causa della frammentazione interna.
 
-Ad esempio, un'per utilizzo generico di SQL Istanza gestita potrebbe avere un file di grandi dimensioni di 1,2 TB posizionato su un disco da 4 TB. Può anche contenere 248 file da 1 GB ciascuno e posizionati in dischi da 128 GB separati. Esempio:
+Ad esempio, un'per utilizzo generico di SQL Istanza gestita potrebbe avere un file di grandi dimensioni di 1,2 TB posizionato su un disco da 4 TB. Può anche contenere 248 file da 1 GB ciascuno e inseriti in dischi da 128 GB separati. Esempio:
 
 - la dimensione totale della risorsa di archiviazione sul disco allocato è 1 x 4 TB + 248 x 128 GB = 35 TB.
 - Lo spazio totale riservato per i database nell'istanza è 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
 
-Questo esempio illustra che, in determinate circostanze, a causa di una distribuzione specifica dei file, un'istanza di SQL Istanza gestita potrebbe raggiungere il limite di 35 TB riservato a un disco Premium di Azure collegato quando potrebbe non essere previsto.
+Questo esempio illustra che in determinate circostanze, a causa di una distribuzione specifica dei file, un'istanza di SQL Istanza gestita potrebbe raggiungere il limite di 35 TB riservato a un disco Premium di Azure collegato quando non è previsto.
 
 In questo esempio, i database esistenti continuano a funzionare e possono crescere senza alcun problema fino a quando non vengono aggiunti nuovi file. Non è possibile creare o ripristinare nuovi database a causa dello spazio insufficiente per le nuove unità disco, anche se le dimensioni totali di tutti i database non raggiungono il limite di dimensioni dell'istanza. L'errore restituito in questo caso potrebbe non essere chiaro.
 

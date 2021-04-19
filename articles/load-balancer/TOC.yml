@@ -31,15 +31,17 @@
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Bilanciare il carico delle VM in una zona di disponibilità specifica
       href: tutorial-load-balancer-standard-public-zonal-portal.md
+    - name: Bilanciare il carico delle macchine virtuali con più set di disponibilità
+      href: tutorial-multi-availability-sets-portal.md
     - name: Configurare il port forwarding in Load Balancer
       href: tutorial-load-balancer-port-forwarding-portal.md
     - name: Bilanciamento del carico tra aree
       items:
         - name: Creare un servizio di bilanciamento del carico tra aree - Portale
           href: tutorial-cross-region-portal.md
-        - name: Creare un servizio di bilanciamento del carico tra aree-PowerShell
+        - name: Creare un servizio di bilanciamento del carico tra aree - PowerShell
           href: tutorial-cross-region-powershell.md
-        - name: Creare un servizio di bilanciamento del carico tra aree-interfaccia della riga di comando di Azure
+        - name: Creare un servizio di bilanciamento del carico tra aree - Interfaccia della riga di comando di Azure
           href: tutorial-cross-region-cli.md
     - name: Gateway NAT
       items:
@@ -49,7 +51,7 @@
           href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
     - name: Back-end basato su IP
       items:
-        - name: Creare un servizio di bilanciamento del carico pubblico con un back-end basato su IP-portale
+        - name: Creare un servizio di bilanciamento del carico pubblico con un back-end basato su IP - Portale
           href: tutorial-load-balancer-ip-backend-portal.md
 - name: Esempi
   items:
@@ -162,7 +164,7 @@
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Configurazione del servizio di bilanciamento del carico solo in uscita
       href: egress-only.md
-    - name: Recuperare i metadati usando Azure IMDS
+    - name: Recuperare i metadati usando IMDS di Azure
       href: howto-load-balancer-imds.md
     - name: Risolvere problemi
       items:

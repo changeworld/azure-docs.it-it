@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 04/14/2021
 ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7098cfbc2fbe2236687eb7d621a0e587497fcebc
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: feff8b003428fd61fba826d05f8212fa8d9788f9
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516414"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107601936"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -86,7 +86,7 @@ Con Riconoscimento modulo è possibile creare due diversi tipi di client. Il pri
 
 `FormRecognizerClient` fornisce le operazioni per:
 
-* Riconoscimento dei campi modulo e del contenuto tramite modelli personalizzati con training per analizzare i moduli personalizzati. Questi valori vengono restituiti in una raccolta di oggetti `RecognizedForm`.
+* Riconoscimento dei campi modulo e del contenuto usando modelli personalizzati con training per analizzare i moduli personalizzati. Questi valori vengono restituiti in una raccolta di oggetti `RecognizedForm`.
 * Riconoscere i contenuti dei moduli, incluse tabelle, righe e parole, senza la necessità di eseguire il training di un modello. I contenuti dei moduli vengono restituiti in una raccolta di oggetti `FormPage`.
 * Riconoscimento di campi comuni da ricevute, biglietti da visita, fatture e documenti di identità degli Stati Uniti usando un modello con training preliminare nel riconoscimento modulo servizio.
 
@@ -94,7 +94,7 @@ Con Riconoscimento modulo è possibile creare due diversi tipi di client. Il pri
 
 `FormTrainingClient` fornisce le operazioni per:
 
-* Training di modelli personalizzati per analizzare tutti i campi e i valori presenti nei moduli personalizzati. Viene restituito un valore che indica i tipi di modulo che verranno analizzati dal modello e i campi che `CustomFormModel` estrarrà per ogni tipo di modulo. _Per_ altri [dettagli, vedere](#train-a-model-without-labels) la documentazione del servizio sul training del modello senza etichetta.
+* Training di modelli personalizzati per analizzare tutti i campi e i valori trovati nei moduli personalizzati. Viene restituito un valore che indica i tipi di modulo che verranno analizzati dal modello e `CustomFormModel` i campi che estrarrà per ogni tipo di modulo. _Per_ altri [dettagli, vedere la documentazione](#train-a-model-without-labels) del servizio sul training del modello senza etichetta.
 * Training di modelli personalizzati per analizzare campi e valori specifici specificati etichettando i moduli personalizzati. Viene restituito un `CustomFormModel` che indica i campi che verranno estratti dal modello e l'accuratezza stimata per ogni campo. Per una spiegazione più dettagliata dell'applicazione di etichette a un training set, vedere la [documentazione del servizio sul training di modelli etichettati](#train-a-model-with-labels).
 * Gestire i modelli creati nell'account.
 * Copiare un modello personalizzato da una risorsa Riconoscimento modulo a un'altra.
@@ -129,11 +129,11 @@ Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training 
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recupero dell'URL di firma di accesso condiviso":::
-* Usare il modulo di esempio e le immagini di ricevute inclusi negli esempi seguenti (disponibili anche in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)) oppure usare la procedura precedente per ottenere l'URL di firma di accesso condiviso di un singolo documento nell'archivio BLOB.
+* Usare il modulo di esempio e le immagini di ricevute inclusi negli esempi seguenti (disponibili anche in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)) oppure usare la procedura precedente per ottenere l'URL di firma di accesso condiviso di un singolo documento nell'archivio BLOB.
 
 ## <a name="analyze-layout"></a>Analizzare il layout
 
-È possibile usare riconoscimento modulo per analizzare tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello. Per altre informazioni sull'estrazione del layout, vedere la [guida concettuale Layout](../../concept-layout.md). Per analizzare il contenuto di un file in un URI specifico, usare il `beginRecognizeContentFromUrl` metodo .
+È possibile usare riconoscimento modulo per analizzare tabelle, linee e parole nei documenti, senza dover eseguire il training di un modello. Per altre informazioni sull'estrazione del layout, vedere la [Guida concettuale al layout](../../concept-layout.md). Per analizzare il contenuto di un file in un URI specifico, usare il `beginRecognizeContentFromUrl` metodo .
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
@@ -158,7 +158,7 @@ cell [1,5] has text PT
 
 ## <a name="analyze-receipts"></a>Analizzare ricevute
 
-Questa sezione illustra come analizzare ed estrarre campi comuni dalle ricevute degli Stati Uniti usando un modello di ricevuta con training preliminare. Per altre informazioni sull'analisi delle ricevute, vedere la [guida concettuale Ricevute](../../concept-receipts.md).
+Questa sezione illustra come analizzare ed estrarre campi comuni dalle ricevute degli Stati Uniti, usando un modello di ricevuta con training preliminare. Per altre informazioni sull'analisi delle ricevute, vedere la [Guida concettuale alle ricevute](../../concept-receipts.md).
 
 Per analizzare le ricevute da un URI, usare il `beginRecognizeReceiptsFromUrl` metodo . Il codice seguente elabora una ricevuta in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
 
@@ -184,29 +184,29 @@ First receipt:
 
 ## <a name="analyze-business-cards"></a>Analizzare biglietti da visita
 
-Questa sezione illustra come analizzare ed estrarre campi comuni dai biglietti da visita in lingua inglese usando un modello con training preliminare. Per altre informazioni sull'analisi dei biglietti da visita, vedere la [Guida concettuale ai biglietti da visita](../../concept-business-cards.md).
+Questa sezione illustra come analizzare ed estrarre campi comuni da biglietti da visita in lingua inglese, usando un modello con training preliminare. Per altre informazioni sull'analisi dei biglietti da visita, vedere la [Guida concettuale ai biglietti da visita](../../concept-business-cards.md).
 
 Per analizzare i biglietti da visita da un URL, usare il `beginRecognizeBusinessCardsFromURL` metodo .
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_bc":::
 
 > [!TIP]
-> È anche possibile analizzare le immagini dei biglietti da visita locali. Vedere i metodi di [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), ad esempio **beginRecognizeBusinessCards**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
+> È anche possibile analizzare immagini di biglietti da visita locali. Vedere i metodi di [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), ad esempio **beginRecognizeBusinessCards**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
 
 ## <a name="analyze-invoices"></a>Analizzare fatture
 
-Questa sezione illustra come analizzare ed estrarre campi comuni dalle fatture di vendita usando un modello con training preliminare. Per altre informazioni sull'analisi delle fatture, vedere la [Guida concettuale alle fatture.](../../concept-invoices.md)
+Questa sezione illustra come analizzare ed estrarre campi comuni dalle fatture di vendita usando un modello con training preliminare. Per altre informazioni sull'analisi della fattura, vedere la [Guida concettuale della fattura.](../../concept-invoices.md)
 
 Per analizzare le fatture da un URL, usare il `beginRecognizeInvoicesFromUrl` metodo .
 
 :::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_invoice":::
 
 > [!TIP]
-> È anche possibile analizzare immagini di biglietti da visita locali. Vedere i metodi di [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), ad esempio **beginRecognizeInvoices**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
+> È anche possibile analizzare le immagini dei biglietti da visita locali. Vedere i metodi di [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), ad esempio **beginRecognizeInvoices**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
 
 ## <a name="analyze-identity-documents"></a>Analizzare i documenti di identità
 
-Questa sezione illustra come analizzare ed estrarre le informazioni chiave dai documenti di identificazione rilasciati dagli enti pubblici( passaporti in tutto il mondo e licenze del tassista degli Stati Uniti) usando il modello di ID predefinito riconoscimento modulo. Per altre informazioni sull'analisi delle fatture, vedere la guida [concettuale al modello di identificazione predefinito](../../concept-identification-cards.md).
+Questa sezione illustra come analizzare ed estrarre le informazioni chiave dai documenti di identificazione rilasciati dal governo, ovvero passaporti a livello mondiale e licenze del driver statunitense, usando il modello di ID predefinito riconoscimento modulo. Per altre informazioni sull'analisi delle fatture, vedere la guida [concettuale al modello di identificazione predefinito](../../concept-identification-cards.md).
 
 Per analizzare i documenti di identità da un URL, usare il `beginRecognizeIdDocumentsFromUrl` metodo .
 
@@ -221,7 +221,7 @@ Questa sezione illustra come eseguire il training di un modello con i dati perso
 
 ### <a name="train-a-model-without-labels"></a>Eseguire il training di un modello senza etichette
 
-Eseguire il training di modelli personalizzati per analizzare tutti i campi e i valori trovati nei moduli personalizzati senza etichettare manualmente i documenti di training.
+Eseguire il training di modelli personalizzati per analizzare tutti i campi e i valori presenti nei moduli personalizzati senza etichettare manualmente i documenti di training.
 
 La funzione seguente esegue il training di un modello su un set di documenti specificato e ne stampa lo stato nella console.
 
@@ -229,7 +229,7 @@ La funzione seguente esegue il training di un modello su un set di documenti spe
 
 ### <a name="output"></a>Output
 
-Questo è l'output per un modello con training con i dati di training disponibili in [JavaScript SDK.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer) Questo output di esempio è stato troncato per una leggibilità.
+Si tratta dell'output di un modello con training con i dati di training disponibili in [JavaScript SDK.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer) Questo output di esempio è stato troncato per una leggibilità.
 
 ```console
 training status: creating
@@ -271,7 +271,7 @@ Document errors:
 
 ### <a name="output"></a>Output
 
-Questo è l'output per un modello con training con i dati di training disponibili in [JavaScript SDK.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) Questo output di esempio è stato troncato per una leggibilità.
+Si tratta dell'output di un modello con training con i dati di training disponibili in [JavaScript SDK.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) Questo output di esempio è stato troncato per una leggibilità.
 
 ```console
 training status: creating

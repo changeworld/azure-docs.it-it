@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 4/12/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: bf74b3a1659547772368c9fb394eeab8321b5f5d
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 6007ec954682c0cb0ba20cbbf6b3621ead0bf7ff
+ms.sourcegitcommit: 089c2bd1ac4861f43c4b89396d3d056a6eef4913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599639"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107602099"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -61,12 +61,12 @@ Dopo aver creato un endpoint server in Windows Server 2012 R2, si verifica l'err
 unitàlettera:\ non accessibile.  
 Parametro non corretto.
 
-Per risolvere questo problema, installare [KB2919355 e](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) riavviare il server. Se questo aggiornamento non viene installato perché è già installato un aggiornamento successivo, passare a Windows Update, installare gli aggiornamenti più recenti per Windows Server 2012 R2 e riavviare il server.
+Per risolvere questo problema, installare [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) e riavviare il server. Se questo aggiornamento non viene installato perché è già installato un aggiornamento successivo, passare a Windows Update, installare gli aggiornamenti più recenti per Windows Server 2012 R2 e riavviare il server.
 
 <a id="server-registration-missing-subscriptions"></a>**La registrazione del server non elenca tutte le sottoscrizioni di Azure**  
 Quando si registra un server con ServerRegistration.exe, le sottoscrizioni risultano mancanti quando si fa clic sull'elenco a discesa delle sottoscrizioni di Azure.
 
-Questo problema si verifica perché ServerRegistration.exe recupera solo le sottoscrizioni dai primi 5 tenant Azure AD. 
+Questo problema si verifica perché ServerRegistration.exe solo le sottoscrizioni dai primi 5 tenant Azure AD. 
 
 Per aumentare il limite di tenant di Registrazione server nel server, creare un valore DWORD denominato ServerRegistrationTenantLimit in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync con un valore maggiore di 5.
 
@@ -370,7 +370,7 @@ Per visualizzare questi errori, eseguire lo script **FileSyncErrorsReport.ps1** 
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Il file non può essere sincronizzato perché è stato raggiunto il numero massimo di file in conflitto. Sincronizzazione file di Azure supporta 100 file in conflitto per file. Per altre informazioni sui conflitti di file, vedere le [domande frequenti](./storage-files-faq.md#afs-conflict-resolution) su Sincronizzazione file di Azure. | Per risolvere il problema, ridurre il numero di file in conflitto. Il file verrà sincronizzato quando il numero di file in conflitto sarà inferiore a 100. |
 
 #### <a name="handling-unsupported-characters"></a>Gestione dei caratteri non supportati
-Se lo script **di** PowerShellFileSyncErrorsReport.ps1mostra errori di sincronizzazione per elemento dovuti a caratteri non supportati (codice di errore 0x8007007b o 0x80c80255), è necessario rimuovere o rinominare i caratteri in errore dai rispettivi nomi di file. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. 
+Se lo script **di** PowerShellFileSyncErrorsReport.ps1mostra errori di sincronizzazione per elemento a causa di caratteri non supportati (codice di errore 0x8007007b o 0x80c80255), è necessario rimuovere o rinominare i caratteri in errore dai rispettivi nomi di file. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. 
 > [!Note]  
 > È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-cmdlet) per identificare i caratteri non supportati. Se il set di dati contiene diversi file con caratteri non validi, usare lo script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) per rinominare i file che contengono caratteri non supportati.
 
@@ -378,11 +378,12 @@ La tabella seguente contiene tutti i caratteri unicode che Sincronizzazione file
 
 | Set di caratteri | Conteggio di caratteri |
 |---------------|-----------------|
+| 0x00000000 - 0x0000001F (caratteri di controllo) | 32 |
+| <ul><li>0x00000022 (virgolette)</li><li>0x0000002A (asterisco)</li><li>0x0000002F (barra)</li><li>0x0000003A (due punti)</li><li>0x0000003C (minore di)</li><li>0x0000003E (maggiore di)</li><li>0x0000003F (punto interrogativo)</li><li>0x0000005C (barra rovesciata)</li><li>0x0000007C (pipe o barra)</li></ul> | 9 |
+| <ul><li>0x0004FFFE - 0x0004FFFF = 2 (non carattere)</li><li>0x0008FFFE - 0x0008FFFF = 2 (non carattere)</li><li>0x000CFFFE - 0x000CFFFF = 2 (non carattere)</li><li>0x0010FFFE - 0x0010FFFF = 2 (non carattere)</li></ul> | 8 |
 | <ul><li>0x0000009D (osc operating system command)</li><li>0x00000090 (dcs device control string)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (high octet preset)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverse line feed)</li></ul> | 6 |
-| 0x0000FDD0 - 0x0000FDEF (Arabic presentation forms-a) | 32 |
-| 0x0000FFF0 - 0x0000FFFF (caso speciale) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (non carattere)</li><li>0x0002FFFE - 0x0002FFFF = 2 (non carattere)</li><li>0x0003FFFE - 0x0003FFFF = 2 (non carattere)</li><li>0x0004FFFE - 0x0004FFFF = 2 (non carattere)</li><li>0x0005FFFE - 0x0005FFFF = 2 (non carattere)</li><li>0x0006FFFE - 0x0006FFFF = 2 (non carattere)</li><li>0x0007FFFE - 0x0007FFFF = 2 (non carattere)</li><li>0x0008FFFE - 0x0008FFFF = 2 (non carattere)</li><li>0x0009FFFE - 0x0009FFFF = 2 (non carattere)</li><li>0x000AFFFE - 0x000AFFFF = 2 (non carattere)</li><li>0x000BFFFE - 0x000BFFFF = 2 (non carattere)</li><li>0x000CFFFE - 0x000CFFFF = 2 (non carattere)</li><li>0x000DFFFE - 0x000DFFFF = 2 (non carattere)</li><li>0x000EFFFE - 0x000EFFFF = 2 (non definito)</li><li>0x000FFFFE - 0x000FFFFF = 2 (supplementary private use area)</li></ul> | 30 |
-| 0x0010FFFE, 0x0010FFFF | 2 |
+| 0x0000FFF0, 0x0000FFFD, 0x0000FFFE, 0x0000FFFF (speciali) | 4 |
+| File o directory che terminano con un punto | 1 |
 
 ### <a name="common-sync-errors"></a>Errori di sincronizzazione comuni
 <a id="-2147023673"></a>**La sessione di sincronizzazione è stata annullata.**  
@@ -768,7 +769,7 @@ Questo errore si verifica perché l'endpoint cloud è stato creato con contenuto
 | **Stringa di errore** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Rimedio necessario** | Sì |
 
-Le sessioni di sincronizzazione hanno esito negativo con uno di questi errori quando sono presenti molti file che non riescono a eseguire la sincronizzazione con errori per elemento. Eseguire i passaggi descritti nella sezione Ricerca per categorie verificare se sono presenti cartelle o file specifici che non sono [sincronizzati?](?tabs=portal1%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) per risolvere gli errori per ogni elemento. Per informazioni sull'ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED di sincronizzazione, aprire un caso di supporto.
+Le sessioni di sincronizzazione hanno esito negativo con uno di questi errori quando sono presenti molti file che non riescono a eseguire la sincronizzazione con errori per elemento. Eseguire i passaggi documentati nella [sezione Ricerca per categorie verificare](?tabs=portal1%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) se sono presenti cartelle o file specifici che non vengono sincronizzati? per risolvere gli errori per ogni elemento. Per informazioni sull'ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED di sincronizzazione, aprire un caso di supporto.
 
 > [!NOTE]
 > Sincronizzazione file di Azure crea uno snapshot VSS temporaneo una volta al giorno nel server per sincronizzare i file con handle aperti.
@@ -936,7 +937,7 @@ Questo errore si verifica se la directory utilizzata come percorso dell'endpoint
 
 Se la directory è stata eliminata, seguire questa procedura per rimuovere l'endpoint server esistente e creare un nuovo endpoint server usando un nuovo percorso:
 
-1. Rimuovere l'endpoint server nel gruppo di sincronizzazione seguendo la procedura descritta in [Rimuovere un endpoint server](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
+1. Rimuovere l'endpoint server nel gruppo di sincronizzazione seguendo la procedura descritta in [Rimuovere un endpoint server.](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint)
 2. Creare un nuovo endpoint server nel gruppo di sincronizzazione seguendo la procedura descritta in [Aggiungere un endpoint server](./storage-sync-files-server-endpoint.md#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Normale procedura di risoluzione dei problemi
@@ -1126,7 +1127,7 @@ Se non è possibile archiviare a livelli i file in File di Azure:
 
 | HRESULT | HRESULT (decimale) | Stringa di errore | Problema | Correzione |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | Non è stato possibile eseguire il livello del file perché è in corso il caricamento iniziale. | Non è necessaria alcuna azione. Il file verrà a livelli al termine del caricamento iniziale. |
+| 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | Impossibile eseguire il livello del file perché è in corso il caricamento iniziale. | Non è necessaria alcuna azione. Il file verrà a livelli al termine del caricamento iniziale. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | La suddivisione in livelli del file non è riuscita perché il file è in uso. | Non è necessaria alcuna azione. Il file verrà archiviato a livelli quando non sarà più in uso. |
 | 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | La suddivisione in livelli del file non è riuscita perché il file è escluso dalla sincronizzazione. | Non è necessaria alcuna azione. I file nell'elenco di esclusione della sincronizzazione non possono essere archiviati a livelli. |
 | 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | La suddivisione in livelli del file non è riuscita perché il file non è stato trovato sul server. | Non è necessaria alcuna azione. Se l'errore persiste, controllare se il file esiste nel server. |
@@ -1148,8 +1149,8 @@ Se non è possibile archiviare a livelli i file in File di Azure:
 | 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | La suddivisione in livelli del file non è riuscita a causa di un problema di rete. | Non è necessaria alcuna azione. Se l'errore persiste, controllare la connettività di rete alla condivisione file di Azure. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | La suddivisione in livelli del file non è riuscita perché il file è stato modificato. | Non è necessaria alcuna azione. Il file verrà archiviato a livelli dopo che il file modificato è stato sincronizzato con la condivisione file di Azure. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | La suddivisione in livelli del file non è riuscita a causa di risorse del sistema insufficienti. | Se l'errore persiste, individuare l'applicazione o il driver in modalità kernel che esaurisce le risorse di sistema. |
-| 0x8e5e03fe | -1906441218 | JET_errDiskIO | Il file non è stato a livelli a causa di un errore di I/O durante la scrittura nel database cloud a livelli. | Se l'errore persiste, eseguire chkdsk nel volume e controllare l'hardware di archiviazione. |
-| 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | Il file non è stato a livelli perché il database a livelli cloud non è in esecuzione. | Per risolvere questo problema, riavviare il servizio o il server FileSyncSvc. Se l'errore persiste, eseguire chkdsk nel volume e controllare l'hardware di archiviazione. |
+| 0x8e5e03fe | -1906441218 | JET_errDiskIO | Il file non è riuscito a livello a causa di un errore di I/O durante la scrittura nel database a livelli cloud. | Se l'errore persiste, eseguire chkdsk nel volume e controllare l'hardware di archiviazione. |
+| 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | Impossibile eseguire il livello del file perché il database a livelli cloud non è in esecuzione. | Per risolvere questo problema, riavviare il servizio o il server FileSyncSvc. Se l'errore persiste, eseguire chkdsk nel volume e controllare l'hardware di archiviazione. |
 
 
 
