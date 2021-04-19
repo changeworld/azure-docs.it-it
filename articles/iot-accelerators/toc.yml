@@ -22,7 +22,7 @@
 - name: Avvi rapidi
   items:
     - name: Distribuire l'acceleratore della soluzione di simulazione di dispositivi
-      href: 'https://github.com/Azure/device-simulation-dotnet/blob/master/README.md'
+      href: 'https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md'
     - name: Provare una soluzione di fabbrica connessa
       href: quickstart-connected-factory-deploy.md
   expanded: true
@@ -92,7 +92,7 @@
   items:
     - name: Opzioni di supporto tecnico e assistenza
       href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
-    - name: Glossario
+    - name: Glossario IoT
       href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-accelerators/toc.json&bc=/azure/iot-accelerators/breadcrumb/toc.json
     - name: Servizi di Azure IoT
       items:
@@ -127,7 +127,7 @@
         - name: Guida di riferimento per gli sviluppatori
           href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
         - name: Repository GitHub
-          href: 'https://github.com/Azure/device-simulation-dotnet'
+          href: 'https://github.com/Azure/azure-iot-pcs-device-simulation'
     - name: Architettura di riferimento
       href: /azure/architecture/reference-architectures/iot
       items:
@@ -135,7 +135,7 @@
           href: /azure/architecture/reference-architectures/iot
     - name: Domande frequenti
       items:
-        - name: Domande frequenti sugli acceleratori di soluzioni
+        - name: Domande frequenti su Acceleratori di soluzioni
           href: iot-accelerators-faq.md
         - name: Domande frequenti su Connected Factory
           href: iot-accelerators-faq-cf.md

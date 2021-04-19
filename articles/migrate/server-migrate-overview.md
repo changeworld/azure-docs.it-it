@@ -1,17 +1,17 @@
 ---
-title: Selezionare un'opzione di migrazione VMware con Azure Migrate migrazione del server
-description: Viene fornita una panoramica delle opzioni per la migrazione di macchine virtuali VMware in Azure con Azure Migrate migrazione del server
+title: Selezionare un'opzione di migrazione VMware con Azure Migrate Server
+description: Offre una panoramica delle opzioni per la migrazione di macchine virtuali VMware ad Azure con Azure Migrate Server Migration
 author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7446b2050fdd7bbc7704953c053da0629231191c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22a0629d50ee8181ffcbfe7dad32ab76fb3e68fd
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715123"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714165"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selezionare un'opzione di migrazione VMware
 
@@ -23,32 +23,33 @@ ms.locfileid: "101715123"
 
 ## <a name="compare-migration-methods"></a>Confrontare i metodi di migrazione
 
-Usare i confronti selezionati per decidere quale metodo usare. È anche possibile esaminare i requisiti di supporto completo per la migrazione senza [agenti](migrate-support-matrix-vmware-migration.md#agentless-migration) e [basata su agenti](migrate-support-matrix-vmware-migration.md#agent-based-migration) .
+Usare questi confronti selezionati per decidere quale metodo usare. È anche possibile esaminare i requisiti di supporto completi per la [migrazione senza agente](migrate-support-matrix-vmware-migration.md#agentless-migration) e basata [su](migrate-support-matrix-vmware-migration.md#agent-based-migration) agente.
 
-**Impostazione** | **Senza agente** | **Basata su agenti**
+**Impostazione** | **Senza agente** | **Basato su agente**
 --- | --- | ---
-**Autorizzazioni di Azure** | Sono necessarie le autorizzazioni per creare un progetto Azure Migrate e per registrare le app Azure AD create quando si distribuisce il dispositivo Azure Migrate. | Sono necessarie autorizzazioni di collaboratore per la sottoscrizione di Azure. 
-**Replica** | È possibile replicare simultaneamente un massimo di 500 VM da un server vCenter. Nel portale è possibile selezionare un massimo di 10 computer contemporaneamente per la replica. Per replicare più computer, aggiungerli in batch di 10.| La capacità di replica aumenta scalando il dispositivo di replica.
-**Distribuzione dell'appliance** | Il [Azure migrate Appliance](migrate-appliance.md) viene distribuito in locale. | Il [Azure migrate appliance di replica](migrate-replication-appliance.md) viene distribuito in locale.
-**Compatibilità Site Recovery** | Compatibile. | Non è possibile eseguire la replica con Azure Migrate migrazione del server se è stata configurata la replica per un computer con Site Recovery.
+**Autorizzazioni di Azure** | Sono necessarie autorizzazioni per creare un progetto Azure Migrate e per registrare Azure AD app create quando si distribuisce l'appliance Azure Migrate dispositivo. | Sono necessarie le autorizzazioni di collaboratore per la sottoscrizione di Azure. 
+**Replica** | È possibile replicare contemporaneamente un massimo di 500 macchine virtuali da un server vCenter. Nel portale è possibile selezionare un massimo di 10 computer contemporaneamente per la replica. Per replicare più computer, aggiungerli in batch di 10.| La capacità di replica aumenta ridimensionando l'appliance di replica.
+**Distribuzione dell'appliance** | [L Azure Migrate appliance](migrate-appliance.md) viene distribuita in locale. | [L Azure Migrate'appliance di](migrate-replication-appliance.md) replica viene distribuita in locale.
+**Site Recovery compatibilità** | Compatibile. | Non è possibile eseguire la replica con Azure Migrate server se è stata impostata la replica per un computer usando Site Recovery.
 **Disco di destinazione** | Dischi gestiti | Dischi gestiti
 **Limiti del disco** | Disco del sistema operativo: 2 TB<br/><br/> Disco dati: 32 TB<br/><br/> Numero massimo di dischi: 60 | Disco del sistema operativo: 2 TB<br/><br/> Disco dati: 32 TB<br/><br/> Numero massimo di dischi: 63
 **Dischi pass-through** | Non supportato | Supportato
-**Avvio UEFI** | Supportata. | Supportata.
+**Avvio UEFI** | Supportata. | Supportata. 
+**Connettività** | Internet pubblico <br/> ExpressRoute con peering Microsoft <br/> <br/> [Informazioni su](./replicate-using-expressroute.md) come usare endpoint privati per la replica tramite un peering privato ExpressRoute o una connessione VPN da sito a sito. |Internet pubblico <br/> ExpressRoute con peering privato <br/> ExpressRoute con peering Microsoft <br/> VPN da sito a sito
 
 ## <a name="compare-deployment-steps"></a>Confrontare i passaggi di distribuzione
 
 Dopo aver esaminato le limitazioni, la comprensione dei passaggi necessari per la distribuzione di ogni soluzione può essere utile per decidere quale opzione scegliere.
 
-**Attività** | **Dettagli** |**Senza agente** | **Basata su agenti**
+**Attività** | **Dettagli** |**Senza agente** | **Basato su agente**
 --- | --- | --- | ---
-**Distribuire l'appliance Azure Migrate** | Un appliance leggero che viene eseguito in una VM VMware.<br/><br/> Il dispositivo viene usato per individuare e valutare i computer e per eseguire la migrazione dei computer con la migrazione senza agenti. | Obbligatorio.<br/><br/> Se è già stata configurata l'appliance per la valutazione, è possibile usare lo stesso dispositivo per la migrazione senza agenti. | Non obbligatorio.<br/><br/> Se è stata configurata un'appliance per la valutazione, è possibile lasciarla invariata o rimuoverla se la valutazione è stata eseguita.
-**Usare lo strumento Server Assessment** | Valutare i computer con lo strumento Azure Migrate: server assessment. | La valutazione è facoltativa. | La valutazione è facoltativa.
-**Usare lo strumento di migrazione server** | Aggiungere lo strumento di migrazione Azure Migrate server nel progetto Azure Migrate. | Obbligatoria | Obbligatoria
-**Preparare VMware per la migrazione** | Configurare le impostazioni su server e macchine virtuali VMware. | Obbligatoria | Obbligatoria
-**Installare il servizio Mobility nelle macchine virtuali** | Il servizio Mobility viene eseguito in ogni macchina virtuale che si vuole replicare | Facoltativo | Necessario
-**Distribuire il dispositivo di replica** | L' [appliance di replica](migrate-replication-appliance.md) viene utilizzata per la migrazione basata su agenti. Si connette tra il servizio Mobility in esecuzione sulle VM e la migrazione del server. | Facoltativo | Necessario
-**Replicare le macchine virtuali**. Abilitare la replica della macchina virtuale. | Configurare le impostazioni di replica e selezionare le macchine virtuali da replicare | Obbligatoria | Obbligatoria
+**Distribuire l'appliance Azure Migrate** | Un'appliance leggera che viene eseguita in una macchina virtuale VMware.<br/><br/> L'appliance viene usata per individuare e valutare i computer e per eseguire la migrazione dei computer usando la migrazione senza agente. | Obbligatorio.<br/><br/> Se l'appliance è già stata impostata per la valutazione, è possibile usare la stessa appliance per la migrazione senza agente. | Non obbligatorio.<br/><br/> Se è stata impostata un'appliance per la valutazione, è possibile lasciarla o rimuoverla al termine della valutazione.
+**Usare lo strumento Valutazione server** | Valutare i computer con lo strumento Azure Migrate:Server Assessment. | La valutazione è facoltativa. | La valutazione è facoltativa.
+**Usare lo strumento migrazione server** | Aggiungere lo strumento Azure Migrate Migrazione server nel progetto Azure Migrate server. | Obbligatoria | Obbligatoria
+**Preparare VMware per la migrazione** | Configurare le impostazioni nei server VMware e nelle macchine virtuali. | Obbligatoria | Obbligatoria
+**Installare il servizio di mobilità nelle macchine virtuali** | servizio di mobilità in ogni macchina virtuale da replicare | Facoltativo | Obbligatoria
+**Distribuire l'appliance di replica** | [L'appliance di](migrate-replication-appliance.md) replica viene usata per la migrazione basata su agente. Si connette tra l'servizio di mobilità in esecuzione nelle macchine virtuali e la migrazione del server. | Facoltativo | Obbligatoria
+**Replicare le macchine virtuali**. Abilitare la replica delle macchine virtuali. | Configurare le impostazioni di replica e selezionare le macchine virtuali da replicare | Obbligatoria | Obbligatoria
 **Eseguire una migrazione di test** | Eseguire una migrazione di test per verificare che tutti gli elementi funzionino come previsto. | Obbligatoria | Obbligatoria
 **Eseguire una migrazione completa** | Eseguire la migrazione delle macchine virtuali. | Obbligatoria | Obbligatoria
 
@@ -56,7 +57,7 @@ Dopo aver esaminato le limitazioni, la comprensione dei passaggi necessari per l
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire la migrazione di [macchine virtuali VMware](tutorial-migrate-vmware.md) con migrazione senza agenti.
+[Eseguire la migrazione di macchine virtuali VMware](tutorial-migrate-vmware.md) con migrazione senza agente.
 
 
 

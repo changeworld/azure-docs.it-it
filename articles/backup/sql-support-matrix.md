@@ -1,15 +1,15 @@
 ---
 title: Backup di Azure matrice di supporto per SQL Server backup in macchine virtuali di Azure
-description: Fornisce un riepilogo delle impostazioni di supporto e delle limitazioni quando si esegue il backup di SQL Server nelle macchine virtuali di Azure con il Backup di Azure servizio.
+description: Fornisce un riepilogo delle impostazioni di supporto e delle limitazioni durante il backup SQL Server nelle macchine virtuali di Azure con il Backup di Azure servizio.
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: bcbac4f6a91ad77d21eb6274aa03d251b8fbfe7c
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 354f64eb86cd545860c47562fba7ff43babe72ca
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515057"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714147"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matrice di supporto per SQL Server backup in macchine virtuali di Azure
 
@@ -97,12 +97,12 @@ Completo solo copia |  Secondari
 
 Backup di Azure supporta una velocità di trasferimento dati coerente di 200 Mbps per backup completi e differenziali di database SQL di grandi dimensioni (di 500 GB). Per usare le prestazioni ottimali, assicurarsi che:
 
-- La macchina virtuale sottostante (contenente l'SQL Server, che ospita il database, è configurata con la velocità effettiva di rete richiesta. Se la velocità effettiva massima della macchina virtuale è inferiore a 200 Mbps, Backup di Azure possibile trasferire i dati alla velocità ottimale.<br></br>Inoltre, per il disco che contiene i file di database deve essere disponibile una velocità effettiva sufficiente. [Altre informazioni sulla](../virtual-machines/disks-performance.md) velocità effettiva e sulle prestazioni del disco nelle macchine virtuali di Azure. 
+- La macchina virtuale sottostante (contenente l SQL Server,che ospita il database, è configurata con la velocità effettiva di rete richiesta. Se la velocità effettiva massima della macchina virtuale è inferiore a 200 Mbps, Backup di Azure possibile trasferire i dati alla velocità ottimale.<br>Inoltre, per il disco che contiene i file di database deve essere disponibile una velocità effettiva sufficiente. [Altre informazioni sulla](../virtual-machines/disks-performance.md) velocità effettiva e sulle prestazioni del disco nelle macchine virtuali di Azure. 
 - I processi in esecuzione nella macchina virtuale non utilizzano la larghezza di banda della macchina virtuale. 
-- Le pianificazioni dei backup vengono distribuite in un subset di database. Più backup in esecuzione simultaneamente in una macchina virtuale condividono la frequenza di utilizzo della rete tra i backup. [Altre informazioni](faq-backup-sql-server.yml#can-i-control-how-many-concurrent-backups-run-on-the-sql-server-) su come controllare il numero di backup simultanei.
+- Le pianificazioni di backup vengono distribuite in un subset di database. Più backup eseguiti contemporaneamente in una macchina virtuale condividono la frequenza di utilizzo della rete tra i backup. [Altre informazioni](faq-backup-sql-server.yml#can-i-control-how-many-concurrent-backups-run-on-the-sql-server-) su come controllare il numero di backup simultanei.
 
 >[!NOTE]
-> [Scaricare Resource Planner dettagliato per calcolare](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) il numero approssimativo di database protetti consigliati per ogni server in base alle risorse della macchina virtuale, alla larghezza di banda e ai criteri di backup.
+> [Scaricare Resource Planner dettagliato per](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) calcolare il numero approssimativo di database protetti consigliati per ogni server in base alle risorse della macchina virtuale, alla larghezza di banda e ai criteri di backup.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

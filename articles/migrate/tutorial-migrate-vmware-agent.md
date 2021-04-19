@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 15bf8f4fde2128181664fa7b94f2479bac7ad5b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 60b58f7cf67a22e019ff186e4e1811ff5b001d84
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98881518"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714453"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Eseguire la migrazione di macchine virtuali VMware in Azure (basata su agente)
 
@@ -156,7 +156,11 @@ Per scaricare il modello, seguire questa procedura:
 6. Selezionare **Confermare che l'area di destinazione della migrazione è <nome area>** .
 7. Fare clic su **Crea risorse**. Verrà creato un insieme di credenziali di Azure Site Recovery in background. Dopo aver fatto clic su questo pulsante non è più possibile cambiare l'area di destinazione di questo progetto e tutte le migrazioni successive vengono eseguite in questa area.
 
-    ![Creare un insieme di credenziali di Servizi di ripristino](./media/tutorial-migrate-vmware-agent/create-resources.png)
+    ![Creare un insieme di credenziali di Servizi di ripristino](./media/tutorial-migrate-vmware-agent/create-resources.png)  
+
+    > [!NOTE]
+    > Se è stato selezionato l'endpoint privato come metodo di connettività per il progetto Azure Migrate al momento della creazione, l'insieme di credenziali di Servizi di ripristino verrà configurato anche per la connettività degli endpoint privati. Assicurarsi che gli endpoint privati siano raggiungibili dall'appliance di replica: [ **Altre informazioni**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
+
 
 8. In **Installare una nuova appliance di replica o aumentare le prestazioni della configurazione esistente?** selezionare **Installare un'appliance di replica**.
 9. Fare clic su **Download**. Viene scaricato un modello OVF.
@@ -245,12 +249,17 @@ Selezionare le VM di cui eseguire la migrazione.
     - L'opzione La ridondanza dell'infrastruttura non è richiesta se non è necessaria una di queste configurazioni di disponibilità per le macchine migrate.
 9. Selezionare ogni macchina virtuale di cui si vuole eseguire la migrazione. Fare quindi clic su **Avanti: Impostazioni di destinazione**.
 10. In **Impostazioni di destinazione** selezionare la sottoscrizione e l'area di destinazione in cui eseguire la migrazione e quindi specificare il gruppo di risorse in cui risiederanno le VM di Azure dopo la migrazione.
-11. In **Rete virtuale** selezionare la rete virtuale e la subnet di Azure a cui verranno aggiunte le VM di Azure dopo la migrazione.
-12. In **Opzioni di disponibilità** selezionare:
+11. In **Rete virtuale** selezionare la rete virtuale e la subnet di Azure a cui verranno aggiunte le VM di Azure dopo la migrazione.  
+12. In  **Account di archiviazione cache** mantenere l'opzione predefinita per usare l'account di archiviazione della cache creato automaticamente per il progetto. Usare l'elenco a discesa se si desidera specificare un account di archiviazione diverso da usare come account di archiviazione della cache per la replica. <br/> 
+    > [!NOTE]
+    >
+    > - Se è stato selezionato l'endpoint privato come metodo di connettività per il progetto Azure Migrate, concedere all'insieme di credenziali di Servizi di ripristino l'accesso all'account di archiviazione della cache. [**Scopri di più**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
+    > - Per eseguire la replica usando ExpressRoute con peering privato, creare un endpoint privato per l'account di archiviazione della cache. [**Scopri di più**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+13. In **Opzioni di disponibilità** selezionare:
     -  Zona di disponibilità per aggiungere la macchina migrata a una zona di disponibilità specifica nell'area. Usare questa opzione per distribuire i server che formano un livello applicazione a più nodi tra zone di disponibilità. Se si seleziona questa opzione, sarà necessario specificare la zona di disponibilità da usare per ogni macchina selezionata nella scheda Calcolo. Questa opzione è disponibile solo se l'area di destinazione selezionata per la migrazione supporta le zone di disponibilità
     -  Set di disponibilità per inserire la macchina migrata in un set di disponibilità. Per usare questa opzione, il gruppo di risorse di destinazione selezionato deve avere uno o più set di disponibilità.
     - L'opzione La ridondanza dell'infrastruttura non è richiesta se non è necessaria una di queste configurazioni di disponibilità per le macchine migrate.
-13. In **Tipo di crittografia dischi** selezionare:
+14. In **Tipo di crittografia dischi** selezionare:
     - Crittografia dati inattivi con chiave gestita dalla piattaforma
     - Crittografia dati inattivi con chiave gestita dal cliente
     - Doppia crittografia con chiavi gestite dalla piattaforma e chiavi gestite dal cliente
@@ -258,25 +267,25 @@ Selezionare le VM di cui eseguire la migrazione.
    > [!NOTE]
    > Per replicare le macchine virtuali con la chiave gestita dal cliente, è necessario [creare un set di crittografia dischi](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) nel gruppo di risorse di destinazione. Un oggetto set di crittografia dischi consente eseguire il mapping di Managed Disks a un Key Vault che contiene la chiave gestita dal cliente da usare per la crittografia del servizio di archiviazione.
   
-14. In **Vantaggio Azure Hybrid**:
+15. In **Vantaggio Azure Hybrid**:
 
     - Selezionare **No** se non si vuole applicare Vantaggio Azure Hybrid. Quindi fare clic su **Next**.
     - Selezionare **Sì** se si hanno computer Windows Server con copertura Software Assurance o sottoscrizioni di Windows Server attive e si vuole applicare il vantaggio alle VM di cui si sta eseguendo la migrazione. Quindi fare clic su **Next**.
 
     ![Impostazioni di destinazione](./media/tutorial-migrate-vmware/target-settings.png)
 
-15. In **Calcolo** controllare il nome della macchina virtuale, le dimensioni, il tipo di disco del sistema operativo e la configurazione della disponibilità, se selezionata nel passaggio precedente. Le VM devono essere conformi ai [requisiti di Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+16. In **Calcolo** controllare il nome della macchina virtuale, le dimensioni, il tipo di disco del sistema operativo e la configurazione della disponibilità, se selezionata nel passaggio precedente. Le VM devono essere conformi ai [requisiti di Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
    - **Dimensioni macchina virtuale**: se si usano i consigli per la valutazione, l'elenco a discesa Dimensioni macchina virtuale mostra le dimensioni consigliate. In caso contrario, Azure Migrate seleziona le dimensioni più simili nella sottoscrizione di Azure. In alternativa, selezionare manualmente le dimensioni in **Dimensioni macchina virtuale di Azure**. 
     - **Disco del sistema operativo**: specificare il disco del sistema operativo (di avvio) per la VM. È il disco che contiene il bootloader e il programma di installazione del sistema operativo. 
     - **Zona di disponibilità**: specificare la zona di disponibilità da usare.
     - **Set di disponibilità**: specificare il set di disponibilità da usare.
 
-16. In **Dischi** specificare se i dischi delle VM devono essere replicati in Azure e selezionare il tipo di disco in Azure (dischi gestiti Premium o SSD/HDD Standard). Quindi fare clic su **Next**.
+17. In **Dischi** specificare se i dischi delle VM devono essere replicati in Azure e selezionare il tipo di disco in Azure (dischi gestiti Premium o SSD/HDD Standard). Quindi fare clic su **Next**.
     - È possibile escludere dischi dalla replica.
     - I dischi esclusi non saranno presenti nella VM di Azure dopo la migrazione. 
 
-17. In **Rivedi e avvia replica** verificare le impostazioni e fare clic su **Replica** per avviare la replica iniziale dei server.
+18. In **Rivedi e avvia replica** verificare le impostazioni e fare clic su **Replica** per avviare la replica iniziale dei server.
 
 > [!NOTE]
 > È possibile aggiornare le impostazioni di replica in qualsiasi momento prima dell'avvio della replica, selezionando **Gestisci** > **Replica delle macchine virtuali**. Le impostazioni non possono essere modificate dopo l'avvio della replica.

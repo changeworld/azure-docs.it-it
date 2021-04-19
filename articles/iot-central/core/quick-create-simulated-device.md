@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 142d78cf8b787e04704d26bca0c650944052fd7f
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 0396c028c8c0e1a18baf037fed4efc21aad944f1
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588973"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107715101"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Guida introduttiva: Aggiungere un dispositivo simulato all'applicazione IoT Central
 
@@ -81,7 +81,7 @@ Un modello di dispositivo può includere proprietà cloud. Le proprietà cloud e
 
 ## <a name="views"></a>Viste
 
-È possibile personalizzare l'applicazione per visualizzare le informazioni pertinenti sul dispositivo. Le personalizzazioni consentono ad altri utenti di gestire i dispositivi connessi all'applicazione. È possibile creare due tipi di visualizzazioni per interagire con i dispositivi:
+È possibile personalizzare l'applicazione per visualizzare informazioni pertinenti sul dispositivo. Le personalizzazioni consentono ad altri utenti di gestire i dispositivi connessi all'applicazione. È possibile creare due tipi di visualizzazioni per interagire con i dispositivi:
 
 * Moduli per visualizzare e modificare le proprietà del dispositivo e cloud.
 * Dashboard per visualizzare i dispositivi, inclusi i dati di telemetria inviati.
@@ -94,7 +94,7 @@ La visualizzazioni predefinite consentono di iniziare subito a visualizzare le i
 * La visualizzazione **Panoramica** usa grafici e metriche per visualizzare i dati di telemetria del dispositivo.
 * La visualizzazione **Informazioni** mostra le proprietà del dispositivo.
 
-Selezionare il nodo **Visualizzazioni** nel modello di dispositivo. Come si può notare, quando è stato aggiunto il modello, IoT Central ha generato automaticamente una visualizzazione **Panoramica** e una visualizzazione **Informazioni**.
+Selezionare il nodo **Visualizzazioni** nel modello di dispositivo. È possibile vedere che IoT Central generato  automaticamente una  **panoramica,** una visualizzazione Informazioni su e una visualizzazione Dati non elaborati quando è stato aggiunto il modello.
 
 Per aggiungere un nuovo modulo per gestire il dispositivo:
 
@@ -116,11 +116,11 @@ Per pubblicare un modello di dispositivo:
 
 1. Passare al modello di dispositivo **Sensor Controller** nella pagina **Modelli di dispositivo**.
 
-1. Selezionare **Pubblica** dalla barra dei comandi nella parte superiore della pagina.
+1. Selezionare **Pubblica** nella barra dei comandi nella parte superiore della pagina.
 
-1. Nella finestra di dialogo visualizzata selezionare **Pubblica.**
+1. Nella finestra di dialogo visualizzata selezionare **Pubblica**.
 
-Dopo la pubblicazione, il modello di dispositivo è visibile nella pagina **Dispositivi**. In un modello di dispositivo pubblicato non è possibile modificare un modello di dispositivo senza creare una nuova versione. È tuttavia possibile modificare le proprietà cloud, le personalizzazioni e le visualizzazioni senza creare una nuova versione. Dopo aver apportato le modifiche, **selezionare Pubblica**  per eseguire il push delle modifiche per i dispositivi reali e simulati da usare.
+Dopo la pubblicazione, il modello di dispositivo è visibile nella pagina **Dispositivi**. In un modello di dispositivo pubblicato non è possibile modificare un modello di dispositivo senza creare una nuova versione. È tuttavia possibile modificare le proprietà cloud, le personalizzazioni e le visualizzazioni senza creare una nuova versione. Dopo aver apportato le modifiche, selezionare **Pubblica**  per eseguire il push delle modifiche per i dispositivi reali e simulati da usare.
 
 ## <a name="add-a-simulated-device"></a>Aggiungere un dispositivo simulato
 
@@ -132,7 +132,7 @@ Per aggiungere un dispositivo simulato all'applicazione, usare il modello di dis
 
     :::image type="content" source="media/quick-create-simulated-device/simulated-device.png" alt-text="Screenshot che mostra il dispositivo Sensor Controller simulato":::
 
-È ora possibile interagire con le visualizzazioni create in precedenza usando dati simulati:
+È ora possibile interagire con le viste create in precedenza usando dati simulati:
 
 1. Selezionare il dispositivo simulato nella pagina **Dispositivi**
 

@@ -266,11 +266,9 @@
       items:
         - name: Creare e gestire account di archiviazione
           items:
-            - name: Creare un account di archiviazione per utilizzo generico
+            - name: Creare un account di archiviazione
               displayName: 'Resource Manager, Resource Manager template, template, ARM'
               href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Creare un account di archiviazione BLOB in blocchi
-              href: storage-blob-create-account-block-blob.md
             - name: Aggiornare un account di archiviazione
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: consente di ripristinare un account di archiviazione eliminato

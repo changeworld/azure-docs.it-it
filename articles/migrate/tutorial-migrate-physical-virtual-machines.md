@@ -7,16 +7,16 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: aeeb810174ff5c21a81bcec8aa9265ff100edf91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1563543dec0a27094c00e446a205e94535e54229
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99626326"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713522"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Eseguire la migrazione di computer come server fisici in Azure
 
-Questo articolo illustra come eseguire la migrazione di computer come server fisici in Azure usando lo strumento di migrazione Azure Migrate: Server. La migrazione di computer come se fossero server fisici è utile in diversi scenari:
+Questo articolo illustra come eseguire la migrazione di computer come server fisici ad Azure usando lo strumento Azure Migrate: Migrazione server. La migrazione di computer come se fossero server fisici è utile in diversi scenari:
 
 - Eseguire la migrazione di server fisici locali.
 - Eseguire la migrazione di VM virtualizzate tramite piattaforme come Xen, KVM.
@@ -28,7 +28,7 @@ Questo articolo illustra come eseguire la migrazione di computer come server fis
 Questa esercitazione è la terza di una serie che illustra come valutare i server fisici ed eseguirne la migrazione ad Azure. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Preparare l'uso di Azure con Azure Migrate: migrazione del server.
+> * Preparare l'uso di Azure con Azure Migrate: Migrazione del server.
 > * Verificare i requisiti dei computer di cui eseguire la migrazione e preparare un computer per l'appliance di replica di Azure Migrate usata per individuare ed eseguire la migrazione di computer ad Azure.
 > * Aggiungere lo strumento Azure Migrate: Migrazione del server nell'hub di Azure Migrate.
 > * Configurare l'appliance di replica.
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione, è necessario:
 
 ## <a name="prepare-azure"></a>Preparare Azure
 
-Preparare Azure per la migrazione con Azure Migrate: migrazione del server.
+Preparare Azure per la migrazione con Azure Migrate: Migrazione del server.
 
 **Attività** | **Dettagli**
 --- | ---
@@ -89,7 +89,7 @@ Per la preparazione della migrazione dei server fisici, è necessario verificare
 Assicurarsi che i computer siano conformi ai requisiti per la migrazione ad Azure. 
 
 > [!NOTE]
-> Quando si esegue la migrazione di computer fisici, Azure Migrate: la migrazione del server utilizza la stessa architettura di replica del ripristino di emergenza basato su agente nel servizio Azure Site Recovery e alcuni componenti condividono la stessa codebase. Alcuni contenuti potrebbero includere collegamenti alla documentazione di Site Recovery.
+> Quando si esegue la migrazione di computer fisici, Azure Migrate: Migrazione del server usa la stessa architettura di replica del ripristino di emergenza basato su agente nel servizio Azure Site Recovery e alcuni componenti condividono la stessa codebase. Alcuni contenuti potrebbero includere collegamenti alla documentazione di Site Recovery.
 
 1. [Verificare](migrate-support-matrix-physical-migration.md#physical-server-requirements) i requisiti dei server fisici.
 2. Verificare che le macchine virtuali locali replicate in Azure siano conformi ai [requisiti delle macchine virtuali di Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
@@ -116,7 +116,7 @@ Preparare la distribuzione dell'appliance come indicato di seguito:
 
 ## <a name="set-up-the-replication-appliance"></a>Configurare l'appliance di replica
 
-La prima fase del processo di migrazione è la configurazione dell'appliance di replica. Per configurare l'appliance per la migrazione dei server fisici, scaricare il file del programma di installazione per l'appliance e quindi eseguirlo nella [macchina virtuale preparata](#prepare-a-machine-for-the-replication-appliance). Dopo aver installato il dispositivo, è necessario registrarlo con Azure Migrate: migrazione del server.
+La prima fase del processo di migrazione è la configurazione dell'appliance di replica. Per configurare l'appliance per la migrazione dei server fisici, scaricare il file del programma di installazione per l'appliance e quindi eseguirlo nella [macchina virtuale preparata](#prepare-a-machine-for-the-replication-appliance). Dopo aver installato l'appliance, registrarla con Azure Migrate: Migrazione del server.
 
 
 ### <a name="download-the-replication-appliance-installer"></a>Scaricare il programma di installazione dell'appliance di replica
@@ -125,27 +125,29 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
 
     ![Individuare le VM](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
-3. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
-4. In **Area di destinazione** selezionare l'area di Azure in cui eseguire la migrazione delle macchine virtuali.
-5. Selezionare **Confermare che l'area di destinazione della migrazione è <nome area>** .
-6. Fare clic su **Crea risorse**. Verrà creato un insieme di credenziali di Azure Site Recovery in background.
-    - Se è già stata configurata la migrazione con Azure Migrate: migrazione del server, l'opzione di destinazione non può essere configurata, perché le risorse sono state configurate in precedenza.    
+2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
+3. In **Area di destinazione** selezionare l'area di Azure in cui eseguire la migrazione delle macchine virtuali.
+4. Selezionare **Confermare che l'area di destinazione della migrazione è <nome area>** .
+5. Fare clic su **Crea risorse**. Verrà creato un insieme di credenziali di Azure Site Recovery in background.
+    - Se è già stata configurata la migrazione con Azure Migrate: Migrazione del server, l'opzione di destinazione non può essere configurata, perché le risorse sono state configurate in precedenza.    
     - Dopo aver fatto clic su questo pulsante non è più possibile cambiare l'area di destinazione di questo progetto.
-    - Tutte le migrazioni successive avverranno in questa area.
+    - Tutte le migrazioni successive avverranno in questa area. 
+    > [!NOTE]
+    > Se è stato selezionato l'endpoint privato come metodo di connettività per il progetto Azure Migrate al momento della creazione, l'insieme di credenziali di Servizi di ripristino verrà configurato anche per la connettività degli endpoint privati. Assicurarsi che gli endpoint privati siano raggiungibili dall'appliance di replica. [**Scopri di più**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
 
-7. In **Installare una nuova appliance di replica o aumentare le prestazioni della configurazione esistente?** selezionare **Installare un'appliance di replica**.
-9. In **Scaricare e installare il software dell'appliance di replica** scaricare il programma di installazione dell'appliance e la chiave di registrazione. La chiave è necessaria per registrare l'appliance. È valida per cinque giorni dal momento in cui viene scaricata.
+6. In **Installare una nuova appliance di replica o aumentare le prestazioni della configurazione esistente?** selezionare **Installare un'appliance di replica**.
+7. In **Scaricare e installare il software dell'appliance di replica** scaricare il programma di installazione dell'appliance e la chiave di registrazione. La chiave è necessaria per registrare l'appliance. È valida per cinque giorni dal momento in cui viene scaricata.
 
     ![Scaricare il provider](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
-10. Copiare il file di installazione dell'appliance e il file della chiave nel computer Windows Server 2016 creato per l'appliance.
-11. Al termine dell'installazione, verrà avviata automaticamente la procedura guidata di configurazione dell'appliance (è anche possibile avviare la procedura guidata manualmente usando il collegamento cspsconfigtool creato sul desktop dell'appliance). Usare la scheda Gestisci account della procedura guidata per aggiungere i dettagli dell'account da usare per l'installazione push del servizio di mobilità. In questa esercitazione verrà installato manualmente il servizio di mobilità nelle VM da replicare, quindi occorre creare un account fittizio in questo passaggio e prima di procedere. È possibile specificare i dettagli seguenti per la creazione dell'account fittizio, usando "guest" come nome descrittivo, "username" come nome utente e "password" come password per l'account. Questo account fittizio verrà usato nella fase di abilitazione della replica. 
+8. Copiare il file di installazione dell'appliance e il file della chiave nel computer Windows Server 2016 creato per l'appliance.
+9. Al termine dell'installazione, verrà avviata automaticamente la procedura guidata di configurazione dell'appliance (è anche possibile avviare la procedura guidata manualmente usando il collegamento cspsconfigtool creato sul desktop dell'appliance). Usare la scheda Gestisci account della procedura guidata per aggiungere i dettagli dell'account da usare per l'installazione push del servizio di mobilità. In questa esercitazione verrà installato manualmente il servizio di mobilità nelle VM da replicare, quindi occorre creare un account fittizio in questo passaggio e prima di procedere. È possibile specificare i dettagli seguenti per la creazione dell'account fittizio, usando "guest" come nome descrittivo, "username" come nome utente e "password" come password per l'account. Questo account fittizio verrà usato nella fase di abilitazione della replica. 
 
-12. Una volta completata l'installazione e dopo il riavvio dell'appliance, in **Individua macchine virtuali** selezionare la nuova appliance in **Selezionare il server di configurazione** e fare clic su **Finalize registration** (Finalizza registrazione). Con la finalizzazione della registrazione vengono eseguite un paio di attività finali per preparare l'appliance di replica.
+10. Una volta completata l'installazione e dopo il riavvio dell'appliance, in **Individua macchine virtuali** selezionare la nuova appliance in **Selezionare il server di configurazione** e fare clic su **Finalize registration** (Finalizza registrazione). Con la finalizzazione della registrazione vengono eseguite un paio di attività finali per preparare l'appliance di replica.
 
     ![Finalizzare la registrazione](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-Il completamento della registrazione potrebbe richiedere del tempo fino a quando i computer individuati non vengono visualizzati in Azure Migrate: migrazione del server. Man mano che vengono individuate VM, il numero indicato in **Server individuati** aumenta.
+Potrebbe essere necessario del tempo dopo la finalizzazione della registrazione finché i computer individuati non vengono visualizzati in Azure Migrate: Migrazione del server. Man mano che vengono individuate VM, il numero indicato in **Server individuati** aumenta.
 
 ![Server individuati](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 
@@ -216,18 +218,24 @@ Selezionare ora le VM per la migrazione.
 2. In **Replica** > **Impostazioni origine**  > **I computer sono virtualizzati?** selezionare **Non virtualizzato/Altro**.
 3. In **Appliance locale** selezionare il nome dell'appliance di Azure Migrate configurata.
 4. In **Server di elaborazione** selezionare il nome dell'appliance di replica.
-6. In **Credenziali guest** selezionare l'account fittizio creato in precedenza durante la [configurazione del programma di installazione della replica](#download-the-replication-appliance-installer) per installare manualmente il servizio di mobilità (l'installazione push non è supportata). Fare quindi clic su **Avanti: Macchine virtuali**.   
+5. In **Credenziali guest** selezionare l'account fittizio creato in precedenza durante la [configurazione del programma di installazione della replica](#download-the-replication-appliance-installer) per installare manualmente il servizio di mobilità (l'installazione push non è supportata). Fare quindi clic su **Avanti: Macchine virtuali**.   
 
     ![Screenshot della scheda Impostazioni origine nella schermata Replica con il campo Credenziali guest evidenziato.](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
-7. In **Macchine virtuali**, in **Importare le impostazioni di migrazione da una valutazione?** , lasciare l'impostazione predefinita **No, specificherò le impostazioni di migrazione manualmente**.
-8. Selezionare ogni macchina virtuale di cui si vuole eseguire la migrazione. Fare quindi clic su **Avanti: Impostazioni di destinazione**.
+6. In **Macchine virtuali**, in **Importare le impostazioni di migrazione da una valutazione?** , lasciare l'impostazione predefinita **No, specificherò le impostazioni di migrazione manualmente**.
+7. Selezionare ogni macchina virtuale di cui si vuole eseguire la migrazione. Fare quindi clic su **Avanti: Impostazioni di destinazione**.
 
     ![Selezionare le VM](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
 
-9. In **Impostazioni di destinazione** selezionare la sottoscrizione e l'area di destinazione in cui eseguire la migrazione e quindi specificare il gruppo di risorse in cui risiederanno le VM di Azure dopo la migrazione.
-10. In **Rete virtuale** selezionare la rete virtuale e la subnet di Azure a cui verranno aggiunte le VM di Azure dopo la migrazione.
+8. In **Impostazioni di destinazione** selezionare la sottoscrizione e l'area di destinazione in cui eseguire la migrazione e quindi specificare il gruppo di risorse in cui risiederanno le VM di Azure dopo la migrazione.
+9. In **Rete virtuale** selezionare la rete virtuale e la subnet di Azure a cui verranno aggiunte le VM di Azure dopo la migrazione.   
+10. In  **Account di archiviazione cache** mantenere l'opzione predefinita per usare l'account di archiviazione cache creato automaticamente per il progetto. Usare l'elenco a discesa se si desidera specificare un account di archiviazione diverso da usare come account di archiviazione della cache per la replica. <br/> 
+    > [!NOTE]
+    >
+    > - Se è stato selezionato l'endpoint privato come metodo di connettività per il progetto Azure Migrate, concedere all'insieme di credenziali di Servizi di ripristino l'accesso all'account di archiviazione della cache. [**Scopri di più**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
+    > - Per eseguire la replica usando ExpressRoute con peering privato, creare un endpoint privato per l'account di archiviazione della cache. [**Scopri di più**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
+  
 11. In **Opzioni di disponibilità** selezionare:
     -  Zona di disponibilità per aggiungere la macchina migrata a una zona di disponibilità specifica nell'area. Usare questa opzione per distribuire i server che formano un livello applicazione a più nodi tra zone di disponibilità. Se si seleziona questa opzione, sarà necessario specificare la zona di disponibilità da usare per ogni macchina selezionata nella scheda Calcolo. Questa opzione è disponibile solo se l'area di destinazione selezionata per la migrazione supporta le zone di disponibilità
     -  Set di disponibilità per inserire la macchina migrata in un set di disponibilità. Per usare questa opzione, il gruppo di risorse di destinazione selezionato deve avere uno o più set di disponibilità.
@@ -246,7 +254,7 @@ Selezionare ora le VM per la migrazione.
     - Selezionare **No** se non si vuole applicare Vantaggio Azure Hybrid. Quindi fare clic su **Next**.
     - Selezionare **Sì** se si hanno computer Windows Server con copertura Software Assurance o sottoscrizioni di Windows Server attive e si vuole applicare il vantaggio alle VM di cui si sta eseguendo la migrazione. Quindi fare clic su **Next**.
 
-    ![Impostazioni di destinazione](./media/tutorial-migrate-vmware/target-settings.png)
+    ![Impostazioni di destinazione](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
 14. In **Calcolo** controllare il nome della macchina virtuale, le dimensioni, il tipo di disco del sistema operativo e la configurazione della disponibilità, se selezionata nel passaggio precedente. Le VM devono essere conformi ai [requisiti di Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 

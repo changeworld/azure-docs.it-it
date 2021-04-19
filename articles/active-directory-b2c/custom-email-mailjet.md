@@ -1,29 +1,29 @@
 ---
 title: Verifica della posta elettronica personalizzata con Mailjet
 titleSuffix: Azure AD B2C
-description: Informazioni su come eseguire l'integrazione con Mailjet per personalizzare il messaggio di verifica inviato ai clienti quando si iscrivono per usare le applicazioni abilitate per Azure AD B2C.
+description: Informazioni su come eseguire l'integrazione con Mailjet per personalizzare il messaggio di posta elettronica di verifica inviato ai clienti al momento dell'iscrizione per usare le Azure AD B2C abilitate per l'uso.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 04/16/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a40f3286b4e832f5c73e650859fa9a1d4fe4b6cb
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: f48135523238711eb9058b35348895c851a95403
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256957"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713823"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verifica della posta elettronica personalizzata con Mailjet
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Usare un indirizzo di posta elettronica personalizzato in Azure Active Directory B2C (Azure AD B2C) per inviare messaggi di posta elettronica personalizzati agli utenti che si iscrivono per l'uso delle applicazioni. Usando il provider di posta elettronica di terze parti Mailjet, è possibile usare un modello di posta elettronica personalizzato e *da:* indirizzo e soggetto, oltre che da supporto per la localizzazione e le impostazioni della password monouso (OTP).
+Usare la posta elettronica personalizzata in Azure Active Directory B2C (Azure AD B2C) per inviare messaggi di posta elettronica personalizzati agli utenti che effettuano l'iscrizione per usare le applicazioni. Usando mailjet, il provider di posta elettronica di terze parti, è possibile usare il proprio modello di posta elettronica e l'indirizzo e l'oggetto *from:,* oltre a supportare la localizzazione e le impostazioni personalizzate di password una sola volta (OTP).
 
 ::: zone pivot="b2c-user-flow"
 
@@ -33,47 +33,51 @@ Usare un indirizzo di posta elettronica personalizzato in Azure Active Directory
 
 ::: zone pivot="b2c-custom-policy"
 
-Per la verifica tramite posta elettronica personalizzata è necessario usare un provider di posta elettronica di terze parti, ad esempio [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md)o [SparkPost](https://sparkpost.com), un'API REST personalizzata o qualsiasi provider di posta elettronica basato su http (incluso il proprio). Questo articolo descrive la configurazione di una soluzione che usa Mailjet.
+La verifica della posta elettronica personalizzata richiede l'uso di un provider di posta elettronica di terze parti, ad esempio [Mailjet,](https://Mailjet.com) [SendGrid](./custom-email-sendgrid.md)o [SparkPost,](https://sparkpost.com)un'API REST personalizzata o qualsiasi provider di posta elettronica basato su HTTP (incluso il proprio). Questo articolo descrive la configurazione di una soluzione che usa Mailjet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="create-a-mailjet-account"></a>Creare un account Mailjet
 
-Se non è già stato fatto, iniziare con la configurazione di un account Mailjet (i clienti di Azure possono sbloccare 6.000 di messaggi di posta elettronica con un limite di 200 e-mail al giorno). 
+Se non se ne ha già uno, iniziare configurando un account Mailjet (i clienti di Azure possono sbloccare 6.000 messaggi di posta elettronica con un limite di 200 messaggi di posta elettronica al giorno). 
 
-1. Seguire le istruzioni di installazione in [creare un account Mailjet](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
-1. Per poter inviare messaggi di posta elettronica, [registrare e convalidare](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) l'indirizzo di posta elettronica del mittente o il dominio.
-2. Passare alla [pagina di gestione delle chiavi API](https://app.mailjet.com/account/api_keys). Registrare la **chiave API** e la **chiave privata** per l'uso in un passaggio successivo. Entrambe le chiavi vengono generate automaticamente al momento della creazione dell'account.  
+1. Seguire le istruzioni di configurazione in [Creare un account Mailjet](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
+1. Per poter inviare messaggi di posta elettronica, [registrare e convalidare l'indirizzo](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) di posta elettronica del mittente o il dominio.
+2. Passare alla pagina [Gestione chiavi API](https://app.mailjet.com/account/api_keys). Registrare la **chiave API e** la chiave **privata** per l'uso in un passaggio successivo. Entrambe le chiavi vengono generate automaticamente quando viene creato l'account.  
 
-## <a name="create-azure-ad-b2c-policy-key"></a>Crea chiave dei criteri di Azure AD B2C
+> [!IMPORTANT]
+> Mailjet offre ai clienti la possibilità di inviare messaggi di posta elettronica da indirizzi IP condivisi [e indirizzi IP dedicati.](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP) Quando si usano indirizzi IP dedicati, è necessario creare correttamente la propria reputazione con un riscaldamento dell'indirizzo IP. Per altre informazioni, vedere [Ricerca per categorie warm up my IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
 
-Quindi, archiviare la chiave API Mailjet in una chiave dei criteri di Azure AD B2C per fare riferimento ai criteri.
+
+## <a name="create-azure-ad-b2c-policy-key"></a>Creare Azure AD B2C chiave dei criteri
+
+Archiviare quindi la chiave API Mailjet in una chiave Azure AD B2C criteri per fare riferimento ai criteri.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory Azure AD B2C.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
-1. Nella pagina **Panoramica** selezionare **Framework esperienza di identità**.
+1. Nella pagina **Panoramica** selezionare **Identity Experience Framework**.
 1. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
-1. Per **Opzioni** scegliere **manuale**.
+1. Per **Opzioni** scegliere **Manuale.**
 1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `MailjetApiKey`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
-1. In **Secret (segreto**) immettere la **chiave API** di Mailjet registrata in precedenza.
+1. In **Segreto** immettere la chiave **API** mailtura registrata in precedenza.
 1. Per **Uso chiave** selezionare **Firma**.
 1. Selezionare **Create** (Crea).
 1. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
-1. Per **Opzioni** scegliere **manuale**.
+1. Per **Opzioni** scegliere **Manuale.**
 1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `MailjetSecretKey`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
-1. In **Secret (segreto**) immettere la **chiave privata** Mailjet registrata in precedenza.
+1. In **Segreto** immettere la chiave privata di Mail secret **registrata** in precedenza.
 1. Per **Uso chiave** selezionare **Firma**.
 1. Selezionare **Create** (Crea).
 
-## <a name="create-a-mailjet-template"></a>Creare un modello Mailjet
+## <a name="create-a-mailjet-template"></a>Creare un modello di Mailsystems
 
-Con un account Mailjet creato e la chiave API Mailjet archiviata in una chiave dei criteri di Azure AD B2C, creare un [modello transazionale Mailjet dinamico](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+Dopo la creazione di un account Mail jet e l'archiviazione della chiave [](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)API Mailsystem in una chiave Azure AD B2C criteri di posta elettronica, creare un modello transazionale dinamico di Mailsystems.
 
-1. Nel sito di Mailjet aprire la pagina [modelli transazionali](https://app.mailjet.com/templates/transactional) e selezionare **Crea un nuovo modello**.
-1. Selezionarlo **codificando in HTML**, quindi selezionare **codice da zero**.
-1. Immettere un nome di modello univoco `Verification email` , ad esempio, e quindi selezionare **Crea**.
-1. Nell'editor HTML incollare il modello HTML seguente o usare il proprio. I `{{var:otp:""}}` `{{var:email:""}}` parametri e verranno sostituiti in modo dinamico con il valore della password monouso e con l'indirizzo di posta elettronica dell'utente.
+1. Nel sito Mailsystem aprire la pagina [dei modelli transazionali](https://app.mailjet.com/templates/transactional) e selezionare **Crea un nuovo modello.**
+1. Selezionare **Codifica in HTML** e quindi selezionare Codice da **zero.**
+1. Immettere un nome di modello `Verification email` univoco, ad esempio , e quindi selezionare **Crea.**
+1. Nell'editor HTML incollare il modello HTML seguente o usare il proprio. I `{{var:otp:""}}` parametri e verranno `{{var:email:""}}` sostituiti dinamicamente con il valore della password una sola volta e l'indirizzo di posta elettronica dell'utente.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -169,20 +173,20 @@ Con un account Mailjet creato e la chiave API Mailjet archiviata in una chiave d
     </html>
     ```
 
-1. Espandi **oggetto modifica** nella parte superiore sinistra
-    1. Per **Subject** immettere un valore predefinito per l'oggetto. Mailjet usa questo valore quando l'API non contiene un parametro Subject.
-    1. Per il **nome**, digitare il nome della società.
-    1. Per l' **Indirizzo**, selezionare l'indirizzo di posta elettronica
+1. Espandere **Modifica oggetto** in alto a sinistra
+    1. Per **Oggetto** immettere un valore predefinito per l'oggetto. Mail jet usa questo valore quando l'API non contiene un parametro subject.
+    1. In **Nome digitare** il nome della società.
+    1. Per Indirizzo **selezionare** l'indirizzo di posta elettronica
     1. Selezionare **Salva**.
-1. Dall'inizio a destra selezionare **salva & pubblica**, quindi **Sì, pubblica modifiche**
-1. Registrare l' **ID modello** del modello creato per l'uso in un passaggio successivo. Questo ID viene specificato quando si [aggiunge la trasformazione delle attestazioni](#add-the-claims-transformation).
+1. Nell'angolo in alto a destra **selezionare Salva & Pubblica** e quindi **Sì, pubblica le modifiche**
+1. Registrare **l'ID** modello del modello creato per l'uso in un passaggio successivo. Questo ID viene specificato quando si aggiunge [la trasformazione delle attestazioni](#add-the-claims-transformation).
 
 
 ## <a name="add-azure-ad-b2c-claim-types"></a>Aggiungere Azure AD B2C tipi di attestazione
 
-Nel criterio aggiungere i tipi di attestazione seguenti all' `<ClaimsSchema>` elemento all'interno di `<BuildingBlocks>` .
+Nei criteri aggiungere i tipi di attestazione seguenti all'elemento `<ClaimsSchema>` all'interno di `<BuildingBlocks>` .
 
-Questi tipi di attestazioni sono necessari per generare e verificare l'indirizzo di posta elettronica usando un codice OTP (One-time password).
+Questi tipi di attestazioni sono necessari per generare e verificare l'indirizzo di posta elettronica usando un codice OTP (One-Time Password).
 
 ```XML
 <!--
@@ -207,17 +211,17 @@ Questi tipi di attestazioni sono necessari per generare e verificare l'indirizzo
 </BuildingBlocks> -->
 ```
 
-## <a name="add-the-claims-transformation"></a>Aggiungere la trasformazione delle attestazioni
+## <a name="add-the-claims-transformation"></a>Aggiungere la trasformazione attestazioni
 
-Quindi, è necessaria una trasformazione delle attestazioni per restituire un'attestazione stringa JSON che costituirà il corpo della richiesta inviata a Mailjet.
+È quindi necessaria una trasformazione delle attestazioni per l'output di un'attestazione di stringa JSON che sarà il corpo della richiesta inviata a Mailjet.
 
-La struttura dell'oggetto JSON è definita dagli ID nella notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I numeri nella notazione del punto implicano matrici. I valori provengono dalle proprietà InputClaims ' Values e InputParameters ' "value". Per ulteriori informazioni sulle trasformazioni delle attestazioni JSON, vedere le [trasformazioni delle attestazioni JSON](json-transformations.md).
+La struttura dell'oggetto JSON è definita dagli ID nella notazione del punto di InputParameters e transformationClaimTypes di InputClaims. I numeri nella notazione del punto implicano matrici. I valori provengono dai valori di InputClaims e dalle proprietà "Value" degli InputParameters. Per altre informazioni sulle trasformazioni delle attestazioni JSON, vedere [Trasformazioni di attestazioni JSON.](json-transformations.md)
 
-Aggiungere la trasformazione delle attestazioni seguente all' `<ClaimsTransformations>` elemento all'interno di `<BuildingBlocks>` . Apportare gli aggiornamenti seguenti all'XML di trasformazione delle attestazioni:
+Aggiungere la trasformazione di attestazioni seguente all'elemento `<ClaimsTransformations>` all'interno di `<BuildingBlocks>` . Apportare gli aggiornamenti seguenti al codice XML della trasformazione attestazioni:
 
-* Aggiornare il `Messages.0.TemplateID` valore di InputParameter con l'ID del modello transazionale Mailjet creato in precedenza in [creare un modello Mailjet](#create-a-mailjet-template).
-* Aggiornare il `Messages.0.From.Email` valore dell'indirizzo. Usare un indirizzo di posta elettronica valido per evitare che la posta elettronica di verifica venga contrassegnata come posta indesiderata.
-* Aggiornare il valore del `Messages.0.Subject` parametro di input della riga dell'oggetto con una riga dell'oggetto appropriata per l'organizzazione.
+* Aggiornare il valore InputParameter con l'ID del modello transazionale Mailjet creato in precedenza `Messages.0.TemplateID` in Creare un modello [Mailjet](#create-a-mailjet-template).
+* Aggiornare il `Messages.0.From.Email` valore dell'indirizzo. Usare un indirizzo di posta elettronica valido per impedire che il messaggio di posta elettronica di verifica venga contrassegnato come posta indesiderata.
+* Aggiornare il valore del parametro `Messages.0.Subject` di input della riga dell'oggetto con una riga dell'oggetto appropriata per l'organizzazione.
 
 ```XML
 <!-- 
@@ -251,7 +255,7 @@ Aggiungere la trasformazione delle attestazioni seguente all' `<ClaimsTransforma
 
 ## <a name="add-datauri-content-definition"></a>Aggiungere la definizione del contenuto DataUri
 
-Sotto le trasformazioni delle attestazioni all'interno `<BuildingBlocks>` di, aggiungere il [ContentDefinition](contentdefinitions.md) seguente per fare riferimento all'URI di dati della versione 2.1.2:
+Sotto le trasformazioni delle attestazioni all'interno `<BuildingBlocks>` di aggiungere [l'elemento ContentDefinition](contentdefinitions.md) seguente per fare riferimento all'URI dati della versione 2.1.2:
 
 ```XML
 <!--
@@ -268,20 +272,20 @@ Sotto le trasformazioni delle attestazioni all'interno `<BuildingBlocks>` di, ag
 </BuildingBlocks> -->
 ```
 
-## <a name="create-a-displaycontrol"></a>Creare un DisplayControl
+## <a name="create-a-displaycontrol"></a>Creare un controllo DisplayControl
 
-Viene usato un controllo di visualizzazione verifica per verificare l'indirizzo di posta elettronica con un codice di verifica inviato all'utente.
+Un controllo di visualizzazione della verifica viene usato per verificare l'indirizzo di posta elettronica con un codice di verifica inviato all'utente.
 
 Questo controllo di visualizzazione di esempio è configurato per:
 
-1. Raccogliere il `email` tipo di attestazione Address dall'utente.
-1. Attendere che l'utente fornisca il `verificationCode` tipo di attestazione con il codice inviato all'utente.
-1. Restituire al `email` profilo tecnico autocertificato che contiene un riferimento a questo controllo di visualizzazione.
-1. Utilizzando l' `SendCode` azione, generare un codice OTP e inviare all'utente un messaggio di posta elettronica con il codice OTP.
+1. Raccogliere il `email` tipo di attestazione dell'indirizzo dall'utente.
+1. Attendere che l'utente fornirà il tipo `verificationCode` di attestazione con il codice inviato all'utente.
+1. Restituire `email` l'oggetto al profilo tecnico autoassato che contiene un riferimento a questo controllo di visualizzazione.
+1. Usando `SendCode` l'azione , generare un codice OTP e inviare un messaggio di posta elettronica con il codice OTP all'utente.
 
-   ![Invia l'azione di posta elettronica del codice di verifica](media/custom-email-mailjet/display-control-verification-email-action-01.png)
+   ![Azione invia codice di verifica tramite posta elettronica](media/custom-email-mailjet/display-control-verification-email-action-01.png)
 
-In definizioni contenuto, ancora in `<BuildingBlocks>` , aggiungere il seguente [DisplayControl](display-controls.md) di tipo [VerificationControl](display-control-verification.md) al criterio.
+Nelle definizioni del contenuto, sempre `<BuildingBlocks>` all'interno di , aggiungere il [displayControl](display-controls.md) seguente di tipo [VerificationControl](display-control-verification.md) ai criteri.
 
 ```XML
 <!--
@@ -316,9 +320,9 @@ In definizioni contenuto, ancora in `<BuildingBlocks>` , aggiungere il seguente 
 
 ## <a name="add-otp-technical-profiles"></a>Aggiungere profili tecnici OTP
 
-Il `GenerateOtp` profilo tecnico genera un codice per l'indirizzo di posta elettronica. Il `VerifyOtp` profilo tecnico verifica il codice associato all'indirizzo di posta elettronica. È possibile modificare la configurazione del formato e la scadenza della password monouso. Per altre informazioni sui profili tecnici OTP, vedere [definire un profilo tecnico](one-time-password-technical-profile.md)monouso per la password.
+Il `GenerateOtp` profilo tecnico genera un codice per l'indirizzo di posta elettronica. Il `VerifyOtp` profilo tecnico verifica il codice associato all'indirizzo di posta elettronica. È possibile modificare la configurazione del formato e la scadenza della password una sola volta. Per altre informazioni sui profili tecnici OTP, vedere [Definire un profilo tecnico con password una sola volta.](one-time-password-technical-profile.md)
 
-Aggiungere i seguenti profili tecnici all' `<ClaimsProviders>` elemento.
+Aggiungere i profili tecnici seguenti `<ClaimsProviders>` all'elemento .
 
 ```XML
 <!--
@@ -364,9 +368,9 @@ Aggiungere i seguenti profili tecnici all' `<ClaimsProviders>` elemento.
 
 ## <a name="add-a-rest-api-technical-profile"></a>Aggiungere un profilo tecnico dell'API REST
 
-Questo profilo tecnico dell'API REST genera il contenuto di posta elettronica (usando il formato Mailjet). Per altre informazioni sui profili tecnici RESTful, vedere [definire un profilo tecnico RESTful](restful-technical-profile.md).
+Questo profilo tecnico dell'API REST genera il contenuto del messaggio di posta elettronica usando il formato Mail passport. Per altre informazioni sui profili tecnici RESTful, vedere [Definire un profilo tecnico RESTful.](restful-technical-profile.md)
 
-Come per i profili tecnici OTP, aggiungere i profili tecnici seguenti all' `<ClaimsProviders>` elemento.
+Come per i profili tecnici OTP, aggiungere i profili tecnici seguenti `<ClaimsProviders>` all'elemento .
 
 ```XML
 <ClaimsProvider>
@@ -398,9 +402,9 @@ Come per i profili tecnici OTP, aggiungere i profili tecnici seguenti all' `<Cla
 
 ## <a name="make-a-reference-to-the-displaycontrol"></a>Creare un riferimento a DisplayControl
 
-Nel passaggio finale aggiungere un riferimento al DisplayControl creato. Sostituire `LocalAccountSignUpWithLogonEmail` i profili tecnici esistenti e autocertificati `LocalAccountDiscoveryUsingEmailAddress` con il codice seguente. Se è stata usata una versione precedente di Azure AD B2C criterio. Questi profili tecnici usano `DisplayClaims` con un riferimento a DisplayControl.
+Nel passaggio finale aggiungere un riferimento all'oggetto DisplayControl creato. Sostituire i profili `LocalAccountSignUpWithLogonEmail` tecnici `LocalAccountDiscoveryUsingEmailAddress` esistenti e autosito con quanto segue. Se è stata usata una versione precedente di Azure AD B2C criteri. Questi profili tecnici usano `DisplayClaims` con un riferimento a DisplayControl.
 
-Per altre informazioni, vedere [profilo tecnico autocertificato](restful-technical-profile.md) e [DisplayControl](display-controls.md).
+Per altre informazioni, vedere [Profilo tecnico autosito](restful-technical-profile.md) e [DisplayControl.](display-controls.md)
 
 ```XML
 <ClaimsProvider>
@@ -439,14 +443,14 @@ Per altre informazioni, vedere [profilo tecnico autocertificato](restful-technic
 </ClaimsProvider>
 ```
 
-## <a name="optional-localize-your-email"></a>Opzionale Localizzare il messaggio di posta elettronica
+## <a name="optional-localize-your-email"></a>[Facoltativo] Localizzare il messaggio di posta elettronica
 
-Per localizzare il messaggio di posta elettronica, è necessario inviare le stringhe localizzate a Mailjet o al provider di posta elettronica. Ad esempio, è possibile localizzare l'oggetto, il corpo, il messaggio del codice o la firma del messaggio di posta elettronica. A tale scopo, è possibile usare la trasformazione delle attestazioni [GetLocalizedStringsTransformation](string-transformations.md) per copiare le stringhe localizzate in tipi di attestazione. La `GenerateEmailRequestBody` trasformazione delle attestazioni, che genera il payload JSON, USA le attestazioni di input che contengono le stringhe localizzate.
+Per localizzare il messaggio di posta elettronica, è necessario inviare le stringhe localizzate a Mail jet o al provider di posta elettronica. Ad esempio, è possibile localizzare l'oggetto, il corpo, il messaggio di codice o la firma del messaggio di posta elettronica. A tale scopo, è possibile usare la trasformazione delle attestazioni [GetLocalizedStringsTransformation](string-transformations.md) per copiare le stringhe localizzate in tipi di attestazione. La `GenerateEmailRequestBody` trasformazione delle attestazioni, che genera il payload JSON, usa attestazioni di input che contengono le stringhe localizzate.
 
-1. Nel criterio definire le seguenti attestazioni di stringa: oggetto, messaggio, codeintro e firma.
-1. Definire una trasformazione delle attestazioni [GetLocalizedStringsTransformation](string-transformations.md) per sostituire i valori di stringa localizzata nelle attestazioni del passaggio 1.
-1. Modificare la `GenerateEmailRequestBody` trasformazione delle attestazioni per utilizzare le attestazioni di input con il frammento di codice XML seguente.
-1. Aggiornare il modello di Mailjet per usare i parametri dinamici al posto di tutte le stringhe che verranno localizzate da Azure AD B2C.
+1. Nei criteri definire le attestazioni stringa seguenti: subject, message, codeIntro e signature.
+1. Definire una [trasformazione di attestazioni GetLocalizedStringsTransformation](string-transformations.md) per sostituire i valori stringa localizzati nelle attestazioni del passaggio 1.
+1. Modificare la trasformazione `GenerateEmailRequestBody` delle attestazioni in modo da usare le attestazioni di input con il frammento XML seguente.
+1. Aggiornare il modello Mailsystem in modo che usi parametri dinamici al posto di tutte le stringhe che verranno localizzate da Azure AD B2C.
 
     ```XML
     <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
@@ -481,7 +485,7 @@ Per localizzare il messaggio di posta elettronica, è necessario inviare le stri
     </ClaimsTransformation>
     ```
 
-1. Aggiungere l'elemento di [localizzazione](localization.md) seguente.
+1. Aggiungere [l'elemento Localization](localization.md) seguente.
 
     ```xml
     <!--
@@ -513,7 +517,7 @@ Per localizzare il messaggio di posta elettronica, è necessario inviare le stri
     </BuildingBlocks> -->
     ```
 
-1. Aggiungere riferimenti agli elementi LocalizedResources aggiornando l'elemento [ContentDefinitions](contentdefinitions.md) .
+1. Aggiungere riferimenti agli elementi LocalizedResources aggiornando [l'elemento ContentDefinitions.](contentdefinitions.md)
 
     ```xml
     <!--
@@ -538,7 +542,7 @@ Per localizzare il messaggio di posta elettronica, è necessario inviare le stri
     </BuildingBlocks> -->
     ```
 
-1. Infine, aggiungere la trasformazione delle attestazioni di input seguente ai `LocalAccountSignUpWithLogonEmail` `LocalAccountDiscoveryUsingEmailAddress` profili tecnici e.
+1. Aggiungere infine la trasformazione delle attestazioni di input seguente ai `LocalAccountSignUpWithLogonEmail` profili `LocalAccountDiscoveryUsingEmailAddress` tecnici e .
 
     ```xml
     <InputClaimsTransformations>
@@ -546,9 +550,9 @@ Per localizzare il messaggio di posta elettronica, è necessario inviare le stri
     </InputClaimsTransformations>
     ```
     
-## <a name="optional-localize-the-ui"></a>Opzionale Localizzare l'interfaccia utente
+## <a name="optional-localize-the-ui"></a>[Facoltativo] Localizzare l'interfaccia utente
 
-L'elemento Localizzazione consente di supportare più impostazioni locali o lingue nei criteri per i percorsi utente. Il supporto per la localizzazione nei criteri consente di fornire stringhe specifiche della lingua sia per [gli elementi dell'interfaccia utente del controllo visualizzazione di verifica](localization-string-ids.md#verification-display-control-user-interface-elements)che per [i messaggi di errore di una password](localization-string-ids.md#one-time-password-error-messages). Aggiungere la LocalizedString seguente al LocalizedResources. 
+L'elemento Localizzazione consente di supportare più impostazioni locali o lingue nei criteri per i percorsi utente. Il supporto della localizzazione nei criteri consente di fornire stringhe specifiche della lingua sia per gli elementi dell'interfaccia utente del controllo visualizzazione verifica [sia](localization-string-ids.md#verification-display-control-user-interface-elements)per i messaggi di errore una sola volta relativi [alla password.](localization-string-ids.md#one-time-password-error-messages) Aggiungere l'elemento LocalizedString seguente a LocalizedResources. 
 
 ```XML
 <LocalizedResources Id="api.custom-email.en">
@@ -583,9 +587,9 @@ Dopo aver aggiunto le stringhe localizzate, rimuovere i metadati dei messaggi di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile trovare un esempio di criteri di verifica della posta elettronica personalizzati in GitHub:
+È possibile trovare un esempio di criteri di verifica tramite posta elettronica personalizzati in GitHub:
 
-- [Verifica della posta elettronica personalizzata-DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
-- Per informazioni sull'uso di un'API REST personalizzata o di qualsiasi provider di posta elettronica SMTP basato su HTTP, vedere [definire un profilo tecnico RESTful in un Azure ad B2C criteri personalizzati](restful-technical-profile.md).
+- [Verifica tramite posta elettronica personalizzata - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
+- Per informazioni sull'uso di un'API REST personalizzata o di qualsiasi provider di posta elettronica SMTP basato su HTTP, vedere Definire un profilo tecnico [RESTful in](restful-technical-profile.md)un Azure AD B2C criteri personalizzati.
 
 ::: zone-end

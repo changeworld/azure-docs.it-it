@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: a1492593c24c2bc350205536006b648608cc5e46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4122201789aea90aa94ab7d809e93a30c739254e
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101712641"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107715029"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>Avvio rapido: Creare un'applicazione Azure IoT Central
 
@@ -21,7 +21,7 @@ Questo argomento di avvio rapido illustra come creare un'applicazione Azure IoT 
 
 ## <a name="prerequisite"></a>Prerequisito 
 
-È necessaria una sottoscrizione di Azure con accesso *collaboratore* .
+Sarà necessaria una sottoscrizione di Azure con accesso *collaboratore.*
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 
@@ -52,7 +52,7 @@ Per creare una nuova applicazione Azure IoT Central dal modello **Applicazione p
 
     - Le applicazioni con il piano *gratuito* sono gratuite per sette giorni e supportano fino a cinque dispositivi. È possibile convertirle per l'uso di un piano tariffario standard in qualsiasi momento prima della scadenza.
         > [!NOTE]
-        > Per le applicazioni create con il piano *gratuito* non sono necessarie sottoscrizioni di Azure e pertanto non sono disponibili nella sottoscrizione di azure nella portale di Azure. È possibile visualizzare e gestire solo app gratuite dal portale di IoT Central.          
+        > Le applicazioni create *usando* il piano gratuito non richiedono sottoscrizioni di Azure e pertanto non saranno elencate nella sottoscrizione di Azure nella portale di Azure. È possibile visualizzare e gestire le app gratuite solo dal portale IoT Central.          
     - Le applicazioni create usando il piano *Standard* vengono fatturate in base ai singoli dispositivi; è possibile scegliere il piano tariffario **Standard 0**, **Standard 1** o **Standard 2** con i primi due dispositivi gratuiti. Per altre informazioni sui piani tariffari gratuito e standard, vedere la pagina sui [prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Se si crea un'applicazione con un piano tariffario standard, è necessario selezionare una *directory*, una *sottoscrizione di Azure* e una *località*:
         - La *directory* è l'istanza di Azure Active Directory in cui creare l'applicazione. Un'istanza di Azure Active Directory contiene le identità degli utenti, le credenziali e altre informazioni dell'organizzazione. Se Azure Active Directory non è disponibile, ne viene creata automaticamente un'istanza quando si crea una sottoscrizione di Azure.
         - Una *sottoscrizione di Azure* consente di creare istanze dei servizi di Azure. IoT Central effettua il provisioning delle risorse nella sottoscrizione. Se non si ha una sottoscrizione di Azure, è possibile crearne una gratuitamente nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription). Dopo aver creato la sottoscrizione di Azure, tornare nella pagina **Nuova applicazione**. La nuova sottoscrizione è ora inclusa nell'elenco a discesa **Sottoscrizione di Azure** (Sottoscrizione di Azure).

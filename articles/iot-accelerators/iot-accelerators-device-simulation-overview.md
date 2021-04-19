@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 979643c76b8bded51e30232228b7fe7485a1f53b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 27a23ff924c2fa9e9e35fec010ca2a177868eacc
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057678"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713913"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Panoramica dell'acceleratore di soluzione Simulazione dispositivi
 
@@ -32,11 +32,11 @@ Con Simulazione dispositivi è possibile definire modelli di dispositivo per sim
 
 Le simulazioni possono essere eseguite per un solo dispositivo o per migliaia di dispositivi che si connettono a qualsiasi hub IoT. Per facilitare il testing, è possibile distribuire un hub IoT insieme a Simulazione dispositivi per un ambiente autonomo.
 
-Simulazione dispositivi è una soluzione gratuita. Viene però distribuita nella sottoscrizione di Azure nel cloud e utilizza risorse di Azure. Se Simulazione dispositivi non soddisfa le proprie esigenze, il [codice sorgente è disponibile su GitHub](https://github.com/Azure/device-simulation-dotnet) e può essere copiato e modificato.
+Simulazione dispositivi è una soluzione gratuita. Viene però distribuita nella sottoscrizione di Azure nel cloud e utilizza risorse di Azure. Se Simulazione dispositivi non soddisfa le proprie esigenze, il [codice sorgente è disponibile su GitHub](https://github.com/Azure/azure-iot-pcs-device-simulation) e può essere copiato e modificato.
 
 ## <a name="sample-simulations"></a>Simulazioni di esempio
 
-Quando si distribuisce Simulazione dispositivi, si ottengono alcuni dispositivi e simulazioni di esempio. È possibile usare questi esempi per imparare a usare Simulazione dispositivi. Per iniziare, eseguire una [simulazione di esempio](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md). È anche possibile [creare una simulazione personalizzata usando uno dei numerosi dispositivi di esempio disponibili](iot-accelerators-device-simulation-create-simulation.md).
+Quando si distribuisce Simulazione dispositivi, si ottengono alcuni dispositivi e simulazioni di esempio. È possibile usare questi esempi per imparare a usare Simulazione dispositivi. Per iniziare, eseguire una [simulazione di esempio.](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) È anche possibile [creare una simulazione personalizzata usando uno dei numerosi dispositivi di esempio disponibili](iot-accelerators-device-simulation-create-simulation.md).
 
 ![Configurazione della simulazione](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
@@ -60,7 +60,7 @@ I modelli di dispositivo avanzati consentono di:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono stati illustrati l'acceleratore di soluzione Simulazione dispositivi e le sue funzionalità. Per distribuire Solution Accelerator, visitare il repository GitHub:
+In questo articolo sono stati illustrati l'acceleratore di soluzione Simulazione dispositivi e le sue funzionalità. Per distribuire l'acceleratore di soluzioni, visitare il repository GitHub:
 
 > [!div class="nextstepaction"]
-> [Distribuire ed eseguire una soluzione di simulazione dei dispositivi IoT in Azure](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)
+> [Distribuire ed eseguire una soluzione di simulazione dei dispositivi IoT in Azure](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md)

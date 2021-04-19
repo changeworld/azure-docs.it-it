@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 565e6fd5aae3068605b617deccb0d04785c1e248
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a94f3cc6b2387857d19c7b98fa0be64dd6646ec9
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057627"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713859"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializzare i dati di telemetria con i Protocol Buffers
 
@@ -36,9 +36,9 @@ I passaggi nella presente guida pratica illustrato come eseguire queste operazio
 
 Per seguire la procedura illustrata in questa guida pratica, sono necessari:
 
-* Visual Studio Code. È possibile scaricare [Visual Studio Code per Mac, Linux e Windows](https://code.visualstudio.com/download).
+* Visual Studio Code. È possibile scaricare [Visual Studio Code per Mac, Linux e Windows.](https://code.visualstudio.com/download)
 * .NET Core. È possibile scaricare [.NET Core per Mac, Linux e Windows](https://www.microsoft.com/net/download).
-* Postman. È possibile scaricare il [post per Mac, Windows o Linux](https://www.getpostman.com/apps).
+* Postman. È possibile scaricare [Postman per Mac, Windows o Linux.](https://www.getpostman.com/apps)
 * Un [hub IoT distribuito nella sottoscrizione di Azure in uso](../iot-hub/iot-hub-create-through-portal.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione dell'hub IoT. È possibile ottenere la stringa di connessione nel portale di Azure.
 * Un [database Cosmos DB distribuito nella sottoscrizione di Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) che usi l'API SQL e che sia configurato per [coerenza assoluta](../cosmos-db/how-to-manage-database-account.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione del database Cosmos DB. È possibile ottenere la stringa di connessione nel portale di Azure.
 * Un [account di archiviazione di Azure distribuito nella sottoscrizione di Azure](../storage/common/storage-account-create.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione dell'account di archiviazione. È possibile ottenere la stringa di connessione nel portale di Azure.
@@ -57,13 +57,13 @@ Le istruzioni presenti in questo articolo presuppongono che si usi Windows. Se s
 
 Scaricare e decomprimere i [microservizi di monitoraggio remoto](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) da GitHub in un percorso appropriato nel computer locale. Questo repository include il microservizio di adattatore di archiviazione necessario per questa procedura.
 
-Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) da GitHub in un percorso appropriato nel computer locale.
+Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://github.com/Azure/azure-iot-pcs-device-simulation/archive/master.zip) da GitHub in un percorso appropriato nel computer locale.
 
 ### <a name="run-the-storage-adapter-microservice"></a>Eseguire il microservizio di adattatore di archiviazione
 
 Aprire la cartella **remote-monitoring-services-dotnet-master\storage-adapter** in Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **con estensione VSCODE/launch.js** e assegnare la stringa di connessione Cosmos DB alla variabile di ambiente **PC \_ STORAGEADAPTER \_ DOCUMENTDB \_ connString** .
+Aprire il file con estensione **vscode/launch.js** e assegnare la stringa di connessione Cosmos DB alla variabile di ambiente **PCS \_ STORAGEADAPTER \_ DOCUMENTDB \_ CONNSTRING.**
 
 > [!NOTE]
 > Quando si esegue localmente il microservizio nel computer, il suo funzionamento richiede comunque un'istanza di Cosmos DB in Azure.
@@ -200,7 +200,7 @@ Aprire il file **WebService/Properties/launchSettings.json** e assegnare quanto 
 * Stringa di connessione dell'account di archiviazione alla variabile di ambiente **PCS\_AZURE\_STORAGE\_ACCOUNT**.
 * Stringa di connessione di Cosmos DB alla variabile di ambiente **PCS\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING**.
 
-Aprire il file di **WebService\appsettings.ini** e modificare le impostazioni come segue:
+Aprire il file **WebService\appsettings.ini** e modificare le impostazioni come indicato di seguito:
 
 #### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Configurare la soluzione in modo da includere i nuovi file del modello di dispositivo
 
@@ -249,11 +249,11 @@ Per configurare Postman
 
 1. Fare clic su **File \> Importa**. Fare clic su **Scegli file**.
 
-1. Selezionare **Azure le soluzioni \_ per la simulazione dei dispositivi di Azure** e l'acceleratore di soluzione per la **simulazione dei dispositivi di Azure. postazione \_** e fare clic su **Apri**.
+1. Selezionare Azure IoT soluzione di simulazione dispositivi **accelerator.postman \_ collection** e Azure IoT **soluzione simulazione dispositivi accelerator.postman \_ e** fare clic su **Apri.**
 
 1. Espandere **Azure IoT Device Simulation solution accelerator** (Acceleratore soluzione di simulazione dispositivi IoT Azure) per visualizzare le richieste che è possibile inviare.
 
-1. Fare clic su **nessun ambiente** e selezionare l' **acceleratore soluzione simulazione dispositivi Azure**.
+1. Fare clic **su Nessun ambiente e** selezionare l Azure IoT **acceleratore di soluzione Simulazione dispositivi**.
 
 Sono ora disponibili una raccolta e un ambiente caricati nell'area di lavoro di Postman che è possibile usare per interagire con il microservizio di simulazione dispositivi.
 
@@ -277,4 +277,4 @@ Molte funzionalità dell'hub IoT non supportano Protobuf o altri formati binari 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come personalizzare la simulazione dei dispositivi per l'uso di protobuf per l'invio di dati di telemetria, il passaggio successivo è visitare il repository GitHub per ulteriori informazioni sulla [simulazione del dispositivo](https://github.com/Azure/device-simulation-dotnet).
+Ora che si è appreso come personalizzare Simulazione dispositivi per usare Protobuf per inviare dati di telemetria, il passaggio successivo consiste nel visitare il repository GitHub per altre informazioni su [Simulazione dispositivi.](https://github.com/Azure/azure-iot-pcs-device-simulation)

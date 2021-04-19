@@ -1,18 +1,18 @@
 ---
 title: Eseguire l'onboarding nel Centro sicurezza di Azure con PowerShell
-description: Questo documento illustra il processo di abilitazione del Centro sicurezza di Azure con i cmdlet di PowerShell.
+description: Questo documento illustra il processo di abilitazione Centro sicurezza di Azure con i cmdlet di PowerShell.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 01/24/2021
+ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: 25639509cfb689e025ea4388f302378648af8ba6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f9ab258f59279112d0b90c5d460e6761ac911a2d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439494"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713355"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizzare l'onboarding del Centro sicurezza di Azure con PowerShell
 
@@ -75,9 +75,9 @@ Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa pr
     > È consigliabile abilitare il provisioning automatico per assicurarsi che le macchine virtuali di Azure siano protette automaticamente dal Centro sicurezza di Azure.
     >
 
-1. (Facoltativo) È consigliabile definire i dettagli dei contatti di sicurezza per le sottoscrizioni caricate, che verranno usati come destinatari delle notifiche e degli avvisi generati dal Centro sicurezza:
+1. Facoltativo: è consigliabile [](security-center-provide-security-contact-details.md) definire i dettagli dei contatti di sicurezza per le sottoscrizioni di cui si è stati emersi, che verranno usati come destinatari degli avvisi e delle notifiche generati dal Centro sicurezza:
 
-    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert```
+    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -AlertAdmin -NotifyOnAlert```
 
 1. Assegnare i criteri predefiniti del Centro sicurezza:
 

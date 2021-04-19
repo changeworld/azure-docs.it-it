@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 91556087cd3e7ccd85550c721f70b8608fdc4ffd
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 9ebc6e266c93e55bc250e8450356f8b695dd9080
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168451"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714993"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Esercitazione: Implementare l'analisi spaziale di IoT con Mappe di Azure
 
@@ -95,7 +95,7 @@ Nella figura seguente l'area del recinto virtuale è evidenziata in blu. L'itine
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
-Per archiviare i dati di monitoraggio delle violazioni delle auto, creare un [account di archiviazione per utilizzo generico v2](../storage/common/storage-account-overview.md#general-purpose-v2-accounts) nel gruppo di risorse. Se non è stato creato un gruppo di risorse, seguire le istruzioni riportate in [Creare un gruppo di risorse](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). In questa esercitazione al gruppo di risorse verrà assegnato il nome *ContosoRental*.
+Per archiviare i dati di monitoraggio delle violazioni delle auto, creare un [account di archiviazione per utilizzo generico v2](../storage/common/storage-account-overview.md) nel gruppo di risorse. Se non è stato creato un gruppo di risorse, seguire le istruzioni riportate in [Creare un gruppo di risorse](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). In questa esercitazione al gruppo di risorse verrà assegnato il nome *ContosoRental*.
 
 Per creare un account di archiviazione, seguire le istruzioni in [Creare un account di archiviazione](../storage/common/storage-account-create.md?tabs=azure-portal). In questa esercitazione verrà usato il nome *contosorentalstorage* per l'account di archiviazione, ma è possibile assegnare un nome qualsiasi.
 

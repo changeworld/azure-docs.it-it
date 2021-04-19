@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sugli acceleratori di soluzioni IoT - Azure | Microsoft Docs
-description: Questo articolo fornisce le risposte alle domande frequenti relative agli acceleratori di soluzioni Internet. Include i collegamenti ai repository GitHub.
+description: Questo articolo risponde alle domande frequenti per gli acceleratori di soluzioni IoT. Include collegamenti ai repository GitHub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,39 +8,39 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1fd2b8461bd66c826dc4890c331b740c4703f896
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61993df77b0831926f16339a741a2553e80c2a0d
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96903990"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107713841"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Domande frequenti sugli acceleratori di soluzioni IoT
 
-Vedere anche le [domande frequenti specifiche della fabbrica connesse](iot-accelerators-faq-cf.md).
+Vedere anche Le domande [frequenti specifiche di Connected Factory.](iot-accelerators-faq-cf.md)
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>Dove è possibile visualizzare il codice sorgente degli acceleratori di soluzioni?
 
 Il codice sorgente è memorizzato nei repository di GitHub seguenti:
 
 * [Acceleratore di soluzioni di connected factory](https://github.com/Azure/azure-iot-connected-factory)
-* [Acceleratore soluzione simulazione dispositivi](https://github.com/Azure/device-simulation-dotnet)
+* [Acceleratore di soluzioni di simulazione dispositivi](https://github.com/Azure/azure-iot-pcs-device-simulation)
 
-### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>Dove è possibile trovare gli acceleratori della soluzione per il monitoraggio remoto e la manutenzione predittiva?
+### <a name="where-can-i-find-the-remote-monitoring-and-predictive-maintenance-solution-accelerators"></a>Dove è possibile trovare gli acceleratori di soluzioni di monitoraggio remoto e manutenzione predittiva?
 
-A partire dal 10 dicembre 2020, i tasti di scelta rapida per il monitoraggio remoto e la manutenzione predittiva sono stati rimossi dal sito [acceleratori della soluzione Azure](https://www.azureiotsolutions.com/Accelerators) Internet e non sono più disponibili per le nuove distribuzioni. I repository GitHub per entrambi gli acceleratori sono stati archiviati. Il codice è ancora disponibile per consentire a tutti gli utenti di accedere, ma i repository non accettano nuovi contributi.
+A partire dal 10 dicembre 2020, gli acceleratori di monitoraggio remoto e manutenzione predittiva sono stati rimossi dal sito [di acceleratori di soluzione Azure IoT](https://www.azureiotsolutions.com/Accelerators) e non sono più disponibili per le nuove distribuzioni. I repository GitHub per entrambi gli acceleratori sono stati archiviati. Il codice è ancora disponibile per l'accesso da parte di chiunque, ma i repository non stanno prendendo nuovi contributi.
 
-### <a name="what-happens-to-my-existing-remote-monitoring-and-predictive-maintenance-deployments"></a>Cosa accade alle distribuzioni di monitoraggio remoto e di manutenzione predittiva esistenti?
+### <a name="what-happens-to-my-existing-remote-monitoring-and-predictive-maintenance-deployments"></a>Cosa accade alle distribuzioni di monitoraggio remoto e manutenzione predittiva esistenti?
 
-Le distribuzioni esistenti non sono interessate dalla rimozione degli acceleratori della soluzione di monitoraggio remoto e di manutenzione predittiva e continueranno a funzionare. Non sono interessati anche i repository con fork. I repository master in GitHub sono stati archiviati.
+Le distribuzioni esistenti non sono influenzate dalla rimozione degli acceleratori di soluzioni di monitoraggio remoto e manutenzione predittiva e continueranno a funzionare. Anche i repository con fork non sono influenzati. I repository master in GitHub sono stati archiviati.
 
-### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>Ricerca per categorie distribuire l'acceleratore di soluzioni di simulazione del dispositivo?
+### <a name="how-do-i-deploy-device-simulation-solution-accelerator"></a>Ricerca per categorie l'acceleratore di soluzioni di simulazione dispositivi?
 
-Per distribuire l'acceleratore di soluzione per la simulazione del dispositivo, vedere il repository GitHub per la [simulazione del dispositivo](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) .
+Per distribuire l'acceleratore di soluzioni di simulazione dispositivi, vedere il repository GitHub [di](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/README.md) simulazione dispositivi.
 
-### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>Dove è possibile reperire informazioni sugli acceleratori di soluzioni rimossi?
+### <a name="where-can-i-find-information-about-the-removed-solution-accelerators"></a>Dove è possibile trovare informazioni sugli acceleratori di soluzioni rimossi?
 
-Vedere le pagine seguenti nel sito versioni precedenti:
+Vedere le pagine seguenti nel sito delle versioni precedenti:
 
 * [Monitoraggio remoto](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
 * [Manutenzione predittiva](/previous-versions/azure/iot-accelerators/about-iot-accelerators)
@@ -72,9 +72,9 @@ Per indicazioni vedere il diagramma seguente:
 
 Se si è certi di avere una sottoscrizione di Azure, convalidare il mapping del tenant per la sottoscrizione e verificare che sia selezionato il tenant corretto nell'elenco a discesa. Se si è verificato che il tenant è corretto, seguire il diagramma precedente e verificare il mapping della sottoscrizione e il tenant di Azure AD.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Qual è la differenza tra l'eliminazione di un gruppo di risorse nel portale di Azure e la selezione di Delete in un Solution Accelerator in azureiotsolutions.com?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Qual è la differenza tra l'eliminazione di un gruppo di risorse nel portale di Azure e l'eliminazione di un acceleratore di soluzioni in azureiotsolutions.com?
 
-* Se si elimina l'acceleratore di soluzione in [azureiotsolutions.com](https://www.azureiotsolutions.com/), si eliminano tutte le risorse distribuite al momento della creazione dell'acceleratore di soluzioni. Se sono state aggiunte altre risorse al gruppo, anche queste ultime vengono eliminate.
+* Se si elimina l'acceleratore di soluzione in [azureiotsolutions.com](https://www.azureiotsolutions.com/), si eliminano tutte le risorse distribuite durante la creazione dell'acceleratore di soluzioni. Se sono state aggiunte altre risorse al gruppo, anche queste ultime vengono eliminate.
 * Se si elimina il gruppo di risorse nel [portale di Azure](https://portal.azure.com), si eliminano solo le risorse presenti in tale gruppo. È anche necessario eliminare l'applicazione Azure Active Directory associata all'acceleratore di soluzioni.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>È possibile continuare a sfruttare gli investimenti negli acceleratori di soluzioni Azure IoT?

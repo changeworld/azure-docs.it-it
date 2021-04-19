@@ -36,7 +36,7 @@
           items:
             - name: Valutare le VM VMware per la migrazione a macchine virtuali di Azure
               href: tutorial-assess-vmware-azure-vm.md
-            - name: Valutare le istanze SQL per la migrazione ad Azure SQL
+            - name: Valutare le istanze di SQL per la migrazione a Azure SQL
               href: tutorial-assess-sql.md
             - name: Valutare le VM VMware per la migrazione alla soluzione Azure VMware
               href: tutorial-assess-vmware-azure-vmware-solution.md
@@ -70,11 +70,11 @@
           href: tutorial-migrate-aws-virtual-machines.md
         - name: Eseguire la migrazione di istanze GCP
           href: tutorial-migrate-gcp-virtual-machines.md
-    - name: Distribuire
+    - name: Contenitori
       items:
-        - name: App ASP.NET di distribuire e migrazione ad AKS
+        - name: Creare un contenitore ASP.NET app ed eseguire la migrazione al servizio App Container
           href: tutorial-app-containerization-aspnet-kubernetes.md
-        - name: App Web Java distribuire e migrazione ad AKS
+        - name: Creare un contenitore di app Web Java ed eseguire la migrazione al servizio App Container
           href: tutorial-containerize-java-kubernetes.md
 - name: Concetti
   items:
@@ -82,7 +82,7 @@
       items:
         - name: Supporto di Azure Migrate
           href: migrate-support-matrix.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -104,7 +104,7 @@
       items:
         - name: Panoramica delle valutazioni (migrazione a VM di Azure)
           href: concepts-assessment-calculation.md
-        - name: Cenni preliminari sulle valutazioni (migrazione a SQL di Azure)
+        - name: Panoramica delle valutazioni (eseguire la migrazione a Azure SQL)
           href: concepts-azure-sql-assessment-calculation.md
         - name: Panoramica della valutazione (migrazione alla soluzione Azure VMware)
           href: concepts-azure-vmware-solution-assessment-calculation.md
@@ -130,6 +130,8 @@
   items:
     - name: Creare e gestire i progetto di Azure Migrate
       href: create-manage-projects.md
+    - name: Usare Azure Migrate con collegamento privato
+      href: how-to-use-azure-migrate-with-private-endpoints.md
     - name: Prepararsi a usare gli strumenti ISV/Movere
       href: prepare-isv-movere.md
     - name: Rilevazione
@@ -152,7 +154,7 @@
           href: add-server-credentials.md
         - name: 'Individuare applicazioni, ruoli e funzionalità'
           href: how-to-discover-applications.md
-        - name: Individuare le istanze di SQL in un progetto esistente
+        - name: Individuare le istanze DI SQL in un progetto esistente
           href: how-to-discover-sql-existing-project.md
         - name: Analizzare le dipendenze dei computer (in base ad agente)
           href: how-to-create-group-machine-dependencies.md
@@ -166,7 +168,7 @@
           href: how-to-create-a-group.md
         - name: Creare una valutazione per le macchine virtuali di Azure
           href: how-to-create-assessment.md
-        - name: Creare una valutazione SQL di Azure
+        - name: Creare una Azure SQL valutazione
           href: how-to-create-azure-sql-assessment.md
         - name: Creare una valutazione per le soluzioni Azure VMware
           href: how-to-create-azure-vmware-solution-assessment.md
@@ -198,7 +200,7 @@
               href: how-to-migrate-vmware-vms-with-cmk-disks.md
         - name: Dimensioni di una migrazione
           items:
-            - name: Come eseguire la migrazione di macchine virtuali VMware su larga scala usando il metodo di replica senza agenti
+            - name: Come eseguire la migrazione di macchine virtuali VMware su larga scala usando il metodo di replica senza agente
               href: how-to-scale-out-for-migration.md
             - name: Automatizzare la migrazione di un numero elevato di macchine virtuali
               href: how-to-migrate-at-scale.md
