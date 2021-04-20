@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: memildin
-ms.openlocfilehash: fb8dc22c923b7b53a6263baa43046862af4d2f04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 284a7f532ed918397fe1cfcf3458bbc6fb0bdd32
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100370266"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739009"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Esercitazione: Migliorare la conformità alle normative
 
 Il Centro sicurezza di Azure consente di semplificare il processo per soddisfare i requisiti di conformità alle normative con il **dashboard Conformità alle normative**. 
 
-Il Centro sicurezza valuta continuamente l'ambiente cloud ibrido per analizzare i fattori di rischio in base ai controlli e alle procedure consigliate negli standard applicati alle sottoscrizioni. Il dashboard riflette lo stato della conformità con questi standard. 
+Il Centro sicurezza valuta continuamente l'ambiente cloud ibrido per analizzare i fattori di rischio in base ai controlli e alle procedure consigliate negli standard applicati alle sottoscrizioni. Il dashboard riflette lo stato della conformità a questi standard. 
 
-Quando si Abilita il Centro sicurezza in una sottoscrizione di Azure, il [benchmark di sicurezza di Azure](../security/benchmarks/introduction.md) viene assegnato automaticamente a tale sottoscrizione. Questo benchmark ampiamente rispettato si basa sui controlli di [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
+Quando si abilita il Centro sicurezza in una sottoscrizione di Azure, [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction) viene assegnato automaticamente a tale sottoscrizione. Questo benchmark ampiamente rispettato si basa sui controlli del [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e del National Institute of Standards and Technology [(NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
 
-Il dashboard conformità normativa Mostra lo stato di tutte le valutazioni all'interno dell'ambiente in uso per gli standard e le normative selezionati. Quando si interviene in base alle raccomandazioni riducendo i fattori di rischio nell'ambiente, il comportamento di conformità risulta migliorato.
+Il dashboard di conformità alle normative mostra lo stato di tutte le valutazioni all'interno dell'ambiente per gli standard e le normative scelti. Quando si interviene in base alle raccomandazioni riducendo i fattori di rischio nell'ambiente, il comportamento di conformità risulta migliorato.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Valutare la conformità alle normative usando il dashboard Conformità con le normative
 > * Migliorare il comportamento di conformità intervenendo in base alle raccomandazioni
-> * Imposta avvisi sulle modifiche al comportamento di conformità
+> * Configurare avvisi sulle modifiche al proprio stato di conformità
 > * Esportare i dati di conformità come flusso continuo e come snapshot settimanali
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -45,47 +45,47 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per esaminare le funzionalità descritte in questa esercitazione,
 
 - è necessario abilitare [Azure Defender](azure-defender.md). È possibile provare Azure Defender gratuitamente per 30 giorni.
-- È necessario avere eseguito l'accesso con un account con accesso in lettura ai dati di conformità dei criteri (il **lettore di sicurezza** non è sufficiente). Il **Ruolo con autorizzazioni di lettura globali** è appropriato. È necessario avere come minimo i ruoli **Collaboratore ai criteri delle risorse** e **Amministratore della sicurezza** assegnati.
+- È necessario aver eseguito l'accesso con un account con accesso in lettura ai dati di conformità dei criteri ( Il ruolo con autorizzazioni **di lettura per la** sicurezza non è sufficiente). Il **Ruolo con autorizzazioni di lettura globali** è appropriato. È necessario avere come minimo i ruoli **Collaboratore ai criteri delle risorse** e **Amministratore della sicurezza** assegnati.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Valutare la conformità alle normative
 
-Il dashboard conformità normativa Mostra gli standard di conformità selezionati con tutti i requisiti, in cui è stato eseguito il mapping dei requisiti supportati alle valutazioni della sicurezza applicabili. Lo stato di queste valutazioni riflette la conformità con lo standard.
+Il dashboard di conformità alle normative mostra gli standard di conformità selezionati con tutti i relativi requisiti, in cui i requisiti supportati vengono mappati alle valutazioni della sicurezza applicabili. Lo stato di queste valutazioni riflette la conformità con lo standard.
 
-Usare il dashboard conformità normativa per concentrare l'attenzione sui Gap in conformità con gli standard e le normative scelti. Questa visualizzazione mirata consente inoltre di monitorare costantemente la conformità nel tempo all'interno di ambienti dinamici cloud e ibridi.
+Usare il dashboard di conformità alle normative per concentrare l'attenzione sulle lacune nella conformità con gli standard e le normative scelti. Questa visualizzazione mirata consente anche di monitorare continuamente la conformità nel tempo all'interno di ambienti cloud dinamici e ibridi.
 
 1. Nel menu del Centro sicurezza selezionare **Conformità con le normative**.
 
-    Nella parte superiore della schermata è presente un dashboard con una panoramica dello stato di conformità con il set di normative di conformità supportate. Verrà visualizzato il Punteggio di conformità complessivo e il numero di valutazioni di superamento e di esito negativo associate a ogni standard.
+    Nella parte superiore della schermata è presente un dashboard con una panoramica dello stato di conformità con il set di normative di conformità supportate. Verranno visualizzati il punteggio di conformità complessivo e il numero di valutazioni superate e non riuscite associate a ogni standard.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Dashboard Conformità con le normative" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
-1. Selezionare la scheda di uno standard di conformità che interessa (1). Verranno visualizzate le sottoscrizioni a cui è applicato lo standard (2), oltre all'elenco di tutti i controlli dello standard (3). Per i controlli applicabili, è possibile visualizzare i dettagli del passaggio e delle valutazioni non riuscite associate a tale controllo (4) e il numero di risorse interessate (5). Alcuni controlli sono disattivati. A tali controlli non è associata alcuna valutazione del Centro sicurezza. Verificare i requisiti e valutarli nell'ambiente in uso. Alcuni potrebbero essere correlati ai processi e non di tipo tecnico.
+1. Selezionare la scheda di uno standard di conformità che interessa (1). Verranno visualizzate le sottoscrizioni a cui è applicato lo standard (2), oltre all'elenco di tutti i controlli dello standard (3). Per i controlli applicabili, è possibile visualizzare i dettagli del superamento e dell'esito negativo delle valutazioni associate a tale controllo (4) e il numero di risorse interessate (5). Alcuni controlli sono disattivati. A tali controlli non è associata alcuna valutazione del Centro sicurezza. Controllare i requisiti e valutarli nell'ambiente. Alcuni potrebbero essere correlati ai processi e non di tipo tecnico.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Esplorazione dei dettagli della conformità a uno standard specifico":::
 
-1. Per generare un report PDF con un riepilogo dello stato di conformità corrente per un particolare standard, selezionare **Scarica report**.
+1. Per generare un report PDF con un riepilogo dello stato di conformità corrente per un determinato standard, selezionare **Scarica report**.
 
-    Il report fornisce un riepilogo generale dello stato di conformità per lo standard selezionato in base ai dati di valutazione del Centro sicurezza. Il report è organizzato in base ai controlli di quel particolare standard. Il report può essere condiviso con gli stakeholder appropriati e può essere usato per fornire giustificativi a revisori interni ed esterni.
+    Il report fornisce un riepilogo di alto livello dello stato di conformità per lo standard selezionato in base ai dati delle valutazioni del Centro sicurezza. Il report è organizzato in base ai controlli di quel particolare standard. Il report può essere condiviso con gli stakeholder appropriati e può essere usato per fornire giustificativi a revisori interni ed esterni.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Scaricare il report di conformità":::
 
 ## <a name="improve-your-compliance-posture"></a>Migliorare il comportamento di conformità
 
-Usando le informazioni nel dashboard conformità normativa, migliorare la postura di conformità risolvendo le raccomandazioni direttamente nel dashboard.
+Usando le informazioni nel dashboard di conformità alle normative, migliorare il proprio stato di conformità risolvendo le raccomandazioni direttamente all'interno del dashboard.
 
-1.  Selezionare una delle valutazioni non riuscite visualizzate nel dashboard per visualizzare i dettagli relativi a tale raccomandazione. Ogni raccomandazione include un set di passaggi correttivi per risolvere il problema.
+1.  Selezionare una delle valutazioni non riuscite visualizzate nel dashboard per visualizzare i dettagli per tale raccomandazione. Ogni raccomandazione include un set di passaggi di correzione per risolvere il problema.
 
-1.  Selezionare una determinata risorsa per visualizzare altri dettagli e risolvere il suggerimento per tale risorsa. <br>Ad esempio, nello standard **Azure cis 1.1.0** selezionare la crittografia del disco di raccomandazione da **applicare alle macchine virtuali**.
+1.  Selezionare una risorsa specifica per visualizzare altri dettagli e risolvere la raccomandazione per tale risorsa. <br>Ad esempio, nello standard **CiS 1.1.0** di Azure selezionare la raccomandazione Crittografia dischi da applicare **alle macchine virtuali**.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="La selezione di una raccomandazione da uno standard porta direttamente alla relativa pagina di dettagli":::
 
-1. In questo esempio, quando si seleziona **intervenire** dalla pagina dei dettagli della raccomandazione, si arriva alle pagine della macchina virtuale di Azure della portale di Azure, in cui è possibile abilitare la crittografia dalla scheda **sicurezza** :
+1. In questo esempio,  quando si seleziona Azione nella pagina dei dettagli della raccomandazione, si arriva nelle pagine Macchina virtuale di Azure del portale di Azure, in cui è possibile abilitare la crittografia dalla scheda **Sicurezza:**
 
     :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Il pulsante Intervieni nella pagina di dettagli della raccomandazione porta alle opzioni per la correzione del problema":::
 
     Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 
-1.  Dopo aver intrapreso le azioni per la risoluzione delle raccomandazioni, il risultato verrà visualizzato nel report Dashboard conformità perché il Punteggio di conformità è migliore.
+1.  Dopo aver preso le misure necessarie per risolvere le raccomandazioni, il risultato verrà visualizzato nel report del dashboard di conformità perché il punteggio di conformità migliora.
 
     > [!NOTE]
     > Dato che le valutazioni vengono eseguite a intervalli di circa 12 ore, l'impatto sui dati di conformità sarà visibile solo dopo l'esecuzione successiva della valutazione appropriata.
@@ -93,32 +93,32 @@ Usando le informazioni nel dashboard conformità normativa, migliorare la postur
 
 ## <a name="export-your-compliance-status-data"></a>Esportare i dati sullo stato di conformità
 
-Se si vuole tenere traccia dello stato di conformità con altri strumenti di monitoraggio nell'ambiente in uso, il Centro sicurezza include un meccanismo di esportazione che semplifica questa operazione. Configurare l' **esportazione continua** per inviare i dati selezionati a un hub eventi di Azure o a un'area di lavoro log Analytics.
+Se si vuole tenere traccia dello stato di conformità con altri strumenti di monitoraggio nell'ambiente, il Centro sicurezza include un meccanismo di esportazione per semplificare questa operazione. Configurare **l'esportazione continua** per inviare dati selezionati a un hub eventi di Azure o a un'area di lavoro Log Analytics.
 
-Usare i dati di esportazione continua in un hub eventi di Azure o in un'area di lavoro Log Analytics:
+Usare l'esportazione continua dei dati in un hub eventi di Azure o in un'area di lavoro Log Analytics:
 
-- Esportare tutti i dati di conformità normativi in un **flusso continuo**:
+- Esportare tutti i dati di conformità alle normative in **un flusso continuo:**
 
-    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-stream.png" alt-text="Esporta continuamente un flusso di dati di conformità normativi" lightbox="media/security-center-compliance-dashboard/export-compliance-data-stream.png":::
+    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-stream.png" alt-text="Esportare continuamente un flusso di dati di conformità alle normative" lightbox="media/security-center-compliance-dashboard/export-compliance-data-stream.png":::
 
-- Esporta **snapshot settimanali** dei dati di conformità normativi:
+- Esportare **snapshot settimanali dei** dati di conformità alle normative:
 
-    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Esporta continuamente uno snapshot settimanale dei dati di conformità normativi" lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
+    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Esportare continuamente uno snapshot settimanale dei dati di conformità alle normative" lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
 
-È anche possibile esportare un **report PDF/CSV** dei dati di conformità direttamente dal dashboard conformità normativa:
+È anche possibile esportare un **report PDF/CSV** dei dati di conformità direttamente dal dashboard di conformità alle normative:
 
-:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Esportare i dati di conformità normativa come report in formato PDF o CSV" lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
+:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Esportare i dati di conformità alle normative come report PDF o CSV" lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
 
-Per altre informazioni, vedere [esportare continuamente i dati del Centro sicurezza](continuous-export.md).
+Per altre informazioni, [vedere Esportare continuamente i dati del Centro sicurezza.](continuous-export.md)
 
 
-## <a name="run-workflow-automations-when-there-are-changes-to-your-compliance"></a>Eseguire le automazioni del flusso di lavoro in caso di modifiche alla conformità
+## <a name="run-workflow-automations-when-there-are-changes-to-your-compliance"></a>Eseguire automazioni del flusso di lavoro in caso di modifiche alla conformità
 
-La funzionalità di automazione del flusso di lavoro del Centro sicurezza può attivare app per la logica ogni volta che una delle valutazioni della conformità normativa modifica lo stato.
+La funzionalità di automazione del flusso di lavoro del Centro sicurezza può attivare App per la logica ogni volta che cambia lo stato di una delle valutazioni di conformità alle normative.
 
-Ad esempio, è possibile che il Centro sicurezza invii un messaggio di posta elettronica a un utente specifico quando una valutazione della conformità non riesce. È necessario creare prima l'app per la logica (usando [app](../logic-apps/logic-apps-overview.md)per la logica di Azure) e quindi configurare il trigger in una nuova automazione del flusso di lavoro, come illustrato in [automatizzare le risposte ai trigger del Centro sicurezza](workflow-automation.md).
+Ad esempio, potrebbe essere necessario che il Centro sicurezza indirizzi un utente specifico tramite posta elettronica quando una valutazione della conformità ha esito negativo. È necessario creare prima l'app per la logica (usando [App per la logica di Azure](../logic-apps/logic-apps-overview.md)) e quindi configurare il trigger in una nuova automazione del flusso di lavoro, come illustrato in [Automatizzare](workflow-automation.md)le risposte ai trigger del Centro sicurezza .
 
-:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Uso delle modifiche alle valutazioni della conformità normativa per attivare un'automazione del flusso di lavoro" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Uso delle modifiche alle valutazioni della conformità alle normative per attivare un'automazione del flusso di lavoro" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
 
@@ -126,73 +126,73 @@ Ad esempio, è possibile che il Centro sicurezza invii un messaggio di posta ele
 ## <a name="faq---regulatory-compliance-dashboard"></a>Domande frequenti - Dashboard sulla conformità con le normative
 
 - [Quali standard sono supportati nel dashboard di conformità?](#what-standards-are-supported-in-the-compliance-dashboard)
-- [Perché alcuni controlli sono visualizzati in grigio?](#why-do-some-controls-appear-grayed-out)
+- [Perché alcuni controlli vengono visualizzati in grigio?](#why-do-some-controls-appear-grayed-out)
 - [Come è possibile rimuovere uno standard predefinito, ad esempio PCI-DSS, ISO 27001 o SOC2 TSP dal dashboard?](#how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard)
-- [Il suggerimento è stato modificato in base alla raccomandazione, ma non viene riflesso nel dashboard](#i-made-the-suggested-changed-based-on-the-recommendation-yet-it-isnt-being-reflected-in-the-dashboard)
+- [È stata apportata la modifica suggerita in base alla raccomandazione, ma non viene riflessa nel dashboard](#i-made-the-suggested-changed-based-on-the-recommendation-yet-it-isnt-being-reflected-in-the-dashboard)
 - [Quali autorizzazioni sono necessarie per accedere al dashboard di conformità?](#what-permissions-do-i-need-to-access-the-compliance-dashboard)
-- [Il dashboard per la conformità alle normative non viene caricato](#the-regulatory-compliance-dashboard-isnt-loading-for-me)
-- [Come è possibile visualizzare un report relativo ai controlli di passaggio e di errore per ogni standard nel dashboard?](#how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard)
-- [Come è possibile scaricare un report con i dati di conformità in un formato diverso da PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
-- [Come è possibile creare eccezioni per alcuni criteri nel dashboard conformità normativa?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
-- [Quali piani o licenze di Azure Defender sono necessari per usare il dashboard di conformità alle normative?](#what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
+- [Il dashboard di conformità alle normative non viene caricato per l'utente](#the-regulatory-compliance-dashboard-isnt-loading-for-me)
+- [Come è possibile visualizzare un report di superamento e esito negativo dei controlli per ogni standard nel dashboard?](#how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard)
+- [Come è possibile scaricare un report con dati di conformità in un formato diverso da PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
+- [Come è possibile creare eccezioni per alcuni criteri nel dashboard di conformità alle normative?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
+- [Quali Azure Defender o licenze necessarie per usare il dashboard di conformità alle normative?](#what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
 
 ### <a name="what-standards-are-supported-in-the-compliance-dashboard"></a>Quali standard sono supportati nel dashboard di conformità?
-Per impostazione predefinita, il dashboard di conformità normativa Mostra il benchmark di sicurezza di Azure. Il benchmark di sicurezza di Azure è le linee guida per la sicurezza e le procedure consigliate per la conformità di Microsoft per Azure, basate su Framework di conformità comuni. Per altre informazioni, vedere [Introduzione al benchmark di sicurezza di Azure](../security/benchmarks/introduction.md).
+Per impostazione predefinita, il dashboard di conformità alle normative mostra Azure Security Benchmark. Azure Security Benchmark è una linea guida specifica di Azure per la sicurezza e le procedure consigliate per la conformità, basate su framework di conformità comuni. Per altre informazioni, vedere Introduzione [ad Azure Security Benchmark.](../security/benchmarks/introduction.md)
 
-Per tenere traccia della conformità con altri standard, è necessario aggiungerli in modo esplicito al dashboard.
+Per tenere traccia della conformità con qualsiasi altro standard, è necessario aggiungerli in modo esplicito al dashboard.
  
-È possibile aggiungere standard come Azure CIS 1.1.0 (New), NIST SP 800-53 R4, NIST SP 800-171 R2, SWIFT CSP CSCF-V2020, UK Official e UK NHS, HIPAA HITRUST, Canada Federal PBMM, ISO 27001, SOC2-TSP e PCI-DSS 3.2.1.  
+È possibile aggiungere standard come Azure CIS 1.1.0 (nuovo), NIST SP 800-53 R4, NIST SP 800-171 R2, SWIFT CSP CSCF-v2020, UK Official e UK NHS, HIPAA HITRUST, Canada Federal PBMM, ISO 27001, SOC2-TSP e PCI-DSS 3.2.1.  
  
-Verranno aggiunti altri standard al dashboard e verranno incluse le informazioni su come [personalizzare il set di standard nel dashboard conformità normativa](update-regulatory-compliance-packages.md).
+Altri standard verranno aggiunti al dashboard e inclusi nelle informazioni in [Personalizzare il set di standard nel dashboard di conformità alle normative.](update-regulatory-compliance-packages.md)
 
-### <a name="why-do-some-controls-appear-grayed-out"></a>Perché alcuni controlli sono visualizzati in grigio?
-Per ogni standard di conformità nel dashboard, è disponibile un elenco dei controlli standard. Per i controlli applicabili, è possibile visualizzare i dettagli del passaggio e delle valutazioni non riuscite.
+### <a name="why-do-some-controls-appear-grayed-out"></a>Perché alcuni controlli vengono visualizzati in grigio?
+Per ogni standard di conformità nel dashboard è presente un elenco dei controlli dello standard. Per i controlli applicabili, è possibile visualizzare i dettagli del superamento e dell'esito negativo delle valutazioni.
 
-Alcuni controlli sono disattivati. A tali controlli non è associata alcuna valutazione del Centro sicurezza. Alcuni possono essere correlati a procedure o processi e pertanto non possono essere verificati dal centro sicurezza. Per alcuni non sono ancora stati implementati criteri o valutazioni automatizzati, ma in futuro. Alcuni controlli possono essere la responsabilità della piattaforma, come descritto in [responsabilità condivisa nel cloud](../security/fundamentals/shared-responsibility.md). 
+Alcuni controlli sono disattivati. A tali controlli non è associata alcuna valutazione del Centro sicurezza. Alcuni possono essere correlati a procedure o processi e pertanto non possono essere verificati dal Centro sicurezza. Alcuni non hanno ancora implementato criteri automatizzati o valutazioni, ma lo avranno in futuro. Alcuni controlli possono anche essere responsabilità della piattaforma, come illustrato in [Shared responsibility in the cloud](../security/fundamentals/shared-responsibility.md)(Responsabilità condivisa nel cloud). 
 
 ### <a name="how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard"></a>Come è possibile rimuovere uno standard predefinito, ad esempio PCI-DSS, ISO 27001 o SOC2 TSP dal dashboard? 
-Per personalizzare il dashboard di conformità alle normative e concentrarsi solo sugli standard applicabili, è possibile rimuovere gli standard normativi visualizzati che non sono rilevanti per l'organizzazione. Per rimuovere uno standard, seguire le istruzioni riportate in [rimuovere uno standard dal dashboard](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
+Per personalizzare il dashboard di conformità alle normative e concentrarsi solo sugli standard applicabili, è possibile rimuovere qualsiasi standard normativo visualizzato non pertinente per l'organizzazione. Per rimuovere uno standard, seguire le istruzioni in [Rimuovere uno standard dal dashboard.](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard)
 
-### <a name="i-made-the-suggested-changed-based-on-the-recommendation-yet-it-isnt-being-reflected-in-the-dashboard"></a>Il suggerimento è stato modificato in base alla raccomandazione, ma non viene riflesso nel dashboard
-Dopo aver intrapreso le azioni necessarie per risolvere le raccomandazioni, attendere 12 ore per visualizzare le modifiche apportate ai dati di conformità. Le valutazioni vengono eseguite approssimativamente ogni 12 ore, quindi l'effetto sui dati di conformità verrà visualizzato solo dopo l'esecuzione delle valutazioni.
+### <a name="i-made-the-suggested-changed-based-on-the-recommendation-yet-it-isnt-being-reflected-in-the-dashboard"></a>Il suggerimento è stato modificato in base alla raccomandazione, ma non viene visualizzato nel dashboard
+Dopo aver intervenire per risolvere le raccomandazioni, attendere 12 ore per visualizzare le modifiche ai dati di conformità. Le valutazioni vengono eseguite circa ogni 12 ore, quindi l'effetto sui dati di conformità verrà visualizzato solo dopo l'esecuzione delle valutazioni.
  
 ### <a name="what-permissions-do-i-need-to-access-the-compliance-dashboard"></a>Quali autorizzazioni sono necessarie per accedere al dashboard di conformità?
-Per visualizzare i dati di conformità, è necessario avere almeno l'accesso in **lettura** ai dati di conformità dei criteri; Pertanto, il lettore di sicurezza da solo non sarà sufficiente. Se si è un lettore globale sulla sottoscrizione, questo sarà sufficiente.
+Per visualizzare i dati di conformità, è necessario avere almeno l'accesso **lettore** anche ai dati di conformità dei criteri. in modo che il solo lettore di sicurezza non sia sufficiente. Se si è un lettore globale nella sottoscrizione, anche questo sarà sufficiente.
 
-Il set minimo di ruoli per accedere al dashboard e gestire gli standard è il **collaboratore ai criteri delle risorse** e l' **amministratore della sicurezza**.
+Il set minimo di ruoli per l'accesso al dashboard e la gestione degli standard è **Collaboratore criteri risorse** e **Amministratore sicurezza**.
 
 
-### <a name="the-regulatory-compliance-dashboard-isnt-loading-for-me"></a>Il dashboard per la conformità alle normative non viene caricato
-Per usare il dashboard conformità normativa, il Centro sicurezza di Azure deve avere Azure Defender abilitato a livello di sottoscrizione. Se il dashboard non viene caricato correttamente, provare a eseguire la procedura seguente:
+### <a name="the-regulatory-compliance-dashboard-isnt-loading-for-me"></a>Il dashboard di conformità alle normative non viene caricato per l'utente
+Per usare il dashboard di conformità alle normative, Centro sicurezza di Azure deve Azure Defender a livello di sottoscrizione. Se il dashboard non viene caricato correttamente, seguire questa procedura:
 
 1. Cancellare la cache del browser.
-1. Provare a usare un browser diverso.
+1. Provare un browser diverso.
 1. Provare ad aprire il dashboard da un percorso di rete diverso.
 
 
-### <a name="how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard"></a>Come è possibile visualizzare un report relativo ai controlli di passaggio e di errore per ogni standard nel dashboard?
-Nel dashboard principale è possibile visualizzare un report relativo ai controlli superati e non superati per (1) gli standard di conformità "Top 4" nel dashboard. Per visualizzare lo stato di tutti i controlli superati o non riusciti, selezionare (2) **Mostra tutto *x*** (dove x è il numero di standard di cui si sta verificando). Un piano di contesto Visualizza lo stato di conformità per ogni standard rilevato.
+### <a name="how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard"></a>Come è possibile visualizzare un report di superamento e esito negativo dei controlli per ogni standard nel dashboard?
+Nel dashboard principale è possibile visualizzare un report di superamento e esito negativo dei controlli per (1) gli standard di conformità più bassi "primi 4" nel dashboard. Per visualizzare lo stato di tutti i controlli che superano o non riescono, selezionare (2) Mostra tutti ***x*** (dove x è il numero di standard di cui si sta verificando il rilevamento). Un piano di contesto visualizza lo stato di conformità per ogni standard monitorato.
 
-:::image type="content" source="media/security-center-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Sezione di riepilogo del dashboard conformità normativa":::
+:::image type="content" source="media/security-center-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Sezione Riepilogo del dashboard di conformità alle normative":::
 
 
-### <a name="how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf"></a>Come è possibile scaricare un report con i dati di conformità in un formato diverso da PDF?
-Quando si seleziona **Scarica report**, selezionare lo standard e il formato (PDF o CSV). Il report risultante rifletterà il set corrente di sottoscrizioni selezionato nel filtro del portale.
+### <a name="how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf"></a>Come è possibile scaricare un report con dati di conformità in un formato diverso da PDF?
+Quando si seleziona **Scarica report**, selezionare lo standard e il formato (PDF o CSV). Il report risultante rifletterà il set corrente di sottoscrizioni selezionate nel filtro del portale.
 
-- Il report PDF Mostra uno stato di riepilogo per lo standard selezionato
-- Il report CSV fornisce risultati dettagliati per ogni risorsa, in quanto è correlato ai criteri associati a ogni controllo
+- Il report PDF mostra uno stato di riepilogo per lo standard selezionato
+- Il report CSV fornisce risultati dettagliati per ogni risorsa, in relazione ai criteri associati a ogni controllo
 
 Attualmente non è disponibile alcun supporto per il download di un report per un criterio personalizzato. solo per gli standard normativi forniti.
 
 
-### <a name="how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard"></a>Come è possibile creare eccezioni per alcuni criteri nel dashboard conformità normativa?
-Per i criteri incorporati nel centro sicurezza e inclusi nel punteggio sicuro, è possibile creare esenzioni per una o più risorse direttamente nel portale, come descritto in [esenzione delle risorse e consigli dal punteggio sicuro](exempt-resource.md).
+### <a name="how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard"></a>Come è possibile creare eccezioni per alcuni criteri nel dashboard di conformità alle normative?
+Per i criteri incorporati nel Centro sicurezza e inclusi nel punteggio di sicurezza, è possibile creare esenzioni per una o più risorse direttamente nel portale, come illustrato in Esenzione di risorse e raccomandazioni dal punteggio di [sicurezza.](exempt-resource.md)
 
-Per altri criteri, è possibile creare un'esenzione direttamente nel criterio stesso, seguendo le istruzioni riportate in [struttura di esenzione dei criteri di Azure](../governance/policy/concepts/exemption-structure.md).
+Per altri criteri, è possibile creare un'esenzione direttamente nel criterio stesso, seguendo le istruzioni in Criteri di Azure [esenzione.](../governance/policy/concepts/exemption-structure.md)
 
 
-### <a name="what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard"></a>Quali piani o licenze di Azure Defender sono necessari per usare il dashboard di conformità alle normative?
-Se uno dei pacchetti di Azure Defender è abilitato in uno qualsiasi dei tipi di risorse di Azure, è possibile accedere al dashboard conformità normativa, con tutti i relativi dati, nel centro sicurezza.
+### <a name="what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard"></a>Quali Azure Defender o licenze necessarie per usare il dashboard di conformità alle normative?
+Se uno dei pacchetti Azure Defender è abilitato in uno qualsiasi dei tipi di risorse di Azure, è possibile accedere al dashboard di conformità alle normative, con tutti i relativi dati, nel Centro sicurezza.
 
 
 
@@ -203,12 +203,12 @@ Se uno dei pacchetti di Azure Defender è abilitato in uno qualsiasi dei tipi di
 In questa esercitazione si è appreso come usare il dashboard Conformità con le normative del Centro sicurezza per:
 
 > [!div class="checklist"]
-> * Consente di visualizzare e monitorare il comportamento di conformità per quanto riguarda gli standard e le normative importanti.
+> * Visualizzare e monitorare il proprio stato di conformità relativamente agli standard e alle normative importanti per l'utente.
 > * Migliorare lo stato di conformità risolvendo le raccomandazioni rilevanti e osservando il miglioramento del punteggio di conformità.
 
-Il dashboard di conformità alle normative può semplificare notevolmente il processo di conformità e ridurre significativamente il tempo necessario per la raccolta di prove di conformità per l'ambiente Azure, ibrido e multicloud.
+Il dashboard di conformità alle normative può semplificare notevolmente il processo di conformità e ridurre significativamente il tempo necessario per raccogliere le prove di conformità per l'ambiente Azure, ibrido e multi-cloud.
 
-Per ulteriori informazioni, vedere le pagine correlate seguenti:
+Per altre informazioni, vedere le pagine correlate seguenti:
 
-- [Personalizzare il set di standard nel dashboard conformità normativa](update-regulatory-compliance-packages.md) : informazioni su come selezionare gli standard da visualizzare nel dashboard conformità normativa. 
-- [Gestione delle raccomandazioni di sicurezza nel centro sicurezza di Azure](security-center-recommendations.md) : informazioni su come usare le raccomandazioni nel centro sicurezza per proteggere le risorse di Azure.
+- [Personalizzare il set di standard nel dashboard di conformità alle normative:](update-regulatory-compliance-packages.md) informazioni su come selezionare gli standard da visualizzare nel dashboard di conformità alle normative. 
+- [Gestione delle raccomandazioni di sicurezza Centro sicurezza di Azure:](security-center-recommendations.md) informazioni su come usare le raccomandazioni nel Centro sicurezza per proteggere le risorse di Azure.

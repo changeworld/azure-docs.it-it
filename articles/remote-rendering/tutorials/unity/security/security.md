@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1bcba264589d6cbe9b4f671e1e4f2c9b1dbf2c5
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 6e595f7ff313ff85a12209e8c124b9aa376b20b6
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594249"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739747"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Esercitazione: Protezione di Rendering remoto di Azure e dello spazio di archiviazione dei modelli
 
@@ -188,7 +188,7 @@ Lo stato corrente dell'applicazione e il relativo accesso alle risorse di Azure 
 
 Con l'autenticazione di AAD sarà possibile determinare quali utenti o gruppi usano Rendering remoto di Azure in modo più controllato. Rendering remoto di Azure prevede il supporto predefinito per accettare [token di accesso](../../../../active-directory/develop/access-tokens.md) invece dell'uso di una chiave dell'account. I token di accesso possono essere paragonati a una chiave specifica dell'utente, limitata nel tempo, che sblocca solo determinate parti della risorsa specifica per cui è stata richiesta.
 
-Lo script **RemoteRenderingCoordinator** ha un delegato denominato **ARRCredentialGetter**, che contiene un metodo che restituisce un oggetto **SessionConfiguration** , che viene usato per configurare la gestione della sessione remota. È possibile assegnare un metodo diverso a **ARRCredentialGetter**, che consente di usare un flusso di accesso di Azure, generando un oggetto **SessionConfiguration** che contiene un token di accesso di Azure. Questo token di accesso sarà specifico per l'utente che effettua l'accesso.
+Lo script **RemoteRenderingCoordinator** ha un delegato denominato **ARRCredentialGetter** che contiene un metodo che restituisce un **oggetto SessionConfiguration,** usato per configurare la gestione della sessione remota. È possibile assegnare un metodo diverso ad **ARRCredentialGetter,** consentendo di usare un flusso di accesso di Azure, generando un oggetto **SessionConfiguration** contenente un token di accesso di Azure. Questo token di accesso sarà specifico per l'utente che effettua l'accesso.
 
 1. Seguire l'argomento [Procedura: Configurare l'autenticazione - Autenticazione per le applicazioni distribuite](../../../how-tos/authentication.md#authentication-for-deployed-applications), in particolare seguire le istruzioni riportate nella sezione [Autenticazione degli utenti di Azure AD](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) nella documentazione di Ancoraggi nello spazio di Azure. Ciò comporta la registrazione di una nuova applicazione di Azure Active Directory e la configurazione dell'accesso all'istanza di Rendering remoto di Azure.
 1. Dopo aver configurato la nuova applicazione di AAD, controllare che l'applicazione corrisponda alle immagini seguenti:
@@ -204,14 +204,14 @@ Lo script **RemoteRenderingCoordinator** ha un delegato denominato **ARRCredenti
     >[!NOTE]
     > Un ruolo di *Proprietario* non è sufficiente per gestire le sessioni tramite l'applicazione client. A ogni utente a cui si vuole concedere la possibilità di gestire le sessioni è necessario fornire il ruolo di **client di Rendering remoto**. A ogni utente che dovrà gestire le sessioni e convertire i modelli è necessario fornire il ruolo di **amministratore di Rendering remoto**.
 
-Con le configurazioni lato Azure implementate, è ora necessario modificare il modo in cui il codice si connette al servizio Rendering remoto di Azure. Questa operazione viene eseguita implementando un'istanza di **BaseARRAuthentication**, che restituisce un nuovo oggetto **SessionConfiguration** . In questo caso, le informazioni dell'account verranno configurate con il token di accesso di Azure.
+Con le configurazioni lato Azure implementate, è ora necessario modificare il modo in cui il codice si connette al servizio Rendering remoto di Azure. A tale scopo, viene implementato un'istanza di **BaseARRAuthentication**, che restituirà un nuovo **oggetto SessionConfiguration.** In questo caso, le informazioni dell'account verranno configurate con il token di accesso di Azure.
 
 1. Creare un nuovo script denominato **AADAuthentication** e sostituirne il codice con quello seguente:
 
     ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
-
+    
     using Microsoft.Azure.RemoteRendering;
     using Microsoft.Identity.Client;
     using System;
@@ -219,17 +219,9 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
     using System.Threading;
     using System.Threading.Tasks;
     using UnityEngine;
-
+    
     public class AADAuthentication : BaseARRAuthentication
     {
-        [SerializeField]
-        private string accountDomain;
-        public string AccountDomain
-        {
-            get => accountDomain.Trim();
-            set => accountDomain = value;
-        }
-
         [SerializeField]
         private string activeDirectoryApplicationClientID;
         public string ActiveDirectoryApplicationClientID
@@ -237,7 +229,7 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
             get => activeDirectoryApplicationClientID.Trim();
             set => activeDirectoryApplicationClientID = value;
         }
-
+    
         [SerializeField]
         private string azureTenantID;
         public string AzureTenantID
@@ -245,7 +237,15 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
             get => azureTenantID.Trim();
             set => azureTenantID = value;
         }
-
+    
+        [SerializeField]
+        private string azureRemoteRenderingDomain;
+        public string AzureRemoteRenderingDomain
+        {
+            get => azureRemoteRenderingDomain.Trim();
+            set => azureRemoteRenderingDomain = value;
+        }
+    
         [SerializeField]
         private string azureRemoteRenderingAccountID;
         public string AzureRemoteRenderingAccountID
@@ -255,37 +255,37 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
         }
     
         [SerializeField]
-        private string azureRemoteRenderingAccountAuthenticationDomain;
-        public string AzureRemoteRenderingAccountAuthenticationDomain
+        private string azureRemoteRenderingAccountDomain;
+        public string AzureRemoteRenderingAccountDomain
         {
-            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
-            set => azureRemoteRenderingAccountAuthenticationDomain = value;
-        }
-
+            get => azureRemoteRenderingAccountDomain.Trim();
+            set => azureRemoteRenderingAccountDomain = value;
+        }    
+    
         public override event Action<string> AuthenticationInstructions;
-
+    
         string authority => "https://login.microsoftonline.com/" + AzureTenantID;
-
+    
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
-
-        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
-
+    
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountDomain + "/mixedreality.signin" };
+    
         public void OnEnable()
         {
             RemoteRenderingCoordinator.ARRCredentialGetter = GetAARCredentials;
             this.gameObject.AddComponent<ExecuteOnUnityThread>();
         }
-
+    
         public async override Task<SessionConfiguration> GetAARCredentials()
         {
             var result = await TryLogin();
             if (result != null)
             {
                 Debug.Log("Account signin successful " + result.Account.Username);
-
+    
                 var AD_Token = result.AccessToken;
-
-                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+    
+                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountDomain, AzureRemoteRenderingDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -293,7 +293,7 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
             }
             return default;
         }
-
+    
         private Task DeviceCodeReturned(DeviceCodeResult deviceCodeDetails)
         {
             //Since everything in this task can happen on a different thread, invoke responses on the main Unity thread
@@ -303,10 +303,10 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
                 Debug.Log(deviceCodeDetails.Message);
                 AuthenticationInstructions?.Invoke(deviceCodeDetails.Message);
             });
-
+    
             return Task.FromResult(0);
         }
-
+    
         public override async Task<AuthenticationResult> TryLogin()
         {
             var clientApplication = PublicClientApplicationBuilder.Create(ActiveDirectoryApplicationClientID).WithAuthority(authority).WithRedirectUri(redirect_uri).Build();
@@ -314,11 +314,11 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
             try
             {
                 var accounts = await clientApplication.GetAccountsAsync();
-
+    
                 if (accounts.Any())
                 {
                     result = await clientApplication.AcquireTokenSilent(scopes, accounts.First()).ExecuteAsync();
-
+    
                     return result;
                 }
                 else
@@ -356,7 +356,7 @@ Con le configurazioni lato Azure implementate, è ora necessario modificare il m
                 Debug.LogError("GetAccountsAsync");
                 Debug.LogException(ex);
             }
-
+    
             return null;
         }
     }
@@ -372,10 +372,10 @@ Per questo codice viene usato il [flusso di codice del dispositivo](../../../../
 La parte più importante di questa classe dal punto di vista di Rendering remoto di Azure è questa riga:
 
 ```cs
-return await Task.FromResult(new SessionConfiguration(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountDomain, AzureRemoteRenderingDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Qui viene creato un nuovo oggetto **SessionConfiguration** usando il dominio dell'account, l'ID account, il dominio di autenticazione dell'account e il token di accesso. Questo token viene quindi usato dal servizio Rendering remoto di Azure per eseguire query, creare e partecipare alle sessioni di rendering remoto, purché l'utente sia autorizzato in base alle autorizzazioni basate sul ruolo configurate in precedenza.
+In questo caso viene creato un nuovo **oggetto SessionConfiguration** usando il dominio di rendering remoto, l'ID account, il dominio dell'account e il token di accesso. Questo token viene quindi usato dal servizio Rendering remoto di Azure per eseguire query, creare e partecipare alle sessioni di rendering remoto, purché l'utente sia autorizzato in base alle autorizzazioni basate sul ruolo configurate in precedenza.
 
 Con questa modifica, lo stato corrente dell'applicazione e il relativo accesso alle risorse di Azure sono come segue:
 
@@ -393,11 +393,11 @@ Nell'editor di Unity, se l'autenticazione di AAD è attiva, sarà necessario ese
 
 1. Immettere i valori per ID client e ID tenant. Questi valori sono disponibili nella pagina Panoramica della registrazione dell'app:
 
-    * Il **dominio dell'account** è lo stesso dominio usato in **RemoteRenderingCoordinator**.
     * L'**ID client dell'applicazione di Active Directory** è l'*ID applicazione (client)* trovato nella registrazione dell'app di AAD (vedere l'immagine seguente).
     * L'**ID tenant di Azure** è l'*ID directory (tenant)* trovato nella registrazione dell'app di AAD (vedere l'immagine seguente).
+    * **Rendering remoto di Azure dominio** è lo stesso dominio in uso nel dominio di Rendering remoto di **RemoteRenderingCoordinator.**
     * L'**ID account di Rendering remoto di Azure** è lo stesso **ID account** usato per **RemoteRenderingCoordinator**.
-    * Il **dominio di autenticazione dell'account** è lo stesso usato in **RemoteRenderingCoordinator**.
+    * **Rendering remoto di Azure dominio dell'account** è  lo stesso dominio account in uso in **RemoteRenderingCoordinator.**
 
     ![Screenshot che evidenzia l'ID applicazione (client) e l'ID della directory (tenant).](./media/app-overview-data.png)
 

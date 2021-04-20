@@ -1,7 +1,7 @@
 ---
 title: Autorizzare l'accesso ai dati con un'identità gestita
 titleSuffix: Azure Storage
-description: Usare le identità gestite per le risorse di Azure per autorizzare l'accesso ai dati di Accodamento e BLOB da applicazioni in esecuzione in macchine virtuali di Azure, app per le funzioni e altri.
+description: Usare le identità gestite per le risorse di Azure per autorizzare l'accesso ai dati BLOB e code da applicazioni in esecuzione in macchine virtuali di Azure, app per le funzioni e altro ancora.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,67 +11,67 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 552d2587f35ed391b470c6d5b1693b79fd57306b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2aa6730759a9aa1aaab3156c55bf19e82641b8ea
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879579"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739333"
 ---
-# <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizzare l'accesso ai dati BLOB e di Accodamento con le identità gestite per le risorse di Azure
+# <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizzare l'accesso ai dati BLOB e code con identità gestite per le risorse di Azure
 
-Archiviazione di BLOB e coda di Azure supporta l'autenticazione con [identità gestite di Azure Active Directory per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). Le identità gestite per le risorse di Azure possono autorizzare l'accesso ai dati BLOB e di accodamento tramite Azure AD credenziali da applicazioni in esecuzione in macchine virtuali di Azure, app per le funzioni, set di scalabilità di macchine virtuali e altri servizi. Usando le identità gestite per le risorse di Azure con l'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni eseguite nel cloud.  
+Archiviazione di BLOB e coda di Azure supporta l'autenticazione con [identità gestite di Azure Active Directory per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). Le identità gestite per le risorse di Azure possono autorizzare l'accesso ai dati blob e code usando le credenziali Azure AD dalle applicazioni in esecuzione in macchine virtuali di Azure, app per le funzioni, set di scalabilità di macchine virtuali e altri servizi. Usando le identità gestite per le risorse di Azure con Azure AD autenticazione, è possibile evitare di archiviare le credenziali con le applicazioni eseguite nel cloud.  
 
-Questo articolo illustra come autorizzare l'accesso ai dati di BLOB o di Accodamento da una macchina virtuale di Azure usando identità gestite per le risorse di Azure. Viene inoltre descritto come testare il codice nell'ambiente di sviluppo.
+Questo articolo illustra come autorizzare l'accesso ai dati di BLOB o code da una macchina virtuale di Azure usando le identità gestite per le risorse di Azure. Viene inoltre descritto come testare il codice nell'ambiente di sviluppo.
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Abilitare le identità gestite su una macchina virtuale
 
-Prima di poter usare le identità gestite per le risorse di Azure per autorizzare l'accesso a BLOB e code dalla VM, è necessario prima di tutto abilitare le identità gestite per le risorse di Azure nella macchina virtuale. Per informazioni su come abilitare identità gestite per le risorse di Azure, vedere uno di questi articoli:
+Prima di poter usare le identità gestite per le risorse di Azure per autorizzare l'accesso a BLOB e code dalla macchina virtuale, è necessario abilitare le identità gestite per le risorse di Azure nella macchina virtuale. Per informazioni su come abilitare identità gestite per le risorse di Azure, vedere uno di questi articoli:
 
 - [Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Interfaccia della riga di comando di Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modello di Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Librerie client di Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Azure Resource Manager librerie client](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-Per altre informazioni sulle identità gestite, vedere [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Per altre informazioni sulle identità gestite, vedere [Identità gestite per le risorse di Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
 ## <a name="authenticate-with-the-azure-identity-library"></a>Eseguire l'autenticazione con la libreria di identità di Azure
 
-La libreria client di identità di Azure fornisce il supporto per l'autenticazione del token di Azure Azure AD per [Azure SDK](https://github.com/Azure/azure-sdk). Le versioni più recenti delle librerie client di archiviazione di Azure per .NET, Java, Python e JavaScript si integrano con la libreria di identità di Azure per fornire un modo semplice e sicuro per acquisire un token OAuth 2,0 per l'autorizzazione delle richieste di archiviazione di Azure.
+La libreria client di Identità di Azure fornisce il supporto dell'autenticazione Azure AD token di Azure per [Azure SDK.](https://github.com/Azure/azure-sdk) Le versioni più recenti delle librerie client di Archiviazione di Azure per .NET, Java, Python e JavaScript si integrano con la libreria di identità di Azure per fornire un mezzo semplice e sicuro per acquisire un token OAuth 2.0 per l'autorizzazione delle richieste Archiviazione di Azure.
 
-Un vantaggio della libreria client di Azure Identity è che consente di usare lo stesso codice per autenticare se l'applicazione è in esecuzione nell'ambiente di sviluppo o in Azure. La libreria client Azure Identity per .NET autentica un'entità di sicurezza. Quando il codice è in esecuzione in Azure, l'entità di sicurezza è un'identità gestita per le risorse di Azure. Nell'ambiente di sviluppo, l'identità gestita non esiste, pertanto la libreria client autentica l'utente o un'entità servizio a scopo di test.
+Un vantaggio della libreria client di Identità di Azure è che consente di usare lo stesso codice per autenticare se l'applicazione è in esecuzione nell'ambiente di sviluppo o in Azure. La libreria client di Identità di Azure per .NET autentica un'entità di sicurezza. Quando il codice è in esecuzione in Azure, l'entità di sicurezza è un'identità gestita per le risorse di Azure. Nell'ambiente di sviluppo l'identità gestita non esiste, quindi la libreria client autentica l'utente o un'entità servizio a scopo di test.
 
-Dopo l'autenticazione, la libreria client Azure Identity riceve una credenziale token. Questa credenziale del token viene quindi incapsulata nell'oggetto client del servizio creato per eseguire operazioni in archiviazione di Azure. Questa operazione viene gestita automaticamente dalla libreria ottenendo le credenziali del token appropriate.
+Dopo l'autenticazione, la libreria client di Identità di Azure ottiene le credenziali del token. Questa credenziale del token viene quindi incapsulata nell'oggetto client del servizio creato per eseguire operazioni su Archiviazione di Azure. La libreria gestisce questo problema senza problemi ottenendo le credenziali del token appropriate.
 
-Per altre informazioni sulla libreria client Azure Identity per .NET, vedere [libreria client di identità di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity). Per la documentazione di riferimento per la libreria client di identità di Azure, vedere [spazio dei nomi Azure. Identity](/dotnet/api/azure.identity).
+Per altre informazioni sulla libreria client di Identità di Azure per .NET, vedere [Libreria client di identità di Azure per .NET.](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) Per la documentazione di riferimento per la libreria client di Identità di Azure, vedere [Spazio dei nomi Azure.Identity](/dotnet/api/azure.identity).
 
-### <a name="assign-azure-roles-for-access-to-data"></a>Assegnare i ruoli di Azure per l'accesso ai dati
+### <a name="assign-azure-roles-for-access-to-data"></a>Assegnare ruoli di Azure per l'accesso ai dati
 
-Quando un Azure AD entità di sicurezza tenta di accedere ai dati del BLOB o della coda, l'entità di sicurezza deve avere le autorizzazioni per la risorsa. Se l'entità di sicurezza è un'identità gestita in Azure o un account utente Azure AD che esegue il codice nell'ambiente di sviluppo, all'entità di sicurezza deve essere assegnato un ruolo di Azure che concede l'accesso ai dati BLOB o della coda in archiviazione di Azure. Per informazioni sull'assegnazione delle autorizzazioni tramite il controllo degli accessi in base al ruolo di Azure, vedere la sezione **assegnare i ruoli di Azure per i diritti di accesso** in [autorizzare l'accesso a BLOB e code di Azure con Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+Quando un'Azure AD di sicurezza tenta di accedere ai dati blob o di coda, tale entità di sicurezza deve disporre delle autorizzazioni per la risorsa. Se l'entità di sicurezza è un'identità gestita in Azure o un account utente di Azure AD che esegue codice nell'ambiente di sviluppo, all'entità di sicurezza deve essere assegnato un ruolo di Azure che concede l'accesso ai dati blob o di coda in Archiviazione di Azure. Per informazioni sull'assegnazione delle autorizzazioni tramite il controllo degli accessi in base al ruolo di Azure, vedere la sezione assegnare i ruoli di **Azure** per i diritti di accesso in Autorizzare l'accesso a BLOB e code di [Azure usando Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 > [!NOTE]
-> Quando si crea un account di archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati tramite Azure AD. È necessario assegnare in modo esplicito a se stessi un ruolo di Azure per archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
+> Quando si crea un account Archiviazione di Azure, non vengono assegnate automaticamente le autorizzazioni per accedere ai dati tramite Azure AD. È necessario assegnare in modo esplicito un ruolo di Azure per Archiviazione di Azure. È possibile assegnare questo ruolo a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda.
 >
-> Prima di assegnare a se stessi un ruolo per l'accesso ai dati, sarà possibile accedere ai dati nell'account di archiviazione tramite il portale di Azure perché il portale di Azure può anche usare la chiave dell'account per l'accesso ai dati. Per altre informazioni, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-data-operations-portal.md).
+> Prima di assegnare a se stessi un ruolo per l'accesso ai dati, sarà possibile accedere ai dati nell'account di archiviazione tramite il portale di Azure perché il portale di Azure può anche usare la chiave dell'account per l'accesso ai dati. Per altre informazioni, vedere [Scegliere come autorizzare l'accesso](../blobs/authorize-data-operations-portal.md)ai dati BLOB nel portale di Azure .
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autenticare l'utente nell'ambiente di sviluppo
 
-Quando il codice è in esecuzione nell'ambiente di sviluppo, l'autenticazione può essere gestita automaticamente oppure è possibile che sia necessario un account di accesso del browser, a seconda degli strumenti che si stanno usando. Ad esempio, Microsoft Visual Studio supporta Single Sign-On (SSO), in modo che l'account utente Active Azure AD venga usato automaticamente per l'autenticazione. Per ulteriori informazioni su SSO, vedere [Single Sign-on to Applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
+Quando il codice è in esecuzione nell'ambiente di sviluppo, l'autenticazione può essere gestita automaticamente o potrebbe essere necessario un accesso al browser, a seconda degli strumenti in uso. Ad esempio, Microsoft Visual Studio supporta l'accesso Single Sign-On (SSO), in modo che l'account Azure AD utente attivo sia usato automaticamente per l'autenticazione. Per altre informazioni sull'accesso Single Sign-On, vedere [Single Sign-On alle applicazioni.](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
-Altri strumenti di sviluppo potrebbero richiedere l'accesso tramite un Web browser.
+Altri strumenti di sviluppo possono richiedere l'accesso tramite un Web browser.
 
 ### <a name="authenticate-a-service-principal-in-the-development-environment"></a>Autenticare un'entità servizio nell'ambiente di sviluppo
 
-Se l'ambiente di sviluppo non supporta la Single Sign-On o l'accesso tramite un Web browser, è possibile usare un'entità servizio per l'autenticazione dall'ambiente di sviluppo.
+Se l'ambiente di sviluppo non supporta l'accesso Single Sign-On o l'accesso tramite un Web browser, è possibile usare un'entità servizio per eseguire l'autenticazione dall'ambiente di sviluppo.
 
 #### <a name="create-the-service-principal"></a>Creare l'entità servizio
 
-Per creare un'entità servizio con l'interfaccia della riga di comando di Azure e assegnare un ruolo di Azure, chiamare il comando [AZ ad SP create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) . Fornire un ruolo di accesso ai dati di archiviazione di Azure da assegnare alla nuova entità servizio. Fornire inoltre l'ambito per l'assegnazione di ruolo. Per altre informazioni sui ruoli predefiniti forniti per archiviazione di Azure, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
+Per creare un'entità servizio con l'interfaccia della riga di comando di Azure e assegnare un ruolo di Azure, chiamare [il comando az ad sp create-for-rbac.](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) Fornire un Archiviazione di Azure di accesso ai dati da assegnare alla nuova entità servizio. Specificare anche l'ambito per l'assegnazione di ruolo. Per altre informazioni sui ruoli predefiniti forniti per Archiviazione di Azure, vedere Ruoli [predefiniti di Azure.](../../role-based-access-control/built-in-roles.md)
 
-Se non si dispone di autorizzazioni sufficienti per assegnare un ruolo all'entità servizio, potrebbe essere necessario richiedere al proprietario o all'amministratore dell'account di eseguire l'assegnazione di ruolo.
+Se non si dispone di autorizzazioni sufficienti per assegnare un ruolo all'entità servizio, potrebbe essere necessario chiedere al proprietario o all'amministratore dell'account di eseguire l'assegnazione di ruolo.
 
-L'esempio seguente usa l'interfaccia della riga di comando di Azure per creare una nuova entità servizio e assegnare il ruolo di **lettore dati BLOB di archiviazione** con l'ambito dell'account
+L'esempio seguente usa l'interfaccia della riga  di comando di Azure per creare una nuova entità servizio e assegnarvi il ruolo lettore di dati del BLOB di archiviazione con ambito account
 
 ```azurecli-interactive
 az ad sp create-for-rbac \
@@ -97,24 +97,24 @@ Il `az ad sp create-for-rbac` comando restituisce un elenco di proprietà dell'e
 
 #### <a name="set-environment-variables"></a>Impostare le variabili di ambiente
 
-La libreria client di identità di Azure legge i valori da tre variabili di ambiente in fase di esecuzione per autenticare l'entità servizio. Nella tabella seguente viene descritto il valore da impostare per ogni variabile di ambiente.
+La libreria client di Identità di Azure legge i valori da tre variabili di ambiente in fase di esecuzione per autenticare l'entità servizio. Nella tabella seguente viene descritto il valore da impostare per ogni variabile di ambiente.
 
 |Variabile di ambiente|Valore
 |-|-
 |`AZURE_CLIENT_ID`|ID app per l'entità servizio
-|`AZURE_TENANT_ID`|ID tenant Azure AD dell'entità servizio
+|`AZURE_TENANT_ID`|ID tenant dell'entità Azure AD servizio
 |`AZURE_CLIENT_SECRET`|Password generata per l'entità servizio
 
 > [!IMPORTANT]
-> Dopo aver impostato le variabili di ambiente, chiudere e riaprire la finestra della console. Se si usa Visual Studio o un altro ambiente di sviluppo, potrebbe essere necessario riavviare l'ambiente di sviluppo per poter registrare le nuove variabili di ambiente.
+> Dopo aver impostato le variabili di ambiente, chiudere e ria aprire la finestra della console. Se si usa un Visual Studio o un altro ambiente di sviluppo, potrebbe essere necessario riavviare l'ambiente di sviluppo per poter registrare le nuove variabili di ambiente.
 
-Per altre informazioni, vedere [creare un'identità per l'app Azure nel portale](../../active-directory/develop/howto-create-service-principal-portal.md).
+Per altre informazioni, vedere [Creare un'identità per l'app di Azure nel portale.](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
 ## <a name="net-code-example-create-a-block-blob"></a>Esempio di codice .NET: creare un BLOB in blocchi
 
-Aggiungere le `using` direttive seguenti al codice per usare le librerie di identità di Azure e client di archiviazione di Azure.
+Aggiungere le direttive seguenti al codice per usare l'identità di `using` Azure e Archiviazione di Azure client.
 
 ```csharp
 using Azure;
@@ -126,7 +126,7 @@ using System.Text;
 using System.Threading.Tasks;
 ```
 
-Per ottenere una credenziale token che il codice può usare per autorizzare le richieste ad archiviazione di Azure, creare un'istanza della classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . Nell'esempio di codice seguente viene illustrato come ottenere le credenziali del token autenticato e come utilizzarle per creare un oggetto client del servizio, quindi utilizzare il client del servizio per caricare un nuovo BLOB:
+Per ottenere una credenziale del token che il codice può usare per autorizzare le richieste Archiviazione di Azure, creare un'istanza della [classe DefaultAzureCredential.](/dotnet/api/azure.identity.defaultazurecredential) L'esempio di codice seguente illustra come ottenere le credenziali del token autenticato e usarle per creare un oggetto client del servizio, quindi usare il client del servizio per caricare un nuovo BLOB:
 
 ```csharp
 async static Task CreateBlockBlobAsync(string accountName, string containerName, string blobName)
@@ -164,11 +164,11 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 ```
 
 > [!NOTE]
-> Per autorizzare le richieste sui dati BLOB o della coda con Azure AD, è necessario usare HTTPS per tali richieste.
+> Per autorizzare le richieste ai dati blob o Azure AD coda, è necessario usare HTTPS per tali richieste.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Gestire i diritti di accesso ai dati di archiviazione con RBAC di Azure](./storage-auth-aad-rbac-portal.md).
-- [Usare Azure ad con le applicazioni di archiviazione](storage-auth-aad-app.md).
-- [Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati BLOB](../blobs/authorize-data-operations-powershell.md)
-- [Esercitazione: accedere all'archiviazione dal servizio app usando le identità gestite](../../app-service/scenario-secure-app-access-storage.md)
+- [Gestire i diritti di accesso ai dati di archiviazione con il controllo degli accessi in base al ruolo di Azure.](./storage-auth-aad-rbac-portal.md)
+- [Usare Azure AD con le applicazioni di archiviazione](storage-auth-aad-app.md).
+- [Eseguire i comandi di PowerShell con Azure AD credenziali per accedere ai dati BLOB](../blobs/authorize-data-operations-powershell.md)
+- [Esercitazione: Accedere all'archiviazione dal servizio app usando identità gestite](../../app-service/scenario-secure-app-access-storage.md)

@@ -6,7 +6,7 @@ documentationcenter: na
 author: duongau
 ms.author: duau
 manager: KumudD
-ms.date: 09/21/2020
+ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom:
 - mode-api
-ms.openlocfilehash: cd439a5931340f56401e5f6ba7a4e09f35ab7c7d
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 17fa18e1f29622b941c281b9cdce27f6e72eb13a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107539046"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739981"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-powershell"></a>Avvio rapido: Creare un'istanza di Frontdoor per un'applicazione Web globale a disponibilità elevata con Azure PowerShell
 
 Iniziare a usare Frontdoor di Azure con Azure PowerShell per creare un'applicazione Web globale a disponibilità elevata e prestazioni elevate.
 
 Frontdoor indirizza il traffico Web a risorse specifiche in un pool back-end. Definire il dominio front-end, aggiungere le risorse a un pool back-end e creare una regola di gestione. Questo articolo usa una semplice configurazione di un unico pool back-end con due risorse dell'app Web e un'unica regola di gestione che usa il percorso predefinito corrispondente a "/*".
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagramma del diagramma dell'ambiente di Front door con PowerShell." border="false":::
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -55,17 +57,17 @@ Se non si dispone già di un'app Web, usare lo script seguente per configurare d
 ```azurepowershell-interactive
 # Create first web app in Central US region.
 $webapp1 = New-AzWebApp `
--Name "WebAppContoso-$(Get-Random)" `
+-Name "WebAppContoso-1" `
 -Location centralus `
 -ResourceGroupName myResourceGroupFD `
 -AppServicePlan myAppServicePlanCentralUS
 
 # Create second web app in South Central US region.
 $webapp2 = New-AzWebApp `
--Name "WebAppContoso-$(Get-Random)" `
+-Name "WebAppContoso-2" `
 -Location southcentralus `
 -ResourceGroupName myResourceGroupFD `
--AppServicePlan myAppServicePlanSouthCentralUS
+-AppServicePlan myAppServicePlanEastUS
 ```
 
 ## <a name="create-a-front-door"></a>Creare una frontdoor

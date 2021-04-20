@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: configurare e usare metriche e log con un hub Azure'
-description: "Esercitazione: informazioni su come configurare e usare le metriche e i log con un hub Azure. Vengono forniti i dati da analizzare per facilitare la diagnosi dei problemi che l'hub potrebbe avere."
+title: 'Esercitazione: Configurare e usare metriche e log con un hub Azure IoT rete'
+description: "Esercitazione: Informazioni su come configurare e usare metriche e log con un hub Azure IoT rete. Vengono forniti i dati da analizzare per facilitare la diagnosi dei problemi che l'hub potrebbe avere."
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 1e2983fb50ce3ad1482db85025677cba5fee0c2e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62958dc374598e6f530af398f722001e5ed51acd
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889595"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739693"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Esercitazione: Configurare e usare metriche e log con un hub IoT
 
@@ -219,7 +219,7 @@ Per configurare gli avvisi delle metriche:
 
 1. Configurare prima di tutto la condizione in base alla quale verrà attivato l'avviso.
 
-    1. In **condizione** selezionare **Aggiungi condizione**. Nel riquadro **Configura logica dei segnali** digitare "telemetria" nella casella di ricerca e selezionare **Messaggi di telemetria inviati**.
+    1. In **Condizione** selezionare **Aggiungi condizione.** Nel riquadro **Configura logica dei segnali** digitare "telemetria" nella casella di ricerca e selezionare **Messaggi di telemetria inviati**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot che mostra la selezione della metrica.":::
 
@@ -245,7 +245,7 @@ Per configurare gli avvisi delle metriche:
 
 1. A questo punto occorre configurare l'azione per l'avviso.
 
-    1. Tornare al riquadro **Crea regola di avviso** , in **azioni**, selezionare **Aggiungi gruppi di azioni**. In **Selezionare un gruppo di azioni da collegare a questa regola di avviso** selezionare **Crea gruppo di azioni**.
+    1. Tornare al riquadro **Crea regola di avviso,** in **Azioni** selezionare Aggiungi gruppi **di azioni.** In **Selezionare un gruppo di azioni da collegare a questa regola di avviso** selezionare **Crea gruppo di azioni**.
 
     1. Nella scheda **Informazioni di base** del riquadro **Crea gruppo di azioni** assegnare al gruppo di azioni un nome e un nome visualizzato.
 

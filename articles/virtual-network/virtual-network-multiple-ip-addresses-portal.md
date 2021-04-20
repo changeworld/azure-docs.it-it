@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: a0dab64aac8bc5fa68a53fad6cd8e6f6bb4bac03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 050d3ac23562e7822d186a16675d03c1b9dc670b
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98217142"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739207"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Assegnare più indirizzi IP alle macchine virtuali usando il portale di Azure
 
@@ -40,20 +40,20 @@ Se si vuole creare una macchina virtuale con più indirizzi IP, o un indirizzo I
 
 1. Passare al portale di Azure all'indirizzo https://portal.azure.com e, se necessario, eseguire l'accesso.
 2. Nel portale fare clic su **Altri servizi** > digitare *macchine virtuali* nella casella del filtro e quindi fare clic su **Macchine virtuali**.
-3. Nel riquadro **Macchine virtuali** scegliere la macchina virtuale a cui aggiungere indirizzi IP. Passare alla scheda **rete** . fare clic sull' **interfaccia di rete** nella pagina. Come illustrato nell'immagine seguente: 
+3. Nel riquadro **Macchine virtuali** scegliere la macchina virtuale a cui aggiungere indirizzi IP. Passare alla **scheda** Rete. Fare clic **su Interfaccia di** rete nella pagina. Come illustrato nell'immagine seguente: 
 
 
     ![Aggiungere un indirizzo IP pubblico a una macchina virtuale](./media/virtual-network-multiple-ip-addresses-portal/figure200319.png)
-4. Nel riquadro **interfaccia di rete** fare clic su **configurazioni IP**.
+4. Nel riquadro **Interfaccia di rete** fare clic su **Configurazioni IP**.
 
-5. Nel riquadro visualizzato per la scheda di interfaccia di rete selezionata fare clic su **Configurazioni IP**. Fare clic su **Aggiungi**, completare i passaggi in una delle sezioni seguenti, in base al tipo di indirizzo IP che si desidera aggiungere e quindi fare clic su **OK**. 
+5. Nel riquadro visualizzato per la scheda di interfaccia di rete selezionata fare clic su **Configurazioni IP**. Fare **clic su** Aggiungi , completare i passaggi in una delle sezioni seguenti, in base al tipo di indirizzo IP da aggiungere, quindi fare clic su **OK.** 
 
 ### <a name="add-a-private-ip-address"></a>Aggiungere un indirizzo IP privato
 
 Completare i passaggi seguenti per aggiungere un nuovo indirizzo IP privato:
 
-1. Completare i passaggi descritti nella sezione [passaggi principali](#coreadd) di questo articolo e assicurarsi di trovarsi nella sezione **configurazioni IP** dell'interfaccia di rete VM.  Esaminare la subnet visualizzata come predefinita (ad esempio 10.0.0.0/24).
-2. Fare clic su **Aggiungi**. Nel riquadro **Aggiungi configurazione IP** che viene visualizzato creare una configurazione IP denominata *ipconfig-4* con un nuovo indirizzo IP privato *statico* selezionando un nuovo numero per l'ottetto finale, quindi fare clic su **OK**.  Per la subnet 10.0.0.0/24, un IP di esempio è *10.0.0.7*.
+1. Completare i passaggi nella [sezione Passaggi principali](#coreadd) di questo articolo e assicurarsi di essere nella sezione **Configurazioni IP** dell'interfaccia di rete vm.  Esaminare la subnet visualizzata come predefinita, ad esempio 10.0.0.0/24.
+2. Fare clic su **Aggiungi**. Nel riquadro Aggiungi configurazione **IP** visualizzato creare una configurazione IP denominata  *IPConfig-4* con un nuovo indirizzo IP privato statico selezionando un nuovo numero per l'ottetto finale, quindi fare clic su **OK**.  Per la subnet 10.0.0.0/24, un indirizzo IP di esempio sarebbe *10.0.0.7.*
 
     > [!NOTE]
     > Quando si aggiunge un indirizzo IP statico, è necessario specificare un indirizzo valido e inutilizzato nella subnet a cui la scheda di rete è connessa. Se l'indirizzo selezionato non è disponibile, il portale visualizza una X per l'indirizzo IP ed è necessario selezionare un altro indirizzo.
@@ -75,7 +75,7 @@ Per aggiungere un indirizzo IP pubblico è necessario associare una risorsa indi
 Un indirizzo IP pubblico consiste in una singola impostazione per una risorsa indirizzo IP pubblico. Se si dispone di una risorsa indirizzo IP pubblico che non è attualmente associata a una configurazione IP e la si vuole associare a una configurazione IP, ignorare i passaggi seguenti e completare quelli della sezione appropriata fra quelle riportate di seguito. Se non si dispone di una risorsa indirizzo IP pubblico, completare la procedura seguente per crearne una:
 
 1. Passare al portale di Azure all'indirizzo https://portal.azure.com e, se necessario, eseguire l'accesso.
-3. Nel portale fare clic su **Crea una risorsa**  >  **rete**  >  **indirizzo IP pubblico**.
+3. Nel portale fare clic su **Crea una risorsa**  >  **Indirizzo**  >  **IP pubblico di rete**.
 4. Nel riquadro **Crea indirizzo IP pubblico** che viene visualizzato immettere un **Nome**, selezionare un tipo di **Assegnazione indirizzi IP**, una **Sottoscrizione**, un **Gruppo di risorse** e un **Percorso**, quindi fare clic su **Crea**, come illustrato nell'immagine seguente:
 
     ![Creare una risorsa indirizzo IP pubblico](./media/virtual-network-multiple-ip-addresses-portal/figure5.png)
@@ -102,6 +102,9 @@ Un indirizzo IP pubblico consiste in una singola impostazione per una risorsa in
 5. Fare clic su **Salva** e chiudere i riquadri. Se non si dispone di un indirizzo IP pubblico esistente, è possibile crearne uno completando la procedura descritta nella sezione [Creare una risorsa indirizzo IP pubblico](#create-public-ip) di questo articolo.
 3. Rivedere la nuova configurazione IP.
 4. È possibile fare clic su **Aggiungi** per aggiungere altre configurazioni IP o chiudere tutti i pannelli aperti per completare l'aggiunta degli indirizzi IP. Non aggiungere l'indirizzo IP pubblico al sistema operativo.
+
+> [!NOTE]
+> Dopo aver modificato la configurazione dell'indirizzo IP, è necessario riavviare la macchina virtuale per l'applicazione delle modifiche nella macchina virtuale.
 
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

@@ -1,6 +1,6 @@
 ---
 title: Synapse Studio notebook
-description: Questo articolo illustra come creare e sviluppare notebook di Azure Synapse Studio per la preparazione e la visualizzazione dei dati.
+description: Questo articolo illustra come creare e sviluppare notebook Azure Synapse Studio per eseguire la preparazione e la visualizzazione dei dati.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
@@ -10,16 +10,16 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 4230ced172de52e5acf45e071fa2a49a332eb696
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 6859a2f8571c11e6ef93a5e5b1635cdbe39ad001
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719224"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737668"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creare, sviluppare e gestire Synapse Studio notebook in Azure Synapse Analytics
 
-Un Synapse Studio notebook è un'interfaccia Web che consente di creare file contenenti codice live, visualizzazioni e testo narrativo. I notebook possono essere usati per convalidare idee ed eseguire esperimenti rapidi per ottenere informazioni cognitive dettagliate dai dati. I notebook sono anche ampiamente usati per la preparazione e la visualizzazione dei dati, l'apprendimento automatico e altri scenari di Big Data.
+Un Synapse Studio notebook è un'interfaccia Web che consente di creare file che contengono codice live, visualizzazioni e testo narrativo. I notebook possono essere usati per convalidare idee ed eseguire esperimenti rapidi per ottenere informazioni cognitive dettagliate dai dati. I notebook sono anche ampiamente usati per la preparazione e la visualizzazione dei dati, l'apprendimento automatico e altri scenari di Big Data.
 
 Con un notebook di Azure Synapse Studio è possibile:
 
@@ -30,8 +30,8 @@ Con un notebook di Azure Synapse Studio è possibile:
 
 Questo articolo descrive come usare i notebook in Azure Synapse Studio.
 
-## <a name="preview-of-the-new-notebook-experience"></a>Anteprima della nuova esperienza del notebook
-Il team di Synapse ha inserito il nuovo componente notebook in Synapse Studio per offrire un'esperienza di notebook coerente per i clienti Microsoft e ottimizzare l'individuabilità, la produttività, la condivisione e la collaborazione. La nuova esperienza del notebook è pronta per l'anteprima. Selezionare il **pulsante Funzionalità di anteprima** nella barra degli strumenti del notebook per attivarlo. La tabella seguente illustra il confronto delle funzionalità tra il notebook esistente (denominato "notebook classico") e il nuovo notebook di anteprima.  
+## <a name="preview-of-the-new-notebook-experience"></a>Anteprima della nuova esperienza notebook
+Il team di Synapse ha portato il nuovo componente notebook in Synapse Studio per offrire un'esperienza di notebook coerente per i clienti Microsoft e ottimizzare l'individuabilità, la produttività, la condivisione e la collaborazione. La nuova esperienza notebook è pronta per l'anteprima. Selezionare il **pulsante Funzionalità di anteprima** sulla barra degli strumenti del notebook per attivarlo. La tabella seguente acquisisce il confronto delle funzionalità tra il notebook esistente (detto "notebook classico") e il nuovo notebook di anteprima.  
 
 |Funzionalità|Notebook classico|Notebook di anteprima|
 |--|--|--|
@@ -73,9 +73,9 @@ Esistono diversi modi per aggiungere una nuova cella al notebook.
 
 # <a name="preview-notebook"></a>[Notebook di anteprima](#tab/preview)
 
-1. Espandere il pulsante superiore sinistro **+** Cella e selezionare la **cella di codice** o la cella **Markdown.**
+1. Espandere il pulsante in alto a **sinistra + Cella** e selezionare la cella di codice **o** la **cella Markdown**.
     ![add-azure-notebook-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
-2. Selezionare il segno più all'inizio di una cella e selezionare **Cella di codice** o Cella **Markdown**.
+2. Selezionare il segno più all'inizio di una cella e selezionare **Cella di codice o** Cella **Markdown.**
 
     ![add-azure-notebook-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-2.png)
 
@@ -139,7 +139,7 @@ Non è possibile fare riferimento a dati o variabili direttamente tra linguaggi 
 
 ### <a name="ide-style-intellisense"></a>IntelliSense di tipo IDE
 
-I notebook di Azure Synapse Studio sono integrati nell'editor Monaco e consentono di aggiungere la funzionalità IntelliSense di tipo IDE all'editor di celle. L'evidenziazione della sintassi, il marcatore di errore e i completamenti automatici del codice consentono di scrivere codice e identificare i problemi più rapidamente.
+I notebook di Azure Synapse Studio sono integrati nell'editor Monaco e consentono di aggiungere la funzionalità IntelliSense di tipo IDE all'editor di celle. Evidenziazione della sintassi, marcatore di errore e completamenti automatici del codice consentono di scrivere codice e identificare i problemi più rapidamente.
 
 Le funzionalità di IntelliSense hanno livelli di maturità diversi per i diversi linguaggi. Usare la tabella seguente per vedere cosa è supportato.
 
@@ -150,17 +150,29 @@ Le funzionalità di IntelliSense hanno livelli di maturità diversi per i divers
 |SparkSQL|Sì|Sì|-|-|-|-|-|-|
 |.NET per Spark (C#)|Sì|-|-|-|-|-|-|-|
 
+
+
+### <a name="code-snippets"></a>Frammenti di codice
+
+i notebook di Azure Synapse Studio forniscono frammenti di codice che semplificano l'immissione di modelli di codice usati comunemente, ad esempio la configurazione della sessione di Spark, la lettura dei dati come dataframe Spark o il disegno di grafici con matplotlib e così via.
+
+I frammenti di codice vengono visualizzati in [IntelliSense](#ide-style-intellisense) insieme ad altri suggerimenti. Il contenuto dei frammenti di codice è allineato al linguaggio delle celle di codice. È possibile visualizzare i frammenti disponibili digitando **Frammento** di codice oppure nel titolo del frammento di codice nell'editor delle celle di codice vengono visualizzate parole chiave. Ad esempio, digitando **Read è** possibile visualizzare l'elenco dei frammenti di codice per leggere i dati da diverse origini dati.
+
+![Frammenti di codice Synapse](./media/apache-spark-development-using-notebooks/synapse-code-snippets.gif#lightbox)
+
+
+
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formattare la cella di testo con i pulsanti della barra degli strumenti
 
 # <a name="classical-notebook"></a>[Notebook classico](#tab/classical)
 
 È possibile usare i pulsanti di formato nella barra degli strumenti delle celle di testo per eseguire azioni di markdown comuni, tra cui l'applicazione di grassetto o corsivo al testo, l'inserimento di frammenti di codice, l'inserimento di elenchi non ordinati, l'inserimento di elenchi ordinati e l'inserimento di immagini dall'URL.
 
-  ![Barra degli strumenti della cella di testo synapse](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
+  ![Barra degli strumenti delle celle di testo synapse](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
 # <a name="preview-notebook"></a>[Notebook di anteprima](#tab/preview)
 
-La barra degli strumenti del pulsante Formato non è ancora disponibile per l'esperienza del notebook di anteprima. 
+La barra degli strumenti del pulsante Formatta non è ancora disponibile per l'esperienza di anteprima del notebook. 
 
 ---
 
@@ -181,7 +193,7 @@ L'operazione di annullamento della cella non è ancora disponibile per l'esperie
 
 # <a name="classical-notebook"></a>[Notebook classico](#tab/classical)
 
-Selezionare i puntini di sospensione (...) per accedere al menu aggiuntivo delle azioni sulle celle all'estrema destra. Selezionare quindi **Sposta la cella in alto** o **Sposta la cella in basso** per spostare la cella corrente. 
+Selezionare i puntini di sospensione (...) per accedere all'altro menu delle azioni della cella all'estrema destra. Selezionare quindi **Sposta la cella in alto** o **Sposta la cella in basso** per spostare la cella corrente. 
 
 È anche possibile usare la [combinazione di tasti in modalità comando](#shortcut-keys-under-command-mode). Premere **CTRL + ALT + ↑** per spostare verso l'alto la cella corrente. Premere **CTRL + ALT + ↓** per spostare verso il basso la cella corrente.
 
@@ -198,7 +210,7 @@ Fare clic sul lato sinistro di una cella e trascinarlo nella posizione desiderat
 
 # <a name="classical-notebook"></a>[Notebook classico](#tab/classical)
 
-Per eliminare una cella, selezionare i puntini di sospensione (...) per accedere al menu aggiuntivo delle azioni sulle celle all'estrema destra e selezionare **Elimina cella**. 
+Per eliminare una cella, selezionare i puntini di sospensione (...) per accedere all'altro menu delle azioni della cella all'estrema destra e quindi **selezionare Elimina cella.** 
 
 È anche possibile usare la [combinazione di tasti in modalità comando](#shortcut-keys-under-command-mode). Premere **D,D** per eliminare la cella corrente.
   
@@ -224,7 +236,7 @@ Selezionare il pulsante freccia nella parte inferiore della cella corrente per c
 
 # <a name="preview-notebook"></a>[Notebook di anteprima](#tab/preview)
 
-Selezionare i **puntini di sospensione** (...) di Altri comandi sulla barra degli strumenti della cella e **immettere per** comprimere l'input della cella corrente. Per espanderlo, selezionare **l'input nascosto** mentre la cella è compressa.
+Selezionare i **puntini di sospensione** Altri comandi (...) sulla barra degli strumenti della cella e **immettere** per comprimere l'input della cella corrente. Per espanderlo, selezionare **l'input nascosto** mentre la cella è compressa.
 
    ![azure-notebook-collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-input.gif)
 
@@ -273,13 +285,13 @@ Selezionare il **pulsante Esegui tutto** per eseguire tutte le celle del noteboo
 
 # <a name="classical-notebook"></a>[Notebook classico](#tab/classical)
 
-Selezionare i puntini di sospensione **(...)** all'estrema destra per accedere al menu aggiuntivo delle azioni sulle celle. Selezionare quindi **Esegui celle sopra** per eseguire tutte le celle sopra quella corrente in sequenza. Selezionare **Esegui celle sotto** per eseguire tutte le celle sotto quella corrente in sequenza.
+Per accedere all'altro menu delle azioni cella all'estrema destra, selezionare i puntini di sospensione (**...**). Selezionare quindi **Esegui celle sopra per** eseguire tutte le celle sopra la corrente in sequenza. Selezionare **Esegui celle sotto** per eseguire tutte le celle sotto quella corrente in sequenza.
 
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
 # <a name="preview-notebook"></a>[Notebook di anteprima](#tab/preview)
 
-Espandere l'elenco a discesa **dal** pulsante Esegui tutto e quindi selezionare **Esegui celle sopra** per eseguire tutte le celle sopra la corrente in sequenza. Selezionare **Esegui celle sotto** per eseguire tutte le celle sotto quella corrente in sequenza.
+Espandere l'elenco a discesa dal pulsante Run **all** (Esegui tutto) e quindi selezionare **Run cells above** (Esegui celle sopra) per eseguire tutte le celle sopra quella corrente in sequenza. Selezionare **Esegui celle sotto** per eseguire tutte le celle sotto quella corrente in sequenza.
 
    ![azure-notebook-run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
 
@@ -293,7 +305,7 @@ Selezionare il **pulsante Annulla tutto** per annullare le celle in esecuzione o
 
 # <a name="preview-notebook"></a>[Notebook di anteprima](#tab/preview)
 
-Selezionare il **pulsante Annulla tutto** per annullare le celle in esecuzione o le celle in attesa nella coda. 
+Selezionare il **pulsante Annulla** tutto per annullare le celle in esecuzione o le celle in attesa nella coda. 
    ![azure-notebook-cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
@@ -329,7 +341,7 @@ Sotto la cella viene visualizzato il relativo stato di esecuzione dettagliato, c
 ### <a name="spark-progress-indicator"></a>Indicatore di avanzamento Spark
 
 Il notebook di Azure Synapse Studio è basato esclusivamente su Spark. Le celle di codice vengono eseguite nel pool Apache Spark serverless in modalità remota. Viene fornito un indicatore di stato del processo Spark con una barra di avanzamento in tempo reale che consente di comprendere lo stato di esecuzione del processo.
-Il numero di attività per ogni processo o fase consente di identificare il livello parallelo del processo Spark. È anche possibile eseguire il drill-down nell'interfaccia utente di Spark di un processo specifico (o fase) selezionando il collegamento nel nome del processo (o della fase).
+Il numero di attività per ogni processo o fase consente di identificare il livello parallelo del processo Spark. È anche possibile eseguire il drill-down dell'interfaccia utente Spark di un processo specifico (o fase) selezionando il collegamento nel nome del processo (o della fase).
 
 
 ![spark-progress-indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
@@ -341,7 +353,7 @@ Il numero di attività per ogni processo o fase consente di identificare il live
 [![gestione delle sessioni](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png#lightbox)
 
 #### <a name="spark-session-config-magic-command"></a>Comando magic di configurazione della sessione Spark
-È anche possibile specificare le impostazioni della sessione Spark tramite un comando **magic %%configure.** La sessione spark deve essere riavviata per rendere effettive le impostazioni. È consigliabile eseguire **%%configure** all'inizio del notebook. Di seguito è riportato un esempio, vedere https://github.com/cloudera/livy#request-body per l'elenco completo dei parametri validi 
+È anche possibile specificare le impostazioni della sessione Spark tramite un comando **magic %%configure**. La sessione Spark deve essere riavviata per rendere effettive le impostazioni. È consigliabile eseguire **%%configure** all'inizio del notebook. Ecco un esempio, fare riferimento a https://github.com/cloudera/livy#request-body per l'elenco completo dei parametri validi 
 
 ```
 %%configure -f
@@ -467,7 +479,7 @@ Selezionare il **pulsante Aggiungi alla pipeline** nell'angolo superiore destro 
 
 # <a name="classical-notebook"></a>[Notebook classico](#tab/classical)
 
-Per impostare parametri per il notebook, selezionare i puntini di sospensione (...) per accedere al menu azioni cella aggiuntive all'estrema destra. Selezionare quindi **Attiva/Disattiva cella parametro** per designare la cella come cella dei parametri.
+Per impostare parametri per il notebook, selezionare i puntini di sospensione (...) per accedere all'altro menu delle azioni cella all'estrema destra. Selezionare quindi **Attiva/Disattiva cella parametro** per designare la cella come cella dei parametri.
 
 ![toggle-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 
@@ -479,12 +491,12 @@ Per impostare parametri per il notebook, selezionare i puntini di sospensione (.
 
 ---
 
-Azure Data Factory cerca la cella dei parametri e considera questa cella come valori predefiniti per i parametri passati in fase di esecuzione. Il motore di esecuzione aggiungerà una nuova cella sotto la cella dei parametri con parametri di input per sovrascrivere i valori predefiniti. Quando una cella di parametri non è designata, la cella inserita verrà inserita nella parte superiore del notebook.
+Azure Data Factory la cella dei parametri e considera questa cella come predefinita per i parametri passati in fase di esecuzione. Il motore di esecuzione aggiungerà una nuova cella sotto la cella dei parametri con i parametri di input per sovrascrivere i valori predefiniti. Quando non viene designata una cella di parametri, la cella inserita verrà inserita nella parte superiore del notebook.
 
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>Assegnare i valori dei parametri da una pipeline
 
-Dopo aver creato un notebook con parametri, è possibile eseguirlo da una pipeline con l'attività Azure Synapse Notebook. Dopo aver aggiunto l'attività al canvas della pipeline, sarà possibile impostare i valori dei parametri nella sezione **Parametri** di base della **scheda** Impostazioni. 
+Dopo aver creato un notebook con parametri, è possibile eseguirlo da una pipeline con l'Azure Synapse notebook. Dopo aver aggiunto l'attività all'area di disegno della pipeline, sarà possibile impostare i valori dei parametri nella sezione **Parametri** di base della **scheda** Impostazioni. 
 
 ![Assegnare un parametro](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
@@ -496,7 +508,7 @@ Quando si assegnano valori di parametro, è possibile usare il linguaggio delle 
 
 Analogamente a Jupyter Notebook, i notebook di Azure Synapse Studio hanno un'interfaccia utente modale. La tastiera esegue diverse operazioni a seconda della modalità in cui si trova la cella del notebook. I notebook di Synapse Studio supportano le due modalità seguenti per una cella di codice specificata, ovvero la modalità di comando e la modalità di modifica.
 
-1. Una cella è in modalità di comando quando non è presente un cursore di testo che richiede di digitare. Quando una cella è in modalità di comando, è possibile modificare il notebook nel suo complesso, ma non digitare in singole celle. Per accedere alla modalità comando, `ESC` premere o usare il mouse per selezionare all'esterno dell'area dell'editor di una cella.
+1. Una cella è in modalità di comando quando non è presente un cursore di testo che richiede di digitare. Quando una cella è in modalità di comando, è possibile modificare il notebook nel suo complesso, ma non digitare in singole celle. Per accedere alla modalità comando, premere `ESC` o usare il mouse per selezionare all'esterno dell'area dell'editor di una cella.
 
    ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode-2.png)
 

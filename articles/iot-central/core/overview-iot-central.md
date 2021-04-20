@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: 03b9c7d5231745f77d40abed16273514cac2692c
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 88f59c1b3fc1014cef5035845f1f2e8616bea908
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107715083"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739909"
 ---
 # <a name="what-is-azure-iot-central"></a>Informazioni su Azure IoT Central
 
@@ -32,7 +32,7 @@ Per IoT Central, questo articolo descrive:
 
 ## <a name="user-roles"></a>Ruoli utente
 
-La IoT Central documentazione si riferisce a quattro ruoli utente che interagiscono con un'IoT Central applicazione:
+La documentazione IoT Central si riferisce a quattro ruoli utente che interagiscono con un'IoT Central applicazione:
 
 - Uno _sviluppatore di soluzioni_ è responsabile della [creazione di un'applicazione](quick-deploy-iot-central.md), della [configurazione di regole e azioni](quick-configure-rules.md), della [definizione di integrazioni con altri servizi](howto-export-data.md) e dell'ulteriore personalizzazione dell'applicazione per operatori e sviluppatori di dispositivi.
 - Un _operatore_ [gestisce i dispositivi](howto-manage-devices.md) connessi all'applicazione.
@@ -98,7 +98,7 @@ Gli operatori usano l'applicazione IoT Central per [gestire i dispositivi](howto
 
 È possibile [definire regole e azioni personalizzate che](howto-configure-rules.md) operano sul flusso di dati dai dispositivi connessi. Un operatore può abilitare o disabilitare queste regole a livello di dispositivo per controllare e automatizzare le attività all'interno dell'applicazione.
 
-Con qualsiasi soluzione IoT progettata per operare su larga scala, è importante adottare un approccio strutturato alla gestione dei dispositivi. Non è sufficiente connettere i dispositivi al cloud, ma è necessario che rimangano connessi e integri. Usare le funzionalità seguenti IoT Central per gestire i dispositivi in tutto il ciclo di vita dell'applicazione:
+Come per qualsiasi soluzione IoT progettata per operare su larga scala, è importante un approccio strutturato alla gestione dei dispositivi. Non è sufficiente connettere i dispositivi al cloud, ma è necessario che rimangano connessi e integri. Usare le funzionalità seguenti IoT Central per gestire i dispositivi in tutto il ciclo di vita dell'applicazione:
 
 ### <a name="dashboards"></a>Dashboard
 

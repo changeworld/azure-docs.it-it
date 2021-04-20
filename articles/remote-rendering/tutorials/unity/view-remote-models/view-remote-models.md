@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8784bc4744e2d4beb6a72fdc0df0fd0b32346f9
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: f43e5b77580b7071ce48b39190c26a53f99f8cf5
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605009"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740167"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Esercitazione: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto
 
@@ -33,7 +33,7 @@ Per eseguire questa esercitazione, è necessario avere:
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * L'ultima versione di Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(download)](https://git-scm.com/downloads)
-* Unity (vedere [requisiti di sistema](../../../overview/system-requirements.md#unity) per le versioni supportate)
+* Unity (vedere i [requisiti di sistema](../../../overview/system-requirements.md#unity) per le versioni supportate)
 * Conoscenza intermedia di Unity e del linguaggio C# (ad esempio, creazione di script e oggetti, uso di prefab, configurazione di eventi di Unity e così via)
 
 ## <a name="provision-an-azure-remote-rendering-arr-instance"></a>Effettuare il provisioning di un'istanza di Rendering remoto di Azure
@@ -52,7 +52,7 @@ In questo esempio si presuppone che il progetto venga creato in una cartella den
 
 ## <a name="include-the-azure-remote-rendering-package"></a>Includere il pacchetto di Rendering remoto di Azure
 
-[Seguire le istruzioni](../../../how-tos/unity/install-remote-rendering-unity-package.md) su come aggiungere il pacchetto di rendering remoto di Azure a un progetto Unity.
+[Seguire le istruzioni](../../../how-tos/unity/install-remote-rendering-unity-package.md) su come aggiungere il pacchetto Rendering remoto di Azure a un progetto Unity.
 
 
 ## <a name="configure-the-camera"></a>Configurare la fotocamera
@@ -182,14 +182,15 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     public static RemoteRenderingCoordinator instance;
 
-    // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
-    // The list of regions is available at https://docs.microsoft.com/azure/remote-rendering/reference/regions
+    // Account
+    // RemoteRenderingDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
+    // For most people '<region>' is either 'westus2' or 'westeurope'
     [SerializeField]
-    private string accountDomain = "westus2.mixedreality.azure.com";
-    public string AccountDomain
+    private string remoteRenderingDomain = "westus2.mixedreality.azure.com";
+    public string RemoteRenderingDomain
     {
-        get => accountDomain.Trim();
-        set => accountDomain = value;
+        get => remoteRenderingDomain.Trim();
+        set => remoteRenderingDomain = value;
     }
 
     [Header("Development Account Credentials")]
@@ -201,12 +202,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     }
 
     [SerializeField]
-    private string accountAuthenticationDomain = "<enter your account authentication domain here>";
-    public string AccountAuthenticationDomain
+    private string accountDomain = "<enter your account domain here>";
+    public string AccountDomain
     {
-        get => accountAuthenticationDomain.Trim();
-        set => accountAuthenticationDomain = value;
-    }   
+        get => accountDomain.Trim();
+        set => accountDomain = value;
+    }    
 
     [SerializeField]
     private string accountKey = "<enter your account key here>";
@@ -272,7 +273,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
             if (currentCoordinatorState != value)
             {
                 currentCoordinatorState = value;
-                Debug.Log($"State changed to: {currentCoordinatorState}");
+                Debug.LogFormat(LogType.Log, LogOption.NoStacktrace, null, "{0}", $"State changed to: {currentCoordinatorState}");
                 CoordinatorStateChange?.Invoke(currentCoordinatorState);
             }
         }
@@ -297,7 +298,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     private async Task<SessionConfiguration> GetDevelopmentCredentials()
     {
         Debug.LogWarning("Using development credentials! Not recommended for production.");
-        return await Task.FromResult(new SessionConfiguration(AccountAuthenticationDomain, AccountDomain, AccountId, AccountKey));
+        return await Task.FromResult(new SessionConfiguration(AccountDomain, RemoteRenderingDomain, AccountId, AccountKey));
     }
 
     /// <summary>
@@ -531,7 +532,7 @@ Il coordinatore del rendering remoto e il relativo script necessario (*ARRServic
 1. Aggiungere lo script *RemoteRenderingCoordinator* al GameObject **RemoteRenderingCoordinator**.\
 ![Aggiungere il componente RemoteRenderingCoordinator](./media/add-coordinator-script.png)
 1. Verificare che lo script *ARRServiceUnity*, visualizzato come *Service* nella finestra di controllo, venga aggiunto automaticamente al GameObject. Questo è il risultato di avere `[RequireComponent(typeof(ARRServiceUnity))]` all'inizio dello script **RemoteRenderingCoordinator**.
-1. Aggiungere le credenziali di Rendering remoto di Azure, il dominio di autenticazione dell'account e il dominio dell'account allo script coordinatore:\
+1. Aggiungere le credenziali Rendering remoto di Azure, il dominio dell'account e il dominio di Rendering remoto allo script coordinatore:\
 ![Aggiungere le credenziali](./media/configure-coordinator-script.png)
 
 ## <a name="initialize-azure-remote-rendering"></a>Inizializzare Rendering remoto di Azure

@@ -8,20 +8,20 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: 1834f21a3e25308f6be86eba2961cc983b14a5db
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 71e973e359c21c9ec6a77de93b8b56dfa16da342
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721546"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739171"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Avvio rapido: Usare la cache di Azure per Redis in .NET Framework
 
 In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app .NET Framework per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure. Si usa specificamente il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) con codice C# in un'app console .NET.
 
-## <a name="skip-to-the-code-on-github"></a>Passa al codice su GitHub
+## <a name="skip-to-the-code-on-github"></a>Passare al codice in GitHub
 
-Per passare direttamente al codice, vedere la [Guida introduttiva .NET Framework](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) su GitHub.
+Se si vuole passare direttamente al codice, vedere la guida .NET Framework [guida introduttiva](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) su GitHub.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,11 +40,11 @@ Modificare il file *CacheSecrets.config* e aggiungere il contenuto seguente:
 
 ```xml
 <appSettings>
-    <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
+    <add key="CacheConnection" value="<host-name>,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
 </appSettings>
 ```
 
-Sostituire `<cache-name>` con il nome host della cache.
+Sostituire `<host-name>` con il nome host della cache.
 
 Sostituire `<access-key>` con la chiave primaria per la cache.
 
@@ -53,7 +53,7 @@ Sostituire `<access-key>` con la chiave primaria per la cache.
 
 In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
 
-Selezionare **App console (.NET Framework)** e quindi **Avanti** per configurare l'app. Digitare un **nome di progetto**, verificare che sia selezionato **.NET Framework 4.6.1** o versione successiva, quindi fare clic su **Crea** per creare una nuova applicazione console.
+Selezionare **App console (.NET Framework)** e quindi **Avanti** per configurare l'app. Digitare un **Nome progetto**, verificare **che .NET Framework 4.6.1** o  versione successiva sia selezionato e quindi fare clic su Crea per creare una nuova applicazione console.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -126,9 +126,9 @@ Questo approccio per la condivisione di un'istanza di `ConnectionMultiplexer` ne
 
 Il valore dell'appSetting *CacheConnection* viene usato per fare riferimento alla stringa di connessione della cache dal portale di Azure come parametro password.
 
-## <a name="handle-redisconnectionexception-and-socketexception-by-reconnecting"></a>Gestire RedisConnectionException e SocketException riconnettendosi
+## <a name="handle-redisconnectionexception-and-socketexception-by-reconnecting"></a>Gestire RedisConnectionException e SocketException riconnettendo
 
-Una procedura consigliata quando si chiamano i metodi su `ConnectionMultiplexer` consiste nel tentare di risolvere `RedisConnectionException` `SocketException` automaticamente le eccezioni ed eseguendo la chiusura e il ristabilimento della connessione.
+Una procedura consigliata quando si chiamano i metodi su consiste nel tentare di risolvere automaticamente le eccezioni e chiudendo e ristabilindo `ConnectionMultiplexer` `RedisConnectionException` la `SocketException` connessione.
 
 Aggiungere le istruzioni `using` seguenti a *Program.cs*:
 
@@ -137,7 +137,7 @@ using System.Net.Sockets;
 using System.Threading;
 ```
 
-In *Program. cs* aggiungere i membri seguenti alla `Program` classe:
+In *Program.cs* aggiungere i membri seguenti alla `Program` classe :
 
 ```csharp
 private static long lastReconnectTicks = DateTimeOffset.MinValue.UtcTicks;

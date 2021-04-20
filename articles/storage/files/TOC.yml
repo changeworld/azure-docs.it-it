@@ -65,13 +65,13 @@
           href: storage-sync-files-networking-overview.md
         - name: Suddivisione in livelli nel cloud
           items:
-            - name: Panoramica di suddivisione in livelli nel cloud
+            - name: Panoramica della distribuzione a livelli nel cloud
               href: storage-sync-cloud-tiering-overview.md
-            - name: Panoramica sui criteri di suddivisione in livelli nel cloud
+            - name: Panoramica dei criteri di livelli cloud
               href: storage-sync-cloud-tiering-policy.md
-            - name: Scegliere i criteri di suddivisione in livelli nel cloud
+            - name: Scegliere i criteri di livelli cloud
               href: storage-sync-choose-cloud-tiering-policies.md
-            - name: Monitorare la suddivisione in livelli cloud
+            - name: Monitorare la distribuzione a livelli nel cloud
               href: storage-sync-monitor-cloud-tiering.md
     - name: Prestazioni e scalabilità
       items:
@@ -101,6 +101,8 @@
           href: storage-how-to-create-file-share.md
         - name: Distribuire Sincronizzazione file di Azure
           href: storage-sync-files-deployment-guide.md
+        - name: Usare DFS-N con File di Azure
+          href: files-manage-namespaces.md
         - name: Creare una condivisione NFS
           href: storage-files-how-to-create-nfs-shares.md
         - name: Istanza del cluster di failover di SQL Server con condivisioni file Premium
@@ -239,7 +241,7 @@
               href: storage-files-migration-linux-hybrid.md
             - name: Eseguire la migrazione da un server NAS locale a un file server ibrido con Sincronizzazione file di Azure
               href: storage-files-migration-nas-hybrid.md
-            - name: Eseguire la migrazione da un server NAS locale a un file server ibrido con DataBox
+            - name: Eseguire la migrazione da un NAS locale a un file server ibrido con DataBox
               href: storage-files-migration-nas-hybrid-databox.md
         - name: Da StorSimple
           items:
@@ -342,7 +344,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Video
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
-    - name: Confronto tra File di Azure e Azure NetApp Files
+    - name: File di Azure e Azure NetApp Files confronto
       href: storage-files-netapp-comparison.md
     - name: Pacchetti NuGet (.NET)
       items:

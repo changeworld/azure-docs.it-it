@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jlian
-ms.openlocfilehash: 1e28c7767868904fb20ae6d27c6aea9e7077eb62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df38f9b3482847ea0415af5cb47540e244b0510b
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98630294"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739891"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Supporto dell'hub IoT per le reti virtuali con collegamento privato e identità gestita
 
@@ -36,9 +36,9 @@ Questo articolo descrive come raggiungere questi obiettivi usando un [collegamen
 
 ## <a name="ingress-connectivity-to-iot-hub-using-azure-private-link"></a>Connettività in ingresso all'hub IoT tramite il collegamento privato di Azure
 
-Un endpoint privato è un indirizzo IP privato allocato all'interno di una rete virtuale di proprietà del cliente tramite la quale è raggiungibile una risorsa di Azure. Tramite il collegamento privato di Azure è possibile configurare un endpoint privato per l'hub IoT per consentire ai servizi all'interno della rete virtuale di raggiungere l'hub IoT senza richiedere che il traffico venga inviato all'endpoint pubblico dell'hub IoT. In modo analogo, i dispositivi locali possono utilizzare la [rete VPN (Virtual Private Network)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o il peering [ExpressRoute](https://azure.microsoft.com/services/expressroute/) per ottenere la connettività alla rete virtuale e all'hub IoT (tramite l'endpoint privato). Di conseguenza, è possibile limitare o bloccare completamente la connettività agli endpoint pubblici dell'hub cose usando il [filtro IP dell'hub](./iot-hub-ip-filtering.md) [Internet o l'interruttore di accesso alla rete pubblica](iot-hub-public-network-access.md). Questo approccio consente di mantenere la connettività all'hub utilizzando l'endpoint privato per i dispositivi. Questa configurazione è destinata principalmente ai dispositivi all'interno di una rete locale. Questa configurazione non è consigliata per i dispositivi distribuiti su una rete WAN.
+Un endpoint privato è un indirizzo IP privato allocato all'interno di una rete virtuale di proprietà del cliente tramite la quale è raggiungibile una risorsa di Azure. Tramite il collegamento privato di Azure è possibile configurare un endpoint privato per l'hub IoT per consentire ai servizi all'interno della rete virtuale di raggiungere l'hub IoT senza richiedere che il traffico venga inviato all'endpoint pubblico dell'hub IoT. In modo analogo, i dispositivi locali possono utilizzare la [rete VPN (Virtual Private Network)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o il peering [ExpressRoute](https://azure.microsoft.com/services/expressroute/) per ottenere la connettività alla rete virtuale e all'hub IoT (tramite l'endpoint privato). Di conseguenza, è possibile limitare o bloccare completamente la connettività agli endpoint pubblici dell'hub IoT usando il filtro IP dell'hub [IoT](./iot-hub-ip-filtering.md) o l'interruttore di accesso [alla rete pubblica](iot-hub-public-network-access.md). Questo approccio consente di mantenere la connettività all'hub utilizzando l'endpoint privato per i dispositivi. Questa configurazione è destinata principalmente ai dispositivi all'interno di una rete locale. Questa configurazione non è consigliata per i dispositivi distribuiti su una rete WAN.
 
-![Ingresso rete virtuale dell'hub Internet delle cose](./media/virtual-network-support/virtual-network-ingress.png)
+![Ingresso della rete virtuale dell'hub IoT](./media/virtual-network-support/virtual-network-ingress.png)
 
 Prima di iniziare, verificare che siano soddisfatti i seguenti prerequisiti:
 
@@ -48,7 +48,7 @@ Prima di iniziare, verificare che siano soddisfatti i seguenti prerequisiti:
 
 ### <a name="set-up-a-private-endpoint-for-iot-hub-ingress"></a>Configurare un endpoint privato per il traffico in ingresso dell'hub IoT
 
-L'endpoint privato funziona per le API del dispositivo dell'hub Internet (ad esempio, i messaggi da dispositivo a cloud) e le API del servizio, ad esempio la creazione e l'aggiornamento di dispositivi.
+L'endpoint privato funziona per le API dei dispositivi dell'hub IoT (ad esempio i messaggi da dispositivo a cloud) e per le API del servizio (ad esempio la creazione e l'aggiornamento dei dispositivi).
 
 1. Nel portale di Azure selezionare **Rete**, **Connessioni a endpoint privato**, quindi fare clic su **+ endpoint privato**.
 
@@ -64,15 +64,15 @@ L'endpoint privato funziona per le API del dispositivo dell'hub Internet (ad ese
 
 1. Fare clic su **Rivedi e crea** per creare la risorsa di collegamento privato.
 
-### <a name="built-in-event-hub-compatible-endpoint"></a>Endpoint compatibile con hub eventi predefinito 
+### <a name="built-in-event-hub-compatible-endpoint"></a>Endpoint compatibile con Hub eventi predefinito 
 
-È anche possibile accedere all' [endpoint predefinito compatibile con l'hub eventi](iot-hub-devguide-messages-read-builtin.md) tramite endpoint privato. Quando viene configurato il collegamento privato, viene visualizzata una connessione all'endpoint privato aggiuntiva per l'endpoint predefinito. È quello con `servicebus.windows.net` nel nome di dominio completo.
+[L'endpoint compatibile con Hub eventi predefinito](iot-hub-devguide-messages-read-builtin.md) è accessibile anche tramite endpoint privato. Quando il collegamento privato è configurato, verrà visualizzata una connessione all'endpoint privato aggiuntiva per l'endpoint predefinito. È quello con nel `servicebus.windows.net` nome di dominio completo.
 
-:::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Immagine che mostra due endpoint privati dato ogni collegamento privato dell'hub Internet":::
+:::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Immagine che mostra due endpoint privati in base a ogni collegamento privato dell'hub IoT":::
 
-Il [filtro IP](iot-hub-ip-filtering.md) dell'hub delle cose può facoltativamente controllare l'accesso pubblico all'endpoint predefinito. 
+Il filtro [IP dell'hub](iot-hub-ip-filtering.md) IoT può facoltativamente controllare l'accesso pubblico all'endpoint predefinito. 
 
-Per bloccare completamente l'accesso alla rete pubblica all'hub [Internet, disattivare l'accesso alla rete pubblica](iot-hub-public-network-access.md) o usare il filtro IP per bloccare tutti gli indirizzi IP e selezionare l'opzione per applicare le regole all'endpoint predefinito.
+Per bloccare completamente l'accesso alla [](iot-hub-public-network-access.md) rete pubblica all'hub IoT, disattivare l'accesso alla rete pubblica o usare il filtro IP per bloccare tutti gli indirizzi IP e selezionare l'opzione per applicare le regole all'endpoint predefinito.
 
 ### <a name="pricing-for-private-link"></a>Prezzi del collegamento privato
 
@@ -98,9 +98,9 @@ Per usare l'interfaccia della riga di comando di Azure per attivare l'identità 
 az iot hub update --name <iot-hub-resource-name> --set identity.type="SystemAssigned"
 ```
 
-### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Assegnare l'identità gestita all'hub Internet in fase di creazione usando il modello ARM
+### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Assegnare l'identità gestita all'hub IoT al momento della creazione usando il modello di Gestione risorse di Microsoft
 
-Per assegnare l'identità gestita all'hub Internet per il tempo di provisioning delle risorse, usare il modello ARM riportato di seguito. Questo modello ARM ha due risorse obbligatorie ed è necessario distribuirle entrambe prima di creare altre risorse, ad esempio `Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups` . 
+Per assegnare l'identità gestita all'hub IoT in fase di provisioning delle risorse, usare il modello DI RESOURCE seguente. Questo modello di Arm ha due risorse necessarie ed entrambe devono essere distribuite prima di creare altre risorse, ad esempio `Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups` . 
 
 ```json
 {
@@ -156,13 +156,13 @@ Per assegnare l'identità gestita all'hub Internet per il tempo di provisioning 
 }
 ```
 
-Dopo aver sostituito i valori per la risorsa `name` , `location` `SKU.name` e, `SKU.tier` è possibile usare l'interfaccia della riga di comando di Azure per distribuire la risorsa in un gruppo di risorse esistente usando:
+Dopo aver sostituendo i valori per la risorsa , e , è possibile usare l'interfaccia della riga di comando di Azure per distribuire la risorsa `name` in un gruppo di risorse esistente `location` `SKU.name` `SKU.tier` usando:
 
 ```azurecli-interactive
 az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
 ```
 
-Dopo aver creato la risorsa, è possibile recuperare l'identità del servizio gestito assegnata all'hub usando l'interfaccia della riga di comando di Azure:
+Dopo aver creato la risorsa, è possibile recuperare l'identità del servizio gestita assegnata all'hub usando l'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
 az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
@@ -174,7 +174,7 @@ La funzionalità di eccezione dei servizi attendibili di prima parte di Microsof
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Connettività in uscita verso gli endpoint dell'account di archiviazione per il routing
 
-L'hub IoT può eseguire il routing dei messaggi a un account di archiviazione di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a un account di archiviazione mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'[identità gestita](#turn-on-managed-identity-for-iot-hub). Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC di Azure all'identità della risorsa dell'hub per accedere all'account di archiviazione.
+L'hub IoT può eseguire il routing dei messaggi a un account di archiviazione di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a un account di archiviazione mentre sono presenti restrizioni del firewall, l'hub deve usare un'identità gestita per accedere all'account di archiviazione. Per prima cosa, l'hub dovrà avere [un'identità gestita.](#turn-on-managed-identity-for-iot-hub) Dopo aver effettuato il provisioning di un'identità gestita, seguire questa procedura per concedere l'autorizzazione controllo degli accessi in base al ruolo di Azure all'identità della risorsa dell'hub per accedere all'account di archiviazione.
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** dell'account di archiviazione e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
@@ -186,13 +186,13 @@ L'hub IoT può eseguire il routing dei messaggi a un account di archiviazione di
 
 5. Passare alla sezione **Endpoint personalizzati** e fare clic su **Aggiungi**. Come tipo di endpoint selezionare **Archiviazione**.
 
-6. Nella pagina visualizzata, fornire un nome per l'endpoint, selezionare il contenitore che si intende utilizzare nell'archivio BLOB, specificare la codifica e il formato per il nome file. Selezionare **Identity-based** come **tipo di autenticazione** per l'endpoint di archiviazione. Fare clic sul pulsante **Create** (Crea).
+6. Nella pagina visualizzata, fornire un nome per l'endpoint, selezionare il contenitore che si intende utilizzare nell'archivio BLOB, specificare la codifica e il formato per il nome file. Selezionare **Basato su identità come** Tipo di autenticazione **per** l'endpoint di archiviazione. Fare clic sul pulsante **Create** (Crea).
 
 A questo punto, l'endpoint di archiviazione personalizzato è impostato per l'uso dell'identità assegnata dal sistema dell'hub e dispone dell'autorizzazione per accedere alla risorsa di archiviazione nonostante le restrizioni del firewall. Ora è possibile usare l'endpoint per impostare una regola di gestione.
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Connettività in uscita verso gli endpoint dell'hub eventi per il routing
 
-È possibile configurare l'hub IoT per il routing dei messaggi verso uno spazio dei nomi dell'hub eventi di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a una risorsa dell'hub eventi mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'identità gestita. Dopo aver creato un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC di Azure all'identità delle risorse dell'hub per accedere all'hub eventi.
+È possibile configurare l'hub IoT per il routing dei messaggi verso uno spazio dei nomi dell'hub eventi di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a una risorsa hub eventi mentre sono presenti restrizioni del firewall, l'hub IoT deve usare un'identità gestita per accedere alla risorsa hub eventi. Prima di tutto, l'hub avrà bisogno di un'identità gestita. Dopo aver creato un'identità gestita, seguire questa procedura per concedere l'autorizzazione controllo degli accessi in base al ruolo di Azure all'identità della risorsa dell'hub per accedere agli hub eventi.
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** dell'hub eventi e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
@@ -204,13 +204,13 @@ A questo punto, l'endpoint di archiviazione personalizzato è impostato per l'us
 
 5. Passare alla sezione **Endpoint personalizzati** e fare clic su **Aggiungi**. Come tipo di endpoint selezionare **Hub eventi**.
 
-6. Nella pagina visualizzata specificare un nome per l'endpoint, selezionare lo spazio dei nomi e l'istanza di hub eventi. Selezionare **Identity-based** come **tipo di autenticazione**, quindi fare clic sul pulsante **Crea** .
+6. Nella pagina visualizzata specificare un nome per l'endpoint e selezionare lo spazio dei nomi e l'istanza dell'hub eventi. Selezionare **Basato su identità** come Tipo di **autenticazione** e fare clic sul **pulsante** Crea.
 
 A questo punto, l'hub eventi personalizzato è impostato per l'uso dell'identità assegnata dal sistema dell'hub e dispone dell'autorizzazione per accedere alla risorsa dell'hub eventi nonostante le restrizioni del firewall. Ora è possibile usare l'endpoint per impostare una regola di gestione.
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Connettività in uscita verso gli endpoint del bus di servizio per il routing
 
-È possibile configurare l'hub IoT per il routing dei messaggi verso uno spazio dei nomi del bus di servizio di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a una risorsa del bus di servizio mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'identità gestita. Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC di Azure all'identità della risorsa dell'hub per accedere al bus di servizio.
+È possibile configurare l'hub IoT per il routing dei messaggi verso uno spazio dei nomi del bus di servizio di proprietà del cliente. Per consentire alla funzionalità di routing di accedere a una risorsa del bus di servizio mentre sono presenti restrizioni del firewall, l'hub IoT deve usare un'identità gestita per accedere alla risorsa del bus di servizio. Per prima cosa, l'hub dovrà avere un'identità gestita. Dopo aver effettuato il provisioning di un'identità gestita, seguire questa procedura per concedere l'autorizzazione controllo degli accessi in base al ruolo di Azure all'identità della risorsa dell'hub per accedere al bus di servizio.
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** del bus di servizio e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
@@ -222,13 +222,13 @@ A questo punto, l'hub eventi personalizzato è impostato per l'uso dell'identit�
 
 5. Passare alla sezione **Endpoint personalizzati** e fare clic su **Aggiungi**. Come tipo di endpoint selezionare **Coda del bus di servizio** o **Argomento del bus di servizio** (come appropriato).
 
-6. Nella pagina visualizzata specificare un nome per l'endpoint, selezionare lo spazio dei nomi e la coda o l'argomento del bus di servizio (come appropriato). Selezionare **Identity-based** come **tipo di autenticazione**, quindi fare clic sul pulsante **Crea** .
+6. Nella pagina visualizzata specificare un nome per l'endpoint, selezionare lo spazio dei nomi e la coda o l'argomento del bus di servizio (come appropriato). Selezionare **Basato su identità** come Tipo di **autenticazione** e fare clic sul **pulsante** Crea.
 
 A questo punto, il bus di servizio personalizzato è impostato per l'uso dell'identità assegnata dal sistema dell'hub e dispone dell'autorizzazione per accedere alla risorsa del bus di servizio nonostante le restrizioni del firewall. Ora è possibile usare l'endpoint per impostare una regola di gestione.
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Connettività in uscita verso gli account di archiviazione per il caricamento dei file
 
-La funzionalità di caricamento dei file dell'hub IoT consente ai dispositivi di caricare i file in un account di archiviazione di proprietà del cliente. Per consentire il caricamento dei file, sia i dispositivi sia l'hub IoT devono disporre di connettività all'account di archiviazione. Se sono presenti restrizioni del firewall per l'account di archiviazione, i dispositivi devono usare uno dei meccanismi dell'account di archiviazione supportati (tra cui [endpoint privati](../private-link/tutorial-private-endpoint-storage-portal.md), [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) o [configurazione diretta del firewall](../storage/common/storage-network-security.md)) per garantire la connettività. In modo analogo, se sono presenti restrizioni del firewall per l'account di archiviazione, l'hub IoT deve essere configurato per l'accesso alla risorsa di archiviazione tramite l'eccezione dei servizi Microsoft attendibili. A tale scopo, l'hub IoT deve disporre di un'identità gestita. Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC di Azure all'identità della risorsa dell'hub per accedere all'account di archiviazione.
+La funzionalità di caricamento dei file dell'hub IoT consente ai dispositivi di caricare i file in un account di archiviazione di proprietà del cliente. Per consentire il caricamento dei file, sia i dispositivi sia l'hub IoT devono disporre di connettività all'account di archiviazione. Se sono presenti restrizioni del firewall per l'account di archiviazione, i dispositivi devono usare uno dei meccanismi dell'account di archiviazione supportati (tra cui [endpoint privati](../private-link/tutorial-private-endpoint-storage-portal.md), [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) o [configurazione diretta del firewall](../storage/common/storage-network-security.md)) per garantire la connettività. In modo analogo, se sono presenti restrizioni del firewall per l'account di archiviazione, l'hub IoT deve essere configurato per l'accesso alla risorsa di archiviazione tramite l'eccezione dei servizi Microsoft attendibili. A tale scopo, l'hub IoT deve disporre di un'identità gestita. Dopo aver effettuato il provisioning di un'identità gestita, seguire questa procedura per concedere l'autorizzazione controllo degli accessi in base al ruolo di Azure all'identità della risorsa dell'hub per accedere all'account di archiviazione.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -240,7 +240,7 @@ La funzionalità di caricamento dei file dell'hub IoT consente ai dispositivi di
 
 4. Nella pagina delle risorse dell'hub IoT, passare alla scheda **Caricamento file**.
 
-5. Nella pagina visualizzata selezionare il contenitore che si desidera utilizzare nell'archivio BLOB, configurare i valori per i campi **Impostazioni di notifica file**, **Durata TTL della firma di accesso condiviso**, **Durata (TTL) predefinita** e **Numero massimo di distribuzioni** in base alle esigenze. Selezionare **Identity-based** come **tipo di autenticazione** per l'endpoint di archiviazione. Fare clic sul pulsante **Create** (Crea). Se si riceve un errore in questo passaggio, impostare temporaneamente l'account di archiviazione per consentire l'accesso da **tutte le reti**, quindi riprovare. È possibile configurare il firewall nell'account di archiviazione al termine della configurazione del caricamento del file.
+5. Nella pagina visualizzata selezionare il contenitore che si desidera utilizzare nell'archivio BLOB, configurare i valori per i campi **Impostazioni di notifica file**, **Durata TTL della firma di accesso condiviso**, **Durata (TTL) predefinita** e **Numero massimo di distribuzioni** in base alle esigenze. Selezionare **Basato su identità come** Tipo di autenticazione **per** l'endpoint di archiviazione. Fare clic sul pulsante **Create** (Crea). Se si verifica un errore in questo passaggio, impostare temporaneamente l'account di archiviazione per consentire l'accesso da **Tutte** le reti, quindi riprovare. È possibile configurare il firewall nell'account di archiviazione al termine della configurazione di caricamento file.
 
 A questo punto, l'endpoint di archiviazione per il caricamento dei file è impostato per l'uso dell'identità assegnata dal sistema dell'hub e dispone dell'autorizzazione per accedere alla risorsa di archiviazione nonostante le restrizioni del firewall.
 
@@ -248,7 +248,7 @@ A questo punto, l'endpoint di archiviazione per il caricamento dei file è impos
 
 L'hub IoT supporta la funzionalità per l'[importazione/esportazione](./iot-hub-bulk-identity-mgmt.md) in blocco delle informazioni dei dispositivi da o verso un BLOB di archiviazione fornito dal cliente. Per l'uso dell'importazione/esportazione in blocco, sia i dispositivi sia l'hub IoT devono disporre di connettività all'account di archiviazione.
 
-Questa funzionalità richiede la connettività dall'hub IoT all'account di archiviazione. Per consentire l'accesso a una risorsa del bus di servizio mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'identità gestita. Una volta eseguito il provisioning di un'identità gestita, attenersi alla procedura seguente per assegnare l'autorizzazione RBAC di Azure all'identità della risorsa dell'hub per accedere al bus di servizio.
+Questa funzionalità richiede la connettività dall'hub IoT all'account di archiviazione. Per consentire l'accesso a una risorsa del bus di servizio mentre sono in attive restrizioni del firewall, l'hub IoT deve disporre di un'identità gestita. Dopo aver effettuato il provisioning di un'identità gestita, seguire questa procedura per concedere l'autorizzazione controllo degli accessi in base al ruolo di Azure all'identità della risorsa dell'hub per accedere al bus di servizio.
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** dell'account di archiviazione e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 

@@ -3,12 +3,12 @@ title: Supporto per lo spostamento per tipo di risorsa
 description: Elenca i tipi di risorse di Azure che possono essere spostati in un nuovo gruppo di risorse, sottoscrizione o area.
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: c159b6e5f64f3052a6584034aa58b058b1426b16
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: a56a9e6f04aa800e16bbab0190ce7b41d87da590
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107725567"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107740089"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 
@@ -203,14 +203,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | domainservices | No | No |  No |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | diagnosticsettings | No | No | No |
 > | diagnosticsettingscategories | No | No | No |
@@ -220,14 +220,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | supportproviders | No | No | No |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | aadsupportcases | No | No | No |
 > | addsservices | No | No | No |
@@ -242,7 +242,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | configurazioni | No | No | No |
 > | generaterecommendations | No | No | No |
@@ -253,7 +253,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | actionrules | Sì | Sì | No |
 > | alerts | No | No | No |
@@ -267,7 +267,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | servers | Sì | Sì | No |
 
@@ -277,7 +277,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Non è possibile spostare un servizio Gestione API impostato sull'utilizzo delle SKU.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | reportfeedback | No | No | No |
 > | service | Sì | Sì | Sì (usando il modello) <br/><br/> [Spostare API Management tra aree](../../api-management/api-management-howto-migrate.md). |
@@ -285,7 +285,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | configurationstores | Sì | Sì | No |
 > | configurationstores/eventgridfilters | No | No | No |
@@ -293,7 +293,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | spring | Sì | Sì | No |
 
@@ -303,7 +303,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Vedere [Linee guida per lo spostamento del servizio app](./move-limitations/app-service-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | apiapps | No | No | Sì (usando il modello)<br/><br/> [Spostare un'app del servizio app in un'altra area](../../app-service/manage-move-across-regions.md) |
 > | appidentities | No | No | No |
@@ -312,14 +312,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | attestationproviders | Sì | Sì | No |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | classicadministrators | No | No | No |
 > | dataaliases | No | No | No |
@@ -345,7 +345,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Per informazioni, vedere [Spostare l'account Automazione di Azure in un'altra sottoscrizione.](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json)
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | automationaccounts | Sì | Sì | Sì (usando il modello) <br/><br/> [Uso della replica geografica](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |
 > | automationaccounts/configurations | Sì | Sì | No |
@@ -354,14 +354,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | privateclouds | Sì | Sì | No |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | b2cdirectories | Sì | Sì | No |
 > | b2ctenants | No | No | No |
@@ -369,7 +369,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftazuredata"></a>Microsoft.AzureData
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | datacontrollers | No | No | No |
 > | hybriddatamanagers | No | No | No |
@@ -382,7 +382,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | cloudmanifestfiles | No | No | No |
 > | registrations | Sì | Sì | No |
@@ -390,21 +390,21 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftazurestackhci"></a>Microsoft.AzureStackHCI
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | No | No | No |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
-> | batchaccounts | Sì | Sì | Gli account Batch non possono essere spostati direttamente da un'area a un'altra, ma è possibile usare un modello per esportare un modello, modificarlo e distribuire il modello nella nuova area. <br/><br/> Informazioni sullo [spostamento di un account Batch tra aree](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
+> | batchaccounts | Sì | Sì | Gli account Batch non possono essere spostati direttamente da un'area a un'altra, ma è possibile usare un modello per esportare un modello, modificarlo e distribuirlo nella nuova area. <br/><br/> Informazioni sullo [spostamento di un account Batch tra aree](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | billingaccounts | No | No | No |
 > | billingperiods | No | No | No |
@@ -420,21 +420,21 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | mapapis | No | No | No |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | biztalk | No | No | No |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | blockchainmembers | No | No | No <br/><br/> La rete blockchain non può avere nodi in aree diverse. |
 > | cordamembers | No | No | No |
@@ -443,14 +443,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | tokenservices | No | No | No |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | blueprintassignments | No | No | No |
 > | blueprints | No | No | No |
@@ -458,7 +458,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | botservices | Sì | Sì | No |
 
@@ -468,7 +468,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Se l'istanza di cache di Azure per Redis è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [Limitazioni di spostamento della rete](./move-limitations/networking-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | redis | Sì | Sì | No |
 > | redisenterprise | No | No | No |
@@ -476,7 +476,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | appliedreservations | No | No | No |
 > | calculateexchange | No | No | No |
@@ -493,7 +493,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | cdnwebapplicationfirewallmanagedrulesets | No | No | No |
 > | cdnwebapplicationfirewallpolicies | Sì | Sì | No |
@@ -507,7 +507,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Vedere [Linee guida per lo spostamento del servizio app](./move-limitations/app-service-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | certificateorders | Sì | Sì | No |
 
@@ -517,7 +517,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Vedere [Linee guida per lo spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse della distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | capabilities | No | No | No |
 > | domainnames | Sì | No | No |
@@ -532,7 +532,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Vedere [Linee guida per lo spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse della distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | classicinfrastructureresources | No | No | No |
 
@@ -542,7 +542,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Vedere [Linee guida per lo spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse della distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | capabilities | No | No | No |
 > | expressroutecrossconnections | No | No | No |
@@ -559,7 +559,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Vedere [Linee guida per lo spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse della distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | disks | No | No | No |
 > | images | No | No | No |
@@ -576,14 +576,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Vedere [Linee guida per lo spostamento della distribuzione classica](./move-limitations/classic-model-move-limitations.md). Le risorse della distribuzione classica possono essere spostate tra sottoscrizioni con un'operazione specifica di tale scenario.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | Operazioni | No | No | No |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | Sì | Sì | No |
 > | Ricerca cognitiva | **In sospeso** | **In sospeso** | Supportato con passaggi manuali.<br/><br/> Informazioni sullo [spostamento del servizio Ricerca cognitiva di Azure in un'altra area](../../search/search-howto-move-across-regions.md) |
@@ -591,7 +591,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | ratecard | No | No | No |
 > | usageaggregates | No | No | No |
@@ -602,7 +602,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Vedere [Linee guida per lo spostamento di macchine virtuali](./move-limitations/virtual-machines-move-limitations.md)
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | availabilitysets | Sì | Sì |  Sì <br/><br/> Usare [Spostamento risorse di Azure](../../resource-mover/tutorial-move-region-virtual-machines.md) per spostare i set di disponibilità. |
 > | diskaccesses | No | No | No |
@@ -629,7 +629,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | aggregatedcost | No | No | No |
 > | balances | No | No | No |
@@ -656,7 +656,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | containergroups | No | No | No |
 > | serviceassociationlinks | No | No | No |
@@ -664,7 +664,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | registries | Sì | Sì | No |
 > | registries/agentpools | Sì | Sì | No |
@@ -676,7 +676,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | containerservices | No | No | No |
 > | managedclusters | No | No | No |
@@ -685,21 +685,21 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | scala Web | No | No | No |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | No | No | No |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | alerts | No | No | No |
 > | billingaccounts | No | No | No |
@@ -723,21 +723,21 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | hubs | No | No | No |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | requests | No | No | No |
 
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | associations | No | No | No |
 > | resourceproviders | Sì | Sì | No |
@@ -745,14 +745,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | jobs | No | No | No |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | availableskus | No | No | No |
 > | databoxedgedevices | No | No | No |
@@ -760,14 +760,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | aree di lavoro | No | No | No |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | catalogs | Sì | Sì | No |
 > | datacatalogs | No | No | No |
@@ -775,14 +775,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | connectionmanagers | No | No | No |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | packages | No | No | No |
 > | plans | No | No | No |
@@ -790,7 +790,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | datafactories | Sì | Sì | No |
 > | factories | Sì | Sì | No |
@@ -798,28 +798,28 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | datalakeaccounts | No | No | No |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | Sì | Sì | No |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | Sì | Sì | No |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | services | No | No | No |
 > | services/projects | No | No | No |
@@ -828,47 +828,47 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftdataprotection"></a>Microsoft.DataProtection
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ---------- |
 > | backupvaults | No | No | No |
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | Sì | Sì | No |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
-> | servers | Sì | Sì | È possibile usare una replica in lettura tra aree per spostare un server esistente. [Altre informazioni](../../postgresql/howto-move-regions-portal.md)<br/><br/> Se viene effettuato il provisioning del servizio con archiviazione di backup con ridondanza geografica, è possibile usare il ripristino geografico per eseguire il ripristino in altre aree. [Altre informazioni](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
+> | servers | Sì | Sì | È possibile usare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../postgresql/howto-move-regions-portal.md)<br/><br/> Se viene effettuato il provisioning del servizio con archiviazione di backup con ridondanza geografica, è possibile usare il ripristino geografico per il ripristino in altre aree. [Altre informazioni](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
-> | server flessibili | No | No | No |
-> | servers | Sì | Sì | È possibile usare una replica in lettura tra aree per spostare un server esistente. [Altre informazioni](../../mysql/howto-move-regions-portal.md)
+> | flexibleServers | No | No | No |
+> | servers | Sì | Sì | È possibile usare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../mysql/howto-move-regions-portal.md)
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | No | No | No |
 > | servergroups | No | No | No |
-> | servers | Sì | Sì | È possibile usare una replica in lettura tra aree per spostare un server esistente. [Per altre informazioni, vedere](../../postgresql/howto-move-regions-portal.md).
+> | servers | Sì | Sì | È possibile usare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../postgresql/howto-move-regions-portal.md)
 > | serversv2 | Sì | Sì | No |
 > | singleservers | Sì | Sì | No |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | artifactsources | Sì | Sì | No |
 > | rollouts | Sì | Sì | No |
@@ -880,7 +880,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applicationgroups | Sì | Sì | No |
 > | hostpools | Sì | Sì | No |
@@ -889,17 +889,17 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
-> | elasticpools | No | No | No. La risorsa non viene esposta. |
-> | elasticpools/iothubtenants | No | No | No. La risorsa non viene esposta. |
+> | elasticpools | No | No | No. La risorsa non è esposta. |
+> | elasticpools/iothubtenants | No | No | No. La risorsa non è esposta. |
 > | iothubs | Sì | Sì | Sì. [Scopri di più](../../iot-hub/iot-hub-how-to-clone.md) |
 > | provisioningservices | Sì | Sì | No |
 
 ## <a name="microsoftdevops"></a>Microsoft.DevOps
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | pipelines | Sì | Sì | No |
 > | controllers | **In sospeso** | **In sospeso** | No |
@@ -907,15 +907,15 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | controllers | Sì | Sì | No |
-> | Cluster del servizio AKS | **In sospeso** | **In sospeso** | No<br/><br/> [Altre informazioni sullo](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) spostamento in un'altra area.
+> | Cluster del servizio Servizio Web di Gestione risorse di Microsoft | **In sospeso** | **In sospeso** | No<br/><br/> [Altre informazioni sullo](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) spostamento in un'altra area.
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | labcenters | No | No | No |
 > | labs | Sì | No | No |
@@ -927,14 +927,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | digitaltwinsinstances | No | No | Sì, ricreando le risorse in una nuova area. [Scopri di più](../../digital-twins/how-to-move-regions.md) |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | databaseaccountnames | No | No | No |
 > | databaseaccounts | Sì | Sì | No |
@@ -942,7 +942,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | domains | Sì | Sì | No |
 > | generatessorequest | No | No | No |
@@ -952,7 +952,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | services | Sì | Sì | No |
 
@@ -974,7 +974,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | Sì | Sì | No |
 > | spazi dei nomi | Sì | Sì | Sì (con modello)<br/><br/> [Spostare uno spazio dei nomi dell'hub eventi in un'altra area](../../event-hubs/move-across-regions.md) |
@@ -983,21 +983,21 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | experimentworkspaces | No | No | No |
 
 ## <a name="microsoftfalcon"></a>Microsoft.Falcon
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | spazi dei nomi | Sì | Sì | No |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | featureproviders | No | No | No |
 > | funzionalità | No | No | No |
@@ -1007,14 +1007,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | No | No | No |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | automanagedaccounts | No | No | No |
 > | automanagedvmconfigurationprofiles | No | No | No |
@@ -1026,7 +1026,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | hanainstances | No | No | No |
 > | sapmonitors | No | No | No |
@@ -1034,7 +1034,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | dedicatedhsms | No | No | No |
 
@@ -1046,21 +1046,21 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Quando si sposta un cluster HDInsight in una nuova sottoscrizione, spostare prima altre risorse, ad esempio l'account di archiviazione. Spostare quindi il cluster HDInsight.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | Sì | Sì | No |
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | services | Sì | Sì | No |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | machines | Sì | Sì | No |
 > | machines/extensions | Sì | Sì | No |
@@ -1068,14 +1068,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | datamanagers | Sì | Sì | No |
 
 ## <a name="microsofthybridnetwork"></a>Microsoft.HybridNetwork
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | devices | No | No | No |
 > | vnfs | No | No | No |
@@ -1083,7 +1083,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | components | No | No | No |
 > | networkscopes | No | No | No |
@@ -1091,7 +1091,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | jobs | Sì | Sì | No |
 
@@ -1101,7 +1101,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Verificare che lo spostamento nella nuova sottoscrizione non comporti il superamento delle [quote di sottoscrizione](azure-subscription-service-limits.md#azure-monitor-limits).
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | **In sospeso** | **In sospeso** | No. [Altre informazioni](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region) |
 > | actiongroups | Sì | Sì | No |
@@ -1145,7 +1145,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | apptemplates | No | No | No |
 > | iotapps | Sì | Sì | No |
@@ -1153,14 +1153,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftiothub"></a>Microsoft.IoTHub
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | iothub | **In sospeso** | **In sospeso** | Sì (hub clone) <br/><br/> [Clonare un hub IoT in un'altra area](../../iot-hub/iot-hub-how-to-clone.md) |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | graph | Sì | Sì | No |
 
@@ -1170,7 +1170,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Gli insiemi di credenziali delle chiavi usati per la crittografia dei dischi non possono essere spostati in un gruppo di risorse nella stessa sottoscrizione o in sottoscrizioni diverse.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | deletedvaults | No | No | No |
 > | hsmpools | No | No | No |
@@ -1180,7 +1180,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | connectedclusters | Sì | Sì | No |
 > | registeredsubscriptions | No | No | No |
@@ -1188,21 +1188,21 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftkubernetesconfiguration"></a>Microsoft.KubernetesConfiguration
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | sourcecontrolconfigurations | No | No | No |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | Sì | Sì | No |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | labaccounts | No | No | No |
 > | users | No | No | No |
@@ -1210,14 +1210,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | No | No | No |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | No | No | No, è un servizio globale. |
 
@@ -1236,7 +1236,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | commitmentplans | No | No | No |
 > | webservices | Sì | No | No |
@@ -1245,14 +1245,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | operationalizationclusters | No | No | No |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | No | No | No |
 > | teamaccounts | No | No | No |
@@ -1260,21 +1260,21 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | No | No | No |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | aree di lavoro | No | No | No |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | configurationassignments | No | No | Sì. [Scopri di più](../../virtual-machines/move-region-maintenance-configuration.md) |
 > | maintenanceconfigurations | Sì | Sì | Sì. [Scopri di più](../../virtual-machines/move-region-maintenance-configuration-resources.md) |
@@ -1283,7 +1283,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | identità | No | No | No |
 > | userassignedidentities | No | No | No |
@@ -1291,7 +1291,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmanagednetwork"></a>Microsoft.ManagedNetwork
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | managednetworks | No | No | No |
 > | managednetworks/managednetworkgroups | No | No | No |
@@ -1301,7 +1301,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | marketplaceregistrationdefinitions | No | No | No |
 > | registrationassignments | No | No | No |
@@ -1310,7 +1310,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | getentities | No | No | No |
 > | managementgroups | No | No | No |
@@ -1322,7 +1322,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | Sì | Sì | No, Mappe di Azure è un servizio geospaziale. |
 > | accounts/privateatlases | Sì | Sì | No |
@@ -1330,7 +1330,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | offers | No | No | No |
 > | offertypes | No | No | No |
@@ -1344,14 +1344,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | classicdevservices | No | No | No |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | agreements | No | No | No |
 > | offertypes | No | No | No |
@@ -1359,7 +1359,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | mediaservices | Sì | Sì | No |
 > | mediaservices/liveevents | Sì | Sì | No |
@@ -1368,14 +1368,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | appclusters | No | No | No |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | assessmentprojects | No | No | No |
 > | migrateprojects | No | No | No |
@@ -1385,7 +1385,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ---------- |
 > | holographicsbroadcastaccounts | No | No | No |
 > | objectunderstandingaccounts | No | No | No |
@@ -1409,7 +1409,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Vedere [Linee guida di spostamento della rete](./move-limitations/networking-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applicationgateways | No | No | No |
 > | applicationgatewaywebapplicationfirewallpolicies | No | No | No |
@@ -1435,7 +1435,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | networkintentpolicies | Sì | Sì | No |
 > | networkinterfaces | Sì | Sì | Sì <br/><br/> Usare [Spostamento risorse di Azure](../../resource-mover/tutorial-move-region-virtual-machines.md) per spostare le schede di interfaccia di rete. |
 > | networkprofiles | No | No | No |
-> | networksecuritygroups | Sì | Sì | Sì <br/><br/> Usare [Spostamento risorse di Azure](../../resource-mover/tutorial-move-region-virtual-machines.md) per spostare gruppi di sicurezza di rete (NGS). |
+> | networksecuritygroups | Sì | Sì | Sì <br/><br/> Usare [Spostamento risorse di Azure](../../resource-mover/tutorial-move-region-virtual-machines.md) per spostare i gruppi di sicurezza di rete (NGS). |
 > | networkwatchers | No | No | No |
 > | networkwatchers/connectionmonitors | Sì | No | No |
 > | networkwatchers/flowlogs | Sì | No | No |
@@ -1470,7 +1470,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | spazi dei nomi | Sì | Sì | No |
 > | namespaces/notificationhubs | Sì | Sì | No |
@@ -1478,14 +1478,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | osnamespaces | Sì | Sì | No |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | hypervsites | No | No | No |
 > | importsites | No | No | No |
@@ -1500,7 +1500,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Non è possibile spostare le aree di lavoro con un account di automazione collegato. Prima di iniziare un'operazione di spostamento, assicurarsi di scollegare tutti gli account di automazione.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | No | No | No |
 > | deletedworkspaces | No | No | No |
@@ -1511,7 +1511,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | managementassociations | No | No | No |
 > | managementconfigurations | Sì | Sì | No |
@@ -1521,7 +1521,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | legacypeerings | No | No | No |
 > | peerasns | No | No | No |
@@ -1535,7 +1535,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | policyevents | No | No | No |
 > | policystates | No | No | No |
@@ -1545,7 +1545,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | consoles | No | No | No |
 > | dashboards | Sì | Sì | No |
@@ -1554,21 +1554,21 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | workspacecollections | Sì | Sì | No |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | capacities | Sì | Sì | No |
 
 ## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ---------- |
 > | account | No | No | No |
 
@@ -1582,7 +1582,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | availableaccounts | No | No | No |
 > | providerregistrations | No | No | No |
@@ -1591,7 +1591,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftquantum"></a>Microsoft.Quantum
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | aree di lavoro | No | No | No |
 
@@ -1601,29 +1601,29 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Vedere [Linee guida di spostamento di Servizi di ripristino](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | replicationeligibilityresults | No | No | No |
-> | insiemi di credenziali | Sì | Sì | No.<br/><br/> Lo spostamento di insiemi di credenziali di Servizi di Backup di Azure tra aree di Azure non è supportato.<br/><br/> In Insiemi di credenziali di Servizi di ripristino per Azure Site Recovery è possibile disabilitare e [ricreare l'insieme di](../../site-recovery/move-vaults-across-regions.md) credenziali nell'area di destinazione. |
+> | insiemi di credenziali | Sì | Sì | No.<br/><br/> Lo spostamento degli insiemi di credenziali di Servizi di ripristino Backup di Azure tra aree di Azure non è supportato.<br/><br/> In Insiemi di credenziali di Servizi di Azure Site Recovery, è possibile disabilitare [e ricreare](../../site-recovery/move-vaults-across-regions.md) l'insieme di credenziali nell'area di destinazione. |
 
 ## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatOpenShift
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | openshiftclusters | No | No | No |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | spazi dei nomi | Sì | Sì | No |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | query | Sì | Sì | No |
 > | resourcechangedetails | No | No | No |
@@ -1635,7 +1635,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | childresources | No | No | No |
 > | emergingissues | No | No | No |
@@ -1646,7 +1646,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | deployments | No | No | No |
 > | deploymentscripts | No | No | Sì<br/><br/>[Spostare le risorse Microsoft.Resources in una nuova area](microsoft-resources-move-regions.md) |
@@ -1664,7 +1664,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | scala Web | Sì | No | No |
 > | saasresources | No | No | No |
@@ -1675,7 +1675,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Non è possibile spostare più risorse di ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | resourcehealthmetadata | No | No | No |
 > | searchservices | Sì | Sì | No |
@@ -1683,7 +1683,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | adaptivenetworkhardenings | No | No | No |
 > | advancedthreatprotectionsettings | No | No | No |
@@ -1727,12 +1727,12 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | aggregations | No | No | No |
 > | alertrules | No | No | No |
 > | alertruletemplates | No | No | No |
-> | regole di automazione | No | No | No |
+> | automationrules | No | No | No |
 > | bookmarks | No | No | No |
 > | cases | No | No | No |
 > | dataconnectors | No | No | No |
@@ -1753,7 +1753,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | gateways | No | No | No |
 > | nodes | No | No | No |
@@ -1761,7 +1761,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | spazi dei nomi | Sì | Sì | No |
 > | premiummessagingregions | No | No | No |
@@ -1770,7 +1770,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | scala Web | No | No | No |
 > | clusters | Sì | Sì | No |
@@ -1785,7 +1785,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | scala Web | Sì | Sì | No |
 > | containergroups | No | No | No |
@@ -1797,28 +1797,28 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftservices"></a>Microsoft.Services
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | rollouts | No | No | No |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | signalr | Sì | Sì | No |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | hybridusebenefits | No | No | No |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | applicationdefinitions | No | No | No |
 > | scala Web | No | No | No |
@@ -1830,16 +1830,16 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Un database e un server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database. Questo comportamento si applica ai database SQL di Azure e Azure Synapse Analytics database.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | instancepools | No | No | No |
 > | locations | Sì | Sì | No |
 > | managedinstances | No | No | Sì <br/><br/> [Altre informazioni sullo](../../azure-sql/database/move-resources-across-regions.md) spostamento di istanze gestite tra aree. |
 > | managedinstances/databases | No | No | Sì |
 > | servers | Sì | Sì |Sì |
-> | servers/databases | Sì | Sì | Sì <br/><br/> [Altre informazioni sullo](../../azure-sql/database/move-resources-across-regions.md) spostamento di database tra aree diverse.<br/><br/> [Altre informazioni](../../resource-mover/tutorial-move-region-sql.md) sull'uso Spostamento risorse di Azure per spostare Azure SQL database.  |
+> | servers/databases | Sì | Sì | Sì <br/><br/> [Altre informazioni sullo](../../azure-sql/database/move-resources-across-regions.md) spostamento di database tra aree.<br/><br/> [Altre informazioni](../../resource-mover/tutorial-move-region-sql.md) sull'uso Spostamento risorse di Azure per spostare Azure SQL database.  |
 > | servers/databases/backuplongtermretentionpolicies | Sì | Sì | No |
-> | servers/elasticpools | Sì | Sì | Sì <br/><br/> [Altre informazioni sullo](../../azure-sql/database/move-resources-across-regions.md) spostamento di pool elastici tra aree.<br/><br/> [Altre informazioni](../../resource-mover/tutorial-move-region-sql.md) sull'uso Spostamento risorse di Azure per spostare Azure SQL pool elastici.  |
+> | servers/elasticpools | Sì | Sì | Sì <br/><br/> [Altre informazioni sullo](../../azure-sql/database/move-resources-across-regions.md) spostamento di pool elastici tra aree.<br/><br/> [Altre informazioni sull'uso](../../resource-mover/tutorial-move-region-sql.md) Spostamento risorse di Azure per spostare Azure SQL pool elastici.  |
 > | servers/jobaccounts | Sì | Sì | No |
 > | servers/jobagents | Sì | Sì | No |
 > | virtualclusters | Sì | Sì | Sì |
@@ -1847,7 +1847,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | sqlvirtualmachinegroups | Sì | Sì | No |
 > | sqlvirtualmachines | Sì | Sì | No |
@@ -1855,14 +1855,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | storageaccounts | Sì | Sì | Sì<br/><br/> [Spostare un account Archiviazione di Azure in un'altra area](../../storage/common/storage-account-move.md) |
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | caches | No | No | No |
 
@@ -1876,21 +1876,21 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | storagesyncservices | No | No | No |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | storagesyncservices | No | No | No |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | managers | No | No | No |
 
@@ -1900,7 +1900,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > I processi di analisi di flusso non possono essere spostati durante l'esecuzione.
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | No | No | No |
 > | streamingjobs | Sì | Sì | No |
@@ -1908,7 +1908,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | environments | No | No | No |
 > | instances | No | No | No |
@@ -1916,14 +1916,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | subscriptions | No | No | No |
 
 ## <a name="microsoftsupport"></a>Microsoft.Support
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | services | No | No | No |
 > | supporttickets | No | No | No |
@@ -1931,7 +1931,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftsynapse"></a>Microsoft.Synapse
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | aree di lavoro | No | No | No |
 > | workspaces/bigdatapools | No | No | No |
@@ -1940,7 +1940,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | environments | Sì | Sì | No |
 > | environments/eventsources | Sì | Sì | No |
@@ -1949,14 +1949,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsofttoken"></a>Microsoft.Token
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | stores | Sì | Sì | No |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | imagetemplates | No | No | No |
 
@@ -1966,7 +1966,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Per modificare la sottoscrizione per Azure DevOps, vedere [Modificare la sottoscrizione di Azure usata per la fatturazione](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | No | No | No |
 > | account/extension | No | No | No |
@@ -1975,7 +1975,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | arczones | No | No | No |
 > | resourcepools | No | No | No |
@@ -1987,7 +1987,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | dedicatedcloudnodes | No | No | No |
 > | dedicatedcloudservices | No | No | No |
@@ -1996,7 +1996,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | devices | No | No | No |
 > | vnfs | No | No | No |
@@ -2004,7 +2004,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftvsonline"></a>Microsoft.VSOnline
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | account | No | No | No |
 > | plans | No | No | No |
@@ -2016,7 +2016,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > Vedere [Linee guida per lo spostamento del servizio app](./move-limitations/app-service-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | availablestacks | No | No | No |
 > | billingmeters | No | No | No |
@@ -2044,28 +2044,28 @@ Passare a uno spazio dei nomi del provider di risorse:
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | multipleactivationkeys | No | No | No |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | deviceservices | No | No | No |
 
 ## <a name="microsoftworkloadbuilder"></a>Microsoft.WorkloadBuilder
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | carichi di lavoro | No | No | No |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
-> | Tipo di risorsa | Resource group | Subscription | Spostamento dell'area |
+> | Tipo di risorsa | Resource group | Subscription | Spostamento in un'area |
 > | ------------- | ----------- | ---------- | ----------- |
 > | components | No | No | No |
 > | componentssummary | No | No | No |
@@ -2080,5 +2080,5 @@ I servizi di terze parti attualmente non supportano l'operazione di spostamento.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per i comandi sullo spostamento di risorse, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](move-resource-group-and-subscription.md).
-- [Altre informazioni](../../resource-mover/overview.md) sul servizio Resource Mover.
+- [Altre informazioni](../../resource-mover/overview.md) sul servizio Spostamento risorse.
 - Per ottenere gli stessi dati come file con valori delimitati da virgole, scaricare [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).

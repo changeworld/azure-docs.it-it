@@ -173,48 +173,74 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: Personalizzare l'esperienza di sviluppo
       items:
-        - name: Informazioni sul portale per sviluppatori
-          href: api-management-howto-developer-portal.md
-        - name: Eseguire la migrazione dal portale per sviluppatori deprecato a quello nuovo
-          href: developer-portal-deprecated-migration.md
-        - name: Eseguire l'autenticazione con Azure AD
-          href: api-management-howto-aad.md
-        - name: Eseguire l'autenticazione con Azure AD B2C
-          href: api-management-howto-aad-b2c.md
-        - name: Autenticazione delegata
-          href: api-management-howto-setup-delegation.md
-        - name: Modelli e notifiche di posta elettronica
-          href: api-management-howto-configure-notifications.md
-        - name: Abilitare il supporto OAuth nella console
-          href: api-management-howto-oauth2.md
-        - name: 'Portale deprecato: personalizzare il portale'
-          href: api-management-customize-styles.md
-        - name: 'Portale deprecato: modificare pagine e layout'
-          href: api-management-modify-content-layout.md
-        - name: 'Portale deprecato: personalizzare con i modelli'
-          href: api-management-developer-portal-templates.md
-    - name: Modelli del portale deprecato
-      items:
-        - name: Informazioni di riferimento sul modello di dati
-          href: api-management-template-data-model-reference.md
-        - name: Controlli di pagina
-          href: api-management-page-controls.md
-        - name: Modelli
-          href: api-management-developer-portal-templates-reference.md
-        - name: API
-          href: api-management-api-templates.md
-        - name: Products
-          href: api-management-product-templates.md
-        - name: APPLICAZIONI
-          href: api-management-application-templates.md
-        - name: Problemi
-          href: api-management-issue-templates.md
-        - name: Profilo utente
-          href: api-management-user-profile-templates.md
-        - name: Pagine
-          href: api-management-page-templates.md
-        - name: Risorse del modello
-          href: api-management-template-resources.md
+        - name: Usare il portale per sviluppatori
+          items:
+            - name: Informazioni sul portale per sviluppatori
+              href: api-management-howto-developer-portal.md
+            - name: Domande frequenti
+              href: developer-portal-faq.md
+            - name: Automatizzare le distribuzioni del portale
+              href: automate-portal-deployments.md
+            - name: Eseguire la migrazione dal portale per sviluppatori deprecato a quello nuovo
+              href: developer-portal-deprecated-migration.md
+            - name: Eseguire l'autenticazione con Azure AD
+              href: api-management-howto-aad.md
+            - name: Eseguire l'autenticazione con Azure AD B2C
+              href: api-management-howto-aad-b2c.md
+            - name: Delegare l'autenticazione
+              href: api-management-howto-setup-delegation.md
+            - name: Abilitare il supporto OAuth nella console
+              href: api-management-howto-oauth2.md
+            - name: Modelli e notifiche di posta elettronica
+              href: api-management-howto-configure-notifications.md
+            - name: Integrare Application Insights
+              href: developer-portal-integrate-application-insights.md
+            - name: Integrare Google Tag Manager
+              href: developer-portal-integrate-google-tag-manager.md
+        - name: Portale per sviluppatori self-host
+          items:
+            - name: Creare un portale self-hosted
+              href: developer-portal-self-host.md
+            - name: Approcci alternativi al self-hosting
+              href: developer-portal-alternative-processes-self-host.md
+            - name: Implementare i widget
+              href: developer-portal-implement-widgets.md
+            - name: Widget di collaborazione
+              href: developer-portal-widget-contribution-guidelines.md
+            - name: Usare i widget della community
+              href: developer-portal-use-community-widgets.md
+            - name: Testare il portale self-hosted
+              href: developer-portal-testing.md
+        - name: Portale deprecato
+          items:
+            - name: 'Portale deprecato: personalizzare il portale'
+              href: api-management-customize-styles.md
+            - name: 'Portale deprecato: modificare pagine e layout'
+              href: api-management-modify-content-layout.md
+            - name: 'Portale deprecato: personalizzare con i modelli'
+              href: api-management-developer-portal-templates.md
+        - name: Modelli del portale deprecato
+          items:
+            - name: Informazioni di riferimento sul modello di dati
+              href: api-management-template-data-model-reference.md
+            - name: Controlli di pagina
+              href: api-management-page-controls.md
+            - name: Modelli
+              href: api-management-developer-portal-templates-reference.md
+            - name: API
+              href: api-management-api-templates.md
+            - name: Products
+              href: api-management-product-templates.md
+            - name: APPLICAZIONI
+              href: api-management-application-templates.md
+            - name: Problemi
+              href: api-management-issue-templates.md
+            - name: Profilo utente
+              href: api-management-user-profile-templates.md
+            - name: Pagine
+              href: api-management-page-templates.md
+            - name: Risorse del modello
+              href: api-management-template-resources.md
     - name: Definire criteri
       items:
         - name: Impostare o modificare criteri

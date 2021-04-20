@@ -1,29 +1,29 @@
 ---
 title: Trasferire gli artefatti
-description: Trasferire raccolte di immagini o altri elementi da un registro contenitori a un altro registro creando una pipeline di trasferimento usando gli account di archiviazione di Azure
+description: Trasferire raccolte di immagini o altri artefatti da un registro contenitori a un altro creando una pipeline di trasferimento usando gli account di archiviazione di Azure
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: e921880eb0b8ae5a38e69c9c0045f6a26d84084d
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 7784ce3e5e0171c84fb1f1da6e69f7d38bec9637
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107497983"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107737407"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Trasferire gli artefatti in un altro registro
 
-Questo articolo illustra come trasferire raccolte di immagini o altri elementi del Registro di sistema da un registro Azure Container a un altro registro. I registri di origine e di destinazione possono essere in sottoscrizioni uguali o diverse, tenant di Active Directory, cloud di Azure o cloud fisicamente disconnessi. 
+Questo articolo illustra come trasferire raccolte di immagini o altri artefatti del registro da un Registro Azure Container a un altro registro. I registri di origine e di destinazione possono essere nella stessa sottoscrizione o in sottoscrizioni diverse, tenant di Active Directory, cloud di Azure o cloud fisicamente disconnessi. 
 
-Per trasferire gli elementi, creare una *pipeline di trasferimento* che replica gli elementi tra due registri usando l'archiviazione [BLOB:](../storage/blobs/storage-blobs-introduction.md)
+Per trasferire gli artefatti, si crea una *pipeline di* trasferimento che replica gli artefatti tra due registri usando l'archiviazione [BLOB:](../storage/blobs/storage-blobs-introduction.md)
 
-* Gli artefatti di un registro di origine vengono esportati in un BLOB in un account di archiviazione di origine 
+* Gli elementi di un registro di origine vengono esportati in un BLOB in un account di archiviazione di origine 
 * Il BLOB viene copiato dall'account di archiviazione di origine a un account di archiviazione di destinazione
-* Il BLOB nell'account di archiviazione di destinazione viene importato come artefatti nel Registro di sistema di destinazione. È possibile configurare la pipeline di importazione per l'attivazione ogni volta che il BLOB dell'artefatto viene aggiornato nell'archiviazione di destinazione.
+* Il BLOB nell'account di archiviazione di destinazione viene importato come artefatti nel registro di destinazione. È possibile configurare la pipeline di importazione per l'attivazione ogni volta che il BLOB dell'artefatto viene aggiornato nell'archiviazione di destinazione.
 
-Il trasferimento è ideale per copiare il contenuto tra due registri di Contenitori di Azure in cloud fisicamente disconnessi, mediati dagli account di archiviazione in ogni cloud. Se invece si vogliono copiare immagini dai registri contenitori nei cloud connessi, inclusi Docker Hub e altri fornitori di [cloud,](container-registry-import-images.md) è consigliabile importare immagini.
+Il trasferimento è ideale per la copia di contenuto tra due registri contenitori di Azure in cloud fisicamente disconnessi, mediati da account di archiviazione in ogni cloud. Se invece si vogliono copiare immagini da registri contenitori in cloud connessi, tra cui Docker Hub e altri fornitori di [cloud,](container-registry-import-images.md) è consigliabile importare immagini.
 
-In questo articolo si usano Azure Resource Manager di modelli per creare ed eseguire la pipeline di trasferimento. L'interfaccia della riga di comando di Azure viene usata per effettuare il provisioning delle risorse associate, ad esempio i segreti di archiviazione. È consigliabile utilizzare l'interfaccia della riga di comando di Azure versione 2.2.0 o successiva. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
+In questo articolo si usano le distribuzioni Azure Resource Manager modello per creare ed eseguire la pipeline di trasferimento. L'interfaccia della riga di comando di Azure viene usata per effettuare il provisioning delle risorse associate, ad esempio i segreti di archiviazione. È consigliabile l'interfaccia della riga di comando di Azure versione 2.2.0 o successiva. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
 Questa funzionalità è disponibile per il livello di servizio **Premium** del registro contenitori. Per informazioni sui livelli di servizio del registro e sui limiti, vedere [livelli di Registro Azure Container](container-registry-skus.md).
 
@@ -32,10 +32,10 @@ Questa funzionalità è disponibile per il livello di servizio **Premium** del r
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Registri contenitori:** è necessario un registro di origine esistente con elementi da trasferire e un registro di destinazione. Il trasferimento ACR è progettato per lo spostamento tra cloud fisicamente disconnessi. Per i test, i registri di origine e di destinazione possono essere nella stessa sottoscrizione di Azure, in un tenant di Active Directory o in un cloud diverso. 
+* **Registri contenitori:** è necessario un registro di origine esistente con elementi da trasferire e un registro di destinazione. Il trasferimento di ACR è progettato per lo spostamento tra cloud fisicamente disconnessi. A scopo di test, i registri di origine e di destinazione possono essere nella stessa sottoscrizione di Azure, in un tenant di Active Directory o in un cloud diverso. 
 
    Se è necessario creare un registro, vedere Avvio rapido: Creare un registro [contenitori privato usando l'interfaccia](container-registry-get-started-azure-cli.md)della riga di comando di Azure. 
-* **Account di archiviazione:** creare account di archiviazione di origine e di destinazione in una sottoscrizione e in un percorso a scelta. A scopo di test, è possibile usare la stessa sottoscrizione o la stessa sottoscrizione dei registri di origine e di destinazione. Per gli scenari tra cloud, in genere si crea un account di archiviazione separato in ogni cloud. 
+* **Account di archiviazione:** creare account di archiviazione di origine e di destinazione in una sottoscrizione e in un percorso a scelta. A scopo di test, è possibile usare la stessa sottoscrizione o le stesse sottoscrizioni dei registri di origine e di destinazione. Per gli scenari tra cloud, in genere si crea un account di archiviazione separato in ogni cloud. 
 
   Se necessario, creare gli account di archiviazione con l'interfaccia della riga [di comando](../storage/common/storage-account-create.md?tabs=azure-cli) di Azure o altri strumenti. 
 
@@ -60,15 +60,15 @@ Creare le tre risorse della pipeline seguenti per il trasferimento di immagini t
 
 L'autenticazione di archiviazione usa token di firma di accesso condiviso, gestiti come segreti negli insiemi di credenziali delle chiavi. Le pipeline usano le identità gestite per leggere i segreti negli insiemi di credenziali.
 
-* **[ExportPipeline:](#create-exportpipeline-with-resource-manager)** risorsa di lunga durata che contiene informazioni di alto livello sul registro *di* origine e sull'account di archiviazione. Queste informazioni includono l'URI del contenitore BLOB di archiviazione di origine e l'insieme di credenziali delle chiavi che gestisce il token di firma di accesso condiviso di origine. 
-* **[ImportPipeline:](#create-importpipeline-with-resource-manager)** risorsa di lunga durata che contiene informazioni di alto livello sul registro *di* destinazione e sull'account di archiviazione. Queste informazioni includono l'URI del contenitore BLOB di archiviazione di destinazione e l'insieme di credenziali delle chiavi che gestisce il token di firma di accesso condiviso di destinazione. Un trigger di importazione è abilitato per impostazione predefinita, quindi la pipeline viene eseguita automaticamente quando un BLOB di artefatto viene inserito nel contenitore di archiviazione di destinazione. 
+* **[ExportPipeline:](#create-exportpipeline-with-resource-manager)** risorsa di lunga durata che contiene  informazioni generali sul registro di origine e sull'account di archiviazione. Queste informazioni includono l'URI del contenitore BLOB di archiviazione di origine e l'insieme di credenziali delle chiavi che gestisce il token di firma di accesso condiviso di origine. 
+* **[ImportPipeline:](#create-importpipeline-with-resource-manager)** risorsa di lunga durata che contiene  informazioni generali sul registro di destinazione e sull'account di archiviazione. Queste informazioni includono l'URI del contenitore BLOB di archiviazione di destinazione e l'insieme di credenziali delle chiavi che gestisce il token di firma di accesso condiviso di destinazione. Un trigger di importazione è abilitato per impostazione predefinita, quindi la pipeline viene eseguita automaticamente quando un BLOB di artefatti viene inserito nel contenitore di archiviazione di destinazione. 
 * **[PipelineRun:](#create-pipelinerun-for-export-with-resource-manager)** risorsa usata per richiamare una risorsa ExportPipeline o ImportPipeline.  
-  * Eseguire exportPipeline manualmente creando una risorsa PipelineRun e specificando gli elementi da esportare.  
-  * Se è abilitato un trigger di importazione, ImportPipeline viene eseguito automaticamente. Può anche essere eseguito manualmente usando pipelineRun. 
+  * Per eseguire ExportPipeline manualmente, creare una risorsa PipelineRun e specificare gli artefatti da esportare.  
+  * Se è abilitato un trigger di importazione, ImportPipeline viene eseguito automaticamente. Può anche essere eseguito manualmente usando PipelineRun. 
   * Attualmente è possibile **trasferire un massimo di 50 artefatti** con ogni PipelineRun.
 
 ### <a name="things-to-know"></a>Informazioni importanti
-* ExportPipeline e ImportPipeline si trovano in genere in tenant di Active Directory diversi associati ai cloud di origine e di destinazione. Questo scenario richiede identità gestite separate e insiemi di credenziali delle chiavi per le risorse di esportazione e importazione. A scopo di test, queste risorse possono essere inserite nello stesso cloud, condividendo le identità.
+* ExportPipeline e ImportPipeline si trovano in genere in tenant di Active Directory diversi associati ai cloud di origine e di destinazione. Questo scenario richiede identità gestite e insiemi di credenziali delle chiavi separati per l'esportazione e l'importazione delle risorse. A scopo di test, queste risorse possono essere inserite nello stesso cloud, condividendo le identità.
 * Per impostazione predefinita, i modelli ExportPipeline e ImportPipeline consentono a un'identità gestita assegnata dal sistema di accedere ai segreti dell'insieme di credenziali delle chiavi. I modelli ExportPipeline e ImportPipeline supportano anche un'identità assegnata dall'utente specificata. 
 
 ## <a name="create-and-store-sas-keys"></a>Creare e archiviare chiavi di firma di accesso condiviso
@@ -79,7 +79,7 @@ Il trasferimento usa token di firma di accesso condiviso per accedere agli accou
 
 Eseguire il [comando az storage container generate-sas][az-storage-container-generate-sas] per generare un token di firma di accesso condiviso per il contenitore nell'account di archiviazione di origine, usato per l'esportazione degli artefatti.
 
-*Autorizzazioni di token consigliate:* Lettura, Scrittura, Elenco, Aggiungi. 
+*Autorizzazioni token consigliate:* Lettura, Scrittura, Elenco, Aggiungi. 
 
 Nell'esempio seguente l'output del comando viene assegnato alla EXPORT_SAS di ambiente, preceduta dal carattere '?'. Aggiornare il `--expiry` valore per l'ambiente:
 
@@ -135,7 +135,7 @@ az keyvault secret set \
 
 ## <a name="create-exportpipeline-with-resource-manager"></a>Creare ExportPipeline con Resource Manager
 
-Creare una risorsa ExportPipeline per il registro contenitori di origine usando Azure Resource Manager distribuzione del modello.
+Creare una risorsa ExportPipeline per il registro contenitori di origine usando Azure Resource Manager modello.
 
 Copiare ExportPipeline Resource Manager [file modello](https://github.com/Azure/acr/tree/master/docs/image-transfer/ExportPipelines) in una cartella locale.
 
@@ -155,7 +155,7 @@ La `options` proprietà per le pipeline di esportazione supporta valori booleani
 
 |Parametro  |Valore  |
 |---------|---------|
-|opzioni | OverwriteBlobs - Sovrascrivere i BLOB di destinazione esistenti<br/>ContinueOnErrors: continua l'esportazione degli artefatti rimanenti nel registro di origine se l'esportazione di un elemento non riesce.
+|opzioni | OverwriteBlobs - Sovrascrivere i BLOB di destinazione esistenti<br/>ContinueOnErrors: continua l'esportazione degli artefatti rimanenti nel registro di origine se l'esportazione di un artefatto non riesce.
 
 ### <a name="create-the-resource"></a>Creare la risorsa
 
@@ -220,13 +220,13 @@ La `options` proprietà per la pipeline di importazione supporta valori booleani
 
 |Parametro  |Valore  |
 |---------|---------|
-|opzioni | OverwriteTags : sovrascrive i tag di destinazione esistenti<br/>DeleteSourceBlobOnSuccess: eliminare il BLOB di archiviazione di origine dopo l'importazione nel Registro di sistema di destinazione<br/>ContinueOnErrors: continua l'importazione degli artefatti rimanenti nel registro di destinazione se l'importazione di un artefatto non riesce.
+|opzioni | OverwriteTags : sovrascrive i tag di destinazione esistenti<br/>DeleteSourceBlobOnSuccess: eliminare il BLOB di archiviazione di origine dopo aver completato l'importazione nel Registro di sistema di destinazione<br/>ContinueOnErrors: continuare l'importazione degli artefatti rimanenti nel Registro di sistema di destinazione se un'importazione di artefatti ha esito negativo.
 
 ### <a name="create-the-resource"></a>Creare la risorsa
 
 Eseguire [az deployment group create][az-deployment-group-create] per creare una risorsa denominata *importPipeline,* come illustrato negli esempi seguenti. Per impostazione predefinita, con la prima opzione, il modello di esempio abilita un'identità assegnata dal sistema nella risorsa ImportPipeline. 
 
-Con la seconda opzione è possibile fornire alla risorsa un'identità assegnata dall'utente. La creazione dell'identità assegnata dall'utente non viene visualizzata.
+Con la seconda opzione, è possibile fornire alla risorsa un'identità assegnata dall'utente. La creazione dell'identità assegnata dall'utente non viene visualizzata.
 
 Con entrambe le opzioni, il modello configura l'identità per accedere al token di firma di accesso condiviso nell'insieme di credenziali delle chiavi di importazione. 
 
@@ -378,7 +378,7 @@ az acr repository list --name <target-registry-name>
 
 ## <a name="redeploy-pipelinerun-resource"></a>Ridistribuire la risorsa PipelineRun
 
-Se si ridistribuisce una risorsa PipelineRun con *proprietà identiche,* è necessario sfruttare la **proprietà forceUpdateTag.** Questa proprietà indica che la risorsa PipelineRun deve essere ricreata anche se la configurazione non è stata modificata. Assicurarsi che forceUpdateTag sia diverso ogni volta che si ridistribuisce la risorsa PipelineRun. L'esempio seguente ricrea un oggetto PipelineRun per l'esportazione. Il valore datetime corrente viene usato per impostare forceUpdateTag, assicurando così che questa proprietà sia sempre univoca.
+Se si ridistribuisce una risorsa PipelineRun con *proprietà identiche,* è necessario sfruttare la **proprietà forceUpdateTag.** Questa proprietà indica che la risorsa PipelineRun deve essere ricreata anche se la configurazione non è stata modificata. Assicurarsi che forceUpdateTag sia diverso ogni volta che si ridistribuisce la risorsa PipelineRun. Nell'esempio seguente viene ricreato un oggetto PipelineRun per l'esportazione. Il valore datetime corrente viene usato per impostare forceUpdateTag, assicurando così che questa proprietà sia sempre univoca.
 
 ```console
 CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
@@ -416,15 +416,21 @@ az resource delete \
 * **Distribuzione modelli errori o errori**
   * Se un'esecuzione della pipeline ha esito negativo, `pipelineRunErrorMessage` esaminare la proprietà della risorsa di esecuzione.
   * Per gli errori comuni di distribuzione dei modelli, vedere [Risolvere i problemi relativi alle distribuzioni di modelli di Arm](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)
+* **Problemi di accesso all'archiviazione**<a name="problems-accessing-storage"></a>
+  * Se viene visualizzato un errore dall'archiviazione, è probabile che si `403 Forbidden` sia verificato un problema con il token di firma di accesso condiviso.
+  * Il token di firma di accesso condiviso potrebbe non essere attualmente valido. Il token di firma di accesso condiviso potrebbe essere scaduto o le chiavi dell'account di archiviazione potrebbero essere state modificate dopo la creazione del token di firma di accesso condiviso. Verificare che il token di firma di accesso condiviso sia valido provando a usare il token di firma di accesso condiviso per l'autenticazione per l'accesso al contenitore dell'account di archiviazione. Ad esempio, inserire un endpoint BLOB esistente seguito dal token di firma di accesso condiviso nella barra degli indirizzi di una nuova finestra Microsoft Edge InPrivate o caricare un BLOB nel contenitore con il token di firma di accesso condiviso usando `az storage blob upload` .
+  * Il token di firma di accesso condiviso potrebbe non avere tipi di risorse consentiti sufficienti. Verificare che al token di firma di accesso condiviso siano state concesse le autorizzazioni per il servizio, il contenitore e l'oggetto in Tipi di risorse consentiti ( `srt=sco` nel token di firma di accesso condiviso).
+  * Il token di firma di accesso condiviso potrebbe non avere autorizzazioni sufficienti. Per le pipeline di esportazione, le autorizzazioni necessarie per il token di firma di accesso condiviso sono Lettura, Scrittura, Elenco e Aggiungi. Per le pipeline di importazione, le autorizzazioni necessarie per i token di firma di accesso condiviso sono Lettura, Eliminazione ed Elenco. L'autorizzazione Elimina è necessaria solo se per la pipeline di importazione è `DeleteSourceBlobOnSuccess` abilitata l'opzione .
+  * Il token di firma di accesso condiviso potrebbe non essere configurato per funzionare solo con HTTPS. Verificare che il token di firma di accesso condiviso sia configurato per funzionare solo con HTTPS ( `spr=https` nel token di firma di accesso condiviso).
 * **Problemi relativi all'esportazione o all'importazione di BLOB di archiviazione**
-  * Il token di firma di accesso condiviso potrebbe essere scaduto o avere autorizzazioni insufficienti per l'esportazione o l'esecuzione dell'importazione specificata
-  * Il BLOB di archiviazione esistente nell'account di archiviazione di origine potrebbe non essere sovrascritto durante più esecuzioni di esportazione. Verificare che l'opzione OverwriteBlob sia impostata nell'esecuzione dell'esportazione e che il token di firma di accesso condiviso disponga di autorizzazioni sufficienti.
-  * Il BLOB di archiviazione nell'account di archiviazione di destinazione potrebbe non essere eliminato dopo l'esecuzione dell'importazione. Verificare che l'opzione DeleteBlobOnSuccess sia impostata nell'esecuzione dell'importazione e che il token di firma di accesso condiviso disponga di autorizzazioni sufficienti.
-  * BLOB di archiviazione non creato o eliminato. Verificare che il contenitore specificato nell'esecuzione di esportazione o importazione esista o che il BLOB di archiviazione specificato esista per l'esecuzione manuale dell'importazione. 
+  * È possibile che il token di firma di accesso condiviso non sia valido o che le autorizzazioni per l'esportazione o l'importazione specificate non siano sufficienti. Vedere Problemi [di accesso all'archiviazione.](#problems-accessing-storage)
+  * Il BLOB di archiviazione esistente nell'account di archiviazione di origine potrebbe non essere sovrascritto durante più esecuzioni dell'esportazione. Verificare che l'opzione OverwriteBlob sia impostata nell'esecuzione dell'esportazione e che il token di firma di accesso condiviso disponga di autorizzazioni sufficienti.
+  * Il BLOB di archiviazione nell'account di archiviazione di destinazione potrebbe non essere eliminato al termine dell'importazione. Verificare che l'opzione DeleteBlobOnSuccess sia impostata nell'esecuzione dell'importazione e che il token di firma di accesso condiviso disponga di autorizzazioni sufficienti.
+  * BLOB di archiviazione non creato o eliminato. Verificare che il contenitore specificato nell'esportazione o nell'importazione esista o che il BLOB di archiviazione specificato esista per l'importazione manuale. 
 * **Problemi di AzCopy**
-  * Vedere [Risolvere i problemi di AzCopy](../storage/common/storage-use-azcopy-configure.md).  
-* **Problemi di trasferimento degli artefatti**
-  * Non tutti gli artefatti, o nessuno, vengono trasferiti. Verificare l'ortografia degli elementi nell'esecuzione dell'esportazione e il nome del BLOB nelle esecuzioni di esportazione e importazione. Verificare di trasferire un massimo di 50 artefatti.
+  * Vedere [Risolvere i problemi di AzCopy.](../storage/common/storage-use-azcopy-configure.md)  
+* **Problemi di trasferimento degli elementi**
+  * Non vengono trasferiti tutti gli artefatti o nessuno. Verificare l'ortografia degli elementi nell'esecuzione dell'esportazione e il nome del BLOB nelle esecuzioni di esportazione e importazione. Verificare di trasferire un massimo di 50 artefatti.
   * L'esecuzione della pipeline potrebbe non essere stata completata. Un'esecuzione di esportazione o importazione può richiedere del tempo. 
   * Per altri problemi relativi alla pipeline, specificare [l'ID](../azure-resource-manager/templates/deployment-history.md) di correlazione della distribuzione dell'esecuzione dell'esportazione o dell'importazione nel team Registro Azure Container lavoro.
 * **Problemi durante il pull dell'immagine in un ambiente fisicamente isolato**

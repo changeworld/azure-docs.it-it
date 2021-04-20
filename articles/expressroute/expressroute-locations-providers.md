@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 033ffb6e274432c5398779ba3e3226c626c10ce8
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 5972e95425513e789725ed8de142c721d58011f3
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107496708"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739927"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -42,8 +42,8 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | **Area geopolitica** | **Aree di Azure** | **Località per ExpressRoute** |
 | --- | --- | --- |
 | **Australia Government** | Australia centrale, Australia centrale 2 |Canberra, Canberra2 |
-| **Europa** | Francia centrale, Francia meridionale, Germania settentrionale, Germania centro-occidentale, Europa settentrionale, Norvegia orientale, Norvegia occidentale, Svizzera settentrionale, Svizzera occidentale, Regno Unito occidentale, Regno Unito meridionale, Europa occidentale |Amsterdam, Amsterdam2, Berlino, Dublino, Dublino, Francoforte2, Parigi, Londra, Londra2, Parigi, Marsiglia, Milano, Monaco, Newport(Galles), Dublino, Parigi, Stavanger, Amsterdam, Zurich |
-| **America del Nord** | Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Canada centrale, Canada orientale |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, Montreal, New York, Phoenix, Quebec City, Queretaro(Mexico), Quincy, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Toronto, Toronto2, Vancouver, Washington DC, Washington DC2 |
+| **Europa** | Francia centrale, Francia meridionale, Germania settentrionale, Germania centro-occidentale, Europa settentrionale, Norvegia orientale, Norvegia occidentale, Svizzera settentrionale, Svizzera occidentale, Regno Unito occidentale, Regno Unito meridionale, Europa occidentale |Amsterdam, Amsterdam2, Dublino, Dublino, Svizzera, Svizzera2, Svizzera, Londra, Londra2, Svizzera, Marsiglia, Svizzera, Svizzera, Newport (Svizzera), Svizzera, Parigi, Stavanger, Svizzera, Zurich |
+| **America del Nord** | Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Canada centrale, Canada orientale |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, Montreal, New York, Phoenix, Quebec City, Queretaro (Messico), Quincy, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Toronto, Toronto2, Washington DC, Washington DC2 |
 | **Asia** | Asia orientale, Asia sudorientale | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **India** | India occidentale, India centrale, India Meridionale |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Giappone** | Giappone occidentale, Giappone orientale |Osaka, Tokyo, Tokyo2 |
@@ -51,7 +51,7 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | **Corea del Sud** | Corea centrale, Corea meridionale |Busan, Seoul|
 | **Emirati Arabi Uniti** | Emirati Arabi centrali, Emirati Arabi settentrionali | Dubai, Dubai2 |
 | **Sud Africa** | Sudafrica occidentale, Sudafrica settentrionale |Città del Capo, Johannesburg |
-| **America del Sud** | Brasile meridionale |Bogota, Rio de Janeiro, San Paolo |
+| **America del Sud** | Brasile meridionale |Bogota, Rio de Bogo, Sao Paulo |
 
 ## <a name="azure-regions-and-geopolitical-boundaries-for-national-clouds"></a>Aree di Azure e confini geopolitici per cloud nazionali
 Nella tabella seguente vengono fornite informazioni su aree e confini geopolitici per cloud nazionali.
@@ -98,8 +98,8 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | Emirati Arabi Uniti settentrionali | n/d | DE-CIX, du datamena, Equinix, Megaport, Orange, Orixcom |
 | **Dublino** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Europa settentrionale | 10 G, 100 G | CenturyLink Cloud Connect, Colt, eir, Equinix, GEANT, euNetworks, Interxion, Megaport |
 | **Francoforte** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Germania centro-occidentale | 10 G, 100 G | AT&T NetBond, CenturyLink Cloud Connect, Colt, DE-CIX, Equinix, euNetworks, GEANT, InterCloud, Interxion, Megaport, Orange, Telia Carrier, T-Systems |
-| **Francoforte 2** | [Equinix FR7](https://www.equinix.com/locations/europe-colocation/germany-colocation/frankfurt-data-centers/fr7/) | 1 | Germania centro-occidentale | 10 G, 100 G | Equinix |
-| **Ginevra** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Svizzera occidentale | 10 G, 100 G | Equinix, Megaport, Swisscom |
+| **Esere 2** | [Equinix FR7](https://www.equinix.com/locations/europe-colocation/germany-colocation/frankfurt-data-centers/fr7/) | 1 | Germania centro-occidentale | 10 G, 100 G | Equinix |
+| **Ginevra** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Svizzera occidentale | 10 G, 100 G | Equinix, Megaport,Federazionecom |
 | **RAS di Hong Kong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Asia orientale | 10 G | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, China Unicom, Colt, Equinix, InterCloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Hong Kong2** | [iAdvantage MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | Asia orientale | 10 G | China Mobile International, China Telecom Global, iAdvantage, Megaport, PCCW Global Limited, SingTel |
 | **Giacarta** | Telin, Telkom Indonesia | 4 | n/d | 10 G | Telin |
@@ -173,12 +173,12 @@ I cloud nazionali di Azure sono isolati tra loro e da Azure commerciale globale.
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD (area orientale), US Gov Virginia | 10 G, 100 G | AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### <a name="china"></a>Cina
-| **Posizione** | **Provider di servizi** |
-| --- | --- |
-| **Pechino** |China Telecom |
-| **Beijing2** | China Telecom, China Unicom, GDS |
-| **Shanghai** |China Telecom |
-| **Shanghai2** | China Telecom, China Unicom, GDS |
+| **Posizione** | **Indirizzo** | **Aree di Azure locali** | **ER Direct** | **Provider di servizi** |
+| --- | --- | --- | --- | --- |
+| **Pechino** | China Telecom | n/d | 10 G | China Telecom |
+| **Beijing2** | GDS | n/d | 10 G | China Telecom, China Unicom, GDS |
+| **Shanghai** | China Telecom | n/d | 10 G | China Telecom |
+| **Shanghai2** | GDS | n/d | 10 G | China Telecom, China Unicom, GDS |
 
 Per altre informazioni, vedere [ExpressRoute in Cina](http://www.windowsazure.cn/home/features/expressroute/)
 

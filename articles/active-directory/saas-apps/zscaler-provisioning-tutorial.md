@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 9f368a4aebc4d5de38ebbab800241366650633e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92553e9d598823ee1b812a4f07480dec380b2490
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936584"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739423"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zscaler per il provisioning utenti automatico
 
@@ -76,6 +76,10 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 ## <a name="configuring-automatic-user-provisioning-to-zscaler"></a>Configurazione del provisioning utenti automatico in Zscaler
 
 Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Zscaler in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+
+
+> [!NOTE]
+> Aprire un [ticket di](https://help.zscaler.com/) supporto per creare un dominio in Zscaler.
 
 > [!TIP]
 > È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per Zscaler, seguendo le istruzioni contenute nell'[esercitazione sull'accesso Single Sign-On per Zscaler](zscaler-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.

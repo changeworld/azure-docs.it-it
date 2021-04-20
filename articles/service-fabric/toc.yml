@@ -138,7 +138,7 @@
       href: service-fabric-application-scenarios.md
     - name: Architecture
       href: service-fabric-architecture.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Sicurezza di Service Fabric
           href: service-fabric-best-practices-security.md
@@ -356,6 +356,8 @@
               href: service-fabric-cluster-resource-manager-movement-cost.md
             - name: Ridimensionamento automatico dei servizi
               href: service-fabric-cluster-resource-manager-autoscaling.md
+            - name: Assegnazione di tag ai nodi
+              href: service-fabric-cluster-resource-manager-node-tagging.md
     - name: Monitoraggio e diagnostica
       items:
         - name: Panoramica del monitoraggio
@@ -446,9 +448,9 @@
           href: how-to-managed-cluster-vmss-extension.md
         - name: Configurare il cluster gestito
           href: how-to-managed-cluster-configuration.md
-        - name: Aggiungere regole NSG e altre opzioni di rete gestite del cluster
+        - name: Aggiungere regole del gruppo di sicurezza di rete e altre opzioni di rete del cluster gestito
           href: how-to-managed-cluster-networking.md
-        - name: Distribuire applicazioni cluster gestite usando il modello ARM
+        - name: Distribuire applicazioni cluster gestite con il modello di Gestione risorse di Microsoft Windows
           href: how-to-managed-cluster-app-deployment-template.md
         - name: Abilitare la crittografia del disco per i nodi del cluster gestito
           href: how-to-enable-managed-cluster-disk-encryption.md
@@ -502,7 +504,7 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: Aggiornamento
               items:
-                - name: Gestire gli aggiornamenti del cluster Service Fabric
+                - name: Gestire Service Fabric aggiornamenti del cluster
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: Aggiornare la configurazione dei cluster
                   href: service-fabric-cluster-config-upgrade-azure.md

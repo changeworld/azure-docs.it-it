@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: c4861192c7f2bbfb2a51e19b88daee45b501949b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 741cd68145b262c1f200ced9a7f28b25673b6925
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634771"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738919"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -72,7 +72,7 @@ Centro sicurezza consente di **identificare sottoscrizioni shadow IT**. Esaminan
 
 ### <a name="continuous-assessments"></a>Valutazioni continue
 
-Centro sicurezza individua continuamente le nuove risorse distribuite tra i carichi di lavoro e consente di valutare se sono configurate in base alle procedure ottimali di protezione; in caso contrario, vengono contrassegnate e viene restituito un elenco in ordine di priorità delle raccomandazioni sulle risorse da correggere per proteggere i computer. Questo elenco di raccomandazioni è abilitato e supportato dal [benchmark di sicurezza di Azure](../security/benchmarks/introduction.md), il set di linee guida per la sicurezza e la conformità di Azure, creato da Microsoft, per le procedure consigliate per la sicurezza e la conformità basate su Framework di conformità comuni. Questo benchmark ampiamente rispettato si basa sui controlli di [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
+Centro sicurezza individua continuamente le nuove risorse distribuite tra i carichi di lavoro e consente di valutare se sono configurate in base alle procedure ottimali di protezione; in caso contrario, vengono contrassegnate e viene restituito un elenco in ordine di priorità delle raccomandazioni sulle risorse da correggere per proteggere i computer. Questo elenco di raccomandazioni è abilitato e supportato da [Azure Security Benchmark,](https://docs.microsoft.com/security/benchmark/azure/introduction)il set di linee guida specifico di Azure creato da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. Questo benchmark ampiamente rispettato si basa sui controlli del [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e del National Institute of Standards and Technology [(NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
 
 Per consentire agli utenti di comprendere l'importanza delle singole raccomandazioni ai fini del comportamento di sicurezza complessivo, Centro sicurezza raggruppa le raccomandazioni in controlli di sicurezza e aggiunge a ogni controllo un valore che indica il **punteggio di sicurezza**. Si tratta di una funzionalità essenziale per **classificare in ordine di priorità gli interventi di sicurezza**.
 
@@ -101,11 +101,11 @@ La protezione dalle minacce di Centro sicurezza consente di rilevare ed evitare 
 
 La protezione dalle minacce di Centro sicurezza include un’analisi unificata della catena di attacco che genera automaticamente avvisi nell’ambiente per comprendere meglio la storia completa di una campagna di attacco, da dove è iniziata e che tipo di impatto ha avuto sulle risorse.
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Elenco degli avvisi di sicurezza del Centro sicurezza di Azure":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Centro sicurezza di Azure degli avvisi di sicurezza del servizio":::
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integrazione con Microsoft Defender per endpoint
 
-Azure Defender per server include l'integrazione nativa automatica con Microsoft Defender per endpoint. Scopri di più, [Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per l'endpoint](security-center-wdatp.md)
+Azure Defender per i server include l'integrazione nativa automatica con Microsoft Defender per Endpoint. Per altre informazioni, proteggere gli endpoint con la soluzione EDR integrata del Centro [sicurezza: Microsoft Defender per endpoint](security-center-wdatp.md)
 
 
 ### <a name="protect-paas"></a>Protezione di PaaS

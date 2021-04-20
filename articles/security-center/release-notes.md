@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 04/11/2021
 ms.author: memildin
-ms.openlocfilehash: bb79bbe918bb1a68b982ae4d44739c2c77a11434
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 5f94b17fac17a7238b3f4b7eef218961df7a42d5
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719152"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739963"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -28,43 +28,43 @@ Per informazioni sulle modifiche *pianificate* che saranno presto disponibili ne
 ## <a name="april-2021"></a>Aprile 2021
 
 Gli aggiornamenti del mese di aprile includono quanto segue:
-- [Le immagini del registro contenitori di cui è stato estratto di recente vengono ora riscanizzate settimanalmente (disponibilità generale)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
+- [Le immagini del registro contenitori di cui è stato recentemente estratto vengono ora rieguite l'analisi settimanalmente (disponibilità generale)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Usare Azure Defender per Kubernetes per proteggere le distribuzioni ibride e multi-cloud di Kubernetes (anteprima)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
 - [Quattro nuove raccomandazioni relative alla configurazione guest (anteprima)](#four-new-recommendations-related-to-guest-configuration-preview)
-- [Raccomandazioni CMK spostate al controllo di sicurezza delle procedure consigliate](#cmk-recommendations-moved-to-best-practices-security-control)
+- [Le raccomandazioni della CMK sono passate al controllo di sicurezza delle procedure consigliate](#cmk-recommendations-moved-to-best-practices-security-control)
 - [11 avvisi Azure Defender deprecati](#11-azure-defender-alerts-deprecated)
 - [Due raccomandazioni del controllo di sicurezza "Applica aggiornamenti di sistema" sono state deprecate](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 
-### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Le immagini del registro contenitori di cui è stato estratto di recente vengono ora riscanizzate settimanalmente (disponibilità generale)
+### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Le immagini del registro contenitori di cui è stato recentemente estratto vengono ora rieguite l'analisi settimanalmente (disponibilità generale)
 
-Azure Defender per i registri contenitori include uno scanner di vulnerabilità predefinito. Questo scanner analizza immediatamente qualsiasi immagine di cui si esegue il push nel registro e qualsiasi immagine estratta negli ultimi 30 giorni.
+Azure Defender per i registri contenitori include uno scanner di vulnerabilità incorporato. Questo scanner analizza immediatamente qualsiasi immagine di cui si esegue il push nel registro e qualsiasi immagine estratta negli ultimi 30 giorni.
 
-Nuove vulnerabilità vengono individuate ogni giorno. Con questo aggiornamento, le immagini del contenitore che sono state estrasse dai registri negli ultimi 30 giorni verranno analisi di nuovo **ogni** settimana. Ciò garantisce che le nuove vulnerabilità individuate siano identificate nelle immagini.
+Ogni giorno vengono individuate nuove vulnerabilità. Con questo aggiornamento, le immagini del contenitore che sono state estrasse dai registri durante gli ultimi 30 giorni verranno nuovamente analisi **ogni** settimana. Ciò garantisce che le vulnerabilità appena individuate siano identificate nelle immagini.
 
-La scansione viene addebitata in base all'immagine, quindi non sono addebitati costi aggiuntivi per queste analisi.
+L'analisi viene addebitata in base all'immagine, quindi non sono disponibili costi aggiuntivi per queste analisi.
 
-Per altre informazioni su questo [scanner, vedere Usare Azure Defender registri contenitori](defender-for-container-registries-usage.md)per analizzare le immagini alla ricerca di vulnerabilità.
+Per altre informazioni su questo scanner, vedere Usare Azure Defender registri contenitori per [analizzare le immagini alla ricerca di vulnerabilità.](defender-for-container-registries-usage.md)
 
 
 ### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Usare Azure Defender per Kubernetes per proteggere le distribuzioni ibride e multi-cloud di Kubernetes (anteprima)
 
-Azure Defender per Kubernetes sta espandendo le funzionalità di protezione dalle minacce per proteggere i cluster ovunque siano distribuiti. Questa funzionalità è stata abilitata grazie all'integrazione [con Azure Arc Kubernetes abilitato e](../azure-arc/kubernetes/overview.md) le nuove funzionalità delle [estensioni](../azure-arc/kubernetes/extensions.md). 
+Azure Defender per Kubernetes sta espandendo le funzionalità di protezione dalle minacce per proteggere i cluster ovunque siano distribuiti. Questa funzionalità è stata abilitata grazie [all'integrazione con Azure Arc Kubernetes](../azure-arc/kubernetes/overview.md) abilitato e le nuove funzionalità [delle estensioni](../azure-arc/kubernetes/extensions.md). 
 
-Dopo aver abilitato Azure Arc nei cluster kubernetes non Azure, una nuova raccomandazione di Centro sicurezza di Azure offre di distribuire l'estensione Azure Defender a questi cluster con pochi clic.
+Dopo aver abilitato Azure Arc nei cluster Kubernetes non Azure, una nuova raccomandazione di Centro sicurezza di Azure offre di distribuire l'estensione Azure Defender in questi cluster con pochi clic.
 
-Usare la raccomandazione ( nei cluster Kubernetes abilitati per Azure Arc deve essere installata **l'estensione di Azure Defender) e l'estensione** per proteggere i cluster Kubernetes distribuiti in altri provider di servizi cloud, anche se non nei servizi Kubernetes gestiti.
+Usare la raccomandazione ( nei **cluster Kubernetes** abilitati per Azure Arc deve essere installata l'estensione di Azure Defender ) e l'estensione per proteggere i cluster Kubernetes distribuiti in altri provider di servizi cloud, anche se non nei servizi Kubernetes gestiti.
 
 Questa integrazione tra Centro sicurezza di Azure, Azure Defender e Azure Arc Kubernetes abilitata offre:
 
-- Provisioning semplice dell'estensione Azure Defender in cluster Kubernetes Azure Arc non protetti (manualmente e su larga scala)
+- Provisioning semplice dell'estensione Azure Defender a cluster Kubernetes Azure Arc non protetti (manualmente e su larga scala)
 - Monitoraggio dell'estensione Azure Defender e del relativo stato di provisioning dal portale Azure Arc
 - Le raccomandazioni sulla sicurezza del Centro sicurezza vengono segnalate nella nuova pagina Sicurezza del portale Azure Arc sicurezza
-- Le minacce alla sicurezza Azure Defender vengono segnalate nella nuova pagina Sicurezza del portale Azure Arc
+- Le minacce alla sicurezza identificate Azure Defender vengono segnalate nella nuova pagina Sicurezza del portale Azure Arc
 - Azure Arc cluster Kubernetes abilitati sono integrati nella piattaforma Centro sicurezza di Azure e nell'esperienza
 
-Per altre [informazioni, Azure Defender per Kubernetes usare i cluster Kubernetes locali e multi-cloud.](defender-for-kubernetes-azure-arc.md)
+Per altre [informazioni, vedere Usare Azure Defender per Kubernetes cluster Kubernetes locali e multi-cloud.](defender-for-kubernetes-azure-arc.md)
 
-:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Centro sicurezza di Azure consiglia di distribuire l'estensione Azure Defender per Azure Arc cluster Kubernetes abilitati." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Centro sicurezza di Azure per distribuire l'estensione Azure Defender per Azure Arc cluster Kubernetes abilitati." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 ### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quattro nuove raccomandazioni relative alla configurazione guest (anteprima)
 
@@ -72,27 +72,27 @@ L'estensione [Configurazione guest di](../governance/policy/concepts/guest-confi
 
 Sono state aggiunte quattro nuove raccomandazioni al Centro sicurezza per ottenere il massimo da questa estensione.
 
-- Due raccomandazioni chiede di installare l'estensione e la relativa identità gestita dal sistema richiesta:
-    - **L'estensione Configurazione guest deve essere installata nei computer**
+- Due raccomandazioni consigliano di installare l'estensione e la relativa identità gestita dal sistema necessaria:
+    - **L'estensione configurazione guest deve essere installata nei computer**
     - **L'estensione Configurazione guest delle macchine virtuali deve essere distribuita con l'identità gestita assegnata dal sistema**
 
-- Quando l'estensione è installata e in esecuzione, inizierà a controllare i computer e verrà richiesto di eseguire la protezione avanzata delle impostazioni, ad esempio la configurazione delle impostazioni del sistema operativo e dell'ambiente. Queste due raccomandazioni richiederanno di eseguire la protezione avanzata dei computer Windows e Linux come descritto:
+- Quando l'estensione è installata e in esecuzione, inizierà a controllare i computer e verrà richiesto di eseguire la protezione avanzata delle impostazioni, ad esempio la configurazione del sistema operativo e le impostazioni dell'ambiente. Queste due raccomandazioni richiederanno di eseguire la protezione avanzata dei computer Windows e Linux come descritto:
     - **Windows Defender Exploit Guard deve essere abilitato nei computer**
     - **L'autenticazione nei computer Linux deve richiedere chiavi SSH**
 
-Per altre informazioni, [vedere Informazioni Criteri di Azure configurazione guest di Criteri di Azure.](../governance/policy/concepts/guest-configuration.md)
+Per altre [informazioni, Criteri di Azure della configurazione guest di .](../governance/policy/concepts/guest-configuration.md)
 
-### <a name="cmk-recommendations-moved-to-best-practices-security-control"></a>Raccomandazioni CMK spostate al controllo di sicurezza delle procedure consigliate
+### <a name="cmk-recommendations-moved-to-best-practices-security-control"></a>Le raccomandazioni della CMK sono passate al controllo di sicurezza delle procedure consigliate
 
-Il programma di sicurezza di ogni organizzazione include i requisiti di crittografia dei dati. Per impostazione predefinita, i dati dei clienti di Azure vengono crittografati in stato di inquieto con chiavi gestite dal servizio. Tuttavia, le chiavi gestite dal cliente (CMK) sono comunemente necessarie per soddisfare gli standard di conformità alle normative. I cmk consentono di crittografare i dati [con Azure Key Vault](../key-vault/general/overview.md) chiave creata e di proprietà dell'utente. In questo modo è possibile avere il controllo completo e la responsabilità del ciclo di vita chiave, incluse la rotazione e la gestione.
+Il programma di sicurezza di ogni organizzazione include i requisiti di crittografia dei dati. Per impostazione predefinita, i dati dei clienti di Azure vengono crittografati quando sono in pausa con chiavi gestite dal servizio. Tuttavia, le chiavi gestite dal cliente (CMK) sono in genere necessarie per soddisfare gli standard di conformità alle normative. Le chiavi cmk consentono di crittografare i [dati con Azure Key Vault](../key-vault/general/overview.md) chiave creata e di proprietà dell'utente. In questo modo si ha il controllo completo e la responsabilità del ciclo di vita delle chiavi, incluse la rotazione e la gestione.
 
-Centro sicurezza di Azure di sicurezza sono gruppi logici di raccomandazioni di sicurezza correlate e riflettono le superfici di attacco vulnerabili. Ogni controllo ha un numero massimo di punti che è possibile aggiungere al punteggio di sicurezza se si corredono tutte le raccomandazioni elencate nel controllo, per tutte le risorse. Il **controllo di sicurezza Implementa procedure consigliate per** la sicurezza vale zero punti. Pertanto, le raccomandazioni in questo controllo non influiscono sul punteggio di sicurezza.
+Centro sicurezza di Azure di sicurezza del dispositivo sono gruppi logici di raccomandazioni sulla sicurezza correlate e riflettono le superfici di attacco vulnerabili. Ogni controllo ha un numero massimo di punti che è possibile aggiungere al punteggio di sicurezza se si corredono tutte le raccomandazioni elencate nel controllo, per tutte le risorse. Il **controllo di sicurezza Implementa procedure consigliate** per la sicurezza vale zero punti. Pertanto, le raccomandazioni in questo controllo non influiscono sul punteggio di sicurezza.
 
-Le raccomandazioni elencate di seguito vengono spostate nel controllo di sicurezza Implementare le **procedure di** sicurezza consigliate per riflettere meglio la natura facoltativa. Questo spostamento garantisce che queste raccomandazioni siano nel controllo più appropriato per soddisfare l'obiettivo.
+Le raccomandazioni elencate di seguito vengono spostate nel controllo di sicurezza Implementa procedure **consigliate** per la sicurezza per riflettere meglio la loro natura facoltativa. Questo spostamento garantisce che queste raccomandazioni siano nel controllo più appropriato per soddisfare l'obiettivo.
 
 - Gli account Azure Cosmos DB devono usare chiavi gestite dal cliente per la crittografia dei dati inattivi
 - Le aree di lavoro di Azure Machine Learning devono essere crittografate con una chiave gestita dal cliente
-- Gli account di Servizi cognitivi devono abilitare la crittografia dei dati con una chiave gestita dal cliente (CMK)
+- Gli account servizi cognitivi devono abilitare la crittografia dei dati con una chiave gestita dal cliente
 - I registri contenitori devono essere crittografati con una chiave gestita dal cliente
 - Le istanze gestite di SQL devono usare chiavi gestite dal cliente per la crittografia dei dati inattivi
 - I server SQL devono usare chiavi gestite dal cliente per la crittografia dei dati inattivi
@@ -103,9 +103,9 @@ Per informazioni sulle raccomandazioni disponibili in ogni controllo di sicurezz
 
 ### <a name="11-azure-defender-alerts-deprecated"></a>11 avvisi Azure Defender deprecati
 
-Gli 11 Azure Defender elencati di seguito sono stati deprecati.
+Gli 11 Azure Defender avvisi elencati di seguito sono stati deprecati.
 
-- I nuovi avvisi sostituiranno questi due avvisi e offriranno una migliore copertura:
+- I nuovi avvisi sostituiranno questi due avvisi e forniranno una copertura migliore:
 
     | AlertType                | AlertDisplayName                                                         |
     |--------------------------|--------------------------------------------------------------------------|
@@ -117,7 +117,7 @@ Gli 11 Azure Defender elencati di seguito sono stati deprecati.
 
     | AlertType           | AlertDisplayName              |
     |---------------------|-------------------------------|
-    | Non familiareRilevazione  | Proprietà di accesso insolite |
+    | UnfamiliarLocation  | Proprietà di accesso insolite |
     | AnonymousLogin      | Indirizzo IP anonimo          |
     | InfectedDeviceLogin | Indirizzo IP collegato a malware     |
     | ImpossibleTravel    | Spostamento fisico atipico               |
@@ -129,7 +129,7 @@ Gli 11 Azure Defender elencati di seguito sono stati deprecati.
     |                     |                               |
  
     > [!TIP]
-    > Questi nove avvisi IPC non sono mai stati avvisi del Centro sicurezza. Fanno parte del connettore Azure Active Directory (AAD) Identity Protection (IPC) che li inviava al Centro sicurezza. Negli ultimi due anni, gli unici clienti che hanno visualizzato tali avvisi sono le organizzazioni che hanno configurato l'esportazione (dal connettore al certificato del servizio di configurazione) nel 2019 o versioni precedenti. AAD IPC ha continuato a mostrarle nei propri sistemi di avvisi e sono ancora disponibili in Azure Sentinel. L'unica modifica è che non vengono più visualizzate nel Centro sicurezza.
+    > Questi nove avvisi IPC non sono mai stati avvisi del Centro sicurezza. Fanno parte del connettore Azure Active Directory (AAD) Identity Protection (IPC) che li inviava al Centro sicurezza. Negli ultimi due anni, gli unici clienti che hanno visualizzato tali avvisi sono le organizzazioni che hanno configurato l'esportazione (dal connettore al certificato del servizio di configurazione) nel 2019 o versioni precedenti. AAD IPC ha continuato a mostrarle nei propri sistemi di avvisi e sono continuate a essere disponibili in Azure Sentinel. L'unica modifica è che non vengono più visualizzate nel Centro sicurezza.
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-were-deprecated"></a>Due raccomandazioni del controllo di sicurezza "Applica aggiornamenti di sistema" sono state deprecate 
 
@@ -163,9 +163,9 @@ Quando si apre il Centro sicurezza di Azure, la prima pagina che viene visualizz
 
 Questo dashboard interattivo offre una visualizzazione unificata delle prestazioni di sicurezza dei carichi di lavoro cloud ibridi. Mostra inoltre avvisi di sicurezza, informazioni sulla copertura e altri dettagli.
 
-Nell'ambito della visualizzazione dello stato di sicurezza da un'esperienza centrale, l'Gestione firewall di Azure in questo dashboard. È ora possibile controllare lo stato di copertura del firewall in tutte le reti e gestire centralmente Firewall di Azure criteri a partire dal Centro sicurezza.
+Nell'ambito della visualizzazione dello stato di sicurezza da un'esperienza centrale, il Gestione firewall di Azure è stato integrato in questo dashboard. È ora possibile controllare lo stato di copertura del firewall in tutte le reti e gestire centralmente Firewall di Azure criteri a partire dal Centro sicurezza.
 
-Per altre informazioni su questo [dashboard, Centro sicurezza di Azure pagina di panoramica di](overview-page.md).
+Altre informazioni su questo dashboard [sono Centro sicurezza di Azure pagina di panoramica di](overview-page.md).
 
 :::image type="content" source="media/release-notes/overview-dashboard-firewall-manager.png" alt-text="Dashboard panoramica del Centro sicurezza con un riquadro per Firewall di Azure":::
 
@@ -176,7 +176,7 @@ Il Centro sicurezza include uno scanner di vulnerabilità predefinito che consen
 
 Se l'organizzazione deve ignorare un risultato invece di correggerlo, è possibile disabilitarlo facoltativamente. I risultati disabilitati non influiscono sul punteggio di sicurezza e non generano elementi non significativi.
 
-Per altre informazioni, vedere [Disabilitare risultati specifici.](defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview)
+Per altre informazioni, [vedere Disabilitare risultati specifici.](defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview)
 
 
 
@@ -184,13 +184,13 @@ Per altre informazioni, vedere [Disabilitare risultati specifici.](defender-for-
 
 Come parte di Ignite Spring 2021, è stata annunciata un'esperienza integrata Monitoraggio di Azure Workbooks nel Centro sicurezza.
 
-È possibile sfruttare la nuova integrazione per iniziare a usare i modelli predefiniti dalla raccolta del Centro sicurezza. Usando i modelli di cartella di lavoro, è possibile accedere e creare report dinamici e visivi per tenere traccia del comportamento di sicurezza dell'organizzazione. È anche possibile creare nuove cartelle di lavoro basate sui dati del Centro sicurezza o su qualsiasi altro tipo di dati supportato e distribuire rapidamente le cartelle di lavoro della community dalla community GitHub del Centro sicurezza.
+È possibile sfruttare la nuova integrazione per iniziare a usare i modelli predefiniti dalla raccolta del Centro sicurezza. Usando i modelli di cartella di lavoro, è possibile accedere e creare report dinamici e visivi per tenere traccia del comportamento di sicurezza dell'organizzazione. È anche possibile creare nuove cartelle di lavoro basate sui dati del Centro sicurezza o su qualsiasi altro tipo di dati supportato e distribuire rapidamente cartelle di lavoro della community dalla community GitHub del Centro sicurezza.
 
 Sono disponibili tre report di modelli:
 
 - **Punteggio di sicurezza nel tempo:** tenere traccia dei punteggi delle sottoscrizioni e delle modifiche alle raccomandazioni per le risorse
 - **Aggiornamenti del sistema-** Visualizzare gli aggiornamenti di sistema mancanti in base a risorse, sistema operativo, gravità e altro ancora
-- **Risultati della valutazione della vulnerabilità-** Visualizzare i risultati delle analisi delle vulnerabilità delle risorse di Azure
+- **Risultati della valutazione della** vulnerabilità- Visualizzare i risultati delle analisi delle vulnerabilità delle risorse di Azure
 
 Informazioni sull'uso di questi report o sulla creazione di report [interattivi personalizzati per i dati del Centro sicurezza.](custom-dashboards-azure-workbooks.md)
 
@@ -262,7 +262,7 @@ Se si accede alle informazioni per queste due raccomandazioni nella categoria "R
 
 È stata rilasciata una versione migliorata dell'elenco di raccomandazioni per presentare più informazioni a colpo d'occhio.
 
-Nella pagina verrà visualizzato:
+A questo punto nella pagina verrà visualizzato:
 
 1. Punteggio massimo e punteggio corrente per ogni controllo di sicurezza.
 1. Icone che sostituiscono tag come **Correzione rapida e** **Anteprima.**
@@ -279,57 +279,57 @@ Per altre informazioni, vedere [Raccomandazioni di sicurezza nel Centro sicurezz
 
 Gli aggiornamenti di febbraio includono:
 
-- [Nuova pagina degli avvisi di sicurezza nella portale di Azure disponibile a livello generale](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
-- [Raccomandazioni sulla protezione dei carichi di lavoro di Kubernetes rilasciate per disponibilità generale](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- [Nuova pagina degli avvisi di sicurezza nel portale di Azure disponibile a livello generale](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
+- [Raccomandazioni sulla protezione dei carichi di lavoro di Kubernetes rilasciate per la disponibilità generale](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [L'integrazione di Microsoft Defender per endpoint con Azure Defender ora supporta Windows Server 2019 e Windows 10 Virtual Desktop (WVD) (in anteprima)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview)
 - [Collegamento diretto ai criteri dalla pagina dei dettagli delle raccomandazioni](#direct-link-to-policy-from-recommendation-details-page)
 - [La raccomandazione sulla classificazione dei dati SQL non influisce più sul punteggio di sicurezza](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
-- [Le automazioni del flusso di lavoro possono essere attivate dalle modifiche alle valutazioni della conformità alle normative (in anteprima)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview)
-- [Miglioramenti della pagina dell'inventario asset](#asset-inventory-page-enhancements)
+- [Le automazioni del flusso di lavoro possono essere attivate da modifiche alle valutazioni della conformità alle normative (in anteprima)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview)
+- [Miglioramenti della pagina inventario asset](#asset-inventory-page-enhancements)
 
 
-### <a name="new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga"></a>Nuova pagina degli avvisi di sicurezza nella portale di Azure disponibile a livello generale
+### <a name="new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga"></a>Nuova pagina degli avvisi di sicurezza nel portale di Azure disponibile a livello generale
 
 La pagina Avvisi di sicurezza del Centro sicurezza di Azure è stata riprogettata per offrire:
 
-- **Esperienza di analisi migliorata per** gli avvisi: per ridurre l'affaticamento degli avvisi e concentrarsi sulle minacce più rilevanti, l'elenco include filtri personalizzabili e opzioni di raggruppamento.
+- **Esperienza di analisi migliorata per gli avvisi:** consente di ridurre l'affaticamento degli avvisi e di concentrarsi più facilmente sulle minacce più rilevanti. L'elenco include filtri personalizzabili e opzioni di raggruppamento.
 - **Altre informazioni nell'elenco degli avvisi,** ad esempio MITRE ATT&tattiche ACK.
-- **Pulsante per creare avvisi di esempio:** per valutare Azure Defender funzionalità e testare gli avvisi. configurazione (per l'integrazione SIEM, le notifiche di posta elettronica e le automazioni del flusso di lavoro), è possibile creare avvisi di esempio da tutti Azure Defender piani.
-- **Allineamento con l'esperienza** degli eventi imprevisti di Azure Sentinel: per i clienti che usano entrambi i prodotti, il passaggio da un prodotto all'altro è ora un'esperienza più semplice ed è facile imparare uno dall'altro.
+- **Pulsante per creare avvisi di esempio:** per valutare Azure Defender e testare gli avvisi. (per l'integrazione SIEM, le notifiche tramite posta elettronica e le automazioni del flusso di lavoro), è possibile creare avvisi di esempio da tutti i Azure Defender sicurezza.
+- **Allineamento con l'esperienza** degli eventi imprevisti di Azure Sentinel: per i clienti che usano entrambi i prodotti, il passaggio da un prodotto all'altro è ora un'esperienza più semplice ed è facile apprenderne uno dall'altro.
 - **Prestazioni migliori per** elenchi di avvisi di grandi dimensioni.
-- **Navigazione tramite tastiera** nell'elenco di avvisi.
+- **Navigazione tramite tastiera** nell'elenco degli avvisi.
 - **Avvisi di Azure Resource Graph**: è possibile eseguire query sugli avvisi in Azure Resource Graph, l'API di tipo Kusto per tutte le risorse. Questa funzionalità è utile anche per creare dashboard di avvisi personalizzati. Vedere [altre informazioni su Azure Resource Graph](../governance/resource-graph/index.yml).
-- **Creare una funzionalità di avvisi di esempio:** per creare avvisi di esempio dalla nuova esperienza di avvisi, vedere Generare avvisi Azure Defender [di esempio](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+- **Creare avvisi di esempio :** per creare avvisi di esempio dalla nuova esperienza degli avvisi, vedere Generare avvisi Azure Defender di [esempio.](security-center-alert-validation.md#generate-sample-azure-defender-alerts)
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Centro sicurezza di Azure degli avvisi di sicurezza di Centro sicurezza di Azure":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Centro sicurezza di Azure degli avvisi di sicurezza del servizio":::
 
 
-### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Raccomandazioni sulla protezione dei carichi di lavoro di Kubernetes rilasciate per disponibilità generale
+### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Raccomandazioni sulla protezione dei carichi di lavoro di Kubernetes rilasciate per la disponibilità generale
 
-Siamo lieti di annunciare la disponibilità generale (GA) del set di raccomandazioni per le protezioni del carico di lavoro Kubernetes.
+Siamo lieti di annunciare la disponibilità generale del set di raccomandazioni per la protezione dei carichi di lavoro kubernetes.
 
-Per garantire che i carichi di lavoro Kubernetes siano protetti per impostazione predefinita, il Centro sicurezza ha aggiunto raccomandazioni per la protezione avanzata a livello di Kubernetes, incluse le opzioni di imposizione con il controllo dell'ammissione di Kubernetes.
+Per garantire la sicurezza dei carichi di lavoro kubernetes per impostazione predefinita, il Centro sicurezza ha aggiunto raccomandazioni per la protezione avanzata a livello di Kubernetes, incluse le opzioni di imposizione con il controllo di ammissione kubernetes.
 
-Quando il componente aggiuntivo Criteri di Azure per Kubernetes viene installato nel cluster del servizio Servizio Azure Kubernetes, ogni richiesta al server API Kubernetes verrà monitorata rispetto al set predefinito di procedure consigliate, visualizzate come 13 raccomandazioni sulla sicurezza, prima di essere salvate in modo permanente nel cluster. È quindi possibile configurare l'imposizione delle procedure consigliate e renderle obbligatorie per i carichi di lavoro futuri.
+Quando il componente aggiuntivo Criteri di Azure per Kubernetes viene installato nel cluster servizio Azure Kubernetes (AKS), ogni richiesta al server API Kubernetes verrà monitorata in base al set predefinito di procedure consigliate, visualizzate come 13 raccomandazioni di sicurezza, prima di essere rese persistenti nel cluster. È quindi possibile configurare l'imposizione delle procedure consigliate e renderle obbligatorie per i carichi di lavoro futuri.
 
 È ad esempio possibile imporre che i contenitori con privilegi non debbano essere creati ed eventuali richieste future di creazione di tali contenitori verranno bloccate.
 
 Per altre informazioni, vedere [Procedure consigliate per la protezione dei carichi di lavoro con il controllo ammissione di Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
 
 > [!NOTE]
-> Anche se le raccomandazioni erano in anteprima, non hanno eseguito il rendering non integro di una risorsa cluster del servizio Servizio Web Diaks e non sono state incluse nei calcoli del punteggio di sicurezza. con questo annuncio GA, questi verranno inclusi nel calcolo del punteggio. Se non sono già stati corretti, ciò potrebbe comportare un leggero impatto sul punteggio di sicurezza. È possibile correggere i problemi laddove possibile, come descritto in [Correggere le raccomandazioni in Centro sicurezza di Azure](security-center-remediate-recommendations.md).
+> Mentre le raccomandazioni erano in anteprima, non hanno eseguito il rendering non integro di una risorsa cluster del servizio AKS e non sono state incluse nei calcoli del punteggio di sicurezza. con questo annuncio ga ga questi verranno inclusi nel calcolo del punteggio. Se non sono già state corretti, ciò potrebbe comportare un leggero impatto sul punteggio di sicurezza. È possibile correggere i problemi, laddove possibile, come descritto in Correggere le raccomandazioni [in Centro sicurezza di Azure](security-center-remediate-recommendations.md).
 
 
 ### <a name="microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview"></a>L'integrazione di Microsoft Defender per endpoint con Azure Defender ora supporta Windows Server 2019 e Windows 10 Virtual Desktop (WVD) (in anteprima)
 
-Microsoft Defender per endpoint è una soluzione olistica di sicurezza degli endpoint con distribuzione cloud. Fornisce la gestione e la valutazione delle vulnerabilità basate sul rischio, nonché il rilevamento e la risposta degli endpoint (EDR). Per un elenco completo dei vantaggi dell'uso di Defender per Endpoint con Centro sicurezza di Azure, vedere Proteggere gli endpoint con la soluzione EDR integrata del Centro [sicurezza: Microsoft Defender per endpoint.](security-center-wdatp.md)
+Microsoft Defender per Endpoint è una soluzione di sicurezza degli endpoint olistica e con distribuzione cloud. Fornisce la gestione e la valutazione delle vulnerabilità basate sul rischio, nonché il rilevamento e la risposta degli endpoint (EDR). Per un elenco completo dei vantaggi [dell'uso](security-center-wdatp.md)di Defender per Endpoint con Centro sicurezza di Azure, vedere Proteggere gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint .
 
-Quando si abilita Azure Defender per i server in un server Windows, nel piano è inclusa una licenza per Defender per Endpoint. Se è già stato abilitato Azure Defender per i server e nella sottoscrizione sono presenti server Windows 2019, questi riceveranno automaticamente Defender per l'endpoint con questo aggiornamento. Non è necessaria alcuna azione manuale. 
+Quando si abilita Azure Defender server in un server Windows, nel piano è inclusa una licenza per Defender per Endpoint. Se sono già stati abilitati Azure Defender per i server e nella sottoscrizione sono presenti server Windows 2019, questi riceveranno automaticamente Defender for Endpoint con questo aggiornamento. Non è necessaria alcuna azione manuale. 
 
-Il supporto è stato ora ampliato per includere Windows Server 2019 e Desktop virtuale [Windows ( WVD).](../virtual-desktop/overview.md)
+Il supporto è stato ora ampliato per includere Windows Server 2019 e [Desktop virtuale Windows (WVD).](../virtual-desktop/overview.md)
 
 > [!NOTE]
-> Se si abilita Defender per Endpoint in un computer Windows Server 2019, assicurarsi che soddisfi i prerequisiti descritti in Abilitare l'integrazione di [Microsoft Defender per endpoint](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration).
+> Se si abilita Defender per l'endpoint in un computer Windows Server 2019, assicurarsi che soddisfi i prerequisiti descritti in Abilitare [Microsoft Defender per l'integrazione degli endpoint.](security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration)
 
 ### <a name="direct-link-to-policy-from-recommendation-details-page"></a>Collegamento diretto ai criteri dalla pagina dei dettagli delle raccomandazioni
 
@@ -339,17 +339,17 @@ Quando si esaminano i dettagli di una raccomandazione, è spesso utile essere in
 
 Usare questo collegamento per visualizzare la definizione dei criteri ed esaminare la logica di valutazione. 
 
-Se si sta esaminando l'elenco di raccomandazioni nella guida di riferimento sulle raccomandazioni per la [sicurezza,](recommendations-reference.md)verranno visualizzati anche i collegamenti alle pagine di definizione dei criteri:
+Se si sta esaminando l'elenco di raccomandazioni nella Guida di riferimento alle raccomandazioni sulla [sicurezza,](recommendations-reference.md)verranno visualizzati anche i collegamenti alle pagine di definizione dei criteri:
 
 :::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accesso alla pagina Criteri di Azure per un criterio specifico direttamente dalla pagina di riferimento Centro sicurezza di Azure raccomandazioni" lightbox="media/release-notes/view-policy-definition-from-documentation.png":::
 
 
 ### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>La raccomandazione sulla classificazione dei dati SQL non influisce più sul punteggio di sicurezza
-La **raccomandazione I dati sensibili nei database SQL devono essere classificati** non influiscono più sul punteggio di sicurezza. Questa è l'unica raccomandazione nel controllo **di** sicurezza Applica classificazione dati, in modo che il controllo abbia ora un valore di punteggio sicuro pari a 0.
+La **raccomandazione Dati sensibili nei database SQL non deve** più avere effetto sul punteggio di sicurezza. Questa è l'unica raccomandazione nel controllo **di** sicurezza Applica classificazione dei dati, in modo che il controllo abbia ora un valore di punteggio di sicurezza pari a 0.
 
-Per un elenco completo di tutti i controlli di sicurezza nel Centro sicurezza, insieme ai relativi punteggi e a un elenco delle raccomandazioni in ognuno, vedere Controlli di sicurezza [e relativi consigli.](secure-score-security-controls.md#security-controls-and-their-recommendations)
+Per un elenco completo di tutti i controlli di sicurezza nel Centro sicurezza, insieme ai punteggi e all'elenco delle raccomandazioni in ognuno, vedere Controlli di sicurezza [e relative raccomandazioni.](secure-score-security-controls.md#security-controls-and-their-recommendations)
 
-### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview"></a>Le automazioni del flusso di lavoro possono essere attivate dalle modifiche alle valutazioni della conformità alle normative (in anteprima)
+### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview"></a>Le automazioni del flusso di lavoro possono essere attivate da modifiche alle valutazioni della conformità alle normative (in anteprima)
 È stato aggiunto un terzo tipo di dati alle opzioni di trigger per le automazioni del flusso di lavoro: modifiche alle valutazioni della conformità alle normative.
 
 Informazioni su come usare gli strumenti di automazione del flusso di lavoro in [Automatizzare le risposte ai trigger del Centro sicurezza.](workflow-automation.md)
@@ -357,10 +357,10 @@ Informazioni su come usare gli strumenti di automazione del flusso di lavoro in 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Uso delle modifiche alle valutazioni della conformità alle normative per attivare un'automazione del flusso di lavoro" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
-### <a name="asset-inventory-page-enhancements"></a>Miglioramenti della pagina dell'inventario asset
-La pagina inventario asset del Centro sicurezza è stata migliorata nei modi seguenti:
+### <a name="asset-inventory-page-enhancements"></a>Miglioramenti della pagina inventario asset
+La pagina inventario degli asset del Centro sicurezza è stata migliorata nei modi seguenti:
 
-- I riepiloghi nella parte superiore della pagina includono **ora** Sottoscrizioni non registrate, che mostrano il numero di sottoscrizioni senza Centro sicurezza abilitato.
+- I riepiloghi nella parte superiore della pagina includono **ora** sottoscrizioni non registrate, che mostrano il numero di sottoscrizioni senza centro sicurezza abilitato.
 
     :::image type="content" source="media/release-notes/unregistered-subscriptions.png" alt-text="Conteggio delle sottoscrizioni non registrate nei riepiloghi nella parte superiore della pagina inventario asset":::
 
@@ -369,9 +369,9 @@ La pagina inventario asset del Centro sicurezza è stata migliorata nei modi seg
 
         :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Conteggi nei filtri nella pagina inventario asset di Centro sicurezza di Azure":::
 
-    - **Contiene il filtro delle esenzioni** (facoltativo): restringere i risultati alle risorse che hanno o non hanno ottenuto esenzioni. Questo filtro non viene visualizzato per impostazione predefinita, ma è accessibile dal **pulsante Aggiungi** filtro.
+    - **Filtro esenzioni** (facoltativo): restringere i risultati alle risorse con o senza esenzioni. Questo filtro non viene visualizzato per impostazione predefinita, ma è accessibile dal **pulsante Aggiungi** filtro.
 
-        :::image type="content" source="media/release-notes/adding-contains-exemption-filter.gif" alt-text="Aggiunta del filtro &quot;contiene l'esenzione&quot; nella Centro sicurezza di Azure inventario degli asset del sito":::
+        :::image type="content" source="media/release-notes/adding-contains-exemption-filter.gif" alt-text="Aggiunta del filtro &quot;contiene l'esenzione&quot; nella Centro sicurezza di Azure inventario asset del sito":::
 
 Altre informazioni su come esplorare [e gestire le risorse con l'inventario degli asset.](asset-inventory.md)
 
@@ -380,45 +380,45 @@ Altre informazioni su come esplorare [e gestire le risorse con l'inventario degl
 Gli aggiornamenti di gennaio includono:
 
 - [Azure Security Benchmark è ora l'iniziativa dei criteri predefinita per Centro sicurezza di Azure](#azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center)
-- [La valutazione della vulnerabilità per i computer locali e multi-cloud viene rilasciata per la disponibilità generale (GA)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [La valutazione della vulnerabilità per i computer locali e multi-cloud viene rilasciata per la disponibilità generale](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
 - [Il punteggio di sicurezza per i gruppi di gestione è ora disponibile in anteprima](#secure-score-for-management-groups-is-now-available-in-preview)
-- [L'API Secure Score viene rilasciata per la disponibilità generale (GA)](#secure-score-api-is-released-for-general-availability-ga)
-- [Protezione DNS inevasa aggiunta a Azure Defender per il servizio app](#dangling-dns-protections-added-to-azure-defender-for-app-service)
+- [L'API punteggio di sicurezza viene rilasciata per la disponibilità generale (GA)](#secure-score-api-is-released-for-general-availability-ga)
+- [Aggiunta di protezioni DNS a livello di Azure Defender per il servizio app](#dangling-dns-protections-added-to-azure-defender-for-app-service)
 - [I connettori multi-cloud vengono rilasciati per la disponibilità generale (GA)](#multi-cloud-connectors-are-released-for-general-availability-ga)
 - [Esentare intere raccomandazioni dal punteggio di sicurezza per le sottoscrizioni e i gruppi di gestione](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
 - [Gli utenti possono ora richiedere visibilità a livello di tenant dall'amministratore globale](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
 - [Aggiunte 35 raccomandazioni di anteprima per aumentare la copertura di Azure Security Benchmark](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [Esportazione in CSV dell'elenco filtrato di raccomandazioni](#csv-export-of-filtered-list-of-recommendations)
 - [Le risorse "Non applicabili" ora segnalate come "Conformi" nelle Criteri di Azure valutazione](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
-- [Esportare snapshot settimanali dei dati relativi al punteggio di sicurezza e alla conformità alle normative con l'esportazione continua (anteprima)](#export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview)
+- [Esportare snapshot settimanali del punteggio di sicurezza e dei dati di conformità alle normative con l'esportazione continua (anteprima)](#export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview)
 
 
 ### <a name="azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center"></a>Azure Security Benchmark è ora l'iniziativa dei criteri predefinita per Centro sicurezza di Azure
 
 Azure Security Benchmark è il set di linee guida specifiche di Azure create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. Questo benchmark ampiamente rispettato si basa sui controlli del [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e del National Institute of Standards and Technology [(NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
 
-Negli ultimi mesi, l'elenco di raccomandazioni per la sicurezza incorporate del Centro sicurezza è aumentato in modo significativo per espandere la copertura di questo benchmark.
+Negli ultimi mesi, l'elenco di raccomandazioni sulla sicurezza incorporate del Centro sicurezza è aumentato significativamente per espandere la copertura di questo benchmark.
 
-Da questa versione, il benchmark è alla base delle raccomandazioni del Centro sicurezza e completamente integrato come iniziativa per i criteri predefiniti. 
+Da questa versione, il benchmark è alla base delle raccomandazioni del Centro sicurezza e completamente integrato come iniziativa dei criteri predefinita. 
 
-Tutti i servizi di Azure hanno una pagina baseline di sicurezza nella documentazione. Ad esempio, [si tratta della linea di base del Centro sicurezza.](security-baseline.md) Queste linee di base si basano su Azure Security Benchmark.
+Tutti i servizi di Azure hanno una pagina della baseline di sicurezza nella documentazione. Ad esempio, [si tratta della baseline del Centro sicurezza.](security-baseline.md) Queste baseline si basano su Azure Security Benchmark.
 
 Se si usa il dashboard di conformità alle normative del Centro sicurezza, verranno visualizzati due istanze del benchmark durante un periodo di transizione:
 
 :::image type="content" source="media/release-notes/regulatory-compliance-with-azure-security-benchmark.png" alt-text="Centro sicurezza di Azure dashboard di conformità alle normative che mostra Azure Security Benchmark":::
 
-Le raccomandazioni esistenti non sono interessate e man mano che il benchmark aumenta, le modifiche verranno riflesse automaticamente all'interno del Centro sicurezza. 
+Le raccomandazioni esistenti non sono interessate e man mano che aumenta il benchmark, le modifiche verranno applicate automaticamente all'interno del Centro sicurezza. 
 
 Per altre informazioni, vedere le pagine seguenti:
 
 - [Altre informazioni su Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
 - [Personalizzare il set di standard nel dashboard di conformità alle normative](update-regulatory-compliance-packages.md)
 
-### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>La valutazione della vulnerabilità per i computer locali e multi-cloud viene rilasciata per la disponibilità generale
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>La valutazione della vulnerabilità per i computer locali e multi-cloud viene rilasciata per la disponibilità generale (GA)
 
 A ottobre è stata annunciata un'anteprima per l'analisi dei server con abilitazione di Azure Arc con lo strumento di analisi integrato per la valutazione delle vulnerabilità di [Azure Defender per i server](defender-for-servers-introduction.md) (con tecnologia Qualys).
 
-È ora disponibile per la disponibilità generale.
+È ora disponibile a disponibilità generale.
 
 Quando Azure Arc viene abilitato in computer non di Azure, il Centro sicurezza offre la possibilità di distribuirvi lo strumento integrato di analisi delle vulnerabilità, manualmente e su larga scala.
 
@@ -438,36 +438,36 @@ Funzionalità principali:
 
 ### <a name="secure-score-for-management-groups-is-now-available-in-preview"></a>Il punteggio di sicurezza per i gruppi di gestione è ora disponibile in anteprima
 
-La pagina punteggio di sicurezza mostra ora i punteggi di sicurezza aggregati per i gruppi di gestione oltre al livello di sottoscrizione. È quindi possibile visualizzare l'elenco dei gruppi di gestione nell'organizzazione e il punteggio per ogni gruppo di gestione.
+La pagina punteggio di sicurezza mostra ora i punteggi di sicurezza aggregati per i gruppi di gestione oltre al livello di sottoscrizione. A questo punto è possibile visualizzare l'elenco dei gruppi di gestione nell'organizzazione e il punteggio per ogni gruppo di gestione.
 
 :::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Visualizzazione dei punteggi di sicurezza per i gruppi di gestione.":::
 
 Altre informazioni sul [punteggio di sicurezza e i controlli di sicurezza nel Centro sicurezza di Azure](secure-score-security-controls.md).
 
-### <a name="secure-score-api-is-released-for-general-availability-ga"></a>L'API punteggio di sicurezza viene rilasciata per la disponibilità generale (GA)
+### <a name="secure-score-api-is-released-for-general-availability-ga"></a>L'API Secure Score viene rilasciata per la disponibilità generale (GA)
 
-È ora possibile accedere al punteggio tramite [l'API di punteggio sicuro](/rest/api/securitycenter/securescores/). I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. Ad esempio:
+È ora possibile accedere al punteggio tramite [l'API secure score](/rest/api/securitycenter/securescores/). I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. Ad esempio:
 
-- usare **l'API Secure Scores** per ottenere il punteggio per una sottoscrizione specifica
-- usare **l'API Secure Score Controls** per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni
+- usare **l'API Punteggi** sicuri per ottenere il punteggio per una sottoscrizione specifica
+- usare **l'API Controlli punteggio sicuro** per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni
 
-Informazioni sugli strumenti esterni resi possibili con l'API secure score [nell'area del punteggio di sicurezza della community di GitHub.](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
+Informazioni sugli strumenti esterni resi possibili con l'API punteggio di sicurezza [nell'area del punteggio di sicurezza della community di GitHub.](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
 
 Altre informazioni sul [punteggio di sicurezza e i controlli di sicurezza nel Centro sicurezza di Azure](secure-score-security-controls.md).
 
 
-### <a name="dangling-dns-protections-added-to-azure-defender-for-app-service"></a>Protezione DNS inasciante aggiunta a Azure Defender per il servizio app
+### <a name="dangling-dns-protections-added-to-azure-defender-for-app-service"></a>Aggiunta di protezioni DNS a livello di Azure Defender per il servizio app
 
-Le acquisizione di sottodomini sono una minaccia comune e di gravità elevata per le organizzazioni. L'acquisizione di un sottodominio può verificarsi quando si dispone di un record DNS che punta a un sito Web di cui è stato eseguito il deprovisioning. Tali record DNS sono noti anche come voci "DNS inevase". I record CNAME sono particolarmente vulnerabili a questa minaccia. 
+Le operazioni di acquisizione di sottodomini sono una minaccia comune e di gravità elevata per le organizzazioni. Un'acquisizione di sottodomini può verificarsi quando si dispone di un record DNS che punta a un sito Web di cui è stato eseguito il deprovisioning. Tali record DNS sono noti anche come voci "DANGLING DNS". I record CNAME sono particolarmente vulnerabili a questa minaccia. 
 
-Le acquisizione di sottodomini consentono agli attori di minacce di reindirizzare il traffico destinato al dominio di un'organizzazione a un sito che esegue attività dannose.
+Le operazioni di acquisizione di sottodomini consentono agli attori delle minacce di reindirizzare il traffico destinato al dominio di un'organizzazione a un sito che esegue attività dannose.
 
-Azure Defender servizio app ora rileva le voci DNS inevase quando un sito Web del servizio app viene ritirato. Questo è il momento in cui la voce DNS punta a una risorsa inesistente e il sito Web è vulnerabile all'acquisizione di un sottodominio. Queste protezioni sono disponibili indipendentemente dal fatto che i domini siano gestiti con DNS di Azure o un registrar esterno e si applicino sia al servizio app in Windows che Servizio app in Linux.
+Azure Defender per il servizio app ora rileva le voci DNS pentole quando un sito Web del servizio app viene ritirato. Questo è il momento in cui la voce DNS punta a una risorsa inesistente e il sito Web è vulnerabile a un'acquisizione di sottodomini. Queste protezioni sono disponibili indipendentemente dal fatto che i domini siano gestiti con DNS di Azure o un registrar esterno e si applicino sia al servizio app in Windows che Servizio app in Linux.
 
 Altre informazioni:
 
-- [Tabella di riferimento degli avvisi del](alerts-reference.md#alerts-azureappserv) servizio app: include due nuovi avvisi Azure Defender che vengono attivati quando viene rilevata una voce DNS inevasa
-- [Evitare voci DNS inesagiute](../security/fundamentals/subdomain-takeover.md) ed evitare l'acquisizione dell'acquisizione di sottodomini- Informazioni sulla minaccia dell'acquisizione di sottodomini e sull'aspetto del DNS inesagito
+- [Tabella di riferimento degli avvisi del](alerts-reference.md#alerts-azureappserv) servizio app: include due nuovi avvisi Azure Defender che vengono attivati quando viene rilevata una voce DNS a pentola
+- [Evitare voci DNS sconcertante](../security/fundamentals/subdomain-takeover.md) ed evitare l'acquisizione di sottodomini : informazioni sulla minaccia dell'acquisizione di sottodomini e sull'aspetto del DNS pentolante
 - [Introduzione ad Azure Defender per il servizio app](defender-for-app-service-introduction.md)
 
 
@@ -501,15 +501,15 @@ Per altre informazioni, vedere:
 
 ### <a name="exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups"></a>Esentare intere raccomandazioni dal punteggio di sicurezza per le sottoscrizioni e i gruppi di gestione
 
-Stiamo espandendo la funzionalità di esenzione per includere tutte le raccomandazioni. Offre altre opzioni per ottimizzare le raccomandazioni sulla sicurezza fornite dal Centro sicurezza per le sottoscrizioni, il gruppo di gestione o le risorse.
+Stiamo espandendo la funzionalità di esenzione per includere intere raccomandazioni. Offre altre opzioni per ottimizzare le raccomandazioni sulla sicurezza fornite dal Centro sicurezza per le sottoscrizioni, il gruppo di gestione o le risorse.
 
-In alcuni casi, una risorsa verrà elencata come non integra quando si è a sapere che il problema è stato risolto da uno strumento di terze parti che il Centro sicurezza non ha rilevato. In caso di raccomandazione, verrà visualizzato in un ambito in cui si è sentito che non appartiene. La raccomandazione potrebbe non essere appropriata per una sottoscrizione specifica. O forse l'organizzazione ha deciso di accettare i rischi correlati alla risorsa o alla raccomandazione specifica.
+In alcuni casi, una risorsa verrà elencata come non integra quando si sa che il problema è stato risolto da uno strumento di terze parti che il Centro sicurezza non ha rilevato. Oppure, una raccomandazione verrà mostrata in un ambito in cui si è insodd di non appartenere. La raccomandazione potrebbe non essere appropriata per una sottoscrizione specifica. O forse l'organizzazione ha deciso di accettare i rischi correlati alla risorsa o alla raccomandazione specifica.
 
 Con questa funzionalità di anteprima è ora possibile creare un'esenzione per una raccomandazione per:
 
-- **Esentare una** risorsa per assicurarsi che non sia elencata con le risorse non integre in futuro e non influisca sul punteggio di sicurezza. La risorsa verrà elencata come non applicabile e il motivo verrà visualizzato come "esentato" con la giustificazione specifica selezionata.
+- **Esentare una** risorsa per assicurarsi che non sia elencata con le risorse non integre in futuro e non influisce sul punteggio di sicurezza. La risorsa verrà elencata come non applicabile e il motivo verrà visualizzato come "esentato" con la giustificazione specifica selezionata.
 
-- **Esentare una sottoscrizione** o un gruppo di gestione per assicurarsi che la raccomandazione non influisca sul punteggio di sicurezza e non verrà visualizzata per la sottoscrizione o il gruppo di gestione in futuro. Ciò si riferisce alle risorse esistenti e a qualsiasi risorsa creata in futuro. La raccomandazione verrà contrassegnata con la giustificazione specifica selezionata per l'ambito selezionato.
+- **Esentare una sottoscrizione o** un gruppo di gestione per assicurarsi che la raccomandazione non influisca sul punteggio di sicurezza e non verrà visualizzata per la sottoscrizione o il gruppo di gestione in futuro. Ciò è correlato alle risorse esistenti e a tutte le risorse create in futuro. La raccomandazione verrà contrassegnata con la giustificazione specifica selezionata per l'ambito selezionato.
 
 Per altre informazioni, [vedere Esenzione di risorse e raccomandazioni dal punteggio di sicurezza.](exempt-resource.md)
 
@@ -517,7 +517,7 @@ Per altre informazioni, [vedere Esenzione di risorse e raccomandazioni dal punte
 
 ### <a name="users-can-now-request-tenant-wide-visibility-from-their-global-administrator"></a>Gli utenti possono ora richiedere visibilità a livello di tenant dall'amministratore globale
 
-Se un utente non ha le autorizzazioni per visualizzare i dati del Centro sicurezza, ora visualizza un collegamento per richiedere le autorizzazioni all'amministratore globale dell'organizzazione. La richiesta include il ruolo che desiderano e la giustificazione del motivo per cui è necessaria.
+Se un utente non ha le autorizzazioni per visualizzare i dati del Centro sicurezza, ora visualizza un collegamento per richiedere le autorizzazioni all'amministratore globale dell'organizzazione. La richiesta include il ruolo che desidera e la giustificazione del motivo per cui è necessaria.
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner che informa un utente che può richiedere autorizzazioni a livello di tenant.":::
 
@@ -567,7 +567,7 @@ Per altre informazioni, vedere [Raccomandazioni di sicurezza nel Centro sicurezz
 
 ### <a name="not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments"></a>Le risorse "Non applicabili" ora segnalate come "Conformi" nelle Criteri di Azure valutazione
 
-In precedenza, le risorse valutate  per una raccomandazione e che non erano applicabili venivano Criteri di Azure come "Non conformi". Nessuna azione dell'utente può modificare il proprio stato in "Conforme". Con questa modifica, vengono segnalati come "conformi" per maggiore chiarezza.
+In precedenza, le risorse valutate  per una raccomandazione e trovate non applicabili venivano Criteri di Azure come "Non conformi". Nessuna azione dell'utente può modificare il proprio stato in "Conforme". Con questa modifica, vengono segnalate come "conformi" per maggiore chiarezza.
 
 L'unico effetto si vedrà in Criteri di Azure, dove il numero di risorse conformi aumenterà. Non ci sarà alcun impatto sul punteggio di sicurezza nel Centro sicurezza di Azure.
 
@@ -606,7 +606,7 @@ Gli aggiornamenti di dicembre includono:
 Il Centro sicurezza di Azure prevede due piani di Azure Defender per SQL Server:
 
 - **Azure Defender per i server di database SQL di Azure**: protegge i sistemi SQL Server nativi di Azure 
-- **Azure Defender per i server SQL** nei computer: estende le stesse protezioni ai server SQL in ambienti ibridi, multi-cloud e locali
+- **Azure Defender per SQL Server** nei computer: estende le stesse protezioni ai server SQL in ambienti ibridi, multi-cloud e locali
 
 Con questo annuncio, **Azure Defender per SQL** ora protegge i database e i relativi dati ovunque siano collocati.
 
@@ -705,7 +705,7 @@ Per altre informazioni sull'inventario, vedere [Esplorare e gestire le risorse c
 
 La raccomandazione "È consigliabile che le app Web richiedano un certificato SSL per tutte le richieste in ingresso" è stata spostata dal controllo di sicurezza **Gestisci l'accesso e le autorizzazioni** (che vale un massimo di 4 punti) al controllo **Implementa le procedure consigliate per la sicurezza** (che non vale alcun punto). 
 
-Assicurarsi che un'app Web richiede un certificato lo rende sicuramente più sicuro. Questa impostazione è tuttavia irrilevante per le app Web pubbliche. se si accede al sito tramite HTTP e non HTTPS, non si riceveranno i certificati client. Pertanto, se l'applicazione richiede i certificati client, è consigliabile non consentire le richieste all'applicazione tramite HTTP. Per altre informazioni, vedere [Configurare l'autenticazione reciproca TLS per Servizio app di Azure](../app-service/app-service-web-configure-tls-mutual-auth.md).
+Garantire che un'app Web richiede un certificato lo rende sicuramente più sicuro. Questa impostazione è tuttavia irrilevante per le app Web pubbliche. se si accede al sito tramite HTTP e non HTTPS, non si riceveranno i certificati client. Pertanto, se l'applicazione richiede i certificati client, è consigliabile non consentire le richieste all'applicazione tramite HTTP. Per altre informazioni, vedere [Configurare l'autenticazione reciproca TLS per Servizio app di Azure](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
 Con questa modifica, la raccomandazione è ora una procedura consigliata che non influisce sul punteggio. 
 
@@ -745,7 +745,7 @@ Questi strumenti sono stati migliorati e ampliati nei modi seguenti:
 
 - **I criteri DeployIfNotExists dell'esportazione continua sono stati migliorati**. Ora consentono di:
 
-    - **Verificare se la configurazione è abilitata.** Se non è abilitata, il criterio visualizza uno stato non conforme e crea una risorsa conforme. Altre informazioni sui modelli di Criteri di Azure disponibili sono disponibili nella scheda "Distribuisci su larga scala con Criteri di Azure" in [Configurare un'esportazione continua.](continuous-export.md#set-up-a-continuous-export)
+    - **Verificare se la configurazione è abilitata.** Se non è abilitata, il criterio visualizza uno stato non conforme e crea una risorsa conforme. Per altre informazioni sui modelli di Criteri di Azure disponibili, vedere la scheda "Distribuire su larga scala con Criteri di Azure" in [Configurare un'esportazione continua.](continuous-export.md#set-up-a-continuous-export)
 
     - **Supportare l'esportazione dei risultati di sicurezza.** Usando i modelli di Criteri di Azure è possibile configurare l'esportazione continua in modo che includa i risultati. Questa configurazione è importante quando si esportano raccomandazioni che contengono "sottoraccomandazioni", ad esempio i risultati di analisi di valutazione delle vulnerabilità o aggiornamenti di sistema specifici per la raccomandazione "padre" "È consigliabile installare gli aggiornamenti del sistema nei computer".
     
@@ -765,12 +765,12 @@ Gli aggiornamenti del mese di novembre includono quanto segue:
 - [L'elenco di raccomandazioni ora include i filtri](#recommendations-list-now-includes-filters)
 - [Esperienza di provisioning automatico migliorata e ampliata](#auto-provisioning-experience-improved-and-expanded)
 - [Punteggio di sicurezza ora disponibile nell'esportazione continua (anteprima)](#secure-score-is-now-available-in-continuous-export-preview)
-- [La raccomandazione "Gli aggiornamenti di sistema devono essere installati nei computer" include ora le sottorecommendazioni](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
+- [La raccomandazione "Gli aggiornamenti di sistema devono essere installati nei computer" include ora le raccomandazioni secondarie](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
 - [La pagina di gestione dei criteri nel portale di Azure ora mostra lo stato delle assegnazioni di criteri predefiniti](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Aggiunte 29 raccomandazioni di anteprima per aumentare la copertura di Azure Security Benchmark
 
-Azure Security Benchmark è il set di linee guida per la sicurezza e la conformità basato su framework di conformità comuni creati da Microsoft e specifici di Azure. [Altre informazioni su Azure Security Benchmark](../security/benchmarks/introduction.md).
+Azure Security Benchmark è il set di linee guida specifico di Azure creato da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. [Altre informazioni su Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction).
 
 Le seguenti 29 nuove raccomandazioni di anteprima verranno aggiunte al Centro sicurezza per aumentare la copertura del benchmark.
 
@@ -800,7 +800,7 @@ Collegamenti correlati:
 
 Lo standard NIST SP 800-171 R2 è ora disponibile come iniziativa predefinita per l'uso nel dashboard di conformità alle normative del Centro sicurezza di Azure. I mapping per i controlli sono descritti in [Dettagli dell'iniziativa predefinita di conformità alle normative per NIST SP 800-171 R2](../governance/policy/samples/nist-sp-800-171-r2.md). 
 
-Per applicare lo standard alle sottoscrizioni e monitorare continuamente lo stato di conformità, seguire le istruzioni in Personalizzare il set di [standard nel dashboard di conformità alle normative.](update-regulatory-compliance-packages.md)
+Per applicare lo standard alle sottoscrizioni e monitorare continuamente lo stato di conformità, usare le istruzioni in Personalizzare il set di [standard nel dashboard di conformità alle normative.](update-regulatory-compliance-packages.md)
 
 :::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="Standard NIST SP 800 171 R2 nel dashboard di conformità alle normative del Centro sicurezza":::
 
@@ -844,13 +844,13 @@ Con l'esportazione continua del punteggio di sicurezza, è possibile trasmettere
 Per altre informazioni, vedere [Esportazione continua dei dati del Centro sicurezza](continuous-export.md).
 
 
-### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>La raccomandazione "Gli aggiornamenti di sistema devono essere installati nei computer" include ora le sottorecommendazioni
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>La raccomandazione "Gli aggiornamenti di sistema devono essere installati nei computer" include ora le raccomandazioni secondarie
 
-La raccomandazione **Gli aggiornamenti di sistema devono essere installati nelle macchine virtuali** è stata ottimizzata. La nuova versione include sottorecommendazioni per ogni aggiornamento mancante e apporta i miglioramenti seguenti:
+La raccomandazione **Gli aggiornamenti di sistema devono essere installati nelle macchine virtuali** è stata ottimizzata. La nuova versione include sottorecomanze per ogni aggiornamento mancante e introduce i miglioramenti seguenti:
 
 - Un'esperienza riprogettata nelle pagine del Centro sicurezza di Azure del portale di Azure. La pagina di dettagli della raccomandazione **Gli aggiornamenti di sistema devono essere installati nelle macchine virtuali** include l'elenco di risultati, come illustrato di seguito. Quando si seleziona un singolo risultato, viene visualizzato il riquadro dei dettagli con un collegamento alle informazioni sulla correzione e un elenco delle risorse interessate.
 
-    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Apertura di una delle sottocommendazioni nell'esperienza del portale per la raccomandazione aggiornata":::
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Apertura di una delle raccomandazioni secondarie nell'esperienza del portale per la raccomandazione aggiornata":::
 
 - Dati della raccomandazione arricchiti da Azure Resource Graph. Azure Resource Graph è un servizio di Azure progettato per offrire un'esplorazione efficiente delle risorse. È possibile usare Azure Resource Graph per eseguire query su larga scala su un determinato set di sottoscrizioni, in modo da regolamentare efficacemente l'ambiente. 
 

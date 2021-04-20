@@ -1,6 +1,6 @@
 ---
-title: Uso del dashboard conformità normativa nel centro sicurezza di Azure
-description: Informazioni su come aggiungere e rimuovere gli standard normativi dal dashboard conformità normativa nel centro sicurezza
+title: Uso del dashboard di conformità alle normative in Centro sicurezza di Azure
+description: Informazioni su come aggiungere e rimuovere standard normativi dal dashboard di conformità alle normative nel Centro sicurezza
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,38 +13,38 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 768f686889663d9b1af4b88d84b361ac9460a5a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dab6b504fe026324251b7284fc3abdb52bb9911a
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381733"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738955"
 ---
-# <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzare il set di standard nel dashboard conformità normativa
+# <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzare il set di standard nel dashboard di conformità alle normative
 
-Il Centro sicurezza di Azure confronta continuamente la configurazione delle risorse con i requisiti di benchmark, normative e standard del settore. Il **Dashboard conformità normativa** fornisce informazioni approfondite sul comportamento di conformità in base al modo in cui si soddisfano i requisiti di conformità specifici.
-
-
-## <a name="how-are-regulatory-compliance-standards-represented-in-security-center"></a>In che modo vengono rappresentati gli standard di conformità normativa nel centro sicurezza?
-
-Gli standard di settore, gli standard normativi e i benchmark sono rappresentati nel dashboard di conformità alle normative del Centro sicurezza. Ogni standard è un'iniziativa definita in criteri di Azure.
-
-Per visualizzare i dati di conformità mappati come valutazioni nel dashboard, aggiungere uno standard di conformità al gruppo di gestione o alla sottoscrizione dall'interno della pagina dei **criteri di sicurezza** . Per altre informazioni su criteri e iniziative di Azure, vedere [utilizzo dei criteri di sicurezza](tutorial-security-policy.md).
-
-Quando è stato assegnato uno standard o un benchmark per l'ambito selezionato, lo standard viene visualizzato nel dashboard conformità normativa con tutti i dati di conformità associati mappati come valutazioni. È anche possibile scaricare i report di riepilogo per uno degli standard assegnati.
-
-Microsoft tiene traccia degli standard normativi e migliora automaticamente la copertura in alcuni pacchetti nel tempo. Quando Microsoft rilascia nuovo contenuto per l'iniziativa, viene visualizzato automaticamente nel dashboard Man seconda che i nuovi criteri siano mappati ai controlli nello standard.
+Il Centro sicurezza di Azure confronta continuamente la configurazione delle risorse con i requisiti di benchmark, normative e standard del settore. Il **dashboard di conformità** alle normative fornisce informazioni dettagliate sul proprio stato di conformità in base al modo in cui vengono soddisfatti requisiti di conformità specifici.
 
 
-## <a name="what-regulatory-compliance-standards-are-available-in-security-center"></a>Quali standard di conformità normativa sono disponibili nel centro sicurezza?
+## <a name="how-are-regulatory-compliance-standards-represented-in-security-center"></a>Come vengono rappresentati gli standard di conformità alle normative nel Centro sicurezza?
 
-Per impostazione predefinita, a ogni sottoscrizione è assegnato il **benchmark di sicurezza di Azure** . Queste sono le linee guida specifiche di Azure per le procedure di sicurezza e conformità basate sui Framework di conformità comuni. [Altre informazioni su Azure Security Benchmark](../security/benchmarks/introduction.md).
+Gli standard di settore, gli standard normativi e i benchmark sono rappresentati nel dashboard di conformità alle normative del Centro sicurezza. Ogni standard è un'iniziativa definita in Criteri di Azure.
 
-È anche possibile aggiungere standard, ad esempio:
+Per visualizzare i dati di conformità mappati come valutazioni nel dashboard, aggiungere uno standard di conformità al gruppo di gestione o alla sottoscrizione dalla pagina **Criteri di** sicurezza. Per altre informazioni sulle Criteri di Azure e sulle iniziative, vedere [Uso dei criteri di sicurezza.](tutorial-security-policy.md)
+
+Dopo aver assegnato uno standard o un benchmark all'ambito selezionato, lo standard viene visualizzato nel dashboard di conformità alle normative con tutti i dati di conformità associati mappati come valutazioni. È anche possibile scaricare i report di riepilogo per qualsiasi standard assegnato.
+
+Microsoft tiene traccia degli standard normativi e migliora automaticamente la copertura in alcuni pacchetti nel tempo. Quando Microsoft rilascia nuovo contenuto per l'iniziativa, verrà visualizzato automaticamente nel dashboard come nuovi criteri mappati ai controlli nello standard.
+
+
+## <a name="what-regulatory-compliance-standards-are-available-in-security-center"></a>Quali standard di conformità alle normative sono disponibili nel Centro sicurezza?
+
+Per impostazione predefinita, a ogni sottoscrizione è **assegnato Azure Security Benchmark.** Si tratta delle linee guida specifiche di Azure, scritte da Microsoft, per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. [Altre informazioni su Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction).
+
+È anche possibile aggiungere standard come:
 
 - NIST SP 800-53 R4
 - SWIFT CSP CSCF-v2020
-- Ufficiale del Regno Unito e NHS del Regno Unito
+- UK Official e UK NHS
 - Canada Federal PBMM
 - Azure CIS 1.1.0
 
@@ -56,7 +56,7 @@ Gli standard vengono aggiunti al dashboard non appena diventano disponibili.
 La procedura seguente illustra come aggiungere un pacchetto per monitorare la conformità a uno degli standard normativi supportati.
 
 > [!NOTE]
-> Per aggiungere standard al dashboard, è necessario abilitare Azure Defender per la sottoscrizione. Inoltre, solo gli utenti proprietario o collaboratore di criteri hanno le autorizzazioni necessarie per aggiungere gli standard di conformità. 
+> Per aggiungere standard al dashboard, la sottoscrizione deve avere Azure Defender abilitata. Inoltre, solo gli utenti proprietari o collaboratori ai criteri hanno le autorizzazioni necessarie per aggiungere gli standard di conformità. 
 
 1. Nella barra laterale del Centro sicurezza selezionare **Conformità con le normative** per aprire il dashboard corrispondente. Qui è possibile visualizzare gli standard di conformità attualmente assegnati alle sottoscrizioni selezionate.   
 
@@ -69,7 +69,7 @@ La procedura seguente illustra come aggiungere un pacchetto per monitorare la co
 
 1. Per aggiungere gli standard pertinenti per l'organizzazione, fare clic su **Aggiungi altri standard**. 
 
-1. Nella pagina **Aggiungi standard di conformità normativa** è possibile cercare uno degli standard disponibili, tra cui:
+1. Nella pagina **Aggiungi standard di conformità alle** normative è possibile cercare uno degli standard disponibili, tra cui:
 
     - **NIST SP 800-53 R4**
     - **NIST SP 800 171 R2**
@@ -79,7 +79,7 @@ La procedura seguente illustra come aggiungere un pacchetto per monitorare la co
     - **HIPAA HITRUST**
     - **Azure CIS 1.1.0**
     
-    ![Aggiunta di standard normativi al dashboard di conformità alle normative del Centro sicurezza di Azure](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+    ![Aggiunta di standard normativi Centro sicurezza di Azure dashboard di conformità alle normative](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
 1. Selezionare **Aggiungi** e immettere tutti i dettagli necessari per l'iniziativa specifica, ad esempio ambito, parametri e correzione.
 
@@ -94,34 +94,34 @@ La procedura seguente illustra come aggiungere un pacchetto per monitorare la co
 
 ## <a name="remove-a-standard-from-your-dashboard"></a>Rimuovere uno standard dal dashboard
 
-Se uno degli standard normativi forniti non è pertinente per l'organizzazione, si tratta di un processo semplice per rimuoverli dall'interfaccia utente. In questo modo è possibile personalizzare ulteriormente il dashboard di conformità alle normative e concentrarsi solo sugli standard applicabili.
+Se uno degli standard normativi forniti non è pertinente per l'organizzazione, è un semplice processo per rimuoverli dall'interfaccia utente. In questo modo è possibile personalizzare ulteriormente il dashboard di conformità alle normative e concentrarsi solo sugli standard applicabili.
 
 Per rimuovere uno standard:
 
-1. Dal menu del Centro sicurezza selezionare **criteri di sicurezza**.
+1. Dal menu del Centro sicurezza selezionare **Criteri di sicurezza.**
 
-1. Selezionare la sottoscrizione pertinente da cui si desidera rimuovere uno standard.
+1. Selezionare la sottoscrizione pertinente da cui si vuole rimuovere uno standard.
 
     > [!NOTE]
     > È possibile rimuovere uno standard da una sottoscrizione, ma non da un gruppo di gestione. 
 
-    Verrà visualizzata la pagina Criteri di sicurezza. Per la sottoscrizione selezionata, vengono visualizzati i criteri predefiniti, gli standard di settore e normativi e tutte le iniziative personalizzate create.
+    Verrà visualizzata la pagina dei criteri di sicurezza. Per la sottoscrizione selezionata, vengono visualizzati i criteri predefiniti, gli standard di settore e normativi e tutte le iniziative personalizzate create.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Rimozione di uno standard normativo dal dashboard di conformità normativa nel centro sicurezza di Azure":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Rimozione di uno standard normativo dal dashboard di conformità alle normative in Centro sicurezza di Azure":::
 
-1. Per lo standard che si desidera rimuovere, selezionare **Disabilita**. Viene visualizzata una finestra di conferma.
+1. Per lo standard da rimuovere, selezionare **Disabilita**. Viene visualizzata una finestra di conferma.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confermare che si desidera effettivamente rimuovere lo standard normativo selezionato":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confermare che si vuole rimuovere lo standard normativo selezionato":::
 
 1. Selezionare **Sì**. Lo standard verrà rimosso. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come **aggiungere gli standard di conformità** per monitorare la conformità agli standard di settore e normativi.
+In questo articolo si è appreso come aggiungere **standard di conformità per** monitorare la conformità con gli standard normativi e di settore.
 
-Per materiale correlato, vedere le pagine seguenti:
+Per il materiale correlato, vedere le pagine seguenti:
 
-- [Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Dashboard conformità normativa del Centro sicurezza](security-center-compliance-dashboard.md) : informazioni su come tenere traccia ed esportare i dati di conformità normativi con il Centro sicurezza e gli strumenti esterni
+- [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/introduction)
+- [Dashboard di conformità alle normative del](security-center-compliance-dashboard.md) Centro sicurezza: informazioni su come tenere traccia ed esportare i dati di conformità alle normative con il Centro sicurezza e gli strumenti esterni
 - [Uso dei criteri di sicurezza](tutorial-security-policy.md)
