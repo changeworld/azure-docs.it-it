@@ -1,7 +1,7 @@
 ---
-title: Invia attività comandi personalizzati all'applicazione client
+title: Inviare comandi personalizzati'attività all'applicazione client
 titleSuffix: Azure Cognitive Services
-description: Questo articolo illustra come inviare l'attività da un'applicazione di comandi personalizzati a un'applicazione client che esegue l'SDK di riconoscimento vocale.
+description: Questo articolo illustra come inviare attività da un'applicazione comandi personalizzati a un'applicazione client che esegue Speech SDK.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -10,34 +10,34 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52e0b750f02044afafe233a76e4f43755d9ed303
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94566096"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725099"
 ---
-# <a name="send-custom-commands-activity-to-client-application"></a>Invia attività comandi personalizzati all'applicazione client
+# <a name="send-custom-commands-activity-to-client-application"></a>Inviare comandi personalizzati'attività all'applicazione client
 
-Questo articolo illustra come inviare l'attività da un'applicazione di comandi personalizzati a un'applicazione client che esegue l'SDK di riconoscimento vocale.
+Questo articolo illustra come inviare attività da un'applicazione comandi personalizzati a un'applicazione client che esegue Speech SDK.
 
 Completare le attività seguenti:
 
-- Definire e inviare un payload JSON personalizzato dall'applicazione comandi personalizzati
-- Ricevere e visualizzare il contenuto del payload JSON personalizzato da un'applicazione client C# UWP Speech SDK
+- Definire e inviare un payload JSON personalizzato dall'comandi personalizzati personalizzata
+- Ricevere e visualizzare il contenuto del payload JSON personalizzato da un'applicazione client UWP Speech SDK C#
 
 ## <a name="prerequisites"></a>Prerequisiti
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) o versione successiva. Questa guida USA Visual Studio 2019
+> * [Visual Studio 2019 o](https://visualstudio.microsoft.com/downloads/) versione successiva. Questa guida usa Visual Studio 2019
 > * Una chiave di sottoscrizione di Azure per il servizio Voce: È possibile [ottenerne una gratuitamente](overview.md#try-the-speech-service-for-free) o crearla nel [portale di Azure](https://portal.azure.com)
 > * Un'[app di comandi personalizzati creata](quickstart-custom-commands-application.md) in precedenza
-> * App client abilitata per l'SDK vocale: [procedura: eseguire l'integrazione con un'applicazione client tramite Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
+> * Un'app client abilitata per Speech SDK: [Procedura: Eseguire l'integrazione con un'applicazione client con Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
 
-## <a name="setup-send-activity-to-client"></a>Imposta attività di invio sul client 
-1. Aprire l'applicazione Custom Commands creata in precedenza
-1. Selezionare il comando **TurnOnOff** , selezionare **ConfirmationResponse** in regola di completamento, quindi selezionare **Aggiungi un'azione**
-1. In **nuovo tipo di azione** selezionare **Invia attività al client**
-1. Copiare il codice JSON seguente nel **contenuto dell'attività**
+## <a name="setup-send-activity-to-client"></a>Configurare l'attività Invia al client 
+1. Aprire l'comandi personalizzati creata in precedenza
+1. Selezionare **il comando TurnOnOff,** selezionare **ConfirmationResponse sotto** la regola di completamento, quindi selezionare Aggiungi **un'azione**
+1. In **New Action-Type (Nuovo tipo di azione)** **selezionare Send activity to client (Invia attività al client)**
+1. Copiare il codice JSON seguente in **Contenuto attività**
    ```json
    {
       "type": "event",
@@ -48,16 +48,16 @@ Completare le attività seguenti:
       }
     }
    ```
-1. Fare clic su **Salva** per creare una nuova regola con un'azione Invia attività, eseguire il **Training** e **pubblicare** la modifica
+1. Fare **clic su** Salva per creare una nuova regola con un'azione Invia attività, eseguire il training **e** **pubblicare** la modifica
 
    > [!div class="mx-imgBorder"]
    > ![Regola di completamento dell'attività di invio](media/custom-commands/send-activity-to-client-completion-rules.png)
 
 ## <a name="integrate-with-client-application"></a>Integrazione con l'applicazione client
 
-In [procedura: configurare l'applicazione client con Speech SDK (anteprima)](./how-to-custom-commands-setup-speech-sdk.md)è stata creata un'applicazione client UWP con l'SDK di riconoscimento vocale che gestiva i comandi, ad esempio `turn on the tv` , `turn off the fan` . Con alcuni oggetti visivi aggiunti, è possibile visualizzare il risultato di tali comandi.
+In Procedura: Configurare un'applicazione client con [Speech SDK (anteprima)](./how-to-custom-commands-setup-speech-sdk.md)è stata creata un'applicazione client UWP con Speech SDK che ha gestito comandi come `turn on the tv` , `turn off the fan` . Con alcuni oggetti visivi aggiunti, è possibile visualizzare il risultato di questi comandi.
 
-Per aggiungere caselle con etichetta con testo che indica **on** o **off**, aggiungere il seguente blocco XML di StackPanel a `MainPage.xaml` .
+Per aggiungere caselle etichettate con testo **che** indica che è stato o **meno,** aggiungere il blocco XML seguente di StackPanel a `MainPage.xaml` .
 
 ```xml
 <StackPanel Orientation="Vertical" H......>
@@ -80,20 +80,20 @@ Per aggiungere caselle con etichetta con testo che indica **on** o **off**, aggi
 <MediaElement ....../>
 ```
 
-### <a name="add-reference-libraries"></a>Aggiungi librerie di riferimento
+### <a name="add-reference-libraries"></a>Aggiungere librerie di riferimento
 
-Poiché è stato creato un payload JSON, è necessario aggiungere un riferimento alla libreria [JSON.NET](https://www.newtonsoft.com/json) per gestire la deserializzazione.
+Poiché è stato creato un payload JSON, è necessario aggiungere un riferimento alla JSON.NET [per](https://www.newtonsoft.com/json) gestire la deserializzazione.
 
-1. Right-client la soluzione.
+1. Fare clic con il pulsante destro del mouse sulla soluzione.
 1. Scegliere **Gestisci pacchetti NuGet per la soluzione**, selezionare **Sfoglia** 
-1. Se è già stato installato **Newtonsoft.json**, assicurarsi che la versione sia almeno 12.0.3. In caso contrario, passare a **Gestisci pacchetti NuGet per la soluzione-aggiornamenti**, cercare **Newtonsoft.jssu** per aggiornarlo. Questa guida usa la versione 12.0.3.
+1. Se è già stato **installatoNewtonsoft.jsin**, verificare che la versione sia almeno 12.0.3. In caso contrario, passare **a Manage NuGet Packages for Solution - Updates** **(Gestisci** pacchetti NuGet per soluzione - Aggiornamenti) e cercareNewtonsoft.jssu per aggiornarlo. Questa guida usa la versione 12.0.3.
 
     > [!div class="mx-imgBorder"]
-    > ![Payload dell'attività Send](media/custom-commands/send-activity-to-client-json-nuget.png)
+    > ![Payload dell'attività di invio](media/custom-commands/send-activity-to-client-json-nuget.png)
 
-1. Assicurarsi inoltre che il pacchetto NuGet **Microsoft. NETCore. UniversalWindowsPlatform** sia almeno 6.2.10. Questa guida usa la versione 6.2.10.
+1. Assicurarsi inoltre che il pacchetto NuGet **Microsoft.NETCore.UniversalWindowsPlatform** sia almeno 6.2.10. Questa guida usa la versione 6.2.10.
 
-In ' MainPage. XAML. cs ' aggiungere
+In 'MainPage.xaml.cs' aggiungere
 
 ```C#
 using Newtonsoft.Json; 
@@ -103,7 +103,7 @@ using Windows.UI.Core;
 
 ### <a name="handle-the-received-payload"></a>Gestire il payload ricevuto
 
-In `InitializeDialogServiceConnector` sostituire il `ActivityReceived` gestore eventi con il codice seguente. Il `ActivityReceived` gestore eventi modificato estrae il payload dall'attività e modifica lo stato di visualizzazione del televisore o della ventola rispettivamente.
+In `InitializeDialogServiceConnector` sostituire il gestore eventi con il codice `ActivityReceived` seguente. Il gestore `ActivityReceived` dell'evento modificato estrarrà il payload dall'attività e modificherà rispettivamente lo stato visivo della tv o della ventola.
 
 ```C#
 connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
@@ -154,11 +154,11 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Selezionare Abilita microfono
 1. Selezionare il pulsante Talk (Parla)
 1. Pronunciare la frase `turn on the tv`
-1. Lo stato di visualizzazione della TV deve cambiare in "on"
+1. Lo stato di visualizzazione della tv deve cambiare in "on"
    > [!div class="mx-imgBorder"]
-   > ![Screenshot che mostra che lo stato di visualizzazione di T V è ora acceso.](media/custom-commands/send-activity-to-client-turn-on-tv.png)
+   > ![Screenshot che mostra che lo stato di visualizzazione di T V è ora attivo.](media/custom-commands/send-activity-to-client-turn-on-tv.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Procedura: configurare endpoint Web (anteprima)](./how-to-custom-commands-setup-web-endpoints.md)
+> [Procedura: Configurare endpoint Web](./how-to-custom-commands-setup-web-endpoints.md)
