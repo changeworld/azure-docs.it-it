@@ -9,24 +9,24 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 10a073914a79d29ae4b1c1d90ae5be624e7d7673
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: cdc5dd2df0dc6ac682d37aea3328545fcb7e5ad2
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303884"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728609"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Avvio rapido: Distribuire il primo modulo IoT Edge in un dispositivo Linux virtuale
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
-Per testare Azure IoT Edge in questa guida di avvio rapido, distribuire il codice in contenitori in un dispositivo IoT Edge Linux virtuale. IoT Edge consente di gestire in remoto il codice nei dispositivi, in modo da poter inviare più carichi di lavoro ai dispositivi perimetrali. Per questa Guida introduttiva è consigliabile usare una macchina virtuale di Azure per il dispositivo IoT Edge, che consente di creare rapidamente un computer di test e quindi di eliminarlo al termine dell'operazione.
+Per testare Azure IoT Edge in questa guida di avvio rapido, distribuire il codice in contenitori in un dispositivo IoT Edge Linux virtuale. IoT Edge consente di gestire in remoto il codice nei dispositivi, in modo da poter inviare più carichi di lavoro ai dispositivi perimetrali. Per questa guida introduttiva, è consigliabile usare una macchina virtuale di Azure per il dispositivo IoT Edge, che consente di creare rapidamente un computer di test e quindi di eliminarlo al termine.
 
 In questa guida introduttiva si apprende come:
 
 * Creare un hub IoT.
 * Registrare un dispositivo IoT Edge nell'hub IoT.
-* Installare e avviare il runtime di IoT Edge in un dispositivo virtuale.
+* Installare e avviare il runtime IoT Edge in un dispositivo virtuale.
 * Distribuire in remoto un modulo in un dispositivo IoT Edge.
 
 ![Diagramma - Guida introduttiva sull'architettura per dispositivo e cloud](./media/quickstart-linux/install-edge-full.png)
@@ -142,14 +142,14 @@ Usare il comando dell'interfaccia della riga di comando seguente per creare il d
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-Usare il comando dell'interfaccia della riga di comando seguente per creare il dispositivo IoT Edge in base al modello [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.2.0-rc4) predefinito.
+Usare il comando dell'interfaccia della riga di comando seguente per creare il dispositivo IoT Edge in base al modello [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.2.0) predefinito.
 
 * Per gli utenti di Bash o Cloud Shell, copiare il comando seguente in un editor di testo, sostituire il testo segnaposto con le informazioni correnti e quindi copiare il testo nella finestra di Bash o Cloud Shell:
 
    ```azurecli-interactive
    az deployment group create \
    --resource-group IoTEdgeResources \
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0-rc4/edgeDeploy.json" \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
    --parameters adminUsername='azureUser' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
@@ -162,7 +162,7 @@ Usare il comando dell'interfaccia della riga di comando seguente per creare il d
    ```azurecli
    az deployment group create `
    --resource-group IoTEdgeResources `
-   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0-rc4/edgeDeploy.json" `
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" `
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
    --parameters adminUsername='azureUser' `
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
@@ -231,7 +231,7 @@ Una volta stabilita la connessione alla macchina virtuale, verificare che il run
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-1. Verificare che IoT Edge sia in esecuzione. Il comando seguente deve restituire lo stato **OK** se IOT Edge è in esecuzione o fornire eventuali errori del servizio.
+1. Verificare che il IoT Edge sia in esecuzione. Il comando seguente dovrebbe restituire lo stato **Ok** se IoT Edge è in esecuzione o fornire eventuali errori del servizio.
 
    ```bash
    sudo iotedge system status
@@ -267,70 +267,70 @@ Gestire il dispositivo Azure IoT Edge dal cloud per distribuire un modulo che in
 
 Include content included below to support versioned steps in Linux quickstart. Can update include file once Windows quickstart supports v1.2 -->
 
-Una delle funzionalità principali di Azure IoT Edge consiste nel distribuire il codice nei dispositivi IoT Edge dal cloud. I *moduli IoT Edge* sono pacchetti eseguibili implementati come contenitori. In questa sezione verrà distribuito un modulo predefinito dalla [sezione moduli IOT Edge di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) direttamente dall'hub Azure.
+Una delle funzionalità principali di Azure IoT Edge è la distribuzione di codice nei dispositivi IoT Edge dal cloud. I *moduli IoT Edge* sono pacchetti eseguibili implementati come contenitori. In questa sezione si distribuirà un modulo predefinito dalla sezione moduli IoT Edge di Azure Marketplace [direttamente](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) da hub IoT di Azure.
 
 Questo modulo simula un sensore e invia i dati generati. Si tratta di un codice utile per iniziare a usare IoT Edge, perché è possibile usare i dati simulati per lo sviluppo e i test. Per informazioni specifiche sul funzionamento di questo modulo, è possibile visualizzare il [codice sorgente del sensore temperatura simulato](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs).
 
-Per avviare la procedura guidata **imposta moduli** per distribuire il primo modulo da Azure Marketplace, seguire questa procedura.
+Seguire questa procedura per avviare la **procedura guidata Imposta** moduli per distribuire il primo modulo da Azure Marketplace.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub Internet.
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT.
 
-1. Dal menu a sinistra, in **gestione automatica dispositivi**, selezionare **IOT Edge**.
+1. Nel menu a sinistra, in **Gestione automatica dei dispositivi** selezionare **IoT Edge**.
 
-1. Selezionare l'ID dispositivo del dispositivo di destinazione dall'elenco di dispositivi.
+1. Selezionare l'ID del dispositivo di destinazione dall'elenco dei dispositivi.
 
 1. Sulla barra superiore selezionare **Imposta moduli**.
 
-   ![Screenshot che mostra la selezione di set modules.](./media/quickstart/select-set-modules.png)
+   ![Screenshot che mostra la selezione di Imposta moduli.](./media/quickstart/select-set-modules.png)
 
 ### <a name="modules"></a>Moduli
 
-Il primo passaggio della procedura guidata consiste nel scegliere quali moduli si desidera eseguire nel dispositivo.
+Il primo passaggio della procedura guidata consiste nel scegliere i moduli da eseguire nel dispositivo.
 
-In **moduli IOT Edge** aprire il menu a discesa **Aggiungi** , quindi selezionare **modulo Marketplace**.
+In **IoT Edge Moduli** aprire **il** menu a discesa Aggiungi e quindi selezionare Modulo **Marketplace.**
 
    ![Screenshot che mostra il menu a discesa Aggiungi.](./media/quickstart/add-marketplace-module.png)
 
-In **IOT Edge Module Marketplace** cercare e selezionare il `Simulated Temperature Sensor` modulo. Il modulo viene aggiunto alla sezione moduli IoT Edge con lo stato **in esecuzione** desiderato.
+In **IoT Edge Marketplace** del modulo cercare e selezionare il `Simulated Temperature Sensor` modulo. Il modulo viene aggiunto alla sezione moduli IoT Edge con lo stato di **esecuzione** desiderato.
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-Selezionare **impostazioni di runtime** per aprire le impostazioni per i moduli EdgeHub e edgeAgent. Questa sezione delle impostazioni è la posizione in cui è possibile gestire i moduli di runtime aggiungendo variabili di ambiente o modificando le opzioni di creazione.
+Selezionare **Impostazioni di** runtime per aprire le impostazioni per i moduli edgeHub ed edgeAgent. In questa sezione delle impostazioni è possibile gestire i moduli di runtime aggiungendo variabili di ambiente o modificando le opzioni di creazione.
 
-Aggiornare il campo **Image** per i moduli EdgeHub e edgeAgent per usare il tag di versione 1,2. Ad esempio:
+Aggiornare il **campo Immagine** per i moduli edgeHub ed edgeAgent per usare il tag di versione 1.2. Ad esempio:
 
 * `mcr.microsoft.com/azureiotedge-hub:1.2`
 * `mcr.microsoft.com/azureiotedge-agent:1.2`
 
-Selezionare **Save (Salva** ) per applicare le modifiche ai moduli di Runtime.
+Selezionare **Salva** per applicare le modifiche ai moduli di runtime.
 
 :::moniker-end
 <!--end 1.2-->
 
 Selezionare **Avanti: Route** per continuare con il passaggio successivo della procedura guidata.
 
-   ![Screenshot che Mostra come proseguire con il passaggio successivo dopo l'aggiunta del modulo.](./media/quickstart/view-temperature-sensor-next-routes.png)
+   ![Screenshot che mostra come continuare con il passaggio successivo dopo l'aggiunta del modulo.](./media/quickstart/view-temperature-sensor-next-routes.png)
 
 ### <a name="routes"></a>Route
 
-Nella scheda **Route** rimuovere la route predefinita, **Route**, quindi selezionare **Next: Review + create** per passare al passaggio successivo della procedura guidata.
+Nella scheda **Route** rimuovere la route predefinita, **la route** e quindi selezionare **Avanti: Rivedi e** crea per continuare con il passaggio successivo della procedura guidata.
 
    >[!Note]
-   >Le route vengono costruite mediante coppie di nome e valore. In questa pagina verranno visualizzate due route. La route predefinita, **Route**, invia tutti i messaggi all'hub Internet (denominato `$upstream` ). Una seconda route, **SimulatedTemperatureSensorToIoTHub**, è stata creata automaticamente quando è stato aggiunto il modulo da Azure Marketplace. Questa route invia tutti i messaggi dal modulo temperatura simulata all'hub Internet. È possibile eliminare la route predefinita perché in questo caso è ridondante.
+   >Le route vengono costruite usando coppie nome/valore. In questa pagina verranno visualizzate due route. La route predefinita, **route**, invia tutti i messaggi all'hub IoT (denominato `$upstream` ). Una seconda route, **SimulatedTemperatureSensorToIoTHub,** è stata creata automaticamente quando è stato aggiunto il modulo da Azure Marketplace. Questa route invia tutti i messaggi dal modulo temperatura simulata all'hub IoT. È possibile eliminare la route predefinita perché in questo caso è ridondante.
 
-   ![Screenshot che Mostra come rimuovere la route predefinita, quindi passare al passaggio successivo.](./media/quickstart/delete-route-next-review-create.png)
+   ![Screenshot che mostra la rimozione della route predefinita e il passaggio successivo.](./media/quickstart/delete-route-next-review-create.png)
 
 ### <a name="review-and-create"></a>Rivedi e crea
 
-Esaminare il file JSON e quindi selezionare **Crea**. Il file JSON definisce tutti i moduli distribuiti nel dispositivo IoT Edge. Verranno visualizzati il modulo **SimulatedTemperatureSensor** e i due moduli di runtime, **edgeAgent** e **edgeHub**.
+Esaminare il file JSON e quindi selezionare **Crea**. Il file JSON definisce tutti i moduli distribuiti nel dispositivo IoT Edge dispositivo. Verranno visualizzati il modulo **SimulatedTemperatureSensor** e i due moduli di runtime, **edgeAgent** **e edgeHub.**
 
    >[!Note]
    >Quando si invia una nuova distribuzione a un dispositivo IoT Edge, non viene eseguito il push di alcun elemento al dispositivo. Al contrario, il dispositivo richiede periodicamente eventuali nuove istruzioni all'hub IoT. Se il dispositivo trova un manifesto della distribuzione aggiornato, usa le informazioni sulla nuova distribuzione per eseguire il pull delle immagini dei moduli dal cloud, quindi avvia l'esecuzione dei moduli in locale. Questo processo può richiedere alcuni minuti.
 
-Dopo aver creato i dettagli della distribuzione dei moduli, la procedura guidata torna nella pagina Dettagli dispositivo. Visualizzare lo stato della distribuzione nella scheda **moduli** .
+Dopo aver creato i dettagli della distribuzione dei moduli, la procedura guidata torna nella pagina Dettagli dispositivo. Visualizzare lo stato della distribuzione nella **scheda** Moduli.
 
-Verranno visualizzati tre moduli: **$edgeAgent**, **$edgeHub** e **SimulatedTemperatureSensor**. Se uno o più moduli hanno **Sì** IN **specificato nella distribuzione** , ma non sono **segnalati dal dispositivo**, il dispositivo IOT Edge li sta ancora avviando. Attendere alcuni minuti e quindi aggiornare la pagina.
+Dovrebbero essere visualizzati tre moduli: **$edgeAgent**, **$edgeHub** e **SimulatedTemperatureSensor**. Se uno o più moduli hanno **SÌ** in **SPECIFIED IN DEPLOYMENT** ma non in REPORTED BY **DEVICE**, il dispositivo IoT Edge sta ancora avviando. Attendere alcuni minuti e quindi aggiornare la pagina.
 
    ![Screenshot che mostra il sensore di temperatura simulato nell'elenco dei moduli distribuiti.](./media/quickstart/view-deployed-modules.png)
 

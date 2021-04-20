@@ -9,12 +9,12 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 643aac7927cc7b14693387fbb5765bdcd0214dc2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5d945c421dc0a4abed17b3a355339c131dd922df
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598241"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728051"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Informazioni sulla fattura del contratto Enterprise di Azure
 
@@ -396,51 +396,6 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
     È possibile ottenere la chiave API in Azure Enterprise Portal nella scheda **Scarica utilizzo**. Selezionare **API Access Key** (Chiave accesso API) e quindi incollare la chiave nella casella **Account Key** (Chiave account).
 1. Il caricamento dei dati in Power BI richiede dai 5 ai 30 minuti, a seconda delle dimensioni dei set di dati.
-
-## <a name="reports-faq"></a>Domande frequenti sui report
-
-In questa sezione vengono trattate le domande comuni sui report.
-
-### <a name="why-is-my-cost-showing-as-0"></a>Perché il costo viene visualizzato come $ 0?
-
-Per i clienti con **registrazione diretta**, gli amministratori aziendali possono concedere ai proprietari di account e agli amministratori di reparto l'accesso alle informazioni su costi e prezzi nei report sull'utilizzo. A tale scopo, seguire questa procedura:
-
-1. In Azure Enterprise Portal selezionare **Gestisci** nel riquadro di spostamento di sinistra.
-1. Selezionare la matita blu accanto alla visualizzazione degli addebiti per gli amministratori di reparto.
-1. Selezionare **Abilitato** e salvare.
-1. Selezionare la matita blu accanto alla visualizzazione degli addebiti per i proprietari di account.
-1. Selezionare **Abilitato** e salvare.
-
-> [!NOTE]
-> Se si è un proprietario di account o un amministratore di reparto, contattare l'amministratore aziendale per abilitare la funzionalità relativa ai prezzi.
-
-Per i clienti con **registrazione indiretta**, contattare il partner per verificare che abbia abilitato la funzionalità relativa ai prezzi. Questa operazione può essere eseguita solo dal partner. Dopo aver abilitato la funzionalità, è possibile visualizzare il costo e i prezzi per la registrazione come amministratore aziendale.
-
-I partner che vogliono abilitare la funzionalità di visualizzazione degli addebiti per un proprietario di account e un amministratore di reparto, possono seguire la procedura descritta in **registrazione diretta**.
-
-### <a name="why-is-there-no-sku-information-on-my-usage-detail-report"></a>Perché nel report relativo ai dettagli dell'utilizzo non sono presenti informazioni sugli SKU?
-
-Il report relativo ai dettagli dell'utilizzo non contiene informazioni sugli SKU. Il report, tuttavia, contiene informazioni sull'utilizzo ed è possibile scaricare il report dell'elenco prezzi per ottenere le informazioni sullo SKU.
-
-### <a name="why-doesnt-the-total-amount-on-azure-marketplace-match-the-reports-for-usage-summary-and-detail"></a>Perché l'importo totale in Azure Marketplace non corrisponde ai report di riepilogo e dei dettagli dell'utilizzo?
-
-Il report degli addebiti di Azure Marketplace mostra solo gli addebiti basati sull'utilizzo. Le tariffe una tantum non vengono visualizzate. Vedere la pagina di riepilogo dell'utilizzo per gli addebiti basati sull'utilizzo e per le tariffe una tantum più aggiornati.
-
-### <a name="why-is-there-no-information-on-my-api-report"></a>Perché il report API non contiene informazioni?
-
-Le chiavi API scadono ogni sei mesi. Se si verifica un problema, un amministratore aziendale deve generare una nuova chiave API. Ricordarsi di seguire la procedura descritta nelle domande frequenti sul report API.
-
-### <a name="why-isnt-my-power-bi-report-working"></a>Perché il report di Power BI non funziona?
-
-Per problemi relativi a Power BI, registrare un ticket presso il [team di supporto di Power BI](https://support.powerbi.com).
-
-### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>Perché i tag delle risorse non vengono visualizzati nei report?
-
-I tag delle risorse vengono gestiti nel portale di Azure. È possibile contattare il team della sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com). Seguire la procedura descritta nell'articolo [Come creare una richiesta di supporto di Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
-
-### <a name="why-does-my-resource-rate-change-every-day"></a>Perché la tariffa per le risorse cambia ogni giorno?
-
-La tariffa per le risorse visualizzata nel report dei dettagli di utilizzo è un valore calcolato. Rappresenta la tariffa mensile media addebitata per il servizio. La tariffa per le risorse viene calcolata usando la media dell'impegno mensile e degli addebiti per eccedenza mensili per un'unità di servizio. La parte di utilizzo addebitata a fronte dell'impegno e delle tariffe di eccedenza cambia nel giorno di chiusura del mese. Di conseguenza, anche la tariffa per le risorse cambia nel corso del mese. La tariffa si blocca il quinto giorno successivo alla fine del mese.
 
 ### <a name="glossary-of-processes-for-calculating-the-resource-rate"></a>Glossario dei processi per il calcolo della tariffa per le risorse
 

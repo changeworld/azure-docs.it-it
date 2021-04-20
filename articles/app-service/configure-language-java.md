@@ -1,7 +1,7 @@
 ---
-title: Configurare app java
-description: Informazioni su come configurare le app java per l'esecuzione nel servizio app Azure. Questo articolo illustra le attività di configurazione più comuni.
-keywords: servizio app di Azure, app Web, Windows, OSS, Java, Tomcat, JBoss
+title: Configurare le app Java
+description: Informazioni su come configurare le app Java per l'esecuzione Servizio app di Azure. Questo articolo illustra le attività di configurazione più comuni.
+keywords: servizio app di Azure, app Web, windows, oss, java, tomcat, jboss
 author: jasonfreeberg
 ms.devlang: java
 ms.topic: article
@@ -11,28 +11,31 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: cc532c5ac6babb8378860ac5049e931cc7657932
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1caa8b680b6bc3df20ad31e581d336195308a2dc
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629258"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726323"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configurare un'app Java per il servizio app di Azure
 
-App Azure servizio consente agli sviluppatori Java di creare, distribuire e ridimensionare rapidamente le applicazioni Web Java SE, Tomcat e JBoss EAP in un servizio completamente gestito. Distribuire le applicazioni con i plug-in Maven, dalla riga di comando o in Editor come IntelliJ, Eclipse o Visual Studio Code.
+Servizio app di Azure consente agli sviluppatori Java di compilare, distribuire e ridimensionare rapidamente le applicazioni Web Java SE, Tomcat e JBoss EAP in un servizio completamente gestito. Distribuire applicazioni con plug-in Maven, dalla riga di comando o in editor come IntelliJ, Eclipse o Visual Studio Code.
 
-Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano il servizio app. Se non si è mai usato app Azure servizio, è consigliabile leggere prima di tutto la [Guida introduttiva per Java](quickstart-java.md) . Le domande frequenti sull'uso del servizio app che non sono specifiche dello sviluppo Java sono risposte alle domande [frequenti sul servizio app](faq-configuration-and-management.md).
+Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Java che usano il servizio app. Se non si è mai usato Servizio app di Azure, è consigliabile leggere prima l'avvio [rapido per Java.](quickstart-java.md) Le domande generali sull'uso del servizio app che non sono specifiche dello sviluppo Java sono disponibili nelle domande [frequenti sul servizio app.](faq-configuration-and-management.md)
 
 ## <a name="deploying-your-app"></a>Distribuzione dell'app
 
-È possibile usare il plug-in [app Web di Azure per Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) per distribuire i file con estensione War o jar. La distribuzione con IDE comuni è supportata anche con il [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) o [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
+È possibile usare [il plug-in app Web di Azure per Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) per distribuire i file war o jar. La distribuzione con gli ID più diffusi è supportata anche con [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) o [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Altrimenti, il metodo di distribuzione dipenderà dal tipo di archivio:
 
 ### <a name="java-se"></a>Java SE
 
-Per distribuire i file con estensione jar in Java SE, usare l' `/api/zipdeploy/` endpoint del sito Kudu. Per altre informazioni su questa API, vedere [questa documentazione](./deploy-zip.md#rest).
+Per distribuire i file con estensione jar in Java SE, usare `/api/zipdeploy/` l'endpoint del sito Kudu. Per altre informazioni su questa API, vedere [questa documentazione](./deploy-zip.md#rest). 
+
+> [!NOTE]
+>  Per identificare ed eseguire l'applicazione, il servizio app deve avere un nome `app.jar` per l'applicazione con estensione jar. Il plug-in Maven (menzionato in precedenza) rinomina automaticamente l'applicazione durante la distribuzione. Se non si vuole rinominare il file JAR in *app.jar,* è possibile caricare uno script della shell con il comando per eseguire l'app con estensione jar. Incollare il percorso assoluto di questo script nella casella [di testo File di](faq-app-service-linux.md#built-in-images) avvio nella sezione Configurazione del portale. Lo script di avvio non viene eseguito dalla directory in cui si trova. Pertanto, usare sempre percorsi assoluti per fare riferimento ai file dello script di avvio, ad esempio `java -jar /home/myapp/myapp.jar`.
 
 ### <a name="tomcat"></a>Tomcat
 
@@ -42,9 +45,9 @@ Per distribuire file con estensione war in Tomcat, usare l'endpoint `/api/wardep
 
 ### <a name="jboss-eap"></a>JBoss EAP
 
-Per distribuire file War in JBoss, usare l' `/api/wardeploy/` endpoint per pubblicare il file di archivio. Per altre informazioni su questa API, vedere [questa documentazione](./deploy-zip.md#deploy-war-file).
+Per distribuire i file con estensione war in JBoss, usare `/api/wardeploy/` l'endpoint per pubblicare il file di archivio. Per altre informazioni su questa API, vedere [questa documentazione](./deploy-zip.md#deploy-war-file).
 
-Per distribuire i file con estensione Ear, [utilizzare FTP](deploy-ftp.md).
+Per distribuire file con estensione ear, [usare FTP.](deploy-ftp.md)
 
 ::: zone-end
 
@@ -83,15 +86,15 @@ Le immagini Java integrate sono basate sul sistema operativo [Alpine Linux](http
 
 ### <a name="flight-recorder"></a>Flight Recorder
 
-Tutti i runtime Java nel servizio app con il JVM Azul sono disponibili con il registratore di volo Zulu. È possibile usarlo per registrare gli eventi JVM, di sistema e dell'applicazione e risolvere i problemi nelle applicazioni Java.
+Tutti i runtime Java nel servizio app che usano i JVM Azul sono associati a Zulu Flight Recorder. È possibile usarlo per registrare eventi JVM, di sistema e dell'applicazione e risolvere i problemi nelle applicazioni Java.
 
 ::: zone pivot="platform-windows"
 
 #### <a name="timed-recording"></a>Registrazione temporizzata
 
-Per eseguire una registrazione temporizzata, sarà necessario il PID (ID processo) dell'applicazione Java. Per trovare il PID, aprire un browser al sito SCM dell'app Web in https://<nome-sito>. scm.azurewebsites.net/ProcessExplorer/. Questa pagina mostra i processi in esecuzione nell'app Web. Individuare il processo denominato "Java" nella tabella e copiare il PID corrispondente (ID processo).
+Per eseguire una registrazione programmata, è necessario il PID (ID processo) dell'applicazione Java. Per trovare il PID, aprire un browser nel sito SCM dell'app Web all'indirizzo https://<nome-sito>.scm.azurewebsites.net/ProcessExplorer/. Questa pagina mostra i processi in esecuzione nell'app Web. Trovare il processo denominato "java" nella tabella e copiare il PID (ID processo) corrispondente.
 
-Aprire quindi il **console di debug** sulla barra degli strumenti superiore del sito SCM ed eseguire il comando seguente. Sostituire `<pid>` con l'ID processo copiato in precedenza. Questo comando avvierà una registrazione di 30 secondi del profiler dell'applicazione Java e genererà un file denominato `timed_recording_example.jfr` nella `D:\home` Directory.
+Aprire quindi il **Console di debug** sulla barra degli strumenti superiore del sito SCM ed eseguire il comando seguente. Sostituire `<pid>` con l'ID processo copiato in precedenza. Questo comando avvia una registrazione del profiler di 30 secondi dell'applicazione Java e genera un file denominato `timed_recording_example.jfr` nella `D:\home` directory .
 
 ```
 jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
@@ -100,7 +103,7 @@ jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename=
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-Connettersi tramite SSH al servizio app ed eseguire il `jcmd` comando per visualizzare un elenco di tutti i processi Java in esecuzione. Oltre a jcmd, l'applicazione Java dovrebbe essere in esecuzione con un numero ID processo (PID).
+Eseguire SSH nel servizio app ed eseguire il `jcmd` comando per visualizzare un elenco di tutti i processi Java in esecuzione. Oltre a jcmd, l'applicazione Java dovrebbe essere in esecuzione con un numero ID processo (PID).
 
 ```shell
 078990bbcd11:/home# jcmd
@@ -133,7 +136,7 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 
 ::: zone-end
 
-#### <a name="analyze-jfr-files"></a>Analizza `.jfr` file
+#### <a name="analyze-jfr-files"></a>Analizzare `.jfr` i file
 
 Usare [FTPS](deploy-ftp.md) per scaricare il file JFR nel computer locale. Per analizzare il file JFR, scaricare e installare [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Per istruzioni su Zulu Mission Control, vedere la [documentazione di Azul](https://docs.azul.com/zmc/) e le [istruzioni di installazione](/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
 
@@ -167,7 +170,7 @@ Il Servizio app di Azure per Linux supporta l'ottimizzazione e la personalizzazi
 
 ### <a name="set-java-runtime-options"></a>Impostare le opzioni di runtime Java
 
-Per impostare la memoria allocata o altre opzioni di runtime JVM, creare un' [impostazione dell'app](configure-common.md#configure-app-settings) denominata `JAVA_OPTS` con le opzioni. Il servizio app passa questa impostazione come variabile di ambiente al runtime Java all'avvio.
+Per impostare la memoria allocata o altre opzioni di runtime JVM, creare [un'impostazione dell'app](configure-common.md#configure-app-settings) `JAVA_OPTS` denominata con le opzioni. Il servizio app passa questa impostazione come variabile di ambiente al runtime Java all'avvio.
 
 Nel portale di Azure, sotto **Impostazioni applicazione** per l'app Web creare una nuova impostazione dell'app denominata `JAVA_OPTS` che includa le impostazioni aggiuntive, ad esempio `-Xms512m -Xmx1204m`.
 
@@ -228,7 +231,7 @@ Per migliorare le prestazioni delle applicazioni Tomcat, è possibile compilare 
 
 ## <a name="secure-applications"></a>Proteggere le applicazioni
 
-Le applicazioni Java in esecuzione nel servizio app hanno lo stesso set di procedure consigliate per la [sicurezza](../security/fundamentals/paas-applications-using-app-services.md) di altre applicazioni.
+Le applicazioni Java in esecuzione nel servizio app hanno lo stesso set di procedure consigliate per [la sicurezza](../security/fundamentals/paas-applications-using-app-services.md) di altre applicazioni.
 
 ### <a name="authenticate-users-easy-auth"></a>Autenticare gli utenti (Easy Auth)
 
@@ -338,8 +341,8 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 6. Modificare il file YAML in */home/site/wwwroot/apm/newrelic/newrelic.yml* e sostituire il valore della licenza segnaposto con il proprio codice di licenza.
 7. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
 
-    - Per le app **Java se** , creare una variabile di ambiente denominata `JAVA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Per **Tomcat**, creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Per **le app Java SE,** creare una variabile di ambiente denominata con il valore `JAVA_OPTS` `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Per **Tomcat** creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -352,8 +355,8 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 6. Modificare il file YAML in */home/site/wwwroot/apm/newrelic/newrelic.yml* e sostituire il valore della licenza segnaposto con il proprio codice di licenza.
 7. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
    
-    - Per le app **Java se** , creare una variabile di ambiente denominata `JAVA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - Per **Tomcat**, creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Per **le app Java SE,** creare una variabile di ambiente denominata con il valore `JAVA_OPTS` `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - Per **Tomcat** creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 
@@ -365,12 +368,12 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 
 1. Creare un account AppDynamics in [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Scaricare l'agente Java dal sito Web di AppDynamics, il nome file sarà simile a *AppServerAgent-x.x.x.xxxxx.zip*
-3. Usare la [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) per creare una nuova directory */Home/site/wwwroot/APM*.
+3. Usare la [console kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) per creare una nuova directory */home/site/wwwroot/apm*.
 4. Caricare i file dell'agente Java decompressi in una directory in */home/site/wwwroot/apm*. I file per l'agente devono trovarsi in */home/site/wwwroot/apm/appdynamics*.
 5. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
 
-   - Per le app **Java se** , creare una variabile di ambiente denominata `JAVA_OPTS` con il valore in `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` cui `<app-name>` è il nome del servizio app.
-   - Per le app **Tomcat** , creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore in `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` cui `<app-name>` è il nome del servizio app.
+   - Per **le app Java SE,** creare una variabile di ambiente denominata con il valore dove è il nome del servizio `JAVA_OPTS` `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` app.
+   - Per **le app Tomcat,** creare una variabile di ambiente `CATALINA_OPTS` denominata con il valore dove è il nome del servizio `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` app.
 
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -381,8 +384,8 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 4. Caricare i file dell'agente Java decompressi in una directory in */home/site/wwwroot/apm*. I file per l'agente devono trovarsi in */home/site/wwwroot/apm/appdynamics*.
 5. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
 
-   - Per le app **Java se** , creare una variabile di ambiente denominata `JAVA_OPTS` con il valore in `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` cui `<app-name>` è il nome del servizio app.
-   - Per le app **Tomcat** , creare una variabile di ambiente denominata `CATALINA_OPTS` con il valore in `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` cui `<app-name>` è il nome del servizio app.
+   - Per **le app Java SE,** creare una variabile di ambiente denominata con il valore dove è il nome del servizio `JAVA_OPTS` `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` app.
+   - Per **le app Tomcat,** creare una variabile di ambiente `CATALINA_OPTS` denominata con il valore dove è il nome del servizio `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` app.
 
 ::: zone-end
 
@@ -464,7 +467,7 @@ Determinare quindi se l'origine dati deve essere disponibile per un'applicazione
 
 #### <a name="finalize-configuration"></a>Completare la configurazione
 
-Infine, i file jar del driver vengono posizionati nel classpath di Tomcat e il servizio app viene riavviato. Assicurarsi che i file driver JDBC siano disponibili per il caricatore di classe Tomcat inserendoli nella directory */home/tomcat/lib*. Creare questa directory se non esiste già. Per caricare questi file nell'istanza del servizio app, seguire questa procedura:
+Infine, i file JAR del driver verranno posizionati nel classpath Tomcat e verrà riavviato il servizio app. Assicurarsi che i file driver JDBC siano disponibili per il caricatore di classe Tomcat inserendoli nella directory */home/tomcat/lib*. Creare questa directory se non esiste già. Per caricare questi file nell'istanza del servizio app, seguire questa procedura:
 
 1. Nel [Cloud Shell](https://shell.azure.com) installare l'estensione webapp:
 
@@ -642,7 +645,7 @@ Infine, inserire i file driver con estensione jar nel classpath Tomcat e riavvia
 
 ### <a name="jboss-eap"></a>JBoss EAP
 
-Sono disponibili tre passaggi principali per la [registrazione di un'origine dati con JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management): caricamento del driver JDBC, aggiunta del driver JDBC come modulo e registrazione del modulo. Il servizio app è un servizio di hosting senza stato, quindi i comandi di configurazione per l'aggiunta e la registrazione del modulo dell'origine dati devono essere scritti e applicati quando il contenitore viene avviato.
+Per la registrazione di un'origine dati con [JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management)sono necessari tre passaggi principali: caricamento del driver JDBC, aggiunta del driver JDBC come modulo e registrazione del modulo. Il servizio app è un servizio di hosting senza stato, quindi i comandi di configurazione per l'aggiunta e la registrazione del modulo dell'origine dati devono essere registrati e applicati all'avvio del contenitore.
 
 1. Ottenere il driver JDBC del database. 
 2. Creare un file di definizione del modulo XML per il driver JDBC. L'esempio illustrato di seguito è una definizione di modulo per PostgreSQL.
@@ -661,7 +664,7 @@ Sono disponibili tre passaggi principali per la [registrazione di un'origine dat
     </module>
     ```
 
-1. Inserire i comandi dell'interfaccia della riga di comando di JBoss in un file denominato `jboss-cli-commands.cli` . I comandi JBoss devono aggiungere il modulo e registrarlo come origine dati. L'esempio seguente illustra i comandi dell'interfaccia della riga di comando di JBoss per PostgreSQL.
+1. Inserire i comandi dell'interfaccia della riga di comando di JBoss in un file denominato `jboss-cli-commands.cli` . I comandi JBoss devono aggiungere il modulo e registrarlo come origine dati. L'esempio seguente mostra i comandi dell'interfaccia della riga di comando di JBoss per PostgreSQL.
 
     ```bash
     #!/usr/bin/env bash
@@ -672,30 +675,30 @@ Sono disponibili tre passaggi principali per la [registrazione di un'origine dat
     data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=${POSTGRES_CONNECTION_URL,env.POSTGRES_CONNECTION_URL:jdbc:postgresql://db:5432/postgres} --user-name=${POSTGRES_SERVER_ADMIN_FULL_NAME,env.POSTGRES_SERVER_ADMIN_FULL_NAME:postgres} --password=${POSTGRES_SERVER_ADMIN_PASSWORD,env.POSTGRES_SERVER_ADMIN_PASSWORD:example} --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
     ```
 
-1. Creare uno script di avvio `startup_script.sh` che chiama i comandi dell'interfaccia della riga di comando di JBoss. Nell'esempio seguente viene illustrato come chiamare il `jboss-cli-commands.cli` . In seguito si configre il servizio app per eseguire questo script all'avvio del contenitore. 
+1. Creare uno script di avvio che `startup_script.sh` chiama i comandi dell'interfaccia della riga di comando di JBoss. L'esempio seguente illustra come chiamare `jboss-cli-commands.cli` . Successivamente si eseguirà la configurazione del servizio app per eseguire questo script all'avvio del contenitore. 
 
     ```bash
     $JBOSS_HOME/bin/jboss-cli.sh --connect --file=/home/site/deployments/tools/jboss-cli-commands.cli
     ```
 
-1. Utilizzando un client FTP di propria scelta, caricare il driver JDBC, `jboss-cli-commands.cli` , `startup_script.sh` e la definizione del modulo in `/site/deployments/tools/` .
-2. Configurare il sito per l'esecuzione all' `startup_script.sh` avvio del contenitore. Nel portale di Azure passare a **configurazione**  >  **Impostazioni generali**  >  **comando di avvio**. Impostare il campo del comando di avvio su `/home/site/deployments/tools/startup_script.sh` . **Salvare** le modifiche.
+1. Usando un client FTP di propria scelta, caricare il driver JDBC, `jboss-cli-commands.cli` , e la definizione del modulo in `startup_script.sh` `/site/deployments/tools/` .
+2. Configurare il sito per l'esecuzione `startup_script.sh` all'avvio del contenitore. Nel portale di Azure passare a **Configuration**  >  **General Settings** Startup Command (Comando di avvio delle  >  **impostazioni generali di configurazione).** Impostare il campo del comando di avvio su `/home/site/deployments/tools/startup_script.sh` . **Salvare** le modifiche.
 
-Per verificare che l'origine dati sia stata aggiunta al server JBoss, SSH nella WebApp ed eseguire `$JBOSS_HOME/bin/jboss-cli.sh --connect` . Una volta stabilita la connessione a JBoss `/subsystem=datasources:read-resource` , eseguire per stampare un elenco delle origini dati.
+Per verificare che l'origine dati sia stata aggiunta al server JBoss, eseguire SSH nell'app Web ed eseguire `$JBOSS_HOME/bin/jboss-cli.sh --connect` . Dopo aver eseguito la connessione a JBoss, eseguire `/subsystem=datasources:read-resource` per stampare un elenco delle origini dati.
 
 ::: zone-end
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
-## <a name="choosing-a-java-runtime-version"></a>Scelta di una versione runtime Java
+## <a name="choosing-a-java-runtime-version"></a>Scelta di una versione di runtime Java
 
-Il servizio app consente agli utenti di scegliere la versione principale di JVM, ad esempio Java 8 o Java 11, e la versione secondaria, ad esempio 1.8.0 _232 o 11.0.5. È anche possibile scegliere di aggiornare automaticamente la versione secondaria Man mano che le nuove versioni secondarie diventano disponibili. Nella maggior parte dei casi, i siti di produzione devono usare versioni JVM secondarie aggiunte. In questo modo si eviteranno interruzioni unnanticipated durante un aggiornamento automatico della versione secondaria.
+Il servizio app consente agli utenti di scegliere la versione principale della JVM, ad esempio Java 8 o Java 11, nonché la versione secondaria, ad esempio 1.8.0_232 o 11.0.5. È anche possibile scegliere di aggiornare automaticamente la versione secondaria quando diventano disponibili nuove versioni secondarie. Nella maggior parte dei casi, i siti di produzione devono usare versioni JVM secondarie aggiunte. Ciò impedirà interruzioni impreviste durante un aggiornamento automatico della versione secondaria.
 
-Se si sceglie di aggiungere la versione secondaria, sarà necessario aggiornare periodicamente la versione secondaria JVM sul sito. Per assicurarsi che l'applicazione venga eseguita sulla versione secondaria più recente, creare uno slot di staging e incrementare la versione secondaria nel sito di gestione temporanea. Una volta confermata l'esecuzione corretta dell'applicazione nella nuova versione secondaria, è possibile scambiare gli slot di gestione temporanea e di produzione.
+Se si sceglie di aggiungere la versione secondaria, sarà necessario aggiornare periodicamente la versione secondaria JVM nel sito. Per assicurarsi che l'applicazione venga eseguita nella versione secondaria più recente, creare uno slot di staging e incrementare la versione secondaria nel sito di staging. Dopo aver confermato che l'applicazione viene eseguita correttamente nella nuova versione secondaria, è possibile scambiare gli slot di staging e di produzione.
 
-## <a name="jboss-eap-hardware-options"></a>Opzioni hardware di JBoss EAP
+## <a name="jboss-eap-hardware-options"></a>Opzioni hardware EAP JBoss
 
-JBoss EAP è disponibile solo per le opzioni hardware Premium e isolated. Per evitare comportamenti imprevisti, i clienti che hanno creato un sito EAP di JBoss su un livello gratuito, condiviso, Basic o standard durante l'anteprima pubblica dovrebbero essere scalati fino a livello hardware Premium o isolato.
+JBoss EAP è disponibile solo nelle opzioni hardware Premium e Isolated. I clienti che hanno creato un sito EAP JBoss su un livello Gratuito, Condiviso, Basic o Standard durante l'anteprima pubblica devono aumentare fino al livello hardware Premium o Isolato per evitare comportamenti imprevisti.
 
 ## <a name="java-runtime-statement-of-support"></a>Istruzione di supporto del runtime Java
 
@@ -703,15 +706,15 @@ JBoss EAP è disponibile solo per le opzioni hardware Premium e isolated. Per ev
 
 Il pacchetto Java Development Kit (JDK) supportato di Azure è [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornito da [Azul Systems](https://www.azul.com/). Le build Azul Zulu Enterprise di OpenJDK sono distribuzioni di OpenJDK gratuite, multipiattaforma e pronte per la produzione per Azure e Azure Stack, supportate da Microsoft e Azul Systems. Contengono tutti i componenti necessari per compilare ed eseguire applicazioni Java SE. È possibile installare JDK da [Installazione di Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
-Gli aggiornamenti delle versioni principali verranno forniti tramite nuove opzioni di runtime nel servizio app Azure. I clienti eseguono l'aggiornamento a queste versioni più recenti di Java configurando la distribuzione del servizio app e sono responsabili dei test, oltre che di assicurare che l'aggiornamento principale risponda alle esigenze.
+Gli aggiornamenti delle versioni principali verranno forniti tramite nuove opzioni di runtime in Servizio app di Azure. I clienti eseguono l'aggiornamento a queste versioni più recenti di Java configurando la distribuzione del servizio app e sono responsabili dei test, oltre che di assicurare che l'aggiornamento principale risponda alle esigenze.
 
-Ai pacchetti JDK supportati vengono automaticamente applicate patch con cadenza trimestrale, a gennaio, aprile, luglio e ottobre di ogni anno. Per altre informazioni su Java in Azure, vedere [questo documento di supporto](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Ai pacchetti JDK supportati vengono automaticamente applicate patch con cadenza trimestrale, a gennaio, aprile, luglio e ottobre di ogni anno. Per altre informazioni su Java in Azure, vedere questo [documento di supporto.](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 ### <a name="security-updates"></a>Aggiornamenti per la sicurezza
 
 Le patch e le correzioni per le principali vulnerabilità della sicurezza verranno rilasciate da Azul Systems non appena disponibili. Una vulnerabilità "principale" viene definita da un punteggio di base pari o superiore a 9,0 in [NIST Common Vulnerability Scoring System, versione 2](https://nvd.nist.gov/vuln-metrics/cvss).
 
-Tomcat 8,0 ha raggiunto la [fine del ciclo di vita (EOL) a partire dal 30 settembre 2018](https://tomcat.apache.org/tomcat-80-eol.html). Mentre il runtime è ancora disponibile nel servizio app Azure, Azure non applica gli aggiornamenti della sicurezza per Tomcat 8,0. Se possibile, eseguire la migrazione delle applicazioni a Tomcat 8,5 o 9,0. Sia Tomcat 8,5 che 9,0 sono disponibili nel servizio app Azure. Per ulteriori informazioni, vedere il [sito Tomcat ufficiale](https://tomcat.apache.org/whichversion.html) . 
+Tomcat 8.0 ha raggiunto End of Life (EOL) a partire dal [30 settembre 2018.](https://tomcat.apache.org/tomcat-80-eol.html) Mentre il runtime è ancora disponibile in Servizio app di Azure, Azure non applica gli aggiornamenti della sicurezza a Tomcat 8.0. Se possibile, eseguire la migrazione delle applicazioni a Tomcat 8.5 o 9.0. Sia Tomcat 8.5 che 9.0 sono disponibili in Servizio app di Azure. Per altre [informazioni, vedere il sito ufficiale di Tomcat.](https://tomcat.apache.org/whichversion.html) 
 
 ### <a name="deprecation-and-retirement"></a>Deprecazione e ritiro
 
@@ -724,7 +727,7 @@ Gli sviluppatori possono scaricare l'edizione Production di Azul Zulu Enterprise
 
 ### <a name="development-support"></a>Supporto per lo sviluppo
 
-Il supporto del prodotto per l' [Azul Zulu del JDK supportato da Azure](https://www.azul.com/downloads/azure-only/zulu/) è disponibile tramite Microsoft quando si sviluppa per azure o [Azure stack](https://azure.microsoft.com/overview/azure-stack/) con un [piano di supporto di Azure completo](https://azure.microsoft.com/support/plans/).
+Il supporto del prodotto [per Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) supportato da Azure è disponibile tramite Microsoft quando si sviluppa per Azure o [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) con un piano supporto tecnico di Azure [completo.](https://azure.microsoft.com/support/plans/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

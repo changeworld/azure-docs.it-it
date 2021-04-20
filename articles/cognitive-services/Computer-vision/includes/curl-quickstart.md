@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API REST riconoscimento ottico dei caratteri'
+title: 'Guida introduttiva: API REST di riconoscimento ottico dei caratteri'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva è possibile iniziare a usare l'API REST riconoscimento ottico dei caratteri.
 services: cognitive-services
@@ -7,18 +7,18 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
-ms.date: 12/02/2020
+ms.topic: include
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 01149eed5cc4195ca501507e7fe1d66fffecb84d
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 2f01b1d222470c49505638be64180948b6f7e046
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107326944"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728258"
 ---
-Usare l'API REST Riconoscimento ottico dei caratteri per leggere il testo stampato e scritto a mano.
+Usare l'API REST riconoscimento ottico dei caratteri per leggere testo stampato e scritto a mano.
 
 > [!NOTE]
 > Questa guida di avvio rapido usa comandi cURL per chiamare l'API REST. È anche possibile chiamare l'API REST usando un linguaggio di programmazione. In GitHub sono disponibili esempi in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/REST), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/ComputerVision/REST), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/ComputerVision/REST), [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/ComputerVision/REST) e [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/ComputerVision/REST).
@@ -35,7 +35,9 @@ Usare l'API REST Riconoscimento ottico dei caratteri per leggere il testo stampa
 
 ## <a name="read-printed-and-handwritten-text"></a>Leggere il testo stampato e scritto a mano
 
-Il servizio OCR può leggere il testo visibile in un'immagine e convertirlo in un flusso di caratteri. Per altre informazioni sul riconoscimento del testo, vedere panoramica del riconoscimento ottico dei [caratteri (OCR).](../overview-ocr.md)
+Il servizio OCR può leggere il testo visibile in un'immagine e convertirlo in un flusso di caratteri. Per altre informazioni sul riconoscimento del testo, vedere Panoramica del riconoscimento ottico dei [caratteri (OCR).](../overview-ocr.md)
+
+### <a name="call-the-read-api"></a>Chiamare l'API di lettura
 
 Per creare ed eseguire l'esempio, seguire questa procedura:
 
@@ -53,6 +55,8 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 ```
 
 La risposta includerà un'intestazione `Operation-Location`, il cui valore è un URL univoco. Usare questo URL per eseguire query sui risultati dell'operazione di lettura. L'URL scade dopo 48 ore.
+
+### <a name="get-read-results"></a>Ottenere risultati della lettura
 
 1. Copiare il comando seguente in un editor di testo.
 1. Sostituire l'URL con il valore `Operation-Location` copiato nel passaggio precedente.
@@ -131,7 +135,9 @@ Una risposta con esito positivo viene restituita in JSON. L'applicazione di esem
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esplorare l'API OCR in modo più approfondito. Per sperimentare rapidamente l'API, provare a aprire [la console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005/console).
+In questa guida introduttiva si è appreso come chiamare l'API REST read. Successivamente, sono disponibili altre informazioni sulle funzionalità dell'API di lettura.
 
 > [!div class="nextstepaction"]
-> [Esplorare l'API OCR](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
+>[Chiamare l'API di lettura](../Vision-API-How-to-Topics/call-read-api.md)
+
+* [Panoramica di OCR](../overview-ocr.md)

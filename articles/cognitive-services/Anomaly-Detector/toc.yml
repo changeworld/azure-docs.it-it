@@ -3,9 +3,9 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Che cos'Rilevamento anomalie (multivariate)?
+    - name: Che cos'Rilevamento anomalie (multivariata)?
       href: overview-multivariate.md
-    - name: Che cos'Rilevamento anomalie (univariate)?
+    - name: Che cos'Rilevamento anomalie (univariata)?
       href: overview.md
     - name: Prezzi
       href: 'https://aka.ms/adpricing'
@@ -47,21 +47,21 @@
       items:
         - name: Configurare le reti virtuali
           href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/anomaly-detector/context/context
-        - name: Usare Azure AD autenticazione
+        - name: Usare l Azure AD autenticazione
           href: ../authentication.md?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Concetti
   items:
-    - name: Rilevamento anomalie procedure consigliate per l'API (multivariate)
+    - name: Rilevamento anomalie procedure consigliate per l'API (multivariata)
       href: concepts/best-practices-multivariate.md
     - name: Rilevamento anomalie procedure consigliate per l'API (univariate)
       href: concepts/anomaly-detection-best-practices.md
     - name: Architettura di manutenzione predittiva (multivariata)
       href: concepts/multivariate-architecture.md
-    - name: Risoluzione dei problemi relativi alla multivariata
+    - name: Risoluzione dei problemi relativi al multivariato
       href: concepts/troubleshoot.md
-    - name: Rilevamento delle anomalie SR (Spectral Residual) e Convolutional Neural Net (CNN)
+    - name: Rilevamento anomalie SR (Spectral Residual) e Convolutional Neural Net (CNN)
       href: 'https://arxiv.org/abs/1906.03821'
-    - name: Rilevamento di anomalie multivariate in serie tempo reale tramite la rete di attenzione dei grafi
+    - name: Rilevamento di anomalie in serie tempo reale multivariate tramite la rete di attenzione dei grafi
       href: 'https://arxiv.org/abs/2009.02040'
 - name: Esercitazioni
   items:
@@ -69,16 +69,18 @@
       href: tutorials/batch-anomaly-detection-powerbi.md
 - name: Riferimento
   items:
-    - name: Rilevamento anomalie API REST
+    - name: Rilevamento anomalie aPI REST
       href: 'https://aka.ms/anomaly-detector-rest-api-ref'
+    - name: Rilevamento anomalie anteprima dell'API REST (multivariata)
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly'
     - name: .NET
-      href: 'https://aka.ms/anomaly-detector-dotnet-ref'
-    - name: Go
-      href: 'https://go.microsoft.com/fwlink/?linkid=2089915'
+      href: 'https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3'
+    - name: Java
+      href: 'https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/'
     - name: Python
-      href: 'https://go.microsoft.com/fwlink/?linkid=2090370'
+      href: 'https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/'
     - name: Node.js
-      href: 'https://go.microsoft.com/fwlink/?linkid=2090788'
+      href: 'https://www.npmjs.com/package/@azure/ai-anomaly-detector/v/3.0.0-beta.3'
 - name: Risorse
   items:
     - name: Soluzione pronta per l'azienda

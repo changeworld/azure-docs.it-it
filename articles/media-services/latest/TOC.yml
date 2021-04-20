@@ -85,6 +85,8 @@
       items:
         - name: Codificare e trasmettere un file remoto - Node.js
           href: stream-files-nodejs-quickstart.md
+        - name: Streaming live con Node.js
+          href: stream-live-tutorial-with-nodejs.md
     - name: Python
       items:
         - name: Codifica di base python
@@ -152,7 +154,7 @@
         - name: Panoramica
           href: analyze-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
-        - name: Rilevare e redigere (sfocatura) i visi
+        - name: Rilevare e applicare una sfocatura (sfocatura) ai visi
           href: analyze-face-redaction-concept.md
           displayName: 'analyze, redact, face, detect, presets, jobs, blur, faces, redaction'
     - name: Trasformazioni e processi
@@ -296,7 +298,7 @@
         - name: Passaggio 3 - Configurazione dell'SDK
           href: migrate-v-2-v-3-migration-setup.md
           displayName: 'migration, SDK`'
-        - name: Passaggio 4 - Linee guida per la migrazione basata su scenario
+        - name: 'Passaggio 4: Linee guida per la migrazione basata su scenari'
           items:
             - name: Codifica
               href: migrate-v-2-v-3-migration-scenario-based-encoding.md
@@ -439,11 +441,11 @@
           href: signal-descriptive-audio-howto.md
         - name: Pubblica
           href: asset-publish-cli-how-to.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Controllo degli accessi in base al ruolo di Azure
           href: security-rbac-concept.md
-        - name: Eseguire il roll-to-roll delle chiavi di accesso alle risorse di
+        - name: Eseguire il roll roll delle chiavi di accesso all'archiviazione
           href: security-storage-roll-access-keys-how-to.md
         - name: Abilitare l'archiviazione attendibile
           href: security-trusted-storage-rest-tutorial.md

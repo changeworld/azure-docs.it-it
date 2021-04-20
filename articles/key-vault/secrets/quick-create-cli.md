@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault'
+title: 'Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault'
 description: Guida introduttiva che illustra come impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 services: key-vault
 author: msmbaldwin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 1443ab37beb28706227159c53d336384216d8387
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 655ea1920fc80c8cd677281f09cfca21120e1d61
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104582453"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726431"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
@@ -39,13 +39,15 @@ In questo argomento di avvio rapido viene creato un insieme di credenziali delle
 
 Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio di passaggi aggiuntivi. Questa password può essere usata da un'applicazione. La password sarà denominata **ExamplePassword** e al suo interno verrà archiviato il valore di **hVFkk965BuUv**.
 
-Usare l'interfaccia della riga di comando di Azure [AZ Keys Vault Secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) comando seguente per creare un segreto in Key Vault denominato **ExamplePassword** che archivierà il valore **hVFkk965BuUv** :
+Usare il comando [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) dell'interfaccia della riga di comando di Azure seguente per creare un segreto in Key Vault denominato **ExamplePassword** che archivierà il valore **hVFkk965BuUv** :
 
 ```azurecli
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-È ora possibile fare riferimento a questa password aggiunta ad Azure Key Vault usando il relativo URI. Per ottenere la versione corrente, usare **' https://<il nome-univoco di Vault-name>. Vault.Azure.NET/Secrets/ExamplePassword '** .
+## <a name="retrieve-a-secret-from-key-vault"></a>Recuperare un segreto dall'insieme di credenziali delle chiavi
+
+È ora possibile fare riferimento a questa password aggiunta ad Azure Key Vault usando il relativo URI. Usare **'https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword'** per ottenere la versione corrente.
 
 Per visualizzare il valore contenuto nel segreto come testo normale:
 
@@ -64,6 +66,6 @@ A questo punto è stata creata un'istanza di Key Vault nella quale è stato arch
 In questo argomento di avvio rapido è stata creata un'istanza di Key Vault in cui è stato archiviato un segreto. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
-- Informazioni su come [archiviare i segreti a più righe in Key Vault](multiline-secrets.md)
+- Informazioni su come [archiviare segreti su più righe in Key Vault](multiline-secrets.md)
 - Vedere le informazioni di riferimento sui [comandi az keyvault dell'interfaccia della riga di comando di Azure](/cli/azure/keyvault)
 - Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)

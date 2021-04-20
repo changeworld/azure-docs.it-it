@@ -9,16 +9,16 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/29/2021
 ms.author: pafarley
-ms.openlocfilehash: 407ef167ca05f08d349a017c60164e2fe67977a6
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 0af6c97d6179a645b078f2335ff38f48890c42a3
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327663"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728195"
 ---
 <a name="HOLTop"></a>
 
-Usare la libreria client di analisi delle immagini per analizzare un'immagine per i tag, la descrizione del testo, i visi, il contenuto per adulti e altro ancora.
+Usare la libreria client di Analisi immagini per analizzare un'immagine per i tag, la descrizione del testo, i visi, il contenuto per adulti e altro ancora.
 
 [Documentazione di riferimento](/dotnet/api/overview/azure/cognitiveservices/client/computervision) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Esempi](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -79,7 +79,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 > [!TIP]
 > Si vuole visualizzare l'intero file di codice dell'argomento di avvio rapido? È possibile trovarlo [in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs), che contiene gli esempi di codice di questo argomento.
 
-Dalla directory del progetto aprire il file *ComputerVisionQuickstart.cs* nell'ambiente di sviluppo integrato o nell'editor preferito. Aggiungere le direttive `using` seguenti:
+Dalla directory del progetto aprire il file *Program.cs* nell'ambiente di sviluppo integrato o nell'editor preferito. Aggiungere le direttive `using` seguenti:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_using)]
 
@@ -114,7 +114,7 @@ Le classi e le interfacce seguenti gestiscono alcune delle principali funzionali
 
 ## <a name="code-examples"></a>Esempi di codice
 
-Questi frammenti di codice illustrano come eseguire le attività seguenti con la libreria client di analisi delle immagini per .NET:
+Questi frammenti di codice illustrano come eseguire le attività seguenti con la libreria client di Analisi immagini per .NET:
 
 * [Autenticare il client](#authenticate-the-client)
 * [Analizzare un'immagine](#analyze-an-image)
@@ -124,7 +124,7 @@ Questi frammenti di codice illustrano come eseguire le attività seguenti con la
 > [!NOTE]
 > Questa guida di avvio rapido presuppone che siano state [create variabili di ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint del servizio Visione artificiale, denominate rispettivamente `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`.
 
-In un nuovo metodo della classe Program creare **un'istanza** di un client con l'endpoint e la chiave. Creare un oggetto **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** con la chiave e usarlo con l'endpoint per creare un oggetto **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)** .
+In un nuovo metodo nella **classe Program** creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** con la chiave e usarlo con l'endpoint per creare un oggetto **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)** .
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
@@ -150,19 +150,19 @@ Definire il nuovo metodo per l'analisi delle immagini. Aggiungere il codice segu
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_visualfeatures)]
 
-Inserire uno dei blocchi di codice seguenti nel metodo **AnalyzeImageUrl** per implementarne le funzionalità. Ricordarsi di aggiungere una parentesi quadra di chiusura alla fine.
-
-```csharp
-}
-```
-
-### <a name="analyze"></a>Analisi
+### <a name="call-the-analyze-api"></a>Chiamare l'API Analyze
 
 Il metodo **AnalyzeImageAsync** restituisce un oggetto **ImageAnalysis** che contiene tutte le informazioni estratte.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyze_call)]
 
 Le sezioni seguenti illustrano come analizzare queste informazioni in modo dettagliato.
+
+Inserire uno dei blocchi di codice seguenti nel **metodo AnalyzeImageUrl** per analizzare i dati dalle funzionalità visive richieste in precedenza. Ricordarsi di aggiungere una parentesi quadra di chiusura alla fine.
+
+```csharp
+}
+```
 
 ### <a name="get-image-description"></a>Ottenere la descrizione dell'immagine
 
@@ -260,7 +260,7 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come installare la libreria client di Analisi immagini ed eseguire chiamate di analisi delle immagini di base. Successivamente, sono disponibili altre informazioni sulle funzionalità dell'API Analyze.
+In questa guida introduttiva si è appreso come installare la libreria client di Analisi immagini ed eseguire chiamate di analisi delle immagini di base. Altre informazioni sulle funzionalità dell'API Di analisi.
 
 
 > [!div class="nextstepaction"]

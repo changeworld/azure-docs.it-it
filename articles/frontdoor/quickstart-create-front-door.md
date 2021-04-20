@@ -6,7 +6,7 @@ documentationcenter: na
 author: duongau
 ms.author: duau
 manager: KumudD
-ms.date: 09/16/2020
+ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 2cf52d30c5658e73c55944bdfb7d424425fa4507
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 74b7c16904c86751076d40056027999fe44cb868
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538956"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727868"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Guida introduttiva: Creare una frontdoor per un'applicazione Web globale a disponibilità elevata
 
 Per iniziare a usare Frontdoor di Azure, configurare la disponibilità elevata per un'applicazione Web tramite il portale di Azure.
 
 In questo argomento di avvio rapido Frontdoor di Azure raggruppa due istanze di un'applicazione Web eseguite in aree di Azure diverse. La configurazione di Frontdoor viene creata in base a back-end di peso uguale e con la stessa priorità. Questa configurazione indirizza il traffico al sito più vicino che esegue l'applicazione. Frontdoor di Azure monitora continuamente l'applicazione Web. Il servizio fornisce il failover automatico al sito successivo disponibile quando il sito più vicino non è disponibile.
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagramma dell'ambiente di distribuzione front-door con portale di Azure." border="false":::
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -67,8 +69,8 @@ Al termine della distribuzione, creare una seconda app Web. Seguire la stessa pr
 | ---              | ---  |
 | **Gruppo di risorse**   | Selezionare **Crea nuovo** e immettere *FrontDoorQS_rg2* |
 | **Nome**             | Immettere un nome univoco per l'app Web, in questo esempio *WebAppContoso-2*  |
-| **Area**           | Scegliere un'area diversa, in questo esempio *Stati Uniti centro-meridionali* |
-| **Piano di servizio app** > **Piano Windows**         | Selezionare **Nuovo**, immettere *myAppServicePlanSouthCentralUS*, quindi selezionare **OK** |
+| **Area**           | Un'area diversa, in questo esempio, *Stati Uniti orientali* |
+| **Piano di servizio app** > **Piano Windows**         | Selezionare **Nuovo** e immettere *myAppServicePlanEastUS* e quindi selezionare **OK** |
 
 ## <a name="create-a-front-door-for-your-application"></a>Creare una frontdoor per l'applicazione
 

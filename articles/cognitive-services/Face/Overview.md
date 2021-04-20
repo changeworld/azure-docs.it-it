@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento facciale, riconoscimento volto, software di riconoscimento facciale, analisi del viso, corrispondenza dei volti, app di riconoscimento facciale, ricerca di volti per immagine, ricerca basata su riconoscimento facciale
-ms.openlocfilehash: a999b2100dc57d7b623cebbbe261f821a80835e3
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 30707dd844769f730f135a451cd5306ca7e402cb
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505123"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726989"
 ---
 # <a name="what-is-the-azure-face-service"></a>Che cos'è il servizio Viso di Azure?
 
@@ -64,7 +64,7 @@ Per altre informazioni, vedere [Concetti relativi al riconoscimento del viso](co
 
 ## <a name="find-similar-faces"></a>Individuazione di visi simili
 
-L'API di individuazione di visi simili confronta un viso di destinazione con un set di visi candidati e individua un set più piccolo di visi simili a quello di destinazione. Questo è utile per eseguire una ricerca di volti per immagine. 
+L'API di individuazione di visi simili confronta un viso di destinazione con un set di visi candidati e individua un set più piccolo di visi simili a quello di destinazione. Questa operazione è utile per eseguire una ricerca di visi in base all'immagine. 
 
 Sono supportate due modalità di utilizzo, ovvero **matchPerson** e **matchFace**. La modalità **matchPerson** restituisce visi simili dopo aver filtrato in base all'appartenenza alla stessa persona usando l'[API di verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). La modalità **matchFace** ignora il filtro di appartenenza alla stessa persona. Restituisce un elenco di visi candidati simili, che possono appartenere o meno alla stessa persona.
 

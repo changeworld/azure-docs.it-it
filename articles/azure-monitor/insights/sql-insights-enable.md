@@ -5,21 +5,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: cfcb34b731855fd26ddad191b819e308406117cb
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 012aa364fe9e379455b6b63f7c9e541d2d5b97ed
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478336"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726899"
 ---
 # <a name="enable-sql-insights-preview"></a>Abilitare informazioni dettagliate su SQL (anteprima)
 Questo articolo descrive come abilitare le [informazioni dettagliate di SQL](sql-insights-overview.md) per monitorare le distribuzioni SQL. Il monitoraggio viene eseguito da una macchina virtuale di Azure che esegue una connessione alle distribuzioni SQL e usa viste a gestione dinamica (DMV) per raccogliere i dati di monitoraggio. È possibile controllare quali set di dati vengono raccolti e la frequenza di raccolta usando un profilo di monitoraggio.
+
+> [!NOTE]
+> Per abilitare le informazioni dettagliate su SQL creando il profilo di monitoraggio e la macchina virtuale usando un modello di Resource Manager, vedere esempi di modelli Resource Manager [per informazioni dettagliate su SQL.](resource-manager-sql-insights.md)
 
 ## <a name="create-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 Sql Insights archivia i dati in una o più aree [di lavoro Log Analytics.](../logs/data-platform-logs.md#log-analytics-workspaces)  Prima di poter abilitare SQL Insights, è necessario creare [un'area](../logs/quick-create-workspace.md) di lavoro o selezionarne una esistente. È possibile usare una singola area di lavoro con più profili di monitoraggio, ma l'area di lavoro e i profili devono trovarsi nella stessa area di Azure. Per abilitare e accedere alle funzionalità di SQL Insights, è necessario avere il ruolo [collaboratore di Log Analytics](../logs/manage-access.md) nell'area di lavoro. 
 
 ## <a name="create-monitoring-user"></a>Creare un utente di monitoraggio 
 È necessario un utente nelle distribuzioni SQL da monitorare. Seguire le procedure seguenti per i diversi tipi di distribuzioni SQL.
+
+Le istruzioni seguenti illustrano il processo per ogni tipo di SQL che è possibile monitorare.  Per eseguire questa operazione con uno script in più risorse SQL contemporaneamente, fare riferimento al [file README](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation-README.txt) e allo [script di esempio seguente.](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Workloads/SQL/SQL%20Insights%20Onboarding%20Scripts/Permissions_LoginUser_Account_Creation.ps1)
+
 
 ### <a name="azure-sql-database"></a>Database SQL di Azure
 Aprire database SQL di Azure con [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o [Editor di query (anteprima)](../../azure-sql/database/connect-query-portal.md) nel portale di Azure.
@@ -52,7 +58,7 @@ order by username
 ```
 
 ### <a name="azure-sql-managed-instance"></a>Istanza gestita di SQL di Azure
-Accedere al Istanza gestita di SQL di Azure e usare [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o uno strumento simile per eseguire lo script seguente per creare l'utente di monitoraggio con le autorizzazioni necessarie. Sostituire *user* con un nome utente e *mystrongpassword* con una password.
+Accedere al Istanza gestita di SQL di Azure e usare [](../../azure-sql/database/connect-query-ssms.md) SQL Server Management Studio o uno strumento simile per eseguire lo script seguente per creare l'utente di monitoraggio con le autorizzazioni necessarie. Sostituire *user* con un nome utente e *mystrongpassword* con una password.
 
  
 ```sql
@@ -67,7 +73,7 @@ GO
 ```
 
 ### <a name="sql-server"></a>SQL Server
-Accedere alla macchina virtuale di Azure che esegue SQL Server e usare SQL Server Management Studio o uno strumento simile [per](../../azure-sql/database/connect-query-ssms.md) eseguire lo script seguente per creare l'utente di monitoraggio con le autorizzazioni necessarie. Sostituire *user* con un nome utente e *mystrongpassword* con una password.
+Accedere alla macchina virtuale di Azure che esegue SQL Server e usare [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) o uno strumento simile per eseguire lo script seguente per creare l'utente di monitoraggio con le autorizzazioni necessarie. Sostituire *user* con un nome utente e *mystrongpassword* con una password.
 
  
 ```sql
@@ -87,7 +93,7 @@ Verificare che l'utente sia stato creato.
 select name as username,
        create_date,
        modify_date,
-       type_desc as type,
+       type_desc as type
 from sys.server_principals
 where type not in ('A', 'G', 'R', 'X')
        and sid is not null
@@ -95,10 +101,10 @@ order by username
 ```
 
 ## <a name="create-azure-virtual-machine"></a>Creare una macchina virtuale di Azure 
-Sarà necessario creare una o più macchine virtuali di Azure che verranno usate per raccogliere dati per monitorare SQL.  
+Sarà necessario creare una o più macchine virtuali di Azure che verranno usate per raccogliere i dati per monitorare SQL.  
 
 > [!NOTE]
->  I [profili di](#create-sql-monitoring-profile) monitoraggio specificano i dati che verranno raccolti dai diversi tipi di SQL da monitorare. A ogni macchina virtuale di monitoraggio può essere associato un solo profilo di monitoraggio. Se sono necessari più profili di monitoraggio, è necessario creare una macchina virtuale per ognuno.
+>  I [profili di](#create-sql-monitoring-profile) monitoraggio specificano i dati che verranno raccolti dai diversi tipi di SQL da monitorare. A ogni macchina virtuale di monitoraggio può essere associato un solo profilo di monitoraggio. Se sono necessari più profili di monitoraggio, è necessario creare una macchina virtuale per ognuno di essi.
 
 ### <a name="azure-virtual-machine-requirements"></a>Requisiti delle macchine virtuali di Azure
 Le macchine virtuali di Azure hanno i requisiti seguenti.
@@ -113,7 +119,7 @@ Le macchine virtuali di Azure hanno i requisiti seguenti.
 A seconda delle impostazioni di rete delle risorse SQL, potrebbe essere necessario inserire le macchine virtuali nella stessa rete virtuale delle risorse SQL in modo che possano effettuare connessioni di rete per raccogliere i dati di monitoraggio.  
 
 ## <a name="configure-network-settings"></a>Configurare le impostazioni di rete
-Ogni tipo di SQL offre metodi per la macchina virtuale di monitoraggio per accedere in modo sicuro a SQL.  Le sezioni seguenti illustrano le opzioni in base al tipo di SQL.
+Ogni tipo di SQL offre metodi per la macchina virtuale di monitoraggio per accedere in modo sicuro a SQL.  Le sezioni seguenti illustrano le opzioni basate sul tipo di SQL.
 
 ### <a name="azure-sql-databases"></a>Database SQL di Azure  
 
@@ -131,7 +137,7 @@ Per l'accesso tramite l'endpoint pubblico, è necessario aggiungere una regola n
 Se la macchina virtuale di monitoraggio si trova nella stessa rete virtuale delle risorse mi SQL, vedere [Connettersi all'interno della stessa rete virtuale.](https://docs.microsoft.com/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-the-same-vnet) Se la macchina virtuale di monitoraggio si trova nella rete virtuale diversa rispetto alle risorse DELL'istanza di SQL, vedere [Connettersi all'interno di una rete virtuale diversa.](https://docs.microsoft.com/azure/azure-sql/managed-instance/connect-application-instance#connect-inside-a-different-vnet)
 
 
-### <a name="azure-virtual-machine-and-azure-sql-virtual-machine"></a>Macchina virtuale di Azure e Azure SQL macchina virtuale  
+### <a name="azure-virtual-machine-and-azure-sql-virtual-machine"></a>Macchina virtuale di Azure e Azure SQL virtuale  
 Se la macchina virtuale di monitoraggio si trova nella stessa rete virtuale delle risorse della macchina virtuale SQL, vedere Connettersi a SQL Server [all'interno di una rete virtuale.](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-within-a-virtual-network) Se la macchina virtuale di monitoraggio sarà in una rete virtuale diversa rispetto alle risorse della macchina virtuale SQL, vedere Connettersi a SQL Server [su Internet.](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-over-the-internet)
 
 ## <a name="store-monitoring-password-in-key-vault"></a>Archiviare la password di monitoraggio Key Vault
@@ -146,17 +152,17 @@ Un nuovo criterio di accesso verrà creato automaticamente come parte della crea
 
 
 ## <a name="create-sql-monitoring-profile"></a>Creare un profilo di monitoraggio SQL
-Aprire SQL Insights selezionando **SQL (anteprima)** dalla sezione **Informazioni dettagliate** del **menu** Monitoraggio di Azure nel portale di Azure. Fare clic su **Crea nuovo profilo**. 
+Aprire Informazioni dettagliate SQL selezionando **SQL (anteprima)** nella **sezione Informazioni dettagliate** del menu Monitoraggio di Azure nel portale di Azure.  Fare clic su **Crea nuovo profilo**. 
 
 :::image type="content" source="media/sql-insights-enable/create-new-profile.png" alt-text="Creare un nuovo profilo." lightbox="media/sql-insights-enable/create-new-profile.png":::
 
-Il profilo archivierà le informazioni che si desidera raccogliere dai sistemi SQL.  Ha impostazioni specifiche per: 
+Il profilo archivierà le informazioni che si desidera raccogliere dai sistemi SQL.  Include impostazioni specifiche per: 
 
 - Database SQL di Azure 
 - Istanze gestite di SQL di Azure 
 - SQL Server in esecuzione nelle macchine virtuali  
 
-Ad esempio, è possibile creare un profilo denominato *Produzione SQL* e un altro denominato Gestione temporanea *SQL* con impostazioni diverse per la frequenza di raccolta dei dati, i dati da raccogliere e l'area di lavoro a cui inviare i dati. 
+Ad esempio, è possibile creare un profilo denominato Produzione *SQL* e un altro denominato Gestione temporanea *SQL* con impostazioni diverse per la frequenza di raccolta dei dati, i dati da raccogliere e l'area di lavoro a cui inviare i dati. 
 
 Il profilo viene archiviato come risorsa [regola di raccolta](../agents/data-collection-rule-overview.md) dati nella sottoscrizione e nel gruppo di risorse selezionati. Ogni profilo richiede quanto segue:
 
@@ -176,14 +182,14 @@ Dopo **aver immesso** i dettagli per il profilo di monitoraggio, fare clic su Cr
 ### <a name="add-monitoring-machine"></a>Aggiungere il computer di monitoraggio
 Selezionare **Aggiungi computer di monitoraggio** per aprire un pannello di contesto in cui scegliere la macchina virtuale da configurare per monitorare le istanze di SQL e specificare le stringhe di connessione.
 
-Selezionare la sottoscrizione e il nome della macchina virtuale di monitoraggio. Se si usa Key Vault per archiviare la password per l'utente di monitoraggio, selezionare le risorse Key Vault con questi segreti e immettere l'URL e il nome del segreto da usare nelle stringhe di connessione. Vedere la sezione successiva per informazioni dettagliate sull'identificazione della stringa di connessione per distribuzioni SQL diverse.
+Selezionare la sottoscrizione e il nome della macchina virtuale di monitoraggio. Se si usa Key Vault per archiviare la password per l'utente di monitoraggio, selezionare le risorse Key Vault con questi segreti e immettere l'URL e il nome del segreto da usare nelle stringhe di connessione. Per informazioni dettagliate sull'identificazione della stringa di connessione per distribuzioni SQL diverse, vedere la sezione successiva.
 
 
 :::image type="content" source="media/sql-insights-enable/add-monitoring-machine.png" alt-text="Aggiungere il computer di monitoraggio." lightbox="media/sql-insights-enable/add-monitoring-machine.png":::
 
 
 ### <a name="add-connection-strings"></a>Aggiungere stringhe di connessione 
-La stringa di connessione specifica il nome utente che le informazioni dettagliate SQL devono usare per l'accesso a SQL per eseguire le viste a gestione dinamica. Se si usa un Key Vault per archiviare la password per l'utente di monitoraggio, specificare l'URL e il nome del segreto da usare. 
+La stringa di connessione specifica il nome utente che SQL Insights deve usare per l'accesso a SQL per eseguire le viste a gestione dinamica. Se si usa un Key Vault per archiviare la password per l'utente di monitoraggio, specificare l'URL e il nome del segreto da usare. 
 
 La stringa di connessione varia per ogni tipo di risorsa SQL:
 
@@ -230,7 +236,7 @@ Ottenere i dettagli dalla voce di menu **Stringhe di** connessione per l'istanza
 
 :::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="Stringa di Istanza gestita SQL" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
-Per monitorare un database secondario leggibile, includere key-value `ApplicationIntent=ReadOnly` nella stringa di connessione. SQL Insights supporta il monitoraggio di un singolo database secondario e i dati raccolti verranno contrassegnati come primario o secondario. 
+Per monitorare un database secondario leggibile, includere key-value `ApplicationIntent=ReadOnly` nella stringa di connessione. SQL Insights supporta il monitoraggio di un singolo database secondario e i dati raccolti verranno contrassegnati in modo da riflettere primario o secondario. 
 
 
 ## <a name="monitoring-profile-created"></a>Profilo di monitoraggio creato 
@@ -242,7 +248,7 @@ Se i dati non vengono visualizzati, vedere Risoluzione [dei problemi relativi al
 :::image type="content" source="media/sql-insights-enable/profile-created.png" alt-text="Profilo creato" lightbox="media/sql-insights-enable/profile-created.png":::
 
 > [!NOTE]
-> Se è necessario aggiornare il profilo di monitoraggio o le stringhe di connessione nelle macchine virtuali di monitoraggio, è possibile farlo tramite la scheda Gestisci profilo di SQL **Insights.**  Dopo il salvataggio degli aggiornamenti, le modifiche verranno applicate in circa 5 minuti.
+> Se è necessario aggiornare il profilo di monitoraggio o le stringhe di connessione nelle macchine virtuali di monitoraggio, è possibile farlo tramite la scheda Gestisci profilo di SQL **Insights.**  Dopo aver salvato gli aggiornamenti, le modifiche verranno applicate in circa 5 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

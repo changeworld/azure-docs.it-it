@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva alla libreria client JavaScript multivariate per il rilevamento anomalie
+title: Rilevamento anomalie guida introduttiva alla libreria client JavaScript multivariata
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -8,20 +8,22 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: 4e0f2d1bae07f0814b4f096d8be315bd92cd42fe
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 03fbd5e641c72a03a4a3cb19219678bc3d3fff51
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107316025"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107732467"
 ---
-Introduzione alla libreria client multivariata per il rilevatore di anomalie per JavaScript. Attenersi alla seguente procedura per installare il pacchetto e iniziare a usare gli algoritmi forniti dal servizio. Le nuove API di rilevamento delle anomalie multivariate consentono agli sviluppatori di integrare in modo semplice l'intelligenza artificiale avanzata per il rilevamento di anomalie da gruppi di metriche, senza la necessità di informazioni di apprendimento automatico o dati con etichetta. Le dipendenze e le correlazioni tra segnali diversi vengono conteggiate automaticamente come fattori chiave. Ciò consente di proteggere in modo proattivo i sistemi complessi dagli errori.
+Introduzione alla libreria client Rilevamento anomalie multivariata per JavaScript. Seguire questa procedura per installare il pacchetto e iniziare a usare gli algoritmi forniti dal servizio. Le nuove API di rilevamento anomalie multivariate consentono agli sviluppatori di integrare facilmente l'intelligenza artificiale avanzata per il rilevamento di anomalie da gruppi di metriche, senza la necessità di conoscere l'apprendimento automatico o assegnare etichette ai dati. Le dipendenze e le interrelazioni tra segnali diversi vengono conteggiate automaticamente come fattori chiave. Ciò consente di proteggere in modo proattivo i sistemi complessi da errori.
 
-Usare la libreria client multivariata del rilevatore di anomalie per JavaScript per:
+Usare la Rilevamento anomalie client multivariata per JavaScript per:
 
-* Rilevare le anomalie a livello di sistema da un gruppo di serie temporali.
-* Quando una singola serie temporale non comunica molto ed è necessario esaminare tutti i segnali per rilevare un problema.
-* Predicativo la manutenzione di risorse fisiche costose con decine a centinaia di diversi tipi di sensori che misurano diversi aspetti dell'integrità del sistema.
+* Rilevare anomalie a livello di sistema da un gruppo di serie tempori.
+* Quando una serie temporale singola non indica molto ed è necessario esaminare tutti i segnali per rilevare un problema.
+* Manutenzione predicativa di risorse fisiche costose con decine o centinaia di diversi tipi di sensori che misurano vari aspetti dell'integrità del sistema.
+
+[Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/anomalydetector/ai-anomaly-detector)  |  [Pacchetto (npm)](https://www.npmjs.com/package/@azure/ai-anomaly-detector)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,7 +49,7 @@ Eseguire il comando `npm init` per creare un'applicazione Node con un file `pack
 npm init
 ```
 
-Creare un file denominato `index.js` e importare le librerie seguenti:'
+Creare un file denominato `index.js` e importare le librerie seguenti: '
 ```javascript
 'use strict'
 
@@ -65,7 +67,7 @@ const endpoint = "YOUR_ENDPOINT";
 const data_source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
 ```
 
- Per usare le API multivariate del rilevatore di anomalie, è necessario eseguire il training del modello prima di usare il rilevamento. I dati utilizzati per il training sono un batch di serie temporali, ogni serie temporale deve essere in formato CSV con due colonne, timestamp e valore. Tutte le serie temporali devono essere compresse in un unico file zip e caricate nell' [archiviazione BLOB di Azure](../../../../storage/blobs/storage-blobs-introduction.md). Per impostazione predefinita, il nome del file verrà utilizzato per rappresentare la variabile per la serie temporale. In alternativa, è possibile includere nel file zip un meta.jsaggiuntivo sul file se si desidera che il nome della variabile sia diverso dal nome del file con estensione zip. Una volta generato l' [URL della firma di accesso condiviso (SAS) BLOB](../../../../storage/common/storage-sas-overview.md), è possibile usare l'URL del file zip per il training.
+ Per usare il Rilevamento anomalie API multivariate, è necessario eseguire il training del modello prima di usare il rilevamento. I dati usati per il training sono un batch di serie temporali, ogni serie temporale deve essere in formato CSV con due colonne, timestamp e valore. Tutte le serie tempose devono essere compresse in un unico file ZIP e caricate [nell'archivio BLOB di Azure.](../../../../storage/blobs/storage-blobs-introduction.md) Per impostazione predefinita, il nome file verrà usato per rappresentare la variabile per la serie temporale. In alternativa, è possibile meta.jsfile aggiuntivo nel file ZIP se si vuole che il nome della variabile sia diverso dal nome del file ZIP. Dopo aver generato [l'URL di firma](../../../../storage/common/storage-sas-overview.md)di accesso condiviso del BLOB , è possibile usare l'URL del file ZIP per il training.
 
 ### <a name="install-the-client-library"></a>Installare la libreria client
 
@@ -84,12 +86,12 @@ Questi frammenti di codice mostrano come eseguire le operazioni seguenti con la 
 * [Autenticare il client](#authenticate-the-client)
 * [Eseguire il training di un modello](#train-a-model)
 * [Rilevare le anomalie](#detect-anomalies)
-* [Esporta modello](#export-model)
-* [Elimina modello](#delete-model)
+* [Esportare il modello](#export-model)
+* [Eliminare un modello](#delete-model)
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-Creare un'istanza di un `AnomalyDetectorClient` oggetto con l'endpoint e le credenziali.
+Creare `AnomalyDetectorClient` un'istanza di un oggetto con l'endpoint e le credenziali.
 
 ```javascript
 const client = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(apiKey)).client;
@@ -97,9 +99,9 @@ const client = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(apiKey
 
 ## <a name="train-a-model"></a>Eseguire il training di un modello
 
-### <a name="construct-a-model-result"></a>Costruisci risultato modello
+### <a name="construct-a-model-result"></a>Costruire un risultato del modello
 
-Prima di tutto è necessario creare una richiesta di modello. Assicurarsi che l'ora di inizio e di fine siano allineate con l'origine dati.
+Prima di tutto è necessario costruire una richiesta di modello. Assicurarsi che l'ora di inizio e di fine sia allineata all'origine dati.
 
 ```javascript
 const Modelrequest = {
@@ -110,9 +112,9 @@ const Modelrequest = {
     };    
 ```
 
-### <a name="train-a-new-model"></a>Eseguire il training di un nuovo modello
+### <a name="train-a-new-model"></a>Training di un nuovo modello
 
-È necessario passare la richiesta del modello al metodo client del rilevatore di anomalie `trainMultivariateModel` .
+È necessario passare la richiesta del modello al metodo Rilevamento anomalie `trainMultivariateModel` client.
 
 ```javascript
 console.log("Training a new model...")
@@ -121,7 +123,7 @@ var model_id = train_response.location.split("/").pop()
 console.log("New model ID: " + model_id)
 ```
 
-Per verificare se il training del modello è stato completato, è possibile tenere traccia dello stato del modello:
+Per verificare se il training del modello è completo, è possibile tenere traccia dello stato del modello:
 
 ```javascript
 var model_response = await client.getMultivariateModel(model_id)
@@ -138,7 +140,7 @@ console.log("TRAINING FINISHED.")
 
 ## <a name="detect-anomalies"></a>Rilevare le anomalie
 
-Usare le `detectAnomaly` `getDectectionResult` funzioni e per determinare se sono presenti anomalie all'interno dell'origine dati.
+Usare le funzioni e per determinare se sono presenti `detectAnomaly` `getDectectionResult` anomalie all'interno dell'origine dati.
 
 ```javascript
 console.log("Start detecting...")
@@ -159,9 +161,9 @@ while (result_status != 'READY'){
 }
 ```
 
-## <a name="export-model"></a>Esporta modello
+## <a name="export-model"></a>Esportare il modello
 
-Per esportare il modello sottoposto a training, usare la `exportModel` funzione.
+Per esportare il modello con training, usare la `exportModel` funzione .
 
 ```javascript
 const export_result = await client.exportModel(model_id)
@@ -171,9 +173,9 @@ export_result.readableStreamBody.pipe(destination)
 console.log("New model has been exported to "+model_path+".")
 ```
 
-## <a name="delete-model"></a>Elimina modello
+## <a name="delete-model"></a>Eliminare un modello
 
-Per eliminare un modello esistente disponibile per la risorsa corrente, utilizzare la `deleteMultivariateModel` funzione.
+Per eliminare un modello esistente disponibile per la risorsa corrente, usare la `deleteMultivariateModel` funzione .
 
 ```javascript
 client.deleteMultivariateModel(model_id)
@@ -190,4 +192,4 @@ node index.js
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Procedure consigliate per il rilevatore di anomalie](../../concepts/best-practices-multivariate.md)
+* [Rilevamento anomalie procedure consigliate multivariate](../../concepts/best-practices-multivariate.md)

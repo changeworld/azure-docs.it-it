@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: libreria client di analisi immagini o API REST'
+title: 'Guida introduttiva: Libreria client di analisi delle immagini o API REST'
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare l'analisi delle immagini nell'applicazione tramite una libreria client nativa nel linguaggio preferito.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/21/2020
+ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom:
 - devx-track-python
@@ -17,16 +17,16 @@ ms.custom:
 - cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-computer-vision
 keywords: visione artificiale, servizio visione artificiale
-ms.openlocfilehash: 6fa8bb9bda7cdaf5d7db4b4758d5bb9cd63e75da
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 0ed8116ec1f40ab6ef5fcc4bef426c3b65f38c45
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287215"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728173"
 ---
-# <a name="quickstart-use-the-image-analysis-client-library-or-rest-api"></a>Guida introduttiva: usare la libreria client di analisi immagini o l'API REST
+# <a name="quickstart-use-the-image-analysis-client-library-or-rest-api"></a>Guida introduttiva: Usare la libreria client di analisi delle immagini o l'API REST
 
-Iniziare a usare l'API REST di analisi immagini o le librerie client. Il servizio Analyze Image fornisce algoritmi di intelligenza artificiale per l'elaborazione di immagini e la restituzione di informazioni sulle relative funzionalità visive. Seguire questi passaggi per installare un pacchetto nell'applicazione e provare il codice di esempio per le attività di base.
+Introduzione all'API REST di analisi delle immagini o alle librerie client. Il Analizza immagine fornisce algoritmi di intelligenza artificiale per l'elaborazione delle immagini e la restituzione di informazioni sulle relative funzionalità visive. Seguire questi passaggi per installare un pacchetto nell'applicazione e provare il codice di esempio per le attività di base.
 
 
 

@@ -8,18 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c2d5310d1a664aa2e22d4241d8066e41d9c82bd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bcda4ca252101ed1505f71a1b5f9fe9a0d8d16b9
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97796721"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728393"
 ---
 # <a name="azure-iot-central-architecture"></a>Architettura di Azure IoT Central
 
-Questo articolo presenta una panoramica dell'architettura di Microsoft Azure IoT Central.
-
-![Architettura di primo livello](media/concepts-architecture/architecture.png)
+Questo articolo offre una panoramica dei concetti chiave dell'architettura Azure IoT Central sicurezza.
 
 ## <a name="devices"></a>Dispositivi
 
@@ -28,71 +26,71 @@ I dispositivi scambiano dati con l'applicazione Azure IoT Central. Un dispositiv
 - Inviare misure, ad esempio dati di telemetria.
 - Sincronizzare le impostazioni con l'applicazione.
 
-In Azure IoT Central, i dati che un dispositivo può scambiare con l'applicazione sono specificati in un modello di dispositivo. Per altre informazioni sui modelli di dispositivo, vedere [Gestione dei metadati](#metadata-management).
+In Azure IoT Central, i dati che un dispositivo può scambiare con l'applicazione sono specificati in un modello di dispositivo. Per altre informazioni sui modelli di dispositivo, vedere [Modelli di dispositivo.](concepts-device-templates.md)
 
 Per altre informazioni sul modo in cui i dispositivi si connettono all'applicazione Azure IoT Central, vedere [Connettività dei dispositivi](concepts-get-connected.md).
 
 ## <a name="azure-iot-edge-devices"></a>Dispositivi Azure IoT Edge
 
-Oltre ai dispositivi creati tramite [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks), è anche possibile connettere [dispositivi Azure IoT Edge](../../iot-edge/about-iot-edge.md) a un'applicazione IoT Central. IoT Edge consente di eseguire l'Intelligence per il cloud e la logica personalizzata direttamente nei dispositivi Internet delle cose gestite da IoT Central. Il runtime di IoT Edge consente di:
+Oltre ai dispositivi creati tramite [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks), è anche possibile connettere [dispositivi Azure IoT Edge](../../iot-edge/about-iot-edge.md) a un'applicazione IoT Central. IoT Edge consente di eseguire l'intelligence per il cloud e la logica personalizzata direttamente nei dispositivi IoT gestiti da IoT Central. Il runtime di IoT Edge consente di:
 
 - Installare e aggiornare i carichi di lavoro nel dispositivo.
-- Mantenere IoT Edge gli standard di sicurezza sul dispositivo.
+- Mantenere IoT Edge standard di sicurezza nel dispositivo.
 - Assicurare che i moduli di IoT Edge siano sempre in esecuzione.
 - Segnalare l'integrità dei moduli al cloud per il monitoraggio remoto.
 - Gestire la comunicazione tra i dispositivi foglia downstream e un dispositivo IoT Edge, tra i moduli in un dispositivo IoT Edge e tra un dispositivo IoT Edge e il cloud.
 
 ![Azure IoT Central con Azure IoT Edge](./media/concepts-architecture/iotedge.png)
 
-IoT Central Abilita le funzionalità seguenti a per i dispositivi IoT Edge:
+IoT Central abilita le funzionalità seguenti a per IoT Edge dispositivi:
 
-- Modelli di dispositivo per descrivere le funzionalità di un dispositivo IoT Edge, ad esempio:
-  - Funzionalità di caricamento del manifesto di distribuzione, che consente di gestire un manifesto per una flotta di dispositivi.
-  - Moduli in esecuzione nel dispositivo IoT Edge.
-  - I dati di telemetria inviati da ogni modulo.
-  - Proprietà che ogni modulo segnala.
-  - Comandi a cui ogni modulo risponde.
-  - Relazioni tra un dispositivo IoT Edge Gateway e un dispositivo downstream.
-  - Proprietà del cloud che non sono archiviate nel dispositivo IoT Edge.
+- Modelli di dispositivo per descrivere le funzionalità di un IoT Edge dispositivo, ad esempio:
+  - Funzionalità di caricamento del manifesto della distribuzione, che consente di gestire un manifesto per una flotta di dispositivi.
+  - Moduli eseguiti nel IoT Edge dispositivo.
+  - Dati di telemetria inviati da ogni modulo.
+  - Proprietà segnalate da ogni modulo.
+  - Comandi a cui risponde ogni modulo.
+  - Relazioni tra un dispositivo gateway IoT Edge dispositivo gateway e un dispositivo downstream.
+  - Proprietà cloud che non vengono archiviate nel IoT Edge dispositivo.
   - Personalizzazioni, dashboard e moduli che fanno parte dell'applicazione IoT Central.
 
-  Per altre informazioni, vedere l'articolo [Connect Azure IOT Edge devices to an Azure IOT Central Application](./concepts-iot-edge.md) .
+  Per altre informazioni, vedere [l'articolo Connettere Azure IoT Edge dispositivi a un Azure IoT Central app applicazione.](./concepts-iot-edge.md)
 
-- La possibilità di effettuare il provisioning di dispositivi IoT Edge su larga scala usando il servizio Device provisioning di Azure
+- Possibilità di effettuare il provisioning IoT Edge dispositivi su larga scala usando Azure IoT provisioning di dispositivi
 - Regole e azioni.
 - Dashboard e analisi personalizzati.
-- Esportazione continua dei dati di telemetria da dispositivi IoT Edge.
+- Esportazione continua dei dati di telemetria IoT Edge dispositivi.
 
-### <a name="iot-edge-device-types"></a>Tipi di dispositivi IoT Edge
+### <a name="iot-edge-device-types"></a>IoT Edge tipi di dispositivi
 
 IoT Central classifica IoT Edge tipi di dispositivo come segue:
 
-- Dispositivi foglia. Un dispositivo IoT Edge può avere dispositivi foglia a valle, ma questi dispositivi non vengono sottoposti a provisioning in IoT Central.
+- Dispositivi foglia. Un IoT Edge può avere dispositivi foglia downstream, ma non ne viene eseguito il provisioning in IoT Central.
 - Dispositivi gateway con dispositivi downstream. Il provisioning del dispositivo gateway e dei dispositivi downstream viene effettuato in IoT Central
 
-![IoT Central con IoT Edge Panoramica](./media/concepts-architecture/gatewayedge.png)
+![IoT Central con IoT Edge panoramica](./media/concepts-architecture/gatewayedge.png)
 
-### <a name="iot-edge-patterns"></a>Modelli di IoT Edge
+### <a name="iot-edge-patterns"></a>IoT Edge modelli
 
-IoT Central supporta i modelli di dispositivo IoT Edge seguenti:
+IoT Central supporta i modelli di IoT Edge seguenti:
 
 #### <a name="iot-edge-as-leaf-device"></a>IoT Edge come dispositivo foglia
 
 ![IoT Edge come dispositivo foglia](./media/concepts-architecture/edgeasleafdevice.png)
 
-Il provisioning del dispositivo IoT Edge viene eseguito in IoT Central e tutti i dispositivi downstream e i relativi dati di telemetria sono rappresentati come provenienti dal dispositivo IoT Edge. Non viene effettuato il provisioning dei dispositivi downstream connessi al dispositivo IoT Edge in IoT Central.
+Il IoT Edge viene effettuato il provisioning in IoT Central e tutti i dispositivi downstream e i relativi dati di telemetria vengono rappresentati come provenienti dal IoT Edge dispositivo. Non viene effettuato il provisioning dei dispositivi downstream IoT Edge dispositivo IoT Central.
 
-#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity"></a>IoT Edge dispositivo gateway connesso ai dispositivi downstream con identità
+#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity"></a>IoT Edge dispositivo gateway connesso a dispositivi downstream con identità
 
 ![IoT Edge con l'identità del dispositivo downstream](./media/concepts-architecture/edgewithdownstreamdeviceidentity.png)
 
-Il provisioning del dispositivo IoT Edge viene eseguito in IoT Central insieme ai dispositivi downstream collegati al dispositivo IoT Edge. Il supporto di runtime per il provisioning di dispositivi downstream tramite il gateway non è attualmente supportato.
+Il IoT Edge viene effettuato il provisioning in IoT Central insieme ai dispositivi downstream connessi al dispositivo IoT Edge dispositivo. Il supporto di runtime per il provisioning di dispositivi downstream tramite il gateway non è attualmente supportato.
 
-#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity-provided-by-the-iot-edge-gateway"></a>IoT Edge dispositivo gateway connesso ai dispositivi downstream con identità fornita dal gateway di IoT Edge
+#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity-provided-by-the-iot-edge-gateway"></a>IoT Edge dispositivo gateway connesso ai dispositivi downstream con identità fornita dal IoT Edge gateway
 
 ![IoT Edge con dispositivo downstream senza identità](./media/concepts-architecture/edgewithoutdownstreamdeviceidentity.png)
 
-Il provisioning del dispositivo IoT Edge viene eseguito in IoT Central insieme ai dispositivi downstream collegati al dispositivo IoT Edge. Il supporto di runtime del gateway che fornisce l'identità ai dispositivi downstream e il provisioning di dispositivi downstream non è attualmente supportato. Se si usa un modulo di conversione delle identità personalizzato, IoT Central possibile supportare questo modello.
+Il IoT Edge viene effettuato il provisioning in IoT Central insieme ai dispositivi downstream connessi al dispositivo IoT Edge dispositivo. Il supporto di runtime del gateway che fornisce identità ai dispositivi downstream e il provisioning dei dispositivi downstream non è attualmente supportato. Se si porta il proprio modulo di conversione delle identità, IoT Central può supportare questo modello.
 
 ## <a name="cloud-gateway"></a>Gateway cloud
 
@@ -117,42 +115,19 @@ Azure IoT Central archivia i dati dell'applicazione nel cloud. I dati archiviati
 
 Azure IoT Central usa un archivio di serie temporali per i dati di misura inviati dai dispositivi. Dati di serie temporali dei dispositivi utilizzati dal servizio di analisi.
 
-## <a name="analytics"></a>Analisi
-
-Il servizio di analisi è responsabile della generazione dei dati dei report personalizzati mostrati dall'applicazione. Un operatore può [personalizzare le analisi](howto-create-analytics.md) visualizzate nell'applicazione. Il servizio di analisi si basa su [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) ed elabora i dati di misura inviati dai dispositivi.
-
-## <a name="rules-and-actions"></a>Regole e azioni
-
-[Regole e azioni](tutorial-create-telemetry-rules.md) interagiscono strettamente per automatizzare le attività all'interno dell'applicazione. Un costruttore può definire regole basate su dati di telemetria dei dispositivi, ad esempio la temperatura che supera una soglia definita. Azure IoT Central usa un elaboratore di flusso per determinare quando sono soddisfatte le condizioni della regola. Quando una condizione della regola è soddisfatta, attiva un'azione definita dal costruttore. Ad esempio, un'azione può inviare un'e-mail per notificare a un tecnico che la temperatura di un dispositivo è troppo elevata.
-
-## <a name="metadata-management"></a>Gestione dei metadati
-
-I modelli di dispositivo in un'applicazione Azure IoT Central definiscono il comportamento e le funzionalità dei tipi di dispositivo. Ad esempio, un modello di dispositivo frigorifero specifica i dati di telemetria che il frigorifero invia all'applicazione.
-
-![Architettura dei modelli](media/concepts-architecture/template-architecture.png)
-
-In un [modello di dispositivo](concepts-device-templates.md) IOT Central contiene:
-
-- Un **modello di dispositivo** per specificare le funzionalità di un dispositivo, ad esempio i dati di telemetria inviati, le proprietà che definiscono lo stato del dispositivo e i comandi a cui risponde il dispositivo. Le funzionalità del dispositivo sono organizzate in una o più interfacce.
-- Le **proprietà del cloud** specificano le proprietà IOT Central archivi per un dispositivo. Queste proprietà vengono archiviate solo in IoT Central e non vengono mai inviate a un dispositivo.
-- Le **visualizzazioni** specificano i dashboard e i moduli creati dal generatore per consentire all'operatore di monitorare e gestire i dispositivi.
-- Le **personalizzazioni** consentono al generatore di eseguire l'override di alcune definizioni nel modello di dispositivo per renderle più rilevanti per l'applicazione IoT Central.
-
-Un'applicazione può avere uno o più dispositivi simulati e reali basati su ogni modello di dispositivo.
-
 ## <a name="data-export"></a>Esportazione dati
 
-In un'applicazione IoT Central di Azure è possibile [esportare i dati](howto-export-data.md) in modo continuo nelle istanze di hub eventi di Azure e del bus di servizio di Azure. È anche possibile esportare periodicamente i dati nell'account di archiviazione BLOB di Azure. IoT Central possibile esportare misure, dispositivi e modelli di dispositivo.
+In un Azure IoT Central appaltatore è possibile [esportare](howto-export-data.md) continuamente i dati nelle proprie istanze Hub eventi di Azure e bus di servizio di Azure dati. È anche possibile esportare periodicamente i dati nell'account di archiviazione BLOB di Azure. IoT Central possibile esportare misure, dispositivi e modelli di dispositivo.
 
-## <a name="batch-device-updates"></a>Aggiornamenti del dispositivo batch
+## <a name="batch-device-updates"></a>Aggiornamenti dei dispositivi batch
 
-In un'applicazione IoT Central di Azure è possibile [creare ed eseguire processi](howto-run-a-job.md) per gestire i dispositivi connessi. Questi processi consentono di eseguire aggiornamenti in blocco per le proprietà o le impostazioni del dispositivo o di eseguire comandi. Ad esempio, è possibile creare un processo per aumentare la velocità della ventola per più computer distributori frigoriferi.
+In un'Azure IoT Central è possibile creare ed [eseguire processi per](howto-run-a-job.md) gestire i dispositivi connessi. Questi processi consentono di eseguire aggiornamenti in blocco alle proprietà o alle impostazioni del dispositivo o di eseguire comandi. Ad esempio, è possibile creare un processo per aumentare la velocità della ventola per più distributori automatici refrigerati.
 
 ## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
 
-Ogni applicazione IoT Central dispone di un proprio sistema RBAC incorporato. Un [amministratore può definire le regole di accesso](howto-manage-users-roles.md) per un'applicazione IoT Central di Azure usando uno dei ruoli predefiniti oppure creando un ruolo personalizzato. I ruoli determinano le aree dell'applicazione a cui un utente può accedere e le azioni che può eseguire.
+Ogni IoT Central applicazione dispone di un proprio sistema di controllo degli accessi in base al ruolo incorporato. Un [amministratore può definire regole di accesso](howto-manage-users-roles.md) per un Azure IoT Central app applicazione usando uno dei ruoli predefiniti o creando un ruolo personalizzato. I ruoli determinano le aree dell'applicazione a cui un utente può accedere e le azioni che può eseguire.
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Le funzionalità di sicurezza all'interno di Azure IoT Central includono:
 
@@ -161,13 +136,6 @@ Le funzionalità di sicurezza all'interno di Azure IoT Central includono:
 - Isolamento del tenant completo.
 - Sicurezza a livello di dispositivo.
 
-## <a name="ui-shell"></a>Shell dell'interfaccia utente
-
-La shell dell'interfaccia utente è un'applicazione browser HTML5 moderna e reattiva.
-Un amministratore può personalizzare l'interfaccia utente dell'applicazione applicando temi personalizzati e modificando i collegamenti della Guida in modo che puntino alle risorse della Guida personalizzate. Per altre informazioni sulla personalizzazione dell'interfaccia utente, vedere [l'articolo personalizzare l'interfaccia utente di Azure IOT Central](howto-customize-ui.md) .
-
-Un operatore può creare dashboard di applicazione personalizzati. È possibile avere più dashboard che visualizzano dati diversi e passare dall'uno all'altro.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che sono state apprese le informazioni sull'architettura di Azure IoT Central, il passaggio successivo suggerito consiste nell'ottenere informazioni sulla [connettività dei dispositivi](concepts-get-connected.md) in Azure IOT Central.
+Dopo aver appreso le informazioni sull'architettura di Azure IoT Central, il passaggio successivo consigliato consiste nell'apprendere la connettività dei dispositivi [in](concepts-get-connected.md) Azure IoT Central.

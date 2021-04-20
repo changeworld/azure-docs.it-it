@@ -10,20 +10,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2020
+ms.date: 4/19/2021
 ms.author: duau
-ms.openlocfilehash: a64c91910ba65901a6d1374df9633062398a90e4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f697606e195f102d2bfb5535c92e5c78eb44cdbe
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067656"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727214"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>Avvio rapido: Creare un'istanza di Frontdoor per un'applicazione Web globale a disponibilità elevata con l'interfaccia della riga di comando di Azure
 
 Iniziare a usare Frontdoor di Azure con l'interfaccia della riga di comando di Azure per creare un'applicazione Web globale a disponibilità elevata e prestazioni elevate.
 
 Frontdoor indirizza il traffico Web a risorse specifiche in un pool back-end. Definire il dominio front-end, aggiungere le risorse a un pool back-end e creare una regola di gestione. Questo articolo usa una semplice configurazione di un unico pool back-end con due risorse dell'app Web e un'unica regola di gestione che usa il percorso predefinito corrispondente a "/*".
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagramma dell'ambiente di distribuzione di Front door con l'interfaccia della riga di comando di Azure." border="false":::
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -53,8 +55,8 @@ az group create \
     --location centralus
 
 az group create \
-    --name myRGFDSouthCentral \
-    --location southcentralus
+    --name myRGFDEast \
+    --location eastus
 ```
 
 ## <a name="create-two-instances-of-a-web-app"></a>Creare due istanze di un'app Web
@@ -65,7 +67,7 @@ Se non si dispone già di un'app Web, usare lo script seguente per configurare d
 
 ### <a name="create-app-service-plans"></a>Creare piani di servizio app
 
-Prima di poter creare le app Web, sono necessari due piani di servizio app, uno negli *Stati Uniti centrali* e il secondo negli *Stati Uniti centro-meridionali*.
+Prima di poter creare le app Web, sono necessari due piani di servizio app, uno *negli* Stati Uniti centrali e il secondo negli Stati *Uniti orientali.*
 
 Creare i piani di servizio app con [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true):
 
@@ -75,8 +77,8 @@ az appservice plan create \
 --resource-group myRGFDCentral
 
 az appservice plan create \
---name myAppServicePlanSouthCentralUS \
---resource-group myRGFDSouthCentral
+--name myAppServicePlanEastUS \
+--resource-group myRGFDEast
 ```
 
 ### <a name="create-web-apps"></a>Creare app Web
@@ -87,14 +89,14 @@ Creare un'app Web con [az webapp create](/cli/azure/webapp#az_webapp_create&pres
 
 ```azurecli-interactive
 az webapp create \
---name WebAppContoso1 \
+--name WebAppContoso-1 \
 --resource-group myRGFDCentral \
 --plan myAppServicePlanCentralUS 
 
 az webapp create \
---name WebAppContoso2 \
---resource-group myRGFDSouthCentral \
---plan myAppServicePlanSouthCentralUS
+--name WebAppContoso-2 \
+--resource-group myRGFDEast \
+--plan myAppServicePlanEastUS
 ```
 
 Prendere nota del nome host predefinito di ogni app Web, in modo da poter definire gli indirizzi back-end quando si distribuirà l'istanza di Frontdoor nel passaggio successivo.
@@ -110,7 +112,7 @@ az network front-door create \
 --resource-group myRGFDCentral \
 --name contoso-frontend \
 --accepted-protocols http https \
---backend-address webappcontoso1.azurewebsites.net webappcontoso2.azurewebsites.net 
+--backend-address webappcontoso-1.azurewebsites.net webappcontoso-2.azurewebsites.net 
 ```
 
 **--resource-group:** specificare un gruppo di risorse in cui si vuole distribuire l'istanza di Frontdoor.
@@ -140,7 +142,7 @@ az group delete \
 --name myRGFDCentral 
 
 az group delete \
---name myRGFDSouthCentral
+--name myRGFDEast
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

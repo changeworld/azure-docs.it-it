@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8f643336d50f5ade145454d408599215ed6fd31e
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 787f902311437e6ca8a679299ef7a28b34cee4ab
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259439"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728411"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -36,9 +36,9 @@ Solo gli attuali amministratori dell'organizzazione di Azure possono creare altr
 
 ### <a name="create-another-enterprise-administrator"></a>Creare un altro amministratore dell'organizzazione
 
-Usare una delle opzioni seguenti, in base alla situazione.
+Usare una delle opzioni seguenti, in base alla situazione specifica.
 
-#### <a name="if-youre-already-an-enterprise-administrator"></a>Se si è già un amministratore dell'organizzazione
+#### <a name="if-youre-already-an-enterprise-administrator"></a>Se si è già un amministratore aziendale
 
 1. Accedere ad [Azure Enterprise Portal](https://ea.azure.com).
 1. Passare a **Gestisci** > **Dettagli della registrazione**.
@@ -46,11 +46,11 @@ Usare una delle opzioni seguenti, in base alla situazione.
 
 Assicurarsi di avere l'indirizzo di posta elettronica dell'utente e il metodo di autenticazione preferito, ad esempio un account aziendale o dell'istituto di istruzione oppure un account Microsoft.
 
-#### <a name="if-youre-not-an-enterprise-administrator"></a>Se non si è un amministratore dell'organizzazione
+#### <a name="if-youre-not-an-enterprise-administrator"></a>Se non si è un amministratore aziendale
 
-Se non si è un amministratore dell'organizzazione, contattare un amministratore dell'organizzazione per richiedere l'aggiunta di un utente a una registrazione. L'amministratore dell'organizzazione usa i passaggi precedenti per aggiungere l'utente come amministratore dell'organizzazione. Dopo l'aggiunta in una registrazione, si riceverà un messaggio di posta elettronica di attivazione.
+Se non si è un amministratore dell'organizzazione, contattare un amministratore dell'organizzazione per richiedere l'aggiunta dell'utente a una registrazione. L'amministratore dell'organizzazione usa i passaggi precedenti per aggiungere l'utente come amministratore dell'organizzazione. Dopo l'aggiunta in una registrazione, si riceverà un messaggio di posta elettronica di attivazione.
 
-#### <a name="if-your-enterprise-administrator-cant-help-you"></a>Se l'amministratore dell'organizzazione non può aiutarsi
+#### <a name="if-your-enterprise-administrator-cant-help-you"></a>Se l'amministratore aziendale non può essere utile
 
 Se l'amministratore dell'organizzazione non è in grado di offrire assistenza, creare una [richiesta di supporto per Azure Enterprise Portal](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Specificare le informazioni seguenti:
 
@@ -424,51 +424,6 @@ Per iniziare:
 1. A questo punto l'account Microsoft dovrebbe essere privo di sottoscrizioni attive e può essere eliminato.
 1. Gli account eliminati rimarranno visibili nel portale con uno stato inattivo per motivi di fatturazione cronologica.  È possibile escluderli dalla visualizzazione selezionando una casella di controllo per la visualizzazione solo degli account attivi.
 
-## <a name="account-subscription-ownership-faq"></a>Domande frequenti sulla proprietà delle sottoscrizioni degli account
-
-Questo documento risponde alle domande frequenti relative alla proprietà delle sottoscrizioni degli account.
-
-### <a name="can-i-associate-my-existing-azure-account-to-azure-ea-enrollment"></a>È possibile associare l'account Azure esistente all'iscrizione al Contratto Enterprise di Azure?
-
-Sì. Tutte le sottoscrizioni di Azure per le quali si è proprietari dell'account verranno convertite nel Contratto Enterprise. Sono incluse le sottoscrizioni che usano credito mensile, ad esempio Visual Studio, AzurePass, MPN, BizSpark e così via. Quando si convertono queste sottoscrizioni, si perde il credito mensile.
-
-### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Quanti proprietari di account Azure possono esistere per ogni sottoscrizione?
-
-Per ogni sottoscrizione è consentito un solo proprietario di account.  È possibile aggiungere altri ruoli tramite l'accesso in base al ruolo o Controllo di accesso (IAM) nella scheda relativa alle sottoscrizioni nell'angolo superiore sinistro della pagina del [portale di Azure](https://portal.azure.com).
-
-### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>È possibile trasferire la proprietà di una sottoscrizione a un altro account?
-
-Sì, la proprietà di una sottoscrizione può essere trasferita a un altro account. Se ad esempio un account A dispone di tre sottoscrizioni, l'amministratore dell'organizzazione può trasferirne una all'account B, una all'account C e una all'account D oppure può trasferirle tutte all'account E.
-
-Per trasferire le sottoscrizioni:
-
-1. In Azure Enterprise Portal selezionare **Gestisci** > **Account**.
-1. Passare il puntatore del mouse su **Account** nell'angolo a destra per visualizzare le opzioni **Transfer Ownership** (Trasferisci proprietà, icona a forma di persona) e **Transfer Subscription** (Trasferisci sottoscrizione, icona a forma di elenco). Queste opzioni sono visibili solo per gli account attivi.
-
-### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Un proprietario di account di Azure può essere elencato in più reparti?
-
-No, un proprietario di account può essere associato solo a un singolo reparto. Questo criterio garantisce un monitoraggio e una ripartizione accurati di costi e spese associati al reparto con cui è allineato nella registrazione EA in Azure EA Portal.
-
-### <a name="can-an-azure-account-owner-be-listed-as-a-security-group"></a>Un proprietario di account di Azure può essere elencato come gruppo di sicurezza?
-
-No, un proprietario della sottoscrizione deve avere un account Microsoft (MSA) univoco o un'autenticazione di Azure Active Directory (Azure AD). Per tenere conto della successione all'interno dell'organizzazione, valutare l'opportunità di creare account generici e di usare Azure AD per gestire l'accesso alla sottoscrizione.
-
-### <a name="can-an-individual-user-own-multiple-subscriptions"></a>Un singolo utente può possedere più sottoscrizioni?
-
-Un proprietario di account di Azure può creare e gestire un numero illimitato di sottoscrizioni.
-
-### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Come è possibile accedere o visualizzare tutte le sottoscrizioni di un'organizzazione?
-
-Attualmente questa operazione deve essere eseguita in base ai criteri, ovvero per ogni sottoscrizione creata è necessario richiedere che l'account venga aggiunto a un ruolo di sottoscrizione con l'accesso basato sui ruoli.
-
-### <a name="where-do-i-go-to-create-a-subscription"></a>Da dove è possibile creare una sottoscrizione?
-
-Per poter creare una sottoscrizione per l'offerta Azure Enterprise (EA), è necessario che l'account venga prima aggiunto al ruolo di proprietario dell'account dall'amministratore della registrazione EA in Azure EA Portal. Sarà quindi necessario accedere ad Azure EA Portal per ottenere l'entitlement per creare sottoscrizioni per il tipo di offerta EA. È consigliabile creare la prima sottoscrizione EA dal collegamento '+ Aggiungi sottoscrizione' nella scheda relativa alle sottoscrizioni in EA Portal.  Tuttavia, una volta che l'account è stato autorizzato, potrebbe essere più facile creare sottoscrizioni in portal.azure.com nella scheda relativa alla sottoscrizione nell'angolo superiore sinistro della pagina, in cui è possibile creare e rinominare una sottoscrizione in un unico passaggio.
-
-### <a name="who-can-create-a-subscription"></a>Chi può creare una sottoscrizione?
-
-Per creare una sottoscrizione per il tipo di offerta Azure Enterprise, è necessario essere autorizzati nel ruolo di proprietario dell'account in [EA Portal](https://ea.azure.com).
-
 ## <a name="azure-ea-term-glossary"></a>Glossario dei termini del Contratto Enterprise di Azure
 
 - **Account**: unità organizzativa in Azure Enterprise Portal. Viene usato per l'amministrazione delle sottoscrizioni e la creazione di report.
@@ -510,3 +465,4 @@ Per creare una sottoscrizione per il tipo di offerta Azure Enterprise, è necess
 
 - Leggere l'articolo sulle [istanze di macchina virtuale riservate di Azure](ea-portal-vm-reservations.md) per informazioni su come risparmiare denaro.
 - Se serve assistenza per la risoluzione dei problemi relativi ad Azure EA Portal, vedere [Risolvere i problemi di accesso ad Azure EA Portal](ea-portal-troubleshoot.md).
+- Per domande [sulla proprietà della sottoscrizione](../cost-management-billing-faq.yml) EA, vedere Le domande frequenti su Gestione costi e fatturazione.

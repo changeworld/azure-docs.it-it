@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva alla libreria client multivariata del rilevatore di anomalie
+title: Rilevamento anomalie guida introduttiva alla libreria client multivariata .NET
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -8,27 +8,29 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: 1318a8c410f14f4a1dc91072d66f18e39f7ca7e7
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b3acea520859de10825468a4d37c3030f9b862bd
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107316030"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107732582"
 ---
-Introduzione alla libreria client multivariata per il rilevatore di anomalie per .NET. Attenersi alla seguente procedura per installare il pacchetto e iniziare a usare gli algoritmi forniti dal servizio. Le nuove API di rilevamento delle anomalie multivariate consentono agli sviluppatori di integrare in modo semplice l'intelligenza artificiale avanzata per il rilevamento di anomalie da gruppi di metriche, senza la necessità di informazioni di apprendimento automatico o dati con etichetta. Le dipendenze e le correlazioni tra segnali diversi vengono conteggiate automaticamente come fattori chiave. Ciò consente di proteggere in modo proattivo i sistemi complessi dagli errori.
+Introduzione alla libreria Rilevamento anomalie client multivariate per .NET. Seguire questa procedura per installare il pacchetto e iniziare a usare gli algoritmi forniti dal servizio. Le nuove API di rilevamento anomalie multivariate consentono agli sviluppatori di integrare facilmente l'intelligenza artificiale avanzata per rilevare anomalie da gruppi di metriche, senza la necessità di conoscenze di Machine Learning o dati etichettati. Le dipendenze e le interrelazioni tra segnali diversi vengono conteggiate automaticamente come fattori chiave. Ciò consente di proteggere in modo proattivo i sistemi complessi da errori.
 
-Usare la libreria client multivariata del rilevatore di anomalie per .NET per:
+Usare la Rilevamento anomalie client multivariata per .NET per:
 
-* Rilevare le anomalie a livello di sistema da un gruppo di serie temporali.
-* Quando una singola serie temporale non comunica molto ed è necessario esaminare tutti i segnali per rilevare un problema.
-* Predicativo la manutenzione di risorse fisiche costose con decine a centinaia di diversi tipi di sensori che misurano diversi aspetti dell'integrità del sistema.
+* Rilevare anomalie a livello di sistema da un gruppo di serie tempore.
+* Quando una serie temporale singola non indica molto ed è necessario esaminare tutti i segnali per rilevare un problema.
+* Manutenzione predicativa di risorse fisiche costose con decine o centinaia di diversi tipi di sensori che misurano vari aspetti dell'integrità del sistema.
+
+[Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/anomalydetector/Azure.AI.AnomalyDetector) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services)
 * Versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 * Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="creare una risorsa Rilevamento anomalie"  target="_blank">creare una risorsa Rilevamento anomalie </a> nel portale di Azure per ottenere la chiave e l'endpoint. Attendere che venga distribuita, quindi selezionare pulsante **Vai alla risorsa**.
-    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Rilevamento anomalie. Incollare la chiave e l'endpoint nel codice riportato di seguito nella Guida introduttiva.
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Rilevamento anomalie. Incollare la chiave e l'endpoint nel codice seguente più avanti nella guida introduttiva.
     È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="setting-up"></a>Configurazione
@@ -84,7 +86,7 @@ using Microsoft.Identity.Client;
 using NUnit.Framework;
 ```
 
-Nel metodo dell'applicazione `main()` creare le variabili per l'endpoint di Azure della risorsa, la chiave API e un'origine dati personalizzata.
+Nel metodo dell'applicazione creare variabili per l'endpoint di Azure della risorsa, la chiave `main()` API e un'origine dati personalizzata.
 
 ```csharp
 string endpoint = "YOUR_API_KEY";
@@ -92,21 +94,21 @@ string apiKey =  "YOUR_ENDPOINT";
 string datasource = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
 ```
 
- Per usare le API multivariate del rilevatore di anomalie, è necessario eseguire il training del modello prima di usare il rilevamento. I dati utilizzati per il training sono un batch di serie temporali, ogni serie temporale deve essere in formato CSV con due colonne, timestamp e valore. Tutte le serie temporali devono essere compresse in un unico file zip e caricate nell' [archiviazione BLOB di Azure](../../../../storage/blobs/storage-blobs-introduction.md#blobs). Per impostazione predefinita, il nome del file verrà utilizzato per rappresentare la variabile per la serie temporale. In alternativa, è possibile includere nel file zip un meta.jsaggiuntivo sul file se si desidera che il nome della variabile sia diverso dal nome del file con estensione zip. Quando si genera un [URL di firma di accesso condiviso (SAS) BLOB](../../../../storage/common/storage-sas-overview.md), è possibile usare l'URL del file zip per il training.
+ Per usare Rilevamento anomalie API multivariate, è necessario eseguire il training del modello prima di usare il rilevamento. I dati usati per il training sono un batch di serie temporali, ogni serie temporale deve essere in formato CSV con due colonne, timestamp e valore. Tutte le serie tempore devono essere compresse in un unico file ZIP e caricate in [Archiviazione BLOB di Azure.](../../../../storage/blobs/storage-blobs-introduction.md#blobs) Per impostazione predefinita, il nome file verrà usato per rappresentare la variabile per la serie temporale. In alternativa, è possibile includere un meta.jsaggiuntivo nel file ZIP se si vuole che il nome della variabile sia diverso dal nome del file ZIP. Dopo aver generato un URL di firma di accesso condiviso [blob,](../../../../storage/common/storage-sas-overview.md)è possibile usare l'URL del file ZIP per il training.
 
 ## <a name="code-examples"></a>Esempi di codice
 
-Questi frammenti di codice illustrano come eseguire le operazioni seguenti con la libreria client multivariata del rilevatore di anomalie per .NET:
+Questi frammenti di codice illustrano come eseguire le operazioni seguenti con la Rilevamento anomalie client multivariata per .NET:
 
 * [Autenticare il client](#authenticate-the-client)
 * [Eseguire il training del modello](#train-the-model)
 * [Rilevare le anomalie](#detect-anomalies)
-* [Esporta modello](#export-model)
-* [Elimina modello](#delete-model)
+* [Esportare il modello](#export-model)
+* [Eliminare il modello](#delete-model)
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-Creare un'istanza di un client di rilevamento anomalie con l'endpoint e la chiave.
+Creare un'Rilevamento anomalie client con l'endpoint e la chiave.
 
 ```csharp
 var endpointUri = new Uri(endpoint);
@@ -117,7 +119,7 @@ AnomalyDetectorClient client = new AnomalyDetectorClient(endpointUri, credential
 
 ## <a name="train-the-model"></a>Eseguire il training del modello
 
-Creare una nuova attività asincrona privata come riportato di seguito per gestire il training del modello. Si utilizzerà `TrainMultivariateModel` per eseguire il training del modello e `GetMultivariateModelAysnc` per verificare il completamento del training.
+Creare una nuova attività asincrona privata come indicato di seguito per gestire il training del modello. Si userà `TrainMultivariateModel` per eseguire il training del modello e per verificare quando il training è stato `GetMultivariateModelAysnc` completato.
 
 ```csharp
 private async Task trainAsync(AnomalyDetectorClient client, string datasource, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
@@ -174,7 +176,7 @@ private async Task trainAsync(AnomalyDetectorClient client, string datasource, D
 
 ## <a name="detect-anomalies"></a>Rilevare le anomalie
 
-Per rilevare le anomalie usando il modello appena sottoposto a training, creare un oggetto `private async Task` denominato `detectAsync` . Si creerà un nuovo oggetto `DetectionRequest` e lo si passerà come parametro a `DetectAnomalyAsync` .
+Per rilevare le anomalie usando il modello appena con training, creare un `private async Task` denominato `detectAsync` . Si creerà un nuovo `DetectionRequest` oggetto e lo si passerà come parametro a `DetectAnomalyAsync` .
 
 ```csharp
 private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, string datasource, Guid model_id, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
@@ -214,9 +216,9 @@ private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, st
 }
 ```
 
-## <a name="export-model"></a>Esporta modello
+## <a name="export-model"></a>Esportare il modello
 
-Per esportare il modello di cui è stato eseguito il training in precedenza, creare un oggetto `private async Task` denominato `exportAysnc` . Si utilizzerà `ExportModelAsync` e passerà l'ID modello del modello che si desidera esportare.
+Per esportare il modello di cui è stato precedentemente training, creare un `private async Task` denominato `exportAysnc` . Si userà `ExportModelAsync` e si passerà l'ID modello del modello da esportare.
 
 ```csharp
 private async Task exportAsync(AnomalyDetectorClient client, Guid model_id, string model_path = "model.zip")
@@ -242,9 +244,9 @@ private async Task exportAsync(AnomalyDetectorClient client, Guid model_id, stri
 }
 ```
 
-## <a name="delete-model"></a>Elimina modello
+## <a name="delete-model"></a>Eliminare il modello
 
-Per eliminare un modello creato in precedenza `DeleteMultivariateModelAsync` e passare l'ID del modello che si desidera eliminare. Per recuperare un ID modello, è possibile `getModelNumberAsync` :
+Per eliminare un modello creato in precedenza, usare e passare l'ID modello `DeleteMultivariateModelAsync` del modello da eliminare. Per recuperare un ID modello, è possibile `getModelNumberAsync` :
 
 ```csharp
 private async Task deleteAsync(AnomalyDetectorClient client, Guid model_id)
@@ -272,7 +274,7 @@ private async Task<int> getModelNumberAsync(AnomalyDetectorClient client, bool d
 
 ## <a name="main-method"></a>Metodo Main
 
-Ora che si dispone di tutte le parti del componente, è necessario aggiungere codice aggiuntivo al metodo Main per chiamare le attività appena create.
+Ora che sono disponibili tutte le parti del componente, è necessario aggiungere altro codice al metodo main per chiamare le attività appena create.
 
 ```csharp
 
@@ -340,4 +342,4 @@ dotnet run
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Procedure consigliate per il rilevatore di anomalie](../../concepts/best-practices-multivariate.md)
+* [Rilevamento anomalie procedure consigliate multivariate](../../concepts/best-practices-multivariate.md)

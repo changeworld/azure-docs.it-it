@@ -87,6 +87,8 @@
               href: app/resource-manager-web-app.md
             - name: Funzioni di Azure
               href: app/resource-manager-function-app.md
+        - name: Informazioni dettagliate sui contenitori
+          href: containers/resource-manager-container-insights.md
         - name: Regole di raccolta dati
           href: agents/resource-manager-data-collection-rules.md
         - name: Impostazioni di diagnostica
@@ -95,10 +97,10 @@
           href: logs/resource-manager-workspace.md
         - name: Query di log
           href: logs/resource-manager-log-queries.md
+        - name: Informazioni dettagliate su SQL
+          href: insights/resource-manager-sql-insights.md
         - name: Workbooks
           href: visualize/resource-manager-workbooks.md
-        - name: Informazioni dettagliate sui contenitori
-          href: containers/resource-manager-container-insights.md
         - name: Informazioni dettagliate sulle macchine virtuali
           href: vm/resource-manager-vminsights.md
     - name: Interfaccia della riga di comando di Azure

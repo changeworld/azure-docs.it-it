@@ -1,68 +1,68 @@
 ---
-title: Spostare un'applicazione Service Fabric mesh in un'altra area
-description: È possibile spostare Service Fabric risorse mesh distribuendo una copia del modello corrente in una nuova area di Azure.
+title: Spostare un'Service Fabric Mesh in un'altra area
+description: È possibile spostare Service Fabric mesh distribuendo una copia del modello corrente in una nuova area di Azure.
 author: erikadoyle
 ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f3fcdc56b4e8d7873872212cb62f57a7669b459
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99626088"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726629"
 ---
-# <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Spostare un'applicazione Service Fabric mesh in un'altra area di Azure
+# <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Spostare un'applicazione Service Fabric Mesh in un'altra area di Azure
 
 > [!IMPORTANT]
-> L'anteprima di Azure Service Fabric mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
+> L'anteprima Azure Service Fabric Mesh è stata ritirata. Le nuove distribuzioni non saranno più consentite tramite l'API Service Fabric Mesh. Il supporto per le distribuzioni esistenti continuerà fino al 28 aprile 2021.
 > 
-> Per informazioni dettagliate, vedere il [ritiro anteprima di Azure Service Fabric mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+> Per informazioni dettagliate, vedere Azure Service Fabric Mesh [ritiro dell'anteprima.](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)
 
-Questo articolo descrive come spostare l'applicazione Service Fabric mesh e le relative risorse in un'area di Azure diversa. È possibile spostare le risorse in un'altra area per diversi motivi. Ad esempio, in risposta a interruzioni, per ottenere funzionalità o servizi disponibili solo in aree specifiche, per soddisfare i requisiti di governance e criteri interni oppure in risposta ai requisiti della pianificazione della capacità.
+Questo articolo descrive come spostare l'applicazione Service Fabric Mesh e le relative risorse in un'area di Azure diversa. È possibile spostare le risorse in un'altra area per diversi motivi. Ad esempio, in risposta alle interruzioni, per ottenere funzionalità o servizi disponibili solo in aree specifiche, per soddisfare i requisiti interni di criteri e governance o in risposta ai requisiti di pianificazione della capacità.
 
- [Service Fabric mesh non supporta](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) la possibilità di spostare direttamente le risorse tra le aree di Azure. Tuttavia, è possibile spostare le risorse indirettamente distribuendo una copia del modello di Azure Resource Manager corrente nella nuova area di destinazione e quindi reindirizzando il traffico in ingresso e le dipendenze all'applicazione Service Fabric mesh appena creata.
+ [Service Fabric Mesh non supporta la possibilità](../azure-resource-manager/management/move-support-resources.md#microsoftservicefabricmesh) di spostare direttamente le risorse tra aree di Azure. Tuttavia, è possibile spostare le risorse indirettamente distribuendo una copia del modello Azure Resource Manager corrente nella nuova area di destinazione e quindi reindirizzando il traffico in ingresso e le dipendenze all'applicazione mesh Service Fabric appena creata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Il controller di ingresso, ad esempio il [gateway applicazione](../application-gateway/index.yml), funge da intermediario per il routing del traffico tra i client e l'applicazione Service Fabric mesh
-* Disponibilità di Service Fabric mesh (anteprima) nell'area di Azure di destinazione ( `westus` , `eastus` o `westeurope` )
+* Controller di ingresso (ad esempio [il gateway](../application-gateway/index.yml)applicazione ) da fungere da intermediario per il routing del traffico tra i client e l'applicazione Service Fabric Mesh
+* Service Fabric mesh (anteprima) nell'area di Azure di destinazione ( `westus` `eastus` , o `westeurope` )
 
-## <a name="prepare"></a>Preparazione
+## <a name="prepare"></a>Preparare
 
-1. Eseguire uno "snapshot" dello stato corrente dell'applicazione Service Fabric mesh esportando il modello di Azure Resource Manager e i parametri dalla distribuzione più recente. A tale scopo, seguire la procedura descritta in [esportare il modello dopo la distribuzione](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) usando il portale di Azure. È anche possibile usare l'interfaccia della riga di comando di [Azure](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)o l' [API REST](/rest/api/resources/resourcegroups/exporttemplate).
+1. Creare uno "snapshot" dello stato corrente dell'applicazione Service Fabric Mesh esportando il modello Azure Resource Manager e i parametri dalla distribuzione più recente. A tale scopo, seguire la procedura descritta in [Esportare il modello dopo la distribuzione](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) usando il portale di Azure. È anche possibile usare l'interfaccia della riga di comando di [Azure,](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates) [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)o [l'API REST.](/rest/api/resources/resourcegroups/exporttemplate)
 
-2. Se applicabile, [esportare altre risorse nello stesso gruppo di risorse](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource-group) per la ridistribuzione nell'area di destinazione.
+2. Se applicabile, [esportare altre risorse nello stesso gruppo di risorse per](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource-group) la ridistribuzione nell'area di destinazione.
 
-3. Esaminare (e modificare, se necessario) il modello esportato per assicurarsi che i valori di proprietà esistenti siano quelli che si vuole usare nell'area di destinazione. La nuova `location` (area di Azure) è un parametro che verrà fornito durante la ridistribuzione.
+3. Esaminare (e modificare, se necessario) il modello esportato per assicurarsi che i valori delle proprietà esistenti siano quelli da usare nell'area di destinazione. La nuova `location` (area di Azure) è un parametro che verrà fornito durante la ridistribuzione.
 
 ## <a name="move"></a>Sposta
 
-1. Creare un nuovo gruppo di risorse (o utilizzarne uno esistente) nell'area di destinazione.
+1. Creare un nuovo gruppo di risorse (o usarne uno esistente) nell'area di destinazione.
 
-2. Con il modello esportato, seguire la procedura descritta in [distribuire risorse da un modello personalizzato](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) usando il portale di Azure. È anche possibile usare l'interfaccia della riga di comando di [Azure](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)o l' [API REST](../azure-resource-manager/templates/deploy-rest.md).
+2. Con il modello esportato, seguire la procedura descritta in [Distribuire le risorse dal modello personalizzato](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) usando il portale di Azure. È anche possibile usare [l'interfaccia della riga di](../azure-resource-manager/templates/deploy-cli.md)comando di [Azure, Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)o [l'API REST.](../azure-resource-manager/templates/deploy-rest.md)
 
-3. Per informazioni aggiuntive sullo stato di trasferimento di risorse correlate, ad esempio gli [account di archiviazione di Azure](../storage/common/storage-account-move.md), fare riferimento alle linee guida per i singoli servizi elencati nell'argomento trasferimento di risorse di [Azure tra aree](../azure-resource-manager/management/move-region.md).
+3. Per indicazioni sullo spostamento di risorse correlate, ad esempio gli [account Archiviazione di Azure](../storage/common/storage-account-move.md), vedere le linee guida per i singoli servizi elencati nell'argomento Spostamento di risorse di Azure [tra aree.](../azure-resource-manager/management/move-resources-overview.md#move-resources-across-regions)
 
 ## <a name="verify"></a>Verifica
 
 1. Al termine della distribuzione, testare gli endpoint dell'applicazione per verificare la funzionalità dell'applicazione.
 
-2. È anche possibile verificare lo stato dell'applicazione controllando lo stato dell'applicazione ([AZ mesh App Show](/cli/azure/ext/mesh/mesh/app#ext-mesh-az-mesh-app-show)) e esaminando i comandi log applicazioni e ([AZ mesh code-package-log](/cli/azure/ext/mesh/mesh/code-package-log)) usando l'interfaccia della riga di comando di [Azure Service Fabric mesh](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
+2. È anche possibile verificare lo stato dell'applicazione controllando lo stato dell'applicazione ([az mesh app show](/cli/azure/ext/mesh/mesh/app#ext-mesh-az-mesh-app-show)) ed esaminando i log dell'applicazione e i comandi ([az mesh code-package-log](/cli/azure/ext/mesh/mesh/code-package-log)) usando l'interfaccia della riga di [comando di Azure Service Fabric Mesh](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli).
 
 ## <a name="commit"></a>Commit
 
-Dopo aver confermato la funzionalità equivalente dell'applicazione Service Fabric Mesh nell'area di destinazione, configurare il controller di ingresso (ad esempio, il [gateway applicazione](../application-gateway/redirect-overview.md)) per reindirizzare il traffico alla nuova applicazione.
+Dopo aver confermato la funzionalità equivalente dell'applicazione Service Fabric Mesh nell'area di destinazione, configurare il controller di ingresso (ad [esempio,](../application-gateway/redirect-overview.md)il gateway applicazione) per reindirizzare il traffico alla nuova applicazione.
 
 ## <a name="clean-up-source-resources"></a>Pulire le risorse di origine
 
-Per completare lo spostamento dell'applicazione Service Fabric mesh, [eliminare l'applicazione di origine e/o il gruppo di risorse padre](../azure-resource-manager/management/delete-resource-group.md).
+Per completare lo spostamento dell'applicazione mesh Service Fabric, eliminare [l'applicazione di origine e/o il gruppo di risorse padre](../azure-resource-manager/management/delete-resource-group.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Spostare le risorse di Azure tra aree](../azure-resource-manager/management/move-region.md)
-* [Supporto per lo trasferimento di risorse di Azure tra aree](../azure-resource-manager/management/region-move-support.md)
+* [Spostare le risorse di Azure tra aree](../azure-resource-manager/management/move-resources-overview.md#move-resources-across-regions)
+* [Supporto per lo spostamento di risorse di Azure tra aree](../azure-resource-manager/management/move-support-resources.md)
 * [Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 * [Supporto delle operazioni di spostamento per le risorse](../azure-resource-manager/management/move-support-resources.md
 )

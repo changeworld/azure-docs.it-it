@@ -5,7 +5,7 @@ services: traffic-manager
 author: duongau
 ms.author: duau
 manager: twooley
-ms.date: 10/15/2020
+ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: traffic-manager
 ms.workload: infrastructure-services
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 60facae195abd2808195f776ac6eef54ab63752f
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 13b5925310c615461424f78d90ba9849c9bf58c5
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534937"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727979"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Guida introduttiva: Creare un profilo di Gestione traffico usando il portale di Azure
 
 Questo argomento di avvio rapido descrive come creare un profilo di Gestione traffico che fornisce disponibilità elevata per l'applicazione Web.
 
 In questo argomento di avvio rapido verranno illustrate due istanze di un'applicazione Web. Ognuna di esse è in esecuzione in un'area di Azure diversa. Si creerà un profilo di Gestione traffico basato sulla [priorità degli endpoint](traffic-manager-routing-methods.md#priority-traffic-routing-method). Il profilo indirizza il traffico utente al sito primario che esegue l'applicazione Web. Gestione traffico monitora continuamente l'applicazione Web. Se il sito primario non è disponibile, fornisce il failover automatico al sito di backup.
+
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagramma dell'ambiente di distribuzione di Gestione traffico." border="false":::
 
 Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -83,7 +85,7 @@ Aggiungere il sito Web nell'area *Stati Uniti orientali* come endpoint primario 
 1. Selezionare il profilo dai risultati della ricerca.
 1. In **Profilo di Gestione traffico** selezionare **Endpoint** e quindi **Aggiungi** nella sezione **Impostazioni**.
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Impostazioni degli endpoint nel profilo di Gestione traffico":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Screenshot delle impostazioni dell'endpoint nel profilo di Gestione traffico.":::
 
 1. Immettere o selezionare queste impostazioni:
 
@@ -95,7 +97,7 @@ Aggiungere il sito Web nell'area *Stati Uniti orientali* come endpoint primario 
     | Risorsa di destinazione | Selezionare **Scegliere un servizio app** > **Stati Uniti orientali**. |
     | Priorità | Selezionare **1**. Tutto il traffico passa a questo endpoint quando è integro. |
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Screenshot che mostra dove aggiungere un endpoint al profilo di Gestione traffico":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Screenshot della posizione in cui si aggiunge un endpoint al profilo di Gestione traffico.":::
     
 1. Selezionare **OK**.
 1. Per creare un endpoint di failover per la seconda area di Azure, ripetere i passaggi 3 e 4 con queste impostazioni:
@@ -122,7 +124,7 @@ In questa sezione, si controllerà il nome di dominio del profilo di Gestione tr
 1. Selezionare il profilo di Gestione traffico. Viene visualizzata la **panoramica**.
 1. Il **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato.
   
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Screenshot della posizione del nome DNS di Gestione traffico":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Screenshot della posizione del nome DNS di Gestione traffico.":::
 
 ### <a name="view-traffic-manager-in-action"></a>Visualizzare Gestione traffico in azione
 
@@ -131,7 +133,7 @@ In questa sezione, si controllerà il nome di dominio del profilo di Gestione tr
     > [!NOTE]
     > Nello scenario di questo avvio rapido tutte le richieste vengono instradate all'endpoint primario, che è impostato su **Priorità 1**.
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Screenshot della pagina Web di conferma della disponibilità del profilo di Gestione traffico":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Screenshot della pagina Web per confermare la disponibilità del profilo di Gestione traffico.":::
 
 1. Per visualizzare il failover di Gestione traffico in azione, disabilitare il sito primario:
     1. Nella pagina Profilo di Gestione traffico, nella sezione **Panoramica** selezionare **myPrimaryEndpoint**.

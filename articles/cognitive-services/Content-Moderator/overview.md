@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 04/16/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, azure content moderator, moderazione online, software di filtro dei contenuti, servizio di moderazione del contenuto, moderazione del contenuto
-ms.openlocfilehash: a53611fdad84f06661f3b8928296b6a45851cea4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: b0ff5a241a76cd49d104e4145df37515b43c4e27
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867271"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726197"
 ---
 # <a name="what-is-azure-content-moderator"></a>Che cos'è Azure Content Moderator?
 
@@ -29,10 +29,10 @@ Azure Content Moderator è un servizio di intelligenza artificiale che consente 
 
 Questa documentazione contiene i tipi di articolo seguenti:  
 
-* Nelle [**guide introduttive**](client-libraries.md) vengono fornite istruzioni introduttive per l'esecuzione di richieste al servizio.  
-* Le [**guide alle procedure**](try-text-api.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.  
-* I [**concetti**](text-moderation-api.md) forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.  
-* Le [**esercitazioni**](ecommerce-retail-catalog-moderation.md) sono guide più lunghe che illustrano come usare il servizio come componente in soluzioni aziendali più ampie.  
+* [**Le guide introduttive**](client-libraries.md) sono istruzioni introduttive che guidano l'utente nell'esecuzione di richieste al servizio.  
+* [**Le guide alle attività**](try-text-api.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.  
+* [**I**](text-moderation-api.md) concetti forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.  
+* [**Le esercitazioni**](ecommerce-retail-catalog-moderation.md) sono guide più lunghe che illustrano come usare il servizio come componente in soluzioni aziendali più ampie.  
 
 ## <a name="where-its-used"></a>Scenari di utilizzo
 

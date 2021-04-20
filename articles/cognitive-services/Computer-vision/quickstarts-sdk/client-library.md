@@ -1,14 +1,14 @@
 ---
-title: "Guida introduttiva: leggere la libreria client o l'API REST"
+title: "Guida introduttiva: Leggere la libreria client o l'API REST"
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come usare il riconoscimento ottico dei caratteri (OCR) nell'applicazione tramite una libreria client nativa nel linguaggio preferito.
+description: Informazioni su come usare il riconoscimento ottico dei caratteri (OCR) nell'applicazione tramite una libreria client nativa nella lingua scelta.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/21/2020
+ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom:
 - devx-track-python
@@ -17,16 +17,16 @@ ms.custom:
 - cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-computer-vision
 keywords: visione artificiale, servizio visione artificiale
-ms.openlocfilehash: 865002fbc9e492b43b9c572468f722c85c6cc4b8
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: bd6fcec1544e20c119018df2595cc27c8c368824
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284787"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728259"
 ---
-# <a name="quickstart-use-the-read-client-library-or-rest-api"></a>Guida introduttiva: usare la libreria client di lettura o l'API REST
+# <a name="quickstart-use-the-read-client-library-or-rest-api"></a>Guida introduttiva: Usare la libreria client read o l'API REST
 
-Iniziare a usare l'API REST di lettura o le librerie client. Il servizio Read fornisce algoritmi di intelligenza artificiale per l'estrazione del testo visibile dalle immagini e la relativa restituzione come stringhe strutturate. Seguire questi passaggi per installare un pacchetto nell'applicazione e provare il codice di esempio per le attività di base.
+Introduzione all'API REST di lettura o alle librerie client. Il servizio Lettura fornisce algoritmi di intelligenza artificiale per estrarre testo visibile dalle immagini e restituirlo come stringhe strutturate. Seguire questi passaggi per installare un pacchetto nell'applicazione e provare il codice di esempio per le attività di base.
 
 
 

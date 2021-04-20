@@ -32,7 +32,7 @@
       items:
         - name: Contenitori
           items:
-            - name: Contenitori di servizi cognitivi
+            - name: Contenitori di Servizi cognitivi
               href: cognitive-services-container-support.md
             - name: Tag di immagini di contenitori e note sulla versione
               href: ./containers/container-image-tags.md
@@ -72,7 +72,7 @@
           href: security-baseline.md
         - name: Controlli di sicurezza in base a Criteri di Azure
           href: ./security-controls-policy.md
-    - name: Usare con Big Data
+    - name: Uso con Big Data
       items:
         - name: Servizi cognitivi per Big Data
           href: ./big-data/cognitive-services-for-big-data.md
@@ -137,5 +137,7 @@
       href: 'https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure'
     - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
-    - name: Blog
+    - name: Blog di Azure
       href: 'https://azure.microsoft.com/blog/topics/cognitive-services/'
+    - name: Azure per intelligenza artificiale Blog
+      href: 'https://techcommunity.microsoft.com/t5/azure-ai/bg-p/AzureAIBlog'

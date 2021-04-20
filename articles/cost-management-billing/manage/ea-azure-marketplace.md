@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: 0f2d3c830f27eec9f521e6f79ac8dce3bce818e9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
-ms.translationtype: HT
+ms.openlocfilehash: ce9dff017a796e420586ad191a59c149bed07190
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442565"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726827"
 ---
 # <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -74,45 +74,7 @@ I servizi seguenti vengono fatturati su base oraria secondo il Contratto Enterpr
 
 Se si ha un Contratto Enterprise, l'addebito per Azure RemoteApp è basato sul livello di prezzo del Contratto Enterprise. Non sono previsti addebiti aggiuntivi. Il prezzo standard include 40 ore iniziali. Il prezzo illimitato include 80 ore iniziali. RemoteApp interrompe il calcolo dell'utilizzo oltre le 80 ore.
 
-## <a name="azure-marketplace-faq"></a>Domande frequenti su Azure Marketplace
-
-Questa sezione descrive in che modo il pagamento anticipato di Azure potrebbe essere applicato ad alcuni servizi di rivenditori di terze parti in Azure Marketplace.
-
-### <a name="what-changed-with-azure-marketplace-services-and-azure-ea-prepayment"></a>Che cosa è cambiato nei servizi di Azure Marketplace e nel pagamento anticipato di Azure del contratto Enterprise?
-
-A partire dal 1° marzo 2018 alcuni servizi di rivenditori di terze parti utilizzano il pagamento anticipato di Azure del contratto Enterprise. Ad eccezione delle istanze di macchine virtuali riservate di Azure, i servizi venivano in precedenza addebitati al di fuori del pagamento anticipato di Azure del contratto Enterprise e fatturati separatamente.
-
-L'uso del pagamento anticipato di Azure è stato esteso ad alcuni servizi di Azure Marketplace pubblicati da terze parti che vengano acquistati con maggiore frequenza. Il pagamento anticipato di Azure del contratto Enterprise per questi servizi in Azure Marketplace semplifica la gestione di acquisti e pagamenti.
-
-### <a name="why-did-we-make-this-change"></a>Perché è stata apportata questa modifica?
-
-I clienti sono alla continua ricerca di nuovi modi per sfruttare il pagamento anticipato di Azure. Questa modifica è stata richiesta spesso dai clienti e interessa una gran parte dei clienti di Azure Marketplace.
-
-### <a name="how-do-you-benefit"></a>Quali sono i vantaggi?
-
-L'esperienza di fatturazione è più semplice ed è possibile utilizzare il pagamento anticipato di Azure del contratto Enterprise. Poiché questi servizi sono inclusi nel pagamento anticipato di Azure del contratto Enterprise, tale programma acquisisce maggior valore.
-
-### <a name="what-azure-marketplace-services-use-azure-ea-prepayment-and-how-do-i-know"></a>Quali servizi di Azure Marketplace utilizzano il pagamento anticipato di Azure del contratto Enterprise e come viene informato il cliente?
-
-Quando si acquista un servizio che utilizza il pagamento anticipato di Azure, in Azure Marketplace viene visualizzata una dichiarazione di non responsabilità. Sono supportati alcuni servizi pubblicati da Red Hat, SUSE, Autodesk e Oracle. Attualmente, i servizi con nomi simili pubblicati da altre parti non vengono detratti dal pagamento anticipato di Azure. Alla fine di queste domande frequenti è disponibile un elenco completo.
-
-### <a name="what-if-my-azure-ea-prepayment-runs-out"></a>Che cosa succede se si esaurisce il pagamento anticipato di Azure del contratto Enterprise?
-
-Se si utilizza tutto il pagamento anticipato di Azure si è in condizione di eccedenza, gli addebiti relativi a questi servizi saranno inclusi nella successiva fattura per eccedenza insieme a eventuali altri servizi a consumo. Prima della modifica del 1° marzo 2018, questi addebiti venivano fatturati con gli altri servizi di Azure Marketplace.
-
-### <a name="why-dont-all-azure-marketplaces-consume-azure-ea-prepayment"></a>Perché l'utilizzo del pagamento anticipato di Azure del contratto Enterprise non viene abilitato per tutti i servizi di Azure Marketplace?
-
-Ci impegniamo per offrire ai clienti la migliore esperienza possibile per quanto riguarda il pagamento anticipato di Azure del contratto Enterprise. Questa modifica riguarderà un numero elevato di clienti e una parte significativa della spesa totale in Azure Marketplace. In futuro potrebbero venire aggiunti altri servizi.
-
-### <a name="how-does-this-impact-indirect-enrollment-and-partners"></a>Quali saranno le differenze per la registrazione e i partner indiretti?
-
-Non ci sono variazioni per i partner o i clienti con registrazione indiretta. Questi servizi sono soggetti alle stesse possibilità di ricarico dei partner a cui sono sottoposti altri servizi a consumo. L'unico cambiamento è costituito dall'inserimento degli addebiti in una fattura diversa e dal saldo degli stessi attraverso il pagamento anticipato di Azure del contratto Enterprise.
-
-### <a name="is-there-a-list-of-azure-marketplace-services-that-consume-azure-ea-prepayment"></a>È disponibile un elenco dei servizi di Azure Marketplace che utilizzano il pagamento anticipato di Azure del contratto Enterprise?
-
-Alcune offerte specifiche di Azure Marketplace possono usare i fondi del pagamento anticipato di Azure. Per un elenco completo dei prodotti che partecipano al programma, vedere i [servizi di terze parti che usano il pagamento anticipato di Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment).
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sui [prezzi](ea-pricing-overview.md).
+- Leggere Le domande [frequenti su Gestione dei costi](../cost-management-billing-faq.yml) e fatturazione per visualizzare un elenco di domande e risposte sui servizi Azure Marketplace e sul pagamento anticipato di Azure EA.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b58040917ed3d3345a35b7acbe31b6b500f05562
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: c0ca74b6cf63e3c81d830eca76eea6815548faa1
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107073659"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107732331"
 ---
 ### <a name="do-i-need-a-public-ip-on-my-virtual-machine-to-connect-via-azure-bastion"></a><a name="publicip"></a>È necessario un indirizzo IP pubblico nella macchina virtuale per connettersi tramite Azure Bastion?
 
@@ -23,9 +23,9 @@ No. Quando ci si connette a una macchina virtuale con Azure Bastion, non è nece
 
 IPv6 non è attualmente supportato. Azure Bastion supporta solo IPv4.
 
-### <a name="can-i-use-azure-bastion-with-azure-private-dns-zones"></a>È possibile usare Azure Bastion con le zone DNS privato di Azure?
+### <a name="can-i-use-azure-bastion-with-azure-private-dns-zones"></a>È possibile usare Azure Bastion zone DNS privato Azure?
 
-L'uso di Azure Bastion con le zone DNS privato di Azure non è attualmente supportato. Prima di distribuire la risorsa di Azure Bastion, assicurarsi che la rete virtuale host non sia collegata a una zona DNS privata.
+L'uso di Azure Bastion con le zone DNS privato azure non è attualmente supportato. Prima di distribuire la Azure Bastion, assicurarsi che la rete virtuale host non sia collegata a una zona DNS privata.
 
 ### <a name="do-i-need-an-rdp-or-ssh-client"></a><a name="rdpssh"></a>È necessario un client RDP o SSH?
 
@@ -51,7 +51,7 @@ Questa funzionalità non funziona con le VM aggiunte ad Azure Active Directory c
 
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Quali browser sono supportati?
 
-Usare il browser Microsoft Edge o Google Chrome in Windows. Per Apple Mac, usare il browser Google Chrome. Anche Microsoft Edge Chromium è supportato sia in Windows sia in Mac.
+Il browser deve supportare HTML 5. Usare il browser Microsoft Edge o Google Chrome in Windows. Per Apple Mac, usare il browser Google Chrome. Anche Microsoft Edge Chromium è supportato sia in Windows sia in Mac.
 
 ### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Dove archivia i dati dei clienti Azure Bastion?
 

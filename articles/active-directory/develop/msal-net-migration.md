@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 49b5da2da72e78226db19f5d8881073577aee5b0
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.openlocfilehash: 2ec4ca8b24f1e8534e7f8434bc86a2eb2745e946
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575522"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727043"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrazione di applicazioni a MSAL.NET
 
@@ -45,7 +45,7 @@ Per informazioni dettagliate sull'albero delle decisioni riportato di seguito, v
 
 Nella maggior parte dei casi si vuole usare MSAL.NET e Microsoft Identity Platform, ovvero l'ultima generazione di librerie di autenticazione Microsoft. Tramite MSAL.NET è possibile acquisire i token per gli utenti eseguendo l'accesso all'applicazione con Azure AD (account aziendali e dell'istituto di istruzione), account Microsoft (personali) o Azure AD B2C.
 
-Se si ha già familiarità con [l'endpoint](../azuread-dev/azure-ad-endpoint-comparison.md)di Azure AD per sviluppatori (v1.0) (e con ADAL.NET), è consigliabile leggere Novità di Microsoft Identity Platform.
+Se si ha già familiarità con [l'endpoint](../azuread-dev/azure-ad-endpoint-comparison.md)Azure AD for developers (v1.0) (e ADAL.NET), è consigliabile leggere Novità di Microsoft Identity Platform.
 
 È comunque necessario usare ADAL.NET se l'applicazione deve consentire l'accesso degli utenti con versioni precedenti di [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). Per altre informazioni, vedere Supporto [di ADFS.](https://aka.ms/msal-net-adfs-support)
 
@@ -59,7 +59,7 @@ Per usare MSAL.NET, sarà necessario aggiungere il pacchetto NuGet [Microsoft.Id
 
 ### <a name="scopes-not-resources"></a>Ambiti e non risorse
 
-ADAL.NET acquisisce i token per le *risorse*, mentre MSAL.NET acquisisce i token per gli *ambiti*. Numerosi override AcquireToken di MSAL.NET richiedono un parametro denominato scopes (`IEnumerable<string> scopes`). Questo parametro è un semplice elenco di stringhe che dichiarano le autorizzazioni desiderate e le risorse richieste. Gli ambiti noti sono gli [Microsoft Graph del gruppo.](https://docs.microsoft.com/graph/permissions-reference)
+ADAL.NET acquisisce i token per le *risorse*, mentre MSAL.NET acquisisce i token per gli *ambiti*. Numerosi override AcquireToken di MSAL.NET richiedono un parametro denominato scopes (`IEnumerable<string> scopes`). Questo parametro è un semplice elenco di stringhe che dichiarano le autorizzazioni desiderate e le risorse richieste. Gli ambiti noti sono gli [Microsoft Graph degli ambiti di](/graph/permissions-reference).
 
 In MSAL.NET è anche possibile accedere alle risorse v1.0. Per informazioni dettagliate, vedere [Ambiti per un'applicazione v1.0](#scopes-for-a-web-api-accepting-v10-tokens).
 
@@ -163,7 +163,7 @@ Esistono due versioni dei token:
 
 L'endpoint v1.0 (usato da ADAL) genera solo token v1.0.
 
-Tuttavia, l'endpoint v2.0 (usato da MSAL) genera la versione del token accettata dall'API Web. Una proprietà del manifesto dell'applicazione dell'API Web consente agli sviluppatori di scegliere la versione del token accettata. Vedere `accessTokenAcceptedVersion` nella documentazione di riferimento sul [manifesto dell'applicazione](reference-app-manifest.md).
+Tuttavia, l'endpoint v2.0 (usato da MSAL) emette la versione del token accettata dall'API Web. Una proprietà del manifesto dell'applicazione dell'API Web consente agli sviluppatori di scegliere la versione del token accettata. Vedere `accessTokenAcceptedVersion` nella documentazione di riferimento sul [manifesto dell'applicazione](reference-app-manifest.md).
 
 Per altre informazioni sui token v1.0 e v2.0, vedere [Token di accesso di Azure Active Directory](access-tokens.md)
 
@@ -204,7 +204,7 @@ Questo perché l'API di Resource Manager prevede una barra nell'attestazione dei
 La logica usata da Azure AD è la seguente:
 - Per l'endpoint ADAL (v1.0) con un token di accesso v1.0 (l'unico possibile), aud=resource
 - Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta i token v2.0, aud=resource.AppId
-- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https:\//database.windows.net prevede un gruppo di destinatari "https://database.windows.net/", è necessario richiedere un ambito di https:\//database.windows.net//.default. Vedere anche problema[n. 747:](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)la barra finale dell'URL della risorsa viene omessa e ciò ha causato un errore di autenticazione sql #747
+- Per MSAL (endpoint v2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v1.0 (come nel caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutto ciò che precede l'ultima barra e usandolo come identificatore della risorsa. Di conseguenza, se https:\//database.windows.net prevede un gruppo di destinatari "https://database.windows.net/", è necessario richiedere un ambito di https:\//database.windows.net//.default. Vedere anche problema[n. 747:](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)la barra finale dell'URL della risorsa viene omessa e ciò ha causato l'errore di autenticazione sql #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a tutte le autorizzazioni di un'applicazione v1.0

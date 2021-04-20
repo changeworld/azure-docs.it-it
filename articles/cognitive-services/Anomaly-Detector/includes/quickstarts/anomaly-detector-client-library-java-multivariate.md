@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva alla libreria client Java multivariate per il rilevamento anomalie
+title: Rilevamento anomalie avvio rapido sulla libreria client Java multivariata
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -8,20 +8,22 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: eae4d00cd7b1a0ff90648086320135505a0d900a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f2e227b2a589955191a2e602495cf0ffbb3f6d8b
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107316024"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107732200"
 ---
-Introduzione alla libreria client multivariata per il rilevatore di anomalie per Java. Seguire questi passaggi per installare il pacchetto e iniziare a usare gli algoritmi forniti dal servizio. Le nuove API di rilevamento delle anomalie multivariate consentono agli sviluppatori di integrare in modo semplice l'intelligenza artificiale avanzata per il rilevamento di anomalie da gruppi di metriche, senza la necessità di informazioni di apprendimento automatico o dati con etichetta. Le dipendenze e le correlazioni tra segnali diversi vengono conteggiate automaticamente come fattori chiave. Ciò consente di proteggere in modo proattivo i sistemi complessi dagli errori.
+Introduzione alla libreria client Rilevamento anomalie multivariata per Java. Seguire questi passaggi per installare il pacchetto e iniziare a usare gli algoritmi forniti dal servizio. Le nuove API di rilevamento anomalie multivariate consentono agli sviluppatori di integrare facilmente l'intelligenza artificiale avanzata per il rilevamento di anomalie da gruppi di metriche, senza la necessità di conoscere l'apprendimento automatico o assegnare etichette ai dati. Le dipendenze e le interrelazioni tra segnali diversi vengono conteggiate automaticamente come fattori chiave. Ciò consente di proteggere in modo proattivo i sistemi complessi da errori.
 
-Usare la libreria client multivariate per il rilevatore di anomalie per Java per:
+Usare la Rilevamento anomalie client multivariata per Java per:
 
-* Rilevare le anomalie a livello di sistema da un gruppo di serie temporali.
-* Quando una singola serie temporale non comunica molto ed è necessario esaminare tutti i segnali per rilevare un problema.
-* Predicativo la manutenzione di risorse fisiche costose con decine a centinaia di diversi tipi di sensori che misurano diversi aspetti dell'integrità del sistema.
+* Rilevare anomalie a livello di sistema da un gruppo di serie tempori.
+* Quando una serie temporale singola non indica molto ed è necessario esaminare tutti i segnali per rilevare un problema.
+* Manutenzione predicativa di risorse fisiche costose con decine o centinaia di diversi tipi di sensori che misurano vari aspetti dell'integrità del sistema.
+
+[Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/anomalydetector/azure-ai-anomalydetector)  |  [Pacchetto (Maven)](https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -108,7 +110,7 @@ String key = "YOUR_API_KEY";
 String endpoint = "YOUR_ENDPOINT";
 ```
 
- Per usare le API multivariate del rilevatore di anomalie, è necessario eseguire il training del modello prima di usare il rilevamento. I dati utilizzati per il training sono un batch di serie temporali, ogni serie temporale deve essere in formato CSV con due colonne, timestamp e valore. Tutte le serie temporali devono essere compresse in un unico file zip e caricate nell' [archiviazione BLOB di Azure](../../../../storage/blobs/storage-blobs-introduction.md). Per impostazione predefinita, il nome del file verrà utilizzato per rappresentare la variabile per la serie temporale. In alternativa, è possibile includere nel file zip un meta.jsaggiuntivo sul file se si desidera che il nome della variabile sia diverso dal nome del file con estensione zip. Una volta generato l' [URL della firma di accesso condiviso (SAS) BLOB](../../../../storage/common/storage-sas-overview.md), è possibile usare l'URL del file zip per il training.
+ Per usare il Rilevamento anomalie API multivariate, è necessario eseguire il training del modello prima di usare il rilevamento. I dati usati per il training sono un batch di serie temporali, ogni serie temporale deve essere in formato CSV con due colonne, timestamp e valore. Tutte le serie tempose devono essere compresse in un unico file ZIP e caricate [nell'archivio BLOB di Azure.](../../../../storage/blobs/storage-blobs-introduction.md) Per impostazione predefinita, il nome file verrà usato per rappresentare la variabile per la serie temporale. In alternativa, un meta.jsaggiuntivo sul file può essere incluso nel file ZIP se si vuole che il nome della variabile sia diverso dal nome del file ZIP. Dopo aver generato [l'URL di firma](../../../../storage/common/storage-sas-overview.md)di accesso condiviso del BLOB , è possibile usare l'URL del file ZIP per il training.
 
 ## <a name="code-examples"></a>Esempi di codice
 
@@ -117,12 +119,12 @@ Questi frammenti di codice mostrano come eseguire le operazioni seguenti con la 
 * [Autenticare il client](#authenticate-the-client)
 * [Eseguire il training di un modello](#train-a-model)
 * [Rilevare le anomalie](#detect-anomalies)
-* [Esporta modello](#export-model)
-* [Elimina modello](#delete-model)
+* [Esportare il modello](#export-model)
+* [Eliminare il modello](#delete-model)
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-Creare un'istanza di un `anomalyDetectorClient` oggetto con l'endpoint e le credenziali.
+Creare `anomalyDetectorClient` un'istanza di un oggetto con l'endpoint e le credenziali.
 
 ```java
 HttpHeaders headers = new HttpHeaders()
@@ -147,11 +149,11 @@ AnomalyDetectorClient anomalyDetectorClient = new AnomalyDetectorClientBuilder()
 
 ## <a name="train-a-model"></a>Eseguire il training di un modello
 
-### <a name="construct-a-model-result-and-train-model"></a>Costruire un modello di risultato e di training
+### <a name="construct-a-model-result-and-train-model"></a>Costruire un risultato del modello ed esere il training del modello
 
-Prima di tutto è necessario creare una richiesta di modello. Assicurarsi che l'ora di inizio e di fine siano allineate con l'origine dati.
+Prima di tutto è necessario costruire una richiesta di modello. Assicurarsi che l'ora di inizio e di fine sia allineata all'origine dati.
 
- Per usare le API multivariate del rilevatore di anomalie, è necessario eseguire il training del modello prima di usare il rilevamento. I dati utilizzati per il training sono un batch di serie temporali, ogni serie temporale deve essere in formato CSV con due colonne, timestamp e valore. Tutte le serie temporali devono essere compresse in un unico file zip e caricate nell' [archiviazione BLOB di Azure](../../../../storage/blobs/storage-blobs-introduction.md#blobs). Per impostazione predefinita, il nome del file verrà utilizzato per rappresentare la variabile per la serie temporale. In alternativa, è possibile includere nel file zip un meta.jsaggiuntivo sul file se si desidera che il nome della variabile sia diverso dal nome del file con estensione zip. Una volta generato l' [URL della firma di accesso condiviso (SAS) BLOB](../../../../storage/common/storage-sas-overview.md), è possibile usare l'URL del file zip per il training.
+ Per usare Rilevamento anomalie API multivariate, è necessario eseguire il training del modello prima di usare il rilevamento. I dati usati per il training sono un batch di serie temporali, ogni serie temporale deve essere in formato CSV con due colonne, timestamp e valore. Tutte le serie tempore devono essere compresse in un unico file ZIP e caricate [nell'archivio BLOB di Azure.](../../../../storage/blobs/storage-blobs-introduction.md#blobs) Per impostazione predefinita, il nome file verrà usato per rappresentare la variabile per la serie temporale. In alternativa, è possibile includere un meta.jsaggiuntivo nel file ZIP se si vuole che il nome della variabile sia diverso dal nome del file ZIP. Dopo aver generato [l'URL della firma](../../../../storage/common/storage-sas-overview.md)di accesso condiviso blob, è possibile usare l'URL del file ZIP per il training.
 
 ```java
 Path path = Paths.get("test-data.csv");
@@ -226,9 +228,9 @@ while (true) {
 }
 ```
 
-## <a name="export-model"></a>Esporta modello
+## <a name="export-model"></a>Esportare il modello
 
-Per esportare il modello sottoposto a training `exportModelWithResponse` , utilizzare.
+Per esportare il modello con training, usare `exportModelWithResponse` .
 
 ```java
 StreamResponse response_export = anomalyDetectorClient.exportModelWithResponse(model_id, Context.NONE);
@@ -237,9 +239,9 @@ FileOutputStream bw = new FileOutputStream("result.zip");
 value.subscribe(s -> write(bw, s), (e) -> close(bw), () -> close(bw));
 ```
 
-## <a name="delete-model"></a>Elimina modello
+## <a name="delete-model"></a>Eliminare un modello
 
-Per eliminare un modello esistente disponibile per la risorsa corrente, utilizzare la `deleteMultivariateModelWithResponse` funzione.
+Per eliminare un modello esistente disponibile per la risorsa corrente, usare la `deleteMultivariateModelWithResponse` funzione .
 
 ```java
 Response<Void> deleteMultivariateModelWithResponse = anomalyDetectorClient.deleteMultivariateModelWithResponse(model_id, Context.NONE);
@@ -262,4 +264,4 @@ gradle run
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Procedure consigliate per il rilevatore di anomalie](../../concepts/best-practices-multivariate.md)
+* [Rilevamento anomalie procedure consigliate multivariate](../../concepts/best-practices-multivariate.md)

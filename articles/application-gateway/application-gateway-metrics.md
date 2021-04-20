@@ -5,18 +5,18 @@ services: application-gateway
 author: azhar2005
 ms.service: application-gateway
 ms.topic: article
-ms.date: 06/06/2020
+ms.date: 04/19/2021
 ms.author: azhussai
-ms.openlocfilehash: 3baaf49cb3d1c8c5502d96974f9729d05996c75b
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 615db7e8d53e397755ae318d171dab1eab9ec6c6
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519887"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727808"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
-Il gateway applicazione pubblica i punti dati, denominati [metriche, Monitoraggio di Azure](../azure-monitor/overview.md) per le prestazioni delle istanze del gateway applicazione e back-end. Queste metriche sono valori numerici in un set ordinato di dati della serie temporale che descrivono alcuni aspetti del gateway applicazione in un determinato momento. Se sono presenti richieste che passano attraverso il gateway applicazione, misura e invia le metriche a intervalli di 60 secondi. Se non sono presenti richieste che passano attraverso il gateway applicazione o non sono presenti dati per una metrica, la metrica non viene segnalata. Per altre informazioni, vedere Monitoraggio di Azure [metriche .](../azure-monitor/essentials/data-platform-metrics.md)
+Il gateway applicazione pubblica i punti dati, denominati metriche, [Monitoraggio di Azure](../azure-monitor/overview.md) per le prestazioni delle istanze del gateway applicazione e back-end. Queste metriche sono valori numerici in un set ordinato di dati della serie temporale che descrivono alcuni aspetti del gateway applicazione in un determinato momento. Se sono presenti richieste che passano attraverso il gateway applicazione, misura e invia le metriche a intervalli di 60 secondi. Se non sono presenti richieste che passano attraverso il gateway applicazione o non sono presenti dati per una metrica, la metrica non viene segnalata. Per altre informazioni, vedere Monitoraggio di Azure [metriche .](../azure-monitor/essentials/data-platform-metrics.md)
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Metriche supportate dallo SKU del gateway applicazione V2
 
@@ -24,7 +24,7 @@ Il gateway applicazione pubblica i punti dati, denominati [metriche, Monitoraggi
 
 Il gateway applicazione offre diverse metriche di temporizzazione incorporate correlate alla richiesta e alla risposta, tutte misurate in millisecondi. 
 
-![Diagramma delle metriche di temporizzazione per il gateway applicazione.](./media/application-gateway-metrics/application-gateway-metrics.jpg)
+:::image type="content" source="./media/application-gateway-metrics/application-gateway-metrics.png" alt-text="[Diagramma delle metriche di temporizzazione per il gateway applicazione" border="false":::
 
 > [!NOTE]
 >
@@ -52,7 +52,7 @@ Il gateway applicazione offre diverse metriche di temporizzazione incorporate co
 
   Tempo medio necessario per ricevere, elaborare e inviare una richiesta e la relativa risposta. 
 
-  Intervallo tra il momento in cui il gateway applicazione riceve il primo byte della richiesta HTTP e l'ora in cui l'ultimo byte di risposta è stato inviato al client. Ciò include il tempo di elaborazione impiegato dal gateway applicazione, il tempo di risposta dell'ultimo *byte* del back-end, il tempo impiegato dal gateway applicazione per inviare tutta la risposta e il *tempo RTT del client.*
+  Intervallo tra il momento in cui il gateway applicazione riceve il primo byte della richiesta HTTP e il momento in cui l'ultimo byte di risposta è stato inviato al client. Ciò include il tempo di elaborazione impiegato dal gateway applicazione, il tempo di risposta dell'ultimo *byte* del back-end, il tempo impiegato dal gateway applicazione per inviare tutta la risposta e il *tempo RTT del client.*
 
 - **Client RTT (Scrittura in tempo reale client)**
 
@@ -66,7 +66,7 @@ Ad esempio, se si verifica un picco nella tendenza  del tempo di risposta del pr
 
 Se si nota un picco nel tempo di risposta dell'ultimo byte del *back-end* ma il tempo di risposta del primo byte del *back-end* è stabile, è possibile dedurre che il picco è dovuto alla richiesta di un file di dimensioni maggiori.
 
-Analogamente, se il tempo totale del *gateway* applicazione presenta un picco ma il tempo di risposta dell'ultimo *byte* back-end è stabile, può essere un segno di collo di bottiglia delle prestazioni nel gateway applicazione o un collo di bottiglia nella rete tra il client e il gateway applicazione. Inoltre, se anche il *valore RTT del client* presenta un picco corrispondente, indica che la riduzione delle prestazioni è dovuta alla rete tra il client e il gateway applicazione.
+Analogamente, se il tempo totale del *gateway* applicazione presenta un picco ma il tempo di risposta dell'ultimo *byte* back-end è stabile, può essere un segno di collo di bottiglia delle prestazioni nel gateway applicazione o un collo di bottiglia nella rete tra client e gateway applicazione. Inoltre, se anche il *valore RTT del client* ha un picco corrispondente, indica che la riduzione delle prestazioni è dovuta alla rete tra il client e il gateway applicazione.
 
 ### <a name="application-gateway-metrics"></a>Metriche del gateway applicazione
 

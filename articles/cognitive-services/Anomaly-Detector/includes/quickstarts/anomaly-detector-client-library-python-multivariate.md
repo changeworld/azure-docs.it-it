@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva alla libreria client multivariate Python del rilevamento anomalie
+title: Rilevamento anomalie guida introduttiva alla libreria client multivariata Python
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -8,20 +8,22 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/25/2020
 ms.author: mbullwin
-ms.openlocfilehash: 9b848f6c86f2ff2e95fa5cc191b088b7175f2311
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 684c61dfb34d55681904943160ca389c19a4c8db
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107316019"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107732214"
 ---
-Introduzione alla libreria client multivariata per il rilevatore di anomalie per Python. Seguire questi passaggi per installare il pacchetto e iniziare a usare gli algoritmi forniti dal servizio. Le nuove API di rilevamento delle anomalie multivariate consentono agli sviluppatori di integrare in modo semplice l'intelligenza artificiale avanzata per il rilevamento di anomalie da gruppi di metriche, senza la necessità di informazioni di apprendimento automatico o dati con etichetta. Le dipendenze e le correlazioni tra segnali diversi vengono conteggiate automaticamente come fattori chiave. Ciò consente di proteggere in modo proattivo i sistemi complessi dagli errori.
+Introduzione alla libreria Rilevamento anomalie client multivariate per Python. Seguire questi passaggi per installare il pacchetto e iniziare a usare gli algoritmi forniti dal servizio. Le nuove API di rilevamento anomalie multivariate consentono agli sviluppatori di integrare facilmente l'intelligenza artificiale avanzata per rilevare anomalie da gruppi di metriche, senza la necessità di conoscenze di Machine Learning o dati etichettati. Le dipendenze e le interrelazioni tra segnali diversi vengono conteggiate automaticamente come fattori chiave. Ciò consente di proteggere in modo proattivo i sistemi complessi da errori.
 
-Usare la libreria client multivariata del rilevatore di anomalie per Python per:
+Usare la Rilevamento anomalie client multivariata per Python per:
 
-* Rilevare le anomalie a livello di sistema da un gruppo di serie temporali.
-* Quando una singola serie temporale non comunica molto ed è necessario esaminare tutti i segnali per rilevare un problema.
-* Predicativo la manutenzione di risorse fisiche costose con decine a centinaia di diversi tipi di sensori che misurano diversi aspetti dell'integrità del sistema.
+* Rilevare anomalie a livello di sistema da un gruppo di serie tempore.
+* Quando una serie temporale singola non indica molto ed è necessario esaminare tutti i segnali per rilevare un problema.
+* Manutenzione predicativa di risorse fisiche costose con decine o centinaia di diversi tipi di sensori che misurano vari aspetti dell'integrità del sistema.
+
+[Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector)  |  [Pacchetto (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -72,14 +74,14 @@ Questi frammenti di codice mostrano come eseguire le operazioni seguenti con la 
 * [Autenticare il client](#authenticate-the-client)
 * [Eseguire il training del modello](#train-the-model)
 * [Rilevare le anomalie](#detect-anomalies)
-* [Esporta modello](#export-model)
-* [Elimina modello](#delete-model)
+* [Esportare il modello](#export-model)
+* [Eliminare un modello](#delete-model)
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-Per creare un'istanza di un nuovo client di rilevamento anomalie è necessario passare la chiave di sottoscrizione del rilevatore di anomalie e l'endpoint associato. Verrà inoltre stabilita un'origine dati.  
+Per creare un'istanza Rilevamento anomalie client è necessario passare la chiave Rilevamento anomalie di sottoscrizione e l'endpoint associato. Verrà anche stabilita un'origine dati.  
 
-Per usare le API multivariate del rilevatore di anomalie, è necessario eseguire il training del modello prima di usare il rilevamento. I dati utilizzati per il training sono un batch di serie temporali, ogni serie temporale deve essere in formato CSV con due colonne, timestamp e valore. Tutte le serie temporali devono essere compresse in un unico file zip e caricate nell' [archiviazione BLOB di Azure](../../../../storage/blobs/storage-blobs-introduction.md#blobs). Per impostazione predefinita, il nome del file verrà utilizzato per rappresentare la variabile per la serie temporale. In alternativa, è possibile includere nel file zip un meta.jsaggiuntivo sul file se si desidera che il nome della variabile sia diverso dal nome del file con estensione zip. Una volta generato l' [URL della firma di accesso condiviso (SAS) BLOB](../../../../storage/common/storage-sas-overview.md), è possibile usare l'URL del file zip per il training.
+Per usare Rilevamento anomalie API multivariate, è necessario eseguire il training del modello prima di usare il rilevamento. I dati usati per il training sono un batch di serie temporali, ogni serie temporale deve essere in formato CSV con due colonne, timestamp e valore. Tutte le serie tempore devono essere compresse in un unico file ZIP e caricate [nell'archivio BLOB di Azure.](../../../../storage/blobs/storage-blobs-introduction.md#blobs) Per impostazione predefinita, il nome file verrà usato per rappresentare la variabile per la serie temporale. In alternativa, è possibile includere un meta.jsaggiuntivo nel file ZIP se si vuole che il nome della variabile sia diverso dal nome del file ZIP. Dopo aver generato [l'URL di firma](../../../../storage/common/storage-sas-overview.md)di accesso condiviso del BLOB , è possibile usare l'URL del file ZIP per il training.
 
 ```python
 def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None):
@@ -101,7 +103,7 @@ def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None
 
 ## <a name="train-the-model"></a>Eseguire il training del modello
 
-Si eseguirà prima il training del modello, si verificherà lo stato del modello durante il training per determinare quando il training è completo e quindi si recupererà l'ID modello più recente, che sarà necessario quando si passa alla fase di rilevamento.
+Prima di tutto si esegue il training del modello, si controlla lo stato del modello durante il training per determinare quando il training è completato e quindi si recupera l'ID del modello più recente che sarà necessario quando si passa alla fase di rilevamento.
 
 ```python
 def train(self, start_time, end_time, max_tryout=500):
@@ -141,7 +143,7 @@ def train(self, start_time, end_time, max_tryout=500):
 
 ## <a name="detect-anomalies"></a>Rilevare le anomalie
 
-Usare `detect_anomaly` e `get_dectection_result` per determinare se sono presenti anomalie all'interno dell'origine dati. Sarà necessario passare l'ID modello per il modello appena sottoposto a training.
+Usare e `detect_anomaly` per `get_dectection_result` determinare se sono presenti anomalie all'interno dell'origine dati. Sarà necessario passare l'ID modello per il modello appena di cui è stato appena training.
 
 ```python
 def detect(self, model_id, start_time, end_time, max_tryout=500):
@@ -173,9 +175,9 @@ def detect(self, model_id, start_time, end_time, max_tryout=500):
     return r
 ```
 
-## <a name="export-model"></a>Esporta modello
+## <a name="export-model"></a>Esportare il modello
 
-Se si desidera esportare un modello, utilizzare `export_model` e passare l'ID modello del modello che si desidera esportare:
+Se si vuole esportare un modello, usare `export_model` e passare l'ID modello del modello da esportare:
 
 ```python
 def export_model(self, model_id, model_path="model.zip"):
@@ -192,9 +194,9 @@ def export_model(self, model_id, model_path="model.zip"):
                 raise e
 ```
 
-## <a name="delete-model"></a>Elimina modello
+## <a name="delete-model"></a>Eliminare il modello
 
-Per eliminare un modello `delete_multivariate_model` , utilizzare e passare l'ID modello del modello che si desidera eliminare:
+Per eliminare un modello, `delete_multivariate_model` usare e passare l'ID del modello da eliminare:
 
 ```python
 def delete_model(self, model_id):

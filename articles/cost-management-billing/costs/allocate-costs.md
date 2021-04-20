@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 414ce626d76c9b7a7d073d6cbfa5a5f4446c3073
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: e7afef7e0a10bb4be3c30112fc207467167e4a17
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025527"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726521"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Creare e gestire le regole di allocazione dei costi di Azure (anteprima)
 
@@ -105,12 +105,7 @@ Ecco un video che illustra come creare una regola di allocazione dei costi.
 
 È possibile modificare una regola di allocazione dei costi per cambiare l'origine o la destinazione oppure per aggiornare la percentuale precompilata per le opzioni di calcolo, archiviazione o rete. Modificare le regole nello stesso modo in cui vengono create. La rielaborazione della modifica delle regole esistenti può richiedere fino a due ore.
 
-## <a name="frequently-asked-questions-faq"></a>Domande frequenti
-
-Le sezioni seguenti contengono le domande più comuni relative all'allocazione dei costi.
-
-### <a name="what-are-the-current-limitations-with-cost-allocation-in-public-preview"></a>Quali sono le limitazioni correnti con l'allocazione dei costi nell'anteprima pubblica?
-<a name="limitations"></a>
+## <a name="current-limitations"></a>Limitazioni correnti
 
 Attualmente, l'allocazione dei costi è supportata in Gestione costi nelle visualizzazioni Analisi dei costi, budget e previsioni. I costi allocati vengono anche visualizzati nell'elenco di sottoscrizioni all'interno della pagina di panoramica Sottoscrizioni.
 
@@ -122,32 +117,9 @@ Gli elementi seguenti non sono attualmente supportati dall'anteprima pubblica di
 - [App Power BI Gestione costi](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Connettore Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
-### <a name="are-costs-factored-into-budgets-and-forecast-views"></a>I costi vengono fattorizzati nelle visualizzazioni di budget e previsioni?
-<a name="budgets-forecast"></a>
-
-Sì. I costi allocati vengono fattorizzati e supportati da budget e previsioni. Le visualizzazioni di budget e previsioni mostrano i rispettivi costi allocati, configurati dalle regole di allocazione dei costi.
-
-### <a name="if-a-cost-allocation-rule-is-deleted-what-happens"></a>Cosa succede se una regola di allocazione dei costi viene eliminata?
-<a name="delete-rule"></a>
-
-Se una regola di allocazione dei costi viene eliminata, tutti i costi mensili della fatturazione, aperti e correnti, allocati alle destinazioni vengono rimossi. Se la regola di allocazione dei costi esiste da diversi mesi, i mesi precedenti dei dati di allocazione rimangono così come originariamente impostati dalla regola di allocazione.
-
-### <a name="why-is-an-enrollment-admin-or-a-billing-account-admin-needed-to-create-cost-allocation-rules"></a>Perché è necessario un amministratore della registrazione o un account di fatturazione per creare le regole di allocazione dei costi?
-<a name="why-admin"></a>
-
-Le regole di allocazione dei costi vengono create nell'ambito della registrazione (Contratto Enterprise) o nell'ambito dell'account di fatturazione (Contratto del cliente Microsoft). Le autorizzazioni per apportare modifiche a questi ambiti richiedono privilegi di amministratore fatturazione.
-
-### <a name="why-are-sources-and-targets-limited-to-25-per-rule"></a>Perché le origini e le destinazioni sono limitate a 25 per regola?
-<a name="source-target-rule-limit"></a>
-
-Il limite è previsto nell'anteprima per garantire prestazioni e scalabilità ottimali dell'allocazione dei costi. È probabile che i limiti verranno aumentati o rimossi quando l'allocazione dei costi diventerà disponibile a livello generale.
-
-### <a name="what-can-happen-if-cost-allocation-rules-sourcestargets-overlap"></a>Che cosa succede se le regole di allocazione dei costi (origini/destinazioni) si sovrappongono?
-<a name="rule-overlap"></a>
-
-Le regole con origini o destinazioni sovrapposte non sono consigliate. Le regole di allocazione dei costi vengono applicate nell'ordine in base alla data di creazione, quindi se si sovrappongono, quella con la data di creazione meno recente avrà la precedenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Per domande [e risposte sull'allocazione dei](../cost-management-billing-faq.yml) costi, vedere Domande frequenti su Gestione dei costi e fatturazione.
 - Creare o aggiornare le regole di allocazione usando l'[API REST di allocazione dei costi](/rest/api/cost-management/costallocationrules)
 - Informazioni su [come ottimizzare gli investimenti nel cloud con Gestione costi di Azure](cost-mgt-best-practices.md)

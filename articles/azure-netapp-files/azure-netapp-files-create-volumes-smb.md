@@ -1,6 +1,6 @@
 ---
 title: Creare un volume SMB per Azure NetApp Files | Microsoft Docs
-description: Questo articolo illustra come creare un volume SMB3 in Azure NetApp Files. Informazioni sui requisiti per le connessioni Active Directory e i servizi del dominio.
+description: Questo articolo illustra come creare un volume SMB3 in Azure NetApp Files. Informazioni sui requisiti per le connessioni Active Directory e Servizi di dominio.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,29 +12,29 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 04/19/2021
 ms.author: b-juche
-ms.openlocfilehash: eeeaf01dd20e5b309884a01f954ceca576cbcbb9
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 9bb995e5e3038d7a4cd24f0db2608461c8848497
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259626"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726296"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
-Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1), SMB3 o il protocollo Dual (NFSv3 e SMB). L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool. 
+Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv4.1), SMB3 o protocollo doppio (NFSv3 e SMB). L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool. 
 
-Questo articolo illustra come creare un volume SMB3. Per i volumi NFS, vedere [creare un volume NFS](azure-netapp-files-create-volumes.md). Per i volumi a doppio protocollo, vedere [creare un volume a doppio protocollo](create-volumes-dual-protocol.md).
+Questo articolo illustra come creare un volume SMB3. Per i volumi NFS, vedere [Creare un volume NFS.](azure-netapp-files-create-volumes.md) Per i volumi con doppio protocollo, vedere [Creare un volume con doppio protocollo.](create-volumes-dual-protocol.md)
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 
-* È necessario avere già configurato un pool di capacità. Vedere [configurare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md).     
-* È necessario delegare una subnet ad Azure NetApp Files. Vedere [delegare una subnet a Azure NetApp files](azure-netapp-files-delegate-subnet.md).
+* È necessario avere già configurato un pool di capacità. Vedere [Configurare un pool di capacità.](azure-netapp-files-set-up-capacity-pool.md)     
+* È necessario delegare una subnet ad Azure NetApp Files. Vedere [Delegare una subnet Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
-## <a name="configure-active-directory-connections"></a>Configurare connessioni di Active Directory 
+## <a name="configure-active-directory-connections"></a>Configurare le connessioni di Active Directory 
 
-Prima di creare un volume SMB, è necessario creare una connessione Active Directory. Se non sono state configurate Active Directory connessioni per i file di Azure NetApp, seguire le istruzioni descritte in [creare e gestire connessioni Active Directory](create-active-directory-connections.md).
+Prima di creare un volume SMB, è necessario creare una connessione Active Directory. Se non sono state configurate connessioni Active Directory per i file di Azure NetApp, seguire le istruzioni descritte in Creare e [gestire connessioni Active Directory.](create-active-directory-connections.md)
 
 ## <a name="add-an-smb-volume"></a>Aggiungere un volume SMB
 
@@ -45,13 +45,13 @@ Prima di creare un volume SMB, è necessario creare una connessione Active Direc
 2. Fare clic su **+ Aggiungi volume** per creare un volume.  
     Viene visualizzata la finestra Crea un volume.
 
-3. Nella finestra Crea un volume fare clic su **Crea** e fornire informazioni per i campi seguenti nella scheda nozioni di base:   
+3. Nella finestra Crea un volume fare clic **su Crea** e specificare le informazioni per i campi seguenti nella scheda Informazioni di base:   
     * **Nome del volume**      
         Specificare il nome per il volume che si sta creando.   
 
         Un nome di volume deve essere univoco all'interno di ogni pool di capacità. Deve essere composto da almeno tre caratteri. È possibile usare qualsiasi carattere alfanumerico.   
 
-        Non è possibile usare `default` o `bin` come nome del volume.
+        Non è possibile usare `default` o come nome del `bin` volume.
 
     * **Pool di capacità**  
         Specificare il pool di capacità in cui si vuole creare il volume.
@@ -64,7 +64,7 @@ Prima di creare un volume SMB, è necessario creare una connessione Active Direc
     * **Velocità effettiva (MiB/S)**   
         Se il volume viene creato in un pool di capacità QoS manuale, specificare la velocità effettiva desiderata per il volume.   
 
-        Se il volume viene creato in un pool di capacità QoS automatica, il valore visualizzato in questo campo è (quota x velocità effettiva del livello di servizio).   
+        Se il volume viene creato in un pool di capacità QoS automatico, il valore visualizzato in questo campo è (quota x velocità effettiva del livello di servizio).   
 
     * **Rete virtuale**  
         Specificare la rete virtuale di Azure da cui si vuole accedere al volume.  
@@ -81,9 +81,9 @@ Prima di creare un volume SMB, è necessario creare una connessione Active Direc
     
         ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * Se si desidera applicare un criterio snapshot esistente al volume, fare clic su **Mostra sezione avanzata** per espanderlo, specificare se si desidera nascondere il percorso dello snapshot e selezionare un criterio di snapshot nel menu a discesa. 
+    * Se si vuole applicare un criterio di  snapshot esistente al volume, fare clic su Mostra sezione avanzata per espanderlo, specificare se si vuole nascondere il percorso dello snapshot e selezionare un criterio di snapshot nel menu a discesa. 
 
-        Per informazioni sulla creazione di un criterio snapshot, vedere [Manage snapshot Policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+        Per informazioni sulla creazione di un criterio di snapshot, vedere [Gestire i criteri di snapshot.](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
 
         ![Mostra selezione avanzata](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
@@ -91,12 +91,32 @@ Prima di creare un volume SMB, è necessario creare una connessione Active Direc
     * Selezionare **SMB** come tipo di protocollo per il volume. 
     * Selezionare la connessione **Active Directory** nell'elenco a discesa.
     * Specificare il nome del volume condiviso in **Nome condivisione**.
+    * Se si vuole abilitare la crittografia per SMB3, selezionare **Abilita crittografia del protocollo SMB3.**   
+        Questa funzionalità abilita la crittografia per i dati SMB3 in-flight. I client SMB che non usano la crittografia SMB3 non saranno in grado di accedere a questo volume.  I dati in stato di inquieto vengono crittografati indipendentemente da questa impostazione.  
+        Per altre informazioni, vedere Domande frequenti sulla crittografia [SMB.](azure-netapp-files-faqs.md#smb-encryption-faqs) 
+
+        La funzionalità di crittografia del protocollo **SMB3** è attualmente in anteprima. Se questa è la prima volta che si usa questa funzionalità, registrare la funzionalità prima di usarla: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+
+        Controllare lo stato della registrazione della funzionalità: 
+
+        > [!NOTE]
+        > RegistrationState **può** essere nello stato `Registering` per un massimo di 60 minuti prima di cambiare in `Registered` . Attendere che lo stato sia `Registered` prima di continuare.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
+        ```
+        
+        È anche possibile usare i [comandi dell'interfaccia della riga](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) di comando di Azure e per `az feature register` `az feature show` registrare la funzionalità e visualizzare lo stato della registrazione.  
     * Se si vuole abilitare la disponibilità continua per il volume SMB, selezionare **Abilita disponibilità continua**.    
 
         > [!IMPORTANT]   
-        > La funzionalità disponibilità continua SMB è attualmente disponibile in anteprima pubblica. È necessario inviare una richiesta di attesa per l'accesso alla funzionalità tramite la **[pagina di invio di Azure NetApp files SMB per le condivisioni di disponibilità continua di anteprima pubblica](https://aka.ms/anfsmbcasharespreviewsignup)**. Attendere un messaggio di posta elettronica di conferma ufficiale dal team di Azure NetApp Files prima di usare la funzionalità di disponibilità continua.   
+        > La funzionalità Disponibilità continua SMB è attualmente disponibile in anteprima pubblica. È necessario inviare una richiesta di elenco di attesa per l'accesso alla funzionalità tramite la pagina Azure NetApp Files di invio dell'elenco di attesa dell'anteprima pubblica delle condivisioni di disponibilità continua **[SMB](https://aka.ms/anfsmbcasharespreviewsignup)**. Attendere un messaggio di posta elettronica di conferma ufficiale dal team Azure NetApp Files prima di usare la funzionalità Disponibilità continua.   
         > 
-        > È necessario abilitare la disponibilità continua solo per i carichi di lavoro SQL. L'uso di condivisioni di disponibilità continue SMB per carichi di lavoro diversi da SQL Server *non* è supportato. Questa funzionalità è attualmente supportata in Windows SQL Server. Linux SQL Server attualmente non è supportato. Se si usa un account non amministratore (dominio) per installare SQL Server, assicurarsi che all'account sia assegnato il privilegio di sicurezza richiesto. Se l'account di dominio non dispone dei privilegi di sicurezza richiesti ( `SeSecurityPrivilege` ) e il privilegio non può essere impostato a livello di dominio, è possibile concedere il privilegio all'account utilizzando il campo **privilegi di sicurezza utenti** di Active Directory connessioni. Vedere [creare una connessione Active Directory](create-active-directory-connections.md#create-an-active-directory-connection).
+        > È consigliabile abilitare la disponibilità continua solo per i carichi di lavoro SQL. L'uso di condivisioni di disponibilità continua SMB per carichi di lavoro diversi SQL Server *non è* supportato. Questa funzionalità è attualmente supportata in Windows SQL Server. La SQL Server Linux non è attualmente supportata. Se si usa un account non amministratore (dominio) per installare SQL Server, assicurarsi che all'account sia assegnato il privilegio di sicurezza richiesto. Se l'account di dominio non dispone dei privilegi di sicurezza necessari ( ) e il privilegio non può essere impostato a livello di dominio, è possibile concedere il privilegio all'account usando il campo Utenti con privilegi di sicurezza delle connessioni `SeSecurityPrivilege` Active Directory.  Vedere [Creare una connessione Active Directory.](create-active-directory-connections.md#create-an-active-directory-connection)
 
     <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
     <!-- 
@@ -116,7 +136,7 @@ Prima di creare un volume SMB, è necessario creare una connessione Active Direc
         You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
     --> 
 
-    ![Screenshot che descrive la scheda protocollo per la creazione di un volume SMB.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
+    ![Screenshot che descrive la scheda Protocollo della creazione di un volume SMB.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
 5. Fare clic su **Rivedi e crea** per esaminare i dettagli del volume.  Quindi fare clic su **Crea** per creare il volume SMB.
 
@@ -133,7 +153,7 @@ L'accesso a un volume SMB viene gestito tramite le autorizzazioni.
 Per impostazione predefinita, un nuovo volume dispone delle autorizzazioni di condivisione **Tutti/Controllo completo**. I membri del gruppo Domain Admins possono modificare le autorizzazioni di condivisione come indicato di seguito:  
 
 1. Eseguire il mapping della condivisione a un'unità.  
-2. Fare clic con il pulsante destro del mouse sull'unità, scegliere **Proprietà**, quindi passare alla scheda **sicurezza** .
+2. Fare clic con il pulsante destro del mouse **sull'unità, scegliere** Proprietà e quindi passare alla **scheda** Sicurezza.
 
 [![Impostare le autorizzazioni di condivisione](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
 
@@ -148,6 +168,6 @@ Per impostazione predefinita, un nuovo volume dispone delle autorizzazioni di co
 * [Montare o smontare un volume per macchine virtuali Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Domande frequenti su SMB](./azure-netapp-files-faqs.md#smb-faqs)
-* [Risolvere i problemi relativi ai volumi SMB o Dual Protocol](troubleshoot-dual-protocol-volumes.md)
+* [Risolvere i problemi relativi a volumi SMB o a doppio protocollo](troubleshoot-dual-protocol-volumes.md)
 * [Informazioni sull'integrazione delle reti virtuali per i servizi di Azure](../virtual-network/virtual-network-for-azure-services.md)
 * [Installare una nuova foresta Active Directory usando l'interfaccia della riga di comando di Azure](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

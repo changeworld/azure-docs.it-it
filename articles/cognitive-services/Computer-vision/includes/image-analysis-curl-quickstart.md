@@ -1,24 +1,24 @@
 ---
-title: 'Guida introduttiva: API REST di analisi immagini'
+title: 'Guida introduttiva: API REST di analisi delle immagini'
 titleSuffix: Azure Cognitive Services
-description: Questa Guida introduttiva illustra come iniziare a usare l'API REST di analisi delle immagini.
+description: In questa guida introduttiva è possibile iniziare a usare l'API REST di analisi delle immagini.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
-ms.date: 12/02/2020
+ms.topic: include
+ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 77958746487ffbcf19ad14be71818c59e9520374
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 7a2e8613aab61beec3720cadaa20eb008386b43b
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287218"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728190"
 ---
-Usare l'API REST di analisi immagini per:
+Usare l'API REST di analisi delle immagini per:
 
 * Analizzare un'immagine per trovare tag, descrizioni di testo, visi, contenuto per adulti e altro ancora.
 * Generare un'anteprima con il ritaglio intelligente
@@ -114,7 +114,7 @@ Una risposta con esito positivo viene restituita in JSON. L'applicazione di esem
 
 ## <a name="generate-a-thumbnail"></a>Generare un'anteprima
 
-È possibile usare l'analisi delle immagini per generare un'anteprima con il ritaglio intelligente. Si specificano l'altezza e la larghezza desiderate, che possono essere diverse rispetto alle proporzioni dell'immagine di input. L'analisi delle immagini usa il ritaglio intelligente per identificare in modo intelligente l'area di interesse e generare le coordinate di ritaglio intorno a tale area.
+È possibile usare l'analisi delle immagini per generare un'anteprima con ritaglio intelligente. Si specificano l'altezza e la larghezza desiderate, che possono essere diverse rispetto alle proporzioni dell'immagine di input. L'analisi delle immagini usa il ritaglio intelligente per identificare in modo intelligente l'area di interesse e generare coordinate di ritaglio intorno a tale area.
  
 Per creare ed eseguire l'esempio, seguire questa procedura:
 
@@ -140,7 +140,9 @@ Una risposta con esito positivo scrive l'immagine di anteprima nel file specific
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esplorare l'API analisi immagini in modo più approfondito. Per sperimentare rapidamente l'API, provare a [aprire la console test API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).
+In questa guida introduttiva si è appreso come installare effettuare chiamate di analisi delle immagini di base usando l'API REST. Successivamente, sono disponibili altre informazioni sulle funzionalità dell'API Analyze.
 
 > [!div class="nextstepaction"]
-> [Esplora l'API analisi immagini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b)
+>[Chiamare l'API Analyze](../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
+
+* [Panoramica dell'analisi delle immagini](../overview-image-analysis.md)

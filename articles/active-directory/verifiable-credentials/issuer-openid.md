@@ -1,6 +1,6 @@
 ---
-title: Esempi di comunicazione del servizio emittente (anteprima)-Azure Active Directory credenziali verificabili
-description: Dettagli della comunicazione tra il provider di identità e il servizio emittente
+title: Esempi di comunicazione del servizio autorità di emittente (anteprima) - Azure Active Directory credenziali verificabili
+description: Dettagli della comunicazione tra il provider di identità e il servizio autorità di emittente
 author: barclayn
 manager: davba
 ms.service: identity
@@ -9,40 +9,40 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 8771c61f96b244e0cc0bca1c61ceb8042b4a5b4c
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 942b77f8338636f9dda5dcf6cd4262dad57b4b0a
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220199"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107726269"
 ---
-# <a name="issuer-service-communication-examples-preview"></a>Esempi di comunicazione del servizio emittente (anteprima)
+# <a name="issuer-service-communication-examples-preview"></a>Esempi di comunicazione del servizio autorità di emittente (anteprima)
 
-Il servizio emittente di credenziali verificabile può emettere credenziali verificabili recuperando le attestazioni da un token ID generato dal provider di identità OpenID conforme alla propria organizzazione. Questo articolo fornisce istruzioni su come configurare il provider di identità in modo che l'autenticatore possa comunicare con esso e recuperare il token ID corretto da passare al servizio emittente. 
+Il Azure AD credenziali verificabili può rilasciare credenziali verificabili recuperando le attestazioni da un token ID generato dal provider di identità conforme a OpenID dell'organizzazione. Questo articolo illustra come configurare il provider di identità in modo che Authenticator possa comunicare con esso e recuperare il token ID corretto da passare al servizio emittente. 
 
 > [!IMPORTANT]
-> Azure Active Directory credenziali verificabili è attualmente disponibile in anteprima pubblica.
+> Azure Active Directory credenziali verificabili è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-Per emettere una credenziale verificabile, l'autenticatore viene istruito tramite il download del contratto per raccogliere l'input dall'utente e inviare tali informazioni al servizio emittente. Se è necessario usare un token ID, è necessario configurare il provider di identità per consentire a Authenticator di accedere a un utente usando il protocollo OpenID Connect. Le attestazioni nel token ID risultante vengono utilizzate per popolare il contenuto della credenziale verificabile. L'autenticatore autentica l'utente usando il flusso del codice di autorizzazione OpenID Connect. Il provider OpenID deve supportare le funzionalità di OpenID Connect seguenti: 
+Per rilasciare una credenziale verificabile, a Authenticator viene richiesto di scaricare il contratto per raccogliere l'input dall'utente e inviare tali informazioni al servizio emittente. Se è necessario usare un token ID, è necessario configurare il provider di identità per consentire a Authenticator di accedere a un utente usando il protocollo OpenID Connect autenticazione. Le attestazioni nel token ID risultante vengono usate per popolare il contenuto delle credenziali verificabili. Authenticator autentica l'utente usando il flusso OpenID Connect del codice di autorizzazione. Il provider OpenID deve supportare le funzionalità OpenID Connect seguenti: 
 
 | Funzionalità | Descrizione |
 | ------- | ----------- |
 | Tipo di concessione | Deve supportare il tipo di concessione del codice di autorizzazione. |
-| Formato token | Deve produrre token JWT Compact non crittografati. |
-| Algoritmo di firma | Deve produrre token JWT firmato usando RSA 256. |
-| Documento di configurazione | Deve supportare il documento di configurazione di OpenID Connect e `jwks_uri` . | 
-| Registrazione client | Deve supportare la registrazione dei client pubblici usando un `redirect_uri` valore di `vclient://openid/` . | 
+| Formato del token | Deve produrre JWT compatti non crittografati. |
+| Algoritmo di firma | Deve produrre JWT firmati con RSA 256. |
+| Documento di configurazione | Deve supportare OpenID Connect di configurazione e `jwks_uri` . | 
+| Registrazione client | Deve supportare la registrazione del client pubblico usando `redirect_uri` il valore `vclient://openid/` . | 
 | PKCE | Consigliato per motivi di sicurezza, ma non obbligatorio. |
 
-Di seguito sono elencati alcuni esempi di richieste HTTP inviate al provider di identità. Il provider di identità deve accettare e rispondere a queste richieste in conformità con lo standard di autenticazione OpenID Connect.
+Di seguito sono riportati alcuni esempi delle richieste HTTP inviate al provider di identità. Il provider di identità deve accettare e rispondere a queste richieste in base OpenID Connect standard di autenticazione.
 
 ## <a name="client-registration"></a>Registrazione client
 
-Per ricevere credenziali verificabili, gli utenti devono accedere all'IDP dall'app Microsoft Authenticator. 
+Per ricevere credenziali verificabili, gli utenti devono accedere al provider di identità dall'app Microsoft Authenticator. 
 
-Per abilitare questo scambio, registrare un'applicazione con il provider di identità. Se si usa Azure AD, è possibile trovare le istruzioni [qui](../develop/quickstart-register-app.md). Usare i valori seguenti per la registrazione.
+Per abilitare questo scambio, registrare un'applicazione con il provider di identità. Se si usa Azure AD, è possibile trovare le istruzioni [qui.](../develop/quickstart-register-app.md) Usare i valori seguenti durante la registrazione.
 
 | Impostazione | Valore |
 | ------- | ----- |
@@ -50,9 +50,9 @@ Per abilitare questo scambio, registrare un'applicazione con il provider di iden
 | URI di reindirizzamento | `vcclient://openid/ ` |
 
 
-Dopo aver registrato un'applicazione con il provider di identità, registrarne l'ID client. Verrà usato nella sezione seguente. È anche necessario prendere nota dell'URL dell'endpoint noto per il provider di identità compatibile con OIDC. Il servizio emittente usa questo endpoint per scaricare le chiavi pubbliche necessarie per convalidare il token ID una volta inviato dall'autenticatore.
+Dopo aver registrato un'applicazione con il provider di identità, registrarne l'ID client. Verrà utilizzato nella sezione seguente. È anche necessario annotarlo nell'endpoint noto per il provider di identità compatibile con OIDC. Il servizio emittente usa questo endpoint per scaricare le chiavi pubbliche necessarie per convalidare il token ID una volta che viene inviato da Authenticator.
 
-L'URI di reindirizzamento configurato viene usato dall'autenticatore per sapere quando l'accesso è stato completato e può recuperare il token ID. 
+L'URI di reindirizzamento configurato viene usato da Authenticator in modo da sapere quando viene completato l'accesso e può recuperare il token ID. 
 
 ## <a name="authorization-request"></a>Richiesta di autorizzazione
 
@@ -67,16 +67,16 @@ Connection: Keep-Alive
 | Parametro | Valore |
 | ------- | ----------- |
 | `client_id` | ID client ottenuto durante il processo di registrazione dell'applicazione. |
-| `redirect_uri` | Deve utilizzare `vcclient://openid/` . |
+| `redirect_uri` | Deve usare `vcclient://openid/` . |
 | `response_mode` | Deve supportare `query` . |
 | `response_type` | Deve supportare `code` . |
 | `scope` | Deve supportare `openid` . |
-| `state` | Deve essere restituito al client in base allo standard OpenID Connect. |
-| `nonce` | Deve essere restituito come attestazione nel token ID in base allo standard OpenID Connect. |
+| `state` | Deve essere restituito al client in base OpenID Connect standard. |
+| `nonce` | Deve essere restituito come attestazione nel token ID in base OpenID Connect standard. |
 
-Quando riceve una richiesta di autorizzazione, il provider di identità deve autenticare l'utente ed eseguire tutti i passaggi necessari per completare l'accesso, ad esempio l'autenticazione a più fattori.
+Quando riceve una richiesta di autorizzazione, il provider di identità deve autenticare l'utente ed eseguire i passaggi necessari per completare l'accesso, ad esempio l'autenticazione a più fattori.
 
-Il licenziatario potrà personalizzare il processo di accesso per soddisfare le proprie esigenze. È possibile chiedere agli utenti di fornire informazioni aggiuntive, accettare le condizioni del servizio, pagare le credenziali e altro ancora. Al termine di tutti i passaggi, rispondere alla richiesta di autorizzazione reindirizzando l'URI di reindirizzamento come illustrato di seguito. 
+È possibile personalizzare il processo di accesso in base alle proprie esigenze. È possibile chiedere agli utenti di fornire informazioni aggiuntive, accettare le condizioni per il servizio, pagare le credenziali e altro ancora. Al termine di tutti i passaggi, rispondere alla richiesta di autorizzazione reindirizzando all'URI di reindirizzamento, come illustrato di seguito. 
 
 ```HTTP
 vcclient://openid/?code=nbafhjbh1ub1yhbj1h4jr1&state=12345
@@ -85,7 +85,7 @@ vcclient://openid/?code=nbafhjbh1ub1yhbj1h4jr1&state=12345
 | Parametro | Valore |
 | ------- | ----------- |
 | `code` |  Codice di autorizzazione restituito dal provider di identità. |
-| `state` | Deve essere restituito al client in base allo standard OpenID Connect. |
+| `state` | Deve essere restituito al client in base OpenID Connect standard. |
 
 ## <a name="token-request"></a>Richiesta di token
 
@@ -103,12 +103,12 @@ client_id=<client-id>&redirect_uri=vcclient%3A%2F%2Fopenid%2F&grant_type=authori
 | Parametro | Valore |
 | ------- | ----------- |
 | `client_id` | ID client ottenuto durante il processo di registrazione dell'applicazione. |
-| `redirect_uri` | Deve utilizzare `vcclient://openid/` . |
+| `redirect_uri` | Deve usare `vcclient://openid/` . |
 | `scope` | Deve supportare `openid` . |
 | `grant_type` | Deve supportare `authorization_code` . |
 | `code` | Codice di autorizzazione restituito dal provider di identità. |
 
-Al momento della ricezione della richiesta di token, il provider di identità deve rispondere con un token ID.
+Alla ricezione della richiesta di token, il provider di identità deve rispondere con un token ID.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -130,15 +130,15 @@ Pragma: no-cache
 }
 ```
 
-Il token ID deve usare il formato di serializzazione JWT Compact e non deve essere crittografato. Il token ID deve contenere le attestazioni seguenti.
+Il token ID deve usare il formato di serializzazione compatta JWT e non deve essere crittografato. Il token ID deve contenere le attestazioni seguenti.
 
 | Attestazione | Valore |
 | ------- | ----------- |
-| `kid` | Identificatore di chiave della chiave usata per firmare il token ID, corrispondente a una voce nell'oggetto del provider OpenID `jwks_uri` . |
+| `kid` | Identificatore di chiave della chiave usata per firmare il token ID, corrispondente a una voce nell'oggetto del provider `jwks_uri` OpenID. |
 | `aud` | ID client ottenuto durante il processo di registrazione dell'applicazione. |
-| `iss` | Deve essere il `issuer` valore nel documento di configurazione di OpenID Connect. |
+| `iss` | Deve essere il `issuer` valore nel documento OpenID Connect configurazione. |
 | `exp` | Deve contenere l'ora di scadenza del token ID. |
-| `iat` | Deve contenere l'ora in cui è stato emesso il token ID. |
+| `iat` | Deve contenere l'ora di emissione del token ID. |
 | `nonce` | Valore incluso nella richiesta di autorizzazione. |
 | Attestazioni aggiuntive | Il token ID deve contenere eventuali attestazioni aggiuntive i cui valori verranno inclusi nelle credenziali verificabili che verranno rilasciate. In questa sezione è necessario includere tutti gli attributi relativi all'utente, ad esempio il nome. |
 
