@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c39169c0531a73bd00db7de5fe393ef8c51c8c96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7e931a55ec0a9d46a8b92d4353bd2de8edd8818
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102509422"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777834"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio Azure Kubernetes
 
@@ -21,7 +21,7 @@ Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori.
 > * Installare l'interfaccia della riga di comando di Kubernetes (kubectl)
 > * Configurare kubectl per connettersi al cluster servizio Azure Kubernetes
 
-Nelle esercitazioni successive l'applicazione Azure vote viene distribuita nel cluster, ridimensionata e aggiornata.
+Nelle esercitazioni successive l'applicazione Azure Vote viene distribuita nel cluster, ridimensionata e aggiornata.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -33,9 +33,9 @@ Per questa esercitazione è necessario eseguire l'interfaccia della riga di coma
 
 I cluster del servizio Azure Kubernetes possono usare il controllo degli accessi in base al ruolo di Kubernetes. Questi controlli consentono di definire l'accesso alle risorse in base ai ruoli assegnati agli utenti. È possibile combinare le autorizzazioni, se a un utente sono assegnati più ruoli, e definire l'ambito delle autorizzazioni in un unico spazio dei nomi o nell'intero cluster. Per impostazione predefinita, l'interfaccia della riga di comando di Azure abilita automaticamente il controllo degli accessi in base al ruolo di Kubernetes quando si crea un cluster del servizio Azure Kubernetes.
 
-Creare un cluster servizio Azure Kubernetes usando [az servizio Azure Kubernetes create][]. L'esempio seguente crea un cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Questo gruppo di risorse è stato creato nell'area *eastus* durante l'[esercitazione precedente][aks-tutorial-prepare-acr]. Nell'esempio seguente non viene specificata alcuna area, di conseguenza anche il cluster del servizio Azure Kubernetes viene creato nell'area *eastus*. Per altre informazioni sui limiti delle risorse e sulla disponibilità delle aree per il servizio contenitore di Azure, vedere [quote, restrizioni per le dimensioni delle macchine virtuali e disponibilità di aree in Azure Kubernetes Service (AKS)][quotas-skus-regions] .
+Creare un cluster servizio Azure Kubernetes usando [az servizio Azure Kubernetes create][]. L'esempio seguente crea un cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Questo gruppo di risorse è stato creato nell'area *eastus* durante l'[esercitazione precedente][aks-tutorial-prepare-acr]. Nell'esempio seguente non viene specificata alcuna area, di conseguenza anche il cluster del servizio Azure Kubernetes viene creato nell'area *eastus*. Per altre informazioni, vedere Quote, restrizioni per le dimensioni delle macchine virtuali e disponibilità [dell'area in servizio Azure Kubernetes (AKS)][quotas-skus-regions] per altre informazioni sui limiti delle risorse e sulla disponibilità dell'area per il servizio Web Diaks.
 
-Per consentire a un cluster AKS di interagire con altre risorse di Azure, viene creata automaticamente un'identità del cluster, poiché non ne è stata specificata una. A questo punto, all'identità del cluster viene [concesso il diritto di eseguire il pull delle immagini][container-registry-integration] dall'istanza di Azure container Registry (ACR) creata nell'esercitazione precedente. Per eseguire correttamente il comando, è necessario avere un **proprietario** o un ruolo di **amministratore dell'account di Azure** nella sottoscrizione di Azure.
+Per consentire a un cluster del servizio AzureKs di interagire con altre risorse di Azure, viene creata automaticamente un'identità del cluster, poiché non ne è stata specificata una. In questo caso, a questa identità del cluster viene concesso il diritto di [eseguire il pull][container-registry-integration] delle immagini dall'istanza di Registro Azure Container (ACR) creata nell'esercitazione precedente. Per eseguire correttamente il comando, è  necessario avere un ruolo di proprietario o amministratore **dell'account Azure** nella sottoscrizione di Azure.
 
 ```azurecli
 az aks create \
@@ -46,7 +46,7 @@ az aks create \
     --attach-acr <acrName>
 ```
 
-Per evitare di dover disporre di un ruolo di **proprietario** o di **amministratore account Azure** , è anche possibile configurare manualmente un'entità servizio per eseguire il pull delle immagini da ACR. Per altre informazioni, vedere [Autenticazione al Registro Azure Container con entità servizio](../container-registry/container-registry-auth-service-principal.md) o [Eseguire l'autenticazione da Kubernetes con un segreto per il pull](../container-registry/container-registry-auth-kubernetes.md). In alternativa, è possibile usare un' [identità gestita](use-managed-identity.md) anziché un'entità servizio per semplificare la gestione.
+Per evitare la necessità di un ruolo **di** proprietario o amministratore **dell'account Azure,** è anche possibile configurare manualmente un'entità servizio per eseguire il pull di immagini da ACR. Per altre informazioni, vedere [Autenticazione al Registro Azure Container con entità servizio](../container-registry/container-registry-auth-service-principal.md) o [Eseguire l'autenticazione da Kubernetes con un segreto per il pull](../container-registry/container-registry-auth-kubernetes.md). In alternativa, è possibile usare [un'identità gestita](use-managed-identity.md) anziché un'entità servizio per semplificarne la gestione.
 
 Dopo alcuni minuti, la distribuzione viene completata e restituisce le informazioni in formato JSON sulla distribuzione del servizio Azure Kubernetes.
 
@@ -103,12 +103,12 @@ Passare all'esercitazione successiva per informazioni su come distribuire un'app
 [aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[az ad sp create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az acr show]: /cli/azure/acr#az-acr-show
-[az role assignment create]: /cli/azure/role/assignment#az-role-assignment-create
-[az servizio Azure Kubernetes create]: /cli/azure/aks#az-aks-create
-[az servizio Azure Kubernetes install-cli]: /cli/azure/aks#az-aks-install-cli
-[az servizio Azure Kubernetes get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az ad sp create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az acr show]: /cli/azure/acr#az_acr_show
+[az role assignment create]: /cli/azure/role/assignment#az_role_assignment_create
+[az servizio Azure Kubernetes create]: /cli/azure/aks#az_aks_create
+[az servizio Azure Kubernetes install-cli]: /cli/azure/aks#az_aks_install_cli
+[az servizio Azure Kubernetes get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-registry-integration]: ./cluster-container-registry-integration.md
 [quotas-skus-regions]: quotas-skus-regions.md

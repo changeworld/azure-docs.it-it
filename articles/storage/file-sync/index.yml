@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: Sincronizzazione file di Azure documentazione
+summary: Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure, mantenendo al tempo stesso la flessibilità, le prestazioni e la compatibilità di un file server Windows.
+metadata:
+  title: Sincronizzazione file di Azure documentazione
+  description: È possibile montare condivisioni file sul cloud o in locale in Windows, Linux e macOS, nonché memorizzare nella cache le condivisioni file di Azure in Windows Server con Sincronizzazione file di Azure per l'accesso locale.
+  services: storage
+  ms.service: storage
+  ms.subservice: files
+  ms.topic: landing-page
+  ms.collection: collection
+  author: roygara
+  ms.author: rogarana
+  ms.date: 04/19/2021
+  ms.openlocfilehash: 1a384985bbd58285ec1a556f2840f27994c4c40b
+  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 04/20/2021
+  ms.locfileid: "107798957"
+landingContent:
+- title: Informazioni File di Azure sincronizzazione
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Guida alla pianificazione di Sincronizzazione file di Azure
+      url: file-sync-planning.md
+    - text: Che cos'è Sincronizzazione file di Azure?
+      url: file-sync-introduction.md
+    - text: Panoramica della distribuzione a livelli nel cloud
+      url: file-sync-cloud-tiering-overview.md
+- title: Introduzione
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Creare/usare condivisioni file - Windows
+      url: ../files/storage-files-quick-create-use-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Gestire il server con Sincronizzazione file di Azure
+      url: file-sync-server-registration.md
+  - linkListType: tutorial
+    links:
+    - text: Estendere i file server Windows con Sincronizzazione file di Azure
+      url: file-sync-extend-servers.md
+- title: Risolvere problemi
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Risoluzione dei problemi di File di Azure - Windows
+      url: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Risoluzione dei problemi relativi alle prestazioni di File di Azure
+      url: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+    - text: Risoluzione dei problemi di Sincronizzazione file di Azure
+      url: file-sync-troubleshoot.md

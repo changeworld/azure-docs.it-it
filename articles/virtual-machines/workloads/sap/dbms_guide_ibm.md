@@ -1,24 +1,24 @@
 ---
-title: Distribuzione DBMS di macchine virtuali di Azure IBM DB2 per il carico di lavoro SAP | Microsoft Docs
+title: Distribuzione DBMS di Macchine virtuali di Azure IBM Db2 per i carichi di lavoro SAP | Microsoft Docs
 description: Distribuzione DBMS per IBM DB2 di macchine virtuali di Azure per un carico di lavoro SAP
 services: virtual-machines-linux,virtual-machines-windows
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager
-keywords: Azure, DB2, SAP, IBM
+keywords: Azure, Db2, SAP, IBM
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/20/2020
+ms.date: 04/20/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f89f218c82505fd6bc261d41938d4619b32bf8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e9030558779be3e417383f9f32612ee3e834a1c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675960"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788080"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per IBM DB2 di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -27,7 +27,7 @@ Informazioni generali sull'esecuzione di SAP Business Suite in IBM Db2 per LUW s
 
 Per altre informazioni e aggiornamenti su SAP in Db2 per LUW in Azure vedere la nota SAP [2233094]. 
 
-Sono pubblicati vari articoli sul carico di lavoro SAP in Azure.  Si consiglia di iniziare con [carico di lavoro SAP in Azure - Introduzione](./get-started.md), quindi selezionare l'area di interesse
+Sono pubblicati vari articoli sul carico di lavoro SAP in Azure.  È consigliabile iniziare a usare il carico [di lavoro SAP in Azure - Introduzione](./get-started.md) e quindi scegliere l'area di interesse
 
 Le note SAP seguenti sono correlate a SAP in Azure relativamente all'area coperta in questo documento:
 
@@ -45,7 +45,7 @@ Le note SAP seguenti sono correlate a SAP in Azure relativamente all'area copert
 | [2002167] |Red Hat Enterprise Linux 7.x: installazione e aggiornamento |
 | [1597355] |Raccomandazione sullo spazio di scambio per Linux |
 
-Prima di questo documento è consigliabile avere letto il documento [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP), nonché le altre guide disponibili nella [documentazione relativa a un carico di lavoro SAP in Azure](./get-started.md). 
+Come pr-read in questo documento, è necessario leggere il documento [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS delle macchine virtuali di Azure per il carico di lavoro SAP) e altre guide nella documentazione relativa al carico di lavoro [SAP in Azure](./get-started.md). 
 
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>Supporto della versione di IBM Db2 per Linux, UNIX e Windows
@@ -55,9 +55,9 @@ Per informazioni sui prodotti SAP e sui tipi di VM di Azure supportati, vedere l
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Linee guida per la configurazione di IBM Db2 per Linux, UNIX e Windows per le installazioni di SAP nelle VM di Azure
 ### <a name="storage-configuration"></a>Configurazione dell'archiviazione
-Per una panoramica dei tipi di archiviazione di Azure per il carico di lavoro SAP, vedere l'articolo [tipi di archiviazione di Azure per carichi di lavoro SAP](./planning-guide-storage.md) tutti i file di database devono essere archiviati in dischi montati di archiviazione a blocchi di Azure (Windows: NFFS, Linux: XFS, ext4 o ext3). Per i file di database **non** sono supportati qualsiasi tipo di unità di rete o condivisioni remote come i servizi di Azure seguenti: 
+Per una panoramica dei tipi di archiviazione di Azure per il carico di lavoro SAP, vedere l'articolo Tipi di Archiviazione di Azure per il carico di lavoro SAP Tutti i file di database devono essere archiviati nei dischi montati dell'archiviazione [a](./planning-guide-storage.md) blocchi di Azure (Windows: NTFS, Linux: xfs o ext3). Qualsiasi tipo di unità di rete o condivisioni remote come i servizi di Azure seguenti **NON sono supportati** per i file di database: 
 
-* [Servizio file di Microsoft Azure](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 
@@ -69,70 +69,73 @@ Se la quota corrente di operazioni di I/O al secondo per ogni disco è sufficien
 
 Per le considerazioni sulle prestazioni, vedere anche il capitolo relativo alle considerazioni sulle prestazioni e la sicurezza dei dati per le directory di database nelle guide di installazione di SAP.
 
-In alternativa, è possibile usare i pool di archiviazione di Windows (disponibili solo in Windows Server 2012 e versioni successive) come descritto in [considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per carichi di lavoro SAP](dbms_guide_general.md) o LVM o mdadm in Linux per creare un dispositivo logico di grandi dimensioni su più dischi.
+In alternativa, è possibile usare i pool di archiviazione di Windows (disponibili solo in Windows Server 2012 e versioni successive) come descritto Considerazioni sulla distribuzione [DBMS](dbms_guide_general.md) di Macchine virtuali di Azure per il carico di lavoro SAP o LVM o mdadm in Linux per creare un dispositivo logico di grandi dimensioni su più dischi.
 
-<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
-
-Per i dischi contenenti i percorsi di archiviazione DB2 per `sapdata` le `saptmp` Directory e, è necessario specificare una dimensione di settore disco fisico di 512 KB. Quando si usano i pool di archiviazione di Windows, è necessario creare manualmente i pool di archiviazione con l'interfaccia della riga di comando usando il parametro `-LogicalSectorSizeDefault`. Per altre informazioni, vedere <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+<!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 Per la VM serie M di Azure la latenza di scrittura nei log delle transazioni può essere ridotta di alcuni fattori, in confronto alle prestazioni di Archiviazione Premium di Azure, quando si usa l'acceleratore di scrittura di Azure. È quindi consigliabile distribuire l'acceleratore di scrittura di Azure per i dischi rigidi virtuali che formano il volume per i log delle transazioni Db2. I dettagli sono disponibili nel documento relativo all'[acceleratore di scrittura](../../how-to-enable-write-accelerator.md).
 
-## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>Raccomandazione sulla macchina virtuale e sulla struttura del disco per la distribuzione di IBM DB2
+IBM Db2 LUW 11.5 ha rilasciato il supporto per dimensioni del settore di 4 KB. Per le versioni Db2 precedenti è necessario usare una dimensione del settore di 512 byte. SSD Premium dischi sono nativi di 4 KB e hanno un'emulazione di 512 byte. Per impostazione predefinita, il disco Ultra usa dimensioni del settore di 4 KB. È possibile abilitare le dimensioni del settore a 512 byte durante la creazione del disco Ultra. I dettagli sono disponibili [usando i dischi Ultra di Azure.](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size) Questa dimensione del settore a 512 byte è un prerequisito per le versioni LUW DI IBM Db2 inferiori alla 11.5.
 
-IBM DB2 per le applicazioni SAP NetWeaver è supportato in qualsiasi tipo di macchina virtuale elencato nella nota di supporto SAP [1928533].  Le famiglie di VM consigliate per l'esecuzione di database IBM DB2 sono Esd_v4/Eas_v4/Es_v3 e serie M/M_v2 per database di grandi dimensioni con più terabyte. È possibile migliorare le prestazioni di scrittura del disco del log delle transazioni IBM DB2 abilitando la serie M acceleratore di scrittura. 
+In Windows che usa pool di archiviazione per i percorsi di archiviazione Db2 per le directory e , è necessario specificare una dimensione del settore del disco fisico di `log_dir` `sapdata` `saptmp` 512 KB. Quando si usano i pool di archiviazione di Windows, è necessario creare manualmente i pool di archiviazione con l'interfaccia della riga di comando usando il parametro `-LogicalSectorSizeDefault`. Per altre informazioni, vedere <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
-Di seguito è riportata una configurazione di base per le varie dimensioni e gli usi di SAP nelle distribuzioni DB2 da Small a large. L'elenco è basato sull'archiviazione Premium di Azure. Tuttavia, anche il disco Azure Ultra è completamente supportato con DB2 e può essere usato. Usare semplicemente i valori per la capacità, la velocità effettiva di espansione e le operazioni di i/o al secondo per definire la configurazione del disco Ultra. È possibile limitare i IOPS per/DB2/ <SID> /log_dir a circa 5000 IOPS. 
 
-#### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>Sistema SAP molto piccolo: dimensioni del database 50-200 GB: esempio di gestione soluzioni
-| Nome/dimensioni macchina virtuale |Punto di montaggio DB2 |Disco Premium di Azure |NR di dischi |Operazioni di I/O al secondo |Velocità effettiva [MB/s] |Dimensioni [GB] |IOPS a impulsi |THR di espansione [GB] | Dimensioni di striping | Memorizzazione nella cache |
+## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>Raccomandazione sulla struttura di macchine virtuali e dischi per la distribuzione di IBM Db2
+
+IBM Db2 per SAP NetWeaver Applications è supportato in qualsiasi tipo di macchina virtuale elencato nella nota di supporto SAP [1928533.]  Le famiglie di macchine virtuali consigliate per l'esecuzione di database IBM Db2 sono Esd_v4/Eas_v4/Es_v3 e serie M/M_v2 per database multi-terabyte di grandi dimensioni. Le prestazioni di scrittura del disco del log delle transazioni IBM Db2 possono essere migliorate abilitando la serie M acceleratore di scrittura. 
+
+Di seguito è riportata una configurazione di base per diverse dimensioni e usi delle distribuzioni SAP in Db2 da piccole a grandi dimensioni. L'elenco è basato su Archiviazione Premium di Azure. Tuttavia, il disco Ultra di Azure è completamente supportato anche con Db2 e può essere usato anche. Usare i valori per la capacità, la velocità effettiva burst e le operazioni di I/O al secondo burst per definire la configurazione del disco Ultra. È possibile limitare le operazioni di I/O al secondo per /db2/ <SID> /log_dir a circa 5000 IOPS. 
+
+#### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>Sistema SAP molto piccolo: dimensioni del database da 50 a 200 GB: esempio di Solution Manager
+| Nome macchina virtuale/Dimensioni |Punto di montaggio Db2 |Disco Premium di Azure |NR di dischi |Operazioni di I/O al secondo |Velocità effettiva [MB/s] |Dimensioni [GB] |Operazioni di I/O al secondo burst |Burst Thr [GB] | Dimensioni di striping | Memorizzazione nella cache |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3\.500  |170  ||  |
-|vCPU: 4 |<SID>/sapdata/DB2/ |P10 |2 |1\.000  |200  |256  |7.000  |340  |256 KB |ReadOnly |
-|RAM: 32 GiB |<SID>/saptmp/DB2/ |P6 |1 |240  |50  |128  |3\.500  |170  | ||
-| |/DB2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7.000  |340  |64 kB ||
-| |/DB2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3\.500  |170  || |
+|vCPU: 4 |/db2/ <SID> /sapdata |P10 |2 |1\.000  |200  |256  |7.000  |340  |256 KB |ReadOnly |
+|RAM: 32 GiB |/db2/ <SID> /saptmp |P6 |1 |240  |50  |128  |3\.500  |170  | ||
+| |/db2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7.000  |340  |64 kB ||
+| |/db2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3\.500  |170  || |
 
-#### <a name="small-sap-system-database-size-200---750-gb-small-business-suite"></a>Sistema SAP piccolo: dimensioni del database 200-750 GB: Small Business Suite
-| Nome/dimensioni macchina virtuale |Punto di montaggio DB2 |Disco Premium di Azure |NR di dischi |Operazioni di I/O al secondo |Velocità effettiva [MB/s] |Dimensioni [GB] |IOPS a impulsi |THR di espansione [GB] | Dimensioni di striping | Memorizzazione nella cache |
+#### <a name="small-sap-system-database-size-200---750-gb-small-business-suite"></a>Sistema SAP di piccole dimensioni: dimensioni del database da 200 a 750 GB: small Business Suite
+| Nome macchina virtuale/Dimensioni |Punto di montaggio Db2 |Disco Premium di Azure |NR di dischi |Operazioni di I/O al secondo |Velocità effettiva [MB/s] |Dimensioni [GB] |Operazioni di I/O al secondo burst |Burst Thr [GB] | Dimensioni di striping | Memorizzazione nella cache |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3\.500  |170  || |
-|vCPU: 16 |<SID>/sapdata/DB2/ |P15 |4 |4.400  |500  |1,024  |14.000  |680  |256 KB |ReadOnly |
-|RAM: 128 GiB |<SID>/saptmp/DB2/ |P6 |2 |480  |100  |128  |7.000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P15 |2 |2.200  |250  |512  |7.000  |340  |64 kB ||
-| |/DB2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3\.500  |170  ||| 
+|vCPU: 16 |/db2/ <SID> /sapdata |P15 |4 |4,400  |500  |1.024  |14.000  |680  |256 KB |ReadOnly |
+|RAM: 128 GiB |/db2/ <SID> /saptmp |P6 |2 |480  |100  |128  |7.000  |340  |128 KB ||
+| |/db2/ <SID> /log_dir |P15 |2 |2.200  |250  |512  |7.000  |340  |64 kB ||
+| |/db2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3\.500  |170  ||| 
 
-#### <a name="medium-sap-system-database-size-500---1000-gb-small-business-suite"></a>Sistema SAP medio: dimensioni del database 500-1000 GB: Small Business Suite
-| Nome/dimensioni macchina virtuale |Punto di montaggio DB2 |Disco Premium di Azure |NR di dischi |Operazioni di I/O al secondo |Velocità effettiva [MB/s] |Dimensioni [GB] |IOPS a impulsi |THR di espansione [GB] | Dimensioni di striping | Memorizzazione nella cache |
+#### <a name="medium-sap-system-database-size-500---1000-gb-small-business-suite"></a>Sistema SAP medio: dimensioni del database da 500 a 1000 GB: small Business Suite
+| Nome macchina virtuale/Dimensioni |Punto di montaggio Db2 |Disco Premium di Azure |NR of Disks |Operazioni di I/O al secondo |Velocità effettiva [MB/s] |Dimensioni [GB] |Operazioni di I/O al secondo burst |Burst Thr [GB] | Dimensioni di striping | Memorizzazione nella cache |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3\.500  |170  || |
-|vCPU: 32 |<SID>/sapdata/DB2/ |P30 |2 |10,000  |400  |2,048  |10,000  |400  |256 KB |ReadOnly |
-|RAM: 256 GiB |<SID>/saptmp/DB2/ |P10 |2 |1\.000  |200  |256  |7.000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P20 |2 |4.600  |300  |1,024  |7.000  |340  |64 kB ||
-| |/DB2/ <SID> /offline_log_dir |P15 |1 |1.100  |125  |256  |3\.500  |170  ||| 
+|vCPU: 32 |/db2/ <SID> /sapdata |P30 |2 |10,000  |400  |2.048  |10,000  |400  |256 KB |ReadOnly |
+|RAM: 256 GiB |/db2/ <SID> /saptmp |P10 |2 |1\.000  |200  |256  |7.000  |340  |128 KB ||
+| |/db2/ <SID> /log_dir |P20 |2 |4,600  |300  |1.024  |7.000  |340  |64 kB ||
+| |/db2/ <SID> /offline_log_dir |P15 |1 |1.100  |125  |256  |3\.500  |170  ||| 
 
-#### <a name="large-sap-system-database-size-750---2000-gb-business-suite"></a>Sistema SAP di grandi dimensioni: dimensioni del database 750-2000 GB: Business Suite
-| Nome/dimensioni macchina virtuale |Punto di montaggio DB2 |Disco Premium di Azure |NR di dischi |Operazioni di I/O al secondo |Velocità effettiva [MB/s] |Dimensioni [GB] |IOPS a impulsi |THR di espansione [GB] | Dimensioni di striping | Memorizzazione nella cache |
+#### <a name="large-sap-system-database-size-750---2000-gb-business-suite"></a>Sistema SAP di grandi dimensioni: dimensioni del database da 750 a 2000 GB: Business Suite
+| Nome macchina virtuale/Dimensioni |Punto di montaggio Db2 |Disco Premium di Azure |NR di dischi |Operazioni di I/O al secondo |Velocità effettiva [MB/s] |Dimensioni [GB] |Operazioni di I/O al secondo burst |Burst Thr [GB] | Dimensioni di striping | Memorizzazione nella cache |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3\.500  |170  || |
-|vCPU: 64 |<SID>/sapdata/DB2/ |P30 |4 |20.000  |800  |4.096  |20.000  |800  |256 KB |ReadOnly |
-|RAM: 504 GiB |<SID>/saptmp/DB2/ |P15 |2 |2.200  |250  |512  |7.000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P20 |4 |9.200  |600  |2,048  |14.000  |680  |64 kB ||
-| |/DB2/ <SID> /offline_log_dir |P20 |1 |2\.300  |150  |512  |3\.500  |170  || |
+|vCPU: 64 |/db2/ <SID> /sapdata |P30 |4 |20.000  |800  |4.096  |20.000  |800  |256 KB |ReadOnly |
+|RAM: 504 GiB |/db2/ <SID> /saptmp |P15 |2 |2.200  |250  |512  |7.000  |340  |128 KB ||
+| |/db2/ <SID> /log_dir |P20 |4 |9,200  |600  |2.048  |14.000  |680  |64 kB ||
+| |/db2/ <SID> /offline_log_dir |P20 |1 |2\.300  |150  |512  |3\.500  |170  || |
 
-#### <a name="large-multi-terabyte-sap-system-database-size-2-tb-global-business-suite-system"></a>Sistema SAP multiterabyte di grandi dimensioni: dimensioni del database 2 TB +: sistema Business Suite globale
-| Nome/dimensioni macchina virtuale |Punto di montaggio DB2 |Disco Premium di Azure |NR di dischi |Operazioni di I/O al secondo |Velocità effettiva [MB/s] |Dimensioni [GB] |IOPS a impulsi |THR di espansione [GB] | Dimensioni di striping | Memorizzazione nella cache |
+#### <a name="large-multi-terabyte-sap-system-database-size-2-tb-global-business-suite-system"></a>Sistema SAP multi-terabyte di grandi dimensioni: dimensioni del database 2 TB+: sistema Global Business Suite
+| Nome macchina virtuale/Dimensioni |Punto di montaggio Db2 |Disco Premium di Azure |NR di dischi |Operazioni di I/O al secondo |Velocità effettiva [MB/s] |Dimensioni [GB] |Operazioni di I/O al secondo burst |Burst Thr [GB] | Dimensioni di striping | Memorizzazione nella cache |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |M128s |/db2 |P10 |1 |500  |100  |128  |3\.500  |170  || |
-|vCPU: 128 |<SID>/sapdata/DB2/ |P40 |4 |30.000  |1,000  |8,192  |30.000  |1,000  |256 KB |ReadOnly |
-|RAM: 2048 GiB |<SID>/saptmp/DB2/ |P20 |2 |4.600  |300  |1,024  |7.000  |340  |128 KB ||
-| |/DB2/ <SID> /log_dir |P30 |4 |20.000  |800  |4.096  |20.000  |800  |64 kB |WriteAccelerator |
-| |/DB2/ <SID> /offline_log_dir |P30 |1 |5\.000  |200  |1,024  |5\.000  |200  || |
+|vCPU: 128 |/db2/ <SID> /sapdata |P40 |4 |30.000  |1.000  |8.192  |30.000  |1.000  |256 KB |ReadOnly |
+|RAM: 2048 GiB |/db2/ <SID> /saptmp |P20 |2 |4,600  |300  |1.024  |7.000  |340  |128 KB ||
+| |/db2/ <SID> /log_dir |P30 |4 |20.000  |800  |4.096  |20.000  |800  |64 kB |WriteAccelerator |
+| |/db2/ <SID> /offline_log_dir |P30 |1 |5\.000  |200  |1.024  |5\.000  |200  || |
 
 
 ### <a name="backuprestore"></a>Backup/Ripristino
 La funzionalità di backup/ripristino per IBM Db2 per LUW è supportata esattamente come nei sistemi operativi Windows Server standard e in Hyper-V.
 
-Assicurarsi di disporre di una strategia di backup del database valida. 
+Assicurarsi di avere una strategia di backup del database valida. 
 
 Come nelle distribuzioni bare metal, le prestazioni di backup/ripristino dipendono dalla quantità di volumi leggibili in parallelo e dalla velocità effettiva di tali volumi. Inoltre, l'uso di CPU associato alla compressione del backup può avere un ruolo significativo per VM con un massimo di otto thread CPU. Si può quindi presumere quanto segue:
 
@@ -150,19 +153,19 @@ Per aumentare il numero di destinazioni in cui scrivere, è possibile usare/comb
 
 ### <a name="high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza
 
-#### <a name="linux-pacemaker"></a>Pacemaker Linux
+#### <a name="linux-pacemaker"></a>Linux Pacemaker
 
-Il ripristino di emergenza a disponibilità elevata DB2 (HADR) con pacemaker è supportato. Sono supportati sia i sistemi operativi SLES che RHEL. Questa configurazione consente la disponibilità elevata di IBM DB2 per SAP. Guide alla distribuzione:
-* SLES: [disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in SUSE Linux Enterprise Server con pacemaker](dbms-guide-ha-ibm.md) 
-* RHEL: [disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure nel Server Red Hat Enterprise Linux](high-availability-guide-rhel-ibm-db2-luw.md)
+È supportato il ripristino di emergenza a disponibilità elevata (HADR) Db2 con Pacemaker. Sono supportati i sistemi operativi SLES e RHEL. Questa configurazione abilita la disponibilità elevata di IBM Db2 per SAP. Guide alla distribuzione:
+* SLES: [Disponibilità elevata di IBM Db2 LUW in](dbms-guide-ha-ibm.md) macchine virtuali di Azure SUSE Linux Enterprise Server con Pacemaker 
+* RHEL: [Disponibilità elevata di IBM Db2 LUW in macchine virtuali di Azure Red Hat Enterprise Linux Server](high-availability-guide-rhel-ibm-db2-luw.md)
 
-#### <a name="windows-cluster-server"></a>Server cluster Windows
+#### <a name="windows-cluster-server"></a>Windows Cluster Server
 
 Il server di cluster Microsoft non è supportato.
 
 La disponibilità elevata e il ripristino di emergenza Db2 sono supportati. Se le macchine virtuali della configurazione a disponibilità elevata hanno una risoluzione dei nomi funzionante, la configurazione in Azure non sarà diversa da quelle eseguite in locale. Non è consigliabile affidarsi solo alla risoluzione IP.
 
-Non usare la replica geografica per gli account di archiviazione in cui vengono archiviati i dischi di database. Per ulteriori informazioni, vedere il documento [considerazioni per la distribuzione DBMS di macchine virtuali di Azure per il carico di lavoro SAP](dbms_guide_general.md). 
+Non usare la replica geografica per gli account di archiviazione in cui vengono archiviati i dischi di database. Per altre informazioni, vedere il documento Considerations for Azure Virtual Machines DBMS deployment for SAP workload (Considerazioni sulla distribuzione DBMS di Macchine [virtuali di Azure per il carico di lavoro SAP).](dbms_guide_general.md) 
 
 ### <a name="accelerated-networking"></a>Rete accelerata
 Per le distribuzioni Db2 in Windows, è consigliabile usare la funzionalità Rete accelerata di Azure come descritto nell'articolo relativo alla [Rete accelerata di Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Valutare anche i consigli offerti in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP). 
@@ -234,13 +237,7 @@ Leggi l'articolo
 
 - [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_general.md)
 
-[azure-cli]:../../../cli-install-nodejs.md
-[azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azure/
-[azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
-[azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
+
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 

@@ -1,17 +1,17 @@
 ---
-title: 'Guida introduttiva: inviare eventi personalizzati a hub eventi-griglia di eventi, interfaccia della riga di comando di Azure'
+title: 'Guida introduttiva: Inviare eventi personalizzati a Hub eventi - Griglia di eventi, interfaccia della riga di comando di Azure'
 description: "Guida introduttiva: Usare Griglia di eventi di Azure e l'interfaccia della riga di comando di Azure per pubblicare un argomento e sottoscrivere l'evento. Un hub eventi viene usato per l'endpoint."
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7c236025f31e10c00b324e5ff3374bd6504b2b7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1989c94cc7b260cfc36a3129d2743350ca430bf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91324111"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780493"
 ---
-# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Guida introduttiva: indirizzare eventi personalizzati a hub eventi di Azure con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Guida introduttiva: Indirizzare eventi personalizzati a Hub eventi di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Hub eventi di Azure è uno dei gestori eventi supportati. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. Gli eventi vengono inviati a un hub eventi.
 
@@ -21,7 +21,7 @@ La griglia di eventi di Azure è un servizio di gestione degli eventi per il clo
 
 Gli argomenti della griglia di eventi sono risorse di Azure e devono essere inseriti in un gruppo di risorse di Azure. Un gruppo di risorse è una raccolta logica in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). 
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). 
 
 L'esempio seguente crea un gruppo di risorse denominato *gridResourceGroup* nella località *westus2*.
 
@@ -54,7 +54,7 @@ az eventhubs eventhub create --name $hubname --namespace-name $namespace --resou
 
 ## <a name="subscribe-to-a-custom-topic"></a>Sottoscrivere un argomento personalizzato
 
-Si sottoscrive un argomento di griglia di eventi per indicare a griglia di eventi gli eventi di cui si vuole tenere traccia. L'esempio seguente sottoscrive l'argomento personalizzato creato e passa l'ID risorsa dell'hub eventi per l'endpoint. L'endpoint è nel formato:
+È possibile sottoscrivere un argomento di Griglia di eventi per indicare a Griglia di eventi gli eventi di cui si vuole tenere traccia. L'esempio seguente sottoscrive l'argomento personalizzato creato e passa l'ID risorsa dell'hub eventi per l'endpoint. L'endpoint è nel formato:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.EventHub/namespaces/<namespace-name>/eventhubs/<hub-name>`
 

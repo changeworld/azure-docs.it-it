@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: 1c7a9fd83131ea6282d2ef4860b744fa348153ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7950bfb4a57db812da87f4e5f76f3075d50a8293
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98070917"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782276"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creare una funzione in Linux tramite un contenitore personalizzato
 
@@ -360,13 +360,13 @@ Per distribuire il codice della funzione in Azure, è necessario creare tre riso
 
 Per creare queste tre risorse, usare i comandi dell'interfaccia della riga di comando di Azure. Ogni comando fornisce output JSON al completamento.
 
-1. Accedere ad Azure con il comando [az login](/cli/azure/reference-index#az-login):
+1. Accedere ad Azure con il comando [az login](/cli/azure/reference-index#az_login):
 
     ```azurecli
     az login
     ```
     
-1. Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato `AzureFunctionsContainers-rg` nell'area `westeurope`. In genere, il gruppo di risorse e le risorse vengono creati in un'area vicina alla propria, usando un'area disponibile ricavata dal comando `az account list-locations`.
+1. Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato `AzureFunctionsContainers-rg` nell'area `westeurope`. In genere, il gruppo di risorse e le risorse vengono creati in un'area vicina alla propria, usando un'area disponibile ricavata dal comando `az account list-locations`.
 
     ```azurecli
     az group create --name AzureFunctionsContainers-rg --location westeurope
@@ -375,7 +375,7 @@ Per creare queste tre risorse, usare i comandi dell'interfaccia della riga di co
     > [!NOTE]
     > Non è possibile ospitare app Windows e Linux nello stesso gruppo di risorse. Se si dispone d un gruppo di risorse esistente denominato `AzureFunctionsContainers-rg` con un'app per le funzioni Windows o un'app Web, sarà necessario usare un gruppo di risorse diverso.
     
-1. Creare un account di archiviazione per uso generico nel gruppo di risorse e nell'area con il comando [az storage account create](/cli/azure/storage/account#az-storage-account-create). Nell'esempio seguente sostituire `<storage_name>` con un nome di app univoco a livello globale appropriato. I nomi devono contenere da tre a 24 caratteri costituiti esclusivamente da numeri e lettere in minuscolo. `Standard_LRS` specifica un tipico account per uso generico.
+1. Creare un account di archiviazione per uso generico nel gruppo di risorse e nell'area con il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). Nell'esempio seguente sostituire `<storage_name>` con un nome di app univoco a livello globale appropriato. I nomi devono contenere da tre a 24 caratteri costituiti esclusivamente da numeri e lettere in minuscolo. `Standard_LRS` specifica un tipico account per uso generico.
 
     ```azurecli
     az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
@@ -397,7 +397,7 @@ Per creare queste tre risorse, usare i comandi dell'interfaccia della riga di co
 
 Un'app per le funzioni in Azure gestisce l'esecuzione delle funzioni nel piano di hosting. In questa sezione usare le risorse di Azure della sezione precedente per creare un'app per le funzioni da un'immagine in Docker Hub e configurarla con una stringa di connessione ad Archiviazione di Azure.
 
-1. Creare l'app per le funzioni usando il comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). Nell'esempio seguente sostituire `<storage_name>` con il nome usato nella sezione precedente per l'account di archiviazione. Sostituire inoltre `<app_name>` con un nome di app univoco a livello globale appropriato e `<docker_id>` con l'ID Docker.
+1. Creare l'app per le funzioni usando il comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create). Nell'esempio seguente sostituire `<storage_name>` con il nome usato nella sezione precedente per l'account di archiviazione. Sostituire inoltre `<app_name>` con un nome di app univoco a livello globale appropriato e `<docker_id>` con l'ID Docker.
 
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
     ```azurecli
@@ -410,7 +410,7 @@ Un'app per le funzioni in Azure gestisce l'esecuzione delle funzioni nel piano d
     ```
     ::: zone-end
     
-    Il parametro *deployment-container-image-name* specifica l'immagine da usare per l'app per le funzioni. È possibile usare il comando [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) per visualizzare informazioni sull'immagine usata per la distribuzione. È anche possibile usare il comando [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) per eseguire la distribuzione da un'immagine diversa.
+    Il parametro *deployment-container-image-name* specifica l'immagine da usare per l'app per le funzioni. È possibile usare il comando [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) per visualizzare informazioni sull'immagine usata per la distribuzione. È anche possibile usare il comando [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) per eseguire la distribuzione da un'immagine diversa.
 
 1. Visualizzare la stringa di connessione per l'account di archiviazione creato usando il comando [az storage account show-connection-string](/cli/azure/storage/account). Sostituire `<storage-name>` con il nome dell'account di archiviazione creato in precedenza:
 
@@ -418,7 +418,7 @@ Un'app per le funzioni in Azure gestisce l'esecuzione delle funzioni nel piano d
     az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
     ```
     
-1. Aggiungere questa impostazione all'app per le funzioni usando il comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Nel comando seguente sostituire `<app_name>` con il nome dell'app per le funzioni e sostituire `<connection_string>` con la stringa di connessione del passaggio precedente (una stringa codificata lunga che inizia con "DefaultEndpointProtocol="):
+1. Aggiungere questa impostazione all'app per le funzioni usando il comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_ppsettings_set). Nel comando seguente sostituire `<app_name>` con il nome dell'app per le funzioni e sostituire `<connection_string>` con la stringa di connessione del passaggio precedente (una stringa codificata lunga che inizia con "DefaultEndpointProtocol="):
  
     ```azurecli
     az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
@@ -513,13 +513,13 @@ Con l'immagine distribuita nell'app per le funzioni in Azure, è ora possibile r
 
 È possibile abilitare Funzioni di Azure per aggiornare automaticamente la distribuzione di un'immagine ogni volta che quest'ultima viene aggiornata nel registro.
 
-1. Abilitare la distribuzione continua usando il comando [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config), sostituendo `<app_name>` con il nome dell'app per le funzioni:
+1. Abilitare la distribuzione continua usando il comando [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az_functionapp_deployment_container_config), sostituendo `<app_name>` con il nome dell'app per le funzioni:
 
     ```azurecli
     az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <app_name> --resource-group AzureFunctionsContainers-rg
     ```
     
-    Questo comando abilita la distribuzione continua e restituisce l'URL del webhook della distribuzione. È possibile recuperare questo URL in qualsiasi momento usando il comando [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url).
+    Questo comando abilita la distribuzione continua e restituisce l'URL del webhook della distribuzione. È possibile recuperare questo URL in qualsiasi momento usando il comando [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az_functionapp_deployment_container_show_cd_url).
 
 1. Copiare l'URL del webhook della distribuzione negli Appunti.
 

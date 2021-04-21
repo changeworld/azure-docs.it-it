@@ -4,12 +4,12 @@ description: Questo articolo include le risposte ad alcune domande frequenti sul
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6d7ea48722e6604fe67d7a4ddcb12870623d9354
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f13d7a33ce1dc04700932072fe0af80a901c681f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739628"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783198"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -21,7 +21,7 @@ Per un elenco completo delle aree disponibili, vedere [Aree e disponibilità del
 
 ## <a name="can-i-spread-an-aks-cluster-across-regions"></a>È possibile distribuire un cluster del servizio Azure Kubernetes tra più aree?
 
-No. I cluster AKS sono risorse a livello di area e non possono estendersi in aree. Per le istruzioni su come creare un'architettura che includa più aree, vedere le [procedure consigliate per la continuità aziendale e il ripristino di emergenza][bcdr-bestpractices].
+No. I cluster del servizio Diaks sono risorse a livello di regione e non possono estendersi su più aree. Per le istruzioni su come creare un'architettura che includa più aree, vedere le [procedure consigliate per la continuità aziendale e il ripristino di emergenza][bcdr-bestpractices].
 
 ## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>È possibile distribuire un cluster del servizio Azure Kubernetes tra zone di disponibilità?
 
@@ -40,11 +40,11 @@ Sì, è possibile usare dimensioni diverse delle macchine virtuali nel cluster d
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Gli aggiornamenti della sicurezza vengono applicati ai nodi agente servizio Azure Kubernetes?
 
-Azure applica automaticamente le patch di sicurezza ai nodi Linux del cluster in base a una pianificazione notturna. Tuttavia, l'utente è responsabile di assicurarsi che questi nodi Linux vengano riavviati in modo obbligatorio. Sono disponibili diverse opzioni per il riavvio dei nodi:
+Azure applica automaticamente le patch di sicurezza ai nodi Linux del cluster in base a una pianificazione notturna. È tuttavia necessario assicurarsi che i nodi Linux siano riavviati in base alle esigenze. Sono disponibili diverse opzioni per il riavvio dei nodi:
 
 - Manualmente tramite il portale di Azure o l'interfaccia della riga di comando di Azure.
 - Aggiornando il cluster servizio Azure Kubernetes. Gli aggiornamenti del cluster [bloccano e svuotano i nodi][cordon-drain], quindi portano un nuovo nodo online con l'immagine Ubuntu più recente e una nuova versione della patch o una versione secondaria di Kubernetes. Per altre informazioni, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade].
-- Tramite l' [aggiornamento dell'immagine del nodo](node-image-upgrade.md).
+- Tramite [l'aggiornamento dell'immagine del nodo](node-image-upgrade.md).
 
 ### <a name="windows-server-nodes"></a>Nodi di Windows Server
 
@@ -57,13 +57,13 @@ Il servizio Azure Kubernetes si basa su una serie di risorse dell'infrastruttura
 Per rendere disponibile questa architettura, ogni distribuzione del servizio Azure Kubernetes include due gruppi di risorse:
 
 1. Si crea il primo gruppo di risorse. Questo gruppo contiene solo la risorsa del servizio Kubernetes. Il provider di risorse del servizio Azure Kubernetes crea automaticamente il secondo gruppo di risorse durante la distribuzione. Un esempio del secondo gruppo di risorse è *MC_myResourceGroup_myAKSCluster_eastus*. Per informazioni su come specificare il nome di questo secondo gruppo di risorse, vedere la sezione successiva.
-1. Il secondo gruppo di risorse, noto come *gruppo di risorse nodo*, contiene tutte le risorse di infrastruttura associate al cluster, come ad esempio le macchine virtuali dei nodi Kubernetes, le risorse della rete virtuale e di archiviazione. Per impostazione predefinita, il gruppo di risorse nodo ha un nome simile a *MC_myResourceGroup_myAKSCluster_eastus*. AKS Elimina automaticamente la risorsa del nodo ogni volta che il cluster viene eliminato, quindi deve essere usato solo per le risorse che condividono il ciclo di vita del cluster.
+1. Il secondo gruppo di risorse, noto come *gruppo di risorse nodo*, contiene tutte le risorse di infrastruttura associate al cluster, come ad esempio le macchine virtuali dei nodi Kubernetes, le risorse della rete virtuale e di archiviazione. Per impostazione predefinita, il gruppo di risorse nodo ha un nome simile a *MC_myResourceGroup_myAKSCluster_eastus*. Il servizio AKS elimina automaticamente la risorsa nodo ogni volta che il cluster viene eliminato, quindi deve essere usato solo per le risorse che condividono il ciclo di vita del cluster.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>È possibile specificare un nome personalizzato per il gruppo di risorse nodo del servizio Azure Kubernetes?
 
 Sì. Per impostazione predefinita, il servizio Azure Kubernetes assegna al gruppo di risorse nodo il nome *MC_resourcegroupname_clustername_location*, ma è anche possibile specificare un nome personalizzato.
 
-Per specificare un nome personalizzato per il gruppo di risorse, installare l'estensione [aks-preview][aks-preview-cli] versione *0.3.2* o successiva dell'interfaccia della riga di comando di Azure. Quando si crea un cluster AKS usando il comando [AZ AKS create][az-aks-create] , usare il `--node-resource-group` parametro e specificare un nome per il gruppo di risorse. Se si [usa un modello di Azure Resource Manager][aks-rm-template] per distribuire un cluster del servizio Azure Kubernetes, è possibile definire il nome del gruppo di risorse usando la proprietà *nodeResourceGroup*.
+Per specificare un nome personalizzato per il gruppo di risorse, installare l'estensione [aks-preview][aks-preview-cli] versione *0.3.2* o successiva dell'interfaccia della riga di comando di Azure. Quando si crea un cluster del servizio Servizio Web Diaz usando il [comando az servizio][az-aks-create] WebKs create, usare il parametro e specificare un nome per il gruppo di `--node-resource-group` risorse. Se si [usa un modello di Azure Resource Manager][aks-rm-template] per distribuire un cluster del servizio Azure Kubernetes, è possibile definire il nome del gruppo di risorse usando la proprietà *nodeResourceGroup*.
 
 * Il gruppo di risorse secondario viene creato automaticamente dal provider di risorse di Azure nella propria sottoscrizione.
 * È possibile specificare un nome di gruppo di risorse personalizzato solo quando si crea il cluster.
@@ -78,9 +78,9 @@ Quando si lavora con il gruppo di risorse del nodo, tenere presente che non è p
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>È possibile modificare i tag e altre proprietà delle risorse del servizio Azure Kubernetes nel gruppo di risorse nodo?
 
-La modifica o l'eliminazione di tag creati da Azure e di altre proprietà delle risorse nel gruppo di risorse nodo può generare risultati imprevisti, ad esempio errori di dimensionamento e di aggiornamento. AKS consente di creare e modificare tag personalizzati creati dagli utenti finali ed è possibile aggiungere tali tag quando si [Crea un pool di nodi](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). Potrebbe essere necessario creare o modificare tag personalizzati da assegnare ad esempio a una business unit o a un centro di costo. Questa operazione può essere eseguita anche creando criteri di Azure con un ambito nel gruppo di risorse gestite.
+La modifica o l'eliminazione di tag creati da Azure e di altre proprietà delle risorse nel gruppo di risorse nodo può generare risultati imprevisti, ad esempio errori di dimensionamento e di aggiornamento. Il modulo di controllo di accesso consente di creare e modificare tag personalizzati creati dagli utenti finali ed è possibile aggiungere tali tag durante la [creazione di un pool di nodi.](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool) Potrebbe essere necessario creare o modificare tag personalizzati da assegnare ad esempio a una business unit o a un centro di costo. A tale scopo, è anche possibile creare criteri di Azure con un ambito nel gruppo di risorse gestite.
 
-Tuttavia, la modifica di eventuali **tag creati da Azure** sulle risorse nel gruppo di risorse nodo nel cluster AKS è un'azione non supportata, che interrompe l'obiettivo del livello di servizio (SLO). Per altre informazioni, vedere [Il servizio Azure Kubernetes offre un contratto di servizio?](#does-aks-offer-a-service-level-agreement)
+Tuttavia, la modifica di eventuali tag creati da **Azure** nelle risorse nel gruppo di risorse del nodo nel cluster del servizio AzureKs è un'azione non supportata, che interrompe l'obiettivo del livello di servizio. Per altre informazioni, vedere [Il servizio Azure Kubernetes offre un contratto di servizio?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quali controller di ammissione Kubernetes supporta servizio Azure Kubernetes? È possibile aggiungere o rimuovere i controller di ammissione?
 
@@ -102,7 +102,7 @@ Attualmente non è possibile modificare l'elenco di controller di ammissione nel
 
 ## <a name="can-i-use-admission-controller-webhooks-on-aks"></a>È possibile usare webhook dei controller di ammissione nel servizio Azure Kubernetes?
 
-Sì, è possibile usare webhook dei controller di ammissione nel servizio Azure Kubernetes. È consigliabile escludere gli spazi dei nomi AKS interni, contrassegnati con l' **etichetta del piano di controllo.** Ad esempio, aggiungere quanto segue alla configurazione del webhook:
+Sì, è possibile usare webhook dei controller di ammissione nel servizio Azure Kubernetes. È consigliabile escludere gli spazi dei nomi interni del server Delkks, contrassegnati con **l'etichetta del piano di controllo.** Ad esempio, aggiungere quanto segue alla configurazione del webhook:
 
 ```
 namespaceSelector:
@@ -111,7 +111,7 @@ namespaceSelector:
       operator: DoesNotExist
 ```
 
-AKS firewall il server API in uscita in modo che i webhook del controller di ammissione debbano essere accessibili dal cluster.
+AKS firewalls the API server egress so your admission controller webhooks need to be accessible from within the cluster.
 
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>I webhook dei controller di ammissione possono influire sugli spazi dei nomi di kube-system e su quelli interni del servizio Azure Kubernetes?
 
@@ -133,17 +133,17 @@ Il supporto di Windows Server per il pool di nodi include alcune limitazioni che
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Il servizio Azure Kubernetes offre un contratto di servizio?
 
-AKS fornisce garanzie per il contratto di servizio come funzionalità facoltativa del componente aggiuntivo con contratto di servizio con [tempo di esecuzione][uptime-sla]. 
+Il servizio AKS offre garanzie di contratto di servizio come funzionalità di componente aggiuntivo facoltativa con [il contratto di servizio relativo al tempo di attività.][uptime-sla] 
 
-Lo SKU gratuito offerto per impostazione predefinita non ha un *contratto* di servizio associato, ma ha un *obiettivo* del livello di servizio pari al 99,5%. È possibile che si verifichino problemi di connettività temporanei in caso di aggiornamenti, nodi sottoposti a non integrità, manutenzione della piattaforma, applicazioni che sovraccaricano il server API con richieste e così via. Se il carico di lavoro non tollera i riavvii del server API, è consigliabile usare il contratto di esecuzione del tempo di esecuzione.
+Lo SKU gratuito offerto per impostazione predefinita non ha un contratto di servizio *associato,* ma ha un obiettivo del livello di *servizio* del 99,5%. È possibile che si siano osservati problemi di connettività temporanei in caso di aggiornamenti, nodi sottostanti non integri, manutenzione della piattaforma, applicazione che causa il problema del server API con richieste e così via. Se il carico di lavoro non tollera i riavvii del server API, è consigliabile usare il contratto di servizio relativo al tempo di attività.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>È possibile applicare gli sconti per le prenotazioni di Azure ai nodi dell'agente del servizio Azure Kubernetes?
 
-I nodi dell'agente AKS vengono fatturati come macchine virtuali standard di Azure, pertanto se sono state acquistate [prenotazioni di Azure][reservation-discounts] per le dimensioni della macchina virtuale in uso nel servizio contenitore di Azure, tali sconti vengono applicati automaticamente.
+I nodi dell'agente del servizio AzureKs vengono fatturati come macchine virtuali standard di [Azure,][reservation-discounts] quindi se sono state acquistate prenotazioni di Azure per le dimensioni della macchina virtuale in uso nel servizio Azure Online, questi sconti vengono applicati automaticamente.
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>È possibile spostare o eseguire la migrazione del cluster tra tenant di Azure?
 
-Lo stato di trasferimento del cluster AKS tra i tenant non è al momento supportato.
+Lo spostamento del cluster del servizio Web Diaks tra tenant non è attualmente supportato.
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>È possibile spostare o eseguire la migrazione del cluster tra sottoscrizioni?
 
@@ -151,78 +151,78 @@ Lo spostamento di cluster tra sottoscrizioni non è al momento supportato.
 
 ## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>È possibile spostare i cluster del servizio Azure Kubernetes dalla sottoscrizione di Azure corrente a un'altra?
 
-Lo stato di trasferimento del cluster AKS e delle risorse associate tra le sottoscrizioni di Azure non è supportato.
+Lo spostamento del cluster del servizio AzureKs e delle relative risorse associate tra sottoscrizioni di Azure non è supportato.
 
-## <a name="can-i-move-my-aks-cluster-or-aks-infrastructure-resources-to-other-resource-groups-or-rename-them"></a>È possibile spostare il cluster AKS o le risorse dell'infrastruttura AKS in altri gruppi di risorse o rinominarli?
+## <a name="can-i-move-my-aks-cluster-or-aks-infrastructure-resources-to-other-resource-groups-or-rename-them"></a>È possibile spostare le risorse dell'infrastruttura del servizio AKS o del servizio AKS in altri gruppi di risorse o rinominarle?
 
-Lo stato di trasferimento o ridenominazione del cluster AKS e delle risorse associate non è supportato.
+Non è supportato lo spostamento o la ridenominazione del cluster del servizio App Web e delle risorse associate.
 
 ## <a name="why-is-my-cluster-delete-taking-so-long"></a>Perché l'eliminazione del cluster richiede molto tempo?
 
-La maggior parte dei cluster viene eliminata in seguito alla richiesta dell'utente. In alcuni casi, in particolare quando i clienti usano un gruppo di risorse personalizzato o eseguono l'eliminazione di attività tra più gruppi di risorse, l'operazione può richiedere più tempo oppure non riesce. In caso di problemi con le eliminazioni, verificare che non siano presenti blocchi sull'RG, che tutte le risorse esterne all'RG siano dissociate dall'RG e così via.
+La maggior parte dei cluster viene eliminata in seguito alla richiesta dell'utente. In alcuni casi, in particolare quando i clienti usano un gruppo di risorse personalizzato o eseguono l'eliminazione di attività tra più gruppi di risorse, l'operazione può richiedere più tempo oppure non riesce. Se si verifica un problema con le eliminazioni, verificare che non siano presenti blocchi sul RG, che tutte le risorse esterne al RG siano disassociate dal RG e così via.
 
 ## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>Nel caso di pod/distribuzioni con lo stato 'NodeLost' o 'Unknown', è comunque possibile aggiornare il cluster?
 
-È possibile, ma AKS non lo consiglia. Gli aggiornamenti devono essere eseguiti quando lo stato del cluster è noto e integro.
+È possibile, ma AKS non consiglia questa operazione. Gli aggiornamenti devono essere eseguiti quando lo stato del cluster è noto e integro.
 
 ## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>Se un cluster include uno o più nodi arrestati o con uno stato non integro, è possibile eseguire un aggiornamento?
 
-No, eliminare o rimuovere tutti i nodi in uno stato di errore o rimossi in altro modo dal cluster prima di eseguire l'aggiornamento.
+No, eliminare/rimuovere eventuali nodi in uno stato di errore o rimossi in altro modo dal cluster prima dell'aggiornamento.
 
 ## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Dopo l'eliminazione di un cluster viene visualizzato l'errore `[Errno 11001] getaddrinfo failed`. Perché?
 
-In genere, questo problema è dovuto al fatto che gli utenti hanno uno o più gruppi di sicurezza di rete ancora in uso e associati al cluster.  Rimuoverli e ritentare l'eliminazione.
+In genere, questo problema è dovuto al fatto che gli utenti hanno uno o più gruppi di sicurezza di rete ancora in uso e associati al cluster.  Rimuoverli e riprovare a eseguire l'eliminazione.
 
 ## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>Dopo un aggiornamento, si verificano arresti anomali ciclici dei pod e i probe di idoneità restituiscono un errore. Come si risolve il problema?
 
-Verificare che l'entità servizio non sia scaduta.  Vedere: [AKS Service Principal](./kubernetes-service-principal.md) e [AKS Update Credentials](./update-credentials.md).
+Verificare che l'entità servizio non sia scaduta.  Vedere: [AKS service principal](./kubernetes-service-principal.md) and [AKS update credentials](./update-credentials.md).
 
-## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>Il mio cluster funzionava, ma improvvisamente non riesce a effettuare il provisioning di LoadBalancers, montare PVC e così via?
+## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>Il cluster funzionava, ma improvvisamente non è possibile effettuare il provisioning di LoadBalancers, montare i PVC e così via?
 
-Verificare che l'entità servizio non sia scaduta.  Vedere: [AKS Service Principal](./kubernetes-service-principal.md)  e [AKS Update Credentials](./update-credentials.md).
+Verificare che l'entità servizio non sia scaduta.  Vedere: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
 
-## <a name="can-i-scale-my-aks-cluster-to-zero"></a>È possibile ridimensionare il cluster AKS a zero?
-È possibile [arrestare completamente un cluster AKS in esecuzione](start-stop-cluster.md), risparmiando sui rispettivi costi di calcolo. Inoltre, è anche possibile scegliere di ridimensionare [o ridimensionare automaticamente tutti i `User` pool di nodi o specifici](scale-cluster.md#scale-user-node-pools-to-0) in 0, mantenendo solo la configurazione del cluster necessaria.
+## <a name="can-i-scale-my-aks-cluster-to-zero"></a>È possibile ridimensionare il cluster del servizio AKS a zero?
+È possibile arrestare completamente un cluster del servizio [AKS in esecuzione,](start-stop-cluster.md)risparmiando sui rispettivi costi di calcolo. È anche possibile scegliere [ `User` ](scale-cluster.md#scale-user-node-pools-to-0) di ridimensionare o ridimensionare automaticamente tutti i pool di nodi o specifici su 0, mantenendo solo la configurazione del cluster necessaria.
 Non è possibile ridimensionare direttamente i [pool di nodi di sistema](use-system-pools.md) a zero.
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>È possibile usare le API del set di scalabilità di macchine virtuali per il ridimensionamento manuale?
 
 No, le operazioni di ridimensionamento con le API del set di scalabilità di macchine virtuali non sono supportate. Usare le API del servizio Azure Kubernetes (`az aks scale`).
 
-## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-zero-nodes"></a>È possibile usare I set di scalabilità di macchine virtuali per scalare manualmente fino a zero nodi?
+## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-zero-nodes"></a>È possibile usare set di scalabilità di macchine virtuali per ridimensionare manualmente fino a zero nodi?
 
-No, le operazioni di ridimensionamento con le API del set di scalabilità di macchine virtuali non sono supportate. È possibile usare l'API AKS per la scalabilità a zero pool di nodi non di sistema o per [arrestare il cluster](start-stop-cluster.md) .
+No, le operazioni di ridimensionamento con le API del set di scalabilità di macchine virtuali non sono supportate. È possibile usare l'API del servizio Web Disaks per eseguire il ridimensionamento a zero pool di nodi non di sistema o [arrestare invece il cluster.](start-stop-cluster.md)
 
 ## <a name="can-i-stop-or-de-allocate-all-my-vms"></a>È possibile arrestare o deallocare tutte le VM?
 
-Sebbene AKS includa meccanismi di resilienza per supportare tale configurazione ed eseguire il ripristino da tale configurazione, questa non è una configurazione supportata. [Arrestare invece il cluster](start-stop-cluster.md) .
+Anche se il servizio AKS dispone di meccanismi di resilienza per la gestione di tale configurazione e il ripristino da tale configurazione, non si tratta di una configurazione supportata. [Arrestare invece il cluster.](start-stop-cluster.md)
 
 ## <a name="can-i-use-custom-vm-extensions"></a>È possibile usare estensioni di VM personalizzate?
 
-L'agente di Log Analytics è supportato perché è un'estensione gestita da Microsoft. In caso contrario, AKS è un servizio gestito e la manipolazione delle risorse IaaS non è supportata. Per installare i componenti personalizzati, usare le API e i meccanismi di Kubernetes. Ad esempio, usare gli elementi daemonset per installare i componenti richiesti.
+L'agente di Log Analytics è supportato perché è un'estensione gestita da Microsoft. In caso contrario, il servizio AKS è un servizio gestito e la manipolazione delle risorse IaaS non è supportata. Per installare componenti personalizzati, usare le API e i meccanismi di Kubernetes. Ad esempio, usare DaemonSets per installare i componenti necessari.
 
-## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS archivia i dati dei clienti al di fuori dell'area del cluster?
+## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>Il servizio AKS archivia i dati dei clienti all'esterno dell'area del cluster?
 
-La funzionalità per l'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sud-orientale (Singapore) dell'area geografica di Asia Pacifico geografica e del Brasile meridionale (stato di San Paolo) del Brasile. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo.
+La funzionalità per abilitare l'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sud-orientale (Singapore) dell'area geografica di Asia Pacifico e in Brasile meridionale (stato di San Paolo) dell'area geografica Brasile meridionale. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo.
 
-## <a name="are-aks-images-required-to-run-as-root"></a>Le immagini AKS sono necessarie per l'esecuzione come radice?
+## <a name="are-aks-images-required-to-run-as-root"></a>È necessario eseguire le immagini del sito Web di AKS come radice?
 
-Ad eccezione delle due immagini seguenti, le immagini AKS non devono essere eseguite come radice:
+Ad eccezione delle due immagini seguenti, non è necessario che le immagini del server del supporto di AKS siano eseguite come radice:
 
 - *mcr.microsoft.com/oss/kubernetes/coredns*
 - *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
 
-## <a name="what-is-azure-cni-transparent-mode-vs-bridge-mode"></a>Che cos'è la modalità trasparente di Azure CNI rispetto alla modalità Bridge?
+## <a name="what-is-azure-cni-transparent-mode-vs-bridge-mode"></a>Che cos'è Azure CNI trasparente e la modalità bridge?
 
-Da v 1.2.0 Azure CNI avrà la modalità Transparent come predefinita per le distribuzioni CNI di Linux con tenant singolo. La modalità trasparente sostituisce la modalità Bridge. In questa sezione verranno illustrate in dettaglio le differenze relative a entrambe le modalità e quali sono i vantaggi e le limitazioni per l'uso della modalità trasparente in Azure CNI.
+A partire dalla versione 1.2.0 Azure CNI la modalità trasparente sarà predefinita per le distribuzioni CNI Linux a tenancy singola. La modalità trasparente sostituisce la modalità bridge. In questa sezione verranno illustrate in modo più chiaro le differenze tra entrambe le modalità e quali sono i vantaggi/limitazioni per l'uso della modalità trasparente in Azure CNI.
 
-### <a name="bridge-mode"></a>Modalità Bridge
+### <a name="bridge-mode"></a>Modalità bridge
 
-Come suggerisce il nome, in modalità Bridge Azure CNI, in un modo "just in Time", creerà un Bridge L2 denominato "azure0". Tutte le interfacce delle coppie Pod lato host `veth` saranno connesse a questo Bridge. Quindi Pod-Pod la comunicazione tra macchine virtuali e il traffico rimanente passa attraverso questo Bridge. Il Bridge in questione è un dispositivo virtuale di livello 2 che non è in grado di ricevere o trasmettere, a meno che non venga associato uno o più dispositivi reali. Per questo motivo, eth0 della VM Linux deve essere convertita in un Bridge subordinato a "azure0". In questo modo viene creata una topologia di rete complessa all'interno della VM Linux e come sintomo CNI ha dovuto occuparsi di altre funzioni di rete come l'aggiornamento del server DNS e così via.
+Come suggerisce il nome, la modalità Azure CNI bridge, in modalità "Just-In-Time", creerà un bridge L2 denominato "azure0". Tutte le interfacce della coppia di pod sul lato host `veth` verranno connesse a questo bridge. Di Pod-Pod comunicazione tra macchine virtuali e il traffico rimanente passa attraverso questo bridge. Il bridge in questione è un dispositivo virtuale di livello 2 che da solo non può ricevere o trasmettere nulla a meno che non si associano uno o più dispositivi reali. Per questo motivo, l'eth0 della macchina virtuale Linux deve essere convertita in un bridge subordinato a "azure0". Ciò crea una topologia di rete complessa all'interno della macchina virtuale Linux e, come sintomo, CNI ha dovuto occuparsi di altre funzioni di rete, ad esempio l'aggiornamento del server DNS e così via.
 
-:::image type="content" source="media/faq/bridge-mode.png" alt-text="Topologia in modalità Bridge":::
+:::image type="content" source="media/faq/bridge-mode.png" alt-text="Topologia in modalità bridge":::
 
-Di seguito è riportato un esempio di come viene visualizzata la configurazione della route IP in modalità Bridge. Indipendentemente dal numero di Pod del nodo, saranno presenti solo due route. Il primo dice che tutto il traffico, escluso il locale in azure0, viene indirizzato al gateway predefinito della subnet tramite l'interfaccia con IP "src 10.240.0.4" (che è l'IP primario del nodo) e la seconda la parola "10.20. x. x" Pod per il kernel per la decisione del kernel.
+Di seguito è riportato un esempio dell'aspetto della configurazione della route IP in modalità Bridge. Indipendentemente dal numero di pod presenti nel nodo, saranno presenti solo due route. Il primo afferma che tutto il traffico escluso localmente in azure0 verrà passato al gateway predefinito della subnet tramite l'interfaccia con ip "src 10.240.0.4" (che è l'IP primario del nodo) e il secondo che indica "10.20.x.x" spazio pod al kernel per decidere.
 
 ```bash
 default via 10.240.0.1 dev azure0 proto dhcp src 10.240.0.4 metric 100
@@ -232,11 +232,11 @@ root@k8s-agentpool1-20465682-1:/#
 ```
 
 ### <a name="transparent-mode"></a>Modalità trasparente
-La modalità trasparente prevede un approccio semplice per la configurazione della rete Linux. In questa modalità, Azure CNI non modificherà alcuna proprietà dell'interfaccia eth0 nella VM Linux. Questo approccio minimo per modificare le proprietà di rete di Linux consente di ridurre i problemi di casi d'angolo complessi che i cluster potrebbero affrontare con la modalità Bridge. In modalità trasparente, Azure CNI creerà e aggiungerà `veth` le interfacce di coppia pod sul lato host che verranno aggiunte alla rete host. La comunicazione da Pod a Pod tra macchine virtuali avviene tramite route IP che i CNI aggiungono. Essenzialmente la comunicazione da Pod a Pod è basata sul livello 3 e il traffico Pod viene instradato in base alle regole di routing L3.
+La modalità trasparente adotta un approccio diretto alla configurazione della rete Linux. In questa modalità, Azure CNI modificherà le proprietà dell'interfaccia eth0 nella macchina virtuale Linux. Questo approccio minimo di modifica delle proprietà di rete Linux consente di ridurre i complessi problemi relativi ai casi d'angolo che i cluster potrebbero affrontare con la modalità bridge. In modalità trasparente, Azure CNI creare e aggiungere interfacce di coppia di pod sul lato host che `veth` verranno aggiunte alla rete host. La comunicazione da pod a pod tra macchine virtuali è tramite route IP che verranno aggiunti dal CNI. La comunicazione da pod a pod si trova essenzialmente sul livello 3 e il traffico del pod viene instradato dalle regole di routing L3.
 
 :::image type="content" source="media/faq/transparent-mode.png" alt-text="Topologia in modalità trasparente":::
 
-Di seguito è riportato un esempio di configurazione della route IP in modalità trasparente. ogni interfaccia del Pod otterrà una route statica collegata in modo che il traffico con l'indirizzo IP di destinazione come Pod venga inviato direttamente all'interfaccia della coppia lato host del Pod `veth` .
+Di seguito è riportata una configurazione di route IP di esempio in modalità trasparente, l'interfaccia di ogni pod otterrà una route statica collegata in modo che il traffico con ip dest come pod verrà inviato direttamente all'interfaccia della coppia lato host del `veth` pod.
 
 ```bash
 10.240.0.216 dev azv79d05038592 proto static
@@ -252,17 +252,17 @@ Di seguito è riportato un esempio di configurazione della route IP in modalità
 
 ### <a name="benefits-of-transparent-mode"></a>Vantaggi della modalità trasparente
 
-- Fornisce la mitigazione per la `conntrack` race condition parallela DNS e la prevenzione di problemi di latenza DNS di 5 secondi senza la necessità di configurare il DNS locale del nodo. per motivi di prestazioni, è comunque possibile utilizzare il DNS locale del nodo.
-- Elimina la latenza DNS iniziale di 5 secondi che la modalità Bridge CNI introduce oggi grazie alla configurazione del Bridge "just-in-Time".
-- Uno dei casi estremi in modalità Bridge è che Azure CNI non è in grado di aggiornare il server DNS personalizzato elenca gli utenti Aggiungi a VNET o NIC. In questo modo, CNI preleva solo la prima istanza dell'elenco di server DNS. Risolto in modalità trasparente perché CNI non modifica alcuna proprietà eth0. Per altre informazioni, vedere [qui](https://github.com/Azure/azure-container-networking/issues/713).
-- Fornisce una gestione migliore del traffico UDP e della mitigazione per il Storm Flood di UDP quando si verifica il timeout di ARP. In modalità Bridge, quando Bridge non conosce un indirizzo MAC del pod di destinazione nella comunicazione da Pod a Pod tra macchine virtuali, in base alla progettazione, questa operazione comporta Storm del pacchetto per tutte le porte. Risolto in modalità trasparente perché non sono presenti dispositivi L2 nel percorso. Per altre informazioni, vedere [qui](https://github.com/Azure/azure-container-networking/issues/704).
-- La modalità trasparente garantisce prestazioni migliori in termini di velocità effettiva e latenza rispetto alla modalità Bridge tra macchine virtuali intra-pod.
+- Fornisce una mitigazione per il dns parallelo race condition ed evitare problemi di latenza DNS di 5 secondi senza la necessità di configurare il DNS locale del nodo (è comunque possibile usare il DNS locale del nodo per motivi di `conntrack` prestazioni).
+- Elimina la modalità bridge CNI di latenza DNS iniziale di 5 secondi introduce oggi a causa della configurazione del bridge "just-in-time".
+- Uno dei casi d'angolo in modalità bridge è che il Azure CNI non può continuare ad aggiornare il server DNS personalizzato elenca gli utenti aggiunti alla rete virtuale o alla scheda di interfaccia di rete. In questo modo il CNI preleva solo la prima istanza dell'elenco di server DNS. Risolto in modalità Trasparente perché CNI non modifica le proprietà eth0. Per altre [informazioni, vedere qui](https://github.com/Azure/azure-container-networking/issues/713).
+- Offre una migliore gestione del traffico UDP e la mitigazione per le tempeste di flood UDP quando si verifica il timeout di ARP. In modalità bridge, quando il bridge non conosce un indirizzo MAC del pod di destinazione nella comunicazione tra pod e pod della macchina virtuale, per impostazione predefinita il pacchetto viene indirizzato a tutte le porte. Risolto in modalità trasparente perché non sono presenti dispositivi L2 nel percorso. Per altre [informazioni, vedere qui](https://github.com/Azure/azure-container-networking/issues/704).
+- La modalità trasparente offre prestazioni migliori nella comunicazione da pod a pod all'interno della macchina virtuale in termini di velocità effettiva e latenza rispetto alla modalità bridge.
 
-## <a name="how-to-avoid-permission-ownership-setting-slow-issues-when-the-volume-has-a-lot-of-files"></a>Come evitare l'impostazione di proprietà delle autorizzazioni lente quando il volume contiene numerosi file?
+## <a name="how-to-avoid-permission-ownership-setting-slow-issues-when-the-volume-has-a-lot-of-files"></a>Come evitare problemi di rallentamento dell'impostazione della proprietà delle autorizzazioni quando il volume contiene molti file?
 
-Tradizionalmente, se il Pod viene eseguito come utente non root (che dovrebbe essere), è necessario specificare un oggetto `fsGroup` all'interno del contesto di sicurezza del Pod, in modo che il volume possa essere leggibile e scrivibile dal Pod. Questo requisito viene trattato in modo più dettagliato [in questo argomento.](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+Tradizionalmente, se il pod è in esecuzione come utente non root (operazione che è consigliabile), è necessario specificare un all'interno del contesto di sicurezza del pod in modo che il volume possa essere leggibile e scrivibile dal `fsGroup` pod. Questo requisito è descritto in modo più dettagliato [qui.](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
 
-Un effetto collaterale dell'impostazione `fsGroup` è che, ogni volta che un volume viene montato, Kubernetes deve essere ricorsivo `chown()` e `chmod()` tutti i file e le directory all'interno del volume, con alcune eccezioni indicate di seguito. Ciò si verifica anche se la proprietà del gruppo del volume corrisponde già alla richiesta `fsGroup` e può essere piuttosto costosa per i volumi di grandi dimensioni con un numero elevato di file di piccole dimensioni, causando molto tempo per l'avvio di Pod. Questo scenario è un problema noto prima della versione 1.20 e la soluzione alternativa consiste nell'impostare l'esecuzione del pod come radice:
+Un effetto collaterale dell'impostazione è che, ogni volta che viene montato un volume, Kubernetes deve essere in modo ricorsivo e tutti i file e le directory all'interno del volume, con alcune eccezioni indicate di `fsGroup` `chown()` `chmod()` seguito. Ciò si verifica anche se la proprietà del gruppo del volume corrisponde già all'oggetto richiesto e può essere piuttosto costosa per i volumi di grandi dimensioni con un numero elevato di file di piccole dimensioni, con un'operazione che comporta tempi lunghi per l'avvio `fsGroup` dei pod. Questo scenario è stato un problema noto prima della versione 1.20 e la soluzione alternativa consiste nell'impostare l'esecuzione del pod come radice:
 
 ```yaml
 apiVersion: v1
@@ -275,7 +275,7 @@ spec:
     fsGroup: 0
 ```
 
-Il problema è stato risolto da Kubernetes v 1.20, vedere [Kubernetes 1,20: controllo granulare delle modifiche delle autorizzazioni](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) per i volumi per altri dettagli.
+Il problema è stato risolto da Kubernetes v1.20. Per altri dettagli, vedere [Kubernetes 1.20: Controllo granulare](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) delle modifiche alle autorizzazioni per i volumi.
 
 
 <!-- LINKS - internal -->
@@ -286,7 +286,7 @@ Il problema è stato risolto da Kubernetes v 1.20, vedere [Kubernetes 1,20: cont
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 6dd10039ba5c71d3a787761914b111e7828c47d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a8d5d5d76dc762734921dc2cb7ae575d15b626c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552610"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789636"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Esercitazione: Come usare cloud-init per personalizzare una macchina virtuale Linux in Azure al primo avvio
 
@@ -89,13 +89,13 @@ runcmd:
 Per altre informazioni sulle opzioni di configurazione di cloud-init, vedere gli [esempi di configurazione di cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Creare macchina virtuale
-Per poter creare una macchina virtuale è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupAutomate* nella posizione *eastus*:
+Per poter creare una macchina virtuale è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupAutomate* nella posizione *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Creare quindi una macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create). Usare il parametro `--custom-data` per specificare il file di configurazione di cloud-init. Se il file è stato salvato all'esterno della directory di lavoro corrente, specificare il percorso completo della configurazione *cloud-init.txt* . L'esempio seguente crea una VM denominata *myVM*:
+Creare quindi una macchina virtuale con il comando [az vm create](/cli/azure/vm#az_vm_create). Usare il parametro `--custom-data` per specificare il file di configurazione di cloud-init. Se il file è stato salvato all'esterno della directory di lavoro corrente, specificare il percorso completo della configurazione *cloud-init.txt* . L'esempio seguente crea una VM denominata *myVM*:
 
 ```azurecli-interactive
 az vm create \
@@ -109,7 +109,7 @@ az vm create \
 
 Per creare la macchina virtuale, installare i pacchetti e avviare l'applicazione sono necessari alcuni minuti. Sono presenti attività in background la cui esecuzione continua dopo che l'interfaccia della riga di comando di Azure è tornata al prompt. Potrebbe trascorrere ancora qualche minuto prima che sia possibile accedere all'app. Dopo aver creato la macchina virtuale, prendere nota del `publicIpAddress` visualizzato dall'interfaccia della riga di comando di Azure. Questo indirizzo viene usato per accedere all'app Node.js tramite un Web browser.
 
-Per consentire al traffico Web di raggiungere la macchina virtuale, aprire la porta 80 da Internet con il comando [az vm open_port](/cli/azure/vm#az-vm-open-port):
+Per consentire al traffico Web di raggiungere la macchina virtuale, aprire la porta 80 da Internet con il comando [az vm open_port](/cli/azure/vm#az_vm_open_port):
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAutomatedVM
@@ -134,7 +134,7 @@ I passaggi seguenti mostrano come sia possibile:
 - Creare una macchina virtuale e inserire il certificato
 
 ### <a name="create-an-azure-key-vault"></a>Creare un Azure Key Vault
-Innanzitutto, creare un Key Vault con il comando [az keyvault create](/cli/azure/keyvault#az-keyvault-create) e abilitarlo all'uso quando si distribuisce una macchina virtuale. Ogni Key Vault deve avere un nome univoco in lettere minuscole. Nell'esempio seguente, sostituire `mykeyvault` con il nome univoco del proprio Key Vault:
+Innanzitutto, creare un Key Vault con il comando [az keyvault create](/cli/azure/keyvault#az_keyvault_create) e abilitarlo all'uso quando si distribuisce una macchina virtuale. Ogni Key Vault deve avere un nome univoco in lettere minuscole. Nell'esempio seguente, sostituire `mykeyvault` con il nome univoco del proprio Key Vault:
 
 ```azurecli-interactive
 keyvault_name=mykeyvault
@@ -145,7 +145,7 @@ az keyvault create \
 ```
 
 ### <a name="generate-certificate-and-store-in-key-vault"></a>Generare certificati e archiviarli in Key Vault
-Per la produzione è necessario importare un certificato valido firmato da un provider attendibile con il comando [az keyvault certificate import](/cli/azure/keyvault/certificate#az-keyvault-certificate-import). Per questa esercitazione, l'esempio seguente illustra come sia possibile generare un certificato autofirmato con il comando [az keyvault certificate create](/cli/azure/keyvault/certificate#az-keyvault-certificate-create) che usi i criteri dei certificati predefiniti:
+Per la produzione è necessario importare un certificato valido firmato da un provider attendibile con il comando [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). Per questa esercitazione, l'esempio seguente illustra come sia possibile generare un certificato autofirmato con il comando [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) che usi i criteri dei certificati predefiniti:
 
 ```azurecli-interactive
 az keyvault certificate create \
@@ -156,7 +156,7 @@ az keyvault certificate create \
 
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>Preparare i certificati per l'uso con macchine virtuali
-Per usare il certificato durante il processo di creazione della macchina virtuale, ottenere l'ID del certificato con il comando [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). La macchina virtuale richiede che il certificato abbia un formato specifico per inserirlo all'avvio, quindi è necessario convertire il certificato con il comando [az vm secret format](/cli/azure/vm). L'esempio seguente assegna l'output di questi comandi a delle variabili per semplificarne l'uso nei passaggi successivi:
+Per usare il certificato durante il processo di creazione della macchina virtuale, ottenere l'ID del certificato con il comando [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions). La macchina virtuale richiede che il certificato abbia un formato specifico per inserirlo all'avvio, quindi è necessario convertire il certificato con il comando [az vm secret format](/cli/azure/vm). L'esempio seguente assegna l'output di questi comandi a delle variabili per semplificarne l'uso nei passaggi successivi:
 
 ```azurecli-interactive
 secret=$(az keyvault secret list-versions \
@@ -222,7 +222,7 @@ runcmd:
 ```
 
 ### <a name="create-secure-vm"></a>Creare una macchina virtuale protetta
-Creare quindi una macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create). I dati del certificato sono inseriti da Key Vault con il parametro `--secrets`. Come nell'esempio precedente, si seleziona anche la configurazione cloud-init con il parametro `--custom-data`:
+Creare quindi una macchina virtuale con il comando [az vm create](/cli/azure/vm#az_vm_create). I dati del certificato sono inseriti da Key Vault con il parametro `--secrets`. Come nell'esempio precedente, si seleziona anche la configurazione cloud-init con il parametro `--custom-data`:
 
 ```azurecli-interactive
 az vm create \
@@ -237,7 +237,7 @@ az vm create \
 
 Per creare la macchina virtuale, installare i pacchetti e avviare l'applicazione sono necessari alcuni minuti. Sono presenti attività in background la cui esecuzione continua dopo che l'interfaccia della riga di comando di Azure è tornata al prompt. Potrebbe trascorrere ancora qualche minuto prima che sia possibile accedere all'app. Dopo aver creato la macchina virtuale, prendere nota del `publicIpAddress` visualizzato dall'interfaccia della riga di comando di Azure. Questo indirizzo viene usato per accedere all'app Node.js tramite un Web browser.
 
-Per consentire al traffico Web protetto di raggiungere la macchina virtuale, aprire la porta 443 da Internet con il comando [az vm open-port](/cli/azure/vm#az-vm-open-port):
+Per consentire al traffico Web protetto di raggiungere la macchina virtuale, aprire la porta 443 da Internet con il comando [az vm open-port](/cli/azure/vm#az_vm_open_port):
 
 ```azurecli-interactive
 az vm open-port \

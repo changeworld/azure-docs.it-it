@@ -1,6 +1,6 @@
 ---
 title: Criteri di sicurezza e utilizzo
-description: Informazioni su sicurezza e criteri per le macchine virtuali in Azure.
+description: Informazioni sulla sicurezza e sui criteri per le macchine virtuali in Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
@@ -8,40 +8,40 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 291b9a210bf5f8cc18ccf8a523e282d3fc85aa28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 840045da33938d4c1cd725fd5a99bf1b8014f6b1
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101673353"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748467"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Applicare la sicurezza e usare criteri in macchine virtuali in Azure
 
-È importante proteggere le macchine virtuali (VM) per le applicazioni in esecuzione. La protezione delle macchine virtuali può includere uno o più servizi o funzionalità di Azure che gestiscono l'accesso sicuro alle macchine virtuali e l'archiviazione sicura dei dati. Questo articolo contiene informazioni che permettono di mantenere sicure le macchine virtuali e le applicazioni.
+È importante mantenere la macchina virtuale (VM) sicura per le applicazioni in esecuzione. La protezione delle macchine virtuali può includere uno o più servizi o funzionalità di Azure che gestiscono l'accesso sicuro alle macchine virtuali e l'archiviazione sicura dei dati. Questo articolo contiene informazioni che permettono di mantenere sicure le macchine virtuali e le applicazioni.
 
 ## <a name="antimalware"></a>Antimalware
 
-L'attuale panorama delle minacce per gli ambienti cloud è dinamico e impone sempre di più una protezione efficace e continua per soddisfare i requisiti di conformità e sicurezza. [Microsoft Antimalware per Azure](../security/fundamentals/antimalware.md) è una funzionalità di protezione in tempo reale gratuita che aiuta a identificare e rimuovere virus, spyware e altro software dannoso. Gli avvisi possono essere configurati in modo da ricevere notifiche quando software dannoso o indesiderato prova a installare o eseguire se stesso nella macchina virtuale. Non è supportata nelle macchine virtuali che eseguono Linux o Windows Server 2008.
+L'attuale panorama delle minacce per gli ambienti cloud è dinamico e impone sempre di più una protezione efficace e continua per soddisfare i requisiti di conformità e sicurezza. [Microsoft Antimalware per Azure](../security/fundamentals/antimalware.md) è una funzionalità di protezione in tempo reale gratuita che aiuta a identificare e rimuovere virus, spyware e altro software dannoso. Gli avvisi possono essere configurati in modo da ricevere notifiche quando software dannoso o indesiderato prova a installare o eseguire se stesso nella macchina virtuale. Non è supportato nelle macchine virtuali che eseguono Linux o Windows Server 2008.
 
 ## <a name="azure-security-center"></a>Centro sicurezza di Azure
 
 Con il [Centro sicurezza di Azure](../security-center/security-center-introduction.md) è possibile impedire, rilevare e gestire le minacce per le macchine virtuali. Il Centro sicurezza offre un monitoraggio di sicurezza integrato e gestione dei criteri per le sottoscrizioni di Azure, aiuta a rilevare le minacce che potrebbero altrimenti passare inosservate ed è compatibile con un ampio ecosistema di soluzioni di sicurezza.
 
-L'accesso JIT del Centro sicurezza può essere applicato attraverso la distribuzione di VM per bloccare il traffico in ingresso verso le macchine virtuali di Azure, riducendo l'esposizione agli attacchi e fornendo un facile accesso per connettersi alle macchine virtuali quando necessario. Quando JIT è abilitato e un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza controlla le autorizzazioni di cui dispone l'utente per la macchina virtuale. Se l'utente dispone delle autorizzazioni corrette, la richiesta viene approvata e il Centro sicurezza configura automaticamente i gruppi di sicurezza di rete per consentire il traffico in entrata alle porte selezionate per un periodo di tempo limitato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. 
+L'accesso just-in-time del Centro sicurezza può essere applicato nella distribuzione di macchine virtuali per bloccare il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e offrendo al tempo stesso un facile accesso per connettersi alle macchine virtuali quando necessario. Quando JIT è abilitato e un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza controlla le autorizzazioni di cui dispone l'utente per la macchina virtuale. Se l'utente dispone delle autorizzazioni corrette, la richiesta viene approvata e il Centro sicurezza configura automaticamente i gruppi di sicurezza di rete per consentire il traffico in entrata alle porte selezionate per un periodo di tempo limitato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. 
 
 ## <a name="encryption"></a>Crittografia
 
-Per i dischi gestiti sono disponibili due metodi di crittografia. Crittografia a livello di sistema operativo, ovvero crittografia dischi di Azure e crittografia a livello di piattaforma, ovvero la crittografia lato server.
+Per i dischi gestiti sono disponibili due metodi di crittografia. Crittografia a livello di sistema operativo, che è Crittografia dischi di Azure, e crittografia a livello di piattaforma, ovvero crittografia lato server.
 
 ### <a name="server-side-encryption"></a>Modello di crittografia lato server
 
-I dischi gestiti di Azure crittografano automaticamente i dati per impostazione predefinita quando vengono resi persistenti nel cloud. La crittografia lato server consente di proteggere i dati e di soddisfare gli impegni di sicurezza e conformità dell'organizzazione. I dati nei dischi gestiti di Azure sono crittografati in modo trasparente con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, una delle crittografie a blocchi più solide disponibili, conforme a FIPS 140-2.
+I dischi gestiti di Azure crittografano automaticamente i dati per impostazione predefinita quando vengono resi persistenti nel cloud. La crittografia lato server protegge i dati e consente di soddisfare gli impegni di sicurezza e conformità dell'organizzazione. I dati nei dischi gestiti di Azure sono crittografati in modo trasparente con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, una delle crittografie a blocchi più solide disponibili, conforme a FIPS 140-2.
 
-La crittografia non influisca sulle prestazioni dei dischi gestiti. Non sono previsti costi aggiuntivi per la crittografia.
+La crittografia non influisce sulle prestazioni dei dischi gestiti. Non è previsto alcun costo aggiuntivo per la crittografia.
 
 È possibile basarsi sulle chiavi gestite dalla piattaforma per la crittografia del disco gestito oppure è possibile gestire la crittografia usando le proprie chiavi. Se si sceglie di gestire la crittografia con le proprie chiavi, è possibile specificare una *chiave gestita dal cliente* da usare per crittografare e decrittografare tutti i dati presenti nei dischi gestiti. 
 
-Per altre informazioni sulla crittografia lato server, vedere gli articoli per [Windows](./disk-encryption.md) o [Linux](./disk-encryption.md).
+Per altre informazioni sulla crittografia lato server, vedere gli articoli per [Windows](./disk-encryption.md) o [Linux.](./disk-encryption.md)
 
 ### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
 
@@ -53,7 +53,7 @@ Non è previsto alcun addebito per la crittografia dei dischi virtuali in Azure.
 
 È possibile creare segreti e certificati come risorse e fornirli tramite [Key Vault](../key-vault/general/basic-concepts.md). È possibile usare Azure PowerShell e l'interfaccia della riga di comando di Azure per creare insiemi di credenziali delle chiavi rispettivamente per [macchine virtuali Windows](windows/key-vault-setup.md) e [macchine virtuali Linux](linux/key-vault-setup.md). È anche possibile creare chiavi per la crittografia.
 
-I criteri di accesso dell'insieme di credenziali delle chiavi concedono autorizzazioni separate per chiavi, segreti e certificati. È ad esempio possibile concedere a un utente l'accesso alle chiavi, ma non le autorizzazioni per i segreti. Tuttavia, le autorizzazioni per accedere a chiavi, segreti o certificati vengono definite a livello di insieme di credenziali. In altre parole, i [criteri di accesso](../key-vault/general/secure-your-key-vault.md) dell'insieme di credenziali delle chiavi non supportano le autorizzazioni a livello di oggetto.
+I criteri di accesso dell'insieme di credenziali delle chiavi concedono autorizzazioni separate per chiavi, segreti e certificati. È ad esempio possibile concedere a un utente l'accesso alle chiavi, ma non le autorizzazioni per i segreti. Tuttavia, le autorizzazioni per accedere a chiavi, segreti o certificati vengono definite a livello di insieme di credenziali. In altre parole, i criteri [di accesso dell'insieme di](../key-vault/general/security-overview.md) credenziali delle chiavi non supportano le autorizzazioni a livello di oggetto.
 
 Quando ci si connette alle macchine virtuali (VM), è consigliabile usare la crittografia a chiave pubblica per fornire un modo più sicuro per accedere alle VM. Questo processo comporta uno scambio di chiavi pubbliche e private mediante il comando Sicure Shell (SSH) per l'autenticazione, anziché nome utente e password. Le password sono vulnerabili agli attacchi di forza bruta, soprattutto nelle VM con connessione Internet, ad esempio i server Web. Con una coppia di chiavi SSH (Secure Shell) è possibile creare una [macchina virtuale Linux](linux/mac-create-ssh-keys.md) che usa chiavi SSH per l'autenticazione, eliminando la necessità di immettere password per l'accesso. È anche possibile usare chiavi SSH per la connessione da una [macchina virtuale Windows](linux/ssh-from-windows.md) a una macchina virtuale Linux.
 
@@ -69,7 +69,7 @@ La funzionalità delle identità gestite per le risorse di Azure in Azure Active
 
 ## <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
-Usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md), è possibile separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti della macchina virtuale necessaria per svolgere i propri processi. Invece di concedere a tutti autorizzazioni senza restrizioni per la macchina virtuale, è possibile consentire solo determinate azioni. È possibile configurare il controllo di accesso per la macchina virtuale nel [portale di Azure](../role-based-access-control/role-assignments-portal.md), nell'[interfaccia della riga di comando di Azure](/cli/azure/role) o con [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+Usando il controllo degli accessi in base al ruolo [di Azure,](../role-based-access-control/overview.md)è possibile separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti nella macchina virtuale necessaria per eseguire i propri processi. Invece di concedere a tutti autorizzazioni senza restrizioni per la macchina virtuale, è possibile consentire solo determinate azioni. È possibile configurare il controllo di accesso per la macchina virtuale nel [portale di Azure](../role-based-access-control/role-assignments-portal.md), nell'[interfaccia della riga di comando di Azure](/cli/azure/role) o con [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

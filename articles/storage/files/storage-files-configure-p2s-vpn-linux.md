@@ -7,26 +7,26 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 74422318718e318a00d7bd7ebaf8e4093ef75aa6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9608e3bdaab033d58796a3841e8cd92d7a8a81ef
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94629275"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777978"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configurare una VPN da punto a sito in Linux per l'uso con File di Azure
 È possibile usare una connessione VPN da punto a sito per montare le condivisioni file di Azure su SMB dall'esterno di Azure, senza aprire la porta 445. Una connessione VPN da punto a sito è una connessione VPN tra Azure e un singolo client. Per usare una connessione VPN da punto a sito con File di Azure, è necessario configurarla per ogni client da connettere. Se è necessario connettere molti client alle condivisioni file di Azure dalla rete locale, è possibile usare una connessione VPN da sito a sito invece di una da punto a sito per ogni client. Per altre informazioni, vedere [Configurare una VPN da sito a sito per l'uso con File di Azure](storage-files-configure-s2s-vpn.md).
 
 Per una descrizione completa delle opzioni di rete disponibili per File di Azure, è consigliabile leggere l'articolo [Panoramica della rete per File di Azure](storage-files-networking-overview.md) prima di procedere con questo articolo.
 
-Questo articolo illustra i passaggi per configurare una VPN da punto a sito in Linux per montare le condivisioni file di Azure direttamente in locale. Se si vuole instradare il traffico di Sincronizzazione file di Azure tramite una VPN, vedere come [configurare le impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md).
+Questo articolo illustra i passaggi per configurare una VPN da punto a sito in Linux per montare le condivisioni file di Azure direttamente in locale. Se si vuole instradare il traffico di Sincronizzazione file di Azure tramite una VPN, vedere come [configurare le impostazioni di proxy e firewall di Sincronizzazione file di Azure](../file-sync/file-sync-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 - La versione più recente dell'interfaccia della riga di comando di Azure. Per altre informazioni su come installare l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure PowerShell](/cli/azure/install-azure-cli) e selezionare il sistema operativo in uso. Se si preferisce, è anche possibile usare il modulo Azure PowerShell in Linux, ma le istruzioni seguenti vengono presentate per l'interfaccia della riga di comando di Azure.
 
-- Una condivisione file di Azure che si vuole montare in locale. Le condivisioni file di Azure vengono distribuite all'interno degli account di archiviazione, ovvero costrutti di gestione che rappresentano un pool condiviso di risorse di archiviazione in cui è possibile distribuire più condivisioni file, oltre ad altre risorse di archiviazione, ad esempio contenitori BLOB o code. Per altre informazioni su come distribuire condivisioni file di Azure e account di archiviazione, vedere [creare una condivisione file di Azure](storage-how-to-create-file-share.md).
+- Una condivisione file di Azure che si vuole montare in locale. Le condivisioni file di Azure vengono distribuite all'interno di account di archiviazione, ovvero costrutti di gestione che rappresentano un pool condiviso di archiviazione in cui è possibile distribuire più condivisioni file, nonché altre risorse di archiviazione, ad esempio contenitori BLOB o code. Per altre informazioni su come distribuire condivisioni file e account di archiviazione di Azure, vedere [Creare una condivisione file di Azure](storage-how-to-create-file-share.md).
 
-- Un endpoint privato per l'account di archiviazione che contiene la condivisione file di Azure che si vuole montare in locale. Per altre informazioni su come creare un endpoint privato, vedere [Configuring file di Azure Network Endpoints](storage-files-networking-endpoints.md?tabs=azure-cli). 
+- Endpoint privato per l'account di archiviazione contenente la condivisione file di Azure da montare in locale. Per altre informazioni su come creare un endpoint privato, vedere Configurazione File di Azure [endpoint di rete.](storage-files-networking-endpoints.md?tabs=azure-cli) 
 
 ## <a name="install-required-software"></a>Installare il software necessario
 Il gateway di rete virtuale di Azure può fornire connessioni VPN con diversi protocolli VPN, tra cui IPsec e OpenVPN. Questa guida illustra come usare IPsec e usa il pacchetto strongSwan per fornire il supporto in Linux. 
@@ -119,7 +119,7 @@ Ricordarsi di sostituire `<desired-vpn-name-here>` con il nome che si vuole usar
 > [!Note]  
 > La distribuzione del gateway di rete virtuale di Azure può richiedere fino a 45 minuti. Durante la distribuzione di questa risorsa, questo script bash verrà bloccato per consentire il completamento della distribuzione.
 >
-> Le connessioni P2S IKEv2/OpenVPN non sono supportate con lo SKU **Basic** . Questo script usa lo SKU **VpnGw1** per il gateway di rete virtuale, di conseguenza.
+> Le connessioni IKEv2/OpenVPN P2S non sono supportate con lo SKU **Basic.** Questo script usa lo SKU **VpnGw1** per il gateway di rete virtuale, di conseguenza.
 
 ```bash
 vpnName="<desired-vpn-name-here>"

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 6f8cfc314c75221a88b58095cc71ea685280ac49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98922829e83f84078c3d8cadae15844dba194c93
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501015"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107800237"
 ---
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -21,7 +21,7 @@ ms.locfileid: "102501015"
 
 Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
 
-Creare un gruppo di risorse usando il comando [az group create](/cli/azure/group#az-group-create) dell'interfaccia della riga di comando di Azure, il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) di Azure PowerShell oppure il [portale di Azure](https://portal.azure.com).
+Creare un gruppo di risorse usando il comando [az group create](/cli/azure/group#az_group_create) dell'interfaccia della riga di comando di Azure, il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) di Azure PowerShell oppure il [portale di Azure](https://portal.azure.com).
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 *Se si ha già un insieme di credenziali delle chiavi, è possibile passare a [Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi](#set-key-vault-advanced-access-policies).*
 
-Creare un insieme di credenziali delle chiavi usando il comando [az keyvault create](/cli/azure/keyvault#az-keyvault-create) dell'interfaccia della riga di comando di Azure, il comando [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) di Azure Powershell, il [portale di Azure](https://portal.azure.com) o un [modello di Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
+Creare un insieme di credenziali delle chiavi usando il comando [az keyvault create](/cli/azure/keyvault#az_keyvault_create) dell'interfaccia della riga di comando di Azure, il comando [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) di Azure Powershell, il [portale di Azure](https://portal.azure.com) o un [modello di Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
 >[!WARNING]
 > L'insieme di credenziali delle chiavi e le VM devono essere nella stessa sottoscrizione. Inoltre, per garantire che i segreti di crittografia non superino i confini a livello di area, Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area. Creare e usare un insieme di credenziali delle chiavi nella stessa sottoscrizione e nella stessa area delle VM da crittografare. 
@@ -75,7 +75,7 @@ Se al momento della creazione l'insieme di credenziali delle chiavi non è stato
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare la crittografia del disco per l'insieme di credenziali delle chiavi. 
+Usare [az keyvault update](/cli/azure/keyvault#az_keyvault_update) per abilitare la crittografia del disco per l'insieme di credenziali delle chiavi. 
 
  - **Abilitare l'insieme di credenziali delle chiavi per la crittografia del disco:** Enabled-for-disk-encryption è obbligatorio. 
 
@@ -129,7 +129,7 @@ Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare
 
 Se si vuole usare una chiave di crittografia della chiave (KEK) per un livello aggiuntivo di sicurezza per le chiavi di crittografia, aggiungere una KEK all'insieme di credenziali delle chiavi. Quando viene specificata una chiave di crittografia della chiave, Crittografia dischi di Azure la usa per eseguire il wrapping dei segreti di crittografia prima di scrivere nell'insieme di credenziali delle chiavi.
 
-È possibile generare una nuova chiave di crittografia della chiave usando il comando [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) dell'interfaccia della riga di comando di Azure, il cmdlet di Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) o il [portale di Azure](https://portal.azure.com/). È necessario generare un tipo di chiave RSA. Crittografia dischi di Azure non supporta ancora l'uso delle chiavi a curva ellittica.
+È possibile generare una nuova chiave di crittografia della chiave usando il comando [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create) dell'interfaccia della riga di comando di Azure, il cmdlet di Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) o il [portale di Azure](https://portal.azure.com/). È necessario generare un tipo di chiave RSA. Crittografia dischi di Azure non supporta ancora l'uso delle chiavi a curva ellittica.
 
 Si può invece importare una chiave di crittografia della chiave dal modulo di protezione hardware di gestione delle chiavi locale. Per altre informazioni, vedere la [documentazione di Key Vault](../articles/key-vault/keys/hsm-protected-keys.md).
 
@@ -145,15 +145,15 @@ Crittografia dischi di Azure non supporta la possibilità di specificare i numer
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Usare il comando [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) dell'interfaccia della riga di comando di Azure per generare una nuova chiave di crittografia della chiave nell'insieme di credenziali delle chiavi.
+Usare il comando [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create) dell'interfaccia della riga di comando di Azure per generare una nuova chiave di crittografia della chiave nell'insieme di credenziali delle chiavi.
 
 ```azurecli-interactive
 az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
 ```
 
-Si può in alternativa importare una chiave privata usando il comando [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) dell'interfaccia della riga di comando di Azure:
+Si può in alternativa importare una chiave privata usando il comando [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) dell'interfaccia della riga di comando di Azure:
 
-In entrambi i casi occorre fornire il nome della chiave di crittografia della chiave al parametro --key-encryption-key del comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) dell'interfaccia della riga di comando di Azure. 
+In entrambi i casi occorre fornire il nome della chiave di crittografia della chiave al parametro --key-encryption-key del comando [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable) dell'interfaccia della riga di comando di Azure. 
 
 ```azurecli-interactive
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>" --key-encryption-key "myKEK"
@@ -167,7 +167,7 @@ Usare il cmdlet di Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.ke
 Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
 ```
 
-Si può in alternativa importare una chiave privata usando il comando [az keyvault key import](/cli/azure/keyvault/key#az-keyvault-key-import) di Azure PowerShell.
+Si può in alternativa importare una chiave privata usando il comando [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) di Azure PowerShell.
 
 In entrambi i casi occorre fornire l'ID dell'insieme di credenziali delle chiavi e l'URL della chiave di crittografia della chiave ai parametri -KeyEncryptionKeyVaultId e -KeyEncryptionKeyUrl del cmdlet di Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension). Tenere presente che questo esempio presuppone che si usi lo stesso insieme di credenziali delle chiavi sia per la chiave di crittografia del disco che per la chiave di crittografia della chiave.
 

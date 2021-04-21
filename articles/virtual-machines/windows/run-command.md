@@ -10,12 +10,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: e2cd8ee4095db235215a2beaa68975e819b474c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3271f5461447439772b656b8927a54057c8b0c7e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560685"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786406"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Windows usando Esegui comando
 
@@ -41,7 +41,7 @@ Quando si usa Esegui comando, sono valide le limitazioni seguenti:
 * Non è possibile annullare l'esecuzione di uno script.
 * Il tempo massimo di esecuzione di uno script è di 90 minuti. Dopo questo tempo viene raggiunto il timeout.
 * La connettività in uscita dalla macchina virtuale è necessaria per restituire i risultati dello script.
-* Non è consigliabile eseguire uno script che provocherà l'arresto o l'aggiornamento dell'agente di macchine virtuali. Ciò può consentire l'estensione in uno stato di transizione, causando un timeout.
+* Non è consigliabile eseguire uno script che causerà l'arresto o l'aggiornamento dell'agente di macchine virtuali. In questo modo l'estensione può essere in uno stato di transizione, causando un timeout.
 
 > [!NOTE]
 > Per funzionare correttamente, Esegui comando richiede la connettività agli indirizzi IP pubblici di Azure (porta 443). Se l'estensione non ha accesso a questi endpoint, gli script potrebbero funzionare correttamente, ma non restituiranno risultati. Se si sta bloccando il traffico nella macchina virtuale, è possibile usare i [tag di servizio](../../virtual-network/network-security-groups-overview.md#service-tags) per consentire il traffico verso gli indirizzi IP pubblici di Azure tramite il tag `AzureCloud`.
@@ -66,7 +66,7 @@ The entity was not found in this Azure location
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-L'esempio seguente usa il comando [az vm run-command](/cli/azure/vm/run-command#az-vm-run-command-invoke) per eseguire uno script della shell su una macchina virtuale Windows di Azure.
+L'esempio seguente usa il comando [az vm run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) per eseguire uno script della shell su una macchina virtuale Windows di Azure.
 
 ```azurecli-interactive
 # script.ps1
@@ -105,7 +105,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>Limitare l'accesso a Esegui comando
 
-Per elencare i comandi di esecuzione o visualizzare i dettagli di un comando è necessaria l' `Microsoft.Compute/locations/runCommands/read` autorizzazione per il livello di sottoscrizione. Il ruolo predefinito [Lettore](../../role-based-access-control/built-in-roles.md#reader) e i livelli superiori hanno questa autorizzazione.
+L'elenco dei comandi di esecuzione o la visualizzazione dei dettagli di un comando richiede `Microsoft.Compute/locations/runCommands/read` l'autorizzazione a livello di sottoscrizione. Il ruolo predefinito [Lettore](../../role-based-access-control/built-in-roles.md#reader) e i livelli superiori hanno questa autorizzazione.
 
 L'esecuzione di un comando richiede l'autorizzazione `Microsoft.Compute/virtualMachines/runCommand/action`. Il ruolo [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e i livelli superiori hanno questa autorizzazione.
 

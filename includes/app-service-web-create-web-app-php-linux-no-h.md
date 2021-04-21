@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: ae371082dbb1ece4a62df37743e4d2a4a62998d3
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 4f843c5d35bee5311168073e42b620686b1d9adf
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107513638"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779451"
 ---
 <!-- Please keep this file set to PHP 7.2, as that's the highest PHP version Laravel supports (as shown in the PHP+MySQL tutorial) -->
 
 Creare un'[app Web](../articles/app-service/overview.md#app-service-on-linux) nel piano di servizio app `myAppServicePlan`. 
 
-In Cloud Shell è possibile usare il comando [`az webapp create`](/cli/azure/webapp#az-webapp-create). Nell'esempio seguente sostituire `<app-name>` con un nome app univoco globale. I caratteri validi sono `a-z`, `0-9` e `-`. Il runtime è impostato su `PHP|7.2`. Per visualizzare tutti i runtime supportati, eseguire [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes). 
+In Cloud Shell è possibile usare il comando [`az webapp create`](/cli/azure/webapp#az_webapp_create). Nell'esempio seguente sostituire `<app-name>` con un nome app univoco globale. I caratteri validi sono `a-z`, `0-9` e `-`. Il runtime è impostato su `PHP|7.2`. Per visualizzare tutti i runtime supportati, eseguire [`az webapp list-runtimes --linux`](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 # Bash
@@ -46,7 +46,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.s
 }
 </pre>
 
-È stata ™ una nuova app Web vuota, con la distribuzione Git abilitata.
+È stata creata una nuova app Web vuota, con la distribuzione Git abilitata.
 
 > [!NOTE]
 > L'URL dell'elemento Git remoto è riportato nella proprietà `deploymentLocalGitUrl`, con il formato `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Salvare questo URL, perché è necessario in un secondo momento.

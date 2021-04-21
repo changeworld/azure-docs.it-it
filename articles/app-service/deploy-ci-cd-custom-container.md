@@ -1,5 +1,5 @@
 ---
-title: CI/CD in contenitori personalizzati
+title: DA CI/CD a contenitori personalizzati
 description: Configurare la distribuzione continua in un contenitore Windows o Linux personalizzato in Servizio app di Azure.
 keywords: servizio app di azure, linux, docker, acr,oss
 author: msangapu-msft
@@ -9,12 +9,12 @@ ms.date: 03/12/2021
 ms.author: msangapu
 ms.custom: seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: f02aa9fc1bd31bdde6214ab906136a2cac8f1772
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 6519f3fe7335ed41f4d5ef67771aaa738a33e4a8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478310"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782604"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Distribuzione continua con contenitori personalizzati in Servizio app di Azure
 
@@ -24,22 +24,22 @@ In questa esercitazione verrà configurata la distribuzione continua per un'imma
 
 Nel [portale di Azure](https://portal.azure.com)passare alla pagina di gestione per l'app del servizio app.
 
-Nel menu a sinistra fare clic su **Impostazioni centro**  >  **distribuzione.** 
+Scegliere Impostazioni centro distribuzione dal menu  >  **a sinistra.** 
 
 ::: zone pivot="container-linux"
 ## <a name="2-choose-deployment-source"></a>2. Scegliere l'origine della distribuzione
 
-**Scegliere** l'origine della distribuzione a seconda dello scenario:
-- **Il registro contenitori** configura CI/CD tra il registro contenitori e il servizio app.
-- **L GitHub Actions** predefinita è se si gestisce il codice sorgente per l'immagine del contenitore in GitHub. Attivata da nuovi commit nel repository GitHub, l'azione di distribuzione può essere eseguita e direttamente nel registro contenitori, quindi aggiornare l'app del servizio app per eseguire `docker build` `docker push` la nuova immagine. Per altre informazioni, vedere [Funzionamento di CI/CD con GitHub Actions](#how-cicd-works-with-github-actions).
-- Per configurare CI/CD con **Azure Pipelines**, vedere Distribuire un contenitore di app Web di Azure [da Azure Pipelines](/azure/devops/pipelines/targets/webapp-on-container-linux).
+**La** scelta dell'origine della distribuzione dipende dallo scenario:
+- **Registro contenitori** configura ci/CD tra il registro contenitori e il servizio app.
+- **L GitHub Actions'opzione** è disponibile se si gestisce il codice sorgente per l'immagine del contenitore in GitHub. Attivata dai nuovi commit nel repository GitHub, l'azione di distribuzione può essere eseguita e direttamente nel registro contenitori, quindi aggiornare l'app del servizio app per eseguire `docker build` `docker push` la nuova immagine. Per altre informazioni, vedere [Funzionamento di CI/CD con GitHub Actions](#how-cicd-works-with-github-actions).
+- Per configurare CI/CD con **Azure Pipelines**, vedere Distribuire [un contenitore](/azure/devops/pipelines/targets/webapp-on-container-linux)di app Web di Azure da Azure Pipelines .
 
 > [!NOTE]
-> Per un'app Docker Compose, selezionare **Registro Container.**
+> Per un'app Docker Compose, selezionare **Registro contenitori**.
 
-Se si sceglie GitHub Actions, fare **clic su** **Autorizza e** seguire le istruzioni di autorizzazione. Se gitHub è già stato autorizzato in precedenza, è possibile eseguire la distribuzione da un repository utente diverso facendo clic **su Cambia account.**
+Se si sceglie GitHub Actions, fare **clic su** **Autorizza e** seguire le richieste di autorizzazione. Se gitHub è già stato autorizzato in precedenza, è possibile eseguire la distribuzione dal repository di un altro utente facendo clic **su Cambia account**.
 
-Dopo aver autorizzato l'account Azure con GitHub, selezionare **l'organizzazione,** il **repository** e **il ramo** da cui eseguire la distribuzione.
+Dopo aver autorizzato l'account Azure con GitHub, **selezionare** **l'organizzazione,** **il repository** e il **ramo** da cui eseguire la distribuzione.
 ::: zone-end  
 
 ::: zone pivot="container-windows"
@@ -48,59 +48,59 @@ Dopo aver autorizzato l'account Azure con GitHub, selezionare **l'organizzazione
 ::: zone pivot="container-linux"
 ## <a name="3-configure-registry-settings"></a>3. Configurare le impostazioni del Registro di sistema
 
-Per distribuire un'app multi-contenitore (Docker Compose), selezionare Docker Compose  **in** **Tipo di contenitore.**
+Per distribuire un'app multi-contenitore (Docker Compose), selezionare Docker Compose  **in** **Tipo di contenitore**.
 
-Se l'elenco a  discesa Tipo di contenitore non è visualizzato, scorrere fino a **Origine** e **selezionare Registro** **contenitori**.
+Se l'elenco a discesa Tipo di **contenitore** non è visualizzato, scorrere verso l'alto fino a **Origine** e **selezionare** **Registro Contenitori.**
 ::: zone-end
 
-In **Origine registro** selezionare la **posizione** del registro contenitori. Se non è né Registro Azure Container né Docker Hub, **selezionare** **Registro di sistema privato**.
+In **Origine registro** selezionare la **posizione** del registro contenitori. Se non è né Registro Azure Container né Docker Hub, selezionare Private Registry **(Registro** **privato).**
 
 ::: zone pivot="container-linux"
 > [!NOTE]
 > Se l'app multi-contenitore (Docker Compose) usa più di un'immagine privata, assicurarsi che le immagini private siano nello stesso registro privato e accessibili con le stesse credenziali utente. Se l'app multi-contenitore usa solo immagini **pubbliche,** **selezionare Docker Hub**, anche se alcune immagini non sono in Docker Hub.
 ::: zone-end  
 
-Seguire i passaggi successivi selezionando la scheda corrispondente alla scelta.
+Seguire i passaggi successivi selezionando la scheda corrispondente a quella scelta.
 
 # <a name="azure-container-registry"></a>[Registro Azure Container](#tab/acr)
 
-**Nell'elenco** a discesa Registro di sistema vengono visualizzati i registri nella stessa sottoscrizione dell'app. **Selezionare** il registro desiderato.
+**L'elenco** a discesa Registro di sistema visualizza i registri nella stessa sottoscrizione dell'app. **Selezionare** il registro desiderato.
 
 > [!NOTE]
-> Per eseguire la distribuzione da un registro in una sottoscrizione diversa, **selezionare** **Registro di sistema privato** nell'origine del Registro **di** sistema.
+> Per eseguire la distribuzione da un registro in una sottoscrizione diversa, **selezionare invece** **Registro privato** **nell'origine registro.**
 
 ::: zone pivot="container-windows"
-**Selezionare** **l'immagine** e **il tag** da distribuire. Se si vuole, **digitare il** comando di avvio in File **di avvio**. 
+**Selezionare** **l'immagine** e **il tag** da distribuire. Se si vuole, **digitare** il comando di avvio in **File di avvio**. 
 ::: zone-end
 ::: zone pivot="container-linux"
-Seguire il passaggio successivo a seconda del tipo **di contenitore**:
-- Per **Docker Compose**, **selezionare il** registro per le immagini private. **Fare** **clic su Scegli file** per caricare  [Docker Compose file](https://docs.docker.com/compose/compose-file/)o semplicemente incollare il contenuto del file Docker Compose file in **Config**.
+Seguire il passaggio successivo a seconda di **Tipo di contenitore:**
+- Per **Docker Compose**, **selezionare il** registro per le immagini private. **Fare** **clic su Scegli file** per caricare  il [file Docker Compose](https://docs.docker.com/compose/compose-file/)o semplicemente incollare il contenuto del file Docker Compose in **Config**.
 - Per **Contenitore singolo** selezionare **l'immagine e** il **tag** da distribuire.  Se si vuole, **digitare il** comando di avvio in File **di avvio**. 
 ::: zone-end
 
-Il servizio app aggiunge la stringa in **File di** avvio alla fine del [comando `docker run` (come `[COMMAND] [ARG...]` segmento)](https://docs.docker.com/engine/reference/run/) all'avvio del contenitore.
+Il servizio app aggiunge la stringa nel **file di** avvio alla fine del comando [ `docker run` (come `[COMMAND] [ARG...]` segmento)](https://docs.docker.com/engine/reference/run/) all'avvio del contenitore.
 
 # <a name="docker-hub"></a>[Docker Hub](#tab/dockerhub)
 
 ::: zone pivot="container-windows"
-In **Accesso al repository** selezionare **se** l'immagine da distribuire è pubblica o privata.
+In **Accesso al** repository selezionare **se** l'immagine da distribuire è pubblica o privata.
 ::: zone-end
 ::: zone pivot="container-linux"
 In **Accesso al repository** selezionare **se** l'immagine da distribuire è pubblica o privata. Per un Docker Compose app con una o più immagini private, **selezionare** **Privato.**
 ::: zone-end
 
-Se si seleziona un'immagine privata, **specificare l'account** **di accesso** (nome utente) e la **password** dell'account Docker.
+Se si seleziona un'immagine privata, **specificare** **l'account di** accesso (nome utente) **e la password** dell'account Docker.
 
 ::: zone pivot="container-windows"
-**Specificare** il nome dell'immagine e del tag in **Full Image Name (Nome** immagine completa) e Tag , separati da un `:` (ad esempio, `nginx:latest` ). Se si vuole, **digitare il** comando di avvio in File **di avvio**. 
+**Specificare** l'immagine e il nome del tag in Nome immagine **completo e Tag**, separati da un `:` (ad esempio, `nginx:latest` ). Se si vuole, **digitare il** comando di avvio in File **di avvio**. 
 ::: zone-end
 ::: zone pivot="container-linux"
-Seguire il passaggio successivo a seconda di **Tipo di contenitore:**
-- Per **Docker Compose**, **selezionare il** registro per le immagini private. **Fare** **clic su Scegli file** per caricare  il [file Docker Compose](https://docs.docker.com/compose/compose-file/)o semplicemente incollare il contenuto del file Docker Compose in **Config**.
-- Per **Contenitore singolo**, **specificare il** nome dell'immagine e del tag in Full Image Name (Nome immagine completa) e **Tag**, separati da un `:` (ad esempio, `nginx:latest` ). Se si vuole, **digitare il** comando di avvio in File **di avvio**. 
+Seguire il passaggio successivo a seconda del tipo **di contenitore**:
+- Per **Docker Compose**, **selezionare il** registro per le immagini private. **Fare** **clic su Scegli file** per caricare  [Docker Compose file](https://docs.docker.com/compose/compose-file/)o semplicemente incollare il contenuto del file Docker Compose file in **Config**.
+- Per **Contenitore singolo**, **specificare il** nome dell'immagine e del tag in Nome immagine completo e **Tag**, separati da un `:` (ad esempio, `nginx:latest` ). Se si vuole, **digitare il** comando di avvio in File **di avvio**. 
 ::: zone-end
 
-Il servizio app aggiunge la stringa nel **file di** avvio alla fine del comando [ `docker run` (come `[COMMAND] [ARG...]` segmento)](https://docs.docker.com/engine/reference/run/) all'avvio del contenitore.
+Il servizio app aggiunge la stringa in **File di** avvio alla fine del [comando `docker run` (come `[COMMAND] [ARG...]` segmento)](https://docs.docker.com/engine/reference/run/) all'avvio del contenitore.
 
 # <a name="private-registry"></a>[Registro privato](#tab/private)
 
@@ -109,12 +109,12 @@ In **URL server** digitare **l'URL** del server, a partire **da https://**.
 In **Account di** accesso e **Password** **digitare** le credenziali di accesso per il registro privato.
 
 ::: zone pivot="container-windows"
-**Specificare** il nome dell'immagine e del tag in **Full Image Name (Nome** immagine completa) e Tag , separati da un `:` (ad esempio, `nginx:latest` ). Se si vuole, **digitare il** comando di avvio in File **di avvio**. 
+**Specificare** l'immagine e il nome del tag in Nome immagine **completo e Tag**, separati da un `:` (ad esempio, `nginx:latest` ). Se si vuole, **digitare il** comando di avvio in File **di avvio**. 
 ::: zone-end
 ::: zone pivot="container-linux"
 Seguire il passaggio successivo a seconda del tipo **di contenitore**:
-- Per **Docker Compose**, **selezionare il** registro per le immagini private. **Fare** **clic su Scegli file** per caricare  il [file Docker Compose](https://docs.docker.com/compose/compose-file/)o semplicemente incollare il contenuto del file Docker Compose in **Config**.
-- Per **Contenitore singolo**, **specificare il** nome dell'immagine e del tag in Full Image Name (Nome immagine completa) e **Tag**, separati da un `:` (ad esempio, `nginx:latest` ). Se si vuole, **digitare il** comando di avvio in File **di avvio**. 
+- Per **Docker Compose**, **selezionare il** registro per le immagini private. **Fare** **clic su Scegli file** per caricare  [Docker Compose file](https://docs.docker.com/compose/compose-file/)o semplicemente incollare il contenuto del file Docker Compose file in **Config**.
+- Per **Contenitore singolo**, **specificare il** nome dell'immagine e del tag in Nome immagine completo e **Tag**, separati da un `:` (ad esempio, `nginx:latest` ). Se si vuole, **digitare il** comando di avvio in File **di avvio**. 
 ::: zone-end
 
 Il servizio app aggiunge la stringa in **File di** avvio alla fine del [comando `docker run` (come `[COMMAND] [ARG...]` segmento)](https://docs.docker.com/engine/reference/run/) all'avvio del contenitore.
@@ -176,7 +176,7 @@ Se si **sceglie** GitHub Actions in **Origine** (vedere Scegliere l'origine dell
 
 Questa configurazione facoltativa sostituisce l'autenticazione predefinita con i profili di pubblicazione nel file del flusso di lavoro generato.
 
-**Generare** un'entità servizio con [il comando az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) nell'interfaccia della riga [di comando di Azure.](/cli/azure/) Nell'esempio seguente sostituire *\<subscription-id>* , e con valori *\<group-name>* *\<app-name>* personalizzati. **Salvare** l'intero output JSON per il passaggio successivo, incluso il primo `{}` livello.
+**Generare** un'entità servizio con [il comando az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) nell'interfaccia della riga [di comando di Azure.](/cli/azure/) Nell'esempio seguente sostituire *\<subscription-id>* , e con valori *\<group-name>* *\<app-name>* personalizzati. **Salvare** l'intero output JSON per il passaggio successivo, incluso il primo `{}` livello.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
@@ -213,7 +213,7 @@ Nel file del flusso di lavoro generato dal **Centro distribuzione** **rivedere**
 
 ## <a name="automate-with-cli"></a>Automatizzare con l'interfaccia della riga di comando
 
-Per configurare il registro contenitori e l'immagine Docker, **eseguire** [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set).
+Per configurare il registro contenitori e l'immagine Docker, **eseguire** [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set).
 
 # <a name="azure-container-registry"></a>[Registro Azure Container](#tab/acr)
 
@@ -240,14 +240,14 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 -----
 
 ::: zone pivot="container-linux"
-Per configurare un'app multi-contenitore (Docker Compose), preparare un file  Docker Compose in locale, quindi eseguire [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set) con il parametro  `--multicontainer-config-file` . Se il file Docker Compose contiene immagini private, **aggiungere parametri** come `--docker-registry-server-*` illustrato nell'esempio precedente.
+Per configurare un'app multi-contenitore (Docker Compose), preparare un file  Docker Compose in locale, quindi eseguire [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) con il parametro  `--multicontainer-config-file` . Se il file Docker Compose contiene immagini private, **aggiungere parametri** come `--docker-registry-server-*` illustrato nell'esempio precedente.
 
 ```azurecli-interactive
 az webapp config container set --resource-group <group-name> --name <app-name> --multicontainer-config-file <docker-compose-file>
 ```
 ::: zone-end
 
-Per configurare ci/CD dal registro contenitori all'app, **eseguire** [az webapp deployment container config](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config) con il parametro `--enable-cd` . Il comando restituisce l'URL del webhook, ma è necessario creare manualmente il webhook nel Registro di sistema in un passaggio separato. L'esempio seguente abilita CI/CD nell'app, quindi usa l'URL del webhook nell'output per creare il webhook in Registro Azure Container.
+Per configurare ci/CD dal registro contenitori all'app, **eseguire** [az webapp deployment container config](/cli/azure/webapp/deployment/container#az_webapp_deployment-container-config) con il parametro `--enable-cd` . Il comando restituisce l'URL del webhook, ma è necessario creare manualmente il webhook nel Registro di sistema in un passaggio separato. L'esempio seguente abilita CI/CD nell'app, quindi usa l'URL del webhook nell'output per creare il webhook in Registro Azure Container.
 
 ```azurecli-interactive
 ci_cd_url=$(az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true --query CI_CD_URL --output tsv)

@@ -1,18 +1,18 @@
 ---
 title: Installare e configurare l'estensione Diagnostica di Azure per Windows
-description: Informazioni sull'installazione e la configurazione dell'estensione di diagnostica Windows. Si apprenderà anche come una descrizione della modalità di archiviazione dei dati nell'account di archiviazione di Azure.
+description: Informazioni sull'installazione e la configurazione dell'estensione diagnostica di Windows. Informazioni anche su come vengono archiviati i dati in e Archiviazione di Azure account.
 services: azure-monitor
 author: bwren
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 174f372f9dbe8dc0449c7f9b9f5b34c6206f92de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ff752b673c49047551c48c4c8693b00d7b5edeb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708561"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787406"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installare e configurare l'estensione Diagnostica di Azure per Windows
 L'[estensione Diagnostica di Azure](diagnostics-extension-overview.md) è un agente di Monitoraggio di Azure che raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali di Azure e di altre risorse di calcolo. Questo articolo include informazioni dettagliate sull'installazione e la configurazione dell'estensione Diagnostica Windows e una descrizione della modalità di archiviazione dei dati in un account di Archiviazione di Azure.
@@ -20,7 +20,7 @@ L'[estensione Diagnostica di Azure](diagnostics-extension-overview.md) è un age
 L'estensione Diagnostica viene implementata come [estensione macchina virtuale](../../virtual-machines/extensions/overview.md) in Azure, pertanto supporta le stesse opzioni di installazione usando modelli di Gestione risorse, PowerShell e l'interfaccia della riga di comando. Per informazioni dettagliate sull'installazione e la gestione delle estensioni macchina virtuale, vedere [Estensioni e funzionalità della macchina virtuale per Windows](../../virtual-machines/extensions/features-windows.md).
 
 ## <a name="overview"></a>Panoramica
-Quando si configura l'estensione Diagnostica di Azure è necessario specificare un account di archiviazione in cui verranno inviati tutti i dati specificati. Facoltativamente, è possibile aggiungere uno o più *sink di dati* per inviare i dati a percorsi diversi.
+Quando si configura l'estensione Diagnostica di Azure è necessario specificare un account di archiviazione in cui verranno inviati tutti i dati specificati. Facoltativamente, è possibile aggiungere uno o più *sink di dati per* inviare i dati a posizioni diverse.
 
 - Sink Monitoraggio di Azure: inviare i dati delle prestazioni guest alle metriche di Monitoraggio di Azure.
 - Sink di Hub eventi: inviare i dati di log e prestazioni guest agli hub eventi di Azure per l'inoltro all'esterno di Azure. Non è possibile configurare questo sink nel portale di Azure.
@@ -50,7 +50,7 @@ Quando si configura l'estensione Diagnostica di Azure è necessario specificare 
 
 6. Nella scheda **Log** selezionare i log da raccogliere dalla macchina virtuale. I log possono essere inviati a risorse di archiviazione o hub eventi, ma non a Monitoraggio di Azure. Usare l'[agente Log Analytics](../agents/log-analytics-agent.md) per raccogliere i log guest in Monitoraggio di Azure.
 
-   ![Screenshot mostra la scheda log con diversi log selezionati per una macchina virtuale.](media/diagnostics-extension-windows-install/logs.png)
+   ![Screenshot che mostra la scheda Log con log diversi selezionati per una macchina virtuale.](media/diagnostics-extension-windows-install/logs.png)
 
 7. Nella scheda **Dump di arresto anomalo** specificare i processi per la raccolta di dump di memoria dopo un arresto anomalo del sistema. I dati verranno scritti nell'account di archiviazione definito dall'impostazione di diagnostica, ed è possibile specificare facoltativamente un contenitore BLOB.
 
@@ -58,7 +58,7 @@ Quando si configura l'estensione Diagnostica di Azure è necessario specificare 
 
 8. Nella scheda **Sink** specificare se inviare i dati a percorsi diversi dall'archiviazione di Azure. Se si seleziona **Monitoraggio di Azure**, i dati sulle prestazioni guest verranno inviati alle metriche di Monitoraggio di Azure. Non è possibile configurare il sink degli hub eventi usando il portale di Azure.
 
-   ![Screenshot mostra la scheda sink con l'opzione Invia dati di diagnostica a monitoraggio di Azure abilitata.](media/diagnostics-extension-windows-install/sinks.png)
+   ![Screenshot che mostra la scheda Sink con l'opzione Invia dati di diagnostica Monitoraggio di Azure abilitata.](media/diagnostics-extension-windows-install/sinks.png)
    
    Se non è stata abilitata un'identità assegnata dal sistema per la macchina virtuale, è possibile che venga visualizzato l'avviso seguente quando si salva una configurazione con il sink di Monitoraggio di Azure. Fare clic sul banner per abilitare l'identità assegnata dal sistema.
    
@@ -66,7 +66,7 @@ Quando si configura l'estensione Diagnostica di Azure è necessario specificare 
 
 9. In **Agente** è possibile modificare l'account di archiviazione, impostare la quota del disco e specificare se verranno raccolti i log dell'infrastruttura di diagnostica.  
 
-   ![Screenshot mostra la scheda agente con l'opzione per impostare l'account di archiviazione.](media/diagnostics-extension-windows-install/agent.png)
+   ![Screenshot che mostra la scheda Agente con l'opzione per impostare l'account di archiviazione.](media/diagnostics-extension-windows-install/agent.png)
 
 10. Fare clic su **Salva** per salvare la configurazione. 
 
@@ -77,7 +77,7 @@ Quando si configura l'estensione Diagnostica di Azure è necessario specificare 
 Vedere [Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md) per informazioni sulla distribuzione dell'estensione di diagnostica con i modelli di Azure Resource Manager. 
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
-L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione Diagnostica di Azure a una macchina virtuale esistente usando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set), come nell'esempio seguente. 
+L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione Diagnostica di Azure a una macchina virtuale esistente usando [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set), come nell'esempio seguente. 
 
 ```azurecli
 az vm extension set \

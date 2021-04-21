@@ -1,7 +1,7 @@
 ---
-title: Trasmettere audio compresso del codec con Speech SDK - Servizio Voce
+title: Trasmettere l'audio compresso del codec con Speech SDK - Servizio Voce
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come trasmettere audio compresso al servizio Voce con Speech SDK. Disponibile per C++, C# e Java per Linux, Java in Android e Objective-C in iOS.
+description: Informazioni su come trasmettere l'audio compresso al servizio Voce con Speech SDK. Disponibile per C++, C# e Java per Linux, Java in Android e Objective-C in iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -12,18 +12,18 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: f02a9a3b493ed0f3068e6e0ccd2daa40850a4fb6
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: db902019b4fb1237c8403c719862d8fca4ba4f28
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726179"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772524"
 ---
-# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Usare l'input audio compresso del codec con Speech SDK
+# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Usare l'input audio compresso da codec con Speech SDK
 
-Speech Service SDK offre un modo per inviare direttamente i formati audio compressi al servizio Voce usando o (nessuno dei due approcci viene trasmesso direttamente al `PullStream` back-end, un PCM non elaborato viene comunque inviato al `PushStream` servizio).
+Speech Service SDK può accettare formati audio compressi. Decoomprime l'audio prima di inviarlo in transito al servizio Voce come PCM non elaborato.
 
-Piattaforma | Linguaggi | Versione GStreamer supportata
+Piattaforma | Linguaggi | Versione di GStreamer supportata
 | :--- | ---: | :---:
 Windows (esclusa la piattaforma UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/)
 Linux  | C++, C#, Java, Python | [distribuzioni Linux supportate e architetture di destinazione](~/articles/cognitive-services/speech-service/speech-sdk.md)
@@ -54,7 +54,7 @@ Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/prerequisites.md)]
 ::: zone-end
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>Codice di esempio che usa l'input audio compresso del codec
+## <a name="example-code-using-codec-compressed-audio-input"></a>Codice di esempio che usa l'input audio compresso di codec
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/examples.md)]
@@ -75,4 +75,4 @@ Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni sul riconoscimento vocale](./get-started-speech-to-text.md)
+> [Informazioni su come riconoscere il riconoscimento vocale](./get-started-speech-to-text.md)

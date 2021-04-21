@@ -3,12 +3,12 @@ title: Considerazioni sull'archiviazione per Funzioni di Azure
 description: Informazioni sui requisiti di archiviazione di Funzioni di Azure e sulla crittografia dei dati archiviati.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: c4ffb622482585e35337caf8e43b69e0f3b0385c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5faa85a4fac9fc0b8639f33c475283f4f043c627
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517264"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107779256"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerazioni sull'archiviazione per Funzioni di Azure
 
@@ -18,30 +18,30 @@ Funzioni di Azure richiede un account di Archiviazione di Azure quando si crea u
 |Servizio di archiviazione  | Utilizzo delle funzioni  |
 |---------|---------|
 | [Archivio BLOB di Azure](../storage/blobs/storage-blobs-introduction.md)     | Gestire lo stato delle associazioni e i tasti funzione.  <br/>Usato anche dagli [hub attività in Durable Functions](durable/durable-functions-task-hubs.md). |
-| [File di Azure](../storage/files/storage-files-introduction.md)  | Condivisione file usata per archiviare ed eseguire il codice dell'app per le funzioni in un [piano a consumo](consumption-plan.md) e in un [piano Premium](functions-premium-plan.md). |
+| [File di Azure](../storage/files/storage-files-introduction.md)  | Condivisione file usata per archiviare ed eseguire il codice dell'app per le funzioni in un piano a [consumo](consumption-plan.md) e [in un piano Premium.](functions-premium-plan.md) |
 | [Archiviazione code di Azure](../storage/queues/storage-queues-introduction.md)     | Usato dagli [hub attività in Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Archivio tabelle di Azure](../storage/tables/table-storage-overview.md)  |  Usato dagli [hub attività in Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
-> Quando si usa il piano di hosting a consumo/Premium, il codice della funzione e i file di configurazione dell'associazione vengono archiviati nell'archiviazione file di Azure nell'account di archiviazione principale. Quando si elimina l'account di archiviazione principale, il contenuto viene eliminato e non può essere ripristinato.
+> Quando si usa il piano di hosting Consumption/Premium, il codice della funzione e i file di configurazione dell'associazione vengono archiviati in Archiviazione file di Azure nell'account di archiviazione principale. Quando si elimina l'account di archiviazione principale, il contenuto viene eliminato e non può essere ripristinato.
 
 ## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di Archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, code e tabelle. Questo perché Funzioni di Azure si basa internamente su Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione non supportano code e tabelle. Questi account includono gli account di archiviazione solo BLOB e archiviazione Premium di Azure.
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di Archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, code e tabelle. Questo perché Funzioni di Azure si basa internamente su Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione non supportano code e tabelle. Questi account includono account di archiviazione solo BLOB e azure Archiviazione Premium.
 
 Per altre informazioni sui tipi di account di archiviazione, vedere l'[introduzione ai servizi di Archiviazione di Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
-Sebbene sia possibile usare un account di archiviazione esistente con l'app per le funzioni, è necessario assicurarsi che soddisfi questi requisiti. Gli account di archiviazione creati come parte dell'app per le funzioni crea flusso nel portale di Azure garantiscono che soddisfino i requisiti dell'account di archiviazione. Nel portale, gli account non supportati vengono filtrati quando si sceglie un account di archiviazione esistente durante la creazione di un'app per le funzioni. In questo flusso è possibile scegliere solo gli account di archiviazione esistenti nella stessa area dell'app per le funzioni che si sta creando. Per altre informazioni, vedere [percorso dell'account di archiviazione](#storage-account-location).
+Sebbene sia possibile usare un account di archiviazione esistente con l'app per le funzioni, è necessario assicurarsi che soddisfi questi requisiti. Gli account di archiviazione creati come parte del flusso di creazione dell'app per le funzioni portale di Azure sono garantiti per soddisfare questi requisiti dell'account di archiviazione. Nel portale gli account non supportati vengono filtrati quando si sceglie un account di archiviazione esistente durante la creazione di un'app per le funzioni. In questo flusso è possibile scegliere solo gli account di archiviazione esistenti nella stessa area dell'app per le funzioni che si sta creando. Per altre informazioni, vedere [Percorso dell'account di archiviazione.](#storage-account-location)
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 ## <a name="storage-account-guidance"></a>Linee guida sugli account di archiviazione
 
-Ogni app per le funzioni richiede un account di archiviazione per funzionare. Se l'account viene eliminato, l'app per le funzioni non sarà eseguibile. Per risolvere i problemi correlati all'archiviazione, vedere [Come risolvere i problemi relativi all'archiviazione](functions-recover-storage-account.md). Le considerazioni aggiuntive seguenti sono valide per l'account di archiviazione usato dalle app per le funzioni.
+Ogni app per le funzioni richiede un account di archiviazione per funzionare. Se l'account viene eliminato, l'app per le funzioni non sarà eseguibile. Per risolvere i problemi correlati all'archiviazione, vedere [Come risolvere i problemi relativi all'archiviazione](functions-recover-storage-account.md). Le considerazioni aggiuntive seguenti si applicano all'account di archiviazione usato dalle app per le funzioni.
 
 ### <a name="storage-account-location"></a>Posizione dell'account di archiviazione
 
-Per ottenere prestazioni ottimali, l'app per le funzioni deve usare un account di archiviazione nella stessa area, riducendo la latenza. Il portale di Azure applica questa procedura consigliata. Se, per qualche motivo, è necessario usare un account di archiviazione in un'area diversa dall'app per le funzioni, è necessario creare l'app per le funzioni all'esterno del portale. 
+Per prestazioni ottimali, l'app per le funzioni deve usare un account di archiviazione nella stessa area, riducendo la latenza. Il portale di Azure applica questa procedura consigliata. Se, per qualche motivo, è necessario usare un account di archiviazione in un'area diversa dall'app per le funzioni, è necessario creare l'app per le funzioni all'esterno del portale. 
 
 ### <a name="storage-account-connection-setting"></a>Impostazione di connessione dell'account di archiviazione
 
@@ -63,15 +63,15 @@ Se si rigenerano le chiavi di archiviazione, è necessario aggiornare le stringh
 
 ### <a name="in-region-data-residency"></a>Residenza dei dati nell'area geografica
 
-Quando tutti i dati dei clienti devono rimanere all'interno di una singola area, l'account di archiviazione associato all'app per le funzioni deve essere uno con [ridondanza all'](../storage/common/storage-redundancy.md)interno dell'area. È necessario usare anche un account di archiviazione con ridondanza in area con [Durable Functions di Azure](./durable/durable-functions-perf-and-scale.md#storage-account-selection).
+Quando tutti i dati dei clienti devono rimanere all'interno di una singola area, l'account di archiviazione associato all'app per le funzioni deve essere uno con ridondanza [nell'area](../storage/common/storage-redundancy.md). Un account di archiviazione con ridondanza dell'area deve essere usato anche con [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection).
 
-Altri dati relativi ai clienti gestiti dalla piattaforma vengono archiviati solo all'interno dell'area durante l'hosting in un ambiente del servizio app di bilanciamento del carico interno (ASE). Per altre informazioni, vedere la pagina relativa alla [ridondanza della zona ASE](../app-service/environment/zone-redundancy.md#in-region-data-residency).
+Altri dati dei clienti gestiti dalla piattaforma vengono archiviati nell'area solo quando vengono ospitati in un ambiente del servizio ambiente del servizio app (ASE). Per altre informazioni, vedere [Ridondanza della zona dell'app.](../app-service/environment/zone-redundancy.md#in-region-data-residency)
 
 ## <a name="mount-file-shares"></a>Montare condivisioni file
 
 _Questa funzionalità è attualmente disponibile solo quando è in esecuzione in Linux._ 
 
-È possibile montare condivisioni di File di Azure esistenti nelle app per le funzioni di Linux. Montando una condivisione nell'app per le funzioni di Linux è possibile sfruttare i modelli di machine learning esistenti o altri dati nelle funzioni. È possibile usare il comando [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) per montare una condivisione esistente nell'app per le funzioni di Linux. 
+È possibile montare condivisioni di File di Azure esistenti nelle app per le funzioni di Linux. Montando una condivisione nell'app per le funzioni di Linux è possibile sfruttare i modelli di machine learning esistenti o altri dati nelle funzioni. È possibile usare il comando [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) per montare una condivisione esistente nell'app per le funzioni di Linux. 
 
 In questo comando `share-name` è il nome della condivisione File di Azure esistente e `custom-id` può essere qualsiasi stringa che definisca in modo univoco la condivisione quando viene montata nell'app per le funzioni. `mount-path`, invece, è il percorso da cui viene eseguito l'accesso alla condivisione nell'app per le funzioni. `mount-path` deve essere nel formato `/dir-name` e non può iniziare con `/home`.
 

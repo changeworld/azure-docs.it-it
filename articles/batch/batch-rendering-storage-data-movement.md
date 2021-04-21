@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 55ec04df2a107dabfc72298bc8849c13f3a926e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a18ee6961cb601b0fa9db7213eb6115afa20096
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86147297"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765198"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opzioni di archiviazione e spostamento dati per i file di asset e output del rendering
 
@@ -87,7 +87,7 @@ Poiché i file sono semplicemente BLOB in Archiviazione di Azure, per copiare i 
 
 [File di Azure](../storage/files/storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB.  File di Azure si basa su Archiviazione BLOB di Azure, è [conveniente](https://azure.microsoft.com/pricing/details/storage/files/), può essere configurato con la replica dei dati in un'altra area ed è quindi ridondante a livello globale.  È necessario consultare gli [obiettivi di scalabilità](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) per determinare se è opportuno usare File di Azure in base alla dimensione del pool di previsione e al numero di file di asset.
 
-È disponibile la [documentazione](../storage/files/storage-how-to-use-files-windows.md) che illustra come montare una condivisione file di Azure.
+È disponibile documentazione [che](../storage/files/storage-how-to-use-files-windows.md) illustra come montare una condivisione file di Azure.
 
 ### <a name="mounting-an-azure-files-share"></a>Montaggio di una condivisione di File di Azure
 
@@ -126,7 +126,7 @@ Le attività di processo specificano i percorsi dei file di input e di output tr
 
 File di Azure è supportato da tutte le API e gli strumenti principali che dispongono del supporto per Archiviazione di Azure, ad esempio azcopy, l'interfaccia della riga di comando di Azure, Storage Explorer, Azure PowerShell, Batch Explorer e così via.
 
-[Sincronizzazione file di Azure](../storage/files/storage-sync-files-planning.md) è disponibile per sincronizzare automaticamente i file tra un file system locale e una condivisione di File di Azure.
+[Sincronizzazione file di Azure](../storage/file-sync/file-sync-planning.md) è disponibile per sincronizzare automaticamente i file tra un file system locale e una condivisione di File di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

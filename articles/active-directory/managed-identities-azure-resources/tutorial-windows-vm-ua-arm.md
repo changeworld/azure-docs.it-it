@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: usare un'identità gestita per accedere a Azure Resource Manager-Windows-Azure AD"
+title: "Esercitazione: Usare un'identità gestita per accedere Azure Resource Manager - Windows - Azure AD"
 description: Esercitazione che illustra come usare un'identità gestita assegnata dall'utente in una macchina virtuale Windows per accedere ad Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f46d92c38d2d2567eeaafce0f9c5c9c3b5dd44c5
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 37b7b6332bdd000968dc136b946d61ebe82d87ad
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107307062"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776376"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Esercitazione: Usare un'identità gestita assegnata dall'utente in una macchina virtuale Windows per accedere ad Azure Resource Manager
 
@@ -45,7 +46,7 @@ Si apprenderà come:
 
 - [Creare una macchina virtuale Windows](../../virtual-machines/windows/quick-create-portal.md)
 
-- Per eseguire la procedura delle attività richieste di creazione delle risorse e gestione dei ruoli in questa esercitazione, l'account deve disporre delle autorizzazioni "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza per l'assegnazione di ruolo, vedere [assegnare i ruoli di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md).
+- Per eseguire la procedura delle attività richieste di creazione delle risorse e gestione dei ruoli in questa esercitazione, l'account deve disporre delle autorizzazioni "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza per l'assegnazione di ruolo, vedere [Assegnare ruoli di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure.](../../role-based-access-control/role-assignments-portal.md)
 
 - Per eseguire gli script di esempio, sono disponibili due opzioni:
     - Usare [Azure Cloud Shell](../../cloud-shell/overview.md), che è possibile aprire usando il pulsante **Prova** nell'angolo in alto a destra dei blocchi di codice.

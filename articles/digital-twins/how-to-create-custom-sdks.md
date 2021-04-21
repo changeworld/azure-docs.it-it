@@ -1,7 +1,7 @@
 ---
-title: Creare SDK in linguaggio personalizzato con autorest
+title: Creare SDK in linguaggio personalizzato con AutoRest
 titleSuffix: Azure Digital Twins
-description: Informazioni su come usare autorest per generare SDK in linguaggio personalizzato, per scrivere codice di Azure Digital gemelli in altri linguaggi senza SDK pubblicati.
+description: Informazioni su come usare AutoRest per generare SDK in linguaggio personalizzato, per scrivere codice Gemelli digitali di Azure in altri linguaggi che non hanno pubblicato SDK.
 author: baanders
 ms.author: baanders
 ms.date: 3/9/2021
@@ -10,81 +10,81 @@ ms.service: digital-twins
 ms.custom:
 - devx-track-js
 - contperf-fy21q3
-ms.openlocfilehash: 35cf54199f8f2c187ad397c21fb941111f07c4a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e91bf5acc5290229afa8dc7a849e8953257bcfd
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561841"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751113"
 ---
-# <a name="create-custom-language-sdks-for-azure-digital-twins-using-autorest"></a>Creare SDK per il linguaggio personalizzato per i dispositivi gemelli digitali di Azure con autorest
+# <a name="create-custom-language-sdks-for-azure-digital-twins-using-autorest"></a>Creare SDK in linguaggio personalizzato per Gemelli digitali di Azure usando AutoRest
 
-Se è necessario usare i dispositivi gemelli digitali di Azure con un linguaggio che non dispone di un [SDK digitale di gemelli di Azure pubblicato](how-to-use-apis-sdks.md), in questo articolo viene illustrato come usare autorest per generare un SDK personalizzato nel linguaggio desiderato. 
+Se è necessario usare Gemelli digitali di Azure usando un linguaggio che non dispone di un [SDK di Gemelli digitali di Azure](how-to-use-apis-sdks.md)pubblicato, questo articolo illustra come usare AutoRest per generare il proprio SDK nel linguaggio preferito. 
 
-Gli esempi in questo articolo illustrano la creazione di un [SDK del piano dati](how-to-use-apis-sdks.md#overview-data-plane-apis), ma questo processo funzionerà anche per la generazione di un  [SDK del piano di controllo](how-to-use-apis-sdks.md#overview-control-plane-apis) .
+Gli esempi in questo articolo illustrano la creazione di un [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis)del piano dati, ma questo processo funzionerà anche per la generazione di un  [SDK](how-to-use-apis-sdks.md#overview-control-plane-apis) del piano di controllo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per generare un SDK, prima di tutto è necessario completare la configurazione seguente nel computer locale:
-* Installa [**autorest**](https://github.com/Azure/autorest), versione 2.0.4413 (la versione 3 non è attualmente supportata)
-* Installare [**Node.js**](https://nodejs.org), che è un prerequisito per l'uso di autorest
+Per generare un SDK, è prima necessario completare la configurazione seguente nel computer locale:
+* Installare [**AutoRest**](https://github.com/Azure/autorest), versione 2.0.4413 (la versione 3 non è attualmente supportata)
+* Installare [**Node.js**](https://nodejs.org), che è un requisito preliminare per l'uso di AutoRest
 * Installare [ **Visual Studio**](https://visualstudio.microsoft.com/downloads/)
-* Scaricare la versione più recente del file openapi (Digital Gemini **Data Plane** ) dalla [cartella spavalderia del piano dati](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins), insieme alla relativa cartella di esempi. Il file spavalderia è quello denominato *digitaltwins.json*.
+* Scaricare la versione Gemelli digitali di Azure file **Swagger** (OpenAPI) del piano dati dalla cartella [Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)del piano dati, insieme alla relativa cartella di esempi. Il file Swagger è quello denominato *digitaltwins.jsin*.
 
 >[!TIP]
-> Per creare invece un **SDK del piano di controllo** , completare la procedura descritta in questo articolo usando il file openapi ( **Control Plan spavalderia** ) più recente della [cartella del piano](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) di controllo di spavalderia anziché il piano dati uno.
+> Per creare invece un **SDK** del piano di controllo, completare i passaggi descritti in questo articolo usando il file **Swagger** (OpenAPI) del piano di controllo più recente dalla cartella [Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) del piano di controllo invece del piano dati uno.
 
-Quando il computer è dotato di tutti gli elementi dall'elenco precedente, è possibile usare autorest per creare un SDK.
+Quando il computer è dotato di tutti gli elementi dell'elenco precedente, è possibile usare AutoRest per creare un SDK.
 
-## <a name="create-the-sdk-using-autorest"></a>Creare l'SDK usando autorest 
+## <a name="create-the-sdk-using-autorest"></a>Creare l'SDK usando AutoRest 
 
-Dopo aver Node.js installato, è possibile eseguire questo comando per verificare che sia installata la versione richiesta di autorest:
+Dopo aver installato Node.js, è possibile eseguire questo comando per assicurarsi che sia installata la versione richiesta di AutoRest:
 ```cmd/sh
 npm install -g autorest@2.0.4413
 ```
 
-Per eseguire autorest nel file con estensione per i gemelli digitali di Azure, seguire questa procedura:
-1. Copiare il file spavalderia di Digital gemelli di Azure e la cartella di esempi associata in una directory di lavoro.
-2. Utilizzare una finestra del prompt dei comandi per passare alla directory di lavoro.
-3. Eseguire autorest con il comando seguente. Sostituire il `<language>` segnaposto con la lingua scelta: `python` , `java` , `go` e così via. (È possibile trovare l'elenco completo delle opzioni nel [file Leggimi di autorest](https://github.com/Azure/autorest)).
+Per eseguire AutoRest nel file Gemelli digitali di Azure Swagger, seguire questa procedura:
+1. Copiare Gemelli digitali di Azure file Swagger e la relativa cartella di esempi in una directory di lavoro.
+2. Usare una finestra del prompt dei comandi per passare alla directory di lavoro.
+3. Eseguire AutoRest con il comando seguente. Sostituire il `<language>` segnaposto con la lingua scelta: `python` , , e così `java` `go` via. È possibile trovare l'elenco completo delle opzioni nel [file LEGGIMI di AutoRest.](https://github.com/Azure/autorest)
 
 ```cmd/sh
 autorest --input-file=digitaltwins.json --<language> --output-folder=DigitalTwinsApi --add-credentials --azure-arm --namespace=DigitalTwinsApi
 ```
 
-Verrà quindi visualizzata una nuova cartella denominata *DigitalTwinsApi* nella directory di lavoro. I file SDK generati avranno lo spazio dei nomi *DigitalTwinsApi*. Lo spazio dei nomi continuerà a essere usato nei restanti esempi di utilizzo di questo articolo.
+Di conseguenza, nella directory di lavoro verrà visualizzata una nuova cartella denominata *DigitalTwinsApi.* I file SDK generati avranno lo spazio dei *nomi DigitalTwinsApi*. Si continuerà a usare tale spazio dei nomi tramite il resto degli esempi di utilizzo in questo articolo.
 
-Autorest supporta un'ampia gamma di generatori di codice della lingua.
+AutoRest supporta un'ampia gamma di generatori di codice del linguaggio.
 
 ## <a name="make-the-sdk-into-a-class-library"></a>Rendere l'SDK in una libreria di classi
 
-È possibile includere i file generati da autorest direttamente in una soluzione .NET. Tuttavia, è probabile che si voglia includere Azure Digital Twins SDK in diversi progetti distinti (app client, app di funzioni di Azure e altro ancora). Per questo motivo, può essere utile compilare un progetto separato, ovvero una libreria di classi .NET, dai file generati. È quindi possibile includere questo progetto di libreria di classi in diverse soluzioni come riferimento al progetto.
+È possibile includere i file generati da AutoRest direttamente in una soluzione .NET. Tuttavia, è probabile che si voglia includere l'SDK di Gemelli digitali di Azure in diversi progetti separati (app client, app Funzioni di Azure e altro ancora). Per questo motivo, può essere utile compilare un progetto separato (una libreria di classi .NET) dai file generati. È quindi possibile includere questo progetto di libreria di classi in diverse soluzioni come riferimento al progetto.
 
-In questa sezione vengono fornite istruzioni su come compilare l'SDK come libreria di classi, che è il proprio progetto e che può essere incluso in altri progetti. Questa procedura si basa su **Visual Studio**.
+In questa sezione vengono fornite istruzioni su come compilare l'SDK come libreria di classi, che è il proprio progetto e può essere incluso in altri progetti. Questi passaggi si basano **Visual Studio**.
 
 Di seguito sono riportati i passaggi necessari:
 
-1. Creare una nuova soluzione di Visual Studio per una libreria di classi
+1. Creare una nuova soluzione Visual Studio per una libreria di classi
 2. Usare *DigitalTwinsApi* come nome del progetto
-3. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto *DigitalTwinsApi* della soluzione generata e scegliere *Aggiungi > elemento esistente...*
-4. Individuare la cartella in cui è stato generato l'SDK e selezionare i file a livello di radice
+3. In Esplora soluzioni fare clic con il pulsante destro del mouse sul *progetto DigitalTwinsApi* della soluzione generata e scegliere Aggiungi > *elemento esistente...*
+4. Trovare la cartella in cui è stato generato l'SDK e selezionare i file a livello di radice
 5. Premere "OK"
-6. Aggiungere una cartella al progetto (fare clic con il pulsante destro del mouse sul progetto Esplora soluzioni e scegliere *aggiungi > nuova cartella*).
-7. Assegnare un nome ai *modelli* di cartella
-8. Fare clic con il pulsante destro del mouse sulla cartella *Models* in Esplora soluzioni e scegliere *Aggiungi > elemento esistente...*
-9. Selezionare i file nella cartella *modelli* dell'SDK generato e fare clic su "OK".
+6. Aggiungere una cartella al progetto (fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere Aggiungi > *nuova cartella*)
+7. Assegnare alla cartella il nome *Models*
+8. Fare clic con il pulsante *destro del mouse* sulla cartella Esplora soluzioni e scegliere > Elemento *esistente...*
+9. Selezionare i file nella *cartella Models dell'SDK* generato e premere "OK"
 
-Per compilare l'SDK correttamente, il progetto richiederà i riferimenti seguenti:
+Per compilare correttamente l'SDK, il progetto avrà bisogno di questi riferimenti:
 * `Microsoft.Rest.ClientRuntime`
 * `Microsoft.Rest.ClientRuntime.Azure`
 
-Per aggiungerli, aprire *strumenti > gestione pacchetti nuget > gestire i pacchetti NuGet per la soluzione...*.
+Per aggiungerli, aprire *Strumenti > NuGet Gestione pacchetti > Gestisci pacchetti NuGet per la soluzione...*.
 
-1. Nel pannello verificare che sia selezionata la scheda *Sfoglia* .
-2. Cerca *Microsoft. Rest*
+1. Nel pannello verificare che la scheda *Sfoglia* sia selezionata
+2. Cercare *Microsoft.Rest*
 3. Selezionare i `ClientRuntime` `ClientRuntime.Azure` pacchetti e e aggiungerli alla soluzione
 
-È ora possibile compilare il progetto e includerlo come riferimento a un progetto in qualsiasi applicazione di dispositivi digitali gemelli di Azure che si scrive.
+È ora possibile compilare il progetto e includerlo come riferimento al progetto in qualsiasi applicazione Gemelli digitali di Azure scrittura.
 
 ## <a name="tips-for-using-the-sdk"></a>Suggerimenti per l'uso dell'SDK
 
@@ -94,38 +94,38 @@ Questa sezione contiene informazioni generali e linee guida per l'uso dell'SDK g
 
 Tutte le funzioni SDK sono disponibili in versioni sincrone e asincrone.
 
-### <a name="typed-and-untyped-data"></a>Dati tipizzati e non tipizzati
+### <a name="typed-and-untyped-data"></a>Dati tipiati e non tipi
 
-Le chiamate API REST in genere restituiscono oggetti fortemente tipizzati. Tuttavia, poiché i dispositivi gemelli digitali di Azure consentono agli utenti di definire tipi personalizzati per i dispositivi gemelli, non è possibile predefinire i dati restituiti statici per molte chiamate di Azure Digital gemelli. Al contrario, le API restituiscono tipi di wrapper fortemente tipizzati, se applicabile, e i dati del dispositivo gemello personalizzato si trovano in oggetti Json.NET (utilizzati ovunque il tipo di dati "oggetto" viene visualizzato nelle firme dell'API). È possibile eseguire il cast di questi oggetti in modo appropriato nel codice.
+Le chiamate API REST in genere restituiscono oggetti fortemente tipizzato. Tuttavia, poiché Gemelli digitali di Azure consente agli utenti di definire i propri tipi personalizzati per i gemelli, non è possibile pre-definire i dati restituiti statici per molte Gemelli digitali di Azure chiamate. Al contrario, le API restituiscono tipi wrapper fortemente tipizzato, se applicabile, e i dati del dispositivo gemello personalizzato si trova in oggetti Json.NET (usati ovunque il tipo di dati "object" venga visualizzato nelle firme dell'API). È possibile eseguire il cast di questi oggetti in modo appropriato nel codice.
 
 ### <a name="error-handling"></a>Gestione degli errori
 
-Ogni volta che si verifica un errore nell'SDK (inclusi errori HTTP come 404), l'SDK genererà un'eccezione. Per questo motivo, è importante incapsulare tutte le chiamate API nei blocchi try/catch.
+Ogni volta che si verifica un errore nell'SDK (inclusi gli errori HTTP, ad esempio 404), l'SDK genererà un'eccezione. Per questo motivo, è importante incapsulare tutte le chiamate API all'interno di blocchi try/catch.
 
-Ecco un frammento di codice che tenta di aggiungere un dispositivo gemello e rileva gli eventuali errori in questo processo:
+Ecco un frammento di codice che tenta di aggiungere un gemello e rileva eventuali errori in questo processo:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_errorHandling":::
 
 ### <a name="paging"></a>Paging
 
-Autorest genera due tipi di modelli di paging per l'SDK:
-* Uno per tutte le API, ad eccezione dell'API di query
-* Uno per l'API di query
+AutoRest genera due tipi di modelli di paging per l'SDK:
+* Una per tutte le API tranne l'API Query
+* Uno per l'API Query
 
-Nel modello di paging non di query, di seguito è riportato un metodo di esempio che illustra come recuperare un elenco di pagine di relazioni in uscita da dispositivi gemelli digitali di Azure:
+Nel modello di paging non di query, ecco un metodo di esempio che mostra come recuperare un elenco di pagine di relazioni in uscita da Gemelli digitali di Azure:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
-Il secondo modello viene generato solo per l'API di query. Usa un oggetto in `continuationToken` modo esplicito.
+Il secondo modello viene generato solo per l'API Query. Usa un oggetto in `continuationToken` modo esplicito.
 
 >[!TIP]
-> Un motivo principale per il recupero delle pagine consiste nel calcolare gli [addebiti](concepts-query-units.md) per le unità di query per una chiamata API di query.
+> Un motivo principale per ottenere le pagine è calcolare gli addebiti per [l'unità query](concepts-query-units.md) per una chiamata api query.
 
-Di seguito è riportato un esempio con questo modello:
+Ecco un esempio con questo modello:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="PagedQuery":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare i passaggi per creare un'app client in cui è possibile usare l'SDK:
+Seguire i passaggi per creare un'app client in cui è possibile usare l'SDK:
 * [*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)

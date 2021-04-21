@@ -3,12 +3,12 @@ title: Distribuzione push con file ZIP per Funzioni di Azure
 description: Per pubblicare Funzioni di Azure, usare le funzionalità di distribuzione con file ZIP del servizio di distribuzione Kudu.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb6867d7719f9650acb00f80ac3a933713ce0e23
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96018437"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777652"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Distribuzione con file ZIP per Funzioni di Azure
 
@@ -16,7 +16,7 @@ Questo articolo descrive come distribuire i file di progetto dell'app per le fun
 
 Funzioni di Azure include l'intera gamma di opzioni di integrazione e distribuzione continua offerte dal Servizio app di Azure. Per altre informazioni, vedere [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md).
 
-Per velocizzare lo sviluppo, può risultare più semplice distribuire i file di progetto dell'app per le funzioni direttamente da un file con estensione zip. L'API della distribuzione con estensione zip prende il contenuto di un file con estensione zip e lo estrae nella cartella `wwwroot` dell'app per le funzioni. La distribuzione tramite file ZIP utilizza lo stesso servizio Kudu usato per le distribuzioni basate su integrazione continua, che include:
+Per velocizzare lo sviluppo, può risultare più semplice distribuire i file di progetto dell'app per le funzioni direttamente da un file ZIP. L'API della distribuzione con estensione zip prende il contenuto di un file con estensione zip e lo estrae nella cartella `wwwroot` dell'app per le funzioni. La distribuzione tramite file ZIP utilizza lo stesso servizio Kudu usato per le distribuzioni basate su integrazione continua, che include:
 
 + Eliminazione di file rimasti da distribuzioni precedenti.
 + Personalizzazione della distribuzione, inclusa l'esecuzione di script di distribuzione.
@@ -66,9 +66,9 @@ Quando lo sviluppo avviene in un computer locale, è facile creare un file ZIP d
 
 ## <a name="deploy-by-using-azure-cli"></a><a name="cli"></a>Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
 
-Per attivare una distribuzione push, è possibile utilizzare l'interfaccia della riga di comando di Azure. Eseguire la distribuzione push di un file ZIP nell'app per le funzioni usando il comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Per usare questo comando, è necessario utilizzare l'interfaccia della riga di comando di Azure 2.0.21 o versione successiva. Per visualizzare la versione dell'interfaccia della riga di comando di Azure in uso, utilizzare il comando `az --version`.
+Per attivare una distribuzione push, è possibile utilizzare l'interfaccia della riga di comando di Azure. Eseguire la distribuzione push di un file ZIP nell'app per le funzioni usando il comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config_zip). Per usare questo comando, è necessario utilizzare l'interfaccia della riga di comando di Azure 2.0.21 o versione successiva. Per visualizzare la versione dell'interfaccia della riga di comando di Azure in uso, utilizzare il comando `az --version`.
 
-Nel comando seguente sostituire il segnaposto `<zip_file_path>` con il percorso del file ZIP. Sostituire anche `<app_name>` con il nome univoco dell'app per le funzioni e sostituire `<resource_group>` con il nome del gruppo di risorse.
+Nel comando seguente sostituire il segnaposto `<zip_file_path>` con il percorso del file ZIP. Sostituire anche `<app_name>` con il nome univoco dell'app per le funzioni e sostituire con il nome del gruppo di `<resource_group>` risorse.
 
 ```azurecli-interactive
 az functionapp deployment source config-zip -g <resource_group> -n \
@@ -92,6 +92,6 @@ La distribuzione ZIP si integra con questa funzionalità che può essere attivat
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Distribuzione continua per funzioni di Azure](functions-continuous-deployment.md)
+> [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
 
 [.zip push deployment reference topic]: https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file

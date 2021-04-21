@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: alkemper
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 04d9c7a343570349851a206fd69fdda822f790a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c5534ab836968bc4e72a54db1ddb9667d366558
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99981477"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768850"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Esercitazione: Usare i riferimenti a Key Vault in un'app Java Spring
 
@@ -93,7 +93,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 
 ## <a name="connect-to-key-vault"></a>Connettersi a Key Vault
 
-1. Per questa esercitazione viene usata un'entità servizio per l'autenticazione in Key Vault. Per creare questa entità servizio, usare il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) dell'interfaccia della riga di comando di Azure:
+1. Per questa esercitazione viene usata un'entità servizio per l'autenticazione in Key Vault. Per creare questa entità servizio, usare il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) dell'interfaccia della riga di comando di Azure:
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth
