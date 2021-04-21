@@ -4,12 +4,12 @@ description: Questo script crea un account Azure Batch in modalità sottoscrizio
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9b8ba2ef782dcdc99cb18698175b8b53a53f0dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9bd7b7ac3dbb52ebafa00499e64ec3cff0969a13
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93076776"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768338"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Esempio di interfaccia della riga di comando: creare un account Batch in modalità sottoscrizione utente
 
@@ -38,12 +38,12 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | Comando | Note |
 |---|---|
 | [az role assignment create](/cli/azure/role) | Crea una nuova assegnazione di ruolo per un utente, un gruppo o un'entità servizio. |
-| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az keyvault create](/cli/azure/keyvault#az-keyvault-create) | Crea un insieme di credenziali chiave. |
-| [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) | Aggiornare i criteri di sicurezza dell'insieme di credenziali delle chiavi specificato. |
-| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Crea l'account Batch.  |
-| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando.  |
-| [az group delete](/cli/azure/group#az-group-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az keyvault create](/cli/azure/keyvault#az_keyvault_create) | Crea un insieme di credenziali chiave. |
+| [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) | Aggiornare i criteri di sicurezza dell'insieme di credenziali delle chiavi specificato. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Crea l'account Batch.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

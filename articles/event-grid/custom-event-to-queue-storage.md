@@ -4,12 +4,12 @@ description: "Guida introduttiva: Usare Griglia di eventi di Azure e l'interfacc
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb7712fbc5a0498695a8737d627f407eb6dfa575
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99493261"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766826"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati ad Archiviazione code di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -29,7 +29,7 @@ Questo articolo elenca i comandi utili per l'uso dell'interfaccia della riga di 
 
 Gli argomenti della griglia di eventi sono risorse di Azure e devono essere inseriti in un gruppo di risorse di Azure. Un gruppo di risorse è una raccolta logica in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). 
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). 
 
 L'esempio seguente crea un gruppo di risorse denominato *gridResourceGroup* nella località *westus2*.
 
@@ -118,9 +118,9 @@ Passare all'archivio code nel portale e notare che Griglia di eventi ha inviato 
 ![Visualizzare i messaggi](./media/custom-event-to-queue-storage/messages.png)
 
 > [!NOTE]
-> Se si usa un [trigger di archiviazione code di Azure per funzioni di Azure](../azure-functions/functions-bindings-storage-queue-trigger.md) per una coda che riceve messaggi da griglia di eventi, è possibile che venga visualizzato il messaggio di errore seguente nell'esecuzione della funzione: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> Se si usa un trigger di archiviazione code di [Azure](../azure-functions/functions-bindings-storage-queue-trigger.md) per Funzioni di Azure per una coda che riceve messaggi da Griglia di eventi, è possibile che venga visualizzato il messaggio di errore seguente per l'esecuzione della funzione: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
 > 
-> Il motivo è che quando si usa un [trigger di archiviazione code di Azure](../azure-functions/functions-bindings-storage-queue-trigger.md), funzioni di Azure prevede una **stringa con codifica Base64**, ma griglia di eventi invia messaggi a una coda di archiviazione in un formato di testo normale. Attualmente, non è possibile configurare il trigger della coda per le funzioni di Azure in modo che accettino testo normale. 
+> Il motivo è che quando si usa un trigger di archiviazione code di [Azure,](../azure-functions/functions-bindings-storage-queue-trigger.md)Funzioni di Azure si prevede una stringa con codifica **Base64,** ma Griglia di eventi invia messaggi a una coda di archiviazione in formato testo normale. Attualmente non è possibile configurare il trigger della coda per Funzioni di Azure accettare testo normale. 
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

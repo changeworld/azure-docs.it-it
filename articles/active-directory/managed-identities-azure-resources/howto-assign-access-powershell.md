@@ -1,5 +1,5 @@
 ---
-title: Assegnare un accesso a identità gestite a una risorsa usando PowerShell-Azure AD
+title: Assegnare a un'identità gestita l'accesso a una risorsa usando PowerShell - Azure AD
 description: Istruzioni dettagliate per l'assegnazione di un'identità gestita in una risorsa, l'accesso a un'altra risorsa tramite PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1a7a608df7a2b752d9a6bed52a4024fd776c5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fc5df641f27f8d604f7b5647736128856a3ecd51
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97592501"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764370"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Assegnare a un'identità gestita l'accesso a una risorsa tramite PowerShell
 
@@ -38,9 +39,9 @@ Dopo aver configurato una risorsa di Azure con un'identità gestita, è possibil
     - Usare [Azure Cloud Shell](../../cloud-shell/overview.md), che è possibile aprire con il pulsante **Prova** nell'angolo in alto a destra dei blocchi di codice.
     - Eseguire gli script in locale installando l'ultima versione di [Azure PowerShell](/powershell/azure/install-az-ps), quindi accedere ad Azure usando `Connect-AzAccount`. 
 
-## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Usare il controllo degli accessi in base al ruolo di Azure
+## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Usare il controllo degli accessi in base al ruolo di Azure per assegnare a un'identità gestita l'accesso a un'altra risorsa
 
-1. Abilitare l'identità gestita in una risorsa di Azure, [ad esempio una macchina virtuale di Azure](qs-configure-powershell-windows-vm.md).
+1. Abilitare l'identità gestita in una risorsa di Azure, [ad esempio una macchina virtuale di Azure.](qs-configure-powershell-windows-vm.md)
 
 1. In questo esempio, viene concesso l'accesso alla macchina virtuale di Azure in un account di archiviazione. Prima di tutto viene usato il comando [Get-AzVM](/powershell/module/az.compute/get-azvm) per ottenere l'entità servizio per la macchina virtuale denominata `myVM`, che è stata creata quando è stata abilitata l'identità gestita. Viene quindi usato [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) per concedere alla macchina virtuale l'accesso in **Lettura** a un account di archiviazione denominato `myStorageAcct`:
 

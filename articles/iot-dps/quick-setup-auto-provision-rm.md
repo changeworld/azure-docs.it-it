@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 505859075ce58c5db6873544123710a11135651a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bcb37c624f53d961020de022569a621ca1dfaba1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198609"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788993"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Avvio rapido: Configurare il servizio Device Provisioning in hub IoT con un modello di Resource Manager
 
@@ -37,7 +37,7 @@ Se l'ambiente in uso soddisfa i prerequisiti e si ha già familiarità con l'uso
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/).
 
 > [!NOTE]
-> Attualmente non è disponibile alcun supporto per i modelli ARM per la creazione di registrazioni con nuove risorse DPS. Si tratta di una richiesta comune e riconosciuta da considerare per l'implementazione.
+> Attualmente non è disponibile alcun supporto per i modelli di Arm per la creazione di registrazioni con nuove risorse del servizio DPS. Si tratta di una richiesta comune e comprensibile che viene considerata per l'implementazione.
 
 :::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
 
@@ -136,7 +136,7 @@ Accedere al proprio account Azure e selezionare la sottoscrizione.
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
-1. Per verificare la distribuzione, eseguire questo [comando per elencare le risorse](/cli/azure/resource#az-resource-list) e cercare il nuovo servizio di provisioning e il nuovo hub IoT nell'output:
+1. Per verificare la distribuzione, eseguire questo [comando per elencare le risorse](/cli/azure/resource#az_resource_list) e cercare il nuovo servizio di provisioning e il nuovo hub IoT nell'output:
 
     ```azurecli
      az resource list -g "${projectName}rg"
@@ -171,4 +171,3 @@ In questo argomento di avvio rapido sono stati distribuiti un hub IoT e un'istan
 
 > [!div class="nextstepaction"]
 > [Avvio rapido per il provisioning di un dispositivo](./quick-create-simulated-device-symm-key.md)
-

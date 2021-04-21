@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: dfebb6561e83c51063515ec655153aaaa7a09c0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a268d39ec514fc7b88b555221ece7dc044ca49ba
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98251370"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767512"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes
 
@@ -21,7 +21,7 @@ Se si sono eseguite le esercitazioni, si dispone di un cluster Kubernetes funzio
 > * Ridimensionare manualmente i pod Kubernetes che eseguono l'applicazione
 > * Configurare la scalabilità automatica dei pod che eseguono il front-end dell'app
 
-Nelle esercitazioni successive l'applicazione Azure vote viene aggiornata a una nuova versione.
+Nelle esercitazioni successive l'applicazione Azure Vote viene aggiornata a una nuova versione.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -51,7 +51,7 @@ Per modificare manualmente il numero di pod nella distribuzione *azure-vote-fron
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Eseguire di nuovo [kubectl Get Pod][kubectl-get] per verificare che AKS crei correttamente i pod aggiuntivi. Dopo un minuto, i pod sono disponibili nel cluster:
+Eseguire [di nuovo kubectl get pods][kubectl-get] per verificare che AKS crei correttamente i pod aggiuntivi. Dopo circa un minuto, i pod sono disponibili nel cluster:
 
 ```console
 kubectl get pods
@@ -74,9 +74,9 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Se la versione del cluster servizio Azure Kubernetes in uso è inferiore a *1.10*, il server delle metriche non verrà installato automaticamente. I manifesti di installazione del server delle metriche sono disponibili come `components.yaml` asset nelle versioni del server delle metriche, quindi è possibile installarli tramite un URL. Per ulteriori informazioni su queste definizioni YAML, vedere la sezione relativa alla [distribuzione][metrics-server-github] del file Leggimi.
+> Se la versione del cluster servizio Azure Kubernetes in uso è inferiore a *1.10*, il server delle metriche non verrà installato automaticamente. I manifesti di installazione del server di metriche sono disponibili come asset nelle versioni del server di metriche, pertanto è `components.yaml` possibile installarli tramite un URL. Per altre informazioni su queste definizioni YAML, vedere la [sezione Distribuzione][metrics-server-github] del file Leggimi.
 > 
-> Esempio di installazione:
+> Installazione di esempio:
 > ```console
 > kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
@@ -199,6 +199,6 @@ Passare all'esercitazione successiva per apprendere come aggiornare l'applicazio
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
-[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-aks-scale]: /cli/azure/aks#az_aks_scale
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-show]: /cli/azure/aks#az_aks_show

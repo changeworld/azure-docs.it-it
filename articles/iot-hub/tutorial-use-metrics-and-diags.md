@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Configurare e usare metriche e log con un hub Azure IoT rete'
-description: "Esercitazione: Informazioni su come configurare e usare metriche e log con un hub Azure IoT rete. Vengono forniti i dati da analizzare per facilitare la diagnosi dei problemi che l'hub potrebbe avere."
+title: 'Esercitazione: Configurare e usare metriche e log con un hub Azure IoT dati'
+description: "Esercitazione: Informazioni su come configurare e usare metriche e log con un Azure IoT hub. Vengono forniti i dati da analizzare per facilitare la diagnosi dei problemi che l'hub potrebbe avere."
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 62958dc374598e6f530af398f722001e5ed51acd
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 099b7f4e812e92503c7ed8e3eb733f2e49ccd8b9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739693"
+ms.locfileid: "107768072"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Esercitazione: Configurare e usare metriche e log con un hub IoT
 
@@ -219,7 +219,7 @@ Per configurare gli avvisi delle metriche:
 
 1. Configurare prima di tutto la condizione in base alla quale verrà attivato l'avviso.
 
-    1. In **Condizione** selezionare **Aggiungi condizione.** Nel riquadro **Configura logica dei segnali** digitare "telemetria" nella casella di ricerca e selezionare **Messaggi di telemetria inviati**.
+    1. In **Condizione** selezionare **Aggiungi condizione**. Nel riquadro **Configura logica dei segnali** digitare "telemetria" nella casella di ricerca e selezionare **Messaggi di telemetria inviati**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot che mostra la selezione della metrica.":::
 
@@ -245,7 +245,7 @@ Per configurare gli avvisi delle metriche:
 
 1. A questo punto occorre configurare l'azione per l'avviso.
 
-    1. Tornare al riquadro **Crea regola di avviso,** in **Azioni** selezionare Aggiungi gruppi **di azioni.** In **Selezionare un gruppo di azioni da collegare a questa regola di avviso** selezionare **Crea gruppo di azioni**.
+    1. Nel riquadro Crea regola **di avviso** selezionare Aggiungi gruppi di azioni in **Azioni**.  In **Selezionare un gruppo di azioni da collegare a questa regola di avviso** selezionare **Crea gruppo di azioni**.
 
     1. Nella scheda **Informazioni di base** del riquadro **Crea gruppo di azioni** assegnare al gruppo di azioni un nome e un nome visualizzato.
 
@@ -409,7 +409,7 @@ Nella sezione [Raccogliere log relativi alle connessioni e ai dati di telemetria
 
 Per rimuovere tutte le risorse create in questa esercitazione, eliminare il gruppo di risorse. Questa azione elimina tutte le risorse contenute all'interno del gruppo. In questo caso rimuove l'hub IoT, l'area di lavoro Log Analytics e il gruppo di risorse stesso. Se sono stati aggiunti grafici di metriche al dashboard, è necessario rimuoverli manualmente facendo clic sui tre puntini nell'angolo in alto a destra di ciascun grafico e selezionando **Rimuovi**. Assicurarsi di salvare le modifiche dopo aver eliminato i grafici.
 
-Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](/cli/azure/group#az-group-delete).
+Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name ContosoResources

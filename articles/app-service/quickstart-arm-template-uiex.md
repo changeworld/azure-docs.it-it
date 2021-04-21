@@ -9,25 +9,25 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7437a5208f94b435576b8a38dc65a6e798303a72
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bce6bfb61eb59d1fa66c550a133ac8b6f8d7f2c5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179086"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769005"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Avvio rapido: Creare un'app del servizio app usando un modello di Resource Manager
 
-Per iniziare a usare il [servizio app Azure](overview.md) , distribuire un'app nel cloud usando un <abbr title="Un file JSON che definisce in modo dichiarativo una o più risorse e dipendenze di Azure tra le risorse distribuite. Il modello può essere usato per distribuire le risorse in modo coerente e ripetuto.">Modello ARM</abbr> e l'interfaccia della riga di comando di [Azure](/cli/azure/get-started-with-azure-cli) in cloud Shell. Poiché si usa un livello di servizio app gratuito, non verrà addebitato alcun costo per il completamento di questa guida di avvio rapido. <abbr title="Nella sintassi dichiarativa si descrive la distribuzione prevista senza scrivere la sequenza di comandi di programmazione necessari per creare la distribuzione.">Il modello usa la sintassi dichiarativa.</abbr>
+Iniziare a [usare Servizio app di Azure](overview.md) distribuzione di un'app nel cloud usando un <abbr title="File JSON che definisce in modo dichiarativo una o più risorse di Azure e le dipendenze tra le risorse distribuite. Il modello può essere usato per distribuire le risorse in modo coerente e ripetuto.">Modello ARM</abbr> e [l'interfaccia della](/cli/azure/get-started-with-azure-cli) riga di comando di Azure Cloud Shell. Poiché si usa un livello di servizio app gratuito, non verrà addebitato alcun costo per il completamento di questa guida di avvio rapido. <abbr title="Nella sintassi dichiarativa si descrive la distribuzione prevista senza scrivere la sequenza di comandi di programmazione necessari per creare la distribuzione.">Il modello usa la sintassi dichiarativa.</abbr>
 
- Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei [modelli ARM](../azure-resource-manager/templates/overview.md), selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
+ Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli [arm,](../azure-resource-manager/templates/overview.md)selezionare il **pulsante Distribuisci in Azure.** Il modello verrà aperto nel portale di Azure.
 
 ::: zone pivot="platform-windows"
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
 ::: zone-end
 
 ::: zone pivot="platform-linux"
-[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
+[![Distribuisci in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
 ::: zone-end
 
 <hr/>
@@ -38,7 +38,7 @@ Per iniziare a usare il [servizio app Azure](overview.md) , distribuire un'app n
 
 <hr/>
 
-## <a name="2-review-the-template"></a>2. esaminare il modello
+## <a name="2-review-the-template"></a>2. Esaminare il modello
 
 ::: zone pivot="platform-windows"
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Distribuisce un piano di servizio app e un'app del servizio app in Windows.
@@ -53,7 +53,7 @@ Nel modello sono definite due risorse di Azure:
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): per creare un piano di servizio app.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): per creare un'app del servizio app.
 
-La tabella seguente illustra i parametri predefiniti e le relative descrizioni:
+Nella tabella seguente sono riportati i parametri predefiniti e le relative descrizioni:
 
 | Parametri | Type    | Valore predefinito                | DESCRIZIONE |
 |------------|---------|------------------------------|-------------|
@@ -83,7 +83,7 @@ Nel modello sono definite due risorse di Azure:
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): per creare un piano di servizio app.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): per creare un'app del servizio app.
 
-La tabella seguente illustra i parametri predefiniti e le relative descrizioni:
+Nella tabella seguente sono riportati i parametri predefiniti e le relative descrizioni:
 
 | Parametri | Type    | Valore predefinito                | DESCRIZIONE |
 |------------|---------|------------------------------|-------------|
@@ -101,12 +101,12 @@ La tabella seguente illustra i parametri predefiniti e le relative descrizioni:
 
 <hr/>
 
-## <a name="3-deploy-the-template"></a>3. distribuire il modello
+## <a name="3-deploy-the-template"></a>3. Distribuire il modello
 
 ::: zone pivot="platform-windows"
 Eseguire il codice seguente per distribuire un'app .NET Framework in Windows usando l'interfaccia della riga di comando di Azure. 
 
-Sostituisci <abbr title="I caratteri validi sono `a-z` , `0-9` e `-` .">`<app-name>`</abbr> con un nome di app univoco globale. Per altre informazioni <abbr title="È anche possibile usare il portale di Azure, Azure PowerShell e l'API REST.">metodi di distribuzione</abbr>, vedere [deploy templates](../azure-resource-manager/templates/deploy-powershell.md). È possibile trovare altri [esempi di modelli del Servizio app di Azure qui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
+Sostituisci <abbr title="I caratteri validi sono `a-z` `0-9` , e `-` .">`<app-name>`</abbr> con un nome di app univoco globale. Per altre informazioni <abbr title="È anche possibile usare il portale di Azure, Azure PowerShell e l'API REST.">metodi di distribuzione</abbr>, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-powershell.md). È possibile trovare altri [esempi di modelli del Servizio app di Azure qui](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -118,7 +118,7 @@ az deployment group create --resource-group myResourceGroup \
 ::: zone pivot="platform-linux"
 Eseguire il codice seguente per creare un'app Python in Linux. 
 
-Sostituisci <abbr title="I caratteri validi sono `a-z` , `0-9` e `-` .">`<app-name>`</abbr> con un nome di app univoco globale.
+Sostituisci <abbr title="I caratteri validi sono `a-z` `0-9` , e `-` .">`<app-name>`</abbr> con un nome di app univoco globale.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -128,19 +128,19 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 ::: zone-end
 
 <details>
-<summary>Quali sono le operazioni del codice?</summary>
-<p>I comandi eseguono le azioni seguenti:</p>
+<summary>Che cosa fa il codice?</summary>
+<p>I comandi e consentono di eseguire le azioni seguenti:</p>
 <ul>
-<li>Crea un valore predefinito <abbr title="Un contenitore logico per le risorse di Azure correlate che è possibile gestire come unità.">gruppo di risorse</abbr>.</li>
-<li>Crea un valore predefinito <abbr title="Il piano che specifica la posizione, le dimensioni e le funzionalità del server farm Web che ospita l'app.">Piano di servizio app</abbr>.</li>
-<li><a href="/cli/azure/webapp#az-webapp-create">Creazione di un <abbr title="La rappresentazione dell'app Web, che contiene il codice dell'app, i nomi host DNS, i certificati e le risorse correlate. "> App del servizio app</abbr></a> con il nome specificato.</li>
+<li>Creare un valore predefinito <abbr title="Un contenitore logico per le risorse di Azure correlate che è possibile gestire come unità.">gruppo di risorse</abbr>.</li>
+<li>Creare un valore predefinito <abbr title="Il piano che specifica la posizione, le dimensioni e le funzionalità del server farm web che ospita l'app.">Piano di servizio app</abbr>.</li>
+<li><a href="/cli/azure/webapp#az_webapp_create">Creare un oggetto <abbr title="Rappresentazione dell'app Web, che contiene il codice dell'app, i nomi host DNS, i certificati e le risorse correlate. "> App del servizio app</abbr></a> con il nome specificato.</li>
 </ul>
 </details>
 
 ::: zone pivot="platform-windows"
 <details>
 <summary>Ricerca per categorie distribuire uno stack di linguaggi diversi?</summary>
-Per distribuire uno stack di lingue diverso, aggiornare <abbr title="Questo modello è compatibile con le app .NET Core, .NET Framework, PHP, Node.js e HTML statiche. "> parametro Language</abbr> con i valori appropriati. Per Java, vedere <a href="/azure/app-service/quickstart-java-uiex">Creare un'app Java</a>.
+Per distribuire uno stack di linguaggio diverso, aggiornare <abbr title="Questo modello è compatibile con le app .NET Core, .NET Framework, PHP, Node.js e HTML statico. "> parametro language</abbr> con i valori appropriati. Per Java, vedere <a href="/azure/app-service/quickstart-java-uiex">Creare un'app Java</a>.
 
 | Parametri | Type    | Valore predefinito                | Descrizione |
 |------------|---------|------------------------------|-------------|
@@ -152,7 +152,7 @@ Per distribuire uno stack di lingue diverso, aggiornare <abbr title="Questo mode
 ::: zone-end
 ::: zone pivot="platform-linux"
 <details>
-<summary>Ricerca per categorie distribuire uno stack di linguaggi diversi?</summary>
+<summary>Ricerca per categorie distribuire uno stack di linguaggio diverso?</summary>
 Per distribuire uno stack di linguaggio diverso, aggiornare `linuxFxVersion` con i valori appropriati. Di seguito sono riportati alcuni esempi. Per visualizzare le versioni correnti, eseguire questo comando in Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
 
 | Linguaggio    | Esempio:                                              |
@@ -171,13 +171,13 @@ Per distribuire uno stack di linguaggio diverso, aggiornare `linuxFxVersion` con
 
 <hr/>
 
-## <a name="4-validate-the-deployment"></a>4. convalidare la distribuzione
+## <a name="4-validate-the-deployment"></a>4. Convalidare la distribuzione
 
 Passare a `http://<app_name>.azurewebsites.net/` e verificare che la creazione sia stata completata.
 
 <hr/>
 
-## <a name="5-clean-up-resources"></a>5. pulire le risorse
+## <a name="5-clean-up-resources"></a>5. Pulire le risorse
 
 Quando non è più necessario, [eliminare il gruppo di risorse](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
 
@@ -191,4 +191,3 @@ Quando non è più necessario, [eliminare il gruppo di risorse](../azure-resourc
 - [PHP con MySQL](tutorial-php-mysql-app.md)
 - [Connettersi al database SQL di Azure con Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 - [Eseguire il mapping di un dominio personalizzato](app-service-web-tutorial-custom-domain-uiex.md)
-

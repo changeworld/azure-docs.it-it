@@ -1,5 +1,5 @@
 ---
-title: Descrizioni immagini-Visione artificiale
+title: Descrizioni delle immagini - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Concetti relativi alla funzione di descrizione dell'immagine dell'API Visione artificiale.
 services: cognitive-services
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4fd328dad3544697ba1f4896f7383be857b097a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c517fa98bfc17d4702a51d4990e860b2ed7aaefd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96530664"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778932"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Descrivere le immagini con un linguaggio leggibile dall'utente
 
-Visione artificiale può analizzare un'immagine e generare una frase leggibile che ne descrive il contenuto. L'algoritmo restituisce in realtà diverse descrizioni basate su diverse funzionalità visive e a ogni descrizione viene assegnato un punteggio di confidenza. L'output finale è un elenco di descrizioni ordinate dall'attendibilità più alta a quella più bassa.
+Visione artificiale può analizzare un'immagine e generare una frase leggibile che ne descrive il contenuto. L'algoritmo restituisce in realtà diverse descrizioni basate su caratteristiche visive diverse e a ogni descrizione viene assegnato un punteggio di attendibilità. L'output finale è un elenco di descrizioni ordinate dall'attendibilità più alta a quella più bassa.
 
 ## <a name="image-description-example"></a>Esempio di descrizione immagine
 
@@ -58,10 +58,10 @@ La risposta JSON seguente illustra le informazioni restituite da Visione artific
 
 ## <a name="use-the-api"></a>Usare l'API
 
-La funzionalità Descrizione immagine fa parte dell'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Description` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"description"` sezione.
+La funzionalità di descrizione [](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) dell'immagine fa parte dell Analizza immagine API. È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Description` nel parametro di query **visualFeatures.** Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"description"` sezione .
 
 * [Avvio rapido: API REST o librerie client di Visione artificiale](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sui concetti correlati relativi all' [assegnazione di tag alle immagini](concept-tagging-images.md) e alla [categorizzazione delle immagini](concept-categorizing-images.md).
+Informazioni sui concetti correlati [all'assegnazione di tag alle immagini](concept-tagging-images.md) e alla [categorizzazione delle immagini.](concept-categorizing-images.md)

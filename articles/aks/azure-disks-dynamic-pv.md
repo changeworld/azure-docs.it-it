@@ -1,23 +1,23 @@
 ---
-title: Creazione dinamica di volumi di dischi di Azure
+title: Creare dinamicamente un volume di Dischi di Azure
 titleSuffix: Azure Kubernetes Service
-description: Informazioni su come creare dinamicamente un volume permanente con dischi di Azure in Azure Kubernetes Service (AKS)
+description: Informazioni su come creare dinamicamente un volume permanente con i dischi di Azure in servizio Azure Kubernetes (servizio AzureKs)
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: ad51bfdf8c494e763921de880926b839cdb7be62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 066a52024e91610882889bb7fbe6b20efa262b71
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021640"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776142"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con i dischi di Azure nel servizio Azure Kubernetes
 
 Un volume permanente rappresenta una parte di risorsa di archiviazione di cui è stato eseguito il provisioning per l'uso con pod Kubernetes. Un volume permanente può essere usato da uno o più pod e se ne può eseguire il provisioning in modo dinamico o in modo statico. Questo articolo mostra come creare in modo dinamico volumi persistenti con i dischi di Azure per l'uso con un singolo pod in un cluster del servizio Azure Kubernetes.
 
 > [!NOTE]
-> Un disco di Azure può essere montato solo con la *modalità di accesso* di tipo *ReadWriteOnce*, che lo rende disponibile per un nodo in AKS. Se è necessario condividere un volume permanente tra più nodi, utilizzare [file di Azure][azure-files-pvc].
+> Un disco di Azure può essere montato solo con *il* tipo di modalità di accesso *ReadWriteOnce*, che lo rende disponibile per un nodo nel servizio AzureKs. Se è necessario condividere un volume permanente tra più nodi, usare [File di Azure][azure-files-pvc].
 
 Per altre informazioni sui volumi Kubernetes, vedere [Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes][concepts-storage].
 
@@ -27,22 +27,22 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-## <a name="built-in-storage-classes"></a>Classi di archiviazione predefinite
+## <a name="built-in-storage-classes"></a>Classi di archiviazione incorporate
 
 Una classe di archiviazione viene usata per definire la creazione dinamica di un'unità di archiviazione con un volume permanente. Per altre informazioni sulle classi di archiviazione Kubernetes, vedere [Kubernetes Storage Classes][kubernetes-storage-classes] (Classi di archiviazione Kubernetes).
 
-Ogni cluster AKS include quattro classi di archiviazione create in precedenza, due delle quali sono configurate per l'uso con i dischi di Azure:
+Ogni cluster del servizio AzureKs include quattro classi di archiviazione pre-create, due delle quali configurate per l'utilizzo con i dischi di Azure:
 
-* La classe di archiviazione *predefinita* effettua il provisioning di un disco di Azure SSD standard.
-    * L'archiviazione standard è supportata da SSD standard e offre una soluzione di archiviazione economicamente conveniente, garantendo allo stesso tempo prestazioni affidabili. 
+* La *classe di* archiviazione predefinita esegue il provisioning di un disco di Azure SSD standard.
+    * L'archiviazione Standard è supportata da unità SSD Standard e offre un'archiviazione conveniente pur offrendo prestazioni affidabili. 
 * La classe di archiviazione *gestita Premium* esegue il provisioning di un disco di Azure premium.
     * I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. Se i nodi del servizio Azure Container nel cluster usano l'archiviazione premium, selezionare la classe *gestita Premium*.
     
-Se si usa una delle classi di archiviazione predefinite, non è possibile aggiornare la dimensione del volume dopo la creazione della classe di archiviazione. Per poter aggiornare le dimensioni del volume dopo la creazione di una classe di archiviazione, aggiungere la riga `allowVolumeExpansion: true` a una delle classi di archiviazione predefinite oppure è possibile creare una classe di archiviazione personalizzata. Si noti che non è supportato per ridurre le dimensioni di un PVC (per evitare la perdita di dati). È possibile modificare una classe di archiviazione esistente usando il `kubectl edit sc` comando. 
+Se si usa una delle classi di archiviazione predefinite, non è possibile aggiornare le dimensioni del volume dopo la creazione della classe di archiviazione. Per poter aggiornare le dimensioni del volume dopo la creazione di una classe di archiviazione, aggiungere la riga a una delle classi di archiviazione predefinite oppure creare una classe di `allowVolumeExpansion: true` archiviazione personalizzata. Si noti che non è supportato ridurre le dimensioni di un PVC (per evitare la perdita di dati). È possibile modificare una classe di archiviazione esistente usando il `kubectl edit sc` comando . 
 
-Se ad esempio si vuole usare un disco di dimensioni 4 TiB, è necessario creare una classe di archiviazione che definisce `cachingmode: None` perché la [memorizzazione nella cache del disco non è supportata per i dischi 4 TIB e superiori](../virtual-machines/premium-storage-performance.md#disk-caching).
+Ad esempio, se si vuole usare un disco di dimensioni 4 TiB, è necessario creare una classe di archiviazione che definisce perché la memorizzazione nella cache del disco non è supportata per i dischi `cachingmode: None` [4 TiB](../virtual-machines/premium-storage-performance.md#disk-caching)e superiori.
 
-Per altre informazioni sulle classi di archiviazione e sulla creazione di una classe di archiviazione personalizzata, vedere [Opzioni di archiviazione per le applicazioni in AKS][storage-class-concepts].
+Per altre informazioni sulle classi di archiviazione e sulla creazione di una classe di archiviazione personalizzata, vedere Opzioni di [archiviazione per le applicazioni nel servizio AzureKs.][storage-class-concepts]
 
 Usare il comando [kubectl get sc][kubectl-get] per visualizzare le classi di archiviazione create in precedenza. L'esempio seguente illustra la creazione preliminare di classi di archiviazione disponibile all'interno di un cluster servizio Azure Kubernetes:
 
@@ -55,7 +55,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Le attestazioni di volumi permanenti sono specificate in GiB, ma i dischi gestiti di Azure vengono fatturati in base al codice SKU per una dimensione specifica. Questi SKU variano da 32GiB per i dischi S4 o P4 a 32TiB per S80 o P80 Disks (in anteprima). La velocità effettiva e le prestazioni delle operazioni di I/O al secondo per un disco gestito Premium dipendono sia dallo SKU sia dalla dimensione dell'istanza dei nodi nel cluster servizio Azure Kubernetes. Per altre informazioni, vedere [Prezzi e prestazioni dei dischi gestiti][managed-disk-pricing-performance].
+> Le attestazioni di volumi permanenti sono specificate in GiB, ma i dischi gestiti di Azure vengono fatturati in base al codice SKU per una dimensione specifica. Questi SKU vanno da 32GiB per dischi S4 o P4 a 32TiB per dischi S80 o P80 (in anteprima). La velocità effettiva e le prestazioni delle operazioni di I/O al secondo per un disco gestito Premium dipendono sia dallo SKU sia dalla dimensione dell'istanza dei nodi nel cluster servizio Azure Kubernetes. Per altre informazioni, vedere [Prezzi e prestazioni dei dischi gestiti][managed-disk-pricing-performance].
 
 ## <a name="create-a-persistent-volume-claim"></a>Creare un'attestazione di volume permanente
 
@@ -152,8 +152,8 @@ Events:
 [...]
 ```
 
-## <a name="use-ultra-disks"></a>Usare dischi ultra
-Per sfruttare il disco Ultra, vedere [usare dischi ultra in Azure Kubernetes Service (AKS)](use-ultra-disks.md).
+## <a name="use-ultra-disks"></a>Usare Dischi Ultra
+Per sfruttare il disco Ultra, vedere [Usare Dischi Ultra in servizio Azure Kubernetes (servizio Web AKS).](use-ultra-disks.md)
 
 ## <a name="back-up-a-persistent-volume"></a>Eseguire il backup di un volume persistente
 
@@ -277,21 +277,21 @@ Altre informazioni sui volumi permanenti Kubernetes che usano i dischi di Azure.
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md
-[az-disk-list]: /cli/azure/disk#az-disk-list
-[az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
-[az-disk-create]: /cli/azure/disk#az-disk-create
-[az-disk-show]: /cli/azure/disk#az-disk-show
+[az-disk-list]: /cli/azure/disk#az_disk_list
+[az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
+[az-disk-create]: /cli/azure/disk#az_disk_create
+[az-disk-show]: /cli/azure/disk#az_disk_show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

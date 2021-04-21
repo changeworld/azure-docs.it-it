@@ -4,16 +4,16 @@ description: Impedire agli utenti di aggiornare o eliminare le risorse di Azure 
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1cc96a855c2bfe79bbf5876f0476c016d36ca9a4
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 71637318a60e66bf5000de2f564d740cc101cc60
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107030067"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768724"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste
 
-In qualità di amministratore, è possibile bloccare una sottoscrizione, un gruppo di risorse o una risorsa per impedire ad altri utenti dell'organizzazione di eliminare o modificare accidentalmente le risorse critiche. Il blocco sostituisce le autorizzazioni che l'utente potrebbe avere.
+Gli amministratori possono bloccare una sottoscrizione, un gruppo di risorse o una risorsa per impedire ad altri utenti dell'organizzazione di eliminare o modificare accidentalmente le risorse critiche. Il blocco esegue l'override di tutte le autorizzazioni che l'utente potrebbe avere.
 
 È possibile impostare il livello di blocco **CanNotDelete** o **ReadOnly**. Nel portale i blocchi sono definiti rispettivamente **Elimina** e **Sola lettura**.
 
@@ -24,27 +24,27 @@ In qualità di amministratore, è possibile bloccare una sottoscrizione, un grup
 
 Quando si applica un blocco in un ambito padre, tutte le risorse in tale ambito ereditano lo stesso blocco. Anche le risorse aggiunte successivamente ereditano il blocco dal padre. Il blocco più restrittivo nell'ereditarietà ha la precedenza.
 
-Diversamente dal controllo degli accessi in base al ruolo, i blocchi di gestione consentono di applicare una restrizione a tutti gli utenti e i ruoli. Per informazioni sull'impostazione delle autorizzazioni per utenti e ruoli, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md).
+Diversamente dal controllo degli accessi in base al ruolo, i blocchi di gestione consentono di applicare una restrizione a tutti gli utenti e i ruoli. Per informazioni sull'impostazione delle autorizzazioni per utenti e ruoli, vedere Controllo degli accessi in base [al ruolo di Azure.](../../role-based-access-control/role-assignments-portal.md)
 
-I blocchi di Resource Manager si applicano solo alle operazioni che si verificano nel piano di gestione, costituito da operazioni inviate a `https://management.azure.com`. I blocchi non limitano il modo in cui le risorse eseguono le proprie funzioni. Vengono limitate le modifiche alle risorse, ma non le operazioni delle risorse. Un blocco ReadOnly in un server logico del database SQL, ad esempio, impedisce l'eliminazione o la modifica del server. Non impedisce la creazione, l'aggiornamento o l'eliminazione dei dati nei database di tale server. Le transazioni di dati sono consentite in quanto tali operazioni non vengono inviate a `https://management.azure.com`.
+I blocchi di Resource Manager si applicano solo alle operazioni che si verificano nel piano di gestione, costituito da operazioni inviate a `https://management.azure.com`. I blocchi non limitano il modo in cui le risorse eseguono le proprie funzioni. Vengono limitate le modifiche alle risorse, ma non le operazioni delle risorse. Ad esempio, un blocco ReadOnly su un server logico di database SQL impedisce l'eliminazione o la modifica del server. Non impedisce la creazione, l'aggiornamento o l'eliminazione di dati nei database in tale server. Le transazioni di dati sono consentite in quanto tali operazioni non vengono inviate a `https://management.azure.com`.
 
 ## <a name="considerations-before-applying-locks"></a>Considerazioni prima di applicare i blocchi
 
-L'applicazione di blocchi può causare risultati imprevisti perché alcune operazioni che non sembrano modificare la risorsa richiedono effettivamente azioni bloccate dal blocco. I blocchi impediscono qualsiasi operazione che richiede una richiesta POST all'API Azure Resource Manager. Alcuni esempi comuni delle operazioni bloccate dai blocchi sono:
+L'applicazione di blocchi può causare risultati imprevisti perché alcune operazioni che non sembrano modificare la risorsa richiedono effettivamente azioni bloccate dal blocco. I blocchi impediranno qualsiasi operazione che richiede una richiesta POST all'API Azure Resource Manager richiesta. Alcuni esempi comuni delle operazioni bloccate dai blocchi sono:
 
-* Un blocco di sola lettura in un **account di archiviazione** impedisce agli utenti di elencare le chiavi dell'account. L'operazione di [elenco delle chiavi](/rest/api/storagerp/storageaccounts/listkeys) di archiviazione di Azure viene gestita tramite una richiesta post per proteggere l'accesso alle chiavi dell'account, che forniscono l'accesso completo ai dati nell'account di archiviazione. Quando si configura un blocco di sola lettura per un account di archiviazione, gli utenti che non dispongono delle chiavi dell'account devono usare Azure AD credenziali per accedere ai dati di BLOB o di Accodamento. Un blocco di sola lettura impedisce anche l'assegnazione di ruoli di controllo degli accessi in base al ruolo di Azure con ambito dell'account di archiviazione o di un contenitore di dati (contenitore BLOB o coda).
+* Un blocco di sola lettura su un **account di archiviazione impedisce** agli utenti di elencare le chiavi dell'account. [L Archiviazione di Azure'operazione List Keys](/rest/api/storagerp/storageaccounts/listkeys) viene gestita tramite una richiesta POST per proteggere l'accesso alle chiavi dell'account, che forniscono l'accesso completo ai dati nell'account di archiviazione. Quando viene configurato un blocco di sola lettura per un account di archiviazione, gli utenti che non hanno le chiavi dell'account devono usare le credenziali Azure AD per accedere ai dati blob o di coda. Un blocco di sola lettura impedisce anche l'assegnazione dei ruoli del controllo degli accessi in base al ruolo di Azure con ambito all'account di archiviazione o a un contenitore di dati (contenitore BLOB o coda).
 
-* Un blocco non può essere eliminato in un **account di archiviazione** non impedisce l'eliminazione o la modifica dei dati all'interno di tale account. Questo tipo di blocco protegge solo l'account di archiviazione da eliminare e non protegge i dati di BLOB, code, tabelle o file all'interno di tale account di archiviazione. 
+* Un blocco di non eliminazione su un **account di archiviazione** non impedisce l'eliminazione o la modifica dei dati all'interno di tale account. Questo tipo di blocco protegge solo l'account di archiviazione stesso dall'eliminazione e non protegge i dati di BLOB, code, tabelle o file all'interno di tale account di archiviazione. 
 
-* Un blocco di sola lettura in un **account di archiviazione** non impedisce l'eliminazione o la modifica dei dati all'interno di tale account. Questo tipo di blocco impedisce solo l'eliminazione o la modifica dell'account di archiviazione e non protegge i dati BLOB, di Accodamento, di tabelle o di file all'interno di tale account di archiviazione. 
+* Un blocco di sola lettura su un **account di archiviazione** non impedisce l'eliminazione o la modifica dei dati all'interno di tale account. Questo tipo di blocco protegge solo l'account di archiviazione stesso dall'eliminazione o dalla modifica e non protegge i dati di BLOB, code, tabelle o file all'interno di tale account di archiviazione. 
 
 * Un blocco di sola lettura applicato a una risorsa **Servizio app** impedisce a Visual Studio Server Explorer di visualizzare i file della risorsa perché questa interazione richiede l'accesso in scrittura.
 
-* Un blocco di sola lettura in un **gruppo di risorse** che contiene un **piano di servizio app** impedisce [la scalabilità verticale o orizzontale del piano](../../app-service/manage-scale-up.md).
+* Un blocco di sola lettura su un gruppo di **risorse** che contiene un piano di servizio **app** impedisce di aumentare o ridurre [il piano](../../app-service/manage-scale-up.md).
 
 * Un blocco di sola lettura applicato a un **gruppo di risorse** che contiene una **macchina virtuale** impedisce a tutti gli utenti di avviare o riavviare la macchina virtuale. Queste operazioni richiedono una richiesta POST.
 
-* Un blocco non può essere eliminato in un **gruppo di risorse** impedisce a Azure Resource Manager di [eliminare automaticamente le distribuzioni](../templates/deployment-history-deletions.md) nella cronologia. Se si raggiungono 800 distribuzioni nella cronologia, le distribuzioni avranno esito negativo.
+* Un blocco cannot-delete su un gruppo **di** risorse impedisce Azure Resource Manager l'eliminazione [automatica delle distribuzioni](../templates/deployment-history-deletions.md) nella cronologia. Se si raggiungono 800 distribuzioni nella cronologia, le distribuzioni avranno esito negativo.
 
 * Un blocco cannot-delete applicato al **​​gruppo di risorse** creato dal **servizio Backup di Azure** causa l'esito negativo dei backup. Il servizio supporta un massimo di 18 punti di ripristino. Quando è bloccato, il servizio di backup non riesce a eseguire la pulizia dei punti di ripristino. Per altre informazioni, vedere [Domande frequenti-Eseguire il backup delle VM di Azure](../../backup/backup-azure-vm-backup-faq.yml).
 
@@ -82,9 +82,9 @@ Per eliminare tutti gli elementi per il servizio, incluso il gruppo di risorse d
 
 ### <a name="arm-template"></a>Modello ARM
 
-Quando si usa un modello di Azure Resource Manager (modello ARM) per distribuire un blocco, è necessario conoscere l'ambito del blocco e l'ambito della distribuzione. Per applicare un blocco nell'ambito di distribuzione, ad esempio per bloccare un gruppo di risorse o una sottoscrizione, non impostare la proprietà Scope. Quando si blocca una risorsa all'interno dell'ambito di distribuzione, impostare la proprietà Scope.
+Quando si usa un modello Azure Resource Manager (modello arm) per distribuire un blocco, è necessario conoscere l'ambito del blocco e l'ambito della distribuzione. Per applicare un blocco nell'ambito della distribuzione, ad esempio il blocco di un gruppo di risorse o di una sottoscrizione, non impostare la proprietà scope. Quando si blocca una risorsa all'interno dell'ambito di distribuzione, impostare la proprietà scope.
 
-Il modello seguente applica un blocco al gruppo di risorse in cui è distribuito. Si noti che non è presente una proprietà Scope sulla risorsa di blocco perché l'ambito del blocco corrisponde all'ambito della distribuzione. Questo modello viene distribuito a livello di gruppo di risorse.
+Il modello seguente applica un blocco al gruppo di risorse in cui è distribuito. Si noti che non è presente una proprietà di ambito nella risorsa di blocco perché l'ambito del blocco corrisponde all'ambito della distribuzione. Questo modello viene distribuito a livello di gruppo di risorse.
 
 ```json
 {
@@ -164,9 +164,9 @@ Per creare un gruppo di risorse e bloccarlo, distribuire il modello seguente a l
 }
 ```
 
-Quando si applica un blocco a una **risorsa** all'interno del gruppo di risorse, aggiungere la proprietà Scope. Impostare l'ambito sul nome della risorsa da bloccare.
+Quando si applica un blocco a una **risorsa all'interno** del gruppo di risorse, aggiungere la proprietà scope. Impostare scope sul nome della risorsa da bloccare.
 
-L'esempio seguente illustra un modello che crea un piano di servizio app, un sito Web e un blocco sul sito Web. L'ambito del blocco viene impostato sul sito Web.
+L'esempio seguente illustra un modello che crea un piano di servizio app, un sito Web e un blocco sul sito Web. L'ambito del blocco è impostato sul sito Web.
 
 ```json
 {
@@ -278,7 +278,7 @@ Remove-AzResourceLock -LockId $lockId
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per bloccare le risorse distribuite con l'interfaccia della riga di comando di Azure, usare il comando [az lock create](/cli/azure/lock#az-lock-create).
+Per bloccare le risorse distribuite con l'interfaccia della riga di comando di Azure, usare il comando [az lock create](/cli/azure/lock#az_lock_create).
 
 Per bloccare una risorsa, specificare il nome, il tipo e il gruppo di risorse della risorsa.
 
@@ -292,7 +292,7 @@ Per bloccare un gruppo di risorse, specificare il nome del gruppo di risorse.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Per ottenere informazioni su un blocco, usare [az lock list](/cli/azure/lock#az-lock-list). Per ottenere tutti i blocchi nella sottoscrizione, usare:
+Per ottenere informazioni su un blocco, usare [az lock list](/cli/azure/lock#az_lock_list). Per ottenere tutti i blocchi nella sottoscrizione, usare:
 
 ```azurecli
 az lock list

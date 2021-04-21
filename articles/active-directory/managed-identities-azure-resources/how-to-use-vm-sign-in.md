@@ -1,6 +1,6 @@
 ---
-title: Usare identità gestite in una macchina virtuale di Azure per l'accesso-Azure ADV
-description: Istruzioni dettagliate ed esempi per l'uso di identità gestite da macchine virtuali di Azure per l'entità servizio per le risorse di Azure per l'accesso client e le risorse di script.
+title: Usare le identità gestite in una macchina virtuale di Azure per l'accesso - Azure ADV
+description: Istruzioni dettagliate ed esempi per l'uso di un'entità servizio delle identità gestite da macchine virtuali di Azure per le risorse di Azure per l'accesso tramite script al client e alle risorse.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -15,13 +15,13 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 61e83bd27c9434c4222e0161e3b643b183d1aa84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 59366f1a5b4bd0572af1b36f7be2f5bf91392660
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99090961"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784786"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure per l'accesso 
 
@@ -42,7 +42,7 @@ Se si prevede di usare gli esempi di Azure PowerShell e dell'interfaccia della r
 
 ## <a name="overview"></a>Panoramica
 
-Le identità gestite per le risorse di Azure forniscono un [oggetto entità servizio](../develop/developer-glossary.md#service-principal-object) , che viene [creato quando si abilitano le identità gestite per le risorse di Azure](overview.md) nella macchina virtuale. All'entità servizio è possibile concedere l'accesso a risorse di Azure, usandola come identità tramite client di script/da riga di comando per l'accesso utente e alle risorse. In genere, per poter accedere a risorse protette con la propria identità, un client di script deve:  
+Le identità gestite per le risorse di Azure forniscono un [oggetto](../develop/developer-glossary.md#service-principal-object) entità servizio, che viene creato quando si abilitano le identità gestite per [le risorse](overview.md) di Azure nella macchina virtuale. All'entità servizio è possibile concedere l'accesso a risorse di Azure, usandola come identità tramite client di script/da riga di comando per l'accesso utente e alle risorse. In genere, per poter accedere a risorse protette con la propria identità, un client di script deve:  
 
    - essere registrato e autorizzato da Azure AD come applicazione client Web/riservata
    - accedere con la propria entità servizio usando le credenziali dell'app (probabilmente integrate nello script)
@@ -88,9 +88,9 @@ Per un elenco di risorse che supportano Azure AD e che sono state testate con le
 Risposte come quelle riportate di seguito possono indicare che l'identità gestita per le risorse di Azure della macchina virtuale non è stata configurata correttamente:
 
 - PowerShell: *Invoke-WebRequest: Impossibile connettersi al server remoto*
-- CLI: *MSI: non è stato possibile recuperare un token da `http://localhost:50342/oauth2/token` con un errore di ' HTTPConnectionPool (host =' localhost ', Port = 50342)* 
+- Interfaccia della riga di comando: MSI: Impossibile recuperare un token da con errore *`http://localhost:50342/oauth2/token` 'HTTPConnectionPool(host='localhost', port=50342)* 
 
-Se viene visualizzato uno di questi errori, tornare alla macchina virtuale di Azure nella [portale di Azure](https://portal.azure.com) e passare alla pagina **identità** e verificare che il **sistema assegnato** sia impostato su "Sì".
+Se si riceve uno di questi errori, tornare alla macchina virtuale  di Azure  nel [portale di Azure e](https://portal.azure.com) passare alla pagina Identità e verificare che l'opzione Assegnata dal sistema sia impostata su "Sì".
 
 ## <a name="next-steps"></a>Passaggi successivi
 

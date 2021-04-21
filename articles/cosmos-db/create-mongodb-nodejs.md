@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 97b26e4b32c7ec1b81eb6227ac29b0574bf088fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 588c12addbdbd686038699026bb9dccd8671717c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101659971"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765240"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Avvio rapido: Eseguire la migrazione di un'app Web Node.js MongoDB esistente ad Azure Cosmos DB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -80,7 +80,7 @@ L'applicazione tenterà di connettersi a un'origine MongoDB e non riuscirà. Con
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Se si usa un'interfaccia della riga di comando di Azure installata, accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/reference-index#az-login) e seguire le istruzioni visualizzate. Se si usa Azure Cloud Shell, è possibile ignorare questo passaggio.
+Se si usa un'interfaccia della riga di comando di Azure installata, accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/reference-index#az_login) e seguire le istruzioni visualizzate. Se si usa Azure Cloud Shell, è possibile ignorare questo passaggio.
 
 ```azurecli
 az login 
@@ -94,7 +94,7 @@ Se `cosmosdb` non è nell'elenco dei comandi di base, reinstallare l'[interfacci
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un [gruppo di risorse](../azure-resource-manager/management/overview.md) con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite risorse di Azure come app Web, database e account di archiviazione. 
+Creare un [gruppo di risorse](../azure-resource-manager/management/overview.md) con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite risorse di Azure come app Web, database e account di archiviazione. 
 
 L'esempio seguente crea un gruppo di risorse nell'area Europa occidentale. Scegliere un nome univoco per il gruppo di risorse.
 
@@ -106,7 +106,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Creare un account Azure Cosmos DB
 
-Creare un account Cosmos con il comando [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create).
+Creare un account Cosmos con il comando [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create).
 
 Nel comando seguente sostituire il segnaposto `<cosmosdb-name>` con il nome univoco dell'account Cosmos. Questo nome univoco verrà usato come parte dell'endpoint Cosmos DB, `https://<cosmosdb-name>.documents.azure.com/`, quindi deve essere univoco tra tutti gli account Cosmos in Azure. 
 
@@ -176,7 +176,7 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>Recuperare la chiave
 
-Per connettersi a un database Cosmos, è necessaria la chiave del database. Usare il comando [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) per recuperare la chiave primaria.
+Per connettersi a un database Cosmos, è necessaria la chiave del database. Usare il comando [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az_cosmosdb_keys_list) per recuperare la chiave primaria.
 
 ```azurecli-interactive
 az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"

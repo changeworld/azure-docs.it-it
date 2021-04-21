@@ -8,16 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 72e36a942eeaea00699f346db99a7ca3503495da
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: d089708ead67891164aee074394e923d2a84a977
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107481651"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774450"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Anteprima: Modalità di orchestrazione per i set di scalabilità di macchine virtuali in Azure 
 
-I set di scalabilità di macchine virtuali forniscono un raggruppamento logico di macchine virtuali gestite dalla piattaforma. Con i set di scalabilità si crea un modello di configurazione della macchina virtuale, si aggiungono o rimuovono automaticamente istanze aggiuntive in base al carico di CPU o memoria e si esegue automaticamente l'aggiornamento alla versione più recente del sistema operativo. In genere, i set di scalabilità consentono di creare macchine virtuali usando un modello di configurazione della macchina virtuale fornito al momento della creazione del set di scalabilità e il set di scalabilità può gestire solo le macchine virtuali create in modo implicito in base al modello di configurazione. 
+I set di scalabilità di macchine virtuali forniscono un raggruppamento logico di macchine virtuali gestite dalla piattaforma. Con i set di scalabilità si crea un modello di configurazione della macchina virtuale, si aggiungono o rimuovono automaticamente istanze aggiuntive in base al carico della CPU o della memoria e si esegue automaticamente l'aggiornamento alla versione più recente del sistema operativo. In genere, i set di scalabilità consentono di creare macchine virtuali usando un modello di configurazione della macchina virtuale fornito al momento della creazione del set di scalabilità e il set di scalabilità può gestire solo le macchine virtuali create in modo implicito in base al modello di configurazione. 
 
 Le modalità di orchestrazione del set di scalabilità consentono di avere un maggiore controllo sulla modalità di gestione delle istanze di macchina virtuale da parte del set di scalabilità. 
 
@@ -52,24 +52,24 @@ Con l'orchestrazione flessibile, Azure offre un'esperienza unificata nell'ecosis
 Uno dei principali vantaggi dell'orchestrazione flessibile è che offre funzionalità di orchestrazione rispetto alle macchine virtuali IaaS di Azure standard, anziché alle macchine virtuali figlio del set di scalabilità. Ciò significa che è possibile usare tutte le API vm standard durante la gestione di istanze di orchestrazione flessibili, anziché le API vm del set di scalabilità di macchine virtuali usate con l'orchestrazione uniforme. Durante il periodo di anteprima, esistono diverse differenze tra la gestione delle istanze nell'orchestrazione flessibile e l'orchestrazione uniforme. In generale, è consigliabile usare le API standard delle macchine virtuali IaaS di Azure, quando possibile. In questa sezione vengono evidenziati esempi di procedure consigliate per la gestione delle istanze di macchina virtuale con orchestrazione flessibile.  
 
 ### <a name="assign-fault-domain-during-vm-creation"></a>Assegnare il dominio di errore durante la creazione della macchina virtuale
-È possibile scegliere il numero di domini di errore per il set di scalabilità di orchestrazione flessibile. Per impostazione predefinita, quando si aggiunge una macchina virtuale a un set di scalabilità flessibile, Azure riparte uniformemente le istanze tra domini di errore. Anche se è consigliabile consentire ad Azure di assegnare il dominio di errore, per scenari avanzati o di risoluzione dei problemi è possibile eseguire l'override di questo comportamento predefinito e specificare il dominio di errore in cui l'istanza verrà atterrato.
+È possibile scegliere il numero di domini di errore per il set di scalabilità di orchestrazione flessibile. Per impostazione predefinita, quando si aggiunge una macchina virtuale a un set di scalabilità flessibile, Azure riparte uniformemente le istanze tra domini di errore. Sebbene sia consigliabile consentire ad Azure di assegnare il dominio di errore, per scenari avanzati o di risoluzione dei problemi è possibile eseguire l'override di questo comportamento predefinito e specificare il dominio di errore in cui l'istanza verrà suolo.
 
 ```azurecli-interactive 
-az vm create â€“vmss "myVMSS"  â€“-platform_fault_domain 1
+az vm create –vmss "myVMSS"  –-platform_fault_domain 1
 ```
 
 ### <a name="instance-naming"></a>Denominazione delle istanze 
 Quando si crea una macchina virtuale e la si aggiunge a un set di scalabilità flessibile, si ha il controllo completo sui nomi delle istanze all'interno delle regole della convenzione di denominazione di Azure. Quando le macchine virtuali vengono aggiunte automaticamente al set di scalabilità tramite la scalabilità automatica, si specifica un prefisso e Azure aggiunge un numero univoco alla fine del nome.
 
 ### <a name="query-instances-for-power-state"></a>Eseguire query su istanze per lo stato di alimentazione
-Il metodo preferito è usare Azure Resource Graph per eseguire query per tutte le macchine virtuali in un set di scalabilità di macchine virtuali. Azure Resource Graph offre funzionalità di query efficienti per le risorse di Azure su larga scala tra le sottoscrizioni. 
+Il metodo preferito è usare Azure Resource Graph per eseguire query per tutte le macchine virtuali in un set di scalabilità di macchine virtuali. Azure Resource Graph offre funzionalità di query efficienti per le risorse di Azure su larga scala tra sottoscrizioni. 
 
 ``` 
-|â€¯whereâ€¯typeâ€¯=~â€¯'Microsoft.Compute/virtualMachines' 
-|â€¯whereâ€¯properties.virtualMachineScaleSetâ€¯containsâ€¯"demo" 
-|â€¯extendâ€¯powerStateâ€¯=â€¯properties.extended.instanceView.powerState.code 
-|â€¯projectâ€¯name,â€¯resourceGroup,â€¯location,â€¯powerState 
-|â€¯orderâ€¯byâ€¯resourceGroupâ€¯desc,â€¯nameâ€¯desc 
+| where type =~ 'Microsoft.Compute/virtualMachines' 
+| where properties.virtualMachineScaleSet contains "demo" 
+| extend powerState = properties.extended.instanceView.powerState.code 
+| project name, resourceGroup, location, powerState 
+| order by resourceGroup desc, name desc 
 ```
 
 L'esecuzione di query sulle [Azure Resource Graph](../governance/resource-graph/overview.md) è un modo pratico ed efficiente per eseguire query sulle risorse di Azure e ridurre al minimo le chiamate API al provider di risorse. Azure Resource Graph è una cache coerente alla fine in cui le risorse nuove o aggiornate potrebbero non essere riflesse per un massimo di 60 secondi. È possibile:
@@ -77,17 +77,17 @@ L'esecuzione di query sulle [Azure Resource Graph](../governance/resource-graph/
 - Usare l'opzione expand per recuperare la visualizzazione dell'istanza (assegnazione del dominio di errore, stati di alimentazione e provisioning) per tutte le macchine virtuali nella sottoscrizione.
 - Usare l'API Get VM e i comandi per ottenere la visualizzazione del modello e dell'istanza per una singola istanza.
 
-### <a name="scale-sets-vm-batch-operations"></a>Operazioni batch per set di scalabilità di macchine virtuali
-Usare i comandi della macchina virtuale standard per avviare, arrestare, riavviare ed eliminare istanze anziché le API delle macchine virtuali del set di scalabilità di macchine virtuali. Le operazioni batch delle macchine virtuali del set di scalabilità di macchine virtuali (avvia tutto, arresta tutto, ricrea l'immagine di tutti e così via) non vengono usate con la modalità di orchestrazione flessibile. 
+### <a name="scale-sets-vm-batch-operations"></a>Operazioni batch dei set di scalabilità di macchine virtuali
+Usare i comandi della macchina virtuale standard per avviare, arrestare, riavviare ed eliminare le istanze anziché le API vm del set di scalabilità di macchine virtuali. Le operazioni batch della macchina virtuale del set di scalabilità di macchine virtuali (avvia tutto, arresta tutto, ricrea l'immagine di tutti e così via) non vengono usate con la modalità di orchestrazione flessibile. 
 
 ### <a name="monitor-application-health"></a>Monitorare l'integrità delle applicazioni 
 Il monitoraggio dell'integrità delle applicazioni consente all'applicazione di fornire ad Azure un heartbeat per determinare se l'applicazione è integra o non integra. Azure può sostituire automaticamente le istanze di macchine virtuali non integre. Per le istanze del set di scalabilità flessibile, è necessario installare e configurare l'estensione integrità applicazione nella macchina virtuale. Per le istanze di set di scalabilità uniformi, è possibile usare l'estensione integrità dell'applicazione o misurare l'integrità con Azure Load Balancer probe di integrità personalizzato. 
 
 ### <a name="list-scale-sets-vm-api-changes"></a>Elencare le modifiche all'API vm dei set di scalabilità 
-I set di scalabilità di macchine virtuali consentono di elencare le istanze che appartengono al set di scalabilità. Con l'orchestrazione flessibile, il comando elenca le MACCHINE VIRTUALI dei set di scalabilità di macchine virtuali fornisce un elenco di ID macchina virtuale dei set di scalabilità. È quindi possibile chiamare i comandi GET della macchina virtuale per i set di scalabilità di macchine virtuali per ottenere altri dettagli sul funzionamento del set di scalabilità con l'istanza di macchina virtuale. Per ottenere i dettagli completi della macchina virtuale, usare i comandi get vm standard [o Azure Resource Graph](../governance/resource-graph/overview.md). 
+I set di scalabilità di macchine virtuali consentono di elencare le istanze che appartengono al set di scalabilità. Con l'orchestrazione flessibile, il comando elenca macchine virtuali set di scalabilità di macchine virtuali fornisce un elenco di ID macchina virtuale dei set di scalabilità. È quindi possibile chiamare i comandi GET della macchina virtuale per i set di scalabilità di macchine virtuali per ottenere altri dettagli sul funzionamento del set di scalabilità con l'istanza di macchina virtuale. Per ottenere i dettagli completi della macchina virtuale, usare i comandi get vm standard [o Azure Resource Graph](../governance/resource-graph/overview.md). 
 
 ### <a name="retrieve-boot-diagnostics-data"></a>Recuperare i dati di diagnostica di avvio 
-Usare le API e i comandi standard della macchina virtuale per recuperare i dati e gli screenshot di Diagnostica di avvio dell'istanza. Le API e i comandi di diagnostica di avvio delle macchine virtuali dei set di scalabilità di macchine virtuali non vengono usati con istanze della modalità di orchestrazione flessibile.
+Usare le API e i comandi standard della macchina virtuale per recuperare i dati e gli screenshot della diagnostica di avvio dell'istanza. Le API e i comandi di diagnostica di avvio delle macchine virtuali dei set di scalabilità di macchine virtuali non vengono usati con istanze della modalità di orchestrazione flessibile.
 
 ### <a name="vm-extensions"></a>Estensioni di VM 
 Usare estensioni destinate a macchine virtuali standard, anziché estensioni destinate a istanze uniformi della modalità di orchestrazione.
@@ -103,7 +103,7 @@ La tabella seguente confronta la modalità di orchestrazione flessibile, la moda
 |         Zone di disponibilità  |            Facoltativamente, specificare tutte le istanze in una singola zona di disponibilità |            Specificare le istanze tra 1, 2 o 3 zone di disponibilità  |            Non supportato  |
 |         Controllo completo su VM, schede di interfaccia di rete, dischi  |            Sì  |            Controllo limitato con l'API VM dei set di scalabilità di macchine virtuali  |            Sì  |
 |         Ridimensionamento automatico  |            No  |            Sì  |            No  |
-|         Assegnare la macchina virtuale a un dominio di errore specifico  |            Sì  |             No   |            No  |
+|         Assegnare una macchina virtuale a un dominio di errore specifico  |            Sì  |             No   |            No  |
 |         Rimuovere schede di interfaccia di rete e dischi durante l'eliminazione di istanze di macchine virtuali  |            No  |            Sì  |            No  |
 |         Criteri di aggiornamento (set di scalabilità di macchine virtuali) |            No  |            Automatico, In sequenza, Manuale  |            N/D  |
 |         Aggiornamenti automatici del sistema operativo (set di scalabilità di macchine virtuali) |            No  |            Sì  |            N/D  |
@@ -111,35 +111,35 @@ La tabella seguente confronta la modalità di orchestrazione flessibile, la moda
 |         Notifiche di terminazione (set di scalabilità di macchine virtuali) |            No  |            Sì  |            N/D  |
 |         Ripristino dell'istanza (set di scalabilità di macchine virtuali) |            No  |            Sì   |            N/D  |
 |         Rete accelerata  |            Sì  |            Sì  |            Sì  |
-|         Spotâ€ ̄ instances e pricingâ€ ̄  |            Sì, è possibile avere istanze con priorità spot e regolare  |            Sì, le istanze devono essere tutte spot o tutte regolari  |            No, solo istanze con priorità normale  |
+|         Istanze spot e prezzi   |            Sì, è possibile avere istanze con priorità spot e regolare  |            Sì, le istanze devono essere tutte spot o tutte regolari  |            No, solo istanze con priorità normale  |
 |         Combinazione di sistemi operativi  |            Sì, Linux e Windows possono risiedere nello stesso set di scalabilità flessibile |            No, le istanze sono lo stesso sistema operativo  |               Sì, Linux e Windows possono risiedere nello stesso set di scalabilità flessibile |
 |         Monitorare l'integrità dell'applicazione  |            Estensione per l'integrità dell'applicazione  |            Estensione per l'integrità dell'applicazione o probe di Azure Load Balancer  |            Estensione per l'integrità dell'applicazione  |
-|         UltraSSDâ€ ̄ Disksâ€ ̄  |            Sì  |            Sì, solo per le distribuzioni di zona  |            No  |
-|         Infinibandâ€ ̄  |            No  |            Sì, solo gruppo di posizionamento singolo  |            Sì  |
-|         Writeâ€ ̄ Acceleratorâ€ ̄  |            No  |            Sì  |            Sì  |
-|         Proximityâ€ ̄ Placement Groupsâ€ ̄  |            Sì  |            Sì  |            Sì  |
-|         Host dedicati di Azure ̄  |            No  |            Sì  |            Sì  |
-|         Basic SLBâ€ ̄  |            No  |            Sì  |            Sì  |
+|         Dischi UltraSSD   |            Sì  |            Sì, solo per le distribuzioni di zona  |            No  |
+|         Infiniband   |            No  |            Sì, solo gruppo di posizionamento singolo  |            Sì  |
+|         acceleratore di scrittura   |            No  |            Sì  |            Sì  |
+|         Gruppi di posizionamento di prossimità   |            Sì  |            Sì  |            Sì  |
+|         Host dedicati di Azure   |            No  |            Sì  |            Sì  |
+|         Bilanciamento del carico del servizio di base   |            No  |            Sì  |            Sì  |
 |         Azure Load Balancer Standard SKU |            Sì  |            Sì  |            Sì  |
 |         Gateway applicazione  |            No  |            Sì  |            Sì  |
-|         Controllo di manutenzione ̄  |            No  |            Sì  |            Sì  |
+|         Controllo di manutenzione   |            No  |            Sì  |            Sì  |
 |         Elencare le macchine virtuali nel set  |            Sì  |            Sì  |            Sì, elencare le macchine virtuali in AvSet  |
 |         Avvisi di Azure  |            No  |            Sì  |            Sì  |
 |         Informazioni dettagliate macchina virtuale  |            No  |            Sì  |            Sì  |
 |         Backup di Azure  |            Sì  |            Sì  |            Sì  |
 |         Azure Site Recovery  |     No  |            No  |            Sì  |
-|         Aggiungere/rimuovere una macchina virtuale esistente al gruppo  |            No  |            No  |            No  | 
+|         Aggiungere/rimuovere una macchina virtuale esistente nel gruppo  |            No  |            No  |            No  | 
 
 
-## <a name="register-for-flexible-orchestration-mode"></a>Registrarsi per la modalità di orchestrazione flessibile
-Prima di poter distribuire i set di scalabilità di macchine virtuali in modalità orchestrazione flessibile, è necessario registrare la sottoscrizione per la funzionalità di anteprima. Il completamento della registrazione potrebbe richiedere alcuni minuti. È possibile usare i comandi seguenti per Azure PowerShell o l'interfaccia della riga di comando di Azure per la registrazione.
+## <a name="register-for-flexible-orchestration-mode"></a>Eseguire la registrazione per la modalità di orchestrazione flessibile
+Prima di poter distribuire i set di scalabilità di macchine virtuali in modalità orchestrazione flessibile, è necessario registrare la sottoscrizione per la funzionalità di anteprima. Il completamento della registrazione può richiedere alcuni minuti. Per eseguire la registrazione, è possibile Azure PowerShell o i comandi dell'interfaccia della riga di comando di Azure seguenti.
 
 ### <a name="azure-portal"></a>Portale di Azure
-Passare alla pagina dei dettagli per la sottoscrizione in cui si vuole creare un set di scalabilità in modalità orchestrazione flessibile e selezionare Funzionalità di anteprima dal menu. Selezionare le due funzionalità dell'agente di orchestrazione da abilitare: _VMOrchestratorSingleFD_ e _VMOrchestratorMultiFD_ e fare clic sul pulsante Registra. La registrazione delle funzionalità può richiedere fino a 15 minuti.
+Passare alla pagina dei dettagli per la sottoscrizione per cui si vuole creare un set di scalabilità in modalità orchestrazione flessibile e selezionare Funzionalità di anteprima dal menu. Selezionare le due funzionalità dell'agente di orchestrazione da abilitare: _VMOrchestratorSingleFD_ e _VMOrchestratorMultiFD_ e fare clic sul pulsante Registra. La registrazione delle funzionalità può richiedere fino a 15 minuti.
 
-![Registrazione della funzionalità.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
+![Registrazione delle funzionalità.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
 
-Dopo aver registrato le funzionalità per la sottoscrizione, completare il processo di consenso esplicito propagando la modifica nel provider di risorse di calcolo. Passare alla scheda Provider di risorse per la sottoscrizione, selezionare Microsoft.compute e fare clic su Riregistra.
+Dopo aver registrato le funzionalità per la sottoscrizione, completare il processo di consenso esplicito propagando la modifica nel provider di risorse di calcolo. Passare alla scheda Provider di risorse per la sottoscrizione, selezionare Microsoft.compute e fare clic su Registra di nuovo.
 
 ![Eseguire di nuovo la registrazione](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
 
@@ -165,7 +165,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0 
-Usare [az feature register per](/cli/azure/feature#az-feature-register) abilitare l'anteprima per la sottoscrizione. 
+Usare [az feature register per](/cli/azure/feature#az_feature_register) abilitare l'anteprima per la sottoscrizione. 
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name VMOrchestratorMultiFD
@@ -187,7 +187,7 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="get-started-with-flexible-orchestration-mode"></a>Introduzione alla modalità di orchestrazione flessibile
 
-Introduzione alla modalità di orchestrazione flessibile per i set di scalabilità tramite l'portale di Azure, l'interfaccia della riga di comando di Azure, Terraform o l'API REST.
+Introduzione alla modalità di orchestrazione flessibile per i set di scalabilità tramite portale di Azure, l'interfaccia della riga di comando di Azure, Terraform o l'API REST.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -295,7 +295,7 @@ zones = ["1"]
     }
     ```
 
-Per [un esempio completo, vedere](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-vmss-flexible-orchestration-mode) Avvio rapido di Azure.
+Per [un esempio completo, vedere](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-vmss-flexible-orchestration-mode) Guida introduttiva di Azure.
 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
@@ -344,7 +344,7 @@ OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it 
 ```
 InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: False.
 ```
-**Causa:** La sottoscrizione viene registrata per l'anteprima della modalità orchestrazione flessibile. Tuttavia, il `singlePlacementGroup` parametro è impostato su *True.* 
+**Causa:** La sottoscrizione viene registrata per l'anteprima della modalità orchestrazione flessibile. tuttavia, il `singlePlacementGroup` parametro è impostato su *True.* 
 
 **Soluzione:** `singlePlacementGroup`L'oggetto deve essere impostato su *False.* 
 

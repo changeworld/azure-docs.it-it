@@ -1,5 +1,5 @@
 ---
-title: Terminazione TLS con l'interfaccia della riga di comando-applicazione Azure gateway
+title: Terminazione TLS tramite l'interfaccia della riga di comando - gateway applicazione di Azure
 description: Informazioni su come creare un gateway applicazione e aggiungere un certificato per la terminazione TLS usando l'interfaccia della riga di comando di Azure.
 services: application-gateway
 author: vhorne
@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9ae15503e8f12f7ba70aa5a9d306306fa79745f9
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a8779c2829ecd2e8975ff56011bf5f73631f2de9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220386"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772678"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Creare un gateway applicazione con la terminazione TLS tramite l'interfaccia della riga di comando di Azure
 
-È possibile usare l'interfaccia della riga di comando di Azure per creare un [gateway applicazione](overview.md) con un certificato per la [terminazione TLS](ssl-overview.md). Per i server back-end, è possibile usare un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md). In questo esempio il set di scalabilità contiene due istanze di macchine virtuali che vengono aggiunte al pool back-end predefinito del gateway applicazione.
+È possibile usare l'interfaccia della riga di comando di Azure per creare [un gateway applicazione](overview.md) con un certificato per la [terminazione TLS.](ssl-overview.md) Per i server back-end, è possibile usare un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md). In questo esempio il set di scalabilità contiene due istanze di macchine virtuali che vengono aggiunte al pool back-end predefinito del gateway applicazione.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -122,7 +122,7 @@ az network application-gateway create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Creare un set di scalabilità di macchine virtuali
 
-In questo esempio viene creato un set di scalabilità di macchine virtuali che fornisce server per il pool back-end predefinito nel gateway applicazione. Le macchine virtuali nel set di scalabilità sono associate a *myBackendSubnet* e *appGatewayBackendPool*. Per creare il set di scalabilità, è possibile usare [az vmss create](/cli/azure/vmss#az-vmss-create).
+In questo esempio viene creato un set di scalabilità di macchine virtuali che fornisce server per il pool back-end predefinito nel gateway applicazione. Le macchine virtuali nel set di scalabilità sono associate a *myBackendSubnet* e *appGatewayBackendPool*. Per creare il set di scalabilità, è possibile usare [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \

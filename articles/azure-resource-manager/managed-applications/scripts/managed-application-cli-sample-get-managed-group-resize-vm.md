@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 711b516d1ba1154e574b0d8bbd8d86a02d7df018
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 179b1b64656d3f97778e183d57797e4b3660fece
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87497818"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775440"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Ottenere risorse in un gruppo di risorse gestite e ridimensionare le macchine virtuali con l'interfaccia della riga di comando di Azure
 
@@ -34,9 +34,9 @@ Questo script usa i comandi seguenti per distribuire l'applicazione gestita. Ogn
 
 | Comando | Note |
 |---|---|
-| [az managedapp list](/cli/azure/managedapp#az-managedapp-list) | Elenca le applicazioni gestite. Fornire i valori di query per definire i risultati. |
-| [az resource list](/cli/azure/resource#az-resource-list) | Elenca le risorse. Fornire un gruppo di risorse e i valori di query per definire i risultati. |
-| [az vm resize](/cli/azure/vm#az-vm-resize) | Aggiorna le dimensioni di una macchina virtuale. |
+| [az managedapp list](/cli/azure/managedapp#az_managedapp_list) | Elenca le applicazioni gestite. Fornire i valori di query per definire i risultati. |
+| [az resource list](/cli/azure/resource#az_resource_list) | Elenca le risorse. Fornire un gruppo di risorse e i valori di query per definire i risultati. |
+| [az vm resize](/cli/azure/vm#az_vm_resize) | Aggiorna le dimensioni di una macchina virtuale. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
