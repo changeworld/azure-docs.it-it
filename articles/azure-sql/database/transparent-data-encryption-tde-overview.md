@@ -1,7 +1,7 @@
 ---
 title: Transparent Data Encryption
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
-description: Panoramica della crittografia dei dati trasparente per database SQL di Azure, Istanza gestita di SQL di Azure e Azure Synapse Analytics. Il documento illustra i vantaggi e le opzioni per la configurazione, che include crittografia TDE gestita dal servizio e Bring Your Own Key.
+description: Panoramica di Transparent Data Encryption per database SQL di Azure, Istanza gestita di SQL di Azure e Azure Synapse Analytics. Il documento illustra i vantaggi e le opzioni per la configurazione, che include crittografia TDE gestita dal servizio e Bring Your Own Key.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,24 +12,24 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 10/12/2020
-ms.openlocfilehash: 160066f9599388256c7c821732a1e06fec49bdf5
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: f93d65b4d10c1a8454a8e24b5cb081dae4d6943e
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749043"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812805"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Transparent Data Encryption per database SQL, sql Istanza gestita e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-[Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) consente di proteggere database SQL di Azure, Istanza gestita di SQL di Azure e Azure Synapse Analytics dalla minaccia di attività offline dannose crittografando i dati in pausa. Esegue in tempo reale la crittografia e la decrittografia del database, dei backup associati e dei file di log delle transazioni inattivi, senza richiedere modifiche dell'applicazione. Per impostazione predefinita, TDE è abilitato per tutti i nuovi database SQL distribuiti e deve essere abilitato manualmente per i database precedenti di database SQL di Azure, Istanza gestita di SQL di Azure. TDE deve essere abilitato manualmente per Azure Synapse Analytics.
+[Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) consente di proteggere database SQL di Azure, Istanza gestita di SQL di Azure e Azure Synapse Analytics dalla minaccia di attività offline dannose crittografando i dati in pausa. Esegue in tempo reale la crittografia e la decrittografia del database, dei backup associati e dei file di log delle transazioni inattivi, senza richiedere modifiche dell'applicazione. Per impostazione predefinita, TDE è abilitato per tutti i database SQL appena distribuiti e deve essere abilitato manualmente per i database meno recenti di database SQL di Azure, Istanza gestita di SQL di Azure. La funzionalità TDE deve essere abilitata manualmente per Azure Synapse Analytics.
 
-TDE esegue in tempo reale la crittografia e decrittografia dell'I/O dei dati a livello di pagina. Ogni pagina viene decrittografata quando letta in memoria e quindi crittografata prima di essere scritta su disco. TDE crittografa l'archiviazione di un intero database usando una chiave simmetrica denominata CHIAVE DIK (Database Encryption Key). All'avvio del database, la chiave DEK crittografata viene decrittografata e quindi usata per la decrittografia e la ricrittografia dei file di database nel SQL Server del motore di database. La dek è protetta dalla protezione TDE. La protezione TDE è un certificato gestito dal servizio (crittografia dei dati trasparente gestita dal servizio) o una chiave asimmetrica archiviata in [Azure Key Vault](../../key-vault/general/security-overview.md) (transparent data encryption gestita dal cliente).
+TDE esegue in tempo reale la crittografia e decrittografia dell'I/O dei dati a livello di pagina. Ogni pagina viene decrittografata quando letta in memoria e quindi crittografata prima di essere scritta su disco. TDE crittografa l'archiviazione di un intero database usando una chiave simmetrica denominata chiave di crittografia del database (DEK). All'avvio del database, la chiave DEK crittografata viene decrittografata e quindi usata per decrittografare e ricrittografare i file di database nel SQL Server del motore di database. La dek è protetta dalla protezione TDE. La protezione TDE è un certificato gestito dal servizio (Transparent Data Encryption gestita dal servizio) o una chiave asimmetrica archiviata in [Azure Key Vault](../../key-vault/general/security-features.md) (Transparent Data Encryption gestita dal cliente).
 
-Per database SQL di Azure e Azure Synapse, la protezione TDE viene impostata a livello di [server](logical-servers.md) e viene ereditata da tutti i database associati a tale server. Per l'istanza gestita di database SQL di Azure, la protezione TDE è impostata a livello di istanza e viene ereditata da tutti i database crittografati nell'istanza. Salvo diversa indicazione, in questo documento il termine *server* fa riferimento sia al server che all'istanza.
+Per database SQL di Azure e Azure Synapse, la protezione TDE è impostata a livello di [server](logical-servers.md) e viene ereditata da tutti i database associati a tale server. Per l'istanza gestita di database SQL di Azure, la protezione TDE è impostata a livello di istanza e viene ereditata da tutti i database crittografati nell'istanza. Salvo diversa indicazione, in questo documento il termine *server* fa riferimento sia al server che all'istanza.
 
 > [!IMPORTANT]
-> Tutti i database appena creati nel database SQL vengono crittografati per impostazione predefinita usando la crittografia trasparente dei dati gestita dal servizio. I database SQL esistenti creati prima di maggio 2017 e i database SQL creati tramite il ripristino, la replica geografica e la copia del database non vengono crittografati per impostazione predefinita. I database SQL Istanza gestita creati prima di febbraio 2019 non vengono crittografati per impostazione predefinita. I Istanza gestita SQL creati tramite il ripristino ereditano lo stato della crittografia dall'origine.
+> Tutti i database appena creati nel database SQL vengono crittografati per impostazione predefinita usando Transparent Data Encryption gestita dal servizio. I database SQL esistenti creati prima di maggio 2017 e i database SQL creati tramite ripristino, replica geografica e copia del database non sono crittografati per impostazione predefinita. I database SQL Istanza gestita creati prima di febbraio 2019 non vengono crittografati per impostazione predefinita. I Istanza gestita SQL creati tramite il ripristino ereditano lo stato della crittografia dall'origine.
 
 > [!NOTE]
 > Non è possibile usare TDE per crittografare i database di sistema, ad esempio il database **master,** database SQL di Azure e Istanza gestita di SQL di Azure. Il database **master** contiene gli oggetti necessari a eseguire le operazioni di Transparent Data Encryption nei database utente. È consigliabile non archiviare dati sensibili nei database di sistema. [È in corso](transparent-data-encryption-byok-overview.md#doubleencryption) l'implementazione della crittografia dell'infrastruttura che crittografa i database di sistema, incluso il database master. 
@@ -61,27 +61,27 @@ Non è necessario decrittografare i database per le operazioni all'interno di Az
 - Ripristino di un file di backup per Istanza gestita di database SQL di Azure
 
 > [!IMPORTANT]
-> L'esecuzione manuale del backup COPY-ONLY di un database crittografato da TDE gestito dal servizio non è supportata in Istanza gestita di SQL di Azure, perché il certificato usato per la crittografia non è accessibile. Usare la funzionalità di ripristino temporato per spostare questo tipo di database in un altro database SQL Istanza gestita o passare alla chiave gestita dal cliente.
+> L'esecuzione manuale del backup COPY-ONLY di un database crittografato da TDE gestita dal servizio non è supportata in Istanza gestita di SQL di Azure, poiché il certificato usato per la crittografia non è accessibile. Usare la funzionalità di ripristino tempormente utile per spostare questo tipo di database in un altro Istanza gestita SQL o passare alla chiave gestita dal cliente.
 
 Quando si esporta un database protetto da TDE, il contenuto esportato del database non viene crittografato. Questo contenuto esportato viene archiviato in file BACPAC non crittografati. Assicurarsi di proteggere i file BACPAC in modo appropriato e abilitare TDE al termine dell'importazione del nuovo database.
 
-Ad esempio, se il file BACPAC viene esportato da un'istanza SQL Server, il contenuto importato del nuovo database non viene crittografato automaticamente. Analogamente, se il file BACPAC viene importato in un'istanza SQL Server, anche il nuovo database non viene crittografato automaticamente.
+Ad esempio, se il file BACPAC viene esportato da un'istanza di SQL Server, il contenuto importato del nuovo database non viene crittografato automaticamente. Analogamente, se il file BACPAC viene importato in un'istanza SQL Server, anche il nuovo database non viene crittografato automaticamente.
 
-L'unica eccezione si verifica quando si esporta un database da e verso il database SQL. TDE è abilitato nel nuovo database, ma il file BACPAC stesso non è ancora crittografato.
+L'unica eccezione si verifica quando si esporta un database da e verso il database SQL. TDE è abilitato nel nuovo database, ma il file BACPAC non è ancora crittografato.
 
-## <a name="manage-transparent-data-encryption"></a>Gestire transparent data encryption
+## <a name="manage-transparent-data-encryption"></a>Gestire Transparent Data Encryption
 
 # <a name="the-azure-portal"></a>[Il portale di Azure](#tab/azure-portal)
 
 Gestire TDE nel portale di Azure.
 
-Per configurare TDE tramite il portale di Azure, è necessario essere connessi come proprietario di Azure, collaboratore o Gestione sicurezza SQL.
+Per configurare TDE tramite il portale di Azure, è necessario essere connessi come proprietario, collaboratore o gestore della sicurezza SQL di Azure.
 
-Abilitare e disabilitare TDE a livello di database. Ad Istanza gestita di SQL di Azure usare Transact-SQL (T-SQL) per attivare e disattivare TDE in un database. Per database SQL di Azure e Azure Synapse, è possibile gestire TDE per il database [nel portale di Azure](https://portal.azure.com) dopo aver eseguito l'accesso con l'account amministratore o collaboratore di Azure. Le impostazioni di TDE si trovano nel database utente. Per impostazione predefinita, viene usata TDE gestita dal servizio. Viene generato automaticamente un certificato TDE per il server che contiene il database.
+Abilitare e disabilitare TDE a livello di database. Ad Istanza gestita di SQL di Azure usare Transact-SQL (T-SQL) per attivare e disattivare TDE in un database. Per database SQL di Azure e Azure Synapse, è possibile gestire TDE per il database nel [portale di Azure](https://portal.azure.com) dopo aver eseguito l'accesso con l'account amministratore o collaboratore di Azure. Le impostazioni di TDE si trovano nel database utente. Per impostazione predefinita, viene usata TDE gestita dal servizio. Viene generato automaticamente un certificato TDE per il server che contiene il database.
 
 ![Transparent Data Encryption gestita dal servizio](./media/transparent-data-encryption-tde-overview/service-managed-transparent-data-encryption.png)  
 
-Impostare la chiave master TDE, nota come protezione TDE, a livello di server o di istanza. Per usare TDE con il supporto BYOK e proteggere i database con una chiave Key Vault, aprire le impostazioni TDE nel server.
+La chiave master TDE, nota come protezione TDE, viene impostata a livello di server o di istanza. Per usare TDE con supporto BYOK e proteggere i database con una chiave Key Vault, aprire le impostazioni TDE nel server.
 
 ![TDE con supporto Bring Your Own Key](./media/transparent-data-encryption-tde-overview/tde-byok-support.png)
 
@@ -101,18 +101,18 @@ Usare i cmdlet seguenti per database SQL di Azure e Azure Synapse:
 
 | Cmdlet | Descrizione |
 | --- | --- |
-| [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Abilita o disabilita Transparent Data Encryption per un database.|
+| [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Abilita o disabilita transparent data encryption per un database.|
 | [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Ottiene lo stato transparent data encryption per un database. |
 | [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) |Controlla lo stato di crittografia per un database. |
 | [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) |Aggiunge una Key Vault chiave a un server. |
 | [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) |Ottiene le Key Vault per un server  |
-| [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |Imposta la protezione Transparent Data Encryption per un server. |
+| [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |Imposta la protezione transparent data encryption per un server. |
 | [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) |Ottiene la protezione TDE |
 | [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) |Rimuove una Key Vault chiave da un server. |
 |  | |
 
 > [!IMPORTANT]
-> Ad Istanza gestita di SQL di Azure, usare il comando [T-SQL ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) per attivare e disattivare TDE a livello di database e controllare lo [script di PowerShell](transparent-data-encryption-byok-configure.md) di esempio per gestire TDE a livello di istanza.
+> Ad Istanza gestita di SQL di Azure, usare il comando T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) per attivare e disattivare TDE a livello di database e controllare lo script [di PowerShell](transparent-data-encryption-byok-configure.md) di esempio per gestire TDE a livello di istanza.
 
 # <a name="transact-sql"></a>[Transact-SQL](#tab/azure-TransactSQL)
 
@@ -127,13 +127,13 @@ Connettere il database usando un account di accesso di un amministratore o di un
 | [sys.dm_pdw_nodes_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Restituisce informazioni sullo stato di crittografia di ogni nodo Azure Synapse e delle chiavi di crittografia del database associate |
 |  | |
 
-Non è possibile passare dalla protezione TDE a una chiave Key Vault usando Transact-SQL. Usare PowerShell o il portale Azure.
+Non è possibile passare la protezione TDE a una chiave da Key Vault usando Transact-SQL. Usare PowerShell o il portale Azure.
 
 # <a name="rest-api"></a>[REST API](#tab/azure-RESTAPI)
 
 Gestire TDE usando l'API REST.
 
-Per configurare TDE tramite l'API REST, è necessario essere connessi come proprietario di Azure, collaboratore o Gestione sicurezza SQL.
+Per configurare TDE tramite l'API REST, è necessario essere connessi come proprietario, collaboratore o gestore della sicurezza SQL di Azure.
 Usare il set di comandi seguente per database SQL di Azure e Azure Synapse:
 
 | Comando | Descrizione |
@@ -153,7 +153,7 @@ Usare il set di comandi seguente per database SQL di Azure e Azure Synapse:
 ## <a name="see-also"></a>Vedere anche
 
 - SQL Server eseguito in una macchina virtuale di Azure può anche usare una chiave asimmetrica di Key Vault. I passaggi della configurazione sono diversi rispetto all'uso di una chiave asimmetrica nel database SQL e in Istanza gestita di database SQL di Azure. Per altre informazioni, vedere [Extensible Key Management tramite Azure Key Vault (SQL Server)](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server).
-- Per una descrizione generale di TDE, vedere [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption).
-- Per altre informazioni su TDE con supporto BYOK per database SQL di Azure, Istanza gestita di SQL di Azure e Azure Synapse, vedere [Transparent Data Encryption with Bring Your Own Key support](transparent-data-encryption-byok-overview.md).
-- Per iniziare a usare TDE con Bring Your Own Key supporto, vedere la guida procedura, Attivare la crittografia dei dati trasparente usando la propria chiave da [Key Vault](transparent-data-encryption-byok-configure.md).
-- Per altre informazioni sui Key Vault, vedere [Proteggere l'accesso a un insieme di credenziali delle chiavi.](../../key-vault/general/security-overview.md)
+- Per una descrizione generale di TDE, vedere [Transparent Data Encryption.](/sql/relational-databases/security/encryption/transparent-data-encryption)
+- Per altre informazioni su TDE con supporto BYOK per database SQL di Azure, Istanza gestita di SQL di Azure e Azure Synapse, vedere [Transparent Data Encryption con](transparent-data-encryption-byok-overview.md)Bring Your Own Key supporto .
+- Per iniziare a usare TDE con Bring Your Own Key, vedere la guida alle procedura, Attivare [Transparent Data Encryption](transparent-data-encryption-byok-configure.md)usando la propria chiave Key Vault .
+- Per altre informazioni sui Key Vault, vedere Proteggere [l'accesso a un insieme di credenziali delle chiavi.](../../key-vault/general/security-features.md)

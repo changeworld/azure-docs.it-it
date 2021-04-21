@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4141e60370b397e799664b7d42384bbeb096bd05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5281c02f68598b1cf121a6ab8a574f0694f5ea2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071176"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813435"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Avvio rapido: Impostare e recuperare una chiave da Azure Key Vault con l'interfaccia della riga di comando di Azure
 
@@ -45,7 +45,7 @@ Digitare i comandi seguenti per creare una chiave denominata **ExampleKey**:
 az keyvault key create --vault-name "<your-unique-keyvault-name>" -n ExampleKey --protection software
 ```
 
-È ora possibile fare riferimento a questa chiave aggiunta ad Azure Key Vault usando il relativo URI. Per ottenere la versione corrente, usare **' https://<il nome-univoco di Vault-name>. Vault.Azure.NET/Keys/ExampleKey '** . 
+È ora possibile fare riferimento a questa chiave aggiunta ad Azure Key Vault usando il relativo URI. Usare **'https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey'** per ottenere la versione corrente. 
 
 Per visualizzare la chiave archiviata in precedenza:
 
@@ -66,4 +66,4 @@ In questa guida di avvio rapido è stata creata un'istanza di Key Vault in cui �
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Vedere le informazioni di riferimento sui [comandi az keyvault dell'interfaccia della riga di comando di Azure](/cli/azure/keyvault)
-- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-features.md)

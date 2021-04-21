@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: ad0936fddacf8f5b2e4917441f5feaa41aad9de4
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c7901dd4a238b27a31f95f1e22ddf9dc1ae5327a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739801"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813066"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -217,8 +218,8 @@ Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 min
 -   Il **contenitore** specificato nel corpo della richiesta **deve esistere**.
 -   Mentre è in corso il **backup,** evitare le modifiche di gestione nel servizio, ad esempio l'aggiornamento o il downgrade dello SKU, la modifica nel nome di dominio e altro ancora.
 -   Il ripristino di un **backup è garantito solo per 30 giorni** dal momento della sua creazione.
--   **Le** modifiche apportate alla configurazione del servizio ,ad esempio API, criteri e aspetto del portale per sviluppatori, mentre è in corso l'operazione di backup potrebbero essere escluse dal backup e **andranno perse.**
--   Se l'account Archiviazione di Azure è abilitato per il  [firewall,][azure-storage-ip-firewall] il cliente deve consentire il set di indirizzi IP del piano di controllo di [Azure API Management][control-plane-ip-address] nell'account di archiviazione per il funzionamento del backup o del ripristino da. L Archiviazione di Azure account può trovarsi in qualsiasi area di Azure, ad eccezione di quella in cui si trova API Management servizio. Ad esempio, se il servizio API Management si trova negli Stati Uniti occidentali, l'account Archiviazione di Azure può essere negli Stati Uniti occidentali 2 e il cliente deve aprire il piano di controllo IP 13.64.39.16 (ip del piano di controllo API Management stati Uniti occidentali) nel firewall. Ciò è dovuto al fatto che le richieste Archiviazione di Azure non vengono inviate a un indirizzo IP pubblico da Calcolo (piano di controllo di Gestione API di Azure) nella stessa area di Azure. La richiesta di archiviazione tra aree verrà inviata all'indirizzo IP pubblico.
+-   **Le** modifiche apportate alla configurazione del servizio ,ad esempio API, criteri e aspetto del portale per sviluppatori, mentre è in corso l'operazione di backup potrebbero essere escluse dal backup e andranno **perse.**
+-   Se l'account Archiviazione di Azure è abilitato per il  [firewall,][azure-storage-ip-firewall] il cliente deve consentire il set di indirizzi IP del piano di controllo di [Azure API Management][control-plane-ip-address] nell'account di archiviazione per il funzionamento del backup o del ripristino da. L Archiviazione di Azure Account può trovarsi in qualsiasi area di Azure, ad eccezione di quella in cui si trova API Management servizio. Ad esempio, se il servizio API Management si trova negli Stati Uniti occidentali, l'account Archiviazione di Azure può essere negli Stati Uniti occidentali 2 e il cliente deve aprire il piano di controllo IP 13.64.39.16 (ip del piano di controllo API Management stati Uniti occidentali) nel firewall. Ciò è dovuto al fatto che le richieste Archiviazione di Azure non vengono inviate a un indirizzo IP pubblico da Calcolo (piano di controllo di Gestione API di Azure) nella stessa area di Azure. La richiesta di archiviazione tra aree verrà inviata all'indirizzo IP pubblico.
 -   La condivisione di risorse tra le origini [(CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) non deve **essere** abilitata nel servizio BLOB nell'account Archiviazione di Azure origine.
 -   Lo **SKU** del servizio in cui si effettua il ripristino **deve corrispondere** allo SKU del servizio sottoposto a backup da ripristinare.
 

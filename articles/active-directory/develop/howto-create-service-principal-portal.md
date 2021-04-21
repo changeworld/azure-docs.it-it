@@ -12,24 +12,24 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 621bd392c12bb6ef1269eaed4731063490664f7e
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 3ccc340727a437b3b1e953ea5e742ecdf7f21d40
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750789"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814083"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
 Questo articolo illustra come creare una nuova applicazione Azure Active Directory (Azure AD) e un'entità servizio che possono essere usate con il controllo degli accessi in base al ruolo. Quando si dispone di applicazioni, servizi ospitati o strumenti automatizzati che devono accedere o modificare le risorse, è possibile creare un'identità per l'app. Questa identità è nota come entità servizio. L'accesso alle risorse è limitato dai ruoli assegnati all'entità servizio, offrendo il controllo sulle risorse a cui è possibile accedere e a quale livello. Per motivi di sicurezza è sempre consigliabile usare le identità servizio per gli strumenti automatici, invece di consentire loro di accedere con un'identità utente.
 
-Questo articolo illustra come usare il portale per creare l'entità servizio nel portale di Azure. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.  È anche possibile [usare Azure PowerShell per creare un'entità servizio.](howto-authenticate-service-principal-powershell.md)
+Questo articolo illustra come usare il portale per creare l'entità servizio nel portale di Azure. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.  È anche possibile [usare Azure PowerShell per creare un'entità servizio](howto-authenticate-service-principal-powershell.md).
 
 > [!IMPORTANT]
 > Anziché creare un'entità servizio, considerare l'uso delle identità gestite per le risorse di Azure per l'identità dell'applicazione. Se il codice viene eseguito in un servizio che supporta le identità gestite e accede alle risorse che supportano Azure AD autenticazione, le identità gestite sono un'opzione migliore per l'utente. Per altre informazioni sulle identità gestite per le risorse di Azure, inclusi i servizi attualmente supportati, vedere [Informazioni sulle identità gestite per le risorse di Azure](../managed-identities-azure-resources/overview.md).
 
 ## <a name="app-registration-app-objects-and-service-principals"></a>Registrazione dell'app, oggetti app ed entità servizio
-Non è possibile creare direttamente un'entità servizio usando il portale di Azure.  Quando si registra un'applicazione tramite il portale di Azure, nella home directory o nel tenant vengono creati automaticamente un oggetto applicazione e un'entità servizio.  Per altre informazioni sulla relazione tra la registrazione dell'app, gli oggetti applicazione e le entità servizio, vedere Oggetti applicazione e entità servizio [in Azure Active Directory](app-objects-and-service-principals.md).
+Non è possibile creare direttamente un'entità servizio usando il portale di Azure.  Quando si registra un'applicazione tramite il portale di Azure, vengono creati automaticamente un oggetto applicazione e un'entità servizio nella home directory o nel tenant.  Per altre informazioni sulla relazione tra la registrazione dell'app, gli oggetti applicazione e le entità servizio, vedere Oggetti applicazione e entità servizio [in Azure Active Directory](app-objects-and-service-principals.md).
 
 ## <a name="permissions-required-for-registering-an-app"></a>Autorizzazioni necessarie per la registrazione di un'app
 
@@ -49,7 +49,7 @@ Se l'impostazione relativa alle registrazioni dell'app è impostata su **No**, s
 
 ### <a name="check-azure-subscription-permissions"></a>Controllare le autorizzazioni di sottoscrizione di Azure
 
-Nella sottoscrizione di Azure l'account deve avere accesso `Microsoft.Authorization/*/Write` per assegnare un ruolo a un'app AD. Questa azione è concessa tramite il ruolo [Proprietario](../../role-based-access-control/built-in-roles.md#owner) o [Amministratore accessi utente](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se all'account è assegnato **il ruolo Collaboratore,** non si dispone dell'autorizzazione appropriata. Si riceverà un errore durante il tentativo di assegnare un ruolo all'entità servizio.
+Nella sottoscrizione di Azure l'account deve avere accesso `Microsoft.Authorization/*/Write` per assegnare un ruolo a un'app AD. Questa azione è concessa tramite il ruolo [Proprietario](../../role-based-access-control/built-in-roles.md#owner) o [Amministratore accessi utente](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se all'account è assegnato **il ruolo Collaboratore,** non si dispone delle autorizzazioni necessarie. Si riceverà un errore durante il tentativo di assegnare un ruolo all'entità servizio.
 
 Per controllare le proprie autorizzazioni di sottoscrizione:
 
@@ -75,7 +75,7 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
 Si passerà direttamente alla creazione dell'identità. Se si verifica un problema, controllare le [autorizzazioni necessarie](#permissions-required-for-registering-an-app) per assicurarsi che l'account possa creare l'identità.
 
-1. Accedere all'account Azure tramite <a href="https://portal.azure.com/" target="_blank">il</a>portale di Azure .
+1. Accedere all'account Azure tramite il <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
 1. Selezionare **Azure Active Directory**.
 1. Selezionare **Registrazioni per l'app**.
 1. Selezionare **Nuova registrazione**.
@@ -116,7 +116,7 @@ L'entità servizio è stata configurata ed è possibile iniziare a usarla per es
 
 Nella sezione successiva viene illustrato come ottenere i valori necessari quando si accede a livello di codice.
 
-## <a name="get-tenant-and-app-id-values-for-signing-in"></a>Ottenere i valori di ID tenant e app per l'accesso
+## <a name="get-tenant-and-app-id-values-for-signing-in"></a>Ottenere i valori dell'ID tenant e dell'app per l'accesso
 
 Quando si esegue l'accesso a livello di codice, passare l'ID tenant con la richiesta di autenticazione e l'ID applicazione.  È anche necessario un certificato o una chiave di autenticazione (descritta nella sezione seguente). Per ottenere questi valori eseguire la procedura seguente:
 
@@ -151,7 +151,7 @@ Esportare il certificato in un file usando [lo](/dotnet/framework/wcf/feature-de
    Viene visualizzato lo strumento Gestione certificati per l'utente corrente.
 
 1. Per visualizzare i certificati, in **Certificati - Utente** corrente nel riquadro sinistro espandere la directory Personale. 
-1. Fare clic con il pulsante destro del mouse sul certificato creato, scegliere **Tutte le attività >Esporta**.
+1. Fare clic con il pulsante destro del mouse sul certificato creato, selezionare **Tutte le attività >Esporta**.
 1. Seguire l'Esportazione guidata certificati.  Non esportare la chiave privata ed eseguire l'esportazione in un . File CER.
 
 Per caricare il certificato:
@@ -182,9 +182,9 @@ Se si sceglie di non usare un certificato, è possibile creare un nuovo segreto 
    ![Copiare il valore del segreto perché non sarà possibile recuperarlo in seguito](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configurare i criteri di accesso per le risorse
-Tenere presente che potrebbe essere necessario configurare autorizzazioni aggiuntive per le risorse a cui l'applicazione deve accedere. È ad esempio necessario aggiornare anche i criteri di accesso di un insieme di credenziali delle chiavi per concedere [all'applicazione l'accesso](../../key-vault/general/security-overview.md#privileged-access) a chiavi, segreti o certificati.
+Tenere presente che potrebbe essere necessario configurare autorizzazioni aggiuntive per le risorse a cui l'applicazione deve accedere. È ad esempio necessario aggiornare anche i criteri di accesso di un insieme di credenziali delle chiavi per concedere [all'applicazione l'accesso](../../key-vault/general/security-features.md#privileged-access) a chiavi, segreti o certificati.
 
-1. Nel <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>passare all'insieme di credenziali delle chiavi e selezionare **Criteri di accesso**.
+1. <a href="https://portal.azure.com/" target="_blank">Nell'portale di Azure</a>passare all'insieme di credenziali delle chiavi e selezionare **Criteri di accesso**.
 1. Selezionare **Aggiungi criteri di accesso,** quindi selezionare la chiave, il segreto e le autorizzazioni del certificato da concedere all'applicazione.  Selezionare l'entità servizio creata in precedenza.
 1. Selezionare **Aggiungi** per aggiungere i criteri di accesso e quindi **Salva per** eseguire il commit delle modifiche.
     ![Aggiungere un criterio di accesso](./media/howto-create-service-principal-portal/add-access-policy.png)

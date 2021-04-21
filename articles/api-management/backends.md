@@ -1,6 +1,6 @@
 ---
-title: Backend per gestione API di Azure | Microsoft Docs
-description: Informazioni sui backend personalizzati in gestione API
+title: API Management back-end di Azure | Microsoft Docs
+description: Informazioni sui back-end personalizzati in API Management
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -9,33 +9,34 @@ ms.service: api-management
 ms.topic: article
 ms.date: 01/29/2021
 ms.author: apimpm
-ms.openlocfilehash: 54a46e999391507f5ec7d927f62b88fcd2169b75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a0ef3a2c1f2f1fc5cdf00737d1984f6cb13c40d0
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99500617"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813021"
 ---
-# <a name="backends-in-api-management"></a>Backend in gestione API
+# <a name="backends-in-api-management"></a>Back-end in API Management
 
-Un *back* -end o un *back-end API* in gestione API è un servizio HTTP che implementa l'API front-end e le relative operazioni.
+Un *back-end* (o *back-end api)* in API Management è un servizio HTTP che implementa l'API front-end e le relative operazioni.
 
-Quando si importano determinate API, gestione API configura automaticamente il back-end dell'API. Ad esempio, gestione API configura il back-end quando si importano una [specifica openapi](import-api-from-oas.md), un' [API SOAP](import-soap-api.md)o risorse di Azure, ad esempio un'app per la [logica](import-logic-app-as-api.md)o un [app per le funzioni di Azure](import-function-app-as-api.md) attivato da http.
+Quando si importano determinate API, API Management il back-end dell'API viene configurato automaticamente. Ad esempio, API Management il back-end quando si importa una specifica [OpenAPI,](import-api-from-oas.md) [un'API SOAP](import-soap-api.md)o risorse di Azure, ad esempio un'app per le funzioni [di Azure](import-function-app-as-api.md) attivata tramite HTTP o un'app per la [logica.](import-logic-app-as-api.md)
 
-Gestione API supporta anche l'uso di altre risorse di Azure, ad esempio un [cluster Service Fabric](how-to-configure-service-fabric-backend.md) o un servizio personalizzato come back-end dell'API. L'uso di questi back-end personalizzati richiede una configurazione aggiuntiva, ad esempio, per autorizzare le credenziali delle richieste al servizio back-end e per definire le operazioni dell'API. Configurare e gestire questi backend nel portale di Azure o usando le API o gli strumenti di Azure.
+API Management supporta anche l'uso di altre risorse di Azure, ad esempio un [cluster Service Fabric o](how-to-configure-service-fabric-backend.md) un servizio personalizzato come back-end api. L'uso di questi back-end personalizzati richiede una configurazione aggiuntiva, ad esempio per autorizzare le credenziali delle richieste al servizio back-end e per definire le operazioni API. È possibile configurare e gestire questi back-end nel portale di Azure o usando le API o gli strumenti di Azure.
 
-Dopo aver creato un back-end, è possibile fare riferimento all'URL back-end nelle API. Usare il [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) criterio per reindirizzare una richiesta API in ingresso al back-end personalizzato anziché al back-end predefinito per l'API.
+Dopo aver creato un back-end, è possibile fare riferimento all'URL back-end nelle API. Usare i [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) criteri per reindirizzare una richiesta API in ingresso al back-end personalizzato anziché al back-end predefinito per tale API.
 
-## <a name="benefits-of-backends"></a>Vantaggi dei backend
+## <a name="benefits-of-backends"></a>Vantaggi dei back-end
 
-Un back-end personalizzato presenta diversi vantaggi, tra cui:
+Un back-end personalizzato offre diversi vantaggi, tra cui:
 
-* Astrae informazioni sul servizio back-end, innalzando di livello la riusabilità tra API e governance migliorata  
-* Semplicità di utilizzo mediante la configurazione di criteri di trasformazione in un'API esistente
-* Sfrutta le funzionalità di gestione API per gestire i segreti in Azure Key Vault se [i valori denominati](api-management-howto-properties.md) sono configurati per l'autenticazione dei parametri di query o di intestazione
+* Astrae informazioni sul servizio back-end, promuovendo la riutilizzabilità tra le API e una governance migliorata  
+* Facile da usare configurando criteri di trasformazione in un'API esistente
+* Sfrutta la funzionalità API Management per mantenere i segreti nelle Azure Key Vault [se](api-management-howto-properties.md) i valori denominati sono configurati per l'autenticazione dei parametri di intestazione o query
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Configurare un [back-end Service Fabric](how-to-configure-service-fabric-backend.md) usando il portale di Azure.
-* I backend possono anche essere configurati usando l' [API REST](/rest/api/apimanagement)di gestione api, [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend)o i [modelli di Azure Resource Manager](../service-fabric/service-fabric-tutorial-deploy-api-management.md).
+* Configurare un [Service Fabric back-end usando](how-to-configure-service-fabric-backend.md) il portale di Azure.
+* I back-end possono essere configurati anche usando [l'API REST](/rest/api/apimanagement)API Management, [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend)o [Azure Resource Manager modelli](../service-fabric/service-fabric-tutorial-deploy-api-management.md).
 

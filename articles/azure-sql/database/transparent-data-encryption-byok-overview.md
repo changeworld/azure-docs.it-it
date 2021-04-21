@@ -1,6 +1,6 @@
 ---
 title: Transparent Data Encryption (TDE) gestita dal cliente
-description: 'Bring Your Own Key (BYOK) per Transparent Data Encryption (TDE) con Azure Key Vault per database SQL e Azure Synapse Analytics. TDE con BYOK: panoramica, vantaggi, funzionamento, considerazioni ed elementi consigliati.'
+description: 'Bring Your Own Key (BYOK) per Transparent Data Encryption (TDE) con Azure Key Vault per il database SQL e Azure Synapse Analytics. TDE con BYOK: panoramica, vantaggi, funzionamento, considerazioni ed elementi consigliati.'
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
@@ -12,19 +12,19 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: b812a3feaa900914ef5f16f2f72270d9b6008371
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b3403558cbc07d152bbae7e901464a8aa4a8e4d2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753021"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812769"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption con chiave gestita dal cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) con chiave gestita dal cliente abilita lo scenario Bring Your Own Key (BYOK) per la protezione dei dati inattivi e consente alle organizzazioni di separare i compiti di gestione di chiavi e dati. Con la funzionalità Transparent Data Encryption gestita dal cliente, il cliente ha il controllo completo ed è responsabile della gestione del ciclo di vita della chiave (creazione, caricamento, rotazione, eliminazione), delle autorizzazioni di utilizzo delle chiavi e del controllo delle operazioni sulle chiavi.
 
-In questo scenario la chiave usata per la crittografia della chiave DEK (Database Encryption Key), chiamata protezione TDE, è una chiave asimmetrica gestita dal cliente archiviata in un [Azure Key Vault (AKV)](../../key-vault/general/security-overview.md) di proprietà del cliente e gestito dal cliente, un sistema di gestione delle chiavi esterno basato sul cloud. Il Key Vault è un'archiviazione sicura a disponibilità elevata e scalabile per le chiavi crittografiche RSA, supportata facoltativamente da moduli di protezione hardware (HSM) con convalida di tipo FIPS 140-2 Livello 2. Non consente l'accesso diretto a una chiave archiviata, ma offre servizi di crittografia/decrittografia che usano la chiave nelle entità autorizzate. La chiave può essere generata dal Key Vault, importata o [trasferita nel Key Vault da un dispositivo HSM locale](../../key-vault/keys/hsm-protected-keys.md).
+In questo scenario la chiave usata per la crittografia della chiave DEK (Database Encryption Key), chiamata protezione TDE, è una chiave asimmetrica gestita dal cliente archiviata in un [Azure Key Vault (AKV)](../../key-vault/general/security-features.md) di proprietà del cliente e gestito dal cliente, un sistema di gestione delle chiavi esterno basato sul cloud. Il Key Vault è un'archiviazione sicura a disponibilità elevata e scalabile per le chiavi crittografiche RSA, supportata facoltativamente da moduli di protezione hardware (HSM) con convalida di tipo FIPS 140-2 Livello 2. Non consente l'accesso diretto a una chiave archiviata, ma offre servizi di crittografia/decrittografia che usano la chiave nelle entità autorizzate. La chiave può essere generata dal Key Vault, importata o [trasferita nel Key Vault da un dispositivo HSM locale](../../key-vault/keys/hsm-protected-keys.md).
 
 Per database SQL di Azure e Azure Synapse Analytics, la protezione TDE è impostata a livello di server e viene ereditata da tutti i database crittografati associati a tale server. Per l'Istanza gestita di SQL di Azure, la protezione TDE è impostata a livello di istanza e viene ereditata da tutti i database crittografati nell'istanza. Il termine *server* si riferisce sia a un server nel database SQL che a Azure Synapse e a un'istanza gestita in SQL Istanza gestita in tutto il documento, se non diversamente specificato.
 
@@ -95,7 +95,7 @@ Se la registrazione è abilitata, i revisori possono usare Monitoraggio di Azure
 - Se si importa una chiave esistente nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di file supportati ( `.pfx` , `.byok` o `.backup` ).
 
 > [!NOTE]
-> Azure SQL ora supporta l'uso di una chiave RSA archiviata in un HSM gestito come protezione TDE. Questa funzionalità è in **anteprima pubblica.** Azure Key Vault HSM gestito è un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard che consente di proteggere le chiavi crittografiche per le applicazioni cloud usando moduli di protezione HSM convalidati FIPS 140-2 di livello 3. Altre informazioni sui [HMS gestiti.](../../key-vault/managed-hsm/index.yml)
+> Azure SQL ora supporta l'uso di una chiave RSA archiviata in un HSM gestito come protezione TDE. Questa funzionalità è in **anteprima pubblica.** Azure Key Vault Managed HSM è un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard che consente di proteggere le chiavi crittografiche per le applicazioni cloud usando moduli di protezione HSM convalidati FIPS 140-2 livello 3. Altre informazioni sui [HMS gestiti.](../../key-vault/managed-hsm/index.yml)
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Suggerimenti per la configurazione di Transparent Data Encryption gestita dal cliente
@@ -133,7 +133,7 @@ Quando Transparent Data Encryption è configurata per l'uso di una chiave gestit
 
 Dopo aver ripristinato l'accesso alla chiave, per ripristinare online il database sono necessari tempi e passaggi aggiuntivi, che possono variare in base al tempo trascorso senza accedere alla chiave e alle dimensioni dei dati nel database:
 
-- Se l'accesso alla chiave viene ripristinato entro 8 ore, il database verrà automaticamente esezionato entro l'ora successiva.
+- Se l'accesso alla chiave viene ripristinato entro 8 ore, il database verrà automaticamente visualizzato entro l'ora successiva.
 
 - Se l'accesso alla chiave viene ripristinato dopo più di 8 ore, il completamento automatico non è possibile e il ripristino del database richiede passaggi aggiuntivi nel portale e può richiedere una quantità significativa di tempo a seconda delle dimensioni del database. Quando il database è di nuovo online, le impostazioni a livello di server configurate in precedenza, ad esempio la configurazione del [gruppo di failover](auto-failover-group-overview.md), la cronologia dei ripristini temporizzati e i tag, **andranno persi**. È pertanto consigliabile implementare un sistema di notifica che consenta di identificare e risolvere entro 8 ore i problemi di accesso alla chiave sottostanti.
 
@@ -164,7 +164,7 @@ Per monitorare lo stato del database e abilitare gli avvisi per la perdita dell'
 
 - [Integrità risorse di Azure](../../service-health/resource-health-overview.md). Un database non accessibile che ha perso l'accesso alla protezione TDE viene visualizzato come "Non disponibile" dopo che è stata negata la prima connessione al database.
 - [Log attività](../../service-health/alerts-activity-log-service-notifications-portal.md). Quando si verifica un errore durante l'accesso alla protezione TDE nel Key Vault gestito dal cliente, vengono aggiunte voci al log attività.  La creazione di avvisi per questi eventi consente di ripristinare l'accesso appena possibile.
-- [I](../../azure-monitor/alerts/action-groups.md) gruppi di azioni possono essere definiti per inviare notifiche e avvisi in base alle preferenze, ad esempio Email/SMS/Push/Voice, App per la logica, Webhook, ITSM o Runbook di Automazione.
+- I gruppi [di](../../azure-monitor/alerts/action-groups.md) azioni possono essere definiti per inviare notifiche e avvisi in base alle preferenze, ad esempio email/SMS/Push/Voice, App per la logica, Webhook, ITSM o Runbook di Automazione.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Backup e ripristino di database con Transparent Data Encryption gestita dal cliente
 
@@ -177,7 +177,7 @@ Per ripristinare un backup crittografato con la protezione TDE del Key Vault, as
 
 Se la chiave necessaria per il ripristino di un backup non è più disponibile per il server di destinazione, al tentativo di ripristino viene restituito il messaggio di errore seguente: "Il server di destinazione non ha accesso a tutti gli URI AKV creati tra `<Servername>` \<Timestamp #1> e \<Timestamp #2> . Ripetere l'operazione dopo il ripristino di tutti gli URI AKV."
 
-Per attenuare il rischio, eseguire il cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) per il server di destinazione o [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) per l'istanza gestita di destinazione per restituire l'elenco delle chiavi disponibili e identificare quelle mancanti. Per garantire che tutti i backup possano essere ripristinati, verificare che il server di destinazione per il ripristino abbia accesso a tutte le chiavi necessarie. Le chiavi non devono essere contrassegnate come protezione TDE.
+Per attenuarlo, eseguire il cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) per il server di destinazione o [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) per l'istanza gestita di destinazione per restituire l'elenco delle chiavi disponibili e identificare quelle mancanti. Per garantire che tutti i backup possano essere ripristinati, verificare che il server di destinazione per il ripristino abbia accesso a tutte le chiavi necessarie. Le chiavi non devono essere contrassegnate come protezione TDE.
 
 Per altre informazioni sul ripristino del backup per il database SQL, vedere [Ripristinare un database nel database SQL.](recovery-using-backups.md) Per altre informazioni sul ripristino del backup per un pool SQL dedicato in Azure Synapse Analytics, vedere Ripristinare [un pool SQL dedicato.](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md) Per SQL Server backup/ripristino nativo di sql Istanza gestita, vedere Avvio [rapido:](../managed-instance/restore-sample-database-quickstart.md) Ripristinare un database in SQL Istanza gestita
 

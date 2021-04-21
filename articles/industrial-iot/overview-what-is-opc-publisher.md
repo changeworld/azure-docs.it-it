@@ -1,32 +1,30 @@
 ---
-title: Publisher Microsoft OPC
-description: Questo articolo fornisce una panoramica del modulo OPC Publisher Edge.
-author: jehona-m
+title: Microsoft OPC Publisher
+description: Questo articolo offre una panoramica del modulo OPC Publisher Edge.
+author: v-condav
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: conceptual
 ms.date: 3/22/2021
-ms.openlocfilehash: 3a44bdbadfe6ecd86a1b98fb7002f2d75c23bb6a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6df39c93e9bcfca522ac61a863c87269216cc592
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800534"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816171"
 ---
 # <a name="what-is-the-opc-publisher"></a>Che cos'è il server di pubblicazione OPC?
 
-Publisher OPC è un prodotto Microsoft completamente supportato, sviluppato in modo aperto, che colma il divario tra le risorse industriali e il cloud Microsoft Azure. Questa operazione viene eseguita connettendosi alle risorse abilitate per OPC UA o al software di connettività industriale e pubblica i dati di telemetria nell'hub Azure Internet in diversi formati, tra cui IEC62541 OPC UA PubSub Standard Format (dalla versione 2,6 in poi).
-
-Viene eseguito in Azure IoT Edge come un modulo o in un Docker normale come contenitore. Poiché si avvale del runtime .NET multipiattaforma, viene eseguito anche in modalità nativa in Linux e Windows 10.
+OPC Publisher è un prodotto Microsoft completamente supportato che colma il divario tra asset industriali e Microsoft Azure cloud. A tale scopo, connette OPC UA asset abilitati o software di connettività industriale al cloud Microsoft Azure. Pubblica i dati di telemetria raccolti in hub IoT di Azure in vari formati, incluso il formato standard IEC62541 OPC UA PubSub (a partire dalla versione 2.6). OPC Publisher viene eseguito in Azure IoT Edge come modulo o come contenitore in Un normale Docker. Poiché sfrutta il runtime multipiattaforma .NET, viene eseguito in modo nativo sia in Linux che Windows 10.
 
 OPC Publisher è un'implementazione di riferimento che illustra come:
 
 - Connettersi ai server OPC UA esistenti.
-- Pubblicare i dati di telemetria codificati JSON dai server OPC UA (in formato Pub/Sub OPC UA) nell'hub IoT di Azure, usando un payload JSON.
+- Pubblicare i dati di telemetria con codifica JSON da OPC UA server in formato OPC UA pub/sub, usando un payload JSON, in un hub IoT di Azure.
 
-È possibile usare uno dei protocolli di trasporto supportati dall'SDK client dell'hub IoT di Azure: HTTPS, AMQP e MQTT.
+È possibile usare qualsiasi protocollo di trasporto hub IoT di Azure CLIENT SDK, ad esempio HTTPS, AMQP e MQTT.
 
-L'implementazione di riferimento include:
+L'implementazione di riferimento include quanto segue.
 
 - Un *client* OPC UA per la connessione ai server OPC UA esistenti nella rete.
 - Un *server* OPC UA sulla porta 62222 che consente di gestire i contenuti pubblicati e offre metodi diretti dell'hub IoT per eseguire le stesse operazioni.
@@ -35,7 +33,7 @@ L'implementazione di riferimento include:
 
 L'applicazione viene implementata usando la tecnologia .NET Core e può essere eseguita su qualsiasi piattaforma supportata da .NET Core.
 
-## <a name="what-does-the-opc-publisher-do"></a>Che cosa fa il server di pubblicazione OPC?
+## <a name="what-does-the-opc-publisher-do"></a>Quali sono le funzioni del server di pubblicazione OPC?
 
 OPC Publisher implementa la logica di ripetizione dei tentativi per stabilire connessioni agli endpoint che non rispondono a un certo numero di richieste keep-alive, ad esempio se un server OPC UA smette di rispondere a causa di un'interruzione dell'alimentazione.
 
@@ -46,7 +44,7 @@ Per ridurre il carico di rete, OPC Publisher supporta l'invio in batch dei dati 
 Questa applicazione usa lo stack di riferimento OPC UA di OPC Foundation come pacchetti NuGet. Vedere [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) per le condizioni di licenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che si è appreso come è il server di pubblicazione OPC, è possibile iniziare a distribuirlo:
+Ora che si è appreso che cos'è il server di pubblicazione OPC, è possibile iniziare distribuerlo:
 
 > [!div class="nextstepaction"]
-> [Distribuire il server di pubblicazione OPC in modalità autonoma](tutorial-publisher-deploy-opc-publisher-standalone.md)
+> [Distribuire OPC Publisher in modalità autonoma](tutorial-publisher-deploy-opc-publisher-standalone.md)

@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 05c98102109d1925eb78d4558faf62b366801e77
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: aa78d6495eeffd0ea733451e029f07413602ce0d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538975"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812733"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Domande frequenti su Confidential computing di Azure
 
-Questo articolo fornisce risposte ad alcune delle domande più comuni sull'esecuzione di carichi di lavoro [di confidential computing nelle macchine virtuali di Azure.](overview.md)
+Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'esecuzione di carichi di lavoro di [confidential computing nelle macchine virtuali di Azure.](overview.md)
 
 Se il problema riguardante Azure non viene risolto in questo articolo, visitare i forum di Azure su [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). È possibile pubblicare il problema in questi forum o in [@AzureSupport su Twitter](https://twitter.com/AzureSupport). È anche possibile inviare una richiesta di supporto tecnico di Azure. Per inviare una richiesta di supporto tecnico, selezionare Supporto nella pagina [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/).
 
@@ -32,7 +32,7 @@ Ecco alcuni modi in cui è possibile distribuire una macchina virtuale DCsv2:
 
 **Le immagini del sistema operativo funzionano tutte con Confidential computing di Azure?**
 
-No. Le macchine virtuali possono essere distribuite solo in computer operativi di generazione 2 con Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter e Windows Server 2016 Datacenter. Altre informazioni sulle macchine virtuali di generazione 2 in [Linux](../virtual-machines/generation-2.md) e [Windows](../virtual-machines/generation-2.md)
+No. Le macchine virtuali possono essere distribuite solo in macchine virtuali di seconda generazione con Ubuntu Server 18.04, Ubuntu Server 20.04, Windows Server 2019 Datacenter e Windows Server 2016 Datacenter. Altre informazioni sulle macchine virtuali di generazione 2 in [Linux](../virtual-machines/generation-2.md) e [Windows](../virtual-machines/generation-2.md)
 
 **Le macchine virtuali DCsv2 sono disabilitate nel portale e non è possibile selezionarne una**
 
@@ -47,11 +47,11 @@ Assicurarsi di aver selezionato un'[area disponibile](https://azure.microsoft.co
 
 **È possibile abilitare la rete accelerata con il confidential computing di Azure?**
 
- No. La rete accelerata non è supportata in DC-Series o DCsv2-Series virtuali. La rete accelerata non può essere abilitata per la distribuzione di macchine virtuali di confidential computing o servizio Azure Kubernetes cluster in esecuzione nel confidential computing.
+ No. La rete accelerata non è supportata nelle DC-Series o DCsv2-Series virtuali. La rete accelerata non può essere abilitata per la distribuzione di macchine virtuali di confidential computing o servizio Azure Kubernetes cluster in esecuzione nel confidential computing.
 
 **È possibile usare host dedicato di Azure con questi computer?**
 
-Sì. host dedicato di Azure le macchine virtuali serie DCsv2. host dedicato di Azure un server fisico a tenant singolo in cui eseguire le macchine virtuali. Gli utenti usano in genere host dedicato di Azure per soddisfare i requisiti di conformità relativi alla sicurezza fisica, all'integrità dei dati e al monitoraggio. 
+Sì. host dedicato di Azure le macchine virtuali serie DCsv2. host dedicato di Azure fornisce un server fisico a tenant singolo in cui eseguire le macchine virtuali. Gli utenti usano in genere host dedicato di Azure per soddisfare i requisiti di conformità relativi alla sicurezza fisica, all'integrità dei dati e al monitoraggio. 
 
 **Si verifica un errore di distribuzione del modello di Azure Resource Manager: "Non è stato possibile completare l'operazione perché comporta il superamento della quota standard approvata di core della famiglia DcsV2"**
 
