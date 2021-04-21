@@ -1,6 +1,6 @@
 ---
-title: Riferimento ai dati di monitoraggio di servizi multimediali
-description: Materiale di riferimento importante necessario per il monitoraggio di servizi multimediali
+title: Informazioni di riferimento sui dati di Servizi multimediali di monitoraggio
+description: Materiale di riferimento importante necessario per il monitoraggio di Servizi multimediali
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
@@ -8,83 +8,54 @@ ms.topic: reference
 ms.service: media-services
 ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 8908fd1acc64fb180121ac0b6a4dc38ce5a02572
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 4e4c65966ec8a6a5b47d5f68596f6d2d496fda17
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121167"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835507"
 ---
-# <a name="monitoring-media-services-data-reference"></a>Riferimento ai dati di monitoraggio di servizi multimediali
+# <a name="monitoring-media-services-data-reference"></a>Informazioni di riferimento sui dati di Servizi multimediali di monitoraggio
 
-Questo articolo illustra i dati utili per il monitoraggio di servizi multimediali. Per altre informazioni su tutte le metriche della piattaforma supportate in monitoraggio di Azure, vedere [metriche supportate con monitoraggio di Azure](../../../azure-monitor/essentials/metrics-supported.md).
+Questo articolo illustra i dati utili per il monitoraggio di Servizi multimediali. Per altre informazioni su tutte le metriche della piattaforma supportate in Monitoraggio di Azure, vedere [Metriche supportate con Monitoraggio di Azure](../../../azure-monitor/essentials/metrics-supported.md).
 
-## <a name="media-services-metrics"></a>Metriche di servizi multimediali
+## <a name="media-services-metrics"></a>Metriche di Servizi multimediali
 
 Le metriche vengono raccolte a intervalli regolari indipendentemente dal fatto che il valore venga modificato. Sono utili per la generazione di avvisi perché possono essere campionate di frequente e perché un avviso può essere generato rapidamente con una logica relativamente semplice.
 
+
 Servizi multimediali supporta le metriche di monitoraggio per le risorse seguenti:
 
-* Account
-* Endpoint di streaming
+|Tipo di metrica | Spazio dei nomi del provider di risorse/tipo<br/> e collegamento a singole metriche |
+|-------|-----|
+| Generale di Servizi multimediali | [Generale](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservices) |
+| Eventi live | [Microsoft.Media/mediaservices/liveEvents](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesliveevents) 
+| Endpoint di streaming | [Microsoft.Media/mediaservices/streamingEndpoints,](/azure/azure-monitor/essentials/metrics-supported#microsoftmediamediaservicesstreamingendpoints)che sono rilevanti per [l'API REST degli endpoint di streaming](/rest/api/media/streamingendpoints). 
 
-### <a name="account"></a>Account
 
-È possibile monitorare le metriche dell'account seguenti.
+È anche necessario esaminare [le quote e i limiti dell'account.](../limits-quotas-constraints-reference.md)
 
-|Nome metrica|Nome visualizzato|Descrizione|
-|---|---|---|
-|AssetCount|Asset count (Conteggio asset)|Asset nell'account.|
-|AssetQuota|Asset quota (Quota asset)|Quota di asset nell'account.|
-|AssetQuotaUsedPercentage|Asset quota used percentage (Percentuale usata quota asset)|Percentuale della quota di asset già in uso.|
-|ContentKeyPolicyCount|Content Key Policy count (Conteggio criteri chiave simmetrica)|Criteri chiave simmetrica nell'account.|
-|ContentKeyPolicyQuota|Content Key Policy quota (Quota criteri chiave simmetrica)|Quota dei criteri chiave simmetrica nell'account.|
-|ContentKeyPolicyQuotaUsedPercentage|Content Key Policy quota used percentage (Percentuale usata quota criteri chiave simmetrica)|Percentuale della quota dei criteri della chiave simmetrica già utilizzata.|
-|StreamingPolicyCount|Streaming Policy count (Conteggio criteri di streaming)|Criteri di streaming nell'account.|
-|StreamingPolicyQuota|Streaming Policy quota (Quota criteri di streaming)|Quota dei criteri di streaming nell'account.|
-|StreamingPolicyQuotaUsedPercentage|Streaming Policy quota used percentage (Percentuale usata quota criteri di streaming)|Percentuale della quota dei criteri di flusso già utilizzata.|
 
-È anche necessario esaminare [le quote e i limiti dell'account](../limits-quotas-constraints-reference.md).
+## <a name="metric-dimensions"></a>Dimensioni delle metriche
 
-### <a name="streaming-endpoint"></a>Endpoint di streaming
-
-Sono supportate le metriche seguenti per gli [endpoint di streaming](/rest/api/media/streamingendpoints) di servizi multimediali:
-
-|Nome metrica|Nome visualizzato|Descrizione|
-|---|---|---|
-|Requests|Requests|Specifica il numero totale di richieste HTTP gestite dall'endpoint di streaming.|
-|Egress|Egress|Byte in uscita totali al minuto per endpoint di streaming.|
-|SuccessE2ELatency|Success end to end Latency (Latenza end-to-end riuscita)|Durata del periodo di tempo durante il quale l'endpoint di streaming ha ricevuto la richiesta al momento dell'invio dell'ultimo byte della risposta.|
-|Utilizzo della CPU| | Utilizzo della CPU per gli endpoint di streaming Premium. Questi dati non sono disponibili per gli endpoint di streaming standard. |
-|Larghezza di banda in uscita | | Larghezza di banda in uscita in bit al secondo.|
-
-## <a name="metric-dimensions"></a>Dimensioni metrica
-
-Per altre informazioni sulle dimensioni della metrica, vedere [metriche multidimensionali](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+Per altre informazioni sulle dimensioni delle metriche, vedere [Metriche multidimensionali.](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics)
 
 <!--**PLACEHOLDER** for dimensions table.-->
+OutputFormat, HttpStatusCode, ErrorCode, TrackName
 
 ## <a name="resource-logs"></a>Log risorse
 
-## <a name="media-services-diagnostic-logs"></a>Log di diagnostica di servizi multimediali
+## <a name="media-services-resource-logs"></a>Log delle risorse di Servizi multimediali
 
-I log di diagnostica forniscono dati avanzati e frequenti sul funzionamento di una risorsa di Azure. Per ulteriori informazioni, vedere [come raccogliere e utilizzare i dati di log dalle risorse di Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
+I log delle risorse forniscono dati dettagliati e frequenti sul funzionamento di una risorsa di Azure. Per altre informazioni, vedere [Come raccogliere e utilizzare i dati di log dalle risorse di Azure.](../../../azure-monitor/essentials/platform-logs-overview.md)
 
-Servizi multimediali supporta i log di diagnostica seguenti:
-
-* Distribuzione delle chiavi
-
-### <a name="key-delivery"></a>Distribuzione delle chiavi
-
-|Nome|Descrizione|
-|---|---|
-|Richiesta del servizio di distribuzione delle chiavi|Log che mostrano le informazioni della richiesta del servizio di distribuzione delle chiavi. Per ulteriori informazioni, vedere [schemi](monitor-media-services-data-reference.md).|
+Servizi multimediali supporta i log delle risorse seguenti: [Microsoft.Media/mediaservices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftmediamediaservices)
 
 ## <a name="schemas"></a>Schemi
 
-Per una descrizione dettagliata dello schema dei log di diagnostica di primo livello, vedere [servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../azure-monitor/essentials/resource-logs-schema.md).
+Per una descrizione dettagliata dello schema dei log di diagnostica di primo livello, vedere Servizi, schemi e categorie supportati [per i log di diagnostica di Azure.](../../../azure-monitor/essentials/resource-logs-schema.md)
 
-## <a name="key-delivery-log-schema-properties"></a>Proprietà dello schema del log di distribuzione delle chiavi
+## <a name="key-delivery-log-schema-properties"></a>Proprietà dello schema del log di recapito delle chiavi
 
 Queste proprietà sono specifiche dello schema del log di distribuzione delle chiavi.
 
@@ -94,11 +65,11 @@ Queste proprietà sono specifiche dello schema del log di distribuzione delle ch
 |keyType|Può essere uno dei valori seguenti: "Clear" (nessuna crittografia), "FairPlay", "PlayReady" o "Widevine".|
 |policyName|Nome Azure Resource Manager del criterio.|
 |tokenType|Tipo di token.|
-|statusMessage|Messaggio di stato.|
+|messaggio di stato|Messaggio di stato.|
 
 ### <a name="example"></a>Esempio
 
-Proprietà dello schema delle richieste di recapito delle chiavi.
+Proprietà dello schema delle richieste di distribuzione delle chiavi.
 
 ```json
 {

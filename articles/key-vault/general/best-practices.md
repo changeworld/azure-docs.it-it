@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 5e4ec2749cec8444382e2b6e7c856e74c57ebb59
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7cfa2059cc03b96db39183cfa5056c9934a02290
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777168"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814353"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedure consigliate per usare Azure Key Vault
 
@@ -24,7 +24,7 @@ ms.locfileid: "107777168"
 
 ## <a name="control-access-to-your-vault"></a>Controllare l'accesso all'insieme di credenziali
 
-Azure Key Vault è un servizio cloud che protegge le chiavi di crittografia e i segreti, come certificati, stringhe di connessione e password. Poiché questi dati sono riservati e importanti per l'azienda, è necessario proteggere gli insiemi di credenziali delle chiavi consentendo l'accesso solo ad applicazioni e utenti autorizzati. Questo [articolo](security-overview.md) offre una panoramica del modello di Key Vault accesso remoto. Verranno illustrate l'autenticazione e l'autorizzazione e sarà descritto come proteggere l'accesso agli insiemi di credenziali delle chiavi.
+Azure Key Vault è un servizio cloud che protegge le chiavi di crittografia e i segreti, come certificati, stringhe di connessione e password. Poiché questi dati sono riservati e importanti per l'azienda, è necessario proteggere gli insiemi di credenziali delle chiavi consentendo l'accesso solo ad applicazioni e utenti autorizzati. Questo [articolo](security-features.md) offre una panoramica del modello di Key Vault accesso remoto. Verranno illustrate l'autenticazione e l'autorizzazione e sarà descritto come proteggere l'accesso agli insiemi di credenziali delle chiavi.
 
 I suggerimenti durante il controllo dell'accesso all'insieme di credenziali sono i seguenti:
 1. Bloccare l'accesso alla sottoscrizione, al gruppo di risorse e agli insiemi di credenziali delle chiavi (Controllo degli accessi in base al ruolo di Azure)
@@ -56,4 +56,4 @@ Assicurarsi di eseguire backup regolari dell'insieme di credenziali in caso di a
 ## <a name="turn-on-recovery-options"></a>Attivare le opzioni di ripristino
 
 1. Attivare [l'eliminazione soft.](soft-delete-overview.md)
-2. Attivare la protezione dall'eliminazione se si vuole proteggersi dall'eliminazione forzata del segreto o dell'insieme di credenziali anche dopo l'attivazione dell'eliminazione soft.
+2. Attivare la protezione da ripulitura se si vuole proteggersi dall'eliminazione forzata del segreto o dell'insieme di credenziali anche dopo l'attivazione dell'eliminazione soft.

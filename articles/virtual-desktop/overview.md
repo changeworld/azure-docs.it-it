@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7e14dbf5aab68f5ea2d96274606306378feedad2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: a6d98f827c39f973714441e308dcc4f2bd061c9b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445993"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835579"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows
 
@@ -91,7 +91,7 @@ Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere
 >[!NOTE]
 >Se è necessaria una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita di un mese](https://azure.microsoft.com/free/). Se si usa la versione di valutazione gratuita di Azure, è necessario usare Azure AD Domain Services per mantenere Windows Server Active Directory sincronizzato con Azure Active Directory.
 
-Per un elenco degli URL che è necessario sbloccare per la corretta distribuzione di Desktop virtuale Windows, vedere l'[elenco di URL sicuri](safe-url-list.md).
+Per un elenco degli URL da sbloccare per il corretto funzionamento della distribuzione di Desktop virtuale Windows, vedere [l'elenco di URL necessari.](safe-url-list.md)
 
 Desktop virtuale Windows comprende i desktop e le app Windows distribuiti agli utenti e la soluzione di gestione ospitata come servizio in Azure da Microsoft. I desktop e le app possono essere distribuiti in macchine virtuali (VM) in qualsiasi area di Azure e la soluzione di gestione e i dati per queste macchine virtuali risiederanno negli Stati Uniti. Questo potrebbe comportare il trasferimento dei dati negli Stati Uniti.
 
@@ -124,13 +124,13 @@ Per altre informazioni sugli URL che è necessario sbloccare per usare i client,
 Desktop virtuale Windows supporta le immagini di sistema operativo x64 seguenti:
 
 * Windows 10 Enterprise multisessione 1809 o versioni successive
-* Windows 10 Enterprise, versione 1809 o successiva (solo per canale semestrale)
+* Windows 10 Enterprise, versione 1809 o successiva (solo Canale semestrale)
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Desktop virtuale Windows non supporta le immagini del sistema operativo x86 (32 bit), Windows 10 Enterprise N, Windows 10 Pro o Windows 10 Enterprise KN. Windows 7 non supporta inoltre soluzioni di profili basati su VHD o VHDX ospitate in Archiviazione di Azure gestita a causa di una limitazione delle dimensioni dei settori.
+Desktop virtuale Windows non supporta immagini del sistema operativo x86 (32 bit), Windows 10 Enterprise N, Windows 10 Pro o Windows 10 Enterprise SISTEMA OPERATIVO. Windows 7 non supporta inoltre soluzioni di profili basati su VHD o VHDX ospitate in Archiviazione di Azure gestita a causa di una limitazione delle dimensioni dei settori.
 
 Le opzioni di automazione e distribuzione disponibili variano a seconda del sistema operativo e della versione scelta, come illustrato nella tabella seguente:
 

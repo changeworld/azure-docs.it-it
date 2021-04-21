@@ -4,22 +4,22 @@ description: Informazioni su come connettersi a un server di Azure Analysis Serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 4/20/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed0f3d379ca961c610958c073c27c6fc9583252b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5a430c5bb24032a2665ad078311dcb5137d2bb9
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96500921"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816032"
 ---
 # <a name="connect-with-power-bi"></a>Connettersi con Power BI
 
 Dopo aver creato un server in Azure e aver distribuito un modello tabulare nel server, gli utenti dell'organizzazione sono pronti per connettersi e iniziare l'esplorazione dei dati. 
 
-> [!TIP]
-> Assicurarsi di usare la versione più recente di [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+> [!NOTE]
+> Se si pubblica un Power BI Desktop di regole di confronto nel servizio Power BI, nel server Azure Analysis Services verificare che la proprietà del server delle regole di confronto Case-Sensitive non sia selezionata (impostazione predefinita). La Case-Sensitive server può essere impostata usando SQL Server Management Studio.
 > 
 > 
   
@@ -38,7 +38,7 @@ Dopo aver creato un server in Azure e aver distribuito un modello tabulare nel s
 5. Immettere le credenziali di accesso, se richieste. 
 
    > [!NOTE]
-   > Gli account di accesso monouso (OTP) non sono supportati. 
+   > Gli account passcode (OTP) una sola volta non sono supportati. 
 
 6. In **Strumento di navigazione** espandere il server, selezionare il modello o la prospettiva a cui connettersi e quindi fare clic su **Connetti**. Fare clic su un modello o su una prospettiva per visualizzare tutti gli oggetti per la vista selezionata.
 
@@ -50,5 +50,5 @@ Dopo aver creato un server in Azure e aver distribuito un modello tabulare nel s
 2. In [Power BI](https://powerbi.microsoft.com) fare clic su **Recupera dati** > **File** e quindi individuare e selezionare il file con estensione pbix.
 
 ## <a name="see-also"></a>Vedi anche
-[Connetti a Azure Analysis Services](analysis-services-connect.md)   
+[Connettersi a Azure Analysis Services](analysis-services-connect.md)   
 [Librerie client](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)

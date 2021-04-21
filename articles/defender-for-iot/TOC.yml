@@ -7,10 +7,10 @@
     - name: Novità
       displayName: 'version, versions, servicing, information, timeline, support, support date, dates, versioning, policy'
       href: release-notes.md
-    - name: Che cos'è l'architettura della soluzione senza agente
+    - name: Che cos'è l'architettura della soluzione agentless
       displayName: 'deployment, where to deploy'
       href: architecture.md
-    - name: Che cos'è l'architettura della soluzione basata su agente
+    - name: Che cos'è l'architettura della soluzione basata su Agent
       href: architecture-agent-based.md
 - name: Avvi rapidi
   expanded: true
@@ -25,18 +25,18 @@
           href: getting-started.md
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
-        - name: Eseguire l'onboard in Defender per una soluzione basata su agente IoT
+        - name: Eseguire l'onboard in Defender per una soluzione basata su agenti IoT
           displayName: 'IoT Hub, existing, enable'
           href: quickstart-onboard-iot-hub.md
-        - name: Installare il micro-agente defender per IoT (anteprima)
+        - name: Installare defender per micro agent IoT (anteprima)
           displayName: 'package, authentication, methods, certificate, authenticate, version'
           href: quickstart-standalone-agent-binary-installation.md
         - name: Creare un modulo gemello del micro-agente Defender IoT (anteprima)
           href: quickstart-create-micro-agent-module-twin.md
-        - name: Compilare il micro-agente Defender per IoT dal codice sorgente (anteprima)
+        - name: Compilare l'agente micro Defender per IoT dal codice sorgente (anteprima)
           displayName: 'baseline, configuration, customize, distribution'
           href: quickstart-building-the-defender-micro-agent-from-source.md
-        - name: Configurare il micro-agente Defender-IoT per Azure RTOS
+        - name: Configurare Defender-IoT-micro-agent per Azure RTOS
           href: quickstart-azure-rtos-security-module.md
         - name: Aggiungere le risorse di Azure alla soluzione IoT
           displayName: 'resources, monitored, resource'
@@ -66,7 +66,7 @@
         - name: Autenticazione dell'agente di sicurezza (anteprima)
           displayName: 'connection string, certificate, authentication'
           href: concept-security-agent-authentication.md
-        - name: Posizione di sicurezza - Benchmark CIS
+        - name: Sicurezza - Benchmark CIS
           href: concept-security-posture.md
         - name: Aggregazione di eventi (anteprima)
           displayName: 'process events, network connection'
@@ -80,10 +80,10 @@
           href: concept-recommendations.md
         - name: Classic
           items:
-            - name: Micro-agente Defender-IoT
+            - name: Defender-IoT-micro-agent
               displayName: 'device twins, Defender-IoT-micro-agent twin'
               href: concept-security-module.md
-            - name: Micro-agente Edge Defender-IoT
+            - name: Edge Defender-IoT-micro-agent
               href: security-edge-architecture.md
             - name: Agenti di sicurezza
               href: overview-security-agents.md
@@ -96,14 +96,14 @@
             - name: Baseline di sicurezza di Azure per Azure Defender per IoT
               displayName: 'identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance'
               href: security-baseline.md
-            - name: Aggregazione di eventi classica defender-ioT-micro-agente
+            - name: Aggregazione degli eventi classici di Defender-IoT-micro-agent
               displayName: 'twin, default, configuration, alerts'
               href: event-aggregation.md
             - name: Avvisi di sicurezza basati su agente
               href: agent-based-security-alerts.md
             - name: Avvisi personalizzati di sicurezza basati su agente
               href: agent-based-security-custom-alerts.md
-            - name: Raccomandazioni basate su agente
+            - name: Raccomandazioni basate su agenti
               href: agent-based-recommendations.md
 - name: Guide pratiche
   items:
@@ -156,7 +156,7 @@
               href: how-to-define-global-user-access-control.md
               displayName: 'business unit, site, region, user'
         - name: Controllare quale traffico viene monitorato
-          displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets'
+          displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets,  WMI, active, probing, scanning, switch'
           href: how-to-control-what-traffic-is-monitored.md
         - name: Gestire i sensori dalla console di gestione locale
           displayName: 'disconnect, connect, activation file, sensor backup'
@@ -185,7 +185,7 @@
           displayName: 'connections, Purdue, zoom, delete device'
         - name: Gestire gli avvisi rilevati da un sensore
           items:
-            - name: Informazioni su avvisi del sensore
+            - name: Comprendere gli avvisi dei sensori
               href: how-to-work-with-alerts-on-your-sensor.md
             - name: Filtrare e gestire gli avvisi dalla pagina Avvisi
               href: how-to-view-alerts.md
@@ -207,7 +207,7 @@
         - name: 'Acquisire informazioni su minacce locali, globali e a livello di area'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
           displayName: 'site, business unit, region, map'
-        - name: 'Pochi dispositivi informativi, avvisi e sensori per ogni zona'
+        - name: 'Pochi dispositivi informativi, avvisi e sensori per zona'
           href: how-to-view-information-per-zone.md
           displayName: zones
         - name: Gestire gli avvisi della console di gestione locale
@@ -223,7 +223,7 @@
             - name: Creare data mining report
               displayName: 'CVE, activity'
               href: how-to-create-data-mining-queries.md
-            - name: Creare report sulle tendenze e sulle statistiche
+            - name: Creare report di tendenze e statistiche
               href: how-to-create-trends-and-statistics-reports.md
               displayName: 'widgets, charts'
         - name: Arricchire le informazioni sui dispositivi
@@ -272,14 +272,14 @@
         - name: Creare avvisi personalizzati
           displayName: security group
           href: quickstart-create-custom-alerts.md
-        - name: Defender-IoT-micro-agent per Azure RTOS
+        - name: Defender-IoT-micro-agente per Azure RTOS
           href: iot-security-azure-rtos.md
           items:
-            - name: Collaborare con Defender-IoT-micro-agent per Azure RTOS
+            - name: Usare Defender-IoT-micro-agent per Azure RTOS
               href: how-to-azure-rtos-security-module.md
             - name: Informazioni sul micro-agente Defender-IoT per Azure RTOS
               href: concept-rtos-security-module.md
-            - name: Defender-IoT-micro-agent per Azure RTOS e raccomandazioni
+            - name: Defender-IoT-micro-agente per Azure RTOS avvisi e raccomandazioni
               href: concept-rtos-security-alerts-recommendations.md
         - name: Classic
           items:
@@ -338,7 +338,7 @@
           href: resources-frequently-asked-questions.md
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
-        - name: Defender-IoT-micro-agente per l Azure RTOS API
+        - name: Defender-IoT-micro-agent per l'API Azure RTOS
           displayNAme: 'prototype, disable'
           href: azure-rtos-security-module-api.md
         - name: Domande frequenti - agente

@@ -1,6 +1,6 @@
 ---
-title: Ripristinare un account di Azure automanage danneggiato
-description: Se è stata spostata di recente una sottoscrizione che contiene un account di gestione automaticamente in un nuovo tenant, è necessario riconfigurarla. In questo articolo si apprenderà come.
+title: Ripristinare un account Gestione automatica di Azure danneggiato
+description: Se di recente è stata spostata una sottoscrizione che contiene un account di gestione automatica in un nuovo tenant, è necessario riconfigurarla. In questo articolo si apprenderà come fare.
 author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -8,24 +8,25 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
-ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e6bf5404a33e0b4e57c2ff8d82d8791eda3d0f06
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183703"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834193"
 ---
-# <a name="repair-an-automanage-account"></a>Ripristinare un account di gestione autogestita
-L' [account di gestione](./automanage-virtual-machines.md#automanage-account) automatica di Azure è il contesto di sicurezza o l'identità con cui si verificano le operazioni automatiche. Se è stata spostata di recente una sottoscrizione che contiene un account di gestione automaticamente in un nuovo tenant, è necessario riconfigurare l'account. Per riconfigurarlo, è necessario reimpostare il tipo di identità e assegnare i ruoli appropriati per l'account.
+# <a name="repair-an-automanage-account"></a>Ripristinare un account di gestione automatica
+[L Gestione automatica di Azure account è](./automanage-virtual-machines.md#automanage-account) il contesto di sicurezza o l'identità con cui si verificano le operazioni automatizzate. Se di recente è stata spostata una sottoscrizione che contiene un account di gestione automatica in un nuovo tenant, è necessario riconfigurare l'account. Per riconfigurarlo, è necessario reimpostare il tipo di identità e assegnare i ruoli appropriati per l'account.
 
-## <a name="step-1-reset-the-automanage-account-identity-type"></a>Passaggio 1: reimpostare il tipo di identità dell'account automanage
-Reimpostare il tipo di identità dell'account automanage usando il modello di Azure Resource Manager (ARM) seguente. Salvare il file localmente come armdeploy.jso con un nome simile. Annotare il nome e il percorso dell'account di automanage perché sono parametri obbligatori nel modello ARM.
+## <a name="step-1-reset-the-automanage-account-identity-type"></a>Passaggio 1: Reimpostare il tipo di identità Account di gestione automatica
+Reimpostare il tipo di identità Account di gestione automatica usando il modello di Azure Resource Manager (ARM) seguente. Salvare il file in locale come armdeploy.jso con un nome simile. Prendere nota del nome e della posizione dell'account di Gestione automatica perché sono parametri obbligatori nel modello di Gestione risorse di Microsoft.
 
-1. Creare una distribuzione Gestione risorse usando il modello seguente. Usare `identityType = None`.
-    * È possibile creare la distribuzione nell'interfaccia della riga di comando di Azure usando `az deployment sub create` . Per ulteriori informazioni, vedere [AZ Deployment Sub](/cli/azure/deployment/sub).
-    * È possibile creare la distribuzione in PowerShell usando il `New-AzDeployment` modulo. Per ulteriori informazioni, vedere [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
+1. Creare una Resource Manager distribuzione usando il modello seguente. Usare `identityType = None`.
+    * È possibile creare la distribuzione nell'interfaccia della riga di comando di Azure usando `az deployment sub create` . Per altre informazioni, vedere [az deployment sub](/cli/azure/deployment/sub).
+    * È possibile creare la distribuzione in PowerShell usando il `New-AzDeployment` modulo . Per altre informazioni, vedere [New-AzDeployment.](/powershell/module/az.resources/new-azdeployment)
 
-1. Eseguire di nuovo lo stesso modello ARM con `identityType = SystemAssigned` .
+1. Eseguire di nuovo lo stesso modello di Arm con `identityType = SystemAssigned` .
 
 ```json
 {
@@ -58,25 +59,25 @@ Reimpostare il tipo di identità dell'account automanage usando il modello di Az
 
 ```
 
-## <a name="step-2-assign-appropriate-roles-for-the-automanage-account"></a>Passaggio 2: assegnare i ruoli appropriati per l'account automanage
-L'account automanage richiede i ruoli collaboratore e collaboratore criteri risorse nella sottoscrizione che contiene le macchine virtuali gestite da gestione. È possibile assegnare questi ruoli usando il portale di Azure, i modelli ARM o l'interfaccia della riga di comando di Azure.
+## <a name="step-2-assign-appropriate-roles-for-the-automanage-account"></a>Passaggio 2: Assegnare i ruoli appropriati per l'account di gestione automatica
+L'account di gestione automatica richiede i ruoli Collaboratore e Collaboratore ai criteri delle risorse nella sottoscrizione che contiene le macchine virtuali che gestione automatica sta gestendo. È possibile assegnare questi ruoli usando l'interfaccia della riga di portale di Azure, i modelli arm o l'interfaccia della riga di comando di Azure.
 
-Se si usa un modello ARM o l'interfaccia della riga di comando di Azure, è necessario l'ID dell'entità (noto anche come ID oggetto) dell'account di automanage. (L'ID non è necessario se si usa il portale di Azure). È possibile trovare questo ID usando questi metodi:
+Se si usa un modello arm o l'interfaccia della riga di comando di Azure, è necessario l'ID entità (noto anche come ID oggetto) dell'account di gestione automatica. L'ID non è necessario se si usa il portale di Azure. È possibile trovare questo ID usando questi metodi:
 
-- [Interfaccia](/cli/azure/ad/sp)della riga di comando di Azure: usare il comando `az ad sp list --display-name <name of your Automanage Account>` .
+- [Interfaccia della riga di comando](/cli/azure/ad/sp)di Azure: usare il comando `az ad sp list --display-name <name of your Automanage Account>` .
 
-- Portale di Azure: passare a **Azure Active Directory** e cercare l'account automanage in base al nome. In **applicazioni aziendali** selezionare il nome dell'account automanage quando viene visualizzato.
+- portale di Azure: passare a **Azure Active Directory** e cercare l'account di gestione automatica in base al nome. In **Applicazioni aziendali** selezionare il nome dell'account di gestione automatica quando viene visualizzato.
 
 ### <a name="azure-portal"></a>Portale di Azure
-1. In **sottoscrizioni** passare alla sottoscrizione che contiene le macchine virtuali autogestite.
-1. Passare a **controllo di accesso (IAM)**.
+1. In **Sottoscrizioni** passare alla sottoscrizione che contiene le macchine virtuali con gestione automatica.
+1. Passare a **Controllo di accesso (IAM).**
 1. Selezionare **Aggiungi assegnazioni di ruolo**.
-1. Selezionare il ruolo **collaboratore** e immettere il nome dell'account automanage.
+1. Selezionare il **ruolo Collaboratore** e immettere il nome dell'account di gestione automatica.
 1. Selezionare **Salva**.
-1. Ripetere i passaggi da 3 a 5, questa volta con il ruolo **collaboratore criteri risorse** .
+1. Ripetere i passaggi da 3 a 5, questa volta con il **ruolo Collaboratore criteri** risorse.
 
 ### <a name="arm-template"></a>Modello ARM
-Eseguire il modello ARM seguente. È necessario l'ID entità dell'account di automanage. I passaggi per ottenerli sono all'inizio di questa sezione. Immettere l'ID quando richiesto.
+Eseguire il modello di Arm seguente. Sarà necessario l'ID entità dell'account di gestione automatica. I passaggi per ottenerlo sono all'inizio di questa sezione. Immettere l'ID quando richiesto.
 
 ```json
 {
@@ -127,4 +128,4 @@ az role assignment create --assignee-object-id <your Automanage Account Object I
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni su gestione autogestita di Azure](./automanage-virtual-machines.md)
+[Altre informazioni sulle Gestione automatica di Azure](./automanage-virtual-machines.md)

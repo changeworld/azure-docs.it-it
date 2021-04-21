@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 3d8f20f598243754e3fd39f649e7c84d55b64817
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 90e505a4d505cc52920f1c7727afb321f4eda462
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751671"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814155"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>Avvio rapido: Libreria client dei segreti di Azure Key Vault per JavaScript (versione 4)
 
@@ -154,7 +154,7 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 In questo argomento di avvio rapido viene usato l'utente connesso per eseguire l'autenticazione in Key Vault, che è il metodo preferito per lo sviluppo locale. Per le applicazioni distribuite in Azure, l'identità gestita deve essere assegnata al servizio app o alla macchina virtuale. Per altre informazioni, vedere [Informazioni sulle identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-Nell'esempio seguente, il nome dell'insieme di credenziali delle chiavi viene esteso al relativo URI, nel formato "https://\<your-key-vault-name\>.vault.azure.net". Questo esempio usa la classe ['DefaultAzureCredential()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) della libreria di identità di [Azure,](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)che consente di usare lo stesso codice in ambienti diversi con opzioni diverse per fornire l'identità. Per altre informazioni sull'autenticazione Key Vault, vedere [Guida per gli sviluppatori.](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)
+Nell'esempio seguente, il nome dell'insieme di credenziali delle chiavi viene esteso al relativo URI, nel formato "https://\<your-key-vault-name\>.vault.azure.net". Questo esempio usa la [classe 'DefaultAzureCredential()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) di [Azure Identity Library,](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)che consente di usare lo stesso codice in ambienti diversi con opzioni diverse per fornire l'identità. Per altre informazioni sull'autenticazione a Key Vault, vedere [La Guida per gli sviluppatori.](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)
 
 Aggiungere il codice seguente alla funzione 'main()'
 
@@ -285,6 +285,6 @@ In questo argomento di avvio rapido è stato creato un insieme di credenziali de
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Leggere una [panoramica dei segreti di Azure Key Vault](about-secrets.md)
-- Come [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/security-overview.md)
+- Come [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/security-features.md)
 - Vedere la [Guida per gli sviluppatori per Azure Key Vault](../general/developers-guide.md)
-- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-features.md)

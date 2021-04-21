@@ -48,10 +48,10 @@
     - name: Sicurezza
       items:
         - name: Funzionalità di sicurezza
-          href: security-overview.md
+          href: security-features.md
         - name: Nozioni di base sull'autenticazione di Key Vault
           href: authentication-fundamentals.md
-        - name: Aree geografiche e mondi di sicurezza
+        - name: Aree geografiche e mondo della sicurezza
           href: overview-security-worlds.md
         - name: Sicurezza di rete
           href: network-security.md

@@ -5,12 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9b9e42d55a982aeb55d7c9e26f7b1a6cbca32e0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6220a44e952aa4d9856ac5fc2077d254103d4a2c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99052805"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834283"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gestire le credenziali in Automazione di Azure
 
@@ -53,7 +54,7 @@ Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 
 ## <a name="python-functions-that-access-credentials"></a>Funzioni Python che accedono alle credenziali
 
-La funzione nella tabella seguente viene usata per accedere alle credenziali in un Runbook Python 2 e 3. Python 3 manuali operativi è attualmente in fase di anteprima.
+La funzione nella tabella seguente viene usata per accedere alle credenziali in un runbook Python 2 e 3. I runbook Python 3 sono attualmente in anteprima.
 
 | Funzione | Descrizione |
 |:---|:---|
@@ -68,8 +69,8 @@ La funzione nella tabella seguente viene usata per accedere alle credenziali in 
 
 ### <a name="create-a-new-credential-asset-with-the-azure-portal"></a>Creare un nuovo asset di credenziali con il portale di Azure
 
-1. Nell'account di automazione, nel riquadro a sinistra, selezionare **credenziali** in **risorse condivise**.
-2. Nella pagina **credenziali** selezionare **Aggiungi credenziali**.
+1. Nel riquadro sinistro dell'account di Automazione selezionare **Credenziali** in **Risorse condivise**.
+2. Nella pagina **Credenziali** selezionare Aggiungi **credenziali**.
 3. Nel riquadro Nuove credenziali immettere un nome di credenziale appropriato secondo gli standard di denominazione.
 4. Digitare l'ID di accesso nel campo **nome utente**.
 5. Per entrambi i campi password immettere la chiave di accesso segreta.
@@ -144,7 +145,7 @@ print cred["password"]
 
 # <a name="python-3"></a>[Python 3](#tab/python3)
 
-Nell'esempio seguente viene illustrato un esempio di accesso alle credenziali in Python 3 manuali operativi (anteprima).
+L'esempio seguente illustra un esempio di accesso alle credenziali nei runbook Python 3 (anteprima).
 
 ```python
 import automationassets
@@ -162,11 +163,11 @@ print (cred["password"])
 
 È possibile aggiungere un'attività a un runbook grafico per il cmdlet interno `Get-AutomationPSCredential` facendo clic con il pulsante destro del mouse sulla credenziale nel riquadro Libreria dell'editor grafico e scegliendo **Aggiungi ad area di disegno**.
 
-![Aggiungere il cmdlet Credential all'area di disegno](../media/credentials/credential-add-canvas.png)
+![Aggiungere il cmdlet delle credenziali all'area di disegno](../media/credentials/credential-add-canvas.png)
 
 La figura seguente mostra un esempio dell'uso di credenziali in un Runbook grafico. In questo caso, la credenziale fornisce l'autenticazione per un runbook di risorse di Azure, come descritto in [Configurare Azure AD in Automazione di Azure per l'autenticazione in Azure](../automation-use-azure-ad.md). La prima attività recupera le credenziali che possono accedere alla sottoscrizione di Azure. L'attività di connessione account usa quindi questa credenziale per fornire l'autenticazione per eventuali attività successive. Viene usato un [collegamento pipeline](../automation-graphical-authoring-intro.md#use-links-for-workflow) perché `Get-AutomationPSCredential` prevede un singolo oggetto.  
 
-![Esempio di flusso di lavoro delle credenziali con collegamento pipeline](../media/credentials/get-credential.png)
+![Esempio di flusso di lavoro delle credenziali con collegamento alla pipeline](../media/credentials/get-credential.png)
 
 ## <a name="use-credentials-in-a-dsc-configuration"></a>Usare le credenziali in una configurazione DSC
 

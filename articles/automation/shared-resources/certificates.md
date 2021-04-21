@@ -5,12 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: fcd593beed6faa9ef142c62e2fbdb251b66c009f
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 788f15cd1edad228e695e6e87f5b630b8e4fdf55
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169420"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834445"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Gestire i certificati in Automazione di Azure
 
@@ -45,7 +46,7 @@ Il cmdlet interno nella tabella seguente viene usato per accedere ai certificati
 
 ## <a name="python-functions-to-access-certificates"></a>Funzioni Python per accedere ai certificati
 
-Usare la funzione nella tabella seguente per accedere ai certificati in un Runbook Python 2 e 3. Python 3 manuali operativi è attualmente in fase di anteprima.
+Usare la funzione nella tabella seguente per accedere ai certificati in un runbook Python 2 e 3. I runbook Python 3 sono attualmente in anteprima.
 
 | Funzione | Descrizione |
 |:---|:---|
@@ -60,8 +61,8 @@ Quando si crea un nuovo certificato, si carica un file con estensione cer o pfx 
 
 ### <a name="create-a-new-certificate-with-the-azure-portal"></a>Creare un nuovo certificato con il portale di Azure
 
-1. Nell'account di automazione, nel riquadro a sinistra, selezionare **certificati** in **risorsa condivisa**.
-1. Nella pagina **certificati** selezionare **Aggiungi un certificato**.
+1. Nel riquadro sinistro dell'account di Automazione selezionare **Certificati in** **Risorsa condivisa.**
+1. Nella pagina **Certificati** selezionare **Aggiungi un certificato.**
 1. Nel campo **Nome** digitare un nome per il certificato.
 1. Per cercare un file con estensione **cer** o **pfx**, in **Carica un file di certificato** scegliere **Seleziona un file**. Se si seleziona un file con estensione **pfx**, specificare una password e indicare se ne è consentita l'esportazione.
 1. Selezionare **Crea** per salvare il nuovo asset di certificato.
@@ -154,7 +155,7 @@ print cert
 
 # <a name="python-3"></a>[Python 3](#tab/python3)
 
-L'esempio seguente illustra come accedere ai certificati in Python 3 manuali operativi (anteprima).
+L'esempio seguente illustra come accedere ai certificati nei runbook Python 3 (anteprima).
 
 ```python
 # get a reference to the Azure Automation certificate

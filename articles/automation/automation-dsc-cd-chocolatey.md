@@ -5,13 +5,13 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.custom: references_regions
-ms.openlocfilehash: 955e6b22c22d9cbe5891bcd0109806cb9270a456
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 717561614a3e42995bbce6746839fd9b7cbca37e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168655"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834859"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Configurare la distribuzione continua con Chocolatey
 
@@ -47,7 +47,7 @@ Una delle funzionalità chiave di un modello di Resource Manager è la capacità
 
 ## <a name="quick-trip-around-the-diagram"></a>Descrizione rapida del diagramma
 
-A partire dall'alto, si scrive il codice, si compila e si eseguono i test e quindi si crea un pacchetto di installazione. Chocolatey può gestire diversi tipi di pacchetti di installazione, ad esempio MSI, MSU, ZIP. Se le funzionalità native di Chocolatey non sono del tutto soddisfacenti, si può sempre ricorrere alle potenzialità complete di PowerShell per eseguire l'installazione effettiva. Inserire il pacchetto in una posizione raggiungibile, ovvero un repository di pacchetti. Questo esempio di utilizzo usa una cartella pubblica in un account di archiviazione BLOB di Azure, ma può trovarsi anche in un'altra posizione. Chocolatey funziona in modalità nativa con i server NuGet e alcuni altri per la gestione dei metadati dei pacchetti. [Questo articolo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descrive le opzioni. Questo esempio di utilizzo usa NuGet. Nuspec sono i metadati relativi ai pacchetti. Le informazioni NuSpec vengono compilate in un NuPkg e archiviate in un server NuGet. Quando la configurazione richiede un pacchetto in base al nome e fa riferimento a un server NuGet, la risorsa DSC di Chocolatey nella VM estrae il pacchetto e lo installa. È anche possibile richiedere una versione specifica di un pacchetto.
+A partire dall'alto, si scrive il codice, si compila e si eseguono i test e quindi si crea un pacchetto di installazione. Chocolatey può gestire diversi tipi di pacchetti di installazione, ad esempio MSI, MSU, ZIP. Se le funzionalità native di Chocolatey non sono del tutto soddisfacenti, si può sempre ricorrere alle potenzialità complete di PowerShell per eseguire l'installazione effettiva. Inserire il pacchetto in un punto raggiungibile: un repository di pacchetti. Questo esempio di utilizzo usa una cartella pubblica in un account di archiviazione BLOB di Azure, ma può trovarsi anche in un'altra posizione. Chocolatey funziona in modalità nativa con i server NuGet e alcuni altri per la gestione dei metadati dei pacchetti. [Questo articolo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descrive le opzioni. Questo esempio di utilizzo usa NuGet. Nuspec sono i metadati relativi ai pacchetti. Le informazioni NuSpec vengono compilate in un NuPkg e archiviate in un server NuGet. Quando la configurazione richiede un pacchetto in base al nome e fa riferimento a un server NuGet, la risorsa DSC di Chocolatey nella VM estrae il pacchetto e lo installa. È anche possibile richiedere una versione specifica di un pacchetto.
 
 Nella parte in basso dell'immagine è presente un modello di Azure Resource Manager. In questo esempio di utilizzo l'estensione VM registra la macchina virtuale con il server di pull di State Configuration di Automazione di Azure come nodo. La configurazione viene archiviata due volte nel server di pull: una volta come testo normale e una volta compilata come file MOF. Nel portale di Azure il file MOF rappresenta una configurazione di nodi invece di una semplice configurazione. Poiché l'artefatto è associato a un nodo, quest'ultimo riconoscerà la propria configurazione. I dettagli che seguono illustrano come assegnare la configurazione di nodi al nodo.
 
@@ -126,7 +126,7 @@ L'esempio incluso esegue questi passaggi per cChoco e xNetworking.
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>Passaggio 4: aggiungere la configurazione di nodi al server di pull
 
-Non è necessario eseguire operazioni speciali la prima volta che si importa la configurazione nel server di pull e si procede alla compilazione. Tutte le importazioni o compilazioni successive della stessa configurazione avranno esattamente lo stesso aspetto. Ogni volta che si aggiorna il pacchetto ed è necessario eseguirne il push nell'ambiente di produzione, eseguire questo passaggio dopo avere verificato che il file di configurazione sia corretto, inclusa la nuova versione del pacchetto. Ecco il file di configurazione **ISVBoxConfig.ps1**:
+Non è necessario eseguire operazioni speciali la prima volta che si importa la configurazione nel server di pull e si procede alla compilazione. Tutte le importazioni o compilazioni successive della stessa configurazione avranno esattamente lo stesso aspetto. Ogni volta che si aggiorna il pacchetto ed è necessario eseguire il push del pacchetto nell'ambiente di produzione, eseguire questo passaggio dopo aver assicurarsi che il file di configurazione sia corretto, inclusa la nuova versione del pacchetto. Ecco il file di configurazione **ISVBoxConfig.ps1**:
 
 ```powershell
 Configuration ISVBoxConfig

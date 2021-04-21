@@ -1,17 +1,17 @@
 ---
-title: Configurare desktop virtuale Windows montaggio app MSIX script di PowerShell - Azure
+title: Configurare Desktop virtuale Windows montaggio app MSIX script di PowerShell - Azure
 description: Come creare script di PowerShell per montaggio app MSIX desktop virtuale Windows.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d1ca4a843c6731cde7ed70d65fc230a21ef6e7c4
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 43a8cb00804927784982999db13ee193c34f55ca
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389435"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835381"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach"></a>Creare script di PowerShell per montaggio app MSIX
 
@@ -19,13 +19,13 @@ Questo argomento illustra come configurare gli script di PowerShell per montaggi
 
 ## <a name="install-certificates"></a>Installare i certificati
 
-È necessario installare i certificati in tutti gli host di sessione nel pool di host che ospiteranno le app montaggio app MSIX pacchetti.
+È necessario installare i certificati in tutti gli host di sessione nel pool di host che ospiteranno le app dai pacchetti montaggio app MSIX distribuzione.
 
 Se l'app usa un certificato che non è pubblico o è autofirmato, di seguito viene illustrato come installarlo:
 
 1. Fare clic con il pulsante destro del mouse sul pacchetto e scegliere **Proprietà**.
-2. Nella finestra visualizzata, selezionare la scheda **Firme digitali**. Nella scheda deve essere presente un solo elemento nell'elenco, come illustrato nella figura seguente. Selezionare l'elemento per evidenziarlo, quindi selezionare **Dettagli**.
-3. Quando viene visualizzata la finestra dei dettagli della firma digitale, selezionare la **scheda Generale,** quindi Selezionare Visualizza **certificato** e infine Selezionare **Installa certificato**.
+2. Nella finestra visualizzata selezionare la **scheda Firme** digitali. Deve essere presente un solo elemento nell'elenco della scheda. Selezionare l'elemento per evidenziare l'elemento, quindi selezionare **Dettagli**.
+3. Quando viene visualizzata la finestra dei dettagli della firma digitale, selezionare la **scheda Generale,** quindi selezionare **Visualizza certificato** e infine Selezionare **Installa certificato.**
 4. Quando si apre il programma di installazione, selezionare **Computer locale** come percorso di archiviazione, quindi selezionare **Avanti**.
 5. Se il programma di installazione chiede se consentire all'app di apportare modifiche al dispositivo, selezionare **Sì**.
 6. Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi selezionare **Sfoglia**.
@@ -34,7 +34,7 @@ Se l'app usa un certificato che non è pubblico o è autofirmato, di seguito vie
 
 ## <a name="enable-microsoft-hyper-v"></a>Abilitare Microsoft Hyper-V
 
-Microsoft Hyper-V deve essere abilitato perché il comando è necessario per la fase `Mount-VHD` ed è necessario per eseguire la `Dismount-VHD` destage.
+Microsoft Hyper-V deve essere abilitato perché il `Mount-VHD` comando è necessario per lo stage ed è necessario per la `Dismount-VHD` destage.
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -54,7 +54,7 @@ La connessione all'app MSIX prevede quattro fasi distinte che devono essere eseg
 
 Ogni fase crea uno script di PowerShell. Gli script di esempio per ogni fase sono disponibili [qui](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
-### <a name="stage-powershell-script"></a>Script di PowerShell per la fase
+### <a name="stage-powershell-script"></a>Eseguire lo script di PowerShell per lo stage
 
 Prima di aggiornare gli script di PowerShell, assicurarsi di disporre del GUID del volume nel disco rigido virtuale. Per ottenere il GUID del volume:
 
@@ -178,7 +178,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>Rimuovere la gestione temporanea di uno script di PowerShell
 
-Per questo script, sostituire il segnaposto per **$packageName** con il nome del pacchetto che si sta testando. In una distribuzione di produzione è meglio eseguire questa operazione all'arresto.
+Per questo script, sostituire il segnaposto per **$packageName** con il nome del pacchetto che si sta testando. In una distribuzione di produzione è meglio eseguire questa operazione all'arresto del sistema.
 
 ```powershell
 #MSIX app attach de staging sample
