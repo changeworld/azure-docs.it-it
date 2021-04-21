@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: 13a9e3ad1dcdfa230d757230e3fdea91e4ee9d23
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b2cdb106ab1c77c23626258f7e0708a20ffd3c4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310394"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772254"
 ---
 # <a name="buy-a-reservation"></a>Acquistare una prenotazione
 
@@ -45,8 +45,8 @@ Sono disponibili tre opzioni per definire l'ambito di una prenotazione, a second
 Per l'applicazione degli sconti sull'utilizzo di risorse, Azure elabora la prenotazione nell'ordine seguente:
 
 1. Prenotazioni con un singolo ambito del gruppo di risorse
-2. Prenotazioni con un singolo ambito di sottoscrizione
-3. Prenotazioni con un ambito condiviso (più sottoscrizioni), descritte in precedenza
+2. Prenotazioni con un ambito di sottoscrizione singola
+3. Prenotazioni con ambito condiviso (più sottoscrizioni), descritte in precedenza
 
 Dopo aver acquistato una prenotazione, è sempre possibile aggiornare l'ambito. A tale scopo, passare alla prenotazione, fare clic su **Configurazione** e ridefinire l'ambito della prenotazione. La ridefinizione dell'ambito di una prenotazione non è una transazione commerciale. Il periodo di prenotazione non cambia. Per altre informazioni sull'aggiornamento dell'ambito, vedere [Aggiornare l'ambito dopo l'acquisto di una prenotazione](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
@@ -133,4 +133,8 @@ Per i clienti con sottoscrizioni singole:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Altre informazioni sulle autorizzazioni per le prenotazioni](view-reservations.md)
 - [Gestire le prenotazioni per le risorse di Azure](manage-reserved-vm-instance.md)
+- [Automatizzare l'uso delle API REST](/rest/api/reserved-vm-instances/reservationorder)
+- [Automatizzare l'uso Azure PowerShell](/powershell/module/az.reservations)
+- [Automatizzare l'uso dell'interfaccia della riga di comando](/cli/azure/reservations)
