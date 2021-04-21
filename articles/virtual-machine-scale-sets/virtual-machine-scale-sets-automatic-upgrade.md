@@ -9,12 +9,12 @@ ms.subservice: automatic-os-upgrade
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 1e32ff4bc1c39e8a3385f8037f88cedbdc17d3a6
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 047eab6cb90caa18362830c8c74656f76865a9ec
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375747"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762876"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure
 
@@ -25,7 +25,7 @@ L'aggiornamento automatico del sistema operativo presenta le caratteristiche seg
 - Una volta configurato, l'immagine del sistema operativo più recente pubblicata dagli editori di immagini viene applicata automaticamente al set di scalabilità senza l'intervento dell'utente.
 - Aggiorna batch di istanze in sequenza ogni volta che viene pubblicata una nuova immagine dal server di pubblicazione.
 - Si integra con i probe di integrità dell'applicazione e con l'[estensione Integrità applicazione](virtual-machine-scale-sets-health-extension.md).
-- Funziona per tutte le dimensioni delle macchine virtuali e per le immagini Sia Windows che Linux.
+- Funziona per tutte le dimensioni delle macchine virtuali e per le immagini Windows e Linux.
 - È possibile rifiutare esplicitamente gli aggiornamenti automatici in qualsiasi momento (gli aggiornamenti del sistema operativo possono anche essere avviati manualmente).
 - Il disco del sistema operativo di una macchina virtuale viene sostituito con il nuovo disco del sistema operativo creato con una versione più recente dell'immagine. Le estensioni configurate e gli script di dati personalizzati vengono eseguiti, mentre i dischi dati persistenti vengono mantenuti.
 - È supportata la [sequenziazione delle estensioni](virtual-machine-scale-sets-extension-sequencing.md).
@@ -37,21 +37,21 @@ Un aggiornamento consiste nella sostituzione del disco del sistema operativo di 
 
 Il processo di aggiornamento funziona nel modo seguente:
 1. Prima di iniziare il processo di aggiornamento, l'agente di orchestrazione verifica che il numero di istanze non integre (per qualsiasi motivo) non superi il 20% nell'intero set di scalabilità.
-2. L'agente di orchestrazione dell'aggiornamento identifica il batch di istanze di macchine virtuali da aggiornare, con un batch con un massimo del 20% del numero totale di istanze, soggetto a una dimensione batch minima di una macchina virtuale.
+2. L'agente di orchestrazione dell'aggiornamento identifica il batch di istanze di macchina virtuale da aggiornare, con un batch qualsiasi con un massimo del 20% del numero totale di istanze, soggetto a una dimensione minima del batch di una macchina virtuale.
 3. Il disco del sistema operativo del batch selezionato di istanze di macchina virtuale viene sostituito con un nuovo disco del sistema operativo creato dall'immagine più recente. Tutte le estensioni e le configurazioni specificate nel modello del set di scalabilità vengono applicate all'istanza aggiornata.
-4. Per i set di scalabilità in cui sono configurati probe di integrità dell'applicazione o l'estensione Integrità applicazione, l'aggiornamento attende fino a 5 minuti che l'istanza risulti integra prima di procedere con l'aggiornamento del batch successivo. Se un'istanza non ripristina l'integrità dopo 5 minuti dopo un aggiornamento, per impostazione predefinita viene ripristinato il disco del sistema operativo precedente per l'istanza.
+4. Per i set di scalabilità in cui sono configurati probe di integrità dell'applicazione o l'estensione Integrità applicazione, l'aggiornamento attende fino a 5 minuti che l'istanza risulti integra prima di procedere con l'aggiornamento del batch successivo. Se un'istanza non ripristina l'integrità in 5 minuti dopo un aggiornamento, per impostazione predefinita viene ripristinato il disco del sistema operativo precedente per l'istanza.
 5. L'agente di orchestrazione dell'aggiornamento tiene anche traccia della percentuale di istanze che diventano non integre dopo un aggiornamento. L'aggiornamento verrà interrotto se più del 20% delle istanze aggiornate diventa non integro durante il processo di aggiornamento.
 6. Questo processo continua fino a completare l'aggiornamento di tutte le istanze nel set di scalabilità.
 
 L'agente di orchestrazione dell'aggiornamento del sistema operativo del set di scalabilità verifica l'integrità complessiva del set di scalabilità prima di aggiornare ogni batch. Durante l'aggiornamento di un batch, possono essere in corso altre attività di manutenzione pianificate o non pianificate che potrebbero influire sull'integrità delle istanze del set di scalabilità. In questi casi, se più del 20% delle istanze del set di scalabilità diventa non integro, l'aggiornamento del set di scalabilità si interrompe alla fine del batch corrente.
 
 > [!NOTE]
->L'aggiornamento automatico del sistema operativo non aggiorna lo SKU dell'immagine di riferimento nel set di scalabilità. Per modificare lo SKU (ad esempio Ubuntu 16.04-LTS) in 18.04-LTS, è necessario aggiornare il modello del [set](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) di scalabilità direttamente con lo SKU dell'immagine desiderato. L'editore di immagini e l'offerta non possono essere modificati per un set di scalabilità esistente.  
+>L'aggiornamento automatico del sistema operativo non aggiorna lo SKU dell'immagine di riferimento nel set di scalabilità. Per modificare lo Sku (ad esempio Ubuntu 16.04-LTS) in 18.04-LTS, è necessario aggiornare il modello del [set](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) di scalabilità direttamente con lo SKU dell'immagine desiderato. L'editore di immagini e l'offerta non possono essere modificati per un set di scalabilità esistente.  
 
 ## <a name="supported-os-images"></a>Immagini del sistema operativo supportate
 Attualmente sono supportate solo alcune immagini della piattaforma del sistema operativo. Le immagini [personalizzate sono supportate](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) se il set di scalabilità usa immagini personalizzate tramite Raccolta immagini [condivise.](../virtual-machines/shared-image-galleries.md)
 
-Gli SKU della piattaforma seguenti sono attualmente supportati (e ne vengono aggiunti periodicamente altri):
+Gli SKU della piattaforma seguenti sono attualmente supportati (e altri vengono aggiunti periodicamente):
 
 | Publisher               | Offerta sistema operativo      |  Sku               |
 |-------------------------|---------------|--------------------|
@@ -70,15 +70,15 @@ Gli SKU della piattaforma seguenti sono attualmente supportati (e ne vengono agg
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Requisiti per la configurazione dell'aggiornamento automatico dell'immagine del sistema operativo
 
-- La *proprietà version* dell'immagine deve essere impostata sulla versione più *recente.*
+- La *proprietà version* dell'immagine deve essere impostata su *latest.*
 - Usare i probe di integrità dell'applicazione o l'[estensione Integrità applicazione](virtual-machine-scale-sets-health-extension.md) per i set di scalabilità non di Service Fabric.
 - Usare l'API di calcolo versione 2018-10-01 o successiva.
 - Assicurarsi che le risorse esterne specificate nel modello del set di scalabilità siano disponibili e aggiornate. Ad esempio, URI della firma di accesso condiviso per il payload di bootstrap nelle proprietà di estensione della macchina virtuale, payload nell'account di archiviazione, riferimento ai segreti nel modello e altro.
-- Per i set di scalabilità che usano macchine virtuali Windows, a partire dall'API di calcolo versione 2019-03-01, la proprietà *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* deve essere impostata su *false* nella definizione del modello del set di scalabilità. La proprietà precedente abilita gli aggiornamenti nella macchina virtuale in cui "Windows Update" applica le patch del sistema operativo senza sostituire il disco del sistema operativo. Con gli aggiornamenti automatici delle immagini del sistema operativo abilitati nel set di scalabilità, non è necessario un aggiornamento aggiuntivo tramite "Windows Update".
+- Per i set di scalabilità che usano macchine virtuali Windows, a partire dalla versione 2019-03-01 dell'API di calcolo, la proprietà *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* deve essere impostata su *false* nella definizione del modello del set di scalabilità. La proprietà precedente abilita gli aggiornamenti nella macchina virtuale in cui "Windows Update" applica le patch del sistema operativo senza sostituire il disco del sistema operativo. Con gli aggiornamenti automatici delle immagini del sistema operativo abilitati nel set di scalabilità, non è necessario un aggiornamento aggiuntivo tramite "Windows Update".
 
 ### <a name="service-fabric-requirements"></a>Service Fabric requisiti
 
-Se si usa Service Fabric, verificare che siano soddisfatte le condizioni seguenti:
+Se si usa un Service Fabric, verificare che siano soddisfatte le condizioni seguenti:
 -   Service Fabric livello [di durabilità](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) è Silver o Gold e non Bronze (tranne i tipi di nodo solo senza stato, che supportano gli aggiornamenti automatici del sistema operativo).
 -   L Service Fabric'estensione nella definizione del modello del set di scalabilità deve avere TypeHandlerVersion 1.1 o versione superiore.
 -   Il livello di durabilità deve essere lo stesso nel cluster Service Fabric e Service Fabric nella definizione del modello del set di scalabilità.
@@ -92,7 +92,7 @@ Assicurarsi che le impostazioni di durabilità non siano corrispondenti nel clus
 L'aggiornamento automatico delle immagini del sistema operativo è supportato per le immagini personalizzate distribuite tramite [raccolta immagini condivise.](../virtual-machines/shared-image-galleries.md) Altre immagini personalizzate non sono supportate per gli aggiornamenti automatici delle immagini del sistema operativo.
 
 ### <a name="additional-requirements-for-custom-images"></a>Requisiti aggiuntivi per le immagini personalizzate
-- Il processo di installazione e configurazione per l'aggiornamento automatico dell'immagine del sistema operativo è lo stesso per tutti i set di scalabilità, come descritto in dettaglio nella sezione configurazione [di](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) questa pagina.
+- Il processo di installazione e configurazione per l'aggiornamento automatico dell'immagine del sistema operativo è lo stesso per tutti i set di scalabilità, come descritto in dettaglio nella sezione [configurazione](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) di questa pagina.
 - Le istanze dei set di scalabilità configurate per gli aggiornamenti automatici delle immagini del sistema operativo verranno [](../virtual-machines/shared-image-galleries.md#replication) aggiornate alla versione più recente dell'immagine della raccolta immagini condivise quando viene pubblicata e replicata una nuova versione dell'immagine nell'area di tale set di scalabilità. Se la nuova immagine non viene replicata nell'area in cui viene distribuita la scalabilità, le istanze del set di scalabilità non verranno aggiornate alla versione più recente. La replica di immagini a livello di regione consente di controllare l'implementazione della nuova immagine per i set di scalabilità.
 - La nuova versione dell'immagine non deve essere esclusa dalla versione più recente per tale immagine della raccolta. Le versioni delle immagini escluse dalla versione più recente dell'immagine della raccolta non vengono implementare nel set di scalabilità tramite l'aggiornamento automatico dell'immagine del sistema operativo.
 
@@ -130,7 +130,7 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 ```
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-Usare [az vmss update](/cli/azure/vmss#az-vmss-update) per configurare gli aggiornamenti automatici delle immagini del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente configura gli aggiornamenti automatici per il set di scalabilità *denominato myScaleSet* nel gruppo di risorse *denominato myResourceGroup*:
+Usare [az vmss update](/cli/azure/vmss#az_vmss_update) per configurare gli aggiornamenti automatici delle immagini del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente configura gli aggiornamenti automatici per il set di scalabilità *denominato myScaleSet* nel gruppo di risorse *denominato myResourceGroup*:
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -237,7 +237,7 @@ Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OS
 ```
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-Usare [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente illustra in dettaglio come esaminare lo stato di aggiornamento del sistema operativo per un set di scalabilità denominato *myScaleSet* nel gruppo di risorse *denominato myResourceGroup:*
+Usare [az vmss get-os-upgrade-history](/cli/azure/vmss#az_vmss_get_os_upgrade_history) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente illustra in dettaglio come esaminare lo stato di aggiornamento del sistema operativo per un set di scalabilità denominato *myScaleSet* nel gruppo di risorse *denominato myResourceGroup:*
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
@@ -263,15 +263,15 @@ az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServ
 ```
 
 ## <a name="manually-trigger-os-image-upgrades"></a>Attivare manualmente gli aggiornamenti delle immagini del sistema operativo
-Con l'aggiornamento automatico dell'immagine del sistema operativo abilitato nel set di scalabilità, non è necessario attivare manualmente gli aggiornamenti delle immagini nel set di scalabilità. L'agente di orchestrazione dell'aggiornamento del sistema operativo applierà automaticamente la versione dell'immagine disponibile più recente alle istanze del set di scalabilità senza alcun intervento manuale.
+Con l'aggiornamento automatico delle immagini del sistema operativo abilitato nel set di scalabilità, non è necessario attivare manualmente gli aggiornamenti delle immagini nel set di scalabilità. L'agente di orchestrazione dell'aggiornamento del sistema operativo applierà automaticamente la versione dell'immagine disponibile più recente alle istanze del set di scalabilità senza alcun intervento manuale.
 
-Per casi specifici in cui non si vuole attendere l'applicazione dell'immagine più recente da parte dell'agente di orchestrazione, è possibile attivare manualmente l'aggiornamento di un'immagine del sistema operativo usando gli esempi seguenti.
+Per casi specifici in cui non si vuole attendere l'applicazione dell'immagine più recente da parte dell'agente di orchestrazione, è possibile attivare manualmente un aggiornamento dell'immagine del sistema operativo usando gli esempi seguenti.
 
 > [!NOTE]
 > Il trigger manuale degli aggiornamenti delle immagini del sistema operativo non offre funzionalità di rollback automatico. Se un'istanza non ripristina l'integrità dopo un'operazione di aggiornamento, il disco del sistema operativo precedente non può essere ripristinato.
 
 ### <a name="rest-api"></a>API REST
-Usare la [chiamata all'API](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) Start OS Upgrade (Avvia aggiornamento del sistema operativo) per avviare un aggiornamento in sequenza per spostare tutte le istanze del set di scalabilità di macchine virtuali alla versione più recente del sistema operativo dell'immagine disponibile. Le istanze che eseguono già la versione più recente del sistema operativo disponibile non sono interessate. L'esempio seguente illustra come avviare un aggiornamento in sequenza del sistema operativo in un set di scalabilità denominato *myScaleSet* nel gruppo di risorse *denominato myResourceGroup:*
+Usare la [chiamata all'API Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) (Avvia aggiornamento del sistema operativo) per avviare un aggiornamento in sequenza per spostare tutte le istanze del set di scalabilità di macchine virtuali alla versione più recente del sistema operativo dell'immagine disponibile. Le istanze che eseguono già la versione più recente del sistema operativo disponibile non sono interessate. L'esempio seguente illustra come avviare un aggiornamento in sequenza del sistema operativo in un set di scalabilità denominato *myScaleSet* nel gruppo di risorse *denominato myResourceGroup:*
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
@@ -285,7 +285,7 @@ Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetNam
 ```
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-Usare [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente illustra come avviare un aggiornamento in sequenza del sistema operativo in un set di scalabilità denominato *myScaleSet* nel gruppo di risorse *denominato myResourceGroup:*
+Usare [az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az_vmss_rolling_upgrade_start) per controllare la cronologia di aggiornamento del sistema operativo per il set di scalabilità. Usare l'interfaccia della riga di comando di Azure versione 2.0.47 o successiva. L'esempio seguente illustra in dettaglio come avviare un aggiornamento in sequenza del sistema operativo in un set di scalabilità *denominato myScaleSet* nel gruppo di risorse *denominato myResourceGroup:*
 
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"

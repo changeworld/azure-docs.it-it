@@ -1,31 +1,31 @@
 ---
-title: Gestire reti virtuali-interfaccia della riga di comando di Azure-database di Azure per PostgreSQL-server flessibile
-description: Creare e gestire reti virtuali per database di Azure per PostgreSQL-server flessibile usando l'interfaccia della riga di comando di Azure
+title: Gestire le reti virtuali - Interfaccia della riga di comando di Azure - Database di Azure per PostgreSQL - Server flessibile
+description: Creare e gestire reti virtuali per Database di Azure per PostgreSQL - Server flessibile usando l'interfaccia della riga di comando di Azure
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 2bc7bbd7a50b5771d794fbf35844311e3deddbbd
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 0a4bf648551be723007b0d8856fe0857896aad94
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107226974"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778392"
 ---
-# <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Creare e gestire reti virtuali per database di Azure per PostgreSQL-server flessibile usando l'interfaccia della riga di comando di Azure
+# <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Creare e gestire reti virtuali per Database di Azure per PostgreSQL - Server flessibile usando l'interfaccia della riga di comando di Azure
 
 > [!IMPORTANT]
 > Il server flessibile di Database di Azure per PostgreSQL è disponibile in anteprima
 
-Database di Azure per PostgreSQL: il server flessibile supporta due tipi di metodi di connettività di rete che si escludono a vicenda per la connessione al server flessibile. Le due opzioni sono:
+Database di Azure per PostgreSQL : il server flessibile supporta due tipi di metodi di connettività di rete che si escludono a vicenda per connettersi al server flessibile. Le due opzioni sono:
 
 * Accesso pubblico (indirizzi IP consentiti)
 * Accesso privato (integrazione rete virtuale)
 
-In questo articolo verrà illustrata la creazione di un server PostgreSQL con **accesso privato (VNet Integration) tramite l'** interfaccia della riga di comando di Azure. Con *l'accesso privato (VNet Integration)*, è possibile distribuire il server flessibile nella propria [rete virtuale di Azure](../../virtual-network/virtual-networks-overview.md). Le reti virtuali di Azure forniscono comunicazioni di rete private e sicure. In accesso privato, le connessioni al server PostgreSQL sono limitate solo all'interno della rete virtuale. Per ulteriori informazioni, vedere [accesso privato (integrazione VNet)](./concepts-networking.md#private-access-vnet-integration).
+In questo articolo verrà illustrata la creazione del server PostgreSQL con accesso privato **(integrazione rete virtuale)** tramite l'interfaccia della riga di comando di Azure. Con *l'accesso privato (integrazione della* rete virtuale) è possibile distribuire il server flessibile nella propria rete virtuale di [Azure.](../../virtual-network/virtual-networks-overview.md) Le reti virtuali di Azure forniscono comunicazioni di rete private e protette. In Accesso privato le connessioni al server PostgreSQL sono limitate solo all'interno della rete virtuale. Per altre informazioni, vedere Accesso [privato (integrazione rete virtuale).](./concepts-networking.md#private-access-vnet-integration)
 
-Nel database di Azure per PostgreSQL-server flessibile, è possibile distribuire il server solo in una rete virtuale e una subnet durante la creazione del server. Quando il server flessibile viene distribuito in una rete virtuale e in una subnet, non è possibile spostarlo in un'altra rete virtuale, subnet o *accesso pubblico (indirizzi IP consentiti)*.
+In Database di Azure per PostgreSQL - Server flessibile è possibile distribuire il server solo in una rete virtuale e in una subnet durante la creazione del server. Dopo aver distribuito il server flessibile in una rete virtuale e in una subnet, non è possibile spostarlo in un'altra rete virtuale, subnet o in Accesso pubblico *(indirizzi IP consentiti).*
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
@@ -37,48 +37,48 @@ Se si preferisce installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario accedere all'account con il comando [az login](/cli/azure/reference-index#az-login). Prendere nota della proprietà **ID** , che fa riferimento all' **ID sottoscrizione** per l'account Azure.
+È necessario accedere all'account con il comando [az login](/cli/azure/reference-index#az_login). Si noti la **proprietà ID,** che fa riferimento **all'ID sottoscrizione** per l'account Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selezionare la sottoscrizione specifica nell'account tramite il comando [az account set](/cli/azure/account#az-account-set). Prendere nota del valore **ID** del comando **AZ login** output da usare come valore per l'argomento **Subscription** nel comando. Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Per ottenere tutte le sottoscrizioni, usare [az account list](/cli/azure/account#az-account-list).
+Selezionare la sottoscrizione specifica nell'account tramite il comando [az account set](/cli/azure/account#az_account_set). Prendere nota del valore **ID** dell'output **az login** da usare come valore per l'argomento **subscription** nel comando. Se si possiedono più sottoscrizioni, scegliere quella appropriata in cui verrà fatturata la risorsa. Per ottenere tutte le sottoscrizioni, usare [az account list](/cli/azure/account#az_account_list).
 
 ```azurecli
 az account set --subscription <subscription id>
 ```
 
-## <a name="create-azure-database-for-postgresql---flexible-server-using-cli"></a>Creare database di Azure per PostgreSQL-server flessibile usando l'interfaccia della riga di comando
-È possibile usare il `az postgres flexible-server` comando per creare il server flessibile con *accesso privato (VNet Integration)*. Questo comando usa l'accesso privato (VNet Integration) come metodo di connettività predefinito. Verranno create una rete virtuale e una subnet se non ne viene fornita una. È anche possibile fornire la rete virtuale e la subnet già esistenti usando l'ID subnet. <!-- You can provide the **vnet**,**subnet**,**vnet-address-prefix** or**subnet-address-prefix** to customize the virtual network and subnet.--> Sono disponibili diverse opzioni per creare un server flessibile usando l'interfaccia della riga di comando, come illustrato negli esempi seguenti.
+## <a name="create-azure-database-for-postgresql---flexible-server-using-cli"></a>Creare un database di Azure per PostgreSQL - Server flessibile con l'interfaccia della riga di comando
+È possibile usare il `az postgres flexible-server` comando per creare il server flessibile con accesso privato *(integrazione rete virtuale).* Questo comando usa l'accesso privato (integrazione rete virtuale) come metodo di connettività predefinito. Se non ne viene specificata nessuna, verranno create automaticamente una rete virtuale e una subnet. È anche possibile specificare la rete virtuale e la subnet già esistenti usando l'ID subnet. <!-- You can provide the **vnet**,**subnet**,**vnet-address-prefix** or**subnet-address-prefix** to customize the virtual network and subnet.--> Sono disponibili diverse opzioni per creare un server flessibile usando l'interfaccia della riga di comando, come illustrato negli esempi seguenti.
 
 >[!Important]
-> Se si usa questo comando, la subnet verrà delegata a **Microsoft. DBforPostgreSQL/flexibleServers**. Questa delega indica che solo i server flessibili di database di Azure per PostgreSQL possono usare tale subnet. Gli altri tipi di risorsa di Azure non possono trovarsi nella subnet delegata.
+> L'uso di questo comando delega la subnet **a Microsoft.DBforPostgreSQL/flexibleServers**. Questa delega significa che solo i server flessibili di Database di Azure per PostgreSQL possono usare tale subnet. Gli altri tipi di risorsa di Azure non possono trovarsi nella subnet delegata.
 >
-Vedere la documentazione di riferimento dell'interfaccia della riga di comando Azure <!--FIXME --> per avere l'elenco completo dei parametri configurabili dell'interfaccia della riga di comando. Ad esempio, nei comandi seguenti è possibile specificare facoltativamente il gruppo di risorse.
+Vedere la documentazione di riferimento dell'interfaccia della riga di comando di Azure <!--FIXME --> per avere l'elenco completo dei parametri configurabili dell'interfaccia della riga di comando. Ad esempio, nei comandi seguenti è possibile specificare facoltativamente il gruppo di risorse.
 
 - Creare un server flessibile usando la rete virtuale predefinita, la subnet con il prefisso dell'indirizzo predefinito
     ```azurecli-interactive
     az postgres flexible-server create
     ```
-- Creare un server flessibile usando la rete virtuale e la subnet già esistenti. Se la rete virtuale e la subnet specificate non esistono, verrà creata la rete virtuale e la subnet con prefisso di indirizzo predefinito.
+- Creare un server flessibile usando una rete virtuale e una subnet già esistenti. Se la rete virtuale e la subnet fornite non esistono, verranno create la rete virtuale e la subnet con il prefisso dell'indirizzo predefinito.
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --subnet mySubnet
     ```
-- Creare un server flessibile usando una rete virtuale, una subnet e un ID subnet già esistenti. Alla subnet specificata non deve essere distribuita alcuna altra risorsa e la subnet verrà delegata a **Microsoft. DBforPostgreSQL/flexibleServers**, se non è già stata delegata.
+- Creare un server flessibile usando la rete virtuale, la subnet e l'ID subnet già esistenti. Nella subnet specificata non deve essere distribuita alcuna altra risorsa e questa subnet verrà delegata a **Microsoft.DBforPostgreSQL/flexibleServers,** se non è già delegata.
     ```azurecli-interactive
     az postgres flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
     > [!Note]
-    > La rete virtuale e la subnet devono trovarsi nella stessa area e nella stessa sottoscrizione del server flessibile.
+    > La rete virtuale e la subnet devono essere nella stessa area e nella stessa sottoscrizione del server flessibile.
 
-- Creare un server flessibile con una nuova rete virtuale, una subnet con prefisso di indirizzo non predefinito
+- Creare un server flessibile usando una nuova rete virtuale, una subnet con prefisso di indirizzo non predefinito
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
     ```
-Vedere la [documentazione di riferimento](/cli/azure/postgres/flexible-server) dell'interfaccia della riga di comando di Azure per l'elenco completo dei parametri CLI configurabili.
+Per l'elenco completo dei parametri configurabili [dell'interfaccia della](/cli/azure/postgres/flexible-server) riga di comando, vedere la documentazione di riferimento dell'interfaccia della riga di comando di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sulla [rete in database di Azure per PostgreSQL-server flessibile](./concepts-networking.md).
-- [Creare e gestire database di Azure per PostgreSQL-rete virtuale server flessibile con portale di Azure](./how-to-manage-virtual-network-portal.md).
-- Altre informazioni su [database di Azure per PostgreSQL-rete virtuale server flessibile](./concepts-networking.md#private-access-vnet-integration).
+- Altre informazioni sulla [rete in Database di Azure per PostgreSQL - Server flessibile.](./concepts-networking.md)
+- Creare e gestire la rete virtuale del server flessibile di Database di Azure per [PostgreSQL usando portale di Azure](./how-to-manage-virtual-network-portal.md).
+- Altre informazioni sulla rete virtuale del server flessibile di Database di Azure per [PostgreSQL.](./concepts-networking.md#private-access-vnet-integration)

@@ -1,21 +1,20 @@
 ---
 title: Metodi di creazione dei certificati
-description: Informazioni sulle diverse opzioni per creare o importare un certificato di Key Vault in Azure Key Vault. Esistono diversi modi per creare un certificato Key Vault.
+description: Informazioni sulle diverse opzioni per creare o importare un certificato Key Vault in Azure Key Vault. Esistono diversi modi per creare un certificato Key Vault certificato.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f06f2de1f373f72aa5e55da17c249ff119a36950
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 72ff2a1a7b8bcff768248833183ce03a169f9a4d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106581827"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752121"
 ---
 # <a name="certificate-creation-methods"></a>Metodi di creazione dei certificati
 
@@ -42,15 +41,15 @@ Le descrizioni seguenti corrispondono ai passaggi contrassegnati con un numero i
 Le descrizioni seguenti corrispondono ai passaggi contrassegnati con un numero in verde nel diagramma precedente.
 
 1. Nel diagramma precedente l'applicazione crea un certificato, operazione che internamente inizia con la creazione di una chiave nell'insieme di credenziali delle chiavi.
-2. Key Vault invia alla CA una richiesta di certificato TLS/SSL.
+2. Key Vault invia una richiesta di certificato TLS/SSL alla CA.
 3. L'applicazione esegue il polling, con un processo di ciclo e attesa, per Key Vault per il completamento del certificato. La creazione del certificato è completata quando Key Vault riceve la risposta della CA con il certificato X509.
-4. La CA risponde alla richiesta di certificato TLS/SSL di Key Vault con un certificato X. 509 TLS/SSL.
-5. La creazione del nuovo certificato viene completata con la fusione del certificato X. 509 TLS/SSL per l'autorità di certificazione.
+4. La CA risponde alla richiesta Key Vault certificato TLS/SSL di un certificato TLS/SSL X.509.
+5. La creazione del nuovo certificato viene completata con la fusione del certificato TLS/SSL X.509 per la CA.
 
 ## <a name="asynchronous-process"></a>Processo asincrono
 La creazione dei certificati di Key Vault è un processo asincrono. Questa operazione crea una richiesta di certificato KV e restituisce il codice di stato http 202 (accettato). Lo stato della richiesta può essere monitorato eseguendo il polling dell'oggetto in sospeso creato dall'operazione. Nell'intestazione LOCATION viene restituito l'URI completo dell'oggetto in sospeso.  
 
-Quando viene completata una richiesta per creare un certificato KV, lo stato dell'oggetto in sospeso cambia da "inprogress" in "completed" e viene creata una nuova versione del certificato KV. che diventa la versione corrente.  
+Al termine di una richiesta di creazione di un certificato KV, lo stato dell'oggetto in sospeso cambierà in "completato" da "in corso" e verrà creata una nuova versione del certificato KV. che diventa la versione corrente.  
 
 ## <a name="first-creation"></a>Prima creazione
  Quando si crea un certificato KV per la prima volta, vengono creati anche una chiave indirizzabile e un segreto con lo stesso nome del certificato. Se il nome è già in uso, l'operazione avrà esito negativo con il codice di stato http 409 (conflitto).
@@ -78,7 +77,7 @@ La chiave e il segreto indirizzabili ottengono i propri attributi dagli attribut
 ```  
 
 ## <a name="partnered-ca-providers"></a>Provider CA partner
-La creazione del certificato può essere completata manualmente oppure usando un'autorità di certificazione "Self". Key Vault collabora con alcuni provider di autorità di certificazione per semplificare la creazione dei certificati. Presso questi provider autorità di certificazione partner è possibile ordinare i tipi seguenti di certificati per l'insieme di credenziali delle chiavi.  
+La creazione del certificato può essere completata manualmente o usando un'autorità di certificazione "Self". Key Vault collabora con alcuni provider di autorità di certificazione per semplificare la creazione dei certificati. Presso questi provider autorità di certificazione partner è possibile ordinare i tipi seguenti di certificati per l'insieme di credenziali delle chiavi.  
 
 |Provider|Tipo di certificato|Eseguire la configurazione  
 |--------------|----------------------|------------------|  
@@ -93,5 +92,5 @@ Si noti che quando viene passato un ordine al provider di autorità di certifica
 
 ## <a name="see-also"></a>Vedere anche
 
- - Guida alle procedure per creare certificati in Key Vault usando il [portale](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli), [Azure PowerShell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
+ - Guida alla procedura per creare certificati in Key Vault [portale,](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal)interfaccia della riga di comando [di Azure](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli) [Azure PowerShell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
  - [Monitorare e gestire la creazione dei certificati](create-certificate-scenarios.md)

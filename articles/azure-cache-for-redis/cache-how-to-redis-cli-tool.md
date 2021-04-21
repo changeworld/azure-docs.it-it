@@ -1,17 +1,17 @@
 ---
-title: Usare Redis-CLI con cache di Azure per Redis
-description: Informazioni su come usare *redis-cli.exe* come strumento da riga di comando per l'interazione con una cache di Azure per Redis come client
+title: Usare redis-cli con cache di Azure per Redis
+description: Informazioni su come usare *redis-cli.exe* come strumento da riga di comando per interagire con un cache di Azure per Redis come client
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: e4f5fc7290b45f65067f6711f70476e13a010223
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 042db51ab51e9da586f028b8aa99e66ffaa36639
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183387"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775674"
 ---
 # <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Usare lo strumento da riga di comando Redis con cache di Azure per Redis
 
@@ -19,7 +19,7 @@ ms.locfileid: "102183387"
 
 Lo strumento è disponibile per le piattaforme Windows scaricando gli [strumenti da riga di comando Redis per Windows](https://github.com/MSOpenTech/redis/releases/). 
 
-Se si vuole eseguire lo strumento da riga di comando su un'altra piattaforma, scaricare cache di Azure per Redis da [https://redis.io/download](https://redis.io/download) .
+Se si vuole eseguire lo strumento da riga di comando in un'altra piattaforma, scaricare cache di Azure per Redis da [https://redis.io/download](https://redis.io/download) .
 
 ## <a name="gather-cache-access-information"></a>Raccogliere le informazioni di accesso alla cache
 
@@ -27,7 +27,7 @@ Se si vuole eseguire lo strumento da riga di comando su un'altra piattaforma, sc
 
 È possibile raccogliere le informazioni necessarie per accedere alla cache nelle tre modalità seguenti:
 
-1. Tramite l'interfaccia della riga di comando di Azure usando [az redis list-keys](/cli/azure/redis#az-redis-list-keys)
+1. Tramite l'interfaccia della riga di comando di Azure usando [az redis list-keys](/cli/azure/redis#az_redis_list_keys)
 2. Tramite Azure PowerShell usando [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Tramite il portale di Azure.
 
@@ -38,9 +38,9 @@ In questa sezione si recupereranno le chiavi dal portale di Azure.
 
 ## <a name="enable-access-for-redis-cliexe"></a>Abilitare l'accesso per redis-cli.exe.
 
-Con cache di Azure per Redis solo la porta TLS (6380) è abilitata per impostazione predefinita. Lo `redis-cli.exe` strumento da riga di comando non supporta TLS. Per usarlo sono disponibili due opzioni di configurazione:
+Con cache di Azure per Redis, solo la porta TLS (6380) è abilitata per impostazione predefinita. Lo `redis-cli.exe` strumento da riga di comando non supporta TLS. Per usarlo sono disponibili due opzioni di configurazione:
 
-1. [Abilitare la porta non TLS (6379)](cache-configure.md#access-ports)  -  **Questa configurazione non è consigliata** perché in questa configurazione le chiavi di accesso vengono inviate tramite TCP come testo non crittografato. Questa modifica può compromettere l'accesso alla cache. L'unico scenario in cui è possibile tenere in considerazione questa configurazione è quando si accede a una cache di test.
+1. [Abilitare la porta non TLS (6379)](cache-configure.md#access-ports)  -  **Questa configurazione non è consigliata** perché in questa configurazione le chiavi di accesso vengono inviate tramite TCP in testo non crittografato. Questa modifica può compromettere l'accesso alla cache. L'unico scenario in cui è possibile tenere in considerazione questa configurazione è quando si accede a una cache di test.
 
 2. Scaricare e installare [stunnel](https://www.stunnel.org/downloads.html).
 
@@ -48,7 +48,7 @@ Con cache di Azure per Redis solo la porta TLS (6380) è abilitata per impostazi
 
     Fare clic con il pulsante destro del mouse sull'icona della barra delle applicazioni per il server stunnel e fare clic su **Show Log Window** (Mostra finestra log).
 
-    Nel menu della finestra del registro stunnel fare clic su **configurazione**  >  **modifica configurazione** per aprire il file di configurazione corrente.
+    Nel menu stunnel Log Window (Finestra log stunnel) fare clic **su Configuration** Edit  >  **Configuration (Modifica** configurazione) per aprire il file di configurazione corrente.
 
     Aggiungere la voce seguente per *redis-cli.exe* nella sezione **Service definitions** (Definizioni di servizio). Inserire il nome effettivo della cache invece di `yourcachename`. 
 
@@ -61,7 +61,7 @@ Con cache di Azure per Redis solo la porta TLS (6380) è abilitata per impostazi
 
     Salvare e chiudere il file di configurazione. 
   
-    Nel menu della finestra del registro stunnel fare clic su **configurazione**  >  **ricarica** configurazione.
+    Nel menu stunnel Log Window (Finestra log dello stunnel) fare clic **su Configuration**  >  **Reload Configuration (Configurazione ricarica configurazione).**
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Connettersi usando lo strumento da riga di comando Redis.
@@ -72,9 +72,9 @@ Quando si usa stunnel, eseguire *redis-cli.exe* e passare solo la *porta* e la *
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![Screenshot che indica che la connessione alla cache è riuscita.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+![Screenshot che mostra che la connessione alla cache è riuscita.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Se si usa una cache di test con la porta non **protetta** non TLS, eseguire `redis-cli.exe` e passare il *nome host*, la *porta* e la *chiave di accesso* (primaria o secondaria) per connettersi alla cache di test.
+Se si usa una cache di test con la porta **non** TLS non sicura, eseguire e passare il nome host, la porta e la chiave di accesso (primaria o secondaria) per connettersi alla `redis-cli.exe` cache di test.   
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

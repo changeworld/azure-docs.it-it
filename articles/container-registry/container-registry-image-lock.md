@@ -1,46 +1,46 @@
 ---
 title: Bloccare immagini
-description: Impostare gli attributi per un'immagine del contenitore o un repository in modo che non possa essere eliminato o sovrascritto in un registro contenitori di Azure.
+description: Impostare gli attributi per un'immagine del contenitore o un repository in modo che non possa essere eliminata o sovrascritta in un Registro Azure Container.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 340beb1bb6666ddf0de7de38adee6be71f5f52bd
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "77659697"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772344"
 ---
-# <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloccare un'immagine del contenitore in un registro contenitori di Azure
+# <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloccare un'immagine del contenitore in un Registro Azure Container
 
-In un registro contenitori di Azure è possibile bloccare una versione dell'immagine o un repository in modo che non possa essere eliminato o aggiornato. Per bloccare un'immagine o un repository, aggiornarne gli attributi usando il comando dell'interfaccia della riga di comando di Azure [AZ ACR repository update][az-acr-repository-update]. 
+In un Registro Azure Container è possibile bloccare una versione dell'immagine o un repository in modo che non possa essere eliminata o aggiornata. Per bloccare un'immagine o un repository, aggiornarne gli attributi usando il comando [az acr repository update][az-acr-repository-update]dell'interfaccia della riga di comando di Azure. 
 
-Per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure in Azure Cloud Shell o in locale (versione 2.0.55 o successiva consigliata). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
+Questo articolo richiede l'esecuzione dell'interfaccia della riga di comando di Azure in Azure Cloud Shell o in locale (è consigliata la versione 2.0.55 o successiva). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
 > [!IMPORTANT]
-> Questo articolo non si applica al blocco di un intero registro, ad esempio usando **le impostazioni > i blocchi** nel portale di Azure o `az lock` i comandi nell'interfaccia della riga di comando di Azure. Il blocco di una risorsa del registro di sistema non impedisce la creazione, l'aggiornamento o l'eliminazione dei dati nei repository. Il blocco di un registro influiscono solo sulle operazioni di gestione, ad esempio l'aggiunta o l'eliminazione di repliche o l'eliminazione del registro di sistema. Altre informazioni in [bloccare le risorse per impedire modifiche impreviste](../azure-resource-manager/management/lock-resources.md).
+> Questo articolo non si applica al blocco di un intero registro, ad esempio all'uso di Impostazioni **> blocchi** nel portale di Azure o dei comandi nell'interfaccia della riga di comando `az lock` di Azure. Il blocco di una risorsa registro non impedisce la creazione, l'aggiornamento o l'eliminazione di dati nei repository. Il blocco di un Registro di sistema influisce solo sulle operazioni di gestione, ad esempio l'aggiunta o l'eliminazione di repliche o l'eliminazione del Registro di sistema stesso. Per altre informazioni, vedere [Bloccare le risorse per impedire modifiche impreviste.](../azure-resource-manager/management/lock-resources.md)
 
 ## <a name="scenarios"></a>Scenari
 
-Per impostazione predefinita, un'immagine con tag in Azure Container Registry è *modificabile*, quindi, con le autorizzazioni appropriate, è possibile aggiornare ripetutamente ed effettuare il push di un'immagine con lo stesso tag a un registro. Le immagini del contenitore possono anche essere [eliminate](container-registry-delete.md) in base alle esigenze. Questo comportamento è utile quando si sviluppano immagini ed è necessario mantenere una dimensione per il registro.
+Per impostazione predefinita, un'immagine contrassegnata in Registro Azure Container è modificabile, quindi con le autorizzazioni appropriate è possibile aggiornare ripetutamente un'immagine con lo stesso tag ed eseguire il push in un registro. Le immagini del contenitore possono anche [essere eliminate in](container-registry-delete.md) base alle esigenze. Questo comportamento è utile quando si sviluppano immagini ed è necessario mantenere una dimensione per il registro.
 
-Tuttavia, quando si distribuisce un'immagine del contenitore in produzione, potrebbe essere necessaria un'immagine del contenitore non *modificabile* . Un'immagine non modificabile non può essere eliminata o sovrascritta accidentalmente.
+Tuttavia, quando si distribuisce un'immagine del contenitore nell'ambiente di produzione, potrebbe essere necessaria *un'immagine del contenitore non* modificabile. Un'immagine non modificabile è un'immagine che non è possibile eliminare o sovrascrivere accidentalmente.
 
-Vedere le raccomandazioni per l'assegnazione di tag e il [controllo delle versioni delle immagini del contenitore](container-registry-image-tag-version.md) per le strategie per le immagini tag e versione nel registro.
+Vedere [Raccomandazioni per l'assegnazione di tag e il controllo delle versioni delle](container-registry-image-tag-version.md) immagini del contenitore per le strategie per assegnare tag e versioni alle immagini nel registro.
 
-Usare il comando [AZ ACR repository update][az-acr-repository-update] per impostare gli attributi del repository, in modo da poter:
+Usare il [comando az acr repository update][az-acr-repository-update] per impostare gli attributi del repository in modo che sia possibile:
 
 * Bloccare una versione dell'immagine o un intero repository
 
 * Proteggere una versione dell'immagine o un repository dall'eliminazione, ma consentire gli aggiornamenti
 
-* Impedisci le operazioni di lettura (pull) su una versione dell'immagine o un intero repository
+* Impedire operazioni di lettura (pull) su una versione dell'immagine o su un intero repository
 
 Per esempi, vedere le sezioni seguenti. 
 
 ## <a name="lock-an-image-or-repository"></a>Bloccare un'immagine o un repository 
 
-### <a name="show-the-current-repository-attributes"></a>Mostra gli attributi del repository corrente
-Per visualizzare gli attributi correnti di un repository, eseguire il comando [AZ ACR repository Show][az-acr-repository-show] seguente:
+### <a name="show-the-current-repository-attributes"></a>Visualizzare gli attributi correnti del repository
+Per visualizzare gli attributi correnti di un repository, eseguire il comando [az acr repository show][az-acr-repository-show] seguente:
 
 ```azurecli
 az acr repository show \
@@ -48,8 +48,8 @@ az acr repository show \
     --output jsonc
 ```
 
-### <a name="show-the-current-image-attributes"></a>Mostra gli attributi dell'immagine corrente
-Per visualizzare gli attributi correnti di un tag, eseguire il comando [AZ ACR repository Show][az-acr-repository-show] seguente:
+### <a name="show-the-current-image-attributes"></a>Visualizzare gli attributi dell'immagine corrente
+Per visualizzare gli attributi correnti di un tag, eseguire il comando [az acr repository show][az-acr-repository-show] seguente:
 
 ```azurecli
 az acr repository show \
@@ -57,9 +57,9 @@ az acr repository show \
     --output jsonc
 ```
 
-### <a name="lock-an-image-by-tag"></a>Blocca un'immagine in base al tag
+### <a name="lock-an-image-by-tag"></a>Bloccare un'immagine in base al tag
 
-Per bloccare l'immagine repository */Image: Tag* nel registro di *sistema*, eseguire il comando [AZ ACR repository update][az-acr-repository-update] seguente:
+Per bloccare *l'immagine myrepo/myimage:tag* in *myregistry,* eseguire il comando [az acr repository update][az-acr-repository-update] seguente:
 
 ```azurecli
 az acr repository update \
@@ -67,9 +67,9 @@ az acr repository update \
     --write-enabled false
 ```
 
-### <a name="lock-an-image-by-manifest-digest"></a>Blocca un'immagine in base al digest del manifesto
+### <a name="lock-an-image-by-manifest-digest"></a>Bloccare un'immagine in base al digest del manifesto
 
-Eseguire il comando seguente per bloccare un'immagine di *repository/immagine* identificata dal digest del manifesto (hash SHA-256, rappresentato come `sha256:...` ). (Per trovare il digest del manifesto associato a uno o più tag di immagine, eseguire il comando [AZ ACR repository Show-manifests][az-acr-repository-show-manifests] ).
+Per bloccare *un'immagine myrepo/myimage* identificata dal digest del manifesto (hash SHA-256, rappresentato come `sha256:...` ), eseguire il comando seguente. Per trovare il digest del manifesto associato a uno o più tag immagine, eseguire il [comando az acr repository show-manifests.][az-acr-repository-show-manifests]
 
 ```azurecli
 az acr repository update \
@@ -79,7 +79,7 @@ az acr repository update \
 
 ### <a name="lock-a-repository"></a>Bloccare un repository
 
-Per bloccare il repository repository */immagine* e tutte le immagini al suo interno, eseguire il comando seguente:
+Per bloccare il repository *myrepo/myimage* e tutte le immagini al suo interno, eseguire il comando seguente:
 
 ```azurecli
 az acr repository update \
@@ -87,11 +87,11 @@ az acr repository update \
     --write-enabled false
 ```
 
-## <a name="protect-an-image-or-repository-from-deletion"></a>Proteggi un'immagine o un repository dall'eliminazione
+## <a name="protect-an-image-or-repository-from-deletion"></a>Proteggere un'immagine o un repository dall'eliminazione
 
-### <a name="protect-an-image-from-deletion"></a>Proteggi un'immagine dall'eliminazione
+### <a name="protect-an-image-from-deletion"></a>Proteggere un'immagine dall'eliminazione
 
-Per consentire l'aggiornamento dell'immagine *repository/Image: Tag* ma non eliminata, eseguire il comando seguente:
+Per consentire *l'aggiornamento dell'immagine myrepo/myimage:tag* ma non l'eliminazione, eseguire il comando seguente:
 
 ```azurecli
 az acr repository update \
@@ -99,9 +99,9 @@ az acr repository update \
     --delete-enabled false --write-enabled true
 ```
 
-### <a name="protect-a-repository-from-deletion"></a>Proteggi un repository dall'eliminazione
+### <a name="protect-a-repository-from-deletion"></a>Proteggere un repository dall'eliminazione
 
-Il comando che segue imposta il repository repository */immagine* in modo che non possa essere eliminato. Le singole immagini possono comunque essere aggiornate o eliminate.
+Il comando seguente imposta il repository *myrepo/myimage* in modo che non possa essere eliminato. Le singole immagini possono comunque essere aggiornate o eliminate.
 
 ```azurecli
 az acr repository update \
@@ -109,9 +109,9 @@ az acr repository update \
     --delete-enabled false --write-enabled true
 ```
 
-## <a name="prevent-read-operations-on-an-image-or-repository"></a>Impedisci le operazioni di lettura su un'immagine o un repository
+## <a name="prevent-read-operations-on-an-image-or-repository"></a>Impedire operazioni di lettura su un'immagine o un repository
 
-Per impedire l'esecuzione di operazioni di lettura (pull) nell'immagine dei *tag repository/Image:* , eseguire il comando seguente:
+Per impedire operazioni di lettura (pull) *sull'immagine myrepo/myimage:tag,* eseguire il comando seguente:
 
 ```azurecli
 az acr repository update \
@@ -119,7 +119,7 @@ az acr repository update \
     --read-enabled false
 ```
 
-Per impedire l'esecuzione di operazioni di lettura su tutte le immagini del repository repository */immagine* , eseguire il comando seguente:
+Per impedire operazioni di lettura su tutte le immagini nel repository *myrepo/myimage,* eseguire il comando seguente:
 
 ```azurecli
 az acr repository update \
@@ -129,7 +129,7 @@ az acr repository update \
 
 ## <a name="unlock-an-image-or-repository"></a>Sbloccare un'immagine o un repository
 
-Per ripristinare il comportamento predefinito dell'immagine del *tag repository/immagine:* in modo che possa essere eliminata e aggiornata, eseguire il comando seguente:
+Per ripristinare il comportamento predefinito dell'immagine *myrepo/myimage:tag* in modo che possa essere eliminata e aggiornata, eseguire il comando seguente:
 
 ```azurecli
 az acr repository update \
@@ -137,7 +137,7 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
-Per ripristinare il comportamento predefinito del repository repository */immagine* e tutte le immagini in modo che possano essere eliminate e aggiornate, eseguire il comando seguente:
+Per ripristinare il comportamento predefinito del repository *myrepo/myimage* e di tutte le immagini in modo che possano essere eliminate e aggiornate, eseguire il comando seguente:
 
 ```azurecli
 az acr repository update \
@@ -147,16 +147,15 @@ az acr repository update \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come usare il comando [AZ ACR repository update][az-acr-repository-update] per impedire l'eliminazione o l'aggiornamento delle versioni delle immagini in un repository. Per impostare attributi aggiuntivi, vedere la Guida di riferimento al comando [AZ ACR repository update][az-acr-repository-update] .
+In questo articolo si è appreso come usare il [comando az acr repository update][az-acr-repository-update] per impedire l'eliminazione o l'aggiornamento delle versioni delle immagini in un repository. Per impostare attributi aggiuntivi, vedere le informazioni di riferimento [sul comando az acr repository update.][az-acr-repository-update]
 
-Per visualizzare gli attributi impostati per una versione o un repository di immagini, usare il comando [AZ ACR repository Show][az-acr-repository-show] .
+Per visualizzare gli attributi impostati per una versione dell'immagine o un repository, usare il [comando az acr repository show.][az-acr-repository-show]
 
-Per informazioni dettagliate sulle operazioni di eliminazione, vedere [eliminare immagini del contenitore in Azure container Registry][container-registry-delete].
+Per informazioni dettagliate sulle operazioni di eliminazione, vedere [Eliminare immagini del contenitore in Registro Azure Container][container-registry-delete].
 
 <!-- LINKS - Internal -->
-[az-acr-repository-update]: /cli/azure/acr/repository#az-acr-repository-update
-[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
-[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
+[az-acr-repository-update]: /cli/azure/acr/repository#az_acr_repository_update
+[az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-delete]: container-registry-delete.md
-

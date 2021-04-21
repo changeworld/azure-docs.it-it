@@ -1,5 +1,5 @@
 ---
-title: Distribuire le macchine virtuali in un set di disponibilità usando l'interfaccia della riga di comando
+title: Distribuire macchine virtuali in un set di disponibilità usando l'interfaccia della riga di comando di Azure
 description: In questa esercitazione si apprenderà come usare l'interfaccia della riga di comando di Azure per distribuire macchine virtuali a disponibilità elevata nei set di disponibilità
 documentationcenter: ''
 services: virtual-machines
@@ -10,12 +10,12 @@ ms.date: 3/8/2021
 ms.author: mimckitt
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 6a54e0d808ef734a26a0fa309bd7367e73316856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c45f08a339ca8878bb9e2840faa8a412f3e60e0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507066"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765972"
 ---
 # <a name="create-and-deploy-virtual-machines-in-an-availability-set-using-azure-cli"></a>Creare e distribuire macchine virtuali in un set di disponibilità usando l'interfaccia della riga di comando di Azure
 
@@ -36,7 +36,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 È possibile creare un set di disponibilità usando il comando [az vm availability-set create](/cli/azure/vm/availability-set). In questo esempio il numero di domini di aggiornamento e di errore viene impostato su *2* per il set di disponibilità denominato *myAvailabilitySet* nel gruppo di risorse *myResourceGroupAvailability*.
 
-Creare prima un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create), quindi creare il set di disponibilità:
+Creare prima un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create), quindi creare il set di disponibilità:
 
 ```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
@@ -80,7 +80,7 @@ La distribuzione del set di disponibilità può essere esaminata nel portale acc
 
 ## <a name="check-for-available-vm-sizes"></a>Controllare le dimensioni delle macchine virtuali disponibili
 
-È possibile aggiungere più macchine virtuali al set di disponibilità in un secondo momento, se le dimensioni delle macchine virtuali sono disponibili nell'hardware. Usare il comando [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes) per elencare tutte le dimensioni disponibili nel cluster hardware per il set di disponibilità:
+È possibile aggiungere più macchine virtuali al set di disponibilità in un secondo momento, se le dimensioni delle macchine virtuali sono disponibili nell'hardware. Usare il comando [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az_vm_availability_set_list_sizes) per elencare tutte le dimensioni disponibili nel cluster hardware per il set di disponibilità:
 
 ```azurecli-interactive
 az vm availability-set list-sizes \

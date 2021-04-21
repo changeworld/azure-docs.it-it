@@ -4,12 +4,12 @@ description: Creare un Registro Azure Container, configurare la replica geografi
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6abf1b7a524bc7dd28f1704a362749ac84de2389
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5f5627462f016c857d956be46c276dda78e9b2b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97826072"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780660"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Esercitazione: Preparare un Registro Azure Container con replica geografica
 
@@ -98,7 +98,7 @@ Passare al nuovo registro contenitori nel portale di Azure e selezionare **Chiav
 
 Dopo aver configurato la replica geografica, generare un'immagine del contenitore ed eseguirne il push nel registro. È necessario accedere al registro prima di eseguire il push delle immagini al suo interno.
 
-Usare il comando [az acr login](/cli/azure/acr#az-acr-login) per autenticare e memorizzare nella cache le credenziali del registro. Sostituire `<acrName>` con il nome del registro creato in precedenza.
+Usare il comando [az acr login](/cli/azure/acr#az_acr_login) per autenticare e memorizzare nella cache le credenziali del registro. Sostituire `<acrName>` con il nome del registro creato in precedenza.
 
 ```azurecli
 az acr login --name <acrName>

@@ -3,49 +3,49 @@ title: Importare immagini del contenitore
 description: Importare immagini del contenitore in un registro Azure Container usando le API di Azure, senza bisogno di eseguire comandi di Docker.
 ms.topic: article
 ms.date: 01/15/2021
-ms.openlocfilehash: b481a2b4f0a08f0ccbfd33f7059e5d8e0c04f5f0
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: e7becadab7f23acd7b85d6d82fd8abbfa7608add
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106221501"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781524"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importare immagini del contenitore in un registro contenitori
 
 È possibile importare (copiare) facilmente immagini del contenitore in un registro Azure Container senza usare comandi di Docker. Ad esempio, è possibile importare immagini da un registro di sviluppo in un registro di produzione oppure copiare immagini di base da un registro pubblico.
 
-Azure Container Registry gestisce diversi scenari comuni per la copia di immagini e altri elementi da un registro esistente:
+Registro Azure Container gestisce diversi scenari comuni per copiare immagini e altri artefatti da un registro esistente:
 
-* Importa immagini da un registro pubblico
+* Importare immagini da un registro pubblico
 
-* Importa le immagini o gli artefatti OCI inclusi i grafici Helm 3 da un altro registro contenitori di Azure, nello stesso o in una sottoscrizione o in un tenant di Azure diverso
+* Importare immagini o artefatti OCI, inclusi i grafici Helm 3 da un altro Registro Azure Container, nello stesso tenant o nella stessa sottoscrizione di Azure o in un tenant diverso
 
 * Importazione da un registro contenitori privato non di Azure
 
 L'importazione di immagini in un registro Azure Container offre i vantaggi seguenti rispetto all'uso dei comandi dell'interfaccia della riga di comando di Docker:
 
-* Poiché l'ambiente client non necessita di un'installazione locale di Docker, importare qualsiasi immagine del contenitore, indipendentemente dal tipo di sistema operativo supportato.
+* Poiché l'ambiente client non richiede un'installazione docker locale, importare qualsiasi immagine del contenitore, indipendentemente dal tipo di sistema operativo supportato.
 
 * Quando si importano immagini multiarchitettura (ad esempio immagini ufficiali di Docker), vengono copiate le immagini di tutte le architetture e le piattaforme specificate nell'elenco di manifesti.
 
-* L'accesso al registro di sistema di destinazione non deve usare l'endpoint pubblico del registro di sistema.
+* L'accesso al registro di destinazione non deve usare l'endpoint pubblico del registro.
 
 Per importare immagini del contenitore seguendo le procedure di questo articolo, è necessario eseguire l'interfaccia della riga di comando di Azure in Azure Cloud Shell o localmente (si consiglia la versione 2.0.55 o una versione successiva). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
 > [!NOTE]
-> Se occorre distribuire immagini del contenitore identiche tra più aree di Azure, Registro Azure Container supporta anche la [replica geografica](container-registry-geo-replication.md). Con la replica geografica di un registro di sistema (è necessario il livello di servizio Premium), è possibile servire più aree con nomi identici per le immagini e i tag da un unico registro.
+> Se occorre distribuire immagini del contenitore identiche tra più aree di Azure, Registro Azure Container supporta anche la [replica geografica](container-registry-geo-replication.md). Con la replica geografica di un registro (è necessario il livello di servizio Premium), è possibile gestire più aree con nomi di immagine e tag identici da un singolo registro.
 >
 
 > [!IMPORTANT]
-> Le modifiche apportate all'importazione di immagini tra due registri contenitori di Azure sono state introdotte a partire dal 2021 gennaio:
-> * L'importazione in o da un registro contenitori di Azure con restrizioni di rete richiede il registro di sistema con restrizioni per [**consentire l'accesso da parte di servizi attendibili**](allow-access-trusted-services.md) per ignorare la rete. Per impostazione predefinita, l'impostazione è abilitata, consentendo l'importazione. Se l'impostazione non è abilitata in un registro appena creato con un endpoint privato o con regole del firewall del registro di sistema, l'importazione avrà esito negativo. 
-> * In un registro contenitori di Azure con restrizioni di rete esistente usato come origine o destinazione dell'importazione, l'abilitazione di questa funzionalità di sicurezza di rete è facoltativa ma consigliata.
+> Le modifiche all'importazione di immagini tra due registri contenitori di Azure sono state introdotte a partire da gennaio 2021:
+> * L'importazione da o verso un Registro Azure Container con restrizioni di rete richiede che il registro con restrizioni consenta l'accesso da parte di servizi attendibili [**per**](allow-access-trusted-services.md) ignorare la rete. Per impostazione predefinita, l'impostazione è abilitata, consentendo l'importazione. Se l'impostazione non è abilitata in un registro appena creato con un endpoint privato o con regole del firewall del Registro di sistema, l'importazione avrà esito negativo. 
+> * In un Registro Azure Container con restrizioni di rete esistente usato come origine o destinazione di importazione, l'abilitazione di questa funzionalità di sicurezza di rete è facoltativa ma consigliata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se non si ha già un registro Azure Container, crearne uno. Per i passaggi, vedere [Guida introduttiva: creare un registro contenitori privato usando l'interfaccia della](container-registry-get-started-azure-cli.md)riga di comando di Azure.
+Se non si ha già un registro Azure Container, crearne uno. Per la procedura, vedere Avvio rapido: Creare un [registro contenitori privato usando l'interfaccia della riga di comando di Azure.](container-registry-get-started-azure-cli.md)
 
-Per importare un'immagine in un registro contenitori di Azure, l'identità deve avere le autorizzazioni di scrittura per il registro di sistema di destinazione (almeno ruolo Collaboratore o un ruolo personalizzato che consente l'azione importImage). Vedere [Ruoli e autorizzazioni di Registro Azure Container](container-registry-roles.md#custom-roles). 
+Per importare un'immagine in un Registro Azure Container, l'identità deve avere le autorizzazioni di scrittura per il registro di destinazione (almeno il ruolo Collaboratore o un ruolo personalizzato che consente l'azione importImage). Vedere [Ruoli e autorizzazioni di Registro Azure Container](container-registry-roles.md#custom-roles). 
 
 ## <a name="import-from-a-public-registry"></a>Importazione da un registro pubblico
 
@@ -68,7 +68,7 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
-Se si dispone di un [account Docker Hub](https://www.docker.com/pricing), è consigliabile usare le credenziali durante l'importazione di un'immagine dall'hub docker. Passare il nome utente dell'hub Docker e la password o un [token di accesso personale](https://docs.docker.com/docker-hub/access-tokens/) come parametri a `az acr import` . L'esempio seguente importa un'immagine pubblica dal `tensorflow` repository nell'hub Docker, usando le credenziali dell'hub docker:
+Se si ha un [account Docker Hub](https://www.docker.com/pricing), è consigliabile usare le credenziali quando si importa un'immagine da Docker Hub. Passare il Docker Hub utente e la password o un token di [accesso personale](https://docs.docker.com/docker-hub/access-tokens/) come parametri a `az acr import` . L'esempio seguente importa un'immagine pubblica dal `tensorflow` repository in Docker Hub, usando Docker Hub credenziali:
 
 ```azurecli
 az acr import \
@@ -81,7 +81,7 @@ az acr import \
 
 ### <a name="import-from-microsoft-container-registry"></a>Importare immagini dal registro contenitori di Microsoft
 
-Ad esempio, importare l' `ltsc2019` immagine di Windows Server Core dal `windows` repository in Microsoft container Registry.
+Ad esempio, importare `ltsc2019` l'immagine di Windows Server Core dal `windows` repository in Microsoft Container Registry.
 
 ```azurecli
 az acr import \
@@ -90,17 +90,17 @@ az acr import \
 --image servercore:ltsc2019
 ```
 
-## <a name="import-from-an-azure-container-registry-in-the-same-ad-tenant"></a>Importare da un registro contenitori di Azure nello stesso tenant di Active Directory
+## <a name="import-from-an-azure-container-registry-in-the-same-ad-tenant"></a>Importare da un registro Azure Container nello stesso tenant di AD
 
-È possibile importare un'immagine da un registro contenitori di Azure nello stesso tenant di Active Directory usando le autorizzazioni di Azure Active Directory integrata.
+È possibile importare un'immagine da un registro Azure Container nello stesso tenant di AD usando le Azure Active Directory integrate.
 
-* È necessario che l'identità disponga delle autorizzazioni Azure Active Directory per la lettura dal registro di sistema di origine (ruolo lettore) e per l'importazione nel registro di sistema di destinazione (ruolo Collaboratore o un [ruolo personalizzato](container-registry-roles.md#custom-roles) che consente l'azione importImage).
+* L'identità deve Azure Active Directory autorizzazioni per la lettura dal Registro di sistema di origine (ruolo Lettore) e per l'importazione nel Registro di sistema di destinazione (ruolo Collaboratore o ruolo personalizzato che consente l'azione importImage). [](container-registry-roles.md#custom-roles)
 
 * Il registro può trovarsi nella stessa sottoscrizione di Azure o in una sottoscrizione diversa nello stesso tenant di Active Directory.
 
-* L' [accesso pubblico](container-registry-access-selected-networks.md#disable-public-network-access) al registro di sistema di origine potrebbe essere disabilitato. Se l'accesso pubblico è disabilitato, specificare il registro di sistema di origine tramite l'ID risorsa anziché il nome del server di accesso del registro di sistema.
+* [L'accesso](container-registry-access-selected-networks.md#disable-public-network-access) pubblico al Registro di sistema di origine potrebbe essere disabilitato. Se l'accesso pubblico è disabilitato, specificare il Registro di sistema di origine in base all'ID risorsa anziché al nome del server di accesso del Registro di sistema.
 
-* Se il registro di sistema di origine e/o il registro di sistema di destinazione ha un endpoint privato o regole del firewall del registro di sistema, assicurarsi che il registro di sistema con restrizioni [consenta ai servizi attendibili](allow-access-trusted-services.md) di accedere alla rete.
+* Se il registro di origine e/o il registro di destinazione hanno un endpoint [](allow-access-trusted-services.md) privato o regole firewall del Registro di sistema vengono applicate, assicurarsi che il registro con restrizioni consenta ai servizi attendibili di accedere alla rete.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importare immagini da un registro nella stessa sottoscrizione
 
@@ -113,7 +113,7 @@ az acr import \
   --image aci-helloworld:latest
 ```
 
-Nell'esempio seguente l'immagine viene importata in `aci-helloworld:latest` *Registro* di sistema da un *mysourceregistry* del registro di sistema di origine in cui l'accesso all'endpoint pubblico del registro di sistema è disabilitato. Specificare l'ID risorsa del registro di origine con il parametro `--registry`. Si noti che il `--source` parametro specifica solo il repository di origine e il tag, non il nome del server di accesso del registro di sistema.
+L'esempio seguente importa l'immagine in myregistry da un registro di origine `aci-helloworld:latest` *mysourceregistry* in cui l'accesso all'endpoint pubblico del Registro di sistema è disabilitato.  Specificare l'ID risorsa del registro di origine con il parametro `--registry`. Si noti che il parametro specifica solo il repository e il tag di `--source` origine, non il nome del server di accesso del Registro di sistema.
 
 ```azurecli
 az acr import \
@@ -133,7 +133,7 @@ az acr import \
 
 ### <a name="import-from-a-registry-in-a-different-subscription"></a>Importare immagini da un registro in un'altra sottoscrizione
 
-Nell'esempio seguente *mysourceregistry* è in una sottoscrizione diversa da *myregistry* nello stesso tenant di Active Directory. Specificare l'ID risorsa del registro di origine con il parametro `--registry`. Si noti che il `--source` parametro specifica solo il repository di origine e il tag, non il nome del server di accesso del registro di sistema.
+Nell'esempio seguente *mysourceregistry* è in una sottoscrizione diversa da *myregistry* nello stesso tenant di Active Directory. Specificare l'ID risorsa del registro di origine con il parametro `--registry`. Si noti che il parametro specifica solo il repository e il tag di `--source` origine, non il nome del server di accesso del Registro di sistema.
 
 ```azurecli
 az acr import \
@@ -145,7 +145,7 @@ az acr import \
 
 ### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importare immagini da un registro usando le credenziali dell'entità servizio
 
-Per eseguire l'importazione da un registro a cui non è possibile accedere usando autorizzazioni Active Directory integrate, è possibile usare le credenziali dell'entità servizio (se disponibili) per il registro di sistema di origine. Specificare l'ID app e la password di un'[entità servizio](container-registry-auth-service-principal.md) di Active Directory con accesso ACRPull al registro di origine. L'uso di un'entità servizio è utile per i sistemi di compilazione e altri sistemi automatici che devono importare immagini nel registro.
+Per importare da un registro a cui non è possibile accedere usando le autorizzazioni integrate di Active Directory, è possibile usare le credenziali dell'entità servizio (se disponibili) nel registro di origine. Specificare l'ID app e la password di un'[entità servizio](container-registry-auth-service-principal.md) di Active Directory con accesso ACRPull al registro di origine. L'uso di un'entità servizio è utile per i sistemi di compilazione e altri sistemi automatici che devono importare immagini nel registro.
 
 ```azurecli
 az acr import \
@@ -156,9 +156,9 @@ az acr import \
   --password <SP_Passwd>
 ```
 
-## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>Importare da un registro contenitori di Azure in un tenant di Active Directory diverso
+## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>Importare da un registro Azure Container in un tenant di AD diverso
 
-Per importare da un registro contenitori di Azure in un tenant di Azure Active Directory diverso, specificare il registro di sistema di origine in base al nome del server di accesso e fornire le credenziali di nome utente e password che consentono l'accesso pull al registro di sistema. Ad esempio, usare un [token con ambito repository](container-registry-repository-scoped-permissions.md) e una password oppure l'AppID e la password di un' [entità servizio](container-registry-auth-service-principal.md) Active Directory con accesso ACRPull al registro di sistema di origine. 
+Per importare da un registro Azure Container in un tenant di Azure Active Directory diverso, specificare il registro di origine in base al nome del server di accesso e specificare le credenziali di nome utente e password che consentono l'accesso pull al Registro di sistema. Ad esempio, usare un [token](container-registry-repository-scoped-permissions.md) e una password con ambito repository oppure l'APPID e la password di un'entità servizio Active [Directory](container-registry-auth-service-principal.md) con accesso ACRPull al Registro di sistema di origine. 
 
 ```azurecli
 az acr import \
@@ -171,7 +171,7 @@ az acr import \
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>Importazione da un registro contenitori privato non di Azure
 
-Importare un'immagine da un registro privato non di Azure specificando le credenziali che abilitano l'accesso pull al registro di sistema. Ad esempio, eseguire il pull di un'immagine da un registro privato di Docker: 
+Importare un'immagine da un registro privato non di Azure specificando le credenziali che consentono l'accesso pull al Registro di sistema. Ad esempio, eseguire il pull di un'immagine da un registro privato di Docker: 
 
 ```azurecli
 az acr import \
@@ -188,6 +188,6 @@ Questo articolo ha illustrato come importare immagini del contenitore in un regi
 
 
 <!-- LINKS - Internal -->
-[az-login]: /cli/azure/reference-index#az-login
-[az-acr-import]: /cli/azure/acr#az-acr-import
+[az-login]: /cli/azure/reference-index#az_login
+[az-acr-import]: /cli/azure/acr#az_acr_import
 [azure-cli]: /cli/azure/install-azure-cli

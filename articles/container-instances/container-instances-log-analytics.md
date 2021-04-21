@@ -1,22 +1,22 @@
 ---
-title: Raccogli & analizzare i log delle risorse
-description: Informazioni su come inviare i log delle risorse e i dati degli eventi da gruppi di contenitori in istanze di contenitore di Azure ai log di monitoraggio di Azure
+title: Raccogliere & analizzare i log delle risorse
+description: Informazioni su come inviare i log delle risorse e i dati degli eventi dai gruppi di contenitori Istanze di Azure Container a Monitoraggio di Azure log
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e46a1df65a4cfe5d10a58704aff485aa2834b55f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579328"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763920"
 ---
-# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registrazione di istanze e gruppi di contenitori con i log di monitoraggio di Azure
+# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registrazione di gruppi di contenitori e istanze con Monitoraggio di Azure log
 
-Le aree di lavoro Log Analytics offrono una posizione centralizzata per l'archiviazione e l'esecuzione di query sui dati di log non solo dalle risorse di Azure, ma anche da risorse locali e risorse in altri cloud. Il servizio Istanze di Azure Container supporta per impostazione predefinita l'invio di log e dati sugli eventi ai log di Monitoraggio di Azure.
+Le aree di lavoro Log Analytics offrono una posizione centralizzata per l'archiviazione e l'esecuzione di query sui dati di log non solo dalle risorse di Azure, ma anche da risorse e risorse locali in altri cloud. Il servizio Istanze di Azure Container supporta per impostazione predefinita l'invio di log e dati sugli eventi ai log di Monitoraggio di Azure.
 
-Per inviare i dati degli eventi e di log del gruppo di contenitori ai log di monitoraggio di Azure, specificare un ID e una chiave dell'area di lavoro Log Analytics esistente quando si configura un gruppo di contenitori. 
+Per inviare i dati del log e degli eventi del gruppo di contenitori Monitoraggio di Azure log, specificare un ID area di lavoro Log Analytics esistente e una chiave dell'area di lavoro durante la configurazione di un gruppo di contenitori. 
 
-Le sezioni seguenti descrivono come creare un gruppo di contenitori abilitato per la registrazione e come eseguire query sui log. È anche possibile [aggiornare un gruppo di contenitori](container-instances-update.md) con un ID area di lavoro e una chiave dell'area di lavoro per abilitare la registrazione.
+Le sezioni seguenti descrivono come creare un gruppo di contenitori abilitato per la registrazione e come eseguire query nei log. È anche possibile aggiornare un [gruppo di contenitori con un](container-instances-update.md) ID dell'area di lavoro e una chiave dell'area di lavoro per abilitare la registrazione.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -37,7 +37,7 @@ Il servizio Istanze di Azure Container deve avere l'autorizzazione per l'invio d
 Per ottenere l'ID e la chiave primaria dell'area di lavoro Log Analytics:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
-1. In **Impostazioni** selezionare **agenti gestione**
+1. In **Impostazioni** selezionare **Gestione agenti**
 1. Prendere nota di:
    * **ID area di lavoro**
    * **Chiave primaria**
@@ -46,7 +46,7 @@ Per ottenere l'ID e la chiave primaria dell'area di lavoro Log Analytics:
 
 Dopo aver ottenuto l'ID e la chiave primaria dell'area di lavoro Log Analytics, è possibile procedere con la creazione di un gruppo di contenitori abilitato per la registrazione.
 
-Gli esempi seguenti illustrano due modi per creare un gruppo di contenitori costituito da un singolo contenitore [fluentd][fluentd] : l'interfaccia della riga di comando di Azure e l'interfaccia della riga di comando di Azure con un modello YAML. Il contenitore fluentd produce più righe di output nella configurazione predefinita. Dato che questo output viene inviato all'area di lavoro Log Analytics, è adatto per dimostrare le funzionalità di visualizzazione ed esecuzione di query per i log.
+Gli esempi seguenti illustrano due modi per creare un gruppo di contenitori costituito da un singolo contenitore [fluente:][fluentd] l'interfaccia della riga di comando di Azure e l'interfaccia della riga di comando di Azure con un modello YAML. Il contenitore Fluentd produce diverse righe di output nella configurazione predefinita. Dato che questo output viene inviato all'area di lavoro Log Analytics, è adatto per dimostrare le funzionalità di visualizzazione ed esecuzione di query per i log.
 
 ### <a name="deploy-with-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
 
@@ -105,11 +105,11 @@ Dopo aver distribuito il gruppo di contenitori, possono essere necessari diversi
 Per visualizzare i log del gruppo di contenitori nella tabella `ContainerInstanceLog_CL`:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
-1. In **generale** selezionare **log** .  
+1. In **Generale** selezionare **Log**  
 1. Digitare la query seguente: `ContainerInstanceLog_CL | limit 50`
 1. Selezionare **Esegui**
 
-Dovrebbero essere visibili i vari risultati visualizzati dalla query. Se inizialmente non vengono visualizzati risultati, attendere alcuni minuti, quindi selezionare il pulsante **Esegui** per eseguire nuovamente la query. Per impostazione predefinita, le voci del log vengono visualizzate in formato **Tabella**. È quindi possibile espandere una riga per visualizzare il contenuto di una singola voce del log.
+Dovrebbero essere visibili i vari risultati visualizzati dalla query. Se all'inizio non vengono visualizzati risultati, attendere alcuni minuti, quindi selezionare il **pulsante** Esegui per eseguire di nuovo la query. Per impostazione predefinita, le voci del log vengono visualizzate in formato **Tabella**. È quindi possibile espandere una riga per visualizzare il contenuto di una singola voce del log.
 
 ![Risultati di Ricerca log nel portale di Azure][log-search-01]
 
@@ -118,11 +118,11 @@ Dovrebbero essere visibili i vari risultati visualizzati dalla query. Se inizial
 È anche possibile visualizzare gli eventi per le istanze di contenitori nel portale di Azure. Gli eventi includono la data e l'ora di creazione e di avvio dell'istanza. Per visualizzare i dati degli eventi nella tabella `ContainerEvent_CL`:
 
 1. Passare all'area di lavoro Log Analytics nel portale di Azure
-1. In **generale** selezionare **log** .  
+1. In **Generale** selezionare **Log**  
 1. Digitare la query seguente: `ContainerEvent_CL | limit 50`
 1. Selezionare **Esegui**
 
-Dovrebbero essere visibili i vari risultati visualizzati dalla query. Se inizialmente non vengono visualizzati risultati, attendere alcuni minuti, quindi selezionare il pulsante **Esegui** per eseguire nuovamente la query. Per impostazione predefinita, le voci vengono visualizzate in formato **tabella**. È quindi possibile espandere una riga per visualizzare il contenuto di una singola voce.
+Dovrebbero essere visibili i vari risultati visualizzati dalla query. Se all'inizio non vengono visualizzati risultati, attendere alcuni  minuti, quindi selezionare il pulsante Esegui per eseguire di nuovo la query. Per impostazione predefinita, le voci vengono visualizzate in formato **tabella**. È quindi possibile espandere una riga per visualizzare il contenuto di una singola voce.
 
 ![Risultati della ricerca di eventi nel portale di Azure][log-search-02]
 
@@ -132,7 +132,7 @@ I log di Monitoraggio di Azure includono un [linguaggio di query][query_lang] co
 
 La struttura di base di una query è costituita da una tabella di origine (in questo articolo `ContainerInstanceLog_CL` o `ContainerEvent_CL`) seguita da una serie di operatori separati dal carattere barra verticale (`|`). È possibile concatenare più operatori per limitare i risultati ed eseguire funzioni avanzate.
 
-Per visualizzare i risultati della query di esempio, incollare la query seguente nella casella di testo della query e selezionare il pulsante **Esegui** per eseguire la query. Questa query consente di visualizzare tutte le voci di log il cui campo "Message" contiene la parola "warn":
+Per visualizzare risultati di query di esempio, incollare la query seguente nella casella di testo della query e selezionare il **pulsante** Esegui per eseguire la query. Questa query consente di visualizzare tutte le voci di log il cui campo "Message" contiene la parola "warn":
 
 ```query
 ContainerInstanceLog_CL
@@ -153,7 +153,7 @@ ContainerInstanceLog_CL
 
 Per altre informazioni sull'esecuzione di query sui log e la configurazione di avvisi nei log di Monitoraggio di Azure, vedere:
 
-* [Informazioni sulle ricerche nei log nei log di monitoraggio di Azure](../azure-monitor/logs/log-query-overview.md)
+* [Informazioni sulle ricerche nei log Monitoraggio di Azure log](../azure-monitor/logs/log-query-overview.md)
 * [Avvisi unificati in Monitoraggio di Azure](../azure-monitor/alerts/alerts-overview.md)
 
 
@@ -172,4 +172,4 @@ Per informazioni sul monitoraggio delle risorse di CPU e memoria per l'istanza d
 [query_lang]: /azure/data-explorer/
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
+[az-container-create]: /cli/azure/container#az_container_create

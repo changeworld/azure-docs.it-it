@@ -1,5 +1,5 @@
 ---
-title: Usare l'estensione integrità dell'applicazione con i set di scalabilità di macchine virtuali di Azure
+title: Usare l'estensione Integrità applicazioni con i set di scalabilità di macchine virtuali di Azure
 description: Informazioni su come usare l'estensione Integrità applicazione per monitorare l'integrità delle applicazioni distribuite nei set di scalabilità di macchine virtuali.
 author: ju-shim
 ms.author: jushiman
@@ -9,21 +9,21 @@ ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 381573ae40f6c31a1c7dbf18bc60be5944fff39e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84783045"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762894"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso dell'estensione Integrità applicazione con i set di scalabilità di macchine virtuali di Azure
-Il monitoraggio dell'integrità delle applicazioni è un elemento importante per la gestione e l'aggiornamento della distribuzione. I set di scalabilità di macchine virtuali di Azure supportano gli [aggiornamenti in sequenza](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model), inclusi gli [aggiornamenti automatici dell'immagine del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md), che si basano sul monitoraggio dell'integrità delle singole istanze per l'aggiornamento della distribuzione. È anche possibile usare l'estensione per l'integrità per monitorare lo stato di integrità dell'applicazione di ogni istanza nel set di scalabilità ed eseguire le riparazioni delle istanze usando le [riparazioni automatiche dell'istanza](virtual-machine-scale-sets-automatic-instance-repairs.md)
+Il monitoraggio dell'integrità delle applicazioni è un elemento importante per la gestione e l'aggiornamento della distribuzione. I set di scalabilità di macchine virtuali di Azure supportano gli [aggiornamenti in sequenza](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model), inclusi gli [aggiornamenti automatici dell'immagine del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md), che si basano sul monitoraggio dell'integrità delle singole istanze per l'aggiornamento della distribuzione. È anche possibile usare l'estensione integrità per monitorare l'integrità dell'applicazione di ogni istanza nel set di scalabilità ed eseguire le riparazioni dell'istanza usando [le riparazioni automatiche delle istanze](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 In questo articolo viene descritto come usare l'estensione Integrità applicazione per monitorare l'integrità delle applicazioni distribuite nei set di scalabilità di macchine virtuali.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che l'utente abbia familiarità con:
--   [Estensioni](../virtual-machines/extensions/overview.md) della macchina virtuale di Azure
+-   Estensioni di macchine [virtuali](../virtual-machines/extensions/overview.md) di Azure
 -   [Modifica](virtual-machine-scale-sets-upgrade-scale-set.md) dei set di scalabilità di macchine virtuali
 
 ## <a name="when-to-use-the-application-health-extension"></a>Quando usare l'estensione Integrità applicazione
@@ -33,7 +33,7 @@ Poiché l'estensione segnala l'integrità dall'interno di una macchina virtuale,
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-Il codice JSON riportato di seguito mostra lo schema dell'estensione Integrità applicazione. L'estensione richiede almeno una richiesta "TCP", "http" o "https" con una porta o un percorso di richiesta associato rispettivamente.
+Il codice JSON riportato di seguito mostra lo schema dell'estensione Integrità applicazione. L'estensione richiede almeno una richiesta "tcp", "http" o "https" rispettivamente con una porta o un percorso di richiesta associato.
 
 ```json
 {
@@ -69,8 +69,8 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione Integrità 
 | Nome | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
 | protocol | `http` o `https` o `tcp` | string |
-| port | Facoltativo quando il protocollo è `http` o `https` , obbligatorio quando il protocollo è `tcp` | INT |
-| requestPath | Obbligatoria quando il protocollo è `http` o `https` , non è consentito quando il protocollo è `tcp` | string |
+| port | Facoltativo quando il protocollo `http` è `https` o , obbligatorio quando il protocollo è `tcp` | INT |
+| requestPath | Obbligatorio quando il protocollo `http` è o , non consentito quando il protocollo `https` è `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Distribuire l'estensione Integrità applicazione
 Esistono diversi modi per distribuire l'estensione Integrità applicazione nei set di scalabilità, come descritto in dettaglio negli esempi seguenti.
@@ -141,9 +141,9 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 
-Usare [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) per aggiungere l'estensione Integrità applicazione alla definizione del modello del set di scalabilità.
+Usare [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) per aggiungere l'estensione Integrità applicazione alla definizione del modello del set di scalabilità.
 
-Nell'esempio seguente viene aggiunta l'estensione dell'integrità dell'applicazione al modello del set di scalabilità di un set di scalabilità basato su Linux.
+L'esempio seguente aggiunge l'estensione Integrità applicazioni al modello di set di scalabilità di un set di scalabilità basato su Linux.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -154,7 +154,7 @@ az vmss extension set \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
 ```
-extension.jssul contenuto del file.
+Oggetto extension.jscontenuto del file.
 
 ```json
 {

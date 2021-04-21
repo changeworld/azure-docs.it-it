@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 8edb5e44fc0a8e7aa67c4edd69971c35c6866d82
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: fa52327225667bd84047e74a89e3b1394964b22c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752463"
+ms.locfileid: "107769986"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati per server singolo di Database di Azure per PostgreSQL con una chiave gestita dal cliente
 
@@ -48,7 +48,7 @@ Le chiavi DEK, crittografate con chiavi KEK, vengono archiviate separatamente. S
 Affinché un server PostgreSQL usi chiavi gestite dal cliente archiviate in Key Vault per la crittografia della chiave DEK, un amministratore di Key Vault concede al server i diritti di accesso seguenti:
 
 * **get**: per recuperare la parte pubblica e le proprietà della chiave nell'insieme di credenziali delle chiavi.
-* **wrapKey**: per poter crittografare la chiave DEK. La chiave dek crittografata viene archiviata nel database di Azure per PostgreSQL.
+* **wrapKey**: per poter crittografare la chiave DEK. La chiave DEK crittografata viene archiviata nel database di Azure per PostgreSQL.
 * **unwrapKey**: per poter decrittografare la chiave DEK. Database di Azure per PostgreSQL richiede la chiave DEK decrittografata per crittografare/decrittografare i dati
 
 L'amministratore dell'insieme di credenziali delle chiavi può anche [abilitare la registrazione degli eventi di controllo di Key Vault](../azure-monitor/insights/key-vault-insights-overview.md), in modo che possano essere controllati in un secondo momento.
@@ -59,7 +59,7 @@ Se il server è configurato per l'uso della chiave gestita dal cliente archiviat
 
 Di seguito sono riportati i requisiti per la configurazione di Key Vault:
 
-* Key Vault e il server singolo di Database di Azure per PostgreSQL devono appartenere allo stesso tenant di Azure Active Directory (Azure AD). Le interazioni di server e Key Vault tra più tenant non sono supportate. Per spostare la Key Vault in un secondo momento, è necessario riconfigurare la crittografia dei dati.
+* Key Vault e il server singolo di Database di Azure per PostgreSQL devono appartenere allo stesso tenant di Azure Active Directory (Azure AD). Le interazioni di server e Key Vault tra più tenant non sono supportate. Lo spostamento Key Vault risorsa in un secondo momento richiede la riconfigurazione della crittografia dei dati.
 * L'insieme di credenziali delle chiavi deve essere impostato con 90 giorni per "Giorni per conservare gli insiemi di credenziali eliminati". Se l'insieme di credenziali delle chiavi esistente è stato configurato con un numero inferiore, sarà necessario creare un nuovo insieme di credenziali delle chiavi perché non può essere modificato dopo la creazione.
 * Abilitare la funzionalità di eliminazione temporanea nell'insieme di credenziali delle chiavi per evitare la perdita di dati in caso di eliminazione accidentale della chiave (o di Key Vault). Le risorse eliminate temporaneamente vengono conservate per 90 giorni, a meno che nel frattempo non vengano recuperate o rimosse definitivamente dall'utente. Alle azioni di recupero e rimozione definitiva sono associate autorizzazioni specifiche nei criteri di accesso di Key Vault. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita, ma è possibile abilitarla tramite PowerShell o l'interfaccia della riga di comando di Azure (si noti che non è possibile abilitarla tramite il portale di Azure). 
 * Abilitare la protezione dell'eliminazione per applicare un periodo di conservazione obbligatorio per gli insiemi di credenziali eliminati e gli oggetti dell'insieme di credenziali
@@ -70,7 +70,7 @@ Di seguito sono riportati i requisiti per la configurazione della chiave gestita
 * La chiave gestita dal cliente da usare per la crittografia della chiave DEK può essere solo di tipo RSA 2048 e asimmetrica.
 * La data di attivazione della chiave (se impostata) deve essere una data/ora nel passato. La data di scadenza (se impostata) deve essere una data/ora nel futuro.
 * La chiave deve avere lo stato *Abilitato*.
-* Se si importa [una chiave esistente](/rest/api/keyvault/ImportKey/ImportKey) nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di file supportati ( , , , `.pfx` `.byok` `.backup` ).
+* Se si importa [una chiave esistente](/rest/api/keyvault/ImportKey/ImportKey) nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di file supportati ( , , `.pfx` `.byok` `.backup` ).
 
 ## <a name="recommendations"></a>Consigli
 
@@ -97,7 +97,7 @@ Quando si configura la crittografia dei dati con una chiave gestita dal cliente 
 * Se si crea una replica in lettura per il server singolo di Database di Azure per PostgreSQL, per cui è abilitata la crittografia dei dati, il server di replica avrà lo stato *Inaccessibile*. È possibile correggere lo stato del server tramite il [portale di Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) o l'[interfaccia della riga di comando](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Se si elimina l'istanza di KeyVault, il server singolo di Database di Azure per PostgreSQL non potrà accedere alla chiave e passerà allo stato *Inaccessibile*. Recuperare [Key Vault](../key-vault/general/key-vault-recovery.md) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
 * Se si elimina la chiave da KeyVault, il server singolo di Database di Azure per PostgreSQL non potrà accedere alla chiave e passerà allo stato *Inaccessibile*. Recuperare la [chiave](../key-vault/general/key-vault-recovery.md) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
-* Se la chiave archiviata in Azure KeyVault scade, diventa non valida e il server singolo di Database di Azure per PostgreSQL passerà allo stato *Inaccessibile*. Estendere la data di scadenza della chiave usando l'[interfaccia della riga di comando](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
+* Se la chiave archiviata in Azure KeyVault scade, diventa non valida e il server singolo di Database di Azure per PostgreSQL passerà allo stato *Inaccessibile*. Estendere la data di scadenza della chiave usando l'[interfaccia della riga di comando](/cli/azure/keyvault/key#az_keyvault_key_set_attributes) e ripetere la convalida della crittografia dei dati per rendere il server *Disponibile*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Revoca accidentale dell'accesso alla chiave da Key Vault
 
@@ -137,7 +137,7 @@ Per Database di Azure per PostgreSQL, il supporto per la crittografia dei dati i
 * Questa funzionalità è supportata solo nelle aree e sui server che supportano l'archiviazione fino a 16 TB. Per l'elenco delle aree di Azure che supportano l'archiviazione fino a 16 TB, vedere la sezione relativa all'archiviazione nella [documentazione qui](concepts-pricing-tiers.md#storage)
 
     > [!NOTE]
-    > - Per tutti i nuovi server PostgreSQL creati nelle aree elencate in precedenza, è disponibile il supporto per la crittografia con **chiavi** di customer manager. La replica in lettura o il server di ripristino temporato (PITR) non si qualifica in teoria come "nuovo".
+    > - Per tutti i nuovi server PostgreSQL creati nelle aree elencate in precedenza, è disponibile il supporto per la crittografia con **chiavi** di customer manager. La replica in lettura o il server di ripristino tempormente ripristinato (PITR) non saranno idonei, anche se in teoria sono "nuovi".
     > - Per verificare se il server di cui è stato effettuato il provisioning supporta fino a 16 TB, è possibile passare al pannello del piano tariffario nel portale e visualizzare le dimensioni massime di archiviazione supportate dal server di cui è stato effettuato il provisioning. Se è possibile spostare il dispositivo di scorrimento fino a 4 TB, il server potrebbe non supportare la crittografia con chiavi gestite dal cliente. Tuttavia, i dati vengono crittografati con chiavi gestite dal servizio in qualsiasi momento. In caso di domande, AskAzureDBforPostgreSQL@service.microsoft.com contattare .
 
 * La crittografia è supportata solo con la chiave crittografica RSA 2048.

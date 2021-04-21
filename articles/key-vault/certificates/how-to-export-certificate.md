@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 116bafe2e26ca3af5b4ed68373d20e1e787502b7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0efe0164d8e1a4e5bc3b9d6d7313855740afd316
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729202"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107767908"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Esportare certificati da Azure Key Vault
 
@@ -61,7 +61,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-Per altre informazioni, vedere [gli esempi e le definizioni dei parametri](/cli/azure/keyvault/certificate#az-keyvault-certificate-download).
+Per altre informazioni, vedere [gli esempi e le definizioni dei parametri](/cli/azure/keyvault/certificate#az_keyvault_certificate_download).
 
 Il download come certificato comporta il recupero della parte pubblica. Per ottenere sia la chiave privata che i metadati pubblici, è possibile eseguire il download come segreto.
 
@@ -75,7 +75,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-Per altre informazioni, vedere le [definizioni dei parametri](/cli/azure/keyvault/secret#az-keyvault-secret-download).
+Per altre informazioni, vedere le [definizioni dei parametri](/cli/azure/keyvault/secret#az_keyvault_secret_download).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -101,7 +101,7 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 [System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
 ```
 
-Questo comando Esporta l'intera catena di certificati con chiave privata, ovvero lo stesso come è stato importato. Il certificato deve essere protetto da password.
+Questo comando esporta l'intera catena di certificati con una chiave privata, ovvero la stessa che è stata importata. Il certificato deve essere protetto da password.
 Per altre informazioni sul comando e sui parametri di **Get-AzKeyVaultCertificate**, vedere [Get-AzKeyVaultCertificate - Esempio 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate).
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)

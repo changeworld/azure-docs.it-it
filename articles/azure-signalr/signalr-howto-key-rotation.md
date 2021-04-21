@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1f80742d48fc46c8c5e337794100ca5901818c88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cd03720b65883c5f43b11837d4a88a705209fb10
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102184390"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764100"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Come ruotare la chiave di accesso per il Servizio Azure SignalR
 
@@ -23,7 +23,7 @@ Per motivi di sicurezza e per garantire la conformità, è consigliabile ruotare
 
 ## <a name="regenerate-access-keys"></a>Per rigenerare le chiavi di accesso
 
-1. Passare alla [portale di Azure](https://portal.azure.com/)e accedere con le proprie credenziali.
+1. Passare al [portale di Azure](https://portal.azure.com/)e accedere con le proprie credenziali.
 
 1. Individuare la sezione **Chiavi** dell'istanza del Servizio Azure SignalR con le chiavi da rigenerare.
 
@@ -35,7 +35,7 @@ Per motivi di sicurezza e per garantire la conformità, è consigliabile ruotare
 
    ![Rigenerare le chiavi](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-È anche possibile rigenerare le chiavi usando l'[interfaccia della riga di comando di Azure](/cli/azure/signalr/key#az-signalr-key-renew).
+È anche possibile rigenerare le chiavi usando l'[interfaccia della riga di comando di Azure](/cli/azure/signalr/key#az_signalr_key_renew).
 
 ## <a name="update-configurations-with-new-connection-strings"></a>Aggiornare le configurazioni con le nuove stringhe di connessione
 
@@ -56,7 +56,7 @@ Ruotare periodicamente le chiavi di accesso come buona prassi di sicurezza.
 In questa guida si è appreso come rigenerare le chiavi di accesso. Passare alle esercitazioni successive sull'autenticazione con OAuth o con Funzioni di Azure.
 
 > [!div class="nextstepaction"]
-> [Eseguire l'integrazione con ASP.NET Core Identity](./signalr-concept-authenticate-oauth.md)
+> [Eseguire l'integrazione ASP.NET'identità di base](./signalr-concept-authenticate-oauth.md)
 
 > [!div class="nextstepaction"]
-> [Creare un'app in tempo reale senza server con autenticazione](./signalr-tutorial-authenticate-azure-functions.md)
+> [Creare un'app in tempo reale serverless con l'autenticazione](./signalr-tutorial-authenticate-azure-functions.md)

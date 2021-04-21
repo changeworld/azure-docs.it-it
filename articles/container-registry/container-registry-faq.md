@@ -5,21 +5,21 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 5550c53289228f154fab485b4b7bbff17555aad7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a8c007d7f4419ddbe1555b50ceb6fb92ea0a6f98
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045740"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783900"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Registro Azure Container
 
 Questo articolo include le risposte alle domande frequenti e i problemi noti relativi a Registro Azure Container.
 
-Per informazioni aggiuntive sulla risoluzione dei problemi del registro di sistema, vedere:
-* [Risolvere i problemi di accesso al registro](container-registry-troubleshoot-login.md)
-* [Risolvere i problemi di rete con il registro di sistema](container-registry-troubleshoot-access.md)
-* [Risolvere i problemi relativi alle prestazioni del registro](container-registry-troubleshoot-performance.md)
+Per indicazioni sulla risoluzione dei problemi del Registro di sistema, vedere:
+* [Risolvere i problemi di accesso al Registro di sistema](container-registry-troubleshoot-login.md)
+* [Risolvere i problemi di rete con il Registro di sistema](container-registry-troubleshoot-access.md)
+* [Risolvere i problemi relativi alle prestazioni del Registro di sistema](container-registry-troubleshoot-performance.md)
 
 ## <a name="resource-management"></a>Resource management
 
@@ -111,7 +111,7 @@ La propagazione delle modifiche alle regole del firewall richiede tempo; dopo av
 - [Come si concede l'accesso per eseguire il pull o il push delle immagini senza autorizzazione per la gestione della risorsa del registro?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Come si abilita la quarantena automatica delle immagini per un registro?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [Come si abilita l'accesso pull anonimo?](#how-do-i-enable-anonymous-pull-access)
-- [Ricerca per categorie effettuare il push di livelli non distribuibile a un registro?](#how-do-i-push-non-distributable-layers-to-a-registry)
+- [Ricerca per categorie eseguire il push di livelli non distribuibili in un registro?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Come si accede all'API HTTP V2 del registro Docker?
 
@@ -226,7 +226,7 @@ Registro Azure Container supporta [ruoli personalizzati](container-registry-role
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
   ```
 
-  In alternativa, assegnare il ruolo a un'entità servizio identificata dal relativo ID applicazione:
+  In caso contrario, assegnare il ruolo a un'entità servizio identificata dal relativo ID applicazione:
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
@@ -260,9 +260,9 @@ La quarantena delle immagini è attualmente una funzionalità di anteprima di Re
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Come si abilita l'accesso pull anonimo?
 
-La configurazione di un registro contenitori di Azure per l'accesso pull Anonimo (non autenticato) è attualmente una funzionalità di anteprima, disponibile nei [livelli di servizio](container-registry-skus.md)standard e Premium. 
+La configurazione di un Registro Azure Container per l'accesso pull anonimo (non autenticato) è attualmente una funzionalità di anteprima, disponibile nei livelli di servizio Standard [e](container-registry-skus.md)Premium. 
 
-Per abilitare l'accesso pull Anonimo, aggiornare un registro usando l'interfaccia della riga di comando di Azure (versione 2.21.0 o successiva) e passare il `--anonymous-pull-enabled` parametro al comando [AZ ACR Update](/cli/azure/acr#az_acr_update) :
+Per abilitare l'accesso pull anonimo, aggiornare un registro usando l'interfaccia della riga di comando di Azure (versione 2.21.0 o successiva) e passare il parametro al `--anonymous-pull-enabled` [comando az acr update:](/cli/azure/acr#az_acr_update)
 
 ```azurecli
 az acr update --name myregistry --anonymous-pull-enabled
@@ -271,22 +271,22 @@ az acr update --name myregistry --anonymous-pull-enabled
 È possibile disabilitare l'accesso pull anonimo in qualsiasi momento impostando `--anonymous-pull-enabled` su `false` .
 
 > [!NOTE]
-> * Prima di provare un'operazione pull anonima, eseguire `docker logout` per assicurarsi di cancellare eventuali credenziali Docker esistenti.
+> * Prima di tentare un'operazione pull anonima, eseguire per assicurarsi di cancellare `docker logout` le credenziali Docker esistenti.
 > * Solo le operazioni del piano dati sono disponibili per i client non autenticati.
-> * Il registro di sistema può limitare una frequenza elevata di richieste non autenticate.
+> * Il Registro di sistema può limitazione di una frequenza elevata di richieste non autenticate.
 
 > [!WARNING]
-> L'accesso a pull anonimo si applica attualmente a tutti i repository nel registro di sistema. Se si gestisce l'accesso al repository usando [token con ambito repository](container-registry-repository-scoped-permissions.md), tenere presente che tutti gli utenti possono effettuare il pull da tali repository in un registro abilitato per il pull anonimo. È consigliabile eliminare i token quando è abilitato l'accesso pull anonimo.
+> L'accesso pull anonimo si applica attualmente a tutti i repository nel Registro di sistema. Se si gestisce l'accesso al repository usando token con ambito [repository,](container-registry-repository-scoped-permissions.md)tenere presente che tutti gli utenti possono eseguire il pull da tali repository in un registro abilitato per il pull anonimo. È consigliabile eliminare i token quando è abilitato l'accesso pull anonimo.
 
-### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Ricerca per categorie effettuare il push di livelli non distribuibile a un registro?
+### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Ricerca per categorie eseguire il push di livelli non distribuibili in un registro?
 
-Un livello non distribuibile in un manifesto contiene un parametro URL da cui è possibile recuperare il contenuto. Alcuni casi d'uso possibili per l'abilitazione di push di livello non distribuibile sono i registri con restrizioni di rete, i registri gapped con accesso limitato o per i registri senza connettività Internet.
+Un livello non distribuibile in un manifesto contiene un parametro URL da cui è possibile recuperare il contenuto. Alcuni casi d'uso possibili per l'abilitazione di push di livello non distribuibile sono per registri con restrizioni di rete, registri con accesso limitato o registri senza connettività Internet.
 
-Ad esempio, se sono state configurate regole NSG in modo che una macchina virtuale possa effettuare il pull di immagini solo dal registro contenitori di Azure, Docker effettuerà il pull degli errori per i livelli esterni/non distribuibili. Ad esempio, un'immagine di Windows Server Core conterrebbe i riferimenti a livello esterno al registro contenitori di Azure nel relativo manifesto e non riuscirà a eseguire il pull in questo scenario.
+Ad esempio, se sono state impostate regole del gruppo di sicurezza di rete in modo che una macchina virtuale possa eseguire il pull delle immagini solo dal Registro Azure Container, Docker estrarrà gli errori per i livelli esterni/non distribuibili. Ad esempio, un'immagine di Windows Server Core conterrà riferimenti di livello esterno al Registro Azure Container nel manifesto e non riuscirà a eseguire il pull in questo scenario.
 
-Per abilitare il push di livelli non distribuibile:
+Per abilitare il push di livelli non distribuibili:
 
-1. Modificare il `daemon.json` file, che si trova in negli `/etc/docker/` host Linux e in `C:\ProgramData\docker\config\daemon.json` Windows Server. Supponendo che il file sia stato precedentemente vuoto, aggiungere il contenuto seguente:
+1. Modificare il `daemon.json` file , che si trova in negli host Linux e in in Windows `/etc/docker/` `C:\ProgramData\docker\config\daemon.json` Server. Supponendo che il file fosse in precedenza vuoto, aggiungere il contenuto seguente:
 
    ```json
    {
@@ -294,16 +294,16 @@ Per abilitare il push di livelli non distribuibile:
    }
    ```
    > [!NOTE]
-   > Il valore è una matrice di indirizzi del registro di sistema, separati da virgole.
+   > Il valore è una matrice di indirizzi del Registro di sistema, separati da virgole.
 
 2. Salvare e chiudere il file.
 
-3. Riavviare docker.
+3. Riavviare Docker.
 
-Quando si esegue il push delle immagini nei registri dell'elenco, i relativi livelli non distribuibile vengono inseriti nel registro di sistema.
+Quando si esegue il push delle immagini nei registri nell'elenco, viene inserito nel registro i relativi livelli non distribuibili.
 
 > [!WARNING]
-> In genere, gli artefatti non distribuibili presentano restrizioni su come e dove possono essere distribuiti e condivisi. Usare questa funzionalità solo per inserire gli artefatti nei registri privati. Assicurarsi di essere conformi a qualsiasi condizione che copra la ridistribuzione di elementi non distribuibili.
+> Gli artefatti non distribuibili hanno in genere restrizioni su come e dove possono essere distribuiti e condivisi. Usare questa funzionalità solo per eseguire il push degli artefatti nei registri privati. Assicurarsi di essere conformi ai termini relativi alla ridistribuzione di artefatti non distribuibili.
 
 ## <a name="diagnostics-and-health-checks"></a>Controlli di diagnostica e integrità
 
@@ -484,16 +484,16 @@ Contattare l'amministratore di rete o controllare la configurazione e la connett
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Perché la richiesta pull o push ha esito negativo con errore di operazione non consentita?
 
 Di seguito sono riportati alcuni scenari in cui è possibile che le operazioni non siano consentite:
-* I registri classici non sono più supportati. Eseguire l'aggiornamento a un [livello di servizio](./container-registry-skus.md) supportato usando [az acr update](/cli/azure/acr#az-acr-update) o il portale di Azure.
+* I registri classici non sono più supportati. Eseguire l'aggiornamento a un [livello di servizio](./container-registry-skus.md) supportato usando [az acr update](/cli/azure/acr#az_acr_update) o il portale di Azure.
 * L'immagine o il repository possono essere bloccati in modo che non possano essere eliminati o aggiornati. È possibile usare il comando [az acr show repository](./container-registry-image-lock.md) per visualizzare gli attributi correnti.
 * Alcune operazioni non sono consentite se l'immagine è in quarantena. Altre informazioni sulla [quarantena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
-* Il registro potrebbe avere raggiunto il [limite di archiviazione](container-registry-skus.md#service-tier-features-and-limits).
+* È possibile che il registro abbia raggiunto il [limite di archiviazione](container-registry-skus.md#service-tier-features-and-limits).
 
 ### <a name="repository-format-is-invalid-or-unsupported"></a>Il formato del repository non è valido o non è supportato
 
-Se viene visualizzato un errore, ad esempio "formato di repository non supportato", "formato non valido" o "i dati richiesti non esistono" quando si specifica un nome di repository nelle operazioni del repository, controllare l'ortografia e la combinazione di maiuscole e minuscole del nome. I nomi di repository validi possono includere solo caratteri alfanumerici minuscoli, punti, trattini, caratteri di sottolineatura e barre. 
+Se viene visualizzato un errore come "Formato del repository non supportato", "Formato non valido" o "I dati richiesti non esistono" quando si specifica un nome di repository nelle operazioni del repository, controllare l'ortografia e la distinzione tra maiuscole e minuscole del nome. I nomi di repository validi possono includere solo caratteri alfanumerici minuscoli, punti, trattini, caratteri di sottolineatura e barre. 
 
-Per le regole di denominazione complete del repository, vedere la [specifica Open Container Initiative Distribution](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
+Per le regole di denominazione complete del repository, vedere [Open Container Initiative Distribution Specification](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Come si raccolgono le tracce http in Windows?
 

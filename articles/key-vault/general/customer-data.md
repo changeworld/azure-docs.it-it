@@ -1,24 +1,23 @@
 ---
 title: Funzionalità dei dati dei clienti in Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Informazioni sui dati dei clienti, che Azure Key Vault riceve durante la creazione o l'aggiornamento di insiemi di credenziali, chiavi, segreti, certificati e account di archiviazione gestiti.
+description: Informazioni sui dati dei clienti, che Azure Key Vault durante la creazione o l'aggiornamento di insiemi di credenziali, chiavi, segreti, certificati e account di archiviazione gestiti.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8806ff41edabcd3c0875d3c02360dc9a275e3878
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d45c019a6ba073d7553c09784736959faf89d27
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96460832"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749781"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Funzionalità dei dati dei clienti in Azure Key Vault
 
-Azure Key Vault riceve i dati dei clienti durante la creazione o l'aggiornamento di insiemi di credenziali, pool di HSM gestiti, chiavi, segreti, certificati e account di archiviazione gestiti. I dati dei clienti sono visibili direttamente nel portale di Azure e tramite l'API REST e possono essere modificati o eliminati aggiornando o eliminando l'oggetto contenente tali dati.
+Azure Key Vault i dati dei clienti durante la creazione o l'aggiornamento di insiemi di credenziali, pool di HSM gestiti, chiavi, segreti, certificati e account di archiviazione gestiti. I dati dei clienti sono visibili direttamente nel portale di Azure e tramite l'API REST e possono essere modificati o eliminati aggiornando o eliminando l'oggetto contenente tali dati.
 
 I log di accesso al sistema vengono generati quando un utente o un'applicazione accede a Key Vault. I log di accesso dettagliati sono disponibili per i clienti che usano Azure Insights.
 
@@ -40,7 +39,7 @@ Le informazioni seguenti identificano i dati dei clienti all'interno di Azure Ke
 
 Le stesse API REST, esperienze del portale e SDK usati per creare insiemi di credenziali, chiavi, segreti, certificati e account di archiviazione gestiti sono inoltre in grado di aggiornare ed eliminare questi oggetti.
 
-L'eliminazione temporanea consente di recuperare i dati eliminati per 90 giorni dopo l'eliminazione. Quando si usa l'eliminazione temporanea, è possibile che i dati vengano eliminati definitivamente prima della scadenza del periodo di conservazione di 90 giorni eseguendo un'operazione di ripulitura. Se l'insieme di credenziali o la sottoscrizione è stata configurata per bloccare le operazioni di ripulitura, non è possibile eliminare definitivamente i dati fino a quando non è scaduto il periodo di conservazione pianificato.
+L'eliminazione soft consente di ripristinare i dati eliminati per 90 giorni dopo l'eliminazione. Quando si usa l'eliminazione temporaneamente, i dati possono essere eliminati in modo permanente prima della scadenza del periodo di conservazione di 90 giorni eseguendo un'operazione di eliminazione. Se l'insieme di credenziali o la sottoscrizione è stata configurata per bloccare le operazioni di ripulitura, non è possibile eliminare definitivamente i dati fino a quando non è scaduto il periodo di conservazione pianificato.
 
 ## <a name="exporting-customer-data"></a>Esportazione dei dati dei clienti
 

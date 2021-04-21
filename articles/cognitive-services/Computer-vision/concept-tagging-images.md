@@ -1,5 +1,5 @@
 ---
-title: Tag di contenuto-Visione artificiale
+title: Tag di contenuto - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Informazioni sui concetti relativi alla funzione di applicazione di tag alle immagini dell'API Visione artificiale.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a75e55cd51890173b6733ab5f8c0f1bcbfeef0f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ef2d07b736d391fc3509266dea77fdc1b325ff2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96532976"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778716"
 ---
 # <a name="applying-content-tags-to-images"></a>Applicazione di tag di contenuto alle immagini
 
@@ -85,10 +85,10 @@ La risposta JSON seguente illustra le informazioni restituite da Visione artific
 
 ## <a name="use-the-api"></a>Usare l'API
 
-La funzionalità di assegnazione di tag fa parte dell'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Tags` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"tags"` sezione.
+La funzionalità di assegnazione di tag fa parte dell'API [Analizza immagine.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Tags` nel parametro di query **visualFeatures.** Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"tags"` sezione.
 
 * [Avvio rapido: API REST o librerie client di Visione artificiale](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sui concetti correlati per la [categorizzazione di immagini](concept-categorizing-images.md) e la [Descrizione di immagini](concept-describing-images.md).
+Informazioni sui concetti correlati relativi alla [categorizzazione delle immagini](concept-categorizing-images.md) e [alla descrizione delle immagini.](concept-describing-images.md)

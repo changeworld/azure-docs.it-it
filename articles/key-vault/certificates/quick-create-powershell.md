@@ -1,9 +1,8 @@
 ---
-title: 'Guida introduttiva: Impostare & visualizzare Azure Key Vault certificati con Azure PowerShell'
+title: 'Avvio rapido: Impostare & visualizzare Azure Key Vault certificati con Azure PowerShell'
 description: Avvio rapido che illustra come impostare e recuperare un certificato da Azure Key Vault con Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 11f463ab0ae60f489fd6b10d06402b6d27fc9930
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: a641ca1206cb41ded0513db72daa278dc3753c85
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502259"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750393"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Avvio rapido: Impostare e recuperare un certificato da Azure Key Vault con Azure PowerShell
 
@@ -53,7 +52,7 @@ $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-È ora possibile fare riferimento a questo certificato aggiunto ad Azure Key Vault usando il relativo URI. Usare **"https://<-unique-keyvault-name>.vault.azure.net/certificates/ExampleCertificate"** per ottenere la versione corrente. 
+È ora possibile fare riferimento a questo certificato aggiunto ad Azure Key Vault usando il relativo URI. Usare **"https://<your-unique-keyvault-name>.vault.azure.net/certificates/ExampleCertificate"** per ottenere la versione corrente. 
 
 Per visualizzare il certificato archiviato in precedenza:
 

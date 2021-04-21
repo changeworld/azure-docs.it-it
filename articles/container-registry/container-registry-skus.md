@@ -1,14 +1,14 @@
 ---
 title: Livelli di servizio registro e funzionalità
-description: Informazioni sulle funzionalità e i limiti (quote) nei livelli di servizio Basic, standard e Premium di Azure Container Registry.
+description: Informazioni sulle funzionalità e sui limiti (quote) nei livelli di servizio Basic, Standard e Premium di Registro Azure Container.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: b55fc16dcd6dcb544ed4597ce4bdc6ba17b52646
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 323d36fe022d8b8e9618b8beb1facae93d22df4e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98015666"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781254"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Livelli di servizio di Registro Azure Container
 
@@ -24,15 +24,15 @@ I livelli Basic, Standard e Premium offrono tutti le stesse capacità di program
 
 ## <a name="service-tier-features-and-limits"></a>Funzionalità e limiti del livello di servizio
 
-La tabella seguente illustra in dettaglio le funzionalità e i limiti del registro di sistema dei livelli di servizio Basic, standard e Premium.
+Nella tabella seguente vengono fornite informazioni dettagliate sulle funzionalità e sui limiti del Registro di sistema dei livelli di servizio Basic, Standard e Premium.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="changing-tiers"></a>Modifica dei livelli
 
-È possibile cambiare il livello di servizio del registro tramite l'interfaccia della riga di comando di Azure o nel portale di Azure. È possibile spostarsi liberamente tra i livelli, purché il livello a cui si passa abbia la capacità di archiviazione massima richiesta. 
+È possibile cambiare il livello di servizio del registro tramite l'interfaccia della riga di comando di Azure o nel portale di Azure. È possibile spostarsi liberamente tra i livelli, purché il livello a cui si sta passando abbia la capacità di archiviazione massima richiesta. 
 
-Non vi è alcun tempo di inattività del registro di sistema o l'effetto sulle operazioni del registro di sistema quando si passa da un livello
+Non si verificano tempi di inattività del Registro di sistema o effetti sulle operazioni del Registro di sistema quando si passa da un livello di servizio all'altro.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -73,7 +73,7 @@ Inviare e votare i nuovi suggerimenti sulle funzionalità in [UserVoice di Regis
 [container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-update]: /cli/azure/acr#az-acr-update
+[az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-storage]: container-registry-storage.md
 [container-registry-delete]: container-registry-delete.md

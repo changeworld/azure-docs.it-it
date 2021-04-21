@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb14a6a82535ac5a7d36213b082d08aedbb44da5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 585e31ab566cc990af2819fcf9cdde0506560208
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99090621"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780174"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite le chiamate API REST
 
@@ -60,13 +60,13 @@ Questa sezione illustra come attivare e disattivare le identità gestite assegna
 
 Per creare un set di scalabilità di macchine virtuali con identità gestita assegnata dal sistema abilitata, è necessario creare un set di scalabilità di macchine virtuali e recuperare un token di accesso per usare CURL per chiamare l'endpoint di Gestione risorse con il tipo di valore dell'identità gestita assegnata dal sistema.
 
-1. Creare un [gruppo di risorse](../../azure-resource-manager/management/overview.md#terminology) per il contenuto e la distribuzione del set di scalabilità di macchine virtuali e delle risorse correlate, usando [az group create](/cli/azure/group/#az-group-create). Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio:
+1. Creare un [gruppo di risorse](../../azure-resource-manager/management/overview.md#terminology) per il contenuto e la distribuzione del set di scalabilità di macchine virtuali e delle risorse correlate, usando [az group create](/cli/azure/group/#az_group_create). Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-2. Creare [un'interfaccia di rete](/cli/azure/network/nic#az-network-nic-create) per il set di scalabilità di macchine virtuali:
+2. Creare [un'interfaccia di rete](/cli/azure/network/nic#az_network_nic_create) per il set di scalabilità di macchine virtuali:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -325,7 +325,7 @@ Questa sezione illustra come aggiungere e rimuovere le identità gestite assegna
    az account get-access-token
    ```
 
-2. Creare [un'interfaccia di rete](/cli/azure/network/nic#az-network-nic-create) per il set di scalabilità di macchine virtuali:
+2. Creare [un'interfaccia di rete](/cli/azure/network/nic#az_network_nic_create) per il set di scalabilità di macchine virtuali:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

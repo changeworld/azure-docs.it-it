@@ -1,22 +1,22 @@
 ---
 title: Gestire i sensori nel portale di Defender per IoT
 description: Informazioni su come eseguire l'onboard, visualizzare e gestire i sensori nel portale di Defender per IoT.
-ms.date: 4/18/2021
+ms.date: 04/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 2c948aa2387552f9815ab075abb43c98307ae087
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: f407a65f60a1b969f17ebe00be39a888a09ec83d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600183"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752715"
 ---
-# <a name="manage-sensors-ain-the-defender-for-iot-portal"></a>Gestire i sensori nel portale defender per IoT
+# <a name="manage-sensors-in-the-defender-for-iot-portal"></a>Gestire i sensori nel portale di Defender per IoT
 
 Questo articolo descrive come eseguire l'onboard, visualizzare e gestire i sensori nel portale [di Defender per IoT.](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)
 
 ## <a name="onboard-sensors"></a>Eseguire l'onboarding dei sensori
 
-È possibile eseguire l'onboarding di un sensore registrando Azure Defender per IoT e scaricando un file di attivazione del sensore.
+È possibile eseguire l'onboarding di un sensore registrandolo Azure Defender per IoT e scaricando un file di attivazione del sensore.
 
 ### <a name="register-the-sensor"></a>Registrare il sensore
 
@@ -26,16 +26,14 @@ Per eseguire la registrazione:
 1. Selezionare **Onboard sensor (Onboard sensor).**
 1. Creare un nome di sensore. È consigliabile includere l'indirizzo IP del sensore installato come parte del nome o usare un nome facilmente identificabile. Ciò garantisce un rilevamento più semplice e una denominazione coerente tra il nome di registrazione nel portale di Azure [Defender per IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) e l'INDIRIZZO IP del sensore distribuito visualizzato nella console del sensore.
 1. Associare il sensore a una sottoscrizione di Azure.
-1. Scegliere una modalità di gestione dei sensori usando l'interruttore **Connesso al** cloud. Se l'interruttore è attivato, il sensore è connesso al cloud. Se l'interruttore è disattivato, il sensore viene gestito in locale.
+1. Scegliere una modalità di connessione del sensore usando l'interruttore **Connesso al** cloud. Se l'interruttore è attivato, il sensore è connesso al cloud. Se l'interruttore è disattivato, il sensore viene gestito in locale.
 
-   - **Sensori connessi al cloud:** le informazioni rilevate dal sensore vengono visualizzate nella console dei sensori. Le informazioni sugli avvisi vengono recapitate tramite un hub IoT e possono essere condivise con altri servizi di Azure, ad esempio Azure Sentinel.
+   - **Sensori connessi al cloud:** le informazioni rilevate dal sensore vengono visualizzate nella console dei sensori. Le informazioni sugli avvisi vengono recapitate tramite un hub IoT e possono essere condivise con altri servizi di Azure, ad esempio Azure Sentinel. È anche possibile eseguire il push dei pacchetti di intelligence per le minacce dal portale Azure Defender per IoT ai sensori. Al contrario, quando il sensore non è connesso al cloud, è necessario scaricare i pacchetti di intelligence per le minacce e quindi caricarli nei sensori aziendali. Per consentire a Defender per IoT di eseguire il push dei pacchetti nei sensori, abilitare l'interruttore **Aggiornamenti automatici di Threat Intelligence.** Per altre informazioni, vedere Ricerca e pacchetti [di Intelligence per le minacce.](how-to-work-with-threat-intelligence-packages.md)
+   Scegliere un hub IoT da utilizzare come gateway tra questo sensore e il Azure Defender per IoT remoto. Definire un nome e una zona del sito. È anche possibile aggiungere tag descrittivi. Il nome del sito, la zona e i tag sono voci descrittive nella pagina [Siti e sensori](#view-onboarded-sensors).
 
-   - **Sensori gestiti localmente:** le informazioni rilevate dai sensori vengono visualizzate nella console dei sensori. Se si lavora in una rete con air gapped e si vuole una visualizzazione unificata di tutte le informazioni rilevate da più sensori gestiti in locale, usare la console di gestione locale.
+   - **Sensori gestiti in locale:** le informazioni rilevate dai sensori vengono visualizzate nella console dei sensori. Se si lavora in una rete air-gapped e si vuole una visualizzazione unificata di tutte le informazioni rilevate da più sensori gestiti in locale, usare la console di gestione locale.
 
-   Per i sensori connessi al cloud, il nome definito durante l'onboarding è il nome visualizzato nella console dei sensori. Non è possibile modificare questo nome direttamente dalla console. Per i sensori gestiti in locale, il nome applicato durante l'onboarding verrà archiviato in Azure e può essere aggiornato nella console dei sensori.
-
-1. Scegliere un hub IoT da utilizzare come gateway tra questo sensore e Azure Defender per IoT.
-1. Se il sensore è connesso al cloud, associarlo a un hub IoT e quindi definire un nome e una zona del sito. È anche possibile aggiungere tag descrittivi. Il nome del sito, l'area e i tag sono voci descrittive nella [pagina Siti e sensori](#view-onboarded-sensors).
+   Per i sensori connessi al cloud, il nome definito durante l'onboarding è il nome visualizzato nella console dei sensori. Non è possibile modificare questo nome direttamente dalla console. Per i sensori gestiti in locale, il nome applicato durante l'onboarding verrà archiviato in Azure, ma può essere aggiornato nella console dei sensori.
 
 ### <a name="download-the-sensor-activation-file"></a>Scaricare il file di attivazione del sensore
 
@@ -48,15 +46,16 @@ Per scaricare un file di attivazione:
 
 ## <a name="view-onboarded-sensors"></a>Visualizzare i sensori di cui è stato fatto l'onboarded
 
-Nel portale [di Defender per IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)è possibile visualizzare le informazioni di base sui sensori di cui è stato onboarded.
+Nel portale [di Defender per IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)è possibile visualizzare informazioni operative importanti sui sensori di cui è stato onboarded.
 
-1. Selezionare **Siti e sensori.**
-1. Usare gli strumenti di filtro e ricerca per trovare le informazioni di intelligence per sensori e minacce necessarie.
+1. Selezionare **Siti e sensori.** La pagina mostra quanti sensori sono stati onboarded, il numero di sensori connessi al cloud e gestiti localmente, nonché:
 
-- Quanti sensori sono stati onboarded
-- Numero di sensori connessi al cloud e gestiti in locale
-- Hub associato a un sensore di cui è stato onboarded
-- Dettagli aggiunti su un sensore, ad esempio il nome assegnato al sensore durante l'onboarding, la zona associata al sensore o altre informazioni descrittive aggiunte con tag
+- il nome del sensore assegnato durante l'onboarding.
+- tipo di connessione (connesso al cloud o gestito localmente)
+- la zona associata al sensore.
+- Versione del sensore installata
+- Stato della connessione del sensore al cloud.
+- L'ultima volta che è stato rilevato il sensore che si connette al cloud.
 
 ## <a name="manage-onboarded-sensors"></a>Gestire i sensori onboarded
 
@@ -66,11 +65,11 @@ I sensori onboarded possono essere visualizzati nella **pagina Siti e** sensori.
 
 ### <a name="export-sensor-details"></a>Esportare i dettagli del sensore
 
-Per esportare le informazioni del  sensore di cui è stato fatto l'onboarded, selezionare l'icona Esporta nella parte superiore della pagina **Siti e** sensori.
+Per esportare le informazioni del  sensore onboarded, selezionare l'icona Esporta nella parte superiore della **pagina Siti e** sensori.
 
 ### <a name="edit-sensor-zone-details"></a>Modificare i dettagli della zona del sensore
 
-Usare le **opzioni di modifica Siti e Sensori** per modificare il nome e l'area del sensore.
+Usare le **opzioni di modifica Siti e sensori** per modificare il nome e l'area del sensore.
 
 Per modificare:
 

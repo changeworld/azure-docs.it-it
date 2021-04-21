@@ -21,7 +21,7 @@
           displayName: 'firewall, proxy, open ports'
           href: quickstart-system-prerequisites.md
         - name: Introduzione ad Azure Defender per IoT
-          displayName: 'getting started, registration, onboarding'
+          displayName: 'getting started, registration, onboarding, activation, threat intelligence'
           href: getting-started.md
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
@@ -122,8 +122,8 @@
               href: how-to-install-software.md
         - name: Preparare i sensori
           items:
-            - name: Gestire i sensori
-              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions, offboarding'
+            - name: Eseguire l'onboarding dei sensori
+              displayName: 'onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected'
               href: how-to-manage-sensors-on-the-cloud.md
             - name: Attivare e configurare il sensore
               displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
@@ -171,6 +171,7 @@
           displayName: 'mail, SMTP, activation, certificate, software update, backup, restore, proxy, password recovery'
         - name: Usare i pacchetti di intelligence sulle minacce
           href: how-to-work-with-threat-intelligence-packages.md
+          displayName: 'packages, automatic, intelligence, push, threat'
         - name: Usare le informazioni di inventario dei dispositivi
           items:
             - name: Esaminare tutti i rilevamenti dei sensori aziendali un inventario di dispositivi
@@ -337,7 +338,7 @@
           href: resources-frequently-asked-questions.md
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
-        - name: Defender-IoT-micro-agent per l'API Azure RTOS
+        - name: Defender-IoT-micro-agente per l Azure RTOS API
           displayNAme: 'prototype, disable'
           href: azure-rtos-security-module-api.md
         - name: Domande frequenti - agente

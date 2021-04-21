@@ -1,33 +1,33 @@
 ---
-title: Visualizzare i log di esecuzione dell'attività-attività
-description: Come visualizzare e gestire i log di esecuzione generati dalle attività ACR.
+title: Visualizzare i log di esecuzione delle attività - Attività
+description: Come visualizzare e gestire i log di esecuzione generati da ACR Tasks.
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ce5f33853be2aa48bcfd1916c7f8b94b9702f38c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93027177"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781056"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Visualizzare e gestire i log di esecuzione delle attività
 
-Ogni attività eseguita in [Azure container Registry attività](container-registry-tasks-overview.md) genera l'output del log che è possibile controllare per determinare se i passaggi dell'attività sono stati eseguiti correttamente. 
+Ogni attività eseguita in Registro Azure Container [genera](container-registry-tasks-overview.md) l'output del log che è possibile controllare per determinare se i passaggi dell'attività sono stati eseguiti correttamente. 
 
 Questo articolo illustra come visualizzare e gestire i log di esecuzione delle attività.
 
-## <a name="view-streamed-logs"></a>Visualizzare i log in streaming
+## <a name="view-streamed-logs"></a>Visualizzare i log trasmessi
 
-Quando si attiva un'attività manualmente, l'output del log viene trasmesso direttamente alla console. Ad esempio, quando si attiva manualmente un'attività usando il comando [AZ ACR Build](/cli/azure/acr#az-acr-build), [AZ ACR Run](/cli/azure/acr#az-acr-run)o [AZ ACR task run](/cli/azure/acr/task#az-acr-task-run) , viene visualizzato il flusso dell'output del log nella console. 
+Quando si attiva un'attività manualmente, l'output del log viene trasmesso direttamente alla console. Ad esempio, quando si attiva un'attività manualmente usando il comando [az acr build](/cli/azure/acr#az_acr_build), [az acr run](/cli/azure/acr#az_acr_run)o [az acr task run,](/cli/azure/acr/task#az_acr_task_run) l'output del log viene trasmesso alla console. 
 
-Il seguente esempio [AZ ACR Run](/cli/azure/acr#az-acr-run) Command attiva manualmente un'attività che esegue un contenitore estratto dallo stesso registro di sistema:
+Il comando [az acr run di](/cli/azure/acr#az_acr_run) esempio seguente attiva manualmente un'attività che esegue un contenitore estratto dallo stesso registro:
 
 ```azurecli
 az acr run --registry mycontainerregistry1220 \
   --cmd '$Registry/samples/hello-world:v1' /dev/null
 ```
 
-Log con flusso:
+Log trasmesso:
 
 ```console
 Queued a run with ID: cf4
@@ -58,32 +58,32 @@ Run ID: cf4 was successful after 5s
 
 ## <a name="view-stored-logs"></a>Visualizzare i log archiviati 
 
-Azure Container Registry archivia i log di esecuzione per tutte le attività. È possibile visualizzare i log di esecuzione archiviati nel portale di Azure. In alternativa, usare il comando [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) per visualizzare un log selezionato. Per impostazione predefinita, i log vengono conservati per 30 giorni.
+Registro Azure Container archivia i log di esecuzione per tutte le attività. È possibile visualizzare i log di esecuzione archiviati nel portale di Azure. In caso contrario, usare [il comando az acr task logs](/cli/azure/acr/task#az_acr_task_logs) per visualizzare un log selezionato. Per impostazione predefinita, i log vengono conservati per 30 giorni.
 
-Se un'attività viene attivata automaticamente, ad esempio tramite un aggiornamento del codice sorgente, l'accesso ai log archiviati è l' *unico* modo per visualizzare i log di esecuzione. I trigger di attività automatici includono i commit del codice sorgente o le richieste pull, gli aggiornamenti delle immagini di base e i trigger timer.
+Se un'attività viene attivata automaticamente, ad esempio da un  aggiornamento del codice sorgente, l'accesso ai log archiviati è l'unico modo per visualizzare i log di esecuzione. I trigger di attività automatici includono commit del codice sorgente o richieste pull, aggiornamenti dell'immagine di base e trigger timer.
 
 Per visualizzare i log di esecuzione nel portale:
 
 1. Passare al registro contenitori.
-1. In **Servizi** selezionare   >  **esecuzioni** attività.
-1. Selezionare un **ID di esecuzione** per visualizzare lo stato di esecuzione ed eseguire i log. Il log contiene le stesse informazioni di un log trasmesso, se ne viene generato uno.
+1. In **Servizi** selezionare **Attività**  >  **Esegue**.
+1. Selezionare un **ID esecuzione** per visualizzare lo stato dell'esecuzione e i log di esecuzione. Il log contiene le stesse informazioni di un log in streaming, se ne viene generato uno.
 
 ![Visualizzare il portale di accesso per l'esecuzione di attività](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
-Per visualizzare un log usando l'interfaccia della riga di comando di Azure, eseguire il comando [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) e specificare un ID esecuzione, un nome di attività o un'immagine specifica creata da un'attività di compilazione. Se viene specificato un nome di attività, il comando Mostra il log per l'ultima esecuzione creata.
+Per visualizzare un log usando l'interfaccia della riga di comando di Azure, eseguire [az acr task logs](/cli/azure/acr/task#az_acr_task_logs) e specificare un ID esecuzione, un nome di attività o un'immagine specifica creata da un'attività di compilazione. Se viene specificato un nome di attività, il comando visualizza il log per l'ultima esecuzione creata.
 
-Nell'esempio seguente viene restituito il log per l'esecuzione con ID *CF4*:
+Nell'esempio seguente viene restituito il log per l'esecuzione con ID *cf4:*
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
   --run-id cf4
 ```
 
-## <a name="alternative-log-storage"></a>Archiviazione di log alternativa
+## <a name="alternative-log-storage"></a>Archiviazione log alternativa
 
-Potrebbe essere necessario archiviare i log di esecuzione delle attività in un file system locale o usare una soluzione di archiviazione alternativa, ad esempio archiviazione di Azure.
+È possibile archiviare i log di esecuzione delle attività in un file system locale o usare una soluzione di archiviazione alternativa, ad esempio Archiviazione di Azure.
 
-Ad esempio, creare una directory *tasklogs* locale e reindirizzare l'output dei [log delle attività AZ ACR](/cli/azure/acr/task#az-acr-task-logs) in un file locale:
+Ad esempio, creare una directory *tasklogs* locale e reindirizzare l'output dei log attività [az acr](/cli/azure/acr/task#az_acr_task_logs) a un file locale:
 
 ```azurecli
 mkdir ~/tasklogs
@@ -92,22 +92,22 @@ az acr task logs --registry mycontainerregistry1220 \
   --run-id cf4 > ~/tasklogs/cf4.log
 ```
 
-È anche possibile salvare i file di log locali in archiviazione di Azure. Ad esempio, usare l' [interfaccia](../storage/blobs/storage-quickstart-blobs-cli.md)della riga di comando di Azure, il [portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md)o altri metodi per caricare file in un account di archiviazione.
+È anche possibile salvare i file di log locali Archiviazione di Azure. Ad esempio, usare l'interfaccia della riga di comando di [Azure,](../storage/blobs/storage-quickstart-blobs-cli.md) [portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md)o altri metodi per caricare file in un account di archiviazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulle [attività di Azure container Registry](container-registry-tasks-overview.md)
+* Altre informazioni sulle [Registro Azure Container attività](container-registry-tasks-overview.md)
 
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-update]: /cli/azure/acr/task#az-acr-task-update
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-update]: /cli/azure/acr/task#az_acr_task_update
+[az-login]: /cli/azure/reference-index#az_login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->

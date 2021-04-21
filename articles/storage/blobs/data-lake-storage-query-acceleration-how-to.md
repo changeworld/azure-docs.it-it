@@ -1,5 +1,5 @@
 ---
-title: Filtrare i dati usando l'accelerazione Azure Data Lake Storage query | Microsoft Docs
+title: Filtrare i dati usando l Azure Data Lake Storage di accelerazione delle query | Microsoft Docs
 description: Usare l'accelerazione delle query per recuperare un subset di dati dall'account di archiviazione.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,24 +9,24 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58b8cdef604861342a6489ef4e57ff1d057cd3f4
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 756258db1c6e91002bf3a7c2bd0f71f921ce655d
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107377735"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107769932"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrare i dati usando l'accelerazione Azure Data Lake Storage query
 
 Questo articolo illustra come usare l'accelerazione delle query per recuperare un subset di dati dall'account di archiviazione. 
 
-L'accelerazione delle query consente alle applicazioni e ai framework di analisi di ottimizzare notevolmente l'elaborazione dei dati recuperando solo i dati necessari per eseguire una determinata operazione. Per altre informazioni, vedere Accelerazione [Azure Data Lake Storage query](data-lake-storage-query-acceleration.md).
+L'accelerazione delle query consente alle applicazioni e ai framework di analisi di ottimizzare notevolmente l'elaborazione dei dati recuperando solo i dati necessari per eseguire una determinata operazione. Per altre informazioni, vedere Accelerazione [Azure Data Lake Storage query.](data-lake-storage-query-acceleration.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Per accedere ad Archiviazione di Azure è necessaria una sottoscrizione di Azure. Se non si ha già una sottoscrizione, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Un **account di archiviazione per utilizzo generico v2.** vedere [Creare un account di archiviazione](../common/storage-account-create.md).
+- Un account **di archiviazione per utilizzo generico v2.** Vedere [Creare un account di archiviazione.](../common/storage-account-create.md)
 
 - Scegliere una scheda per visualizzare i prerequisiti specifici dell'SDK.
 
@@ -45,13 +45,13 @@ L'accelerazione delle query consente alle applicazioni e ai framework di analisi
   - [Apache Maven](https://maven.apache.org/download.cgi) 
 
     > [!NOTE] 
-    > Questo articolo presuppone che sia stato creato un progetto Java usando Apache Maven. Per un esempio di come creare un progetto usando Apache Maven, vedere [Configurazione di](storage-quickstart-blobs-java.md#setting-up).
+    > Questo articolo presuppone che sia stato creato un progetto Java usando Apache Maven. Per un esempio di come creare un progetto con Apache Maven, vedere [Configurazione di](storage-quickstart-blobs-java.md#setting-up).
   
   ### <a name="python"></a>[Python](#tab/python)
 
   [Python](https://www.python.org/downloads/) 3.8 o versione successiva.
 
-  ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+  ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
   Non sono necessari prerequisiti aggiuntivi per usare Node.js SDK.
 
@@ -59,11 +59,11 @@ L'accelerazione delle query consente alle applicazioni e ai framework di analisi
 
 ## <a name="enable-query-acceleration"></a>Abilitare l'accelerazione delle query
 
-Per usare l'accelerazione delle query, è necessario registrare la funzionalità di accelerazione delle query con la sottoscrizione. Dopo aver verificato che la funzionalità è stata registrata, è necessario registrare il provider Archiviazione di Azure di risorse. 
+Per usare l'accelerazione delle query, è necessario registrare la funzionalità di accelerazione delle query con la sottoscrizione. Dopo aver verificato che la funzionalità è registrata, è necessario registrare il provider Archiviazione di Azure risorse. 
 
 ### <a name="step-1-register-the-query-acceleration-feature"></a>Passaggio 1: Registrare la funzionalità di accelerazione delle query
 
-Per usare l'accelerazione delle query, è prima di tutto necessario registrare la funzionalità di accelerazione delle query con la sottoscrizione. 
+Per usare l'accelerazione delle query, è prima necessario registrare la funzionalità di accelerazione delle query con la sottoscrizione. 
 
 #### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -84,7 +84,7 @@ Per usare l'accelerazione delle query, è prima di tutto necessario registrare l
 
    Sostituire il valore segnaposto `<subscription-id>` con l'ID della sottoscrizione.
 
-3. Registrare la funzionalità di accelerazione delle query [usando il comando Register-AzProviderFeature.](/powershell/module/az.resources/register-azproviderfeature)
+3. Registrare la funzionalità di accelerazione delle query usando [il comando Register-AzProviderFeature.](/powershell/module/az.resources/register-azproviderfeature)
 
    ```powershell
    Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuery
@@ -102,7 +102,7 @@ Per usare l'accelerazione delle query, è prima di tutto necessario registrare l
 
    Sostituire il valore segnaposto `<subscription-id>` con l'ID della sottoscrizione.
 
-3. Registrare la funzionalità di accelerazione delle query usando [il comando az feature register.](/cli/azure/feature#az-feature-register)
+3. Registrare la funzionalità di accelerazione delle query usando il [comando az feature register.](/cli/azure/feature#az_feature_register)
 
    ```azurecli
    az feature register --namespace Microsoft.Storage --name BlobQuery
@@ -114,7 +114,7 @@ Per usare l'accelerazione delle query, è prima di tutto necessario registrare l
 
 #### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per verificare che la registrazione sia stata completata, usare [il comando Get-AzProviderFeature.](/powershell/module/az.resources/get-azproviderfeature)
+Per verificare che la registrazione sia completa, usare il [comando Get-AzProviderFeature.](/powershell/module/az.resources/get-azproviderfeature)
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuery
@@ -122,7 +122,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuer
 
 #### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per verificare che la registrazione sia stata completata, usare il [comando az feature.](/cli/azure/feature#az-feature-show)
+Per verificare che la registrazione sia stata completata, usare il [comando az feature.](/cli/azure/feature#az_feature_show)
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name BlobQuery
@@ -144,7 +144,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 
 #### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per registrare il provider di risorse, usare [il comando az provider register.](/cli/azure/provider#az-provider-register)
+Per registrare il provider di risorse, usare [il comando az provider register.](/cli/azure/provider#az_provider_register)
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
@@ -178,7 +178,7 @@ Update-Module -Name Az
    cd myProject
    ```
 
-2. Installare la versione o successiva della libreria client di Archiviazione BLOB di Azure per il pacchetto `12.5.0-preview.6` .NET usando il `dotnet add package` comando . 
+2. Installare la versione o successiva della libreria client di archiviazione BLOB di Azure per `12.5.0-preview.6` il pacchetto .NET usando il comando `dotnet add package` . 
 
    ```console
    dotnet add package Azure.Storage.Blobs -v 12.8.0
@@ -221,9 +221,9 @@ Installare la Azure Data Lake Storage client per Python usando [pip](https://pyp
 pip install azure-storage-blob==12.4.0
 ```
 
-#### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+#### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-Installare la libreria client di Data Lake per JavaScript aprendo una finestra del terminale e quindi digitando il comando seguente.
+Installare la libreria client Data Lake per JavaScript aprendo una finestra del terminale e quindi digitando il comando seguente.
 
 ```javascript
     npm install @azure/storage-blob
@@ -248,7 +248,7 @@ using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
 ```
 
-L'accelerazione delle query recupera i dati in formato CSV e Json. Assicurarsi quindi di aggiungere istruzioni using per tutte le librerie di analisi CSV o Json che si sceglie di usare. Gli esempi visualizzati in questo articolo analizzano un file CSV usando la libreria [CsvHelper](https://www.nuget.org/packages/CsvHelper/) disponibile in NuGet. Queste istruzioni vengono quindi `using` sommate all'inizio del file di codice.
+L'accelerazione delle query recupera i dati in formato CSV e Json. Assicurarsi quindi di aggiungere istruzioni using per tutte le librerie di analisi CSV o JSON che si sceglie di usare. Gli esempi visualizzati in questo articolo analizzano un file CSV usando la [libreria CsvHelper](https://www.nuget.org/packages/CsvHelper/) disponibile in NuGet. Queste istruzioni vengono quindi aggiunti `using` all'inizio del file di codice.
 
 ```csharp
 using CsvHelper;
@@ -286,7 +286,7 @@ import sys, csv
 from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, DelimitedTextDialect, BlobQueryError
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Includere il `storage-blob` modulo inserendo questa istruzione all'inizio del file di codice. 
 
@@ -294,7 +294,7 @@ Includere il `storage-blob` modulo inserendo questa istruzione all'inizio del fi
 const { BlobServiceClient } = require("@azure/storage-blob");
 ```
 
-L'accelerazione delle query recupera i dati in formato CSV e Json. Assicurarsi quindi di aggiungere istruzioni per tutti i moduli di analisi CSV o Json che si sceglie di usare. Gli esempi visualizzati in questo articolo analizzano un file CSV usando il [modulo fast-csv.](https://www.npmjs.com/package/fast-csv) Di conseguenza, questa istruzione verrà aggiunta all'inizio del file di codice.
+L'accelerazione delle query recupera i dati in formato CSV e Json. Assicurarsi quindi di aggiungere istruzioni per tutti i moduli di analisi CSV o JSON che si sceglie di usare. Gli esempi visualizzati in questo articolo analizzano un file CSV usando il [modulo fast-csv.](https://www.npmjs.com/package/fast-csv) Questa istruzione verrà quindi aggiunta all'inizio del file di codice.
 
 ```javascript
 const csv = require('@fast-csv/parse');
@@ -302,11 +302,11 @@ const csv = require('@fast-csv/parse');
 
 ---
 
-## <a name="retrieve-data-by-using-a-filter"></a>Recuperare dati usando un filtro
+## <a name="retrieve-data-by-using-a-filter"></a>Recuperare i dati usando un filtro
 
 È possibile usare SQL per specificare i predicati del filtro di riga e le proiezioni di colonna in una richiesta di accelerazione della query. Il codice seguente esegue una query su un file CSV nell'archiviazione e restituisce tutte le righe di dati in cui la terza colonna corrisponde al valore `Hemingway, Ernest` . 
 
-- Nella query SQL la parola chiave viene usata per indicare il file su cui `BlobStorage` viene eseguita una query.
+- Nella query SQL la parola chiave viene usata per indicare il file sottoposto `BlobStorage` a query.
 
 - I riferimenti di colonna vengono specificati `_N` come dove la prima colonna è `_1` . Se il file di origine contiene una riga di intestazione, è possibile fare riferimento alle colonne in base al nome specificato nella riga di intestazione. 
 
@@ -375,7 +375,7 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
 
 ### <a name="java"></a>[Java](#tab/java)
 
-Il metodo invia la query all'API di accelerazione della query e quindi trasmette i risultati all'applicazione come oggetto che può essere letto come `BlobQuickQueryClient.openInputStream()` `InputStream` qualsiasi altro oggetto InputStream.
+Il metodo invia la query all'API di accelerazione della query e quindi trasmette i risultati all'applicazione come oggetto che può essere letto come qualsiasi `BlobQuickQueryClient.openInputStream()` `InputStream` altro oggetto InputStream.
 
 ```java
 static void QueryHemingway(BlobClient blobClient) {
@@ -435,9 +435,9 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
         print("*".join(row))
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-Questo esempio invia la query all'API di accelerazione della query e quindi trasmette i risultati. `blob`L'oggetto passato alla funzione helper è di tipo `queryHemingway` [BlockBlobClient.](/javascript/api/@azure/storage-blob/blockblobclient) Per altre informazioni su come ottenere un oggetto [BlockBlobClient,](/javascript/api/@azure/storage-blob/blockblobclient) vedere Guida introduttiva: Gestire BLOB con [JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
+Questo esempio invia la query all'API di accelerazione della query e quindi restituisce i risultati. `blob`L'oggetto passato alla funzione helper è di tipo `queryHemingway` [BlockBlobClient.](/javascript/api/@azure/storage-blob/blockblobclient) Per altre informazioni su come ottenere un [oggetto BlockBlobClient,](/javascript/api/@azure/storage-blob/blockblobclient) vedere Guida introduttiva: Gestire BLOB con [JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
 
 ```javascript
 async function queryHemingway(blob)
@@ -478,9 +478,9 @@ async function dumpQueryCsv(blob, query, headers)
 
 ## <a name="retrieve-specific-columns"></a>Recuperare colonne specifiche
 
-È possibile impostare l'ambito dei risultati su un subset di colonne. In questo modo si recuperano solo le colonne necessarie per eseguire un determinato calcolo. In questo modo si migliorano le prestazioni dell'applicazione e si riducono i costi perché i dati vengono trasferiti in rete. 
+È possibile impostare come ambito i risultati in un subset di colonne. In questo modo si recuperano solo le colonne necessarie per eseguire un determinato calcolo. In questo modo si migliorano le prestazioni dell'applicazione e si riducono i costi perché i dati vengono trasferiti in rete. 
 
-Questo codice recupera solo la `BibNum` colonna per tutti i libri nel set di dati. Usa inoltre le informazioni della riga di intestazione nel file di origine per fare riferimento alle colonne nella query.
+Questo codice recupera solo la `BibNum` colonna per tutti i libri nel set di dati. Usa anche le informazioni della riga di intestazione nel file di origine per fare riferimento alle colonne nella query.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -526,7 +526,7 @@ def query_bibnum(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 async function queryBibNum(blob)
@@ -597,7 +597,7 @@ def query_dvds(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 async function queryDvds(blob)

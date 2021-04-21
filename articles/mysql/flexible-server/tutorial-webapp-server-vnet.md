@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3e334eda46e5e67a0fc0755f5e02a0724d34a4b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13baf8f033338e242610d7b8c4eec14806cd5ec5
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104657638"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770022"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Esercitazione: Creare un server flessibile di Database di Azure per MySQL (anteprima) con un'app Web del servizio app di Azure nella stessa rete virtuale
 
@@ -24,7 +24,7 @@ Questa esercitazione illustra come creare un'app Web del servizio app di Azure c
 
 In questa esercitazione si apprenderà come:
 >[!div class="checklist"]
-> * Creare un server MySQL flessibile in una rete virtuale
+> * Creare un server flessibile MySQL in una rete virtuale
 > * Creare una subnet da delegare al servizio app
 > * Creare un'app Web
 > * Aggiungere l'app Web alla rete virtuale
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 Per questo articolo è necessario eseguire in locale l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Per vedere la versione installata, eseguire il comando `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-È necessario accedere all'account con il comando [az login](/cli/azure/reference-index#az-login). Si noti la proprietà **id** dell'output del comando per il nome della sottoscrizione corrispondente.
+È necessario accedere all'account con il comando [az login](/cli/azure/reference-index#az_login). Si noti la proprietà **id** dell'output del comando per il nome della sottoscrizione corrispondente.
 
 ```azurecli
 az login
@@ -71,7 +71,7 @@ Copiare la stringa di connessione e il nome della rete virtuale appena creata. Q
 ```azurecli
 az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
 ```
-Prendere nota del nome della rete virtuale e del nome della subnet dopo questo comando, perché sarebbe necessario aggiungere la regola di integrazione VNET per l'app Web dopo la creazione. 
+Prendere nota del nome della rete virtuale e del nome della subnet dopo questo comando, come necessario per aggiungere la regola di integrazione della rete virtuale per l'app Web dopo la creazione. 
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
@@ -86,7 +86,7 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 > [!NOTE]
 > - Per l'argomento --location, usare la stessa posizione specificata per il database nella sezione precedente.
 > - Sostituire _&lt;app-name>_ con un nome univoco in tutto Azure (l'endpoint server è https://\<app-name>.azurewebsites.net). I caratteri consentiti per <app-name> sono A-Z, 0-9 e -. Un criterio valido consiste nell'usare una combinazione del nome della società e di un identificatore dell'app.
-> - Il livello Basic del servizio app non supporta l'integrazione VNET. Usare standard o Premium. 
+> - Il livello Basic del servizio app non supporta l'integrazione della rete virtuale. Usare Standard o Premium. 
 
 Questo comando esegue le azioni seguenti, che possono richiedere alcuni minuti:
 

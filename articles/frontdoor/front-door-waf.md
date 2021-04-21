@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: fa5d34d195cfed2d5dbfa6954d83b28487bf0bba
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d315fa5b588c6e5f2e4643ca18626e400e6ca01b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167754"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785650"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Esercitazione: Dimensionare rapidamente e proteggere un'applicazione Web tramite il servizio Frontdoor di Azure e Web application firewall di Azure (WAF)
 
@@ -144,7 +144,7 @@ Si consiglia di verificare che solo i vertici di Frontdoor di Azure possano comu
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando le risorse di questa esercitazione non sono più necessarie, usare il comando [az group delete](/cli/azure/group#az-group-delete) per rimuovere il gruppo di risorse, Frontdoor e i criteri WAF:
+Quando le risorse di questa esercitazione non sono più necessarie, usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuovere il gruppo di risorse, Frontdoor e i criteri WAF:
 
 ```azurecli-interactive
   az group delete \

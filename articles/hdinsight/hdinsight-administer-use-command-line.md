@@ -1,22 +1,22 @@
 ---
-title: Gestire cluster HDInsight di Azure con l'interfaccia della riga di comando di Azure
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure per gestire i cluster HDInsight di Azure. I tipi di cluster includono Apache Hadoop, Spark, HBase, Storm, Kafka, Interactive query e ML Services.
+title: Gestire i Azure HDInsight cluster con l'interfaccia della riga di comando di Azure
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per gestire Azure HDInsight cluster. I tipi di cluster Apache Hadoop, Spark, HBase, Storm, Kafka, Interactive Query e ML Services.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-azurecli
 ms.date: 02/26/2020
-ms.openlocfilehash: b17c5a2abc036c16ff3ce36b81428f9149e36b4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14b88700f3968e3bfdc788abb2fc9ce90634068e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98942855"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770346"
 ---
-# <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Gestire cluster HDInsight di Azure con l'interfaccia della riga di comando di Azure
+# <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Gestire i Azure HDInsight cluster con l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Informazioni su come usare l'interfaccia della riga di comando di [Azure](/cli/azure/) per gestire i cluster HDInsight di Azure. L'interfaccia della riga di comando di Azure è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.
+Informazioni su come usare [l'interfaccia della riga di](/cli/azure/) comando di Azure per gestire Azure HDInsight cluster. L'interfaccia della riga di comando di Azure è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -39,7 +39,7 @@ az login
 
 ## <a name="list-clusters"></a>Elencare i cluster
 
-Usare il comando [AZ HDInsight list](/cli/azure/hdinsight#az-hdinsight-list) per elencare i cluster. Modificare i comandi seguenti sostituendo `RESOURCE_GROUP_NAME` con il nome del gruppo di risorse, quindi immettere i comandi:
+Usare [az hdinsight list](/cli/azure/hdinsight#az_hdinsight_list) per elencare i cluster. Modificare i comandi seguenti sostituendo `RESOURCE_GROUP_NAME` con il nome del gruppo di risorse, quindi immettere i comandi:
 
 ```azurecli-interactive
 # List all clusters in the current subscription
@@ -57,7 +57,7 @@ az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:
 
 ## <a name="show-cluster"></a>Mostrare cluster
 
-Usare il comando [AZ HDInsight Show](/cli/azure/hdinsight#az-hdinsight-show) per visualizzare le informazioni relative a un cluster specificato. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME` e `CLUSTER_NAME` con le informazioni rilevanti, quindi immettere il comando:
+Usare [az hdinsight show](/cli/azure/hdinsight#az_hdinsight_show) per visualizzare le informazioni per un cluster specificato. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME` e con le informazioni `CLUSTER_NAME` pertinenti, quindi immettere il comando:
 
 ```azurecli-interactive
 az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
@@ -65,13 +65,13 @@ az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 
 ## <a name="delete-clusters"></a>Eliminare cluster
 
-Usare il comando [AZ HDInsight Delete](/cli/azure/hdinsight#az-hdinsight-delete) per eliminare un cluster specificato. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME` e `CLUSTER_NAME` con le informazioni rilevanti, quindi immettere il comando:
+Usare [az hdinsight delete](/cli/azure/hdinsight#az_hdinsight_delete) per eliminare un cluster specificato. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME` e con le informazioni `CLUSTER_NAME` pertinenti, quindi immettere il comando:
 
 ```azurecli-interactive
 az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 ```
 
-È inoltre possibile eliminare un cluster eliminando il gruppo di risorse che lo contiene. Si noti che questa operazione eliminerà tutte le risorse nel gruppo, incluso l'account di archiviazione predefinito.
+È inoltre possibile eliminare un cluster eliminando il gruppo di risorse che lo contiene. Si noti che verranno eliminate tutte le risorse nel gruppo, incluso l'account di archiviazione predefinito.
 
 ```azurecli-interactive
 az group delete --name RESOURCE_GROUP_NAME
@@ -79,7 +79,7 @@ az group delete --name RESOURCE_GROUP_NAME
 
 ## <a name="scale-clusters"></a>Ridimensionare i cluster
 
-Usare il comando [AZ HDInsight Resize](/cli/azure/hdinsight#az-hdinsight-resize) per ridimensionare il cluster HDInsight specificato alla dimensione specificata. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME` e `CLUSTER_NAME` con le informazioni rilevanti. Sostituire `WORKERNODE_COUNT` con il numero desiderato di nodi del ruolo di lavoro per il cluster. Per altre informazioni sul ridimensionamento dei cluster, vedere [ridimensionare i cluster HDInsight](./hdinsight-scaling-best-practices.md). Immettere il comando:
+Usare [az hdinsight resize](/cli/azure/hdinsight#az_hdinsight_resize) per ridimensionare il cluster HDInsight specificato alle dimensioni specificate. Modificare il comando seguente sostituendo `RESOURCE_GROUP_NAME` e con le informazioni `CLUSTER_NAME` pertinenti. Sostituire `WORKERNODE_COUNT` con il numero desiderato di nodi di lavoro per il cluster. Per altre informazioni sul ridimensionamento dei cluster, vedere [Ridimensionare i cluster HDInsight](./hdinsight-scaling-best-practices.md). Immettere il comando:
 
 ```azurecli-interactive
 az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --workernode-count WORKERNODE_COUNT

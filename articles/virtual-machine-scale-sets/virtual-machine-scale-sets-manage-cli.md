@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: d954f7cdda4cae65f822489828226e0364d0fc29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c2b2217fc6b32e5191bb67ffdaa10b796adf84b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91570521"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107762768"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gestione di un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. Questo articolo descrive alcuni comandi comuni dell'interfaccia della riga di comando di Azure che consentono di eseguire queste attività.
@@ -49,7 +49,7 @@ az vmss get-instance-view \
     --instance-id 0
 ```
 
-È anche possibile ottenere informazioni dettagliate su *instanceView* per tutte le istanze in una chiamata API, che consente di evitare la limitazione API per installazioni di grandi dimensioni. Specificare valori personalizzati per `--resource-group` , `--subscription` e `--name` .
+È anche possibile ottenere informazioni dettagliate *su instanceView* per tutte le istanze in una chiamata API, che consentono di evitare la limitazione delle API per le installazioni di grandi dimensioni. Specificare valori personalizzati per `--resource-group` , `--subscription` e `--name` .
 
 ```azurecli
 az vmss list-instances \
@@ -100,7 +100,7 @@ Sono necessari alcuni minuti per aggiornare la capacità del set di scalabilità
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Arrestare e avviare le macchine virtuali in un set di scalabilità
-Per arrestare una o più macchine virtuali in un set di scalabilità, usare [az vmss stop](/cli/azure/vmss#az-vmss-stop). Il parametro `--instance-ids` consente di specificare una o più macchine virtuali da arrestare. Se non si specifica un ID istanza, vengono arrestate tutte le macchine virtuali del set di scalabilità. Per arrestare più macchine virtuali, separare gli ID istanza con uno spazio.
+Per arrestare una o più macchine virtuali in un set di scalabilità, usare [az vmss stop](/cli/azure/vmss#az_vmss_stop). Il parametro `--instance-ids` consente di specificare una o più macchine virtuali da arrestare. Se non si specifica un ID istanza, vengono arrestate tutte le macchine virtuali del set di scalabilità. Per arrestare più macchine virtuali, separare gli ID istanza con uno spazio.
 
 L'esempio seguente arresta l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 

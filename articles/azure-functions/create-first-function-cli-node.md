@@ -4,12 +4,12 @@ description: Informazioni su come creare una funzione in JavaScript dalla riga d
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9810b1eb9e5f6bc65843d65f2f2452eac1be703
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b8db78e56087e7cb777d1aa85391d4b6ac2aae27
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102447317"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107787540"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione in JavaScript in Azure dalla riga di comando
 
@@ -96,7 +96,7 @@ Se si vuole, è possibile passare a [Eseguire la funzione localmente](#run-the-f
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Per un trigger HTTP, la funzione riceve i dati della richiesta nella variabile `req` come definito in *function.json*. La risposta è definita come `res` in *function.jssu* ed è possibile accedervi tramite `context.res` . Per altre informazioni, vedere [Trigger e associazioni HTTP di Funzioni di Azure](./functions-bindings-http-webhook.md?tabs=javascript).
+Per un trigger HTTP, la funzione riceve i dati della richiesta nella variabile `req` come definito in *function.json*. La risposta è definita come `res` infunction.js *su* ed è accessibile tramite `context.res` . Per altre informazioni, vedere [Trigger e associazioni HTTP di Funzioni di Azure](./functions-bindings-http-webhook.md?tabs=javascript).
 
 #### <a name="functionjson"></a>function.json
 
@@ -118,7 +118,7 @@ Ogni binding richiede una direzione, un tipo e un nome univoco. Il trigger HTTP 
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 12 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     
-    Il comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) crea l'app per le funzioni in Azure. Se si usa Node.js 10, cambiare anche `--runtime-version` in `10`.
+    Il comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) crea l'app per le funzioni in Azure. Se si usa Node.js 10, cambiare anche `--runtime-version` in `10`.
     
     # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
     

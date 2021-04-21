@@ -1,24 +1,24 @@
 ---
-title: Informazioni sull'utilizzo delle prenotazioni di Azure per Contratto Enterprise e il contratto del cliente Microsoft
-description: Informazioni su come leggere le informazioni sull'utilizzo per comprendere in che modo viene applicata una prenotazione di Azure per Contratto Enterprise e l'utilizzo del contratto clienti Microsoft.
+title: Informazioni sull'utilizzo delle prenotazioni di Azure Contratto Enterprise e Contratto del cliente Microsoft
+description: Informazioni su come leggere le informazioni sull'utilizzo per comprendere come viene applicata una prenotazione di Azure Contratto Enterprise e Contratto del cliente Microsoft'utilizzo.
 author: bandersmsft
 ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/19/2020
+ms.date: 04/20/2021
 ms.author: banders
-ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: edc1a80687f768723a3a218ecaa1f6459cd484ed
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683718"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107763560"
 ---
-# <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Ottenere i costi e l'utilizzo di Contratto Enterprise e del contratto di servizio Microsoft
+# <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Ottenere informazioni Contratto Enterprise e Contratto del cliente Microsoft costi di prenotazione e utilizzo
 
-I dati avanzati per i costi di prenotazione e l'utilizzo sono disponibili per l'utilizzo di Contratto Enterprise (EA) e Microsoft Customer Agreement (MCA) in gestione costi. Questo articolo offre informazioni utili per:
+I dati migliorati per i costi di prenotazione e l'utilizzo sono disponibili per l'utilizzo di Contratto Enterprise (EA) e Contratto del cliente Microsoft (MCA) in Gestione costi. Questo articolo offre informazioni utili per:
 
 - Ottenere i dati sugli acquisti di prenotazioni
 - Individuare la sottoscrizione, il gruppo di risorse o la risorsa che ha usato la prenotazione
@@ -85,7 +85,7 @@ Le informazioni riportate nella tabella seguente sulla metrica e sul filtro poss
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Scaricare il file CSV dei dati di utilizzo con i nuovi dati
 
-Se si è un amministratore EA, è possibile scaricare il file CSV contenente i nuovi dati di utilizzo da portale di Azure. Questi dati non sono disponibili in EA Portal (ea.azure.com), occorre scaricare il file di utilizzo dal portale di Azure (portal.azure.com) per visualizzare i nuovi dati.
+Gli amministratori EA possono scaricare il file CSV che contiene i nuovi dati di utilizzo da portale di Azure. Questi dati non sono disponibili in EA Portal (ea.azure.com), occorre scaricare il file di utilizzo dal portale di Azure (portal.azure.com) per visualizzare i nuovi dati.
 
 Nel portale di Azure passare a [Gestione dei costi e fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -95,7 +95,6 @@ Nel portale di Azure passare a [Gestione dei costi e fatturazione](https://porta
 ![Esempio che mostra dove scaricare il file CSV dei dati di utilizzo nel portale di Azure](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. In **Scarica l'utilizzo e gli addebiti** selezionare **Tutti gli addebiti (utilizzo e acquisti)** in **Dettagli utilizzo - Versione 2**, quindi fare clic su Scarica. Ripetere per **Addebiti ammortizzati (utilizzo e acquisti)** .
 
-I file CSV scaricati contengono i costi effettivi e i costi ammortizzati.
 
 ## <a name="common-cost-and-usage-tasks"></a>Attività comuni relative a costi e utilizzo
 
@@ -158,8 +157,7 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 
 - [Informazioni sulle prenotazioni di Azure](save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../../virtual-machines/prepay-reserved-vm-instances.md)
-- [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../../azure-sql/database/reserved-capacity-overview.md)
-- [Gestire le prenotazioni di Azure](manage-reserved-vm-instance.md)
 - [Informazioni su come viene applicato lo sconto sulla prenotazione](../manage/understand-vm-reservation-charges.md)
-- [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](understand-reserved-instance-usage.md)
 - [Costi del software Windows non inclusi nelle prenotazioni](reserved-instance-windows-software-costs.md)
+- [Usare l'entità servizio per ottenere i dati sui costi](../manage/assign-roles-azure-service-principals.md)
+- [Usare le esportazioni di Gestione costi](../costs/tutorial-export-acm-data.md)

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: cca08e1be0f81c26d0838566ac4900d36580b8b8
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: ca46ce3355edf2b77400011d023cd6af330a3b58
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066297"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107770434"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Che cos'è Azure Data Box Disk?
 
@@ -35,7 +35,7 @@ I provider di Azure e i provider non Azure possono inserire dati da Azure Data B
 
 - **SharePoint Online** - Usare Azure Data Box e lo Strumento di migrazione di SharePoint per eseguire la migrazione dei contenuti della condivisione file a SharePoint Online. Grazie a Data Box, è possibile rimuovere la dipendenza dal collegamento WAN per il trasferimento dei dati. Per altre informazioni, vedere [Usare Azure Data Box Heavy per eseguire la migrazione del contenuto di una condivisione file in SharePoint Online](data-box-heavy-migrate-spo.md).
 
-- **Sincronizzazione file di Azure** - Consente di eseguire la replica di file da Data Box a una condivisione file di Azure, permettendo di centralizzare i servizi file in Azure, mantenendo al tempo stesso l'accesso locale ai dati. Per altre informazioni, vedere [Distribuire Sincronizzazione file di Azure](../storage/files/storage-sync-files-deployment-guide.md).
+- **Sincronizzazione file di Azure** - Consente di eseguire la replica di file da Data Box a una condivisione file di Azure, permettendo di centralizzare i servizi file in Azure, mantenendo al tempo stesso l'accesso locale ai dati. Per altre informazioni, vedere [Distribuire Sincronizzazione file di Azure](../storage/file-sync/file-sync-deployment-guide.md).
 
 - **Archivi HDFS** - Eseguire la migrazione dei dati da un archivio HDFS (Hadoop Distributed File System) locale del cluster Hadoop ad Archiviazione di Azure usando Data Box. Per altre informazioni, vedere [Eseguire la migrazione da un archivio HDFS locale ad archiviazione di Azure con Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 

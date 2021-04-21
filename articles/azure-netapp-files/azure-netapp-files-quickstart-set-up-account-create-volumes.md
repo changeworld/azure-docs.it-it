@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 0b48963fa6cb28c836c57de8b46861ef83752231
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 77d5ce2cc903be51b7a38d6edc34bb8424c52ddb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388560"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786100"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Guida introduttiva: Configurare Azure NetApp Files e creare un volume NFS
 
@@ -147,7 +147,7 @@ Per altre informazioni, vedere [Effettuare la registrazione per Azure NetApp Fil
     > Per ottenere il nome dell'area supportato dagli strumenti da riga di comando, usare `az account list-locations --query "[].{Region:name}" --out table`
     >
 
-2. Creare un nuovo gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create):
+2. Creare un nuovo gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create):
 
     ```azurecli-interactive
     az group create \
@@ -155,7 +155,7 @@ Per altre informazioni, vedere [Effettuare la registrazione per Azure NetApp Fil
         --location $LOCATION
     ```
 
-3. Creare l'account Azure NetApp Files con il comando [az netappfiles account create](/cli/azure/netappfiles/account#az-netappfiles-account-create):
+3. Creare l'account Azure NetApp Files con il comando [az netappfiles account create](/cli/azure/netappfiles/account#az_netappfiles_account_create):
 
     ```azurecli-interactive
     az netappfiles account create \
@@ -226,7 +226,7 @@ Il frammento di codice seguente mostra come creare un account NetApp in un model
     SERVICE_LEVEL="Premium" # Valid values are Standard, Premium and Ultra
     ```
 
-2. Creare un nuovo pool di capacità usando il comando [az netappfiles pool create](/cli/azure/netappfiles/pool#az-netappfiles-pool-create)
+2. Creare un nuovo pool di capacità usando il comando [az netappfiles pool create](/cli/azure/netappfiles/pool#az_netappfiles_pool_create)
 
     ```azurecli-interactive
     az netappfiles pool create \
@@ -343,7 +343,7 @@ Il frammento di codice seguente mostra come creare un pool di capacità in un mo
     SUBNET_NAME="myANFSubnet"
     ```
 
-1. Creare una rete virtuale senza subnet con il comando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
+1. Creare una rete virtuale senza subnet con il comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
 
     ```azurecli-interactive
     az network vnet create \
@@ -354,7 +354,7 @@ Il frammento di codice seguente mostra come creare un pool di capacità in un mo
 
     ```
 
-2. Creare una subnet delegata con il comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create).
+2. Creare una subnet delegata con il comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create).
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -365,7 +365,7 @@ Il frammento di codice seguente mostra come creare un pool di capacità in un mo
         --delegations "Microsoft.NetApp/volumes"
     ```
 
-3. Creare il volume con il comando [az netappfiles volume create](/cli/azure/netappfiles/volume#az-netappfiles-volume-create).
+3. Creare il volume con il comando [az netappfiles volume create](/cli/azure/netappfiles/volume#az_netappfiles_volume_create).
 
     ```azurecli-interactive
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -449,7 +449,7 @@ Al termine, se si vuole, è possibile eliminare il gruppo di risorse. L'azione d
 > [!IMPORTANT]
 > Eliminerà in modo definitivo tutte le risorse all'interno dei gruppi di risorse e non potrà essere annullata.
 
-1. Eliminare il gruppo di risorse usando il comando [az group delete](/cli/azure/group#az-group-delete).
+1. Eliminare il gruppo di risorse usando il comando [az group delete](/cli/azure/group#az_group_delete).
 
     ```azurecli-interactive
     az group delete \

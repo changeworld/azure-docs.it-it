@@ -1,21 +1,21 @@
 ---
 title: Componente aggiuntivo Routing di applicazioni HTTP nel servizio Azure Kubernetes
-description: Usare il componente aggiuntivo routing applicazione HTTP per accedere alle applicazioni distribuite in Azure Kubernetes Service (AKS).
+description: Usare il componente aggiuntivo di routing delle applicazioni HTTP per accedere alle applicazioni distribuite in servizio Azure Kubernetes (AKS).
 services: container-service
 author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 25fc021a48e8936f242df35f7485fc59a93bba13
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 95767e94a120b7f4595744beabc72fcd954e6e2f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172801"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783108"
 ---
 # <a name="http-application-routing"></a>Routing di applicazioni HTTP
 
-La soluzione Routing di applicazioni HTTP semplifica l'accesso alle applicazioni distribuite nel cluster del servizio Azure Kubernetes. Quando la soluzione è abilitata, configura un [controller di ingresso](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) nel cluster AKS. Man mano che le applicazioni vengono distribuite, la soluzione crea anche nomi DNS pubblicamente accessibili per gli endpoint applicazione.
+La soluzione Routing di applicazioni HTTP semplifica l'accesso alle applicazioni distribuite nel cluster del servizio Azure Kubernetes. Quando la soluzione è abilitata, configura un [controller di](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) ingresso nel cluster del servizio Web Disassociato di Microsoft. Man mano che le applicazioni vengono distribuite, la soluzione crea anche nomi DNS pubblicamente accessibili per gli endpoint applicazione.
 
 Quando il componente aggiuntivo è abilitato, viene creata una zona DNS nella sottoscrizione. Per altre informazioni sul costo del DNS, vedere la pagina relativa ai [prezzi del DNS][dns-pricing].
 
@@ -24,9 +24,9 @@ Quando il componente aggiuntivo è abilitato, viene creata una zona DNS nella so
 
 ## <a name="http-routing-solution-overview"></a>Panoramica della soluzione di routing HTTP
 
-Il componente aggiuntivo distribuisce due componenti: un [controller di ingresso di Kubernetes][ingress] e un controller [DNS esterno][external-dns] .
+Il componente aggiuntivo distribuisce due componenti: un [controller di ingresso Kubernetes][ingress] e un controller [External-DNS.][external-dns]
 
-- **Controller di ingresso**: questo controller è esposto a Internet tramite un servizio Kubernetes di tipo LoadBalancer. Il controller di ingresso controlla e implementa [le risorse di ingresso Kubernetes][ingress-resource], che creano route per gli endpoint dell'applicazione.
+- **Controller di ingresso**: questo controller è esposto a Internet tramite un servizio Kubernetes di tipo LoadBalancer. Il controller di ingresso controlla e implementa le [risorse di ingresso Kubernetes,][ingress-resource]che creano route agli endpoint dell'applicazione.
 - **Controller External-DNS**: controlla le risorse di ingresso Kubernetes e crea record DNS A nella zona DNS specifica del cluster.
 
 ## <a name="deploy-http-routing-cli"></a>Implementare il routing HTTP: interfaccia della riga di comando
@@ -52,7 +52,7 @@ Dopo aver implementato o aggiornato il cluster, usare il comando [az servizio Az
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
-Questo nome è necessario per distribuire le applicazioni nel cluster AKS ed è illustrato nell'output di esempio seguente:
+Questo nome è necessario per distribuire le applicazioni nel cluster del servizio Web Diaks e viene visualizzato nell'output di esempio seguente:
 
 ```console
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
@@ -68,7 +68,7 @@ Dopo aver implementato il cluster, passare al gruppo di risorse servizio Azure K
 
 ![Ottenere il nome della zona DNS](media/http-routing/dns.png)
 
-## <a name="connect-to-your-aks-cluster"></a>Connettersi al cluster AKS
+## <a name="connect-to-your-aks-cluster"></a>Connettersi al cluster del servizio Web Diaks
 
 Per connettersi al cluster Kubernetes dal computer locale si usa [kubectl][kubectl], il client da riga di comando di Kubernetes.
 
@@ -78,7 +78,7 @@ Se si usa Azure Cloud Shell, `kubectl` è già installato. È anche possibile in
 az aks install-cli
 ```
 
-Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][]. Nell'esempio seguente vengono ottenute le credenziali per il cluster AKS denominato *MyAKSCluster* in *MyResourceGroup*:
+Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][]. Nell'esempio seguente vengono recuperate le credenziali per il cluster del servizio Web DinK denominato *MyAKSCluster* in *MyResourceGroup:*
 
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
@@ -153,7 +153,7 @@ Usare il comando [kubectl apply][kubectl-apply] per creare le risorse.
 kubectl apply -f samples-http-application-routing.yaml
 ```
 
-Nell'esempio seguente vengono illustrate le risorse create:
+L'esempio seguente mostra le risorse create:
 
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
@@ -163,7 +163,7 @@ service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
 ```
 
-Aprire un Web browser per *AKS-HelloWorld \<CLUSTER_SPECIFIC_DNS_ZONE\>*, ad esempio *AKS-HelloWorld.9f9c1fe7-21a1-416D-99cd-3543bb92e4c3.eastus.aksapp.io* e verificare che sia visualizzata l'applicazione demo. La visualizzazione dell'applicazione potrebbe richiedere alcuni minuti.
+Aprire un Web browser *in \<CLUSTER_SPECIFIC_DNS_ZONE\> aks-helloworld.*, ad esempio *aks-helloworld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io* e verificare che sia visualizzata l'applicazione demo. La visualizzazione dell'applicazione potrebbe richiedere alcuni minuti.
 
 ## <a name="remove-http-routing"></a>Rimuovere il routing HTTP
 
@@ -280,12 +280,12 @@ ingress "aks-helloworld" deleted
 Per informazioni su come installare un controller di ingresso protetto con HTTPS nel servizio Azure Kubernetes, vedere [Ingresso HTTPS nel servizio Azure Kubernetes][ingress-https].
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [ingress-https]: ./ingress-tls.md
-[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-[az servizio Azure Kubernetes install-cli]: /cli/azure/aks#az-aks-install-cli
-[az servizio Azure Kubernetes get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
+[az servizio Azure Kubernetes install-cli]: /cli/azure/aks#az_aks_install_cli
+[az servizio Azure Kubernetes get-credentials]: /cli/azure/aks#az_aks_get_credentials
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/

@@ -34,7 +34,7 @@
       href: tutorial-deploy-vmware-hcx.md
     - name: 8 - Dimensionare un cloud privato
       href: tutorial-scale-private-cloud.md
-    - name: 9-eliminare un cloud privato
+    - name: 9 - Eliminare un cloud privato
       href: tutorial-delete-private-cloud.md
 - name: Concetti
   items:
@@ -52,9 +52,9 @@
       href: concepts-upgrades.md
 - name: Guide pratiche
   items:
-    - name: Richiedi quota host e Abilita soluzione VMware di Azure
+    - name: Richiedere la quota host e abilitare soluzione Azure VMware
       href: enable-azure-vmware-solution.md
-    - name: Spostare le sottoscrizioni EA e CSP
+    - name: Spostare sottoscrizioni EA e CSP
       href: move-ea-csp-subscriptions.md
     - name: Risparmiare sui costi con le istanze riservate
       href: reserved-instance.md
@@ -72,7 +72,7 @@
       href: create-ipsec-tunnel.md
     - name: Cluster di failover di Windows Server
       href: windows-server-failover-cluster.md
-    - name: Reimposta credenziali vSphere
+    - name: Reimpostare le credenziali di vSphere
       href: reset-vsphere-credentials.md
     - name: Ripristino di emergenza
       items:
@@ -124,7 +124,7 @@
           href: vrealize-operations-for-azure-vmware-solution.md
         - name: Distribuire VMware Horizon
           href: azure-vmware-solution-horizon.md
-        - name: Distribuire le macchine virtuali dalla raccolta contenuto
+        - name: Distribuire macchine virtuali dalla raccolta contenuto
           href: deploy-vm-content-library.md
     - name: Ecosistema di VMware
       items:
@@ -138,6 +138,8 @@
       items:
         - name: Aprire una richiesta di supporto per gli errori di distribuzione
           href: fix-deployment-provisioning-failures.md
+        - name: Codice di errore vix degli strumenti VMware = 21009
+          href: 'https://kb.vmware.com/s/article/2129927'
     - name: Domande frequenti
       items:
         - name: Generale
@@ -158,7 +160,7 @@
           href: '/azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds'
         - name: Gestione delle identità
           href: /azure/azure-vmware/faq#identity-management
-        - name: Fatturazione e supporto tecnico
+        - name: Fatturazione e supporto
           href: /azure/azure-vmware/faq#billing-and-support
     - name: Video
       items:
@@ -166,11 +168,11 @@
           href: 'https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin'
         - name: Integrazione con il servizio di Azure
           href: 'https://youtu.be/m26iLu6DHbU'
-        - name: Integrazione con applicazione Azure gateway
+        - name: Integrazione con gateway applicazione di Azure
           href: 'https://youtu.be/BoQYvqzb6Y8'
-        - name: Pianificazione della migrazione e della capacità
+        - name: Migrazione e pianificazione della capacità
           href: 'https://youtu.be/NoNG-hkksrA'
-        - name: Ruotare le password di vCenter & NSX-T usando l'app per la logica di Azure
+        - name: Ruotare vCenter & password NSX-T usando App per la logica di Azure
           href: 'https://youtu.be/cK1qY3knj88'
 - name: Informazioni di riferimento
   items:
@@ -180,5 +182,5 @@
       href: /cli/azure/ext/vmware/vmware
     - name: Azure PowerShell
       href: /powershell/module/az.vmware/
-    - name: Bonifica del provider di Azure
+    - name: Provider Terraform di Azure
       href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud'
