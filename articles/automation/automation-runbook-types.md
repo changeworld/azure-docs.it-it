@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 067096943cd95913077ada817c94640ff5264520
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3e4f90372c2da22e8df3430ce340477352e5033b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634890"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830449"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipi di runbook di Automazione di Azure
 
@@ -20,9 +21,9 @@ La funzionalità Automazione processi di Automazione di Azure supporta diversi t
 |:--- |:--- |
 | [Grafico](#graphical-runbooks)|Runbook grafico basato su Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure. |
 | [Grafico del flusso di lavoro di PowerShell](#graphical-runbooks)|Runbook grafico basato su flusso di lavoro Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure. |
-| [PowerShell](#powershell-runbooks) |Runbook testuale basato sullo scripting di Windows PowerShell. |
-| [Flusso di lavoro PowerShell](#powershell-workflow-runbooks)|Runbook testuale basato sullo scripting del flusso di lavoro di Windows PowerShell. |
-| [Python](#python-runbooks) |Runbook testuale basato sullo scripting di Python. |
+| [PowerShell](#powershell-runbooks) |Runbook testuale basato Windows PowerShell script. |
+| [Flusso di lavoro PowerShell](#powershell-workflow-runbooks)|Runbook testuale basato su script Windows PowerShell flusso di lavoro. |
+| [Python](#python-runbooks) |Runbook testuale basato su script Python. |
 
 Tenere conto delle considerazioni seguenti per determinare quale tipo usare per un runbook specifico.
 
@@ -33,9 +34,9 @@ Tenere conto delle considerazioni seguenti per determinare quale tipo usare per 
 
 È possibile creare e modificare runbook grafici e runbook del flusso di lavoro PowerShell grafico usando l'editor grafico nel portale di Azure. Tuttavia, non è possibile creare o modificare questo tipo di runbook con un altro strumento. Funzionalità principali dei runbook grafici:
 
-* Esportati nei file nell'account di automazione e quindi importati in un altro account di automazione.
+* Esportati in file nell'account di Automazione e quindi importati in un altro account di Automazione.
 * Generano codice di PowerShell.
-* Convertito in o da manuali operativi del flusso di lavoro PowerShell grafico durante l'importazione.
+* Conversione da o verso runbook grafici del flusso di lavoro PowerShell durante l'importazione.
 
 ### <a name="advantages"></a>Vantaggi
 
@@ -59,7 +60,7 @@ I runbook di PowerShell sono basati su Windows PowerShell. È possibile modifica
 
 ### <a name="advantages"></a>Vantaggi
 
-* Implementare tutta la logica complessa con codice PowerShell senza le altre complessità del flusso di lavoro PowerShell.
+* Implementare tutta la logica complessa con il codice di PowerShell senza le altre complessità del flusso di lavoro di PowerShell.
 * Avvio più rapido rispetto ai runbook del flusso di lavoro PowerShell poiché non è necessaria la compilazione prima dell'esecuzione.
 * Esecuzione in Azure e nei ruoli di lavoro ibridi per runbook sia per Windows che per Linux.
 
@@ -100,9 +101,9 @@ I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flus
 
 ## <a name="python-runbooks"></a>Runbook Python
 
-Python manuali operativi compila in Python 2 e Python 3. Python 3 manuali operativi è attualmente in fase di anteprima. È possibile modificare direttamente il codice del runbook usando l'editor di testo del portale di Azure. È anche possibile usare un editor di testo offline e [importare il runbook](manage-runbooks.md) in Automazione di Azure.
+I runbook Python vengono compilati in Python 2 e Python 3. I runbook Python 3 sono attualmente in anteprima. È possibile modificare direttamente il codice del runbook usando l'editor di testo del portale di Azure. È anche possibile usare un editor di testo offline e [importare il runbook](manage-runbooks.md) in Automazione di Azure.
 
-Python 3 manuali operativi sono supportati nelle seguenti infrastrutture globali di Azure:
+I runbook Python 3 sono supportati nelle infrastrutture globali di Azure seguenti:
 
 * Azure globale
 * Azure Government
@@ -110,23 +111,23 @@ Python 3 manuali operativi sono supportati nelle seguenti infrastrutture globali
 ### <a name="advantages"></a>Vantaggi
 
 * Usare le affidabili librerie di Python.
-* Può essere eseguito in Azure o in ruoli di lavoro ibridi per Runbook.
-* Per Python 2, i ruoli di lavoro ibridi per Runbook di Windows sono supportati con [python 2,7](https://www.python.org/downloads/release/latest/python2) installato.
-* Per i processi cloud Python 3 è supportata la versione Python 3,8. Gli script e i pacchetti di qualsiasi versione 3. x potrebbero funzionare se il codice è compatibile con versioni diverse.  
-* Per i processi ibridi Python 3 nei computer Windows, è possibile scegliere di installare qualsiasi versione 3. x che si vuole usare.  
-* Per i processi ibridi Python 3 nei computer Linux, si dipende dalla versione di Python 3 installata nel computer per eseguire programma omsconfig DSC e il ruolo di lavoro ibrido per Linux. Si consiglia di installare 3,6 nei computer Linux. Tuttavia, le diverse versioni dovrebbero funzionare anche se non sono presenti modifiche di rilievo nelle firme dei metodi o nei contratti tra le versioni di Python 3.
+* Può essere eseguito in Azure o nei computer di lavoro ibridi per runbook.
+* Per Python 2, i computer di lavoro ibridi per runbook di Windows sono supportati [con Python 2.7](https://www.python.org/downloads/release/latest/python2) installato.
+* Per i processi cloud Python 3, è supportata la versione 3.8 di Python. Gli script e i pacchetti di qualsiasi versione 3.x potrebbero funzionare se il codice è compatibile con versioni diverse.  
+* Per i processi ibridi python 3 nei computer Windows, è possibile scegliere di installare qualsiasi versione 3.x che si vuole usare.  
+* Per i processi ibridi Python 3 nei computer Linux, si dipende dalla versione di Python 3 installata nel computer per eseguire OMSConfig DSC e il ruolo di lavoro ibrido per Linux. È consigliabile installare la versione 3.6 nei computer Linux. Tuttavia, versioni diverse dovrebbero funzionare anche se non sono presenti modifiche di rilievo nelle firme dei metodi o nei contratti tra le versioni di Python 3.
 
 ### <a name="limitations"></a>Limitazioni
 
 * Conoscenza delle nozioni di scripting di Python.
 * Per poter usare librerie di terze parti, è necessario [importare il pacchetto](python-packages.md) nell'account di Automazione.
-* Usare il cmdlet **Start-AutomationRunbook**   nel flusso di lavoro PowerShell/PowerShell per avviare un Runbook di Python 3 (anteprima) non funziona. Per ovviare a questa limitazione, è possibile usare il cmdlet **Start-AzAutomationRunbook** del modulo AZ. Automation o il cmdlet **Start-AzureRmAutomationRunbook** del modulo AzureRm. Automation.  
-* Python 3 manuali operativi (anteprima) e i pacchetti non funzionano con PowerShell.
-* Automazione di Azure non supporta **sys. stderr**.
+* L'uso del cmdlet **Start-AutomationRunbook** nel flusso di lavoro PowerShell/PowerShell per avviare un   runbook Python 3 (anteprima) non funziona. È possibile usare il cmdlet **Start-AzAutomationRunbook** dal modulo Az.Automation o il cmdlet **Start-AzureRmAutomationRunbook** dal modulo AzureRm.Automation per risolvere questa limitazione.  
+* I runbook Python 3 (anteprima) e i pacchetti non funzionano con PowerShell.
+* Automazione di Azure non supporta **sys.stderr**.
 
 ### <a name="known-issues"></a>Problemi noti
 
-I processi di Python 3 talvolta hanno esito negativo e il *percorso eseguibile dell'interprete non è valido*. Questa eccezione può essere visualizzata se un processo viene ritardato, iniziando più di 10 minuti o usando **Start-AutomationRunbook** per avviare Python 3 manuali operativi. Se il processo viene ritardato, il riavvio del Runbook dovrebbe essere sufficiente.
+I processi Python 3 talvolta hanno esito negativo con un messaggio di eccezione *percorso eseguibile dell'interprete non valido.* Questa eccezione può verificarsi se un processo viene ritardato, avviando più di 10 minuti o usando **Start-AutomationRunbook** per avviare runbook Python 3. Se il processo viene ritardato, il riavvio del runbook dovrebbe essere sufficiente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,22 +6,23 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 09aab71513b1152924de4eae91a718bad23d1012
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 546407ce7286cebc04d3c86422f6242051d1dbf3
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518002"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830431"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Panoramica dell'autenticazione di account con Automazione di Azure
 
-Automazione di Azure consente di automatizzare le attività sulle risorse in Azure, in locale e con altri provider di servizi cloud, ad esempio Amazon Web Services (AWS). È possibile usare i runbook per automatizzare le attività o un ruolo di lavoro ibrido per runbook se si dispone di processi aziendali o operativi da gestire all'esterno di Azure. L'uso di uno di questi ambienti richiede autorizzazioni per accedere in modo sicuro alle risorse con i diritti minimi necessari.
+Automazione di Azure consente di automatizzare le attività sulle risorse in Azure, in locale e con altri provider di servizi cloud, ad esempio Amazon Web Services (AWS). È possibile usare runbook per automatizzare le attività o un ruolo di lavoro ibrido per runbook se si dispone di processi aziendali o operativi da gestire all'esterno di Azure. L'uso di uno di questi ambienti richiede autorizzazioni per accedere in modo sicuro alle risorse con i diritti minimi necessari.
 
 Questo articolo illustra i diversi scenari di autenticazione supportati da Automazione di Azure e descrive come iniziare partendo da uno o più ambienti che è necessario gestire.
 
 ## <a name="automation-account"></a>Account di Automazione
 
-Al primo avvio di Automazione di Azure sarà necessario creare almeno un account di Automazione. Gli account di Automazione consentono di isolare le risorse di Automazione, i runbook, gli asset e le configurazioni dalle risorse di altri account. È possibile usare gli account di Automazione per separare le risorse in ambienti logici separati o responsabilità delegate. Ad esempio, è possibile usare un account per lo sviluppo, uno per la produzione e un altro per l'ambiente locale. Oppure è possibile dedicare un account di Automazione per gestire gli aggiornamenti del sistema operativo in tutti i computer [con Gestione aggiornamenti](update-management/overview.md). 
+Al primo avvio di Automazione di Azure sarà necessario creare almeno un account di Automazione. Gli account di automazione consentono di isolare le risorse, i runbook, gli asset e le configurazioni di Automazione dalle risorse di altri account. È possibile usare gli account di Automazione per separare le risorse in ambienti logici separati o responsabilità delegate. Ad esempio, è possibile usare un account per lo sviluppo, uno per la produzione e un altro per l'ambiente locale. Oppure è possibile dedicare un account di Automazione per gestire gli aggiornamenti del sistema operativo in tutti i computer [con Gestione aggiornamenti](update-management/overview.md). 
 
 Un account di Automazione di Azure è diverso dagli account Microsoft creati nella sottoscrizione di Azure. Per un'introduzione alla creazione di un account di Automazione, vedere [Creare un account di Automazione](automation-quickstart-create-account.md).
 
@@ -37,7 +38,7 @@ Un'identità gestita Azure Active Directory (Azure AD) consente al runbook di ac
 
 Ecco alcuni dei vantaggi dell'uso delle identità gestite:
 
-- È possibile usare le identità gestite per eseguire l'autenticazione a qualsiasi servizio di Azure che supporta Azure AD autenticazione. Possono essere usati sia per i processi cloud che per i processi ibridi. I processi ibridi possono usare identità gestite quando vengono eseguiti in un ruolo di lavoro ibrido per runbook in esecuzione in una macchina virtuale di Azure o non di Azure.
+- È possibile usare le identità gestite per eseguire l'autenticazione in qualsiasi servizio di Azure che supporta Azure AD autenticazione. Possono essere usati sia per i processi cloud che per i processi ibridi. I processi ibridi possono usare identità gestite quando vengono eseguiti in un ruolo di lavoro ibrido per runbook in esecuzione in una macchina virtuale di Azure o non di Azure.
 
 - Le identità gestite possono essere usate senza costi aggiuntivi.
 
@@ -54,13 +55,13 @@ A un account di Automazione possono essere concessi due tipi di identità:
 >[!NOTE]
 > Le identità assegnate dall'utente non sono ancora supportate.
 
-Per informazioni dettagliate sull'uso delle identità gestite, vedere [Abilitare l'identità gestita per Automazione di Azure (anteprima).](enable-managed-identity-for-automation.md)
+Per informazioni dettagliate sull'uso delle identità gestite, vedere [Abilitare l'identità gestita Automazione di Azure (anteprima).](enable-managed-identity-for-automation.md)
 
 ## <a name="run-as-accounts"></a>Account RunAs
 
 Gli account RunAs in Automazione di Azure l'autenticazione per la gestione Azure Resource Manager risorse o risorse distribuite nel modello di distribuzione classica. Esistono due tipi di account RunAs in Automazione di Azure:
 
-* Account RunAs di Azure: consente di gestire le risorse di Azure in base Azure Resource Manager servizio di distribuzione e gestione per Azure.
+* Account RunAs di Azure: consente di gestire le risorse di Azure in base al servizio Azure Resource Manager distribuzione e gestione per Azure.
 * Account RunAs classico di Azure: consente di gestire le risorse classiche di Azure in base al modello di distribuzione classica.
 
 Per altre informazioni sui modelli Azure Resource Manager distribuzione classica e classica, vedere Resource Manager [distribuzione classica.](../azure-resource-manager/management/deployment-models.md)

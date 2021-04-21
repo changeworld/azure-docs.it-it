@@ -4,15 +4,16 @@ description: Informazioni su come creare una funzione Python dalla riga di coman
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom:
-- devx-track-python
+- devx-track-powershell
 - devx-track-azurecli
+- devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 626cff867a336880689373c289087e2332a816ee
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e144304ae1b36ca02d4b8796e7994e87b09505d9
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787450"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831097"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione Python in Azure dalla riga di comando
 
@@ -24,7 +25,7 @@ ms.locfileid: "107787450"
 > - [PowerShell](create-first-function-cli-powershell.md)
 > - [TypeScript](create-first-function-cli-typescript.md)
 
-In questo articolo vengono usati gli strumenti da riga di comando per creare una funzione Python che risponde alle richieste HTTP. Dopo aver eseguito il test del codice in locale, è possibile distribuirlo in <abbr title="Ambiente di elaborazione di runtime in cui tutti i dettagli del server sono trasparenti per gli sviluppatori di applicazioni, semplificando il processo di distribuzione e gestione del codice.">senza server</abbr> ambiente di <abbr title="Un servizio di Azure che offre un ambiente di elaborazione serverless a basso costo per le applicazioni.">Funzioni di Azure</abbr>.
+In questo articolo vengono usati gli strumenti da riga di comando per creare una funzione Python che risponde alle richieste HTTP. Dopo aver eseguito il test del codice in locale, distribuirlo nel <abbr title="Ambiente di elaborazione di runtime in cui tutti i dettagli del server sono trasparenti per gli sviluppatori di applicazioni, semplificando il processo di distribuzione e gestione del codice.">senza server</abbr> ambiente di <abbr title="Un servizio di Azure che fornisce un ambiente di elaborazione serverless a basso costo per le applicazioni.">Funzioni di Azure</abbr>.
 
 Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di qualche centesimo (USD) o meno nell'account Azure.
 
@@ -34,11 +35,11 @@ Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di
 
 Per eseguire le procedure descritte è necessario:
 
-+ Un'istanza di Azure <abbr title="Profilo che gestisce le informazioni di fatturazione per l'utilizzo di Azure.">account</abbr> con un oggetto attivo <abbr title="Struttura organizzativa di base in cui si gestiscono le risorse in Azure, in genere associate a un singolo o reparto all'interno di un'organizzazione.">sottoscrizione</abbr>. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ Un'istanza di Azure <abbr title="Profilo che gestisce le informazioni di fatturazione per l'utilizzo di Azure.">account</abbr> con un oggetto attivo <abbr title="Struttura organizzativa di base in cui si gestiscono le risorse in Azure, in genere associate a un singolo utente o a un reparto all'interno di un'organizzazione.">sottoscrizione</abbr>. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) versione 3.x. 
   
-+ In entrambi i <abbr title="Set di strumenti da riga di comando multipiattaforma per l'uso delle risorse di Azure dal computer di sviluppo locale, in alternativa all'uso del portale di Azure.">Interfaccia della riga di comando di Azure</abbr> oppure <abbr title="Modulo di PowerShell che fornisce comandi per l'uso delle risorse di Azure dal computer di sviluppo locale, in alternativa all'uso del portale di Azure.">Azure PowerShell</abbr> per la creazione di risorse di Azure:
++ In entrambi i <abbr title="Set di strumenti da riga di comando multipiattaforma per l'uso delle risorse di Azure dal computer di sviluppo locale, in alternativa all'uso del portale di Azure.">Interfaccia della riga di comando di Azure</abbr> oppure <abbr title="Un modulo di PowerShell che fornisce i comandi per l'uso delle risorse di Azure dal computer di sviluppo locale, in alternativa all'uso del portale di Azure.">Azure PowerShell</abbr> per la creazione di risorse di Azure:
 
     + [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) versione 2.4 o successiva.
 
@@ -52,7 +53,7 @@ Verificare i prerequisiti, a seconda che si utilizzi l'interfaccia della riga di
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-+ In un terminale o in una finestra di comando eseguire `func --version` per verificare che <abbr title="Set di strumenti da riga di comando per l'Funzioni di Azure nel computer locale.">Azure Functions Core Tools</abbr> sono la versione 3.x.
++ In un terminale o in una finestra di comando `func --version` eseguire per verificare che il <abbr title="Set di strumenti da riga di comando per l'Funzioni di Azure nel computer locale.">Azure Functions Core Tools</abbr> sono la versione 3.x.
 
 + Eseguire `az --version` per verificare che la versione dell'interfaccia della riga di comando di Azure sia 2.4 o successiva.
 
@@ -62,7 +63,7 @@ Verificare i prerequisiti, a seconda che si utilizzi l'interfaccia della riga di
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-+ In un terminale o in una finestra di comando eseguire `func --version` per verificare che <abbr title="Set di strumenti da riga di comando per l'uso Funzioni di Azure nel computer locale.">Azure Functions Core Tools</abbr> sono la versione 3.x.
++ In un terminale o in una finestra di comando eseguire `func --version` per verificare che <abbr title="Set di strumenti da riga di comando per l'Funzioni di Azure nel computer locale.">Azure Functions Core Tools</abbr> sono la versione 3.x.
 
 + Eseguire `(Get-Module -ListAvailable Az).Version` per verificare che la versione sia 5.0 o successiva. 
 
@@ -173,7 +174,7 @@ In questa sezione viene creato un oggetto locale <abbr title="Contenitore logico
     <details>
     <summary><strong>Codice per function.jssu</strong></summary>
 
-    *function.jsè* un file di configurazione che definisce <abbr title="Connessioni dichiarative tra una funzione e altre risorse. Un'associazione di input fornisce dati alla funzione. Un'associazione di output fornisce dati dalla funzione ad altre risorse.">associazioni di input e output</abbr> per la funzione, incluso il tipo di trigger.
+    *function.jsè* un file di configurazione che definisce <abbr title="Connessioni dichiarative tra una funzione e altre risorse. Un'associazione di input fornisce dati alla funzione. Un'associazione di output fornisce dati dalla funzione ad altre risorse.">Associazioni di input e output</abbr> per la funzione, incluso il tipo di trigger.
     
     Se si vuole, è possibile modificare `scriptFile` per richiamare un file Python diverso.
     
@@ -211,18 +212,18 @@ In questa sezione viene creato un oggetto locale <abbr title="Contenitore logico
     
     <br/>
     <details>
-    <summary><strong>HttpExample non viene visualizzato nell'output</strong></summary>
+    <summary><strong>HttpExample non è visualizzato nell'output</strong></summary>
 
     Se HttpExample non viene visualizzato, è probabile che l'host sia stato avviato dall'esterno della cartella radice del progetto. In tal caso, usare <kbd>CTRL+C</kbd> per arrestare l'host, passare alla cartella radice del progetto ed eseguire di nuovo il comando precedente.
     </details>
 
-1. Copiare l'URL della funzione **HttpExample** da questo output in un browser e aggiungere la stringa di query **?name=<YOUR_NAME>**, rendendo l'URL completo, ad esempio **http://localhost:7071/api/HttpExample?name=Functions** . Il browser dovrebbe visualizzare un messaggio simile a **Hello Functions:**
+1. Copiare l'URL della funzione **HttpExample** da questo output in un browser e aggiungere la stringa di query **?name=<YOUR_NAME>**, rendendo l'URL completo, ad esempio **http://localhost:7071/api/HttpExample?name=Functions** . Il browser dovrebbe visualizzare un messaggio come **Hello Functions**:
 
     ![Risultato della funzione eseguita in locale nel browser](../../includes/media/functions-run-function-test-local-cli/function-test-local-browser.png)
 
 1. Il terminale in cui è stato avviato il progetto mostra anche l'output del log quando si effettuano le richieste.
 
-1. Al termine, usare <kbd>CTRL+C</kbd> e scegliere <kbd>y</kbd> per arrestare l'host di funzioni.
+1. Al termine, usare <kbd>CTRL+C</kbd> e scegliere <kbd>y</kbd> per arrestare l'host delle funzioni.
 
 <br/>
 
@@ -230,7 +231,7 @@ In questa sezione viene creato un oggetto locale <abbr title="Contenitore logico
 
 ## <a name="5-create-supporting-azure-resources-for-your-function"></a>5. Creare risorse di Azure di supporto per la funzione
 
-Prima di poter distribuire il codice della funzione in Azure, è necessario creare un <abbr title="Un contenitore logico per le risorse di Azure correlate che è possibile gestire come unità.">gruppo di risorse</abbr>Un <abbr title="Un account che contiene tutti gli oggetti dati di archiviazione di Azure. L'account di archiviazione fornisce uno spazio dei nomi univoco per i dati di archiviazione.">archiviazione di Azure</abbr>e <abbr title="Risorsa cloud che ospita funzioni serverless in Azure, che fornisce l'ambiente di calcolo sottostante in cui vengono eseguite le funzioni.">app per le funzioni</abbr> usando i comandi seguenti:
+Prima di poter distribuire il codice della funzione in Azure, è necessario creare un <abbr title="Contenitore logico per le risorse di Azure correlate che è possibile gestire come unità.">gruppo di risorse</abbr>Un <abbr title="Account che contiene tutti gli oggetti dati di archiviazione di Azure. L'account di archiviazione fornisce uno spazio dei nomi univoco per i dati di archiviazione.">archiviazione di Azure</abbr>e un <abbr title="Risorsa cloud che ospita funzioni serverless in Azure, che fornisce l'ambiente di calcolo sottostante in cui vengono eseguite le funzioni.">app per le funzioni</abbr> usando i comandi seguenti:
 
 1. Se non è già stato fatto, accedere ad Azure:
 
@@ -272,7 +273,7 @@ Prima di poter distribuire il codice della funzione in Azure, è necessario crea
 
     Non è possibile ospitare app Windows e Linux nello stesso gruppo di risorse. Se si dispone d un gruppo di risorse esistente denominato `AzureFunctionsQuickstart-rg` con un'app per le funzioni Windows o un'app Web, sarà necessario usare un gruppo di risorse diverso.
 
-1. Creare un account di Archiviazione di Azure generico nel gruppo di risorse e nell'area:
+1. Creare un account di Archiviazione di Azure per utilizzo generico nel gruppo di risorse e nell'area:
 
     # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -292,7 +293,7 @@ Prima di poter distribuire il codice della funzione in Azure, è necessario crea
 
     ---
 
-    Sostituire `<STORAGE_NAME>` con un nome appropriato per l'utente e <abbr title="Il nome deve essere univoco in tutti gli account di archiviazione usati a livello globale da tutti i clienti di Azure. Ad esempio, è possibile usare una combinazione del nome personale o della società, del nome dell'applicazione e di un identificatore numerico, come in contosobizappstorage20.">univoco in Archiviazione di Azure</abbr>. I nomi devono contenere da tre a 24 caratteri costituiti esclusivamente da numeri e lettere in minuscolo. `Standard_LRS` specifica un account per utilizzo generico, che è [supportato da Funzioni](storage-considerations.md#storage-account-requirements).
+    Sostituire `<STORAGE_NAME>` con un nome appropriato per l'utente e <abbr title="Il nome deve essere univoco in tutti gli account di archiviazione usati da tutti i clienti di Azure a livello globale. Ad esempio, è possibile usare una combinazione del nome personale o della società, del nome dell'applicazione e di un identificatore numerico, come in contosobizappstorage20.">univoco in Archiviazione di Azure</abbr>. I nomi devono contenere da tre a 24 caratteri costituiti esclusivamente da numeri e lettere in minuscolo. `Standard_LRS` specifica un account per utilizzo generico, che è [supportato da Funzioni](storage-considerations.md#storage-account-requirements).
     
     Per questo argomento di avvio rapido, il costo dell'account di archiviazione è solo di pochi centesimi di dollaro USA.
 
@@ -333,7 +334,7 @@ Prima di poter distribuire il codice della funzione in Azure, è necessario crea
 
 ## <a name="6-deploy-the-function-project-to-azure"></a>6. Distribuire il progetto di funzione in Azure
 
-Dopo aver creato correttamente l'app per le funzioni  in Azure, è ora possibile distribuire il progetto di funzioni locali usando il comando [func azure functionapp publish.](functions-run-local.md#project-file-deployment)  
+Dopo aver creato correttamente l'app per le funzioni  in Azure, è possibile distribuire il progetto di funzioni locale usando il comando [func azure functionapp publish.](functions-run-local.md#project-file-deployment)  
 
 Nell'esempio seguente sostituire `<APP_NAME>` con il nome dell'app.
 
@@ -341,7 +342,7 @@ Nell'esempio seguente sostituire `<APP_NAME>` con il nome dell'app.
 func azure functionapp publish <APP_NAME>
 ```
 
-Il `publish` comando mostra risultati simili all'output seguente (troncati per semplicità):
+Il `publish` comando mostra risultati simili all'output seguente (troncato per semplicità):
 
 <pre class="is-monospace is-size-small has-padding-medium has-background-tertiary has-text-tertiary-invert">
 ...
@@ -366,11 +367,11 @@ Functions in msdocs-azurefunctions-qs:
 
 ## <a name="7-invoke-the-function-on-azure"></a>7. Richiamare la funzione in Azure
 
-Poiché la funzione usa un trigger HTTP, è possibile richiamarlo effettuando una richiesta HTTP al relativo URL nel browser o con uno strumento come <abbr title="Uno strumento da riga di comando per la generazione di richieste HTTP a un URL. Vedere https://curl.se/">curl</abbr>. 
+Poiché la funzione usa un trigger HTTP, è possibile richiamarla effettuando una richiesta HTTP al relativo URL nel browser o con uno strumento come <abbr title="Uno strumento da riga di comando per la generazione di richieste HTTP a un URL. Vedere https://curl.se/">curl</abbr>. 
 
 # <a name="browser"></a>[Browser](#tab/browser)
 
-Copiare **l'URL** di richiamo completo visualizzato nell'output del comando in una barra degli indirizzi del browser, aggiungendo il parametro di `publish` query&**name=Functions**. Nel browser dovrebbe essere visualizzato un output simile a quello visualizzato quando è stata eseguita la funzione in locale.
+Copiare **l'URL** invoke completo visualizzato nell'output del comando in una barra degli indirizzi del browser, aggiungendo il parametro `publish` di query&**name=Functions**. Nel browser dovrebbe essere visualizzato un output simile a quello visualizzato quando è stata eseguita la funzione in locale.
 
 ![Output della funzione eseguita in Azure in un browser](../../includes/media/functions-run-remote-azure-cli/function-test-cloud-browser.png)
 
@@ -382,7 +383,7 @@ Eseguire [`curl`](https://curl.haxx.se/) con **l'URL invoke**, aggiungendo il pa
 
 ---
 
-### <a name="71-view-real-time-streaming-logs"></a>7.1 Visualizzare i log in streaming in tempo reale
+### <a name="71-view-real-time-streaming-logs"></a>7.1 Visualizzare i log di streaming in tempo reale
 
 Eseguire il comando seguente per visualizzare i [log in streaming](functions-run-local.md#enable-streaming-logs) near real-time in Application Insights nel portale di Azure:
 
@@ -400,7 +401,7 @@ In una finestra del terminale separata o nel browser chiamare di nuovo la funzio
 
 ## <a name="8-clean-up-resources"></a>8. Pulire le risorse
 
-Se si continua con il [passaggio successivo e si](#next-steps) aggiunge un <abbr title="Mezzo per associare una funzione a una coda di archiviazione, in modo che possa creare messaggi nella coda. "> Associazione di output della coda di Archiviazione di Azure</abbr>, mantenere tutte le risorse disponibili perché si baseranno su ciò che è già stato fatto.
+Se si continua con il [passaggio successivo e](#next-steps) si aggiunge un <abbr title="Oggetto che consente di associare una funzione a una coda di archiviazione, in modo che possa creare messaggi nella coda. "> Associazione di output della coda di Archiviazione di Azure</abbr>, mantenere tutte le risorse sul posto come si baserà su ciò che è già stato fatto.
 
 In caso contrario, usare il comando seguente per eliminare il gruppo di risorse e tutte le relative risorse contenute per evitare di incorrere in costi aggiuntivi.
 

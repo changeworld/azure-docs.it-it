@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: f6d2696a68643f87de0fcaf2e723da9365d9953e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b03481b41e879acac4c3b193d72594454f650525
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953851"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831187"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Risolvere i problemi relativi ad Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -201,7 +202,7 @@ Questo problema può essere causato da un account RunAs configurato in modo non 
 
 Per verificare che l'account RunAs sia configurato correttamente, passare al proprio account di Automazione nel portale di Azure e selezionare **Account RunAs** in **Impostazioni account**. Se un account RunAs non è configurato correttamente o è scaduto, lo stato indica la condizione.
 
-Se l'account RunAs è configurato in modo errato, eliminarlo e ricrearlo. Per altre informazioni, vedere [account RunAs di automazione di Azure](../automation-security-overview.md#run-as-accounts).
+Se l'account RunAs è configurato in modo errato, eliminarlo e ricrearlo. Per altre informazioni, vedere Automazione di Azure [account RunAs.](../automation-security-overview.md#run-as-accounts)
 
 Se il certificato dell'account RunAs è scaduto, seguire la procedura descritta in [Rinnovo di un certificato autofirmato](../manage-runas-account.md#cert-renewal) per rinnovare il certificato.
 

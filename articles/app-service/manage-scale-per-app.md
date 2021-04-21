@@ -1,34 +1,34 @@
 ---
-title: Scalabilità per app per l'hosting ad alta densità
-description: Ridimensiona le app in modo indipendente dai piani di servizio app e ottimizza le istanze con scalabilità orizzontale del piano.
+title: Ridimensionamento per app per l'hosting ad alta densità
+description: Ridimensionare le app in modo indipendente dai piani di servizio app e ottimizzare le istanze con scalabilità orizzontale nel piano.
 author: btardif
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
-ms.custom: seodec18
-ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 756117a2a231fcb406fd3e3102a16c318c621aa0
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74672342"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832609"
 ---
-# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hosting ad alta densità nel servizio app Azure con scalabilità per app
+# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hosting ad alta densità in Servizio app di Azure scalabilità per app
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Quando si usa il servizio app, è possibile ridimensionare le app ridimensionando il [piano di servizio app](overview-hosting-plans.md) in cui vengono eseguite. Se vengono eseguite più app nello stesso piano di servizio app,ogni istanza scale-out esegue tutte le app nel piano.
+Quando si usa il servizio app, è possibile ridimensionare le app ridimensionando il [piano di servizio app](overview-hosting-plans.md) su cui vengono eseguite. Se vengono eseguite più app nello stesso piano di servizio app,ogni istanza scale-out esegue tutte le app nel piano.
 
-La *scalabilità per app* può essere abilitata a livello di piano di servizio app per consentire la scalabilità di un'app in modo indipendente dal piano di servizio app che lo ospita. È così possibile configurare un piano di servizio app per offrire 10 istanze e impostare un'app in modo che usi solo cinque istanze.
+*Il ridimensionamento per app* può essere abilitato a livello di piano di servizio app per consentire il ridimensionamento di un'app indipendentemente dal piano di servizio app che la ospita. È così possibile configurare un piano di servizio app per offrire 10 istanze e impostare un'app in modo che usi solo cinque istanze.
 
 > [!NOTE]
 > La scalabilità per app è disponibile solo per i piani tariffari **Standard**, **Premium**, **Premium V2** e **Isolated**.
 >
 
-Le app vengono allocate al piano di servizio app disponibile usando un approccio ottimale per una distribuzione uniforme tra le istanze. Sebbene non sia garantita una distribuzione uniforme, la piattaforma verifica che due istanze della stessa app non siano ospitate nella stessa istanza del piano di servizio app.
+Le app vengono allocate al piano di servizio app disponibile usando un approccio ottimale per una distribuzione uniforme tra le istanze. Anche se non è garantita una distribuzione uniforme, la piattaforma garantisce che due istanze della stessa app non siano ospitate nella stessa istanza del piano di servizio app.
 
-La piattaforma non si basa sulle metriche per decidere l'allocazione dei thread di lavoro. Le applicazioni vengono ribilanciate solo quando le istanze vengono aggiunte o rimosse dal piano di servizio app.
+La piattaforma non si basa sulle metriche per decidere l'allocazione del ruolo di lavoro. Le applicazioni vengono ribilanciati solo quando le istanze vengono aggiunte o rimosse dal piano di servizio app.
 
 ## <a name="per-app-scaling-using-powershell"></a>Scalabilità per app tramite PowerShell
 
@@ -125,7 +125,7 @@ Il piano di servizio app imposta la proprietà **PerSiteScaling** su true `"perS
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Configurazione consigliata per l'hosting ad alta densità
 
-La scalabilità per app è una funzionalità abilitata sia nelle aree di Azure globali che negli [ambienti del servizio app](environment/app-service-app-service-environment-intro.md). Tuttavia, la strategia consigliata consiste nell'usare gli ambienti del servizio app per sfruttare le funzionalità avanzate e la capacità del piano di servizio app più grande.  
+La scalabilità per app è una funzionalità abilitata sia nelle aree di Azure globali che negli [ambienti del servizio app](environment/app-service-app-service-environment-intro.md). Tuttavia, la strategia consigliata consiste nell'usare gli ambienti del servizio app per sfruttare le funzionalità avanzate e la maggiore capacità del piano di servizio app.  
 
 Per configurare l'hosting ad alta densità per le app, seguire questa procedura:
 

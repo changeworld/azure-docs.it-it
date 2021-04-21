@@ -5,18 +5,19 @@ services: automation
 ms.subservice: ''
 ms.date: 01/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f170fc948f136f4f46634e7ae2645ed2eb357afa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e440a27c8f7778c800148feb5bec76ca5a48f4f5
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101096460"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833923"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gestire un account RunAs di Automazione di Azure
 
-Gli account RunAs in automazione di Azure forniscono l'autenticazione per la gestione delle risorse nel modello di distribuzione Azure Resource Manager o di Azure classico usando manuali operativi di automazione e altre funzionalità di automazione. Questo articolo fornisce indicazioni su come gestire un account RunAs o un account RunAs classico.
+Gli account RunAs in Automazione di Azure l'autenticazione per la gestione delle risorse nel modello di distribuzione Azure Resource Manager o classica di Azure usando runbook di Automazione e altre funzionalità di Automazione. Questo articolo fornisce indicazioni su come gestire un account RunAs o un account RunAs classico.
 
-Per altre informazioni sull'autenticazione dell'account di automazione di Azure e le linee guida relative agli scenari di automazione dei processi, vedere [Panoramica dell'autenticazione degli account di automazione](automation-security-overview.md).
+Per altre informazioni sull'autenticazione Automazione di Azure account e indicazioni correlate agli scenari di automazione dei processi, vedere Panoramica dell'autenticazione [dell'account di Automazione.](automation-security-overview.md)
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Rinnovare un certificato autofirmato
 
@@ -36,11 +37,11 @@ Usare la procedura seguente per rinnovare il certificato autofirmato.
 
 1. Passare all'account di Automazione selezionare **Account RunAs** nella sezione di impostazioni dell'account.
 
-    :::image type="content" source="media/manage-runas-account/automation-account-properties-pane.png" alt-text="Riquadro delle proprietà dell'account di automazione.":::
+    :::image type="content" source="media/manage-runas-account/automation-account-properties-pane.png" alt-text="Riquadro delle proprietà dell'account di Automazione.":::
 
-1. Nella pagina proprietà **account RunAs** selezionare **account RunAs** o **account RunAs classico** a seconda dell'account di cui è necessario rinnovare il certificato.
+1. Nella pagina **delle proprietà Account RunAs** selezionare **Account RunAs** o Account **RunAs** classico a seconda dell'account per cui è necessario rinnovare il certificato.
 
-1. Nella pagina **Proprietà** per l'account selezionato selezionare **Rinnova certificato**.
+1. Nella pagina **Proprietà** per l'account selezionato selezionare **Rinnova certificato.**
 
     :::image type="content" source="media/manage-runas-account/automation-account-renew-runas-certificate.png" alt-text="Rinnovare il certificato per l'account RunAs.":::
 
@@ -48,28 +49,28 @@ Usare la procedura seguente per rinnovare il certificato autofirmato.
 
 ## <a name="grant-run-as-account-permissions-in-other-subscriptions"></a>Concedere le autorizzazioni dell'account RunAs in altre sottoscrizioni
 
-Automazione di Azure supporta l'uso di un singolo account di automazione da una sottoscrizione e l'esecuzione di manuali operativi su Azure Resource Manager risorse tra più sottoscrizioni. Questa configurazione non supporta il modello di distribuzione classica di Azure.
+Automazione di Azure supporta l'uso di un singolo account di Automazione da una sottoscrizione e l'esecuzione di runbook Azure Resource Manager risorse tra più sottoscrizioni. Questa configurazione non supporta il modello di distribuzione classica di Azure.
 
-L'entità servizio dell'account RunAs viene assegnata al ruolo [collaboratore](../role-based-access-control/built-in-roles.md#contributor) nell'altra sottoscrizione o a autorizzazioni più restrittive. Per altre informazioni, vedere [controllo degli accessi in base al ruolo](automation-role-based-access-control.md) in automazione di Azure. Per assegnare l'account RunAs al ruolo nell'altra sottoscrizione, l'account utente che esegue questa attività deve essere membro del ruolo **proprietario** di tale sottoscrizione.
+Assegnare all'entità servizio dell'account RunAs [il ruolo Collaboratore](../role-based-access-control/built-in-roles.md#contributor) nell'altra sottoscrizione o autorizzazioni più restrittive. Per altre informazioni, vedere [Controllo degli accessi](automation-role-based-access-control.md) in base al ruolo in Automazione di Azure. Per assegnare l'account RunAs al ruolo nell'altra sottoscrizione, l'account utente che esegue questa attività deve essere membro del **ruolo Proprietario** in tale sottoscrizione.
 
 > [!NOTE]
-> Questa configurazione supporta solo più sottoscrizioni di un'organizzazione che usano un tenant di Azure AD comune.
+> Questa configurazione supporta solo più sottoscrizioni di un'organizzazione che usano un tenant Azure AD comune.
 
-Prima di concedere le autorizzazioni per l'account RunAs, è necessario prima prendere nota del nome visualizzato dell'entità servizio da assegnare.
+Prima di concedere le autorizzazioni dell'account RunAs, è necessario prendere nota del nome visualizzato dell'entità servizio da assegnare.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Dall'account di Automazione selezionare **Account RunAs** in **impostazioni account**.
 1. Selezionare **Account RunAs di Azure**.
-1. Copiare o prendere nota del valore per **nome visualizzato** nella pagina **account RunAs di Azure** .
+1. Copiare o prendere nota del valore **di Nome visualizzato** nella pagina Account **RunAs di Azure.**
 
 Per informazioni dettagliate su come aggiungere assegnazioni di ruolo, vedere gli articoli seguenti a seconda del metodo che si vuole usare.
 
-* [Assegnare i ruoli di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md)
-* [Assegnare i ruoli di Azure usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Assegnare i ruoli di Azure usando l'interfaccia della riga di comando](../role-based-access-control/role-assignments-cli.md)
-* [Assegnare i ruoli di Azure usando l'API REST](..//role-based-access-control/role-assignments-rest.md)
+* [Assegnare ruoli di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md)
+* [Assegnare ruoli di Azure usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Assegnare ruoli di Azure tramite l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)
+* [Assegnare ruoli di Azure usando l'API REST](..//role-based-access-control/role-assignments-rest.md)
 
-Dopo aver assegnato l'account RunAs al ruolo, nella Runbook specificare `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` per impostare il contesto della sottoscrizione da usare. Per ulteriori informazioni, vedere [set-AzContext](/powershell/module/az.accounts/set-azcontext).
+Dopo aver assegnato l'account RunAs al ruolo, nel runbook specificare `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` per impostare il contesto di sottoscrizione da usare. Per altre informazioni, vedere [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ## <a name="limit-run-as-account-permissions"></a>Limitare le autorizzazioni dell'account RunAs
 
@@ -78,7 +79,7 @@ Per controllare la destinazione di Automazione rispetto alle risorse in Azure, �
 >[!IMPORTANT]
 >Dopo aver eseguito lo script **Update-AutomationRunAsAccountRoleAssignments.ps1**, i runbook che accedono a Key Vault con gli account RunAs non funzionano più. Prima di eseguire lo script, è necessario rivedere i runbook nell'account per le chiamate ad Azure Key Vault. Per consentire l'accesso a Key Vault dai runbook di Automazione di Azure, è necessario [aggiungere l'account RunAs alle autorizzazioni di Key Vault](#add-permissions-to-key-vault).
 
-Se è necessario limitare ulteriormente le operazioni che l'entità servizio RunAs può eseguire, è possibile aggiungere altri tipi di risorse all' `NotActions` elemento della definizione di ruolo personalizzata. L'esempio seguente limita l'accesso a `Microsoft.Compute/*`. Se si aggiunge questo tipo di risorsa a `NotActions` per la definizione del ruolo, il ruolo non potrà accedere alle risorse di calcolo. Per altre informazioni sulle definizioni dei ruoli, vedere [Informazioni sulle definizioni dei ruoli per le risorse di Azure](../role-based-access-control/role-definitions.md).
+Se è necessario limitare ulteriormente le operazioni che l'entità servizio RunAs può eseguire, è possibile aggiungere altri tipi di risorse `NotActions` all'elemento della definizione del ruolo personalizzata. L'esempio seguente limita l'accesso a `Microsoft.Compute/*`. Se si aggiunge questo tipo di risorsa a `NotActions` per la definizione del ruolo, il ruolo non potrà accedere alle risorse di calcolo. Per altre informazioni sulle definizioni dei ruoli, vedere [Informazioni sulle definizioni dei ruoli per le risorse di Azure](../role-based-access-control/role-definitions.md).
 
 ```powershell
 $roleDefinition = Get-AzRoleDefinition -Name 'Automation RunAs Contributor'
@@ -86,14 +87,14 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-È possibile determinare se l'entità servizio usata dall'account RunAs ha assegnato il ruolo **collaboratore** o uno personalizzato.
+È possibile determinare se l'entità servizio usata dall'account RunAs ha assegnato il **ruolo Collaboratore** o un ruolo personalizzato.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare all'account di Automazione selezionare **Account RunAs** nella sezione di impostazioni dell'account.
 1. Selezionare **Account RunAs di Azure**.
 1. Selezionare **Ruolo** per individuare la definizione del ruolo usata.
 
-:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Verificare il ruolo account RunAs." lightbox="media/manage-runas-account/verify-role-expanded.png":::
+:::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Verificare il ruolo Account RunAs." lightbox="media/manage-runas-account/verify-role-expanded.png":::
 
 È anche possibile determinare la definizione del ruolo usata dagli account RunAs per più sottoscrizioni o account di Automazione. A tale scopo, usare lo script [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) nella PowerShell Gallery.
 
@@ -104,7 +105,7 @@ $roleDefinition | Set-AzRoleDefinition
 * Concedere le autorizzazioni a Key Vault.
 * Impostare i criteri di accesso.
 
-È possibile utilizzare lo script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) nel PowerShell Gallery per concedere le autorizzazioni dell'account RunAs a Key Vault. Per ulteriori informazioni sull'impostazione delle autorizzazioni per Key Vault, vedere [assegnare un criterio di accesso key Vault](../key-vault/general/assign-access-policy-powershell.md) .
+È possibile usare lo script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) nel PowerShell Gallery per concedere all'account RunAs le autorizzazioni per Key Vault. Vedere [Assegnare un Key Vault di accesso remoto](../key-vault/general/assign-access-policy-powershell.md) per altri dettagli sull'impostazione delle autorizzazioni per Key Vault.
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Risolvere i problemi di configurazione errata per gli account RunAs
 
@@ -117,7 +118,7 @@ Alcuni elementi di configurazione necessari per l'account RunAs o l'account RunA
 
 Per tali istanze di configurazione errata, l'account di Automazione rileva le modifiche e visualizza lo stato *Incompleto* nel riquadro delle proprietà dell'Account RunAs.
 
-:::image type="content" source="media/manage-runas-account/automation-account-runas-config-incomplete.png" alt-text="Configurazione dell'account RunAs incompleta.":::
+:::image type="content" source="media/manage-runas-account/automation-account-runas-config-incomplete.png" alt-text="Configurazione incompleta dell'account RunAs.":::
 
 Quando si seleziona l'account RunAs, il riquadro delle proprietà dell'account mastra il messaggio di errore seguente:
 
@@ -125,11 +126,11 @@ Quando si seleziona l'account RunAs, il riquadro delle proprietà dell'account m
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-Per risolvere rapidamente questi problemi relativi all'account RunAs, è possibile [eliminare](delete-run-as-account.md) e [ricreare](create-run-as-account.md) l'account RunAs.
+È possibile risolvere rapidamente questi problemi relativi all'account RunAs [eliminando](delete-run-as-account.md) e [creando di nuovo l'account](create-run-as-account.md) RunAs.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Oggetti applicazione e oggetti entità servizio](../active-directory/develop/app-objects-and-service-principals.md).
 * [Panoramica sui certificati per i servizi cloud di Azure](../cloud-services/cloud-services-certs-create.md).
-* Per creare o ricreare un account RunAs, vedere [creare un account RunAs](create-run-as-account.md).
-* Se non è più necessario usare un account RunAs, vedere [eliminare un account RunAs](delete-run-as-account.md).
+* Per creare o ri-creare un account RunAs, vedere [Creare un account RunAs](create-run-as-account.md).
+* Se non è più necessario usare un account RunAs, vedere [Eliminare un account RunAs.](delete-run-as-account.md)

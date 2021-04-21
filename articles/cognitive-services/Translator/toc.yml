@@ -14,7 +14,7 @@
       href: translator-info-overview.md
     - name: Domande frequenti su Translator
       href: 'https://www.microsoft.com/translator/faq.aspx'
-    - name: Avvio rapido
+    - name: Guida introduttiva
       href: quickstart-translator.md
     - name: Esempi
       items:
@@ -88,7 +88,7 @@
       href: custom-translator/overview.md
     - name: Domande frequenti
       href: custom-translator/faq.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       href: custom-translator/quickstart-build-deploy-custom-model.md
     - name: Guide pratiche
       items:
@@ -138,7 +138,7 @@
   items:
     - name: Che cos'è la traduzione di documenti?
       href: document-translation/overview.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       href: document-translation/get-started-with-document-translation.md
     - name: Guide pratiche
       items:
@@ -146,22 +146,24 @@
           href: document-translation/create-sas-tokens.md
     - name: Riferimento
       items:
-        - name: Ottenere i formati dei documenti
-          href: document-translation/reference/get-document-formats.md
-        - name: Ottenere i formati di glossario
-          href: document-translation/reference/get-glossary-formats.md
-        - name: Ottenere l'origine di archiviazione documenti
-          href: document-translation/reference/get-document-storage-source.md
-        - name: Inviare una richiesta batch
-          href: document-translation/reference/submit-batch-request.md
-        - name: Ottenere lo stato dei documenti delle operazioni
-          href: document-translation/reference/get-operation-documents-status.md
+        - name: Ottenere i formati di documento supportati
+          href: document-translation/reference/get-supported-document-formats.md
+        - name: Ottenere i formati di glossario supportati
+          href: document-translation/reference/get-supported-glossary-formats.md
+        - name: Ottenere le origini di archiviazione supportate
+          href: document-translation/reference/get-supported-storage-sources.md
+        - name: Avviare la traduzione
+          href: document-translation/reference/start-translation.md
         - name: Ottenere lo stato dei documenti
+          href: document-translation/reference/get-documents-status.md
+        - name: Ottenere lo stato del documento
           href: document-translation/reference/get-document-status.md
-        - name: Operazioni Get
-          href: document-translation/reference/get-operations.md
-        - name: Annulla operazione
-          href: document-translation/reference/cancel-operation.md
+        - name: Ottenere lo stato delle traduzioni
+          href: document-translation/reference/get-translations-status.md
+        - name: Ottenere lo stato della traduzione
+          href: document-translation/reference/get-translation-status.md
+        - name: Annullare la traduzione
+          href: document-translation/reference/cancel-translation.md
 - name: Guide pratiche
   items:
     - name: Soluzione pronta per l'azienda

@@ -5,12 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: c86eab249167fab2d1ad72bba22e1d507122138c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: eaff96907b48ddc0fc92296a015ceb063149e6ec
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169403"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832753"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gestire i moduli in Automazione di Azure
 
@@ -32,17 +33,17 @@ Quando Automazione esegue runbook e processi di compilazione DSC, carica i modul
 >[!NOTE]
 >Assicurarsi di importare solo i moduli necessari per i runbook e le configurazioni DSC. Si sconsiglia di importare il modulo Az radice perché include molti altri moduli che potrebbero non essere necessari e che possono causare problemi di prestazioni. Importare invece singoli moduli, ad esempio Az.Compute.
 
-Cloud sandbox supporta un massimo di 48 chiamate di sistema e limita tutte le altre chiamate per motivi di sicurezza. Altre funzionalità, ad esempio la gestione delle credenziali e alcune reti, non sono supportate in sandbox cloud.
+La sandbox cloud supporta un massimo di 48 chiamate di sistema e limita tutte le altre chiamate per motivi di sicurezza. Altre funzionalità, ad esempio la gestione delle credenziali e alcune funzionalità di rete, non sono supportate nella sandbox cloud.
 
-A causa del numero di moduli e cmdlet inclusi, è difficile stabilire in anticipo quale dei cmdlet effettuerà chiamate non supportate. In genere, sono stati riscontrati problemi con i cmdlet che richiedono l'accesso con privilegi elevati, richiedono una credenziale come parametro o i cmdlet correlati alla rete. Tutti i cmdlet che eseguono operazioni di rete di stack completi non sono supportati in sandbox, incluso [Connect-AipService](/powershell/module/aipservice/connect-aipservice) dal modulo AipService di PowerShell e [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) dal modulo DNSClient.
+A causa del numero di moduli e cmdlet inclusi, è difficile sapere in anticipo quale dei cmdlet effettua chiamate non supportate. In genere, sono stati osservati problemi con i cmdlet che richiedono l'accesso con privilegi elevati, richiedono credenziali come parametro o cmdlet correlati alla rete. Tutti i cmdlet che eseguono operazioni di rete dello stack completo non sono supportati nella sandbox, inclusi [Connect-AipService](/powershell/module/aipservice/connect-aipservice) dal modulo AIPService di PowerShell e [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) dal modulo DNSClient.
 
-Si tratta di limitazioni note con la sandbox. La soluzione alternativa consigliata consiste nel distribuire un ruolo di [lavoro ibrido per Runbook](../automation-hybrid-runbook-worker.md) o usare [funzioni di Azure](../../azure-functions/functions-overview.md).
+Si tratta di limitazioni note della sandbox. La soluzione alternativa consigliata consiste nel distribuire un ruolo [di lavoro ibrido per runbook](../automation-hybrid-runbook-worker.md) o usare [Funzioni di Azure](../../azure-functions/functions-overview.md).
 
 ## <a name="default-modules"></a>Moduli predefiniti
 
 La tabella seguente elenca i moduli importati da Automazione di Azure per impostazione predefinita quando si crea l'account di Automazione. Automazione può importare versioni più recenti di questi moduli. Non è tuttavia possibile rimuovere la versione originale dall'account di Automazione, anche se si elimina la versione più recente. Si noti che questi moduli predefiniti includono diversi moduli AzureRM.
 
-I moduli predefiniti sono noti anche come moduli globali. Nel portale di Azure la proprietà del **modulo globale** sarà **true** quando si visualizza un modulo importato al momento della creazione dell'account.
+I moduli predefiniti sono noti anche come moduli globali. Nell'portale di Azure, la **proprietà Del** modulo globale sarà **true** quando si visualizza un modulo importato al momento della creazione dell'account.
 
 ![Screenshot della proprietà del modulo globale nel portale di Azure](../media/modules/automation-global-modules.png)
 
@@ -142,10 +143,10 @@ L'importazione di un modulo Az nell'account di Automazione non comporta automati
 
 * Quando un runbook richiama un cmdlet da un modulo.
 * Quando un runbook importa il modulo in modo esplicito con il cmdlet [Import-Module](/powershell/module/microsoft.powershell.core/import-module).
-* Quando un Runbook importa il modulo in modo esplicito con l'istruzione [using Module](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) . L'istruzione using è supportata a partire da Windows PowerShell 5,0 e supporta le classi e l'importazione di tipi enum.
+* Quando un runbook importa il modulo in modo esplicito con [l'istruzione using module.](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax) L'istruzione using è supportata a partire da Windows PowerShell 5.0 e supporta le classi e l'importazione del tipo enum.
 * Quando un runbook importa un altro modulo dipendente.
 
-È possibile importare i moduli AZ nell'account di automazione dalla portale di Azure. Ricordarsi di importare solo i moduli AZ necessari, non ogni modulo AZ disponibile. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) è una dipendenza per gli altri moduli Az, quindi assicurarsi di importare questo modulo prima di qualsiasi altro.
+È possibile importare i moduli Az nell'account di Automazione dal portale di Azure. Ricordarsi di importare solo i moduli Az necessari, non tutti i moduli Az disponibili. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) è una dipendenza per gli altri moduli Az, quindi assicurarsi di importare questo modulo prima di qualsiasi altro.
 
 1. Dall'account di Automazione selezionare **Moduli** in **Risorse condivise**.
 2. Selezionare **Esplora raccolta**.  
@@ -164,15 +165,15 @@ Dopo aver importato i moduli Az nell'account di Automazione, è possibile inizia
 
 ## <a name="author-modules"></a>Creare moduli
 
-Si consiglia di seguire le considerazioni in questa sezione quando si crea un modulo PowerShell personalizzato da usare in Automazione di Azure. Per preparare il modulo per l'importazione, è necessario creare almeno un file con estensione **dll** del modulo. psd1,. Psm1 o PowerShell con lo stesso nome della cartella del modulo. Comprimere quindi la cartella del modulo in modo che Automazione di Azure possa importarlo come singolo file. Il pacchetto **ZIP** deve avere lo stesso nome della cartella del modulo contenuta.
+Si consiglia di seguire le considerazioni in questa sezione quando si crea un modulo PowerShell personalizzato da usare in Automazione di Azure. Per preparare il modulo per l'importazione, è necessario creare almeno un **file** con estensione psd1, psm1 o dll del modulo PowerShell con lo stesso nome della cartella del modulo. Comprimere quindi la cartella del modulo in modo che Automazione di Azure possa importarlo come singolo file. Il pacchetto **ZIP** deve avere lo stesso nome della cartella del modulo contenuta.
 
 Per altre informazioni sulla creazione di un modulo di PowerShell, vedere [Come scrivere un modulo di script di PowerShell](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
 ### <a name="version-folder"></a>Cartella delle versioni
 
-Il controllo delle versioni dei moduli affiancati di PowerShell consente di usare più di una versione di un modulo in PowerShell. Questa operazione può essere utile se sono presenti script meno recenti che sono stati testati e funzionano solo con una determinata versione di un modulo di PowerShell, ma per altri script è necessaria una versione più recente dello stesso modulo di PowerShell.
+Il controllo delle versioni side-by-side dei moduli di PowerShell consente di usare più versioni di un modulo all'interno di PowerShell. Ciò può essere utile se si dispone di script meno recenti che sono stati testati e funzionano solo con una determinata versione di un modulo di PowerShell, ma altri script richiedono una versione più recente dello stesso modulo di PowerShell.
 
-Per costruire moduli di PowerShell in modo che contengano più versioni, creare la cartella del modulo e quindi creare una cartella all'interno di questa cartella del modulo per ogni versione del modulo che si vuole usare. Nell'esempio seguente, un modulo denominato *TestModule* offre due versioni, 1.0.0 e 2.0.0.
+Per costruire moduli di PowerShell in modo che contengano più versioni, creare la cartella del modulo e quindi creare una cartella all'interno di questa cartella del modulo per ogni versione del modulo che si vuole usare. Nell'esempio seguente un modulo denominato *TestModule* fornisce due versioni, 1.0.0 e 2.0.0.
 
 ```dos
 TestModule
@@ -180,13 +181,13 @@ TestModule
    2.0.0
 ```
 
-All'interno di ciascuna cartella della versione, copiare i file con estensione **dll** di PowerShell. psm1,. Psd1 o PowerShell module che costituiscono un modulo nella rispettiva cartella della versione. Comprimere la cartella del modulo in modo che automazione di Azure possa importarlo come singolo file con estensione zip. Mentre l'automazione Mostra solo la versione più recente del modulo importato, se il pacchetto del modulo contiene versioni side-by-side del modulo, sono tutti disponibili per l'uso nelle configurazioni manuali operativi o DSC.  
+All'interno di ognuna delle cartelle della versione copiare i file con estensione psm1, psd1 o **dll** del modulo powershell che costituiscono un modulo nella rispettiva cartella della versione. Comprimere la cartella del modulo in modo Automazione di Azure importarla come singolo file ZIP. Mentre Automazione mostra solo la versione più elevata del modulo importato, se il pacchetto del modulo contiene versioni side-by-side del modulo, sono tutti disponibili per l'uso nei runbook o nelle configurazioni DSC.  
 
-Sebbene l'automazione supporti i moduli contenenti versioni affiancate all'interno dello stesso pacchetto, non supporta l'uso di più versioni di un modulo tra le importazioni dei pacchetti di moduli. Ad esempio, si importa il **modulo A**, che contiene le versioni 1 e 2 nell'account di automazione. Successivamente si aggiornerà il **modulo** a in modo da includere le versioni 3 e 4, quando si importano nell'account di automazione, solo le versioni 3 e 4 sono utilizzabili all'interno di qualsiasi configurazione manuali operativi o DSC. Se è necessario che siano disponibili tutte le versioni-1, 2, 3 e 4, il file zip deve contenere le versioni 1, 2, 3 e 4.
+Sebbene Automazione supporti moduli contenenti versioni side-by-side all'interno dello stesso pacchetto, non supporta l'uso di più versioni di un modulo tra le importazioni di pacchetti di moduli. Ad esempio, si importa il **modulo A**, che contiene le versioni 1 e 2 nell'account di Automazione. Successivamente si aggiorna il modulo **A** per includere le versioni 3 e 4, quando si esegue l'importazione nell'account di Automazione, solo le versioni 3 e 4 sono utilizzabili all'interno di qualsiasi runbook o configurazione DSC. Se è necessario che tutte le versioni 1, 2, 3 e 4 siano disponibili, il file ZIP dell'importazione deve contenere le versioni 1, 2, 3 e 4.
 
-Se si usano versioni diverse dello stesso modulo tra manuali operativi, è sempre necessario dichiarare la versione che si vuole usare nel runbook usando il `Import-Module` cmdlet e includere il parametro `-RequiredVersion <version>` . Anche se la versione che si vuole usare è la versione più recente. Ciò è dovuto al fatto che i processi Runbook possono essere eseguiti nella stessa sandbox. Se il sandbox ha già caricato in modo esplicito un modulo di un determinato numero di versione, perché un processo precedente in tale sandbox ha detto di eseguire questa operazione, i processi futuri in tale sandbox non caricherà automaticamente la versione più recente del modulo. Questo è dovuto al fatto che una versione di questa è già caricata in sandbox.
+Se si intende usare versioni diverse dello stesso modulo tra runbook, è necessario dichiarare sempre la versione da usare nel runbook usando il cmdlet e includere il `Import-Module` parametro `-RequiredVersion <version>` . Anche se la versione da usare è la versione più recente. Ciò è dovuto al fatto che i processi runbook possono essere eseguiti nella stessa sandbox. Se la sandbox ha già caricato in modo esplicito un modulo di un determinato numero di versione, perché un processo precedente in tale sandbox ha detto di farlo, i processi futuri in tale sandbox non caricano automaticamente la versione più recente del modulo. Ciò è dovuto al fatto che una versione di è già caricata nella sandbox.
 
-Per una risorsa DSC, usare il comando seguente per specificare una determinata versione:
+Per una risorsa DSC, usare il comando seguente per specificare una versione specifica:
 
 ```powershell
 Import-DscResource -ModuleName <ModuleName> -ModuleVersion <version>
@@ -393,6 +394,6 @@ Remove-AzAutomationModule -Name <moduleName> -AutomationAccountName <automationA
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni sull'utilizzo dei moduli di Azure PowerShell, vedere [Introduzione a Azure PowerShell](/powershell/azure/get-started-azureps).
+* Per altre informazioni sull'uso Azure PowerShell moduli, vedere [Introduzione a Azure PowerShell](/powershell/azure/get-started-azureps).
 
-* Per altre informazioni sulla creazione di moduli di PowerShell, vedere [scrittura di un modulo di Windows PowerShell](/powershell/scripting/developer/module/writing-a-windows-powershell-module).
+* Per altre informazioni sulla creazione di moduli di PowerShell, vedere [Writing a Windows PowerShell module (Scrittura di un modulo di PowerShell).](/powershell/scripting/developer/module/writing-a-windows-powershell-module)

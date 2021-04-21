@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5eefcb55bb5447d557f097af872847576aa86eed
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9d3e34bee3d0f1420b379638389e6fad0a2fed60
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519307"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831565"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Microsoft Azure risoluzione dei problemi di Attestazione
 
@@ -22,7 +23,7 @@ Se il problema non viene risolto in questo articolo, è anche possibile inviare 
 
 Di seguito sono riportati alcuni esempi degli errori restituiti da attestazione di Azure:
 
-## <a name="1-http401--unauthorized-exception"></a>1. HTTP-401: Eccezione non autorizzata
+## <a name="1-http401--unauthorized-exception"></a>1. HTTP-401: eccezione non autorizzata
 
 ### <a name="http-status-code"></a>Codice di stato HTTP
 401
@@ -62,11 +63,11 @@ Per verificare i ruoli in PowerShell, eseguire la procedura seguente:
 
 a. Avviare PowerShell e accedere ad Azure tramite il cmdlet "Connect-AzAccount"
 
-b. Fare riferimento alle indicazioni [riportate qui per](../role-based-access-control/role-assignments-list-powershell.md) verificare l'assegnazione di ruolo di Azure nel provider di attestazione
+b. Fare riferimento alle indicazioni [qui per](../role-based-access-control/role-assignments-list-powershell.md) verificare l'assegnazione di ruolo di Azure nel provider di attestazione
 
 c. Se non si trova un'assegnazione di ruolo appropriata, seguire le istruzioni [riportate](../role-based-access-control/role-assignments-powershell.md) qui
 
-## <a name="2-http--400-errors"></a>2. Errori HTTP - 400
+## <a name="2-http--400-errors"></a>2. ERRORI HTTP - 400
 
 ### <a name="http-status-code"></a>Codice di stato HTTP
 400
@@ -75,7 +76,7 @@ Esistono diversi motivi per cui una richiesta può restituire 400. Di seguito so
 
 ### <a name="21-attestation-failure-due-to-policy-evaluation-errors"></a>2.1. Errore di attestazione a causa di errori di valutazione dei criteri
 
-I criteri di attestazione includono regole di autorizzazione e regole di rilascio. L'evidenza dell'enclave viene valutata in base alle regole di autorizzazione. Le regole di rilascio definiscono le attestazioni da includere nel token di attestazione. Se le attestazioni nell'evidenza dell'enclave non sono conformi alle regole di autorizzazione, le chiamate attest restituiranno un errore di valutazione dei criteri. 
+I criteri di attestazione includono regole di autorizzazione e regole di rilascio. L'evidenza dell'enclave viene valutata in base alle regole di autorizzazione. Le regole di rilascio definiscono le attestazioni da includere nel token di attestazione. Se le attestazioni nell'evidenza dell'enclave non sono conformi alle regole di autorizzazione, le chiamate di attestato restituiranno un errore di valutazione dei criteri. 
 
 **Codice errore** PolicyEvaluationError
 
@@ -88,32 +89,32 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 
 ```
 
-**Passaggi per la risoluzione dei problemi** Gli utenti possono valutare l'evidenza dell'enclave rispetto a un criterio di attestazione SGX prima di configurare lo stesso.
+**Procedura di risoluzione dei problemi** Gli utenti possono valutare l'evidenza dell'enclave rispetto a un criterio di attestazione SGX prima di configurare lo stesso.
 
 Inviare una richiesta all'API di attestazione fornendo il testo dei criteri nel parametro "draftPolicyForAttestation". L'API AttestSgxEnclave userà questo documento di criteri durante la chiamata di attestazione e può essere usato per testare i criteri di attestazione prima che siano usati. Il token di attestazione generato quando questo campo è presente non sarà protetto.
 
 Vedere esempi [di criteri di attestazione](./policy-examples.md)
 
-### <a name="22-attestation-failure-due-to-invalid-input"></a>2.2. Errore di attestazione a causa di un input non valido
+### <a name="22-attestation-failure-due-to-invalid-input"></a>2.2. Errore di attestazione a causa di input non valido
 
 **Codice errore** InvalidParameter
 
 **Esempi di scenari** Errore di attestazione SGX a causa di un input non valido. Di seguito sono riportati alcuni esempi di messaggi di errore:
-- La citazione specificata non è valida a causa di un errore nel materiale collaterale dell'offerta 
+- La citazione specificata non è valida a causa di un errore nell'offerta collaterale 
 - L'offerta specificata non è valida perché il dispositivo in cui è stata generata l'offerta non soddisfa i requisiti di base di Azure
 - La citazione specificata non è valida perché il valore TCBInfo o QEID fornito dal servizio cache PCK non è valido
 
 **Passaggi per la risoluzione dei problemi**
 
-Microsoft Azure'attestazione supporta l'attestazione delle citazioni SGX generate da Intel SDK e Open Enclave SDK.
+Microsoft Azure Attestazione supporta l'attestazione delle virgolette SGX generate da Intel SDK e Open Enclave SDK.
 
-Fare riferimento agli [esempi di codice](/samples/browse/?expanded=azure&terms=attestation) per l'esecuzione dell'attestazione con Open Enclave SDK/Intel SDK
+Fare riferimento agli [esempi di codice](/samples/browse/?expanded=azure&terms=attestation) per l'esecuzione dell'attestazione usando Open Enclave SDK/Intel SDK
 
-### <a name="23-invalid-certificate-chain-error-while-uploading-policypolicy-signer"></a>2.3. Errore della catena di certificati non valido durante il caricamento di criteri/firmatario di criteri
+### <a name="23-invalid-certificate-chain-error-while-uploading-policypolicy-signer"></a>2.3. Errore della catena di certificati non valido durante il caricamento dei criteri o del firmatario dei criteri
 
 **Codice errore** InvalidParameter
 
-**Esempi di scenari** Configurare criteri firmati o aggiungere/eliminare un firmatario di criteri firmato con una catena di certificati non valida, ad esempio quando l'estensione Vincoli di base del certificato radice non è impostata su Tipo soggetto = CA.
+**Esempi di scenari** Configurare i criteri firmati o il firmatario dei criteri di aggiunta/eliminazione, firmato con una catena di certificati non valida(ad esempio, quando l'estensione Vincoli di base del certificato radice non è impostata su Tipo soggetto = CA)
 
 ```
 Native operation failed with 65529: C:\source\src\AttestationServices\Instance\SgxPal\sgxcert.cpp(1074)\(null)!00007FFA285CDAED: (caller: 00007FFA285C36E8) Exception(0) 83FFFFF9 The requested item is not found    Msg:[Unable to find issuer certificate CN=attestationsigningcert]
@@ -126,15 +127,15 @@ At line:1 char:1
 
 ```
 
-**Passaggi per la risoluzione dei problemi** Il certificato radice deve essere contrassegnato come emesso da una CA (i vincoli di base X.509), altrimenti non verrà considerato come un certificato valido. 
+**Procedura di risoluzione dei problemi** Il certificato radice deve essere contrassegnato come emesso da una CA (vincoli di base X.509), altrimenti non verrà considerato come certificato valido. 
 
-Assicurarsi che l'estensione Basic Constraints del certificato radice sia impostata per indicare che Subject Type = CA
+Assicurarsi che l'estensione Vincoli di base del certificato radice sia impostata per indicare che Tipo soggetto = CA
 
 In altro modo, la catena di certificati viene considerata non valida.
 
-Vedere [esempi di criteri e firmatari](./policy-signer-examples.md) [di](./policy-examples.md) criteri 
+Vedere [esempi di firmatari ed](./policy-signer-examples.md) esempi [di](./policy-examples.md) criteri 
 
-### <a name="24-adddelete-policy-signer-failure"></a>2.4. Errore di aggiunta/eliminazione del firmatario di criteri
+### <a name="24-adddelete-policy-signer-failure"></a>2.4. Errore di aggiunta/eliminazione del firmatario dei criteri
 
 **Codice errore** InvalidOperation
 
@@ -178,7 +179,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.AddAzureAttestationPolicySigner
 ```
 
-**Passaggi per la risoluzione dei problemi** Per aggiungere/eliminare un nuovo certificato del firmatario di criteri, usare RFC7519 token JSON Web (JWT) con un'attestazione denominata "x-ms-policyCertificate". Il valore dell'attestazione è un JSON Web Key RFC7517, che contiene il certificato da aggiungere. Il token JWT deve essere firmato con la chiave privata di uno dei certificati del firmatario di criteri validi associati al provider. Vedere [esempi di firmatari di criteri.](./policy-signer-examples.md)
+**Procedura di risoluzione dei problemi** Per aggiungere/eliminare un nuovo certificato del firmatario dei criteri, usare RFC7519 token JSON Web (JWT) con un'attestazione denominata "x-ms-policyCertificate". Il valore dell'attestazione è un JSON Web Key RFC7517, che contiene il certificato da aggiungere. Il token JWT deve essere firmato con la chiave privata di uno dei certificati del firmatario di criteri validi associati al provider. Vedere [esempi di firmatari di criteri.](./policy-signer-examples.md)
 
 ### <a name="25-attestation-policy-configuration-failure"></a>2.5. Errore di configurazione dei criteri di attestazione
 
@@ -224,7 +225,7 @@ Per configurare un criterio in formato testo, specificare direttamente il testo 
 
 In PowerShell specificare PolicyFormat come JWT per configurare i criteri in formato JWT. Il formato predefinito dei criteri è Testo.
 
-Vedere esempi di criteri [di attestazione](./policy-examples.md) [e come creare un criterio di attestazione](./author-sign-policy.md) 
+Vedere esempi di criteri [di attestazione](./policy-examples.md) [e come creare criteri di attestazione](./author-sign-policy.md) 
 
 ## <a name="3-azattestation-installation-issues-in-powershell"></a>3. Problemi di installazione di Az.Attestation in PowerShell
 
@@ -232,7 +233,7 @@ Non è possibile installare i moduli Az o Az.Attestation in PowerShell
 
 ### <a name="error"></a>Errore
 
-AVVISO: Impossibile risolvere l'origine del pacchetto ' ' PackageManagement\Install-Package : non è stata trovata alcuna corrispondenza per i criteri di ricerca e il nome https://www.powershellgallery.com/api/v2 del modulo specificati
+AVVISO: Non è possibile risolvere l'origine del pacchetto ' ' PackageManagement\Install-Package : non è stata trovata alcuna corrispondenza per i criteri di ricerca e il nome https://www.powershellgallery.com/api/v2 del modulo specificati
 
 ### <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 
@@ -246,10 +247,10 @@ Per continuare a interagire con PowerShell Gallery, eseguire il comando seguente
 
 ## <a name="4-policy-accessconfiguration-issues-in-powershell"></a>4. Problemi di accesso/configurazione dei criteri in PowerShell
 
-Utente assegnato con i ruoli appropriati. Si verificano tuttavia problemi di autorizzazione durante la gestione dei criteri di attestazione tramite PowerShell.
+Utente assegnato con i ruoli appropriati. Ma si verificano problemi di autorizzazione durante la gestione dei criteri di attestazione tramite PowerShell.
 
 ### <a name="error"></a>Errore
-Il client con ID oggetto ID oggetto ID non ha l'autorizzazione per eseguire l'azione &lt; &gt;  Microsoft.Authorization/roleassignments/write over scope 'subcriptions/ &lt; subscriptionId &gt; resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/role &lt; assignmentId' o l'ambito non è &gt; valido. Se l'accesso è stato concesso di recente, aggiornare le credenziali
+Il client con ID oggetto ID oggetto non ha l'autorizzazione per eseguire l'azione &lt; &gt;  Microsoft.Authorization/roleassignments/write over scope 'subcriptions/ &lt; subscriptionId &gt; resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/ &lt; role assignmentId &gt; ' oppure l'ambito non è valido. Se l'accesso è stato concesso di recente, aggiornare le credenziali
 
 ### <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 
@@ -267,6 +268,6 @@ Eseguire il comando seguente per verificare la versione installata di tutti i mo
 Get-InstalledModule 
 ```
 
-Se le versioni non corrispondono al requisito minimo, eseguire Update-Module comandi
+Se le versioni non corrispondono al requisito minimo, eseguire i Update-Module seguenti
 
-ad esempio - Update-Module -Name Az.Attestation
+Ad esempio, - Update-Module -Name Az.Attestation

@@ -4,13 +4,13 @@ description: Informazioni sui tipi di credenziali di distribuzione presenti nel 
 ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: b77a26f61e1168846156de990806bbed2f7c41e3
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 008bfa58c117fc1b43227ba73902d921cec25795
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789538"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830576"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
 Per proteggere la distribuzione di app da un computer [locale, Servizio app di Azure](./overview.md) supporta due tipi di credenziali per la distribuzione [Git](deploy-local-git.md) locale e [la distribuzione FTP/S.](deploy-ftp.md) Queste credenziali sono diverse dalle credenziali della sottoscrizione di Azure.
@@ -160,7 +160,7 @@ Per verificare che le credenziali del profilo di pubblicazione siano bloccate in
 
 L'API nella sezione precedente è supportata dal controllo degli accessi [](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role) in base al ruolo di Azure, ovvero è possibile creare un ruolo personalizzato e assegnare utenti con livello inferiore al ruolo in modo che non possano abilitare l'autenticazione di base in qualsiasi sito. Per configurare il ruolo personalizzato, [seguire queste istruzioni.](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role)
 
-È anche possibile usare [Monitoraggio di Azure](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) per controllare eventuali richieste di autenticazione riuscite [e](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) usare Criteri di Azure per applicare questa configurazione per tutti i siti nella sottoscrizione.
+È anche possibile usare [Monitoraggio di Azure](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) per controllare eventuali [](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) richieste di autenticazione riuscite e usare Criteri di Azure per applicare questa configurazione per tutti i siti nella sottoscrizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

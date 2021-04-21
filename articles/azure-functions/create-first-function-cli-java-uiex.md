@@ -5,13 +5,14 @@ ms.date: 11/03/2020
 ms.topic: quickstart
 ms.custom:
 - devx-track-java
+- devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a270f482438129b7b07506744bf3f9489b242900
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 910e19137873ed5c34584b3293ebd4248c5fe2f8
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787486"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831907"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione Java in Azure dalla riga di comando
 
@@ -45,7 +46,7 @@ Per eseguire le procedure descritte è necessario:
 
 ### <a name="prerequisite-check"></a>Controllo dei prerequisiti
 
-+ In un terminale o in una finestra di comando eseguire `func --version` per verificare che <abbr title="Set di strumenti da riga di comando per l'Funzioni di Azure nel computer locale.">Azure Functions Core Tools</abbr> sono la versione 3.x.
++ In un terminale o in una finestra di comando eseguire `func --version` per verificare che <abbr title="Set di strumenti da riga di comando per l'uso Funzioni di Azure nel computer locale.">Azure Functions Core Tools</abbr> sono la versione 3.x.
 
 + Eseguire `az --version` per verificare che la versione dell'interfaccia della riga di comando di Azure sia 2.4 o successiva.
 
@@ -131,7 +132,7 @@ L'archetipo genera anche uno unit test per la funzione. Quando si modifica la fu
 <details>
 <summary><strong>Codice per pom.xml</strong></summary>
 
-Le impostazioni per le risorse di Azure create  per ospitare l'app sono definite nell'elemento di configurazione del plug-in con **un groupId** di nel `com.microsoft.azure` filepom.xmlgenerato.  Ad esempio, l'elemento di configurazione seguente indica a una distribuzione basata su Maven di creare un'app per le funzioni nel gruppo `java-functions-group` di risorse in `westus` <abbr title="Riferimento geografico a un data center di Azure specifico in cui vengono allocate le risorse.">region</abbr>. L'app per le funzioni viene eseguita in Windows ospitata nel piano `java-functions-app-service-plan`, che per impostazione predefinita è un piano a consumo serverless.
+Le impostazioni per le risorse di Azure create  per ospitare l'app sono definite nell'elemento di configurazione del plug-in con **groupId** di nel `com.microsoft.azure` filepom.xmlgenerato.  Ad esempio, l'elemento di configurazione seguente indica a una distribuzione basata su Maven di creare un'app per le funzioni nel gruppo `java-functions-group` di risorse in `westus` <abbr title="Riferimento geografico a un data center di Azure specifico in cui vengono allocate le risorse.">region</abbr>. L'app per le funzioni viene eseguita in Windows ospitata nel piano `java-functions-app-service-plan`, che per impostazione predefinita è un piano a consumo serverless.
 
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-107":::
 
@@ -229,7 +230,7 @@ Per creare un'app per le funzioni in esecuzione in Linux anziché in Windows, mo
 
 ## <a name="5-invoke-the-function-on-azure"></a>5. Richiamare la funzione in Azure
 
-Poiché la funzione usa un trigger HTTP, viene richiamato effettuando una **richiesta HTTP** al relativo URL nel browser o con uno strumento come <abbr title="Uno strumento da riga di comando per la generazione di richieste HTTP a un URL. Vedere https://curl.se/">curl</abbr>.
+Poiché la funzione usa un trigger HTTP, è possibile richiamarla effettuando una **richiesta HTTP** al relativo URL nel browser o con uno strumento come <abbr title="Uno strumento da riga di comando per la generazione di richieste HTTP a un URL. Vedere https://curl.se/">curl</abbr>.
 
 # <a name="browser"></a>[Browser](#tab/browser)
 

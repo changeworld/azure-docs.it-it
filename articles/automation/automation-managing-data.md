@@ -1,34 +1,35 @@
 ---
-title: Sicurezza dei dati di automazione di Azure
-description: Questo articolo illustra in che modo automazione di Azure protegge la privacy e protegge i dati.
+title: Automazione di Azure sicurezza dei dati
+description: Questo articolo illustra in che modo Automazione di Azure protegge la privacy e protegge i dati.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: c3d1dfc5d6ea16a128f5f3bc1129f5f50bc9cb61
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cb18cca782b85e608c3c7ddb001ecb03b86055f6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954674"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833527"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 
-Questo articolo contiene diversi argomenti che illustrano il modo in cui i dati vengono protetti e protetti in un ambiente di automazione di Azure.
+Questo articolo contiene diversi argomenti che illustrano come i dati vengono protetti e protetti in un Automazione di Azure locale.
 
-## <a name="tls-12-enforcement-for-azure-automation"></a>Imposizione di TLS 1,2 per automazione di Azure
+## <a name="tls-12-enforcement-for-azure-automation"></a>Imposizione di TLS 1.2 per Automazione di Azure
 
-Per garantire la sicurezza dei dati in transito in automazione di Azure, si consiglia di configurare l'uso di Transport Layer Security (TLS) 1,2. Di seguito è riportato un elenco di metodi o client che comunicano tramite HTTPS al servizio di automazione:
+Per assicurare la sicurezza dei dati in transito verso Automazione di Azure, è consigliabile configurare l'uso di Transport Layer Security (TLS) 1.2. Di seguito è riportato un elenco di metodi o client che comunicano tramite HTTPS al servizio di automazione:
 
 * Chiamate webhook
 
-* Ruoli di lavoro ibridi per Runbook, che includono computer gestiti da Gestione aggiornamenti e Rilevamento modifiche e inventario.
+* I thread di lavoro ibridi per runbook, che includono computer gestiti da Gestione aggiornamenti e Rilevamento modifiche e inventario.
 
 * Nodi DSC
 
-Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**. Non è consigliabile impostare in modo esplicito l'agente in modo che usi solo TLS 1,2, a meno che non sia necessario, in quanto può suddividere le funzionalità di sicurezza a livello di piattaforma che consentono di rilevare automaticamente e sfruttare i nuovi protocolli più sicuri non appena diventano disponibili, ad esempio TLS 1,3.
+Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**. Non è consigliabile impostare in modo esplicito l'agente in modo che usi solo TLS 1.2 a meno che non sia necessario, in quanto può interrompere le funzionalità di sicurezza a livello di piattaforma che consentono di rilevare e sfruttare automaticamente i protocolli più nuovi e più sicuri non appena diventano disponibili, ad esempio TLS 1.3.
 
-Per informazioni sul supporto di TLS 1,2 con l'agente di Log Analytics per Windows e Linux, che è una dipendenza per il ruolo di lavoro ibrido per Runbook, vedere [Panoramica di log Analytics Agent-TLS 1,2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
+Per informazioni sul supporto di TLS 1.2 con l'agente di Log Analytics per Windows e Linux, che è una dipendenza per il ruolo di lavoro ibrido per runbook, vedere Panoramica dell'agente [di Log Analytics - TLS 1.2.](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol)
 
 ### <a name="platform-specific-guidance"></a>Indicazioni specifiche in base alla piattaforma
 
@@ -36,12 +37,12 @@ Per informazioni sul supporto di TLS 1,2 con l'agente di Log Analytics per Windo
 | --- | --- | --- |
 |Linux | Le distribuzioni Linux si basano generalmente su [OpenSSL](https://www.openssl.org) per supportare TLS 1.2.  | Controllare nel [log delle modifiche di OpenSSL](https://www.openssl.org/news/changelog.html) per assicurarsi che la versione di OpenSSL sia supportata.|
 | Windows 8.0 - 10 | Supportato e abilitato per impostazione predefinita. | Assicurarsi che le [impostazioni predefinite](/windows-server/security/tls/tls-registry-settings) siano ancora in uso.  |
-| Windows Server 2012 - 2016 | Supportato e abilitato per impostazione predefinita. | Per verificare che le [impostazioni predefinite](/windows-server/security/tls/tls-registry-settings) siano ancora utilizzate |
+| Windows Server 2012 - 2016 | Supportato e abilitato per impostazione predefinita. | Per verificare che siano ancora in uso le [impostazioni predefinite](/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 e Windows Server 2008 R2 SP1 | Supportato ma non abilitato per impostazione predefinita. | Vedere la pagina [Transport Layer Security (TLS) registry settings](/windows-server/security/tls/tls-registry-settings) (Impostazioni del Registro di sistema di Transport Layer Security (TLS)) per informazioni dettagliate su come eseguire l'abilitazione.  |
 
 ## <a name="data-retention"></a>Conservazione dei dati
 
-Quando si elimina una risorsa in automazione di Azure, questa viene mantenuta per diversi giorni a scopo di controllo prima della rimozione permanente. In tale periodo non sarà possibile visualizzare o usare la risorsa. Questi criteri sono applicabili anche alle risorse appartenenti a un account di Automazione eliminato. I criteri di conservazione sono applicabili a tutti gli utenti e non è attualmente possibile personalizzarli. Se tuttavia è necessario conservare i dati per un periodo di tempo più lungo, è possibile [inviare i dati dei processi di Automazione di Azure ai log di Monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).
+Quando si elimina una risorsa in Automazione di Azure, questa viene conservata per molti giorni a scopo di controllo prima della rimozione definitiva. In tale periodo non sarà possibile visualizzare o usare la risorsa. Questi criteri sono applicabili anche alle risorse appartenenti a un account di Automazione eliminato. I criteri di conservazione sono applicabili a tutti gli utenti e non è attualmente possibile personalizzarli. Se tuttavia è necessario conservare i dati per un periodo di tempo più lungo, è possibile [inviare i dati dei processi di Automazione di Azure ai log di Monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).
 
 La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 
@@ -54,9 +55,9 @@ La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 | Moduli |Un modulo viene rimosso definitivamente 30 giorni dopo l'eliminazione da parte di un utente o 30 giorni dopo l'eliminazione di un account che possiede il modulo. |
 | Configurazioni di nodo/File MOF |Una configurazione di nodo precedente verrà rimossa definitivamente 30 giorni dopo che viene generata una nuova configurazione di nodo. |
 | Report sul nodo |Un report sul nodo viene rimosso definitivamente 90 giorni dopo la generazione di un nuovo report per quel nodo. |
-| Runbook |Una Runbook viene rimossa definitivamente 30 giorni dopo l'eliminazione della risorsa da parte di un utente o 30 giorni dopo l'eliminazione dell'account che include la risorsa<sup>1</sup>. |
+| Runbook |Un runbook viene rimosso definitivamente 30 giorni dopo che un utente ha eliminato la risorsa oppure 30 giorni dopo che un utente ha eliminato l'account che contiene la<sup>risorsa 1.</sup> |
 
-<sup>1</sup> Il Runbook può essere recuperato entro la finestra di 30 giorni inviando una richiesta di supporto tecnico di Azure con supporto Microsoft Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Invia una richiesta di supporto**.
+<sup>1</sup> Il runbook può essere recuperato entro la finestra di 30 giorni tramite la presentazione di un evento supporto tecnico di Azure evento imprevisto con Microsoft Azure supporto tecnico. Passare al sito [supporto tecnico di Azure e](https://azure.microsoft.com/support/options/) selezionare Invia una richiesta **di supporto**.
 
 ## <a name="data-backup"></a>Backup dei dati
 
@@ -68,7 +69,7 @@ Quando si elimina un account di automazione in Azure, vengono eliminati tutti gl
 
 ### <a name="integration-modules"></a>Moduli di integrazione
 
-Non è possibile esportare i moduli di integrazione da automazione di Azure, ma devono essere resi disponibili al di fuori dell'account di automazione.
+Non è possibile esportare moduli di integrazione da Automazione di Azure, ma devono essere resi disponibili all'esterno dell'account di Automazione.
 
 ### <a name="assets"></a>Asset
 
@@ -87,7 +88,7 @@ La replica geografica è standard negli account di Automazione di Azure. Quando 
 Il backup creato dal servizio di replica geografica di Automazione è una copia completa degli asset di automazione, delle configurazioni e di elementi simili. Questo backup può essere usato se l'area primaria diventa inattiva e perde i dati. Nell'eventualità improbabile che vengano persi dei dati di un'area primaria, Microsoft tenta di ripristinarli.
 
 > [!NOTE]
-> Automazione di Azure archivia i dati dei clienti nell'area selezionata dal cliente. Ai fini di BCDR, per tutte le aree ad eccezione del Brasile meridionale e sudorientale, i dati di automazione di Azure vengono archiviati in un'area diversa (area abbinata di Azure). Solo per l'area Brasile meridionale (stato di San Paolo) della geografia del Brasile e dell'area Asia sudorientale (Singapore) del Asia Pacifico Geography, i dati di automazione di Azure vengono archiviati nella stessa area per soddisfare i requisiti di residenza dei dati per queste aree.
+> Automazione di Azure i dati dei clienti nell'area selezionata dal cliente. Ai fini del bcdr, per tutte le aree tranne Brasile meridionale e Asia sud-orientale, i dati Automazione di Azure vengono archiviati in un'area diversa (area abbinata di Azure). Solo per l'area Brasile meridionale (Stato di San Paolo) del Brasile e l'area Asia sud-orientale (Singapore) dell'area geografica Asia Pacifico, i dati Automazione di Azure vengono archiviati nella stessa area per soddisfare i requisiti di residenza dei dati per queste aree.
 
 Il servizio di replica geografica di Automazione non è accessibile direttamente ai clienti esterni se si verifica un errore a livello di area. Se si vogliono mantenere la configurazione e i runbook di Automazione durante gli errori a livello di area:
 

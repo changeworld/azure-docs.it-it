@@ -1,16 +1,17 @@
 ---
 title: Esecuzione di runbook in Automazione di Azure
-description: Questo articolo fornisce una panoramica dell'elaborazione di manuali operativi in automazione di Azure.
+description: Questo articolo offre una panoramica dell'elaborazione dei runbook in Automazione di Azure.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0807b11adfc46b9c32a8f7bd36a2f7d4db519975
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954344"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830521"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -34,7 +35,7 @@ Il diagramma seguente mostra il ciclo di vita di un processo del runbook per i [
 
 I runbook in Automazione di Azure possono essere eseguiti in una sandbox di Azure o in un [ruolo di lavoro ibrido per runbook](automation-hybrid-runbook-worker.md). 
 
-Quando i runbook vengono progettati per l'autenticazione e l'esecuzione nelle risorse di Azure, vengono eseguiti in una sandbox di Azure, ovvero in un ambiente condiviso che può essere usato da più processi. I processi che usano la stessa sandbox sono vincolati dalle limitazioni di risorse della sandbox. L'ambiente sandbox di Azure non supporta le operazioni interattive. Impedisce l'accesso a tutti i server COM out-of-process e non supporta l'esecuzione di [chiamate WMI](/windows/win32/wmisdk/wmi-architecture) al provider Win32 nella Runbook.  Questi scenari sono supportati solo eseguendo Runbook in un ruolo di lavoro ibrido per Runbook di Windows.
+Quando i runbook vengono progettati per l'autenticazione e l'esecuzione nelle risorse di Azure, vengono eseguiti in una sandbox di Azure, ovvero in un ambiente condiviso che può essere usato da più processi. I processi che usano la stessa sandbox sono vincolati dalle limitazioni di risorse della sandbox. L'ambiente sandbox di Azure non supporta le operazioni interattive. Impedisce l'accesso a tutti i server COM out-of-process e non supporta l'esecuzione di chiamate [WMI](/windows/win32/wmisdk/wmi-architecture) al provider Win32 nel runbook.  Questi scenari sono supportati solo eseguendo il runbook in un ruolo di lavoro ibrido per runbook windows.
 
 
 È anche possibile usare un [ruolo di lavoro ibrido per runbook](automation-hybrid-runbook-worker.md) per eseguire i runbook direttamente nel computer che ospita il ruolo e nelle risorse locali dell'ambiente. Automazione di Azure archivia e gestisce i runbook, poi li distribuisce a uno o più computer assegnati.
@@ -62,9 +63,9 @@ La tabella seguente elenca alcune attività di esecuzione del runbook insieme al
 
 ## <a name="temporary-storage-in-a-sandbox"></a>Archiviazione temporanea in una sandbox
 
-Se è necessario creare file temporanei come parte della logica di Runbook, è possibile usare la cartella Temp (ovvero `$env:TEMP` ) in Azure sandbox per manuali operativi in esecuzione in Azure. L'unica limitazione è che non è possibile usare più di 1 GB di spazio su disco, ovvero la quota per ogni sandbox. Quando si usano i flussi di lavoro di PowerShell, questo scenario può causare un problema perché i flussi di lavoro di PowerShell usano checkpoint e lo script può essere ritentato in una sandbox diversa.
+Se è necessario creare file temporanei come parte della logica del runbook, è possibile usare la cartella Temp (ovvero ) nella sandbox di Azure per `$env:TEMP` i runbook in esecuzione in Azure. L'unica limitazione è che non è possibile usare più di 1 GB di spazio su disco, ovvero la quota per ogni sandbox. Quando si usano i flussi di lavoro di PowerShell, questo scenario può causare un problema perché i flussi di lavoro di PowerShell usano checkpoint e lo script può essere ritentato in un'altra sandbox.
 
-Con la sandbox ibrida, è possibile usare in `C:\temp` base alla disponibilità dello spazio di archiviazione in un ruolo di lavoro ibrido per Runbook. Tuttavia, per le raccomandazioni sulle macchine virtuali di Azure non è consigliabile usare il [disco temporaneo](../virtual-machines/managed-disks-overview.md#temporary-disk) in Windows o Linux per i dati che devono essere salvati in modo permanente.
+Con la sandbox ibrida è possibile usare in base alla disponibilità di archiviazione in un ruolo di lavoro `C:\temp` ibrido per runbook. Tuttavia, in base alle raccomandazioni sulle macchine virtuali di Azure, non è consigliabile usare il disco temporaneo [in](../virtual-machines/managed-disks-overview.md#temporary-disk) Windows o Linux per i dati che devono essere resi persistenti.
 
 ## <a name="resources"></a>Risorse
 
@@ -86,7 +87,7 @@ Un runbook richiede credenziali [appropriate](shared-resources/credentials.md) p
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 
-Automazione di Azure usa [monitoraggio di Azure](../azure-monitor/overview.md) per monitorare le operazioni del computer. Per le operazioni è necessaria un'area di lavoro Log Analytics e un [agente log Analytics](../azure-monitor/agents/log-analytics-agent.md).
+Automazione di Azure usa le [Monitoraggio di Azure](../azure-monitor/overview.md) per il monitoraggio delle operazioni del computer. Le operazioni richiedono un'area di lavoro Log Analytics e un [agente di Log Analytics.](../azure-monitor/agents/log-analytics-agent.md)
 
 ### <a name="log-analytics-agent-for-windows"></a>Agente di Log Analytics per Windows
 
@@ -97,11 +98,11 @@ L'[agente di Log Analytics per Windows](../azure-monitor/agents/agent-windows.md
 
 ### <a name="log-analytics-agent-for-linux"></a>Agente di Log Analytics per Linux
 
-L'[agente di Log Analytics per Linux](../azure-monitor/agents/agent-linux.md) funziona in modo analogo all'agente per Windows, ma connette i computer Linux a Monitoraggio di Azure. L'agente viene installato con un account utente **nxautomation** che consente l'esecuzione di comandi che richiedono autorizzazioni radice, ad esempio, in un ruolo di lavoro ibrido per Runbook. L'account **nxautomation** è un account di sistema che non richiede una password.
+L'[agente di Log Analytics per Linux](../azure-monitor/agents/agent-linux.md) funziona in modo analogo all'agente per Windows, ma connette i computer Linux a Monitoraggio di Azure. L'agente viene installato con un account **utente nxautomation** che consente l'esecuzione di comandi che richiedono autorizzazioni radice, ad esempio in un ruolo di lavoro ibrido per runbook. L'account **nxautomation** è un account di sistema che non richiede una password.
 
 L'account **nxautomation** deve essere presente con le autorizzazioni sudo corrispondenti durante l'[installazione di un ruolo di lavoro ibrido per runbook di Linux](automation-linux-hrw-install.md). Se si tenta di installare il ruolo di lavoro e l'account non è presente o non dispone delle autorizzazioni appropriate, l'installazione non riesce.
 
-Non modificare le autorizzazioni della `sudoers.d` cartella o della relativa proprietà. L'autorizzazione sudo è obbligatoria per l'account **nxautomation** e le autorizzazioni non devono essere rimosse. La limitazione di questo problema a determinate cartelle o comandi può comportare una modifica sostanziale.
+Non modificare le autorizzazioni della cartella `sudoers.d` o la relativa proprietà. L'autorizzazione Sudo è necessaria per **l'account nxautomation** e le autorizzazioni non devono essere rimosse. La limitazione a determinate cartelle o comandi può comportare una modifica che causa un'interruzione.
 
 I log disponibili per l'agente di Log Analytics e l'account **nxautomation** sono:
 
@@ -113,7 +114,7 @@ I log disponibili per l'agente di Log Analytics e l'account **nxautomation** son
 
 ## <a name="runbook-permissions"></a>Autorizzazioni per i runbook
 
-Il runbook richiede le autorizzazioni per l'autenticazione in Azure tramite le credenziali. Vedere [Panoramica dell'autenticazione di automazione di Azure](automation-security-overview.md).
+Il runbook richiede le autorizzazioni per l'autenticazione in Azure tramite le credenziali. Vedere [Automazione di Azure panoramica dell'autenticazione.](automation-security-overview.md)
 
 ## <a name="modules"></a>Moduli
 
@@ -140,7 +141,7 @@ La tabella seguente descrive gli stati possibili per un processo. È possibile v
 
 | Stato | Descrizione |
 |:--- |:--- |
-| Attivazione |È in corso l'attivazione del processo. |
+| Attivazione |Il processo è in fase di attivazione. |
 | Completi |Il processo è stato completato. |
 | Operazione non riuscita |La compilazione di un runbook grafico o di un runbook del flusso di lavoro di PowerShell non è riuscita. Non è stato possibile avviare il runbook di PowerShell oppure il processo conteneva un'eccezione. Vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md).|
 | Failed, waiting for resources |Il processo non è riuscito perché ha raggiunto il limite di [condivisione equa](#fair-share) tre volte iniziando ogni volta dallo stesso checkpoint o dall'inizio del runbook. |
@@ -230,7 +231,7 @@ I servizi esterni, ad esempio Azure DevOps Services e GitHub, possono avviare un
 
 Per condividere le risorse tra tutti runbook nel cloud, Azure usa un concetto denominato condivisione equa. Con una condivisione equa, Azure scarica o arresta temporaneamente i processi eseguiti per più di tre ore. I processi dei [runbook di PowerShell](automation-runbook-types.md#powershell-runbooks) e dei [runbook di Python](automation-runbook-types.md#python-runbooks) vengono arrestati, non vengono riavviati e lo stato del processo risulta Arrestato.
 
-Per le attività a esecuzione prolungata di Automazione di Azure è consigliabile usare un ruolo di lavoro ibrido per runbook. I ruoli di lavoro ibridi per runbook non sono limitati da condivisione equa e non hanno una limitazione rispetto alla possibile durata dell'esecuzione di un runbook. Gli altri [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) dei processi si applicano sia ai sandbox di Azure che ai ruoli di lavoro ibridi per runbook. Sebbene i ruoli di lavoro ibridi per Runbook non siano limitati dal limite di condivisione equa di tre ore, è necessario sviluppare manuali operativi per l'esecuzione nei ruoli di lavoro che supportano i riavvii da problemi di infrastruttura locale imprevisti.
+Per le attività a esecuzione prolungata di Automazione di Azure è consigliabile usare un ruolo di lavoro ibrido per runbook. I ruoli di lavoro ibridi per runbook non sono limitati da condivisione equa e non hanno una limitazione rispetto alla possibile durata dell'esecuzione di un runbook. Gli altri [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) dei processi si applicano sia ai sandbox di Azure che ai ruoli di lavoro ibridi per runbook. Anche se i ruolo di lavoro ibridi per runbook non sono limitati dal limite di condivisione equa di tre ore, è consigliabile sviluppare runbook da eseguire nei worker che supportano i riavvii da problemi imprevisti dell'infrastruttura locale.
 
 Un'altra opzione consiste nell'ottimizzare il runbook usando un runbook figlio. Ad esempio, il runbook potrebbe eseguire il ciclo della stessa funzione su diverse risorse, ad esempio, con un'operazione di database su diversi database. È possibile spostare questa funzione in un [runbook figlio](automation-child-runbooks.md) e fare in modo che il runbook lo chiami usando [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). I runbook figlio vengono eseguiti in parallelo in processi separati.
 

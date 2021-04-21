@@ -5,12 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8f732cd8c588ffc08dbe48f6a92add65c2bc2e9f
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f119c15cbbfd9586bdb06fdffad0b12c9a441eea
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963241"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832645"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gestire le pianificazioni in Automazione di Azure
 
@@ -38,22 +39,22 @@ I cmdlet nella tabella seguente consentono di creare e gestire le pianificazioni
 
 ## <a name="create-a-schedule"></a>Creare una pianificazione
 
-È possibile creare una nuova pianificazione per il manuali operativi dalla portale di Azure, con PowerShell o usando un modello di Azure Resource Manager (ARM). Per evitare conseguenze per i runbook e i processi che vengono automatizzati, è consigliabile prima di tutto testare tutti i runbook che includono pianificazioni collegate con un account di Automazione dedicato ai test. Un test convalida che i runbook pianificati continuino a funzionare correttamente. Se si verifica un problema, è possibile risolverlo e applicare eventuali modifiche necessarie prima di eseguire la migrazione della versione aggiornata del runbook in produzione.
+È possibile creare una nuova pianificazione per i runbook dal portale di Azure, con PowerShell o usando un modello Azure Resource Manager (ARM). Per evitare conseguenze per i runbook e i processi che vengono automatizzati, è consigliabile prima di tutto testare tutti i runbook che includono pianificazioni collegate con un account di Automazione dedicato ai test. Un test convalida che i runbook pianificati continuino a funzionare correttamente. Se si verifica un problema, è possibile risolverlo e applicare eventuali modifiche necessarie prima di eseguire la migrazione della versione aggiornata del runbook in produzione.
 
 > [!NOTE]
 > L'account di Automazione non riceve automaticamente nuove versioni dei moduli a meno che tali versioni non siano state aggiornate manualmente selezionando l'opzione [Aggiorna moduli di Azure](../automation-update-azure-modules.md) in **Moduli**. Quando viene eseguito un nuovo processo pianificato, Automazione di Azure usa i moduli più recenti nell'account di automazione. 
 
 ### <a name="create-a-new-schedule-in-the-azure-portal"></a>Creare una nuova pianificazione nel portale di Azure
 
-1. Nell'account di automazione, nel riquadro a sinistra, selezionare **pianificazioni** in **risorse condivise**.
-2. Nella pagina **pianificazioni** selezionare **Aggiungi pianificazione**.
-3. Nella pagina **nuova pianificazione** immettere un nome e, facoltativamente, immettere una descrizione per la nuova pianificazione.
+1. Nel riquadro sinistro dell'account di Automazione selezionare **Pianificazioni** in **Risorse condivise**.
+2. Nella pagina **Pianificazioni** selezionare Aggiungi **una pianificazione**.
+3. Nella pagina **Nuova pianificazione** immettere un nome e, facoltativamente, una descrizione per la nuova pianificazione.
 
     >[!NOTE]
-    >Le pianificazioni di automazione attualmente non supportano l'uso di caratteri speciali nel nome della pianificazione.
+    >Le pianificazioni di automazione non supportano attualmente l'uso di caratteri speciali nel nome della pianificazione.
     >
 
-4. Consente di indicare se la pianificazione viene eseguita una volta o in base a una pianificazione ricorrente selezionando **una sola volta** o **ricorrendo**. Se si seleziona **Una sola volta** specificare un'ora di inizio e quindi selezionare **Crea**. Se si seleziona **Ricorrente** specificare un'ora di inizio. Per **Ricorre ogni** selezionare la frequenza con cui si vuole ripetere l'esecuzione del runbook. Selezionare ora, giorno, settimana o mese.
+4. Specificare se la pianificazione viene eseguita una sola volta o in base a una pianificazione ricorrente selezionando **Una sola volta** o **Ricorrente.** Se si seleziona **Una sola volta** specificare un'ora di inizio e quindi selezionare **Crea**. Se si seleziona **Ricorrente** specificare un'ora di inizio. Per **Ricorre ogni** selezionare la frequenza con cui si vuole ripetere l'esecuzione del runbook. Selezionare ora, giorno, settimana o mese.
 
     * Se si seleziona **Settimana** verranno visualizzati i giorni della settimana tra cui scegliere. Selezionare tutti i giorni necessari. La prima esecuzione della pianificazione avverrà il primo giorno selezionato all'ora di inizio. Ad esempio, per scegliere una pianificazione nel weekend, selezionare sabato e domenica.
 
@@ -70,7 +71,7 @@ I cmdlet nella tabella seguente consentono di creare e gestire le pianificazioni
 Usare il cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) per creare le pianificazioni. Specificare l'ora di inizio per la pianificazione e la frequenza di esecuzione. Negli esempi seguenti viene illustrato come creare diversi scenari di pianificazione.
 
 >[!NOTE]
->Le pianificazioni di automazione attualmente non supportano l'uso di caratteri speciali nel nome della pianificazione.
+>Le pianificazioni di automazione non supportano attualmente l'uso di caratteri speciali nel nome della pianificazione.
 >
 
 #### <a name="create-a-one-time-schedule"></a>Creare una pianificazione occasionale
@@ -121,11 +122,11 @@ $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th and Last" -StartTime $StartTime -DaysOfMonth @("One", "Fifteenth", "Last") -ResourceGroupName "TestAzureAuto" -MonthInterval 1
 ```
 
-## <a name="create-a-schedule-with-a-resource-manager-template"></a>Creare una pianificazione con un modello di Gestione risorse
+## <a name="create-a-schedule-with-a-resource-manager-template"></a>Creare una pianificazione con un modello Resource Manager pianificazione
 
-In questo esempio viene usato un modello di Gestione risorse di automazione (ARM) che crea una nuova pianificazione del processo. Per informazioni generali su questo modello per gestire le pianificazioni dei processi di automazione, vedere [Microsoft. Automation automationAccounts/jobSchedules template Reference](/azure/templates/microsoft.automation/2015-10-31/automationaccounts/jobschedules#quickstart-templates).
+In questo esempio viene utilizzato un modello di automazione Resource Manager (ARM) che crea una nuova pianificazione del processo. Per informazioni generali su questo modello per gestire le pianificazioni dei processi di Automazione, vedere Informazioni di riferimento sul modello [Microsoft.Automation automationAccounts/jobSchedules](/azure/templates/microsoft.automation/2015-10-31/automationaccounts/jobschedules#quickstart-templates).
 
-Copiare il file modello in un editor di testo:
+Copiare questo file modello in un editor di testo:
 
 ```json
 {
@@ -147,16 +148,16 @@ Copiare il file modello in un editor di testo:
 
 Modificare i valori dei parametri seguenti e salvare il modello come file JSON:
 
-* Nome oggetto pianificazione processo: viene usato un GUID (identificatore univoco globale) come nome dell'oggetto pianificazione processo.
+* Nome oggetto pianificazione processo: come nome dell'oggetto di pianificazione del processo viene usato un GUID (Globally Unique Identifier).
 
    >[!IMPORTANT]
-   > Per ogni pianificazione del processo distribuita con un modello ARM, il GUID deve essere univoco. Anche se si sta ripianificando una pianificazione esistente, sarà necessario modificare il GUID. Questo vale anche se in precedenza è stata eliminata una pianificazione di processo esistente creata con lo stesso modello. Il riutilizzo dello stesso GUID comporta una distribuzione non riuscita.</br></br>
-   > Sono disponibili servizi online che possono generare un nuovo GUID, ad esempio il generatore di [GUID online gratuito](https://guidgenerator.com/).
+   > Per ogni pianificazione del processo distribuita con un modello arm, il GUID deve essere univoco. Anche se si sta riprogrammando una pianificazione esistente, è necessario modificare il GUID. Questo vale anche se in precedenza è stata eliminata una pianificazione del processo esistente creata con lo stesso modello. Il riutilizzo dello stesso GUID comporta una distribuzione non riuscita.</br></br>
+   > Sono disponibili servizi online che possono generare automaticamente un nuovo GUID, ad esempio questo generatore [di GUID online gratuito.](https://guidgenerator.com/)
 
-* Nome pianificazione: rappresenta il nome della pianificazione del processo di automazione che verrà collegata al Runbook specificato.
-* Runbook Name: rappresenta il nome del Runbook di automazione a cui deve essere associata la pianificazione del processo.
+* Nome pianificazione: rappresenta il nome della pianificazione del processo di Automazione che verrà collegata al runbook specificato.
+* Nome runbook: rappresenta il nome del runbook di Automazione a cui deve essere associata la pianificazione del processo.
 
-Una volta salvato il file, è possibile creare la pianificazione del processo runbook con il comando di PowerShell seguente. Il comando usa il `TemplateFile` parametro per specificare il percorso e il nome file del modello.
+Dopo aver salvato il file, è possibile creare la pianificazione del processo del runbook con il comando di PowerShell seguente. Il comando usa il `TemplateFile` parametro per specificare il percorso e il nome file del modello.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "<path>\RunbookJobSchedule.json"
@@ -202,7 +203,7 @@ Quando si disabilita una pianificazione, i runbook a essa collegati non vengono 
 
 ### <a name="disable-a-schedule-from-the-azure-portal"></a>Disabilitare una pianificazione dal portale di Azure
 
-1. Nel riquadro sinistro dell'account di automazione selezionare **pianificazioni** in **risorse condivise**.
+1. Nel riquadro sinistro dell'account di Automazione selezionare **Pianificazioni** in **Risorse condivise.**
 1. Selezionare il nome di una pianificazione per aprire il rispettivo riquadro dei dettagli.
 1. Impostare **Abilitata** su **No**.
 
@@ -228,7 +229,7 @@ Quando si è pronti per rimuovere le pianificazioni, è possibile usare il porta
 
 ### <a name="remove-a-schedule-using-the-azure-portal"></a>Rimuovere una pianificazione usando il portale di Azure
 
-1. Nel riquadro sinistro dell'account di automazione selezionare **pianificazioni** in **risorse condivise**.
+1. Nel riquadro sinistro dell'account di Automazione selezionare **Pianificazioni** in **Risorse condivise.**
 2. Selezionare il nome di una pianificazione per aprire il rispettivo riquadro dei dettagli.
 3. Fare clic su **Elimina**.
 

@@ -1,28 +1,28 @@
 ---
 title: 'Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente'
 description: Informazioni su come aggiungere un nome di dominio DNS personalizzato esistente, ad esempio il dominio personale, in un'app Web, nel back-end dell'app per dispositivi mobili o nell'app per le API del servizio app di Azure.
-keywords: servizio app, servizio app di Azure, mapping del dominio, nome di dominio, dominio esistente, nome host, dominio Vanity
+keywords: servizio app, servizio app di Azure, mapping di dominio, nome di dominio, dominio esistente, nome host, dominio vanity
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 32ad6fa122083b40a948345e360bf5b9b0f09e96
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1fcf8c681f4fad65209c27663045d4974be633f7
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954854"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833249"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
-Questa esercitazione illustra come eseguire il mapping di qualsiasi <abbr title="Un nome di dominio acquistato da un registrar di dominio, ad esempio GoDaddy, o un sottodominio del dominio acquistato.">nome di dominio DNS personalizzato</abbr> in <abbr title="Un servizio basato su HTTP per l'hosting di applicazioni Web, API REST e applicazioni back-end per dispositivi mobili.">Servizio app di Azure</abbr>.
+Questa esercitazione illustra come eseguire il mapping di qualsiasi elemento esistente <abbr title="Nome di dominio acquistato da un registrar, ad esempio GoDaddy, o un sottodominio del dominio acquistato.">nome di dominio DNS personalizzato</abbr> in <abbr title="Servizio basato su HTTP per l'hosting di applicazioni Web, API REST e applicazioni back-end per dispositivi mobili.">Servizio app di Azure</abbr>.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Eseguire il mapping di un sottodominio usando <abbr title="Un record di nome canonico DNS esegue il mapping di un nome di dominio a un altro.">Record CNAME</abbr>.
+> * Eseguire il mapping di un sottodominio usando un <abbr title="Un record di nomi canonici DNS esegue il mapping di un nome di dominio a un altro.">Record CNAME</abbr>.
 > * Eseguire il mapping di un dominio radice usando un <abbr title="Un record di indirizzo in DNS esegue il mapping di un nome host a un indirizzo IP.">Record A</abbr>.
 > * Eseguire il mapping di un dominio con caratteri jolly usando un record CNAME.
 > * Reindirizzare l'URL predefinito a una directory personalizzata.
@@ -32,18 +32,18 @@ In questa esercitazione si apprenderà come:
 ## <a name="1-prepare-your-environment"></a>1. Preparare l'ambiente
 
 * [Creare un'app del servizio app](./index.yml) oppure usare un'app creata per un'altra esercitazione.
-* Assicurarsi che sia possibile modificare i record DNS per il dominio personalizzato. Se non si dispone ancora di un dominio personalizzato, è possibile [acquistare un dominio del servizio app](manage-custom-dns-buy-domain.md).
+* Assicurarsi di poter modificare i record DNS per il dominio personalizzato. Se non si ha ancora un dominio personalizzato, è possibile [acquistare un dominio del servizio app](manage-custom-dns-buy-domain.md).
 
     <details>
-        <summary>Cosa è necessario per modificare I record DNS?</summary>
+        <summary>Cosa è necessario per modificare i record DNS?</summary>
         Richiede l'accesso al registro DNS per il provider di dominio, ad esempio GoDaddy. Ad esempio, per aggiungere le voci DNS per <code>contoso.com</code> e <code>www.contoso.com</code> è necessario essere autorizzati a configurare le impostazioni DNS per il dominio radice <code>contoso.com</code>.
     </details>
 
 <hr/> 
 
-## <a name="2-prepare-the-app"></a>2. preparare l'app
+## <a name="2-prepare-the-app"></a>2. Preparare l'app
 
-Per eseguire il mapping di un nome DNS personalizzato a un'app, l'app <abbr title="Specifica la posizione, le dimensioni e le funzionalità del server farm Web che ospita l'app.">Piano di servizio app</abbr> deve essere un livello a pagamento (non <abbr title="Un app Azure livello di servizio in cui l'app è in esecuzione sulle stesse VM di altre app, incluse le app di altri clienti. Questo livello è destinato a sviluppo e test.">**Gratuito (F1)**</abbr>). Per ulteriori informazioni, vedere [app Azure Panoramica del piano di servizio](overview-hosting-plans.md).
+Per eseguire il mapping di un nome DNS personalizzato a un'app, <abbr title="Specifica la posizione, le dimensioni e le funzionalità del server farm che ospita l'app.">Piano di servizio app</abbr> deve essere un livello a pagamento (non <abbr title="Un Servizio app di Azure in cui l'app viene eseguita nelle stesse macchine virtuali di altre app, incluse le app di altri clienti. Questo livello è destinato allo sviluppo e al test.">**Gratuito (F1)**</abbr>). Per altre informazioni, vedere panoramica [Servizio app di Azure piano.](overview-hosting-plans.md)
 
 #### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -73,7 +73,7 @@ Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account 
 
    ![Screenshot che mostra i piani tariffari consigliati.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-1. Se il piano di servizio app non è nel livello **F1** , chiudere la pagina **scalabilità verticale** e passare a [3. Ottenere un ID di verifica del dominio](#3-get-a-domain-verification-id).
+1. Se il piano di servizio app non è  nel livello **F1,** chiudere la pagina Aumentare le dimensioni e passare a [3. Ottenere un ID di verifica del dominio](#3-get-a-domain-verification-id).
 
 <a name="scaleup" aria-hidden="true"></a>
 
@@ -93,7 +93,7 @@ Aprire il [portale di Azure](https://portal.azure.com) e accedere con l'account 
 
 <a name="cname" aria-hidden="true"></a>
 
-## <a name="3-get-a-domain-verification-id"></a>3. ottenere un ID di verifica del dominio
+## <a name="3-get-a-domain-verification-id"></a>3. Ottenere un ID di verifica del dominio
 
 Per aggiungere un dominio personalizzato all'app, è necessario verificare la proprietà del dominio aggiungendo un ID verifica come record TXT al provider di dominio. 
 
@@ -109,25 +109,25 @@ Per aggiungere un dominio personalizzato all'app, è necessario verificare la pr
     
 <a name="info"></a>
 
-3. **(Solo record A)** Per eseguire il mapping di un oggetto <abbr title="Un record di indirizzo in DNS esegue il mapping di un nome host a un indirizzo IP.">Record A</abbr>, è necessario l'indirizzo IP esterno dell'app. Nella pagina **domini personalizzati** , copiare il valore di **indirizzo IP**.
+3. **(solo record A)** Per eseguire il mapping di un oggetto <abbr title="Un record di indirizzo in DNS esegue il mapping di un nome host a un indirizzo IP.">Record A</abbr>, è necessario l'indirizzo IP esterno dell'app. Nella pagina **Domini personalizzati** copiare il valore dell'indirizzo **IP**.
 
    ![Screenshot che mostra come spostarsi nel portale per accedere a un'app di Azure.](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
 <hr/> 
 
-## <a name="4-create-the-dns-records"></a>4. creare i record DNS
+## <a name="4-create-the-dns-records"></a>4. Creare i record DNS
 
 1. Accedere al sito Web del provider di dominio.
 
     <details>
-        <summary>È possibile gestire il DNS dal provider di dominio usando Azure?</summary>
-        Se lo si desidera, è possibile usare DNS di Azure per gestire i record DNS per il dominio e configurare un nome DNS personalizzato per il servizio app Azure. Per altre informazioni, vedere <a href="/azure/dns/dns-delegate-domain-azure-dns">esercitazione: ospitare il dominio in DNS di Azure></a>.
+        <summary>È possibile gestire DNS dal provider di dominio usando Azure?</summary>
+        Se si desidera, è possibile usare DNS di Azure per gestire i record DNS per il dominio e configurare un nome DNS personalizzato per Servizio app di Azure. Per altre informazioni, vedere <a href="/azure/dns/dns-delegate-domain-azure-dns">Esercitazione: Ospitare il dominio in DNS di Azure></a>.
     </details>
 
 1. Individuare la pagina relativa alla gestione dei record DNS. 
 
     <details>
-        <summary>Ricerca per categorie trovare la pagina?</summary>
+        <summary>Ricerca per categorie la pagina?</summary>
         <p>Poiché ogni provider di dominio ha una propria interfaccia per i record DNS, vedere la documentazione del provider. Cercare le aree del sito denominate <strong>Domain Name</strong> (Nome di dominio), <strong>DNS</strong> o <strong>Name Server Management</strong> (Gestione server dei nomi).</p>
         <p>È spesso possibile visualizzare la pagina dei record DNS visualizzando le informazioni dell'account e cercando un collegamento come <strong>My domains</strong> (Domini personali). Passare alla pagina e quindi cercare un collegamento con un titolo simile a <strong>File di zona</strong>, <strong>Record DNS</strong> o <strong>Configurazione avanzata</strong>.</p>
     </details>
@@ -138,34 +138,34 @@ Per aggiungere un dominio personalizzato all'app, è necessario verificare la pr
 
 1. Selezionare **Aggiungi** o il widget appropriato per creare un record. 
 
-1. Selezionare il tipo di record da creare e seguire le istruzioni. È possibile usare un <abbr title="Un record di nome canonico in DNS esegue il mapping di un nome di dominio (un alias) a un altro (il nome canonico).">Record CNAME</abbr> o un <abbr title="Un record di indirizzo in DNS esegue il mapping di un nome host a un indirizzo IP.">Record A</abbr> per eseguire il mapping di un nome DNS personalizzato al servizio app. 
+1. Selezionare il tipo di record da creare e seguire le istruzioni. È possibile usare una delle due <abbr title="Un record di nome canonico in DNS esegue il mapping di un nome di dominio (alias) a un altro (nome canonico).">Record CNAME</abbr> o un <abbr title="Un record di indirizzo in DNS esegue il mapping di un nome host a un indirizzo IP.">Record A</abbr> per eseguire il mapping di un nome DNS personalizzato al servizio app. 
 
     <details>
-        <summary>Quale record scegliere?</summary>
+        <summary>Quale record è necessario scegliere?</summary>
         <div>
             <ul>
-            <li>Per eseguire il mapping del dominio radice (ad esempio, <code>contoso.com</code> ), usare un record A. Non usare il record CNAME per il record radice (per informazioni, vedere la <a href="https://en.wikipedia.org/wiki/CNAME_record">voce di Wikipedia</a>).</li>
-            <li>Per eseguire il mapping di un sottodominio (ad esempio, <code>www.contoso.com</code> ), usare un record CNAME.</li>
-            <li>È possibile eseguire il mapping di un sottodominio all'indirizzo IP dell'app direttamente con un record A, ma è possibile che <a href="/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">l'indirizzo IP venga modificato</a>. Il record CNAME esegue il mapping al nome host dell'app, che è meno soggetto a modifiche.</li>
-            <li>Per eseguire il mapping di un <a href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">dominio con caratteri jolly</a> (ad esempio, <code>*.contoso.com</code> ), usare un record CNAME.</li>
+            <li>Per eseguire il mapping del dominio radice ,ad esempio <code>contoso.com</code> , usare un record A. Non usare il record CNAME per il record radice (per informazioni, vedere la <a href="https://en.wikipedia.org/wiki/CNAME_record">voce Wikipedia</a>).</li>
+            <li>Per eseguire il mapping di un sottodominio ,ad esempio <code>www.contoso.com</code> , usare un record CNAME.</li>
+            <li>È possibile eseguire il mapping di un sottodominio all'indirizzo IP dell'app direttamente con un record A, ma è possibile che <a href="/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">l'indirizzo IP cambi</a>. CNAME esegue invece il mapping al nome host dell'app, che è meno soggetto a modifiche.</li>
+            <li>Per eseguire il mapping <a href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">di un dominio con caratteri</a> jolly ,ad esempio , usare un record <code>*.contoso.com</code> CNAME.</li>
             </ul>
         </div>
     </details>
     
 # <a name="cname"></a>[CNAME](#tab/cname)
 
-Per un sottodominio, ad esempio `www` `www.contoso.com` , creare due record in base alla tabella seguente:
+Per un sottodominio `www` come in , creare due record in base alla tabella `www.contoso.com` seguente:
 
 | Tipo di record | Host | valore | Commenti |
 | - | - | - |
-| CNAME | `<subdomain>` (ad esempio, `www` ) | `<app-name>.azurewebsites.net` | Il mapping del dominio stesso. |
-| TXT | `asuid.<subdomain>` (ad esempio, `asuid.www` ) | [ID verifica ottenuto in precedenza](#3-get-a-domain-verification-id) | Il servizio app accede al record TXT `asuid.<subdomain>` per verificare la proprietà del dominio personalizzato. |
+| CNAME | `<subdomain>` (ad esempio, `www`) | `<app-name>.azurewebsites.net` | Il mapping del dominio stesso. |
+| TXT | `asuid.<subdomain>` (ad esempio, `asuid.www`) | [ID verifica ottenuto in precedenza](#3-get-a-domain-verification-id) | Il servizio app accede al record TXT `asuid.<subdomain>` per verificare la proprietà del dominio personalizzato. |
 
 ![Screenshot che mostra come spostarsi nel portale per accedere a un'app di Azure.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
     
 # <a name="a"></a>[A](#tab/a)
 
-Per un dominio radice, ad esempio `contoso.com` , creare due record in base alla tabella seguente:
+Per un dominio radice come `contoso.com` , creare due record in base alla tabella seguente:
 
 | Tipo di record | Host | valore | Commenti |
 | - | - | - |
@@ -175,8 +175,8 @@ Per un dominio radice, ad esempio `contoso.com` , creare due record in base alla
 ![Screenshot che mostra una pagina di record DNS.](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
 <details>
-<summary>Cosa accade se si desidera eseguire il mapping di un sottodominio con un record A?</summary>
-Per eseguire il mapping di un sottodominio, ad esempio un record `www.contoso.com` a anziché un record CNAME consigliato, il record a record e txt dovrebbe essere simile alla tabella seguente:
+<summary>Cosa fare se si vuole eseguire il mapping di un sottodominio con un record A?</summary>
+Per eseguire il mapping di un sottodominio come con un record A anziché con un record CNAME consigliato, il record A e il record TXT dovrebbero essere simili alla `www.contoso.com` tabella seguente:
 
 <div class="table-scroll-wrapper"><table class="table"><caption class="visually-hidden">Tabella 3</caption>
 <thead>
@@ -189,12 +189,12 @@ Per eseguire il mapping di un sottodominio, ad esempio un record `www.contoso.co
 <tbody>
 <tr>
 <td>Una</td>
-<td><code>&lt;subdomain&gt;</code> (ad esempio, <code>www</code> )</td>
+<td><code>&lt;subdomain&gt;</code> (ad esempio, <code>www</code>)</td>
 <td>Indirizzo IP ricavato da <a href="#info" data-linktype="self-bookmark">Copiare l'indirizzo IP dell'app</a></td>
 </tr>
 <tr>
 <td>TXT</td>
-<td><code>asuid.&lt;subdomain&gt;</code> (ad esempio, <code>asuid.www</code> )</td>
+<td><code>asuid.&lt;subdomain&gt;</code> (ad esempio, <code>asuid.www</code>)</td>
 <td><a href="#3-get-a-domain-verification-id" data-linktype="self-bookmark">ID verifica ottenuto in precedenza</a></td>
 </tr>
 </tbody>
@@ -203,7 +203,7 @@ Per eseguire il mapping di un sottodominio, ad esempio un record `www.contoso.co
 
 # <a name="wildcard-cname"></a>[Carattere jolly (CNAME)](#tab/wildcard)
 
-Per un nome con caratteri jolly come `*` in `*.contoso.com` , creare due record in base alla tabella seguente:
+Per un nome con caratteri jolly `*` come in , creare due record in base alla tabella `*.contoso.com` seguente:
 
 | Tipo di record | Host | valore | Commenti |
 | - | - | - |
@@ -221,7 +221,7 @@ Per un nome con caratteri jolly come `*` in `*.contoso.com` , creare due record 
 
 <hr/>
 
-## <a name="5-enable-the-mapping-in-your-app"></a>5. abilitare il mapping nell'app
+## <a name="5-enable-the-mapping-in-your-app"></a>5. Abilitare il mapping nell'app
 
 1. Nel riquadro sinistro della pagina dell'app nel portale di Azure selezionare **Domini personalizzati**.
 
@@ -246,7 +246,7 @@ Per un nome con caratteri jolly come `*` in `*.contoso.com` , creare due record 
     ![Screenshot che mostra l'aggiunta del record CNAME.](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
     <details>
-        <summary>Che cos'è l'etichetta di avviso <strong>non sicuro</strong> ?</summary>
+        <summary>Che cos'è <strong>l'etichetta avviso Not Secure?</strong></summary>
         Un'etichetta di avviso indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL. In seguito a qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato si riceverà un errore o un avviso, a seconda del browser. Per aggiungere un'associazione TLS, vedere <a href="/azure/app-service/configure-ssl-bindings">Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure</a>.
     </details>
 
@@ -273,7 +273,7 @@ Per un nome con caratteri jolly come `*` in `*.contoso.com` , creare due record 
     ![Screenshot che mostra l'aggiunta di un record A.](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
     <details>
-        <summary>Che cos'è l'etichetta di avviso <strong>non sicuro</strong> ?</summary>
+        <summary>Che cos'è <strong>l'etichetta avviso Not Secure?</strong></summary>
         Un'etichetta di avviso indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL. In seguito a qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato si riceverà un errore o un avviso, a seconda del browser. Per aggiungere un'associazione TLS, vedere <a href="/azure/app-service/configure-ssl-bindings">Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure</a>.
     </details>
     
@@ -285,7 +285,7 @@ Per un nome con caratteri jolly come `*` in `*.contoso.com` , creare due record 
 
 # <a name="wildcard-cname"></a>[Carattere jolly (CNAME)](#tab/wildcard)
 
-3. Digitare un nome di dominio completo che corrisponda al dominio con caratteri jolly. Per l'esempio, ad esempio, `*.contoso.com` è possibile usare `sub1.contoso.com` , `sub2.contoso.com` , `*.contoso.com` o qualsiasi altra stringa che corrisponda al modello con caratteri jolly. Selezionare quindi **convalida**.
+3. Digitare un nome di dominio completo che corrisponda al dominio con caratteri jolly. Ad esempio, per l'esempio `*.contoso.com` è possibile usare , , o qualsiasi altra stringa che corrisponde al modello con caratteri `sub1.contoso.com` `sub2.contoso.com` `*.contoso.com` jolly. Selezionare quindi **Convalida**.
 
     Il pulsante **Aggiungi dominio personalizzato** viene attivato.
 
@@ -296,7 +296,7 @@ Per un nome con caratteri jolly come `*` in `*.contoso.com` , creare due record 
     La visualizzazione del nuovo dominio personalizzato nella pagina **Domini personalizzati** dell'app potrebbe richiedere qualche minuto. Aggiornare il browser per visualizzare i dati più recenti.
 
     <details>
-        <summary>Che cos'è l'etichetta di avviso <strong>non sicuro</strong> ?</summary>
+        <summary>Che cos'è <strong>l'etichetta avviso Not Secure?</strong></summary>
         Un'etichetta di avviso indica che il dominio personalizzato non è ancora associato a un certificato TLS/SSL. In seguito a qualsiasi richiesta HTTPS inviata da un browser al dominio personalizzato si riceverà un errore o un avviso, a seconda del browser. Per aggiungere un'associazione TLS, vedere <a href="/azure/app-service/configure-ssl-bindings">Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure</a>.
     </details>
 
@@ -304,15 +304,15 @@ Per un nome con caratteri jolly come `*` in `*.contoso.com` , creare due record 
 
 <hr/> 
 
-## <a name="6-test-in-a-browser"></a>6. eseguire il test in un browser
+## <a name="6-test-in-a-browser"></a>6. Eseguire il test in un browser
 
-Individuare i nomi DNS configurati in precedenza.
+Passare ai nomi DNS configurati in precedenza.
 
 ![Screenshot che mostra come spostarsi nel portale per accedere a un'app di Azure.](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
 <a name="resolve-404-not-found" aria-hidden="true"></a>
 <details>
-<summary>Viene ricevuto un errore HTTP 404 (non trovato).</summary>
+<summary>Viene visualizzato un errore HTTP 404 (Non trovato).</summary>
 <ul>
 <li>Nel dominio personalizzato configurato manca un record A o un record CNAME.</li>
 <li>Il browser client ha memorizzato nella cache l'indirizzo IP precedente del dominio. Cancellare la cache e testare nuovamente la risoluzione del DNS. In un computer Windows cancellare la cache con <code>ipconfig /flushdns</code>.</li>
@@ -332,11 +332,11 @@ Per eseguire la migrazione di un sito live e del relativo nome di dominio DNS al
 ## <a name="redirect-to-a-custom-directory"></a>Reindirizzare a una directory personalizzata
 
 <details>
-<summary>Questa operazione è necessaria?</summary>
-<p>Dipende dall'app. Per impostazione predefinita, il servizio app indirizza le richieste Web alla directory radice del codice dell'app. Tuttavia, alcuni framework Web Don&#39;t iniziano nella directory radice. Ad esempio, <a href="https://laravel.com/">Laravel</a> viene avviato nella sottodirectory <code>public</code>. Per continuare con l'esempio relativo al DNS <code>contoso.com</code>, un'app di questo tipo è accessibile all'indirizzo <code>http://contoso.com/public</code>, ma si vuole indirizzare l'URL <code>http://contoso.com</code> alla directory <code>public</code>. </p>
+<summary>È necessario?</summary>
+<p>Dipende dall'app. Per impostazione predefinita, il servizio app indirizza le richieste Web alla directory radice del codice dell'app. Tuttavia, alcuni framework Web&#39;non vengono avviati nella directory radice. Ad esempio, <a href="https://laravel.com/">Laravel</a> viene avviato nella sottodirectory <code>public</code>. Per continuare con l'esempio relativo al DNS <code>contoso.com</code>, un'app di questo tipo è accessibile all'indirizzo <code>http://contoso.com/public</code>, ma si vuole indirizzare l'URL <code>http://contoso.com</code> alla directory <code>public</code>. </p>
 </details>
 
-Sebbene si tratta di uno scenario comune, non implica effettivamente il mapping del dominio personalizzato, ma sta per personalizzare la directory virtuale all'interno dell'app.
+Sebbene si tratta di uno scenario comune, non implica effettivamente il mapping di dominio personalizzato, ma riguarda la personalizzazione della directory virtuale all'interno dell'app.
 
 1. Selezionare **Impostazioni applicazione** nel riquadro sinistro della pagina dell'app Web.
 
@@ -344,7 +344,7 @@ Sebbene si tratta di uno scenario comune, non implica effettivamente il mapping 
 
     ![Screenshot che mostra la personalizzazione di una directory virtuale.](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-1. Al termine dell'operazione, verificare passando al percorso radice dell'app nel browser (ad esempio, `http://contoso.com` o `http://<app-name>.azurewebsites.net` ).
+1. Al termine dell'operazione, verificare passando al percorso radice dell'app nel browser , ad esempio `http://contoso.com` o `http://<app-name>.azurewebsites.net` .
 
 <hr/> 
 

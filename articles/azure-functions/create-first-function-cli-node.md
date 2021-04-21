@@ -3,13 +3,13 @@ title: Creare una funzione in JavaScript dalla riga di comando - Funzioni di Azu
 description: Informazioni su come creare una funzione in JavaScript dalla riga di comando e quindi pubblicare il progetto locale nell'hosting serverless in Funzioni di Azure.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8db78e56087e7cb777d1aa85391d4b6ac2aae27
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: eb162bcff647e9e1dbced19ddea33a8f3c54b58e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107787540"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831943"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione in JavaScript in Azure dalla riga di comando
 

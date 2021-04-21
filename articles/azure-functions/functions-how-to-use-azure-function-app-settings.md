@@ -4,13 +4,13 @@ description: Informazioni su come configurare le impostazioni dell'app per le fu
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: ed87a5a744defb15d4a898aeabdce5267b7431fe
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 6775fdf8d5174600344f3c7177a3130ef63e8f76
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775656"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832681"
 ---
 # <a name="manage-your-function-app"></a>Gestire l'app per le funzioni 
 
@@ -53,7 +53,7 @@ az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-Il [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) comando aggiunge o aggiorna un'impostazione dell'applicazione. L'esempio seguente crea un'impostazione con una chiave `CUSTOM_FUNCTION_APP_SETTING` denominata e un valore `12345` :
+Il [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) comando aggiunge o aggiorna un'impostazione dell'applicazione. Nell'esempio seguente viene creata un'impostazione con una chiave `CUSTOM_FUNCTION_APP_SETTING` denominata e un valore `12345` :
 
 
 ```azurecli-interactive
@@ -191,7 +191,7 @@ Usare la procedura seguente per eseguire la migrazione da un piano Premium a un 
     az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
-1. Se il piano dell'app per le funzioni Premium precedente non è più necessario, eliminare il piano di app per le funzioni originale dopo aver confermato di aver completato la migrazione a quello nuovo. Si noti che se il piano non viene eliminato, verrà comunque addebitato il piano Premium. Eseguire il comando seguente per ottenere un elenco di tutti i piani Premium nel gruppo di risorse.
+1. Se il piano dell'app per le funzioni Premium precedente non è più necessario, eliminare il piano dell'app per le funzioni originale dopo aver confermato di aver eseguito correttamente la migrazione a quello nuovo. Si noti che se il piano non viene eliminato, verrà comunque addebitato il piano Premium. Eseguire il comando seguente per ottenere un elenco di tutti i piani Premium nel gruppo di risorse.
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].{PlanName:name,Sites:numberOfSites}" -o table
@@ -210,7 +210,7 @@ Le app per le funzioni vengono eseguite nella piattaforma Servizio app di Azure 
 > [!NOTE]
 > Non tutte le funzionalità del servizio app sono disponibili quando un'app per le funzioni viene eseguita nel piano di hosting a consumo.
 
-La parte restante di questo articolo è incentrata sulle funzionalità del servizio app seguenti nel portale di Azure utili per Le funzioni:
+La parte restante di questo articolo è incentrata sulle funzionalità del servizio app seguenti portale di Azure utili per Le funzioni:
 
 + [Editor del servizio app](#editor)
 + [Console](#console)
@@ -225,9 +225,9 @@ Per altre informazioni su come usare le impostazioni del servizio app, vedere [C
 
 ![Editor del servizio app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-L'editor del servizio app è un editor avanzato, disponibile nel portale, che si può usare per modificare i file di configurazione JSON e i file del codice nello stesso modo. Quando si sceglie questa opzione, viene aperta una scheda separata del browser con un editor di base. Ciò consente di realizzare l'integrazione con l'archivio Git, eseguire il codice e il relativo debug e modificare le impostazioni dell'app per le funzioni. Questo editor offre un ambiente di sviluppo avanzato per le funzioni rispetto all'editor di funzioni predefinito.  
+L'editor del servizio app è un editor avanzato, disponibile nel portale, che si può usare per modificare i file di configurazione JSON e i file del codice nello stesso modo. Quando si sceglie questa opzione, viene aperta una scheda separata del browser con un editor di base. Ciò consente di realizzare l'integrazione con l'archivio Git, eseguire il codice e il relativo debug e modificare le impostazioni dell'app per le funzioni. Questo editor fornisce un ambiente di sviluppo avanzato per le funzioni rispetto all'editor di funzioni predefinito.  
 
-È consigliabile prendere in considerazione lo sviluppo delle funzioni nel computer locale. Quando si sviluppa in locale e si pubblica in Azure, i file di progetto sono di sola lettura nel portale. Per altre informazioni, vedere [Creare codice e testare Funzioni di Azure in locale.](functions-develop-local.md)
+È consigliabile prendere in considerazione lo sviluppo di funzioni nel computer locale. Quando si sviluppa in locale e si pubblica in Azure, i file di progetto sono di sola lettura nel portale. Per altre informazioni, vedere [Code and test Funzioni di Azure locally](functions-develop-local.md).
 
 ### <a name="console"></a><a name="console"></a>Console
 
@@ -250,7 +250,7 @@ Quando si usa una soluzione di controllo del codice sorgente per sviluppare e ge
 
 ### <a name="cross-origin-resource-sharing"></a><a name="cors"></a>Condivisione di risorse tra le origini
 
-Per impedire l'esecuzione di codice dannoso nel client, i browser moderni bloccano le richieste dalle applicazioni Web alle risorse in esecuzione in un dominio separato. [La condivisione di risorse tra le](https://developer.mozilla.org/docs/Web/HTTP/CORS) origini consente a un'intestazione di dichiarare quali origini sono autorizzate a chiamare gli endpoint `Access-Control-Allow-Origin` nell'app per le funzioni.
+Per impedire l'esecuzione di codice dannoso nel client, i browser moderni bloccano le richieste dalle applicazioni Web alle risorse in esecuzione in un dominio separato. [La condivisione di risorse tra origini (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) consente a un'intestazione di dichiarare quali origini sono autorizzate a chiamare `Access-Control-Allow-Origin` gli endpoint nell'app per le funzioni.
 
 #### <a name="portal"></a>Portale
 

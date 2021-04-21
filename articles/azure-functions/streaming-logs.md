@@ -1,19 +1,19 @@
 ---
-title: Flussi di log di esecuzione in funzioni di Azure
+title: Trasmettere i log di esecuzione in Funzioni di Azure
 description: 115-145 caratteri inclusi gli spazi. Questo sunto viene visualizzato nei risultati della ricerca.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.custom: contperf-fy21q2, devx-track-azurecli
-ms.openlocfilehash: 085849386fce929ceaec4536844cf31b94fe7539
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: contperf-fy21q2, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 4afb1068acda69c9dd65a423d887abea80c695cd
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97033052"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830899"
 ---
-# <a name="enable-streaming-execution-logs-in-azure-functions"></a>Abilitare i log di esecuzione del flusso in funzioni di Azure
+# <a name="enable-streaming-execution-logs-in-azure-functions"></a>Abilitare i log di esecuzione di streaming in Funzioni di Azure
 
-Durante lo sviluppo di un'applicazione, è spesso necessario vedere cosa viene scritto nei log quasi in tempo reale durante l'esecuzione in Azure.
+Durante lo sviluppo di un'applicazione, spesso si vuole vedere cosa viene scritto nei log quasi in tempo reale durante l'esecuzione in Azure.
 
 Esistono due modi per visualizzare il flusso dei file di log generati dalle esecuzioni delle funzioni.
 
@@ -66,13 +66,13 @@ az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_N
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Per abilitare i log in streaming, è possibile usare [Azure PowerShell](/powershell/azure/). Per PowerShell usare il comando [set-AzWebApp](/powershell/module/az.websites/set-azwebapp) per abilitare la registrazione nell'app per le funzioni, come illustrato nel frammento di codice seguente: 
+Per abilitare i log in streaming, è possibile usare [Azure PowerShell](/powershell/azure/). Per PowerShell, usare il [comando Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) per abilitare la registrazione nell'app per le funzioni, come illustrato nel frammento di codice seguente: 
 
 :::code language="powershell" source="~/powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1" range="19-20":::
 
-Per ulteriori informazioni, vedere l' [esempio di codice completo](../app-service/scripts/powershell-monitor.md#sample-script). 
+Per altre informazioni, vedere [l'esempio di codice completo](../app-service/scripts/powershell-monitor.md#sample-script). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 + [Monitorare Funzioni di Azure](functions-monitoring.md)
-+ [Analizzare la telemetria di funzioni di Azure in Application Insights](analyze-telemetry-data.md)
++ [Analizzare Funzioni di Azure telemetria in Application Insights](analyze-telemetry-data.md)

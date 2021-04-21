@@ -5,12 +5,13 @@ services: automation
 ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 95ef52acedc9171ba86110a665d08ea97c59bfbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 687c3d49f98fe6832d23dc1529a9761d862e0666
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575825"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830881"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Abilitare Gestione aggiornamenti con il modello di Azure Resource Manager
 
@@ -20,14 +21,14 @@ Per abilitare la funzionalità Gestione aggiornamenti di Automazione di Azure ne
 * Automatizza la creazione di un account di Automazione di Azure.
 * Collega l'account di Automazione all'area di lavoro Log Analytics.
 * Aggiunge runbook di automazione di esempio all'account.
-* Abilita la funzionalità Gestione aggiornamenti.
+* Abilita la Gestione aggiornamenti funzionalità.
 
-Il modello non automatizza l'abilitazione di Gestione aggiornamenti in una o più macchine virtuali di Azure o non Azure.
+Il modello non automatizza l'abilitazione Gestione aggiornamenti in una o più macchine virtuali di Azure o non di Azure.
 
-Se si dispone già di un'area di lavoro Log Analytics e di un account di Automazione distribuiti in un'area supportata della sottoscrizione, questi non sono collegati. Con questo modello viene creato il collegamento e viene distribuito Gestione aggiornamenti.
+Se si dispone già di un'area di lavoro Log Analytics e di un account di Automazione distribuiti in un'area supportata della sottoscrizione, questi non sono collegati. L'uso di questo modello crea correttamente il collegamento e distribuisce Gestione aggiornamenti.
 
 >[!NOTE]
->La creazione dell'account RunAs di Automazione non è supportata quando si usa un modello di Resource Manager. Per creare manualmente un account RunAs dal portale o con PowerShell, vedere [creare un account RunAs](../create-run-as-account.md).
+>La creazione dell'account RunAs di Automazione non è supportata quando si usa un modello di Resource Manager. Per creare un account RunAs manualmente dal portale o con PowerShell, vedere [Creare un account RunAs](../create-run-as-account.md).
 
 Dopo aver completato questi passaggi, è necessario [configurare le impostazioni di diagnostica](../automation-manage-send-joblogs-log-analytics.md) per l'account di Automazione per inviare lo stato del processo del runbook e i flussi di processo all'area di lavoro Log Analytics collegata.
 
@@ -325,7 +326,7 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nella portale di Azure aprire l'account di automazione creato.
+2. Nel portale di Azure aprire l'account di Automazione creato.
 
 3. Nel riquadro sinistro selezionare **Runbook**. Nella pagina **Runbook** sono elencati tre runbook di esercitazione creati con l'account di automazione.
 
@@ -335,18 +336,18 @@ Se non si ha familiarità con Automazione di Azure e Monitoraggio di Azure, è i
 
     ![Account di automazione collegato all'area di lavoro Log Analytics](../media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 
-5. Dal riquadro sinistro selezionare **Gestione aggiornamenti**. Nella pagina **Gestione aggiornamenti** viene visualizzata la pagina valutazione senza informazioni come risultato della semplice abilitazione e le macchine virtuali non sono configurate per la gestione.
+5. Nel riquadro sinistro selezionare **Gestione aggiornamenti**. Nella pagina **Gestione aggiornamenti** viene visualizzata la pagina di valutazione senza alcuna informazione in seguito alla semplice a attivazione e i computer non sono configurati per la gestione.
 
-    ![Visualizzazione della valutazione della funzionalità Gestione aggiornamenti](./media/enable-from-template/update-management-assessment-view.png)
+    ![Gestione aggiornamenti di valutazione delle funzionalità](./media/enable-from-template/update-management-assessment-view.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare la soluzione **aggiornamenti** nell'area di lavoro log Analytics, scollegare l'account di automazione dall'area di lavoro e quindi eliminare l'account di automazione e l'area di lavoro.
+Quando non sono più necessari, eliminare la soluzione **Aggiornamenti** nell'area di lavoro Log Analytics, scollegare l'account di Automazione dall'area di lavoro e quindi eliminare l'account di Automazione e l'area di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per usare Gestione aggiornamenti per le macchine virtuali, vedere [gestire gli aggiornamenti e le patch per le macchine virtuali](manage-updates-for-vm.md).
+* Per usare Gestione aggiornamenti per le macchine virtuali, vedere [Gestire aggiornamenti e patch per le macchine virtuali.](manage-updates-for-vm.md)
 
-* Se non si vuole più usare Gestione aggiornamenti e si desidera rimuoverlo, vedere le istruzioni riportate in [rimuovere Gestione aggiornamenti funzionalità](remove-feature.md).
+* Se non si vuole più usare Gestione aggiornamenti e si vuole rimuoverlo, vedere le istruzioni in Rimuovere Gestione aggiornamenti [funzionalità](remove-feature.md).
 
 * Per eliminare macchine virtuali da Gestione aggiornamenti, vedere [Rimuovere macchine virtuali da Gestione aggiornamenti](remove-vms.md).
