@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 17c1ea19f3879f5490922ab4b54f21773191eebd
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: e2846b7ba07ec0a7678a8287fe6a84bc169497a3
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107484229"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785128"
 ---
 # <a name="create-an-azure-time-series-insights-gen2-environment-using-the-azure-cli"></a>Creare un ambiente Azure Time Series Insights Gen2 usando l'interfaccia della riga di comando di Azure
 
@@ -41,7 +41,7 @@ key=$(az storage account keys list -g $rg -n $storage --query [0].value --output
 
 ## <a name="creating-the-environment"></a>Creazione dell'ambiente
 
-Ora che l'account di archiviazione è stato creato e il nome e la chiave di gestione sono stati assegnati alle variabili, eseguire il comando seguente per creare l'Azure Time Series Insights Environment:
+Ora che l'account di archiviazione viene creato e il nome e la chiave di gestione vengono assegnati alle variabili, eseguire il comando seguente per creare l'Azure Time Series Insights Environment:
 
 > [!NOTE]
 > Nel codice sostituire quanto segue con nomi univoci per lo scenario:
@@ -74,7 +74,7 @@ Per [eliminare l'account di archiviazione,](/cli/azure/storage/account#az_storag
 az storage account delete --name $storage --resource-group $rg
 ```
 
-Per [eliminare un gruppo di risorse](/cli/azure/group#az-group-delete) e tutte le relative risorse, eseguire il comando seguente:
+Per [eliminare un gruppo di risorse](/cli/azure/group#az_group_delete) e tutte le relative risorse, eseguire il comando seguente:
 
 ```azurecli-interactive
 az group delete --name $rg

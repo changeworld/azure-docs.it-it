@@ -8,12 +8,12 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: df2bd1c12c86de43e2a5057813a743d822dbda33
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: e82ac4e1fdb8e5f88c9d83924da50b1ff5c659cc
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718351"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777924"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Abilitare Azure Active Directory Domain Services'autenticazione in File di Azure
 
@@ -72,7 +72,7 @@ Eseguire quindi le operazioni seguenti per concedere l'accesso File di Azure ris
 3. Configurare le autorizzazioni NTFS su SMB per file e directory.
 4. Montare una condivisione file di Azure da una macchina virtuale aggiunta a dominio.
 
-Il diagramma seguente illustra il flusso di lavoro end-to-end per l'abilitazione Azure AD DS'autenticazione tramite SMB per File di Azure.
+Il diagramma seguente illustra il flusso di lavoro end-to-end per l'abilitazione dell'autenticazione Azure AD DS su SMB per File di Azure.
 
 ![Diagramma che mostra il flusso di lavoro per l'autenticazione di Azure AD tramite SMB per File di Azure](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
@@ -88,7 +88,7 @@ Per abilitare Azure AD DS autenticazione tramite SMB con il portale di Azure [,]
 
 1. Nel portale di Azure passare all'account di archiviazione esistente o [creare un account di archiviazione](../common/storage-account-create.md).
 1. Nella sezione **Impostazioni** selezionare **Configurazione**.
-1. In **Identity-based access for file shares** (Accesso basato sull'identità per le condivisioni file) impostare l'interruttore per Azure Active Directory Domain Service **(AAD DS)** su **Abilitato.**
+1. In **Identity-based access for file shares** (Accesso basato sull'identità per condivisioni file) impostare l'interruttore per Azure Active Directory Domain Service **(AAD DS)** su **Abilitato.**
 1. Selezionare **Salva**.
 
 L'immagine seguente illustra come abilitare l'Azure AD DS tramite SMB per l'account di archiviazione.
@@ -125,7 +125,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 Per abilitare l Azure AD tramite SMB con l'interfaccia della riga di comando di Azure, installare la versione più recente dell'interfaccia della riga di comando (versione 2.0.70 o successiva). Per altre informazioni sull'installazione dell'interfaccia della riga di comando di Azure, [vedere Installare l'interfaccia della riga di comando di Azure.](/cli/azure/install-azure-cli)
 
-Per creare un nuovo account di archiviazione, chiamare [az storage account create](/cli/azure/storage/account#az-storage-account-create)e impostare `--enable-files-aadds` la proprietà su **true**. Nell'esempio seguente ricordarsi di sostituire i valori segnaposto con valori personalizzati. Se si usa il modulo di anteprima precedente, il parametro per l'abilitazione delle funzionalità è **file-aad.**
+Per creare un nuovo account di archiviazione, chiamare [az storage account create](/cli/azure/storage/account#az_storage_account_create)e impostare `--enable-files-aadds` la proprietà su **true**. Nell'esempio seguente ricordarsi di sostituire i valori segnaposto con valori personalizzati. Se si usa il modulo di anteprima precedente, il parametro per l'abilitazione delle funzionalità è **file-aad.**
 
 ```azurecli-interactive
 # Create a new storage account

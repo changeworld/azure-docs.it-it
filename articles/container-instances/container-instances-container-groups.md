@@ -1,15 +1,15 @@
 ---
 title: Introduzione ai gruppi di contenitori
-description: Informazioni sui gruppi di contenitori in istanze di contenitore di Azure, una raccolta di istanze che condividono un ciclo di vita e risorse come CPU, archiviazione e rete
+description: Informazioni sui gruppi di contenitori in Istanze di Azure Container, una raccolta di istanze che condividono un ciclo di vita e risorse come CPU, archiviazione e rete
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 72ebe6186da179bc5a1effddcc14327455eb7557
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a2cb3eac5baa5b1035749d28b9fb99bbb45b9ee6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89612407"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790888"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di Azure Container
 
@@ -17,7 +17,7 @@ La risorsa di livello principale in Istanze di Azure Container è il *gruppo di 
 
 ## <a name="what-is-a-container-group"></a>Che cos'è un gruppo di contenitori?
 
-Un gruppo di contenitori è una raccolta di contenitori che vengono pianificati nello stesso computer host I contenitori in un gruppo di contenitori condividono un ciclo di vita, le risorse, la rete locale e i volumi di archiviazione. Si tratta di un concetto simile a un *Pod* in [Kubernetes][kubernetes-pod].
+Un gruppo di contenitori è una raccolta di contenitori che vengono pianificati nello stesso computer host I contenitori in un gruppo di contenitori condividono un ciclo di vita, risorse, rete locale e volumi di archiviazione. Il concetto è simile a quello di un *pod* in [Kubernetes.][kubernetes-pod]
 
 Il diagramma seguente mostra un esempio di un gruppo che include più contenitori:
 
@@ -32,48 +32,48 @@ Questo gruppo di contenitori di esempio:
 * Include due condivisioni file di Azure come punti di montaggio di volume e ogni contenitore monta una delle due condivisioni in locale.
 
 > [!NOTE]
-> I gruppi di più contenitori supportano attualmente solo i contenitori Linux. Per i contenitori di Windows, istanze di contenitore di Azure supporta solo la distribuzione di una singola istanza di contenitore. Mentre stiamo lavorando per riunire tutte le funzionalità nei contenitori di Windows, è possibile trovare le attuali differenze della piattaforma nella [Panoramica](container-instances-overview.md#linux-and-windows-containers)del servizio.
+> I gruppi multi-contenitore supportano attualmente solo contenitori Linux. Per i contenitori di Windows, Istanze di Azure Container supporta solo la distribuzione di una singola istanza del contenitore. Mentre si sta lavorando per portare tutte le funzionalità nei contenitori di Windows, è possibile trovare le differenze di piattaforma correnti nella panoramica del [servizio](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="deployment"></a>Distribuzione
 
-Ecco due modi comuni per distribuire un gruppo di più contenitori: usare un [modello di gestione risorse][resource-manager template] o un [file YAML][yaml-file]. Quando si distribuiscono le istanze di contenitore, è consigliabile usare un modello di Gestione risorse quando è necessario distribuire altre risorse dei servizi di Azure (ad esempio, una [condivisione file di Azure][azure-files]). A causa della natura più concisa del formato YAML, è consigliabile usare un file YAML quando la distribuzione include solo istanze di contenitore. Per informazioni dettagliate sulle proprietà che è possibile impostare, vedere la documentazione di riferimento del [modello di gestione risorse](/azure/templates/microsoft.containerinstance/containergroups) o di [riferimento YAML](container-instances-reference-yaml.md) .
+Ecco due modi comuni per distribuire un gruppo multi-contenitore: usare un [modello][resource-manager template] Resource Manager o un [file YAML.][yaml-file] Un Resource Manager modello è consigliato quando è necessario distribuire altre risorse del servizio di Azure (ad esempio, una condivisione File di Azure [)][azure-files]quando si distribuiscono le istanze del contenitore. A causa della natura più concisa del formato YAML, è consigliabile un file YAML quando la distribuzione include solo istanze del contenitore. Per informazioni dettagliate sulle proprietà che è possibile impostare, vedere la documentazione di riferimento [Resource Manager modello](/azure/templates/microsoft.containerinstance/containergroups) o [YAML.](container-instances-reference-yaml.md)
 
-Per mantenere la configurazione di un gruppo di contenitori, è possibile esportare la configurazione in un file YAML usando il comando dell'interfaccia della riga di comando di Azure [AZ container Export][az-container-export]. L'esportazione consente di archiviare le configurazioni del gruppo di contenitori nel controllo della versione per "configurazione come codice". In alternativa, usare il file esportato come punto di partenza per lo sviluppo di una nuova configurazione in YAML.
+Per mantenere la configurazione di un gruppo di contenitori, è possibile esportare la configurazione in un file YAML usando il comando dell'interfaccia della riga di comando di Azure [az container export][az-container-export]. L'esportazione consente di archiviare le configurazioni del gruppo di contenitori nel controllo della versione per "configurazione come codice". In alternativa, usare il file esportato come punto di partenza per lo sviluppo di una nuova configurazione in YAML.
 
 
 
 ## <a name="resource-allocation"></a>Allocazione delle risorse
 
-Istanze di contenitore di Azure alloca risorse come CPU, memoria e facoltativamente [GPU][gpus] (anteprima) a un gruppo multicontenitore aggiungendo le [richieste di risorse][resource-requests] delle istanze nel gruppo. Assunzione di risorse della CPU come esempio, se si crea un gruppo di contenitori con due istanze di contenitore, ciascuna delle quali richiede 1 CPU, al gruppo di contenitori vengono allocate 2 CPU.
+Istanze di Azure Container alloca risorse come CPU, memoria e facoltativamente [GPU][gpus] (anteprima) a un gruppo [][resource-requests] multi-contenitore aggiungendo le richieste di risorse delle istanze nel gruppo. Prendendo come esempio le risorse della CPU, se si crea un gruppo di contenitori con due istanze di contenitore, ognuna delle quali richiede 1 CPU, al gruppo di contenitori vengono allocate 2 CPU.
 
-### <a name="resource-usage-by-container-instances"></a>Utilizzo delle risorse da istanze di contenitore
+### <a name="resource-usage-by-container-instances"></a>Utilizzo delle risorse in base alle istanze del contenitore
 
-A ogni istanza di contenitore in un gruppo vengono allocate le risorse specificate nella relativa richiesta di risorsa. Tuttavia, le risorse massime usate da un'istanza di contenitore in un gruppo possono essere diverse se si configura la relativa proprietà relativa al [limite di risorse][resource-limits] facoltativo. Il limite di risorse di un'istanza del contenitore deve essere maggiore o uguale alla proprietà obbligatoria della [richiesta di risorse][resource-requests] .
+A ogni istanza di contenitore in un gruppo vengono allocate le risorse specificate nella richiesta di risorse. Tuttavia, le risorse massime usate da un'istanza di contenitore in un gruppo potrebbero essere diverse se si configura la proprietà facoltativa [del limite di][resource-limits] risorse. Il limite di risorse di un'istanza di contenitore deve essere maggiore o uguale alla proprietà obbligatoria [della richiesta di][resource-requests] risorsa.
 
-* Se non si specifica un limite di risorse, l'utilizzo massimo delle risorse dell'istanza del contenitore è uguale a quello della relativa richiesta di risorse.
+* Se non si specifica un limite di risorse, l'utilizzo massimo delle risorse dell'istanza del contenitore corrisponde a quello della richiesta di risorse.
 
-* Se si specifica un limite per un'istanza del contenitore, l'utilizzo massimo dell'istanza potrebbe essere maggiore della richiesta, fino al limite impostato. Di conseguenza, l'utilizzo delle risorse da parte di altre istanze del contenitore nel gruppo potrebbe diminuire. Il limite massimo di risorse che è possibile impostare per un'istanza del contenitore è il totale delle risorse allocate al gruppo.
+* Se si specifica un limite per un'istanza di contenitore, l'utilizzo massimo dell'istanza potrebbe essere maggiore della richiesta, fino al limite impostato. Di conseguenza, l'utilizzo delle risorse da parte di altre istanze di contenitore nel gruppo potrebbe diminuire. Il limite massimo di risorse che è possibile impostare per un'istanza di contenitore è il totale delle risorse allocate al gruppo.
     
-Ad esempio, in un gruppo con due istanze di contenitore ciascuna richiesta di 1 CPU, è possibile che uno dei contenitori esegua un carico di lavoro che richiede l'esecuzione di un numero maggiore di CPU.
+Ad esempio, in un gruppo con due istanze di contenitore, ognuna delle quali richiede 1 CPU, uno dei contenitori potrebbe eseguire un carico di lavoro che richiede più CPU da eseguire rispetto all'altro.
 
-In questo scenario è possibile impostare un limite di risorse di un massimo di 2 CPU per l'istanza di contenitore. Questa configurazione consente all'istanza del contenitore di utilizzare fino a 2 CPU, se disponibile.
+In questo scenario è possibile impostare un limite di risorse fino a 2 CPU per l'istanza del contenitore. Questa configurazione consente all'istanza del contenitore di usare fino a 2 CPU, se disponibili.
 
 > [!NOTE]
-> Una piccola quantità di risorse di un gruppo di contenitori viene utilizzata dall'infrastruttura sottostante del servizio. I contenitori saranno in grado di accedere alla maggior parte, ma non a tutte le risorse allocate al gruppo. Per questo motivo, pianificare un buffer delle risorse di piccole dimensioni quando si richiedono risorse per i contenitori del gruppo.
+> Una piccola quantità di risorse di un gruppo di contenitori viene usata dall'infrastruttura sottostante del servizio. I contenitori saranno in grado di accedere alla maggior parte delle risorse allocate al gruppo, ma non a tutte. Per questo motivo, pianificare un buffer di risorse di piccole dimensioni quando si richiedono risorse per i contenitori nel gruppo.
 
 ### <a name="minimum-and-maximum-allocation"></a>Allocazione minima e massima
 
-* Allocare **almeno** 1 CPU e 1 GB di memoria a un gruppo di contenitori. È possibile eseguire il provisioning di istanze di contenitore singole all'interno di un gruppo con meno di 1 CPU e 1 GB di memoria. 
+* Allocare **almeno** 1 CPU e 1 GB di memoria a un gruppo di contenitori. È possibile effettuare il provisioning di singole istanze di contenitori all'interno di un gruppo con meno di 1 CPU e 1 GB di memoria. 
 
-* Per le risorse **massime** in un gruppo di contenitori, vedere la pagina relativa alla [disponibilità delle risorse][region-availability] per le istanze di contenitore di Azure nell'area di distribuzione.
+* Per il numero **massimo** di risorse in un gruppo di contenitori, vedere la [disponibilità delle][region-availability] risorse per Istanze di Azure Container nell'area di distribuzione.
 
 ## <a name="networking"></a>Rete
 
-I gruppi di contenitori possono condividere un indirizzo IP esterno, una o più porte su tale indirizzo IP e un'etichetta DNS con un nome di dominio completo (FQDN). Per consentire a client esterni di raggiungere un contenitore all'interno del gruppo, è necessario esporre la porta sull'indirizzo IP e dal contenitore. L'indirizzo IP e il nome di dominio completo di un gruppo di contenitori vengono rilasciati quando viene eliminato il gruppo di contenitori. 
+I gruppi di contenitori possono condividere un indirizzo IP esterno, una o più porte su tale indirizzo IP e un'etichetta DNS con un nome di dominio completo (FQDN). Per consentire a client esterni di raggiungere un contenitore all'interno del gruppo, è necessario esporre la porta sull'indirizzo IP e dal contenitore. L'indirizzo IP e l'FQDN di un gruppo di contenitori vengono rilasciati quando il gruppo di contenitori viene eliminato. 
 
-All'interno di un gruppo di contenitori, le istanze di contenitore possono raggiungere reciprocamente tramite localhost su qualsiasi porta, anche se queste porte non sono esposte esternamente nell'indirizzo IP del gruppo o dal contenitore.
+All'interno di un gruppo di contenitori, le istanze del contenitore possono raggiungersi tramite localhost su qualsiasi porta, anche se tali porte non sono esposte esternamente nell'indirizzo IP del gruppo o dal contenitore.
 
-Facoltativamente, distribuire i gruppi di contenitori in una [rete virtuale di Azure][virtual-network] per consentire ai contenitori di comunicare in modo sicuro con altre risorse nella rete virtuale.
+Facoltativamente, distribuire gruppi di contenitori in una rete virtuale di [Azure][virtual-network] per consentire ai contenitori di comunicare in modo sicuro con altre risorse nella rete virtuale.
 
 ## <a name="storage"></a>Archiviazione
 
@@ -81,7 +81,7 @@ Facoltativamente, distribuire i gruppi di contenitori in una [rete virtuale di A
 * [Condivisione file di Azure][azure-files]
 * [Segreto][secret]
 * [Directory vuota][empty-directory]
-* [Repository git clonato][volume-gitrepo]
+* [Repository Git clonato][volume-gitrepo]
 
 ed eseguire il mapping di tali volumi in percorsi specifici all'interno dei singoli contenitori di un gruppo. 
 
@@ -123,4 +123,4 @@ Informazioni su come distribuire un gruppo con più contenitori con un modello d
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
 [empty-directory]: container-instances-volume-emptydir.md
-[az-container-export]: /cli/azure/container#az-container-export
+[az-container-export]: /cli/azure/container#az_container_export

@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 01/30/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b5aea1f0f0101231408dc9ad7b57a30f2c86256
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83121032"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107788158"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Eseguire la sequenziazione del provisioning delle estensioni in set scalabilità di macchine virtuali
 Le estensioni di macchine virtuali di Azure offrono funzionalità come la configurazione e la gestione post-distribuzione, il monitoraggio, la sicurezza e altro ancora. In genere, le distribuzioni di produzione usano una combinazione di più estensioni configurate per le istanze di macchine virtuali per ottenere risultati desiderati.
@@ -25,7 +25,7 @@ Questo articolo illustra in dettaglio come è possibile eseguire la sequenziazio
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che l'utente abbia familiarità con gli argomento seguenti:
--   [Estensioni](../virtual-machines/extensions/overview.md) della macchina virtuale di Azure
+-   Estensioni di macchine [virtuali](../virtual-machines/extensions/overview.md) di Azure
 -   [Modifica](virtual-machine-scale-sets-upgrade-scale-set.md) dei set di scalabilità di macchine virtuali
 
 ## <a name="when-to-use-extension-sequencing"></a>Quando usare la sequenziazione delle estensioni
@@ -223,7 +223,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 ```
 
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
-Usare [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) per aggiungere l'estensione Integrità applicazione alla definizione del modello del set di scalabilità. Per la sequenziazione delle estensioni è richiesto l'uso dell'interfaccia della riga di comando di Azure versione 2.0.55 o successiva.
+Usare [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) per aggiungere l'estensione Integrità applicazione alla definizione del modello del set di scalabilità. Per la sequenziazione delle estensioni è richiesto l'uso dell'interfaccia della riga di comando di Azure versione 2.0.55 o successiva.
 
 L'esempio seguente aggiunge l'[estensione Integrità applicazione](virtual-machine-scale-sets-health-extension.md)al modello di un set di scalabilità basato su Windows. Il provisioning dell'estensione Integrità applicazione verrà eseguito dopo il provisioning dell'[estensione Script personalizzato](../virtual-machines/extensions/custom-script-windows.md), già definita nel set di scalabilità.
 
@@ -243,7 +243,7 @@ az vmss extension set \
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>Non è possibile aggiungere un'estensione con dipendenze?
 1. Verificare che le estensioni specificate in provisionAfterExtensions siano definite nel modello del set di scalabilità.
-2. Assicurarsi che non siano state introdotte dipendenze circolari. La sequenza seguente, ad esempio, non è consentita: Extensiona-> ExtensionB-> ExtensionC-> Extensiona
+2. Assicurarsi che non siano state introdotte dipendenze circolari. Ad esempio, la sequenza seguente non è consentita: ExtensionA -> ExtensionB -> ExtensionC -> ExtensionA
 3. Assicurarsi che tutte le estensioni con dipendenze abbiano una proprietà "settings" in "properties". Ad esempio, se è necessario eseguire il provisioning di EstensioneB dopo EstensioneA, per EstensioneA deve essere disponibile il campo "settings" in "properties" di EstensioneA. È possibile specificare una proprietà "settings" vuota se l'estensione non richiede impostazioni obbligatorie.
 
 ### <a name="not-able-to-remove-extensions"></a>Non è possibile rimuovere le estensioni?

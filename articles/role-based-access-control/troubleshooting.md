@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi a RBAC di Azure
-description: Risolvere i problemi relativi al controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
+title: Risolvere i problemi relativi al controllo degli accessi in base al ruolo di
+description: Risolvere i problemi relativi al controllo degli accessi in base al ruolo di Azure.
 services: azure-portal
 author: rolyon
 manager: mtillman
@@ -13,33 +13,33 @@ ms.topic: troubleshooting
 ms.date: 04/06/2021
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: b4a3f7f613f75f2f285437b7ae6f816adf56d999
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: d816854c8d8a78931060c6e56fffbaee1fde5150
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580104"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771714"
 ---
-# <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
+# <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi al controllo degli accessi in base al ruolo di
 
-Questo articolo risponde ad alcune domande comuni sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure), in modo da sapere cosa accade quando si usano i ruoli e può risolvere i problemi di accesso.
+Questo articolo risponde ad alcune domande comuni sul controllo degli accessi in base al ruolo di Azure, in modo da sapere cosa aspettarsi quando si usano i ruoli e risolvere i problemi di accesso.
 
-## <a name="azure-role-assignments-limit"></a>Limite assegnazioni di ruolo di Azure
+## <a name="azure-role-assignments-limit"></a>Limite delle assegnazioni di ruolo di Azure
 
-Azure supporta fino a **2000** assegnazioni di ruolo per sottoscrizione. Questo limite include le assegnazioni di ruolo negli ambiti di sottoscrizione, gruppo di risorse e risorsa. Se viene ricevuto il messaggio di errore "non è più possibile creare assegnazioni di ruolo (codice: RoleAssignmentLimitExceeded)" quando si tenta di assegnare un ruolo, provare a ridurre il numero di assegnazioni di ruolo nella sottoscrizione.
+Azure supporta fino a **2000** assegnazioni di ruolo per sottoscrizione. Questo limite include le assegnazioni di ruolo negli ambiti di sottoscrizione, gruppo di risorse e risorsa. Se viene visualizzato il messaggio di errore "Non è possibile creare altre assegnazioni di ruolo (codice: RoleAssignmentLimitExceeded)" quando si tenta di assegnare un ruolo, provare a ridurre il numero di assegnazioni di ruolo nella sottoscrizione.
 
 > [!NOTE]
-> Il limite di assegnazioni di ruolo **2000** per ogni sottoscrizione è fisso e non può essere aumentato.
+> Il limite di assegnazioni di ruolo **2000** per sottoscrizione è fisso e non può essere aumentato.
 
-Se si avvicina questo limite, di seguito sono riportati alcuni modi in cui è possibile ridurre il numero di assegnazioni di ruolo:
+Se si sta per raggiungere questo limite, ecco alcuni modi per ridurre il numero di assegnazioni di ruolo:
 
 - Aggiungere utenti ai gruppi e assegnare ruoli ai gruppi. 
 - Combinare più ruoli predefiniti con un ruolo personalizzato. 
-- Eseguire assegnazioni di ruolo comuni a un ambito superiore, ad esempio una sottoscrizione o un gruppo di gestione.
-- Se si dispone di Azure AD Premium P2, rendere le assegnazioni di ruolo idonee per [Azure ad Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) invece che assegnate in modo permanente. 
-- Aggiungere una sottoscrizione aggiuntiva. 
+- Eseguire assegnazioni di ruolo comuni in un ambito superiore, ad esempio una sottoscrizione o un gruppo di gestione.
+- Se si dispone di Azure AD Premium P2, rendere idonee le assegnazioni di ruolo [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) invece di assegnarle in modo permanente. 
+- Aggiungere un'ulteriore sottoscrizione. 
 
-Per ottenere il numero di assegnazioni di ruolo, è possibile visualizzare il [grafico nella pagina controllo di accesso (IAM)](role-assignments-list-portal.md#list-number-of-role-assignments) del portale di Azure. È anche possibile usare i comandi di Azure PowerShell seguenti:
+Per ottenere il numero di assegnazioni di ruolo, è possibile visualizzare il grafico nella pagina Controllo di accesso [(IAM)](role-assignments-list-portal.md#list-number-of-role-assignments) nel portale di Azure. È anche possibile usare i comandi Azure PowerShell seguenti:
 
 ```azurepowershell
 $scope = "/subscriptions/<subscriptionId>"
@@ -47,21 +47,21 @@ $ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($s
 $ras.Count
 ```
 
-## <a name="problems-with-azure-role-assignments"></a>Problemi con le assegnazioni di ruolo di Azure
+## <a name="problems-with-azure-role-assignments"></a>Problemi relativi alle assegnazioni di ruolo di Azure
 
-- Se non è possibile assegnare un ruolo nel **controllo di accesso (IAM)** di portale di Azure perché l'opzione **Aggiungi**  >  **assegnazione ruolo** è disabilitata o perché si riceve l'errore di autorizzazione "il client con ID oggetto non dispone dell'autorizzazione per eseguire l'azione", verificare di aver eseguito l'accesso con un utente a cui è assegnato un ruolo con l' `Microsoft.Authorization/roleAssignments/write` autorizzazione, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator) , nell'ambito che si sta provando ad assegnare il ruolo.
-- Se si utilizza un'entità servizio per assegnare i ruoli, è possibile che venga ricevuto l'errore "privilegi insufficienti per completare l'operazione". Si immagini, ad esempio, di disporre di un'entità servizio a cui è stato assegnato il ruolo di proprietario e si tenta di creare l'assegnazione di ruolo seguente come entità servizio usando l'interfaccia della riga di comando di Azure:
+- Se non è possibile assegnare un ruolo nel portale di Azure nel controllo di accesso **(IAM)** perché l'opzione Aggiungi assegnazione di ruolo è disabilitata o perché viene visualizzato l'errore di autorizzazioni "Il client con ID oggetto non ha l'autorizzazione per eseguire l'azione", verificare di aver eseguito l'accesso con un utente a cui è assegnato un ruolo con l'autorizzazione proprietario o amministratore di accesso utente nell'ambito che si sta tentando di assegnare al  >   `Microsoft.Authorization/roleAssignments/write` ruolo. [](built-in-roles.md#owner) [](built-in-roles.md#user-access-administrator)
+- Se si usa un'entità servizio per assegnare ruoli, è possibile che venga visualizzato l'errore "Privilegi insufficienti per completare l'operazione". Si supponga, ad esempio, di avere un'entità servizio a cui è stato assegnato il ruolo Proprietario e di provare a creare l'assegnazione di ruolo seguente come entità servizio tramite l'interfaccia della riga di comando di Azure:
 
     ```azurecli
     az login --service-principal --username "SPNid" --password "password" --tenant "tenantid"
     az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
 
-    Se si riceve l'errore "privilegi insufficienti per completare l'operazione", è probabile che l'interfaccia della riga di comando di Azure tenti di cercare l'identità assegnata in Azure AD e che l'entità servizio non sia in grado di leggere Azure AD per impostazione predefinita.
+    Se viene visualizzato l'errore "Privilegi insufficienti per completare l'operazione", è probabile che l'interfaccia della riga di comando di Azure tenti di cercare l'identità dell'assegnatare in Azure AD e che l'entità servizio non possa leggere Azure AD per impostazione predefinita.
 
-    Esistono due modi per risolvere l'errore. Il primo consiste nell'assegnare il ruolo [Readers di directory](../active-directory/roles/permissions-reference.md#directory-readers) all'entità servizio in modo che possa leggere i dati nella directory.
+    Esistono due modi per risolvere potenzialmente questo errore. Il primo modo è assegnare il ruolo [con](../active-directory/roles/permissions-reference.md#directory-readers) autorizzazioni di lettura nella directory all'entità servizio in modo che possa leggere i dati nella directory.
 
-    Il secondo modo per risolvere l'errore consiste nel creare l'assegnazione di ruolo utilizzando il `--assignee-object-id` parametro anziché `--assignee` . Con, l'interfaccia della riga di comando di Azure ignorerà `--assignee-object-id` la ricerca Azure ad. Sarà necessario ottenere l'ID oggetto dell'utente, del gruppo o dell'applicazione a cui si desidera assegnare il ruolo. Per altre informazioni, vedere [assegnare ruoli di Azure tramite l'interfaccia](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope)della riga di comando di Azure.
+    Il secondo modo per risolvere questo errore è creare l'assegnazione di ruolo usando il `--assignee-object-id` parametro anziché `--assignee` . Usando , `--assignee-object-id` l'interfaccia della riga di comando di Azure ignora Azure AD ricerca. Sarà necessario ottenere l'ID oggetto dell'utente, del gruppo o dell'applicazione a cui si vuole assegnare il ruolo. Per altre informazioni, vedere Assegnare ruoli di [Azure usando l'interfaccia della riga di comando di Azure.](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope)
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -69,62 +69,62 @@ $ras.Count
 
 - Se si crea una nuova entità servizio e si prova ad assegnare subito un ruolo a tale entità, in alcuni casi l'assegnazione di ruolo può avere esito negativo.
 
-    Per far fronte a questo scenario, è necessario impostare la proprietà `principalType` su `ServicePrincipal` quando si crea l'assegnazione di ruolo. È inoltre necessario impostare l'oggetto `apiVersion` dell'assegnazione di ruolo su `2018-09-01-preview` o versione successiva. Per altre informazioni, vedere [assegnare ruoli di Azure a una nuova entità servizio usando l'API REST](role-assignments-rest.md#new-service-principal) o [assegnare ruoli di Azure a una nuova entità servizio usando i modelli di Azure Resource Manager](role-assignments-template.md#new-service-principal)
+    Per far fronte a questo scenario, è necessario impostare la proprietà `principalType` su `ServicePrincipal` quando si crea l'assegnazione di ruolo. È anche necessario impostare `apiVersion` l'oggetto dell'assegnazione di ruolo su `2018-09-01-preview` o versione successiva. Per altre informazioni, vedere [Assegnare](role-assignments-rest.md#new-service-principal) ruoli di Azure a una nuova entità servizio usando l'API REST o [Assegnare](role-assignments-template.md#new-service-principal) ruoli di Azure a una nuova entità servizio usando i modelli Azure Resource Manager servizio
 
-- Se si tenta di rimuovere l'ultima assegnazione di ruolo proprietario per una sottoscrizione, è possibile che venga visualizzato l'errore "Impossibile eliminare l'ultima assegnazione amministratore RBAC". La rimozione dell'ultima assegnazione di ruolo proprietario per una sottoscrizione non è supportata per evitare l'isolamento della sottoscrizione. Se si vuole annullare la sottoscrizione, vedere [annullare la sottoscrizione di Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
+- Se si tenta di rimuovere l'ultima assegnazione di ruolo Proprietario per una sottoscrizione, è possibile che venga visualizzato l'errore "Impossibile eliminare l'ultima assegnazione di amministratore controllo degli accessi in base al ruolo". La rimozione dell'ultima assegnazione di ruolo Proprietario per una sottoscrizione non è supportata per evitare l'orfano della sottoscrizione. Se si vuole annullare la sottoscrizione, vedere Annullare [la sottoscrizione di Azure.](../cost-management-billing/manage/cancel-azure-subscription.md)
 
 ## <a name="problems-with-custom-roles"></a>Problemi con i ruoli personalizzati
 
-- Per istruzioni su come creare un ruolo personalizzato, vedere le esercitazioni sui ruoli personalizzati usando l'interfaccia della riga di comando di [portale di Azure](custom-roles-portal.md), [Azure PowerShell](tutorial-custom-role-powershell.md)o [Azure](tutorial-custom-role-cli.md).
-- Se non è possibile aggiornare un ruolo personalizzato esistente, verificare di avere eseguito l'accesso con un utente a cui è stato assegnato un ruolo con l' `Microsoft.Authorization/roleDefinition/write` autorizzazione, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator).
+- Se sono necessari passaggi per la creazione di un ruolo personalizzato, vedere le esercitazioni sui ruoli personalizzati [usando](custom-roles-portal.md)portale di Azure , [Azure PowerShell](tutorial-custom-role-powershell.md)o l'interfaccia della riga di [comando di Azure.](tutorial-custom-role-cli.md)
+- Se non è possibile aggiornare un ruolo personalizzato esistente, verificare di aver eseguito l'accesso con un utente a cui è assegnato un ruolo con l'autorizzazione , ad esempio Proprietario o Amministratore `Microsoft.Authorization/roleDefinition/write` [Accesso utenti](built-in-roles.md#user-access-administrator). [](built-in-roles.md#owner)
 - Se non è possibile eliminare un ruolo personalizzato e ricevere il messaggio di errore "Sono presenti assegnazioni di ruolo esistenti che fanno riferimento a ruolo (codice: RoleDefinitionHasAssignments)", esistono assegnazioni di ruolo che usano ancora il ruolo personalizzato. Rimuovere le assegnazioni di ruolo e provare di nuovo a eliminare il ruolo personalizzato.
-- Se viene visualizzato il messaggio di errore "Limite di definizioni del ruolo superato. Non è possibile creare più definizioni di ruolo (codice: RoleDefinitionLimitExceeded) "quando si tenta di creare un nuovo ruolo personalizzato, eliminare tutti i ruoli personalizzati che non vengono usati. Azure supporta fino a **5000** ruoli personalizzati in una directory. (Per Azure Germania e Azure Cina 21Vianet, il limite è 2000 ruoli personalizzati).
-- Se viene rilevato un errore simile a "il client dispone dell'autorizzazione per eseguire l'azione ' Microsoft. Authorization/roleDefinitions/Write ' nell'ambito '/subscriptions/{SubscriptionId}', ma la sottoscrizione collegata non è stata trovata" quando si tenta di aggiornare un ruolo personalizzato, controllare se uno o più [ambiti assegnabili](role-definitions.md#assignablescopes) sono stati eliminati nella directory. Se l'ambito è stato eliminato, creare un ticket di supporto perché attualmente non è disponibile alcuna soluzione self-service.
+- Se viene visualizzato il messaggio di errore "Limite di definizioni del ruolo superato. Non è possibile creare altre definizioni di ruolo (codice: RoleDefinitionLimitExceeded)" quando si tenta di creare un nuovo ruolo personalizzato, eliminare tutti i ruoli personalizzati che non vengono usati. Azure supporta fino a **5000 ruoli** personalizzati in una directory. Per Azure Germania e Azure China (21Vianet), il limite è di 2000 ruoli personalizzati.
+- Se viene visualizzato un errore simile a "Il client ha l'autorizzazione per eseguire l'azione 'Microsoft.Authorization/roleDefinitions/write' nell'ambito '/subscriptions/{subscriptionid}', [](role-definitions.md#assignablescopes) ma la sottoscrizione collegata non è stata trovata" quando si tenta di aggiornare un ruolo personalizzato, verificare se uno o più ambiti assegnabili sono stati eliminati nella directory. Se l'ambito è stato eliminato, creare un ticket di supporto perché attualmente non è disponibile alcuna soluzione self-service.
 
 ## <a name="custom-roles-and-management-groups"></a>Ruoli personalizzati e gruppi di gestione
 
-- È possibile definire un solo gruppo di gestione in `AssignableScopes` di un ruolo personalizzato. L'aggiunta di un gruppo di gestione a `AssignableScopes` è attualmente in fase di anteprima.
-- I ruoli personalizzati con `DataActions` non possono essere assegnati all'ambito del gruppo di gestione.
-- Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione di ruolo.
-- Per altre informazioni sui ruoli personalizzati e sui gruppi di gestione, vedere [organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
+- È possibile definire un solo gruppo di gestione in `AssignableScopes` un ruolo personalizzato. L'aggiunta di un gruppo di gestione a `AssignableScopes` è attualmente in fase di anteprima.
+- I ruoli personalizzati con `DataActions` non possono essere assegnati nell'ambito del gruppo di gestione.
+- Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione del ruolo.
+- Per altre informazioni sui ruoli personalizzati e sui gruppi di gestione, vedere [Organizzare le risorse con i gruppi di gestione di Azure.](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment)
 
-## <a name="transferring-a-subscription-to-a-different-directory"></a>Trasferimento di una sottoscrizione a una directory diversa
+## <a name="transferring-a-subscription-to-a-different-directory"></a>Trasferimento di una sottoscrizione in una directory diversa
 
-- Per istruzioni su come trasferire una sottoscrizione a una directory Azure AD diversa, vedere [trasferire una sottoscrizione di Azure a una directory di Azure ad diversa](transfer-subscription.md).
-- Se si trasferisce una sottoscrizione a una directory Azure AD diversa, tutte le assegnazioni di ruolo vengono eliminate **definitivamente** dalla directory di Azure ad di origine e non vengono migrate alla directory Azure ad di destinazione. È necessario ricreare le assegnazioni di ruolo nella directory di destinazione. È anche necessario ricreare manualmente le identità gestite per le risorse di Azure. Per altre informazioni, vedere [domande frequenti e problemi noti relativi alle identità gestite](../active-directory/managed-identities-azure-resources/known-issues.md).
-- Se si è un Azure AD amministratore globale e non si ha accesso a una sottoscrizione dopo che è stato trasferito tra le directory, usare l'interruttore **gestione accessi per le risorse di Azure** per [elevare](elevate-access-global-admin.md) temporaneamente l'accesso per ottenere l'accesso alla sottoscrizione.
+- Se sono necessari passaggi per trasferire una sottoscrizione in una directory Azure AD diversa, vedere Trasferire una sottoscrizione di Azure in una directory Azure AD [diversa.](transfer-subscription.md)
+- Se si trasferisce una sottoscrizione in una directory Azure AD  diversa, tutte le assegnazioni di ruolo vengono eliminate in modo permanente dalla directory Azure AD di origine e non ne viene eseguita la migrazione alla directory Azure AD di destinazione. È necessario creare nuovamente le assegnazioni di ruolo nella directory di destinazione. È anche necessario ricreare manualmente le identità gestite per le risorse di Azure. Per altre informazioni, vedere [Domande frequenti e problemi noti relativi alle identità gestite.](../active-directory/managed-identities-azure-resources/known-issues.md)
+- Se si è un amministratore globale di Azure AD e non si ha accesso a una sottoscrizione dopo che è [](elevate-access-global-admin.md) stata trasferita tra le directory, usare l'interruttore Gestione accesso per le risorse di **Azure** per elevare temporaneamente l'accesso per ottenere l'accesso alla sottoscrizione.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemi con gli amministratori del servizio o i coamministratori
 
-- Se si verificano problemi con l'amministratore del servizio o con i coamministratori, vedere [aggiungere o modificare gli amministratori della sottoscrizione di Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) e i [ruoli di amministratore della sottoscrizione classica, i ruoli di Azure e i ruoli Azure ad](rbac-and-directory-admin-roles.md).
+- Se si verificano problemi con l'amministratore del servizio o con i co-amministratori, vedere Aggiungere o modificare gli amministratori della sottoscrizione di [Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) e i ruoli di amministratore della sottoscrizione classica, i ruoli di Azure e i ruoli Azure AD [sottoscrizione.](rbac-and-directory-admin-roles.md)
 
-## <a name="access-denied-or-permission-errors"></a>Errori di accesso negato o autorizzazione
+## <a name="access-denied-or-permission-errors"></a>Errori di accesso negato o di autorizzazione
 
-- Se si riceve l'errore relativo alle autorizzazioni "Il client con ID oggetto non è autorizzato a eseguire l'azione sull'ambito (codice: AuthorizationFailed)" quando si cerca di creare una risorsa, verificare di aver effettuato l'accesso con un utente a cui è assegnato un ruolo con autorizzazione di scrittura alla risorsa nell'ambito selezionato. Ad esempio, per gestire le macchine virtuali in un gruppo di risorse, è necessario disporre del ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) nel gruppo di risorse (o nell'ambito padre). Per un elenco delle autorizzazioni per ogni ruolo predefinito, vedere [ruoli predefiniti di Azure](built-in-roles.md).
-- Se si riceve l'errore di autorizzazione "non si è autorizzati a creare una richiesta di supporto" quando si tenta di creare o aggiornare un ticket di supporto, verificare di avere eseguito l'accesso con un utente a cui è assegnato un ruolo che dispone dell' `Microsoft.Support/supportTickets/write` autorizzazione, ad esempio [supporto richieste di supporto](built-in-roles.md#support-request-contributor).
+- Se si riceve l'errore relativo alle autorizzazioni "Il client con ID oggetto non è autorizzato a eseguire l'azione sull'ambito (codice: AuthorizationFailed)" quando si cerca di creare una risorsa, verificare di aver effettuato l'accesso con un utente a cui è assegnato un ruolo con autorizzazione di scrittura alla risorsa nell'ambito selezionato. Ad esempio, per gestire le macchine virtuali in un gruppo di risorse, è necessario disporre del ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) nel gruppo di risorse (o nell'ambito padre). Per un elenco delle autorizzazioni per ogni ruolo predefinito, vedere [Ruoli predefiniti di Azure.](built-in-roles.md)
+- Se viene visualizzato l'errore delle autorizzazioni "Non si è autorizzati a creare una richiesta di supporto" quando si tenta di creare o aggiornare un ticket di supporto, verificare di aver eseguito l'accesso con un utente a cui è assegnato un ruolo con l'autorizzazione , ad esempio Collaboratore richiesta di `Microsoft.Support/supportTickets/write` [supporto](built-in-roles.md#support-request-contributor).
 
 ## <a name="move-resources-with-role-assignments"></a>Spostare le risorse con assegnazioni di ruolo
 
-Se si sposta una risorsa che dispone di un ruolo di Azure assegnato direttamente alla risorsa (o a una risorsa figlio), l'assegnazione di ruolo non viene spostata e diventa orfana. Dopo lo spostamento, è necessario ricreare l'assegnazione di ruolo. Infine, l'assegnazione di ruolo orfana verrà rimossa automaticamente, ma è consigliabile rimuovere l'assegnazione di ruolo prima di spostare la risorsa.
+Se si sposta una risorsa a cui è assegnato un ruolo di Azure direttamente alla risorsa (o a una risorsa figlio), l'assegnazione di ruolo non viene spostata e diventa orfana. Dopo lo spostamento, è necessario creare nuovamente l'assegnazione di ruolo. Alla fine, l'assegnazione di ruolo orfana verrà rimossa automaticamente, ma è consigliabile rimuovere l'assegnazione di ruolo prima di spostare la risorsa.
 
-Per informazioni su come spostare le risorse, vedere [spostare le risorse in un nuovo gruppo di risorse o sottoscrizione](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Per informazioni su come spostare le risorse, vedere [Spostare le risorse in un nuovo gruppo di risorse o in una nuova sottoscrizione.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
 ## <a name="role-assignments-with-identity-not-found"></a>Assegnazioni di ruolo con identità non trovate
 
-Nell'elenco delle assegnazioni di ruolo per la portale di Azure è possibile notare che l'entità di sicurezza (utente, gruppo, entità servizio o identità gestita) è elencata come **identità non trovata** con un tipo **sconosciuto** .
+Nell'elenco delle assegnazioni di ruolo per il portale di Azure è possibile notare che l'entità di sicurezza (utente, gruppo,  entità servizio o identità gestita) è elencata come Identità non trovata con un tipo Sconosciuto. 
 
-![Identità non trovata nell'elenco assegnazioni di ruolo di Azure](./media/troubleshooting/unknown-security-principal.png)
+![Identità non trovata elencata nelle assegnazioni di ruolo di Azure](./media/troubleshooting/unknown-security-principal.png)
 
-È possibile che l'identità non sia stata trovata per due motivi:
+L'identità potrebbe non essere stata trovata per due motivi:
 
-- È stato invitato di recente un utente durante la creazione di un'assegnazione di ruolo
+- Di recente è stato invitato un utente durante la creazione di un'assegnazione di ruolo
 - È stata eliminata un'entità di sicurezza con un'assegnazione di ruolo
 
-Se di recente è stato invitato un utente durante la creazione di un'assegnazione di ruolo, questa entità di sicurezza potrebbe essere ancora nel processo di replica tra le aree. In tal caso, attendere alcuni istanti e aggiornare l'elenco assegnazioni di ruolo.
+Se di recente è stato invitato un utente durante la creazione di un'assegnazione di ruolo, questa entità di sicurezza potrebbe essere ancora in corso nel processo di replica tra aree diverse. In tal caso, attendere alcuni istanti e aggiornare l'elenco delle assegnazioni di ruolo.
 
-Tuttavia, se questa entità di sicurezza non è un utente invitato recentemente, potrebbe trattarsi di un'entità di sicurezza eliminata. Se si assegna un ruolo a un'entità di sicurezza e successivamente si elimina tale entità di sicurezza senza prima rimuovere l'assegnazione di ruolo, l'entità di sicurezza sarà elencata come **identità non trovata** e un tipo **sconosciuto** .
+Tuttavia, se questa entità di sicurezza non è un utente invitato di recente, potrebbe essere un'entità di sicurezza eliminata. Se si assegna un ruolo a un'entità di sicurezza e successivamente si elimina tale entità  di sicurezza senza prima rimuovere l'assegnazione di ruolo, l'entità di sicurezza verrà elencata come Identità non trovata e di tipo **Sconosciuto.**
 
-Se l'assegnazione di ruolo viene elencata utilizzando Azure PowerShell, è possibile che venga visualizzato un oggetto vuoto `DisplayName` e un `ObjectType` valore impostato su **Unknown**. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) , ad esempio, restituisce un'assegnazione di ruolo simile all'output seguente:
+Se si elenca questa assegnazione di ruolo usando Azure PowerShell, è possibile che venga visualizzato un oggetto vuoto e `DisplayName` un oggetto impostato su `ObjectType` **Sconosciuto.** Ad esempio, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) restituisce un'assegnazione di ruolo simile all'output seguente:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -138,7 +138,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Analogamente, se si elenca questa assegnazione di ruolo usando l'interfaccia della riga di comando di Azure, potrebbe essere presente un oggetto vuoto `principalName` . Ad esempio, [AZ Role Assignment list](/cli/azure/role/assignment#az-role-assignment-list) restituisce un'assegnazione di ruolo simile all'output seguente:
+Analogamente, se si elenca questa assegnazione di ruolo usando l'interfaccia della riga di comando di Azure, potrebbe essere visualizzato un oggetto `principalName` vuoto. Ad esempio, [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) restituisce un'assegnazione di ruolo simile all'output seguente:
 
 ```
 {
@@ -154,9 +154,9 @@ Analogamente, se si elenca questa assegnazione di ruolo usando l'interfaccia del
 }
 ```
 
-Non è un problema lasciare queste assegnazioni di ruolo in cui l'entità di sicurezza è stata eliminata. Se lo si desidera, è possibile rimuovere queste assegnazioni di ruolo utilizzando passaggi simili ad altre assegnazioni di ruolo. Per informazioni su come rimuovere le assegnazioni di ruolo, vedere [rimuovere assegnazioni di ruolo di Azure](role-assignments-remove.md).
+Non è un problema lasciare queste assegnazioni di ruolo in cui l'entità di sicurezza è stata eliminata. Se si desidera, è possibile rimuovere queste assegnazioni di ruolo usando passaggi simili ad altre assegnazioni di ruolo. Per informazioni su come rimuovere le assegnazioni di ruolo, vedere [Rimuovere le assegnazioni di ruolo di Azure.](role-assignments-remove.md)
 
-In PowerShell, se si tenta di rimuovere le assegnazioni di ruolo utilizzando l'ID oggetto e il nome della definizione di ruolo e più di un'assegnazione di ruolo corrisponde ai parametri, verrà visualizzato il messaggio di errore: "le informazioni fornite non sono mappate a un'assegnazione di ruolo". L'output seguente mostra un esempio del messaggio di errore:
+In PowerShell, se si tenta di rimuovere le assegnazioni di ruolo usando l'ID oggetto e il nome della definizione del ruolo e più di un'assegnazione di ruolo corrisponde ai parametri, verrà visualizzato il messaggio di errore: "Le informazioni fornite non sono mappate a un'assegnazione di ruolo". L'output seguente mostra un esempio del messaggio di errore:
 
 ```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -169,21 +169,21 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-Se viene ricevuto questo messaggio di errore, assicurarsi di specificare anche i `-Scope` `-ResourceGroupName` parametri o.
+Se viene visualizzato questo messaggio di errore, assicurarsi di specificare anche i `-Scope` parametri `-ResourceGroupName` o .
 
 ```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="role-assignment-changes-are-not-being-detected"></a>Non sono state rilevate modifiche alle assegnazioni di ruolo
+## <a name="role-assignment-changes-are-not-being-detected"></a>Le modifiche alle assegnazioni di ruolo non vengono rilevate
 
-In alcuni casi, Azure Resource Manager memorizza nella cache le configurazioni e i dati per migliorare le prestazioni. Quando si assegnano ruoli o si rimuovono le assegnazioni di ruolo, possono essere necessari fino a 30 minuti per rendere effettive le modifiche. Se si usa il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile forzare l'aggiornamento delle modifiche alle assegnazioni di ruolo effettuando la disconnessione e quindi di nuovo l'accesso. Se si apportano modifiche alle assegnazioni di ruolo con chiamate all'API REST, è possibile forzare l'aggiornamento semplicemente aggiornando il token di accesso.
+In alcuni casi, Azure Resource Manager memorizza nella cache le configurazioni e i dati per migliorare le prestazioni. Quando si assegnano ruoli o si rimuovono le assegnazioni di ruolo, l'applicazione delle modifiche può richiedere fino a 30 minuti. Se si usa il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile forzare l'aggiornamento delle modifiche alle assegnazioni di ruolo effettuando la disconnessione e quindi di nuovo l'accesso. Se si apportano modifiche alle assegnazioni di ruolo con chiamate all'API REST, è possibile forzare l'aggiornamento semplicemente aggiornando il token di accesso.
 
-Se si aggiunge o rimuove un'assegnazione di ruolo nell'ambito del gruppo di gestione e il ruolo ha `DataActions` , l'accesso al piano dati potrebbe non essere aggiornato per diverse ore. Si applica solo all'ambito del gruppo di gestione e al piano dati.
+Se si aggiunge o si rimuove un'assegnazione di ruolo nell'ambito del gruppo di gestione e il ruolo ha , l'accesso al piano dati potrebbe non essere `DataActions` aggiornato per diverse ore. Si applica solo all'ambito del gruppo di gestione e al piano dati.
 
 ## <a name="web-app-features-that-require-write-access"></a>Funzionalità dell'app Web che richiedono l'accesso in scrittura
 
-Se si concede a un utente l'accesso in sola lettura a un'unica app Web, sono disabilitate alcune funzionalità non prevedibili. Le funzionalità di gestione seguenti richiedono l'accesso in **scrittura** a un'app Web (collaboratore o proprietario) e non sono disponibili in uno scenario di sola lettura.
+Se si concede a un utente l'accesso in sola lettura a un'unica app Web, sono disabilitate alcune funzionalità non prevedibili. Le funzionalità di gestione seguenti richiedono **l'accesso** in scrittura a un'app Web (Collaboratore o Proprietario) e non sono disponibili in nessuno scenario di sola lettura.
 
 * Comandi (quali avvio, interruzione e così via)
 * Modifica di impostazioni quali la configurazione generale, le impostazioni di scalabilità, di backup e di monitoraggio.
@@ -243,14 +243,14 @@ Se non è possibile accedere a nessuno di questi riquadri, richiedere all'ammini
 
 ## <a name="azure-functions-and-write-access"></a>Funzioni di Azure e accesso in scrittura
 
-Alcune funzionalità di [Funzioni di Azure](../azure-functions/functions-overview.md) richiedono l'accesso in scrittura. Ad esempio, se a un utente viene assegnato il ruolo [lettore](built-in-roles.md#reader) , non sarà in grado di visualizzare le funzioni all'interno di un'app per le funzioni. Sul portale verrà indicato **(Nessun accesso)**.
+Alcune funzionalità di [Funzioni di Azure](../azure-functions/functions-overview.md) richiedono l'accesso in scrittura. Ad esempio, se a un utente viene assegnato il [ruolo Lettore,](built-in-roles.md#reader) non sarà possibile visualizzare le funzioni all'interno di un'app per le funzioni. Sul portale verrà indicato **(Nessun accesso)**.
 
 ![Nessun accesso alle app per le funzioni](./media/troubleshooting/functionapps-noaccess.png)
 
-Un lettore può fare clic sulla scheda **Funzionalità della piattaforma** e quindi su **Tutte le impostazioni** per visualizzare alcune impostazioni correlate a un'app per le funzioni (in modo simile a un'app Web), ma non può modificare nessuna impostazione. Per accedere a queste funzionalità, sarà necessario il ruolo [collaboratore](built-in-roles.md#contributor) .
+Un lettore può fare clic sulla scheda **Funzionalità della piattaforma** e quindi su **Tutte le impostazioni** per visualizzare alcune impostazioni correlate a un'app per le funzioni (in modo simile a un'app Web), ma non può modificare nessuna impostazione. Per accedere a queste funzionalità, è necessario il [ruolo Collaboratore.](built-in-roles.md#contributor)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Risoluzione dei problemi per gli utenti Guest](role-assignments-external-users.md#troubleshoot)
-- [Assegnare i ruoli di Azure usando il portale di Azure](role-assignments-portal.md)
-- [Visualizzare i log attività per le modifiche RBAC di Azure](change-history-report.md)
+- [Risolvere i problemi per gli utenti guest](role-assignments-external-users.md#troubleshoot)
+- [Assegnare ruoli di Azure usando il portale di Azure](role-assignments-portal.md)
+- [Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo di Azure](change-history-report.md)

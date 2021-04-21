@@ -1,6 +1,6 @@
 ---
-title: Informazioni di riferimento sull'API di gestione per Istanza gestita SQL di Azure
-description: Informazioni sulla creazione e la configurazione di istanze gestite di Istanza gestita SQL di Azure.
+title: API Gestione riferimento per Istanza gestita di SQL di Azure
+description: Informazioni sulla creazione e la configurazione di istanze gestite di Istanza gestita di SQL di Azure.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
@@ -11,32 +11,32 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: cf100861705bf1654b7206445c884b5fe315b06d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 148b24aea42072f1901c76c7a09a126340ef9951
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92792634"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107784372"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Riferimento all'API di gestione per Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-È possibile creare e configurare istanze gestite di Azure SQL Istanza gestita usando il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST e Transact-SQL. In questo articolo è possibile trovare una panoramica delle funzioni e dell'API che è possibile usare per creare e configurare le istanze gestite.
+È possibile creare e configurare istanze gestite di Istanza gestita di SQL di Azure usando portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST e Transact-SQL. In questo articolo è possibile trovare una panoramica delle funzioni e dell'API che è possibile usare per creare e configurare istanze gestite.
 
 ## <a name="azure-portal-create-a-managed-instance"></a>Portale di Azure: Creare un'istanza gestita
 
-Per una guida introduttiva che illustra come creare un'istanza gestita, vedere [Guida introduttiva: creare un'istanza gestita](instance-create-quickstart.md).
+Per una guida introduttiva che illustra come creare un'istanza gestita, vedere [Avvio rapido: Creare un'istanza gestita.](instance-create-quickstart.md)
 
-## <a name="powershell-create-and-configure-managed-instances"></a>PowerShell: creare e configurare istanze gestite
+## <a name="powershell-create-and-configure-managed-instances"></a>PowerShell: Creare e configurare istanze gestite
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRM sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRM sono sostanzialmente identici.
 
-Per creare e gestire istanze gestite del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
+Per creare e gestire istanze gestite del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell .](/powershell/azure/install-az-ps)
 
 > [!TIP]
-> Per gli script di esempio di PowerShell, vedere [script di avvio rapido: creare un'istanza gestita usando una libreria di PowerShell](/archive/blogs/sqlserverstorageengine/quick-start-script-create-azure-sql-managed-instance-using-powershell).
+> Per gli script di esempio di PowerShell, vedere [Script di avvio rapido: Creare un'istanza gestita usando una libreria di PowerShell.](/archive/blogs/sqlserverstorageengine/quick-start-script-create-azure-sql-managed-instance-using-powershell)
 
 | Cmdlet | Descrizione |
 | --- | --- |
@@ -46,51 +46,51 @@ Per creare e gestire istanze gestite del database SQL con Azure PowerShell, usar
 |[Remove-AzSqlInstance](/powershell/module/az.sql/remove-azsqlinstance)|Rimuove un'istanza gestita.|
 |[Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation)|Ottiene un elenco di operazioni di gestione eseguite sull'istanza gestita o su un'operazione specifica.|
 |[Stop-AzSqlInstanceOperation](/powershell/module/az.sql/stop-azsqlinstanceoperation)|Annulla l'operazione di gestione specifica eseguita nell'istanza gestita.|
-|[New-AzSqlInstanceDatabase](/powershell/module/az.sql/new-azsqlinstancedatabase)|Crea un database SQL Istanza gestita.|
-|[Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase)|Restituisce informazioni su un database SQL Istanza gestita.|
-|[Remove-AzSqlInstanceDatabase](/powershell/module/az.sql/remove-azsqlinstancedatabase)|Rimuove un database di SQL Istanza gestita.|
-|[Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)|Ripristina un database SQL Istanza gestita.|
+|[New-AzSqlInstanceDatabase](/powershell/module/az.sql/new-azsqlinstancedatabase)|Crea un database Istanza gestita SQL.|
+|[Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase)|Restituisce informazioni su un database sql Istanza gestita.|
+|[Remove-AzSqlInstanceDatabase](/powershell/module/az.sql/remove-azsqlinstancedatabase)|Rimuove un database Istanza gestita SQL.|
+|[Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)|Ripristina un database sql Istanza gestita.|
 
-## <a name="azure-cli-create-and-configure-managed-instances"></a>INTERFACCIA della riga di comando di Azure: creare e configurare istanze gestite
+## <a name="azure-cli-create-and-configure-managed-instances"></a>Interfaccia della riga di comando di Azure: Creare e configurare istanze gestite
 
-Per creare e configurare istanze gestite con l'interfaccia della riga di comando di [Azure](/cli/azure), usare i comandi dell'interfaccia della riga [di comando di azure per SQL istanza gestita](/cli/azure/sql/mi) Usare [Azure cloud Shell](../../cloud-shell/overview.md) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in MacOS, Linux o Windows.
+Per creare e configurare istanze gestite con l'interfaccia della riga di comando di [Azure,](/cli/azure)usare i comandi seguenti dell'interfaccia della riga di comando di [Azure per SQL Istanza gestita](/cli/azure/sql/mi). Usare [Azure Cloud Shell](../../cloud-shell/overview.md) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows.
 
 > [!TIP]
 > Per una guida introduttiva dell'interfaccia della riga di comando di Azure, vedere [Working with SQL Managed Instance using Azure CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) (Uso di Istanza gestita di database SQL tramite l'interfaccia della riga di comando di Azure).
 
 | Cmdlet | Descrizione |
 | --- | --- |
-|[az sql mi create](/cli/azure/sql/mi#az-sql-mi-create) |Crea un'istanza gestita.|
-|[az sql mi list](/cli/azure/sql/mi#az-sql-mi-list)|Elenca le istanze gestite disponibili.|
-|[az sql mi show](/cli/azure/sql/mi#az-sql-mi-show)|Ottiene i dettagli per un'istanza gestita.|
-|[az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)|Aggiorna un'istanza gestita.|
-|[az sql mi delete](/cli/azure/sql/mi#az-sql-mi-delete)|Rimuove un'istanza gestita.|
-|[elenco AZ SQL mi op](/cli/azure/sql/mi/op#az_sql_mi_op_list)|Ottiene un elenco di operazioni di gestione eseguite nell'istanza gestita.|
-|[AZ SQL mi op Show](/cli/azure/sql/mi/op#az_sql_mi_op_show)|Ottiene l'operazione di gestione specifica eseguita nell'istanza gestita.|
-|[AZ SQL mi op Cancel](/cli/azure/sql/mi/op#az_sql_mi_op_cancel)|Annulla l'operazione di gestione specifica eseguita nell'istanza gestita.|
-|[az sql midb create](/cli/azure/sql/midb#az-sql-midb-create) |Crea un database gestito.|
-|[az sql midb list](/cli/azure/sql/midb#az-sql-midb-list)|Elenca i database gestiti disponibili.|
-|[az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)|Ripristina un database gestito.|
-|[az sql midb delete](/cli/azure/sql/midb#az-sql-midb-delete)|Rimuove un database gestito.|
+|[az sql mi create](/cli/azure/sql/mi#az_sql_mi_create) |Crea un'istanza gestita.|
+|[az sql mi list](/cli/azure/sql/mi#az_sql_mi_list)|Elenca le istanze gestite disponibili.|
+|[az sql mi show](/cli/azure/sql/mi#az_sql_mi_show)|Ottiene i dettagli per un'istanza gestita.|
+|[az sql mi update](/cli/azure/sql/mi#az_sql_mi_update)|Aggiorna un'istanza gestita.|
+|[az sql mi delete](/cli/azure/sql/mi#az_sql_mi_delete)|Rimuove un'istanza gestita.|
+|[az sql mi op list](/cli/azure/sql/mi/op#az_sql_mi_op_list)|Ottiene un elenco di operazioni di gestione eseguite nell'istanza gestita.|
+|[az sql mi op show](/cli/azure/sql/mi/op#az_sql_mi_op_show)|Ottiene l'operazione di gestione specifica eseguita sull'istanza gestita.|
+|[az sql mi op cancel](/cli/azure/sql/mi/op#az_sql_mi_op_cancel)|Annulla l'operazione di gestione specifica eseguita nell'istanza gestita.|
+|[az sql midb create](/cli/azure/sql/midb#az_sql_midb_create) |Crea un database gestito.|
+|[az sql midb list](/cli/azure/sql/midb#az_sql_midb_list)|Elenca i database gestiti disponibili.|
+|[az sql midb restore](/cli/azure/sql/midb#az_sql_midb_restore)|Ripristina un database gestito.|
+|[az sql midb delete](/cli/azure/sql/midb#az_sql_midb_delete)|Rimuove un database gestito.|
 
-## <a name="transact-sql-create-and-configure-instance-databases"></a>Transact-SQL: creare e configurare i database dell'istanza
+## <a name="transact-sql-create-and-configure-instance-databases"></a>Transact-SQL: creare e configurare database di istanza
 
-Per creare e configurare i database dell'istanza dopo la creazione dell'istanza gestita, usare i comandi T-SQL seguenti. È possibile eseguire questi comandi utilizzando la portale di Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](/sql/azure-data-studio/what-is), [Visual Studio Code](https://code.visualstudio.com/docs)o qualsiasi altro programma in grado di connettersi a un server e passare i comandi Transact-SQL.
+Per creare e configurare i database dell'istanza dopo la creazione dell'istanza gestita, usare i comandi T-SQL seguenti. È possibile eseguire questi comandi usando i comandi [portale di Azure, SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](/sql/azure-data-studio/what-is), [Visual Studio Code o](https://code.visualstudio.com/docs)qualsiasi altro programma in grado di connettersi a un server e passare i comandi Transact-SQL.
 
 > [!TIP]
-> Per le guide introduttive che illustrano come configurare e connettersi a un'istanza gestita usando SQL Server Management Studio in Microsoft Windows, vedere [Guida introduttiva: configurare una macchina virtuale di Azure per la connessione ad Azure sql istanza gestita](connect-vm-instance-configure.md) e [Guida introduttiva: configurare una connessione da punto a sito al istanza gestita SQL di Azure dall'ambiente locale](point-to-site-p2s-configure.md).
+> Per guide introduttive che illustrano come configurare e connettersi a un'istanza gestita usando SQL Server Management Studio in Microsoft Windows, vedere Avvio [rapido:](connect-vm-instance-configure.md) Configurare una macchina virtuale di Azure per connettersi a Istanza gestita di SQL di Azure e Avvio [rapido:](point-to-site-p2s-configure.md)Configurare una connessione da punto a sito a Istanza gestita di SQL di Azure da locale.
 
 > [!IMPORTANT]
-> Non è possibile creare o eliminare un'istanza gestita tramite Transact-SQL.
+> Non è possibile creare o eliminare un'istanza gestita usando Transact-SQL.
 
 | Comando | Descrizione |
 | --- | --- |
 |[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?preserve-view=true&view=azuresqldb-mi-current)|Crea un nuovo database di istanza in SQL Istanza gestita. È necessario essere connessi al database master per creare un nuovo database.|
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-mi-current) |Modifica un database di istanza in SQL Istanza gestita.|
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-mi-current) |Modifica un database dell'istanza in SQL Istanza gestita.|
 
-## <a name="rest-api-create-and-configure-managed-instances"></a>API REST: creare e configurare istanze gestite
+## <a name="rest-api-create-and-configure-managed-instances"></a>API REST: Creare e configurare istanze gestite
 
-Per creare e configurare le istanze gestite, usare queste richieste API REST.
+Per creare e configurare istanze gestite, usare queste richieste api REST.
 
 | Comando | Descrizione |
 | --- | --- |
@@ -100,9 +100,9 @@ Per creare e configurare le istanze gestite, usare queste richieste API REST.
 |[Managed Instances - List](/rest/api/sql/managedinstances/list)|Restituisce un elenco di istanze gestite in una sottoscrizione.|
 |[Managed Instances - List By Resource Group](/rest/api/sql/managedinstances/listbyresourcegroup)|Restituisce un elenco di istanze gestite in un gruppo di risorse.|
 |[Managed Instances - Update](/rest/api/sql/managedinstances/update)|Aggiorna un'istanza gestita.|
-|[Operazioni Istanza gestita-list by Istanza gestita](/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Ottiene un elenco di operazioni di gestione eseguite nell'istanza gestita.|
-|[Operazioni di Istanza gestita-Get](/rest/api/sql/managedinstanceoperations/get)|Ottiene l'operazione di gestione specifica eseguita nell'istanza gestita.|
-|[Operazioni di Istanza gestita-Annulla](/rest/api/sql/managedinstanceoperations/cancel)|Annulla l'operazione di gestione specifica eseguita nell'istanza gestita.|
+|[Istanza gestita operazioni - Elenca per Istanza gestita](/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Ottiene un elenco di operazioni di gestione eseguite sull'istanza gestita.|
+|[Istanza gestita operazioni - Get](/rest/api/sql/managedinstanceoperations/get)|Ottiene l'operazione di gestione specifica eseguita sull'istanza gestita.|
+|[Istanza gestita operazioni - Annulla](/rest/api/sql/managedinstanceoperations/cancel)|Annulla l'operazione di gestione specifica eseguita nell'istanza gestita.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: fd82caab0babbc4803dd54926dafcba98370fa03
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 901f2b938512f842a5b4c34adbfc61f9379e5131
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567282"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107772165"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Esercitazione: Usare un'identità gestita per connettere Key Vault a un'app Web di Azure in .NET
 
@@ -85,7 +85,7 @@ git commit -m "first commit"
 
 È possibile usare FTP e l'istanza Git locale per distribuire un'app Web di Azure tramite un *utente della distribuzione*. Dopo averlo configurato, l'utente della distribuzione può essere usato per tutte le distribuzioni di Azure. Il nome utente e la password della distribuzione a livello di account sono diversi dalle credenziali della sottoscrizione di Azure. 
 
-Per configurare l'utente della distribuzione, eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az-webapp-deployment-user-set). Scegliere un nome utente e una password che rispettino le linee guida seguenti: 
+Per configurare l'utente della distribuzione, eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?#az_webapp_deployment_user_set). Scegliere un nome utente e una password che rispettino le linee guida seguenti: 
 
 - Il nome utente deve essere univoco in Azure. Per i push nell'istanza Git locale, non può contenere il simbolo di chiocciola (@). 
 - La password deve essere composta da almeno otto caratteri e contenere due dei tre elementi seguenti: lettere, numeri e simboli. 
@@ -100,7 +100,7 @@ Registrare il nome utente e la password in modo da poterle usare per distribuire
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse è un contenitore logico in cui si distribuiscono e si gestiscono le risorse di Azure. Creare un gruppo di risorse in cui inserire sia l'insieme di credenziali delle chiavi che l'app Web usando il comando [az group create](/cli/azure/group?#az-group-create):
+Un gruppo di risorse è un contenitore logico in cui si distribuiscono e si gestiscono le risorse di Azure. Creare un gruppo di risorse in cui inserire sia l'insieme di credenziali delle chiavi che l'app Web usando il comando [az group create](/cli/azure/group?#az_group_create):
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
@@ -243,7 +243,7 @@ In questa sezione si configurerà l'accesso Web a Key Vault e si aggiornerà il 
 
 In questa esercitazione si userà l'[identità gestita](../../active-directory/managed-identities-azure-resources/overview.md) per eseguire l'autenticazione con Key Vault. L'identità gestita gestisce automaticamente le credenziali delle applicazioni.
 
-Nell'interfaccia della riga di comando di Azure eseguire il comando [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) per creare l'identità per l'applicazione:
+Nell'interfaccia della riga di comando di Azure eseguire il comando [az webapp-identity assign](/cli/azure/webapp/identity?#az_webapp_identity_assign) per creare l'identità per l'applicazione:
 
 ```azurecli-interactive
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
@@ -259,7 +259,7 @@ Il comando restituirà il frammento JSON seguente:
 }
 ```
 
-Per concedere all'app Web l'autorizzazione per eseguire operazioni **get** e **list** sull'insieme di credenziali delle chiavi, passare `principalId` al comando [az keyvault set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) dell'interfaccia della riga di comando di Azure:
+Per concedere all'app Web l'autorizzazione per eseguire operazioni **get** e **list** sull'insieme di credenziali delle chiavi, passare `principalId` al comando [az keyvault set-policy](/cli/azure/keyvault?#az_keyvault_set_policy) dell'interfaccia della riga di comando di Azure:
 
 ```azurecli-interactive
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
@@ -343,4 +343,4 @@ Dove prima veniva visualizzato "Hello World", verrà ora visualizzato il valore 
 - [Usare Azure Key Vault con le applicazioni distribuite in una macchina virtuale in .NET](./tutorial-net-virtual-machine.md)
 - Vedere altre informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 - Visualizzare la [Guida per sviluppatori](./developers-guide.md)
-- [Proteggere l'accesso a un insieme di credenziali delle chiavi](./secure-your-key-vault.md)
+- [Proteggere l'accesso a un insieme di credenziali delle chiavi](./security-overview.md)

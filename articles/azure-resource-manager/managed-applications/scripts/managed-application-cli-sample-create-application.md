@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a9912f5134c3596740ef53f23531d57fe9467682
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ea2baa897efb5c1a01b32e92e76a69c9d1f231c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87497869"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775494"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Distribuire un'applicazione gestita per il catalogo di servizi con l'interfaccia della riga di comando di Azure
 
@@ -34,7 +34,7 @@ Questo script usa il comando seguente per distribuire l'applicazione gestita. Og
 
 | Comando | Note |
 |---|---|
-| [az managedapp create](/cli/azure/managedapp#az-managedapp-create) | Crea un'applicazione gestita. Fornire l'ID della definizione e i parametri per il modello. |
+| [az managedapp create](/cli/azure/managedapp#az_managedapp_create) | Crea un'applicazione gestita. Fornire l'ID della definizione e i parametri per il modello. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

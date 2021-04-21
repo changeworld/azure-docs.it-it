@@ -4,12 +4,12 @@ description: Usare Docker Compose per compilare ed eseguire un'applicazione mult
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.custom: ''
-ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef08b9f9e0f596f1d94c0e6edfd46f735fe78053
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92913841"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786919"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Esercitazione: Distribuire un gruppo multi-contenitore usando Docker Compose 
 
@@ -166,7 +166,7 @@ docker-compose push
 
 Il push nel registro può richiedere alcuni minuti.
 
-Per verificare che l'immagine sia stata archiviata nel registro, eseguire il comando [az acr repository show](/cli/azure/acr/repository#az-acr-repository-show):
+Per verificare che l'immagine sia stata archiviata nel registro, eseguire il comando [az acr repository show](/cli/azure/acr/repository#az_acr_repository_show):
 
 ```azurecli
 az acr repository show --name <acrName> --repository azure-vote-front

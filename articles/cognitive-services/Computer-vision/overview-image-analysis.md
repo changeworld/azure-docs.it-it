@@ -1,7 +1,7 @@
 ---
 title: Che cos'è l'analisi delle immagini?
 titleSuffix: Azure Cognitive Services
-description: Il servizio di analisi delle immagini usa modelli di intelligenza artificiale pre-training per estrarre molte funzionalità visive diverse dalle immagini.
+description: Il servizio di analisi delle immagini usa modelli di intelligenza artificiale con training preliminare per estrarre molte caratteristiche visive diverse dalle immagini.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,30 +11,30 @@ ms.topic: overview
 ms.date: 03/30/2021
 ms.author: pafarley
 keywords: visione artificiale, applicazioni di visione artificiale, servizio visione artificiale
-ms.openlocfilehash: f262fdb49cac4ab9abe7f3f6873160d3059968c6
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 0258eb7c57bc0734b5c0a67644cbaa4f62a34537
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287235"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766916"
 ---
 # <a name="what-is-image-analysis"></a>Che cos'è l'analisi delle immagini?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Il servizio Visione artificiale Image Analysis può estrarre un'ampia gamma di funzionalità visive dalle immagini. Ad esempio, può determinare se un'immagine contiene contenuto per adulti, trovare specifici oggetti o marchi o trovare visi umani.
+Il Visione artificiale di analisi delle immagini può estrarre un'ampia gamma di funzionalità visive dalle immagini. Ad esempio, può determinare se un'immagine contiene contenuto per adulti, trovare marchi o oggetti specifici o trovare visi umani.
 
-È possibile usare l'analisi delle immagini tramite un SDK della libreria client o chiamando direttamente l' [API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) . Per iniziare, seguire la [Guida introduttiva](quickstarts-sdk/image-analysis-client-library.md) .
+È possibile usare l'analisi delle immagini tramite un SDK della libreria client o chiamando direttamente [l'API REST.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v2-ga/operations/5d986960601faab4bf452005) Seguire la [guida introduttiva](quickstarts-sdk/image-analysis-client-library.md) per iniziare.
 
-Questa documentazione contiene i seguenti tipi di articoli:
+Questa documentazione contiene i tipi di articoli seguenti:
 * Le [guide introduttive](./quickstarts-sdk/image-analysis-client-library.md) sono istruzioni dettagliate che consentono di effettuare chiamate al servizio e ottenere risultati in un breve periodo di tempo. 
-* Le [guide alle procedure](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contengono istruzioni per l'uso del servizio in modi più specifici o personalizzati.
-* Gli [articoli concettuali](concept-tagging-images.md) forniscono spiegazioni approfondite sulle funzionalità e sulle funzionalità del servizio.
+* Le [guide alle attività contengono](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) istruzioni per l'uso del servizio in modi più specifici o personalizzati.
+* Gli [articoli concettuali](concept-tagging-images.md) forniscono spiegazioni approfondite delle funzionalità e delle funzionalità del servizio.
 * Le [esercitazioni](./tutorials/storage-lab-tutorial.md) sono guide più lunghe che illustrano come usare questo servizio come componente in soluzioni aziendali più ampie.
 
 ## <a name="image-analysis-features"></a>Funzionalità di analisi delle immagini
 
-È possibile analizzare le immagini per ricevere informazioni dettagliate sulle caratteristiche e gli aspetti visivi. Tutte le funzionalità nell'elenco seguente sono fornite dall'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . Per iniziare, seguire una [guida di avvio rapido](./quickstarts-sdk/image-analysis-client-library.md).
+È possibile analizzare le immagini per ricevere informazioni dettagliate sulle caratteristiche e gli aspetti visivi. Tutte le funzionalità nell'elenco seguente vengono fornite dall'API [Analizza immagine.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-ga/operations/56f91f2e778daf14a499f21b) Per iniziare, seguire una [guida di avvio rapido](./quickstarts-sdk/image-analysis-client-library.md).
 
 
 ### <a name="tag-visual-features"></a>Assegnare tag agli elementi visivi
@@ -87,7 +87,7 @@ Analizzare il contenuto di un'immagine per restituire le coordinate dell'*area d
 
 ## <a name="image-requirements"></a>Requisiti dell'immagine
 
-L'analisi delle immagini funziona sulle immagini che soddisfano i requisiti seguenti:
+L'analisi delle immagini funziona su immagini che soddisfano i requisiti seguenti:
 
 - L'immagine deve essere presentata in formato JPEG, PNG, GIF o BMP
 - Le dimensioni del file dell'immagine devono essere minori di 4 megabyte (MB)
@@ -99,6 +99,6 @@ Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Visio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a usare l'analisi delle immagini, seguire la Guida introduttiva nel linguaggio di sviluppo preferito:
+Per iniziare a usare l'analisi delle immagini, seguire la guida introduttiva nel linguaggio di sviluppo preferito:
 
 - [Avvio rapido: API REST o librerie client di Visione artificiale](./quickstarts-sdk/image-analysis-client-library.md)

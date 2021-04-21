@@ -7,12 +7,12 @@ ms.date: 3/12/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 65b02ae1baef97442828de747249ab6ffeaf2417
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: bbc07a7ee3f996c778cfc1b9d1764f10a613c50b
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599472"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782946"
 ---
 # <a name="open-service-mesh-aks-add-on-preview"></a>Aprire il componente aggiuntivo Servizio AKS di Service Mesh (anteprima)
 
@@ -20,13 +20,13 @@ ms.locfileid: "107599472"
 
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) è una mesh di servizi nativa cloud leggera, estendibile che consente agli utenti di gestire, proteggere e ottenere in modo uniforme funzionalità di osservabilità avanzate per ambienti di microservizi altamente dinamici.
 
-OSM esegue un piano di controllo basato su Envoy in Kubernetes, può essere configurato con le API [SMI](https://smi-spec.io/) e funziona tramite l'inserimento di un proxy Envoy come contenitore sidecar accanto a ogni istanza dell'applicazione. Il proxy Envoy contiene ed esegue regole relative ai criteri di controllo di accesso, implementa la configurazione del routing e acquisisce le metriche. Il piano di controllo configura continuamente i proxy per garantire che i criteri e le regole di routing siano aggiornati e garantisca che i proxy siano integri.
+OSM esegue un piano di controllo basato su Envoy in Kubernetes, può essere configurato con le API [SMI](https://smi-spec.io/) e funziona inseriscendo un proxy Envoy come contenitore sidecar accanto a ogni istanza dell'applicazione. Il proxy Envoy contiene ed esegue regole relative ai criteri di controllo di accesso, implementa la configurazione del routing e acquisisce le metriche. Il piano di controllo configura continuamente i proxy per garantire che i criteri e le regole di routing siano aggiornati e garantisca che i proxy siano integri.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="capabilities-and-features"></a>Funzionalità e funzionalità
 
-OSM offre il set di funzionalità e le funzionalità seguenti per fornire una mesh di servizio nativa del cloud per i cluster servizio Azure Kubernetes (AKS):
+OSM offre il set di funzionalità e le funzionalità seguenti per fornire una rete di servizi nativa del cloud per i cluster servizio Azure Kubernetes (AKS):
 
 - Proteggere la comunicazione da servizio a servizio abilitando mTLS
 
@@ -46,7 +46,7 @@ OSM può aiutare le distribuzioni del servizio AKS con gli scenari seguenti:
 
 - Fornire comunicazioni crittografate tra gli endpoint di servizio distribuiti nel cluster
 
-- Autorizzazione del traffico sia del traffico HTTP/HTTPS che del traffico TCP nella rete mesh
+- Autorizzazione del traffico del traffico HTTP/HTTPS e TCP nella rete mesh
 
 - Configurazione dei controlli del traffico ponderati tra due o più servizi per distribuzioni A/B o canary
 
@@ -54,7 +54,7 @@ OSM può aiutare le distribuzioni del servizio AKS con gli scenari seguenti:
 
 ## <a name="osm-service-quotas-and-limits-preview"></a>Quote e limiti del servizio OSM (anteprima)
 
-Le limitazioni di anteprima del servizio OSM per le quote e i limiti del servizio sono disponibili nella pagina Quote [e limiti a livello di area](https://docs.microsoft.com/azure/aks/quotas-skus-regions)del servizio Microsoft.
+Le limitazioni dell'anteprima del servizio OSM per le quote e i limiti del servizio sono disponibili nella pagina Quote e limiti a [livello di area](https://docs.microsoft.com/azure/aks/quotas-skus-regions)del servizio AKS.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -75,7 +75,7 @@ Le limitazioni di anteprima del servizio OSM per le quote e i limiti del servizi
 ::: zone-end
 
 > [!WARNING]
-> Non tentare di installare OSM dal file binario usando `osm install` . Ciò comporta un'installazione di OSM che non è integrato come componente aggiuntivo per il servizio Web Disaks.
+> Non tentare di installare OSM dal file binario usando `osm install` . Verrà così completata un'installazione di OSM che non è integrato come componente aggiuntivo per il servizio Web Diaks.
 
 ### <a name="register-the-aks-openservicemesh-preview-feature"></a>Registrare la `AKS-OpenServiceMesh` funzionalità di anteprima
 
@@ -87,13 +87,13 @@ Registrare `AKS-OpenServiceMesh` il flag di funzionalità usando il comando [az 
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-OpenServiceMesh"
 ```
 
-Sono necessari alcuni minuti per visualizzare lo stato _Registered_. Verificare lo stato della registrazione usando il [comando az feature list:][az-feature-list]
+Sono necessari alcuni minuti per visualizzare lo stato _Registered_. Verificare lo stato della registrazione usando [il comando az feature list:][az-feature-list]
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-OpenServiceMesh')].{Name:name,State:properties.state}"
 ```
 
-Al termine, aggiornare la registrazione del provider _di risorse Microsoft.ContainerService_ usando il [comando az provider register:][az-provider-register]
+Quando si è pronti, aggiornare la registrazione del provider di risorse _Microsoft.ContainerService_ usando il [comando az provider register:][az-provider-register]
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -101,30 +101,30 @@ az provider register --namespace Microsoft.ContainerService
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="install-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-a-new-aks-cluster"></a>Installare il componente aggiuntivo Open Service Mesh (OSM) servizio Azure Kubernetes (AKS) per un nuovo cluster del servizio Web Disaks
+## <a name="install-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-a-new-aks-cluster"></a>Installare il componente aggiuntivo OSM (Open Service Mesh) servizio Azure Kubernetes (AKS) per un nuovo cluster del servizio Microsoft Service Mesh
 
-Per un nuovo scenario di distribuzione del cluster del servizio Web Diaks, si inizierà con una nuova distribuzione di un cluster del servizio AKS che abilita il componente aggiuntivo OSM durante l'operazione di creazione del cluster.
+Per un nuovo scenario di distribuzione del cluster del servizio Web Diacks, si inizierà con una nuova distribuzione di un cluster del servizio Web Diaks che abilita il componente aggiuntivo OSM durante l'operazione di creazione del cluster.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-In Azure, si allocano le risorse correlate a un gruppo di risorse. Creare un gruppo di risorse usando [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse _denominato myOsmAksGroup_ nella _località eastus2_ (area):
+In Azure, si allocano le risorse correlate a un gruppo di risorse. Creare un gruppo di risorse usando [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse _denominato myOsmAksGroup_ nella località _eastus2_ (area):
 
 ```azurecli-interactive
 az group create --name <myosmaksgroup> --location <eastus2>
 ```
 
-### <a name="deploy-an-aks-cluster-with-the-osm-add-on-enabled"></a>Distribuire un cluster del servizio Web Diaks con il componente aggiuntivo OSM abilitato
+### <a name="deploy-an-aks-cluster-with-the-osm-add-on-enabled"></a>Distribuire un cluster del servizio Web Disassoce con il componente aggiuntivo OSM abilitato
 
 A questo punto si distribuirà un nuovo cluster del servizio AKS con il componente aggiuntivo OSM abilitato.
 
 > [!NOTE]
-> Tenere presente che il comando di distribuzione del servizio AKS seguente usa dischi effimeri del sistema operativo. Altre informazioni sono disponibili qui sui dischi del sistema operativo ffemero per il server del supporto [di AKS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os)
+> Tenere presente che il comando seguente per la distribuzione del servizio AKS usa dischi phemeral del sistema operativo. Altre informazioni sono disponibili qui sui dischi del sistema operativo [phemeral per](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os) il supporto del supporto di AKS
 
 ```azurecli-interactive
 az aks create -n osm-addon-cluster -g <myosmaksgroup> --kubernetes-version 1.19.6 --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
 ```
 
-#### <a name="get-aks-cluster-access-credentials"></a>Ottenere le credenziali di accesso al cluster del servizio AKS
+#### <a name="get-aks-cluster-access-credentials"></a>Ottenere le credenziali di accesso al cluster del servizio Web Disassociato di Microsoft
 
 Ottenere le credenziali di accesso per il nuovo cluster Kubernetes gestito.
 
@@ -132,19 +132,19 @@ Ottenere le credenziali di accesso per il nuovo cluster Kubernetes gestito.
 az aks get-credentials -n <myosmakscluster> -g <myosmaksgroup>
 ```
 
-## <a name="enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster"></a>Abilitare il componente aggiuntivo Open Service Mesh (OSM) servizio Azure Kubernetes (AKS) per un cluster del servizio Web del servizio Web esistente
+## <a name="enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster"></a>Abilitare il componente aggiuntivo OSM (Open Service Mesh) servizio Azure Kubernetes (AKS) per un cluster del servizio Web Disassoce esistente
 
-Per uno scenario di cluster del servizio AKS esistente, si abiliterà il componente aggiuntivo OSM a un cluster del servizio AKS esistente già distribuito.
+Per uno scenario di cluster del servizio Web Diaks esistente, si abiliterà il componente aggiuntivo OSM a un cluster del servizio Web Disassoce esistente già distribuito.
 
-### <a name="enable-the-osm-add-on-to-existing-aks-cluster"></a>Abilitare il componente aggiuntivo OSM nel cluster del servizio Web Disassoce esistente
+### <a name="enable-the-osm-add-on-to-existing-aks-cluster"></a>Abilitare il componente aggiuntivo OSM al cluster del servizio Web Disasering esistente
 
-Per abilitare il componente aggiuntivo AKS OSM, è necessario eseguire il `az aks enable-addons --addons` comando passando il parametro `open-service-mesh`
+Per abilitare il componente aggiuntivo OSM del servizio Web Del servizio Web Del servizio Web Di windows, è necessario eseguire il `az aks enable-addons --addons` comando passando il parametro `open-service-mesh`
 
 ```azurecli-interactive
 az aks enable-addons --addons open-service-mesh -g <resource group name> -n <AKS cluster name>
 ```
 
-Verrà visualizzato un output simile all'output illustrato di seguito per confermare l'installazione del componente aggiuntivo OSM del servizio Diaks.
+Verrà visualizzato un output simile all'output illustrato di seguito per confermare l'installazione del componente aggiuntivo OSM del servizio App Sdk.
 
 ```json
 {- Finished ..
@@ -162,11 +162,11 @@ Verrà visualizzato un output simile all'output illustrato di seguito per confer
 ...
 ```
 
-## <a name="validate-the-aks-osm-add-on-installation"></a>Convalidare l'installazione del componente aggiuntivo del servizio OSM del servizio Diaks
+## <a name="validate-the-aks-osm-add-on-installation"></a>Convalidare l'installazione del componente aggiuntivo OSM del servizio Web Del servizio Di windows
 
-Sono disponibili diversi comandi da eseguire per verificare che tutti i componenti del componente aggiuntivo OSM del servizio Gestione dei servizi di gestione delle applicazioni siano abilitati e in esecuzione:
+Sono disponibili diversi comandi da eseguire per verificare che tutti i componenti del componente aggiuntivo OSM del servizio Web Del servizio Windows Siano abilitati e in esecuzione:
 
-Prima di tutto è possibile eseguire una query sui profili dei componenti aggiuntivi del cluster per controllare lo stato abilitato dei componenti aggiuntivi installati. Il comando seguente deve restituire "true".
+In primo luogo è possibile eseguire una query sui profili dei componenti aggiuntivi del cluster per controllare lo stato abilitato dei componenti aggiuntivi installati. Il comando seguente deve restituire "true".
 
 ```azurecli-interactive
 az aks list -g <resource group name> -o json | jq -r '.[].addonProfiles.openServiceMesh.enabled'
@@ -180,9 +180,9 @@ kubectl get pods -n kube-system --selector app=osm-controller
 kubectl get services -n kube-system --selector app=osm-controller
 ```
 
-## <a name="accessing-the-aks-osm-add-on"></a>Accesso al componente aggiuntivo AKS OSM
+## <a name="accessing-the-aks-osm-add-on"></a>Accesso al componente aggiuntivo OSM del servizio Web Del servizio Web Del servizio Web del servizio Web di Microsoft Access
 
-Attualmente è possibile accedere e configurare la configurazione del controller OSM tramite la mappa di configurazione. Per visualizzare le impostazioni di configurazione del controller OSM, eseguire una query sulla mappa di configurazione osm-config tramite `kubectl` per visualizzarne le impostazioni di configurazione.
+Attualmente è possibile accedere e configurare la configurazione del controller OSM tramite la mappa di configurazione. Per visualizzare le impostazioni di configurazione del controller OSM, eseguire una query su osm-config configmap tramite `kubectl` per visualizzarne le impostazioni di configurazione.
 
 ```azurecli-interactive
 kubectl get configmap -n kube-system osm-config -o json | jq '.data'
@@ -204,31 +204,31 @@ L'output della mappa di configurazione OSM dovrebbe essere simile al seguente:
 }
 ```
 
-Si noti **che permissive_traffic_policy_mode** è configurato su **true.** La modalità dei criteri di traffico permissiva in OSM è una modalità in cui l'imposizione dei criteri di traffico [SMI](https://smi-spec.io/) viene ignorata. In questa modalità, OSM individua automaticamente i servizi che fanno parte della rete mesh di servizi e programma le regole dei criteri di traffico in ogni sidecar proxy envoy per poter comunicare con questi servizi.
+Si noti **che permissive_traffic_policy_mode** è configurato su **true.** La modalità criteri di traffico permissiva in OSM è una modalità in cui l'imposizione dei criteri di traffico [SMI](https://smi-spec.io/) viene ignorata. In questa modalità, OSM individua automaticamente i servizi che fanno parte della rete mesh dei servizi e programma le regole dei criteri di traffico in ogni sidecar proxy Envoy per poter comunicare con questi servizi.
 
 > [!WARNING]
-> Prima di procedere, verificare che la modalità dei criteri di traffico permissiva sia impostata su true. In caso contrario, impostarla su **true** usando il comando seguente
+> Prima di procedere, verificare che la modalità dei criteri del traffico permissiva sia impostata su true. In caso contrario, impostarla su **true** usando il comando seguente
 
 ```OSM Permissive Mode to True
 kubectl patch ConfigMap -n kube-system osm-config --type merge --patch '{"data":{"permissive_traffic_policy_mode":"true"}}'
 ```
 
-## <a name="deploy-a-new-application-to-be-managed-by-the-open-service-mesh-osm-azure-kubernetes-service-aks-add-on"></a>Distribuire una nuova applicazione che deve essere gestita dal componente aggiuntivo OSM (Open Service Mesh) servizio Azure Kubernetes (AKS)
+## <a name="deploy-a-new-application-to-be-managed-by-the-open-service-mesh-osm-azure-kubernetes-service-aks-add-on"></a>Distribuire una nuova applicazione che deve essere gestita dal componente aggiuntivo Open Service Mesh (OSM) servizio Azure Kubernetes (AKS)
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi descritti in questa procedura dettagliata presuppongono che sia stato creato un cluster del servizio Kubernetes (Kubernetes e versione successiva, con il controllo degli accessi in base al ruolo di Kubernetes abilitato), sia stata stabilita una connessione con il cluster . Se è necessaria assistenza per uno di questi elementi, vedere la guida introduttiva al servizio Kubernetes e aver installato il componente aggiuntivo OSM del servizio `1.19+` Kubernetes. `kubectl` [](./kubernetes-walkthrough.md)
+I passaggi descritti in questa procedura dettagliata presuppongono che sia stato creato un cluster del servizio Kubernetes (Kubernetes e versione successiva, con il controllo degli accessi in base al ruolo di Kubernetes abilitato), sia stata stabilita una connessione con il cluster .Se è necessaria assistenza per uno di questi elementi, vedere la guida introduttiva del servizio Kubernetes e aver installato il componente aggiuntivo OSM del servizio App `1.19+` Kubernetes. `kubectl` [](./kubernetes-walkthrough.md)
 
 Devono essere installate le risorse seguenti:
 
 - Interfaccia della riga di comando di Azure, versione 2.20.0 o successiva
-- Versione `aks-preview` dell'estensione 0.5.5 o successiva
+- `aks-preview`L'estensione versione 0.5.5 o successiva
 - OSM versione 0.8.0 o successiva
 - apt-get install jq
 
 ### <a name="create-namespaces-for-the-application"></a>Creare spazi dei nomi per l'applicazione
 
-In questa procedura dettagliata verrà utilizzata l'applicazione libreria OSM con i servizi Kubernetes seguenti:
+In questa procedura dettagliata verrà utilizzata l'applicazione della libreria OSM con i servizi Kubernetes seguenti:
 
 - bookbuyer
 - bookthief
@@ -250,9 +250,9 @@ namespace/bookthief created
 namespace/bookwarehouse created
 ```
 
-### <a name="onboard-the-namespaces-to-be-managed-by-osm"></a>Eseguire l'onboard degli spazi dei nomi da gestire da OSM
+### <a name="onboard-the-namespaces-to-be-managed-by-osm"></a>Eseguire l'onboard degli spazi dei nomi che devono essere gestiti da OSM
 
-Quando si aggiungono gli spazi dei nomi alla mesh OSM, questo consentirà al controller OSM di inserire automaticamente i contenitori del proxy sidecar Envoy con l'applicazione. Eseguire il comando seguente per eseguire l'onboard degli spazi dei nomi delle applicazioni della libreria OSM.
+Quando si aggiungono gli spazi dei nomi alla mesh OSM, questo consentirà al controller OSM di inserire automaticamente i contenitori del proxy sidecar Envoy con l'applicazione. Eseguire il comando seguente per eseguire l'onboard degli spazi dei nomi dell'applicazione della libreria OSM.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -267,7 +267,7 @@ Namespace [bookthief] successfully added to mesh [osm]
 Namespace [bookwarehouse] successfully added to mesh [osm]
 ```
 
-### <a name="deploy-the-bookstore-application-to-the-aks-cluster"></a>Distribuire l'applicazione Bookstore nel cluster del servizio AKS
+### <a name="deploy-the-bookstore-application-to-the-aks-cluster"></a>Distribuire l'applicazione bookstore nel cluster del servizio Web Disassoce
 
 ```azurecli-interactive
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookbuyer.yaml
@@ -285,7 +285,7 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookwarehouse.yaml
 ```
 
-Tutti gli output di distribuzione sono riepilogati di seguito.
+Tutti gli output della distribuzione sono riepilogati di seguito.
 
 ```Output
 serviceaccount/bookbuyer created
@@ -307,15 +307,15 @@ deployment.apps/bookwarehouse created
 
 ### <a name="checkpoint-what-got-installed"></a>Checkpoint: cosa è stato installato?
 
-L'applicazione Bookstore di esempio è un'app a più livelli costituita da quattro servizi, tra cui bookbuyer, bookthief, bookstore e bookwarehouse. Sia il servizio bookbuyer che il servizio bookthief comunicano con il servizio librerie per recuperare i libri dal servizio librerie. Il servizio libreria recupera i libri dal servizio bookwarehouse per fornire il bookbuyer e il bookthief. Si tratta di una semplice applicazione a più livelli che consente di illustrare come usare una rete mesh di servizi per proteggere e autorizzare le comunicazioni tra i servizi delle applicazioni. Mentre si prosegue con la procedura dettagliata, verranno abilitazione e disabilitazione dei criteri SMI (Service Mesh Interface) per consentire e non consentire ai servizi di comunicare tramite OSM. Di seguito è riportato un diagramma dell'architettura di ciò che è stato installato per l'applicazione libreria.
+L'applicazione bookstore di esempio è un'app multilivello costituita da quattro servizi, tra cui bookbuyer, bookthief, bookstore e bookwarehouse. Sia il servizio bookbuyer che il servizio bookthief comunicano con il servizio della libreria per recuperare i libri dal servizio della libreria. Il servizio librerie recupera i libri dal servizio della libreria per fornire il bookbuyer e il bookthief. Si tratta di una semplice applicazione multilivello che funziona bene per illustrare come usare una rete mesh di servizi per proteggere e autorizzare le comunicazioni tra i servizi delle applicazioni. Mentre si continua con la procedura dettagliata, verranno abilitati e disabilitati i criteri di Service Mesh Interface (SMI) per consentire e non consentire ai servizi di comunicare tramite OSM. Di seguito è riportato un diagramma dell'architettura di ciò che è stato installato per l'applicazione libreria.
 
 ![Architettura dell'app bookbuyer OSM](./media/aks-osm-addon/osm-bookstore-app-arch.png)
 
-### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Verificare l'applicazione Bookstore in esecuzione all'interno del cluster del servizio AKS
+### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Verificare l'applicazione Bookstore in esecuzione all'interno del cluster del servizio Web del servizio Web di Microsoft Office
 
 Al momento è stata distribuita l'applicazione libreria mulit-container, ma è accessibile solo dall'interno del cluster del servizio AppKs. Le esercitazioni successive saranno utili per esporre l'applicazione all'esterno del cluster tramite un controller di ingresso. Per il momento verrà utilizzato il port forwarding per accedere all'applicazione bookbuyer all'interno del cluster del servizio AKS per verificare che acquisti libri dal servizio librerie.
 
-Per verificare che l'applicazione sia in esecuzione all'interno del cluster, si userà un port forward per visualizzare l'interfaccia utente dei componenti bookbuyer e bookthief.
+Per verificare che l'applicazione sia in esecuzione all'interno del cluster, verrà utilizzata una porta forward per visualizzare l'interfaccia utente dei componenti bookbuyer e bookthief.
 
 Prima di tutto, ottenere il nome del pod bookbuyer
 
@@ -391,7 +391,7 @@ L'output dovrebbe essere simile al seguente. Al pod bookthief verrà aggiunto un
 configmap/osm-config patched
 ```
 
-Per verificare che la modalità di traffico permissiva sia stata disabilitata, tornare al pod bookbuyer o bookthief per visualizzare l'interfaccia utente nel browser e verificare se i libri acquistati o rubati non vengono più incrementati. Assicurarsi di aggiornare il browser. Se l'incremento è stato arrestato, i criteri sono stati applicati correttamente. È stato impedito al bookthief di sottrarre libri, ma né il bookbuyer può acquistare dalla libreria né recuperare i libri dalla libreria. Successivamente verranno implementati [i criteri SMI](https://smi-spec.io/) per consentire solo i servizi nella rete che si desidera comunicare a tale scopo.
+Per verificare che la modalità di traffico permissiva sia stata disabilitata, tornare al pod bookbuyer o bookthief per visualizzare l'interfaccia utente nel browser e verificare se i libri acquistati o rubati non vengono più incrementati. Assicurarsi di aggiornare il browser. Se l'incremento è stato arrestato, i criteri sono stati applicati correttamente. È stato impedito al bookthief di sottrarre libri, ma né il bookbuyer può acquistare dalla libreria né recuperare i libri dalla libreria. Successivamente verranno implementati [i criteri SMI](https://smi-spec.io/) per consentire solo i servizi nella mesh per cui si desidera comunicare.
 
 ### <a name="apply-service-mesh-interface-smi-traffic-access-policies"></a>Applicare i criteri di accesso al traffico di Service Mesh Interface (SMI)
 
@@ -493,7 +493,7 @@ traffictarget.access.smi-spec.io/bookstore-access-bookwarehouse created
 httproutegroup.specs.smi-spec.io/bookwarehouse-service-routes created
 ```
 
-È ora possibile configurare una sessione di port forwarding nei pod bookbuyer o bookstore e verificare che sia i libri acquistati che le metriche dei libri venduti siano di nuovo in aumento. È anche possibile eseguire la stessa operazione per il pod bookthief per verificare che non sia ancora in grado di rubare libri.
+È ora possibile configurare una sessione port forwarding nei pod bookbuyer o bookstore e verificare che sia i libri acquistati che i libri venduti siano in aumento. È anche possibile eseguire la stessa operazione per il pod bookthief per verificare che non sia ancora in grado di rubare libri.
 
 ### <a name="apply-service-mesh-interface-smi-traffic-split-policies"></a>Applicare i criteri di suddivisione del traffico SMI (Service Mesh Interface)
 
@@ -626,7 +626,7 @@ Configurare un tunnel di port forward per il pod bookbuyer e si dovrebbero visua
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi descritti in questa procedura dettagliata presuppongono che sia stato abilitato in precedenza il componente aggiuntivo servizio Web Del servizio Web Dism per il cluster del servizio AKS. In caso contrario, vedere la sezione Abilitare il componente aggiuntivo [OSM (Open Service Mesh) servizio Azure Kubernetes (AKS)](#enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster) per un cluster del servizio Web Diaks esistente prima di procedere. Inoltre, il cluster del servizio Kubernetes deve avere la versione Kubernetes e versioni successive, avere abilitato il controllo degli accessi in base al ruolo di Kubernetes e aver stabilito una connessione con il cluster . Se è necessaria assistenza per uno di questi elementi, vedere la guida introduttiva al servizio Kubernetes e aver installato il componente aggiuntivo `1.19+` `kubectl` AKS OSM. [](./kubernetes-walkthrough.md)
+I passaggi descritti in questa procedura dettagliata presuppongono che in precedenza sia stato abilitato il componente aggiuntivo servizio Web del servizio Web Del servizio Web OSM per il cluster del servizio Web Disaks. In caso contrario, vedere la sezione Abilitare il componente aggiuntivo [OSM (Open Service Mesh) servizio Azure Kubernetes (AKS)](#enable-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-an-existing-aks-cluster) per un cluster del servizio Web Diaks esistente prima di procedere. Inoltre, il cluster del servizio Kubernetes deve avere la versione Kubernetes e versioni successive, avere abilitato il controllo degli accessi in base al ruolo di Kubernetes e aver stabilito una connessione con il cluster . Se è necessaria assistenza per uno di questi elementi, vedere la guida introduttiva al servizio Kubernetes e aver installato il componente aggiuntivo `1.19+` `kubectl` AKS OSM. [](./kubernetes-walkthrough.md)
 
 Devono essere installate le risorse seguenti:
 
@@ -659,7 +659,7 @@ L'output della mappa di configurazione OSM dovrebbe essere simile al seguente:
 }
 ```
 
-Se la **permissive_traffic_policy_mode** è configurata su **true,** è possibile eseguire l'onboardmento sicuro degli spazi dei nomi senza interruzioni delle comunicazioni da servizio a servizio. Se il **permissive_traffic_policy_mode** è configurato su **false,** è necessario assicurarsi di aver distribuito i manifesti dei criteri di accesso al traffico [SMI](https://smi-spec.io/) corretti, nonché di avere un account del servizio che rappresenta ogni servizio distribuito nello spazio dei nomi . Seguire le indicazioni per eseguire l'onboard delle applicazioni distribuite esistenti con criteri di traffico [permissivo OSM (Open Service Mesh) configurati come False](#onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-false)
+Se la **permissive_traffic_policy_mode** è configurata su **true,** è possibile eseguire l'onboardmento sicuro degli spazi dei nomi senza interruzioni delle comunicazioni da servizio a servizio. Se il **permissive_traffic_policy_mode** è configurato su **false,** è necessario assicurarsi di avere distribuito i manifesti dei criteri di accesso al traffico [SMI](https://smi-spec.io/) corretti, nonché di disporre di un account del servizio che rappresenta ogni servizio distribuito nello spazio dei nomi . Seguire le indicazioni per eseguire l'onboard delle applicazioni distribuite esistenti con criteri di traffico [permissivo OSM (Open Service Mesh) configurati come False](#onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-false)
 
 ### <a name="onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-true"></a>Onboard delle applicazioni distribuite esistenti con i criteri di traffico permissivi OSM (Open Service Mesh) configurati su True
 
@@ -675,7 +675,7 @@ Dovrebbe venire visualizzato l'output seguente:
 Namespace [bookstore] successfully added to mesh [osm]
 ```
 
-Verrà ora osservata la distribuzione di pod corrente nello spazio dei nomi . Eseguire il comando seguente per visualizzare i pod nello spazio dei nomi designato.
+Verrà ora osservata la distribuzione del pod corrente nello spazio dei nomi . Eseguire il comando seguente per visualizzare i pod nello spazio dei nomi designato.
 
 ```azurecli-interactive
 kubectl get pod -n bookbuyer
@@ -688,7 +688,7 @@ NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-78666dcff8-wh6wl   1/1     Running   0          43s
 ```
 
-Si noti **che la colonna READY** mostra **1/1,** ovvero il pod dell'applicazione ha un solo contenitore. Sarà quindi necessario riavviare le distribuzioni dell'applicazione in modo che OSM possa inserire il contenitore del proxy sidecar Envoy con il pod dell'applicazione. Si otterrà un elenco delle distribuzioni nello spazio dei nomi .
+Si noti **che la** colonna READY **mostra 1/1,** ovvero il pod dell'applicazione ha un solo contenitore. Sarà quindi necessario riavviare le distribuzioni dell'applicazione in modo che OSM possa inserire il contenitore proxy sidecar Envoy con il pod dell'applicazione. Si otterrà un elenco delle distribuzioni nello spazio dei nomi .
 
 ```azurecli-interactive
 kubectl get deployment -n bookbuyer
@@ -763,7 +763,7 @@ Verificare che l'applicazione sia ancora funzionante dopo l'inserimento del prox
 
 ### <a name="onboard-existing-deployed-applications-with-open-service-mesh-osm-permissive-traffic-policy-configured-as-false"></a>Onboard delle applicazioni distribuite esistenti con Criteri di traffico permissivi open service mesh (OSM) configurati come False
 
-Quando la configurazione OSM per i criteri di traffico permissivo è impostata su , OSM richiederà criteri di accesso espliciti al traffico SMI distribuiti per la comunicazione da servizio a servizio all'interno `false` del cluster. [](https://smi-spec.io/) Attualmente OSM usa anche gli account del servizio Kubernetes come parte dell'autorizzazione anche per le comunicazioni da servizio a servizio. Per garantire che le applicazioni distribuite esistenti comunicheranno quando vengono gestite dalla rete OSM, è necessario verificare l'esistenza di un account del servizio da utilizzare, aggiornare la distribuzione dell'applicazione con le informazioni sull'account del servizio, applicare i criteri di accesso al traffico [SMI.](https://smi-spec.io/)
+Quando la configurazione OSM per i criteri di traffico permissivo è impostata su , OSM richiederà criteri di accesso espliciti al traffico SMI distribuiti per la comunicazione da servizio a servizio all'interno `false` del cluster. [](https://smi-spec.io/) Attualmente, OSM usa anche gli account del servizio Kubernetes come parte dell'autorizzazione anche per le comunicazioni da servizio a servizio. Per garantire che le applicazioni distribuite esistenti comunicheranno quando vengono gestite dalla rete OSM, è necessario verificare l'esistenza di un account del servizio da utilizzare, aggiornare la distribuzione dell'applicazione con le informazioni sull'account del servizio, applicare i criteri di accesso al traffico [SMI.](https://smi-spec.io/)
 
 #### <a name="verify-kubernetes-service-accounts"></a>Verificare gli account del servizio Kubernetes
 
@@ -812,7 +812,7 @@ La distribuzione verrà ora descritta come un controllo per verificare se è pre
 kubectl describe deployment bookbuyer -n bookbuyer
 ```
 
-In questa distribuzione specifica è possibile vedere che è presente un account del servizio associato alla distribuzione elencata nella sezione Modello di pod. Questa distribuzione usa il bookbuyer dell'account del servizio. Se non viene visualizzata la proprietà **Account Serivce:** , la distribuzione non è configurata per l'uso di un account del servizio.
+In questa distribuzione specifica è possibile vedere che è presente un account del servizio associato alla distribuzione elencata nella sezione Modello di pod. Questa distribuzione usa il bookbuyer dell'account del servizio. Se la proprietà **Serivce Account:** non viene visualizzata, la distribuzione non è configurata per l'uso di un account del servizio.
 
 ```Output
 Pod Template:
@@ -826,7 +826,7 @@ Pod Template:
 
 ```
 
-Esistono diverse tecniche per aggiornare la distribuzione per aggiungere un account del servizio Kubernetes. Vedere la documentazione di Kubernetes [sull'aggiornamento](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment) di una distribuzione inline o [Configurare gli account di servizio per i pod.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) Dopo aver aggiornato la specifica di distribuzione con l'account del servizio, ridistribuire (kubectl apply -f your-deployment.yaml) la distribuzione nel cluster.
+Esistono diverse tecniche per aggiornare la distribuzione per aggiungere un account del servizio Kubernetes. Vedere la documentazione di Kubernetes relativa [all'aggiornamento](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment) di una distribuzione inline o [configurare gli account di servizio per i pod.](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) Dopo aver aggiornato la specifica di distribuzione con l'account del servizio, ridistribuire (kubectl apply -f your-deployment.yaml) la distribuzione nel cluster.
 
 #### <a name="deploy-the-necessary-service-mesh-interface-smi-policies"></a>Distribuire i criteri SMI (Service Mesh Interface) necessari
 
@@ -1002,7 +1002,7 @@ In questa esercitazione si apprenderà come:
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster del servizio Kubernetes (Kubernetes e versione successiva, con il controllo degli accessi in base al ruolo di Kubernetes abilitato), sia stata stabilita una connessione con il cluster . Se è necessaria assistenza per uno di questi elementi, vedere la guida introduttiva al servizio Kubernetes e aver installato il componente aggiuntivo OSM del servizio `1.19+` Kubernetes. `kubectl` [](./kubernetes-walkthrough.md)
+I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster del servizio Kubernetes (Kubernetes e versione successiva, con il controllo degli accessi in base al ruolo di Kubernetes abilitato), che sia stata stabilita una connessione con il cluster . Se è necessaria assistenza per uno di questi elementi, vedere la guida introduttiva al servizio Kubernetes e aver installato il componente aggiuntivo OSM del servizio `1.19+` Kubernetes. `kubectl` [](./kubernetes-walkthrough.md)
 
 Devono essere installate le risorse seguenti:
 
@@ -1035,7 +1035,7 @@ L'output mostra la configurazione OSM corrente per il cluster.
 }
 ```
 
-Si noti **che permissive_traffic_policy_mode** è configurato su **true.** La modalità dei criteri di traffico permissiva in OSM è una modalità in cui l'imposizione dei criteri di traffico [SMI](https://smi-spec.io/) viene ignorata. In questa modalità, OSM individua automaticamente i servizi che fanno parte della rete mesh dei servizi e programma le regole dei criteri di traffico in ogni sidecar proxy Envoy per poter comunicare con questi servizi.
+Si noti **che permissive_traffic_policy_mode** è configurato su **true.** La modalità criteri di traffico permissiva in OSM è una modalità in cui l'imposizione dei criteri di traffico [SMI](https://smi-spec.io/) viene ignorata. In questa modalità, OSM individua automaticamente i servizi che fanno parte della rete mesh dei servizi e programma le regole dei criteri di traffico in ogni sidecar proxy Envoy per poter comunicare con questi servizi.
 
 ### <a name="create-namespaces-for-the-application"></a>Creare spazi dei nomi per l'applicazione
 
@@ -1063,7 +1063,7 @@ namespace/bookwarehouse created
 
 ### <a name="onboard-the-namespaces-to-be-managed-by-osm"></a>Eseguire l'onboard degli spazi dei nomi da gestire da OSM
 
-L'aggiunta degli spazi dei nomi alla mesh OSM consentirà al controller OSM di inserire automaticamente i contenitori proxy sidecar Envoy con l'applicazione. Eseguire il comando seguente per eseguire l'onboard di spazi dei nomi dell'applicazione libreria OSM.
+L'aggiunta degli spazi dei nomi alla mesh OSM consentirà al controller OSM di inserire automaticamente i contenitori proxy sidecar Envoy con l'applicazione. Eseguire il comando seguente per eseguire l'onboard degli spazi dei nomi delle applicazioni della libreria OSM.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -1140,7 +1140,7 @@ EOF
 
 ### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Verificare l'applicazione Bookstore in esecuzione all'interno del cluster del servizio Web del servizio Web di Microsoft Office
 
-Al momento è stata distribuita l'applicazione libreria mulit-container, ma è accessibile solo dall'interno del cluster del servizio AppKs. Successivamente si aggiungerà il controller di gateway applicazione di Azure in ingresso per esporre l'applicazione all'esterno del cluster del servizio Web Del servizio AKS. Per verificare che l'applicazione sia in esecuzione all'interno del cluster, si userà un port forward per visualizzare l'interfaccia utente del componente bookbuyer.
+Al momento è stata distribuita l'applicazione libreria mulit-container, ma è accessibile solo dall'interno del cluster del servizio AppKs. In un secondo momento si aggiungerà il controller gateway applicazione di Azure in ingresso per esporre l'applicazione all'esterno del cluster del servizio AKS. Per verificare che l'applicazione sia in esecuzione all'interno del cluster, si userà un port forward per visualizzare l'interfaccia utente del componente bookbuyer.
 
 Prima di tutto, ottenere il nome del pod bookbuyer
 
@@ -1361,11 +1361,11 @@ In questa esercitazione si apprenderà come:
 > - Distribuire l'applicazione di esempio
 > - Verificare l'applicazione in esecuzione all'interno del cluster del servizio Web di Servizio Web Disatteso
 > - Creare un gateway applicazione di Azure da usare come controller di ingresso per l'applicazione
-> - Esporre un servizio tramite il gateway applicazione di Azure in ingresso a Internet
+> - Esporre un servizio tramite gateway applicazione di Azure ingresso verso Internet
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster del servizio Kubernetes (Kubernetes e versione successiva, con il controllo degli accessi in base al ruolo di Kubernetes abilitato), sia stata stabilita una connessione con il cluster . Se è necessaria assistenza per uno di questi elementi, vedere la guida introduttiva del servizio Kubernetes, aver installato il componente aggiuntivo OSM del servizio Kubernetes e verrà creato un nuovo gateway applicazione di Azure per `1.19+` l'ingresso. `kubectl` [](./kubernetes-walkthrough.md)
+I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster del servizio Kubernetes (Kubernetes e versione successiva, con il controllo degli accessi in base al ruolo di Kubernetes abilitato), che abbia stabilito una connessione con il cluster . Se è necessaria assistenza per uno di questi elementi, vedere la guida introduttiva del servizio Kubernetes, aver installato il componente aggiuntivo OSM del servizio Kubernetes e verrà creato un nuovo gateway applicazione di Azure per `1.19+` l'ingresso. `kubectl` [](./kubernetes-walkthrough.md)
 
 Devono essere installate le risorse seguenti:
 
@@ -1442,7 +1442,7 @@ Namespace [bookthief] successfully added to mesh [osm]
 Namespace [bookwarehouse] successfully added to mesh [osm]
 ```
 
-### <a name="deploy-the-bookstore-application-to-the-aks-cluster"></a>Distribuire l'applicazione bookstore nel cluster del servizio Web Disartik
+### <a name="deploy-the-bookstore-application-to-the-aks-cluster"></a>Distribuire l'applicazione bookstore nel cluster del servizio Web Disassoce
 
 ```azurecli-interactive
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookbuyer.yaml
@@ -1504,7 +1504,7 @@ EOF
 
 ### <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>Verificare l'applicazione bookstore in esecuzione all'interno del cluster del servizio Web Disassoce
 
-Al momento è stata distribuita l'applicazione a più contenitori della libreria, ma è accessibile solo dall'interno del cluster del servizio Contenitore di Microsoft. In seguito si aggiungerà il controller di gateway applicazione di Azure in ingresso per esporre l'applicazione all'esterno del cluster del servizio Diaks. Per verificare che l'applicazione sia in esecuzione all'interno del cluster, si userà un port forward per visualizzare l'interfaccia utente del componente bookbuyer.
+Al momento è stata distribuita l'applicazione multi-contenitore della libreria, ma è accessibile solo dall'interno del cluster del servizio Container. In seguito si aggiungerà il controller di gateway applicazione di Azure in ingresso per esporre l'applicazione all'esterno del cluster del servizio Web Diaks. Per verificare che l'applicazione sia in esecuzione all'interno del cluster, si userà un port forward per visualizzare l'interfaccia utente del componente bookbuyer.
 
 Prima di tutto, ottenere il nome del pod bookbuyer
 
@@ -1536,7 +1536,7 @@ Mentre la port forwarding è attiva, passare all'URL seguente da un `http://loca
 
 ![Immagine dell'interfaccia utente dell'app bookbuyer OSM per Gateway app](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
 
-### <a name="create-an-azure-application-gateway-to-expose-the-bookbuyer-application-outside-the-aks-cluster"></a>Creare un'gateway applicazione di Azure per esporre l'applicazione bookbuyer all'esterno del cluster del servizio Web Disack
+### <a name="create-an-azure-application-gateway-to-expose-the-bookbuyer-application-outside-the-aks-cluster"></a>Creare un'gateway applicazione di Azure per esporre l'applicazione bookbuyer all'esterno del cluster del servizio Web Dicking
 
 > [!NOTE]
 > Le istruzioni seguenti creeranno una nuova istanza del gateway applicazione di Azure da usare per l'ingresso. Se si dispone di un gateway applicazione di Azure da usare, passare alla sezione per abilitare il componente aggiuntivo Controller in ingresso del gateway applicazione.
@@ -1544,7 +1544,7 @@ Mentre la port forwarding è attiva, passare all'URL seguente da un `http://loca
 #### <a name="deploy-a-new-application-gateway"></a>Distribuire un nuovo gateway applicazione
 
 > [!NOTE]
-> Si fa riferimento alla documentazione esistente per l'abilitazione del componente aggiuntivo Controller in ingresso del gateway applicazione per un cluster del servizio Gateway Gateway esistente. Alcune modifiche sono state apportate in base ai materiali OSM. La documentazione più dettagliata sull'argomento è disponibile [qui.](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing)
+> Si fa riferimento alla documentazione esistente per l'abilitazione del componente aggiuntivo Controller in ingresso del gateway applicazione per un cluster del servizio Gateway Gateway esistente. Sono state apportate alcune modifiche per adattare i materiali OSM. La documentazione più dettagliata sull'argomento è disponibile [qui.](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing)
 
 Verrà ora distribuito un nuovo gateway applicazione per simulare la presenza di un gateway applicazione esistente da usare per bilanciare il carico del traffico indirizzato al cluster del servizio Azure Kubernetes, ovvero _myCluster_. Il nome del gateway applicazione sarà _myApplicationGateway_, ma è prima necessario creare una risorsa IP pubblico denominata _myPublicIp_ e una nuova rete virtuale denominata _myVnet_ con spazio indirizzi 11.0.0.0/8, nonché una subnet con spazio indirizzi 11.1.0.0/16 denominata _mySubnet_ e quindi distribuire il gateway applicazione in _mySubnet_ usando _myPublicIp_.
 
@@ -1562,7 +1562,7 @@ az network application-gateway create -n myApplicationGateway -l eastus2 -g myRe
 
 #### <a name="enable-the-agic-add-on-for-an-existing-aks-cluster-through-azure-cli"></a>Abilitare il componente aggiuntivo AGIC per un cluster del servizio AzureKs esistente tramite l'interfaccia della riga di comando di Azure
 
-Se si desidera continuare a usare l'interfaccia della riga di comando di Azure, è possibile continuare a abilitare il componente aggiuntivo AGIC nel cluster del servizio AzureKs creato, _myCluster,_ e specificare il componente aggiuntivo AGIC per usare il gateway applicazione esistente creato, _myApplicationGateway_.
+Se si desidera continuare a usare l'interfaccia della riga di comando di Azure, è possibile continuare a abilitare il componente aggiuntivo AGIC nel cluster del servizio AzureKs creato, _myCluster,_ e specificare il componente aggiuntivo AGIC per usare il gateway applicazione esistente creato, _myApplicationGateway._
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id")
@@ -1748,7 +1748,7 @@ helm repo update
 helm install stable prometheus-community/prometheus
 ```
 
-Se l'installazione ha avuto esito positivo, verrà visualizzato un output simile a quello riportato di seguito. Prendere nota della porta del server Prometheus e del nome DNS del cluster. Queste informazioni verranno usate in seguito per configurare Prometheus come origine dati per Grafana.
+Se l'installazione ha avuto esito positivo, verrà visualizzato un output simile. Prendere nota della porta del server Prometheus e del nome DNS del cluster. Queste informazioni verranno usate in seguito per configurare Prometheus come origine dati per Grafana.
 
 ```Output
 NAME: stable
@@ -1845,7 +1845,7 @@ Si aprirà quindi il file usando Visual Studio Code da modificare.
 code cm-stable-prometheus-server.yml
 ```
 
-Dopo aver aperto la mappa di configurazione nell'editor Visual Studio Code, sostituire il file prometheus.yml con la configurazione OSM seguente e salvare il file.
+Dopo aver aperto configmap nell'editor Visual Studio Code, sostituire il file prometheus.yml con la configurazione del modulo di protezione hardware seguente e salvare il file.
 
 > [!WARNING]
 > È estremamente importante assicurarsi di mantenere la struttura di indention del file yaml. Qualsiasi modifica alla struttura del file yaml potrebbe causare la non possibilità di applicare nuovamente la mappa di configurazione.
@@ -2121,7 +2121,7 @@ kubectl get secret --namespace default osm-grafana -o jsonpath=&quot;{.data.admi
 
 Prendere nota della password Grafana.
 
-Successivamente si recupererà il pod Grafana da inoltrare al dashboard di Grafana per l'accesso.
+Successivamente si recupererà il pod Grafana per eseguire il port forward al dashboard di Grafana per l'accesso.
 
 ```azurecli-interactive
 GRAF_POD_NAME=$(kubectl get pods -l &quot;app.kubernetes.io/name=grafana&quot; -o jsonpath=&quot;{.items[0].metadata.name}")
@@ -2262,11 +2262,11 @@ Nel browser dovrebbe essere visualizzato un elenco a discesa Servizio che consen
 
 Selezionare un elemento per visualizzarlo in modo più dettagliato. Selezionare più elementi per confrontare le tracce. Ad esempio, è possibile confrontare le interazioni del bookbuyer con la libreria e bookstore-v2 in un determinato momento.
 
-È anche possibile selezionare la scheda Architettura di sistema per visualizzare un grafico del modo in cui le varie applicazioni hanno interagito/comunicando. In questo modo si ha un'idea del flusso del traffico tra le applicazioni.
+È anche possibile selezionare la scheda Architettura di sistema per visualizzare un grafico dell'interazione/comunicazione tra le varie applicazioni. In questo modo si ha un'idea del flusso del traffico tra le applicazioni.
 
 ![Immagine dell'interfaccia utente dell'architettura del sistema OSM Jaeger](./media/aks-osm-addon/osm-jaeger-sys-arc-view-ui.png)
 
-## <a name="open-service-mesh-osm-aks-add-on-troubleshooting-guides"></a>Guide alla risoluzione dei problemi del componente aggiuntivo OSM (Open Service Mesh)
+## <a name="open-service-mesh-osm-aks-add-on-troubleshooting-guides"></a>Open Service Mesh (OSM) AKS add-on Troubleshooting Guides
 
 Quando si distribuisce il componente aggiuntivo OSM AKS, è possibile che si verifichi occasionalmente un problema. Le guide seguenti illustrano come risolvere gli errori e risolvere i problemi comuni.
 
@@ -2319,7 +2319,7 @@ osm-controller   ClusterIP   10.0.31.254   <none>        15128/TCP,9092/TCP   67
 ```
 
 > [!NOTE]
-> Cluster-IP sarebbe diverso. I nomi del servizio e PORT(S) devono essere gli stessi dell'esempio precedente.
+> Cluster-IP sarebbe diverso. I nomi dei servizi e PORT(S) devono essere gli stessi dell'esempio precedente.
 
 #### <a name="check-osm-controller-endpoints"></a>Controllare gli endpoint del controller OSM
 
@@ -2427,7 +2427,7 @@ Una configurazione del webhook di convalida ben configurata sarà simile alla se
 }
 ```
 
-#### <a name="check-for-the-service-and-the-ca-bundle-of-the-mutating-webhook"></a>Verificare il servizio e il bundle CA del webhook di modifica
+#### <a name="check-for-the-service-and-the-ca-bundle-of-the-mutating-webhook"></a>Verificare il servizio e il bundle CA del webhook Di modifica
 
 ```azurecli-interactive
 kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
@@ -2447,7 +2447,7 @@ Una configurazione webhook di modifica ben configurata sarà simile alla seguent
 #### <a name="check-whether-osm-controller-has-given-the-validating-or-mutating-webhook-a-ca-bundle"></a>Controllare se il controller OSM ha fornito al webhook di convalida (o di modifica) un bundle ca
 
 > [!NOTE]
-> A oggi v0.8.2 È importante sapere che il componente del servizio Web Diaks installa il webhook di convalida, il riconciliatore del servizio Web Dinconciso AKS ne garantisce l'esistenza, ma il controller OSM è quello che riempie il bundle ca.
+> A oggi v0.8.2 è importante sapere che il componente del servizio Web Del servizio Web DinK installa il webhook di convalida, il riconciliatore del servizio Diconciso del servizio Diconciso del servizio Web DinK ne garantisce l'esistenza, ma il controller OSM è quello che riempie il bundle ca.
 
 ```azurecli-interactive
 kubectl get ValidatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.webhooks[0].clientConfig.caBundle' | wc -c
@@ -2461,7 +2461,7 @@ kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.w
 1845
 ```
 
-Questo numero indica il numero di byte o le dimensioni del bundle ca. Se è vuoto, 0 o un numero inferiore a 1000, il provisioning del bundle ca non viene eseguito correttamente. Senza un bundle CA corretto, il webhook di convalida restituirebbe un errore e impedirebbe all'utente di apportare modifiche a ConfigMap osm-config nello spazio dei nomi kube-system.
+Questo numero indica il numero di byte o le dimensioni del bundle ca. Se il valore è vuoto, 0 o un numero inferiore a 1000, il provisioning del bundle della CA non viene eseguito correttamente. Senza un bundle CA corretto, il webhook di convalida restituirebbe un errore e impedirebbe all'utente di apportare modifiche a ConfigMap osm-config nello spazio dei nomi kube-system.
 
 Un errore di esempio quando il bundle della CA non è corretto:
 
@@ -2479,13 +2479,13 @@ Error from server (InternalError): Internal error occurred: failed calling webho
 
 Risolvere il problema quando la **convalida della configurazione** del webhook ha un certificato non valido:
 
-- Opzione 1 - Riavviare il controller OSM. Il controller OSM verrà riavviato. All'avvio sovrascriverà il bundle CA di entrambi i webhook Mutating e Validating.
+- Opzione 1 : riavvia il controller OSM. Il controller OSM verrà riavviato. All'avvio sovrascriverà il bundle CA di entrambi i webhook Mutating e Validating.
 
 ```azurecli-interactive
 kubectl rollout restart deployment -n kube-system osm-controller
 ```
 
-- Opzione 2 - Opzione 2. Eliminare il webhook di convalida: la rimozione del webhook di convalida rende le modifica di `osm-config` ConfigMap non più convalidate. Verrà passata qualsiasi patch. A un certo punto, riconciliatore del servizio Web Diconciliazione del servizio AKS garantisce l'esistenza del webhook di convalida e lo ricrea. Potrebbe essere necessario riavviare il controller OSM per riscrivere rapidamente il bundle ca.
+- Opzione 2 - Opzione 2. Eliminare il webhook di convalida: la rimozione del webhook di convalida non rende più convalidate le modifica `osm-config` di ConfigMap. Verrà passata qualsiasi patch. A un certo punto, riconciliatore del servizio Web Diconciliazione del servizio AKS garantisce l'esistenza del webhook di convalida e lo ricrea. Potrebbe essere necessario riavviare il controller OSM per riscrivere rapidamente il bundle ca.
 
 ```azurecli-interactive
 kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm
@@ -2550,7 +2550,7 @@ kubectl get ConfigMap -n kube-system osm-config -o json | jq '.data'
 #### <a name="check-namespaces"></a>Controllare gli spazi dei nomi
 
 > [!NOTE]
-> Lo spazio dei nomi kube-system non parteciperà mai a una mesh di servizio e non verrà mai etichettato e/o annotato con la chiave/valori riportata di seguito.
+> Lo spazio dei nomi kube-system non parteciperà mai a una rete mesh di servizi e non verrà mai etichettato e/o annotato con la chiave/valori riportata di seguito.
 
 Il comando viene `osm namespace add` utilizzato per unire gli spazi dei nomi a una mesh di servizio specificata.
 Quando uno spazio dei nomi k8s fa parte della mesh (o perché sia parte della mesh), deve essere vero quanto segue:
