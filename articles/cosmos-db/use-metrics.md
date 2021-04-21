@@ -7,19 +7,19 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 04/09/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0711d764514e45d3c28e26cf99b45dc711ef201c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cf92d9e1a1f92c2dc3294b71e3e620166fd90680
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868257"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818702"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB offre metriche per velocità effettiva, archiviazione, coerenza, disponibilità e latenza. Il portale di Azure offre una visualizzazione aggregata di queste metriche. È anche possibile visualizzare le metriche di Azure Cosmos DB nell'API di Monitoraggio di Azure. I valori della dimensione per le metriche, ad esempio il nome del contenitore, non fanno distinzione tra maiuscole e minuscole. Pertanto, è necessario utilizzare il confronto senza distinzione tra maiuscole e minuscole quando si esegue confronti tra stringhe su questi valori di dimensione. Per informazioni su come visualizzare le metriche da monitoraggio di Azure, vedere l'articolo [ottenere le metriche da monitoraggio](./monitor-cosmos-db.md) di Azure.
+Azure Cosmos DB offre metriche per velocità effettiva, archiviazione, coerenza, disponibilità e latenza. Il portale di Azure offre una visualizzazione aggregata di queste metriche. È anche possibile visualizzare le metriche di Azure Cosmos DB nell'API di Monitoraggio di Azure. I valori delle dimensioni per le metriche, ad esempio il nome del contenitore, non fa distinzione tra maiuscole e minuscole. È quindi necessario usare il confronto senza distinzione tra maiuscole e minuscole quando si eservino confronti tra stringhe su questi valori di dimensione. Per informazioni su come visualizzare le metriche da Monitoraggio di Azure, vedere l'articolo Ottenere metriche [da](./monitor-cosmos-db.md) Monitoraggio di Azure.
 
 Questo articolo illustra dettagliatamente i casi d'uso comuni e come usare le metriche di Azure Cosmos DB per analizzare ed eseguire il debug di questi problemi. Le metriche vengono raccolte ogni cinque minuti e vengono conservate per sette giorni.
 
@@ -27,29 +27,29 @@ Questo articolo illustra dettagliatamente i casi d'uso comuni e come usare le me
 
 1. Accedere al [portale di Azure](https://portal.azure.com/)
 
-1. Aprire il riquadro **metrica** . Per impostazione predefinita, il riquadro metriche Mostra le metriche di archiviazione, indice, unità richiesta per tutti i database nell'account Azure Cosmos. È possibile filtrare queste metriche per database, contenitore o area. È anche possibile filtrare le metriche in base a una granularità temporale specifica. Altre informazioni sulle metriche di velocità effettiva, archiviazione, disponibilità, latenza e coerenza sono disponibili in schede separate. 
+1. Aprire il **riquadro** Metriche. Per impostazione predefinita, il riquadro delle metriche mostra le metriche di archiviazione, indice e unità richiesta per tutti i database nell'account Azure Cosmos. È possibile filtrare queste metriche per database, contenitore o area. È anche possibile filtrare le metriche in base a una granularità temporale specifica. Altre informazioni sulla velocità effettiva, l'archiviazione, la disponibilità, la latenza e le metriche di coerenza sono disponibili in schede separate. 
 
-   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB le metriche delle prestazioni in portale di Azure":::
+   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB metriche delle prestazioni in portale di Azure":::
 
-Dal riquadro **metriche** sono disponibili le metriche seguenti: 
+Nel riquadro Metriche sono disponibili **le metriche** seguenti:
 
-* **Metriche della velocità effettiva** : questa metrica indica il numero di richieste utilizzate o non riuscite (429 di codice di risposta) perché la velocità effettiva o la capacità di archiviazione di cui è stato effettuato il provisioning per il contenitore ha superato.
+* **Metriche della velocità** effettiva: questa metrica mostra il numero di richieste utilizzate o non riuscite (codice di risposta 429) perché la velocità effettiva o la capacità di archiviazione di cui è stato effettuato il provisioning per il contenitore è stata superata.
 
-* **Metriche di archiviazione** : questa metrica Mostra le dimensioni dei dati e l'utilizzo degli indici.
+* **Metriche di archiviazione:** questa metrica mostra le dimensioni dei dati e l'utilizzo dell'indice.
 
-* **Metriche di disponibilità** : questa metrica Mostra la percentuale di richieste riuscite sul totale delle richieste all'ora. La percentuale di esecuzioni riuscite è definita dalla Azure Cosmos DB contratti di contratto.
+* **Metriche di disponibilità:** questa metrica mostra la percentuale di richieste riuscite rispetto al totale delle richieste all'ora. La percentuale di esito positivo è definita dai contratti Azure Cosmos DB servizio.
 
-* **Metrica di latenza** : questa metrica Mostra la latenza di lettura e scrittura osservata da Azure Cosmos DB nell'area in cui l'account è operativo. È possibile visualizzare la latenza tra le aree per un account con replica geografica. Questa metrica non rappresenta la latenza della richiesta end-to-end.
+* **Metriche di latenza:** questa metrica mostra la latenza di lettura e scrittura osservata Azure Cosmos DB nell'area in cui l'account è operativo. È possibile visualizzare la latenza tra aree per un account con replica geografica. Questa metrica non rappresenta la latenza delle richieste end-to-end.
 
-* **Metrica di coerenza** : questa metrica indica il modo in cui è possibile la coerenza del modello di coerenza scelto. Per gli account in più aree, questa metrica Mostra anche la latenza di replica tra le aree selezionate.
+* **Metriche di coerenza:** questa metrica mostra la coerenza finale per il modello di coerenza scelto. Per gli account con più aree, questa metrica mostra anche la latenza di replica tra le aree selezionate.
 
-* **Metriche di sistema** : questa metrica indica il numero di richieste di metadati gestite dalla partizione primaria. Consente inoltre di identificare le richieste limitate.
+* **Metriche di** sistema: questa metrica mostra il numero di richieste di metadati servite dalla partizione primaria. Consente anche di identificare le richieste limitate.
 
-Le sezioni seguenti illustrano scenari comuni in cui è possibile usare Azure Cosmos DB metrica. 
+Le sezioni seguenti illustrano scenari comuni in cui è possibile usare Azure Cosmos DB metriche. 
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Scoprire il numero di richieste che riesce o causa errori
 
-Per iniziare, accedere al [portale di Azure](https://portal.azure.com) e passare al pannello **Metriche**. Nel pannello, trovare il * * numero di richieste che hanno superato la capacità per ogni grafico di 1 minuto. Questo grafico mostra un minuto delle richieste totali per minuto segmentate in base al codice di stato. Per ulteriori informazioni sui codici di stato HTTP, vedere [codici di stato HTTP per Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Per iniziare, accedere al [portale di Azure](https://portal.azure.com) e passare al pannello **Metriche**. Nel pannello trovare il grafico **Numero di richieste che hanno superato la capacità per 1 minuto. Questo grafico mostra un minuto delle richieste totali per minuto segmentate in base al codice di stato. Per altre informazioni sui codici di stato HTTP, vedere [Codici di stato HTTP per Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 Il codice di stato di errore più comune è 429 (limitazione della velocità/limitazione). Questo errore indica che le richieste ad Azure Cosmos DB sono maggiori rispetto alle UR di cui è stato effettuato provisioning. La soluzione più comune per questo problema consiste nell'[aumentare il numero di UR](./set-throughput.md) per la raccolta specificata.
 
@@ -59,7 +59,7 @@ Il codice di stato di errore più comune è 429 (limitazione della velocità/lim
 
 Avere una buona cardinalità delle chiavi di partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione della velocità effettiva di un contenitore partizionato suddiviso per partizione, passare al **pannello Metriche** nel [portale di Azure](https://portal.azure.com). Nella scheda **Velocità effettiva** la scomposizione di archiviazione viene mostrata nel grafico **Numero massimo di unità richiesta al secondo utilizzate da ogni partizione fisica**. Il grafico seguente illustra un esempio di distribuzione non efficace dei dati come evidenziato dalla deviazione della partizione all'estrema sinistra.
 
-:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Singola partizione che vede un utilizzo intensivo":::
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Singola partizione con utilizzo elevato":::
 
 Una distribuzione non uniforme della velocità effettiva può generare partizioni *critiche*, che possono ridurre le richieste e potrebbero richiedere una nuova ripartizione. Per altre informazioni sul partizionamento in Azure Cosmos DB, vedere [Partizionamento e ridimensionamento in Azure Cosmos DB](./partitioning-overview.md).
 
@@ -77,7 +77,7 @@ Dopo aver identificato la chiave di partizione che riduce la distribuzione, è p
 
 ## <a name="compare-data-size-against-index-size"></a>Confrontare le dimensioni dei dati e le dimensioni dell'indice
 
-In Azure Cosmos DB lo spazio di archiviazione totale usato risulta dalla combinazione delle dimensioni dei dati e delle dimensioni dell'indice. In genere, le dimensioni dell'indice sono una frazione delle dimensioni dei dati. Per altre informazioni, vedere l'articolo relativo alle [dimensioni degli indici](index-policy.md#index-size) . Nel pannello Metriche nel [portale di Azure](https://portal.azure.com) la scheda Archiviazione mostra la suddivisione dell'uso dello spazio di archiviazione in base ai dati e all'indice.
+In Azure Cosmos DB lo spazio di archiviazione totale usato risulta dalla combinazione delle dimensioni dei dati e delle dimensioni dell'indice. In genere, le dimensioni dell'indice sono una frazione delle dimensioni dei dati. Per altre informazioni, vedere [l'articolo Dimensioni dell'indice.](index-policy.md#index-size) Nel pannello Metriche nel [portale di Azure](https://portal.azure.com) la scheda Archiviazione mostra la suddivisione dell'uso dello spazio di archiviazione in base ai dati e all'indice.
 
 ```csharp
 // Measure the document size usage (which includes the index size)  
@@ -114,6 +114,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Si è appreso come monitorare ed eseguire il debug dei problemi con le metriche disponibili nel portale di Azure. È possibile leggere gli articoli seguenti per scoprire di più su come migliorare le prestazioni del database:
 
-* Per informazioni su come visualizzare le metriche da monitoraggio di Azure, vedere l'articolo [ottenere le metriche da monitoraggio](./monitor-cosmos-db.md) di Azure. 
+* Per informazioni su come visualizzare le metriche da Monitoraggio di Azure, vedere [l'articolo Ottenere metriche Monitoraggio di Azure](./monitor-cosmos-db.md) azure. 
 * [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md)
 * [Suggerimenti sulle prestazioni per Azure Cosmos DB](performance-tips.md)

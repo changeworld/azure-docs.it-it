@@ -1,7 +1,7 @@
 ---
 title: Creare esperimenti di Machine Learning automatizzato
 titleSuffix: Azure Machine Learning
-description: Informazioni su come definire le origini dati, i calcoli e le impostazioni di configurazione per gli esperimenti di Machine Learning automatizzati.
+description: Informazioni su come definire le origini dati, le risorse di calcolo e le impostazioni di configurazione per gli esperimenti di Machine Learning automatizzato.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -11,19 +11,19 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 755386bfa36b18796eccec0020efe9136e0215cd
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 146697dec7e3d22e745fba2a1e9fae5d486195ef
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068150"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819315"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 
 
 Questa guida illustra come definire diverse impostazioni di configurazione degli esperimenti di Machine Learning automatizzato con [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). Il processo di Machine Learning automatizzato seleziona un algoritmo e iperparametri per l'utente e genera un modello pronto per la distribuzione. Per configurare esperimenti di Machine Learning automatizzato sono disponibili varie opzioni.
 
-Per visualizzare esempi di esperimenti automatici di Machine Learning, vedere [esercitazione: eseguire il training di un modello di classificazione con Machine Learning automatizzato](tutorial-auto-train-models.md) o eseguire il [training di modelli con Machine Learning automatico nel cloud](how-to-auto-train-remote.md).
+Per visualizzare esempi di esperimenti di Machine Learning automatizzato, vedere [Esercitazione:](tutorial-auto-train-models.md) Eseguire il training di un modello di classificazione con Machine Learning automatizzato o Eseguire il training di modelli con Machine [Learning automatizzato nel cloud.](how-to-auto-train-remote.md)
 
 Opzioni di configurazione disponibili nell'apprendimento automatico:
 
@@ -39,23 +39,23 @@ Se si preferisce un'esperienza senza codice, è anche possibile [Creare gli espe
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questo articolo è necessario, 
+Per questo articolo è necessario: 
 * Un'area di lavoro di Azure Machine Learning. Per creare l'area di lavoro, vedere [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).
 
-* Azure Machine Learning Python SDK installato.
-    Per installare l'SDK, è possibile eseguire una delle due 
-    * Creare un'istanza di calcolo, che installa automaticamente l'SDK ed è preconfigurata per i flussi di lavoro ML. Per altre informazioni, vedere [creare e gestire un'istanza di calcolo Azure Machine Learning](how-to-create-manage-compute-instance.md) . 
+* Il Azure Machine Learning Python SDK installato.
+    Per installare l'SDK, è possibile: 
+    * Creare un'istanza di calcolo, che installa automaticamente l'SDK ed è preconfigurata per i flussi di lavoro di Machine Learning. Per [altre informazioni, vedere Creare e gestire Azure Machine Learning'istanza di calcolo.](how-to-create-manage-compute-instance.md) 
 
-    * [Installare il `automl` pacchetto manualmente](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), che include l' [installazione predefinita](/python/api/overview/azure/ml/install#default-install) dell'SDK.
+    * [Installare manualmente `automl` il pacchetto](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), che include [l'installazione predefinita](/python/api/overview/azure/ml/install#default-install) dell'SDK.
     
     > [!WARNING]
-    > Python 3,8 non è compatibile con `automl` . 
+    > Python 3.8 non è compatibile con `automl` . 
 
 ## <a name="select-your-experiment-type"></a>Selezionare il tipo di esperimento
 
 Prima di iniziare l'esperimento, è necessario determinare il tipo di problema di machine learning da risolvere. Machine Learning automatizzato supporta i tipi di attività `classification` , `regression` e `forecasting` . Altre informazioni sui [tipi di attività](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
 
-Il codice seguente usa il `task` parametro nel `AutoMLConfig` costruttore per specificare il tipo di esperimento come `classification` .
+Il codice seguente usa il `task` parametro nel costruttore per specificare il tipo di esperimento come `AutoMLConfig` `classification` .
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -72,21 +72,21 @@ Requisiti per i dati di training in Machine Learning:
 - I dati devono essere in formato tabulare.
 - Il valore da stimare, la colonna di destinazione, deve essere presente nei dati.
 
-**Per gli esperimenti remoti**, i dati di training devono essere accessibili dal calcolo remoto. AutoML accetta solo [set di dati tabulari di Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset) quando si lavora su un calcolo remoto. 
+**Per gli esperimenti remoti,** i dati di training devono essere accessibili dal calcolo remoto. AutoML accetta solo [set di dati tabulari di Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset) quando si lavora su un calcolo remoto. 
 
 I seti di dati di Azure Machine Learning espongono la funzionalità per:
 
 * Trasferire facilmente i dati da file statici o origini URL nell'area di lavoro.
-* rendere i dati disponibili per gli script di training durante l'esecuzione in risorse di calcolo sul cloud. Per un esempio dell'uso della classe per montare i dati nella destinazione di calcolo remota, vedere [come eseguire il training con i set](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) di `Dataset` dati.
+* rendere i dati disponibili per gli script di training durante l'esecuzione in risorse di calcolo sul cloud. Vedere [Come eseguire il training con i set di dati](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) per un esempio dell'uso della classe per `Dataset` montare i dati nella destinazione di calcolo remota.
 
-Il codice seguente crea un TabularDataset da un URL Web. Vedere [creare un TabularDatasets](how-to-create-register-datasets.md#create-a-tabulardataset) per esempi di codice su come creare set di dati da altre origini, ad esempio file e archivi dati locali.
+Il codice seguente crea un oggetto TabularDataset da un URL Web. Vedere [Creare un oggetto TabularDatasets](how-to-create-register-datasets.md#create-a-tabulardataset) per esempi di codice su come creare set di dati da altre origini, ad esempio file locali e archivi dati.
 
 ```python
 from azureml.core.dataset import Dataset
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
 dataset = Dataset.Tabular.from_delimited_files(data)
   ```
-**Per gli esperimenti di calcolo locali**, è consigliabile usare i dataframe di Pandas per velocizzare i tempi di elaborazione.
+**Per gli esperimenti di calcolo locali,** è consigliabile usare i dataframe pandas per tempi di elaborazione più rapidi.
 
   ```python
   import pandas as pd
@@ -99,28 +99,28 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## <a name="training-validation-and-test-data"></a>Dati di training, convalida e test
 
-È possibile specificare i **dati di training e i set di dati di convalida** distinti direttamente nel `AutoMLConfig` costruttore. Altre informazioni su [come configurare le suddivisioni dei dati e la convalida incrociata](how-to-configure-cross-validation-data-splits.md) per gli esperimenti AutoML. 
+È possibile specificare set di **dati di training e di convalida** separati direttamente nel `AutoMLConfig` costruttore. Altre informazioni su [come configurare le suddivisioni dei dati e la convalida incrociata](how-to-configure-cross-validation-data-splits.md) per gli esperimenti AutoML. 
 
-Se non si specifica in modo esplicito `validation_data` un `n_cross_validation` parametro o, Machine Learning applica le tecniche predefinite per determinare la modalità di esecuzione della convalida. Questa determinazione dipende dal numero di righe nel set di dati assegnato al `training_data` parametro. 
+Se non si specifica in modo esplicito un parametro o , Machine Learning automatizzato applica tecniche `validation_data` `n_cross_validation` predefinite per determinare come viene eseguita la convalida. Questa determinazione dipende dal numero di righe nel set di dati assegnato al `training_data` parametro. 
 
-|&nbsp;Dimensioni dati di training &nbsp;| Tecnica di convalida |
+|Dimensioni &nbsp; dei dati di &nbsp; training| Tecnica di convalida |
 |---|-----|
-|**Maggiore &nbsp; di &nbsp; 20.000 &nbsp; righe**| Viene applicata la suddivisione dei dati di Training/convalida. Il valore predefinito prevede il 10% del set di dati di training iniziale come set di convalida. A sua volta, il set di convalida viene usato per il calcolo delle metriche.
-|**Inferiore &nbsp; a &nbsp; 20.000 &nbsp; righe**| Viene applicato l'approccio per la convalida incrociata. Il numero predefinito di riduzioni dipende dal numero di righe. <br> **Se il set di dati è inferiore a 1.000 righe**, vengono utilizzate 10 riduzioni. <br> **Se le righe sono comprese tra 1.000 e 20.000**, vengono usate tre riduzioni.
+|**Più &nbsp; di &nbsp; 20.000 &nbsp; righe**| Viene applicata la suddivisione dei dati di training/convalida. L'impostazione predefinita accetta il 10% del set di dati di training iniziale come set di convalida. A sua volta, tale set di convalida viene usato per il calcolo delle metriche.
+|**Minore &nbsp; di &nbsp; 20.000 &nbsp; righe**| Viene applicato l'approccio di convalida incrociata. Il numero predefinito di fold dipende dal numero di righe. <br> **Se il set di dati è minore di 1.000 righe,** vengono usate 10 fold. <br> **Se le righe sono tra 1.000 e 20.000,** vengono usate tre volte.
 
-A questo punto, è necessario fornire i propri **dati di test** per la valutazione del modello. Per un esempio di codice relativo all'introduzione dei propri dati di test per la valutazione del modello, vedere la sezione **test** di [questo notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
+A questo momento, è necessario fornire dati di **test personalizzati per** la valutazione del modello. Per un esempio di codice che illustra come portare i propri dati di test per la valutazione del modello, vedere la **sezione Test** di questo notebook [di Jupyter.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)
 
 ## <a name="compute-to-run-experiment"></a>Calcolo per eseguire l'esperimento
 
 Successivamente, determinare dove verrà eseguito il training del modello. Un esperimento di training di Machine Learning automatizzato può essere eseguito sulle risorse di calcolo seguenti. Informazioni su [vantaggi e svantaggi delle opzioni di calcolo in locale e remoto](concept-automated-ml.md#local-remote). 
 
-* Il computer **locale** , ad esempio un desktop o un portatile locale, in genere quando si dispone di un set di dati di piccole dimensioni e si è ancora in fase di esplorazione. Vedere [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) per un esempio di calcolo locale. 
+* Computer **locale,** ad esempio un computer desktop o portatile locale: in genere quando si dispone di un set di dati di piccole dimensioni e si è ancora in fase di esplorazione. Vedere [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) per un esempio di calcolo locale. 
  
-* Un computer **remoto** nel cloud: [Azure Machine Learning calcolo gestito](concept-compute-target.md#amlcompute) è un servizio gestito che consente di eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure. 
+* Un **computer** remoto nel cloud Azure Machine Learning [Managed Compute](concept-compute-target.md#amlcompute) è un servizio gestito che consente di eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure. 
 
     Vedere [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) per un esempio in remoto con il calcolo gestito di Azure Machine Learning. 
 
-* Un **cluster Azure Databricks** nella sottoscrizione di Azure. Per altre informazioni, vedere [configurare un cluster di Azure Databricks per Machine Learning automatizzato](how-to-configure-databricks-automl-environment.md). Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) per esempi di notebook con Azure Databricks.
+* Un **Azure Databricks cluster** nella sottoscrizione di Azure. Per altri dettagli, vedere Configurare un cluster Azure Databricks per Machine Learning [automatizzato.](how-to-configure-databricks-automl-environment.md) Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) per esempi di notebook con Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -141,7 +141,7 @@ Di seguito sono riportati alcuni esempi:
                                       label_column_name=label,
                                       n_cross_validations=2)
    ```
-1. L'esempio seguente è un esperimento di regressione impostato per terminare dopo 60 minuti con cinque riduzioni incrociate di convalida.
+1. L'esempio seguente è un esperimento di regressione impostato per terminare dopo 60 minuti con cinque sezioni incrociate di convalida.
 
    ```python
       automl_regressor = AutoMLConfig(task='regression',
@@ -154,7 +154,7 @@ Di seguito sono riportati alcuni esempi:
    ```
 
 
-1. Le attività di previsione richiedono una configurazione aggiuntiva. per altre informazioni, vedere l'articolo su come eseguire il [training di un modello di previsione delle serie temporali](how-to-auto-train-forecast.md) . 
+1. Le attività di previsione richiedono una configurazione aggiuntiva. Per altre informazioni, vedere [l'articolo Eseguire il training](how-to-auto-train-forecast.md) automatico di un modello di previsione di serie tempormente. 
 
     ```python
     time_series_settings = {
@@ -177,11 +177,11 @@ Di seguito sono riportati alcuni esempi:
     
 ### <a name="supported-models"></a>Modelli supportati
 
-Il Machine Learning automatizzato tenta diversi modelli e algoritmi durante il processo di automazione e ottimizzazione. Come utente, non è necessario specificare l'algoritmo. 
+Il Machine Learning automatizzato prova diversi modelli e algoritmi durante il processo di automazione e ottimizzazione. Come utente, non è necessario specificare l'algoritmo. 
 
-I tre `task` valori di parametro diversi determinano l'elenco di algoritmi, o modelli, da applicare. Usare i parametri `allowed_models` o `blocked_models` per modificare ulteriormente le iterazioni con i modelli disponibili da includere o escludere. 
+I tre diversi `task` valori dei parametri determinano l'elenco di algoritmi, o modelli, da applicare. Usare i parametri `allowed_models` o `blocked_models` per modificare ulteriormente le iterazioni con i modelli disponibili da includere o escludere. 
 
-Nella tabella seguente sono riepilogati i modelli supportati in base al tipo di attività. 
+Nella tabella seguente vengono riepilogati i modelli supportati in base al tipo di attività. 
 
 > [!NOTE]
 > Se si prevede di esportare i modelli di Machine Learning automatizzato creati in un [modello ONNX](concept-onnx.md), solo gli algoritmi indicati con * possono essere converti nel formato ONNX. Altre informazioni sulla [conversione di modelli in ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Si noti anche che in questo momento ONNX supporta solo le attività di classificazione e regressione. 
@@ -204,9 +204,9 @@ Classificazione | Regressione | Previsione serie temporale
 |[Linear SVM Classifier](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)*||
 
 ### <a name="primary-metric"></a>Metrica primaria
-Il `primary metric` parametro determina la metrica da utilizzare durante il training del modello per l'ottimizzazione. Le metriche disponibili che è possibile selezionare sono determinate dal tipo di attività selezionato. La tabella seguente mostra le metriche primarie valide per ogni tipo di attività.
+Il `primary metric` parametro determina la metrica da usare durante il training del modello per l'ottimizzazione. Le metriche disponibili che è possibile selezionare sono determinate dal tipo di attività selezionato. La tabella seguente mostra le metriche primarie valide per ogni tipo di attività.
 
-La scelta di una metrica primaria per l'ottimizzazione automatica del Machine Learning dipende da molti fattori. È consigliabile prendere in considerazione la scelta di una metrica che rappresenti al meglio le esigenze aziendali. Considerare quindi se la metrica è adatta per il profilo del set di dati (dimensioni, intervallo, distribuzione di classi e così via).
+La scelta di una metrica primaria per l'ottimizzazione di Machine Learning automatizzato dipende da molti fattori. È consigliabile scegliere una metrica che rappresenti meglio le esigenze aziendali. Valutare quindi se la metrica è adatta per il profilo del set di dati (dimensioni dei dati, intervallo, distribuzione delle classi e così via).
 
 Per informazioni sulle definizioni specifiche di queste metriche, vedere [Risultati del Machine Learning automatizzato](how-to-understand-automated-ml.md).
 
@@ -218,52 +218,52 @@ Per informazioni sulle definizioni specifiche di queste metriche, vedere [Risult
 |`norm_macro_recall` | `normalized_mean_absolute_error` | `normalized_mean_absolute_error`
 |`precision_score_weighted` |
 
-### <a name="primary-metrics-for-classification-scenarios"></a>Metriche primarie per gli scenari di classificazione 
+### <a name="primary-metrics-for-classification-scenarios"></a>Metriche principali per gli scenari di classificazione 
 
-Le metriche post-soglia, `accuracy` ad esempio,, `average_precision_score_weighted` `norm_macro_recall` e `precision_score_weighted` potrebbero non essere ottimizzate anche per i set di risultati di dimensioni ridotte, presentano un'asimmetria di classe molto grande (squilibrio della classe) o quando il valore della metrica prevista è molto prossimo a 0,0 o 1,0. In questi casi, `AUC_weighted` può essere una scelta migliore per la metrica primaria. Al termine dell'apprendimento automatico, è possibile scegliere il modello vincente in base alla metrica più adatta alle proprie esigenze aziendali.
+Le metriche post-soglia, ad esempio , , e potrebbero non essere ottimizzate anche per i set di dati di piccole dimensioni, con asimmetria di classe molto grande (sbilanciamento della classe) o quando il valore della metrica previsto è molto vicino a `accuracy` `average_precision_score_weighted` `norm_macro_recall` `precision_score_weighted` 0,0 o 1,0. In questi casi, `AUC_weighted` può essere una scelta migliore per la metrica primaria. Al termine dell'apprendimento automatico, è possibile scegliere il modello di successo in base alla metrica più adatta alle esigenze aziendali.
 
 | Metrica | Casi d'uso di esempio |
 | ------ | ------- |
-| `accuracy` | Classificazione delle immagini, analisi dei sentimenti, stima di varianza |
-| `AUC_weighted` | Rilevamento delle frodi, classificazione delle immagini, rilevamento delle anomalie/rilevamento di spam |
+| `accuracy` | Classificazione delle immagini, analisi del sentiment, previsione della varianza |
+| `AUC_weighted` | Rilevamento di frodi, classificazione delle immagini, rilevamento anomalie/spam |
 | `average_precision_score_weighted` | Analisi del sentiment |
-| `norm_macro_recall` | Stima varianza |
+| `norm_macro_recall` | Previsione della varianza |
 | `precision_score_weighted` |  |
 
-### <a name="primary-metrics-for-regression-scenarios"></a>Metriche primarie per gli scenari di regressione
+### <a name="primary-metrics-for-regression-scenarios"></a>Metriche principali per gli scenari di regressione
 
-Le metriche come `r2_score` e `spearman_correlation` possono rappresentare meglio la qualità del modello quando la scala del valore da stimare copre molti ordini di grandezza. Per la stima dello stipendio, dove molte persone hanno uno stipendio di $20.000 a $100.000, ma la scalabilità è molto elevata con alcuni salari nell'intervallo di $100M. 
+Metriche come e possono rappresentare meglio la qualità del modello quando la scala del valore da stimare copre `r2_score` `spearman_correlation` molti ordini di grandezza. Ad esempio, la stima dello stipendio, in cui molte persone hanno uno stipendio da 20.000 a 100.000 dollari, ma la scala è molto elevata con alcune retribuzioni nell'intervallo di $ 100 milioni. 
 
-`normalized_mean_absolute_error` e `normalized_root_mean_squared_error` in questo caso si tratterebbe di un errore di stima di $20.000 uguale per un thread di lavoro con uno stipendio $30K come ruolo di lavoro che fa $20m. In realtà, la stima di soli $20.000 da uno stipendio di $20M è molto vicina (una piccola differenza relativa al 0,1%), mentre $20.000 fuori da $30K non è vicina (una differenza relativa a un numero elevato di 67%). `normalized_mean_absolute_error` e `normalized_root_mean_squared_error` sono utili quando i valori da stimare sono in una scala simile.
+`normalized_mean_absolute_error` e in questo caso tratta un errore di stima di $ 20.000 allo stesso modo per un ruolo di lavoro con uno stipendio di 30.000 dollari come un dipendente che effettua `normalized_root_mean_squared_error` 20 milioni di dollari. In realtà, prevedere solo $ 20.000 da uno stipendio di 20 milioni di dollari è molto vicino (una piccola differenza relativa dello 0,1%), mentre $20.000 da $ 30.000 non è vicino (una differenza relativa del 67% grande). `normalized_mean_absolute_error` e `normalized_root_mean_squared_error` sono utili quando i valori da stimare hanno una scala simile.
 
 | Metrica | Casi d'uso di esempio |
 | ------ | ------- |
 | `spearman_correlation` | |
-| `normalized_root_mean_squared_error` | Stima prezzi (casa/prodotto/suggerimento), stima valutazione Punteggio |
-| `r2_score` | Ritardo delle compagnie aeree, stima dello stipendio, tempo di risoluzione dei bug |
+| `normalized_root_mean_squared_error` | Stima dei prezzi (house/product/tip), Review score prediction (Stima del punteggio di revisione) |
+| `r2_score` | Ritardo della compagnia aerea, Stima dello stipendio, Tempo di risoluzione dei bug |
 | `normalized_mean_absolute_error` |  |
 
-### <a name="primary-metrics-for-time-series-forecasting-scenarios"></a>Metriche primarie per gli scenari di previsione delle serie temporali
+### <a name="primary-metrics-for-time-series-forecasting-scenarios"></a>Metriche principali per gli scenari di previsione delle serie tempose
 
-Vedere le note di regressione sopra.
+Vedere le note di regressione riportate sopra.
 
 | Metrica | Casi d'uso di esempio |
 | ------ | ------- |
 | `spearman_correlation` | |
-| `normalized_root_mean_squared_error` | Stima del prezzo (previsione), ottimizzazione dell'inventario, previsione della domanda |
-| `r2_score` | Stima del prezzo (previsione), ottimizzazione dell'inventario, previsione della domanda |
+| `normalized_root_mean_squared_error` | Stima dei prezzi (previsione), Ottimizzazione inventario, Previsione della domanda |
+| `r2_score` | Stima dei prezzi (previsione), Ottimizzazione inventario, Previsione della domanda |
 | `normalized_mean_absolute_error` | |
 
 ### <a name="data-featurization"></a>Definizione delle funzionalità dei dati
 
-In ogni esperimento di Machine Learning automatizzato i dati vengono dimensionati e normalizzati automaticamente per *determinati* algoritmi sensibili a funzionalità su scale diverse. Questo ridimensionamento e normalizzazione viene definito conteggi. Per altri dettagli ed esempi di codice, vedere [conteggi in AutoML](how-to-configure-auto-features.md#) . 
+In ogni esperimento di Machine Learning automatizzato i dati vengono dimensionati e normalizzati automaticamente per *determinati* algoritmi sensibili a funzionalità su scale diverse. Questo ridimensionamento e normalizzazione viene definito featurization. Per altri dettagli ed esempi di codice, vedere [Featurization in AutoML.](how-to-configure-auto-features.md#) 
 
-Quando si configurano gli esperimenti nell' `AutoMLConfig` oggetto, è possibile abilitare o disabilitare l'impostazione `featurization` . Nella tabella seguente vengono illustrate le impostazioni accettate per conteggi nell' [oggetto AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
+Quando si configurano gli esperimenti `AutoMLConfig` nell'oggetto , è possibile abilitare o disabilitare l'impostazione `featurization` . Nella tabella seguente vengono illustrate le impostazioni accettate per la funzionalità [nell'oggetto AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 |Configurazione della definizione delle funzionalità | Descrizione |
 | ------------- | ------------- |
-|`"featurization": 'auto'`| Indica che i passaggi di [protezione dati e definizione delle funzionalità](how-to-configure-auto-features.md#featurization) vengono eseguiti automaticamente come parte della pre-elaborazione. **Impostazione predefinita**.|
-|`"featurization": 'off'`| Indica che il passaggio conteggi non deve essere eseguito automaticamente.|
+|`"featurization": 'auto'`| Indica che i passaggi di [protezione dati e definizione delle funzionalità](how-to-configure-auto-features.md#featurization) vengono eseguiti automaticamente come parte della pre-elaborazione. **Impostazione predefinita di**.|
+|`"featurization": 'off'`| Indica che il passaggio di featurizzazione non deve essere eseguito automaticamente.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica che deve essere usata la definizione delle funzionalità personalizzata. [Informazioni su come personalizzare la definizione delle funzionalità](how-to-configure-auto-features.md#customize-featurization).|
 
 > [!NOTE]
@@ -273,13 +273,13 @@ Quando si configurano gli esperimenti nell' `AutoMLConfig` oggetto, è possibile
 
 ### <a name="ensemble-configuration"></a> Configurazione Ensemble
 
-I modelli di ensemble sono abilitati per impostazione predefinita e vengono visualizzati come iterazioni di esecuzione finale in un'esecuzione AutoML. Attualmente sono supportati **VotingEnsemble** e **StackEnsemble** . 
+I modelli di ensemble sono abilitati per impostazione predefinita e vengono visualizzati come iterazioni di esecuzione finali in un'esecuzione AutoML. Attualmente **sono supportati VotingEnsemble** e **StackEnsemble.** 
 
-Il voto implementa il voto soft, che usa medie ponderate. L'implementazione di stacking usa un'implementazione a due livelli, in cui il primo livello ha gli stessi modelli dell'insieme di voti e il secondo modello di livello viene usato per trovare la combinazione ottimale dei modelli dal primo livello. 
+Il voto implementa il voto soft, che usa medie ponderate. L'implementazione dello stacking usa un'implementazione a due livelli, in cui il primo livello ha gli stessi modelli dell'insieme di voti e il secondo modello di livello viene usato per trovare la combinazione ottimale dei modelli dal primo livello. 
 
-Se si usano modelli ONNX **o** se è abilitata la spiegazione del modello, lo stacking è disabilitato e viene usato solo il voto.
+Se si usano modelli ONNX **o** si ha la spiegabilità del modello abilitata, l'impilamento è disabilitato e viene utilizzato solo il voto.
 
-Il training di ensemble può essere disabilitato usando i `enable_voting_ensemble` `enable_stack_ensemble` parametri booleani e.
+Il training dell'insieme può essere disabilitato usando i `enable_voting_ensemble` parametri `enable_stack_ensemble` booleani e .
 
 ```python
 automl_classifier = AutoMLConfig(
@@ -294,7 +294,7 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
-Per modificare il comportamento dell'insieme predefinito, sono presenti più argomenti predefiniti che possono essere forniti come `kwargs` in un `AutoMLConfig` oggetto.
+Per modificare il comportamento predefinito dell'insieme, è possibile specificare più argomenti predefiniti `kwargs` come in un oggetto `AutoMLConfig` .
 
 > [!IMPORTANT]
 >  I parametri seguenti non sono parametri espliciti della classe AutoMLConfig. 
@@ -343,13 +343,13 @@ automl_classifier = AutoMLConfig(
 
 ### <a name="exit-criteria"></a>Criteri uscita
 
-Sono disponibili alcune opzioni che è possibile definire nella AutoMLConfig per terminare l'esperimento.
+Esistono alcune opzioni che è possibile definire in AutoMLConfig per terminare l'esperimento.
 
-|Criteri| description
+|Criteri| Descrizione
 |----|----
-Nessun &nbsp; criterio | Se non si definiscono parametri di uscita, l'esperimento continua fino a quando non viene eseguito alcun ulteriore avanzamento sulla metrica primaria.
-Dopo &nbsp; un &nbsp; periodo &nbsp; di &nbsp; tempo| Usare `experiment_timeout_minutes` nelle impostazioni per definire per quanto tempo, in minuti, l'esperimento continuerà a essere eseguito. <br><br> Per evitare errori di timeout dell'esperimento, è necessario un minimo di 15 minuti o 60 minuti se le dimensioni della riga per colonna superano 10 milioni.
-&nbsp; &nbsp; È &nbsp; stato raggiunto un &nbsp; Punteggio| Usare `experiment_exit_score` completa l'esperimento dopo che è stato raggiunto un punteggio della metrica primaria specificato.
+Nessun &nbsp; criterio | Se non si definiscono parametri di uscita, l'esperimento continua fino a quando non viene effettuato alcun ulteriore avanzamento sulla metrica primaria.
+Dopo &nbsp; un periodo di &nbsp; &nbsp; &nbsp; tempo| Usare `experiment_timeout_minutes` nelle impostazioni per definire per quanto tempo, in minuti, l'esperimento deve continuare a essere eseguito. <br><br> Per evitare errori di timeout dell'esperimento, è necessario almeno 15 minuti o 60 minuti se le dimensioni della riga per colonna superano i 10 milioni.
+È &nbsp; stato raggiunto un &nbsp; &nbsp; &nbsp; punteggio| Usa `experiment_exit_score` completa l'esperimento dopo che è stato raggiunto un punteggio della metrica primaria specificato.
 
 ## <a name="run-experiment"></a>Eseguire esperimento
 
@@ -379,27 +379,27 @@ run = experiment.submit(automl_config, show_output=True)
 
 ### <a name="multiple-child-runs-on-clusters"></a>Più esecuzioni figlio nei cluster
 
-Le esecuzioni figlio dell'esperimento Machine Learning automatiche possono essere eseguite in un cluster che sta già eseguendo un altro esperimento. Tuttavia, la tempistica dipende dal numero di nodi presenti nel cluster e se tali nodi sono disponibili per eseguire un esperimento diverso.
+Le esecuzioni figlio dell'esperimento di Machine Learning automatizzato possono essere eseguite in un cluster che esegue già un altro esperimento. Tuttavia, la tempistica dipende dal numero di nodi del cluster e dal fatto che tali nodi siano disponibili per eseguire un esperimento diverso.
 
-Ogni nodo del cluster funge da singola macchina virtuale (VM) che può eseguire un'unica esecuzione del training; per Machine Learning, questo significa un'esecuzione figlio. Se tutti i nodi sono occupati, il nuovo esperimento viene accodato. Tuttavia, se sono presenti nodi gratuiti, il nuovo esperimento eseguirà le esecuzioni automatiche di Machine Learning in parallelo nei nodi/VM disponibili.
+Ogni nodo del cluster funge da singola macchina virtuale (VM) in grado di eseguire una singola esecuzione di training. per Machine Learning automatizzato significa un'esecuzione figlio. Se tutti i nodi sono occupati, il nuovo esperimento viene accodato. Tuttavia, se sono presenti nodi gratuiti, il nuovo esperimento eseguirà esecuzioni figlio automatizzate di Machine Learning in parallelo nei nodi o nelle macchine virtuali disponibili.
 
-Per semplificare la gestione delle esecuzioni figlio e quando è possibile eseguirle, è consigliabile creare un cluster dedicato per ogni esperimento e associare il numero dell' `max_concurrent_iterations` esperimento al numero di nodi nel cluster. In questo modo, è possibile usare contemporaneamente tutti i nodi del cluster con il numero di esecuzioni/iterazioni figlio simultanee desiderate.
+Per gestire le esecuzioni figlio e quando possono essere eseguite, è consigliabile creare un cluster dedicato per ogni esperimento e associare il numero dell'esperimento al numero di `max_concurrent_iterations` nodi nel cluster. In questo modo, si usano tutti i nodi del cluster contemporaneamente con il numero di esecuzioni/iterazioni figlio simultanee desiderate.
 
-Configurare  `max_concurrent_iterations` nell' `AutoMLConfig` oggetto. Se non è configurato, per impostazione predefinita è consentita una sola iterazione/esecuzione figlio simultanea per ogni esperimento.  
+Configurare  `max_concurrent_iterations` `AutoMLConfig` nell'oggetto . Se non è configurato, per impostazione predefinita è consentita una sola esecuzione/iterazione figlio simultanea per ogni esperimento.  
 
-## <a name="explore-models-and-metrics"></a>Esplora i modelli e le metriche
+## <a name="explore-models-and-metrics"></a>Esplorare modelli e metriche
 
-Automatizzato ML offre opzioni per il monitoraggio e la valutazione dei risultati della formazione. 
+Machine Learning automatizzato offre opzioni per monitorare e valutare i risultati del training. 
 
-* È possibile visualizzare i risultati del training in un widget o inline in un notebook. Per informazioni dettagliate [, vedere come monitorare le esecuzioni automatiche di ml](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) .
+* È possibile visualizzare i risultati del training in un widget o inline in un notebook. Per [altri dettagli, vedere](#monitor) Monitorare le esecuzioni di Machine Learning automatizzato.
 
-* Per definizioni ed esempi dei grafici delle prestazioni e delle metriche disponibili per ogni esecuzione, vedere [valutare i risultati di un esperimento di Machine Learning automatizzato](how-to-understand-automated-ml.md) . 
+* Per definizioni ed esempi dei grafici delle prestazioni e delle metriche forniti per ogni esecuzione, vedere Valutare i risultati dell'esperimento [di Machine Learning automatizzato.](how-to-understand-automated-ml.md) 
 
-* Per ottenere un riepilogo di conteggi e comprendere quali funzionalità sono state aggiunte a un particolare modello, vedere la pagina relativa alla [trasparenza di conteggi](how-to-configure-auto-features.md#featurization-transparency). 
+* Per ottenere un riepilogo delle funzionalità e comprendere quali funzionalità sono state aggiunte a un particolare modello, vedere [Trasparenza della creazione di funzionalità.](how-to-configure-auto-features.md#featurization-transparency) 
 
-È possibile visualizzare gli iperparametri, le tecniche di ridimensionamento e normalizzazione e l'algoritmo applicato a una specifica esecuzione automatizzata di ML con la seguente soluzione di codice personalizzato. 
+È possibile visualizzare gli iperparamemi, le tecniche di ridimensionamento e normalizzazione e l'algoritmo applicato a una specifica esecuzione automatizzata di Machine Learning con la soluzione di codice personalizzata seguente. 
 
-Di seguito viene definito il metodo personalizzato, `print_model()` , che stampa gli iperparametri di ogni passaggio della pipeline di training di Machine Learning automatica.
+Di seguito viene definito il metodo personalizzato, , che stampa gli iperparamemi di ogni passaggio `print_model()` della pipeline di training automatizzato di Machine Learning.
  
 ```python
 from pprint import pprint
@@ -423,7 +423,7 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-Per un'esecuzione locale o remota appena inviata e sottoposta a Training dall'interno dello stesso notebook dell'esperimento, è possibile passare il modello migliore usando il `get_output()` metodo. 
+Per un'esecuzione locale o remota appena inviata ed sottoposta a training dallo stesso notebook dell'esperimento, è possibile passare il modello migliore usando il `get_output()` metodo . 
 
 ```python
 best_run, fitted_model = run.get_output()
@@ -436,7 +436,7 @@ L'output seguente indica che:
  
 * La tecnica StandardScalerWrapper è stata usata per ridimensionare e normalizzare i dati prima del training.
 
-* L'algoritmo XGBoostClassifier è stato identificato come l'esecuzione migliore e Mostra anche i valori di iperparametri. 
+* L'algoritmo XGBoostClassifier è stato identificato come l'esecuzione migliore e mostra anche i valori degli iperparameboli. 
 
 ```python
 StandardScalerWrapper
@@ -476,7 +476,7 @@ XGBoostClassifier
  'verbosity': 1}
 ```
 
-Per un'esecuzione esistente da un esperimento diverso nell'area di lavoro, ottenere l'ID di esecuzione specifico che si desidera esplorare e passarlo al `print_model()` metodo. 
+Per un'esecuzione esistente da un esperimento diverso nell'area di lavoro, ottenere l'ID esecuzione specifico che si vuole esplorare e passarlo al `print_model()` metodo . 
 
 ```python
 from azureml.train.automl.run import AutoMLRun
@@ -492,13 +492,29 @@ print_model(model_from_aml)
 
 ```
 > [!NOTE]
-> Gli algoritmi automatizzati di Machine Learning utilizzano una casualità intrinseca che può causare una lieve variazione del punteggio finale delle metriche di un modello consigliato, ad esempio l'accuratezza. Automatizzato ML esegue anche operazioni su dati come la suddivisione del test di training, la suddivisione del training e la convalida incrociata, se necessario. Quindi, se si esegue un esperimento con le stesse impostazioni di configurazione e la metrica primaria più volte, è probabile che si verifichino variazioni in ogni esperimento Punteggio della metrica finale a causa di questi fattori. 
+> Gli algoritmi adottati da Machine Learning automatizzato hanno una casualità intrinseca che può causare lievi variazioni nel punteggio finale delle metriche di un modello consigliato, ad esempio l'accuratezza. Machine Learning automatizzato esegue anche operazioni sui dati, ad esempio la suddivisione del test di training, la suddivisione della convalida del training o la convalida incrociata, se necessario. Pertanto, se si esegue un esperimento con le stesse impostazioni di configurazione e la stessa metrica primaria più volte, è probabile che si vedano variazioni in ogni punteggio delle metriche finali degli esperimenti a causa di questi fattori. 
+
+## <a name="monitor-automated-machine-learning-runs"></a><a name="monitor"></a> Monitorare le esecuzioni automatizzate di Machine Learning
+
+Per le esecuzioni automatizzate di Machine Learning, per accedere ai grafici da un'esecuzione precedente, sostituire `<<experiment_name>>` con il nome dell'esperimento appropriato:
+
+```python
+from azureml.widgets import RunDetails
+from azureml.core.run import Run
+
+experiment = Experiment (workspace, <<experiment_name>>)
+run_id = 'autoML_my_runID' #replace with run_ID
+run = Run(experiment, run_id)
+RunDetails(run).show()
+```
+
+![Widget di notebook di Jupyter per Machine Learning automatizzato](./media/how-to-configure-auto-train/azure-machine-learning-auto-ml-widget.png)
 
 ## <a name="register-and-deploy-models"></a>Registrare e distribuire modelli
 
-È possibile registrare un modello, in modo da poterlo tornare per un uso successivo. 
+È possibile registrare un modello, in modo da potervi tornare per usarlo in un secondo momento. 
 
-Per registrare un modello da un'esecuzione automatica di ML, usare il [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) metodo. 
+Per registrare un modello da un'esecuzione automatizzata di Machine Learning, usare il [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) metodo . 
 
 ```Python
 
@@ -515,10 +531,10 @@ model = remote_run.register_model(model_name = model_name,
 ```
 
 
-Per informazioni dettagliate su come creare una configurazione di distribuzione e distribuire un modello registrato in un servizio Web, vedere [come e dove distribuire un modello](how-to-deploy-and-where.md?tabs=python#define-a-deployment-configuration).
+Per informazioni dettagliate su come creare una configurazione di distribuzione e distribuire un modello registrato in un servizio Web, vedere come [e dove distribuire un modello](how-to-deploy-and-where.md?tabs=python#define-a-deployment-configuration).
 
 > [!TIP]
-> Per i modelli registrati, la distribuzione con un clic è disponibile tramite il [Azure Machine Learning Studio](https://ml.azure.com). Vedere [come distribuire i modelli registrati da studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
+> Per i modelli registrati, la distribuzione con un clic è disponibile tramite il [studio di Azure Machine Learning](https://ml.azure.com). Vedere [come distribuire modelli registrati da Studio.](how-to-use-automated-ml-for-ml-models.md#deploy-your-model) 
 <a name="explain"></a>
 
 ## <a name="model-interpretability"></a>Interpretabilità dei modelli
@@ -530,7 +546,7 @@ Per esempi di codice su come abilitare le funzionalità di interpretabilità in 
 Per informazioni generali su come abilitare le spiegazioni dei modelli e l'importanza delle funzionalità in altre aree dell'SDK al di fuori del Machine Learning automatizzato, vedere l'articolo relativo al [concetto](how-to-machine-learning-interpretability.md) di interpretabilità.
 
 > [!NOTE]
-> Il modello ForecastTCN non è attualmente supportato dal client di spiegazione. Questo modello non restituirà un dashboard di spiegazione se viene restituito come modello migliore e non supporta l'esecuzione di spiegazioni su richiesta.
+> Il modello ForecastTCN non è attualmente supportato dal client Explanation. Questo modello non restituirà un dashboard di spiegazione se viene restituito come modello migliore e non supporta le esecuzioni di spiegazioni su richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -538,6 +554,6 @@ Per informazioni generali su come abilitare le spiegazioni dei modelli e l'impor
 
 + Altre informazioni su [come eseguire il training di un modello di regressione con il Machine Learning automatizzato](tutorial-auto-train-models.md) oppure [come eseguire il training con il Machine Learning automatizzato in una risorsa remota](how-to-auto-train-remote.md).
 
-+ Informazioni su come eseguire il training di più modelli con AutoML nell' [acceleratore della soluzione many Models](https://aka.ms/many-models).
++ Informazioni su come eseguire il training di più modelli con AutoML nell'acceleratore [di soluzioni Molti modelli](https://aka.ms/many-models).
 
-+ [Risolvere i problemi relativi agli esperimenti](how-to-troubleshoot-auto-ml.md)di Machine Learning automatici. 
++ [Risolvere i problemi degli esperimenti automatizzati di Machine Learning](how-to-troubleshoot-auto-ml.md). 

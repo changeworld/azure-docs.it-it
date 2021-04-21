@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 124bc053aa2c6e59e205bb6f33a9a96190799499
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 51719f23302bfaa036f99e88fcd440d97ca3bc02
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93102038"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817829"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Come aggiungere un certificato della CA personalizzato in Gestione API di Azure
 
@@ -45,11 +46,11 @@ Seguire questa procedura per caricare un nuovo certificato della CA. Se non è a
 
 4. Cercare il certificato e scegliere l'archivio certificati. È necessario specificare solo la chiave pubblica e pertanto la password non è obbligatoria.
 
-    ![Screenshot che illustra come cercare il certificato.](media/api-management-howto-ca-certificates/02.png)  
+    ![Screenshot che mostra come cercare il certificato.](media/api-management-howto-ca-certificates/02.png)  
 
 5. Fare clic su **Salva**. Questa operazione può richiedere qualche minuto.
 
-    ![Screenshot che illustra come salvare il certificato.](media/api-management-howto-ca-certificates/03.png)  
+    ![Screenshot che mostra come salvare il certificato.](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > È possibile caricare un certificato della CA usando il comando `New-AzApiManagementSystemCertificate` di PowerShell.

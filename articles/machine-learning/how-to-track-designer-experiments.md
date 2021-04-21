@@ -1,7 +1,7 @@
 ---
-title: Metriche di log nella finestra di progettazione
+title: Metriche dei log nella finestra di progettazione
 titleSuffix: Azure Machine Learning
-description: Monitorare gli esperimenti di progettazione di Azure ML. Abilitare la registrazione usando il modulo Execute Python script e visualizzare i risultati registrati in studio.
+description: Monitorare gli esperimenti della finestra di progettazione di Azure ML. Abilitare la registrazione usando il modulo Execute Python Script (Esegui script Python) e visualizzare i risultati registrati in studio.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,31 +11,31 @@ ms.subservice: core
 ms.date: 01/11/2021
 ms.topic: conceptual
 ms.custom: designer
-ms.openlocfilehash: b940f5c9bd14bcec404827daaef666da802d969b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13a3b86514428b0219aaf671260c07b4e197d2de
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98065253"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817306"
 ---
-# <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Abilitare la registrazione nelle pipeline di Azure Machine Learning Designer
+# <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Abilitare la registrazione nelle Azure Machine Learning della finestra di progettazione
 
 
-Questo articolo illustra come aggiungere codice di registrazione alle pipeline di progettazione. Si apprenderà anche come visualizzare i log usando il portale Web di Azure Machine Learning Studio.
+Questo articolo illustra come aggiungere codice di registrazione alle pipeline di progettazione. Si apprenderà anche come visualizzare tali log usando il portale Studio di Azure Machine Learning Web.
 
-Per altre informazioni sulla registrazione delle metriche con l'esperienza di creazione dell'SDK, vedere [monitorare le esecuzioni e le metriche dell'esperimento di Azure ml](how-to-track-experiments.md).
+Per altre informazioni sulla registrazione delle metriche usando l'esperienza di creazione dell'SDK, vedere Monitorare le esecuzioni e [le metriche dell'esperimento di Azure ML.](how-to-log-view-metrics.md)
 
-## <a name="enable-logging-with-execute-python-script"></a>Abilitare la registrazione con script Execute Python
+## <a name="enable-logging-with-execute-python-script"></a>Abilitare la registrazione con Esegui script Python
 
-Usare il modulo [Execute Python script](./algorithm-module-reference/execute-python-script.md) per abilitare la registrazione nelle pipeline della finestra di progettazione. Sebbene sia possibile registrare qualsiasi valore con questo flusso di lavoro, è particolarmente utile registrare le metriche dal modulo __Evaluate Model__ per tenere traccia delle prestazioni del modello tra le esecuzioni.
+Usare il [modulo Esegui script Python](./algorithm-module-reference/execute-python-script.md) per abilitare la registrazione nelle pipeline di progettazione. Anche se è possibile registrare qualsiasi valore con questo flusso di lavoro, è particolarmente utile registrare le metriche dal modulo __Evaluate Model__ (Valuta modello) per tenere traccia delle prestazioni del modello tra le esecuzioni.
 
-L'esempio seguente illustra come registrare l'errore quadratico medio di due modelli sottoposti a training usando i moduli Evaluate Model ed Execute Python script.
+L'esempio seguente illustra come registrare l'errore quadratino medio di due modelli con training usando i moduli Evaluate Model ed Execute Python Script .
 
-1. Connettere un modulo __Execute Python script__ all'output del modulo __Evaluate Model__ .
+1. Connettere un __modulo Execute Python Script (Esegui script Python)__ all'output del modulo Evaluate Model __(Valuta__ modello).
 
-    ![Connettere un modulo Execute Python Script al modulo Evaluate Model](./media/how-to-track-experiments/designer-logging-pipeline.png)
+    ![Connettere un modulo Execute Python Script al modulo Evaluate Model](./media/how-to-log-view-metrics/designer-logging-pipeline.png)
 
-1. Incollare il codice seguente nell'editor di codice per l' __esecuzione di script Python__ per registrare l'errore assoluto medio per il modello sottoposto a training. È possibile usare un modello simile per registrare qualsiasi altro valore nella finestra di progettazione:
+1. Incollare il codice seguente nell'editor di codice Execute Python Script (Esegui script __Python)__ per registrare l'errore assoluto medio per il modello con training. È possibile usare un modello simile per registrare qualsiasi altro valore nella finestra di progettazione:
 
     ```python
     # dataframe1 contains the values from Evaluate Model
@@ -59,26 +59,26 @@ L'esempio seguente illustra come registrare l'errore quadratico medio di due mod
         return dataframe1,
     ```
     
-Questo codice USA Azure Machine Learning Python SDK per registrare i valori. USA Run.get_context () per ottenere il contesto dell'esecuzione corrente. Registra quindi i valori nel contesto con il metodo Run. Parent. log (). USA `parent` per registrare i valori nell'esecuzione della pipeline padre anziché nell'esecuzione del modulo.
+Questo codice usa il Azure Machine Learning Python SDK per registrare i valori. Usa Run.get_context() per ottenere il contesto dell'esecuzione corrente. Registra quindi i valori in tale contesto con il metodo run.parent.log(). Usa per `parent` registrare i valori nell'esecuzione della pipeline padre anziché nell'esecuzione del modulo.
 
-Per altre informazioni su come usare Python SDK per registrare i valori, vedere [abilitare la registrazione nelle esecuzioni di training di Azure ml](how-to-track-experiments.md).
+Per altre informazioni su come usare Python SDK per registrare i valori, vedere Abilitare la registrazione nelle esecuzioni [di training di Azure ML.](how-to-log-view-metrics.md)
 
 ## <a name="view-logs"></a>Visualizzare i log
 
-Al termine dell'esecuzione della pipeline, è possibile visualizzare il *Mean_Absolute_Error* nella pagina esperimenti.
+Al termine dell'esecuzione della pipeline, è possibile visualizzare il Mean_Absolute_Error *nella* pagina Esperimenti.
 
-1. Passare alla sezione **esperimenti** .
+1. Passare alla **sezione Experiments (Esperimenti).**
 1. Selezionare l'esperimento.
 1. Selezionare l'esecuzione nell'esperimento che si vuole visualizzare.
 1. Selezionare **Metriche**.
 
-    ![Visualizzare le metriche di esecuzione in studio](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
+    ![Visualizzare le metriche di esecuzione in Studio](./media/how-to-log-view-metrics/experiment-page-metrics-across-runs.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come usare i log nella finestra di progettazione. Per i passaggi successivi, vedere gli articoli correlati:
+In questo articolo si è appreso come usare i log nella finestra di progettazione. Per i passaggi successivi, vedere gli articoli correlati seguenti:
 
 
-* Per informazioni su come risolvere i problemi relativi alle pipeline di progettazione, vedere [Debug & risolvere i problemi delle pipeline di ml](how-to-debug-pipelines.md#azure-machine-learning-designer).
-* Per informazioni su come usare Python SDK per registrare le metriche nell'esperienza di creazione dell'SDK, vedere [abilitare la registrazione nelle esecuzioni di training di Azure ml](how-to-track-experiments.md).
-* Informazioni su come usare [Execute Python script](./algorithm-module-reference/execute-python-script.md) nella finestra di progettazione.
+* Per informazioni su come risolvere i problemi relativi alle pipeline della finestra di progettazione, vedere [Eseguire il debug & risolvere i problemi delle pipeline di Machine Learning.](how-to-debug-pipelines.md#azure-machine-learning-designer)
+* Per informazioni su come usare Python SDK per registrare le metriche nell'esperienza di creazione dell'SDK, vedere Abilitare la registrazione nelle esecuzioni di [training di Azure ML.](how-to-log-view-metrics.md)
+* Informazioni su come usare [Esegui script Python](./algorithm-module-reference/execute-python-script.md) nella finestra di progettazione.

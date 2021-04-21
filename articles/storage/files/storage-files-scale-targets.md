@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 276dd7aa1925fefaaa94dfdd5d7a5baba5164f56
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bdcee6b8ced45dba34309724e5a634cbb60a6d37
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790258"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818819"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud accessibili tramite i protocolli di file system SMB e NFS. Questo articolo descrive gli obiettivi di scalabilità e prestazioni per File di Azure e Sincronizzazione file di Azure.
@@ -35,15 +35,15 @@ Azure supporta più tipi di account di archiviazione per diversi scenari di arch
 | Capacità massima dell'account di archiviazione | 5 PiB<sup>1</sup> | 100 TiB (con provisioning) |
 | Numero massimo di condivisioni file | Nessuna limitazione | Senza limiti, le dimensioni totali di cui è stato effettuato il provisioning di tutte le condivisioni devono essere inferiori al valore massimo della capacità massima dell'account di archiviazione |
 | Frequenza massima di richieste simultanee | 20.000 operazioni di I/O al<sup>secondo 1</sup> | 100.000 IOPS |
-| Ingresso massimo | <ul><li>Stati Uniti/Europa: 10 Gbp/sec<sup>1</sup></li><li>Altre aree (LRS/ZRS): 10 Gbp/sec<sup>1</sup></li><li>Altre aree (GRS): 5 Gbp/sec<sup>1</sup></li></ul> | 4.136 MiB/sec |
-| Uscita massima | 50 Gbp/sec<sup>1</sup> | 6.204 MiB/sec |
+| Ingresso massimo | <ul><li>Stati Uniti/Europa: 9.536 MiB/sec<sup>1</sup></li><li>Altre aree (LRS/ZRS): 9.536 MiB/sec<sup>1</sup></li><li>Altre aree (GRS): 4.768 GiB/sec<sup>1</sup></li></ul> | 4.136 MiB/sec |
+| Uscita massima | 47.683 MiB/sec<sup>1</sup> | 6.204 MiB/sec |
 | Numero massimo di regole di rete virtuale | 200 | 200 |
 | Numero massimo di regole di indirizzi IP | 200 | 200 |
 | Operazioni di lettura della gestione | 800 per 5 minuti | 800 per 5 minuti |
 | Operazioni di scrittura di gestione | 10 al secondo/1200 all'ora | 10 al secondo/1200 all'ora |
 | Operazioni dell'elenco di gestione | 100 per 5 minuti | 100 per 5 minuti |
 
-<sup>1</sup> Gli account di archiviazione per utilizzo generico versione 2 supportano limiti di capacità più elevati e limiti più elevati per l'ingresso in base a richiesta. Per richiedere un incremento dei limiti di archiviazione, contattare il [supporto di Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> Gli account di archiviazione per utilizzo generico versione 2 supportano limiti di capacità più elevati e limiti più elevati per l'ingresso tramite richiesta. Per richiedere un incremento dei limiti di archiviazione, contattare il [supporto di Azure](https://azure.microsoft.com/support/faq/).
 
 ### <a name="azure-file-share-scale-targets"></a>Destinazioni di scalabilità di condivisione file di Azure
 | Attributo | Condivisioni file standard<sup>1</sup> | Condivisioni file Premium |
@@ -64,7 +64,7 @@ Azure supporta più tipi di account di archiviazione per diversi scenari di arch
 
 <sup>1</sup> I limiti per le condivisioni file standard si applicano a tutti e tre i livelli disponibili per le condivisioni file standard: ottimizzato per le transazioni, ad accesso più caldo e ad accesso freddo.
 
-<sup>2</sup> L'impostazione predefinita nelle condivisioni file standard è 5 TiB. Per informazioni dettagliate su come aumentare la scalabilità delle condivisioni file standard fino a 100 TiB, vedere Abilitare e creare condivisioni [file](./storage-files-how-to-create-large-file-share.md) di grandi dimensioni.
+<sup>2</sup> L'impostazione predefinita per le condivisioni file standard è 5 TiB. Per informazioni dettagliate su come aumentare la scalabilità delle condivisioni file standard fino a 100 TiB, vedere Abilitare e creare condivisioni [file](./storage-files-how-to-create-large-file-share.md) di grandi dimensioni.
 
 ### <a name="file-scale-targets"></a>Destinazioni di scalabilità di file
 | Attributo | File in condivisioni file standard  | File nelle condivisioni file Premium  |

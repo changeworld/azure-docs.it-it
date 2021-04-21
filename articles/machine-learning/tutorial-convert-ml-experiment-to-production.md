@@ -9,16 +9,16 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: cdfeb2fdeefabb0d2d4af2fb63222adda5d023fb
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 37778bc096c9089e3706907fcdd6b9c816cc5fbc
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576026"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817487"
 ---
-# <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Esercitazione: Convertire gli esperimenti di ML in codice Python di produzione
+# <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Esercitazione: Convertire gli esperimenti di Machine Learning nel codice Python di produzione
 
-In questa esercitazione viene illustrato come convertire Jupyter Notebook in script Python per rendere intuitivi il test e l'automazione usando il modello di codice MLOpsPython e Azure Machine Learning. Questo processo viene in genere usato per acquisire il codice di sperimentazione/training da Juptyer Notebook e convertirlo in script Python. Tali script possono quindi essere usati per il testing e l'automazione CI/CD nell'ambiente di produzione. 
+In questa esercitazione si apprenderà come convertire i notebook di Juptyer in script Python per renderli più descrittivi per i test e l'automazione usando il modello di codice MLOpsPython e Azure Machine Learning. In genere, questo processo viene usato per prendere il codice di sperimentazione/training da un notebook di Juptyer e convertirlo in script Python. Questi script possono quindi essere usati per il test e l'automazione CI/CD nell'ambiente di produzione. 
 
 Per un progetto di Machine Learning, è necessaria la sperimentazione, in cui le ipotesi vengono verificate con strumenti agili come Jupyter Notebook usando set di dati reali. Quando il modello è pronto per la produzione, il codice del modello deve essere inserito in un repository di codice di produzione. In alcuni casi, il codice del modello deve essere convertito in script Python da inserire nel repository del codice di produzione. Questa esercitazione illustra un approccio consigliato per esportare il codice di sperimentazione negli script Python.
 
@@ -527,5 +527,5 @@ def test_train_model():
 Ora che si è appreso come eseguire la conversione da un esperimento al codice di produzione, vedere i collegamenti seguenti per altre informazioni e i passaggi successivi:
 
 + [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): creare una pipeline CI/CD per eseguire il training, la valutazione e la distribuzione di un modello usando Azure Pipelines e Azure Machine Learning
-+ [Monitorare le esecuzioni e le metriche degli esperimenti di Azure ML](./how-to-track-experiments.md)
++ [Monitorare le esecuzioni e le metriche degli esperimenti di Azure ML](./how-to-log-view-metrics.md)
 + [Monitorare e raccogliere dati da endpoint servizio Web di ML](./how-to-enable-app-insights.md)

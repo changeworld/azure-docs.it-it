@@ -345,7 +345,7 @@
             - name: Connettersi ad archiviazione di Azure (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
-            - name: Accesso ai dati in base all'identità per l'archiviazione
+            - name: Accesso ai dati in base all'identità all'archiviazione
               displayName: 'blob, access, data lake, datastore, managed identity'
               href: how-to-identity-based-data-access.md
             - name: Recuperare dati da un archivio dati (Python)
@@ -390,15 +390,12 @@
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Tenere traccia e monitorare il training
           items:
-            - name: 'Avviare, monitorare o annullare esecuzioni'
+            - name: 'Tenere traccia, monitorare e analizzare le esecuzioni'
               displayName: 'cancel, fail, status, child run'
-              href: how-to-manage-runs.md
-            - name: Abilitare i log
-              displayName: 'troubleshoot, log, files, tracing'
-              href: how-to-track-experiments.md
-            - name: Visualizzare log e metriche per le esecuzioni
+              href: how-to-track-monitor-analyze-runs.md
+            - name: Log & visualizzare le metriche e i file di log
               displayName: 'troubleshoot, log, files, tracing, metrics'
-              href: how-to-monitor-view-training-logs.md
+              href: how-to-log-view-metrics.md
             - name: Visualizzare le esecuzioni con TensorBoard
               displayName: 'log, monitor, metrics'
               href: how-to-monitor-tensorboard.md

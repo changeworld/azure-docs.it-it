@@ -1,47 +1,42 @@
 ---
-title: 'Esercitazione: Bilanciare il carico delle macchine virtuali Linux in Azure'
+title: 'Esercitazione: Bilanciare il carico delle macchine virtuali per la disponibilità elevata'
 description: In questa esercitazione si apprenderà come usare l'interfaccia della riga di comando di Azure per creare un bilanciamento del carico per un'applicazione a disponibilità elevata e proteggere l'applicazione fra tre macchine virtuali Linux
-services: virtual-machines
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.subservice: networking
-ms.assetid: ''
 ms.service: virtual-machines
 ms.collection: linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/13/2017
+ms.date: 04/20/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 433bbd51618cfb5624c8ed2c549e1793488f0e81
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 191eb1338533cf1a5f81f4d04c5dfc6fd5cc569c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553766"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818747"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Esercitazione: Bilanciare il carico per le macchine virtuali di Linux in Azure per creare un'applicazione a disponibilità elevata con l'interfaccia della riga di comando di Azure
+# <a name="tutorial-load-balance-vms-for-high-availability"></a>Esercitazione: Bilanciare il carico delle macchine virtuali per la disponibilità elevata
 
 Il bilanciamento del carico offre un livello più elevato di disponibilità distribuendo le richieste in ingresso tra più macchine virtuali. In questa esercitazione vengono illustrati i diversi componenti di Azure Load Balancer che distribuiscono il traffico e garantiscono una disponibilità elevata. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un servizio di bilanciamento del carico di Azure
-> * Creare un probe di integrità per il servizio di bilanciamento del carico
-> * Creare regole del traffico di bilanciamento del carico
-> * Usare cloud-init per creare un'applicazione di base Node.js
-> * Creare macchine virtuali e collegarsi a un bilanciamento del carico
-> * Visualizzare un bilanciamento del carico in azione
-> * Aggiungere e rimuovere macchine virtuali da un bilanciamento del carico
+> * Creare un servizio di bilanciamento del carico
+> * Creare un probe di integrità
+> * Creare regole di traffico
+> * Usare cloud-init per installare un'app Node.js di base
+> * Creare macchine virtuali e collegarle al servizio di bilanciamento del carico
+> * Visualizzare il servizio di bilanciamento del carico in azione
+> * Aggiungere e rimuovere macchine virtuali dal servizio di bilanciamento del carico
 
 Questa esercitazione usa l'interfaccia della riga di comando all'interno di [Azure Cloud Shell](../../cloud-shell/overview.md), che viene costantemente aggiornato alla versione più recente. Per aprire Cloud Shell, selezionare **Prova** nella parte superiore di qualsiasi blocco di codice.
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="azure-load-balancer-overview"></a>Panoramica di Azure Load Balancer
+
 Azure Load Balancer è un bilanciamento del carico di livello 4 (TCP, UDP) che offre disponibilità elevata mediante la distribuzione del traffico in ingresso fra le VM integre. Un probe di integrità del bilanciamento del carico monitora una determinata porta in ogni VM e distribuisce il traffico solo a una VM operativa.
 
 Definire una configurazione IP front-end che contenga uno o più indirizzi IP pubblici. Questa configurazione IP front-end garantisce l'accessibilità al bilanciamento del carico e alle applicazioni tramite Internet. 
@@ -54,7 +49,7 @@ Se è stata eseguita l'esercitazione precedente per [creare un set di scalabilit
 
 
 ## <a name="create-azure-load-balancer"></a>Creare un Azure Load Balancer
-Questa sezione descrive dettagliatamente come creare e configurare ogni componente del bilanciamento del carico. Per poter creare un servizio di bilanciamento del carico, è prima necessario creare un gruppo di risorse con [az group create](/cli/azure/group). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupLoadBalancer* nella posizione *eastus* :
+Questa sezione descrive dettagliatamente come creare e configurare ogni componente del bilanciamento del carico. Per poter creare un servizio di bilanciamento del carico, è prima necessario creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse *denominato myResourceGroupLoadBalancer* nella *località eastus:*
 
 ```azurecli-interactive
 az group create --name myResourceGroupLoadBalancer --location eastus
@@ -70,7 +65,7 @@ az network public-ip create \
 ```
 
 ### <a name="create-a-load-balancer"></a>Creare un servizio di bilanciamento del carico
-Creare un servizio di bilanciamento del carico con [az network lb create](/cli/azure/network/lb). L'esempio seguente crea un servizio di bilanciamento del carico denominato *myLoadBalancer* e assegna l'indirizzo *MYPUBLICIP* alla configurazione IP front-end:
+Creare un servizio di bilanciamento del carico con [az network lb create](/cli/azure/network/lb). L'esempio seguente crea un servizio di bilanciamento del carico denominato *myLoadBalancer* e assegna *l'indirizzo myPublicIP* alla configurazione IP front-end:
 
 ```azurecli-interactive
 az network lb create \
@@ -100,7 +95,7 @@ az network lb probe create \
 ### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP di back-end affinché riceva il traffico, insieme alla porta di origine e di destinazione necessaria. Per assicurarsi che solo le macchine virtuali integre ricevano il traffico, è necessario anche definire il probe di integrità da usare.
 
-Creare una regola di bilanciamento del carico con [AZ Network lb Rule create](/cli/azure/network/lb/rule). L'esempio seguente crea una regola denominata *myLoadBalancerRule*, usa il probe di integrità *myHealthProbe* e bilancia il traffico sulla porta *80*:
+Creare una regola di bilanciamento del carico [con az network lb rule create](/cli/azure/network/lb/rule). L'esempio seguente crea una regola denominata *myLoadBalancerRule*, usa il probe di integrità *myHealthProbe* e bilancia il traffico sulla porta *80*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -129,7 +124,7 @@ az network vnet create \
     --subnet-name mySubnet
 ```
 
-Per aggiungere un gruppo di sicurezza di rete usare [az network nsg create](/cli/azure/network/nsg). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
+Per aggiungere un gruppo di sicurezza di rete usare [az network nsg create](/cli/azure/network/nsg). L'esempio seguente crea un gruppo di sicurezza di rete *denominato myNetworkSecurityGroup*:
 
 ```azurecli-interactive
 az network nsg create \
@@ -219,7 +214,7 @@ runcmd:
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 Per aumentare la disponibilità elevata dell'app, posizionare le macchine virtuali in un set di disponibilità. Per altre informazioni sui set di disponibilità, vedere l'esercitazione precedente [Come creare macchine virtuali a disponibilità elevata](tutorial-availability-sets.md).
 
-Creare un set di disponibilità con [AZ VM Availability-set create](/cli/azure/vm/availability-set). L'esempio seguente crea un set di disponibilità denominato *myAvailabilitySet*:
+Creare un set di disponibilità con [az vm availability-set create](/cli/azure/vm/availability-set). L'esempio seguente crea un set di disponibilità denominato *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \

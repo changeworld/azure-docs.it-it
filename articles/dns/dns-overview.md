@@ -4,14 +4,14 @@ description: Panoramica del servizio di hosting DNS in Microsoft Azure. Ospitare
 author: rohinkoul
 ms.service: dns
 ms.topic: overview
-ms.date: 3/25/2021
+ms.date: 4/20/2021
 ms.author: rohink
-ms.openlocfilehash: 41d2fdca653828588a5881daa0fa16c3bc71b5c4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a04e9aa2a0c342ff86b8f603c02a78952c55af88
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046488"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817649"
 ---
 # <a name="what-is-azure-dns"></a>Che cos'è DNS di Azure?
 
@@ -39,7 +39,7 @@ Per altre informazioni, vedere [Come proteggere le zone e i record DNS](dns-prot
 
 ## <a name="dnssec"></a>DNSSEC
 
-DNS di Azure attualmente non supporta DNSSEC. Nella maggior parte dei casi è possibile ridurre la necessità di usare DNSSEC usando coerentemente HTTPS/TLS nelle applicazioni. Se DNSSEC è un requisito fondamentale per le zone DNS, è possibile ospitare queste zone con provider di servizi di hosting DNS di terze parti.
+DNS di Azure attualmente non supporta DNSSEC. Nella maggior parte dei casi è possibile ridurre la necessità di usare DNSSEC usando coerentemente HTTPS/TLS nelle applicazioni. Se DNSSEC è un requisito fondamentale per le zone DNS, è possibile ospitare queste zone con provider di hosting DNS di terze parti.
 
 ## <a name="ease-of-use"></a>Semplicità d'uso
 

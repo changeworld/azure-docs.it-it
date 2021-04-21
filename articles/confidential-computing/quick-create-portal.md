@@ -10,12 +10,12 @@ ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.custom:
 - mode-portal
-ms.openlocfilehash: f43229570f6bab942cc57a2ea3be163d37f02f89
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 1ae6631c3f6ee71d7a09832956c7e687ceca22b6
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536170"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819053"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Avvio rapido: Distribuire una macchina virtuale di confidential computing di Azure nel portale di Azure
 
@@ -62,7 +62,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.micr
 
 1. Configurare l'immagine del sistema operativo da usare per la macchina virtuale.
 
-    * **Scegliere l'immagine**: per questa esercitazione, selezionare Ubuntu 18.04 LTS. È anche possibile selezionare Windows Server 2019, Windows Server 2016 o Ubuntu 16.04 LTS. In questo caso, si verrà reindirizzati alla procedura appropriata dell'esercitazione.
+    * **Scegliere l'immagine**: per questa esercitazione, selezionare Ubuntu 18.04 LTS. È anche possibile selezionare Windows Server 2019, Windows Server 2016 o e Ubuntu 20.04 LTS. In questo caso, si verrà reindirizzati alla procedura appropriata dell'esercitazione.
     
     * **Attivare l'immagine per Gen 2**: le macchine virtuali di confidential computing vengono eseguite solo in immagini di [generazione 2](../virtual-machines/generation-2.md). Assicurarsi che l'immagine selezionata sia di generazione 2. Fare clic sulla scheda **Avanzate** in cui si configura la macchina virtuale. Scorrere verso il basso fino a trovare la sezione "Generazione macchina virtuale". Selezionare Gen 2 e tornare nella scheda **Informazioni di base**.
     
@@ -79,7 +79,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.micr
     ![VM serie DCsv2](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > Verranno visualizzate le dimensioni **DC1s_v2**, **DC2s_v2**, **DC4s_V2** e **DC8_v2**. Queste sono le uniche dimensioni di macchina virtuale che attualmente supportano il confidential computing. [Altre informazioni](virtual-machine-solutions.md)
+    > Verranno visualizzate le dimensioni **DC1s_v2**, **DC2s_v2**, **DC4s_V2** e **DC8_v2**. Queste sono le uniche dimensioni di macchine virtuali che attualmente supportano il confidential computing Intel SGX. [Altre informazioni](virtual-machine-solutions.md)
 
 1. Specificare le informazioni seguenti:
 
@@ -166,11 +166,18 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```
 
 #### <a name="2-install-the-intel-sgx-dcap-driver"></a>2. Installare il driver DCAP di Intel SGX
+In alcune versioni di Ubuntu potrebbe essere già installato il driver Intel SGX. Controllare usando il comando seguente: 
+
+```bash
+dmesg | grep -i sgx
+[  106.775199] sgx: intel_sgx: Intel SGX DCAP Driver {version}
+``` 
+Se l'output è vuoto, installare il driver: 
 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.9/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.36.2.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.7/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.35.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```
@@ -180,8 +187,9 @@ sudo ./sgx_linux_x64_driver.bin
 
 #### <a name="3-install-the-intel-and-open-enclave-packages-and-dependencies"></a>3. Installare i pacchetti e le dipendenze di Intel e Open Enclave
 
+
 ```bash
-sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-common-dev libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
+sudo apt -y install clang-8 libssl-dev gdb libsgx-enclave-common libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
 ```
 
 > [!NOTE] 

@@ -7,13 +7,13 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: apimpm
-ms.custom: references_regions
-ms.openlocfilehash: 5612da51c1896aaa40ff2a0fb90e3343f676de43
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 5808cda95cdf9ce6477f47fcdbb8a0421d92e72a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531648"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817130"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -50,7 +50,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 1. Selezionare **Rete virtuale**.
 1. Configurare l'istanza di Gestione API da distribuire all'interno di una rete virtuale.
 
-    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Selezionare la rete virtuale in portale di Azure.":::
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Selezionare rete virtuale in portale di Azure.":::
     
 1. Selezionare il tipo di accesso da usare:
 
@@ -64,34 +64,34 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
         ![Peering privato][api-management-vnet-private]
 
-1. Se è stata selezionata **l'opzione** Esterno o Interno, verrà visualizzato un elenco di tutte le località (aree) in cui viene eseguito il provisioning del servizio API Management servizio. Scegliere un **percorso** e quindi selezionare la rete **virtuale,** **la subnet** e **l'indirizzo IP.** L'elenco di reti virtuali viene popolato Resource Manager le reti virtuali disponibili nelle sottoscrizioni di Azure configurate nell'area che si sta configurando.
+1. Se è stata selezionata **l'opzione** **Esterno** o Interno , verrà visualizzato un elenco di tutte le località (aree) in cui viene eseguito API Management provisioning del servizio. Scegliere un **percorso** e quindi selezionare la rete **virtuale,** **la subnet** e l'indirizzo **IP.** L'elenco delle reti virtuali viene popolato Resource Manager le reti virtuali disponibili nelle sottoscrizioni di Azure configurate nell'area che si sta configurando.
 
 
     :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Impostazioni della rete virtuale nel portale.":::
 
     > [!IMPORTANT]
-    > * Quando il client usa **l'API versione 2020-12-01** o precedente per distribuire un'istanza di Azure API Management in una rete virtuale Resource Manager, il servizio deve essere in una subnet dedicata che non contiene risorse ad eccezione delle istanze di Azure API Management. Se si tenta di distribuire un'istanza di gestione API di Azure a una subnet della rete virtuale Resource Manager contenente altre risorse, la distribuzione avrà esito negativo.
+    > * Quando il client usa **l'API versione 2020-12-01** o precedente per distribuire un'istanza di Azure API Management in una rete virtuale di Resource Manager, il servizio deve essere in una subnet dedicata che non contiene risorse ad eccezione delle istanze di Azure API Management. Se si tenta di distribuire un'istanza di gestione API di Azure a una subnet della rete virtuale Resource Manager contenente altre risorse, la distribuzione avrà esito negativo.
     > * Quando il client usa **l'API versione 2021-01-01-preview** o successiva per distribuire un'istanza di Azure API Management in una rete virtuale, è supportata solo una rete virtuale Resource Manager. Inoltre, la subnet usata può contenere altre risorse. Non è necessario usare una subnet dedicata a API Management istanze. 
 
 1. Selezionare **Applica**. La pagina **Rete virtuale** dell'istanza di Gestione API viene aggiornata con le nuove opzioni della rete virtuale e della subnet.
 
-1. Continuare a configurare le impostazioni di rete virtuale per i percorsi rimanenti dell'API Management locale.
+1. Continuare a configurare le impostazioni della rete virtuale per i percorsi rimanenti dell'API Management istanza.
 
 7. Nella barra di spostamento superiore selezionare **Salva** e quindi selezionare **Applica configurazione di rete**.
 
     L'aggiornamento dell'istanza di API Management può richiedere da 15 a 45 minuti.
 
 > [!NOTE]
-> Con i client che usano l'API 2020-12-01 e versioni precedenti, l'indirizzo VIP dell'istanza di API Management cambierà ogni volta che la rete virtuale viene abilitata o disabilitata. L'indirizzo VIP cambierà anche quando API Management viene spostato **da** Esterno **a Rete** virtuale interna o viceversa.
+> Con i client che usano l'API versione 2020-12-01 e precedenti, l'indirizzo VIP dell'istanza di API Management cambierà ogni volta che la rete virtuale viene abilitata o disabilitata. L'indirizzo VIP cambierà anche quando API Management viene spostato **da** Esterno **a Rete** virtuale interna o viceversa.
 
 > [!IMPORTANT]
-> Se si rimuove Gestione API da una rete virtuale o si modifica quella in cui è distribuito, la rete virtuale usata in precedenza può rimanere bloccata fino a sei ore. Durante questo periodo non sarà possibile eliminare la rete virtuale o distribuirvi una nuova risorsa. Questo comportamento è vero per i client che usano l'API 2018-01-01 e versioni precedenti. I client che usano l'API 2019-01-01 e versioni successive, la rete virtuale viene liberata non appena il servizio API Management associato viene eliminato.
+> Se si rimuove Gestione API da una rete virtuale o si modifica quella in cui è distribuito, la rete virtuale usata in precedenza può rimanere bloccata fino a sei ore. Durante questo periodo non sarà possibile eliminare la rete virtuale o distribuirvi una nuova risorsa. Questo comportamento è vero per i client che usano l'API versione 2018-01-01 e versioni precedenti. I client che usano l'API versione 2019-01-01 e successive, la rete virtuale viene liberata non appena il servizio API Management associato viene eliminato.
 
 ### <a name="deploy-api-management-into-external-vnet"></a><a name="deploy-apim-external-vnet"> </a>Distribuire API Management in una rete virtuale esterna
 
 È anche possibile abilitare la connettività di rete virtuale usando i metodi seguenti.
 
-### <a name="api-version-2021-01-01-preview"></a>API versione 2021-01-01-preview
+### <a name="api-version-2021-01-01-preview"></a>VERSIONE API 2021-01-01-preview
 
 * Azure Resource Manager [modello](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet-publicip)
 
@@ -103,7 +103,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
     
      [![Distribuisci in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet%2Fazuredeploy.json)
 
-* Azure PowerShell cmdlet : creare [o](/powershell/module/az.apimanagement/new-azapimanagement) [aggiornare un'istanza](/powershell/module/az.apimanagement/update-azapimanagementregion) API Management in una rete virtuale
+* Azure PowerShell cmdlet [:](/powershell/module/az.apimanagement/new-azapimanagement) creare o [aggiornare un'istanza](/powershell/module/az.apimanagement/update-azapimanagementregion) API Management in una rete virtuale
 
 ## <a name="connect-to-a-web-service-hosted-within-a-virtual-network"></a><a name="connect-vnet"> </a>Connettersi a un servizio Web ospitato all'interno di una rete virtuale
 Dopo che il servizio Gestione API è stato connesso alla VNET, l'accesso ai servizi di back-end all'interno della rete virtuale non è diverso dall'accesso ai servizi pubblici. È sufficiente digitare l'indirizzo locale o il nome host (se è stato configurato un server DNS per la VNET) del servizio Web nel campo **URL del servizio Web** quando si crea una nuova API o se ne modifica una esistente.
@@ -170,7 +170,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 + **Azure Load Balancer**: consentire le richieste in ingresso dal tag di servizio `AZURE_LOAD_BALANCER` non è un requisito per lo SKU `Developer`, poiché viene distribuita solo un'unità di calcolo. Tuttavia, consentire le richieste in ingresso da [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) diventa cruciale quando si passa a uno SKU superiore, ad esempio `Premium`, perché in caso di errore di un probe di integrità da Load Balancer, la distribuzione ha esito negativo.
 
-+ **Application Insights:** se [applicazione Azure monitoraggio di API Management Insights](api-management-howto-app-insights.md) è abilitato, è necessario consentire la connettività in uscita all'endpoint di telemetria dalla rete virtuale. [](../azure-monitor/app/ip-addresses.md#outgoing-ports) 
++ **Application Insights:** se [applicazione Azure monitoraggio](api-management-howto-app-insights.md) di API Management Insights è abilitato, è necessario consentire la connettività in uscita all'endpoint di telemetria dalla rete virtuale. [](../azure-monitor/app/ip-addresses.md#outgoing-ports) 
 
 + **Forzare il tunneling del traffico al firewall locale usando ExpressRoute o un'appliance virtuale di rete**: Una configurazione comune dei clienti prevede la definizione di una route predefinita (0.0.0.0/0) personalizzata che forza tutto il traffico dalla subnet delegata di Gestione API a passare attraverso un firewall locale o a un'appliance virtuale di rete. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. Per la soluzione è necessario eseguire alcune operazioni:
 
@@ -185,7 +185,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
       - CAPTCHA del portale per sviluppatori
 
 ## <a name="troubleshooting"></a><a name="troubleshooting"> </a>Risoluzione dei problemi
-* **Installazione iniziale**: quando la distribuzione iniziale del servizio Gestione API in una subnet non ha esito positivo, è consigliabile distribuire prima una macchina virtuale nella stessa subnet. Successivamente, desktop remoto nella macchina virtuale e verificare che sia presente connettività a una delle risorse seguenti nella sottoscrizione di Azure
+* **Installazione iniziale**: quando la distribuzione iniziale del servizio Gestione API in una subnet non ha esito positivo, è consigliabile distribuire prima una macchina virtuale nella stessa subnet. Successivamente, eseguire il desktop remoto nella macchina virtuale e verificare che sia disponibile la connettività a una delle risorse seguenti nella sottoscrizione di Azure
     * BLOB di Archiviazione di Azure
     * database SQL di Azure
     * Tabella di archiviazione di Azure
@@ -193,12 +193,12 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
   > [!IMPORTANT]
   > Dopo aver convalidato la connettività, assicurarsi di rimuovere tutte le risorse distribuite nella subnet, prima di distribuire Gestione API nella subnet.
 
-* **Verificare lo stato della connettività** di rete: dopo aver distribuito API Management nella subnet, usare il portale per controllare la connettività dell'istanza alle dipendenze, ad esempio Archiviazione di Azure. Nel menu a sinistra del portale, in Distribuzione e **infrastruttura,** selezionare **Stato connettività di rete**.
+* **Verificare lo stato della connettività** di rete: dopo aver distribuito API Management nella subnet, usare il portale per controllare la connettività dell'istanza a dipendenze come Archiviazione di Azure. Nel menu a sinistra del portale selezionare Stato connettività di rete **in** Distribuzione **e infrastruttura.**
 
    :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Verificare lo stato della connettività di rete nel portale":::
 
-    * Selezionare **Obbligatorio** per esaminare la connettività ai servizi di Azure necessari per API Management. Un errore indica che l'istanza non è in grado di eseguire operazioni di base per gestire le API.
-    * Selezionare **Facoltativo** per esaminare la connettività ai servizi facoltativi. Qualsiasi errore indica solo che la funzionalità specifica non funzionerà,ad esempio SMTP. Un errore può causare una riduzione della capacità di usare e monitorare l'istanza API Management e fornire il contratto di servizio di cui è stato eseguito il commit.
+    * Selezionare **Richiesto per** esaminare la connettività ai servizi di Azure necessari per API Management. Un errore indica che l'istanza non è in grado di eseguire operazioni di base per gestire le API.
+    * Selezionare **Facoltativo** per verificare la connettività ai servizi facoltativi. Qualsiasi errore indica solo che la funzionalità specifica non funzionerà, ad esempio SMTP. Un errore può causare una riduzione della capacità di usare e monitorare l'istanza API Management e fornire il contratto di servizio di cui è stato eseguito il commit.
 
 Per risolvere i problemi di connettività, vedere [Problemi di configurazione di rete comuni](#network-configuration-issues) e correggere le impostazioni di rete necessarie.
 
@@ -229,7 +229,7 @@ Ogni unità di scala aggiuntiva di Gestione API richiede altri due indirizzi IP.
 
 ## <a name="control-plane-ip-addresses"></a><a name="control-plane-ips"> </a> Indirizzi IP del piano di controllo
 
-Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si consentono richieste in ingresso, l'indirizzo IP contrassegnato con **Globale** deve essere consentito insieme **all'indirizzo** IP specifico dell'area.
+Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si consentono le richieste in ingresso, l'indirizzo IP contrassegnato **con Globale** deve essere consentito insieme **all'indirizzo** IP specifico dell'area.
 
 | **Ambiente di Azure**|   **Area**|  **Indirizzo IP**|
 |-----------------|-------------------------|---------------|

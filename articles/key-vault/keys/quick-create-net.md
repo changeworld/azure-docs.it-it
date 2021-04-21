@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: 52e33660b4076f8119ddb5d77e2dbbf7ee201913
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 5c1e4d64ba3359a07dddbbf89774e31815935230
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968459"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818423"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-net-sdk-v4"></a>Avvio rapido: Libreria client di chiavi di Azure Key Vault per .NET (SDK v4)
 
@@ -36,7 +36,7 @@ Per altre informazioni su Key Vault e sulle chiavi, vedere:
 
 ## <a name="setup"></a>Configurazione
 
-Questa Guida introduttiva usa Azure Identity Library per autenticare l'utente nei servizi di Azure. Gli sviluppatori possono anche usare Visual Studio o Visual Studio Code per autenticare le chiamate. Per altre informazioni, vedere [Autenticare il client con la libreria client Azure Identity](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
+Questa guida introduttiva usa la libreria di identità di Azure per autenticare l'utente in Servizi di Azure. Gli sviluppatori possono anche usare Visual Studio o Visual Studio Code per autenticare le chiamate. Per altre informazioni, vedere [Autenticare il client con la libreria client Azure Identity](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -53,7 +53,7 @@ Questa Guida introduttiva usa Azure Identity Library per autenticare l'utente ne
     ```
     ---
 
-    Se l'interfaccia della riga di comando di Azure o Azure PowerShell è in grado di aprire il browser predefinito, questa operazione viene eseguita e viene caricata una pagina di accesso di Azure.
+    Se l'interfaccia della riga di comando di Azure Azure PowerShell aprire il browser predefinito, questa operazione verrà caricata e verrà caricata una pagina di accesso di Azure.
 
     In caso contrario, aprire una pagina del browser all'indirizzo [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e immettere il codice di autorizzazione visualizzato nel terminale.
 
@@ -272,4 +272,4 @@ Per altre informazioni su Key Vault e su come integrarlo nelle app, vedere gli a
 - Seguire un'[esercitazione sull'accesso a Key Vault da un'applicazione del servizio app](../general/tutorial-net-create-vault-azure-web-app.md)
 - Seguire un'[esercitazione sull'accesso a Key Vault da una macchina virtuale](../general/tutorial-net-virtual-machine.md)
 - Vedere la [Guida per gli sviluppatori per Azure Key Vault](../general/developers-guide.md)
-- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-features.md)

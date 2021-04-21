@@ -1,7 +1,7 @@
 ---
-title: Eseguire il training e distribuire un modello TensorFlow
+title: Eseguire il training e la distribuzione di un modello TensorFlow
 titleSuffix: Azure Machine Learning
-description: Scopri in che modo Azure Machine Learning ti permette di ridimensionare un processo di training di TensorFlow usando risorse di calcolo di cloud elastico.
+description: Informazioni su Azure Machine Learning consente di aumentare il numero di scalabilità orizzontale di un processo di training tensorFlow usando risorse di calcolo cloud elastiche.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,45 +10,45 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 583f588004f41fc07037e7f5e4ce75538a581c70
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0eac999fa53679ef67c2a322bd8cc7841197d493
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102518331"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819143"
 ---
-# <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Esegui il training dei modelli TensorFlow su larga scala con Azure Machine Learning
+# <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Training di modelli TensorFlow su larga scala con Azure Machine Learning
 
-Questo articolo illustra come eseguire gli script di training di [TensorFlow](https://www.tensorflow.org/overview) su larga scala usando Azure Machine Learning.
+Questo articolo illustra come eseguire gli script di training [tensorFlow](https://www.tensorflow.org/overview) su larga scala usando Azure Machine Learning.
 
-Questo esempio esegue il training e la registrazione di un modello TensorFlow per classificare le cifre scritte a mano usando una rete neurale profonda (DNN).
+Questo esempio esemplifica e registra un modello TensorFlow per classificare le cifre scritte a mano usando una rete neurale profonda (DNN).
 
-Indipendentemente dal fatto che si stia sviluppando un modello TensorFlow da zero o si stia introducendo un [modello esistente](how-to-deploy-existing-model.md) nel cloud, è possibile usare Azure Machine Learning per scalare in orizzontale processi di training open source per compilare, distribuire, applicare la versione e monitorare i modelli a livello di produzione.
+Sia che si sviluppi un modello TensorFlow da zero o [](how-to-deploy-existing-model.md) che si usi un modello esistente nel cloud, è possibile usare Azure Machine Learning per scalare i processi di training open source per compilare, distribuire, versione e monitorare modelli di livello di produzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Eseguire questo codice in uno degli ambienti seguenti:
+Eseguire questo codice in uno di questi ambienti:
 
  - Istanza di calcolo di Azure Machine Learning: nessun download o installazione necessaria
 
      - Completare l'[Esercitazione: Configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md) per creare un server di notebook dedicato con l'SDK e il repository di esempi precaricati.
-    - Nella cartella Samples Deep learning nel server notebook trovare un notebook completato e espanso passando a questa directory: **How-to-use-azureml > ml-frameworks > tensorflow > Train-iperparameter-Tune-deploy-with-tensorflow** Folder. 
+    - Nella cartella di deep learning degli esempi nel server notebook trovare un notebook completato ed espanso passando a questa directory: **how-to-use-azureml > ml-frameworks > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow** folder. 
  
  - Server Jupyter Notebook personale
 
     - [Installare Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
     - [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
-    - [Scaricare i file](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow) `tf_mnist.py` script di esempio e `utils.py`
+    - [Scaricare i file di script di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow) `tf_mnist.py` E `utils.py`
      
-    È anche possibile trovare una [versione di Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) completata di questa guida nella pagina degli esempi di GitHub. Il notebook include sezioni espanse che coprono l'ottimizzazione intelligente dei parametri, la distribuzione di modelli e i widget del notebook.
+    È anche possibile trovare una versione [Jupyter Notebook completa di](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) questa guida nella pagina degli esempi di GitHub. Il notebook include sezioni espanse che illustrano l'ottimizzazione intelligente degli iperparameti, la distribuzione di modelli e i widget notebook.
 
 ## <a name="set-up-the-experiment"></a>Configurare l'esperimento
 
-Questa sezione Configura l'esperimento di training caricando i pacchetti Python necessari, inizializzando un'area di lavoro, creando la destinazione di calcolo e definendo l'ambiente di training.
+Questa sezione configura l'esperimento di training caricando i pacchetti Python necessari, inizializzando un'area di lavoro, creando la destinazione di calcolo e definendo l'ambiente di training.
 
 ### <a name="import-packages"></a>Importare pacchetti
 
-Prima di tutto, importare le librerie Python necessarie.
+Importare prima di tutto le librerie Python necessarie.
 
 ```Python
 import os
@@ -66,9 +66,9 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) oggetto.
+[L Azure Machine Learning workspace](concept-workspace.md) è la risorsa di primo livello per il servizio. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) oggetto .
 
-Creare un oggetto dell'area di lavoro dal `config.json` file creato nella [sezione Prerequisiti](#prerequisites).
+Creare un oggetto area di lavoro dal `config.json` file creato nella sezione dei [prerequisiti](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
@@ -90,7 +90,7 @@ web_paths = [
 dataset = Dataset.File.from_files(path=web_paths)
 ```
 
-Usare il `register()` metodo per registrare il set di dati nell'area di lavoro in modo che possano essere condivisi con altri utenti, riutilizzati in diversi esperimenti e a cui viene fatto riferimento in base al nome nello script di training.
+Usare il metodo per registrare il set di dati nell'area di lavoro in modo che possa essere condiviso con altri utenti, riutilizzato in vari esperimenti e a cui si fa riferimento in base al nome nello `register()` script di training.
 
 ```python
 dataset = dataset.register(workspace=ws,
@@ -104,7 +104,7 @@ dataset.to_path()
 
 ### <a name="create-a-compute-target"></a>Creare una destinazione di calcolo
 
-Creare una destinazione di calcolo per l'esecuzione del processo TensorFlow. In questo esempio, creare un cluster di calcolo Azure Machine Learning abilitato per GPU.
+Creare una destinazione di calcolo in cui eseguire il processo TensorFlow. In questo esempio viene creato un cluster di calcolo Azure Machine Learning abilitato per la GPU.
 
 ```Python
 cluster_name = "gpu-cluster"
@@ -124,14 +124,14 @@ except ComputeTargetException:
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-Per altre informazioni sulle destinazioni di calcolo, vedere l'articolo [che cos'è un calcolo di destinazione](concept-compute-target.md) .
+Per altre informazioni sulle destinazioni di calcolo, vedere [l'articolo Che cos'è una destinazione di](concept-compute-target.md) calcolo.
 
 ### <a name="define-your-environment"></a>Definire l'ambiente
 
-Per definire l' [ambiente](concept-environments.md) Azure ml che incapsula le dipendenze dello script di training, è possibile definire un ambiente personalizzato o usare un ambiente di Azure ml curato.
+Per definire [l'ambiente](concept-environments.md) di Azure ML che incapsula le dipendenze dello script di training, è possibile definire un ambiente personalizzato o usare un ambiente curato di Azure ML.
 
 #### <a name="use-a-curated-environment"></a>Usare un ambiente curato
-Azure ML offre ambienti predefiniti e curati se non si vuole definire un ambiente personalizzato. Azure ML dispone di diversi ambienti di CPU e GPU curati per TensorFlow corrispondenti a versioni diverse di TensorFlow. Per altre informazioni, vedere [qui](resource-curated-environments.md).
+Azure ML offre ambienti predefiniti e curati se non si vuole definire il proprio ambiente. Azure ML ha diversi ambienti curati per CPU e GPU per TensorFlow corrispondenti a versioni diverse di TensorFlow. Per altre informazioni, vedere [qui](resource-curated-environments.md).
 
 Se si vuole usare un ambiente curato, è invece possibile eseguire il comando seguente:
 
@@ -140,26 +140,26 @@ curated_env_name = 'AzureML-TensorFlow-2.2-GPU'
 tf_env = Environment.get(workspace=ws, name=curated_env_name)
 ```
 
-Per visualizzare i pacchetti inclusi nell'ambiente curato, è possibile scrivere le dipendenze conda sul disco:
+Per visualizzare i pacchetti inclusi nell'ambiente curato, è possibile scrivere le dipendenze conda su disco:
 ```python
 tf_env.save_to_directory(path=curated_env_name)
 ```
 
-Assicurarsi che l'ambiente curato includa tutte le dipendenze richieste dallo script di training. In caso contrario, sarà necessario modificare l'ambiente in modo da includere le dipendenze mancanti. Si noti che se l'ambiente viene modificato, sarà necessario assegnargli un nuovo nome, perché il prefisso ' AzureML ' è riservato per gli ambienti curati. Se il file YAML delle dipendenze conda è stato modificato, è possibile creare un nuovo ambiente con un nuovo nome, ad esempio:
+Assicurarsi che l'ambiente curato includa tutte le dipendenze richieste dallo script di training. In caso contrario, sarà necessario modificare l'ambiente per includere le dipendenze mancanti. Si noti che se l'ambiente viene modificato, è necessario assegnargli un nuovo nome, perché il prefisso "AzureML" è riservato per gli ambienti curati. Se è stato modificato il file YAML delle dipendenze conda, è possibile creare un nuovo ambiente da esso con un nuovo nome, ad esempio:
 ```python
 tf_env = Environment.from_conda_specification(name='tensorflow-2.2-gpu', file_path='./conda_dependencies.yml')
 ```
 
-Se invece l'oggetto ambiente curato è stato modificato direttamente, è possibile clonare tale ambiente con un nuovo nome:
+Se invece è stato modificato direttamente l'oggetto ambiente curato, è possibile clonare l'ambiente con un nuovo nome:
 ```python
 tf_env = tf_env.clone(new_name='tensorflow-2.2-gpu')
 ```
 
 #### <a name="create-a-custom-environment"></a>Creare un ambiente personalizzato
 
-È anche possibile creare un ambiente Azure ML personalizzato che incapsula le dipendenze dello script di training.
+È anche possibile creare un ambiente di Azure ML personalizzato che incapsula le dipendenze dello script di training.
 
-Definire innanzitutto le dipendenze conda in un file YAML; in questo esempio il file è denominato `conda_dependencies.yml` .
+Definire prima di tutto le dipendenze conda in un file YAML. In questo esempio il file è denominato `conda_dependencies.yml` .
 
 ```yaml
 channels:
@@ -171,9 +171,9 @@ dependencies:
   - tensorflow-gpu==2.2.0
 ```
 
-Creare un ambiente Azure ML da questa specifica dell'ambiente conda. L'ambiente verrà incluso in un contenitore Docker in fase di esecuzione.
+Creare un ambiente Azure ML da questa specifica dell'ambiente Conda. L'ambiente verrà inserito in un contenitore Docker in fase di esecuzione.
 
-Per impostazione predefinita, se non viene specificata alcuna immagine di base, Azure ML userà un'immagine della CPU `azureml.core.environment.DEFAULT_CPU_IMAGE` come immagine di base. Poiché in questo esempio viene eseguito il training in un cluster GPU, è necessario specificare un'immagine di base GPU con le dipendenze e i driver GPU necessari. Azure ML mantiene un set di immagini di base pubblicate in Microsoft Container Registry (AzureML) che è possibile usare. per ulteriori informazioni, vedere il repository GitHub [Azure/-container](https://github.com/Azure/AzureML-Containers) .
+Per impostazione predefinita, se non viene specificata alcuna immagine di base, Azure ML userà un'immagine della CPU `azureml.core.environment.DEFAULT_CPU_IMAGE` come immagine di base. Poiché questo esempio esegue il training in un cluster GPU, è necessario specificare un'immagine di base GPU con i driver e le dipendenze GPU necessari. Azure ML gestisce un set di immagini di base pubblicate in Microsoft Container Registry (MCR) che è possibile usare. Per altre informazioni, vedere il repository GitHub [azure/AzureML-Containers.](https://github.com/Azure/AzureML-Containers)
 
 ```python
 tf_env = Environment.from_conda_specification(name='tensorflow-2.2-gpu', file_path='./conda_dependencies.yml')
@@ -184,15 +184,15 @@ tf_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudn
 ```
 
 > [!TIP]
-> Facoltativamente, è possibile acquisire solo tutte le dipendenze direttamente in un'immagine Docker personalizzata o Dockerfile e creare il proprio ambiente. Per altre informazioni, vedere eseguire il [training con un'immagine personalizzata](how-to-train-with-custom-image.md).
+> Facoltativamente, è possibile acquisire tutte le dipendenze direttamente in un'immagine Docker personalizzata o Dockerfile e creare l'ambiente da tale immagine. Per altre informazioni, vedere [Training con un'immagine personalizzata.](how-to-train-with-custom-image.md)
 
-Per altre informazioni sulla creazione e sull'uso degli ambienti, vedere [creare e usare ambienti software in Azure Machine Learning](how-to-use-environments.md).
+Per altre informazioni sulla creazione e sull'uso di ambienti, vedere [Creare e usare ambienti software in Azure Machine Learning](how-to-use-environments.md).
 
 ## <a name="configure-and-submit-your-training-run"></a>Configurare e inviare l'esecuzione del training
 
-### <a name="create-a-scriptrunconfig"></a>Creare un ScriptRunConfig
+### <a name="create-a-scriptrunconfig"></a>Creare uno ScriptRunConfig
 
-Creare un oggetto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) per specificare i dettagli di configurazione del processo di training, tra cui script di training, ambiente da usare e destinazione di calcolo in cui eseguirlo. Eventuali argomenti dello script di training verranno passati tramite la riga di comando se specificati nel `arguments` parametro.
+Creare un oggetto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) per specificare i dettagli di configurazione del processo di training, tra cui script di training, ambiente da usare e destinazione di calcolo in cui eseguirlo. Tutti gli argomenti dello script di training verranno passati tramite la riga di comando, se specificati nel `arguments` parametro .
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -211,35 +211,35 @@ src = ScriptRunConfig(source_directory=script_folder,
 ```
 
 > [!WARNING]
-> Azure Machine Learning esegue gli script di training copiando l'intera directory di origine. Se si dispone di dati sensibili che non si desidera caricare, utilizzare un [file con estensione ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o non includerlo nella directory di origine. È invece possibile accedere ai dati usando un [set](how-to-train-with-datasets.md)di dati di Azure ml.
+> Azure Machine Learning gli script di training copiando l'intera directory di origine. Se si dispone di dati sensibili che non si vuole caricare, usare un [file con](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) estensione ignore o non includerli nella directory di origine. Accedere invece ai dati usando un set di dati [di](how-to-train-with-datasets.md)Azure ML.
 
-Per altre informazioni sulla configurazione dei processi con ScriptRunConfig, vedere [configurare e inviare le esecuzioni di training](how-to-set-up-training-targets.md).
+Per altre informazioni sulla configurazione dei processi con ScriptRunConfig, vedere [Configurare e inviare esecuzioni di training.](how-to-set-up-training-targets.md)
 
 > [!WARNING]
-> Se in precedenza si usa TensorFlow Estimator per configurare i processi di training di TensorFlow, si noti che gli estimatori sono stati deprecati a partire dalla versione SDK di 1.19.0. Con Azure ML SDK >= 1.15.0, ScriptRunConfig è il metodo consigliato per configurare i processi di training, inclusi quelli che usano Framework di apprendimento avanzato. Per domande comuni sulla migrazione, vedere la [Guida alla migrazione da Estimator a ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
+> Se in precedenza si usava lo strumento di stima TensorFlow per configurare i processi di training di TensorFlow, si noti che gli estimatori sono stati deprecati a livello di versione dell'SDK 1.19.0. Con Azure ML SDK >= 1.15.0, ScriptRunConfig è il modo consigliato per configurare i processi di training, inclusi quelli che usano framework di Deep Learning. Per domande comuni sulla migrazione, vedere la [Guida alla migrazione da Estimator a ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ### <a name="submit-a-run"></a>Inviare un'esecuzione
 
-L' [oggetto Run](/python/api/azureml-core/azureml.core.run%28class%29) fornisce l'interfaccia alla cronologia di esecuzione mentre il processo è in esecuzione e dopo il completamento.
+[L'oggetto Run](/python/api/azureml-core/azureml.core.run%28class%29) fornisce l'interfaccia alla cronologia di esecuzione mentre il processo è in esecuzione e dopo il completamento.
 
 ```Python
 run = Experiment(workspace=ws, name='Tutorial-TF-Mnist').submit(src)
 run.wait_for_completion(show_output=True)
 ```
-### <a name="what-happens-during-run-execution"></a>Cosa accade durante l'esecuzione dell'esecuzione
-Quando l'esecuzione viene eseguita, vengono eseguite le fasi seguenti:
+### <a name="what-happens-during-run-execution"></a>Cosa accade durante l'esecuzione
+Durante l'esecuzione, l'esecuzione viene eseguita nelle fasi seguenti:
 
-- **Preparazione**: viene creata un'immagine Docker in base all'ambiente definito. L'immagine viene caricata nel registro contenitori dell'area di lavoro e memorizzata nella cache per le esecuzioni successive. Anche i log vengono trasmessi alla cronologia di esecuzione e possono essere visualizzati per monitorare lo stato di avanzamento. Se invece si specifica un ambiente curato, verrà utilizzata l'immagine memorizzata nella cache che supporta l'ambiente curato.
+- **Preparazione:** viene creata un'immagine Docker in base all'ambiente definito. L'immagine viene caricata nel registro contenitori dell'area di lavoro e memorizzata nella cache per esecuzioni successive. I log vengono anche trasmessi alla cronologia di esecuzione e possono essere visualizzati per monitorare lo stato di avanzamento. Se invece viene specificato un ambiente curato, verrà usata l'immagine memorizzata nella cache che contiene tale ambiente curato.
 
-- **Ridimensionamento**: il cluster tenta di eseguire la scalabilità verticale se il cluster batch per intelligenza artificiale richiede un numero maggiore di nodi per eseguire l'esecuzione rispetto al momento disponibile.
+- **Ridimensionamento:** il cluster tenta di aumentare le dimensioni se il cluster Batch per intelligenza artificiale richiede più nodi per eseguire l'esecuzione di quelli attualmente disponibili.
 
-- **Running**: tutti gli script nella cartella script vengono caricati nella destinazione di calcolo, gli archivi dati vengono montati o copiati e `script` viene eseguito. Gli output da stdout e la cartella **./logs** vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
+- **In** esecuzione: tutti gli script nella cartella script vengono caricati nella destinazione di calcolo, gli archivi dati vengono montati o copiati e viene `script` eseguito . Gli output di stdout e della cartella **./logs** vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
 
-- **Post-elaborazione**: la cartella **./Outputs** dell'esecuzione viene copiata nella cronologia di esecuzione.
+- **Post-elaborazione:** la **cartella ./outputs** dell'esecuzione viene copiata nella cronologia di esecuzione.
 
 ## <a name="register-or-download-a-model"></a>Registrare o scaricare un modello
 
-Dopo aver eseguito il training del modello, è possibile registrarlo nell'area di lavoro. Con la registrazione dei modelli è possibile archiviare i modelli e creare le relative versioni nell'area di lavoro per semplificare la [gestione e la distribuzione dei modelli](concept-model-management-and-deployment.md). Facoltativo: se si specificano i parametri `model_framework` , `model_framework_version` e `resource_configuration` , la distribuzione del modello senza codice diventa disponibile. In questo modo è possibile distribuire direttamente il modello come servizio Web dal modello registrato e l' `ResourceConfiguration` oggetto definisce la risorsa di calcolo per il servizio Web.
+Dopo aver training del modello, è possibile registrarlo nell'area di lavoro. Con la registrazione dei modelli è possibile archiviare i modelli e creare le relative versioni nell'area di lavoro per semplificare la [gestione e la distribuzione dei modelli](concept-model-management-and-deployment.md). Facoltativo: specificando i parametri `model_framework` , e , la distribuzione del modello senza codice diventa `model_framework_version` `resource_configuration` disponibile. In questo modo è possibile distribuire direttamente il modello come servizio Web dal modello registrato e l'oggetto definisce la risorsa di `ResourceConfiguration` calcolo per il servizio Web.
 
 ```Python
 from azureml.core import Model
@@ -252,7 +252,7 @@ model = run.register_model(model_name='tf-mnist',
                            resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
 
-È inoltre possibile scaricare una copia locale del modello utilizzando l'oggetto Esegui. Nello script di training `tf_mnist.py` , un oggetto TensorFlow Saver Salva in modo permanente il modello in una cartella locale (locale nella destinazione di calcolo). È possibile usare l'oggetto Run per scaricare una copia.
+È anche possibile scaricare una copia locale del modello usando l'oggetto Run. Nello script di training un oggetto salvatore TensorFlow rende persistente il modello in una cartella locale `tf_mnist.py` (locale per la destinazione di calcolo). È possibile usare l'oggetto Run per scaricare una copia.
 
 ```Python
 # Create a model folder in the current directory
@@ -262,21 +262,21 @@ run.download_files(prefix='outputs/model', output_directory='./model', append_pr
 
 ## <a name="distributed-training"></a>Training distribuito
 
-Azure Machine Learning supporta anche processi TensorFlow distribuiti a più nodi, in modo che sia possibile ridimensionare i carichi di lavoro di training. È possibile eseguire facilmente processi TensorFlow distribuiti e Azure ML gestirà l'orchestrazione.
+Azure Machine Learning supporta anche processi TensorFlow distribuiti a più nodi per poter ridimensionare i carichi di lavoro di training. È possibile eseguire facilmente processi TensorFlow distribuiti e Azure ML gestirà l'orchestrazione per l'utente.
 
-Azure ML supporta l'esecuzione di processi TensorFlow distribuiti con l'API di training distribuito predefinita Horovod e TensorFlow.
+Azure ML supporta l'esecuzione di processi TensorFlow distribuiti con l'API di training distribuita incorporata di Horovod e TensorFlow.
 
 ### <a name="horovod"></a>Horovod
-[Horovod](https://github.com/uber/horovod) è un framework open source di riduzione per la formazione distribuita sviluppata da uber. Offre un percorso facile per la scrittura di codice TensorFlow distribuito per il training.
+[Horovod è](https://github.com/uber/horovod) un framework open source di riduzione per il training distribuito sviluppato da Uber. Offre un percorso semplice per la scrittura di codice TensorFlow distribuito per il training.
 
-Il codice di training dovrà essere instrumentato con Horovod per il training distribuito. Per ulteriori informazioni sull'utilizzo di Horovod con TensorFlow, vedere la documentazione di Horovod:
+Il codice di training dovrà essere instrumentato con Horovod per il training distribuito. Per altre informazioni sull'uso di Horovod con TensorFlow, vedere la documentazione di Horovod:
 
-Per ulteriori informazioni sull'utilizzo di Horovod con TensorFlow, vedere la documentazione di Horovod:
+Per altre informazioni sull'uso di Horovod con TensorFlow, vedere la documentazione di Horovod:
 
 * [Horovod con TensorFlow](https://github.com/horovod/horovod/blob/master/docs/tensorflow.rst)
-* [Horovod con l'API keras di TensorFlow](https://github.com/horovod/horovod/blob/master/docs/keras.rst)
+* [Horovod con l'API Keras di TensorFlow](https://github.com/horovod/horovod/blob/master/docs/keras.rst)
 
-Assicurarsi inoltre che l'ambiente di training includa il pacchetto **horovod** . Se si usa un ambiente curato TensorFlow, horovod è già incluso come una delle dipendenze. Se si usa un ambiente personalizzato, verificare che sia inclusa la dipendenza horovod, ad esempio:
+Assicurarsi inoltre che l'ambiente di training includa **il pacchetto horovod.** Se si usa un ambiente curato da TensorFlow, horovod è già incluso come una delle dipendenze. Se si usa il proprio ambiente, assicurarsi che la dipendenza horovod sia inclusa, ad esempio:
 
 ```yaml
 channels:
@@ -289,7 +289,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-Per eseguire un processo distribuito con MPI/Horovod in Azure ML, è necessario specificare un [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration) per il `distributed_job_config` parametro del costruttore ScriptRunConfig. Il codice seguente consente di configurare un processo distribuito a 2 nodi che esegue un processo per nodo. Se si desidera eseguire più processi per nodo, ad esempio se lo SKU del cluster ha più GPU, specificare anche il `process_count_per_node` parametro in MpiConfiguration (il valore predefinito è `1` ).
+Per eseguire un processo distribuito usando MPI/Horovod in Azure ML, è necessario specificare [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration) al parametro del costruttore `distributed_job_config` ScriptRunConfig. Il codice seguente configurerà un processo distribuito a 2 nodi che esegue un processo per nodo. Se si desidera anche eseguire più processi per nodo ,ad esempio se lo SKU del cluster include più GPU, specificare anche il parametro `process_count_per_node` in MpiConfiguration (il valore predefinito è `1` ).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -303,13 +303,13 @@ src = ScriptRunConfig(source_directory=project_folder,
                       distributed_job_config=MpiConfiguration(node_count=2))
 ```
 
-Per un'esercitazione completa sull'esecuzione di TensorFlow distribuiti con Horovod in Azure ML, vedere [Distributed TensorFlow with Horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/distributed-tensorflow-with-horovod).
+Per un'esercitazione completa sull'esecuzione di TensorFlow distribuito con Horovod in Azure ML, vedere [Distributed TensorFlow with Horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/distributed-tensorflow-with-horovod).
 
-### <a name="tfdistribute"></a>TF. Distribuisci
+### <a name="tfdistribute"></a>tf.distribute
 
-Se si usa [TensorFlow distribuiti nativi](https://www.tensorflow.org/guide/distributed_training) nel codice di training, ad esempio l'API TensorFlow 2. x `tf.distribute.Strategy` , è anche possibile avviare il processo distribuito tramite Azure ml. 
+Se si usa [TensorFlow](https://www.tensorflow.org/guide/distributed_training) distribuito nativo nel codice di training, ad esempio l'API di TensorFlow 2.x, è anche possibile avviare il processo distribuito `tf.distribute.Strategy` tramite Azure ML. 
 
-A tale scopo, specificare un [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) per il `distributed_job_config` parametro del costruttore ScriptRunConfig. Se si usa `tf.distribute.experimental.MultiWorkerMirroredStrategy` , specificare `worker_count` in TensorflowConfiguration corrispondente al numero di nodi per il processo di training.
+A tale scopo, specificare [tensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) per il `distributed_job_config` parametro del costruttore ScriptRunConfig. Se si usa `tf.distribute.experimental.MultiWorkerMirroredStrategy` , specificare `worker_count` in TensorflowConfiguration corrispondente al numero di nodi per il processo di training.
 
 ```python
 import os
@@ -328,7 +328,7 @@ src = ScriptRunConfig(source_directory=source_dir,
                       distributed_job_config=distr_config)
 ```
 
-In TensorFlow, la `TF_CONFIG` variabile di ambiente è obbligatoria per il training su più computer. Azure ML consente di configurare e impostare la `TF_CONFIG` variabile in modo appropriato per ogni thread di lavoro prima di eseguire lo script di training. È possibile accedere `TF_CONFIG` dallo script di training se è necessario tramite `os.environ['TF_CONFIG']` .
+In TensorFlow la variabile `TF_CONFIG` di ambiente è necessaria per il training in più computer. Azure ML configurerà e imposta la variabile in modo appropriato per ogni ruolo `TF_CONFIG` di lavoro prima di eseguire lo script di training. È possibile accedere `TF_CONFIG` dallo script di training se è necessario tramite `os.environ['TF_CONFIG']` .
 
 Struttura di esempio di `TF_CONFIG` set in un nodo del ruolo di lavoro principale:
 ```JSON
@@ -341,26 +341,26 @@ TF_CONFIG='{
 }'
 ```
 
-Se lo script di training usa la strategia del server dei parametri per il training distribuito, ad esempio per Legacy TensorFlow 1. x, sarà necessario specificare anche il numero di server dei parametri da usare nel processo, ad `distr_config = TensorflowConfiguration(worker_count=2, parameter_server_count=1)` esempio.
+Se lo script di training usa la strategia del server di parametri per il training distribuito, ad esempio per TensorFlow 1.x legacy, sarà necessario specificare anche il numero di server di parametri da usare nel processo, ad esempio `distr_config = TensorflowConfiguration(worker_count=2, parameter_server_count=1)` .
 
 ## <a name="deploy-a-tensorflow-model"></a>Distribuire un modello TensorFlow
 
-La procedura di distribuzione contiene una sezione sulla registrazione dei modelli, ma è possibile passare direttamente alla [creazione di una destinazione di calcolo](how-to-deploy-and-where.md#choose-a-compute-target) per la distribuzione, poiché si dispone già di un modello registrato.
+La procedura di distribuzione contiene una sezione sulla registrazione dei modelli, ma è possibile passare direttamente [alla](how-to-deploy-and-where.md#choose-a-compute-target) creazione di una destinazione di calcolo per la distribuzione, poiché è già presente un modello registrato.
 
-### <a name="preview-no-code-model-deployment"></a>Anteprima Distribuzione del modello senza codice
+### <a name="preview-no-code-model-deployment"></a>(Anteprima) Distribuzione di modelli senza codice
 
-Anziché la route di distribuzione tradizionale, è anche possibile usare la funzionalità di distribuzione senza codice (anteprima) per TensorFlow. Registrando il modello come illustrato in precedenza con i `model_framework` `model_framework_version` parametri, e `resource_configuration` , è possibile usare semplicemente la `deploy()` funzione statica per distribuire il modello.
+Invece della route di distribuzione tradizionale, è anche possibile usare la funzionalità di distribuzione senza codice (anteprima) per TensorFlow. Registrando il modello come illustrato in precedenza con i parametri , e , è possibile usare semplicemente la `model_framework` `model_framework_version` funzione `resource_configuration` `deploy()` statica per distribuire il modello.
 
 ```python
 service = Model.deploy(ws, "tensorflow-web-service", [model])
 ```
 
-Il metodo [completo illustra la distribuzione](how-to-deploy-and-where.md) in Azure Machine Learning più approfondita.
+La procedura [completa illustra la](how-to-deploy-and-where.md) distribuzione in Azure Machine Learning in modo più approfondito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato eseguito il training e la registrazione di un modello TensorFlow e sono state apprese le opzioni per la distribuzione. Per ulteriori informazioni su Azure Machine Learning, vedere questi altri articoli.
+In questo articolo è stato training e registrato un modello TensorFlow e sono stati appresi i dettagli sulle opzioni per la distribuzione. Vedere questi altri articoli per altre informazioni su Azure Machine Learning.
 
-* [Tracciare le metriche di esecuzione durante il training](how-to-track-experiments.md)
+* [Tracciare le metriche di esecuzione durante il training](how-to-log-view-metrics.md)
 * [Ottimizzare gli iperparametri](how-to-tune-hyperparameters.md)
-* [Architettura di riferimento per il training di Deep learning distribuito in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
+* [Architettura di riferimento per il training di Deep Learning distribuito in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

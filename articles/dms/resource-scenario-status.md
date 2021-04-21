@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 6c1a0853dc59b2e2ceabfd47d81aac364a2b5716
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: f06c1a055b2f08259bf5318afe3c969d763bbbd3
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589432"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818621"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Stato degli scenari di migrazione supportati da Servizio Migrazione del database di Azure
 
@@ -27,6 +27,10 @@ Servizio Migrazione del database di Azure è progettato per supportare diversi s
 
 Con Servizio Migrazione del database di Azure, è possibile eseguire una migrazione offline o online. Con le migrazioni *offline*, il tempo di inattività delle applicazioni inizia quando inizia la migrazione. Per limitare il tempo di inattività al tempo necessario per eseguire il cut over nel nuovo ambiente al termine della migrazione, usare una *migrazione online.* È consigliabile testare una migrazione offline per determinare se il tempo di inattività è accettabile. In caso contrario, eseguire una migrazione online.
 
+## <a name="migration-scenario-status"></a>Stato dello scenario di migrazione
+
+Lo stato degli scenari di migrazione supportati Servizio Migrazione del database di Azure varia in base al tempo. In genere, gli scenari vengono rilasciati per la prima volta in **anteprima privata.** Dopo l'anteprima privata, lo stato dello scenario cambia in **anteprima pubblica.** Servizio Migrazione del database di Azure utenti possono provare gli scenari di migrazione in anteprima pubblica direttamente dall'interfaccia utente. Non è necessaria alcuna iscrizione.  Tuttavia, gli scenari di migrazione in anteprima pubblica potrebbero non essere disponibili in tutte le aree e potrebbero subire modifiche aggiuntive prima del rilascio finale. Dopo l'anteprima pubblica, lo stato dello scenario cambia in **disponibilità generale.** La disponibilità generale (GA) è lo stato finale della versione e la funzionalità è completa e accessibile a tutti gli utenti.
+
 ## <a name="migration-scenario-support"></a>Supporto degli scenari di migrazione
 
 Le tabelle seguenti illustrano gli scenari di migrazione supportati quando si usa Servizio Migrazione del database di Azure.
@@ -35,13 +39,13 @@ Le tabelle seguenti illustrano gli scenari di migrazione supportati quando si us
 > Se uno scenario elencato come supportato di seguito non viene visualizzato nell'interfaccia utente, contattare l'alias [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com) per altre informazioni.
 
 > [!IMPORTANT]
-> Per visualizzare tutti gli scenari attualmente supportati da Servizio Migrazione del database di Azure in anteprima privata, vedere il sito di anteprima del Servizio [Gestione dei dispositivi.](https://aka.ms/dms-preview)
+> Per visualizzare tutti gli scenari attualmente supportati da Servizio Migrazione del database di Azure nell'anteprima privata, vedere il sito di anteprima [dms.](https://aka.ms/dms-preview)
 
 ### <a name="offline-one-time-migration-support"></a>Supporto della migrazione offline (unica)
 
 La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni offline.
 
-| Destinazione  | Source (Sorgente) | Supporto tecnico | Stato |
+| Destinazione  | Source (Sorgente) | Supporto | Stato |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL | X |  |
@@ -52,7 +56,7 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 | **VM di Azure SQL** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Database di Azure per MySQL** | MySQL | X |   |
+| **Database di Azure per MySQL** | MySQL | ✔ |   |
 |   | Servizi Desktop remoto MySQL | X |   |
 | **Database di Azure per PostgreSQL - Server singolo** | PostgreSQL | X |
 |  | Servizi Desktop remoto PostgreSQL | X |   |
@@ -63,7 +67,7 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 
 La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni online.
 
-| Destinazione  | Source (Sorgente) | Supporto tecnico | Stato |
+| Destinazione  | Source (Sorgente) | Supporto | Stato |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Database SQL di Azure** | SQL Server | X |  |
 |   | Servizi Desktop remoto SQL | X |  |
@@ -79,12 +83,12 @@ La tabella seguente mostra il supporto del Servizio Migrazione del database di A
 | **Database di Azure per PostgreSQL - Server singolo** | PostgreSQL | ✔ | GA |
 |   | Database di Azure per PostgreSQL - Server singolo | ✔ | GA |
 |   | Servizi Desktop remoto PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | Anteprima pubblica (deprecata dopo il 1° maggio 2021) |
+|   | Oracle | ✔ | Anteprima pubblica (da deprecare dopo il 1° maggio 2021) |
 | **Database di Azure per PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
 |   | Servizi Desktop remoto PostgreSQL | ✔ | GA |
 
 > [!IMPORTANT]
-> Lo scenario di migrazione "Da Oracle a Database di Azure per PostgreSQL" (attualmente in anteprima) non sarà più disponibile dopo il 1° maggio 2021. Microsoft continuerà a fornire supporto tramite strumenti alternativi (ad esempio Ora2pg) e offrirà la migliore esperienza di migrazione per le migrazioni da Oracle a PostgreSQL. Per le procedure consigliate per la migrazione, vedere Guida alla migrazione da Oracle a Database di [Azure per PostgreSQL.](https://aka.ms/OracletoPGguide)
+> Lo scenario di migrazione "Da Oracle a Database di Azure per PostgreSQL" (attualmente in anteprima) non sarà più disponibile dopo il 1° maggio 2021. Continueremo a fornire supporto tramite strumenti alternativi (ad esempio Ora2pg) e offriremo la migliore esperienza di migrazione per le migrazioni da Oracle a PostgreSQL. Per le procedure consigliate per la migrazione, vedere Guida alla migrazione da Oracle a Database di [Azure per PostgreSQL.](https://aka.ms/OracletoPGguide)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

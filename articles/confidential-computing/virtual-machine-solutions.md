@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8621dc8cfc10ab44ecb358a40fdae1a1b2081734
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 580c53f311bc8ee70e974df2bc4111e6361d06f6
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102566584"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818963"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluzioni nelle macchine virtuali di Azure
 
 Questo articolo descrive come distribuire le macchine virtuali di confidential computing di Azure che dispongono di processori Intel supportati dall'estensione [Intel Software Guard](https://software.intel.com/sgx) (Intel SGX). 
 
-## <a name="azure-confidential-computing-vm-sizes"></a>Dimensioni delle macchine virtuali di Azure computing riservato
+## <a name="azure-confidential-computing-vm-sizes"></a>Dimensioni delle macchine virtuali di confidential computing di Azure
 
 Le macchine virtuali di confidential computing di Azure sono progettate per proteggere la riservatezza e l'integrità dei dati e del codice durante l'elaborazione nel cloud 
 
@@ -46,8 +46,8 @@ az vm list-skus `
     --size dc `
     --query "[?family=='standardDCSv2Family']"
 ```
-### <a name="dedicated-host-requirements"></a>Requisiti host dedicati
-La distribuzione di un **Standard_DC8_v2** dimensioni della macchina virtuale nella famiglia di VM DCSv2-Series occuperà l'host completo e non verrà condiviso con altri tenant o sottoscrizioni. Questa famiglia di SKU della macchina virtuale fornisce l'isolamento che può essere necessario per soddisfare i requisiti normativi di conformità e sicurezza che in genere soddisfano con un servizio host dedicato. Quando si sceglie **Standard_DC8_v2** SKU, il server host fisico alloca tutte le risorse hardware disponibili, inclusa la memoria EPC, solo alla macchina virtuale. Si noti che questa funzionalità esiste dalla progettazione dell'infrastruttura e che tutte le funzionalità del **Standard_DC8_v2** saranno supportate. Questa distribuzione non corrisponde al servizio [host dedicato di Azure](../virtual-machines/dedicated-hosts.md) fornito da altre famiglie di macchine virtuali di Azure.
+### <a name="dedicated-host-requirements"></a>Requisiti dell'host dedicato
+La distribuzione di **Standard_DC8_v2** dimensioni della macchina virtuale nella famiglia di macchine virtuali DCSv2-Series occuperà l'host completo e non verrà condivisa con altri tenant o sottoscrizioni. Questa famiglia di SKU della macchina virtuale fornisce l'isolamento che potrebbe essere necessario per soddisfare i requisiti normativi di conformità e sicurezza normalmente soddisfatti con un servizio host dedicato. Quando si sceglie **Standard_DC8_v2** SKU, il server host fisico alloca tutte le risorse hardware disponibili, inclusa la memoria EPC, solo alla macchina virtuale. Si noti che questa funzionalità esiste per progettazione dell'infrastruttura e tutte le funzionalità del Standard_DC8_v2 **saranno** supportate. Questa distribuzione non corrisponde al servizio [di](../virtual-machines/dedicated-hosts.md) host dedicato di Azure fornito da altre famiglie di macchine virtuali di Azure.
 
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
@@ -66,7 +66,7 @@ Seguire un'esercitazione introduttiva per distribuire una macchina virtuale dell
   
 - **Ridimensionamento**: a causa dell'hardware specializzato, è possibile ridimensionare solo le istanze di calcolo riservate nella stessa famiglia di dimensioni. Ad esempio, è possibile ridimensionare una VM della serie DCsv2 solo da una dimensione della serie DCsv2 a un'altra. Il ridimensionamento da una dimensione di calcolo non riservata a una dimensione di calcolo riservata non è supportato.  
 
-- **Immagine**: per fornire il supporto a Intel SGX (Intel Software Guard Extension) per le istanze di confidential computing, è necessario eseguire tutte le distribuzioni su immagini di seconda generazione. Confidential computing di Azure supporta i carichi di lavoro in esecuzione su Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 Gen 2 e Windows Server 2016 Gen 2. Per altre informazioni sugli scenari supportati e non, leggere l'articolo [Supporto per le macchine virtuali di seconda generazione in Azure](../virtual-machines/generation-2.md). 
+- **Immagine**: per fornire il supporto a Intel SGX (Intel Software Guard Extension) per le istanze di confidential computing, è necessario eseguire tutte le distribuzioni su immagini di seconda generazione. Il confidential computing di Azure supporta i carichi di lavoro in esecuzione in Ubuntu 18.04 Gen 2, Ubuntu 20.04 Gen 2, Windows Server 2019 Gen2 e Windows Server 2016 Gen 2. Per altre informazioni sugli scenari supportati e non, leggere l'articolo [Supporto per le macchine virtuali di seconda generazione in Azure](../virtual-machines/generation-2.md). 
 
 - **Archiviazione**: i dischi dati della macchina virtuale di confidential computing di Azure e i dischi del sistema operativo temporanei si trovano in dischi NVMe. Le istanze supportano solo dischi SSD Premium e SSD Standard, non Ultra SSD o HDD Standard. Le dimensioni della macchina virtuale **DC8_vs** non supportano gli account di archiviazione Premium. 
 
@@ -78,17 +78,17 @@ Quando si usano le macchine virtuali in Azure, si è responsabili dell'implement
 
 Confidential computing di Azure non supporta al momento la ridondanza della zona tramite zone di disponibilità. Per garantire la massima disponibilità e ridondanza per l'elaborazione riservata, usare i [set di disponibilità](../virtual-machines/availability-set-overview.md). A causa delle restrizioni hardware, i set di disponibilità per le istanze di elaborazione riservata possono avere un massimo di 10 domini di aggiornamento. 
 
-## <a name="deployment-with-azure-resource-manager-arm-template"></a>Distribuzione con il modello di Azure Resource Manager (ARM)
+## <a name="deployment-with-azure-resource-manager-arm-template"></a>Distribuzione con Azure Resource Manager (ARM)
 
 Azure Resource Manager è il servizio di distribuzione e gestione di Azure. Fornisce un livello di gestione che consente di creare, aggiornate ed eliminare risorse nella sottoscrizione di Azure. È possibile usare funzionalità di gestione, come il controllo di accesso, i blocchi e i tag, per proteggere e organizzare le risorse dopo la distribuzione.
 
-Per informazioni sui modelli ARM, vedere [Panoramica di distribuzione modelli](../azure-resource-manager/templates/overview.md).
+Per altre informazioni sui modelli di Arm, [Distribuzione modelli panoramica.](../azure-resource-manager/templates/overview.md)
 
-Per distribuire una macchina virtuale DCsv2-Series in un modello ARM, si utilizzerà la [risorsa della macchina virtuale](../virtual-machines/windows/template-description.md). Assicurarsi di specificare le proprietà corrette per **vmSize** e per **imageReference**.
+Per distribuire una DCsv2-Series virtuale in un modello arm, si utilizzerà la [risorsa macchina virtuale](../virtual-machines/windows/template-description.md). Assicurarsi di specificare le proprietà corrette per **vmSize** e per **imageReference**.
 
 ### <a name="vm-size"></a>Dimensioni macchina virtuale
 
-Specificare una delle dimensioni seguenti nel modello ARM nella risorsa della macchina virtuale. Questa stringa viene inserita come **vmSize** nelle **proprietà**.
+Specificare una delle dimensioni seguenti nel modello arm nella risorsa macchina virtuale. Questa stringa viene inserita come **vmSize** nelle **proprietà**.
 
 ```json
   [
@@ -99,7 +99,7 @@ Specificare una delle dimensioni seguenti nel modello ARM nella risorsa della ma
       ],
 ```
 
-### <a name="gen2-os-image"></a>Immagine del sistema operativo Gen2
+### <a name="gen2-os-image"></a>Immagine del sistema operativo gen2
 
 In **Proprietà**, sarà anche necessario fare riferimento a un'immagine in **storageProfile**. Usare *solo una* delle immagini seguenti per **imageReference**.
 
@@ -122,10 +122,10 @@ In **Proprietà**, sarà anche necessario fare riferimento a un'immagine in **st
         "sku": "18_04-lts-gen2",
         "version": "latest"
       },
-      "16_04-lts-gen2": {
+      "20_04-lts-gen2": {
         "offer": "UbuntuServer",
         "publisher": "Canonical",
-        "sku": "16_04-lts-gen2",
+        "sku": "20_04-lts-gen2",
         "version": "latest"
       }
 ```

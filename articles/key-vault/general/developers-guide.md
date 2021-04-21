@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4f9523594c07209d530a143713061be6d0467af8
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 08ac1ae09741b63648aec2b51b6a774a46b9af7c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753381"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818441"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -35,7 +35,7 @@ Periodicamente, viene rilasciata un'anteprima pubblica di una nuova funzionalit�
 
 Key Vault, analogamente ad altri servizi di Azure, viene eseguita tramite Azure Resource Manager servizio. Azure Resource Manager è il servizio di distribuzione e gestione di Azure. Fornisce un livello di gestione che consente di creare, aggiornate ed eliminare risorse nell'account Azure. Per altre informazioni, vedere [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 
-L'accesso al livello di gestione è controllato dal [controllo degli accessi in base al ruolo di Azure.](../../role-based-access-control/overview.md) In Key Vault, il livello di gestione, noto anche come piano di gestione o di controllo, consente di creare e gestire Gli insiemi di credenziali delle chiavi e i relativi attributi, inclusi i criteri di accesso, ma non chiavi, segreti e certificati, gestiti nel piano dati. È possibile usare un ruolo predefinito per concedere `Key Vault Contributor` l'accesso di gestione Key Vault.     
+L'accesso al livello di gestione è controllato dal [controllo degli accessi in base al ruolo di Azure.](../../role-based-access-control/overview.md) In Key Vault, il livello di gestione, noto anche come piano di gestione o di controllo, consente di creare e gestire Gli insiemi di credenziali delle chiavi e i relativi attributi, inclusi i criteri di accesso, ma non chiavi, segreti e certificati, gestiti nel piano dati. È possibile usare un ruolo predefinito per concedere alla gestione `Key Vault Contributor` l'accesso Key Vault.     
 
 **API e SDK per la gestione dell'insieme di credenziali delle chiavi:**
 
@@ -45,7 +45,7 @@ L'accesso al livello di gestione è controllato dal [controllo degli accessi in 
 
 Vedere [Librerie client per](client-libraries.md) i pacchetti di installazione e il codice sorgente.
 
-Per altre informazioni sul piano Key Vault di gestione, vedere Key Vault [Management Plane](security-overview.md)
+Per altre informazioni sul piano Key Vault di gestione, vedere Azure Key Vault [di sicurezza](security-features.md)
 
 ## <a name="authenticate-to-key-vault-in-code"></a>Eseguire l'Key Vault nel codice
 
@@ -74,16 +74,16 @@ Per altre informazioni sul portale del client di identità di Azure, vedere:
 |[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
 
 >[!Note]
-> [Libreria di autenticazione app](/dotnet/api/overview/azure/service-to-service-authentication) consigliata per Key Vault .NET SDK versione 3, attualmente obsoleta. Seguire le indicazioni sulla migrazione da AppAuthentication ad [Azure.Identity](/dotnet/api/overview/azure/app-auth-migration) per eseguire la migrazione Key Vault .NET SDK versione 4.
+> [Libreria di autenticazione app](/dotnet/api/overview/azure/service-to-service-authentication) consigliata per Key Vault .NET SDK versione 3, attualmente obsoleta. Seguire [AppAuthentication in Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration) per eseguire la migrazione a Key Vault .NET SDK versione 4.
 
 Per esercitazioni su come eseguire l'autenticazione Key Vault nelle applicazioni, vedere:
 - [Eseguire l'Key Vault nell'applicazione ospitata nella macchina virtuale in .NET](./tutorial-net-virtual-machine.md)
 - [Eseguire l'Key Vault nell'applicazione ospitata nella macchina virtuale in Python](./tutorial-python-virtual-machine.md)
-- [Eseguire l'autenticazione Key Vault con il servizio app](./tutorial-net-create-vault-azure-web-app.md)
+- [Eseguire l'Key Vault con il servizio app](./tutorial-net-create-vault-azure-web-app.md)
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Gestire chiavi, certificati e segreti
 
-L'accesso a chiavi, segreti e certificati è controllato dal piano dati. Il controllo di accesso al piano dati può essere eseguito usando i criteri di accesso dell'insieme di credenziali locale o il controllo degli accessi in base al ruolo di Azure.
+L'accesso a chiavi, segreti e certificati è controllato dal piano dati. Il controllo degli accessi al piano dati può essere eseguito usando i criteri di accesso dell'insieme di credenziali locale o il controllo degli accessi in base al ruolo di Azure.
 
 **API chiavi e SDK**
 
@@ -97,7 +97,7 @@ L'accesso a chiavi, segreti e certificati è controllato dal piano dati. Il cont
 |--|--|--|--|--|--|--|--|
 |[Riferimento](/cli/azure/keyvault/certificate)<br>[Guida introduttiva](../certificates/quick-create-cli.md)|[Riferimento](/powershell/module/az.keyvault)<br>[Guida introduttiva](../certificates/quick-create-powershell.md)|[Riferimento](/rest/api/keyvault/#certificate-operations)|N/D|[Riferimento](/dotnet/api/azure.security.keyvault.certificates)<br>[Guida introduttiva](../certificates/quick-create-net.md)|[Riferimento](/python/api/overview/azure/keyvault-certificates-readme)<br>[Guida introduttiva](../certificates/quick-create-python.md)|[Riferimento](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)<br>[Guida introduttiva](../certificates/quick-create-java.md)|[Riferimento](/javascript/api/@azure/keyvault-certificates/)<br>[Guida introduttiva](../certificates/quick-create-node.md)|
 
-**API segreti e SDK**
+**API Secrets e SDK**
 
 | Interfaccia della riga di comando di Azure | PowerShell | API REST | Gestione risorse | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
@@ -105,7 +105,7 @@ L'accesso a chiavi, segreti e certificati è controllato dal piano dati. Il cont
 
 Vedere [Librerie client per](client-libraries.md) i pacchetti di installazione e il codice sorgente.
 
-Per altre informazioni sulla sicurezza Key Vault del piano dati, vedere panoramica [Key Vault sicurezza.](security-overview.md)
+Per altre informazioni sulla sicurezza Key Vault del piano dati, vedere Azure Key Vault [di sicurezza](security-features.md).
 
 ### <a name="code-examples"></a>Esempi di codice
 
@@ -118,9 +118,9 @@ Per esempi completi che usano l'insieme di credenziali delle chiavi con le appli
 Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare l'insieme di credenziali delle chiavi di Azure:
 
 - [Accesso a un insieme di credenziali delle chiavi protetto da firewall](access-behind-firewall.md): per accedere a un insieme di credenziali delle chiavi, l'applicazione client dell'insieme di credenziali delle chiavi deve poter accedere a più endpoint per varie funzionalità.
-- Come distribuire certificati nelle macchine virtuali da Key Vault - [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) : un'applicazione cloud in esecuzione in una macchina virtuale in Azure richiede un certificato. Come ottenere oggi il certificato per questa VM?
+- Come distribuire i certificati nelle macchine virtuali da Key Vault - [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) : un'applicazione cloud in esecuzione in una macchina virtuale in Azure richiede un certificato. Come ottenere oggi il certificato per questa VM?
 - [Distribuzione di un certificato dell'app Web di Azure tramite Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
-- Assegnare un[](assign-access-policy-cli.md)criterio di accesso (portale  |  [di PowerShell dell'interfaccia della riga di](assign-access-policy-powershell.md)  |  [comando).](assign-access-policy-portal.md) 
+- Assegnare un criterio di accesso ([interfaccia della riga di comando](assign-access-policy-cli.md)del portale di  |  [PowerShell](assign-access-policy-powershell.md)  |  [](assign-access-policy-portal.md)). 
 - [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](./key-vault-recovery.md) descrive l'utilizzo e il ciclo di vita di un insieme di credenziali delle chiavi e di vari oggetti dell'insieme di credenziali delle chiavi con l'eliminazione temporanea abilitata.
 - [Passare valori protetti come password durante la distribuzione](../../azure-resource-manager/templates/key-vault-parameter.md) : se è necessario passare come parametro durante la distribuzione un valore protetto, ad esempio una password, è possibile archiviare tale valore come chiave privata in un insieme di credenziali delle chiavi di Azure e fare riferimento al valore in altri modelli di Resource Manager.
 
@@ -128,11 +128,11 @@ Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare
 
 Questi articoli illustrano altri scenari e servizi che usano o si integrano con Key Vault.
 
-- [La crittografia dei dati](../../security/fundamentals/encryption-atrest.md) in pausa consente la codifica (crittografia) dei dati quando vengono resi persistenti. Le chiavi di crittografia dei dati vengono spesso crittografate con una chiave di crittografia della chiave Azure Key Vault per limitare ulteriormente l'accesso.
+- [La crittografia in stato di](../../security/fundamentals/encryption-atrest.md) inquieto consente la codifica (crittografia) dei dati quando vengono resi persistenti. Le chiavi di crittografia dei dati vengono spesso crittografate con una chiave di crittografia della chiave Azure Key Vault limitare ulteriormente l'accesso.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) consente di gestire la propria chiave tenant. Ad esempio, anziché affidare a Microsoft la gestione della chiave tenant (impostazione predefinita), l'utente può gestire la propria chiave tenant per garantire la conformità alle normative specifiche che si applicano all'organizzazione. La gestione della propria chiave tenant viene definita Bring Your Own Key o BYOK.
 - [collegamento privato di Azure Service](private-link-service.md) consente di accedere ai servizi di Azure (ad esempio, Azure Key Vault, Archiviazione di Azure e Azure Cosmos DB) e ai servizi clienti/partner ospitati in Azure tramite un endpoint privato nella rete virtuale.
-- Key Vault'integrazione con [Griglia](../../event-grid/event-schema-key-vault.md)  di eventi consente agli utenti di ricevere una notifica quando lo stato di un segreto archiviato nell'insieme di credenziali delle chiavi è stato modificato. È possibile distribuire una nuova versione dei segreti alle applicazioni o ruotare i segreti in prossimità della scadenza per evitare interruzioni.
-- È possibile proteggere i [segreti di Devops](/azure/devops/pipelines/release/azure-key-vault) di Azure da accessi indesiderati in Key Vault.
+- Key Vault'integrazione con [Griglia di](../../event-grid/event-schema-key-vault.md)  eventi consente agli utenti di ricevere una notifica quando lo stato di un segreto archiviato nell'insieme di credenziali delle chiavi è cambiato. È possibile distribuire una nuova versione dei segreti alle applicazioni o ruotare i segreti quasi in scadenza per evitare interruzioni.
+- È possibile proteggere i [segreti di Azure Devops](/azure/devops/pipelines/release/azure-key-vault) da accessi indesiderati in Key Vault.
 - [Usare il segreto archiviato in Key Vault in DataBricks per connettersi a Archiviazione di Azure](./integrate-databricks-blob-storage.md)
 - Configurare ed eseguire il provider Azure Key Vault per il [driver CSI dell'archivio segreti](./key-vault-integrate-kubernetes.md) in Kubernetes
 

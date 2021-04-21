@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/14/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 37e67ad869af23b51497e1497865f620bae612aa
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: b8690b5ce3e2aee9a554d3e0682161b86264e124
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749187"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818534"
 ---
 # <a name="client-libraries-for-azure-key-vault"></a>Librerie client per Azure Key Vault
 
@@ -35,4 +35,4 @@ Ogni SDK dispone di librerie client distinte per l'insieme di credenziali delle 
 
 - Vedere la [Guida per gli sviluppatori per Azure Key Vault](developers-guide.md)
 - Altre informazioni su come [Eseguire l'autenticazione a un insieme di credenziali delle chiavi](authentication.md)
-- Altre informazioni su come [Proteggere l'accesso a un insieme di credenziali delle chiavi](security-overview.md)
+- Altre informazioni su come [Proteggere l'accesso a un insieme di credenziali delle chiavi](security-features.md)

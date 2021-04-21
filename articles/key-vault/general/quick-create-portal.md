@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2d8bfdf3a4ad8b713fb6c937d61fa437fc7977f2
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 93c0c77ad36be82802fd53e4130e48ac431b0280
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749673"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819287"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Avvio rapido: Creare un insieme di credenziali delle chiavi usando il portale di Azure
 
@@ -69,5 +69,5 @@ Quando non è più necessario, eliminare il gruppo di risorse per eliminare l'is
 In questa guida di avvio rapido è stato creato un insieme di credenziali delle chiavi usando il portale di Azure. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
 
 - Leggere una [panoramica di Azure Key Vault](overview.md)
-- Vedere [Panoramica della sicurezza di Azure Key Vault](security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](security-features.md)
 - Vedere la [Guida per gli sviluppatori per Azure Key Vault](developers-guide.md)

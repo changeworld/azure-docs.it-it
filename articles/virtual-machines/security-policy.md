@@ -1,5 +1,5 @@
 ---
-title: Criteri di sicurezza e utilizzo
+title: Proteggere e usare i criteri
 description: Informazioni sulla sicurezza e sui criteri per le macchine virtuali in Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 840045da33938d4c1cd725fd5a99bf1b8014f6b1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 6754e4e60c31c35531b27e6cc2047e9f8ce3d0bc
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748467"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817396"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Applicare la sicurezza e usare criteri in macchine virtuali in Azure
 
@@ -27,11 +27,11 @@ L'attuale panorama delle minacce per gli ambienti cloud è dinamico e impone sem
 
 Con il [Centro sicurezza di Azure](../security-center/security-center-introduction.md) è possibile impedire, rilevare e gestire le minacce per le macchine virtuali. Il Centro sicurezza offre un monitoraggio di sicurezza integrato e gestione dei criteri per le sottoscrizioni di Azure, aiuta a rilevare le minacce che potrebbero altrimenti passare inosservate ed è compatibile con un ampio ecosistema di soluzioni di sicurezza.
 
-L'accesso just-in-time del Centro sicurezza può essere applicato nella distribuzione di macchine virtuali per bloccare il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e offrendo al tempo stesso un facile accesso per connettersi alle macchine virtuali quando necessario. Quando JIT è abilitato e un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza controlla le autorizzazioni di cui dispone l'utente per la macchina virtuale. Se l'utente dispone delle autorizzazioni corrette, la richiesta viene approvata e il Centro sicurezza configura automaticamente i gruppi di sicurezza di rete per consentire il traffico in entrata alle porte selezionate per un periodo di tempo limitato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. 
+L'accesso just-in-time del Centro sicurezza può essere applicato in tutta la distribuzione della macchina virtuale per bloccare il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e offrendo al tempo stesso un accesso semplice per connettersi alle macchine virtuali quando necessario. Quando JIT è abilitato e un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza controlla le autorizzazioni di cui dispone l'utente per la macchina virtuale. Se l'utente dispone delle autorizzazioni corrette, la richiesta viene approvata e il Centro sicurezza configura automaticamente i gruppi di sicurezza di rete per consentire il traffico in entrata alle porte selezionate per un periodo di tempo limitato. Al termine di questo periodo, Centro sicurezza ripristina gli stati precedenti dei gruppi di sicurezza di rete. 
 
 ## <a name="encryption"></a>Crittografia
 
-Per i dischi gestiti sono disponibili due metodi di crittografia. Crittografia a livello di sistema operativo, che è Crittografia dischi di Azure, e crittografia a livello di piattaforma, ovvero crittografia lato server.
+Per i dischi gestiti sono disponibili due metodi di crittografia. Crittografia a livello di sistema operativo, che è Crittografia dischi di Azure, e crittografia a livello di piattaforma, ovvero la crittografia lato server.
 
 ### <a name="server-side-encryption"></a>Modello di crittografia lato server
 
@@ -53,7 +53,7 @@ Non è previsto alcun addebito per la crittografia dei dischi virtuali in Azure.
 
 È possibile creare segreti e certificati come risorse e fornirli tramite [Key Vault](../key-vault/general/basic-concepts.md). È possibile usare Azure PowerShell e l'interfaccia della riga di comando di Azure per creare insiemi di credenziali delle chiavi rispettivamente per [macchine virtuali Windows](windows/key-vault-setup.md) e [macchine virtuali Linux](linux/key-vault-setup.md). È anche possibile creare chiavi per la crittografia.
 
-I criteri di accesso dell'insieme di credenziali delle chiavi concedono autorizzazioni separate per chiavi, segreti e certificati. È ad esempio possibile concedere a un utente l'accesso alle chiavi, ma non le autorizzazioni per i segreti. Tuttavia, le autorizzazioni per accedere a chiavi, segreti o certificati vengono definite a livello di insieme di credenziali. In altre parole, i criteri [di accesso dell'insieme di](../key-vault/general/security-overview.md) credenziali delle chiavi non supportano le autorizzazioni a livello di oggetto.
+I criteri di accesso dell'insieme di credenziali delle chiavi concedono autorizzazioni separate per chiavi, segreti e certificati. È ad esempio possibile concedere a un utente l'accesso alle chiavi, ma non le autorizzazioni per i segreti. Tuttavia, le autorizzazioni per accedere a chiavi, segreti o certificati vengono definite a livello di insieme di credenziali. In altre parole, i criteri [di accesso dell'insieme di credenziali delle](../key-vault/general/security-features.md) chiavi non supportano le autorizzazioni a livello di oggetto.
 
 Quando ci si connette alle macchine virtuali (VM), è consigliabile usare la crittografia a chiave pubblica per fornire un modo più sicuro per accedere alle VM. Questo processo comporta uno scambio di chiavi pubbliche e private mediante il comando Sicure Shell (SSH) per l'autenticazione, anziché nome utente e password. Le password sono vulnerabili agli attacchi di forza bruta, soprattutto nelle VM con connessione Internet, ad esempio i server Web. Con una coppia di chiavi SSH (Secure Shell) è possibile creare una [macchina virtuale Linux](linux/mac-create-ssh-keys.md) che usa chiavi SSH per l'autenticazione, eliminando la necessità di immettere password per l'accesso. È anche possibile usare chiavi SSH per la connessione da una [macchina virtuale Windows](linux/ssh-from-windows.md) a una macchina virtuale Linux.
 
@@ -69,7 +69,7 @@ La funzionalità delle identità gestite per le risorse di Azure in Azure Active
 
 ## <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
-Usando il controllo degli accessi in base al ruolo [di Azure,](../role-based-access-control/overview.md)è possibile separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti nella macchina virtuale necessaria per eseguire i propri processi. Invece di concedere a tutti autorizzazioni senza restrizioni per la macchina virtuale, è possibile consentire solo determinate azioni. È possibile configurare il controllo di accesso per la macchina virtuale nel [portale di Azure](../role-based-access-control/role-assignments-portal.md), nell'[interfaccia della riga di comando di Azure](/cli/azure/role) o con [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+Usando il controllo degli accessi in base al ruolo di [Azure,](../role-based-access-control/overview.md)è possibile separare i compiti all'interno del team e concedere agli utenti nella macchina virtuale solo la quantità di accesso necessaria per svolgere il proprio lavoro. Invece di concedere a tutti autorizzazioni senza restrizioni per la macchina virtuale, è possibile consentire solo determinate azioni. È possibile configurare il controllo di accesso per la macchina virtuale nel [portale di Azure](../role-based-access-control/role-assignments-portal.md), nell'[interfaccia della riga di comando di Azure](/cli/azure/role) o con [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,7 +1,7 @@
 ---
-title: Risoluzione dei problemi relativi alle pipeline ML
+title: Risoluzione dei problemi relativi alle pipeline di Machine Learning
 titleSuffix: Azure Machine Learning
-description: Come risolvere i problemi quando si verificano errori durante l'esecuzione di una pipeline di machine learning. Problemi comuni e suggerimenti per facilitare il debug degli script prima e durante l'esecuzione remota.
+description: Come risolvere i problemi quando si verificano errori durante l'esecuzione di una pipeline di Machine Learning. Insidie comuni e suggerimenti per eseguire il debug degli script prima e durante l'esecuzione remota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 195942d1787cdef51ee480fa5c5595db99bc7c78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3a85566f395e97bbe88d52a8b306c7e0aa15669d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102522088"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817342"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Risoluzione dei problemi relativi alle pipeline di Machine Learning
 
-Questo articolo illustra come risolvere i problemi quando si verificano errori durante l'esecuzione di una [pipeline di Machine Learning](concept-ml-pipelines.md) in [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) e in [Azure machine learning designer](./concept-designer.md). 
+Questo articolo illustra come risolvere i problemi quando si verificano errori durante l'esecuzione di una pipeline di [Machine Learning](concept-ml-pipelines.md) in [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) e Azure Machine Learning [designer.](./concept-designer.md) 
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 
@@ -27,13 +27,13 @@ La tabella seguente contiene problemi comuni durante lo sviluppo di pipeline, co
 
 | Problema | Possibile soluzione |
 |--|--|
-| Non è possibile passare i dati alla `PipelineData` Directory | Assicurarsi di aver creato una directory nello script che corrisponde alla posizione in cui la pipeline prevede i dati di output del passaggio. Nella maggior parte dei casi, un argomento di input definirà la directory di output, quindi la directory verrà creata in modo esplicito. Usare `os.makedirs(args.output_dir, exist_ok=True)` per creare la directory di output. Vedere l' [esercitazione](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) per un esempio di script di assegnazione dei punteggi che mostra questo schema progettuale. |
-| Bug della dipendenza | Se vengono visualizzati errori della dipendenza nella pipeline remota che non si sono verificati durante il test in locale, verificare che le dipendenze e le versioni dell'ambiente remoto corrispondano a quelle presenti nell'ambiente di test. (Vedere [compilazione, memorizzazione nella cache e riutilizzo dell'ambiente](./concept-environments.md#environment-building-caching-and-reuse)|
-| Errori ambigui con le destinazioni di calcolo | Provare a eliminare e ricreare le destinazioni di calcolo. La ricreazione di destinazioni di calcolo è rapida e può risolvere alcuni problemi temporanei. |
-| La pipeline non riusa i passaggi | Il riutilizzo dei passaggi è abilitato per impostazione predefinita, ma assicurarsi che non sia stato disabilitato in un passaggio della pipeline. Se il riutilizzo è disabilitato, il `allow_reuse` parametro nel passaggio verrà impostato su `False` . |
-| La pipeline è stata rieseguita inutilmente | Per assicurarsi che i passaggi vengano rieseguiti solo quando cambiano i dati o gli script sottostanti, separare le directory del codice sorgente per ogni passaggio. Se si usa la stessa directory di origine per più passaggi, è possibile che si verifichino riesecuzioni non necessarie. Usare il `source_directory` parametro in un oggetto step della pipeline per puntare alla directory isolata per questo passaggio e assicurarsi che non si usi lo stesso `source_directory` percorso per più passaggi. |
-| Passaggio al rallentamento rispetto alle epoche di training o ad altri comportamenti di ciclo | Provare a cambiare le scritture dei file, inclusa la registrazione, da `as_mount()` a `as_upload()` . La modalità di **montaggio** usa un filesystem virtualizzato remoto e carica l'intero file ogni volta che viene aggiunto a. |
-| La destinazione di calcolo richiede molto tempo per l'avvio | Le immagini Docker per le destinazioni di calcolo vengono caricate da Azure Container Registry (ACR). Per impostazione predefinita, Azure Machine Learning crea un ACR che usa il livello di servizio *Basic* . La modifica dell'ACR per l'area di lavoro nel livello standard o Premium può ridurre il tempo necessario per compilare e caricare le immagini. Per altre informazioni, vedere [Livelli di servizio di Registro Azure Container](../container-registry/container-registry-skus.md). |
+| Impossibile passare i dati alla `PipelineData` directory | Assicurarsi di aver creato una directory nello script che corrisponde alla posizione in cui la pipeline prevede i dati di output del passaggio. Nella maggior parte dei casi, un argomento di input definirà la directory di output, quindi la directory verrà creata in modo esplicito. Usare `os.makedirs(args.output_dir, exist_ok=True)` per creare la directory di output. Vedere [l'esercitazione](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) per un esempio di script di assegnazione dei punteggi che illustra questo modello di progettazione. |
+| Bug della dipendenza | Se vengono visualizzati errori della dipendenza nella pipeline remota che non si sono verificati durante il test in locale, verificare che le dipendenze e le versioni dell'ambiente remoto corrispondano a quelle presenti nell'ambiente di test. Vedere [Creazione, memorizzazione nella cache e riutilizzo dell'ambiente](./concept-environments.md#environment-building-caching-and-reuse)|
+| Errori ambigui con destinazioni di calcolo | Provare a eliminare e ri-creare le destinazioni di calcolo. La ri-creazione delle destinazioni di calcolo è rapida e può risolvere alcuni problemi temporanei. |
+| Passaggi di non riutilizzo della pipeline | Il riutilizzo dei passaggi è abilitato per impostazione predefinita, ma assicurarsi che non sia stato disabilitato in un passaggio della pipeline. Se il riutilizzo è disabilitato, `allow_reuse` il parametro nel passaggio verrà impostato su `False` . |
+| La pipeline viene rieseguita inutilmente | Per assicurarsi che i passaggi siano eseguiti di nuovo solo quando cambiano i dati o gli script sottostanti, separare le directory del codice sorgente per ogni passaggio. Se si usa la stessa directory di origine per più passaggi, è possibile che si verifichino rieseguizioni non necessarie. Usare il parametro in un oggetto passaggio della pipeline per puntare alla directory isolata per tale passaggio e assicurarsi di non usare lo stesso `source_directory` `source_directory` percorso per più passaggi. |
+| Rallentamento del passaggio rispetto a epoche di training o ad altri comportamenti di ciclo | Provare a cambiare qualsiasi scrittura di file, inclusa la registrazione, da `as_mount()` a `as_upload()` . La **modalità di** montaggio usa un file system virtualizzato remoto e carica l'intero file ogni volta che viene aggiunto. |
+| L'avvio della destinazione di calcolo richiede molto tempo | Le immagini Docker per le destinazioni di calcolo vengono caricate da Registro Azure Container (ACR). Per impostazione predefinita, Azure Machine Learning crea un ACR che usa il livello *di servizio* Basic. La modifica di ACR per l'area di lavoro al livello Standard o Premium può ridurre il tempo necessario per compilare e caricare le immagini. Per altre informazioni, vedere [Livelli di servizio di Registro Azure Container](../container-registry/container-registry-skus.md). |
 
 ### <a name="authentication-errors"></a>Errori di autenticazione
 
@@ -48,9 +48,9 @@ Se si esegue un'operazione di gestione in una destinazione di calcolo da un proc
 ```
 
 Ad esempio, si riceverà un errore se si prova a creare o collegare una destinazione di calcolo da una pipeline di Machine Learning che viene inviata per l'esecuzione remota.
-## <a name="troubleshooting-parallelrunstep"></a>Risoluzione dei problemi `ParallelRunStep` 
+## <a name="troubleshooting-parallelrunstep"></a>Risoluzione dei problemi relativi `ParallelRunStep` 
 
-Lo script per un `ParallelRunStep` *deve contenere* due funzioni:
+Lo script per un `ParallelRunStep` *oggetto deve contenere* due funzioni:
 - `init()`: usare questa funzione per qualsiasi preparazione dispendiosa o comune per un'inferenza successiva. Usarla ad esempio per caricare il modello in un oggetto globale. Questa funzione verrà chiamata solo una volta all'inizio del processo.
 -  `run(mini_batch)`: la funzione viene eseguita per ogni istanza di `mini_batch`.
     -  `mini_batch`: `ParallelRunStep` richiama il metodo run e passa un elenco o un `DataFrame` Pandas come argomento al metodo. Ogni voce in mini_batch sarà un percorso file se l'input è un oggetto `FileDataset` oppure un `DataFrame` Pandas se l'input è un oggetto `TabularDataset`.
@@ -139,7 +139,7 @@ Creare ParallelRunStep usando lo script, la configurazione dell'ambiente e i par
 - `parallel_run_config`: oggetto `ParallelRunConfig`, come definito in precedenza.
 - `inputs`: uno o più set di dati di Azure Machine Learning di tipo singolo da partizionare per l'elaborazione parallela.
 - `side_inputs`: uno o più set di dati o dati di riferimento usati come input secondari senza necessità di partizionamento.
-- `output`: `OutputFileDatasetConfig` Oggetto che corrisponde alla directory di output.
+- `output`: oggetto `OutputFileDatasetConfig` che corrisponde alla directory di output.
 - `arguments`: elenco di argomenti passati allo script utente. Usare unknown_args per recuperarli nello script di immissione (facoltativo).
 - `allow_reuse`: indica se il passaggio deve riutilizzare i risultati precedenti quando viene eseguito con le stesse impostazioni o gli stessi input. Se il parametro è `False`, durante l'esecuzione della pipeline viene sempre generata una nuova esecuzione per questo passaggio (Facoltativo. Il valore predefinito è `True`).
 
@@ -157,44 +157,44 @@ parallelrun_step = ParallelRunStep(
 
 ## <a name="debugging-techniques"></a>Tecniche di debug
 
-Sono disponibili tre tecniche principali per il debug delle pipeline: 
+Esistono tre tecniche principali per il debug delle pipeline: 
 
-* Eseguire il debug dei singoli passaggi della pipeline nel computer locale
+* Eseguire il debug di singoli passaggi della pipeline nel computer locale
 * Usare la registrazione e Application Insights per isolare e diagnosticare l'origine del problema
-* Connessione di un debugger remoto a una pipeline in esecuzione in Azure
+* Collegare un debugger remoto a una pipeline in esecuzione in Azure
 
-### <a name="debug-scripts-locally"></a>Debug di script in locale
+### <a name="debug-scripts-locally"></a>Eseguire il debug degli script in locale
 
-Uno degli errori più comuni in una pipeline è che lo script del dominio non viene eseguito come previsto o contiene errori di runtime nel contesto di calcolo remoto difficili da eseguire il debug.
+Uno degli errori più comuni in una pipeline è che lo script di dominio non viene eseguito come previsto o contiene errori di runtime nel contesto di calcolo remoto di cui è difficile eseguire il debug.
 
-Le pipeline non possono essere eseguite localmente, ma l'esecuzione degli script in isolamento nel computer locale consente di eseguire il debug più velocemente perché non è necessario attendere il processo di compilazione di calcolo e ambiente. Per eseguire questa operazione, è necessario eseguire alcune operazioni di sviluppo:
+Le pipeline stesse non possono essere eseguite in locale, ma l'esecuzione degli script in isolamento nel computer locale consente di eseguire il debug più velocemente perché non è necessario attendere il processo di compilazione dell'ambiente e di calcolo. A tale scopo, è necessario eseguire alcune operazioni di sviluppo:
 
-* Se i dati si trova in un archivio dati cloud, sarà necessario scaricare i dati e renderli disponibili per lo script. L'uso di un piccolo campione di dati è un modo efficace per ridurre il tempo di esecuzione e ottenere commenti e suggerimenti sul comportamento degli script
-* Se si sta tentando di simulare un passaggio della pipeline intermedia, potrebbe essere necessario compilare manualmente i tipi di oggetto previsti dallo script specifico dal passaggio precedente
-* Sarà inoltre necessario definire un ambiente personalizzato e replicare le dipendenze definite nell'ambiente di calcolo remoto
+* Se i dati si trova in un archivio dati cloud, è necessario scaricare i dati e renderli disponibili per lo script. L'uso di un piccolo campione di dati è un buon modo per ridurre il runtime e ottenere rapidamente commenti e suggerimenti sul comportamento degli script
+* Se si sta tentando di simulare un passaggio intermedio della pipeline, potrebbe essere necessario compilare manualmente i tipi di oggetto che lo script specifico prevede dal passaggio precedente
+* Sarà anche necessario definire il proprio ambiente e replicare le dipendenze definite nell'ambiente di calcolo remoto
 
-Una volta completata l'installazione di uno script nell'ambiente locale, è molto più semplice eseguire attività di debug come:
+Dopo aver creato uno script da eseguire nell'ambiente locale, è molto più semplice eseguire attività di debug come:
 
-* Associazione di una configurazione di debug personalizzata
-* Sospensione dell'esecuzione e controllo dello stato dell'oggetto
-* Rilevamento di errori logici o di tipo che non verranno esposti fino al runtime
+* Collegamento di una configurazione di debug personalizzata
+* Sospensione dell'esecuzione e controllo dello stato degli oggetti
+* Rilevamento di errori di tipo o logici che non verranno esposti fino al runtime
 
 > [!TIP] 
-> Quando è possibile verificare che lo script sia in esecuzione come previsto, un passaggio successivo consiste nell'eseguire lo script in una pipeline a singolo passaggio prima di provare a eseguirlo in una pipeline con più passaggi.
+> Dopo aver verificato che lo script sia in esecuzione come previsto, un buon passaggio successivo consiste nell'eseguire lo script in una pipeline a passaggio singolo prima di tentare di eseguirlo in una pipeline con più passaggi.
 
 ## <a name="configure-write-to-and-review-pipeline-logs"></a>Configurare, scrivere ed esaminare i log della pipeline
 
-Il testing degli script in locale è un ottimo modo per eseguire il debug di frammenti di codice e logica complessa prima di iniziare a creare una pipeline, ma a un certo punto è probabile che sia necessario eseguire il debug degli script durante l'esecuzione effettiva della pipeline, soprattutto quando si diagnostica il comportamento che si verifica durante l'interazione tra i passaggi della pipeline. È consigliabile usare `print()` le istruzioni in modo liberato negli script dei passaggi, in modo che sia possibile visualizzare lo stato dell'oggetto e i valori previsti durante l'esecuzione remota, in modo analogo al debug del codice JavaScript.
+Il test degli script in locale è un ottimo modo per eseguire il debug di frammenti di codice principali e logica complessa prima di iniziare a compilare una pipeline, ma a un certo punto è probabile che sia necessario eseguire il debug degli script durante l'esecuzione effettiva della pipeline, soprattutto quando si diagnostica il comportamento che si verifica durante l'interazione tra i passaggi della pipeline. È consigliabile usare istruzioni negli script del passaggio in modo da visualizzare lo stato dell'oggetto e i valori previsti durante l'esecuzione remota, in modo simile a come si eseguirebbe il `print()` debug del codice JavaScript.
 
 ### <a name="logging-options-and-behavior"></a>Opzioni di registrazione e comportamento
 
-La tabella seguente fornisce informazioni per diverse opzioni di debug per le pipeline. Non si tratta di un elenco esaustivo, perché esistono altre opzioni oltre a Azure Machine Learning, Python e OpenCensus.
+La tabella seguente fornisce informazioni sulle diverse opzioni di debug per le pipeline. Non è un elenco esaustivo, perché esistono altre opzioni oltre a quelle Azure Machine Learning, Python e OpenCensus mostrate qui.
 
 | Libreria                    | Type   | Esempio                                                          | Destination                                  | Risorse                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | Metrica | `run.log(name, val)`                                             | Interfaccia utente del portale di Azure Machine Learning             | [Come tenere traccia degli esperimenti](how-to-track-experiments.md)<br>[Classe azureml. Core. Run](/python/api/azureml-core/azureml.core.run%28class%29)                                                                                                                                                 |
-| Stampa/registrazione Python    | Log    | `print(val)`<br>`logging.info(message)`                          | Log driver, progettazione Azure Machine Learning | [Come tenere traccia degli esperimenti](how-to-track-experiments.md)<br><br>[Registrazione Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| OpenCensus Python          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights-TRACES                | [Debug delle pipeline in Application Insights](./how-to-log-pipelines-application-insights.md)<br><br>[Esportatori di Monitoraggio di Azure per OpenCensus](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Cookbook per la registrazione di Python](https://docs.python.org/3/howto/logging-cookbook.html) |
+| Azure Machine Learning SDK | Metrica | `run.log(name, val)`                                             | Azure Machine Learning dell'interfaccia utente del portale             | [Come tenere traccia degli esperimenti](how-to-log-view-metrics.md)<br>[Classe azureml.core.Run](/python/api/azureml-core/azureml.core.run%28class%29)                                                                                                                                                 |
+| Stampa/registrazione Python    | Log    | `print(val)`<br>`logging.info(message)`                          | Log driver, progettazione Azure Machine Learning driver | [Come tenere traccia degli esperimenti](how-to-log-view-metrics.md)<br><br>[Registrazione python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| OpenCensus Python          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights : tracce                | [Debug delle pipeline in Application Insights](./how-to-log-pipelines-application-insights.md)<br><br>[Esportatori di Monitoraggio di Azure per OpenCensus](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Guida di cookbook per la registrazione in Python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Esempio di opzioni di registrazione
 
@@ -230,50 +230,50 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ## <a name="azure-machine-learning-designer"></a>Finestra di progettazione di Azure Machine Learning
 
-Per le pipeline create nella finestra di progettazione, è possibile trovare il file **70_driver_log** nella pagina Creazione e modifica o nella pagina Dettagli esecuzione pipeline.
+Per le pipeline create nella finestra di progettazione, è possibile trovare il file **70_driver_log** nella pagina di creazione o nella pagina dei dettagli dell'esecuzione della pipeline.
 
 ### <a name="enable-logging-for-real-time-endpoints"></a>Abilitare la registrazione per gli endpoint in tempo reale
 
-Per risolvere i problemi ed eseguire il debug degli endpoint in tempo reale nella finestra di progettazione, è necessario abilitare la registrazione di Application Insight usando l'SDK. La registrazione consente di risolvere i problemi relativi all'utilizzo e alla distribuzione del modello. Per ulteriori informazioni, vedere [registrazione per i modelli distribuiti](./how-to-enable-app-insights.md). 
+Per risolvere i problemi ed eseguire il debug degli endpoint in tempo reale nella finestra di progettazione, è necessario abilitare la registrazione di Application Insight usando l'SDK. La registrazione consente di risolvere i problemi di distribuzione e utilizzo del modello ed eseguirne il debug. Per altre informazioni, vedere [Registrazione per i modelli distribuiti.](./how-to-enable-app-insights.md) 
 
-### <a name="get-logs-from-the-authoring-page"></a>Ottenere i log dalla pagina Creazione e modifica
+### <a name="get-logs-from-the-authoring-page"></a>Ottenere i log dalla pagina di creazione
 
 Quando si invia un'esecuzione della pipeline e si rimane nella pagina di creazione, è possibile trovare i file di log generati per ogni modulo al termine dell'esecuzione di ogni modulo.
 
 1. Selezionare un modulo che ha terminato l'esecuzione nell'area di disegno di creazione.
-1. Nel riquadro destro del modulo andare alla scheda  **output + log** .
-1. Espandere il riquadro destro e selezionare il **70_driver_log.txt** per visualizzare il file nel browser. È anche possibile scaricare i log localmente.
+1. Nel riquadro destro del modulo passare alla  **scheda Output e** log.
+1. Espandere il riquadro destro e selezionare la70_driver_log.txt **per** visualizzare il file nel browser. È anche possibile scaricare i log in locale.
 
     ![Riquadro di output espanso nella finestra di progettazione](./media/how-to-debug-pipelines/designer-logs.png)
 
-### <a name="get-logs-from-pipeline-runs"></a>Ottenere i log dalle esecuzioni di pipeline
+### <a name="get-logs-from-pipeline-runs"></a>Ottenere i log dalle esecuzioni della pipeline
 
-È anche possibile trovare i file di log per esecuzioni specifiche nella pagina dei dettagli dell'esecuzione della pipeline, disponibile nella sezione **pipeline** o **esperimenti** di studio.
+È anche possibile trovare i file di log per esecuzioni specifiche nella pagina dei dettagli dell'esecuzione della pipeline, disponibile nella sezione **Pipeline** **o** Esperimenti di Studio.
 
-1. Consente di selezionare un'esecuzione di pipeline creata nella finestra di progettazione.
+1. Selezionare un'esecuzione della pipeline creata nella finestra di progettazione.
 
     ![Pagina esecuzione pipeline](./media/how-to-debug-pipelines/designer-pipelines.png)
 
 1. Selezionare un modulo nel riquadro di anteprima.
-1. Nel riquadro destro del modulo andare alla scheda  **output + log** .
-1. Espandere il riquadro destro per visualizzare il file di **70_driver_log.txt** nel browser oppure selezionare il file per scaricare i log localmente.
+1. Nel riquadro destro del modulo passare alla scheda  **Output e** log.
+1. Espandere il riquadro destro per visualizzare il **file70_driver_log.txt** nel browser oppure selezionare il file per scaricare i log in locale.
 
 > [!IMPORTANT]
-> Per aggiornare una pipeline dalla pagina dei dettagli dell'esecuzione della pipeline, è necessario **clonare** l'esecuzione della pipeline in una nuova bozza della pipeline. Un'esecuzione di pipeline è uno snapshot della pipeline. È simile a un file di log e non può essere modificato. 
+> Per aggiornare una pipeline dalla pagina dei dettagli dell'esecuzione della pipeline, è necessario **clonare** l'esecuzione della pipeline in una nuova bozza di pipeline. Un'esecuzione della pipeline è uno snapshot della pipeline. È simile a un file di log e non può essere modificato. 
 
 ## <a name="application-insights"></a>Application Insights
-Per altre informazioni sull'uso della libreria Python di OpenCensus in questo modo, vedere questa guida: [eseguire il debug e risolvere i problemi delle pipeline di Machine Learning in Application Insights](./how-to-log-pipelines-application-insights.md)
+Per altre informazioni sull'uso della libreria Python OpenCensus in questo modo, vedere questa guida: Eseguire il debug e risolvere i problemi delle pipeline di [Machine Learning in Application Insights](./how-to-log-pipelines-application-insights.md)
 
 ## <a name="interactive-debugging-with-visual-studio-code"></a>Debug interattivo con Visual Studio Code
 
-In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del codice Python usato nella pipeline ML. Utilizzando Visual Studio Code (VS Code) e debugpy, è possibile connettersi al codice durante l'esecuzione nell'ambiente di training. Per ulteriori informazioni, vedere il [debug interattivo in vs Code Guida](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines).
+In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del codice Python usato nella pipeline di Machine Learning. Usando Visual Studio Code (VS Code) e debugpy, è possibile connettersi al codice durante l'esecuzione nell'ambiente di training. Per altre informazioni, vedere il [debug interattivo in VS Code guida](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'esercitazione completa sull'uso di `ParallelRunStep` , vedere [esercitazione: creare una pipeline di Azure Machine Learning per il Punteggio batch](tutorial-pipeline-batch-scoring-classification.md).
+* Per un'esercitazione completa sull'uso di , vedere `ParallelRunStep` [Esercitazione: Compilare una pipeline Azure Machine Learning per l'assegnazione dei punteggi in batch.](tutorial-pipeline-batch-scoring-classification.md)
 
-* Per un esempio completo che illustra l'apprendimento automatico automatico in pipeline di ML, vedere usare Machine Learning [automatiche in una pipeline Azure Machine Learning in Python](how-to-use-automlstep-in-pipelines.md).
+* Per un esempio completo che mostra machine learning automatizzato nelle pipeline di Machine Learning, vedere Usare Machine Learning automatizzato in una pipeline Azure Machine Learning [in Python](how-to-use-automlstep-in-pipelines.md).
 
-* Vedere le informazioni di riferimento su SDK per il pacchetto [azureml-Pipelines-Core](/python/api/azureml-pipeline-core/) e il pacchetto [azureml-Pipelines-Steps](/python/api/azureml-pipeline-steps/) .
+* Vedere le informazioni di riferimento sull'SDK per informazioni sul [pacchetto azureml-pipelines-core](/python/api/azureml-pipeline-core/) e [sul pacchetto azureml-pipelines-steps.](/python/api/azureml-pipeline-steps/)
 
-* Vedere l'elenco di [eccezioni e codici di errore della finestra di progettazione](algorithm-module-reference/designer-error-codes.md).
+* Vedere l'elenco delle [eccezioni della finestra di progettazione e dei codici di errore](algorithm-module-reference/designer-error-codes.md).

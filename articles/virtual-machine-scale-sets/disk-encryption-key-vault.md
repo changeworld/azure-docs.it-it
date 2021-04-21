@@ -9,16 +9,16 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 77a2fc900e3888575fb6411a8c2b76b2c639d719
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: c9706176e537ec926a5335b54d667081773d76b1
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107748589"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817360"
 ---
 # <a name="create-and-configure-a-key-vault-for-azure-disk-encryption"></a>Creare e configurare un insieme di credenziali delle chiavi per Crittografia dischi di Azure
 
-Crittografia dischi di Azure usa Azure Key Vault per controllare e gestire segreti e chiavi di crittografia dei dischi.  Per altre informazioni sugli insiemi di credenziali delle chiavi, vedere [Introduzione alle funzionalità](../key-vault/general/overview.md) Azure Key Vault e Azure Key Vault [sicurezza.](../key-vault/general/security-overview.md)
+Crittografia dischi di Azure usa Azure Key Vault per controllare e gestire segreti e chiavi di crittografia dei dischi.  Per altre informazioni sugli insiemi di credenziali delle chiavi, vedere Introduzione alle [funzionalità Azure Key Vault](../key-vault/general/overview.md) e [Azure Key Vault sicurezza.](../key-vault/general/security-features.md)
 
 La creazione e la configurazione di un insieme di credenziali delle chiavi per l'uso con Crittografia dischi di Azure prevede tre passaggi:
 
