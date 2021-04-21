@@ -1,21 +1,20 @@
 ---
 title: Note sulla versione dell'API .NET 2.x per l'insieme di credenziali delle chiavi | Microsoft Docs
-description: Informazioni su come aggiornare le app scritte per le versioni precedenti di Azure Key Vault per usare la versione 2,0 della libreria Azure Key Vault per C# e .NET.
+description: Informazioni su come aggiornare le app scritte per le versioni precedenti di Azure Key Vault usare la versione 2.0 della libreria Azure Key Vault per C# e .NET.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 editor: bryanla
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 018570019b306dced76760fefa4441ee7d86ad2a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b923cc289dc0229f18eba144b09ceb34e0edea4e
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96013956"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751887"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Guida alla migrazione e note sulla versione .NET 2.0 per l'insieme di credenziali delle chiavi di Azure
 Le informazioni seguenti consentono la migrazione alla versione 2.0 della libreria di Azure Key Vault per C# e .NET.  È necessario che le app scritte per le versioni precedenti siano aggiornate per supportare la versione più recente.  Queste modifiche sono necessarie per supportare completamente le funzionalità nuove e migliorate, come ad esempio i **certificati Key Vault**.
@@ -90,8 +89,8 @@ Quando un client elabora una dipendenza Key Vault, vengono scaricati i pacchetti
 
 ## <a name="class-changes"></a>Modifiche alle classi
 
-* La classe **UnixEpoch** è stata rimossa.
-* La classe **Base64UrlConverter** è stata rinominata in **Base64UrlJsonConverter**.
+* **La classe UnixEpoch** è stata rimossa.
+* **La classe Base64UrlConverter** viene rinominata **base64UrlJsonConverter.**
 
 ## <a name="other-changes"></a>Altre modifiche
 
@@ -99,7 +98,7 @@ Quando un client elabora una dipendenza Key Vault, vengono scaricati i pacchetti
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* Per le operazioni che hanno restituito un *insieme di credenziali, il* tipo restituito era una classe che conteneva **una proprietà dell'insieme di credenziali** . Il tipo restituito è ora *Vault*.
+* Per le operazioni che hanno restituito un *insieme di* credenziali, il tipo restituito era una classe che conteneva una **proprietà dell'insieme di** credenziali. Il tipo restituito è ora *Vault*.
 * *PermissionsToKeys* e *PermissionsToSecrets* ora sono *Permissions.Keys* e *Permissions.Secrets*
 * Alcune delle modifiche che riguardano i tipi restituiti si applicano anche al piano di controllo.
 

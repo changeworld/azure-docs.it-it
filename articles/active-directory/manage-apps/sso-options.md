@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: iangithinji
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: d81ad34c81a451f1faecb6cb33c0cc427567f122
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 202ccf6f540ec78c2bb30e0f0a0173609bba578c
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379605"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751455"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opzioni per l'accesso Single Sign-On in Azure AD
 
@@ -86,13 +86,12 @@ Con l'accesso basato su password, gli utenti eseguono la procedura di accesso al
 
 L'accesso Single Sign-On basato su password usa il processo di autenticazione esistente specificato dall'applicazione. Quando si abilita l'accesso Single Sign-On basato su password per un'applicazione, Azure AD raccoglie e archivia in modo sicuro i nomi utente e le password per l'applicazione. Le credenziali utente vengono archiviate in formato crittografato nella directory.
 
+Inoltre, l'amministratore può abilitare Azure AD criteri di accesso condizionale o l'autenticazione a più fattori per l'accesso SSO basato su password.
+
 Scegliere l'accesso Single Sign-On basato su password quando:
 
 - Un'applicazione non supporta il protocollo di accesso Single Sign-On SAML.
 - Un'applicazione esegue l'autenticazione con un nome utente e una password anziché usando intestazioni e token di accesso.
-
->[!NOTE]
->Non è possibile applicare i criteri di accesso condizionale o l'autenticazione a più fattori per l'accesso Single Sign-On basato su password.
 
 L'accesso Single Sign-On basato su password è supportato per qualunque applicazione basata su cloud con pagina di accesso basata su HTML. L'utente può usare uno dei browser seguenti:
 

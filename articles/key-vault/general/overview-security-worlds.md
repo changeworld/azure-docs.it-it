@@ -1,45 +1,39 @@
 ---
 title: Scenari di sicurezza di Azure Key Vault | Microsoft Docs
-description: Azure Key Vault è un servizio multi-tenant. Usa un pool di HSM in ogni località di Azure. Tutte le posizioni in un'area geografica condividono un limite crittografico.
+description: Azure Key Vault è un servizio multi-tenant. Usa un pool di HMS in ogni area di Azure. Tutte le aree in un'area geografica condividono un limite crittografico.
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: d21deea13aac3d40c452a183c340d3108a1a01f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d82a3cb4c08d47b6827072378b9827037d32412
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97936329"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751815"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Scenari di sicurezza di Azure Key Vault e confini geografici
 
-Azure Key Vault è un servizio multi-tenant e usa un pool di moduli di protezione Hardware (HSM) in ogni posizione di Azure. 
+I prodotti Azure sono disponibili in diverse aree geografiche [di Azure,](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)con ogni area geografica di Azure contenente una o più aree. Ad esempio, la geografia Europa contiene due aree, Europa settentrionale ed Europa occidentale, mentre l'unica area geografica del Brasile è Brasile meridionale.
 
-Tutti i moduli di protezione hardware nelle posizioni di Azure nella stessa area geografica condividono lo stesso limite di crittografia (ambiente di sicurezza Thales). Ad esempio, gli Stati Uniti orientali e gli Stati Uniti occidentali condividono lo stesso scenario di sicurezza perché appartengono alla posizione geografica degli Stati Uniti. Analogamente, tutte le posizioni di Azure in Giappone condividono lo stesso scenario di sicurezza e tutte le posizioni di Azure in Australia, in India e così via. 
+Azure Key Vault è un servizio multi-tenant che usa un pool di moduli di sicurezza hardware (HMS). Tutti gli HMS in un'area geografica condividono lo stesso limite crittografico, definito "mondo della sicurezza". Ogni area geografica corrisponde a un singolo mondo di sicurezza e viceversa.
+
+Stati Uniti orientali e Stati Uniti occidentali condividono lo stesso mondo della sicurezza perché appartengono alla geografia (Stati Uniti). Analogamente, tutte le aree di Azure in Giappone condividono lo stesso mondo della sicurezza, come tutte le aree di Azure in Australia e così via.
+
+>[!NOTE]
+> Un'eccezione è che il Dipartimento della difesa Stati Uniti orientali e il Dipartimento della difesa Stati Uniti centrali hanno i propri scenari di sicurezza.
 
 ## <a name="backup-and-restore-behavior"></a>Comportamento di backup e ripristino
 
-Un backup di una chiave presa da un insieme di credenziali della chiave in una posizione di Azure può essere ripristinato in un insieme di credenziali della chiave in un altra posizione di Azure, purché si verifichino entrambe le condizioni seguenti:
+Un backup eseguito di una chiave da un insieme di credenziali delle chiavi in un'area di Azure può essere ripristinato in un insieme di credenziali delle chiavi in un'altra area di Azure, purché entrambe le condizioni siano vere:
 
-- Entrambe le posizioni di Azure appartengono alla stessa posizione geografica
-- Entrambi gli insiemi di credenziali della chiave appartengono alla stessa sottoscrizione di Azure
+- Entrambe le aree di Azure appartengono alla stessa area geografica.
+- Entrambi gli insiemi di credenziali delle chiavi appartengono alla stessa sottoscrizione di Azure.
 
-Ad esempio, un backup preso da una sottoscrizione data di una chiave in un insieme di credenziali della chiave in India occidentale, può essere ripristinato solo per un altro insieme di credenziali della chiave nella stessa sottoscrizione e località geografica: India occidentale, India centrale o India meridionale.
+Ad esempio, un backup eseguito di una chiave in un insieme di credenziali delle chiavi dell'India occidentale può essere ripristinato in un altro insieme di credenziali delle chiavi nella stessa sottoscrizione nell'area geografica India (india occidentale, India centrale e India meridionale).
 
-## <a name="regions-and-products"></a>Aree e prodotti
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Aree di Azure](https://azure.microsoft.com/regions/)
-- [Prodotti Microsoft in base all'area](https://azure.microsoft.com/regions/services/)
-
-Le aree vengono mappate in scenari di sicurezza, visualizzati come intestazioni principali nelle tabelle:
-
-Nei prodotti dell'articolo in base all'area, ad esempio, la scheda **Americhe** contiene Stati Uniti orientali, Stati Uniti centrali, Stati Uniti occidentali, tutti con il mapping eseguito per l'area delle Americhe. 
-
->[!NOTE]
->Un'eccezione è che il Dipartimento della difesa Stati Uniti orientali e il Dipartimento della difesa Stati Uniti centrali hanno i propri scenari di sicurezza. 
-
-Analogamente, nella scheda **Europa** l'Europa settentrionale e l'Europa occidentale eseguono entrambi il mapping nell'area Europa. Lo stesso vale anche per la scheda **Asia Pacifico**.
+- Vedere [i prodotti Microsoft per area](https://azure.microsoft.com/regions/services/)

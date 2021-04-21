@@ -1,18 +1,18 @@
 ---
 title: Introduzione
-description: Informazioni sulle funzionalità e i vantaggi della soluzione Azure VMware per distribuire e gestire i carichi di lavoro basati su VMware in Azure.
+description: Informazioni sulle funzionalità e i vantaggi della soluzione Azure VMware per distribuire e gestire i carichi di lavoro basati su VMware in Azure. soluzione Azure VMware contratto di servizio garantisce che gli strumenti di gestione di Azure VMware (server vCenter e NSX Manager) saranno disponibili almeno il 99,9% del tempo.
 ms.topic: overview
-ms.date: 03/24/2021
-ms.openlocfilehash: 32dd73108dc12d7d7acc605f43a0fbf6d2cf1cd7
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 04/20/2021
+ms.openlocfilehash: 9471aa2e427d28e0b8211dc8b25b2e61a4bfa8c4
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106107988"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752643"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Che cos'è la soluzione Azure VMware?
 
-La soluzione Azure VMware offre cloud privati che contengono cluster vSphere, creati da un'infrastruttura di Azure bare metal dedicata. La distribuzione minima iniziale è di tre host, ma è possibile aggiungere altri host uno alla volta, fino a un massimo di 16 host per cluster.  Tutti i cloud privati di cui è stato effettuato il provisioning includono vCenter Server, vSAN, vSphere e NSX-T. È possibile eseguire la migrazione dei carichi di lavoro dagli ambienti locali, distribuire nuove macchine virtuali e utilizzare i servizi di Azure dai cloud privati.
+La soluzione Azure VMware offre cloud privati che contengono cluster vSphere, creati da un'infrastruttura di Azure bare metal dedicata. La distribuzione minima iniziale è di tre host, ma è possibile aggiungere altri host uno alla volta, fino a un massimo di 16 host per cluster.  Tutti i cloud privati di cui è stato effettuato il provisioning includono vCenter Server, vSAN, vSphere e NSX-T. È possibile eseguire la migrazione dei carichi di lavoro dagli ambienti locali, distribuire nuove macchine virtuali e utilizzare i servizi di Azure dai cloud privati.  Gli strumenti di gestione di Azure VMware (server vCenter e NSX Manager) saranno disponibili almeno il 99,9% del tempo. Per altre informazioni, vedere contratto [di soluzione Azure VMware.](https://aka.ms/avs/sla)
 
 La soluzione Azure VMware è una soluzione approvata da VMware con convalide e test continuativi di miglioramenti e aggiornamenti. La gestione e la manutenzione del software e dell'infrastruttura dei cloud privati è responsabilità di Microsoft. In questo modo è possibile concentrarsi sullo sviluppo e sull'esecuzione di carichi di lavoro nei cloud privati. 
 

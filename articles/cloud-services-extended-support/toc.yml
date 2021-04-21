@@ -1,8 +1,8 @@
-- name: Documentazione di servizi cloud (supporto esteso)
+- name: Servizi cloud di Azure (supporto esteso)
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sui servizi cloud (supporto esteso)
+    - name: Informazioni su Servizi cloud (supporto esteso)
       href: overview.md
     - name: Prerequisiti per la distribuzione
       href: deploy-prerequisite.md
@@ -10,15 +10,15 @@
       href: cloud-services-model-and-package.md
 - name: Esercitazioni
   items:
-    - name: Distribuire un servizio cloud-portale
+    - name: Distribuire un servizio cloud - Portale
       href: deploy-portal.md
-    - name: Distribuire un servizio cloud-PowerShell
+    - name: Distribuire un servizio cloud - PowerShell
       href: deploy-powershell.md
-    - name: Distribuire un servizio cloud-modello
+    - name: Distribuire un servizio cloud - Modello
       href: deploy-template.md
-    - name: Distribuire un servizio cloud-SDK
+    - name: Distribuire un servizio cloud - SDK
       href: deploy-sdk.md
-    - name: Distribuire un servizio cloud-Visual Studio
+    - name: Distribuire un servizio cloud - Visual Studio
       href: /visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontext
   expanded: true
 - name: Concetti
@@ -35,7 +35,7 @@
       href: ../cloud-services/cloud-services-guestos-update-matrix.md?context=/azure/cloud-services-extended-support/context/context
     - name: XML Schema
       items:
-        - name: XML Schema csdef
+        - name: Xml Schema Csdef
           href: schema-csdef-file.md
         - name: Schema LoadBalancerProbe
           href: schema-csdef-loadbalancerprobe.md
@@ -45,7 +45,7 @@
           href: schema-csdef-workerrole.md
         - name: Schema NetworkTrafficRules
           href: schema-csdef-networktrafficrules.md
-        - name: XML Schema cscfg
+        - name: Schema XML Cscfg
           href: schema-cscfg-file.md
         - name: Schema del ruolo
           href: schema-cscfg-role.md
@@ -53,7 +53,7 @@
           href: schema-cscfg-networkconfiguration.md
 - name: Procedure
   items:
-    - name: Eseguire la migrazione ai servizi cloud (supporto esteso)
+    - name: Eseguire la migrazione Servizi cloud di Azure (supporto esteso)
       items:
         - name: Panoramica della migrazione
           href: in-place-migration-overview.md
@@ -65,11 +65,11 @@
           href: in-place-migration-powershell.md
         - name: Errori comuni e problemi noti
           href: in-place-migration-common-errors.md
-    - name: Applica estensioni
+    - name: Applicare le estensioni
       items:
-        - name: Applica estensione Desktop remoto
+        - name: Applicare Desktop remoto'estensione
           href: enable-rdp.md
-        - name: Applica estensione WAD
+        - name: Applicare l'estensione WAD
           href: enable-wad.md
     - name: Attivare gli avvisi
       href: enable-alerts.md
@@ -77,11 +77,11 @@
       href: configure-scaling.md
     - name: Certificati
       href: certificates-and-key-vault.md
-    - name: Generare un modello ARM tramite il portale
+    - name: Generare un modello arm usando il portale
       href: generate-template-portal.md
-    - name: Scambiare due servizi cloud
+    - name: Scambiare le distribuzioni del servizio cloud
       href: swap-cloud-service.md
-    - name: Sostituisci dettagli SKU
+    - name: Eseguire l'override dei dettagli dello SKU
       href: override-sku.md
     - name: Risolvere problemi
       items:
@@ -93,7 +93,7 @@
   items:
     - name: Modelli di esempio
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
-    - name: creare un nuovo servizio cloud
+    - name: Crea un nuovo servizio cloud
       href: sample-create-cloud-service.md
     - name: Ottenere i dettagli del servizio cloud
       href: sample-get-cloud-service.md
@@ -103,11 +103,11 @@
   items:
     - name: File di distribuzione di esempio
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
-    - name: AZ. CloudService (modulo)
+    - name: Modulo Az.CloudService
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
     - name: Cmdlet PowerShell
       href: /powershell/module/az.cloudservice/#cloudservice
-    - name: Riferimento al modello ARM
+    - name: Informazioni di riferimento sui modelli di Azure Resource Manager
       href: /azure/templates/microsoft.compute/cloudservices
     - name: REST
       href: /rest/api/compute/cloudservices

@@ -13,48 +13,48 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b77ab0832fa19149c270d6ba5a6641069548cbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 315fe35a79ade39de9f541504fc2fe52754614de
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96172721"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749349"
 ---
 # <a name="ssh"></a>SSH  
 
-Secure Shell (SSH) è un protocollo di rete che fornisce la crittografia per i servizi di rete operativi in modo sicuro su una rete non protetta. SSH fornisce anche l'accesso da riga di comando, esegue i comandi remoti e trasferisce i file in modo sicuro. Viene comunemente usato nei sistemi basati su UNIX come Linux®. SSH sostituisce il protocollo Telnet, che non fornisce la crittografia in una rete non protetta. 
+Secure Shell (SSH) è un protocollo di rete che fornisce la crittografia per il funzionamento sicuro dei servizi di rete su una rete non protetta. SSH fornisce anche un accesso dalla riga di comando, esegue comandi remoti e trasferisce in modo sicuro i file. Viene comunemente usato nei sistemi basati su UNIX, ad esempio Linux®. SSH sostituisce il protocollo Telnet, che non fornisce la crittografia in una rete non protetta. 
 
-Azure Active Directory (Azure AD) fornisce un'estensione di macchina virtuale (VM) per sistemi basati su® Linux in esecuzione in Azure. 
+Azure Active Directory (Azure AD) fornisce un'estensione macchina virtuale (VM) per sistemi basati ® Linux in esecuzione in Azure. 
 
 ## <a name="use-when"></a>Casi di utilizzo 
 
-* Uso di macchine virtuali Linux basate su® che richiedono l'accesso remoto
+* Uso di macchine ® linux che richiedono l'accesso remoto
 
-* Esecuzione di comandi remoti in sistemi Linux basati su®
+* Esecuzione di comandi remoti in sistemi basati ® Linux
 
 * Trasferire in modo sicuro i file in una rete non protetta
 
-![diagramma di Azure AD con il protocollo SSH](./media/authentication-patterns/ssh-auth.png)
+![Diagramma della Azure AD con il protocollo SSH](./media/authentication-patterns/ssh-auth.png)
 
 SSH con Azure AD
 
 ## <a name="components-of-system"></a>Componenti del sistema 
 
-* **Utente**: avvia il client SSH per configurare una connessione con le vm Linux® e fornisce le credenziali per l'autenticazione.
+* **Utente:** avvia il client SSH per configurare una connessione con le macchine virtuali Linux® e fornisce le credenziali per l'autenticazione.
 
-* **Web browser**: il componente con cui l'utente interagisce. Comunica con il provider di identità (Azure AD) per autenticare e autorizzare l'utente in modo sicuro.
+* **Web browser**: componente con cui interagisce l'utente. Comunica con il provider di identità (Azure AD) per autenticare e autorizzare l'utente in modo sicuro.
 
-* **Client SSH**: Guida il processo di configurazione della connessione.
+* **Client SSH:** determina il processo di configurazione della connessione.
 
-* **Azure ad**: autentica l'identità dell'utente usando il flusso del dispositivo e rilascia il token alle VM Linux.
+* **Azure AD:** autentica l'identità dell'utente usando il flusso del dispositivo ed eseguono il token per le macchine virtuali Linux.
 
-* **VM Linux**: accetta il token e fornisce una connessione corretta.
+* **Macchina virtuale Linux:** accetta il token e fornisce una connessione riuscita.
 
 ## <a name="implement-ssh-with-azure-ad"></a>Implementare SSH con Azure AD 
 
-* [Accedere a una VM Linux® con Azure Active Directory credenziali-macchine virtuali di Azure ](../../virtual-machines/linux/login-using-aad.md) 
+* [Accedere a una macchina virtuale Linux® con Azure Active Directory credenziali - Macchine virtuali di Azure ](../../virtual-machines/linux/login-using-aad.md) 
 
-* [Flusso del codice del dispositivo OAuth 2,0-piattaforma di identità Microsoft ](../develop/v2-oauth2-device-code.md)
+* [Flusso di codice del dispositivo OAuth 2.0 - Microsoft Identity Platform ](../develop/v2-oauth2-device-code.md)
 
-* [Integrazione con Azure Active Directory (akamai.com)](https://learn.akamai.com/webhelp/enterprise-application-access/enterprise-application-access/GUID-6B16172C-86CC-48E8-B30D-8E678BF3325F.html)
+* [Integrazione con Azure Active Directory (akamai.com)](https://learn.akamai.com/en-us/webhelp/enterprise-application-access/enterprise-application-access/GUID-6B16172C-86CC-48E8-B30D-8E678BF3325F.html)
 

@@ -100,6 +100,8 @@
       items:
         - name: Sessioni di messaggistica
           href: message-sessions.md
+        - name: Rilevamento di messaggi duplicati
+          href: duplicate-detection.md
         - name: Filtri e azioni per gli argomenti
           href: topic-filters.md
         - name: Esplorazione dei messaggi
@@ -136,7 +138,7 @@
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
         - name: Acquisire messaggi da Hub eventi
           href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -206,8 +208,6 @@
           items:
             - name: Prelettura dei messaggi
               href: service-bus-prefetch.md
-            - name: Rilevamento di messaggi duplicati
-              href: duplicate-detection.md
             - name: Differimento di messaggi
               href: message-deferral.md
             - name: Concatenare entità con l'inoltro automatico
@@ -236,6 +236,14 @@
           href: service-bus-integrate-with-rabbitmq.md
     - name: Gestione
       items:
+        - name: Abilitare le sessioni per una coda o una sottoscrizione
+          href: enable-message-sessions.md
+        - name: Abilitare il rilevamento duplicati per una coda o un argomento
+          href: enable-duplicate-detection.md
+        - name: Abilitare le partizioni per una coda o un argomento
+          href: enable-partitions.md
+        - name: Abilitare l'inoltro automatico per una coda o una sottoscrizione
+          href: enable-auto-forward.md
         - name: Spostarsi tra aree
           href: move-across-regions.md
         - name: Aggiornare automaticamente le unità di messaggistica

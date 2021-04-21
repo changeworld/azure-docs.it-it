@@ -3,19 +3,18 @@ title: Informazioni sui segreti di Azure Key Vault - Azure Key Vault
 description: Panoramica dei segreti di Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 55814dff5cba572e2e22b5a0f9971bc920e32372
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d4f3f744a85c14c42ffef1c894b237081e871f8
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100526639"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752427"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informazioni sui segreti di Azure Key Vault
 
@@ -74,7 +73,7 @@ Guide pratiche per il controllo dell'accesso in Key Vault:
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../general/assign-access-policy-cli.md)
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite PowerShell](../general/assign-access-policy-powershell.md)
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite il portale di Azure](../general/assign-access-policy-portal.md)
-- [Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure](../general/rbac-guide.md)
+- [Fornire l'accesso Key Vault chiavi, certificati e segreti con un controllo degli accessi in base al ruolo di Azure](../general/rbac-guide.md)
 
 ## <a name="secret-tags"></a>Tag dei segreti  
 È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
@@ -124,7 +123,7 @@ Guide pratiche per il controllo dell'accesso in Key Vault:
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../general/assign-access-policy-cli.md)
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite PowerShell](../general/assign-access-policy-powershell.md)
 - [Assegnare criteri di accesso dell'insieme di credenziali delle chiavi tramite il portale di Azure](../general/assign-access-policy-portal.md)
-- [Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure](../general/rbac-guide.md)
+- [Fornire l'accesso Key Vault chiavi, certificati e segreti con un controllo degli accessi in base al ruolo di Azure](../general/rbac-guide.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -133,5 +132,5 @@ Guide pratiche per il controllo dell'accesso in Key Vault:
 - [Informazioni su chiavi, segreti e certificati](../general/about-keys-secrets-certificates.md)
 - [Informazioni sulle chiavi](../keys/about-keys.md)
 - [Informazioni sui certificati](../certificates/about-certificates.md)
-- [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/secure-your-key-vault.md)
+- [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/security-overview.md)
 - [Guida per gli sviluppatori all'insieme di credenziali delle chiavi](../general/developers-guide.md)

@@ -3,19 +3,18 @@ title: Configurare firewall Azure Key Vault e reti virtuali - Azure Key Vault
 description: Istruzioni passo per passo per configurare reti virtuali e firewall di Azure Key Vault
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 40094c00a4b896756c5c0e51116e0ae33ae2a096
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: 8352deb00f6954d862b9e44646cce1604e2c5428
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580734"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749619"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurare reti virtuali e firewall di Azure Key Vault
 
@@ -36,11 +35,11 @@ Per impostazione predefinita, quando si crea un nuovo insieme di credenziali del
 Quando si abilita il firewall di Key Vault, viene offerta l'opzione 'Consentire ai servizi Microsoft attendibili di ignorare il firewall?' L'elenco dei servizi attendibili non copre ogni singolo servizio di Azure. Ad esempio, Azure DevOps non è presente nell'elenco dei servizi attendibili. **Ciò non implica che i servizi non inclusi nell'elenco non siano considerati attendibili o sicuri.** L'elenco di servizi attendibili include i servizi per cui Microsoft controlla tutto il codice eseguito al loro interno. Poiché gli utenti possono scrivere codice personalizzato nei servizi di Azure, ad esempio Azure DevOps, Microsoft non offre la possibilità di creare un'approvazione generale per il servizio. Inoltre, il semplice fatto che un servizio sia incluso nell'elenco di servizi attendibili non significa che sia consentito per tutti gli scenari. 
 
 Per determinare se un servizio che si prova a usare è incluso nell'elenco di servizi attendibili, vedere [questo documento](./overview-vnet-service-endpoints.md#trusted-services).
-Per istruzioni, seguire le istruzioni riportate qui per il portale, l'interfaccia della riga di comando di [Azure e PowerShell](https://docs.microsoft.com/azure/key-vault/general/network-security#use-the-azure-portal)
+Per istruzioni dettagliate, seguire le istruzioni riportate qui per portale, interfaccia della riga di [comando di Azure e PowerShell](https://docs.microsoft.com/azure/key-vault/general/network-security#use-the-azure-portal)
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Firewall di Key Vault abilitato (indirizzi e intervalli IPv4 - IP statici)
 
-Per autorizzare un particolare servizio ad accedere all'insieme di credenziali delle chiavi attraverso il firewall di Key Vault, è possibile aggiungere il relativo indirizzo IP all'elenco di indirizzi consentiti del firewall. Questa configurazione è ottimale per i servizi che usano indirizzi IP statici o intervalli noti. Per questo caso è previsto un limite di 1000 intervalli CIDR.
+Per autorizzare un particolare servizio ad accedere all'insieme di credenziali delle chiavi attraverso il firewall di Key Vault, è possibile aggiungere il relativo indirizzo IP all'elenco di indirizzi consentiti del firewall. Questa configurazione è ottimale per i servizi che usano indirizzi IP statici o intervalli noti. In questo caso è previsto un limite di 1000 intervalli CIDR.
 
 Per consentire un indirizzo IP o un intervallo di una risorsa di Azure, ad esempio un'app Web o App per la logica, seguire questa procedura.
 
@@ -69,7 +68,7 @@ In questo caso, è necessario creare la risorsa all'interno di una rete virtuale
 Per informazioni su come configurare una connessione di collegamento privato nell'insieme di credenziali delle chiavi, vedere il documento [qui](./private-link-service.md).
 
 > [!IMPORTANT]
-> Quando le regole del firewall sono operative, gli utenti possono eseguire le operazioni del [piano dati](secure-your-key-vault.md#data-plane-access-control) Key Vault solo se le loro richieste hanno origine da reti virtuali o intervalli di indirizzi IPv4 consentiti. Questo vale anche per l'accesso a Key Vault dal portale di Azure. Benché gli utenti possano accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbero non essere in grado di elencare chiavi, segreti o certificati se il computer client in uso non è presente nell'elenco dei computer consentiti. Ciò influisce anche sul selettore dell'insieme di credenziali delle chiavi di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero essere in grado di visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non di elencare le chiavi.
+> Quando le regole del firewall sono operative, gli utenti possono eseguire le operazioni del [piano dati](security-overview.md#privileged-access) Key Vault solo se le loro richieste hanno origine da reti virtuali o intervalli di indirizzi IPv4 consentiti. Questo vale anche per l'accesso a Key Vault dal portale di Azure. Benché gli utenti possano accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbero non essere in grado di elencare chiavi, segreti o certificati se il computer client in uso non è presente nell'elenco dei computer consentiti. Ciò influisce anche sul selettore dell'insieme di credenziali delle chiavi di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero essere in grado di visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non di elencare le chiavi.
 
 > [!NOTE]
 > Tenere presente le seguenti limitazioni di configurazione:

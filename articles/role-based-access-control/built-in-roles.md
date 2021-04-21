@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 04/09/2021
 ms.custom: generated
-ms.openlocfilehash: c89e6ed98e0a71f530cefda4cc1f42a27996d805
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: f4112d4b9bf55e45ec865f5c8606ead9088a7983
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518508"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752391"
 ---
 # <a name="azure-built-in-roles"></a>Ruoli predefiniti di Azure
 
@@ -81,10 +81,10 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Collaboratore servizi di ricerca](#search-service-contributor) | Consente di gestire i servizi di Ricerca, ma non di accedervi. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Lettore AccessKey di SignalR](#signalr-accesskey-reader) | Leggere le chiavi di accesso al servizio SignalR | 04165923-9d83-45d5-8227-78b77b0a687e |
 > | [Server app SignalR (anteprima)](#signalr-app-server-preview) | Consente al server app di accedere al servizio SignalR con le opzioni di autenticazione di AAD. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
-> | [Collaboratore SignalR](#signalr-contributor) | Creare, leggere, aggiornare ed eliminare risorse del servizio SignalR | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
-> | [Collaboratore serverless SignalR (anteprima)](#signalr-serverless-contributor-preview) | Consente all'app di accedere al servizio in modalità serverless con le opzioni di autenticazione di AAD. | fd53cd77-2268-407a-8f46-7e7863d0f521 |
+> | [Collaboratore signalr](#signalr-contributor) | Creare, leggere, aggiornare ed eliminare risorse del servizio SignalR | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
+> | [Collaboratore serverless di SignalR (anteprima)](#signalr-serverless-contributor-preview) | Consente all'app di accedere al servizio in modalità serverless con le opzioni di autenticazione di AAD. | fd53cd77-2268-407a-8f46-7e7863d0f521 |
 > | [Proprietario del servizio SignalR (anteprima)](#signalr-service-owner-preview) | Accesso completo alle SERVIZIO AZURE SIGNALR REST | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
-> | [Lettore del servizio SignalR (anteprima)](#signalr-service-reader-preview) | Accesso in sola lettura Servizio Azure SignalR API REST | ddde6b66-c0df-4114-a159-3618637b3035 |
+> | [Lettore del servizio SignalR (anteprima)](#signalr-service-reader-preview) | Accesso in sola lettura alle SERVIZIO AZURE SIGNALR REST | ddde6b666-c0df-4114-a159-3618637b3035 |
 > | [Collaboratore piani Web](#web-plan-contributor) | Consente di gestire i piani Web per i siti Web, ma non di accedervi. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Collaboratore siti Web](#website-contributor) | Consente di gestire i siti Web (non i piani Web), ma non di accedervi. | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **Contenitori** |  |  |
@@ -96,16 +96,16 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [AcrQuarantineWriter](#acrquarantinewriter) | writer di dati di quarantena acr | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | [Ruolo di amministratore del cluster del servizio Azure Kubernetes](#azure-kubernetes-service-cluster-admin-role) | Elencare l'azione delle credenziali di amministratore del cluster. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Ruolo di utente del cluster del servizio Azure Kubernetes](#azure-kubernetes-service-cluster-user-role) | Elencare l'azione delle credenziali di utente del cluster. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
-> | [servizio Azure Kubernetes collaboratore](#azure-kubernetes-service-contributor-role) | Concede l'accesso ai cluster di lettura e servizio Azure Kubernetes scrittura | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
-> | [servizio Azure Kubernetes controllo degli accessi in base al ruolo](#azure-kubernetes-service-rbac-admin) | Consente di gestire tutte le risorse nel cluster/spazio dei nomi, ad eccezione dell'aggiornamento o dell'eliminazione delle quote e degli spazi dei nomi delle risorse. | 3498e952-d568-435e-9b2c-8d77e338d7f7 |
+> | [servizio Azure Kubernetes collaboratore](#azure-kubernetes-service-contributor-role) | Concede l'accesso ai cluster servizio Azure Kubernetes di lettura e scrittura | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
+> | [servizio Azure Kubernetes amministratore del controllo degli accessi in base al ruolo](#azure-kubernetes-service-rbac-admin) | Consente di gestire tutte le risorse nel cluster/spazio dei nomi, ad eccezione dell'aggiornamento o dell'eliminazione di quote di risorse e spazi dei nomi. | 3498e952-d568-435e-9b2c-8d77e338d7f7 |
 > | [servizio Azure Kubernetes amministratore del cluster controllo degli accessi in base al ruolo](#azure-kubernetes-service-rbac-cluster-admin) | Consente di gestire tutte le risorse nel cluster. | b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b |
-> | [servizio Azure Kubernetes lettore controllo degli accessi in base al ruolo](#azure-kubernetes-service-rbac-reader) | Consente l'accesso in sola lettura per visualizzare la maggior parte degli oggetti in uno spazio dei nomi. Non consente la visualizzazione di ruoli o associazioni di ruoli. Questo ruolo non consente la visualizzazione dei segreti, poiché la lettura del contenuto di Segreti consente l'accesso alle credenziali serviceAccount nello spazio dei nomi, che consentirebbe l'accesso api come qualsiasi ServiceAccount nello spazio dei nomi (una forma di escalation dei privilegi). L'applicazione di questo ruolo nell'ambito del cluster consente l'accesso a tutti gli spazi dei nomi. | 7f6c6a51-bcf8-42ba-9220-52d62157d7db |
+> | [servizio Azure Kubernetes lettore controllo degli accessi in base al ruolo](#azure-kubernetes-service-rbac-reader) | Consente l'accesso in sola lettura per visualizzare la maggior parte degli oggetti in uno spazio dei nomi. Non consente la visualizzazione di ruoli o associazioni di ruolo. Questo ruolo non consente la visualizzazione dei segreti, perché la lettura del contenuto dei segreti consente l'accesso alle credenziali ServiceAccount nello spazio dei nomi , che consentirebbe l'accesso all'API come qualsiasi ServiceAccount nello spazio dei nomi (una forma di escalation dei privilegi). L'applicazione di questo ruolo nell'ambito del cluster consente l'accesso a tutti gli spazi dei nomi. | 7f6c6a51-bcf8-42ba-9220-52d62157d7db |
 > | [servizio Azure Kubernetes RBAC Writer](#azure-kubernetes-service-rbac-writer) | Consente l'accesso in lettura/scrittura alla maggior parte degli oggetti in uno spazio dei nomi. Questo ruolo non consente la visualizzazione o la modifica di ruoli o associazioni di ruolo. Tuttavia, questo ruolo consente l'accesso ai segreti e l'esecuzione di pod come qualsiasi ServiceAccount nello spazio dei nomi, quindi può essere usato per ottenere i livelli di accesso API di qualsiasi ServiceAccount nello spazio dei nomi. L'applicazione di questo ruolo nell'ambito del cluster consente l'accesso a tutti gli spazi dei nomi. | a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb |
 > | **Database** |  |  |
 > | [Ruolo Lettore dell'account Cosmos DB](#cosmos-db-account-reader-role) | Può leggere i dati degli account Azure Cosmos DB. Vedere [Collaboratore account DocumentDB](#documentdb-account-contributor) per la gestione degli account Azure Cosmos DB. | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | [Operatore di Cosmos DB](#cosmos-db-operator) | Consente di gestire gli account Azure Cosmos DB, ma non di accedere ai dati contenuti negli stessi. Impedisce l'accesso a chiavi dell'account e stringhe di connessione. | 230815da-be43-4aae-9cb4-875f7bd000aa |
 > | [CosmosBackupOperator](#cosmosbackupoperator) | Può inviare una richiesta di ripristino per un database di Cosmos DB o un contenitore per un account | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
-> | [CosmosRestoreOperator](#cosmosrestoreoperator) | Può eseguire l'azione di ripristino per Cosmos DB account di database con modalità di backup continuo | 5432c526-bc82-444a-b7ba-57c5b0b5b34f |
+> | [CosmosRestoreOperator](#cosmosrestoreoperator) | Può eseguire un'azione di ripristino per Cosmos DB account di database con modalità di backup continuo | 5432c526-bc82-444a-b7ba-57c5b0b5b34f |
 > | [Collaboratore account DocumentDB](#documentdb-account-contributor) | È in grado di gestire account Azure Cosmos DB. Azure Cosmos DB era precedentemente noto come DocumentDB. | 5bd9cd88-fe45-4216-938b-f97437e15450 |
 > | [Collaboratore cache Redis](#redis-cache-contributor) | Consente di gestire le cache Redis, ma non di accedervi. | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | [Collaboratore database SQL](#sql-db-contributor) | Consente di gestire i database SQL, ma non di accedervi né di gestirne i criteri relativi alla sicurezza o i rispettivi server SQL padre. | 9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
@@ -122,7 +122,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Collaboratore Servizi di dominio HDInsight](#hdinsight-domain-services-contributor) | Può leggere, creare, modificare ed eliminare operazioni correlate ai Servizi di dominio necessarie per HDInsight Enterprise Security Package | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Collaboratore di Log Analytics](#log-analytics-contributor) | Il ruolo Collaboratore di Log Analytics può leggere tutti i dati di monitoraggio e modificare le impostazioni di monitoraggio. La modifica delle impostazioni di monitoraggio include l'aggiunta di estensioni delle VM alle VM, la lettura delle chiavi dell'account di archiviazione per potere configurare la raccolta di log dall'Archiviazione di Azure, la creazione e la configurazione degli account di Automazione, l'aggiunta di soluzioni e la configurazione di Diagnostica di Azure in tutte le risorse di Azure. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | [Lettore di Log Analytics](#log-analytics-reader) | Il ruolo Lettore di Log Analytics può visualizzare ed eseguire ricerche in tutti i dati di monitoraggio e può visualizzare le impostazioni di monitoraggio, inclusa la visualizzazione della configurazione di Diagnostica di Azure in tutte le risorse di Azure. | 73c42c96-874c-492b-b04d-ab87d138a893 |
-> | [Purview Data Curatrice](#purview-data-curator) | Il creatore di dati Microsoft.Purview può creare, leggere, modificare ed eliminare oggetti dati del catalogo e stabilire relazioni tra gli oggetti. Questo ruolo è in anteprima e soggetto a modifiche. | 8a3c2885-9b38-4fd2-9d99-91af537c1347 |
+> | [Purview Data Esere](#purview-data-curator) | Il creatore di dati Microsoft.Purview può creare, leggere, modificare ed eliminare oggetti dati del catalogo e stabilire relazioni tra gli oggetti. Questo ruolo è in anteprima ed è soggetto a modifiche. | 8a3c2885-9b38-4fd2-9d99-91af537c1347 |
 > | [Lettore dati purview](#purview-data-reader) | Il lettore di dati Microsoft.Purview può leggere gli oggetti dati del catalogo. Questo ruolo è in anteprima e soggetto a modifiche. | ff100721-1b9d-43d8-af52-42b69c1272db |
 > | [Amministratore dell'origine dati purview](#purview-data-source-administrator) | L'amministratore dell'origine dati Microsoft.Purview può gestire le origini dati e le analisi dei dati. Questo ruolo è in anteprima e soggetto a modifiche. | 200bba9e-f0c8-430f-892b-6f0794863803 |
 > | [Collaboratore del Registro schemi (anteprima)](#schema-registry-contributor-preview) | Lettura, scrittura ed eliminazione di gruppi e schemi del Registro schemi. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
@@ -132,25 +132,25 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **Intelligenza artificiale e Machine Learning** |  |  |
 > | [Collaboratore Servizi cognitivi](#cognitive-services-contributor) | Consente di creare, leggere, aggiornare, eliminare e gestire le chiavi di Servizi cognitivi. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | [Collaboratore Visione personalizzata cognitivi](#cognitive-services-custom-vision-contributor) | Accesso completo al progetto, inclusa la possibilità di visualizzare, creare, modificare o eliminare progetti. | c1ff6cc2-c111-46fe-8896-e0ef812ad9f3 |
-> | [Distribuzione Visione personalizzata servizi cognitivi](#cognitive-services-custom-vision-deployment) | Pubblicare, annullare la pubblicazione o esportare modelli. La distribuzione può visualizzare il progetto ma non può eseguire l'aggiornamento. | 5c4089e1-6d96-4d2f-b296-c1bc7137275f |
+> | [Distribuzione Visione personalizzata servizi cognitivi](#cognitive-services-custom-vision-deployment) | Pubblicare, annullare la pubblicazione o esportare modelli. La distribuzione può visualizzare il progetto, ma non può eseguire l'aggiornamento. | 5c4089e1-6d96-4d2f-b296-c1bc7137275f |
 > | [Etichettatore Visione personalizzata Servizi cognitivi](#cognitive-services-custom-vision-labeler) | Visualizzare, modificare le immagini di training e creare, aggiungere, rimuovere o eliminare i tag immagine. Gli etichettatori possono visualizzare il progetto, ma non possono aggiornare altro che le immagini e i tag di training. | 88424f51-ebe7-446f-bc41-7fa16989e96c |
 > | [Lettore di servizi cognitivi Visione personalizzata](#cognitive-services-custom-vision-reader) | Azioni di sola lettura nel progetto. I lettori non possono creare o aggiornare il progetto. | 93586559-c37d-4a6b-ba08-b9f0940c2d73 |
 > | [Cognitive Services Visione personalizzata Trainer](#cognitive-services-custom-vision-trainer) | Visualizzare, modificare i progetti ed eseguire il training dei modelli, inclusa la possibilità di pubblicare, annullare la pubblicazione, esportare i modelli. Gli istruttori non possono creare o eliminare il progetto. | 0a5ae4ab-0d65-4eeb-be61-29fc9b54394b |
 > | [Ruolo con autorizzazioni di lettura per i dati di Servizi cognitivi (anteprima)](#cognitive-services-data-reader-preview) | Consente di leggere i dati di Servizi cognitivi. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | [Amministratore di servizi cognitivi Advisor metriche](#cognitive-services-metrics-advisor-administrator) | Accesso completo al progetto, inclusa la configurazione a livello di sistema. | cb43c632-a144-4ec5-977c-e80c4affc34a |
-> | [Editor servizi cognitivi QnA Maker](#cognitive-services-qna-maker-editor) | È possibile creare, modificare, importare ed esportare una knowledge base. Non è possibile pubblicare o eliminare una KNOWLEDGE BASE. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
+> | [Editor servizi cognitivi QnA Maker servizi cognitivi](#cognitive-services-qna-maker-editor) | È possibile creare, modificare, importare ed esportare una knowledge base. Non è possibile pubblicare o eliminare una KNOWLEDGE BASE. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
 > | [Lettore di servizi cognitivi QnA Maker](#cognitive-services-qna-maker-reader) | È possibile leggere e testare solo una knowledge base. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Utente Servizi cognitivi](#cognitive-services-user) | Consente di leggere ed elencare le chiavi di Servizi cognitivi. | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Internet delle cose** |  |  |
-> | [Amministratore dell'aggiornamento dei dispositivi](#device-update-administrator) | Consente l'accesso completo alle operazioni di gestione e contenuto | 02ca0879-e8e4-47a5-a61e-5c618b76e64a |
+> | [Amministratore dell'aggiornamento del dispositivo](#device-update-administrator) | Consente l'accesso completo alle operazioni di gestione e contenuto | 02ca0879-e8e4-47a5-a61e-5c618b76e64a |
 > | [Amministratore del contenuto dell'aggiornamento del dispositivo](#device-update-content-administrator) | Consente l'accesso completo alle operazioni sui contenuti | 0378884a-3af5-44ab-8323-f5b22f9f3c98 |
 > | [Lettore di contenuto per l'aggiornamento del dispositivo](#device-update-content-reader) | Consente l'accesso in lettura alle operazioni sul contenuto, ma non consente di apportare modifiche | d1ee9a80-8b14-47f0-bdc2-f4a351625a7b |
 > | [Amministratore delle distribuzioni degli aggiornamenti dei dispositivi](#device-update-deployments-administrator) | Consente l'accesso completo alle operazioni di gestione | e4237640-0e3d-4a46-8fda-70bc94856432 |
-> | [Lettore distribuzioni aggiornamenti dispositivi](#device-update-deployments-reader) | Consente l'accesso in lettura alle operazioni di gestione, ma non consente di apportare modifiche | 49e2f5d2-7741-4835-8efa-19e1fe35e47f |
+> | [Lettore distribuzioni aggiornamenti dispositivo](#device-update-deployments-reader) | Consente l'accesso in lettura alle operazioni di gestione, ma non consente di apportare modifiche | 49e2f5d2-7741-4835-8efa-19e1fe35e47f |
 > | [Lettore di aggiornamenti del dispositivo](#device-update-reader) | Consente l'accesso in lettura alle operazioni di gestione e contenuto, ma non consente di apportare modifiche | e9dba6fb-3d52-4cf0-bce3-f06ce71b9e0f |
 > | **Realtà mista** |  |  |
-> | [Amministratore rendering remoto](#remote-rendering-administrator) | Fornisce all'utente funzionalità di conversione, gestione della sessione, rendering e diagnostica per Rendering remoto di Azure | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
-> | [Client di rendering remoto](#remote-rendering-client) | Fornisce all'utente funzionalità di gestione sessione, rendering e diagnostica per Rendering remoto di Azure. | d39065c4-c120-43c9-ab0a-63eed9795f0a |
+> | [Amministratore rendering remoto](#remote-rendering-administrator) | Offre all'utente funzionalità di conversione, gestione della sessione, rendering e diagnostica per Rendering remoto di Azure | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
+> | [Client di rendering remoto](#remote-rendering-client) | Fornisce all'utente funzionalità di gestione della sessione, del rendering e della diagnostica per Rendering remoto di Azure. | d39065c4-c120-43c9-ab0a-63eed9795f0a |
 > | [Collaboratore per l'account per gli ancoraggi spaziali](#spatial-anchors-account-contributor) | Consente di gestire gli ancoraggi nello spazio nell'account, ma non di eliminarli | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | [Proprietario dell'account per gli ancoraggi spaziali](#spatial-anchors-account-owner) | Consente di gestire gli ancoraggi nello spazio nell'account, incluse le operazioni di eliminazione | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | [Ruolo Lettore dell'account per gli ancoraggi spaziali](#spatial-anchors-account-reader) | Consente di individuare e leggere le proprietà degli ancoraggi nello spazio nell'account | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
@@ -164,14 +164,14 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Ricevitore dei dati del bus di servizio di Azure](#azure-service-bus-data-receiver) | Consente l'accesso per la ricezione alle risorse del bus di servizio di Azure. | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
 > | [Mittente dei dati del bus di servizio di Azure](#azure-service-bus-data-sender) | Consente l'accesso per l'invio alle risorse del bus di servizio di Azure. | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
 > | [Proprietario della registrazione di Azure Stack](#azure-stack-registration-owner) | Consente di gestire le registrazioni di Azure Stack. | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
-> | [Collaboratore EventGrid](#eventgrid-contributor) | Consente di gestire le operazioni di EventGrid. | 1e241071-0855-49ea-94dc-649edcd759de |
+> | [Collaboratore Griglia di eventi](#eventgrid-contributor) | Consente di gestire le operazioni di Griglia di eventi. | 1e241071-0855-49ea-94dc-649edcd759de |
 > | [Collaboratore per sottoscrizioni di eventi di Griglia di eventi](#eventgrid-eventsubscription-contributor) | Consente di gestire le operazioni di sottoscrizione di eventi EventGrid. | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | [Ruolo con autorizzazioni di lettura per sottoscrizioni di eventi di Griglia di eventi](#eventgrid-eventsubscription-reader) | Consente di leggere le sottoscrizioni di eventi EventGrid. | 2414bbcf-6497-4faf-8c65-045460748405 |
-> | [Collaboratore dati FHIR](#fhir-data-contributor) | Il ruolo consente all'utente o all'entità l'accesso completo ai dati FHIR | 5a1fc7df-4bf1-4951-a576-89034ee01acd |
+> | [Collaboratore ai dati FHIR](#fhir-data-contributor) | Il ruolo consente all'utente o all'entità l'accesso completo ai dati FHIR | 5a1fc7df-4bf1-4951-a576-89034ee01acd |
 > | [FHIR Data Exporter](#fhir-data-exporter) | Il ruolo consente all'utente o all'entità di leggere ed esportare i dati FHIR | 3db33094-8700-4567-8da5-1501d4e7e843 |
 > | [Lettore dati FHIR](#fhir-data-reader) | Il ruolo consente all'utente o all'entità di leggere i dati FHIR | 4c8d0bbc-75d3-4935-991f-5f3c56d81508 |
 > | [FHIR Data Writer](#fhir-data-writer) | Il ruolo consente all'utente o all'entità di leggere e scrivere dati FHIR | 3f88fce4-5892-4214-ae73-ba5294559913 |
-> | [ambiente del servizio di integrazione collaboratore](#integration-service-environment-contributor) | Consente di gestire gli ambienti del servizio di integrazione, ma non di accedervi. | a41e2c5b-bd99-4a07-88f4-9bf657a760b8 |
+> | [ambiente del servizio di integrazione Collaboratore](#integration-service-environment-contributor) | Consente di gestire gli ambienti del servizio di integrazione, ma non di accedervi. | a41e2c5b-bd99-4a07-88f4-9bf657a760b8 |
 > | [ambiente del servizio di integrazione Developer](#integration-service-environment-developer) | Consente agli sviluppatori di creare e aggiornare flussi di lavoro, account di integrazione e connessioni API negli ambienti del servizio di integrazione. | c7aa55d3-1abb-444a-a5ca-5e51e485d6ec |
 > | [Collaboratore account Intelligent Systems](#intelligent-systems-account-contributor) | Consente di gestire gli account Sistemi intelligenti, ma non di accedervi. | 03a6d094-3444-4b3d-88af-7477090a9e5e |
 > | [Collaboratore per app per la logica](#logic-app-contributor) | Consente di gestire le app per la logica, ma non di modificarne l'accesso. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
@@ -180,13 +180,13 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Managed Identity Contributor](#managed-identity-contributor) (Collaboratore per identità gestita) | Crea, legge, aggiorna ed elimina l'identità assegnata all'utente | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | [Managed Identity Operator](#managed-identity-operator) (Operatore per identità gestita) | Legge e assegna l'identità assegnata all'utente | f1a07417-d97a-45cb-824c-7a7467783830 |
 > | **Sicurezza** |  |  |
-> | [Collaboratore per l'attestazione](#attestation-contributor) | Può leggere in scrittura o eliminare l'istanza del provider di attestazione | bbf86eb8-f7b4-4cce-96e4-18cddf81d86e |
+> | [Collaboratore attestazione](#attestation-contributor) | Può leggere la scrittura o eliminare l'istanza del provider di attestazione | bbf86eb8-f7b4-4cce-96e4-18cddf81d86e |
 > | [Lettore di attestazione](#attestation-reader) | Può leggere le proprietà del provider di attestazione | fd1bd22b-8476-40bc-a0bc-69b95687b9f3 |
-> | [Azure Sentinel Di Automazione](#azure-sentinel-automation-contributor) | Azure Sentinel Di Automazione | f4c81013-99ee-4d62-a7ee-b3f1f648599a |
+> | [Azure Sentinel Collaboratore di Automazione](#azure-sentinel-automation-contributor) | Azure Sentinel Collaboratore di Automazione | f4c81013-99ee-4d62-a7ee-b3f1f648599a |
 > | [Collaboratore di Azure Sentinel](#azure-sentinel-contributor) | Collaboratore di Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Ruolo con autorizzazioni di lettura di Azure Sentinel](#azure-sentinel-reader) | Ruolo con autorizzazioni di lettura di Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Risponditore di Azure Sentinel](#azure-sentinel-responder) | Risponditore di Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
-> | [Key Vault amministratore](#key-vault-administrator) | Eseguire tutte le operazioni del piano dati in un insieme di credenziali delle chiavi e in tutti gli oggetti in esso contenuti, inclusi certificati, chiavi e segreti. Non è possibile gestire le risorse dell'insieme di credenziali delle chiavi o le assegnazioni di ruolo. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Key Vault amministratore](#key-vault-administrator) | Eseguire tutte le operazioni del piano dati su un insieme di credenziali delle chiavi e su tutti gli oggetti in esso contenuti, inclusi certificati, chiavi e segreti. Impossibile gestire le risorse dell'insieme di credenziali delle chiavi o le assegnazioni di ruolo. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 > | [Key Vault Certificates Officer](#key-vault-certificates-officer) | Eseguire qualsiasi azione sui certificati di un insieme di credenziali delle chiavi, ad eccezione delle autorizzazioni di gestione. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Collaboratore di Key Vault](#key-vault-contributor) | Gestire gli insiemi di credenziali delle chiavi, ma non consente di assegnare ruoli nel controllo degli accessi in base al ruolo di Azure e non consente di accedere a segreti, chiavi o certificati. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
 > | [Key Vault Crypto Officer](#key-vault-crypto-officer) | Eseguire qualsiasi azione sulle chiavi di un insieme di credenziali delle chiavi, ad eccezione delle autorizzazioni di gestione. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
@@ -216,10 +216,10 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Operatore di automazione](#automation-operator) | Gli operatori di automazione possono avviare, arrestare, sospendere e riprendere processi. | d3881f73-407a-4167-8283-e981cbba0404 |
 > | [Operatore runbook di automazione](#automation-runbook-operator) | Consente di leggere le proprietà del runbook per permettere di creare processi del runbook. | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
 > | [Azure Arc utente del cluster Kubernetes abilitato](#azure-arc-enabled-kubernetes-cluster-user-role) | Elencare le credenziali utente del cluster. | 00493d72-78f6-4148-b6c5-d3ce8e4799dd |
-> | [Azure Arc amministratore di Kubernetes](#azure-arc-kubernetes-admin) | Consente di gestire tutte le risorse nel cluster/spazio dei nomi, ad eccezione dell'aggiornamento o dell'eliminazione di quote di risorse e spazi dei nomi. | dffb1e0c-446f-4dde-a09f-99eb5cc68b96 |
+> | [Azure Arc amministratore di Kubernetes](#azure-arc-kubernetes-admin) | Consente di gestire tutte le risorse nel cluster/spazio dei nomi, ad eccezione dell'aggiornamento o dell'eliminazione delle quote e degli spazi dei nomi delle risorse. | dffb1e0c-446f-4dde-a09f-99eb5cc68b96 |
 > | [Azure Arc amministratore del cluster Kubernetes](#azure-arc-kubernetes-cluster-admin) | Consente di gestire tutte le risorse nel cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
-> | [Azure Arc Visualizzatore Kubernetes](#azure-arc-kubernetes-viewer) | Consente di visualizzare tutte le risorse nel cluster/spazio dei nomi, ad eccezione dei segreti. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
-> | [Azure Arc Kubernetes Writer](#azure-arc-kubernetes-writer) | Consente di aggiornare tutti gli elementi nel cluster/spazio dei nomi, ad eccezione dei ruoli (cluster) e delle associazioni di ruoli (cluster). | 5b999177-9696-4545-85c7-50de3797e5a1 |
+> | [Azure Arc visualizzatore Kubernetes](#azure-arc-kubernetes-viewer) | Consente di visualizzare tutte le risorse nel cluster/spazio dei nomi, ad eccezione dei segreti. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
+> | [Azure Arc Kubernetes Writer](#azure-arc-kubernetes-writer) | Consente di aggiornare tutti gli elementi nel cluster/spazio dei nomi, ad eccezione dei ruoli (cluster) e delle associazioni di ruolo (cluster). | 5b999177-9696-4545-85c7-50de3797e5a1 |
 > | [Onboarding di Azure Connected Machine](#azure-connected-machine-onboarding) | Può eseguire l'onboarding di Azure Connected Machine. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | [Amministratore delle risorse di Azure Connected Machine](#azure-connected-machine-resource-administrator) | Può leggere, scrivere, eliminare e ripetere l'onboarding di Azure Connected Machine. | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | [Lettore per la fatturazione](#billing-reader) | Consente l'accesso in lettura ai dati di fatturazione. | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
@@ -237,8 +237,8 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Lettore gruppo di gestione](#management-group-reader) | Ruolo Lettore gruppo di gestione | ac63b705-f282-497d-ac71-919bf39d939d |
 > | [Collaboratore account New Relic APM](#new-relic-apm-account-contributor) | Consente di gestire gli account e le applicazioni di APR New Relic, ma non di accedervi. | 5d28c62d-5b37-4476-8438-e587778df237 |
 > | [Ruolo con autorizzazioni di scrittura per i dati di Policy Insights (anteprima)](#policy-insights-data-writer-preview) | Consente l'accesso in lettura ai criteri delle risorse e l'accesso in scrittura agli eventi dei criteri dei componenti delle risorse. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
-> | [Operatore di richiesta quota](#quota-request-operator) | Leggere e creare richieste di quota, ottenere lo stato della richiesta di quota e creare ticket di supporto. | 0e5f05e5-9ab9-446b-b98d-1e2157c94125 |
-> | [Acquirente della prenotazione](#reservation-purchaser) | Consente di acquistare prenotazioni | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
+> | [Operatore di richiesta di quota](#quota-request-operator) | Leggere e creare richieste di quota, ottenere lo stato delle richieste di quota e creare ticket di supporto. | 0e5f05e5-9ab9-446b-b98d-1e2157c94125 |
+> | [Acquirente di prenotazioni](#reservation-purchaser) | Consente di acquistare prenotazioni | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
 > | [Collaboratore per i criteri delle risorse](#resource-policy-contributor) | Utenti con diritti di creazione/modifica di criteri delle risorse, creazione di ticket di supporto e lettura di risorse/gerarchia. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Collaboratore al ripristino sito](#site-recovery-contributor) | Consente di gestire il servizio Site Recovery ad eccezione della creazione dell'insieme di credenziali e dell'assegnazione di ruolo. | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | [Operatore del ripristino sito](#site-recovery-operator) | Consente di eseguire il failover e il failback ma non di eseguire altre operazioni di gestione di Site Recovery. | 494ae006-db33-4328-bf46-533a6560a3ca |
@@ -255,10 +255,10 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Collaboratore pool di host di virtualizzazione desktop](#desktop-virtualization-host-pool-contributor) | Collaboratore del pool di host di virtualizzazione desktop. | e307426c-f9b6-4e81-87de-d99efb3c32bc |
 > | [Lettore del pool di host di virtualizzazione desktop](#desktop-virtualization-host-pool-reader) | Lettore del pool di host di virtualizzazione desktop. | ceadfde2-b300-400a-ab7b-6143895aa822 |
 > | [Lettore di virtualizzazione desktop](#desktop-virtualization-reader) | Lettore di Desktop Virtualization. | 49a72310-ab8d-41df-bbb0-79b649203868 |
-> | [Operatore host sessione di virtualizzazione desktop](#desktop-virtualization-session-host-operator) | Operatore dell'host di sessione di virtualizzazione desktop. | 2ad6aaab-ead9-4eaa-8ac5-da422f562408 |
+> | [Operatore host sessione di virtualizzazione desktop](#desktop-virtualization-session-host-operator) | Operatore dell'host di sessione di Desktop Virtualization. | 2ad6aaab-ead9-4eaa-8ac5-da422f562408 |
 > | [Utente di Desktop Virtualization](#desktop-virtualization-user) | Consente all'utente di usare le applicazioni in un gruppo di applicazioni. | 1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63 |
 > | [Operatore sessione utente di Desktop Virtualization](#desktop-virtualization-user-session-operator) | Operatore della sessione Uesr di Desktop Virtualization. | ea4bfff8-7fb4-485a-aadd-d4129a0ffaa6 |
-> | [Collaboratore dell'area di lavoro Desktop Virtualization](#desktop-virtualization-workspace-contributor) | Collaboratore dell'area di lavoro Virtualizzazione desktop. | 21efdde3-836f-432b-bf3d-3e8e734d4b2b |
+> | [Collaboratore dell'area di lavoro Virtualizzazione desktop](#desktop-virtualization-workspace-contributor) | Collaboratore dell'area di lavoro Desktop Virtualization. | 21efdde3-836f-432b-bf3d-3e8e734d4b2b |
 > | [Lettore dell'area di lavoro Virtualizzazione desktop](#desktop-virtualization-workspace-reader) | Lettore dell'area di lavoro Desktop Virtualization. | 0fa44ee9-7a7d-466b-9bb2-2bf446b1204d |
 > | [Lettore backup su disco](#disk-backup-reader) | Fornisce l'autorizzazione per il backup dell'insieme di credenziali per eseguire il backup su disco. | 3e5e47e6-65f7-47ef-90b5-e5dd4d455f24 |
 > | [Operatore ripristino disco](#disk-restore-operator) | Fornisce l'autorizzazione per eseguire il backup dell'insieme di credenziali per eseguire il ripristino del disco. | b50d9833-a0cb-478e-945f-707fcc997c13 |
@@ -577,7 +577,7 @@ Consente di gestire le macchine virtuali, ma non di accedervi né di gestire la 
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | Creare e gestire set di disponibilità di calcolo |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/locations/* | Creare e gestire percorsi di calcolo |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Eseguire tutte le azioni delle macchine virtuali, tra cui creazione, aggiornamento, eliminazione, avvio, riavvio e accensione delle macchine virtuali. Eseguire script predefiniti nelle macchine virtuali. |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Eseguire tutte le azioni delle macchine virtuali, tra cui la creazione, l'aggiornamento, l'eliminazione, l'avvio, il riavvio e l'accensione delle macchine virtuali. Eseguire script predefiniti nelle macchine virtuali. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachineScaleSets/* | Creare e gestire i set di scalabilità delle macchine virtuali |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/write | Crea un nuovo disco o ne aggiorna uno esistente |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | Ottiene le proprietà di un disco |
@@ -1364,7 +1364,7 @@ Usato dal cluster Avere vFXT per gestire il cluster [Altre informazioni](../aver
 
 ### <a name="backup-contributor"></a>Collaboratore di backup
 
-Consente di gestire il servizio di backup, ma non di creare insiemi di credenziali e concedere l'accesso ad altri utenti [Altre informazioni](../backup/backup-rbac-rs-vault.md)
+Consente di gestire il servizio di backup, ma non di creare insiemi di credenziali e concedere l'accesso ad altri [utenti Altre informazioni](../backup/backup-rbac-rs-vault.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -1483,7 +1483,7 @@ Consente di gestire il servizio di backup, ma non di creare insiemi di credenzia
 
 ### <a name="backup-operator"></a>Operatore di backup
 
-Consente di gestire i servizi di backup, ad eccezione della rimozione del backup, della creazione dell'insieme di credenziali e dell'accesso ad altri utenti [Altre informazioni](../backup/backup-rbac-rs-vault.md)
+Consente di gestire i servizi di backup, ad eccezione della rimozione del backup, della creazione dell'insieme di credenziali e dell'accesso ad altri [utenti Altre informazioni](../backup/backup-rbac-rs-vault.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -1497,7 +1497,7 @@ Consente di gestire i servizi di backup, ad eccezione della rimozione del backup
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Restituisce lo stato dell'operazione eseguita sugli elementi protetti. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/read | Restituisce i dettagli dell'oggetto dell'elemento protetto |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Effettua il provisioning del ripristino elementi immediato per l'elemento protetto |
-> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/action | Ottiene AccessToken per il ripristino tra aree. |
+> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/action | Ottenere AccessToken per il ripristino tra aree. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Ottiene i punti di ripristino degli elementi protetti. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Ripristina i punti di ripristino degli elementi protetti. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revoca il ripristino elementi immediato per l'elemento protetto |
@@ -1810,7 +1810,7 @@ Consente di gestire gli account di archiviazione classici, ma non di accedervi.
 
 ### <a name="classic-storage-account-key-operator-service-role"></a>Ruolo del servizio dell'operatore della chiave dell'account di archiviazione classico
 
-Gli operatori delle chiavi dell'account di archiviazione classico possono elencare e rigenerare le chiavi per gli account di archiviazione classici [Altre informazioni](../key-vault/secrets/overview-storage-keys.md)
+Gli operatori delle chiavi dell'account di archiviazione classico possono elencare e rigenerare le chiavi sugli account di archiviazione classici [Altre informazioni](../key-vault/secrets/overview-storage-keys.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -2657,9 +2657,9 @@ Consente di leggere ed elencare le code e i messaggi delle code di Azure. Per in
 ## <a name="web"></a>Web
 
 
-### <a name="azure-maps-data-contributor"></a>Mappe di Azure collaboratore ai dati
+### <a name="azure-maps-data-contributor"></a>Mappe di Azure Collaboratore dati
 
-Concede l'accesso in lettura, scrittura ed eliminazione ai dati correlati alla mappa da un account mappe di Azure. [Scopri di più](../azure-maps/azure-maps-authentication.md)
+Concede l'accesso per l'accesso in lettura, scrittura ed eliminazione ai dati correlati al mapping da un account mappe di Azure. [Scopri di più](../azure-maps/azure-maps-authentication.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -2741,7 +2741,7 @@ Concede l'accesso per la lettura dei dati correlati alle mappe da un account Map
 
 ### <a name="azure-spring-cloud-data-reader"></a>Azure Spring Cloud lettore dati
 
-Consenti l'accesso in lettura Azure Spring Cloud dati [Altre informazioni](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Consentire l'accesso in lettura Azure Spring Cloud [dati. Altre informazioni](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -2831,7 +2831,7 @@ Consente di gestire i servizi di Ricerca, ma non di accedervi. [Scopri di più](
 
 ### <a name="signalr-accesskey-reader"></a>Lettore AccessKey di SignalR
 
-Leggere le chiavi di accesso al servizio SignalR
+Leggere le chiavi di accesso del servizio SignalR
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -2887,8 +2887,8 @@ Consente al server app di accedere al servizio SignalR con le opzioni di autenti
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Generare un elemento AccessKey temporaneo per la firma di ClientTokens. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | Avviare una connessione server. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Generare un accessKey temporaneo per la firma di ClientToken. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | Avviare una connessione al server. |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
@@ -2917,7 +2917,7 @@ Consente al server app di accedere al servizio SignalR con le opzioni di autenti
 }
 ```
 
-### <a name="signalr-contributor"></a>Collaboratore SignalR
+### <a name="signalr-contributor"></a>Collaboratore signalr
 
 Creare, leggere, aggiornare ed eliminare risorse del servizio SignalR
 
@@ -2966,7 +2966,7 @@ Creare, leggere, aggiornare ed eliminare risorse del servizio SignalR
 }
 ```
 
-### <a name="signalr-serverless-contributor-preview"></a>Collaboratore serverless SignalR (anteprima)
+### <a name="signalr-serverless-contributor-preview"></a>Collaboratore serverless signalr (anteprima)
 
 Consente all'app di accedere al servizio in modalità serverless con le opzioni di autenticazione di AAD.
 
@@ -2977,7 +2977,7 @@ Consente all'app di accedere al servizio in modalità serverless con le opzioni 
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Generare un ClientToken per avviare una connessione client. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Generare un Oggetto ClientToken per avviare una connessione client. |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
@@ -3016,17 +3016,17 @@ Accesso completo alle SERVIZIO AZURE SIGNALR REST
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Generare un accessKey temporaneo per la firma di ClientToken. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Generare un ClientToken per avviare una connessione client. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Generare un elemento AccessKey temporaneo per la firma di ClientTokens. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Generare un Oggetto ClientToken per avviare una connessione client. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/hub/send/action | Trasmettere messaggi a tutte le connessioni client nell'hub. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/send/action | Trasmettere un messaggio al gruppo. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Controllare l'esistenza del gruppo o l'esistenza dell'utente nel gruppo. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Verificare l'esistenza del gruppo o dell'utente nel gruppo. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/write | Partecipa/Lascia il gruppo. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/send/action | Inviare messaggi direttamente a una connessione client. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Controllare l'esistenza della connessione client. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Verificare l'esistenza della connessione client. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | Chiudere la connessione client. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/send/action | Inviare messaggi all'utente, che può essere costituito da più connessioni client. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Controllare l'esistenza dell'utente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Verificare l'esistenza dell'utente. |
 > | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write | Modificare un utente. |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
@@ -3068,7 +3068,7 @@ Accesso completo alle SERVIZIO AZURE SIGNALR REST
 
 ### <a name="signalr-service-reader-preview"></a>Lettore del servizio SignalR (anteprima)
 
-Accesso in sola lettura alle SERVIZIO AZURE SIGNALR REST
+Accesso in sola lettura Servizio Azure SignalR API REST
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -3077,9 +3077,9 @@ Accesso in sola lettura alle SERVIZIO AZURE SIGNALR REST
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Verificare l'esistenza del gruppo o dell'utente nel gruppo. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Verificare l'esistenza della connessione client. |
-> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Verificare l'esistenza dell'utente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Controllare l'esistenza del gruppo o l'esistenza dell'utente nel gruppo. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Controllare l'esistenza della connessione client. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Controllare l'esistenza dell'utente. |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
@@ -3550,7 +3550,7 @@ Elencare l'azione delle credenziali di utente del cluster. [Scopri di più](../a
 
 ### <a name="azure-kubernetes-service-contributor-role"></a>servizio Azure Kubernetes collaboratore
 
-Concede l'accesso ai cluster di lettura e servizio Azure Kubernetes scrittura per [altre informazioni](../aks/concepts-identity.md)
+Concede l'accesso ai cluster di lettura e servizio Azure Kubernetes [scrittura. Altre informazioni](../aks/concepts-identity.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -3593,7 +3593,7 @@ Concede l'accesso ai cluster di lettura e servizio Azure Kubernetes scrittura pe
 
 ### <a name="azure-kubernetes-service-rbac-admin"></a>servizio Azure Kubernetes controllo degli accessi in base al ruolo
 
-Consente di gestire tutte le risorse nel cluster/spazio dei nomi, ad eccezione dell'aggiornamento o dell'eliminazione delle quote e degli spazi dei nomi delle risorse. [Scopri di più](../aks/manage-azure-rbac.md)
+Consente di gestire tutte le risorse nel cluster/spazio dei nomi, ad eccezione dell'aggiornamento o dell'eliminazione di quote di risorse e spazi dei nomi. [Scopri di più](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -5312,7 +5312,7 @@ Lettura ed elenco di gruppi e schemi del Registro schemi.
 
 ### <a name="blockchain-member-node-access-preview"></a>Accesso ai nodi di tipo membro della blockchain (anteprima)
 
-Consente l'accesso ai nodi membro blockchain [Altre informazioni](../blockchain/service/configure-aad.md)
+Consente l'accesso ai nodi membro della blockchain [Altre informazioni](../blockchain/service/configure-aad.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -5468,7 +5468,7 @@ Accesso completo al progetto, inclusa la possibilità di visualizzare, creare, m
 
 ### <a name="cognitive-services-custom-vision-deployment"></a>Distribuzione di servizi Visione personalizzata cognitivi
 
-Pubblicare, annullare la pubblicazione o esportare modelli. La distribuzione può visualizzare il progetto, ma non può aggiornarsi. [Scopri di più](../cognitive-services/custom-vision-service/role-based-access-control.md)
+Pubblicare, annullare la pubblicazione o esportare modelli. La distribuzione può visualizzare il progetto, ma non può eseguire l'aggiornamento. [Scopri di più](../cognitive-services/custom-vision-service/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -5574,7 +5574,7 @@ Visualizzare, modificare le immagini di training e creare, aggiungere, rimuovere
 }
 ```
 
-### <a name="cognitive-services-custom-vision-reader"></a>Lettore di servizi cognitivi Visione personalizzata
+### <a name="cognitive-services-custom-vision-reader"></a>Servizi cognitivi Visione personalizzata lettore
 
 Azioni di sola lettura nel progetto. I lettori non possono creare o aggiornare il progetto. [Scopri di più](../cognitive-services/custom-vision-service/role-based-access-control.md)
 
@@ -5783,7 +5783,7 @@ Accesso completo al progetto, inclusa la configurazione a livello di sistema. [S
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/alterations/read | Scaricare le modifiche dal runtime. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/alterations/write | Sostituire i dati delle modifiche. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointkeys/read | Ottiene le chiavi dell'endpoint per un endpoint |
-> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointkeys/refreshkeys/action | Genera nuovamente una chiave dell'endpoint. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointkeys/refreshkeys/action | Genera nuovamente una chiave endpoint. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/read | Ottiene le impostazioni dell'endpoint per un endpoint |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/write | Aggiornare i seetting dell'endpoint per un endpoint. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/operations/read | Recupera i dettagli di una specifica operazione a esecuzione prolungata. |
@@ -5796,7 +5796,7 @@ Accesso completo al progetto, inclusa la configurazione a livello di sistema. [S
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/alterations/read | Scaricare le modifiche dal runtime. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/alterations/write | Sostituire i dati delle modifiche. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointkeys/read | Ottiene le chiavi dell'endpoint per un endpoint |
-> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointkeys/refreshkeys/action | Genera nuovamente una chiave dell'endpoint. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointkeys/refreshkeys/action | Genera nuovamente una chiave endpoint. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointsettings/read | Ottiene le impostazioni dell'endpoint per un endpoint |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointsettings/write | Aggiornare i seetting dell'endpoint per un endpoint. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/operations/read | Recupera i dettagli di una specifica operazione a esecuzione prolungata. |
@@ -6346,7 +6346,7 @@ Offre all'utente funzionalità di conversione, gestione della sessione, renderin
 > | **DataActions** |  |
 > | [Microsoft.MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/convert/action | Avviare la conversione asset |
 > | [Microsoft.MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/convert/read | Ottenere le proprietà di conversione degli asset |
-> | [Microsoft.MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/convert/delete | Arrestare la conversione di asset |
+> | [Microsoft.MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/convert/delete | Arresta conversione asset |
 > | [Microsoft.MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/read | Ottenere le proprietà della sessione |
 > | [Microsoft.MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/action | Avviare le sessioni |
 > | [Microsoft.MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/delete | Arrestare le sessioni |
@@ -6435,7 +6435,7 @@ Fornisce all'utente funzionalità di gestione della sessione, del rendering e de
 
 ### <a name="spatial-anchors-account-contributor"></a>Collaboratore per l'account per gli ancoraggi spaziali
 
-Consente di gestire gli ancoraggi nello spazio nell'account, ma non di eliminarli [Altre informazioni](../spatial-anchors/concepts/authentication.md)
+Consente di gestire gli ancoraggi nello spazio nell'account, ma non di [eliminarli. Altre informazioni](../spatial-anchors/concepts/authentication.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -7621,7 +7621,7 @@ Consente di leggere, abilitare e disabilitare le app per la logica, ma non di mo
 
 ### <a name="managed-identity-contributor"></a>Managed Identity Contributor (Collaboratore per identità gestita)
 
-Creare, leggere, aggiornare ed eliminare un'identità assegnata dall'utente [Altre informazioni](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+Creare, leggere, aggiornare ed eliminare l'identità assegnata dall'utente [Altre informazioni](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -7674,7 +7674,7 @@ Creare, leggere, aggiornare ed eliminare un'identità assegnata dall'utente [Alt
 
 ### <a name="managed-identity-operator"></a>Managed Identity Operator (Operatore per identità gestita)
 
-Leggere e assegnare un'identità assegnata [dall'utente Altre informazioni](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+Leggere e assegnare un'identità assegnata dall'utente [Altre informazioni](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -7929,8 +7929,8 @@ Azure Sentinel Lettore [Altre informazioni](../sentinel/roles.md)
 > | --- | --- |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/read |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/action | Controllare l'autorizzazione utente e la licenza |
-> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/indicators/query/action | Eseguire query su indicatori di intelligence per le minacce |
-> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/queryIndicators/action | Eseguire query su indicatori di intelligence per le minacce |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/indicators/query/action | Eseguire query su indicatori di intelligence sulle minacce |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/queryIndicators/action | Eseguire query su indicatori di intelligence sulle minacce |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Esegue la ricerca usando il nuovo motore. |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/*/read | Visualizzare i dati di analisi dei log |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/LinkedServices/read | Ottiene i servizi collegati nell'area di lavoro specificata. |
@@ -8008,9 +8008,9 @@ Azure Sentinel Responder [Altre informazioni](../sentinel/roles.md)
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/cases/* |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/incidents/* |  |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/indicators/appendTags/action | Aggiungere tag all'indicatore di Intelligence per le minacce |
-> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/indicators/query/action | Indicatori di Intelligence per le minacce di query |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/indicators/query/action | Eseguire query su indicatori di Intelligence per le minacce |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/bulkTag/action | Intelligence per le minacce per i tag bulk |
-> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/indicators/appendTags/action | Aggiungere tag all'indicatore di intelligence per le minacce |
+> | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/indicators/appendTags/action | Aggiungere tag all'indicatore di Intelligence per le minacce |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/indicators/replaceTags/action | Sostituire i tag dell'indicatore di intelligence per le minacce |
 > | [Microsoft.SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/queryIndicators/action | Eseguire query su indicatori di intelligence per le minacce |
 > | [Microsoft.OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Esegue la ricerca usando il nuovo motore. |
@@ -8210,7 +8210,7 @@ Eseguire qualsiasi azione sui certificati di un insieme di credenziali delle chi
 
 ### <a name="key-vault-contributor"></a>Collaboratore di Key Vault
 
-Gestire gli insiemi di credenziali delle chiavi, ma non consente di assegnare ruoli nel controllo degli accessi in base al ruolo di Azure e non consente di accedere a segreti, chiavi o certificati. [Scopri di più](../key-vault/general/secure-your-key-vault.md)
+Gestire gli insiemi di credenziali delle chiavi, ma non consente di assegnare ruoli nel controllo degli accessi in base al ruolo di Azure e non consente di accedere a segreti, chiavi o certificati. [Scopri di più](../key-vault/general/security-overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -8331,13 +8331,13 @@ Leggere i metadati delle chiavi ed eseguire operazioni di wrapping/annullamento 
 > | --- | --- |
 > | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/write | Creare o aggiornare un oggetto eventSubscription |
 > | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/read | Leggere un oggetto eventSubscription |
-> | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/delete | Eliminare un eventoSottoscrizione |
+> | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/delete | Eliminare un eventSubscription |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/read | Elencare le chiavi nell'insieme di credenziali specificato oppure leggere le proprietà e il materiale pubblico di una chiave. Per le chiavi asimmetriche, questa operazione espone la chiave pubblica e include la possibilità di eseguire algoritmi a chiave pubblica, ad esempio crittografare e verificare la firma. Le chiavi private e le chiavi simmetriche non vengono mai esposte. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/wrap/action | Esegue il wrapping di una chiave simmetrica con Key Vault chiave. Si noti che se la chiave Key Vault è asimmetrica, questa operazione può essere eseguita da entità con accesso in lettura. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/unwrap/action | Annulla il wrapping di una chiave simmetrica con Key Vault chiave. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/read | Elencare le chiavi nell'insieme di credenziali specificato oppure leggere le proprietà e il materiale pubblico di una chiave. Per le chiavi asimmetriche, questa operazione espone la chiave pubblica e include la possibilità di eseguire algoritmi a chiave pubblica, ad esempio crittografare e verificare la firma. Le chiavi private e simmetriche non vengono mai esposte. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/wrap/action | Esegue il wrapping di una chiave simmetrica con una Key Vault simmetrica. Si noti che se Key Vault chiave asimmetrica, questa operazione può essere eseguita da entità con accesso in lettura. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/unwrap/action | Annulla il wrapping di una chiave simmetrica con una Key Vault simmetrica. |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
@@ -8371,7 +8371,7 @@ Leggere i metadati delle chiavi ed eseguire operazioni di wrapping/annullamento 
 }
 ```
 
-### <a name="key-vault-crypto-user"></a>Key Vault Crypto User
+### <a name="key-vault-crypto-user"></a>Key Vault utente crypto
 
 Eseguire operazioni di crittografia usando le chiavi. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure".
 
@@ -8385,10 +8385,10 @@ Eseguire operazioni di crittografia usando le chiavi. Funziona solo per gli insi
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/read | Elencare le chiavi nell'insieme di credenziali specificato oppure leggere le proprietà e il materiale pubblico di una chiave. Per le chiavi asimmetriche, questa operazione espone la chiave pubblica e include la possibilità di eseguire algoritmi a chiave pubblica, ad esempio crittografare e verificare la firma. Le chiavi private e simmetriche non vengono mai esposte. |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/update/action | Aggiorna gli attributi specificati associati alla chiave specificata. |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/backup/action | Crea il file di backup di una chiave. Il file può essere usato per ripristinare la chiave in un Key Vault della stessa sottoscrizione. Possono essere applicate restrizioni. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/encrypt/action | Crittografa testo non crittografato con una chiave. Si noti che se la chiave è asimmetrica, questa operazione può essere eseguita da entità con accesso in lettura. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/encrypt/action | Crittografa il testo non crittografato con una chiave. Si noti che se la chiave è asimmetrica, questa operazione può essere eseguita da entità con accesso in lettura. |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/decrypt/action | Decrittografa il testo crittografato con una chiave. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/wrap/action | Esegue il wrapping di una chiave simmetrica con una Key Vault simmetrica. Si noti che se la Key Vault chiave è asimmetrica, questa operazione può essere eseguita dalle entità con accesso in lettura. |
-> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/unwrap/action | Annulla il wrapping di una chiave simmetrica con una Key Vault simmetrica. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/wrap/action | Esegue il wrapping di una chiave simmetrica con Key Vault chiave. Si noti che se la chiave Key Vault è asimmetrica, questa operazione può essere eseguita da entità con accesso in lettura. |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/unwrap/action | Annulla il wrapping di una chiave simmetrica con Key Vault chiave. |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/sign/action | Firma un digest del messaggio (hash) con una chiave. |
 > | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/vaults/keys/verify/action | Verifica la firma di un digest del messaggio (hash) con una chiave. Si noti che se la chiave è asimmetrica, questa operazione può essere eseguita da entità con accesso in lettura. |
 > | **NotDataActions** |  |
@@ -8428,7 +8428,7 @@ Eseguire operazioni di crittografia usando le chiavi. Funziona solo per gli insi
 
 ### <a name="key-vault-reader"></a>Key Vault lettore
 
-Leggere i metadati degli insiemi di credenziali delle chiavi e dei relativi certificati, chiavi e segreti. Impossibile leggere i valori sensibili, ad esempio il contenuto del segreto o il materiale della chiave. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure".
+Leggere i metadati degli insiemi di credenziali delle chiavi e i relativi certificati, chiavi e segreti. Impossibile leggere i valori sensibili, ad esempio il contenuto del segreto o il materiale della chiave. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure".
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -8798,8 +8798,8 @@ Visualizzazione delle autorizzazioni per il Centro sicurezza. Può visualizzare 
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/*/read | Leggere criteri e componenti di sicurezza |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/*/read |  |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotDefenderSettings/packageDownloads/action | Ottiene informazioni sui pacchetti IoT Defender scaricabili |
-> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotDefenderSettings/downloadManagerActivation/action | Scaricare il file di attivazione del manager con i dati della quota di sottoscrizione |
-> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotSensors/downloadResetPassword/action | Scarica il file della password di reimpostazione per i sensori IoT |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotDefenderSettings/downloadManagerActivation/action | Scaricare il file di attivazione di Manager con i dati della quota di sottoscrizione |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotSensors/downloadResetPassword/action | Scarica il file di reimpostazione della password per i sensori IoT |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | Elenca i gruppi di gestione per l'utente autenticato. |
 > | **NotActions** |  |
 > | *nessuna* |  |
@@ -8950,7 +8950,7 @@ Consente di connettere, avviare, riavviare e arrestare le macchine virtuali in A
 
 ### <a name="lab-creator"></a>Lab Creator (Creatore di lab)
 
-Consente di creare nuovi lab con gli account lab di Azure. [Scopri di più](../lab-services/add-lab-creator.md)
+Consente di creare nuovi lab con gli account Azure Lab. [Scopri di più](../lab-services/add-lab-creator.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -9004,19 +9004,19 @@ Consente di creare nuovi lab con gli account lab di Azure. [Scopri di più](../l
 
 ### <a name="application-insights-component-contributor"></a>Collaboratore componente di Application Insights
 
-Può gestire i Application Insights altre [informazioni](../azure-monitor/app/resources-roles-access-control.md)
+È possibile gestire Application Insights componenti [aggiuntivi Altre informazioni](../azure-monitor/app/resources-roles-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
 > | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Creare e gestire le regole di avviso classiche |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/generateLiveToken/read | Ottenere il token per le metriche in tempo reale |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/generateLiveToken/read | Token get delle metriche in tempo reale |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/metricAlerts/* | Creare e gestire nuove regole di avviso |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/components/* | È in grado di creare e gestire i componenti di Insights |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/scheduledqueryrules/* |  |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/topology/read | Topologia di lettura |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/transactions/read | Lettura di transazioni |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/topology/read | Lettura topologia |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/transactions/read | Leggere le transazioni |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/webtests/* | Creare e gestire i test Web di Insights |
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Creare e gestire una distribuzione |
@@ -9590,7 +9590,7 @@ Elencare le credenziali utente del cluster.
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Ottiene i risultati dell'operazione di sottoscrizione. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Ottiene l'elenco delle sottoscrizioni. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/listClusterUserCredentials/action | Elencare le credenziali dell'utente cluster |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/listClusterUserCredentials/action | Elencare le credenziali clusterUser |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Creare e gestire un avviso classico per le metriche |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Creare e aggiornare un ticket di supporto |
@@ -9634,7 +9634,7 @@ Elencare le credenziali utente del cluster.
 
 ### <a name="azure-arc-kubernetes-admin"></a>Azure Arc amministratore di Kubernetes
 
-Consente di gestire tutte le risorse nel cluster/spazio dei nomi, ad eccezione dell'aggiornamento o dell'eliminazione delle quote e degli spazi dei nomi delle risorse. [Scopri di più](../azure-arc/kubernetes/azure-rbac.md)
+Consente di gestire tutte le risorse nel cluster/spazio dei nomi, ad eccezione dell'aggiornamento o dell'eliminazione di quote di risorse e spazi dei nomi. [Scopri di più](../azure-arc/kubernetes/azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -9667,7 +9667,7 @@ Consente di gestire tutte le risorse nel cluster/spazio dei nomi, ad eccezione d
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/* |  |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/* |  |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/* |  |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/limitranges/read | Legge gli intervallo di limiti |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/limitranges/read | Numero massimo di operazioni di lettura |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/namespaces/read | Legge gli spazi dei nomi |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/* |  |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/* |  |
@@ -9802,7 +9802,7 @@ Consente di gestire tutte le risorse nel cluster. [Scopri di più](../azure-arc/
 }
 ```
 
-### <a name="azure-arc-kubernetes-viewer"></a>Azure Arc visualizzatore Kubernetes
+### <a name="azure-arc-kubernetes-viewer"></a>Azure Arc Visualizzatore Kubernetes
 
 Consente di visualizzare tutte le risorse nel cluster/spazio dei nomi, ad eccezione dei segreti. [Scopri di più](../azure-arc/kubernetes/azure-rbac.md)
 
@@ -9823,7 +9823,7 @@ Consente di visualizzare tutte le risorse nel cluster/spazio dei nomi, ad eccezi
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/daemonsets/read | Legge i daemonset |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/deployments/read | Legge le distribuzioni |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/replicasets/read | Legge i set di repliche |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/statefulsets/read | Legge i set con stato |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/apps/statefulsets/read | Legge gli set con stato |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/autoscaling/horizontalpodautoscalers/read | Legge horizontalpodautoscalers |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/batch/cronjobs/read | Legge cronjobs |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/batch/jobs/read | Legge i processi |
@@ -9834,19 +9834,19 @@ Consente di visualizzare tutte le risorse nel cluster/spazio dei nomi, ad eccezi
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/daemonsets/read | Legge i daemonset |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/deployments/read | Legge le distribuzioni |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/read | Legge i dati in ingresso |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/read | Legge networkpolicies |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/read | Legge lepolizie di rete |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/read | Legge i set di repliche |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/limitranges/read | Legge gli intervallo di limiti |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/limitranges/read | Numero massimo di operazioni di lettura |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/namespaces/read | Legge gli spazi dei nomi |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/read | Legge i dati in ingresso |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/read | Legge lepolizie di rete |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/read | Legge networkpolicies |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/persistentvolumeclaims/read | Legge persistentvolumeclaims |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/pods/read | Legge i pod |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/policy/poddisruptionbudgets/read | Legge poddisruptionbudgets |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/read | Legge i controller di replica |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/replicationcontrollers/read | Legge i controller di replica |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/resourcequotas/read | Legge resourcequotas |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/serviceaccounts/read | Legge gli account del servizio |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/serviceaccounts/read | Legge gli account di servizio |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/services/read | Legge i servizi |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
@@ -9913,7 +9913,7 @@ Consente di visualizzare tutte le risorse nel cluster/spazio dei nomi, ad eccezi
 
 ### <a name="azure-arc-kubernetes-writer"></a>Azure Arc Kubernetes Writer
 
-Consente di aggiornare tutti gli elementi nel cluster/spazio dei nomi, ad eccezione dei ruoli (cluster) e delle associazioni di ruolo (cluster). [Scopri di più](../azure-arc/kubernetes/azure-rbac.md)
+Consente di aggiornare tutti gli elementi nel cluster/spazio dei nomi, ad eccezione dei ruoli (cluster) e delle associazioni dei ruoli (cluster). [Scopri di più](../azure-arc/kubernetes/azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -9945,7 +9945,7 @@ Consente di aggiornare tutti gli elementi nel cluster/spazio dei nomi, ad eccezi
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/ingresses/* |  |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/networkpolicies/* |  |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/extensions/replicasets/* |  |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/limitranges/read | Legge gli intervallo di limiti |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/limitranges/read | Numero massimo di operazioni di lettura |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/namespaces/read | Legge gli spazi dei nomi |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/ingresses/* |  |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/networking.k8s.io/networkpolicies/* |  |
@@ -10418,7 +10418,7 @@ Consente agli utenti di modificare ed eliminare le impostazioni della gerarchia
 
 ### <a name="kubernetes-cluster---azure-arc-onboarding"></a>Kubernetes Cluster - Azure Arc Onboarding
 
-Definizione del ruolo per autorizzare qualsiasi utente/servizio a creare una risorsa cluster connessa [Altre informazioni](../azure-arc/kubernetes/connect-cluster.md)
+Definizione del ruolo per autorizzare qualsiasi utente/servizio a creare una risorsa connectedClusters [Altre informazioni](../azure-arc/kubernetes/connect-cluster.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -10430,7 +10430,7 @@ Definizione del ruolo per autorizzare qualsiasi utente/servizio a creare una ris
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Ottiene l'elenco delle sottoscrizioni. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Write | Scrive i cluster connessi |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/read | Leggere i cluster connessi |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/read | Lettura di connectedClusters |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Creare e aggiornare un ticket di supporto |
 > | **NotActions** |  |
 > | *nessuna* |  |
@@ -10649,7 +10649,7 @@ Il Ruolo con autorizzazioni di eliminazione assegnazioni di registrazione dei se
 
 ### <a name="management-group-contributor"></a>Collaboratore gruppo di gestione
 
-Ruolo Collaboratore Gruppo di gestione [Altre informazioni](../governance/management-groups/overview.md)
+Ruolo collaboratore del gruppo di [gestione Altre informazioni](../governance/management-groups/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -10837,16 +10837,16 @@ Consente l'accesso in lettura ai criteri delle risorse e l'accesso in scrittura 
 }
 ```
 
-### <a name="quota-request-operator"></a>Operatore di richiesta quota
+### <a name="quota-request-operator"></a>Operatore di richiesta di quota
 
-Leggere e creare richieste di quota, ottenere lo stato della richiesta di quota e creare ticket di supporto. [Scopri di più](/rest/api/reserved-vm-instances/quotaapi)
+Leggere e creare richieste di quota, ottenere lo stato delle richieste di quota e creare ticket di supporto. [Scopri di più](/rest/api/reserved-vm-instances/quotaapi)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
 > | --- | --- |
-> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/read | Ottenere il limite o la quota di servizio corrente della risorsa e del percorso specificati |
-> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/write | Creare un limite o una quota del servizio per la risorsa e il percorso specificati |
-> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimitsRequests/read | Ottenere qualsiasi richiesta di limite di servizio per la risorsa e il percorso specificati |
+> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/read | Ottenere il limite o la quota del servizio corrente per la risorsa e la località specificate |
+> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/write | Creare un limite o una quota del servizio per la risorsa e la località specificate |
+> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimitsRequests/read | Ottenere qualsiasi richiesta di limite di servizio per la risorsa e la posizione specificate |
 > | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/register/action | Registra il provider di risorse Capacity e consente la creazione di risorse Capacity. |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Creare e gestire un avviso classico per le metriche |
@@ -10892,9 +10892,9 @@ Leggere e creare richieste di quota, ottenere lo stato della richiesta di quota 
 }
 ```
 
-### <a name="reservation-purchaser"></a>Acquirente di prenotazioni
+### <a name="reservation-purchaser"></a>Acquirente della prenotazione
 
-Consente di acquistare prenotazioni Altre [informazioni](../cost-management-billing/reservations/prepare-buy-reservation.md)
+Consente di acquistare prenotazioni [Altre informazioni](../cost-management-billing/reservations/prepare-buy-reservation.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -11095,7 +11095,7 @@ Consente di gestire il servizio Site Recovery ad eccezione della creazione dell'
 
 ### <a name="site-recovery-operator"></a>Operatore del ripristino sito
 
-Consente di eseguire il failover e il failback, ma non di eseguire altre Site Recovery operazioni di [gestione. Altre informazioni](../site-recovery/site-recovery-role-based-linked-access-control.md)
+Consente di eseguire il failover e il failback, ma non di eseguire altre operazioni di gestione Site Recovery [altre informazioni](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -11248,7 +11248,7 @@ Consente di eseguire il failover e il failback, ma non di eseguire altre Site Re
 
 ### <a name="site-recovery-reader"></a>Reader di ripristino sito
 
-Consente di visualizzare lo stato Site Recovery ma non di eseguire altre operazioni di gestione [Altre informazioni](../site-recovery/site-recovery-role-based-linked-access-control.md)
+Consente di visualizzare lo Site Recovery ma non di eseguire altre operazioni di gestione [Altre informazioni](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -11455,12 +11455,12 @@ Ruolo di accesso completo per il piano dati di Gemelli digitali [Altre informazi
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | Legge, elimina, crea o aggiorna qualsiasi route di eventi |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* | Legge, crea, aggiorna o elimina qualsiasi gemello digitale |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* | Richiamare qualsiasi comando in un gemello digitale |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* | Legge, crea, aggiorna o elimina qualsiasi relazione di Gemelli digitali |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* | Legge, crea, aggiorna o elimina qualsiasi modello |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/* | Eseguire query su qualsiasi grafo di Gemelli digitali |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | Leggere, eliminare, creare o aggiornare una route eventi |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* | Leggere, creare, aggiornare o eliminare qualsiasi dispositivo gemello digitale |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* | Richiamare qualsiasi comando in un dispositivo gemello digitale |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* | Leggere, creare, aggiornare o eliminare qualsiasi relazione tra gemelli digitali |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* | Leggere, creare, aggiornare o eliminare qualsiasi modello |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/* | Eseguire query su qualsiasi grafo di gemelli digitali |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
@@ -11504,11 +11504,11 @@ Ruolo di sola lettura per le proprietà del piano dati di Gemelli digitali [Altr
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | Legge tutti i gemelli digitali |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | Legge tutte le relazioni tra gemelli digitali |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | Legge qualsiasi dispositivo gemello digitale |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | Legge qualsiasi relazione tra gemelli digitali |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/read | Legge qualsiasi route di eventi |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/read | Legge qualsiasi modello |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/action | Eseguire query su qualsiasi grafo di gemelli digitali |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/read | Legge tutti i modelli |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/action | Eseguire query su qualsiasi grafo di Gemelli digitali |
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
@@ -11591,16 +11591,16 @@ Consente di gestire i servizi BizTalk, ma non di accedervi.
 }
 ```
 
-### <a name="desktop-virtualization-application-group-contributor"></a>Collaboratore del gruppo di applicazioni desktop virtualization
+### <a name="desktop-virtualization-application-group-contributor"></a>Collaboratore gruppo di applicazioni di Desktop Virtualization
 
-Collaboratore del gruppo di applicazioni Desktop Virtualization. [Scopri di più](../virtual-desktop/rbac.md)
+Collaboratore del gruppo di applicazioni di virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
 > | --- | --- |
 > | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationgroups/* |  |
 > | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/read | Leggere i pool di host |
-> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Lettura di pool di host/host di sessione |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Read hostpools/sessionhosts |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Creare e gestire una distribuzione |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Leggere i ruoli e le assegnazioni di ruoli |
@@ -11644,9 +11644,9 @@ Collaboratore del gruppo di applicazioni Desktop Virtualization. [Scopri di più
 }
 ```
 
-### <a name="desktop-virtualization-application-group-reader"></a>Lettore del gruppo di applicazioni desktop virtualization
+### <a name="desktop-virtualization-application-group-reader"></a>Lettore gruppo di applicazioni desktop virtualization
 
-Lettore del gruppo di applicazioni di virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md)
+Lettore del gruppo di applicazioni Desktop Virtualization. [Scopri di più](../virtual-desktop/rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -11654,7 +11654,7 @@ Lettore del gruppo di applicazioni di virtualizzazione desktop. [Scopri di più]
 > | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationgroups/*/read |  |
 > | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationgroups/read | Leggere i gruppi di applicazioni |
 > | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/read | Leggere i pool di host |
-> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Read hostpools/sessionhosts |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Lettura di pool di host/host di sessione |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/read | Ottiene o elenca le distribuzioni. |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Leggere i ruoli e le assegnazioni di ruoli |
@@ -11699,9 +11699,9 @@ Lettore del gruppo di applicazioni di virtualizzazione desktop. [Scopri di più]
 }
 ```
 
-### <a name="desktop-virtualization-contributor"></a>Collaboratore Virtualizzazione desktop
+### <a name="desktop-virtualization-contributor"></a>Collaboratore alla virtualizzazione desktop
 
-Collaboratore di Virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md)
+Collaboratore di Desktop Virtualization. [Scopri di più](../virtual-desktop/rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -11748,7 +11748,7 @@ Collaboratore di Virtualizzazione desktop. [Scopri di più](../virtual-desktop/r
 }
 ```
 
-### <a name="desktop-virtualization-host-pool-contributor"></a>Collaboratore al pool di host di virtualizzazione desktop
+### <a name="desktop-virtualization-host-pool-contributor"></a>Collaboratore pool di host di virtualizzazione desktop
 
 Collaboratore del pool di host di virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md)
 
@@ -11797,7 +11797,7 @@ Collaboratore del pool di host di virtualizzazione desktop. [Scopri di più](../
 }
 ```
 
-### <a name="desktop-virtualization-host-pool-reader"></a>Lettore pool di host di virtualizzazione desktop
+### <a name="desktop-virtualization-host-pool-reader"></a>Lettore del pool di host di virtualizzazione desktop
 
 Lettore del pool di host di virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md)
 
@@ -11850,7 +11850,7 @@ Lettore del pool di host di virtualizzazione desktop. [Scopri di più](../virtua
 
 ### <a name="desktop-virtualization-reader"></a>Lettore di virtualizzazione desktop
 
-Lettore di Virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md)
+Lettore di Desktop Virtualization. [Scopri di più](../virtual-desktop/rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -11899,7 +11899,7 @@ Lettore di Virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md
 
 ### <a name="desktop-virtualization-session-host-operator"></a>Operatore host sessione di virtualizzazione desktop
 
-Operatore dell'host sessione di virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md)
+Operatore dell'host di sessione di virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -11948,7 +11948,7 @@ Operatore dell'host sessione di virtualizzazione desktop. [Scopri di più](../vi
 }
 ```
 
-### <a name="desktop-virtualization-user"></a>Utente di Desktop Virtualization
+### <a name="desktop-virtualization-user"></a>Utente di virtualizzazione desktop
 
 Consente all'utente di usare le applicazioni in un gruppo di applicazioni. [Scopri di più](../virtual-desktop/delegated-access-virtual-desktop.md)
 
@@ -11989,13 +11989,13 @@ Consente all'utente di usare le applicazioni in un gruppo di applicazioni. [Scop
 
 ### <a name="desktop-virtualization-user-session-operator"></a>Operatore sessione utente di Desktop Virtualization
 
-Operatore della sessione Uesr di Desktop Virtualization. [Scopri di più](../virtual-desktop/rbac.md)
+Operatore della sessione Uesr di virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
 > | --- | --- |
 > | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/read | Leggere i pool di host |
-> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Leggere pool di host/host di sessione |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Read hostpools/sessionhosts |
 > | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/usersessions/* |  |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Creare e gestire una distribuzione |
@@ -12042,7 +12042,7 @@ Operatore della sessione Uesr di Desktop Virtualization. [Scopri di più](../vir
 
 ### <a name="desktop-virtualization-workspace-contributor"></a>Collaboratore dell'area di lavoro Virtualizzazione desktop
 
-Collaboratore dell'area di lavoro Desktop Virtualization. [Scopri di più](../virtual-desktop/rbac.md)
+Collaboratore dell'area di lavoro Virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -12091,9 +12091,9 @@ Collaboratore dell'area di lavoro Desktop Virtualization. [Scopri di più](../vi
 }
 ```
 
-### <a name="desktop-virtualization-workspace-reader"></a>Lettore dell'area di lavoro di virtualizzazione desktop
+### <a name="desktop-virtualization-workspace-reader"></a>Lettore dell'area di lavoro Virtualizzazione desktop
 
-Lettore dell'area di lavoro Virtualizzazione desktop. [Scopri di più](../virtual-desktop/rbac.md)
+Lettore dell'area di lavoro Desktop Virtualization. [Scopri di più](../virtual-desktop/rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -12185,9 +12185,9 @@ Fornisce l'autorizzazione per il backup dell'insieme di credenziali per eseguire
 }
 ```
 
-### <a name="disk-restore-operator"></a>Operatore di ripristino del disco
+### <a name="disk-restore-operator"></a>Operatore ripristino disco
 
-Fornisce l'autorizzazione per il backup dell'insieme di credenziali per eseguire il ripristino del disco. [Scopri di più](../backup/restore-managed-disks.md)
+Fornisce l'autorizzazione per eseguire il backup dell'insieme di credenziali per eseguire il ripristino del disco. [Scopri di più](../backup/restore-managed-disks.md)
 
 > [!div class="mx-tableFixed"]
 > | Azioni | Descrizione |
@@ -12342,7 +12342,7 @@ Consente di gestire le raccolte di processi dell'utilità di pianificazione, ma 
 }
 ```
 
-### <a name="services-hub-operator"></a>Operatore hub servizi
+### <a name="services-hub-operator"></a>Operatore hub dei servizi
 
 Operatore hub servizi consente di eseguire tutte le operazioni di lettura, scrittura ed eliminazione correlate ai connettori dell'hub dei servizi. [Scopri di più](/services-hub/health/sh-connector-roles)
 
@@ -12352,11 +12352,11 @@ Operatore hub servizi consente di eseguire tutte le operazioni di lettura, scrit
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Leggere i ruoli e le assegnazioni di ruoli |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Creare e gestire una distribuzione |
-> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/connectors/write | Creare o aggiornare un connettore dell'hub dei servizi |
-> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/connectors/read | Visualizzare o elencare i connettori dell'hub dei servizi |
-> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/connectors/delete | Eliminare connettori dell'hub di servizi |
+> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/connectors/write | Creare o aggiornare un connettore hub dei servizi |
+> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/connectors/read | Visualizzare o elencare i connettori dell'hub di Servizi |
+> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/connectors/delete | Eliminare i connettori dell'hub di servizi |
 > | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/connectors/checkAssessmentEntitlement/action | Elenca i diritti di valutazione per una determinata area di lavoro dell'hub dei servizi |
-> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/supportOfferingEntitlement/read | Visualizzare gli entitlement dell'offerta di supporto per una determinata area di lavoro dell'hub dei servizi |
+> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/supportOfferingEntitlement/read | Visualizzare i diritti dell'offerta di supporto per una determinata area di lavoro dell'hub dei servizi |
 > | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/workspaces/read | Elencare le aree di lavoro dell'hub dei servizi per un determinato utente |
 > | **NotActions** |  |
 > | *nessuna* |  |
@@ -12399,6 +12399,6 @@ Operatore hub servizi consente di eseguire tutte le operazioni di lettura, scrit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Assegnare ruoli di Azure usando il portale di Azure](role-assignments-portal.md)
+- [Assegnare i ruoli di Azure usando il portale di Azure](role-assignments-portal.md)
 - [Ruoli personalizzati di Azure](custom-roles.md)
 - [Autorizzazioni nel Centro sicurezza di Azure](../security-center/security-center-permissions.md)

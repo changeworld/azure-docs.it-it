@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 61fcbfa9d40ebb26485ce8160fa3b011935ab4d6
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4b7251be220c012ca51970863ac2eed55d46d711
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536311"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751149"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creazione di un'area di lavoro di Synapse
 
@@ -46,7 +46,7 @@ Compilare i campi seguenti:
 1. **Area:** selezionare l'area in cui sono state posizionate le applicazioni/servizi client (ad esempio, macchina virtuale di Azure, Power BI, Azure Analysis Service) e le risorse di archiviazione che contengono dati (ad esempio Archiviazione Di Azure Data Lake, Azure Cosmos DB archiviazione analitica).
 
 > [!NOTE]
-> Un'area di lavoro non condivisa con le applicazioni client o l'archiviazione può essere la causa principale di molti problemi di prestazioni. Se i dati o i client sono posizionati in più aree, è possibile creare aree di lavoro separate in aree diverse colocate con i dati e i client.
+> Un'area di lavoro non condivisa con le applicazioni client o l'archiviazione può essere la causa radice di molti problemi di prestazioni. Se i dati o i client sono posizionati in più aree, è possibile creare aree di lavoro separate in aree diverse colocate con i dati e i client.
 
 In **Selezionare Data Lake Storage Generazione 2**:
 
@@ -74,9 +74,17 @@ In questa guida introduttiva verrà utilizzato un piccolo set di dati di esempio
 * Scaricare questo file nel computer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
 * In Synapse Studio passare all'hub dati. 
 * Selezionare **Collegato.**
-* Sotto la categoria **Azure Data Lake Storage Gen2** verrà visualizzato un elemento con un nome come **myworkspace ( Primary - contosolake )**.
+* Sotto la **categoria Azure Data Lake Storage Gen2** verrà visualizzato un elemento con un nome come **myworkspace ( Primary - contosolake )**.
 * Selezionare il contenitore **denominato users (Primary)**.
 * Selezionare **Carica** e selezionare il `NYCTripSmall.parquet` file scaricato.
+
+Un file Parquet caricato è disponibile tramite due URI equivalenti:
+* `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
+* `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
+
+Negli esempi seguenti in questa esercitazione assicurarsi di sostituire **contosolake** nell'interfaccia utente con il nome dell'account di archiviazione primario selezionato per l'area di lavoro.
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

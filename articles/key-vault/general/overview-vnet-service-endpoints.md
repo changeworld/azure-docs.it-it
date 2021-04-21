@@ -1,20 +1,19 @@
 ---
 title: Endpoint servizio di rete virtuale per Azure Key Vault
-description: Informazioni su come gli endpoint di servizio di rete virtuale per Azure Key Vault consentono di limitare l'accesso a una rete virtuale specificata, inclusi gli scenari di utilizzo.
+description: Informazioni su come gli endpoint servizio di rete virtuale Azure Key Vault consentono di limitare l'accesso a una rete virtuale specificata, inclusi gli scenari di utilizzo.
 services: key-vault
 author: amitbapat
 ms.author: ambapat
-manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: ae22f07a70f3317b62776e5024b7a3d1084516a1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 985cbe1128d1dd64fda86ef062750dc5dd068ffe
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643495"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751734"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint servizio di rete virtuale per Azure Key Vault
 
@@ -27,7 +26,7 @@ Esiste un'importante eccezione a questa limitazione. Se un utente ha acconsentit
 È possibile configurare [reti virtuali e firewall di Key Vault](network-security.md) per negare l'accesso al traffico da tutte le reti, incluso il traffico Internet, per impostazione predefinita. È possibile concedere l'accesso al traffico proveniente da reti virtuali specifiche di Azure e intervalli di indirizzi IP Internet pubblici, creando un limite di rete protetta per le applicazioni.
 
 > [!NOTE]
-> I firewall di Key Vault e le regole di rete virtuale si applicano solo al [piano dati](secure-your-key-vault.md#data-plane-access-control) di Key Vault. Key Vault operazioni del piano di controllo (ad esempio, operazioni di creazione, eliminazione e modifica, impostazione dei criteri di accesso, impostazione di firewall e regole della rete virtuale e distribuzione di segreti o chiavi tramite modelli ARM) non sono interessate da firewall e regole della rete virtuale.
+> I firewall di Key Vault e le regole di rete virtuale si applicano solo al [piano dati](security-overview.md#privileged-access) di Key Vault. Key Vault le operazioni del piano di controllo, ad esempio le operazioni di creazione, eliminazione e modifica, l'impostazione di criteri di accesso, l'impostazione di firewall e regole di rete virtuale e la distribuzione di segreti o chiavi tramite i modelli arm, non sono interessate dai firewall e dalle regole di rete virtuale.
 
 Di seguito sono riportati alcuni esempi di uso degli endpoint del servizio:
 
@@ -48,23 +47,23 @@ Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad
 |Exchange Online e SharePoint Online|Consentire l'accesso alla chiave cliente per la crittografia del servizio di archiviazione di Azure con [Chiave cliente](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Consentire l'accesso alla chiave del tenant per [Azure Information Protection](/azure/information-protection/what-is-information-protection).|
 |Servizio app di Azure|[Distribuire un certificato dell'app Web di Azure con Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Database SQL di Azure|[Transparent Data Encryption con supporto Bring your own key per il database SQL di Azure e l'analisi delle sinapsi di Azure](../../azure-sql/database/transparent-data-encryption-byok-overview.md).|
-|Archiviazione di Azure|[Crittografia del servizio di archiviazione usando chiavi gestite dal cliente in Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
+|Database SQL di Azure|[Transparent Data Encryption con Bring Your Own Key supporto per database SQL di Azure e Azure Synapse Analytics](../../azure-sql/database/transparent-data-encryption-byok-overview.md).|
+|Archiviazione di Azure|[crittografia del servizio di archiviazione le chiavi gestite dal cliente in Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Archivio Azure Data Lake|[Crittografia dei dati in Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) con una chiave gestita dal cliente.|
 |Azure Synapse Analytics|[Crittografia dei dati tramite chiavi gestite dal cliente in Azure Key Vault](../../synapse-analytics/security/workspaces-encryption.md)|
 |Azure Databricks|[Servizio di analisi veloce, facile e collaborativo basato su Apache Spark](/azure/databricks/scenarios/what-is-azure-databricks)|
-|Gestione API di Azure|[Distribuire i certificati per un dominio personalizzato da Key Vault usando MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
-|Azure Data Factory|[Recuperare le credenziali dell'archivio dati in Key Vault da Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
+|Gestione API di Azure|[Distribuire certificati per l'Custom Domain da Key Vault tramite MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
+|Azure Data Factory|[Recuperare le credenziali dell'archivio dati Key Vault da Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Hub eventi di Azure|[Consentire l'accesso a un insieme di credenziali delle chiavi per uno scenario con chiavi gestite dal cliente](../../event-hubs/configure-customer-managed-key.md)|
 |Bus di servizio di Azure|[Consentire l'accesso a un insieme di credenziali delle chiavi per uno scenario con chiavi gestite dal cliente](../../service-bus-messaging/configure-customer-managed-key.md)|
-|Importazione/Esportazione di Azure| [Usare chiavi gestite dal cliente in Azure Key Vault per il servizio di importazione/esportazione](../../import-export/storage-import-export-encryption-key-portal.md)
-|Registro Azure Container|[Crittografia del registro di sistema con chiavi gestite dal cliente](../../container-registry/container-registry-customer-managed-keys.md)
-|Gateway applicazione di Azure |[Uso dei certificati Key Vault per i listener abilitati per HTTPS](../../application-gateway/key-vault-certs.md)
+|Importazione/Esportazione di Azure| [Usare chiavi gestite dal cliente in Azure Key Vault per il servizio Importazione/Esportazione](../../import-export/storage-import-export-encryption-key-portal.md)
+|Registro Azure Container|[Crittografia del Registro di sistema con chiavi gestite dal cliente](../../container-registry/container-registry-customer-managed-keys.md)
+|Gateway applicazione di Azure |[Uso Key Vault certificati per i listener abilitati per HTTPS](../../application-gateway/key-vault-certs.md)
 
 > [!NOTE]
 > L'utente deve impostare i criteri di accesso pertinenti per Key Vault in modo da consentire ai servizi corrispondenti di ottenere l'accesso a Key Vault.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per istruzioni dettagliate, vedere [configurare i firewall e le reti virtuali di Azure Key Vault](network-security.md)
-- vedere [Cenni preliminari sulla sicurezza Azure Key Vault](security-overview.md)
+- Per istruzioni dettagliate, vedere [Configurare Azure Key Vault firewall e reti virtuali](network-security.md)
+- vedere la panoramica [Azure Key Vault sicurezza](security-overview.md)

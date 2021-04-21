@@ -3,19 +3,18 @@ title: Panoramica di chiavi, segreti e certificati di Azure Key Vault
 description: Panoramica dei dettagli di sviluppo e dell'interfaccia REST di Azure Key Vault per le chiavi, i segreti e i certificati.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f2a33b4011b0bb89ca17010fc787aebe8c17fc92
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e3eb77d15c288c93298da6dd79a76565e5d67f96
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183931"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749943"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Panoramica di chiavi, segreti e certificati di Azure Key Vault
 
@@ -44,7 +43,7 @@ Chiavi protette tramite software|/keys|Supportato|Non supportato
 **Altri tipi di oggetto**||
 Segreti|/secrets|Supportato|Non supportato
 Certificati|/certificates|Supportato|Non supportato
-Chiavi dell'account di archiviazione|/Storage|Supportato|Non supportato
+Chiavi dell'account di archiviazione|/storage|Supportato|Non supportato
 |||
 - **Chiavi crittografiche**: supporta più tipi di chiavi e algoritmi e consente l'uso di chiavi protette tramite software e con protezione HSM. Per altre informazioni, vedere [Informazioni sulle chiavi](../keys/about-keys.md).
 - **Segreti**: Offre l'archiviazione sicura di segreti, ad esempio password e stringhe di connessione di database. Per altre informazioni, vedere [Informazioni sui segreti](../secrets/about-secrets.md).

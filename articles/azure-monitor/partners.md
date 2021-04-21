@@ -5,12 +5,12 @@ author: rboucher
 ms.author: robb
 ms.topic: conceptual
 ms.date: 04/14/2021
-ms.openlocfilehash: c10e11fe547f643e04b5dbdeaf9e233b7105ce9a
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: d449f660fa97af8b5c24542258029834a964b3f2
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517480"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751617"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -66,7 +66,7 @@ I clienti possono distribuire la piattaforma BMC Helix con la distribuzione clou
 
 ![Circonus Logo](./media/partners/circonus.png)
 
-Circonus è l'esperto di intelligenza dei dati delle macchine, fornendo l'unica piattaforma di intelligenza dei dati delle macchine in grado di gestire miliardi di flussi di metriche in tempo reale per offrire informazioni e valore aziendali senza precedenti. Usare Circonus per raccogliere, tenere traccia e visualizzare le metriche chiave correlate alla configurazione Microsoft Azure configurazione. Ottenere visibilità a livello di sistema sull'utilizzo delle risorse di Azure, sulle prestazioni delle applicazioni e sull'integrità operativa.
+Circonus è l'esperto di intelligenza dei dati delle macchine, fornendo l'unica piattaforma di intelligenza dei dati delle macchine in grado di gestire miliardi di flussi di metriche in tempo reale per offrire informazioni e valore aziendali senza precedenti. Usare Circonus per raccogliere, tenere traccia e visualizzare le metriche chiave correlate alla configurazione Microsoft Azure configurazione. Ottenere visibilità a livello di sistema sull'utilizzo delle risorse, sulle prestazioni delle applicazioni e sull'integrità operativa di Azure.
 
 [Documentazione di Circonus](https://docs.circonus.com/circonus/agents/cloud-agent/azure/)
 
@@ -91,11 +91,11 @@ CloudMonix offre servizi di monitoraggio, automazione e riparazione automatica p
 
 ![DataDog Logo](./media/partners/datadog.png)
 
-Azure consente ai clienti di eseguire la migrazione e modernizzare le applicazioni per l'esecuzione nel cloud, in coordinamento con molte soluzioni partner. Uno di questi partner è Datadog, che fornisce strumenti di osservabilità e sicurezza per consentire agli utenti di comprendere l'integrità e le prestazioni delle applicazioni in ambienti ibridi e multi-cloud.  Tuttavia, la configurazione delle integrazioni necessarie spesso richiede la navigazione tra il portale di Azure e Datadog.  Questo processo aggiunge complessità, richiede tempo e rende difficile risolvere i problemi se le cose non funzionano.  Per ridurre il carico di gestione in più portali, Microsoft ha collaborato con Datadog per creare una soluzione Datadog integrata nella piattaforma cloud di Azure.  Disponibile tramite il Azure Marketplace, questa soluzione offre un'esperienza facile per l'uso della soluzione di monitoraggio cloud di Datadog in Azure.  
+Azure consente ai clienti di eseguire la migrazione e modernizzare le applicazioni per l'esecuzione nel cloud, in coordinamento con molte soluzioni partner. Uno di questi partner è Datadog, che fornisce strumenti di osservabilità e sicurezza per consentire agli utenti di comprendere l'integrità e le prestazioni delle applicazioni in ambienti ibridi e multi-cloud.  Tuttavia, la configurazione delle integrazioni necessarie spesso richiede la navigazione tra il portale di Azure e Datadog.  Questo processo aggiunge complessità, richiede tempo e rende difficile risolvere i problemi se le cose non funzionano.  Per ridurre il carico di gestione in più portali, Microsoft ha collaborato con Datadog per creare una soluzione Datadog integrata nella piattaforma cloud di Azure.  Disponibile tramite il Azure Marketplace, questa soluzione offre un'esperienza semplice per l'uso della soluzione di monitoraggio cloud di Datadog in Azure.  
 
 Con la nuova integrazione Azure-Datadog, le organizzazioni possono ora mappare completamente i sistemi legacy e basati sul cloud, monitorando i dati in tempo reale durante ogni fase della transizione al cloud e assicurando che le applicazioni migrate soddisfino gli obiettivi di prestazioni. Questa integrazione combina la presenza globale, la flessibilità, la sicurezza e la conformità di Azure con le funzionalità di registrazione e monitoraggio di Datadog per creare un'esperienza ottimale per le aziende. Grazie a questa esperienza unificata, sarà possibile: 
 
-- Effettuare il provisioning di una nuova organizzazione Datadog e configurare le risorse di Azure per inviare log e metriche a Datadog, una configurazione completamente gestita senza infrastruttura che i clienti possono configurare e usare.  
+- Effettuare il provisioning di una nuova organizzazione Datadog e configurare le risorse di Azure per l'invio di log e metriche a Datadog, una configurazione completamente gestita senza infrastruttura che i clienti possono configurare e usare.  
 - Inviare facilmente log e metriche a Datadog. Il processo di inoltro dei log è stato completamente automatizzato. Invece di creare una pipeline di inoltro dei log con Impostazioni di diagnostica, Hub eventi e Funzioni, è possibile configurare tutto con pochi clic.
 -   È possibile installare facilmente l'agente Datadog in host di macchine virtuali con un solo clic.
 -   Semplificare l'accesso Single Sign-On (SSO) a Datadog. Non è più necessario un accesso separato dal portale di Datadog. 
@@ -113,7 +113,7 @@ Se si sta ancora usando l'integrazione configurata manualmente precedente, veder
 
 Dynatrace OneAgent si integra con Servizi app e con le VM di Azure per mezzo dei meccanismi di estensione di Azure. In questo modo Dynatrace OneAgent può raccogliere le metriche sulle prestazioni degli host, della rete e dei servizi. Oltre alla semplice visualizzazione delle metriche Dynatrace visualizza gli ambienti end-to-end, mostrando le transazioni dal lato client al livello di database. Dynatrace offre la correlazione dei problemi basata sull'IA e l'analisi della causa principale pienamente integrata, per fornire informazioni a livello di metodo per il codice e il database. Queste informazioni agevolano notevolmente le ottimizzazioni delle prestazioni e la risoluzione dei problemi.
 
-[Documentazione di Dynatrack](https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/)
+[Documentazione di Dynatrace](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/microsoft-azure-services/)
 
 
 ## <a name="elastic"></a>Elastic
@@ -144,7 +144,7 @@ InfluxData è l'autore di InfluxDB, il database time series open source. La tecn
 
 ![Logo di Monitoraggio della logica](./media/partners/logicmonitor.png)
 
-LogicMonitor è la principale piattaforma di monitoraggio delle prestazioni basata su &reg; SaaS per un'infrastruttura IT complessa. Integrando migliaia di tecnologie, LogicMonitor offre una visibilità granulare delle prestazioni dell'infrastruttura e dell'applicazione. Il monitoraggio completo di Azure di LM Cloud consente agli utenti di correlare le prestazioni delle risorse cloud, locali e ibride di Azure, tutte da un'unica piattaforma. Funzionalità di individuazione automatica delle risorse, modelli di monitoraggio integrati, soglie di avviso preconfigurate e dashboard personalizzabili si combinano per garantire al personale IT la velocità, flessibilità e la visibilità necessarie per operare correttamente.
+LogicMonitor è la principale piattaforma di monitoraggio delle prestazioni basata su &reg; SaaS per un'infrastruttura IT complessa. Integrando migliaia di tecnologie, LogicMonitor offre una visibilità granulare delle prestazioni dell'infrastruttura e dell'applicazione. Il monitoraggio completo di Azure di LM Cloud consente agli utenti di correlare le prestazioni delle risorse cloud di Azure, locali e ibride, tutte da un'unica piattaforma. Funzionalità di individuazione automatica delle risorse, modelli di monitoraggio integrati, soglie di avviso preconfigurate e dashboard personalizzabili si combinano per garantire al personale IT la velocità, flessibilità e la visibilità necessarie per operare correttamente.
 
 [Documentazione di Monitoraggio logica](https://www.logicmonitor.com/lp/azure-monitoring/)
 
@@ -215,7 +215,7 @@ PagerDuty, la soluzione leader per la gestione degli eventi imprevisti, ha forni
 
 Promitor è uno Monitoraggio di Azure che rende disponibili le metriche in sistemi come Atlassian Statuspage, Prometheus e StatsD.
 
-Eseguire il push di tutte le metriche Monitoraggio di Azure e utilizzarle dove necessario.
+Eseguire il push di tutte le metriche Monitoraggio di Azure e utilizzare le metriche dove necessario.
 
 [Documentazione di Promitor](https://promitor.io/)
 
@@ -230,9 +230,9 @@ Microsoft Azure DSM e Microsoft Azure Event Hub Protocol sono scaricabili dal [s
 
 ![RSA Logo](./media/partners/rsa.png)
 
-RSA NetWitness Platform è una piattaforma leader per il rilevamento delle minacce e la risposta che riunisce soluzioni siEM evolute e di rilevamento e risposta estese. Le soluzioni offrono visibilità, analisi e capacità di risposta automatizzate insuperabile. Queste funzionalità combinate consentono ai team di sicurezza di lavorare in modo più efficiente ed efficace, alzando di livello le proprie competenze di ricerca delle minacce e consentendo loro di analizzare e rispondere più rapidamente alle minacce, nell'intera infrastruttura dell'organizzazione, sia nel cloud, in locale o virtuale. 
+RSA NetWitness Platform è una piattaforma leader per il rilevamento delle minacce e la risposta che riunisce soluzioni siEM e di rilevamento e risposta estese. Le soluzioni offrono funzionalità di visibilità, analisi e risposta automatizzate senza esere senza problemi. Queste funzionalità combinate consentono ai team di sicurezza di lavorare in modo più efficiente ed efficace, alzando di livello le proprie competenze di ricerca delle minacce e consentendo loro di analizzare e rispondere più rapidamente alle minacce, nell'intera infrastruttura dell'organizzazione, sia nel cloud, in locale o virtuale. 
 
-L'integrazione di RSA NetWitness Platform con Monitoraggio di Azure offre funzionalità rapide per inserire i dati e i log degli eventi da Monitoraggio di Azure in modo nativo in RSA NetWitness Platform tramite un'interfaccia utente intuitiva e affidabili funzionalità di analisi native. Ottenere una rapida visibilità su attività, diagnostica, eventi di Active Directory e altri dati dell'hub eventi e visualizzare questi dati insieme alle altre informazioni di sicurezza aziendali in una soluzione completa di rilevamento delle minacce e risposta.
+L'integrazione di RSA NetWitness Platform con Monitoraggio di Azure offre funzionalità rapide per inserire i dati e i log degli eventi da Monitoraggio di Azure in modo nativo in RSA NetWitness Platform tramite un'interfaccia utente intuitiva e funzionalità di analisi native affidabili. Ottenere una rapida visibilità su attività, diagnostica, eventi di Active Directory e altri dati dell'hub eventi e visualizzare questi dati insieme alle altre informazioni di sicurezza aziendali in una soluzione completa di rilevamento delle minacce e risposta.
 
 [Altre informazioni.](https://community.rsa.com/docs/DOC-101239)
 
@@ -250,7 +250,7 @@ ScienceLogic produce la piattaforma per la garanzia dei servizi IT di nuova gene
 
 ![Serverless360 Logo](./media/partners/serverless360.png)
 
-Serverless360 è uno strumento a piattaforma unica per il funzionamento, la gestione e il monitoraggio dei componenti serverless di Azure. La gestibilità è una delle principali sfide delle implementazioni serverless. Centinaia di piccoli servizi serverless discreti sono sparsi in varie posizioni: la gestione e il funzionamento di tali soluzioni è complesso. Serverless360 risolve questi problemi con un set di strumenti sofisticati. Può monitorare servizi serverless come Funzioni di Azure, App per la logica, Griglia di eventi, Code del bus di servizio, Argomenti, Inoltri, Hub eventi, code di archiviazione, file, BLOB e tabelle. Serverless360 è disponibile nella Azure Marketplace. Queste funzionalità sono disponibili sia in SaaS che nell'hosting privato (ospitato nel proprio ambiente).  
+Serverless360 è uno strumento a piattaforma unica per il funzionamento, la gestione e il monitoraggio dei componenti serverless di Azure. La gestibilità è una delle principali sfide delle implementazioni serverless. Centinaia di piccoli servizi serverless discreti sono sparsi in varie posizioni: la gestione e il funzionamento di tali soluzioni è complesso. Serverless360 risolve questi problemi con un set di strumenti sofisticati. Può monitorare servizi serverless come Funzioni di Azure, App per la logica, Griglie eventi, Code del bus di servizio, Argomenti, Inoltri, Hub eventi, code di archiviazione, file, BLOB e tabelle. Serverless360 è disponibile nella Azure Marketplace. Queste funzionalità sono disponibili sia in SaaS che nell'hosting privato (ospitato nel proprio ambiente).  
 
 [Documentazione di Serverless360](https://docs.serverless360.com/docs/)
 
@@ -349,7 +349,7 @@ L Monitoraggio di Azure per instradare i dati di monitoraggio a un hub eventi di
 | Splunk | No | [Microsoft Azure Add-On per Splunk](https://splunkbase.splunk.com/app/3757/) è un progetto open source disponibile in Splunkbase. <br><br> Se non è possibile installare un componente aggiuntivo nell'istanza di Splunk, se ad esempio si usa un proxy o si esegue in Splunk Cloud, è possibile inoltrare questi eventi all'agente di raccolta eventi HTTP Splunk usando la funzione di Azure per [Splunk,](https://github.com/Microsoft/AzureFunctionforSplunkVS)che viene attivata da nuovi messaggi nell'hub eventi. |
 | sumologic | No | Le istruzioni per configurare SumoLogic per l'utilizzo dei dati da un hub eventi sono disponibili in Raccogliere log per l'app di controllo di [Azure dall'hub eventi.](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub) |
 | ArcSight | No | Il connettore intelligente di Hub eventi di Azure per ArcSight è disponibile come parte della [raccolta di connettori intelligenti ArcSight.](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852) |
-| Server Syslog | No | Se si vuole trasmettere dati Monitoraggio di Azure direttamente a un server Syslog, è possibile usare una soluzione [basata su una funzione di Azure.](https://github.com/miguelangelopereira/azuremonitor2syslog/)
+| Server Syslog | No | Se si vuole trasmettere Monitoraggio di Azure dati direttamente a un server Syslog, è possibile usare una soluzione [basata su una funzione di Azure.](https://github.com/miguelangelopereira/azuremonitor2syslog/)
 | LogRhythm | No| Le istruzioni per configurare LogRhythm per raccogliere i log da un hub eventi sono disponibili [qui.](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/) 
 |Logz.io | Sì | Per altre informazioni, vedere [Introduzione al monitoraggio e alla registrazione con Logz.io per le app Java in esecuzione in Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 

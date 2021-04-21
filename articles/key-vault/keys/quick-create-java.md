@@ -8,12 +8,12 @@ ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: 124e56fad35be0f3ac5b08ee9dd66454b9d077c5
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f0933a19ecfebfde8ac43ac3e88332506e2256ec
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374693"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750378"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Avvio rapido: Libreria client di chiavi di Azure Key Vault per Java
 Introduzione alla libreria client di chiavi di Azure Key Vault per Java. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
@@ -271,4 +271,4 @@ In questa guida di avvio rapido è stato creato un insieme di credenziali delle 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Vedere la [panoramica della sicurezza di Key Vault](../general/security-overview.md)
 - Vedere la [Guida per gli sviluppatori per Azure Key Vault](../general/developers-guide.md)
-- Come [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/secure-your-key-vault.md)
+- Come [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/security-overview.md)

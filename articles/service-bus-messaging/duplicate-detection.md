@@ -2,13 +2,13 @@
 title: Rilevamento di messaggi duplicati nel bus di servizio di Azure | Microsoft Docs
 description: Questo articolo illustra come rilevare i duplicati nei bus di servizio di Azure messaggi. Il messaggio duplicato può essere ignorato ed eliminato.
 ms.topic: article
-ms.date: 04/14/2021
-ms.openlocfilehash: a9ca9de988f5a3db15da773a870e2d929ab938c8
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.date: 04/19/2021
+ms.openlocfilehash: baeda3509cb5646c658f79fb11610ecfdd1ffd3d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107499479"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751275"
 ---
 # <a name="duplicate-detection"></a>Rilevamento duplicati
 
@@ -37,7 +37,7 @@ Per un processo di business in cui vengono inviati più messaggi durante la gest
 >- Il [livello Premier](service-bus-premium-messaging.md) non supporta il partizionamento, quindi è consigliabile usare ID messaggio univoci nelle applicazioni e non basarsi sulle chiavi di partizione per il rilevamento duplicati. 
 
 
-## <a name="enable-duplicate-detection"></a>Abilitare il rilevamento dei duplicati
+## <a name="duplicate-detection-window-size"></a>Dimensioni della finestra di rilevamento duplicati
 
 Oltre a abilitare solo il rilevamento duplicati, è anche possibile configurare le dimensioni dell'intervallo di tempo della cronologia di rilevamento duplicati durante il quale vengono conservati gli ID messaggio.
 Il valore predefinito è 10 minuti per code e argomenti, con un valore minimo di 20 secondi al valore massimo di 7 giorni.
@@ -46,37 +46,20 @@ L'abilitazione del rilevamento dei duplicati e le dimensioni della finestra temp
 
 Mantenendo una finestra temporale di dimensioni ridotte, occorre conservare e confrontare un numero inferiore di ID messaggio, con un minore impatto sulla velocità effettiva. Per le entità con velocità effettiva elevata che richiedono il rilevamento dei duplicati, è consigliabile ridurre la finestra al minimo.
 
-### <a name="using-the-portal"></a>Tramite il portale
-
-Nel portale la funzionalità di rilevamento duplicati viene  attivata durante la creazione dell'entità con la casella di controllo Abilita rilevamento duplicati, che è disattivata per impostazione predefinita. L'impostazione per la creazione di nuovi argomenti è equivalente.
-
-![Screenshot della finestra di dialogo Crea coda con l'opzione Abilita rilevamento duplicati selezionata e delineata in rosso.][1]
-
-> [!IMPORTANT]
-> È possibile abilitare o disabilitare il rilevamento dei duplicati dopo la creazione della coda. È possibile farlo solo al momento della creazione della coda. 
-
-L'intervallo di tempo della cronologia di rilevamento duplicati può essere modificato nella finestra delle proprietà della coda e dell'argomento nel portale di Azure.
-
-![Screenshot della funzionalità del bus di servizio con l'impostazione Proprietà evidenziata e l'opzione Cronologia rilevamento duplicati evidenziata in rosso.][2]
-
-### <a name="using-sdks"></a>Uso di SDK
-
-È possibile usare qualsiasi SDK per .NET, Java, JavaScript, Python e Go per abilitare la funzionalità di rilevamento duplicati durante la creazione di code e argomenti. È anche possibile modificare l'intervallo di tempo della cronologia di rilevamento duplicati.
-Di seguito sono elencate le proprietà da aggiornare durante la creazione di code e argomenti:
-- `RequiresDuplicateDetection`
-- `DuplicateDetectionHistoryTimeWindow`
-
-Si noti che, anche se i nomi delle proprietà vengono forniti in maiuscole e minuscole in pascal, gli SDK JavaScript e Python usano rispettivamente l'uso di maiuscole e minuscole camel e di maiuscole e minuscole.
-
 ## <a name="next-steps"></a>Passaggi successivi
+È possibile abilitare il rilevamento dei messaggi duplicati usando portale di Azure, PowerShell, interfaccia della riga di comando, Resource Manager modello, .NET, Java, Python e JavaScript. Per altre informazioni, vedere Abilitare [il rilevamento dei messaggi duplicati.](enable-duplicate-detection.md) 
 
-Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti:
+Negli scenari in cui il codice client non è in grado di inviare nuovamente un messaggio con lo stesso *MessageId* di prima, è importante progettare messaggi che possono essere rielaborati in modo sicuro. Questo [post di blog sull'idempotenza](https://particular.net/blog/what-does-idempotent-mean) descrive varie tecniche per eseguire questa operazione.
 
-* [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
-* [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
-* [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+Provare gli esempi nel linguaggio preferito per esplorare le bus di servizio di Azure funzionalità. 
 
-Negli scenari in cui il codice client non è in grado di inviare nuovamente un messaggio con lo stesso *MessageId* di prima, è importante progettare messaggi che possono essere rielaborati in modo sicuro. Questo [post di blog sull'idempotence](https://particular.net/blog/what-does-idempotent-mean) descrive varie tecniche per eseguire questa operazione.
+- [bus di servizio di Azure di librerie client per Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [bus di servizio di Azure di libreria client per Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [bus di servizio di Azure di libreria client per JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [bus di servizio di Azure di libreria client per TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Esempi di Azure.Messaging.ServiceBus per .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 
-[1]: ./media/duplicate-detection/create-queue.png
-[2]: ./media/duplicate-detection/queue-prop.png
+Di seguito sono riportati esempi per le librerie client .NET e Java precedenti:
+- [Esempi di Microsoft.Azure.ServiceBus per .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Esempi di azure-servicebus per Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+

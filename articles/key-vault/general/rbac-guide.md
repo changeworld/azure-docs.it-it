@@ -3,19 +3,18 @@ title: Concedere l'autorizzazione alle applicazioni per accedere a un insieme di
 description: Informazioni su come fornire l'accesso a chiavi, segreti e certificati usando il controllo degli accessi in base al ruolo di Azure.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 8/30/2020
+ms.date: 04/15/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: a1e9f499b54b0cf3b75a78e76a44c1df6e3e3b3e
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 9fb8eb79a381473b26a6ea14d8b71d24ac26f485
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479849"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107749457"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Fornire l'accesso Key Vault chiavi, certificati e segreti con un controllo degli accessi in base al ruolo di Azure
 
@@ -28,7 +27,7 @@ Il controllo degli accessi in base al ruolo di Azure consente agli utenti di ges
 
 Il modello controllo degli accessi in base al ruolo di Azure consente di impostare le autorizzazioni per diversi livelli di ambito: gruppo di gestione, sottoscrizione, gruppo di risorse o singole risorse.  Il controllo degli accessi in base al ruolo di Azure per l'insieme di credenziali delle chiavi offre anche la possibilità di disporre di autorizzazioni separate per singole chiavi, segreti e certificati
 
-Per altre informazioni, vedere Controllo degli [accessi in base al ruolo di Azure.](../../role-based-access-control/overview.md)
+Per altre informazioni, vedere Controllo [degli accessi in base al ruolo di Azure.](../../role-based-access-control/overview.md)
 
 ## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>Procedure consigliate per singole chiavi, segreti e certificati
 
@@ -51,20 +50,20 @@ Per altre informazioni Azure Key Vault sulla gestione dei dati, vedere:
 
 | Ruolo predefinito | Descrizione | ID |
 | --- | --- | --- |
-| Key Vault amministratore| Eseguire tutte le operazioni del piano dati su un insieme di credenziali delle chiavi e su tutti gli oggetti in esso contenuti, inclusi certificati, chiavi e segreti. Impossibile gestire le risorse dell'insieme di credenziali delle chiavi o le assegnazioni di ruolo. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+| Key Vault amministratore| Eseguire tutte le operazioni del piano dati in un insieme di credenziali delle chiavi e in tutti gli oggetti in esso contenuti, inclusi certificati, chiavi e segreti. Non è possibile gestire le risorse dell'insieme di credenziali delle chiavi o le assegnazioni di ruolo. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 | Key Vault Certificates Officer | Eseguire qualsiasi azione sui certificati di un insieme di credenziali delle chiavi, ad eccezione delle autorizzazioni di gestione. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | a4417e6f-fecd-4de8-b567-7b0420556985 |
 | Key Vault Crypto Officer | Eseguire qualsiasi azione sulle chiavi di un insieme di credenziali delle chiavi, ad eccezione delle autorizzazioni di gestione. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-| Key Vault utente crittografia del servizio Crypto | Leggere i metadati delle chiavi ed eseguire operazioni di wrapping/annullamento del wrapping. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-| Key Vault utente crypto  | Eseguire operazioni di crittografia usando le chiavi. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 12338af0-0e69-4776-bea7-57ae8d297424 |
-| Key Vault lettore | Leggere i metadati degli insiemi di credenziali delle chiavi e dei relativi certificati, chiavi e segreti. Impossibile leggere i valori sensibili, ad esempio il contenuto del segreto o il materiale della chiave. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 21090545-7ca7-4776-b22c-e363652d74d2 |
+| Key Vault crittografia del servizio di crittografia | Legge i metadati delle chiavi ed esegue operazioni di wrapping/annullamento del wrapping. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+| Key Vault Crypto User  | Eseguire operazioni di crittografia usando le chiavi. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 12338af0-0e69-4776-bea7-57ae8d297424 |
+| Key Vault lettore | Leggere i metadati degli insiemi di credenziali delle chiavi e i relativi certificati, chiavi e segreti. Impossibile leggere valori sensibili, ad esempio il contenuto del segreto o il materiale della chiave. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 21090545-7ca7-4776-b22c-e363652d74d2 |
 | Key Vault Secrets Officer| Eseguire qualsiasi azione sui segreti di un insieme di credenziali delle chiavi, ad eccezione delle autorizzazioni di gestione. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-| Key Vault Secrets User | Leggere il contenuto del segreto. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 4633458b-17de-408a-b874-0445c86b69e6 |
+| Key Vault'utente dei segreti | Leggere il contenuto del segreto. Funziona solo per gli insiemi di credenziali delle chiavi che usano il modello di autorizzazione "Controllo degli accessi in base al ruolo di Azure". | 4633458b-17de-408a-b874-0445c86b69e6 |
 
 Per altre informazioni sulle definizioni dei ruoli predefiniti di Azure, vedere [Ruoli predefiniti di Azure.](../../role-based-access-control/built-in-roles.md)
 
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Uso delle autorizzazioni per segreto, chiave e certificato del controllo degli accessi in base al ruolo di Azure con Key Vault
 
-Il nuovo modello di autorizzazione del controllo degli accessi in base al ruolo di Azure per l'insieme di credenziali delle chiavi offre un'alternativa al modello di autorizzazioni dei criteri di accesso dell'insieme di credenziali. 
+Il nuovo modello di autorizzazione controllo degli accessi in base al ruolo di Azure per l'insieme di credenziali delle chiavi offre un'alternativa al modello di autorizzazioni dei criteri di accesso all'insieme di credenziali. 
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -76,11 +75,11 @@ Per aggiungere assegnazioni di ruolo, è necessario disporre di
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Abilitare le autorizzazioni di Controllo degli accessi in base al ruolo di Azure Key Vault
 
 > [!NOTE]
-> La modifica del modello di autorizzazione richiede l'autorizzazione "Microsoft.Authorization/roleAssignments/write", che fa parte dei ruoli [Proprietario](../../role-based-access-control/built-in-roles.md#owner) e Amministratore [accesso](../../role-based-access-control/built-in-roles.md#user-access-administrator) utenti. I ruoli di amministratore della sottoscrizione classica, ad esempio "Amministratore del servizio" e "Co-amministratore", non sono supportati.
+> La modifica del modello di autorizzazione richiede l'autorizzazione 'Microsoft.Authorization/roleAssignments/write', che fa parte dei ruoli [Proprietario](../../role-based-access-control/built-in-roles.md#owner) e [Amministratore Accesso](../../role-based-access-control/built-in-roles.md#user-access-administrator) utenti. I ruoli di amministratore della sottoscrizione classica, ad esempio "Amministratore del servizio" e "Co-amministratore", non sono supportati.
 
 1.  Abilitare le autorizzazioni di Controllo degli accessi in base al ruolo di Azure nel nuovo insieme di credenziali delle chiavi:
 
-    ![Abilitare le autorizzazioni del controllo degli accessi in base al ruolo di Azure - Nuovo insieme di credenziali](../media/rbac/image-1.png)
+    ![Abilitare le autorizzazioni di Controllo degli accessi in base al ruolo di Azure - Nuovo insieme di credenziali](../media/rbac/image-1.png)
 
 2.  Abilitare le autorizzazioni di Controllo degli accessi in base al ruolo di Azure nell'insieme di credenziali delle chiavi esistente:
 
@@ -92,7 +91,7 @@ Per aggiungere assegnazioni di ruolo, è necessario disporre di
 ### <a name="assign-role"></a>Assegnare il ruolo
 
 > [!Note]
-> È consigliabile usare l'ID ruolo univoco anziché il nome del ruolo negli script. Pertanto, se un ruolo viene rinominato, gli script continueranno a funzionare. In questo documento il nome del ruolo viene usato solo per la leggibilità.
+> È consigliabile usare l'ID ruolo univoco anziché il nome del ruolo negli script. Pertanto, se un ruolo viene rinominato, gli script continueranno a funzionare. In questo documento il nome del ruolo viene usato solo per una leggibilità.
 
 Eseguire il comando seguente per creare un'assegnazione di ruolo:
 
@@ -111,16 +110,16 @@ New-AzRoleAssignment -RoleDefinitionName Reader -ApplicationId <applicationId> -
 ```
 ---
 
-Nella schermata portale di Azure, la schermata Assegnazioni di ruolo di Azure è disponibile per tutte le risorse nella scheda Controllo di accesso (IAM).
+Nell'portale di Azure, la schermata Assegnazioni di ruolo di Azure è disponibile per tutte le risorse nella scheda Controllo di accesso (IAM).
 
 ![Assegnazione di ruolo - scheda (IAM)](../media/rbac/image-3.png)
 
-### <a name="resource-group-scope-role-assignment"></a>Assegnazione di ruolo ambito gruppo di risorse
+### <a name="resource-group-scope-role-assignment"></a>Assegnazione di ruolo dell'ambito del gruppo di risorse
 
 1.  Passare al gruppo di risorse dell'insieme di credenziali delle chiavi.
     ![Assegnazione di ruolo - Gruppo di risorse](../media/rbac/image-4.png)
 
-2.  Fare clic su Controllo di accesso (IAM) \> Aggiungi assegnazione di ruolo \>
+2.  Fare clic su Controllo di accesso (IAM) \> Aggiungi assegnazione di ruolo \> Aggiungi
 
 3.  Creare Key Vault ruolo lettore "Key Vault lettore" per l'utente corrente
 
@@ -143,13 +142,13 @@ New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -ApplicationId {i.e 
 
 L'assegnazione di ruolo precedente consente di elencare gli oggetti dell'insieme di credenziali delle chiavi nell'insieme di credenziali delle chiavi.
 
-### <a name="key-vault-scope-role-assignment"></a>Key Vault ruolo ambito
+### <a name="key-vault-scope-role-assignment"></a>Key Vault di ruolo ambito
 
 1. Passare alla Key Vault \> Controllo di accesso (IAM)
 
 2. Fare clic su Aggiungi assegnazione ruolo \> Aggiungi
 
-3. Creare il ruolo di responsabile dei segreti Key Vault "responsabile dei segreti" per l'utente corrente.
+3. Creare il ruolo key secrets officer "Key Vault Secrets Officer" per l'utente corrente.
 
     ![Assegnazione di ruolo - Insieme di credenziali delle chiavi](../media/rbac/image-6.png)
 
@@ -182,7 +181,7 @@ Dopo aver creato l'assegnazione di ruolo precedente, è possibile creare/aggiorn
 
     ![Assegnazione di ruolo - segreto](../media/rbac/image-8.png)
 
-3. Creare il ruolo di responsabile dei segreti Key Vault "responsabile dei segreti" per l'utente corrente, come è stato fatto in precedenza per il Key Vault.
+3. Creare il ruolo di responsabile dei segreti chiave "Key Vault secrets officer" per l'utente corrente, come è stato fatto in precedenza per il Key Vault.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 ```azurecli
@@ -203,33 +202,33 @@ New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -Applicatio
 
 > [!NOTE]
 > I browser usano la memorizzazione nella cache e l'aggiornamento della pagina è necessario dopo la rimozione delle assegnazioni di ruolo.<br>
-> Consentire l'aggiornamento delle assegnazioni di ruolo per alcuni minuti
+> Consentire alcuni minuti per l'aggiornamento delle assegnazioni di ruolo
 
-1. Convalidare l'aggiunta di un nuovo segreto senza il Key Vault "Responsabile dei segreti" a livello di insieme di credenziali delle chiavi.
+1. Convalidare l'aggiunta di un nuovo segreto senza il ruolo "Key Vault Secrets Officer" a livello di insieme di credenziali delle chiavi.
 
 Passare alla scheda Controllo di accesso (IAM) dell'insieme di credenziali delle chiavi e rimuovere l'assegnazione di ruolo "Key Vault Secrets Officer" per questa risorsa.
 
 ![Rimuovere l'assegnazione - Insieme di credenziali delle chiavi](../media/rbac/image-9.png)
 
-Passare al segreto creato in precedenza. È possibile visualizzare tutte le proprietà dei segreti.
+Passare al segreto creato in precedenza. È possibile visualizzare tutte le proprietà del segreto.
 
-![Visualizzazione segreta con accesso](../media/rbac/image-10.png)
+![Visualizzazione dei segreti con accesso](../media/rbac/image-10.png)
 
-Creare un nuovo segreto ( Segreti \> +Genera/Importa) dovrebbe essere visualizzato l'errore seguente:
+Creare un nuovo segreto ( Segreti \> +Genera/Importa) dovrebbe visualizzare l'errore seguente:
 
    ![Creare un nuovo segreto](../media/rbac/image-11.png)
 
 2.  Convalidare la modifica dei segreti senza Key Vault secret officer a livello di segreto.
 
--   Passare alla scheda Controllo di accesso segreto (IAM) creata in precedenza e rimuovere l'assegnazione di ruolo "Key Vault Secrets Officer" per questa risorsa.
+-   Passare alla scheda controllo di accesso dei segreti (IAM) creata in precedenza e rimuovere l'assegnazione di ruolo "Key Vault Secrets Officer" per questa risorsa.
 
 -   Passare al segreto creato in precedenza. È possibile visualizzare le proprietà dei segreti.
 
-   ![Visualizzazione segreta senza accesso](../media/rbac/image-12.png)
+   ![Visualizzazione dei segreti senza accesso](../media/rbac/image-12.png)
 
 3. Convalidare i segreti letti senza ruolo lettore a livello di insieme di credenziali delle chiavi.
 
--   Passare alla scheda Controllo di accesso (IAM) del gruppo di risorse dell'insieme di credenziali delle chiavi e rimuovere l'assegnazione di ruolo "Key Vault lettore".
+-   Passare alla scheda Controllo di accesso (IAM) del gruppo di risorse dell'insieme di credenziali delle chiavi e rimuovere l'assegnazione Key Vault ruolo lettore.
 
 -   Passando alla scheda Segreti dell'insieme di credenziali delle chiavi dovrebbe essere visualizzato l'errore seguente:
 
@@ -288,7 +287,7 @@ Per altre informazioni su come creare ruoli personalizzati, vedere:
 
 ## <a name="known-limits-and-performance"></a>Limiti noti e prestazioni
 
--   2000 Assegnazioni di ruolo di Azure per sottoscrizione
+-   2000 assegnazioni di ruolo di Azure per sottoscrizione
 
 -   Latenza delle assegnazioni di ruolo: con le prestazioni previste correnti, saranno previsti fino a 10 minuti (600 secondi) dopo la modifica delle assegnazioni di ruolo per l'applicazione del ruolo
 

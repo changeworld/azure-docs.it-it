@@ -1,19 +1,19 @@
 ---
 title: Usare i riferimenti di Key Vault
-description: Informazioni su come configurare app Azure servizio e funzioni di Azure per l'uso di Azure Key Vault riferimenti. Rendere Key Vault segreti disponibili per il codice dell'applicazione.
+description: Informazioni su come configurare Servizio app di Azure e Funzioni di Azure usare Azure Key Vault riferimenti. Rendere Key Vault segreti disponibili per il codice dell'applicazione.
 author: mattchenderson
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: e0bba85cc99e1751f39172ac320fe721d6f02e87
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: b87001f9b283c774096fe669d58a9b487174625d
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076786"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750771"
 ---
-# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usare i riferimenti Key Vault per il servizio app e funzioni di Azure
+# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usare Key Vault per il servizio app e le Funzioni di Azure
 
 Questo argomento illustra come usare i segreti da Azure Key Vault all'interno dell'applicazione di Servizio app o Funzioni di Azure senza che siano richieste modifiche al codice. [Azure Key Vault](../key-vault/general/overview.md) è un servizio che supporta la gestione centralizzata dei segreti con controllo completo sui criteri di accesso e sulla cronologia di controllo.
 
@@ -28,21 +28,21 @@ Per leggere i segreti da Key Vault, è necessario avere creato un insieme di cre
    > [!NOTE] 
    > I riferimenti a Key Vault supportano attualmente solo identità gestite assegnate dal sistema. Non è possibile usare identità assegnate dall'utente.
 
-1. Creare [criteri di accesso in Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) per l'identità di applicazione creata in precedenza. Abilitare l'autorizzazione per il segreto "Get" in questi criteri. Non configurare l'"applicazione autorizzata" o le impostazioni di `applicationId`, poiché questa operazione non è compatibile con un'identità gestita.
+1. Creare [criteri di accesso in Key Vault](../key-vault/general/security-overview.md#privileged-access) per l'identità di applicazione creata in precedenza. Abilitare l'autorizzazione per il segreto "Get" in questi criteri. Non configurare l'"applicazione autorizzata" o le impostazioni di `applicationId`, poiché questa operazione non è compatibile con un'identità gestita.
 
 ### <a name="access-network-restricted-vaults"></a>Accedere agli insiemi di credenziali con restrizioni di rete
 
 > [!NOTE]
 > Le applicazioni basate su Linux non sono attualmente in grado di risolvere i segreti da un insieme di credenziali delle chiavi con restrizioni di rete, a meno che l'app non sia ospitata in un [ambiente del servizio app](./environment/intro.md).
 
-Se l'insieme di credenziali è configurato con [restrizioni di rete](../key-vault/general/overview-vnet-service-endpoints.md), sarà necessario assicurarsi che l'applicazione disponga di accesso alla rete.
+Se l'insieme di credenziali è configurato [con restrizioni di rete,](../key-vault/general/overview-vnet-service-endpoints.md)è anche necessario assicurarsi che l'applicazione abbia accesso alla rete.
 
-1. Verificare che nell'applicazione siano configurate le funzionalità di rete in uscita, come descritto in funzionalità di rete del [servizio app](./networking-features.md) e [Opzioni di rete di funzioni di Azure](../azure-functions/functions-networking-options.md).
+1. Assicurarsi che l'applicazione abbia funzionalità di rete in uscita configurate, come descritto in Funzionalità di rete del servizio [app](./networking-features.md) e Funzioni di Azure [di rete.](../azure-functions/functions-networking-options.md)
 
-2. Assicurarsi che gli account di configurazione dell'insieme di credenziali per la rete o la subnet a cui l'app acceda.
+2. Assicurarsi che gli account di configurazione dell'insieme di credenziali per la rete o la subnet tramite cui l'app accederà.
 
 > [!IMPORTANT]
-> L'accesso a un insieme di credenziali tramite l'integrazione della rete virtuale non è attualmente compatibile con [gli aggiornamenti automatici per i segreti senza una versione specificata](#rotation).
+> L'accesso a un insieme di credenziali tramite l'integrazione della rete virtuale non è attualmente compatibile con gli aggiornamenti [automatici per i segreti senza una versione specificata.](#rotation)
 
 ## <a name="reference-syntax"></a>Sintassi del riferimento
 
@@ -51,8 +51,8 @@ Un riferimento a Key Vault viene espresso nel formato `@Microsoft.KeyVault({refe
 > [!div class="mx-tdBreakAll"]
 > | Stringa di riferimento                                                            | Descrizione                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | **SecretUri** deve essere l'URI del piano dati completo di un segreto in Key Vault, includendo facoltativamente una versione, ad esempio, `https://myvault.vault.azure.net/secrets/mysecret/` o`https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | Il **nome dell'insieme di credenziali è obbligatorio** e deve essere il nome della risorsa key Vault. Il **segretoname** è obbligatorio e deve essere il nome del segreto di destinazione. **SecretVersion** è facoltativo, ma se presente indica la versione del segreto da usare. |
+> | SecretUri=_secretUri_                                                       | **SecretUri** deve essere l'URI completo del piano dati di un segreto in Key Vault, includendo facoltativamente una versione, ad esempio `https://myvault.vault.azure.net/secrets/mysecret/` o`https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | VaultName **è** obbligatorio e deve essere il nome della Key Vault risorsa. SecretName **è** obbligatorio e deve essere il nome del segreto di destinazione. SecretVersion **è** facoltativo, ma se presente indica la versione del segreto da usare. |
 
 Un riferimento completo, ad esempio, avrebbe un aspetto simile al seguente:
 
@@ -69,13 +69,13 @@ In alternativa:
 ## <a name="rotation"></a>Rotazione
 
 > [!IMPORTANT]
-> [L'accesso a un insieme di credenziali tramite l'integrazione della rete virtuale](#access-network-restricted-vaults) non è attualmente compatibile con gli aggiornamenti automatici per i segreti senza una versione specificata.
+> [L'accesso a un insieme di credenziali tramite l'integrazione](#access-network-restricted-vaults) della rete virtuale non è attualmente compatibile con gli aggiornamenti automatici per i segreti senza una versione specificata.
 
-Se nella Guida di riferimento non è specificata una versione, l'app userà la versione più recente presente in Key Vault. Quando le versioni più recenti diventano disponibili, ad esempio con un evento di rotazione, l'app verrà aggiornata automaticamente e inizierà a usare la versione più recente nell'arco di un giorno. Eventuali modifiche di configurazione apportate all'app provocheranno un aggiornamento immediato alle versioni più recenti di tutti i segreti a cui si fa riferimento.
+Se non viene specificata una versione nel riferimento, l'app userà la versione più recente presente in Key Vault. Quando diventano disponibili versioni più recenti, ad esempio con un evento di rotazione, l'app verrà aggiornata automaticamente e inizierà a usare la versione più recente entro un giorno. Eventuali modifiche alla configurazione apportate all'app causeranno un aggiornamento immediato alle versioni più recenti di tutti i segreti a cui si fa riferimento.
 
 ## <a name="source-application-settings-from-key-vault"></a>Impostazioni dell'applicazione di origine da Key Vault
 
-Key Vault riferimenti possono essere utilizzati come valori per [le impostazioni dell'applicazione](configure-common.md#configure-app-settings), consentendo di tenere segreti in Key Vault invece che nella configurazione del sito. Le impostazioni dell'applicazione vengono crittografate in modo sicuro, ma se sono necessarie le funzionalità di gestione dei segreti, è opportuno entrare in Key Vault.
+Key Vault riferimenti possono essere usati come valori per Impostazioni applicazione [,](configure-common.md#configure-app-settings)consentendo di mantenere i segreti Key Vault anziché la configurazione del sito. Le impostazioni dell'applicazione vengono crittografate in modo sicuro in caso di inquieto, ma se sono necessarie funzionalità di gestione dei segreti, dovrebbero essere Key Vault.
 
 Per usare un riferimento a Key Vault per un'impostazione di applicazione, impostare il riferimento come valore dell'impostazione. L'app può fare riferimento al segreto tramite la relativa chiave come di consueto. Non sono necessarie modifiche al codice.
 
@@ -86,7 +86,7 @@ Per usare un riferimento a Key Vault per un'impostazione di applicazione, impost
 
 Durante l'automazione delle distribuzioni di risorse tramite modelli di Azure Resource Manager, potrebbe essere necessario disporre in sequenza le dipendenze in un determinato ordine per usufruire di questa funzionalità. Si noti che sarà necessario definire le impostazioni di applicazione come risorsa propria, invece di usare una proprietà `siteConfig` nella definizione del sito. Questo avviene perché il sito deve essere definito per primo, in modo che l'identità assegnata dal sistema venga creata insieme al sito e possa essere usata nei criteri di accesso.
 
-Un pseudo modello di esempio per un'app per le funzioni potrebbe essere simile al seguente:
+Un esempio di pseudo-modello per un'app per le funzioni potrebbe essere simile al seguente:
 
 ```json
 {
@@ -192,28 +192,28 @@ Un pseudo modello di esempio per un'app per le funzioni potrebbe essere simile a
 > [!NOTE] 
 > In questo esempio, la distribuzione del controllo del codice sorgente dipende dalle impostazioni dell'applicazione. Si tratta in genere di un comportamento non sicuro, dato che l'aggiornamento delle impostazioni dell'applicazione ha un comportamento asincrono. Tuttavia, dato che è stata inclusa l'impostazione dell'applicazione `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, l'aggiornamento è sincrono. Questo significa che la distribuzione del controllo del codice sorgente inizierà solo dopo l'aggiornamento completo delle impostazioni dell'applicazione.
 
-## <a name="troubleshooting-key-vault-references"></a>Risoluzione dei problemi relativi ai riferimenti a Key Vault
+## <a name="troubleshooting-key-vault-references"></a>Risoluzione dei Key Vault riferimenti
 
-Se un riferimento non viene risolto correttamente, verrà utilizzato il valore di riferimento. Ciò significa che, per le impostazioni dell'applicazione, viene creata una variabile di ambiente il cui valore ha la `@Microsoft.KeyVault(...)` sintassi. Questa operazione può causare la generazione di errori da parte dell'applicazione, perché era previsto un segreto di una determinata struttura.
+Se un riferimento non viene risolto correttamente, verrà usato il valore di riferimento. Ciò significa che per le impostazioni dell'applicazione viene creata una variabile di ambiente il cui valore ha la `@Microsoft.KeyVault(...)` sintassi . Ciò potrebbe causare la generazione di errori da parte dell'applicazione, perché prevedeva un segreto di una determinata struttura.
 
-In genere, ciò è dovuto a un errore di configurazione dei [criteri di accesso key Vault](#granting-your-app-access-to-key-vault). Tuttavia, potrebbe anche essere dovuto a un segreto non più esistente o a un errore di sintassi nel riferimento stesso.
+In genere, ciò è dovuto a una configurazione errata dei criteri Key Vault [di accesso.](#granting-your-app-access-to-key-vault) Tuttavia, potrebbe anche essere dovuto a un segreto non più esistente o a un errore di sintassi nel riferimento stesso.
 
-Se la sintassi è corretta, è possibile visualizzare altre cause per l'errore controllando lo stato di risoluzione corrente nel portale. Passare a impostazioni applicazione e selezionare "modifica" per il riferimento in questione. Sotto la configurazione delle impostazioni verranno visualizzate le informazioni sullo stato, inclusi gli eventuali errori. L'assenza di questi significa che la sintassi di riferimento non è valida.
+Se la sintassi è corretta, è possibile visualizzare altre cause di errore controllando lo stato di risoluzione corrente nel portale. Passare a Impostazioni applicazione e selezionare "Modifica" per il riferimento in questione. Sotto la configurazione dell'impostazione dovrebbero essere visualizzate informazioni sullo stato, inclusi gli eventuali errori. L'assenza di questi elementi implica che la sintassi di riferimento non è valida.
 
-Per ottenere altre informazioni, è anche possibile usare uno dei rilevatori predefiniti.
+È anche possibile usare uno dei rilevatori predefiniti per ottenere informazioni aggiuntive.
 
-### <a name="using-the-detector-for-app-service"></a>Uso del detector per il servizio app
+### <a name="using-the-detector-for-app-service"></a>Uso del rilevatore per il servizio app
 
 1. Nel portale passare all'app.
 2. Selezionare **Diagnostica e risoluzione dei problemi**.
-3. Scegliere **disponibilità e prestazioni** e selezionare **app Web in basso.**
-4. Individuare **Key Vault Application Settings Diagnostics** e fare clic su **altre informazioni**.
+3. Scegliere **Disponibilità e prestazioni e** selezionare App Web in **basso.**
+4. Trovare **Key Vault diagnostica delle impostazioni dell'applicazione e** fare clic su Altre **informazioni.**
 
 
-### <a name="using-the-detector-for-azure-functions"></a>Uso del detector per funzioni di Azure
+### <a name="using-the-detector-for-azure-functions"></a>Uso del rilevatore per Funzioni di Azure
 
 1. Nel portale passare all'app.
-2. Passare a **funzionalità della piattaforma.**
+2. Passare a **Funzionalità della piattaforma.**
 3. Selezionare **Diagnostica e risoluzione dei problemi**.
-4. Scegliere **disponibilità e prestazioni** e selezionare l'app per le **funzioni inattiva o segnalazione errori.**
-5. Fare clic su **Key Vault impostazioni applicazione diagnostica.**
+4. Scegliere **Disponibilità e prestazioni e** selezionare App per le funzioni in basso o **segnalazione di errori.**
+5. Fare clic su **Key Vault diagnostica delle impostazioni dell'applicazione.**

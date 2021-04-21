@@ -1,6 +1,6 @@
 ---
-title: Panoramica di automazione dei processi con processi elastici
-description: Usare i processi elastici per l'automazione dei processi per l'esecuzione di script Transact-SQL (T-SQL) in un set di uno o più database
+title: Panoramica dell'automazione dei processi con i processi elastici
+description: Usare i processi elastici per l'automazione dei processi per eseguire script Transact-SQL (T-SQL) in un set di uno o più database
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -13,27 +13,27 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 1f4bd28d2b95aeebe07fcad84d757327622d51f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 295889cf64d27761021dd09549a3366ea142516e
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690431"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752031"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>Automatizzare le attività di gestione usando processi elastici (anteprima)
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-È possibile creare e pianificare processi elastici che possono essere eseguiti periodicamente su uno o più database SQL di Azure per eseguire query Transact-SQL (T-SQL) ed eseguire attività di manutenzione. 
+È possibile creare e pianificare processi elastici che possono essere eseguiti periodicamente su uno o più database Azure SQL per eseguire query Transact-SQL (T-SQL) ed eseguire attività di manutenzione. 
 
 È possibile definire il database o i gruppi di database di destinazione in cui verrà eseguito il processo, nonché le pianificazioni per l'esecuzione.
 Un processo gestisce l'attività di accesso al database di destinazione. È anche possibile definire, gestire e mantenere script Transact-SQL da eseguire su un gruppo di database.
 
 Ogni processo registra lo stato di esecuzione e ripete automaticamente le operazioni se si verificano errori.
 
-## <a name="when-to-use-elastic-jobs"></a>Quando usare processi elastici
+## <a name="when-to-use-elastic-jobs"></a>Quando usare i processi elastici
 
-Esistono diversi scenari in cui è possibile usare l'automazione di processi elastici:
+Esistono diversi scenari in cui è possibile usare l'automazione dei processi elastici:
 
 - Automatizzare le attività di gestione e quindi pianificare l'esecuzione in ogni giorno feriale, fuori orario lavorativo e così via.
   - Distribuire le modifiche dello schema, la gestione delle credenziali, la raccolta dei dati sulle prestazioni o la raccolta dei dati di telemetria del tenant (cliente).
@@ -45,31 +45,31 @@ Esistono diversi scenari in cui è possibile usare l'automazione di processi ela
   - Eseguire query di elaborazione dei dati più lunghe per una vasta serie di database, ad esempio la raccolta della telemetria del cliente. I risultati vengono raccolti in una tabella di destinazione singola per ulteriori analisi.
 - Spostare dati 
 
-### <a name="automation-on-other-platforms"></a>Automazione su altre piattaforme
+### <a name="automation-on-other-platforms"></a>Automazione in altre piattaforme
 
-Prendere in considerazione le seguenti tecnologie di pianificazione dei processi su piattaforme diverse:
+Si considerino le tecnologie di pianificazione dei processi seguenti su piattaforme diverse:
 
-- I **processi elastici** sono servizi di pianificazione dei processi che eseguono processi personalizzati in uno o più database nel database SQL di Azure.
-- I **processi di SQL Agent** vengono eseguiti dal servizio SQL Agent che continua a essere usato per l'automazione delle attività in SQL Server ed è incluso anche nelle istanze gestite di SQL di Azure. I processi di SQL Agent non sono disponibili in Database SQL di Azure.
+- **I processi elastici** sono servizi di pianificazione dei processi che eseguono processi personalizzati in uno o più database database SQL di Azure.
+- **SQL Agent processi** vengono eseguiti dal servizio SQL Agent che continua a essere usato per l'automazione delle attività in SQL Server ed è incluso anche con Azure SQL gestite. I processi di SQL Agent non sono disponibili in Database SQL di Azure.
 
-I processi elastici possono avere come destinazione [database SQL](sql-database-paas-overview.md)di Azure, [pool elastici del database SQL di Azure](elastic-pool-overview.md)e database SQL di Azure nelle [mappe di partizionamento](elastic-scale-shard-map-management.md).
+I processi elastici possono Azure SQL [database,](sql-database-paas-overview.md) [database SQL di Azure pool elastici](elastic-pool-overview.md)e Azure SQL database nelle [mappe partizioni.](elastic-scale-shard-map-management.md)
 
-Per l'automazione dei processi di script T-SQL in SQL Server e Istanza gestita SQL di Azure, prendere in considerazione [SQL Agent](job-automation-managed-instances.md). 
+Per l'automazione dei processi di script T-SQL in SQL Server e Istanza gestita di SQL di Azure, prendere in [considerazione SQL Agent](job-automation-managed-instances.md). 
 
-Per l'automazione dei processi di script T-SQL in Azure sinapsi Analytics, prendere in considerazione [le pipeline con trigger ricorrenti](../../synapse-analytics/data-integration/concepts-data-factory-differences.md), [basate su Azure Data Factory](../../synapse-analytics/data-integration/concepts-data-factory-differences.md).
+Per l'automazione dei processi di script T-SQL in Azure Synapse Analytics, prendere in considerazione [le pipeline](../../synapse-analytics/data-integration/concepts-data-factory-differences.md)con trigger ricorrenti , basati su [Azure Data Factory](../../synapse-analytics/data-integration/concepts-data-factory-differences.md).
 
-Vale la pena notare le differenze tra SQL Agent (disponibile in SQL Server e come parte di SQL Istanza gestita) e l'agente processo elastico di database (che può eseguire T-SQL su database o database SQL di Azure in SQL Server e Azure SQL Istanza gestita, Azure sinapsi Analytics).
+È opportuno notare le differenze tra SQL Agent (disponibile in SQL Server e come parte di SQL Istanza gestita) e l'agente processo elastico del database (che può eseguire T-SQL in database di Azure SQL o database in SQL Server e Istanza gestita di SQL di Azure, Azure Synapse Analytics).
 
 | |Processi elastici |SQL Agent |
 |---------|---------|---------|
-|**Ambito** | Qualsiasi numero di database di Database SQL di Azure e/o di data warehouse nello stesso cloud di Azure dell'agente di processo. Le destinazioni possono trovarsi in server, sottoscrizioni e/o aree differenti. <br><br>I gruppi di destinazione possono essere costituiti da singoli database o data warehouse o da tutti i database in un server, un pool o una mappa partizioni (enumerati dinamicamente al runtime del processo). | Qualsiasi database singolo nella stessa istanza di SQL Agent. La funzionalità di amministrazione multiserver di SQL Server Agent consente alle istanze master/di destinazione di coordinare l'esecuzione del processo, anche se questa funzionalità non è disponibile nell'istanza gestita di SQL. |
+|**Ambito** | Qualsiasi numero di database di Database SQL di Azure e/o di data warehouse nello stesso cloud di Azure dell'agente di processo. Le destinazioni possono trovarsi in server, sottoscrizioni e/o aree differenti. <br><br>I gruppi di destinazione possono essere costituiti da singoli database o data warehouse o da tutti i database in un server, un pool o una mappa partizioni (enumerati dinamicamente in fase di esecuzione del processo). | Qualsiasi database singolo nella stessa istanza di SQL Agent. La funzionalità Amministrazione multi server di SQL Server Agent consente alle istanze master/di destinazione di coordinare l'esecuzione del processo, anche se questa funzionalità non è disponibile nell'istanza gestita di SQL. |
 |**API e strumenti supportati** | Portale, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
  
-## <a name="elastic-job-targets"></a>Destinazioni processi elastici
+## <a name="elastic-job-targets"></a>Destinazioni dei processi elastici
 
-I **processi elastici** offrono la possibilità di eseguire uno o più script T-SQL in parallelo, in un numero elevato di database, in base a una pianificazione o su richiesta.
+**I processi** elastici consentono di eseguire uno o più script T-SQL in parallelo, in un numero elevato di database, in base a una pianificazione o su richiesta.
 
-È possibile eseguire processi pianificati in qualsiasi combinazione di database: uno o più database singoli, tutti i database in un server, tutti i database in un pool elastico o una mappa partizioni, con la flessibilità aggiuntiva per includere o escludere qualsiasi database specifico. I processi possono essere eseguiti in più server, in più pool e anche in database di sottoscrizioni differenti. I server e i pool vengono enumerati in modo dinamico in fase di esecuzione, quindi i processi vengono eseguiti su tutti i database esistenti nel gruppo di destinazione al momento dell'esecuzione.
+È possibile eseguire processi pianificati in qualsiasi combinazione di database: uno o più database singoli, tutti i database in un server, tutti i database in un pool elastico o una mappa partizioni, con la maggiore flessibilità per includere o escludere qualsiasi database specifico. I processi possono essere eseguiti in più server, in più pool e anche in database di sottoscrizioni differenti. I server e i pool vengono enumerati in modo dinamico in fase di esecuzione, quindi i processi vengono eseguiti su tutti i database esistenti nel gruppo di destinazione al momento dell'esecuzione.
 
 La figura seguente mostra un agente di processo che esegue processi tra diversi tipi di gruppi di destinazione:
 
@@ -84,25 +84,25 @@ La figura seguente mostra un agente di processo che esegue processi tra diversi 
 |[**Gruppo di destinazione**](#target-group) | Il set di server, pool, database e mappe delle partizioni in cui eseguire un processo. |
 |[**Processo**](#elastic-jobs-and-job-steps) | Un processo è un'unità di lavoro costituita da uno o più passaggi. I passaggi del processo specificano lo script T-SQL da eseguire, nonché altri dettagli necessari per eseguirlo. |
 
-#### <a name="elastic-job-agent"></a>Agente processo elastico
+#### <a name="elastic-job-agent"></a>Agente di processi elastici
 
 Un agente di processo elastico è la risorsa di Azure per la creazione, l'esecuzione e la gestione dei processi. L'agente di processo elastico è una risorsa di Azure che viene creata nel portale (sono anche supportati [PowerShell](elastic-jobs-powershell-create.md) e REST).
 
-La creazione di un **agente di processo elastico** richiede un database esistente in Database SQL di Azure. L'agente configura il database SQL di Azure esistente come [*database dei processi*](#elastic-job-database).
+La creazione di un **agente di processo elastico** richiede un database esistente in Database SQL di Azure. L'agente configura questo database SQL di Azure esistente come [*database del processo*](#elastic-job-database).
 
 L'agente di processo elastico è gratuito. Il database di processo viene fatturato alla stessa tariffa di qualsiasi database di Database SQL di Azure.
 
-#### <a name="elastic-job-database"></a>Database di processi elastici
+#### <a name="elastic-job-database"></a>Database dei processi elastici
 
 Il *database di processo* viene usato per definire i processi e tracciare lo stato e la cronologia delle esecuzioni dei processi. Il *database di processo* viene anche usato per archiviare metadati dell'agente, log, risultati e definizioni dei processi e contiene anche molte utili stored procedure e altri oggetti del database per creare, eseguire e gestire i processi con T-SQL.
 
 Per l'anteprima corrente, per creare un agente di processo elastico, è necessario un database esistente di Database SQL di Azure (S0 o superiore).
 
-Il *database del processo* deve essere un database SQL di Azure pulito, vuoto, S0 o superiore. L'obiettivo di servizio consigliato per il *database di processo* è S1 o superiore, ma la scelta ottimale dipende dalle prestazioni richieste dai processi, ovvero numero di passaggi del processo, numero di obiettivi del processo e frequenza delle esecuzioni. 
+Il *database del processo* deve essere un obiettivo di servizio pulito, vuoto, S0 o superiore database SQL di Azure. L'obiettivo di servizio consigliato per il *database di processo* è S1 o superiore, ma la scelta ottimale dipende dalle prestazioni richieste dai processi, ovvero numero di passaggi del processo, numero di obiettivi del processo e frequenza delle esecuzioni. 
 
 Se le operazioni eseguite sul database dei processi sono più lente del previsto, [monitorare](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) le prestazioni del database e l'utilizzo delle risorse nel database dei processi durante i periodi di lentezza usando il portale di Azure o la DMV [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Se l'utilizzo di una risorsa, ad esempio CPU, I/O dati o scrittura log si avvicina al 100% ed è correlato a periodi di lentezza, valutare il ridimensionamento incrementale del database a obiettivi di servizio più elevati (nel [modello DTU](service-tiers-dtu.md) o nel modello [vCore](service-tiers-vcore.md)) finché le prestazioni del database del processo non sono sufficientemente migliorate.
 
-##### <a name="elastic-job-database-permissions"></a>Autorizzazioni del database del processo elastico
+##### <a name="elastic-job-database-permissions"></a>Autorizzazioni del database dei processi elastici
 
 Durante la creazione di un agente di processo vengono creati uno schema, tabelle e un ruolo denominato *jobs_reader* nel *database di processo*. Il ruolo viene creato con l'autorizzazione seguente ed è progettato per fornire agli amministratori un controllo di accesso più preciso per il monitoraggio dei processi:
 
@@ -111,16 +111,16 @@ Durante la creazione di un agente di processo vengono creati uno schema, tabelle
 |**jobs_reader** | SELECT | nessuno |
 
 > [!IMPORTANT]
-> Prima di concedere l'accesso al *database di processo* come amministratore del database, considerare le implicazioni per la sicurezza. Un utente malintenzionato con autorizzazioni per la creazione o la modifica di processi potrebbe creare o modificare un processo che utilizza una credenziale archiviata per connettersi a un database con il controllo utente malintenzionato, che potrebbe consentire all'utente malintenzionato di determinare la password della credenziale.
+> Prima di concedere l'accesso al *database di processo* come amministratore del database, considerare le implicazioni per la sicurezza. Un utente malintenzionato con autorizzazioni per creare o modificare processi potrebbe creare o modificare un processo che usa credenziali archiviate per connettersi a un database sotto il controllo dell'utente malintenzionato, che potrebbe consentire all'utente malintenzionato di determinare la password della credenziale.
 
 #### <a name="target-group"></a>Gruppo di destinazione
 
 Un *gruppo di destinazione* definisce il set di database sui quali verrà eseguito un passaggio di processo. Un gruppo di destinazione può contenere qualsiasi numero e una combinazione degli elementi seguenti:
 
-- **Server logico di SQL Server**: se è specificato un server, tutti i database presenti al suo interno al momento dell'esecuzione del processo fanno parte del gruppo. È necessario fornire le credenziali del database master in modo che il gruppo possa essere enumerato e aggiornato prima dell'esecuzione del processo. Per altre informazioni sui server logici, vedere [che cos'è un server nel database SQL di Azure e in Azure sinapsi Analytics?](logical-servers.md).
+- **Server logico di SQL Server**: se è specificato un server, tutti i database presenti al suo interno al momento dell'esecuzione del processo fanno parte del gruppo. È necessario fornire le credenziali del database master in modo che il gruppo possa essere enumerato e aggiornato prima dell'esecuzione del processo. Per altre informazioni sui server logici, vedere [Che cos'è](logical-servers.md)un server in database SQL di Azure e Azure Synapse Analytics? .
 - **Pool elastico**: se è specificato un pool elastico, tutti i database presenti nel pool elastico al momento dell'esecuzione del processo fanno parte del gruppo. Come per un server, è necessario fornire le credenziali del database master in modo che il gruppo possa essere aggiornato prima dell'esecuzione del processo.
 - **Database singolo**: specificare uno o più database singoli da includere nel gruppo.
-- **Mappa partizione** -database di una mappa partizioni.
+- **Mappa partizioni:** database di una mappa partizioni.
 
 > [!TIP]
 > Al momento dell'esecuzione del processo, l'*enumerazione dinamica* rivaluta il set dei database nei gruppi di destinazione che includono server o pool. L'enumerazione dinamica assicura che i **processi vengano eseguiti in tutti i database esistenti nel server o nel pool al momento dell'esecuzione**. Rivalutare l'elenco dei database in fase di esecuzione è particolarmente utile per gli scenari in cui l'appartenenza al pool o al server cambia frequentemente.
@@ -159,11 +159,11 @@ Il risultato dei passaggi di un processo in ciascun database di destinazione ven
 
 #### <a name="job-history"></a>Cronologia dei processi
 
-Visualizzare la cronologia di esecuzione del processo elastico nel *database del processo* eseguendo [una query sulla tabella jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). Un processo di pulizia del sistema elimina la cronologia dei processi eseguiti oltre 45 giorni prima. Per rimuovere la cronologia dei processi eseguiti entro i 45 giorni precedenti, richiamare la stored procedure **sp_purge_history** nel *database di processo*.
+Visualizzare la cronologia di esecuzione del processo elastico *nel database del* processo tramite query sulla tabella [jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). Un processo di pulizia del sistema elimina la cronologia dei processi eseguiti oltre 45 giorni prima. Per rimuovere la cronologia di meno di 45 giorni, chiamare il sp_purge_jobhistory **stored procedure** nel database *del processo*.
 
 #### <a name="job-status"></a>Stato processo
 
-È possibile monitorare le esecuzioni di processi elastici nel *database dei processi* eseguendo [una query sulla tabella jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). 
+È possibile monitorare le esecuzioni di processi elastici nel *database job* tramite query sulla [tabella jobs.job_executions](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status). 
 
 ### <a name="agent-performance-capacity-and-limitations"></a>Prestazioni, capacità e limitazioni degli agenti
 
@@ -171,7 +171,7 @@ I processi elastici usano risorse di calcolo minime in attesa del completamento 
 
 A seconda delle dimensioni del gruppo di database di destinazione e del tempo di esecuzione desiderato per un processo (numero di processi simultanei), l'agente richiede prestazioni e risorse di calcolo differenti per il *database di processo*: maggiore è il numero di destinazioni e di processi, maggiore sarà la quantità di risorse di calcolo necessarie.
 
-Attualmente, il limite è di 100 processi simultanei.
+Attualmente, il limite è 100 processi simultanei.
 
 #### <a name="prevent-jobs-from-reducing-target-database-performance"></a>Impedire ai processi di ridurre le prestazioni del database di destinazione
 

@@ -7,27 +7,27 @@ ms.date: 04/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7d9575bedbdce96ef59e9b1d77b9034162bc16bf
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 6032300bd203db78e8cd147cf79300d6dcd9b1dc
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107730445"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107751689"
 ---
 # <a name="transform-data-for-iot-central"></a>Trasformare i dati per IoT Central
 
 *Questo argomento si applica ai generatori di soluzioni.*
 
-I dispositivi IoT inviano dati in vari formati. Per usare i dati del dispositivo con l IoT Central app applicazione, potrebbe essere necessario usare una trasformazione per:
+I dispositivi IoT inviano dati in vari formati. Per usare i dati del dispositivo con l'IoT Central, potrebbe essere necessario usare una trasformazione per:
 
-- Rendere il formato dei dati compatibile con l'IoT Central applicazione.
+- Rendere il formato dei dati compatibile con l'applicazione IoT Central dati.
 - Convertire le unità.
-- Calcolare nuove metriche.
+- Calcolare le nuove metriche.
 - Arricchire i dati da altre origini.
 
-Questo articolo illustra come trasformare i dati del dispositivo all'esterno IoT Central in ingresso o in uscita.
+Questo articolo illustra come trasformare i dati del dispositivo al di fuori IoT Central in ingresso o in uscita.
 
-Il diagramma seguente mostra tre route per i dati che includono trasformazioni:
+Il diagramma seguente illustra tre route per i dati che includono trasformazioni:
 
 :::image type="content" source="media/howto-transform-data/transform-data.png" alt-text="Riepilogo delle route di trasformazione dei dati sia in ingresso che in uscita" border="false":::
 
@@ -35,39 +35,39 @@ La tabella seguente illustra tre tipi di trasformazione di esempio:
 
 | Trasformazione | Descrizione | Esempio  | Note |
 |------------------------|-------------|----------|-------|
-| Formato del messaggio         | Convertire o modificare messaggi JSON. | Da CSV a JSON  | In ingresso. IoT Central accetta solo messaggi JSON di valore. Per altre informazioni, vedere [Telemetria, proprietà e payload dei comandi.](concepts-telemetry-properties-commands.md) |
-| Calcoli           | Funzioni matematiche [che Funzioni di Azure](../../azure-functions/index.yml) possono essere eseguite. | Conversione di unità da Fahrenheit a Celsius.  | Eseguire la trasformazione usando il modello di uscita per sfruttare l'ingresso del dispositivo scalabile tramite la connessione diretta IoT Central. La trasformazione dei dati consente di usare IoT Central, ad esempio visualizzazioni e processi. |
-| Arricchimento dei messaggi     | Arricchimenti da origini dati esterne non trovati nelle proprietà del dispositivo o nei dati di telemetria. Per altre informazioni sugli arricchimenti interni, vedere Esportare dati [IoT in destinazioni cloud usando l'esportazione dati](howto-export-data.md) | Aggiungere informazioni meteo ai messaggi usando i dati sulla posizione dei dispositivi. | Eseguire la trasformazione usando il modello di uscita per sfruttare l'ingresso del dispositivo scalabile tramite la connessione diretta IoT Central. |
+| Formato del messaggio         | Convertire o modificare i messaggi JSON. | Da CSV a JSON  | In ingresso. IoT Central accetta solo messaggi JSON di valore. Per altre informazioni, vedere [Telemetria, payload di proprietà e comandi.](concepts-telemetry-properties-commands.md) |
+| Calcoli           | Funzioni matematiche [che Funzioni di Azure](../../azure-functions/index.yml) possibile eseguire. | Conversione unità da Fahrenheit a Celsius.  | Eseguire la trasformazione usando il modello di uscita per sfruttare l'ingresso del dispositivo scalabile tramite la connessione diretta IoT Central. La trasformazione dei dati consente di usare IoT Central, ad esempio visualizzazioni e processi. |
+| Arricchimento dei messaggi     | Arricchimenti da origini dati esterne non trovati nelle proprietà del dispositivo o nei dati di telemetria. Per altre informazioni sugli arricchimenti interni, vedere [Esportare i dati IoT in destinazioni cloud usando l'esportazione dei dati](howto-export-data.md) | Aggiungere informazioni meteo ai messaggi usando i dati sulla posizione dei dispositivi. | Eseguire la trasformazione usando il modello di uscita per sfruttare l'ingresso del dispositivo scalabile tramite la connessione diretta IoT Central. |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare i passaggi descritti in questo articolo, è necessaria una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Per configurare la soluzione, è necessaria un'IoT Central predefinita. Per informazioni su come creare un'IoT Central, vedere [Creare un'Azure IoT Central app.](quick-deploy-iot-central.md)
+Per configurare la soluzione, è necessaria un'IoT Central predefinita. Per informazioni su come creare un'IoT Central, vedere [Creare un'Azure IoT Central applicazione](quick-deploy-iot-central.md).
 
 ## <a name="data-transformation-at-ingress"></a>Trasformazione dei dati in ingresso
 
 Per trasformare i dati del dispositivo in ingresso, sono disponibili due opzioni:
 
-- **IoT Edge:** usare un modulo IoT Edge per trasformare i dati dai dispositivi downstream prima di inviare i dati all'IoT Central app.
+- **IoT Edge:** usare un modulo IoT Edge per trasformare i dati dai dispositivi downstream prima di inviarli all'applicazione IoT Central dati.
 
-- **IoT Central** bridge di dispositivi: il bridge di dispositivi [IoT Central](https://github.com/Azure/iotc-device-bridge) connette altri cloud di dispositivi IoT, ad esempio Sigfox, Particle e The Things Network, a IoT Central. Il bridge del dispositivo usa una funzione di Azure per inoltrare i dati ed è possibile personalizzare la funzione per trasformare i dati del dispositivo.
+- **IoT Central** bridge di dispositivi: il bridge di dispositivi [IoT Central](howto-build-iotc-device-bridge.md) connette altri cloud di dispositivi IoT, ad esempio Sigfox, Particle e The Things Network, a IoT Central. Il bridge di dispositivi usa una funzione di Azure per inoltrare i dati ed è possibile personalizzare la funzione per trasformare i dati del dispositivo.
 
 ### <a name="use-iot-edge-to-transform-device-data"></a>Usare IoT Edge per trasformare i dati del dispositivo
 
 :::image type="content" source="media/howto-transform-data/transform-ingress.png" alt-text="Trasformazione dei dati in ingresso tramite IoT Edge" border="false":::
 
-In questo scenario, un modulo IoT Edge trasforma i dati dai dispositivi downstream prima di inoltrarli all'applicazione IoT Central dati. A livello elevato, i passaggi per configurare questo scenario sono:
+In questo scenario un modulo IoT Edge trasforma i dati dai dispositivi downstream prima di inoltrarli all IoT Central appliazione. A livello di alto livello, i passaggi per configurare questo scenario sono:
 
-1. **Configurare un dispositivo IoT Edge:** installare ed effettuare il provisioning di un dispositivo IoT Edge come gateway e connettere il gateway all'IoT Central virtuale.
+1. **Configurare un dispositivo IoT Edge:** installare ed effettuare il provisioning di un dispositivo IoT Edge come gateway e connettere il gateway all'IoT Central applicazione.
 
-1. **Connettere il dispositivo downstream al IoT Edge dispositivo:** Connettere i dispositivi downstream al IoT Edge dispositivo ed effettuarvi il provisioning nell'IoT Central applicazione.
+1. **Connettere il dispositivo downstream al IoT Edge dispositivo:** Connettere i dispositivi downstream al IoT Edge dispositivo ed eseguirvi il provisioning all'IoT Central applicazione.
 
-1. **Trasformare i dati del dispositivo in IoT Edge:** Creare un IoT Edge per trasformare i dati. Distribuire il modulo nel dispositivo gateway IoT Edge che inoltra i dati del dispositivo trasformato all'applicazione IoT Central dati.
+1. **Trasformare i dati del dispositivo in IoT Edge:** Creare un IoT Edge modulo per trasformare i dati. Distribuire il modulo nel dispositivo IoT Edge gateway che inoltra i dati del dispositivo trasformato all'applicazione IoT Central dati.
 
-1. **Verifica:** inviare i dati da un dispositivo downstream al gateway e verificare che i dati trasformati del dispositivo raggiungano l IoT Central appliata.
+1. **Verifica:** inviare dati da un dispositivo downstream al gateway e verificare che i dati del dispositivo trasformati raggiungano l'IoT Central applicazione.
 
-Nell'esempio descritto nelle sezioni seguenti il dispositivo downstream invia i dati CSV nel formato seguente al IoT Edge gateway:
+Nell'esempio descritto nelle sezioni seguenti, il dispositivo downstream invia i dati CSV nel formato seguente al IoT Edge gateway:
 
 ```csv
 "<temperature >, <pressure>, <humidity>"
@@ -97,7 +97,7 @@ In questo scenario, il IoT Edge esegue un modulo personalizzato che trasforma i 
 - Compilare il modulo personalizzato.
 - Aggiungere il modulo personalizzato a un registro contenitori.
 
-Il runtime IoT Edge scarica moduli personalizzati da un registro contenitori, ad esempio un Registro Azure Container o Docker Hub. Il [Azure Cloud Shell](../../cloud-shell/overview.md) contiene tutti gli strumenti necessari per creare un registro contenitori, compilare il modulo e caricare il modulo nel registro:
+Il IoT Edge runtime scarica moduli personalizzati da un registro contenitori, ad esempio un registro azure container o Docker Hub. Il [Azure Cloud Shell](../../cloud-shell/overview.md) dispone di tutti gli strumenti necessari per creare un registro contenitori, compilare il modulo e caricare il modulo nel Registro di sistema:
 
 Per creare un registro contenitori:
 
@@ -134,7 +134,7 @@ Per compilare il modulo personalizzato nel [Azure Cloud Shell](https://shell.azu
 
 ### <a name="set-up-an-iot-edge-device"></a>Configurare un dispositivo IoT Edge
 
-Questo scenario usa un IoT Edge gateway per trasformare i dati da qualsiasi dispositivo downstream. Questa sezione descrive come creare modelli di IoT Central per i dispositivi gateway e downstream nell'applicazione IoT Central dati. IoT Edge i dispositivi usano un manifesto di distribuzione per configurare i moduli.
+Questo scenario usa un IoT Edge gateway per trasformare i dati da qualsiasi dispositivo downstream. Questa sezione descrive come creare modelli di IoT Central per il gateway e i dispositivi downstream nell'applicazione IoT Central dati. IoT Edge i dispositivi usano un manifesto di distribuzione per configurare i moduli.
 
 Per creare un modello di dispositivo per il dispositivo downstream, questo scenario usa un modello di dispositivo termostato semplice:
 
@@ -162,7 +162,7 @@ Per creare un modello di dispositivo per il IoT Edge gateway:
 
 1. Nell'applicazione IoT Central passare alla pagina **Modelli di** dispositivo.
 
-1. Selezionare **+ Nuovo,** selezionare **Azure IoT Edge** e quindi **selezionare Avanti: Personalizza.**
+1. Selezionare **+ Nuovo,** selezionare **Azure IoT Edge** e quindi selezionare **Avanti: Personalizza.**
 
 1. Immettere *IoT Edge dispositivo gateway come* nome del modello di dispositivo. Selezionare **Questo è un dispositivo gateway.** Selezionare **Sfoglia** per caricare il *moduledeployment.jsnel* file manifesto della distribuzione modificato in precedenza.
 
@@ -207,23 +207,23 @@ Per praticità, questo articolo usa macchine virtuali di Azure per eseguire il g
 | Prefisso etichetta DNS downstream | Nome DNS univoco per il computer, ad esempio `<your name>downstream` |
 | ID ambito | Ambito ID di cui si è preso nota in precedenza |
 | ID dispositivo IoT Edge gateway | `gateway-01` |
-| Gateway IoT Edge dispositivo | Valore della chiave primaria di cui si è preso nota in precedenza |
+| Gateway IoT Edge dispositivo | Il valore della chiave primaria di cui si è preso nota in precedenza |
 | Tipo di autenticazione | Password |
-| Password o chiave amministratore | La scelta della password per l'account **AzureUser** in entrambe le macchine virtuali. |
+| Password o chiave amministratore | La password scelta per l'account **AzureUser** in entrambe le macchine virtuali. |
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fiot-central-docs-samples%2Fmaster%2Ftransparent-gateway%2FDeployGatewayVMs.json" target="_blank">
     <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure button" />
 </a>
 
-Selezionare **Rivedi e crea** e quindi **Crea**. La creazione delle macchine virtuali nel gruppo di risorse **ingress-scenario richiede** alcuni minuti.
+Selezionare **Rivedi e crea** e quindi **Crea**. La creazione delle macchine virtuali nel gruppo di risorse **in ingresso-scenario** richiede alcuni minuti.
 
-Per verificare che il dispositivo IoT Edge funzioni correttamente:
+Per verificare che il IoT Edge sia in esecuzione correttamente:
 
-1. Aprire l'IoT Central applicazione. Passare quindi al dispositivo **IoT Edge Gateway** nell'elenco dei dispositivi nella **pagina** Dispositivi.
+1. Aprire l'IoT Central applicazione. Passare quindi al **dispositivo IoT Edge Gateway** nell'elenco dei dispositivi nella **pagina** Dispositivi.
 
-1. Selezionare la **scheda** Moduli e controllare lo stato dei tre moduli. L'avvio del runtime IoT Edge nella macchina virtuale richiede alcuni minuti. All'avvio, lo stato dei tre moduli è **In esecuzione.** Se il runtime IoT Edge non viene avviato, vedere Risolvere i [problemi del IoT Edge dispositivo.](../../iot-edge/troubleshoot.md)
+1. Selezionare la **scheda** Moduli e controllare lo stato dei tre moduli. L'avvio del runtime IoT Edge nella macchina virtuale richiede alcuni minuti. Quando viene avviato, lo stato dei tre moduli è **In esecuzione**. Se il runtime IoT Edge non viene avviato, vedere Risolvere i [problemi relativi IoT Edge dispositivo](../../iot-edge/troubleshoot.md).
 
-Perché il IoT Edge funzioni come gateway, sono necessari alcuni certificati per dimostrare la propria identità a tutti i dispositivi downstream. Questo articolo usa certificati demo. In un ambiente di produzione usare i certificati dell'autorità di certificazione.
+Perché il IoT Edge funzioni come gateway, sono necessari alcuni certificati per dimostrare la propria identità a qualsiasi dispositivo downstream. Questo articolo usa certificati demo. In un ambiente di produzione usare i certificati dell'autorità di certificazione.
 
 Per generare i certificati demo e installarli nel dispositivo gateway:
 
@@ -250,11 +250,11 @@ Per generare i certificati demo e installarli nel dispositivo gateway:
 
     Dopo aver eseguito i comandi precedenti, i file seguenti sono pronti per l'uso nei passaggi successivi:
 
-    - *~/certs/certs/azure-iot-test-only.root.ca.cert.pem:* certificato della CA radice usato per creare tutti gli altri certificati dimostrativi per testare uno scenario IoT Edge.
-    - *~/certs/certs/iot-edge-device-mycacert-full-chain.cert.pem:* certificato CA del dispositivo a cui viene fatto riferimento dal file *config.yaml.* In uno scenario gateway, questo certificato CA è il modo in cui il dispositivo IoT Edge verifica la propria identità nei dispositivi downstream.
-    - *~/certs/private/iot-edge-device-mycacert.key.pem:* chiave privata associata al certificato DELLA CA del dispositivo.
+    - *~/certs/certs/azure-iot-test-only.root.ca.cert.pem:* certificato CA radice usato per creare tutti gli altri certificati demo per testare uno scenario IoT Edge.
+    - *~/certs/certs/iot-edge-device-mycacert-full-chain.cert.pem:* certificato della CA del dispositivo a cui viene fatto riferimento dal file *config.yaml.* In uno scenario di gateway, questo certificato della CA è il modo in cui il IoT Edge verifica la propria identità nei dispositivi downstream.
+    - *~/certs/private/iot-edge-device-mycacert.key.pem:* chiave privata associata al certificato CA del dispositivo.
 
-    Per altre informazioni su questi certificati demo, vedere Creare certificati demo per testare IoT Edge [funzionalità del dispositivo.](../../iot-edge/how-to-create-test-certificates.md)
+    Per altre informazioni su questi certificati demo, vedere [Creare certificati demo per testare](../../iot-edge/how-to-create-test-certificates.md)le IoT Edge dei dispositivi.
 
 1. Aprire il file *config.yaml* in un editor di testo. Ad esempio:
 
@@ -262,7 +262,7 @@ Per generare i certificati demo e installarli nel dispositivo gateway:
     sudo nano /etc/iotedge/config.yaml
     ```
 
-1. Individuare le `Certificate settings` impostazioni. Rimuovere il commento e modificare le impostazioni del certificato come segue:
+1. Individuare le `Certificate settings` impostazioni. Rimuovere il commento e modificare le impostazioni del certificato come indicato di seguito:
 
     ```text
     certificates:
@@ -273,19 +273,19 @@ Per generare i certificati demo e installarli nel dispositivo gateway:
 
     L'esempio precedente presuppone che l'accesso sia stato eseguito come **AzureUser** e che sia stata creata una CA del dispositivo denominata "mycacert".
 
-1. Salvare le modifiche e riavviare il IoT Edge runtime:
+1. Salvare le modifiche e riavviare il runtime IoT Edge seguente:
 
     ```bash
     sudo systemctl restart iotedge
     ```
 
-Se il runtime IoT Edge viene avviato correttamente dopo le  modifiche, lo stato dei moduli $edgeAgent e **$edgeHub** cambia in **Esecuzione**. È possibile visualizzare questi valori di stato nella **pagina Moduli** per il dispositivo gateway in IoT Central.
+Se il runtime IoT Edge viene avviato correttamente dopo le  modifiche, lo stato dei moduli $edgeAgent e **$edgeHub** cambia in **Esecuzione di**. È possibile visualizzare questi valori di stato **nella pagina Moduli** per il dispositivo gateway in IoT Central.
 
-Se il runtime non viene avviato, controllare le modifiche apportate in *config.yaml* e vedere Risolvere i problemi relativi [IoT Edge dispositivo](../../iot-edge/troubleshoot.md).
+Se il runtime non viene avviato, controllare le modifiche apportate in *config.yaml* e vedere Risolvere i problemi [del IoT Edge dispositivo](../../iot-edge/troubleshoot.md).
 
 ### <a name="connect-downstream-device-to-iot-edge-device"></a>Connettere un dispositivo downstream IoT Edge dispositivo
 
-Per connettere un dispositivo downstream al dispositivo IoT Edge gateway:
+Per connettere un dispositivo downstream al IoT Edge gateway:
 
 1. Usare SSH per connettersi e accedere alla macchina virtuale del dispositivo downstream. È possibile trovare il nome DNS per questa macchina virtuale nella portale di Azure. Passare alla macchina **virtuale leafdevice** nel gruppo **di risorse ingress-scenario.**
 
@@ -340,7 +340,7 @@ Per verificare che lo scenario sia in esecuzione, passare **al dispositivo gatew
 
 - Selezionare **Moduli.** Verificare che i tre IoT Edge seguenti **$edgeAgent**, **$edgeHub** **e transformmodule** siano in esecuzione.
 - Selezionare Dispositivi **downstream e** verificare che sia stato effettuato il provisioning del dispositivo downstream.
-- Selezionare **Dati non elaborati**. I dati di telemetria **nella colonna Di dati non modellati** sono simili ai seguenti:
+- Selezionare **Dati non elaborati**. I dati di telemetria **nella colonna di dati unmodeled** sono simili ai seguenti:
 
     ```json
     {"device":{"deviceId":"downstream-01"},"measurements":{"temperature":85.21208,"pressure":59.97321,"humidity":77.718124,"scale":"farenheit"}}
@@ -440,11 +440,11 @@ Per configurare il bridge di dispositivo per trasformare i dati del dispositivo 
 
 1. Ottenere una chiave API dell'applicazione dal servizio meteo. Un account è gratuito con utilizzo limitato del servizio. Per creare una chiave API dell'applicazione, creare un account nel portale [open servizio meteo](https://openweathermap.org/) e seguire le istruzioni. Usare la chiave API Open Weather in un secondo momento.
 
-1. Nel portale di Azure passare ad App per le funzioni nel gruppo di risorse **egress-scenario.**
+1. Nel portale di Azure passare ad App per le funzioni nel gruppo **di risorse egress-scenario.**
 
 1. Nel riquadro di spostamento a sinistra in **Strumenti di sviluppo** selezionare editor del servizio app **(anteprima).**
 
-1. Selezionare **&rarr; Vai** per aprire **la** editor del servizio app pagina. Apportare le modifiche seguenti:
+1. Selezionare **&rarr; Vai** per aprire la **editor del servizio app** pagina. Apportare le modifiche seguenti:
 
     1. Aprire il file *wwwroot/IoTCIntegration/index.js.* Sostituire tutto il codice in questo file con il codice in [index.js](https://raw.githubusercontent.com/iot-for-all/iot-central-compute/main/Azure_function/index.js).
 
@@ -496,7 +496,7 @@ In questa sezione viene descritto come configurare l'Azure IoT Central applicazi
 
 Salvare prima di tutto il file [del modello](https://raw.githubusercontent.com/iot-for-all/iot-central-compute/main/model.json) di dispositivo nel computer locale.
 
-Per aggiungere un modello di dispositivo all'IoT Central, passare all'applicazione IoT Central e quindi:
+Per aggiungere un modello di dispositivo all'applicazione IoT Central, passare all'applicazione IoT Central dispositivo e quindi:
 
 1. Accedere all'applicazione IoT Central e passare alla pagina **Modelli di** dispositivo.
 
@@ -522,7 +522,7 @@ Per configurare l'esportazione dei dati per l'invio di dati al bridge di disposi
 
 1. Per la destinazione, selezionare la **destinazione della funzione di** calcolo creata in precedenza.
 
-1. Salvare le modifiche. Dopo circa un minuto, lo **stato dell'esportazione** viene visualizzato come **Integro.**
+1. Salvare le modifiche. Dopo circa un minuto, lo **stato di esportazione** viene visualizzato come **Integro.**
 
 ### <a name="verify"></a>Verifica
 
@@ -536,7 +536,7 @@ Per eseguire un dispositivo di esempio che testa lo scenario:
     git clone https://github.com/iot-for-all/iot-central-compute
     ```
 
-1. Per connettere il dispositivo di esempio all'applicazione IoT Central, modificare le impostazioni di connessione nel file *iot-central-compute/device/device.js.* Sostituire l'ID ambito e raggruppare la chiave di firma di accesso condiviso con i valori di cui si è preso nota in precedenza:
+1. Per connettere il dispositivo di esempio all'applicazione IoT Central, modificare le impostazioni di connessione nel file *iot-central-compute/device/device.js.* Sostituire l'ID ambito e la chiave di firma di accesso condiviso del gruppo con i valori di cui si è preso nota in precedenza:
 
     ```javascript
     // These values need to be filled in from your Azure IoT Central application

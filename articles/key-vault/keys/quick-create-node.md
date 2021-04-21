@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: db6bb5c204bfe79b9d7470f651081aa4f4dcf2ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0066409732f4492186ea0bf604261e1ab59ca9f
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97932708"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107750303"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-javascript-version-4"></a>Avvio rapido: Libreria client delle chiavi di Azure Key Vault per JavaScript (versione 4)
 
@@ -272,6 +272,6 @@ In questo argomento di avvio rapido è stato creato un insieme di credenziali de
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Leggere una [panoramica delle chiavi di Azure Key Vault](about-keys.md)
-- Come [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/secure-your-key-vault.md)
+- Come [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/security-overview.md)
 - Vedere la [Guida per gli sviluppatori per Azure Key Vault](../general/developers-guide.md)
 - Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)

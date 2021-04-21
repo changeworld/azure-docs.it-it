@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: configurare Hoxhunt per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Hoxhunt.
+title: 'Esercitazione: Configurare Hoxhunt per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come effettuare automaticamente il provisioning e il de-provisioning degli account utente da Azure AD a Hoxhunt.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: Zhchia
-ms.openlocfilehash: 24c8e2aafed6ee7b8823effc350dee4edb5e4873
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db33cc43419b4228ca270d3a69c0e88de2c05638
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650829"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107752049"
 ---
-# <a name="tutorial-configure-hoxhunt-for-automatic-user-provisioning"></a>Esercitazione: configurare Hoxhunt per il provisioning utenti automatico
+# <a name="tutorial-configure-hoxhunt-for-automatic-user-provisioning"></a>Esercitazione: Configurare Hoxhunt per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire sia in Hoxhunt che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi in [Hoxhunt](https://www.hoxhunt.com/) usando il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Questa esercitazione descrive i passaggi da eseguire in Hoxhunt e Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Dopo la configurazione, Azure AD esegue automaticamente il provisioning di utenti e gruppi in [Hoxhunt](https://www.hoxhunt.com/) usando il Azure AD provisioning. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
 > * Creare utenti in Hoxhunt
 > * Rimuovere gli utenti in Hoxhunt quando non richiedono più l'accesso
-> * Mantieni gli attributi utente sincronizzati tra Azure AD e Hoxhunt
-> * [Single Sign-on](hoxhunt-tutorial.md) per Hoxhunt (scelta consigliata)
+> * Mantenere gli attributi utente sincronizzati tra Azure AD e Hoxhunt
+> * [Single Sign-On](hoxhunt-tutorial.md) a Hoxhunt (scelta consigliata)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,24 +40,24 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Un account utente in Azure AD con l'[autorizzazione](../roles/permissions-reference.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
-* Tenant di Hoxhunt.
-* Chiave API SCIM e URL dell'endpoint SCIM per l'organizzazione (configurato dal supporto Hoxhunt).
+* Tenant hoxhunt.
+* Chiave API SCIM e URL dell'endpoint SCIM per l'organizzazione (configurato dal supporto di Hoxhunt).
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determinare quali dati eseguire il [mapping tra Azure ad e Hoxhunt](../app-provisioning/customize-application-attributes.md). 
+3. Determinare quali dati [mappare tra Azure AD e Hoxhunt.](../app-provisioning/customize-application-attributes.md) 
 
 ## <a name="step-2-configure-hoxhunt-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Hoxhunt per supportare il provisioning con Azure AD
-Contattare il [supporto di Hoxhunt](mailto:support@hoxhunt.com) per ricevere la chiave API scim e l'URL dell'endpoint scim per configurare Hoxhunt per supportare il provisioning con Azure ad.
-## <a name="step-3-add-hoxhunt-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Hoxhunt dalla raccolta di applicazioni Azure AD
+Contattare [il supporto di Hoxhunt](mailto:support@hoxhunt.com) per ricevere la chiave API SCIM e l'URL dell'endpoint SCIM per configurare Hoxhunt per supportare il provisioning con Azure AD.
+## <a name="step-3-add-hoxhunt-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Hoxhunt dalla raccolta Azure AD applicazioni
 
-Aggiungere Hoxhunt dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in Hoxhunt. Se in precedenza è stato configurato Hoxhunt per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
+Aggiungere Hoxhunt dalla raccolta di Azure AD per iniziare a gestire il provisioning in Hoxhunt. Se Hoxhunt è stato precedentemente configurare per l'accesso SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
 Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quando si assegnano utenti e gruppi a Hoxhunt, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
+* Quando si assegnano utenti e gruppi a Hoxhunt, è necessario selezionare un ruolo diverso da **Accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
 
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -84,7 +84,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Automatico nella scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere l'URL del tenant di Hoxhunt e il token segreto. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Hoxhunt. Se la connessione non riesce, verificare che l'account Hoxhunt disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali amministratore** immettere l'URL del tenant Hoxhunt e il token segreto. Fare **clic su Test** connessione per Azure AD possibile connettersi a Hoxhunt. Se la connessione non riesce, verificare che l'account Hoxhunt abbia le autorizzazioni di amministratore e riprovare.
 
     ![token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -94,9 +94,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 7. Selezionare **Salva**.
 
-8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Hoxhunt**.
+8. Nella sezione **Mapping selezionare** Sincronizza Azure Active Directory utenti **a Hoxhunt**.
 
-9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a Hoxhunt nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Hoxhunt per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), sarà necessario assicurarsi che l'API Hoxhunt supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a Hoxhunt nella **sezione Mapping attributi.** Gli attributi selezionati come **proprietà corrispondenti** vengono usati per trovare corrispondenze con gli account utente in Hoxhunt per le operazioni di aggiornamento. Se si sceglie di modificare [l'attributo](../app-provisioning/customize-application-attributes.md)di destinazione corrispondente, è necessario assicurarsi che l'API Hoxhunt supporti il filtro degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
    |Attributo|Type|Supportato per il filtro|
    |---|---|---|
@@ -110,11 +110,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Per abilitare il servizio di provisioning Azure AD per Hoxhunt, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+11. Per abilitare il Azure AD provisioning per Hoxhunt, impostare Stato **provisioning** su **Attivato** nella **sezione** Impostazioni.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Hoxhunt selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
+12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Hoxhunt scegliendo i valori desiderati in **Ambito** nella **sezione** Impostazioni.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -130,6 +130,9 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 * Usare i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
 * Controllare l'[indicatore di stato](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 * Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Registro delle modifiche
+* 20/04/2021 - Aggiunta del supporto per "preferredLanguage" e l'attributo dell'estensione aziendale "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division".
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

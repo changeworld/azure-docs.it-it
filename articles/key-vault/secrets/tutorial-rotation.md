@@ -3,7 +3,6 @@ title: Esercitazione sulla rotazione per le risorse con un set di credenziali di
 description: Questa esercitazione illustra come automatizzare la rotazione di un segreto per le risorse che usano un unico set di credenziali di autenticazione.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: rotation
 ms.service: key-vault
 ms.subservice: secrets
@@ -11,12 +10,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 526c3d2d85a3f2877f82b3b764f395c51f7c05c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e66be3b0e3ecae5caa1a76294cc8b8dc11a5f207
+ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99805231"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107748665"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizzare la rotazione di un segreto per le risorse che usano un unico set di credenziali di autenticazione
 
@@ -45,7 +44,7 @@ Se non si hanno a disposizione istanze esistenti di Key Vault e SQL Server, è p
 
 [![Immagine che mostra il pulsante "Distribuisci in Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. In **Gruppo di risorse** selezionare **Crea nuovo**. Assegnare un nome al gruppo. in questa esercitazione viene usato **akvrotation** .
+1. In **Gruppo di risorse** selezionare **Crea nuovo**. Assegnare un nome al gruppo. In questa esercitazione si usa **akvrotation.**
 1. In **Account di accesso amministratore SQL** digitare il nome dell'account di accesso dell'amministratore SQL. 
 1. Selezionare **Rivedi e crea**.
 1. Selezionare **Crea**
@@ -213,7 +212,7 @@ La creazione di un segreto con una data di scadenza breve pubblicherà entro 15 
 
 Per verificare l'avvenuta rotazione del segreto, passare a **Key Vault** > **Segreti**:
 
-:::image type="content" source="../media/rotate-8.png" alt-text="Screenshot che illustra come accedere a Key Vault > segreti.":::
+:::image type="content" source="../media/rotate-8.png" alt-text="Screenshot che mostra come accedere ai Key Vault > segreti.":::
 
 Aprire il segreto **sqlPassword** per visualizzare la versione originale e quella ruotata:
 
