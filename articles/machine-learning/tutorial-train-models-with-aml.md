@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 85dea807ee09338e7f0e9e388f6b196fd3beef33
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6c5691759983d8ec40598834e5dbcd507ccf00cf
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588665"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816873"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Esercitazione: Eseguire il training di modelli di classificazione delle immagini con dati MNIST e scikit-learn 
 
@@ -93,7 +93,7 @@ print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
 
 >[!NOTE]
-> È possibile che venga richiesto di eseguire l'autenticazione all'area di lavoro la prima volta che si esegue il codice seguente. Segui le istruzioni visualizzate.
+> Potrebbe essere richiesto di eseguire l'autenticazione nell'area di lavoro la prima volta che si esegue il codice seguente. Segui le istruzioni visualizzate.
 
 ### <a name="create-an-experiment"></a>Creare un esperimento
 
@@ -396,7 +396,7 @@ Alla fine del training, l'aspetto del widget sarà simile al seguente:
 
 ![Widget del notebook](./media/tutorial-train-models-with-aml/widget.png)
 
-Per cancellare un'esecuzione, seguire [queste istruzioni](./how-to-manage-runs.md).
+Per cancellare un'esecuzione, seguire [queste istruzioni](./how-to-track-monitor-analyze-runs.md).
 
 ### <a name="get-log-results-upon-completion"></a>Ottenere i risultati del log dopo il completamento
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/08/2021
 ms.author: amgowda
 ms.custom: contentperf-fy21q3, devx-track-azurecli
-ms.openlocfilehash: 261deb0c4f5f28be51e806ab76261278709efc3b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: b1ef397c1a3f6770d197ca8fd0faa83c9e8360f5
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482875"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816459"
 ---
 # <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>Guida introduttiva: Distribuire un cluster del servizio AzureKs con nodi di confidential computing usando l'interfaccia della riga di comando di Azure
 
@@ -41,16 +41,16 @@ Questa guida introduttiva richiede:
   Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
 - Almeno sei core DCsv2 disponibili nella sottoscrizione. 
 
-  Per impostazione predefinita, la quota per il confidential computing per ogni sottoscrizione di Azure è di otto core vm. Se si prevede di effettuare il provisioning di un cluster che richiede più di otto core, seguire [queste](../azure-portal/supportability/per-vm-quota-requests.md) istruzioni per generare un ticket di aumento della quota.
+  Per impostazione predefinita, la quota per il confidential computing per ogni sottoscrizione di Azure è di otto core vm. Se si prevede di effettuare il provisioning di un cluster che richiede più di otto core, seguire queste istruzioni [per](../azure-portal/supportability/per-vm-quota-requests.md) generare un ticket di aumento della quota.
 
-## <a name="create-an-aks-cluster-with-confidential-computing-nodes-and-add-on"></a>Creare un cluster del servizio AKS con nodi di confidential computing e componente aggiuntivo
+## <a name="create-an-aks-cluster-with-confidential-computing-nodes-and-add-on"></a>Creare un cluster del servizio Web Diaks con nodi di confidential computing e componente aggiuntivo
 
-Usare le istruzioni seguenti per creare un cluster del servizio Web Del servizio Web con il componente aggiuntivo confidential computing abilitato, aggiungere un pool di nodi al cluster e verificare ciò che è stato creato.
+Usare le istruzioni seguenti per creare un cluster del servizio Web Disassoce con il componente aggiuntivo di confidential computing abilitato, aggiungere un pool di nodi al cluster e verificare ciò che è stato creato.
 
-### <a name="create-an-aks-cluster-with-a-system-node-pool"></a>Creare un cluster del servizio AKS con un pool di nodi di sistema
+### <a name="create-an-aks-cluster-with-a-system-node-pool"></a>Creare un cluster del servizio Web Disassoce con un pool di nodi di sistema
 
 > [!NOTE]
-> Se si dispone già di un cluster del servizio AKS che soddisfa i criteri dei prerequisiti elencati in precedenza, passare alla [sezione](#add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster) successiva per aggiungere un pool di nodi di elaborazione riservata.
+> Se si dispone già di un cluster del servizio Web Diaks che soddisfa i criteri dei prerequisiti elencati in precedenza, passare alla [sezione](#add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster) successiva per aggiungere un pool di nodi di confidential computing.
 
 Creare prima di tutto un gruppo di risorse per il cluster usando il [comando az group create.][az-group-create] L'esempio seguente crea un gruppo di risorse *denominato myResourceGroup* nell'area *westus2:*
 
@@ -58,31 +58,31 @@ Creare prima di tutto un gruppo di risorse per il cluster usando il [comando az 
 az group create --name myResourceGroup --location westus2
 ```
 
-Creare ora un cluster del servizio Web Diaks, con il componente aggiuntivo confidential computing abilitato, usando il [comando az aks create:][az-aks-create]
+Creare ora un cluster del servizio Web Diaz, con il componente aggiuntivo di confidential computing abilitato, usando il [comando az servizio WebKs create:][az-aks-create]
 
 ```azurecli-interactive
 az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom
 ```
 
-### <a name="add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster"></a>Aggiungere un pool di nodi utente con funzionalità di confidential computing al cluster del servizio AKS 
+### <a name="add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster"></a>Aggiungere un pool di nodi utente con funzionalità di confidential computing al cluster del servizio Web AKS 
 
-Eseguire il comando seguente per aggiungere un pool di nodi utente di dimensioni con tre nodi al cluster del servizio `Standard_DC2s_v2` AKS. È possibile scegliere un altro SKU dall'elenco di SKU e aree [DCsv2 supportati.](../virtual-machines/dcv2-series.md)
+Eseguire il comando seguente per aggiungere un pool di nodi utente di dimensioni `Standard_DC2s_v2` con tre nodi al cluster del servizio Web Diaks. È possibile scegliere un altro SKU dall'elenco di SKU e aree [DCsv2 supportati.](../virtual-machines/dcv2-series.md)
 
 ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC2s_v2
 ```
 
-Dopo aver eseguito il comando, un nuovo pool di nodi con DCsv2 dovrebbe essere visibile con daemonSet del componente aggiuntivo confidential computing ( plug-in del dispositivo[SGX](confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks)).
+Dopo aver eseguito il comando, un nuovo pool di nodi con DCsv2 dovrebbe essere visibile con i DaemonSet dei componenti aggiuntivi di confidential computing (plug-in del dispositivo[SGX).](confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks)
 
 ### <a name="verify-the-node-pool-and-add-on"></a>Verificare il pool di nodi e il componente aggiuntivo
 
-Ottenere le credenziali per il cluster del servizio AKS usando il [comando az aks get-credentials:][az-aks-get-credentials]
+Ottenere le credenziali per il cluster del servizio Diaks usando il [comando az servizio WebKs get-credentials:][az-aks-get-credentials]
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Usare il comando per verificare che i nodi siano stati creati correttamente e che i daemonSet correlati a SGX siano in esecuzione nei pool di nodi `kubectl get pods` DCsv2:
+Usare il comando per verificare che i nodi siano stati creati correttamente e che i DaemonSet correlati a SGX siano in esecuzione nei pool `kubectl get pods` di nodi DCsv2:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -90,9 +90,9 @@ $ kubectl get pods --all-namespaces
 kube-system     sgx-device-plugin-xxxx     1/1     Running
 ```
 
-Se l'output corrisponde al codice precedente, il cluster del servizio Web Disatteso è ora pronto per eseguire applicazioni riservate.
+Se l'output corrisponde al codice precedente, il cluster del servizio Web Diaks è ora pronto per l'esecuzione di applicazioni riservate.
 
-È possibile passare alla sezione [Deploy Hello World from an isolated enclave application](#hello-world) in questo avvio rapido per testare un'app in un enclave. Oppure usare le istruzioni seguenti per aggiungere altri pool di nodi nel server del cluster di controllo di accesso. Il servizio AKS supporta la combinazione di pool di nodi SGX e pool di nodi non SGX.
+È possibile passare alla sezione Distribuire Hello World da un'applicazione [enclave](#hello-world) isolata in questa guida introduttiva per testare un'app in un'enclave. In altro modo, usare le istruzioni seguenti per aggiungere altri pool di nodi nel cluster del server del cluster di Controllo di accesso. Il servizio Web Diaks supporta la combinazione di pool di nodi SGX e pool di nodi non SGX.
 
 ## <a name="add-a-confidential-computing-node-pool-to-an-existing-aks-cluster"></a>Aggiungere un pool di nodi di confidential computing a un cluster del servizio Web Disatteso esistente<a id="existing-cluster"></a>
 
@@ -211,7 +211,7 @@ az aks nodepool delete --cluster-name myAKSCluster --name confcompool1 --resourc
 Per eliminare il cluster del servizio Web Diaks, usare il comando seguente: 
 
 ```azurecli-interactive
-az aks delete --resource-group myResourceGroup --name myAKSCluster
+az aks delete --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

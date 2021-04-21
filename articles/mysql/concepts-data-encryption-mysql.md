@@ -6,18 +6,18 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: bed0ccbc25c6fcc43d8fb0948182f229bce63edf
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d8e40cf9dac496266f67ad94e1e65db01e42f9d2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764712"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816837"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di Database di Azure per MySQL con una chiave gestita dal cliente
 
 La crittografia dei dati con chiavi gestite dal cliente per Database di Azure per MySQL consente di usare Bring Your Own Key (BYOK) per la protezione dei dati inattivi. Consente anche alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati. Con la crittografia gestita dal cliente, l'utente è responsabile e, in pieno controllo, del ciclo di vita di una chiave, delle autorizzazioni di utilizzo delle chiavi e del controllo delle operazioni sulle chiavi.
 
-La crittografia dei dati con chiavi gestite dal cliente per il servizio Database di Azure per MySQL viene impostata a livello di server. Per un determinato server, una chiave gestita dal cliente, denominata chiave di crittografia della chiave (chiave KEK), viene usata per crittografare la chiave di crittografia dei dati (chiave DEK) usata dal servizio. La chiave KEK è una chiave asimmetrica archiviata in un'istanza di [Azure Key Vault](../key-vault/general/security-overview.md) di proprietà del cliente e gestita dal cliente. Le chiavi KEK e DEK vengono descritte in maggior dettaglio più avanti in questo articolo.
+La crittografia dei dati con chiavi gestite dal cliente per il servizio Database di Azure per MySQL viene impostata a livello di server. Per un determinato server, una chiave gestita dal cliente, denominata chiave di crittografia della chiave (chiave KEK), viene usata per crittografare la chiave di crittografia dei dati (chiave DEK) usata dal servizio. La chiave KEK è una chiave asimmetrica archiviata in un'istanza di [Azure Key Vault](../key-vault/general/security-features.md) di proprietà del cliente e gestita dal cliente. Le chiavi KEK e DEK vengono descritte in maggior dettaglio più avanti in questo articolo.
 
 Key Vault è un sistema esterno di gestione delle chiavi basato sul cloud. Offre disponibilità elevata e fornisce una risorsa di archiviazione scalabile e sicura per le chiavi di crittografia RSA, supportata facoltativamente da moduli di protezione hardware (HSM) con convalida di tipo FIPS 140-2 Livello 2. Non consente l'accesso diretto a una chiave archiviata, ma offre servizi di crittografia e decrittografia per le entità autorizzate. Key Vault può generare la chiave, importarla o fare in modo che venga [trasferita da un dispositivo HSM locale](../key-vault/keys/hsm-protected-keys.md).
 
@@ -60,8 +60,8 @@ Se il server è configurato per l'uso della chiave gestita dal cliente archiviat
 
 Di seguito sono illustrati i requisiti per la configurazione di Key Vault:
 
-* Key Vault e Database di Azure per MySQL devono appartenere allo stesso tenant di Azure Active Directory (Azure AD). Le interazioni di server e Key Vault tra più tenant non sono supportate. Per spostare Key Vault risorsa in un secondo momento, è necessario riconfigurare la crittografia dei dati.
-* Abilitare la [funzionalità di](../key-vault/general/soft-delete-overview.md) eliminazione soft nell'insieme di credenziali delle chiavi con periodo di conservazione impostato su **90** giorni, per proteggersi dalla perdita di dati in caso di eliminazione accidentale della chiave (o Key Vault). Le risorse eliminate in modo soft vengono conservate per 90 giorni per impostazione predefinita, a meno che il periodo di conservazione non sia impostato in modo esplicito su <=90 giorni. Alle azioni di recupero e rimozione definitiva sono associate autorizzazioni specifiche nei criteri di accesso di Key Vault. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita, ma è possibile abilitarla tramite PowerShell o l'interfaccia della riga di comando di Azure (si noti che non è possibile abilitarla tramite il portale di Azure).
+* Key Vault e Database di Azure per MySQL devono appartenere allo stesso tenant di Azure Active Directory (Azure AD). Le interazioni di server e Key Vault tra più tenant non sono supportate. Lo Key Vault della risorsa in un secondo momento richiede di riconfigurare la crittografia dei dati.
+* Abilitare la [funzionalità di](../key-vault/general/soft-delete-overview.md) eliminazione soft nell'insieme di credenziali delle chiavi con periodo di conservazione impostato su **90** giorni, per proteggersi dalla perdita di dati in caso di eliminazione accidentale della chiave (o Key Vault). Le risorse eliminate in modo soft vengono mantenute per 90 giorni per impostazione predefinita, a meno che il periodo di conservazione non sia impostato in modo esplicito su <=90 giorni. Alle azioni di recupero e rimozione definitiva sono associate autorizzazioni specifiche nei criteri di accesso di Key Vault. La funzionalità di eliminazione temporanea è disattivata per impostazione predefinita, ma è possibile abilitarla tramite PowerShell o l'interfaccia della riga di comando di Azure (si noti che non è possibile abilitarla tramite il portale di Azure).
 * Abilitare la [funzionalità Protezione ripulitura](../key-vault/general/soft-delete-overview.md#purge-protection) nell'insieme di credenziali delle chiavi con periodo di conservazione impostato **su 90 giorni.** La protezione da ripulitura può essere abilitata solo dopo l'a attivazione dell'eliminazione soft. Può essere attivato tramite l'interfaccia della riga di comando di Azure o PowerShell. Quando la protezione dall'eliminazione è impostata su , un insieme di credenziali o un oggetto nello stato eliminato non può essere eliminato fino al termine del periodo di conservazione. Gli insiemi di credenziali e gli oggetti eliminati in modo soft possono comunque essere ripristinati, assicurando che i criteri di conservazione siano seguiti. 
 * Concedere a Database di Azure per MySQL l'accesso all'insieme di credenziali delle chiavi con le autorizzazioni get, wrapKey e unwrapKey usando l'identità gestita univoca. Nell'portale di Azure, l'identità univoca "Servizio" viene creata automaticamente quando la crittografia dei dati è abilitata in MySQL. Per istruzioni dettagliate nel caso in cui si usi il portale di Azure, vedere [Configurare la crittografia dei dati per MySQL](howto-data-encryption-portal.md).
 
@@ -72,7 +72,7 @@ Di seguito sono illustrati i requisiti per la configurazione della chiave gestit
 * La chiave deve avere lo stato *Abilitato*.
 * Per la chiave deve essere [impostata l'eliminazione soft](../key-vault/general/soft-delete-overview.md) con periodo di conservazione impostato **su 90 giorni.** In questo modo viene impostato in modo implicito l'attributo di chiave obbligatorio recoveryLevel: "Recoverable". Se la conservazione è impostata su < 90 giorni, recoveryLevel: "CustomizedRecoverable" che non è il requisito, quindi assicurarsi di impostare il periodo di conservazione su **90 giorni.**
 * Per la chiave deve essere [abilitata la protezione dalla ripulitura.](../key-vault/general/soft-delete-overview.md#purge-protection)
-* Se si importa [una chiave esistente](/rest/api/keyvault/ImportKey/ImportKey) nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di file supportati ( , , , `.pfx` `.byok` `.backup` ).
+* Se si importa [una chiave esistente](/rest/api/keyvault/ImportKey/ImportKey) nell'insieme di credenziali delle chiavi, assicurarsi di specificarla nei formati di file supportati ( , , `.pfx` `.byok` `.backup` ).
 
 ## <a name="recommendations"></a>Consigli
 
@@ -145,4 +145,4 @@ Per Database di Azure per MySQL, il supporto per la crittografia dei dati in sta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come configurare la crittografia dei dati con una chiave gestita [](howto-data-encryption-portal.md) dal cliente per il database di Azure per MySQL usando il portale di Azure e l'interfaccia della riga [di comando di Azure.](howto-data-encryption-cli.md)
+Informazioni su come configurare la crittografia dei dati con una chiave gestita [](howto-data-encryption-portal.md) dal cliente per il database di Azure per MySQL usando il portale di Azure e l'interfaccia della riga di [comando di Azure.](howto-data-encryption-cli.md)

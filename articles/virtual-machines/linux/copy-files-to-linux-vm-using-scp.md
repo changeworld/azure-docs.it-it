@@ -1,26 +1,27 @@
 ---
-title: Spostare file da e verso VM Linux di Azure con SCP
+title: Usare SCP per spostare i file da e verso una macchina virtuale
 description: Spostare in sicurezza file da e verso una macchina virtuale Linux in Azure usando SCP e una coppia di chiavi SSH.
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/12/2017
+ms.date: 04/20/2021
 ms.author: cynthn
-ms.subservice: disks
-ms.openlocfilehash: 83b57055ee7a3fedab014abeab96520c3877b843
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.subservice: ''
+ms.openlocfilehash: edfc44f79cff25486fde6326ac954fe5b575d846
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558441"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816441"
 ---
-# <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Spostare file da e verso una macchina virtuale Linux usando SCP
+# <a name="use-scp-to-move-files-to-and-from-a-linux-vm"></a>Usare SCP per spostare i file da e verso una macchina virtuale Linux 
 
 Questo articolo illustra come spostare file da una workstation a una macchina virtuale Linux di Azure, o viceversa, usando Secure Copy (SCP). Il trasferimento di file tra una workstation e una macchina virtuale Linux in modo rapido e sicuro è un aspetto essenziale della gestione dell'infrastruttura di Azure. 
 
-Per questo articolo è necessaria una macchina virtuale Linux distribuita in Azure tramite [file di chiavi SSH pubbliche e private](mac-create-ssh-keys.md). È necessario anche un client SCP per il computer locale: uno strumento basato su SSH e incluso nella shell Bash predefinita della maggior parte dei computer Mac e Linux e in alcune shell di Windows.
+Per questo articolo è necessaria una macchina virtuale Linux distribuita in Azure tramite [file di chiavi SSH pubbliche e private](mac-create-ssh-keys.md). È necessario anche un client SCP per il computer locale: È basato su SSH ed è incluso nella shell Bash predefinita della maggior parte dei computer Linux e Mac e PowerShell.
+
 
 ## <a name="quick-commands"></a>Comandi rapidi
 
@@ -50,7 +51,7 @@ Per altre informazioni sulla configurazione del file `~/.ssh/config` e delle chi
 
 Nel primo esempio si copia un file di configurazione di Azure in una macchina virtuale Linux usata per distribuire l'automazione. Poiché questo file contiene credenziali di API di Azure, che includono informazioni riservate, la sicurezza è particolarmente importante e il tunnel crittografato fornito con SSH assicura la protezione dei contenuti del file.
 
-Il comando seguente consente di copiare il file *.azure/config* locale in una macchina virtuale di Azure con FQDN: *myserver.eastus.cloudapp.azure.com*. Il nome utente dell'amministratore nella macchina virtuale di Azure è *azureuser*. Il file è destinato ad essere inserito nella directory */home/azureuser/*. Nel comando sostituire i valori predefiniti con quelli personali.
+Il comando seguente consente di copiare il file *.azure/config* locale in una macchina virtuale di Azure con FQDN: *myserver.eastus.cloudapp.azure.com*. Se non è impostato un [FQDN,](../create-fqdn.md)è anche possibile usare l'indirizzo IP della macchina virtuale. Il nome utente dell'amministratore nella macchina virtuale di Azure è *azureuser*. Il file è destinato ad essere inserito nella directory */home/azureuser/*. Nel comando sostituire i valori predefiniti con quelli personali.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config
@@ -66,7 +67,7 @@ Il comando seguente consente di copiare i file contenuti nella directory */home/
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-Il `-r` flag indica a SCP di copiare in modo ricorsivo i file e le directory dal punto della directory elencato nel comando.  Osservare inoltre come la sintassi della riga di comando sia simile al comando di copia `cp`.
+Il flag indica a SCP di copiare in modo ricorsivo i file e le directory dal punto `-r` della directory elencata nel comando .  Osservare inoltre come la sintassi della riga di comando sia simile al comando di copia `cp`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

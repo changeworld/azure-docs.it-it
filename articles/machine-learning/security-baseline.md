@@ -1,162 +1,162 @@
 ---
-title: Baseline della sicurezza di Azure per Azure Machine Learning
-description: La linea di base di sicurezza Azure Machine Learning fornisce indicazioni e risorse procedurali per l'implementazione delle raccomandazioni di sicurezza specificate nel benchmark di sicurezza di Azure.
+title: Baseline di sicurezza di Azure per Azure Machine Learning
+description: La baseline Azure Machine Learning sicurezza fornisce linee guida e risorse procedurali per l'implementazione delle raccomandazioni sulla sicurezza specificate in Azure Security Benchmark.
 author: msmbaldwin
 ms.service: machine-learning
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f8bde45cfdf9cf1c9d50faee76161461d8b0aa0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6457624329d7bb5e367e9de5a1963884e11ad2e3
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607829"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817000"
 ---
-# <a name="azure-security-baseline-for-azure-machine-learning"></a>Baseline della sicurezza di Azure per Azure Machine Learning
+# <a name="azure-security-baseline-for-azure-machine-learning"></a>Baseline di sicurezza di Azure per Azure Machine Learning
 
-Questa linea di base di sicurezza applica le indicazioni della [versione 1,0 del benchmark di sicurezza di Azure](../security/benchmarks/overview-v1.md) a Microsoft Azure Machine Learning. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure.
-Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili a Azure Machine Learning. I **controlli** non applicabili ai Azure Machine Learning sono stati esclusi.
+Questa baseline di sicurezza applica le linee guida [di Azure Security Benchmark versione 1.0](../security/benchmarks/overview-v1.md) Microsoft Azure Machine Learning. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure.
+Il contenuto è raggruppato in base ai **controlli di** sicurezza definiti da Azure Security Benchmark e alle linee guida correlate applicabili a Azure Machine Learning. **I** controlli non applicabili Azure Machine Learning sono stati esclusi.
 
  
-Per informazioni su come Azure Machine Learning viene eseguito il mapping completo al benchmark di sicurezza di Azure, vedere il [file di mapping di base Azure Machine Learning sicurezza completo](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+Per informazioni su come Azure Machine Learning completamente mappato ad Azure Security Benchmark, vedere il [file di mapping](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)completo Azure Machine Learning baseline di sicurezza .
 
 ## <a name="network-security"></a>Sicurezza di rete
 
 *Per altre informazioni, vedere [Azure Security Benchmark: Sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
+### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Proteggere le risorse di Azure all'interno delle reti virtuali
 
-**Indicazioni**: Azure Machine Learning si basa su altri servizi di Azure per le risorse di calcolo. Le risorse di calcolo (destinazioni di calcolo) vengono usate per eseguire il training e la distribuzione dei modelli. Queste destinazioni di calcolo possono essere create in una rete virtuale. Ad esempio, è possibile usare l'istanza di calcolo Machine Learning virtuale di Azure per eseguire il training di un modello e quindi distribuire il modello in Azure Kubernetes Service (AKS). È possibile proteggere i cicli di vita di Machine Learning isolando Azure Machine Learning processi di training e inferenza in una rete virtuale di Azure.
+**Indicazioni:** Azure Machine Learning si basa su altri servizi di Azure per le risorse di calcolo. Le risorse di calcolo (destinazioni di calcolo) vengono usate per eseguire il training e la distribuzione dei modelli. Queste destinazioni di calcolo possono essere create in una rete virtuale. Ad esempio, è possibile usare l'istanza di calcolo Machine Learning virtuale di Azure per eseguire il training di un modello e quindi distribuire il modello in servizio Azure Kubernetes (AKS). È possibile proteggere i cicli di vita di Machine Learning isolando Azure Machine Learning di training e inferenza all'interno di una rete virtuale di Azure.
 
-Il firewall di Azure può essere usato per controllare l'accesso all'area di lavoro Azure Machine Learning e alla rete Internet pubblica.
+Firewall di Azure possibile usare per controllare l'accesso all'area Azure Machine Learning lavoro e alla rete Internet pubblica.
 
-- [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md)
+- [Panoramica dell'isolamento della rete virtuale e della privacy](how-to-network-security-overview.md)
 
-- [Usare l'area di lavoro dietro il firewall di Azure per Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
+- [Usare l'area di lavoro dietro Firewall di Azure per Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e NIC
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2: Monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e schede di interfaccia di rete
 
-**Indicazioni**: Azure Machine Learning si basa su altri servizi di Azure per le risorse di calcolo. Assegnare gruppi di sicurezza di rete alle reti create come distribuzione Machine Learning. 
+**Indicazioni:** Azure Machine Learning si basa su altri servizi di Azure per le risorse di calcolo. Assegnare gruppi di sicurezza di rete alle reti create come Machine Learning distribuzione. 
 
-Abilitare i log di flusso del gruppo di sicurezza di rete e inviare i log a un account di archiviazione di Azure per il controllo. È anche possibile inviare i log di flusso a un'area di lavoro Log Analytics e quindi usare Analisi del traffico per fornire informazioni dettagliate sui modelli di traffico nel cloud di Azure. Alcuni vantaggi di Analisi del traffico sono la possibilità di visualizzare l'attività di rete, identificare le aree sensibili e le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete non configurate.
+Abilitare i log dei flussi dei gruppi di sicurezza di rete e inviare i log a un account Archiviazione di Azure per il controllo. È anche possibile inviare i log di flusso a un'area di lavoro Log Analytics e quindi usare Analisi del traffico per fornire informazioni dettagliate sui modelli di traffico nel cloud di Azure. Alcuni vantaggi delle Analisi del traffico sono la possibilità di visualizzare le attività di rete, identificare gli hot spot e le minacce alla sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni erre della rete.
 
-- [Come abilitare i log dei flussi dei gruppi di sicurezza di rete](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
+- [Come abilitare i log di flusso del gruppo di sicurezza di rete](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
 - [Come abilitare e usare Analisi del traffico](../network-watcher/traffic-analytics.md)
 
-- [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](../security-center/security-center-network-recommendations.md)
+- [Informazioni sulla sicurezza di rete fornita da Centro sicurezza di Azure](../security-center/security-center-network-recommendations.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: proteggere le applicazioni Web critiche
 
-**Linee guida**: è possibile abilitare HTTPS per proteggere le comunicazioni con i servizi Web distribuiti da Azure Machine Learning. I servizi Web vengono distribuiti nei servizi di Azure Kubernetes (AKS) o nelle istanze di contenitore di Azure e assicurano i dati inviati dai client. È anche possibile usare un indirizzo IP privato con AKS per limitare l'assegnazione dei punteggi, in modo che solo i client dietro una rete virtuale possano accedere al servizio Web.
+**Indicazioni:** è possibile abilitare HTTPS per proteggere la comunicazione con i servizi Web distribuiti da Azure Machine Learning. I servizi Web vengono distribuiti in Azure Kubernetes Services (AKS) o Istanze di Azure Container (ACI) e proteggere i dati inviati dai client. È anche possibile usare l'indirizzo IP privato con il servizio AKS per limitare l'assegnazione dei punteggi, in modo che solo i client dietro una rete virtuale possano accedere al servizio Web.
 
 - [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning](how-to-secure-web-service.md)
 
-- [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md)
+- [Panoramica dell'isolamento della rete virtuale e della privacy](how-to-network-security-overview.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: negare le comunicazioni con indirizzi IP dannosi noti
 
-**Linee guida**: abilitare protezione DDoS standard nelle reti virtuali associate all'istanza di machine learning per proteggersi dagli attacchi di tipo Denial of Service (DDoS) distribuiti. Usare il rilevamento delle minacce integrato nel centro sicurezza di Azure per rilevare le comunicazioni con indirizzi IP Internet dannosi noti o non usati.
+**Indicazioni:** abilitare Protezione DDoS Standard nelle reti virtuali associate all'istanza di Machine Learning per la protezione dagli attacchi DDoS (Distributed Denial of Service). Usare Centro sicurezza di Azure rilevamento delle minacce integrato per rilevare le comunicazioni con indirizzi IP Internet dannosi o inutilizzati noti.
 
-Distribuire il firewall di Azure a ogni limite di rete dell'organizzazione con il filtro basato su Intelligence per le minacce abilitato e configurato per "avviso e negazione" per il traffico di rete dannoso.
+Distribuire Firewall di Azure in ogni limite di rete dell'organizzazione con il filtro basato su intelligence sulle minacce abilitato e configurato su "Avviso e rifiuto" per il traffico di rete dannoso.
 
 - [Come configurare la protezione DDoS](../ddos-protection/manage-ddos-protection.md)
 
-- [Usare l'area di lavoro dietro il firewall di Azure per Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
+- [Usare l'area di lavoro Firewall di Azure per Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
-- [Per altre informazioni sul rilevamento delle minacce nel centro sicurezza di Azure](../security-center/azure-defender.md)
-
-**Responsabilità**: Customer
-
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
-
-### <a name="15-record-network-packets"></a>1,5: registrare i pacchetti di rete
-
-**Linee guida**: per le macchine virtuali con l'estensione appropriata installata nei servizi di Azure Machine Learning, è possibile abilitare Network Watcher acquisizione pacchetti per analizzare le attività anomale. 
-
-- [Come creare un'istanza di Network Watcher](../network-watcher/network-watcher-create.md)
+- [Per altre informazioni sul rilevamento Centro sicurezza di Azure delle minacce](../security-center/azure-defender.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: distribuire sistemi di rilevamento intrusioni/intrusioni basati su rete (ID/IP)
+### <a name="15-record-network-packets"></a>1.5: Registrare i pacchetti di rete
 
-**Linee guida**: distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazione per rilevare e/o bloccare il traffico dannoso.
+**Indicazioni:** per tutte le macchine virtuali con l'estensione appropriata installata nei servizi Azure Machine Learning, è possibile abilitare Network Watcher'acquisizione di pacchetti per analizzare le attività anomale. 
 
-Selezionare un'offerta da Azure Marketplace che supporta la funzionalità di ID/IP con le funzionalità di ispezione del payload.  Quando l'ispezione del payload non è un requisito, è possibile usare l'Intelligence per le minacce del firewall di Azure. Il filtro basato su Intelligence per le minacce del firewall di Azure viene usato per segnalare e/o bloccare il traffico da e verso domini e indirizzi IP dannosi noti. Gli indirizzi IP e i domini sono originati dal feed Intelligence sulle minacce Microsoft.
+- [Come creare un'Network Watcher predefinita](../network-watcher/network-watcher-create.md)
 
-- [Come distribuire il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md)
+**Responsabilità**: Customer
 
-- [Come configurare gli avvisi con il firewall di Azure](../firewall/threat-intel.md)
+**Centro sicurezza di Azure monitoraggio:** Nessuno
+
+### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Distribuire sistemi di rilevamento/prevenzione delle intrusioni basati sulla rete (IDS/IPS)
+
+**Indicazioni:** distribuire la soluzione firewall preferita in ogni limite di rete dell'organizzazione per rilevare e/o bloccare il traffico dannoso.
+
+Selezionare un'offerta da Azure Marketplace che supporti la funzionalità IDS/IPS con funzionalità di ispezione del payload.  Quando l'ispezione del payload non è un requisito, Firewall di Azure possibile usare l'intelligence per le minacce. Firewall di Azure filtro basato sull'intelligence per le minacce viene usato per avvisare e/o bloccare il traffico da e verso domini e indirizzi IP dannosi noti. Gli indirizzi IP e i domini sono originati dal feed Intelligence sulle minacce Microsoft.
+
+- [Come distribuire Firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md)
+
+- [Come configurare gli avvisi con Firewall di Azure](../firewall/threat-intel.md)
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7: gestire il traffico verso le applicazioni Web
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
 
-**Responsabilità**: non applicabile
+**Responsabilità:** non applicabile
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: ridurre al minimo la complessità e il sovraccarico amministrativo delle regole di sicurezza di rete
 
-**Linee guida**: per le risorse che richiedono l'accesso all'account di Azure Machine Learning, usare i tag del servizio di rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, AzureMachineLearning) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi.
+**Indicazioni:** per le risorse che devono accedere all'account Azure Machine Learning, usare i tag del servizio di rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nei Firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, AzureMachineLearning) nel campo di origine o destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi.
 
-Azure Machine Learning servizio documenta un elenco di tag di servizio per le destinazioni di calcolo all'interno di una rete virtuale che consente di ridurre al minimo la complessità, è possibile usarlo come linee guida per la gestione della rete.
+servizio Azure Machine Learning un elenco di tag di servizio per le destinazioni di calcolo all'interno di una rete virtuale che consente di ridurre al minimo la complessità, è possibile usarlo come linee guida per la gestione della rete.
 
-- [Per ulteriori informazioni sull'utilizzo dei tag di servizio](../virtual-network/service-tags-overview.md)
+- [Per altre informazioni sull'uso dei tag di servizio](../virtual-network/service-tags-overview.md)
 
-- [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md)
+- [Panoramica dell'isolamento della rete virtuale e della privacy](how-to-network-security-overview.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: gestire le configurazioni di sicurezza standard per i dispositivi di rete
 
-**Linee guida**: definire e implementare configurazioni di sicurezza standard per le risorse di rete associate agli spazi dei nomi Azure Machine Learning con criteri di Azure. Usare gli alias di criteri di Azure negli spazi dei nomi "Microsoft. MachineLearning" e "Microsoft. Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete degli spazi dei nomi Machine Learning. 
+**Linee** guida: definire e implementare configurazioni di sicurezza standard per le risorse di rete associate Azure Machine Learning spazi dei nomi con Criteri di Azure. Usare Criteri di Azure alias negli spazi dei nomi "Microsoft.MachineLearning" e "Microsoft.Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete degli spazi dei nomi Machine Learning rete. 
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: documentare le regole di configurazione del traffico
 
-**Linee guida**: usare i tag per le risorse di rete associate alla distribuzione Azure Machine Learning per organizzarli in modo logico in base a una tassonomia.
+**Indicazioni:** usare i tag per le risorse di rete associate alla distribuzione Azure Machine Learning per organizzarli in modo logico in base a una tassonomia.
 
-Per una risorsa nella rete virtuale Azure Machine Learning che supporta il campo Descrizione, usarla per documentare le regole che consentono il traffico da e verso una rete.
+Per una risorsa nella Azure Machine Learning virtuale che supporta il campo Descrizione, usarla per documentare le regole che consentono il traffico da e verso una rete.
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usare strumenti automatizzati per monitorare le configurazioni delle risorse di rete e rilevare le modifiche
 
-**Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate ai Azure Machine Learning. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
+**Indicazioni:** usare Log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate Azure Machine Learning. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
 - [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
@@ -164,15 +164,15 @@ Per una risorsa nella rete virtuale Azure Machine Learning che supporta il campo
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: registrazione e monitoraggio](../security/benchmarks/security-control-logging-monitoring.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 
-**Linee guida**: inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati da Azure Machine Learning. In monitoraggio di Azure usare le aree di lavoro Log Analytics per eseguire query ed eseguire analisi e usare gli account di archiviazione di Azure per l'archiviazione a lungo termine e di archiviazione. In alternativa, è possibile abilitare e caricare i dati in Azure Sentinel o in una integrazione di Informazioni di sicurezza e gestione degli eventi (SIEM) di terze parti.
+**Indicazioni:** inserire log tramite Monitoraggio di Azure aggregare i dati di sicurezza generati da Azure Machine Learning. In Monitoraggio di Azure usare le aree di lavoro Log Analytics per eseguire query ed eseguire analisi e usare Archiviazione di Azure per l'archiviazione a lungo termine e di archiviazione. In alternativa, è possibile abilitare e caricare i dati in Azure Sentinel o in una integrazione di Informazioni di sicurezza e gestione degli eventi (SIEM) di terze parti.
 
 - [Come configurare i log di diagnostica per Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/monitor-azure-machine-learning#configuration)
 
@@ -180,59 +180,59 @@ Per una risorsa nella rete virtuale Azure Machine Learning che supporta il campo
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: abilitare la registrazione di controllo per le risorse di Azure
 
-**Linee guida**: abilitare le impostazioni di diagnostica per le risorse di Azure per l'accesso ai log di controllo, sicurezza e diagnostica. I log attività, che sono automaticamente disponibili, includono origine evento, data, utente, timestamp, indirizzi di origine, indirizzi di destinazione e altri elementi utili.
+**Indicazioni:** abilitare le impostazioni di diagnostica nelle risorse di Azure per l'accesso ai log di controllo, sicurezza e diagnostica. I log attività, che sono automaticamente disponibili, includono origine evento, data, utente, timestamp, indirizzi di origine, indirizzi di destinazione e altri elementi utili.
 
-È anche possibile correlare i registri delle operazioni di servizio Machine Learning per motivi di sicurezza e conformità.
+È anche possibile correlare Machine Learning dei log delle operazioni del servizio per motivi di sicurezza e conformità.
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](/azure/azure-monitor/platform/diagnostic-settings)
+- [Come raccogliere i log e le metriche della piattaforma con Monitoraggio di Azure](/azure/azure-monitor/platform/diagnostic-settings)
 
-- [Informazioni sulla registrazione e sui diversi tipi di log in Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Informazioni sulla registrazione e i diversi tipi di log in Azure](/azure/azure-monitor/platform/platform-logs-overview)
 
-- [Abilitare la registrazione in Azure Machine Learning](how-to-track-experiments.md)
+- [Abilitare la registrazione Azure Machine Learning](how-to-log-view-metrics.md)
 
-- [Azure Machine Learning di monitoraggio](monitor-azure-machine-learning.md)
+- [Monitoraggio Azure Machine Learning](monitor-azure-machine-learning.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: raccogliere i log di sicurezza dai sistemi operativi
 
-**Linee guida**: se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile della raccolta e del monitoraggio. 
+**Indicazioni:** se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile della raccolta e del monitoraggio. 
 
-Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo e anche le risorse di calcolo. Per tutte le risorse di calcolo di proprietà dell'organizzazione, usare il Centro sicurezza di Azure per monitorare il sistema operativo. 
+Azure Machine Learning ha un supporto variabile per diverse risorse di calcolo e anche per le proprie risorse di calcolo. Per tutte le risorse di calcolo di proprietà dell'organizzazione, usare Centro sicurezza di Azure per monitorare il sistema operativo. 
 
-- [Come raccogliere i log degli host interni della macchina virtuale di Azure con monitoraggio di Azure](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Come raccogliere i log dell'host interno della macchina virtuale di Azure con Monitoraggio di Azure](/azure/azure-monitor/learn/quick-collect-azurevm)
 
-- [Informazioni sulla raccolta dati del Centro sicurezza di Azure](../security-center/security-center-enable-data-collection.md)
+- [Informazioni Centro sicurezza di Azure raccolta dati](../security-center/security-center-enable-data-collection.md)
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: configurare la conservazione dell'archiviazione dei log di sicurezza
 
-**Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione dei log per le aree di lavoro log Analytics associate alle istanze di Azure Machine Learning in base alle normative di conformità dell'organizzazione.
+**Indicazioni:** in Monitoraggio di Azure impostare il periodo di conservazione dei log per le aree di lavoro Log Analytics associate alle istanze di Azure Machine Learning in base alle normative di conformità dell'organizzazione.
 
 - [Come impostare i parametri di conservazione dei log](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: monitorare ed esaminare i log
 
-**Linee guida**: analizzare e monitorare i log per un comportamento anomalo ed esaminare periodicamente i risultati della Azure Machine Learning. Usare monitoraggio di Azure e un'area di lavoro Log Analytics per esaminare i log ed eseguire query sui dati di log.
+**Indicazioni:** analizzare e monitorare i log per individuare comportamenti anomali ed esaminare regolarmente i risultati dell'Azure Machine Learning. Usare Monitoraggio di Azure e un'area di lavoro Log Analytics per esaminare i log ed eseguire query sui dati di log.
 
-In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in un SIEM di terze parti. 
+In alternativa, è possibile abilitare ed eseguire l'on board dei dati Azure Sentinel o un SIEM di terze parti. 
 
-- [Come eseguire query per Azure Machine Learning nelle aree di lavoro Log Analytics](https://docs.microsoft.com/azure/machine-learning/monitor-azure-machine-learning#analyzing-log-data)
+- [Come eseguire query per l'Azure Machine Learning nelle aree di lavoro Log Analytics](https://docs.microsoft.com/azure/machine-learning/monitor-azure-machine-learning#analyzing-log-data)
 
-- [Abilitare la registrazione in Azure Machine Learning](how-to-track-experiments.md)
+- [Abilitare la registrazione in Azure Machine Learning](how-to-log-view-metrics.md)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -242,67 +242,67 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: abilitare gli avvisi per le attività anomale
+### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: Abilitare gli avvisi per le attività anoma le
 
-**Linee guida**: in monitoraggio di Azure configurare i log correlati all'Azure machine learning nel log attività e Machine Learning le impostazioni di diagnostica per inviare i log in un'area di lavoro di log Analytics per eseguire query o in un account di archiviazione per l'archiviazione a lungo termine dell'archivio. Utilizzare Log Analytics area di lavoro per creare avvisi per attività anomale rilevate negli eventi e nei registri di sicurezza.
+**Indicazioni:** in Monitoraggio di Azure configurare i log correlati a Azure Machine Learning all'interno del log attività e le impostazioni di diagnostica di Machine Learning per inviare i log in un'area di lavoro Log Analytics su cui eseguire query o in un account di archiviazione per l'archiviazione a lungo termine. Usare l'area di lavoro Log Analytics per creare avvisi per le attività anomae trovate nei log di sicurezza e negli eventi.
 
-In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
+In alternativa, è possibile abilitare e eseguire l'on board dei dati Azure Sentinel.
 
-- [Per ulteriori informazioni sugli avvisi di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/monitor-azure-machine-learning#alerts)
+- [Per altre informazioni sugli avvisi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/monitor-azure-machine-learning#alerts)
 
-- [Come inviare un avviso sui dati del log dell'area di lavoro Log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Come avvisare i dati di log dell'area di lavoro Log Analytics](/azure/azure-monitor/learn/tutorial-response)
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: centralizzare la registrazione antimalware
 
-**Linee guida**: se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile della distribuzione antimalware del servizio Azure Machine Learning.
+**Indicazioni:** se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile della distribuzione antimalware di servizio Azure Machine Learning.
 
-Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo e anche le risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, abilitare la raccolta di eventi antimalware per Microsoft antimalware per servizi cloud e macchine virtuali di Azure.
+Azure Machine Learning il supporto varia tra risorse di calcolo diverse e anche le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, abilitare la raccolta di eventi antimalware per Microsoft Antimalware per Servizi cloud di Azure e macchine virtuali.
 
-- [Come configurare l'estensione Microsoft antimalware per i servizi cloud](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension)
+- [Come configurare l'estensione Microsoft Antimalware per i servizi cloud](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension)
 
-- [Informazioni su Microsoft antimalware](../security/fundamentals/antimalware.md)
+- [Informazioni Microsoft Antimalware](../security/fundamentals/antimalware.md)
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="29-enable-dns-query-logging"></a>2.9: abilitare la registrazione delle query DNS
 
-**Linee guida**: non applicabile; Azure Machine Learning non elabora o produce log correlati a DNS.
+**Linee guida:** non applicabile; Azure Machine Learning non elabora o produce log correlati a DNS.
 
-**Responsabilità**: non applicabile
+**Responsabilità:** non applicabile
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: abilitare la registrazione di controllo da riga di comando
 
-**Linee guida**: Azure Machine Learning offre un supporto variabile tra risorse di calcolo diverse e persino risorse di calcolo personalizzate. Per le risorse di calcolo di proprietà dell'organizzazione, usare il Centro sicurezza di Azure per abilitare il monitoraggio del registro eventi di sicurezza per le macchine virtuali di Azure. Il Centro sicurezza di Azure esegue il provisioning dell'agente di Log Analytics in tutte le VM di Azure supportate e in quelle nuove che vengono create se è abilitato il provisioning automatico. In alternativa, è possibile installare l'agente manualmente. L'agente Abilita l'evento di creazione del processo 4688 e il campo CommandLine all'interno dell'evento 4688. I nuovi processi creati nella macchina virtuale vengono registrati dal registro eventi e monitorati dai servizi di rilevamento del Centro sicurezza.
+**Linee** guida: Azure Machine Learning supporto variabile tra risorse di calcolo diverse e anche le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare Centro sicurezza di Azure per abilitare il monitoraggio del log eventi di sicurezza per le macchine virtuali di Azure. Centro sicurezza di Azure esegue il provisioning dell'agente di Log Analytics in tutte le macchine virtuali di Azure supportate e in quelle nuove create se è abilitato il provisioning automatico. In caso di installazione manuale dell'agente. L'agente abilita l'evento di creazione del processo 4688 e il campo della riga di comando all'interno dell'evento 4688. I nuovi processi creati nella macchina virtuale vengono registrati dal registro eventi e monitorati dai servizi di rilevamento del Centro sicurezza.
 
 - [Raccolta dati nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="identity-and-access-control"></a>Gestione delle identità e controllo di accesso
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: identità e controllo di accesso](../security/benchmarks/security-control-identity-access-control.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Linee guida**: è possibile usare la scheda Gestione identità e accesso per una risorsa nel portale di Azure per configurare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e mantenere l'inventario sulle risorse Azure Machine Learning. I ruoli vengono applicati a utenti, gruppi, entità servizio e identità gestite in Active Directory. È possibile utilizzare ruoli predefiniti o ruoli personalizzati per singoli utenti e gruppi.
+**Indicazioni:** è possibile usare la scheda Identity and Access Management (Gestione delle identità e degli accessi) per una risorsa nel portale di Azure per configurare il controllo degli accessi in base al ruolo di Azure e mantenere l'inventario Azure Machine Learning risorse. I ruoli vengono applicati a utenti, gruppi, entità servizio e identità gestite in Active Directory. È possibile usare ruoli predefiniti o ruoli personalizzati per singoli utenti e gruppi.
 
-Azure Machine Learning fornisce ruoli predefiniti per gli scenari di gestione comuni in Azure Machine Learning. Un utente che dispone di un profilo in Azure Active Directory (Azure AD) può assegnare questi ruoli a utenti, gruppi, entità servizio o identità gestite per concedere o negare l'accesso a risorse e operazioni su Azure Machine Learning risorse.
+Azure Machine Learning fornisce ruoli predefiniti per scenari di gestione comuni in Azure Machine Learning. Un utente con un profilo in Azure Active Directory (Azure AD) può assegnare questi ruoli a utenti, gruppi, entità servizio o identità gestite per concedere o negare l'accesso alle risorse e alle operazioni Azure Machine Learning risorse.
 
-È anche possibile usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
+È anche possibile usare il Azure AD PowerShell per eseguire query adhoc per individuare gli account membri dei gruppi amministrativi.
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure in Azure Machine Learning](how-to-assign-roles.md)
 
@@ -310,43 +310,43 @@ Azure Machine Learning fornisce ruoli predefiniti per gli scenari di gestione co
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: modificare le password predefinite, ove applicabile
 
-**Linee guida**: la gestione degli accessi alle risorse Machine Learning viene controllata tramite Azure Active Directory (Azure ad). Azure AD non è il concetto di password predefinite.
+**Indicazioni:** la gestione degli accessi Machine Learning risorse è controllata tramite Azure Active Directory (Azure AD). Azure AD non ha il concetto di password predefinite.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: usare account amministrativi dedicati
 
-**Linee guida**: Azure Machine Learning viene fornita con tre ruoli predefiniti quando viene creata una nuova area di lavoro, creando procedure operative standard per l'utilizzo degli account proprietario.
+**Indicazioni:** Azure Machine Learning con tre ruoli predefiniti quando viene creata una nuova area di lavoro, creando procedure operative standard per l'uso degli account proprietari.
 
-È anche possibile abilitare un accesso just-in-time agli account amministrativi usando Azure Active Directory (Azure AD) Privileged Identity Management e Azure Resource Manager.
+È anche possibile abilitare l'accesso JUST-In-Time agli account amministrativi usando Azure Active Directory (Azure AD) Privileged Identity Management e Azure Resource Manager.
 
-- [Per ulteriori informazioni Machine Learning ruoli predefiniti](https://docs.microsoft.com/azure/machine-learning/how-to-assign-roles#default-roles)
+- [Per altre informazioni sui Machine Learning predefiniti](https://docs.microsoft.com/azure/machine-learning/how-to-assign-roles#default-roles)
 
-- [Altre informazioni su Privileged Identity Management](/azure/active-directory/privileged-identity-management/index)
+- [Altre informazioni sulle Privileged Identity Management](/azure/active-directory/privileged-identity-management/index)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: usare Single Sign-On (SSO) con Azure Active Directory
 
-**Linee guida**: Machine Learning è integrato con Azure Active Directory (Azure ad), usare Azure ad SSO anziché configurare singole credenziali autonome per servizio. Usare le raccomandazioni per l'identità e l'accesso del Centro sicurezza di Azure.
+**Indicazioni:** Machine Learning è integrato con Azure Active Directory (Azure AD), usare Azure AD SSO invece di configurare singole credenziali autonome per servizio. Usare le Centro sicurezza di Azure per l'identità e l'accesso.
 
 - [Informazioni su SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: usare l'autenticazione a più fattori per tutti gli accessi basati su Azure Active Directory
 
-**Linee guida**: abilitare l'autenticazione a più fattori di Azure Active Directory (Azure ad) e seguire le indicazioni relative all'identità e all'accesso del Centro sicurezza di Azure.
+**Linee** guida: abilitare Azure Active Directory(Azure AD) a più fattori e seguire Centro sicurezza di Azure indicazioni sull'identità e l'accesso.
 
 - [Come abilitare l'autenticazione a più fattori in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -354,23 +354,23 @@ Azure Machine Learning fornisce ruoli predefiniti per gli scenari di gestione co
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usare computer dedicati (workstation con accesso con privilegi) per tutte le attività amministrative
 
-**Linee guida**: usare una workstation protetta gestita da Azure (nota anche come workstation di accesso con privilegi o Paw) per le attività amministrative che richiedono privilegi elevati.
+**Indicazioni:** usare una workstation protetta gestita da Azure (nota anche come workstation di accesso con privilegi o PAW) per attività amministrative che richiedono privilegi elevati.
 
-- [Informazioni sulle workstation sicure gestite da Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+- [Informazioni sulle workstation protette gestite da Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Come abilitare l'autenticazione a più fattori Azure Active Directory (Azure AD)](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Come abilitare l'autenticazione Azure Active Directory (Azure AD) a più fattori](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: registrare e inviare avvisi sulle attività sospette dagli account amministrativi
+### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7: Registrare e avvisare le attività sospette da account amministrativi
 
-**Linee guida**: usare i report di sicurezza di Azure Active Directory (Azure ad) e il monitoraggio per rilevare quando nell'ambiente si verificano attività sospette o non sicure. Usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso.
+**Linee** guida: usare Azure Active Directory report di sicurezza (Azure AD) e il monitoraggio per rilevare quando si verificano attività sospette o non sicure nell'ambiente. Usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso.
 
 - [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -378,23 +378,23 @@ Azure Machine Learning fornisce ruoli predefiniti per gli scenari di gestione co
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3,8: gestire le risorse di Azure solo dalle località approvate
+### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3.8: Gestire le risorse di Azure solo da posizioni approvate
 
-**Indicazioni**: usare le località denominate Azure Active Directory (Azure ad) per consentire l'accesso solo da specifici raggruppamenti logici di intervalli di indirizzi IP o di paesi/aree geografiche.
+**Indicazioni:** usare Azure Active Directory (Azure AD) denominate per consentire l'accesso solo da raggruppamenti logici specifici di intervalli di indirizzi IP o paesi/aree geografiche.
 
-- [Come configurare Azure AD località denominate](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
+- [Come configurare le Azure AD denominate](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
-**Linee guida**: usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale. Azure AD protegge i dati usando la crittografia avanzata per i dati inattivi e in transito. Azure AD effettua anche il salting, aggiunge hash e archivia in modo sicuro le credenziali utente.
+**Linee** guida: usare Azure Active Directory (Azure AD) come sistema centrale di autenticazione e autorizzazione. Azure AD protegge i dati usando la crittografia avanzata per i dati inattivi e in transito. Azure AD effettua anche il salting, aggiunge hash e archivia in modo sicuro le credenziali utente.
  
-L'accesso ai ruoli può essere limitato a più livelli in Azure. Per Machine Learning, i ruoli possono essere gestiti a livello di area di lavoro. ad esempio, è possibile che l'accesso al proprietario di un'area di lavoro non disponga dell'accesso proprietario al gruppo di risorse che contiene l'area di lavoro. Questo fornisce controlli di accesso più granulari per separare i ruoli all'interno dello stesso gruppo di risorse. 
+L'ambito dell'accesso al ruolo può essere limitato a più livelli in Azure. Ad Machine Learning, i ruoli possono essere gestiti a livello di area di lavoro, ad esempio si dispone dell'accesso proprietario a un'area di lavoro che potrebbe non disporre dell'accesso proprietario al gruppo di risorse che contiene l'area di lavoro. In questo modo vengono forniti controlli di accesso più granulari per separare i ruoli all'interno dello stesso gruppo di risorse. 
 
 - [Gestire gli accessi all'area di lavoro di Azure Machine Learning](how-to-assign-roles.md) 
  
@@ -402,15 +402,15 @@ L'accesso ai ruoli può essere limitato a più livelli in Azure. Per Machine Lea
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: controllare e riconciliare regolarmente l'accesso utente
 
-**Indicazioni**: Azure Active Directory (Azure ad) fornisce i log per individuare gli account obsoleti. Inoltre, utilizzare Azure AD le verifiche di identità e accesso per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso utente può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo.
+**Indicazioni:** Azure Active Directory (Azure AD) fornisce i log per individuare gli account non obsoleti. È anche possibile usare le Azure AD di identità e di accesso per gestire in modo efficiente le appartenenze ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso utente può essere rivisto a intervalli regolari per assicurarsi che solo gli utenti autorizzati possano continuare ad accedere.
 
 Usare Azure AD Privileged Identity Management (PIM) per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring)
+- [Informazioni sulla creazione Azure AD report](/azure/active-directory/reports-monitoring)
 
 - [Come usare le verifiche di accesso e delle identità di Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -418,23 +418,23 @@ Usare Azure AD Privileged Identity Management (PIM) per la generazione di log e 
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: il monitoraggio tenta di accedere alle credenziali disattivate
+### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11: Il monitoraggio tenta di accedere alle credenziali disattivate
 
-**Linee guida**: è possibile accedere alle origini del registro eventi di attività, controllo e rischio per l'accesso Azure Active Directory (Azure ad), che consentono di eseguire l'integrazione con qualsiasi strumento Siem/Monitoring.
+**Indicazioni:** è possibile accedere alle origini del registro eventi di Azure Active Directory (Azure AD) di accesso, controllo e rischio, che consentono di eseguire l'integrazione con qualsiasi strumento di monitoraggio/informazioni di sicurezza e gestione degli eventi.
 
-È possibile semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro Log Analytics.
+È possibile semplificare questo processo creando impostazioni di diagnostica per gli account utente Azure AD e inviando i log di controllo e i log di accesso a un'area di lavoro Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro Log Analytics.
 
-- [Come integrare i log attività di Azure con monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure con Monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: avvisare in caso di deviazione dal comportamento di accesso dell'account
 
-**Indicazioni**: usare le funzionalità di protezione delle identità Azure Active Directory (Azure ad) per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. È anche possibile inserire i dati in Azure Sentinel per un'analisi più approfondita.
+**Indicazioni:** usare Azure Active Directory (Azure AD) di Identity Protection per configurare risposte automatiche alle azioni sospette rilevate correlate alle identità utente. È anche possibile inserire i dati in Azure Sentinel per un'analisi più approfondita.
 
 - [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -444,15 +444,15 @@ Usare Azure AD Privileged Identity Management (PIM) per la generazione di log e 
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto
 
-**Linee guida**: non applicabile; Il servizio Azure Machine Learning non supporta l'archivio protetto dei clienti.
+**Indicazioni:** non applicabile; servizio Azure Machine Learning non supporta customer lockbox.
 
-**Responsabilità**: non applicabile
+**Responsabilità:** non applicabile
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ## <a name="data-protection"></a>Protezione dei dati
 
@@ -466,11 +466,11 @@ Usare Azure AD Privileged Identity Management (PIM) per la generazione di log e 
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
-**Indicazioni**: implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite RBAC di Azure.
+**Indicazioni:** implementare l'isolamento usando sottoscrizioni e gruppi di gestione separati per i singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di riservatezza dei dati. È possibile limitare il livello di accesso alle risorse di Azure richiesto dalle applicazioni e dall'ambiente aziendale. È possibile controllare l'accesso alle risorse di Azure tramite il controllo degli accessi in base al ruolo di Azure.
  
 - [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
@@ -481,11 +481,11 @@ Usare Azure AD Privileged Identity Management (PIM) per la generazione di log e 
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: monitorare e bloccare il trasferimento non autorizzato di informazioni riservate
 
-**Indicazioni**: usare una soluzione di terze parti da Azure Marketplace in perimetri di rete per monitorare il trasferimento non autorizzato di informazioni riservate e bloccare tali trasferimenti mentre si inviano avvisi ai professionisti della sicurezza delle informazioni. 
+**Linee** guida: usare una soluzione di terze parti Azure Marketplace nei perimetri di rete per monitorare il trasferimento non autorizzato di informazioni riservate e bloccare tali trasferimenti, inviando avvisi ai professionisti della sicurezza delle informazioni. 
 
 Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e li protegge dalla perdita e dall'esposizione. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati. 
 
@@ -493,47 +493,47 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: crittografare tutte le informazioni riservate in transito
 
-**Linee guida**: i servizi Web distribuiti tramite Azure Machine Learning supportano solo TLS versione 1,2 che impone la crittografia dei dati in transito.
+**Indicazioni:** i servizi Web distribuiti tramite Azure Machine Learning supportano solo TLS versione 1.2 che applica la crittografia dei dati in transito.
 
 - [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning](how-to-secure-web-service.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: usare uno strumento di individuazione attivo per identificare i dati sensibili
 
-**Indicazioni**: le funzionalità di identificazione, classificazione e prevenzione della perdita dei dati non sono ancora disponibili per Azure Machine Learning. Implementare una soluzione di terze parti, se necessario ai fini della conformità.
+**Indicazioni:** le funzionalità di identificazione dei dati, classificazione e prevenzione della perdita non sono ancora disponibili per Azure Machine Learning. Implementare una soluzione di terze parti, se necessario per motivi di conformità.
 
-Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e passa a grandi lunghezze per difendersi dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
+Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti sensibili e fa di tutto per proteggersi dalla perdita e dall'esposizione dei dati dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usare RBAC di Azure per gestire l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse
 
-**Linee guida**: Azure Machine Learning supporta l'uso di Azure Active Directory (Azure ad) per autorizzare le richieste alle risorse Machine Learning. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione.
+**Linee** guida: Azure Machine Learning supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste Machine Learning risorse. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione.
 
 - [Gestire gli accessi all'area di lavoro di Azure Machine Learning](how-to-assign-roles.md)
 
-- [Usa RBAC di Azure per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md)
+- [Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione kubernetes](../aks/manage-azure-rbac.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: crittografare le informazioni riservate inattive
 
-**Indicazioni**: Azure Machine Learning archivia gli snapshot, l'output e i log nell'account di archiviazione BLOB di Azure associato all'area di lavoro Azure Machine Learning e alla sottoscrizione. Tutti i dati archiviati nell'Archiviazione BLOB di Azure vengono crittografati quando inattivi con le chiavi gestite da Microsoft. È anche possibile crittografare i dati archiviati nell'archivio BLOB di Azure con le proprie chiavi nel servizio Machine Learning. 
+**Linee** guida: Azure Machine Learning snapshot, output e log nell'account di archiviazione BLOB di Azure associato all'area di lavoro Azure Machine Learning e alla sottoscrizione. Tutti i dati archiviati nell'Archiviazione BLOB di Azure vengono crittografati quando inattivi con le chiavi gestite da Microsoft. È anche possibile crittografare i dati archiviati nell'archivio BLOB di Azure con le proprie chiavi Machine Learning servizio. 
 
-- [Crittografia dei dati inattivi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#encryption-at-rest)
+- [Azure Machine Learning crittografia dei dati in stato di inalter](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#encryption-at-rest)
 
 - [Informazioni sulla crittografia dei dati inattivi in Azure](../security/fundamentals/encryption-atrest.md)
 
@@ -541,83 +541,83 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: registrare e inviare avvisi per le modifiche alle risorse di Azure critiche
 
-**Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione di Azure Machine Learning e altre risorse critiche o correlate.
+**Indicazioni:** usare Monitoraggio di Azure log attività di Azure per creare avvisi relativi al momento in cui vengono apportate modifiche alle istanze di produzione di Azure Machine Learning e ad altre risorse critiche o correlate.
 
 - [Come creare avvisi per gli eventi del log attività di Azure](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ## <a name="vulnerability-management"></a>Gestione delle vulnerabilità
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: gestione delle vulnerabilità](../security/benchmarks/security-control-vulnerability-management.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Vulnerability Management ( Azure Security Benchmark: Gestione delle vulnerabilità).](../security/benchmarks/security-control-vulnerability-management.md)*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: eseguire strumenti di analisi della vulnerabilità automatizzati
 
-**Linee guida**: se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile della gestione delle vulnerabilità del servizio Azure Machine Learning. 
+**Indicazioni:** se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile della gestione delle vulnerabilità dei servizio Azure Machine Learning. 
 
-Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo e anche le risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, seguire le indicazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nelle macchine virtuali di Azure, nelle immagini del contenitore e in SQL Server.
+Azure Machine Learning ha un supporto variabile per diverse risorse di calcolo e anche per le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, seguire le raccomandazioni di Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nelle macchine virtuali di Azure, nelle immagini del contenitore e nei server SQL.
 
-- [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../security-center/deploy-vulnerability-assessment-vm.md)
+- [Come implementare le raccomandazioni Centro sicurezza di Azure valutazione della vulnerabilità](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: distribuire una soluzione di gestione delle patch automatizzata per il sistema operativo
 
-**Linee guida**: se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile della gestione delle patch del servizio Azure Machine Learning. 
+**Indicazioni:** se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile della gestione delle patch servizio Azure Machine Learning. 
 
-Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo e anche le risorse di calcolo. Per tutte le risorse di calcolo di proprietà dell'organizzazione, usare Gestione aggiornamenti di automazione di Azure per assicurarsi che gli aggiornamenti della sicurezza più recenti siano installati nelle macchine virtuali Windows e Linux. Per le macchine virtuali Windows, verificare che Windows Update sia stato abilitato e impostato per l'aggiornamento automatico.
+Azure Machine Learning ha un supporto variabile per diverse risorse di calcolo e anche per le proprie risorse di calcolo. Per tutte le risorse di calcolo di proprietà dell'organizzazione, usare Automazione di Azure Gestione aggiornamenti per assicurarsi che gli aggiornamenti della sicurezza più recenti siano installati nelle macchine virtuali Windows e Linux. Per le macchine virtuali Windows, assicurarsi che Windows Update sia stato abilitato e impostato per l'aggiornamento automatico.
 
-- [Come configurare Gestione aggiornamenti per le macchine virtuali in Azure](../automation/update-management/overview.md)
+- [Come configurare le Gestione aggiornamenti per le macchine virtuali in Azure](../automation/update-management/overview.md)
 
-- [Informazioni sui criteri di sicurezza di Azure monitorati dal centro sicurezza](../security-center/policy-reference.md)
+- [Informazioni su criteri di sicurezza di Azure monitorati dal Centro sicurezza](../security-center/policy-reference.md)
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: distribuire una soluzione di gestione delle patch automatizzata per i titoli software di terze parti
+### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5.3: Distribuire una soluzione di gestione automatica delle patch per titoli software di terze parti
 
-**Linee guida**: Azure Machine Learning offre un supporto variabile tra risorse di calcolo diverse e persino risorse di calcolo personalizzate. Per le risorse di calcolo di proprietà dell'organizzazione, usare una soluzione di gestione delle patch di terze parti. I clienti che usano già Configuration Manager nel proprio ambiente possono anche usare System Center Updates Publisher, consentendo loro di pubblicare aggiornamenti personalizzati in Windows Server Update Services. Questo consente Gestione aggiornamenti di applicare patch ai computer che usano Configuration Manager come repository di aggiornamento con software di terze parti.
+**Linee** guida: Azure Machine Learning supporto variabile tra risorse di calcolo diverse e anche le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare una soluzione di gestione delle patch di terze parti. I clienti che usano Gestione configurazione nel proprio ambiente possono anche usare System Center Updates Publisher, consentendo loro di pubblicare aggiornamenti personalizzati nel servizio Windows Server Update. Ciò consente Gestione aggiornamenti di applicare patch ai computer Gestione configurazione come repository di aggiornamento con software di terze parti.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: confrontare le analisi di vulnerabilità back-to-back
 
-**Linee guida**: Azure Machine Learning offre un supporto variabile tra risorse di calcolo diverse e persino risorse di calcolo personalizzate. Per le risorse di calcolo di proprietà dell'organizzazione, seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nelle macchine virtuali di Azure, nelle immagini del contenitore e in SQL Server. Esportare i risultati dell'analisi a intervalli coerenti e confrontare i risultati con le analisi precedenti per verificare che le vulnerabilità siano state corrette. Quando si usano le raccomandazioni sulla gestione delle vulnerabilità suggerite dal centro sicurezza di Azure, è possibile passare al portale della soluzione selezionata per visualizzare i dati cronologici dell'analisi.
+**Linee** guida: Azure Machine Learning supporto variabile tra risorse di calcolo diverse e anche le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, seguire le raccomandazioni di Centro sicurezza di Azure per l'esecuzione di valutazioni della vulnerabilità nelle macchine virtuali di Azure, nelle immagini dei contenitori e nei server SQL. Esportare i risultati dell'analisi a intervalli coerenti e confrontare i risultati con le analisi precedenti per verificare che le vulnerabilità siano state corretti. Quando si usano le raccomandazioni di gestione delle vulnerabilità suggerite da Centro sicurezza di Azure, è possibile eseguire il pivot nel portale della soluzione selezionata per visualizzare i dati di analisi cronologica.
 
-- [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../security-center/deploy-vulnerability-assessment-vm.md)
+- [Come implementare le raccomandazioni Centro sicurezza di Azure valutazione della vulnerabilità](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: usare un processo di classificazione dei rischi per classificare in ordine di priorità la correzione delle vulnerabilità individuate
 
 **Indicazioni**: non applicabile; queste linee guida sono destinate alle risorse di calcolo.
 
-**Responsabilità**: non applicabile
+**Responsabilità:** non applicabile
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="inventory-and-asset-management"></a>Gestione asset e inventario
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: inventario e gestione delle risorse](../security/benchmarks/security-control-inventory-asset-management.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
-### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usare la soluzione automazione Asset Discovery
+### <a name="61-use-automated-asset-discovery-solution"></a>6.1: Usare la soluzione di individuazione automatica degli asset
 
-**Linee guida**: usare il grafico delle risorse di Azure per eseguire query e individuare le risorse (ad esempio calcolo, archiviazione, rete, porte e protocolli e così via) nelle sottoscrizioni. Verificare le autorizzazioni (lettura) appropriate nel tenant ed enumerare tutte le sottoscrizioni di Azure e le risorse nelle sottoscrizioni.
+**Indicazioni:** usare Azure Resource Graph per eseguire query e individuare le risorse (ad esempio calcolo, archiviazione, rete, porte e protocolli e così via) nelle sottoscrizioni. Verificare le autorizzazioni appropriate (lettura) nel tenant ed enumerare tutte le sottoscrizioni di Azure e le risorse nelle sottoscrizioni.
 
-Sebbene le risorse di Azure classiche possano essere individuate tramite Esplora risorse di Azure, è consigliabile creare e usare Azure Resource Manager risorse in futuro.
+Anche se le risorse classiche di Azure possono essere individuate tramite Azure Resource Graph Explorer, è consigliabile creare e usare le Azure Resource Manager in futuro.
 
 - [Come creare query con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
@@ -627,21 +627,21 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Esplora
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: gestire i metadati degli asset
 
-**Linee guida**: applicare i tag alle risorse di Azure, aggiungendo i metadati per organizzare logicamente in base a una tassonomia.
+**Indicazioni:** applicare tag alle risorse di Azure, aggiungendo metadati per organizzare logicamente in base a una tassonomia.
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: eliminare le risorse di Azure non autorizzate
 
-**Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate laddove appropriato per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
+**Indicazioni:** usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, dove appropriato, per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
 - [ Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
@@ -651,24 +651,24 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Esplora
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: definire e gestire un inventario delle risorse di Azure approvate
+### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6.4: Definire e gestire un inventario delle risorse di Azure approvate
 
-**Linee guida**: creare un inventario delle risorse di Azure approvate e del software approvato per le risorse di calcolo in base alle esigenze dell'organizzazione.
+**Indicazioni:** creare un inventario delle risorse di Azure approvate e del software approvato per le risorse di calcolo in base alle esigenze dell'organizzazione.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: monitorare la presenza di risorse di Azure non approvate
 
-**Linee guida**: usare i criteri di Azure per limitare il tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefinite seguenti:
+**Indicazioni:** usare Criteri di Azure per applicare restrizioni al tipo di risorse che possono essere create nelle sottoscrizioni dei clienti usando le definizioni di criteri predefiniti seguenti:
 
 * Tipi di risorse non consentiti
 * Tipi di risorse consentiti
 
-Usare inoltre il grafico risorse di Azure per eseguire query e individuare le risorse all'interno delle sottoscrizioni.
+Inoltre, usare il Azure Resource Graph per eseguire query o individuare risorse all'interno delle sottoscrizioni.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -676,21 +676,21 @@ Usare inoltre il grafico risorse di Azure per eseguire query e individuare le ri
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: monitorare le applicazioni software non approvate nelle risorse di calcolo
 
-**Linee guida**: Azure Machine Learning offre un supporto variabile tra risorse di calcolo diverse e persino risorse di calcolo personalizzate. Per le risorse di calcolo di proprietà dell'organizzazione, usare Rilevamento modifiche di automazione di Azure e l'inventario per automatizzare la raccolta di informazioni di inventario dalle macchine virtuali Windows e Linux. Il nome del software, la versione, il server di pubblicazione e l'ora di aggiornamento sono disponibili dal portale di Azure. Per ottenere la data di installazione del software e altre informazioni, abilitare la diagnostica a livello di Guest e indirizzare i registri eventi di Windows in Log Analytics area di lavoro.
+**Indicazioni:** Azure Machine Learning ha un supporto variabile per risorse di calcolo diverse e anche per le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare Automazione di Azure Rilevamento modifiche e inventario per automatizzare la raccolta di informazioni di inventario dalle macchine virtuali Windows e Linux. Il nome software, la versione, l'editore e l'ora di aggiornamento sono disponibili nel portale di Azure. Per ottenere la data di installazione del software e altre informazioni, abilitare la diagnostica a livello di guest e indirizzare i log eventi di Windows all'area di lavoro Log Analytics.
 
-- [Come abilitare la raccolta di inventario di automazione di Azure per una macchina virtuale](../automation/automation-tutorial-installed-software.md)
+- [Come abilitare la raccolta Automazione di Azure inventario per una macchina virtuale](../automation/automation-tutorial-installed-software.md)
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: rimuovere le risorse di Azure e le applicazioni software non approvate
 
-**Linee guida**: Azure Machine Learning offre un supporto variabile tra risorse di calcolo diverse e persino risorse di calcolo personalizzate. Per le risorse di calcolo di proprietà dell'organizzazione, usare il monitoraggio dell'integrità dei file (FIM) del Centro sicurezza di Azure per identificare tutto il software installato nelle macchine virtuali. Un'altra opzione che può essere usata al posto di o in combinazione con FIM è l'automazione di Azure Rilevamento modifiche e l'inventario per raccogliere l'inventario dalle macchine virtuali Linux e Windows. 
+**Linee** guida: Azure Machine Learning supporto variabile tra risorse di calcolo diverse e anche le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare il monitoraggio dell'integrità dei file (FIM) di Centro sicurezza di Azure per identificare tutto il software installato nelle macchine virtuali. Un'altra opzione che può essere usata al posto di o in combinazione con FIM Automazione di Azure Rilevamento modifiche e inventario raccogliere l'inventario dalle macchine virtuali Linux e Windows. 
 
 È possibile implementare un processo personalizzato per la rimozione di software non autorizzato. È anche possibile usare una soluzione di terze parti per identificare il software non approvato.
 
@@ -698,34 +698,34 @@ Rimuovere le risorse di Azure quando non sono più necessarie.
 
 - [Come usare il monitoraggio dell'integrità dei file](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Informazioni su Rilevamento modifiche e inventario di automazione di Azure](../automation/change-tracking/overview.md)
+- [Informazioni Automazione di Azure Rilevamento modifiche e inventario](../automation/change-tracking/overview.md)
 
 - [Come abilitare l'inventario delle macchine virtuali di Azure](../automation/automation-tutorial-installed-software.md)
 
-- [Eliminazione di risorse e gruppi di risorse di Azure](../azure-resource-manager/management/delete-resource-group.md)
+- [Gruppo di risorse di Azure ed eliminazione di risorse](../azure-resource-manager/management/delete-resource-group.md)
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="68-use-only-approved-applications"></a>6.8: usare solo applicazioni approvate
 
-**Linee guida**: Azure Machine Learning offre un supporto variabile tra risorse di calcolo diverse e persino risorse di calcolo personalizzate. Per le risorse di calcolo di proprietà dell'organizzazione, usare i controlli delle applicazioni adattivi del Centro sicurezza di Azure per assicurarsi che venga eseguito solo il software autorizzato e che l'esecuzione di tutto il software non autorizzato venga bloccata in macchine virtuali di Azure.
+**Linee** guida: Azure Machine Learning supporto variabile tra risorse di calcolo diverse e anche le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare Centro sicurezza di Azure controlli delle applicazioni adattivi per garantire che solo il software autorizzato sia eseguito e che l'esecuzione di tutto il software non autorizzato sia bloccata nelle macchine virtuali di Azure.
 
-- [Come usare i controlli delle applicazioni adattivi nel centro sicurezza di Azure](../security-center/security-center-adaptive-application.md)
+- [Come usare i controlli Centro sicurezza di Azure applicazioni adattive](../security-center/security-center-adaptive-application.md)
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: usare solo servizi di Azure approvati
 
-**Linee guida**: usare i criteri di Azure per limitare il tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefinite seguenti:
+**Indicazioni:** usare Criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefiniti seguenti:
 
 * Tipi di risorse non consentiti
 * Tipi di risorse consentiti
 
-Usare anche il grafico delle risorse di Azure per eseguire query e individuare le risorse nelle sottoscrizioni.
+Usare inoltre il Azure Resource Graph per eseguire query e individuare le risorse nelle sottoscrizioni.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -733,87 +733,87 @@ Usare anche il grafico delle risorse di Azure per eseguire query e individuare l
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: gestire un inventario dei titoli software approvati
+### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10: Mantenere un inventario dei titoli software approvati
 
-**Linee guida**: Azure Machine Learning offre un supporto variabile tra risorse di calcolo diverse e persino risorse di calcolo personalizzate. Per tutte le risorse di calcolo di proprietà dell'organizzazione, usare i controlli delle applicazioni adattivi del Centro sicurezza di Azure per specificare i tipi di file a cui può essere applicata una regola.
+**Indicazioni:** Azure Machine Learning ha un supporto variabile per risorse di calcolo diverse e anche per le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare i controlli Centro sicurezza di Azure applicazioni adattivi per specificare a quali tipi di file può essere applicata o meno una regola.
 
-Implementare una soluzione di terze parti se i controlli applicazione adattivi non soddisfano i requisiti.
+Implementare una soluzione di terze parti se i controlli applicazioni adattivi non soddisfano il requisito.
 
-- [Come usare i controlli delle applicazioni adattivi nel centro sicurezza di Azure](../security-center/security-center-adaptive-application.md)
+- [Come usare i controlli Centro sicurezza di Azure applicazioni adattivi](../security-center/security-center-adaptive-application.md)
 
-**Responsabilità**: non applicabile
+**Responsabilità:** non applicabile
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: limitare la capacità degli utenti di interagire con Azure Resource Manager
+### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: Limitare la capacità degli utenti di interagire con Azure Resource Manager
 
-**Indicazioni**: usare l'accesso condizionale Azure Active Directory (Azure ad) per limitare la capacità degli utenti di interagire con gestione risorse di Azure configurando "blocca l'accesso" per l'App "Microsoft Azure Management".
+**Indicazioni:** usare l'Azure Active Directory condizionale Azure Active Directory (Azure AD) per limitare la capacità degli utenti di interagire con Azure Resources Manager configurando "Blocca l'accesso" per l'app "Microsoft Azure Management".
 
-- [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
+- [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6,12: limitare la capacità degli utenti di eseguire gli script nelle risorse di calcolo
+### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6.12: Limitare la capacità degli utenti di eseguire script nelle risorse di calcolo
 
-**Linee guida**: Azure Machine Learning offre un supporto variabile tra risorse di calcolo diverse e persino risorse di calcolo personalizzate. Per le risorse di calcolo di proprietà dell'organizzazione, a seconda del tipo di script, è possibile usare configurazioni specifiche del sistema operativo o risorse di terze parti per limitare la capacità degli utenti di eseguire script nelle risorse di calcolo di Azure. È anche possibile usare i controlli delle applicazioni adattivi del Centro sicurezza di Azure per garantire che solo il software autorizzato venga eseguito e che l'esecuzione di tutto il software non autorizzato venga bloccata in macchine virtuali di Azure.
+**Indicazioni:** Azure Machine Learning ha un supporto variabile per risorse di calcolo diverse e anche per le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, a seconda del tipo di script, è possibile usare configurazioni specifiche del sistema operativo o risorse di terze parti per limitare la capacità degli utenti di eseguire script nelle risorse di calcolo di Azure. È anche possibile usare i Centro sicurezza di Azure applicazioni adattivi per garantire che solo il software autorizzato sia in esecuzione e che l'esecuzione di tutto il software non autorizzato sia bloccata nelle macchine virtuali di Azure.
 
-- [Come controllare l'esecuzione di script di PowerShell negli ambienti Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
+- [Come controllare l'esecuzione di script di PowerShell in ambienti Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
-- [Come usare i controlli delle applicazioni adattivi nel centro sicurezza di Azure](../security-center/security-center-adaptive-application.md)
+- [Come usare i controlli Centro sicurezza di Azure applicazioni adattivi](../security-center/security-center-adaptive-application.md)
 
-**Responsabilità**: non applicabile
+**Responsabilità:** non applicabile
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: separare fisicamente o logicamente le applicazioni ad alto rischio
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
 
-**Responsabilità**: non applicabile
+**Responsabilità:** non applicabile
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: configurazione sicura](../security/benchmarks/security-control-secure-configuration.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Definire configurazioni sicure per tutte le risorse di Azure
 
-**Linee guida**: definire e implementare configurazioni di sicurezza standard per il servizio Azure Machine Learning con criteri di Azure. Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. MachineLearning" per creare criteri personalizzati per controllare o applicare la configurazione dei servizi Azure Machine Learning.
+**Linee** guida: definire e implementare configurazioni di sicurezza standard per servizio Azure Machine Learning con Criteri di Azure. Usare Criteri di Azure alias nello spazio dei nomi "Microsoft.MachineLearning" per creare criteri personalizzati per controllare o applicare la configurazione dei Azure Machine Learning servizio.
 
-Azure Resource Manager è in grado di esportare il modello in JavaScript Object Notation (JSON), che deve essere esaminato per assicurarsi che le configurazioni soddisfino i requisiti di sicurezza per l'organizzazione.
+Azure Resource Manager la possibilità di esportare il modello in JavaScript Object Notation (JSON), che deve essere esaminato per assicurarsi che le configurazioni soddisfino i requisiti di sicurezza per l'organizzazione.
 
-È anche possibile usare le raccomandazioni del Centro sicurezza di Azure come linea di base di configurazione sicura per le risorse di Azure.
+È anche possibile usare le raccomandazioni di Centro sicurezza di Azure come baseline di configurazione sicura per le risorse di Azure.
 
-Azure Machine Learning supporta completamente i repository Git per tenere traccia del lavoro. è possibile clonare i repository direttamente nell'area di lavoro condivisa file system, usare git nella workstation locale e assicurarsi che le configurazioni protette siano valide per le risorse di codice come parte dell'ambiente Machine Learning.
+Azure Machine Learning supporta completamente i repository Git per tenere traccia del lavoro; È possibile clonare i repository direttamente nell'file system dell'area di lavoro condivisa, usare Git nella workstation locale e assicurarsi che le configurazioni sicure siano applicabili alle risorse di codice come parte dell'ambiente Machine Learning locale.
 
-- [Come visualizzare gli alias dei criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias)
+- [Come visualizzare gli alias Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Esercitazione: Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
 
-- [Esportazione di una singola e più risorse in un modello in portale di Azure](../azure-resource-manager/templates/export-template-portal.md)
+- [Esportazione di singole e più risorse in un modello in portale di Azure](../azure-resource-manager/templates/export-template-portal.md)
 
 - [Raccomandazioni sulla sicurezza: una guida di riferimento](../security-center/recommendations-reference.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: definire configurazioni sicure del sistema operativo
 
-**Linee guida**: se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile delle configurazioni sicure del sistema operativo del servizio Azure Machine Learning.
+**Indicazioni:** se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile delle configurazioni sicure del sistema operativo servizio Azure Machine Learning.
 
-Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo e anche le risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare le raccomandazioni del Centro sicurezza di Azure per gestire le configurazioni di sicurezza in tutte le risorse di calcolo.  Inoltre, è possibile usare le immagini del sistema operativo personalizzate o la configurazione dello stato di automazione di Azure per stabilire la configurazione di sicurezza del sistema operativo richiesto dall'organizzazione.
+Azure Machine Learning il supporto varia tra risorse di calcolo diverse e anche le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare Centro sicurezza di Azure raccomandazioni per mantenere le configurazioni di sicurezza in tutte le risorse di calcolo.  È anche possibile usare immagini del sistema operativo personalizzate o Automazione di Azure stato per stabilire la configurazione di sicurezza del sistema operativo richiesto dall'organizzazione.
 
-- [Come monitorare le raccomandazioni del Centro sicurezza di Azure](../security-center/security-center-recommendations.md)
+- [Come monitorare le Centro sicurezza di Azure raccomandazioni](../security-center/security-center-recommendations.md)
 
 - [Raccomandazioni sulla sicurezza: una guida di riferimento](../security-center/recommendations-reference.md)
 
-- [Panoramica della configurazione dello stato di automazione di Azure](../automation/automation-dsc-overview.md)
+- [Automazione di Azure State Configuration panoramica](../automation/automation-dsc-overview.md)
 
 - [Caricare un disco rigido virtuale e usarlo per creare nuove macchine virtuali Windows in Azure](../virtual-machines/windows/upload-generalized-managed.md)
 
@@ -821,35 +821,35 @@ Azure Machine Learning offre un supporto variabile tra le diverse risorse di cal
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: garantire la sicurezza delle configurazioni delle risorse di Azure
 
-**Indicazioni**: usare i criteri di Azure [deny] e [deploy if not exist] per applicare impostazioni sicure per le risorse di Azure. Inoltre, è possibile usare i modelli di Azure Resource Manager per gestire la configurazione di sicurezza delle risorse di Azure richieste dall'organizzazione. 
+**Indicazioni**: usare i criteri di Azure [deny] e [deploy if not exist] per applicare impostazioni sicure per le risorse di Azure. È anche possibile usare i modelli Azure Resource Manager per mantenere la configurazione di sicurezza delle risorse di Azure richieste dall'organizzazione. 
  
 - [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
  
 - [Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
  
-- [ Panoramica sui modelli di Azure Resource Manager](../azure-resource-manager/templates/overview.md)
+- [ Azure Resource Manager panoramica dei modelli](../azure-resource-manager/templates/overview.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: garantire la sicurezza delle configurazioni del sistema operativo
 
-**Linee guida**: se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile delle configurazioni sicure del sistema operativo del servizio Azure Machine Learning.
+**Indicazioni:** se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile delle configurazioni sicure del sistema operativo servizio Azure Machine Learning.
 
-Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo e anche le risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nelle risorse di calcolo di Azure.  Inoltre, è possibile usare modelli di Azure Resource Manager, immagini del sistema operativo personalizzate o la configurazione dello stato di automazione di Azure per mantenere la configurazione di sicurezza del sistema operativo richiesto dall'organizzazione.   I modelli di macchina virtuale Microsoft combinati con la configurazione dello stato di automazione di Azure possono contribuire alla riunione e alla gestione dei requisiti di sicurezza. 
+Azure Machine Learning ha un supporto variabile per diverse risorse di calcolo e anche per le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, seguire le raccomandazioni Centro sicurezza di Azure sull'esecuzione di valutazioni delle vulnerabilità nelle risorse di calcolo di Azure.  È anche possibile usare modelli Azure Resource Manager, immagini del sistema operativo personalizzate o Automazione di Azure State Configuration per mantenere la configurazione di sicurezza del sistema operativo richiesto dall'organizzazione.   I modelli di macchina virtuale Microsoft combinati con il Automazione di Azure State Configuration possono essere utili per soddisfare e gestire i requisiti di sicurezza. 
 
-Si noti che le immagini di macchine virtuali di Azure Marketplace pubblicate da Microsoft sono gestite e gestite da Microsoft. 
+Si noti Azure Marketplace macchine virtuali Le immagini pubblicate da Microsoft vengono gestite e gestite da Microsoft. 
 
-- [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../security-center/deploy-vulnerability-assessment-vm.md)
+- [Come implementare le raccomandazioni Centro sicurezza di Azure valutazione della vulnerabilità](../security-center/deploy-vulnerability-assessment-vm.md)
 
-- [Come creare una macchina virtuale di Azure da un modello ARM](../virtual-machines/windows/ps-template.md)
+- [Come creare una macchina virtuale di Azure da un modello di Azure Arm](../virtual-machines/windows/ps-template.md)
 
-- [Panoramica della configurazione dello stato di automazione di Azure](../automation/automation-dsc-overview.md)
+- [Automazione di Azure State Configuration panoramica](../automation/automation-dsc-overview.md)
 
 - [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/windows/quick-create-portal.md)
 
@@ -859,13 +859,13 @@ Si noti che le immagini di macchine virtuali di Azure Marketplace pubblicate da 
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: archiviare in modo sicuro la configurazione delle risorse di Azure
 
-**Linee guida**: se si usano definizioni personalizzate di criteri di Azure per la Machine Learning o le risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
+**Indicazioni:** se si usano definizioni di Criteri di Azure personalizzate per il Machine Learning o le risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-Azure Machine Learning supporta completamente i repository Git per tenere traccia del lavoro. è possibile clonare i repository direttamente nell'area di lavoro condivisa file system, usare git nella workstation locale e assicurarsi che le configurazioni protette siano valide per le risorse di codice come parte dell'ambiente Machine Learning.
+Azure Machine Learning supporta completamente i repository Git per tenere traccia del lavoro; È possibile clonare i repository direttamente nell'area di lavoro condivisa file system, usare Git nella workstation locale e assicurarsi che le configurazioni sicure siano applicabili alle risorse di codice come parte dell'ambiente Machine Learning locale.
 
 - [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
@@ -873,29 +873,29 @@ Azure Machine Learning supporta completamente i repository Git per tenere tracci
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
 
-**Linee guida**: Azure Machine Learning offre un supporto variabile tra risorse di calcolo diverse e persino risorse di calcolo personalizzate. Per le risorse di calcolo di proprietà dell'organizzazione, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per garantire che solo gli utenti autorizzati possano accedere alle immagini personalizzate. Usare una raccolta di immagini condivise di Azure è possibile condividere le immagini con diversi utenti, entità servizio o gruppi di Azure Active Directory (Azure AD) all'interno dell'organizzazione. Archiviare le immagini del contenitore in Azure Container Registry e usare il controllo degli accessi in base al ruolo di Azure
+**Linee** guida: Azure Machine Learning supporto variabile tra risorse di calcolo diverse e anche le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare il controllo degli accessi in base al ruolo di Azure per assicurarsi che solo gli utenti autorizzati possano accedere alle immagini personalizzate. Usare una raccolta di immagini condivise di Azure per condividere le immagini con utenti, entità servizio o gruppi Azure Active Directory (Azure AD) all'interno dell'organizzazione. Archiviare le immagini dei contenitori Registro Azure Container e usare il controllo degli accessi in base al ruolo di Azure per garantire che solo gli utenti autorizzati hanno accesso.
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Informazioni su RBAC di Azure per Container Registry](../container-registry/container-registry-roles.md)
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure per Registro Contenitori](../container-registry/container-registry-roles.md)
 
-- [Come configurare RBAC di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Come configurare il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Panoramica di raccolta immagini condivise](../virtual-machines/shared-image-galleries.md)
+- [Panoramica di Raccolta immagini condivise](../virtual-machines/shared-image-galleries.md)
 
-- [Usa RBAC di Azure per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md)
+- [Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione kubernetes](../aks/manage-azure-rbac.md)
 
-**Responsabilità**: non applicabile
+**Responsabilità:** non applicabile
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: distribuire gli strumenti di gestione della configurazione per le risorse di Azure
+### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Distribuire gli strumenti di gestione della configurazione per le risorse di Azure
 
-**Linee guida**: usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. MachineLearning" per creare criteri personalizzati per avvisare, controllare e applicare le configurazioni di sistema. Sviluppare inoltre un processo e una pipeline per la gestione delle eccezioni relative ai criteri.
+**Indicazioni:** usare Criteri di Azure alias nello spazio dei nomi "Microsoft.MachineLearning" per creare criteri personalizzati per l'avviso, il controllo e l'applicazione delle configurazioni di sistema. Sviluppare inoltre un processo e una pipeline per la gestione delle eccezioni relative ai criteri.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -903,71 +903,71 @@ Azure Machine Learning supporta completamente i repository Git per tenere tracci
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: distribuire gli strumenti di gestione della configurazione per i sistemi operativi
+### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8: Distribuire gli strumenti di gestione della configurazione per i sistemi operativi
 
-**Linee guida**: se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile della distribuzione sicura della configurazione del servizio Azure Machine Learning.
+**Indicazioni:** se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile della distribuzione della configurazione sicura servizio Azure Machine Learning.
 
-Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo e anche le risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare la configurazione dello stato di automazione di Azure per i nodi DSC (Desired state Configuration) in qualsiasi Data Center nel cloud o in locale. È possibile caricare facilmente i computer, assegnare loro configurazioni dichiarative e visualizzare report che mostrano la conformità di ogni computer allo stato desiderato specificato. 
+Azure Machine Learning il supporto varia tra risorse di calcolo diverse e anche le risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare Automazione di Azure State Configuration per i nodi Desired State Configuration (DSC) in qualsiasi data center cloud o locale. È possibile eseguire facilmente l'onboard delle macchine virtuali, assegnare loro configurazioni dichiarative e visualizzare report che mostrano la conformità di ogni computer con lo stato desiderato specificato. 
 
-- [Come abilitare la configurazione dello stato di automazione di Azure](../automation/automation-dsc-onboarding.md)
+- [Come abilitare le Automazione di Azure State Configuration](../automation/automation-dsc-onboarding.md)
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: implementare il monitoraggio della configurazione automatizzata per le risorse di Azure
+### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Implementare il monitoraggio automatizzato della configurazione per le risorse di Azure
 
-**Linee guida**: usare il Centro sicurezza di Azure per eseguire analisi di base per le risorse di Azure. Usare inoltre i criteri di Azure per inviare avvisi e controllare le configurazioni delle risorse di Azure.
+**Indicazioni:** usare Centro sicurezza di Azure per eseguire analisi di base per le risorse di Azure. È anche possibile usare Criteri di Azure avvisi e controllare le configurazioni delle risorse di Azure.
  
  
  
-- [ Come correggere le raccomandazioni nel centro sicurezza di Azure](../security-center/security-center-remediate-recommendations.md)
+- [ Come correggere le raccomandazioni in Centro sicurezza di Azure](../security-center/security-center-remediate-recommendations.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: implementare il monitoraggio automatizzato della configurazione per i sistemi operativi
 
-**Linee guida**: se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile del monitoraggio automatizzato della configurazione protetta del servizio Azure Machine Learning.
+**Indicazioni:** se la risorsa di calcolo è di proprietà di Microsoft, Microsoft è responsabile del monitoraggio automatizzato della configurazione sicura servizio Azure Machine Learning.
 
-Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo e anche le risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare le app di calcolo del Centro sicurezza di Azure &amp; e seguire le indicazioni per le macchine virtuali e i server e i contenitori.
+Azure Machine Learning ha un supporto variabile per diverse risorse di calcolo e anche per le proprie risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare app di calcolo Centro sicurezza di Azure e seguire le raccomandazioni per macchine &amp; virtuali, server e contenitori.
 
 - [Informazioni sulle raccomandazioni per i contenitori nel Centro sicurezza di Azure](../security-center/container-security.md)
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: gestire i segreti di Azure in modo sicuro
 
-**Linee guida**: usare identità gestite insieme a Azure Key Vault per semplificare la gestione dei segreti per le applicazioni cloud.
+**Indicazioni:** usare le identità gestite in combinazione con Azure Key Vault per semplificare la gestione dei segreti per le applicazioni cloud.
 
-Azure Machine Learning supporta la crittografia dell'archivio dati con chiavi gestite dal cliente, è necessario gestire la rotazione e la revoca della chiave in base ai requisiti di sicurezza e conformità dell'organizzazione. 
+Azure Machine Learning supporta la crittografia dell'archivio dati con chiavi gestite dal cliente, è necessario gestire la rotazione delle chiavi e revocare i requisiti di sicurezza e conformità per ogni organizzazione. 
 
-Usare Azure Key Vault per passare i segreti alle esecuzioni remote in modo sicuro anziché in testo non crittografato negli script di training.
+Usare Azure Key Vault per passare segreti a esecuzioni remote in modo sicuro anziché testo non crittografato negli script di training.
 
 - [Azure Machine Learning chiavi gestite dal cliente](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-blob-storage)
 
-- [Usare i segreti delle credenziali di autenticazione nelle esecuzioni di training Azure Machine Learning](how-to-use-secrets-in-runs.md)
+- [Usare i segreti delle credenziali di autenticazione nelle Azure Machine Learning di training](how-to-use-secrets-in-runs.md)
 
 - [Come usare le identità gestite per le risorse di Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Come creare una Key Vault](../key-vault/general/quick-create-portal.md)
+- [Come creare un Key Vault](../key-vault/general/quick-create-portal.md)
 
-- [Come eseguire l'autenticazione a Key Vault](../key-vault/general/authentication.md)
+- [Come eseguire l'autenticazione Key Vault](../key-vault/general/authentication.md)
 
-- [Come assegnare un criterio di accesso Key Vault](../key-vault/general/assign-access-policy-portal.md)
+- [Come assegnare un criterio Key Vault di accesso](../key-vault/general/assign-access-policy-portal.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: gestire le identità in modo sicuro e automatico
 
-**Indicazioni**: Azure Machine Learning supporta sia i ruoli predefiniti che la possibilità di creare ruoli personalizzati. Usare identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD, incluso Key Vault, senza credenziali nel codice.
+**Linee** guida: Azure Machine Learning supporta sia i ruoli predefiniti che la possibilità di creare ruoli personalizzati. Usare le identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporta l Azure AD Key Vault, senza credenziali nel codice.
 
 - [Gestire gli accessi all'area di lavoro di Azure Machine Learning](how-to-assign-roles.md)
 
@@ -975,7 +975,7 @@ Usare Azure Key Vault per passare i segreti alle esecuzioni remote in modo sicur
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: eliminare l'esposizione involontaria delle credenziali
 
@@ -985,99 +985,99 @@ Usare Azure Key Vault per passare i segreti alle esecuzioni remote in modo sicur
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="malware-defense"></a>Difesa da malware
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
-### <a name="81-use-centrally-managed-antimalware-software"></a>8,1: usare il software antimalware gestito centralmente
+### <a name="81-use-centrally-managed-antimalware-software"></a>8.1: Usare software antimalware gestito centralmente
 
-**Linee guida**: Microsoft anti-malware è abilitato nell'host sottostante che supporta i servizi di Azure (ad esempio, Azure Machine Learning), tuttavia, non viene eseguito sui contenuti del cliente.
+**Indicazioni:** l'antimalware Microsoft è abilitato nell'host sottostante che supporta i servizi di Azure (ad esempio, Azure Machine Learning), ma non viene eseguito sul contenuto del cliente.
 
-Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo e anche le risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare Microsoft antimalware per Azure per monitorare e difendere continuamente le risorse. Per Linux, usare una soluzione antimalware di terze parti. Usare anche il rilevamento delle minacce del Centro sicurezza di Azure per i servizi dati per rilevare il malware caricato negli account di archiviazione.
+Azure Machine Learning il supporto varia tra risorse di calcolo diverse e anche le risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, usare Microsoft Antimalware azure per monitorare e proteggere continuamente le risorse. Per Linux, usare una soluzione antimalware di terze parti. Usare anche il Centro sicurezza di Azure di minacce per i servizi dati per rilevare il malware caricato in account di archiviazione.
 
-- [Come configurare Microsoft antimalware per Azure](../security/fundamentals/antimalware.md)
+- [Come configurare Microsoft Antimalware per Azure](../security/fundamentals/antimalware.md)
 
 - [Protezione dalle minacce nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: eseguire l'analisi preliminare dei file da caricare in risorse di Azure non di calcolo
 
-**Linee guida**: Microsoft anti-malware è abilitato nell'host sottostante che supporta i servizi di Azure, ad esempio Azure Machine Learning, ma non viene eseguito sui contenuti del cliente.
+**Linee** guida: Microsoft Anti-malware è abilitato nell'host sottostante che supporta i servizi di Azure (ad esempio, Azure Machine Learning), ma non viene eseguito sul contenuto del cliente.
 
-È responsabilità dell'utente eseguire la pre-analisi di tutti i contenuti caricati in risorse di Azure non di calcolo. Microsoft non può accedere ai dati dei clienti e pertanto non può eseguire analisi antimalware dei contenuti del cliente per conto dell'utente.
+È responsabilità dell'utente eseguire la pre-analisi di qualsiasi contenuto caricato in risorse di Azure non di calcolo. Microsoft non può accedere ai dati dei clienti e pertanto non può eseguire analisi antimalware del contenuto del cliente per conto dell'utente.
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="83-ensure-antimalware-software-and-signatures-are-updated"></a>8,3: assicurarsi che il software e le firme antimalware siano aggiornati
+### <a name="83-ensure-antimalware-software-and-signatures-are-updated"></a>8.3: Assicurarsi che il software antimalware e le firme siano aggiornati
 
-**Linee guida**: Microsoft anti-malware è abilitato e mantenuto per l'host sottostante che supporta i servizi di Azure (ad esempio, Azure Machine Learning), tuttavia, non viene eseguito sui contenuti del cliente.
+**Indicazioni:** l'antimalware Microsoft è abilitato e gestito per l'host sottostante che supporta i servizi di Azure(ad esempio, Azure Machine Learning), ma non viene eseguito sui contenuti dei clienti.
 
-Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo e anche le risorse di calcolo. Per tutte le risorse di calcolo di proprietà dell'organizzazione, seguire le raccomandazioni nel centro sicurezza di Azure, &amp; le app di calcolo per assicurarsi che tutti gli endpoint siano aggiornati con le firme più recenti. Per Linux, usare una soluzione antimalware di terze parti.
+Azure Machine Learning ha un supporto variabile per diverse risorse di calcolo e anche per le proprie risorse di calcolo. Per tutte le risorse di calcolo di proprietà dell'organizzazione, seguire le raccomandazioni in Centro sicurezza di Azure, App di calcolo per assicurarsi che tutti gli endpoint siano aggiornati con le &amp; firme più recenti. Per Linux, usare una soluzione antimalware di terze parti.
 
-- [Come distribuire Microsoft antimalware per Azure](../security/fundamentals/antimalware.md)
+- [Come distribuire i Microsoft Antimalware per Azure](../security/fundamentals/antimalware.md)
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ## <a name="data-recovery"></a>Ripristino dei dati
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: ripristino dei dati](../security/benchmarks/security-control-data-recovery.md).*
+*Per altre informazioni, vedere [Azure Security Benchmark: Ripristino dei dati.](../security/benchmarks/security-control-data-recovery.md)*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantire l'esecuzione regolare di backup automatizzati
 
-**Linee guida**: gestione del ripristino dei dati nel servizio Machine Learning avviene tramite la gestione dati negli archivi dati connessi. Assicurarsi di seguire le linee guida per il ripristino dei dati per gli archivi connessi per eseguire il backup dei dati in base ai criteri dell'organizzazione.
+**Indicazioni:** la gestione del ripristino dei dati Machine Learning servizio è tramite la gestione dei dati negli archivi dati connessi. Assicurarsi di seguire le linee guida per il ripristino dei dati per gli archivi connessi per eseguire il backup dei dati in base ai criteri dell'organizzazione dei clienti.
 
-- [Come ripristinare i file dal backup della macchina virtuale di Azure](../backup/backup-azure-restore-files-from-vm.md)
-
-**Responsabilità**: Customer
-
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
-
-### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: eseguire backup completi del sistema ed eseguire il backup di tutte le chiavi gestite dal cliente
-
-**Linee guida**: il backup dei dati nel servizio Machine Learning avviene tramite la gestione dati negli archivi dati connessi. Abilitare backup di Azure per le macchine virtuali e configurare la frequenza e i periodi di conservazione desiderati. Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
-
-- [Come ripristinare i file dal backup della macchina virtuale di Azure](../backup/backup-azure-restore-files-from-vm.md)
-
-- [Come ripristinare chiavi di Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
+- [Come ripristinare i file dal backup delle macchine virtuali di Azure](../backup/backup-azure-restore-files-from-vm.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
-### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: convalidare tutti i backup, incluse le chiavi gestite dal cliente
+### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Eseguire backup di sistema completi ed eseguire il backup di tutte le chiavi gestite dal cliente
 
-**Linee guida**: la convalida del backup dei dati nel servizio Machine Learning avviene tramite la gestione dati negli archivi dati connessi. Eseguire periodicamente il ripristino dei dati del contenuto in backup di Azure. Assicurarsi che sia possibile ripristinare le chiavi gestite dal cliente di cui è stato eseguito il backup.
+**Indicazioni:** il backup dei dati Machine Learning servizio viene eseguito tramite la gestione dei dati negli archivi dati connessi. Abilitare Backup di Azure per le macchine virtuali e configurare la frequenza e i periodi di conservazione desiderati. Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
-- [Come ripristinare i file da un backup di una macchina virtuale di Azure](../backup/backup-azure-restore-files-from-vm.md)
+- [Come ripristinare i file dal backup delle macchine virtuali di Azure](../backup/backup-azure-restore-files-from-vm.md)
+
+- [Come ripristinare le Key Vault in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
-### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantire la protezione dei backup e delle chiavi gestite dal cliente
+### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Convalidare tutti i backup, incluse le chiavi gestite dal cliente
 
-**Linee guida**: per il backup in locale, la crittografia dei componenti inattivi viene fornita usando la passphrase fornita durante il backup in Azure. Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per proteggere i backup e le chiavi gestite dal cliente. 
+**Indicazioni:** la convalida del backup dei dati Machine Learning servizio è tramite la gestione dei dati negli archivi dati connessi. Eseguire periodicamente il ripristino dei dati del contenuto Backup di Azure. Assicurarsi di poter ripristinare le chiavi gestite dal cliente di cui è stato eseguito il backup.
 
-Abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. Se si usa archiviazione di Azure per archiviare i backup, abilitare l'eliminazione temporanea per salvare e ripristinare i dati quando vengono eliminati BLOB o snapshot BLOB.
+- [Come ripristinare i file da un backup di macchine virtuali di Azure](../backup/backup-azure-restore-files-from-vm.md)
+
+**Responsabilità**: Customer
+
+**Centro sicurezza di Azure monitoraggio**: Nessuno
+
+### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantire la protezione dei backup e delle chiavi gestite dal cliente
+
+**Indicazioni:** per il backup locale, la crittografia in stato di inquieto viene fornita usando la passphrase fornita durante il backup in Azure. Usare il controllo degli accessi in base al ruolo di Azure per proteggere i backup e le chiavi gestite dal cliente. 
+
+Abilitare la protezione da eliminazione e ripulitura software Key Vault proteggere le chiavi da eliminazioni accidentali o dannose. Se Archiviazione di Azure per archiviare i backup, abilitare l'eliminazione soft per salvare e ripristinare i dati quando vengono eliminati BLOB o snapshot BLOB.
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
 - [Come abilitare l'eliminazione temporanea e la protezione dalla rimozione definitiva in Key Vault](../storage/blobs/soft-delete-blob-overview.md)
 
-- [Eliminazione temporanea per archiviazione BLOB di Azure](../storage/blobs/soft-delete-blob-overview.md)
+- [Eliminazione soft per l'archiviazione BLOB di Azure](../storage/blobs/soft-delete-blob-overview.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
@@ -1085,23 +1085,23 @@ Abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per pr
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare un piano di risposta agli eventi imprevisti
 
-**Guida**: sviluppare una guida alla risposta agli eventi imprevisti per la propria organizzazione. Assicurarsi che siano stati scritti piani di risposta agli eventi imprevisti che definiscono tutti i ruoli del personale, nonché le fasi della gestione e della gestione degli eventi imprevisti dal rilevamento alla revisione post-evento imprevisto. 
+**Linee guida:** sviluppare una guida alla risposta agli eventi imprevisti per l'organizzazione. Assicurarsi che siano presenti piani di risposta agli eventi imprevisti scritti che definiscono tutti i ruoli del personale, nonché le fasi di gestione e gestione degli eventi imprevisti, dal rilevamento alla revisione post-evento imprevisto. 
 
 - [Indicazioni per la creazione di un processo di risposta agli eventi imprevisti di sicurezza](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
 - [Anatomia di un evento imprevisto di Microsoft Security Response Center](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
 
-- [Usare la guida alla gestione degli eventi imprevisti di sicurezza del computer NIST per semplificare la creazione del piano di risposta agli eventi imprevisti](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- [Usare la Guida alla gestione degli eventi imprevisti per la sicurezza del computer di NIST per facilitare la creazione del proprio piano di risposta agli eventi imprevisti](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio**: Nessuno
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: creare una procedura per l'assegnazione di punteggi e la classificazione in ordine di priorità per gli eventi imprevisti
 
-**Linee guida**: il Centro sicurezza di Azure assegna una gravità a ogni avviso per facilitare la priorità degli avvisi che devono essere analizzati per primi. La gravità è basata sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'utilizzo analitico per emettere l'avviso, oltre al livello di confidenza che ha causato l'intento dannoso dietro l'attività che ha portato all'avviso.
+**Linee** guida: Centro sicurezza di Azure una gravità a ogni avviso per definire la priorità degli avvisi da ricercare per primi. La gravità si basa sul livello di attendibilità del Centro sicurezza nella ricerca o sull'uso analitico per l'emissione dell'avviso, nonché sul livello di attendibilità che dietro l'attività era presente una finalità dannosa che ha generato l'avviso.
 
-Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di denominazione per identificare e classificare le risorse di Azure, in particolare quelle che elaborano i dati sensibili. È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
+Contrassegnare inoltre le sottoscrizioni usando i tag e creare un sistema di denominazione per identificare e classificare le risorse di Azure, in particolare quelle che elaborano dati sensibili. È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
 
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md)
 
@@ -1109,17 +1109,17 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testare le procedure di risposta per la sicurezza
 
-**Linee guida**: eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi a cadenza regolare per proteggere le risorse di Azure. Identificare punti deboli e Gap, quindi rivedere il piano di risposta in base alle esigenze.
+**Indicazioni:** eseguire esercizi per testare le funzionalità di risposta agli eventi imprevisti dei sistemi a cadenza regolare per proteggere le risorse di Azure. Identificare i punti deboli e le lacune e quindi rivedere il piano di risposta in base alle esigenze.
 
-- [Pubblicazione del NIST: Guida ai programmi di test, formazione e esercizio per piani e funzionalità IT](https://csrc.nist.gov/publications/detail/sp/800-84/final)
+- [Pubblicazione di NIST: Guida ai programmi di test, formazione ed esercizio per piani e funzionalità IT](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: specificare i dettagli di contatto e configurare le notifiche di avviso per gli eventi imprevisti della sicurezza
 
@@ -1129,11 +1129,11 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporare gli avvisi di sicurezza nel sistema di risposta agli eventi imprevisti
 
-**Linee guida**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua per identificare i rischi per le risorse di Azure. L'esportazione continua consente di esportare avvisi e consigli manualmente o in modo continuo e continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi ad Azure Sentinel.
+**Indicazioni:** esportare gli avvisi Centro sicurezza di Azure e le raccomandazioni usando la funzionalità di esportazione continua per identificare i rischi per le risorse di Azure. L'esportazione continua consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. È possibile usare il connettore Centro sicurezza di Azure dati per trasmettere gli avvisi a Azure Sentinel.
 
 - [Come configurare l'esportazione continua](../security-center/continuous-export.md)
 
@@ -1141,25 +1141,25 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 
-**Linee guida**: usare l'automazione del flusso di lavoro funzionalità del Centro sicurezza di Azure per attivare automaticamente le risposte agli avvisi e alle raccomandazioni di sicurezza per proteggere le risorse di Azure.
+**Indicazioni:** usare la funzionalità di automazione del Centro sicurezza di Azure per attivare automaticamente le risposte agli avvisi di sicurezza e alle raccomandazioni per proteggere le risorse di Azure.
 
-- [Come configurare l'automazione del flusso di lavoro nel centro sicurezza](../security-center/workflow-automation.md)
+- [Come configurare l'automazione del flusso di lavoro nel Centro sicurezza](../security-center/workflow-automation.md)
 
 **Responsabilità**: Customer
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: test di penetrazione e esercizi Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*Per altre informazioni, vedere Azure Security Benchmark: Penetration Tests (Benchmark di sicurezza di [Azure: test di penetrazione) ed Red Team Exercises (Esercizi del Red Team).](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)*
 
-### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Eseguire regolarmente test di penetrazione delle risorse di Azure e garantire la correzione di tutti i risultati critici sulla sicurezza
 
-**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usare la strategia di Microsoft e le attività di red team e i test di penetrazione di siti live nell'infrastruttura cloud, nei servizi e nelle applicazioni gestiti da Microsoft.
+**Indicazioni:** seguire le regole di engagement per i test di penetrazione del cloud Microsoft per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usare la strategia di Microsoft e le attività di red team e i test di penetrazione di siti live nell'infrastruttura cloud, nei servizi e nelle applicazioni gestiti da Microsoft.
 
 - [Regole di partecipazione dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
@@ -1167,7 +1167,7 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 **Responsabilità**: Condiviso
 
-**Monitoraggio del Centro sicurezza di Azure**: nessuno
+**Centro sicurezza di Azure monitoraggio:** Nessuno
 
 ## <a name="next-steps"></a>Passaggi successivi
 
