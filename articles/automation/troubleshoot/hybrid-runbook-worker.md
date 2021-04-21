@@ -7,12 +7,13 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 565d801fb569f818613fd31b7492c0847eef9a7a
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 906e38b28015bd70cf1c97ba9323094d64a12c94
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169352"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830845"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Risolvere i problemi di un ruolo di lavoro ibrido per runbook
 
@@ -42,7 +43,7 @@ Le possibili cause sono le seguenti:
 
 #### <a name="resolution"></a>Risoluzione
 
-Verificare che il computer abbia accesso in uscita a **\* . Azure-Automation.NET** sulla porta 443.
+Verificare che il computer abbia accesso in uscita a **\* .azure-automation.net** sulla porta 443.
 
 I computer che eseguono il ruolo di lavoro ibrido per runbook devono soddisfare i requisiti hardware minimi per consentire al ruolo di lavoro di ospitare questa funzionalità. I runbook e il processo in background in uso potrebbero causare un sovraccarico al sistema e provocare ritardi o timeout nei processi di runbook.
 
@@ -128,7 +129,7 @@ Le possibili cause sono le seguenti:
 #### <a name="resolution"></a>Risoluzione
 
 ##### <a name="mistyped-workspace-id-or-key"></a>Errore di digitazione di un ID o una chiave dell'area di lavoro
-Per verificare se l'ID dell'area di lavoro o la chiave dell'area di lavoro dell'agente non è stata digitata in modo improprio, vedere [aggiunta o rimozione di un'area di lavoro-agente Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) per l'agente Windows o [aggiunta o rimozione di un'area di lavoro-agente Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) per l'agente Assicurarsi di selezionare la stringa completa nel portale di Azure, quindi copiarla e incollarla con cautela.
+Per verificare se l'ID dell'area di lavoro o la chiave dell'area di lavoro dell'agente è stato erto, vedere Aggiunta o rimozione di un'area di lavoro - Agente [Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) per l'agente Windows o Aggiunta o rimozione di un'area di lavoro - Agente [Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) per l'agente Linux. Assicurarsi di selezionare la stringa completa nel portale di Azure, quindi copiarla e incollarla con cautela.
 
 ##### <a name="configuration-not-downloaded"></a>Configurazione non scaricata
 
@@ -136,21 +137,21 @@ L'area di lavoro Log Analytics e l'account di Automazione devono trovarsi in un'
 
 Potrebbe inoltre essere necessario aggiornare la data o il fuso orario del computer. Se si seleziona un intervallo di tempo personalizzato, assicurarsi di usare il fuso orario UTC, che può essere diverso da quello locale.
 
-### <a name="scenario-set-azstorageblobcontent-fails-on-a-hybrid-runbook-worker"></a><a name="set-azstorageblobcontent-execution-fails"></a>Scenario: Set-AzStorageBlobContent ha esito negativo in un ruolo di lavoro ibrido per Runbook 
+### <a name="scenario-set-azstorageblobcontent-fails-on-a-hybrid-runbook-worker"></a><a name="set-azstorageblobcontent-execution-fails"></a>Scenario: Set-AzStorageBlobContent si verifica un errore in un ruolo di lavoro ibrido per runbook 
 
 #### <a name="issue"></a>Problema
 
-Runbook ha esito negativo quando tenta di eseguire `Set-AzStorageBlobContent` e viene visualizzato il messaggio di errore seguente:
+Il runbook ha esito negativo quando tenta di eseguire `Set-AzStorageBlobContent` e viene visualizzato il messaggio di errore seguente:
 
 `Set-AzStorageBlobContent : Failed to open file xxxxxxxxxxxxxxxx: Illegal characters in path`
 
 #### <a name="cause"></a>Causa
 
- Questo errore è causato dal comportamento del nome di file lungo delle chiamate al `[System.IO.Path]::GetFullPath()` quale vengono aggiunti i percorsi UNC.
+ Questo errore è causato dal comportamento del nome file lungo delle chiamate a `[System.IO.Path]::GetFullPath()` cui vengono aggiunti percorsi UNC.
 
 #### <a name="resolution"></a>Soluzione
 
-Come soluzione alternativa, è possibile creare un file di configurazione denominato `OrchestratorSandbox.exe.config` con il contenuto seguente:
+Come soluzione alternativa, è possibile creare un file di configurazione `OrchestratorSandbox.exe.config` denominato con il contenuto seguente:
 
 ```azurecli
 <configuration>
@@ -165,7 +166,7 @@ Inserire questo file nella stessa cartella del file eseguibile `OrchestratorSand
 `%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
 
 >[!Note]
-> Se si aggiorna l'agente, questo file di configurazione verrà eliminato e sarà necessario ricrearlo.
+> Se si aggiorna l'agente, questo file di configurazione verrà eliminato e dovrà essere ricreato.
 
 ## <a name="linux"></a>Linux
 
@@ -249,7 +250,7 @@ Nel registro eventi **Application and Services Logs\Operations Manager** viene v
 
 #### <a name="cause"></a>Causa
 
-Questo problema può essere causato dal firewall proxy o di rete che blocca la comunicazione con Microsoft Azure. Verificare che il computer abbia accesso in uscita a **\* . Azure-Automation.NET** sulla porta 443.
+Questo problema può essere causato dal firewall proxy o di rete che blocca la comunicazione con Microsoft Azure. Verificare che il computer abbia accesso in uscita a **\* .azure-automation.net** sulla porta 443.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -257,11 +258,11 @@ I log vengono archiviati localmente in ogni ruolo di lavoro ibrido in C:\Program
 
 I ruoli di lavoro ibridi inviano [output e messaggi del runbook](../automation-runbook-output-and-messages.md) ad Automazione di Azure nello stesso modo in cui li inviano i processi del runbook in esecuzione nel cloud. È possibile abilitare i flussi dettagliati e di stato esattamente come per i runbook.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>Scenario: Orchestrator.Sandbox.exe non è possibile connettersi al Microsoft 365 tramite il proxy
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>Scenario: Orchestrator.Sandbox.exe non è possibile connettersi a Microsoft 365 tramite proxy
 
 #### <a name="issue"></a>Problema
 
-Uno script in esecuzione in un ruolo di lavoro ibrido per Runbook Windows non può connettersi come previsto per Microsoft 365 su un agente di orchestrazione sandbox. Lo script usa [Connect-MsolService](/powershell/module/msonline/connect-msolservice) per la connessione. 
+Uno script in esecuzione in un ruolo di lavoro ibrido per runbook windows non può connettersi come previsto per Microsoft 365 in una sandbox di Orchestrator. Lo script usa [Connect-MsolService](/powershell/module/msonline/connect-msolservice) per la connessione. 
 
 Se si modifica **Orchestrator.Sandbox.exe.config** per configurare il proxy e l'elenco di esclusione, la sandbox continua a non connettersi correttamente. Un file **Powershell_ise.exe.config** con le stesse impostazioni del proxy e dell'elenco di esclusione. I registri di Service Management Automation (SMA) e PowerShell non forniscono alcuna informazione relativa al proxy.
 
@@ -315,7 +316,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="scenario-you-cant-add-a-windows-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenario: non è possibile aggiungere un ruolo di lavoro ibrido per Runbook Windows
+### <a name="scenario-you-cant-add-a-windows-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenario: non è possibile aggiungere un ruolo di lavoro ibrido per runbook di Windows
 
 #### <a name="issue"></a>Problema
 
@@ -333,21 +334,21 @@ Per risolvere questo problema, rimuovere la chiave del Registro di sistema segue
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
-### <a name="scenario-you-cant-add-a-linux-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenario: non è possibile aggiungere un ruolo di lavoro ibrido per Runbook Linux
+### <a name="scenario-you-cant-add-a-linux-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenario: non è possibile aggiungere un ruolo di lavoro ibrido per runbook Linux
 
 #### <a name="issue"></a>Problema
 
-Quando si tenta di aggiungere un ruolo di lavoro ibrido per Runbook tramite lo script Python, viene visualizzato il messaggio seguente `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` :
+Quando si tenta di aggiungere un ruolo di lavoro ibrido per runbook usando lo script Python, viene visualizzato il `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` messaggio seguente:
 
 `Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
-Inoltre, il tentativo di annullare la registrazione di un ruolo di lavoro ibrido per Runbook tramite lo `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` script Python:
+Provare anche a annullare la registrazione di un ruolo di lavoro ibrido per runbook usando lo `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` script Python:
 
 `Failed to deregister worker. [response_status=404]`
 
 #### <a name="cause"></a>Causa
 
-Questo problema può verificarsi se il computer è già registrato con un altro account di automazione, se il gruppo di lavoro ibrido di Azure è stato eliminato o se si tenta di aggiungere di nuovo il ruolo di lavoro ibrido per runbook dopo averlo rimosso da un computer.
+Questo problema può verificarsi se il computer è già registrato con un account di Automazione diverso, se il gruppo di lavoro ibrido di Azure è stato eliminato o se si tenta di aggiungere nuovamente il ruolo di lavoro ibrido per runbook dopo la rimozione da un computer.
 
 #### <a name="resolution"></a>Soluzione
 
@@ -363,11 +364,11 @@ Per risolvere il problema:
    sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
    ```
 
-1. Eseguire di nuovo l'onboarding dell'agente `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com` .
+1. Eseguire nuovamente l'onboard dell'agente `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com` .
 
-1. Attendere il popolamento della cartella `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` .
+1. Attendere il `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` popolamento della cartella.
 
-1. Provare a eseguire di `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` nuovo lo script Python.
+1. Provare di `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` nuovo a eseguire lo script Python.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

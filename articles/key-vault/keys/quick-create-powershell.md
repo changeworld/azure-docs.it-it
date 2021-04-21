@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: adbf3080367e54147c981c8ccf0bb6236111b8c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ede01de815a65aede410fe539b6205f1f4e4fd68
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071206"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815451"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Avvio rapido: Impostare e recuperare una chiave da Azure Key Vault con Azure PowerShell
 
@@ -48,7 +48,7 @@ Digitare i comandi seguenti per creare una chiave denominata **ExampleKey**:
 Add-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -Name "ExampleKey" -Destination "Software"
 ```
 
-È ora possibile fare riferimento a questa chiave aggiunta ad Azure Key Vault usando il relativo URI. Per ottenere la versione corrente, usare **"https://<il nome univoco** dell'insieme di credenziali delle credenziali di>. Vault.Azure.NET/Keys/ExampleKey". 
+È ora possibile fare riferimento a questa chiave aggiunta ad Azure Key Vault usando il relativo URI. Usare **"https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey"** per ottenere la versione corrente. 
 
 Per visualizzare la chiave archiviata in precedenza:
 
@@ -68,4 +68,4 @@ In questa guida di avvio rapido è stata creata un'istanza di Key Vault in cui �
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Vedere le informazioni di riferimento sui [cmdlet di Azure PowerShell Key Vault](/powershell/module/az.keyvault/)
-- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-features.md)

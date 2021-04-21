@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 3/14/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e70906cbf26c899744bfbe137da4ce9cfa651b20
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: d157419614ee3a3f89036177e962e5b7fc4466b2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753147"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815033"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Come creare un insieme di credenziali delle chiavi di Azure e criteri di accesso all'insieme di credenziali usando un modello Resource Manager azure
 
@@ -174,7 +174,7 @@ Altre informazioni sui modelli Key Vault sono disponibili qui: Key Vault Resourc
 
 ## <a name="deploy-the-templates"></a>Distribuire i modelli
 
-È possibile usare il portale di Azure per distribuire i modelli precedenti usando l'opzione Crea modello personalizzato **nell'editor** come descritto di seguito: Distribuire risorse da [un modello personalizzato.](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)
+È possibile usare il portale di Azure per distribuire i modelli precedenti usando l'opzione Crea modello personalizzato **nell'editor** come descritto di seguito: Distribuire risorse da [un modello personalizzato](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 È anche possibile salvare i modelli precedenti nei file e usare questi comandi: [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [az deployment group create:](/cli/azure/deployment/group#az_deployment_group_create)
 
@@ -188,7 +188,7 @@ az deployment group create --resource-group ExampleGroup --template-file key-vau
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di continuare con le guide introduttive e le esercitazioni successive, è possibile lasciare disponibili queste risorse. Quando le risorse non sono più necessarie, eliminare il gruppo di risorse. Se si elimina il gruppo, vengono eliminati anche l'insieme di credenziali delle chiavi e le risorse correlate. Per eliminare il gruppo di risorse usando l'interfaccia della riga di comando di Azure o Azure PowerShell, seguire questa procedura:
+Se si prevede di continuare con le guide introduttive e le esercitazioni successive, è possibile lasciare disponibili queste risorse. Quando le risorse non sono più necessarie, eliminare il gruppo di risorse. Se si elimina il gruppo, vengono eliminati anche l'insieme di credenziali delle chiavi e le risorse correlate. Per eliminare il gruppo di risorse usando l'interfaccia della riga di comando di Azure Azure PowerShell, seguire questa procedura:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -213,10 +213,10 @@ Write-Host "Press [ENTER] to continue..."
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md).
 - Altre informazioni su [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Vedere [Panoramica della sicurezza di Azure Key Vault](security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](security-features.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Proteggere l'accesso a un insieme di credenziali delle chiavi](security-overview.md)
+- [Proteggere l'accesso a un insieme di credenziali delle chiavi](security-features.md)
 - [Eseguire l'autenticazione in un insieme di credenziali delle chiavi](authentication.md)
 - [Azure Key Vault per sviluppatori](developers-guide.md)

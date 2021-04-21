@@ -6,12 +6,13 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 042db51ab51e9da586f028b8aa99e66ffaa36639
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 81327bd5fc76d14d60d26bd912da8de054e5308d
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775674"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833960"
 ---
 # <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Usare lo strumento da riga di comando Redis con cache di Azure per Redis
 
@@ -72,7 +73,7 @@ Quando si usa stunnel, eseguire *redis-cli.exe* e passare solo la *porta* e la *
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![Screenshot che mostra che la connessione alla cache è riuscita.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+![Screenshot che mostra che la connessione alla cache ha esito positivo.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
 Se si usa una cache di test con la porta **non** TLS non sicura, eseguire e passare il nome host, la porta e la chiave di accesso (primaria o secondaria) per connettersi alla `redis-cli.exe` cache di test.   
 

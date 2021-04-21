@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 462d69a8bde0dec2689ac30620276b5bcd335410
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: a1c161c28a589e4250fded13cd3d94ccdda97b55
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717694"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829819"
 ---
 # <a name="secure-your-restful-services"></a>Proteggere i servizi RESTful 
 
@@ -236,10 +236,10 @@ Un'attestazione fornisce un'archiviazione temporanea dei dati durante l'esecuzio
 
 L'esempio seguente usa un profilo tecnico dell'API REST per effettuare una richiesta all'endpoint del token Azure AD usando le credenziali client passate come autenticazione HTTP di base. Per altre informazioni, vedere [Microsoft Identity Platform e il flusso di credenziali client OAuth 2.0.](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) 
 
-Per acquisire un token Azure AD di accesso, creare un'applicazione nel tenant Azure AD:
+Prima che il profilo tecnico possa interagire con Azure AD ottenere un token di accesso, è necessario registrare un'applicazione. Azure AD B2C si basa sulla Azure AD di distribuzione. È possibile creare l'app nel tenant Azure AD B2C o in qualsiasi tenant Azure AD che si gestisce. Per registrare un'applicazione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Selezionare il **filtro Directory e** sottoscrizione nel menu in alto e quindi selezionare la directory che contiene il tenant Azure AD.
+1. Selezionare il **filtro Directory** e sottoscrizione nel menu in alto e quindi selezionare la directory che contiene il Azure AD o Azure AD B2C tenant.
 1. Nel menu a sinistra, selezionare **Azure Active Directory**. In caso contrario, **selezionare Tutti i** servizi e cercare e selezionare **Azure Active Directory**.
 1. Selezionare **Registrazioni app** e quindi **Nuova registrazione**.
 1. Immettere un **nome** per l'applicazione. Ad esempio, *Client_Credentials_Auth_app*.
@@ -250,7 +250,7 @@ Per acquisire un token Azure AD di accesso, creare un'applicazione nel tenant Az
 
 Per un flusso di credenziali client, è necessario creare un segreto dell'applicazione. Il segreto client è noto anche come password dell'applicazione. Il segreto verrà usato dall'applicazione per acquisire un token di accesso.
 
-1. Nella pagina **Azure AD B2C - Registrazioni app** selezionare l'applicazione creata, ad esempio *Client_Credentials_Auth_app*.
+1. Nella pagina **Azure AD - Registrazioni app** selezionare l'applicazione creata, ad esempio *Client_Credentials_Auth_app*.
 1. Nel menu a sinistra selezionare **Certificati e segreti** in **Gestisci**.
 1. Selezionare **Nuovo segreto client**.
 1. Immettere una descrizione per il segreto client nella casella **Descrizione**. Ad esempio, *clientsecret1*.
@@ -270,7 +270,7 @@ Per un flusso di credenziali client, è necessario creare un segreto dell'applic
 7. Immettere un **Nome** per la chiave dei criteri, `SecureRESTClientId` . Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 8. In **Segreto** immettere l'ID client registrato in precedenza.
 9. In **Uso chiave** selezionare `Signature`.
-10. Fare clic su **Crea**.
+10. Selezionare **Create** (Crea).
 11. Creare un'altra chiave dei criteri con le impostazioni seguenti:
     -   **Nome:** `SecureRESTClientSecret` .
     -   **Segreto:** immettere il segreto client registrato in precedenza
@@ -278,7 +278,7 @@ Per un flusso di credenziali client, è necessario creare un segreto dell'applic
 Per ServiceUrl, sostituire your-tenant-name con il nome del tenant di Azure AD. Per informazioni su tutte le opzioni disponibili, vedere [Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C](restful-technical-profile.md).
 
 ```xml
-<TechnicalProfile Id="SecureREST-AccessToken">
+<TechnicalProfile Id="REST-AcquireAccessToken">
   <DisplayName></DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
@@ -312,7 +312,7 @@ Per supportare l'autenticazione basata su token di connessione nei criteri perso
     ```xml
     <Item Key="AuthenticationType">Bearer</Item>
     ```
-1. Modificare o aggiungere *UseClaimAsBearerToken* in *bearerToken*, come segue. *bearerToken* è il nome dell'attestazione da cui verrà recuperato il token di connessione (l'attestazione di output da `SecureREST-AccessToken`).
+1. Modificare o aggiungere *UseClaimAsBearerToken* in *bearerToken*, come segue. *bearerToken* è il nome dell'attestazione da cui verrà recuperato il token di connessione (l'attestazione di output da `REST-AcquireAccessToken`).
 
     ```xml
     <Item Key="UseClaimAsBearerToken">bearerToken</Item>
@@ -406,11 +406,11 @@ Di seguito è riportato un esempio di profilo tecnico RESTful configurato con l'
 </ClaimsProvider>
 ```
 
-## <a name="api-key-authentication"></a>Autenticazione della chiave API
+## <a name="api-key-authentication"></a>Autenticazione con chiave API
 
-La chiave API è un identificatore univoco usato per autenticare un utente per accedere a un endpoint API REST. La chiave viene inviata in un'intestazione HTTP personalizzata. Il trigger [HTTP Funzioni di Azure,](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) ad esempio, usa `x-functions-key` l'intestazione HTTP per identificare il richiedente.  
+La chiave API è un identificatore univoco usato per autenticare un utente per accedere a un endpoint API REST. La chiave viene inviata in un'intestazione HTTP personalizzata. Ad esempio, il [trigger HTTP Funzioni di Azure usa](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) l'intestazione HTTP per identificare il `x-functions-key` richiedente.  
 
-### <a name="add-api-key-policy-keys"></a>Aggiungere chiavi dei criteri delle chiavi API
+### <a name="add-api-key-policy-keys"></a>Aggiungere chiavi dei criteri di chiave API
 
 Per configurare un profilo tecnico dell'API REST con l'autenticazione con chiave API, creare la chiave crittografica seguente per archiviare la chiave API:
 

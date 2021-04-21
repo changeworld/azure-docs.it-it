@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: f05c3247ecdd77fe4cf02db70c7ba4b2c534f959
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c1632da35864fc6822b385adac06d7f124aea061
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99055349"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830413"
 ---
 # <a name="update-azure-powershell-modules"></a>Aggiornare i moduli di Azure PowerShell
 
@@ -23,7 +24,7 @@ I moduli più comuni di Azure PowerShell vengono forniti per impostazione predef
 
 Per evitare conseguenze sui runbook e sui processi che vengono automatizzati, assicurarsi di eseguire test e convalide prima di procedere con gli aggiornamenti. Se non è disponibile un account di Automazione dedicato a questo scopo, è consigliabile crearne uno in modo da poter testare numerosi scenari diversi durante lo sviluppo dei runbook. Questi test devono includere le modifiche iterative, ad esempio l'aggiornamento dei moduli di PowerShell.
 
-Verificare che l'account di automazione disponga di un [account RunAs di Azure](automation-security-overview.md#run-as-accounts) creato.
+Assicurarsi che l'account di Automazione abbia un [account RunAs di Azure](automation-security-overview.md#run-as-accounts) creato.
 
 Se si sviluppano gli script in locale, è consigliabile avere in locale le stesse versioni del modulo usate nell'account di Automazione durante i test, per assicurarsi di ottenere gli stessi risultati. Dopo aver convalidato i risultati e applicato le modifiche necessarie, è possibile spostare le modifiche in produzione.
 

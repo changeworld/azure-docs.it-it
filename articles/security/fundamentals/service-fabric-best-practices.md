@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 91d7e0777cbdad459e4514a0216146e0d5739f6d
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: a7d87e2496158fec8ff33ab8586c845a6207f810
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750951"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816063"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedure consigliate per la sicurezza di Azure Service Fabric
 Distribuire un'applicazione in Azure è veloce, semplice ed economico. Prima di distribuire l'applicazione cloud in produzione, esaminare l'elenco di procedure consigliate essenziali e consigliate per l'implementazione di cluster sicuri nell'applicazione.
@@ -60,7 +60,7 @@ Sono disponibili tre [scenari](../../service-fabric/service-fabric-cluster-secur
 -   Sicurezza da nodo a nodo: questo scenario protegge la comunicazione tra le macchine virtuali e i computer nel cluster. Questa forma di sicurezza assicura che solo i computer autorizzati a connettersi al cluster possano partecipare all'hosting di applicazioni e servizi nel cluster.
 In questo scenario i cluster in esecuzione in Azure o i cluster autonomi in esecuzione in Windows possono usare la [sicurezza basata su certificati](../../service-fabric/service-fabric-windows-cluster-x509-security.md) o la [sicurezza di Windows](../../service-fabric/service-fabric-windows-cluster-windows-security.md) per computer Windows Server.
 -   Sicurezza da client a nodo: questo scenario protegge la comunicazione tra un client Service Fabric e i singoli nodi nel cluster.
--   Service Fabric controllo degli accessi in base al ruolo (Service Fabric RBAC): questo scenario usa identità separate (certificati, Azure AD e così via) per ogni ruolo client amministratore e utente che accede al cluster. Specificare le identità del ruolo quando si crea il cluster.
+-   Service Fabric controllo degli accessi in base al ruolo Service Fabric : questo scenario usa identità separate (certificati, Azure AD e così via) per ogni ruolo client amministratore e utente che accede al cluster. Specificare le identità del ruolo quando si crea il cluster.
 
 >[!NOTE]
 >**Consigli di sicurezza per i cluster di Azure.** usare la sicurezza di Azure AD per l'autenticazione dei client e dei certificati per la sicurezza da nodo a nodo.
@@ -115,14 +115,14 @@ In Service Fabric gli attori vengono implementati nel framework dell'applicazion
 
 Ogni attore è definito come un'istanza di un tipo di attore, come un oggetto .NET è un'istanza di un tipo .NET. Ad esempio, per un **tipo di attore** che implementa la funzionalità di una calcolatrice possono essere distribuiti diversi attori di quel tipo su vari nodi di un cluster. Ogni attore distribuito è caratterizzato in modo univoco da un identificatore.
 
-[Le configurazioni di sicurezza del replicatore](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) vengono utilizzate per proteggere il canale di comunicazione utilizzato durante la replica. Questa configurazione impedisce ai servizi di vedere il traffico di replica reciproco e verifica la sicurezza dei dati a disponibilità elevata. Per impostazione predefinita, una sezione di configurazione della sicurezza vuota non abilita la sicurezza della replica.
+[Le configurazioni di sicurezza del](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) replicatore vengono usate per proteggere il canale di comunicazione usato durante la replica. Questa configurazione impedisce ai servizi di vedere il traffico di replica reciproco e verifica la sicurezza dei dati a disponibilità elevata. Per impostazione predefinita, una sezione di configurazione della sicurezza vuota non abilita la sicurezza della replica.
 Le configurazioni del replicatore riguardano il replicatore responsabile di garantire l'elevata affidabilità dello stato del provider di stato degli attori.
 
 ## <a name="configure-tls-for-azure-service-fabric"></a>Configurare TLS per Azure Service Fabric
 Il processo di autenticazione server [autentica](../../service-fabric/service-fabric-cluster-creation-via-arm.md) gli endpoint di gestione del cluster rispetto a un client di gestione. Il client di gestione riconosce quindi di comunicare con il cluster reale. Questo certificato fornisce anche un [TLS per](../../service-fabric/service-fabric-cluster-creation-via-arm.md) l'API di gestione HTTPS e per Service Fabric Explorer su HTTPS.
 È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da un'autorità di certificazione, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
-Per configurare TLS per un'applicazione, è prima necessario ottenere un certificato SSL/TLS firmato da una CA. L'autorità di certificazione è una terza parte attendibile che emissione di certificati per motivi di sicurezza TLS. Se non si ha già un certificato SSL/TLS, è necessario ottenerne uno da una società che vende certificati SSL/TLS.
+Per configurare TLS per un'applicazione, è prima necessario ottenere un certificato SSL/TLS firmato da una CA. La CA è una terza parte attendibile che emissione di certificati per motivi di sicurezza TLS. Se non si dispone già di un certificato SSL/TLS, è necessario ottenerne uno da una società che vende certificati SSL/TLS.
 
 Il certificato deve soddisfare i requisiti seguenti per i certificati SSL/TLS in Azure:
 -   Il certificato deve includere una chiave privata.
@@ -155,7 +155,7 @@ Service Fabric usa certificati per fornire l'autenticazione e la crittografia e 
 
 Service Fabric usa certificati X.509 per proteggere un cluster e offrire le funzionalità di sicurezza dell'applicazione. Azure Key Vault viene impiegato per [gestire i certificati](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) dei cluster di Service Fabric in Azure. Il provider di risorse di Azure che crea i cluster esegue il pull di tutti i certificati da un insieme di credenziali delle chiavi. Il provider installa quindi i certificati nelle macchine virtuali quando il cluster viene distribuito in Azure.
 
-Esiste una relazione di certificati tra [Azure Key Vault](../../key-vault/general/security-overview.md), il cluster di Service Fabric e il provider di risorse che usa i certificati. In fase di creazione del cluster le informazioni sulla relazione di certificati vengono archiviate in un insieme di credenziali delle chiavi.
+Esiste una relazione di certificati tra [Azure Key Vault](../../key-vault/general/security-features.md), il cluster di Service Fabric e il provider di risorse che usa i certificati. In fase di creazione del cluster le informazioni sulla relazione di certificati vengono archiviate in un insieme di credenziali delle chiavi.
 
 Per configurare un insieme di credenziali delle chiavi sono disponibili due passaggi di base:
 1. Creare un gruppo di risorse specifico per l'insieme di credenziali delle chiavi.
@@ -172,7 +172,7 @@ Per altre informazioni su come configurare un insieme di credenziali delle chiav
 Dopo aver creato le applicazioni per rappresentare il cluster, assegnare gli utenti ai ruoli supportati da Service Fabric: sola lettura e amministratore. È possibile assegnare questi ruoli usando il portale di Azure.
 
 >[!NOTE]
-> Per altre informazioni sull'uso dei ruoli in Service Fabric, vedere Service Fabric controllo degli accessi in base al [ruolo per Service Fabric client](../../service-fabric/service-fabric-cluster-security-roles.md).
+> Per altre informazioni sull'uso dei ruoli in Service Fabric, vedere Service Fabric controllo degli accessi in base al ruolo [per Service Fabric client](../../service-fabric/service-fabric-cluster-security-roles.md).
 
 Azure Service Fabric supporta due tipi di controllo di accesso per i client che sono connessi a un [cluster di Service Fabric](../../service-fabric/service-fabric-cluster-creation-via-arm.md): amministratore e utente. L'amministratore del cluster può usare il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per diversi gruppi di utenti. In questo modo il cluster è più sicuro.
 

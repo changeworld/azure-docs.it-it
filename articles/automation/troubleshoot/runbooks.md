@@ -4,13 +4,13 @@ description: Questo articolo descrive come risolvere i problemi relativi ai runb
 services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.custom: has-adal-ref
-ms.openlocfilehash: ea9d8a4899b0d725c9791192d68373b44acee11f
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: has-adal-ref, devx-track-azurepowershell
+ms.openlocfilehash: 7964bc62aefc912a0f61744841784600575c98de
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168740"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831223"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Risolvere i problemi relativi ai runbook
 
@@ -95,7 +95,7 @@ Per individuare la causa del problema, seguire questa procedura:
    Connect-AzAccount -Credential $Cred
    ```
 
-1. Se l'autenticazione ha esito negativo localmente, le credenziali di Azure Active Directory (Azure AD) non sono state configurate correttamente. Per configurare correttamente l'account Azure AD, vedere l'articolo eseguire l' [autenticazione in Azure usando Azure Active Directory](../automation-use-azure-ad.md).
+1. Se l'autenticazione ha esito negativo localmente, le credenziali di Azure Active Directory (Azure AD) non sono state configurate correttamente. Per ottenere la configurazione Azure AD'account, vedere l'articolo [Eseguire l'autenticazione in Azure usando Azure Active Directory](../automation-use-azure-ad.md).
 
 1. L'errore potrebbe essere temporaneo. In caso, provare ad aggiungere la logica di ripetizione alla routine di autenticazione per rendere più affidabile l'autenticazione.
 
@@ -133,7 +133,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Causa
 
-Questo errore può verificarsi quando non si usa un account RunAs o quando l'account RunAs è scaduto. Per altre informazioni, vedere [Panoramica degli account RunAs di automazione di Azure](../automation-security-overview.md#run-as-accounts).
+Questo errore può verificarsi quando non si usa un account RunAs o quando l'account RunAs è scaduto. Per altre informazioni, vedere panoramica [Automazione di Azure account RunAs.](../automation-security-overview.md#run-as-accounts)
 
 Le principali cause di questo errore sono due:
 
@@ -223,9 +223,9 @@ Durante l'esecuzione dei runbook, il runbook non riesce a gestire le risorse di 
 
 ### <a name="cause"></a>Causa
 
-Il runbook non usa il contesto corretto durante l'esecuzione. Questo potrebbe essere dovuto al fatto che Runbook tenta accidentalmente di accedere alla sottoscrizione non corretta.
+Il runbook non usa il contesto corretto durante l'esecuzione. È possibile che il runbook stia tentando accidentalmente di accedere alla sottoscrizione non corretta.
 
-Potrebbe essere visualizzato un errore simile al seguente:
+È possibile che venga visualizzato un errore simile al seguente:
 
 ```error
 Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
@@ -237,18 +237,18 @@ Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automat
 
 ### <a name="resolution"></a>Risoluzione
 
-Quando un runbook richiama più runbook, è possibile che il contesto della sottoscrizione venga perso. Per evitare il tentativo accidentale di accedere alla sottoscrizione non corretta, attenersi alle istruzioni riportate di seguito.
+Quando un runbook richiama più runbook, è possibile che il contesto della sottoscrizione venga perso. Per evitare di tentare accidentalmente di accedere alla sottoscrizione non corretta, è consigliabile seguire le indicazioni riportate di seguito.
 
-* Per evitare di fare riferimento alla sottoscrizione errata, disabilitare il salvataggio del contesto nei manuali operativi di automazione usando il codice seguente all'inizio di ogni Runbook.
+* Per evitare di fare riferimento alla sottoscrizione errata, disabilitare il salvataggio del contesto nei runbook di Automazione usando il codice seguente all'inizio di ogni runbook.
 
    ```azurepowershell-interactive
    Disable-AzContextAutosave -Scope Process
    ```
 
-* I cmdlet di Azure PowerShell supportano il `-DefaultProfile` parametro. Questa operazione è stata aggiunta a tutti i cmdlet AZ e AzureRm per supportare l'esecuzione di più script PowerShell nello stesso processo, consentendo di specificare il contesto e la sottoscrizione da usare per ogni cmdlet. Con il manuali operativi, è necessario salvare l'oggetto di contesto nel runbook quando viene creato il Runbook (ovvero quando un account esegue l'accesso) e ogni volta che viene modificato e fare riferimento al contesto quando si specifica un cmdlet AZ.
+* I cmdlet Azure PowerShell supportano il `-DefaultProfile` parametro . Questa funzionalità è stata aggiunta a tutti i cmdlet Az e AzureRm per supportare l'esecuzione di più script di PowerShell nello stesso processo, consentendo di specificare il contesto e la sottoscrizione da usare per ogni cmdlet. Con i runbook, è necessario salvare l'oggetto contesto nel runbook quando il runbook viene creato (ovvero quando un account esegue l'accesso) e ogni volta che viene modificato e fare riferimento al contesto quando si specifica un cmdlet Az.
 
    > [!NOTE]
-   > È necessario passare un oggetto contesto anche quando si modifica il contesto usando direttamente i cmdlet, ad esempio [set-AzContext](/powershell/module/az.accounts/Set-AzContext) o [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription).
+   > È consigliabile passare un oggetto contesto anche quando si modifica direttamente il contesto usando cmdlet come [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) o [Select-AzSubscription.](/powershell/module/servicemanagement/azure.service/set-azuresubscription)
 
    ```azurepowershell-interactive
    $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
@@ -279,7 +279,7 @@ Se per l'account di Azure è abilitata l'autenticazione a più fattori, non è p
 
 ### <a name="resolution"></a>Risoluzione
 
-Per usare un account RunAs classico con i cmdlet del modello di distribuzione classica di Azure, vedere [creare un account RunAs classico per gestire i servizi di Azure](../automation-create-standalone-account.md#create-a-classic-run-as-account). Per usare un'entità servizio con i cmdlet di Azure Resource Manager, vedere [Creazione di un'entità servizio tramite il portale di Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e [Autenticazione di un'entità servizio con Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Per usare un account RunAs classico con i cmdlet del modello di distribuzione classica di Azure, vedere Creare un [account RunAs](../automation-create-standalone-account.md#create-a-classic-run-as-account)classico per gestire i servizi di Azure. Per usare un'entità servizio con i cmdlet di Azure Resource Manager, vedere [Creazione di un'entità servizio tramite il portale di Azure](../../active-directory/develop/howto-create-service-principal-portal.md) e [Autenticazione di un'entità servizio con Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="scenario-runbook-fails-with-a-task-was-canceled-error-message"></a><a name="task-was-cancelled"></a>Scenario: esito negativo del runbook con messaggio di errore "Un'attività è stata annullata"
 
@@ -516,11 +516,11 @@ Se si desidera poter usare più di 500 minuti di elaborazione al mese, è necess
 1. Selezionare **Impostazioni** e quindi **Prezzi**.
 1. Selezionare **Abilita** nella parte inferiore della pagina per aggiornare l'account al livello Basic.
 
-## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Scenario: flusso di output di Runbook maggiore di 1 MB
+## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Scenario: flusso di output del runbook maggiore di 1 MB
 
 ### <a name="issue"></a>Problema
 
-Il Runbook in esecuzione in Azure sandbox non riesce con l'errore seguente:
+Il runbook in esecuzione nella sandbox di Azure ha esito negativo con l'errore seguente:
 
 ```error
 The runbook job failed due to a job stream being larger than 1MB, this is the limit supported by an Azure Automation sandbox.
@@ -528,11 +528,11 @@ The runbook job failed due to a job stream being larger than 1MB, this is the li
 
 ### <a name="cause"></a>Causa
 
-Questo errore si verifica perché il Runbook ha tentato di scrivere una quantità eccessiva di dati di eccezione nel flusso di output.
+Questo errore si verifica perché il runbook ha tentato di scrivere troppi dati di eccezione nel flusso di output.
 
 ### <a name="resolution"></a>Soluzione
 
-Il flusso di output del processo prevede un limite di 1 MB. Verificare che il runbook includa le chiamate a un eseguibile o a un sottoprocesso usando i blocchi `try` e `catch`. Se le operazioni generano un'eccezione, fare in modo che il codice scriva il messaggio generato dall'eccezione in una variabile di Automazione. Grazie a questo accorgimento, il messaggio non verrà scritto nel flusso di output del processo. Per i processi di lavoro ibrido per Runbook eseguiti, il flusso di output troncato a 1 MB viene visualizzato senza messaggio di errore.
+È previsto un limite di 1 MB per il flusso di output del processo. Verificare che il runbook includa le chiamate a un eseguibile o a un sottoprocesso usando i blocchi `try` e `catch`. Se le operazioni generano un'eccezione, fare in modo che il codice scriva il messaggio generato dall'eccezione in una variabile di Automazione. Grazie a questo accorgimento, il messaggio non verrà scritto nel flusso di output del processo. Per i processi del ruolo di lavoro ibrido per runbook eseguiti, il flusso di output troncato a 1 MB viene visualizzato senza alcun messaggio di errore.
 
 ## <a name="scenario-runbook-job-start-attempted-three-times-but-fails-to-start-each-time"></a><a name="job-attempted-3-times"></a>Scenario: avvio del processo del runbook tentato tre volte con esito negativo ogni volta
 

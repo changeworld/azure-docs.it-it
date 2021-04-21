@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4199c5576662eee1dd6cedc388440a71e21f8b74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c24c38368ef20dadd0dc19b1804f9d27ad68bd27
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100581209"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833689"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Inoltrare i dati dei processi di Automazione di Azure ai log di Monitoraggio di Azure
 
@@ -28,9 +29,9 @@ Per iniziare a inviare i log di Automazione ai log di Monitoraggio di Azure sono
 
 * La versione più recente di [Azure PowerShell](/powershell/azure/).
 
-* Un'area di lavoro Log Analytics e l'ID di risorsa. Per altre informazioni, vedere [Introduzione ai log di Monitoraggio di Azure](../azure-monitor/overview.md).
+* Un'area di lavoro Log Analytics e l'ID risorsa. Per altre informazioni, vedere [Introduzione ai log di Monitoraggio di Azure](../azure-monitor/overview.md).
 
-* ID risorsa dell'account di automazione di Azure.
+* ID risorsa dell'account Automazione di Azure locale.
 
 ## <a name="how-to-find-resource-ids"></a>Come trovare gli ID risorsa
 
@@ -41,7 +42,7 @@ Per iniziare a inviare i log di Automazione ai log di Monitoraggio di Azure sono
     Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
     ```
 
-2. Copiare il valore per **resourceId**.
+2. Copiare il valore di **ResourceID**.
 
 3. Usare il comando seguente per trovare l'ID risorsa dell'area di lavoro Log Analytics:
 
@@ -50,9 +51,9 @@ Per iniziare a inviare i log di Automazione ai log di Monitoraggio di Azure sono
     Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
     ```
 
-4. Copiare il valore per **resourceId**.
+4. Copiare il valore di **ResourceID**.
 
-Per restituire i risultati di un gruppo di risorse specifico, includere il `-ResourceGroupName` parametro. Per ulteriori informazioni, vedere [Get-AzResource](/powershell/module/az.resources/get-azresource).
+Per restituire risultati da un gruppo di risorse specifico, includere il `-ResourceGroupName` parametro . Per altre informazioni, vedere [Get-AzResource](/powershell/module/az.resources/get-azresource).
 
 Se sono disponibili più account di Automazione o aree di lavoro nell'output dei comandi precedenti, è possibile trovare il nome e altre proprietà correlate che fanno parte dell'ID di risorsa completo dell'account di Automazione eseguendo queste operazioni:
 
@@ -65,14 +66,14 @@ Se sono disponibili più account di Automazione o aree di lavoro nell'output dei
 
 ## <a name="configure-diagnostic-settings"></a>Configurare le impostazioni di diagnostica
 
-Le impostazioni di diagnostica di automazione supportano l'invio dei log di piattaforma e dei dati delle metriche seguenti:
+Le impostazioni di diagnostica di Automazione supportano l'inoltro dei log della piattaforma e dei dati delle metriche seguenti:
 
 * JobLogs
 * JobStreams
 * DSCNodeStatus
-* Metriche-Totale processi, totale esecuzioni computer distribuzione aggiornamenti, totale esecuzioni di aggiornamenti distribuzione
+* Metriche : processi totali, esecuzioni totali del computer di distribuzione degli aggiornamenti, esecuzioni totali della distribuzione degli aggiornamenti
 
-Per iniziare a inviare i log di automazione ai log di monitoraggio di Azure, vedere [creare le impostazioni di diagnostica](../azure-monitor/essentials/diagnostic-settings.md) per comprendere la funzionalità e i metodi disponibili per configurare le impostazioni di diagnostica per inviare i log di piattaforma.
+Per iniziare a inviare i log di Automazione Monitoraggio di Azure log, vedere Creare impostazioni [di diagnostica](../azure-monitor/essentials/diagnostic-settings.md) per comprendere la funzionalità e i metodi disponibili per configurare le impostazioni di diagnostica per l'invio dei log della piattaforma.
 
 ## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
 
@@ -124,7 +125,7 @@ La diagnostica di Automazione di Azure crea due tipi di record nei log di Monito
 
 ## <a name="view-automation-logs-in-azure-monitor-logs"></a>Visualizzare i log di Automazione nei log di Monitoraggio di Azure
 
-Ora che si è iniziato a inviare i flussi del processo di automazione e i log ai log di monitoraggio di Azure, è possibile vedere cosa è possibile fare con questi log all'interno dei log di monitoraggio di Azure.
+Dopo aver iniziato a inviare i flussi e i log del processo di Automazione Monitoraggio di Azure log, è possibile vedere le operazioni che è possibile eseguire con questi log all'interno Monitoraggio di Azure log.
 
 Per visualizzare i log eseguire questa query: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
@@ -177,9 +178,9 @@ AzureDiagnostics
 
 ### <a name="filter-job-status-output-converted-into-a-json-object"></a>Filtrare l'output dello stato del processo convertito in un oggetto JSON
 
-Recentemente è stato modificato il comportamento di scrittura dei dati del log di automazione `AzureDiagnostics` nella tabella nel servizio log Analytics, in cui non suddivide più le proprietà JSON in campi distinti. Se il Runbook è stato configurato per formattare gli oggetti nel flusso di output in formato JSON come colonne separate, è necessario riconfigurare le query per analizzare tale campo in un oggetto JSON per accedere a tali proprietà. Questa operazione viene eseguita usando [parseJSON](/azure/data-explorer/kusto/query/samples?pivots=#parsejson) per accedere a un elemento JSON specifico in un percorso noto.
+Di recente è stato modificato il comportamento di scrittura dei dati del log di Automazione nella tabella del servizio Log Analytics, in cui le proprietà JSON non vengono più suddivise in `AzureDiagnostics` campi separati. Se il runbook è stato configurato per formattare gli oggetti nel flusso di output in formato JSON come colonne separate, è necessario riconfigurare le query per analizzare il campo in un oggetto JSON per accedere a tali proprietà. Questa operazione viene eseguita usando [parsejson](/azure/data-explorer/kusto/query/samples?pivots=#parsejson) per accedere a un elemento JSON specifico in un percorso noto.
 
-Ad esempio, un Runbook formatta la proprietà *ResultDescription* nel flusso di output in formato JSON con più campi. Per cercare lo stato dei processi che si trovano in uno stato di errore, come specificato in un campo denominato **stato**, usare questa query di esempio per eseguire una ricerca nel *ResultDescription* con lo stato **non riuscito**:
+Ad esempio, un runbook formatta la *proprietà ResultDescription* nel flusso di output in formato JSON con più campi. Per cercare lo stato dei processi con stato non riuscito come specificato in un campo denominato **Status**, usare questa query di esempio per cercare *ResultDescription* con lo stato **Failed**:
 
 ```kusto
 AzureDiagnostics
@@ -188,7 +189,7 @@ AzureDiagnostics
 | where jsonResourceDescription.Status == 'Failed'
 ```
 
-![Log Analytics formato JSON del flusso di processi cronologici](media/automation-manage-send-joblogs-log-analytics/job-status-format-json.png)
+![Formato JSON del flusso cronologico del processo di Log Analytics](media/automation-manage-send-joblogs-log-analytics/job-status-format-json.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

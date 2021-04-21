@@ -1,16 +1,16 @@
 ---
-title: Automatizzare la distribuzione delle risorse delle app per le funzioni in Azure
+title: Automatizzare la distribuzione delle risorse dell'app per le funzioni in Azure
 description: Informazioni su come creare un modello di Azure Resource Manager per distribuire l'app per le funzioni.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 9df4c62a65fd133c6ea8dc84e33d7c7b02d94cbf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: fasttrack-edit, devx-track-azurepowershell
+ms.openlocfilehash: 4bbd3491c45b15d43ae0e94b37b916cd8091e655
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99494040"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834211"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -24,19 +24,19 @@ Per i modelli di esempio, vedere:
 
 ## <a name="required-resources"></a>Risorse necessarie
 
-Una distribuzione di funzioni di Azure è in genere costituita da queste risorse:
+Una Funzioni di Azure in genere è costituita da queste risorse:
 
-| Risorsa                                                                           | Requisito | Guida di riferimento a sintassi e proprietà                                                         |
+| Risorsa                                                                           | Requisito | Informazioni di riferimento sulla sintassi e le proprietà                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| Un'app per le funzioni                                                                     | Necessario    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |
-| Un account di [archiviazione di Azure](../storage/index.yml)                                   | Necessario    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| Componente [Application Insights](../azure-monitor/app/app-insights-overview.md) | Facoltativo    | [Microsoft. Insights/Components](/azure/templates/microsoft.insights/components)         |
-| [Piano di hosting](./functions-scale.md)                                             | Facoltativo<sup>1</sup>    | [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
+| Un'app per le funzioni                                                                     | Obbligatoria    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Un account [Archiviazione di Azure](../storage/index.yml)                                   | Obbligatoria    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| Componente [Application Insights](../azure-monitor/app/app-insights-overview.md) | Facoltativo    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |
+| Un [piano di hosting](./functions-scale.md)                                             | Facoltativo<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
-<sup>1</sup> Un piano di hosting è necessario solo quando si sceglie di eseguire l'app per le funzioni in un [piano Premium](./functions-premium-plan.md) o in un [piano di servizio app](../app-service/overview-hosting-plans.md).
+<sup>1</sup> Un piano di hosting è necessario solo quando si sceglie di eseguire l'app per le funzioni in un [piano Premium](./functions-premium-plan.md) o in un piano di [servizio app.](../app-service/overview-hosting-plans.md)
 
 > [!TIP]
-> Sebbene non sia obbligatorio, è consigliabile configurare Application Insights per l'app.
+> Anche se non è obbligatorio, è consigliabile configurare Application Insights per l'app.
 
 <a name="storage"></a>
 ### <a name="storage-account"></a>Account di archiviazione
@@ -77,7 +77,7 @@ Queste proprietà sono specificate nella raccolta `appSettings` dell'oggetto `si
 
 ### <a name="application-insights"></a>Application Insights
 
-Application Insights è consigliato per il monitoraggio delle app per le funzioni. La risorsa Application Insights viene definita con il tipo **Microsoft. Insights/Components** e il tipo **Web**:
+Application Insights è consigliabile monitorare le app per le funzioni. La Application Insights viene definita con il tipo **Microsoft.Insights/components** e il tipo **web**:
 
 ```json
         {
@@ -96,7 +96,7 @@ Application Insights è consigliato per il monitoraggio delle app per le funzion
         },
 ```
 
-Inoltre, la chiave di strumentazione deve essere fornita all'app per le funzioni usando l' `APPINSIGHTS_INSTRUMENTATIONKEY` impostazione dell'applicazione. Questa proprietà viene specificata nella `appSettings` raccolta nell' `siteConfig` oggetto:
+Inoltre, la chiave di strumentazione deve essere fornita all'app per le funzioni usando `APPINSIGHTS_INSTRUMENTATIONKEY` l'impostazione dell'applicazione. Questa proprietà è specificata nella `appSettings` raccolta `siteConfig` nell'oggetto :
 
 ```json
 "appSettings": [
@@ -116,7 +116,7 @@ La definizione del piano di hosting varia e può essere una delle seguenti:
 
 ### <a name="function-app"></a>App per le funzioni
 
-La risorsa dell'app per le funzioni viene definita usando una risorsa di tipo **Microsoft. Web/sites** e Kind **functionapp**:
+La risorsa dell'app per le funzioni viene definita usando una risorsa di tipo **Microsoft.Web/sites** e il tipo **functionapp**:
 
 ```json
 {
@@ -139,12 +139,12 @@ Un'app per le funzioni deve includere le impostazioni dell'applicazione seguenti
 
 | Nome impostazione                 | Descrizione                                                                               | Valori di esempio                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
-| AzureWebJobsStorage          | Una stringa di connessione a un account di archiviazione usato dal runtime di funzioni per l'accodamento interno | Vedere l' [account di archiviazione](#storage)       |
-| FUNCTIONS_EXTENSION_VERSION  | Versione del runtime di funzioni di Azure                                                | `~3`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | Lo stack del linguaggio da usare per le funzioni in questa app                                   | `dotnet`, `node`, `java`, `python` o `powershell` |
-| WEBSITE_NODE_DEFAULT_VERSION | Necessaria solo se si usa lo `node` stack di lingue, specifica la versione da usare              | `10.14.1`                             |
+| AzureWebJobsStorage          | Stringa di connessione a un account di archiviazione utilizzata dal runtime di Funzioni per l'accodamento interno | Vedere [Account di archiviazione](#storage)       |
+| FUNCTIONS_EXTENSION_VERSION  | Versione del runtime Funzioni di Azure                                                | `~3`                                  |
+| FUNCTIONS_WORKER_RUNTIME     | Stack del linguaggio da usare per le funzioni in questa app                                   | `dotnet`, `node`, `java`, `python` o `powershell` |
+| WEBSITE_NODE_DEFAULT_VERSION | Necessario solo se si usa lo `node` stack del linguaggio, specifica la versione da usare              | `10.14.1`                             |
 
-Queste proprietà vengono specificate nella `appSettings` raccolta nella `siteConfig` proprietà:
+Queste proprietà vengono specificate nella `appSettings` raccolta nella `siteConfig` proprietà :
 
 ```json
 "properties": {
@@ -173,17 +173,17 @@ Queste proprietà vengono specificate nella `appSettings` raccolta nella `siteCo
 
 <a name="consumption"></a>
 
-## <a name="deploy-on-consumption-plan"></a>Distribuisci nel piano a consumo
+## <a name="deploy-on-consumption-plan"></a>Distribuire nel piano a consumo
 
-Il piano a consumo alloca automaticamente la potenza di calcolo quando il codice è in esecuzione, aumenta le dimensioni in base alle esigenze per gestire il carico e quindi esegue il ridimensionamento quando il codice non è in esecuzione. Non è necessario pagare per le macchine virtuali inattive e non è necessario riservare in anticipo la capacità. Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](consumption-plan.md).
+Il piano a consumo alloca automaticamente la potenza di calcolo quando il codice è in esecuzione, si ridimensiona in base alle esigenze per gestire il carico e quindi si ridimensiona quando il codice non è in esecuzione. Non è necessario pagare per le macchine virtuali inattive e non è necessario riservare capacità in anticipo. Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](consumption-plan.md).
 
 Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni nel piano a consumo].
 
 ### <a name="create-a-consumption-plan"></a>Creare un piano a consumo
 
-Non è necessario definire un piano a consumo. Una verrà creata o selezionata automaticamente in base all'area quando si crea la risorsa dell'app per le funzioni.
+Non è necessario definire un piano a consumo. Uno verrà creato o selezionato automaticamente per ogni area quando si crea la risorsa dell'app per le funzioni stessa.
 
-Il piano a consumo è un tipo speciale di risorsa "server farm". Per Windows, è possibile specificarla usando il `Dynamic` valore per le `computeMode` proprietà e `sku` :
+Il piano a consumo è un tipo speciale di risorsa "serverfarm". Per Windows, è possibile specificarlo usando il `Dynamic` valore per le proprietà e `computeMode` `sku` :
 
 ```json
 {  
@@ -206,13 +206,13 @@ Il piano a consumo è un tipo speciale di risorsa "server farm". Per Windows, è
 ```
 
 > [!NOTE]
-> Non è possibile definire in modo esplicito il piano a consumo per Linux. Verrà creata automaticamente.
+> Il piano a consumo non può essere definito in modo esplicito per Linux. Verrà creato automaticamente.
 
-Se si definisce in modo esplicito il piano a consumo, sarà necessario impostare la `serverFarmId` proprietà nell'app in modo che punti all'ID risorsa del piano. È necessario assicurarsi che anche l'app per le funzioni disponga `dependsOn` di un'impostazione per il piano.
+Se si definisce in modo esplicito il piano a consumo, sarà necessario impostare la proprietà nell'app in modo che punti `serverFarmId` all'ID risorsa del piano. È necessario assicurarsi che anche l'app per le funzioni abbia `dependsOn` un'impostazione per il piano.
 
 ### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-Le impostazioni richieste da un'app per le funzioni in esecuzione nel piano a consumo rinviano tra Windows e Linux. 
+Le impostazioni richieste da un'app per le funzioni in esecuzione nel piano a consumo rinvia tra Windows e Linux. 
 
 #### <a name="windows"></a>Windows
 
@@ -258,11 +258,11 @@ In Windows un piano a consumo richiede un'impostazione aggiuntiva nella configur
 ```
 
 > [!IMPORTANT]
-> Non impostare l' [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) impostazione perché viene generata automaticamente quando il sito viene creato per la prima volta.  
+> Non impostare [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) l'impostazione così come viene generata automaticamente quando il sito viene creato per la prima volta.  
 
 #### <a name="linux"></a>Linux
 
-In Linux l'app per le funzioni deve avere la `kind` proprietà impostata su `functionapp,linux` e la proprietà deve essere `reserved` impostata su `true` . 
+In Linux, l'app per le funzioni deve avere la proprietà impostata su e la `kind` `functionapp,linux` proprietà deve essere `reserved` impostata su `true` . 
 
 ```json
 {
@@ -300,16 +300,16 @@ In Linux l'app per le funzioni deve avere la `kind` proprietà impostata su `fun
 }
 ```
 
-Le [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) Impostazioni e non sono supportate in Linux.
+Le [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) impostazioni e non sono supportate in [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) Linux.
 
 <a name="premium"></a>
-## <a name="deploy-on-premium-plan"></a>Distribuisci nel piano Premium
+## <a name="deploy-on-premium-plan"></a>Distribuire nel piano Premium
 
-Il piano Premium offre la stessa scalabilità del piano a consumo, ma include risorse dedicate e funzionalità aggiuntive. Per altre informazioni, vedere [piano Premium di funzioni di Azure](./functions-premium-plan.md).
+Il piano Premium offre la stessa scalabilità del piano a consumo, ma include risorse dedicate e funzionalità aggiuntive. Per altre informazioni, vedere [Funzioni di Azure Piano Premium.](./functions-premium-plan.md)
 
 ### <a name="create-a-premium-plan"></a>Creare un piano Premium
 
-Un piano Premium è un tipo speciale di risorsa "server farm". È possibile specificarla usando `EP1` , `EP2` o `EP3` per il `Name` valore della proprietà nell' `sku` [oggetto Description](/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
+Un piano Premium è un tipo speciale di risorsa "serverfarm". È possibile specificarlo usando `EP1` , o per il valore della proprietà `EP2` `EP3` `Name` nell'oggetto `sku` [descrizione](/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
 
 ```json
 {
@@ -334,7 +334,7 @@ Un piano Premium è un tipo speciale di risorsa "server farm". È possibile spec
 
 ### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-Un'app per le funzioni in un piano Premium deve avere la `serverFarmId` proprietà impostata sull'ID risorsa del piano creato in precedenza. Inoltre, un piano Premium richiede un'impostazione aggiuntiva nella configurazione del sito: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) . Questa proprietà configura l'account di archiviazione in cui sono archiviati il codice e la configurazione dell'app per le funzioni.
+La proprietà di un'app per le funzioni in un piano Premium `serverFarmId` deve essere impostata sull'ID risorsa del piano creato in precedenza. Inoltre, un piano Premium richiede un'impostazione aggiuntiva nella configurazione del sito: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) . Questa proprietà configura l'account di archiviazione in cui sono archiviati il codice e la configurazione dell'app per le funzioni.
 
 ```json
 {
@@ -377,11 +377,11 @@ Un'app per le funzioni in un piano Premium deve avere la `serverFarmId` propriet
 }
 ```
 > [!IMPORTANT]
-> Non impostare l' [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) impostazione perché viene generata automaticamente quando il sito viene creato per la prima volta.  
+> Non impostare [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) l'impostazione così come viene generata automaticamente quando il sito viene creato per la prima volta.  
 
 <a name="app-service-plan"></a>
 
-## <a name="deploy-on-app-service-plan"></a>Distribuisci nel piano di servizio app
+## <a name="deploy-on-app-service-plan"></a>Distribuire nel piano di servizio app
 
 Nel piano di servizio app, le app per le funzioni vengono eseguite in macchine virtuali dedicate in SKU Basic, Standard e Premium, analogamente alle app Web. Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/overview-hosting-plans.md).
 
@@ -389,7 +389,7 @@ Per un modello di Azure Resource Manager di esempio, vedere [App per le funzioni
 
 ### <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
-Un piano di servizio app è definito da una risorsa "server farm".
+Un piano di servizio app è definito da una risorsa "serverfarm".
 
 ```json
 {
@@ -407,7 +407,7 @@ Un piano di servizio app è definito da una risorsa "server farm".
 }
 ```
 
-Per eseguire l'app in Linux, è necessario impostare anche su `kind` `Linux` :
+Per eseguire l'app in Linux, è necessario impostare anche `kind` su `Linux` :
 
 ```json
 {
@@ -428,7 +428,7 @@ Per eseguire l'app in Linux, è necessario impostare anche su `kind` `Linux` :
 
 ### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-Un'app per le funzioni in un piano di servizio app deve avere la `serverFarmId` proprietà impostata sull'ID risorsa del piano creato in precedenza.
+La proprietà di un'app per le funzioni in un piano di servizio `serverFarmId` app deve essere impostata sull'ID risorsa del piano creato in precedenza.
 
 ```json
 {
@@ -467,7 +467,7 @@ Un'app per le funzioni in un piano di servizio app deve avere la `serverFarmId` 
 }
 ```
 
-Le app Linux devono includere anche una `linuxFxVersion` Proprietà in `siteConfig` . Se si distribuisce semplicemente il codice, il valore per questo è determinato dallo stack di runtime desiderato nel formato ```runtime|runtimeVersion``` :
+Le app Linux devono includere anche una `linuxFxVersion` proprietà in `siteConfig` . Se si distribuisce semplicemente il codice, il valore di è determinato dallo stack di runtime desiderato nel formato ```runtime|runtimeVersion``` :
 
 | Stack            | Valore di esempio                                         |
 |------------------|-------------------------------------------------------|
@@ -513,7 +513,7 @@ Le app Linux devono includere anche una `linuxFxVersion` Proprietà in `siteConf
 }
 ```
 
-Se si [distribuisce un'immagine del contenitore personalizzata](./functions-create-function-linux-custom-image.md), è necessario specificarla con `linuxFxVersion` e includere la configurazione che consente il pull dell'immagine, come in [app Web per contenitori](../app-service/index.yml). Impostare anche `WEBSITES_ENABLE_APP_SERVICE_STORAGE` su `false` , perché il contenuto dell'app viene fornito nel contenitore stesso:
+Se si [distribuisce un'immagine](./functions-create-function-linux-custom-image.md)del contenitore personalizzata, è necessario specificarla con e includere la configurazione che consente di eseguire il pulled dell'immagine, come `linuxFxVersion` [app Web per contenitori](../app-service/index.yml). Impostare anche `WEBSITES_ENABLE_APP_SERVICE_STORAGE` su , poiché il contenuto `false` dell'app viene fornito nel contenitore stesso:
 
 ```json
 {
@@ -571,7 +571,7 @@ Se si [distribuisce un'immagine del contenitore personalizzata](./functions-crea
 
 ## <a name="customizing-a-deployment"></a>Personalizzazione di una distribuzione
 
-Un'app per le funzioni contiene numerose risorse figlio che possono essere usate nella distribuzione, incluse le impostazioni dell'app e le opzioni di controllo del codice sorgente. È anche possibile scegliere di rimuovere la risorsa figlio **sourcecontrols** e usare invece un' [opzione di distribuzione](functions-continuous-deployment.md) diversa.
+Un'app per le funzioni contiene numerose risorse figlio che possono essere usate nella distribuzione, incluse le impostazioni dell'app e le opzioni di controllo del codice sorgente. È anche possibile scegliere di rimuovere la **risorsa figlio sourcecontrols** e usare invece un'opzione [di distribuzione](functions-continuous-deployment.md) diversa.
 
 > [!IMPORTANT]
 > Per poter distribuire l'applicazione usando Azure Resource Manager, è importante comprendere come vengono distribuite le risorse in Azure. Nell'esempio seguente, le configurazioni di livello superiore vengono applicate usando **siteConfig**. È importante impostare le configurazioni a un livello superiore perché forniscono informazioni al motore di runtime e di distribuzione di Funzioni di Azure. Le informazioni di livello superiore sono necessarie prima di applicare la risorsa figlia **sourcecontrols/web**. Anche se è possibile configurare queste impostazioni nella risorsa **config/appSettings** del livello figlio, in alcuni casi l'app per le funzioni deve essere distribuita *prima di applicare* **config/appSettings**. Quando ad esempio si usano le funzioni con [app per la logica](../logic-apps/index.yml), le funzioni sono una dipendenza di un'altra risorsa.
@@ -638,7 +638,7 @@ Un'app per le funzioni contiene numerose risorse figlio che possono essere usate
 }
 ```
 > [!TIP]
-> Questo modello usa il valore delle impostazioni dell'app di [progetto](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) , che imposta la directory di base in cui il motore di distribuzione delle funzioni (kudu) Cerca il codice distribuibile. Nel repository le funzioni sono in una sottocartella della cartella **src**. Pertanto, nell'esempio precedente abbiamo impostato il valore di impostazione dell'app su `src`. Se le funzioni sono nella radice del repository o se non si sta distribuendo dal controllo del codice sorgente, è possibile rimuovere questo valore di impostazione dell'app.
+> Questo modello usa il [valore Impostazioni](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) app di progetto, che imposta la directory di base in cui il motore di distribuzione di Funzioni (Kudu) cerca il codice distribuibile. Nel repository le funzioni sono in una sottocartella della cartella **src**. Pertanto, nell'esempio precedente abbiamo impostato il valore di impostazione dell'app su `src`. Se le funzioni sono nella radice del repository o se non si sta distribuendo dal controllo del codice sorgente, è possibile rimuovere questo valore di impostazione dell'app.
 
 ## <a name="deploy-your-template"></a>Distribuire il modello
 
@@ -646,7 +646,7 @@ Il modello può essere distribuito in uno dei modi seguenti:
 
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [Portale di Azure](../azure-resource-manager/templates/deploy-portal.md)
 * [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Pulsante Deploy to Azure per la distribuzione in Azure
@@ -667,7 +667,7 @@ Di seguito è riportato un esempio che usa HTML:
 
 ### <a name="deploy-using-powershell"></a>Distribuire tramite PowerShell
 
-I comandi di PowerShell seguenti creano un gruppo di risorse e distribuiscono un modello che crea un'app per le funzioni con le risorse necessarie. Per eseguire localmente, è necessario aver installato [Azure PowerShell](/powershell/azure/install-az-ps) . Eseguire [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) per accedere.
+I comandi di PowerShell seguenti creano un gruppo di risorse e distribuiscono un modello che crea un'app per le funzioni con le risorse necessarie. Per l'esecuzione in locale, è necessario [Azure PowerShell](/powershell/azure/install-az-ps) installato. Eseguire [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) per accedere.
 
 ```powershell
 # Register Resource Providers if they're not already registered
@@ -684,7 +684,7 @@ $TemplateParams = @{"appName" = "<function-app-name>"}
 New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
 ```
 
-Per testare questa distribuzione, è possibile usare un [modello come questo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) che crea un'app per le funzioni in Windows in un piano a consumo. Sostituire `<function-app-name>` con un nome univoco per l'app per le funzioni.
+Per testare questa distribuzione, [](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) è possibile usare un modello come questo che crea un'app per le funzioni in Windows in un piano a consumo. Sostituire `<function-app-name>` con un nome univoco per l'app per le funzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

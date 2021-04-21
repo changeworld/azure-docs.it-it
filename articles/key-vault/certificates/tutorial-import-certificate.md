@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 67531c1c5d37b02f9107dfc487c10b2fcac734d8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aebb0fa5da4cef655acc424c5ac90b628a4ba3af
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791968"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814443"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Esercitazione: Importare un certificato in Azure Key Vault
 
@@ -153,4 +153,4 @@ In questa esercitazione è stata creata un'istanza di Key Vault ed è stato impo
 
 - Altre informazioni sulla [Gestione della creazione dei certificati in Azure Key Vault](./create-certificate-scenarios.md)
 - Vedere esempi di [Importazione di certificati con le API REST](/rest/api/keyvault/importcertificate/importcertificate)
-- Vedere [Panoramica della sicurezza di Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Key Vault](../general/security-features.md)

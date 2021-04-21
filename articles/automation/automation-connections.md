@@ -5,13 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.custom: has-adal-ref
-ms.openlocfilehash: 5f6494eb72084c683ddbb8b27a49acdb1fbc2bfc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: has-adal-ref, devx-track-azurepowershell
+ms.openlocfilehash: 4b5983d6ea4ea9065d1292a2c5ee0c094cea093b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99054264"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834895"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gestire le connessioni in Automazione di Azure
 
@@ -61,7 +61,7 @@ Il cmdlet interno nella tabella seguente viene usato per accedere alle connessio
 
 ## <a name="python-functions-to-access-connections"></a>Funzioni Python per accedere alle connessioni
 
-La funzione nella tabella seguente viene usata per accedere alle connessioni in un Runbook Python 2 e 3. Python 3 manuali operativi è attualmente in fase di anteprima.
+La funzione nella tabella seguente viene usata per accedere alle connessioni in un runbook Python 2 e 3. I runbook Python 3 sono attualmente in anteprima.
 
 | Funzione | Descrizione |
 |:---|:---|
@@ -137,7 +137,7 @@ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.
 
 # <a name="python"></a>[Python](#tab/python2)
 
-Nell'esempio seguente viene illustrato come eseguire l'autenticazione utilizzando la connessione RunAs in Python 2 e 3 Runbook.
+L'esempio seguente illustra come eseguire l'autenticazione usando la connessione RunAs in un runbook Python 2 e 3.
 
 ```python
 """ Tutorial to show how to authenticate against Azure resource manager resources """

@@ -2,13 +2,13 @@
 title: 'Esercitazione: Nuova assegnazione di criteri con il portale di Azure'
 description: In questa esercitazione di avvio rapido viene usato il portale di Azure per creare un'assegnazione di Criteri di Azure per identificare le risorse non conformi.
 ms.topic: tutorial
-ms.date: 10/07/2020
-ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 20cb8125a157a3ce97c88278c99f90936b449b65
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91826598"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831655"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Esercitazione: Creare un'assegnazione di criteri per identificare le risorse non conformi
 
@@ -95,9 +95,9 @@ Per rimuovere l'assegnazione creata, eseguire la procedura seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata assegnata una definizione dei criteri a un ambito ed è stato valutato il report di conformità. La definizione dei criteri garantisce che tutte le risorse nell'ambito siano conformi e identifica quelle che non lo sono. A questo punto si è pronti per monitorare i server con abilitazione di Azure Arc con Monitoraggio di Azure per le macchine virtuali.
+In questa esercitazione è stata assegnata una definizione dei criteri a un ambito ed è stato valutato il report di conformità. La definizione dei criteri garantisce che tutte le risorse nell'ambito siano conformi e identifica quelle che non lo sono. A questo punto è possibile monitorare il computer Azure Arc server abilitati abilitando informazioni [dettagliate sulle macchine virtuali.](../../../azure-monitor/vm/vminsights-overview.md)
 
 Per informazioni su come monitorare e visualizzare le prestazioni, eseguire il processo e le relative dipendenze dalla macchina virtuale, procedere all'esercitazione:
 
 > [!div class="nextstepaction"]
-> [Abilita Monitoraggio di Azure per le macchine virtuali](tutorial-enable-vm-insights.md)
+> [Abilitare le informazioni dettagliate sulle macchine virtuali](tutorial-enable-vm-insights.md)

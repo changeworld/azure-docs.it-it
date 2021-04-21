@@ -8,12 +8,12 @@ ms.author: amjads
 author: amjads1
 ms.collection: windows
 ms.date: 08/31/2020
-ms.openlocfilehash: 13b4c4ef50ea37cabe30474d339acb19176cef97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6341e3abbf591d0e6e0395e17ccf15ec73a3ac43
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553902"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835453"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -49,7 +49,7 @@ L'estensione per gli script personalizzati per Windows verrà eseguita sui siste
 
 Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall e il gruppo di sicurezza di rete. Se ad esempio lo script si trova in Archiviazione di Azure, è possibile consentire l'accesso usando i tag di servizio del gruppo di sicurezza di rete di Azure per [Archiviazione](../../virtual-network/network-security-groups-overview.md#service-tags).
 
-Si noti che l'estensione CustomScript non ha alcun modo per ignorare la convalida del certificato. Quindi, se si esegue il download da un percorso protetto con ad esempio. un certificato autofirmato può finire con errori come *"il certificato remoto non è valido in base alla procedura di convalida"*. Verificare che il certificato sia installato correttamente nell'archivio *"autorità di certificazione radice attendibili"* della macchina virtuale.
+Si noti che l'estensione CustomScript non consente di ignorare la convalida del certificato. Quindi, se si sta scaricando da una posizione protetta con ad esempio. un certificato autofirmato, si potrebbero verificarsi errori come "Il certificato remoto non è *valido in base alla procedura di convalida".* Assicurarsi che il certificato sia installato correttamente *nell'archivio "Autorità di certificazione radice disponibile nell'elenco locale"* nella macchina virtuale.
 
 Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall e il gruppo di sicurezza di rete.
 
@@ -61,20 +61,20 @@ Se lo script è in un server locale, può essere necessario aprire porte aggiunt
 * Il tempo massimo consentito per l'esecuzione dello script è di 90 minuti. Tempi superiori comportano un errore di provisioning dell'estensione.
 * Non inserire riavvii all'interno dello script, altrimenti si verificheranno problemi con le altre estensioni in fase di installazione. Dopo il riavvio, inoltre, l'estensione non riprenderà a funzionare.
 * Se si ha uno script che determinerà un riavvio, quindi installerà le applicazioni ed eseguirà gli script, è possibile pianificare il riavvio usando un'attività pianificata di Windows o usare strumenti come le estensioni DSC, Chef o Puppet.
-* Non è consigliabile eseguire uno script che provocherà l'arresto o l'aggiornamento dell'agente di macchine virtuali. Questo può lasciare l'estensione in uno stato di transizione, causando un timeout.
+* Non è consigliabile eseguire uno script che causa l'arresto o l'aggiornamento dell'agente di macchine virtuali. Questo può lasciare l'estensione in uno stato di transizione, causando un timeout.
 * L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare l'estensione per creare un'attività pianificata di Windows.
 * Se vuole pianificare il momento di esecuzione di uno script, usare l'estensione per creare un'attività pianificata di Windows.
 * Durante l'esecuzione dello script, l'unica indicazione presente nell'interfaccia della riga di comando o nel portale di Azure sarà lo stato dell'estensione "Transizione in corso". Se si vogliono aggiornamenti più frequenti sullo stato di uno script in esecuzione, è necessario creare una soluzione personalizzata.
-* L'estensione dello script personalizzata non supporta i server proxy in modo nativo, tuttavia è possibile usare uno strumento di trasferimento di file che supporta i server proxy all'interno dello script, ad esempio *Invoke-WebRequest.*
+* L'estensione script personalizzato non supporta in modo nativo i server proxy, ma è possibile usare uno strumento di trasferimento file che supporta i server proxy all'interno dello script, ad esempio *Invoke-WebRequest*
 * Tenere presenti gli eventuali percorsi di directory non predefiniti usati dagli script o dai comandi e includere la logica necessaria per gestire questa situazione.
 * L'estensione per gli script personalizzati verrà eseguita con l'account LocalSystem
-* Se si prevede di usare le proprietà *storageAccountName* e *storageAccountKey* , queste proprietà devono essere collocate in *protectedSettings*.
+* Se si prevede di usare le *proprietà storageAccountName* e *storageAccountKey,* queste proprietà devono essere collocate in *protectedSettings*.
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
 La configurazione dell'estensione script personalizzata specifica informazioni come il percorso dello script e il comando da eseguire. È possibile archiviare queste informazioni in file di configurazione, specificarle sulla riga di comando o definirle in un modello di Azure Resource Manager.
 
-I dati sensibili possono essere archiviati in una configurazione protetta, che viene crittografata e decrittografata solo all'interno della macchina virtuale. La configurazione protetta è utile quando il comando di esecuzione include segreti, ad esempio una password.
+I dati sensibili possono essere archiviati in una configurazione protetta, che viene crittografata e decrittografata solo all'interno della macchina virtuale. La configurazione protetta è utile quando il comando di esecuzione include segreti, ad esempio una password o un riferimento al file di firma di accesso condiviso , che deve essere protetto.
 
 Questi elementi devono essere trattati come dati sensibili ed essere specificati nella configurazione protetta dell'estensione. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione.
 
@@ -97,16 +97,16 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
         "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "fileUris": [
-                "script location"
-            ],
             "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
             "storageAccountKey": "myStorageAccountKey",
-            "managedIdentity" : {}
+            "managedIdentity" : {},
+            "fileUris": [
+                "script location"
+            ]
         }
     }
 }
@@ -142,7 +142,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 #### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
 
 * `commandToExecute`: (**obbligatorio**, stringa) script del punto di ingresso da eseguire. Usare in alternativa questo campo se il comando contiene segreti, ad esempio password, oppure se gli URI di file sono riservati.
-* `fileUris`: (facoltativo, matrice di stringhe) URL relativi ai file da scaricare.
+* `fileUris`: (facoltativo, matrice di stringhe) URL relativi ai file da scaricare. Se gli URL sono sensibili,ad esempio gli URL contenenti chiavi, questo campo deve essere specificato in protectedSettings
 * `timestamp` (facoltativo, valore integer a 32 bit) usare questo campo solo per attivare una nuova esecuzione dello script modificando il valore del campo.  Qualsiasi valore intero è accettabile, purché sia diverso dal valore precedente.
 * `storageAccountName`: (facoltativo, stringa) nome dell'account di archiviazione. Se si specificano credenziali di archiviazione, tutti i valori di `fileUris` devono essere URL relativi a BLOB di Azure.
 * `storageAccountKey`: (facoltativo, stringa) chiave di accesso dell'account di archiviazione
@@ -153,6 +153,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 I valori seguenti possono essere configurati in impostazioni pubbliche o protette. L'estensione rifiuterà qualsiasi configurazione in cui i valori riportati di seguito sono specificati sia nelle impostazioni pubbliche che in quelle protette.
 
 * `commandToExecute`
+* `fileUris`
 
 Le impostazioni pubbliche possono essere utili per il debug, ma è consigliabile usare impostazioni protette.
 

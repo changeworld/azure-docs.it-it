@@ -1,65 +1,65 @@
 ---
-title: Distribuisci IoT Edge Defender-un sacco-Micro-Agent
-description: Informazioni su come distribuire un Defender per l'agente sicurezza di Internet in IoT Edge.
+title: Distribuire IoT Edge di sicurezza
+description: Informazioni su come distribuire un agente di sicurezza defender per IoT in IoT Edge.
 ms.topic: conceptual
-ms.date: 1/30/2020
-ms.openlocfilehash: 38e2aa38ab07a4768e95d91ed0ebc866d7edf39f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/21/2021
+ms.openlocfilehash: 71efb0bb12d1e20f918481a086fd411d3a237e33
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104784221"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813597"
 ---
-# <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>Distribuire un dispositivo Defender-Internet-micro-Agent sul dispositivo IoT Edge
+# <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuire un modulo di sicurezza nel IoT Edge dispositivo
 
-Il modulo **Defender for** Internet offre una soluzione di sicurezza completa per i dispositivi IOT Edge.
-Defender-Internet-micro-Agent raccoglie, aggrega e analizza i dati di sicurezza non elaborati dal sistema operativo e dal sistema di contenitori in raccomandazioni e avvisi di sicurezza di utilità pratica.
-Per altre informazioni, vedere Defender-il numero di elementi [micro-Agent per IOT Edge](security-edge-architecture.md).
+**Il modulo Defender per IoT** offre una soluzione di sicurezza completa per IoT Edge dispositivi.
+Il modulo di sicurezza raccoglie, aggrega e analizza i dati di sicurezza non elaborati dal sistema operativo e dal sistema contenitore in raccomandazioni e avvisi di sicurezza di utilità operativa.
+Per altre informazioni, vedere [Modulo di sicurezza per IoT Edge](security-edge-architecture.md).
 
-In questo articolo si apprenderà come distribuire un agente Defender-Internet-micro-Agent sul dispositivo IoT Edge.
+In questo articolo si apprenderà come distribuire un modulo di sicurezza nel IoT Edge dispositivo.
 
-## <a name="deploy-defender-iot-micro-agent"></a>Distribuisci Defender-cose-micro-Agent
+## <a name="deploy-security-module"></a>Distribuire il modulo di sicurezza
 
-Usare la procedura seguente per distribuire un Defender per Internet delle cose Defender-molto-micro-Agent per IoT Edge.
+Usare la procedura seguente per distribuire un modulo di sicurezza di Defender per IoT per IoT Edge.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Nell'hub Internet delle cose assicurarsi che il dispositivo sia [registrato come dispositivo IOT Edge](../iot-edge/how-to-register-device.md#register-a-new-device).
+1. Nell'hub IoT verificare che il dispositivo sia registrato come [IoT Edge dispositivo](../iot-edge/how-to-register-device.md#register-a-new-device).
 
-1. Defender for IoT Edge Module richiede che il [Framework controllato](https://linux.die.net/man/8/auditd) sia installato nel dispositivo IOT Edge.
+1. Defender per IoT Edge modulo richiede che [il framework AuditD](https://linux.die.net/man/8/auditd) sia installato nel IoT Edge dispositivo.
 
-    - Installare il Framework eseguendo il comando seguente sul dispositivo IoT Edge:
+    - Installare il framework eseguendo il comando seguente nel IoT Edge dispositivo:
 
     `sudo apt-get install auditd audispd-plugins`
 
-    - Verificare che il controllo sia attivo eseguendo il comando seguente:
+    - Verificare che AuditD sia attivo eseguendo il comando seguente:
 
     `sudo systemctl status auditd`<br>
     - La risposta prevista è: `active (running)`
 
-### <a name="deployment-using-azure-portal"></a>Distribuzione con portale di Azure
+### <a name="deployment-using-azure-portal"></a>Distribuzione tramite portale di Azure
 
-1. Dal portale di Azure aprire **Marketplace**.
+1. Dal portale di Azure aprire **Marketplace.**
 
-1. Selezionare **Internet delle cose**, quindi cercare il **Centro sicurezza di Azure** e selezionarlo.
+1. Selezionare **Internet delle cose**, quindi cercare Centro sicurezza di Azure **IoT** e selezionarlo.
 
-   :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Seleziona Defender per le cose":::
+   :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Selezionare Defender per IoT":::
 
 1. Selezionare **Crea** per configurare la distribuzione.
 
-1. Scegliere la **sottoscrizione** di Azure dell'hub Internet delle cose, quindi selezionare l' **Hub** Internet.<br>Selezionare **Distribuisci in un dispositivo** per fare riferimento a un singolo dispositivo oppure selezionare **Distribuisci su scala** per fare riferimento a più dispositivi e selezionare **Crea**. Per ulteriori informazioni sulla distribuzione su larga scala, vedere [How to deploy](../iot-edge/how-to-deploy-at-scale.md).
+1. Scegliere la sottoscrizione **di** Azure dell'hub IoT e quindi selezionare **l'hub IoT.**<br>Selezionare **Deploy to a device to** target a single device (Distribuisci in più dispositivi) o Deploy at Scale to **target** multiple devices (Distribuisci in più dispositivi) e quindi selezionare **Create (Crea).** Per altre informazioni sulla distribuzione su larga scala, vedere [Come distribuire](../iot-edge/how-to-deploy-at-scale.md).
 
     >[!Note]
-    >Se è stata selezionata l'opzione **Distribuisci su scala**, aggiungere il nome e i dettagli del dispositivo prima di continuare con la scheda **Aggiungi moduli** nelle istruzioni seguenti.
+    >Se è stata **selezionata l'opzione Distribuisci** su scala , aggiungere il nome e i dettagli del dispositivo prima di continuare con la scheda **Aggiungi** moduli nelle istruzioni seguenti.
 
-Completare ogni passaggio per completare la distribuzione di IoT Edge per Defender.
+Completare ogni passaggio per completare la distribuzione IoT Edge per Defender per IoT.
 
-#### <a name="step-1-modules"></a>Passaggio 1: moduli
+#### <a name="step-1-modules"></a>Passaggio 1: Moduli
 
-1. Selezionare il modulo **AzureSecurityCenterforIoT** .
-1. Nella scheda **Impostazioni modulo** modificare il **nome** in **azureiotsecurity**.
-1. Nella scheda **variabili di ambiente** aggiungere una variabile, se necessario (ad esempio, è possibile aggiungere il *livello di debug* e impostarlo su uno dei valori seguenti: "Fatal", "Error", "Warning" o "Information").
-1. Nella scheda **Crea opzioni del contenitore** aggiungere la configurazione seguente:
+1. Selezionare il **modulo AzureSecurityCenterforIoT.**
+1. Nella scheda **Impostazioni modulo** modificare il nome **in** **azureiotsecurity**.
+1. Nella scheda **Variabili di** ambiente aggiungere una variabile, se necessario( ad esempio, è possibile aggiungere il livello di *debug* e impostarla su uno dei valori seguenti: "Fatal", "Error", "Warning" o "Information").
+1. Nella scheda **Opzioni di creazione contenitore** aggiungere la configurazione seguente:
 
     ``` json
     {
@@ -79,7 +79,7 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per Defend
     }
     ```
 
-1. Nella scheda **Impostazioni gemelli del modulo** aggiungere la configurazione seguente:
+1. Nella scheda **Impostazioni modulo gemello** aggiungere la configurazione seguente:
 
    Proprietà del modulo gemello:
    
@@ -87,7 +87,7 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per Defend
      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
    ```
 
-   Contenuto della proprietà del modulo gemello: 
+   Contenuto delle proprietà del modulo gemello: 
 
    ```json
      {
@@ -95,19 +95,19 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per Defend
      }
    ```
     
-   Per ulteriori informazioni sulla configurazione dell'agente, vedere [configurare gli agenti di sicurezza](./how-to-agent-configuration.md).
+   Per altre informazioni sulla configurazione dell'agente, vedere [Configurare gli agenti di sicurezza.](./how-to-agent-configuration.md)
 
 1. Selezionare **Aggiorna**.
 
-#### <a name="step-2-runtime-settings"></a>Passaggio 2: impostazioni di runtime
+#### <a name="step-2-runtime-settings"></a>Passaggio 2: Impostazioni di runtime
 
-1. Selezionare **le impostazioni di runtime**.
-2. In **Hub Edge** modificare l' **immagine** in **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
+1. Selezionare **Impostazioni di runtime**.
+2. In **Hub edge** modificare l'immagine in **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**. 
 
     >[!Note]
     > Attualmente è supportata la versione 1.0.8.3 o precedente.
 
-3. Verificare che **Crea opzioni** sia impostato sulla configurazione seguente:
+3. Verificare **che l'opzione** Crea opzioni sia impostata sulla configurazione seguente:
 
     ``` json
     {
@@ -137,9 +137,9 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per Defend
 
 5. Selezionare **Avanti**.
 
-#### <a name="step-3-specify-routes"></a>Passaggio 3: specificare le route
+#### <a name="step-3-specify-routes"></a>Passaggio 3: Specificare le route
 
-1. Nella scheda **specificare le route** verificare che sia presente una route (esplicita o implicita) che inoltra i messaggi dal modulo **azureiotsecurity** a **$upstream** in base agli esempi seguenti. Selezionare **Avanti** solo quando è attiva la route.
+1. Nella scheda **Specifica** route assicurarsi di avere una route (esplicita o implicita) che  inoltra i messaggi dal modulo **azureiotsecurity** a $upstream in base agli esempi seguenti. Solo quando la route è disponibile, selezionare **Avanti.**
 
    Route di esempio:
 
@@ -153,21 +153,21 @@ Completare ogni passaggio per completare la distribuzione di IoT Edge per Defend
 
 1. Selezionare **Avanti**.
 
-#### <a name="step-4-review-deployment"></a>Passaggio 4: esaminare la distribuzione
+#### <a name="step-4-review-deployment"></a>Passaggio 4: Esaminare la distribuzione
 
-- Nella scheda **Verifica distribuzione** esaminare le informazioni di distribuzione e quindi selezionare **Crea** per completare la distribuzione.
+- Nella scheda **Rivedi distribuzione** esaminare le informazioni sulla distribuzione e quindi selezionare **Crea** per completare la distribuzione.
 
-## <a name="diagnostic-steps"></a>Procedure di diagnostica
+## <a name="diagnostic-steps"></a>Passaggi di diagnostica
 
-Se si verifica un problema, i log del contenitore rappresentano il modo migliore per conoscere lo stato di un dispositivo IoT Edge Defender-Internet. Usare i comandi e gli strumenti illustrati in questa sezione per raccogliere informazioni.
+Se si verifica un problema, i log dei contenitori sono il modo migliore per ottenere informazioni sullo stato di un dispositivo IoT Edge modulo di sicurezza. Usare i comandi e gli strumenti illustrati in questa sezione per raccogliere informazioni.
 
 ### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>Verificare che i contenitori necessari siano installati e funzionino come previsto
 
-1. Eseguire il comando seguente sul dispositivo IoT Edge:
+1. Eseguire il comando seguente nel dispositivo IoT Edge:
 
     `sudo docker ps`
 
-1. Verificare che siano in esecuzione i seguenti contenitori:
+1. Verificare che i contenitori seguenti siano in esecuzione:
 
    | Nome | IMAGE |
    | --- | --- |
@@ -175,18 +175,18 @@ Se si verifica un problema, i log del contenitore rappresentano il modo migliore
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0.1 |
 
-   Se non sono presenti i contenitori minimi necessari, controllare se il manifesto di distribuzione IoT Edge è allineato con le impostazioni consigliate. Per altre informazioni, vedere [Deploy IOT Edge Module](#deployment-using-azure-portal).
+   Se non sono presenti i contenitori minimi necessari, verificare se il IoT Edge di distribuzione è allineato alle impostazioni consigliate. Per altre informazioni, vedere [Distribuire IoT Edge modulo](#deployment-using-azure-portal).
 
-### <a name="inspect-the-module-logs-for-errors"></a>Esaminare i registri dei moduli per individuare eventuali errori
+### <a name="inspect-the-module-logs-for-errors"></a>Esaminare i log del modulo per verificare la presenza di errori
 
-1. Eseguire il comando seguente sul dispositivo IoT Edge:
+1. Eseguire il comando seguente nel dispositivo IoT Edge:
 
    `sudo docker logs azureiotsecurity`
 
-1. Per log più dettagliati, aggiungere la variabile di ambiente seguente alla distribuzione del modulo **azureiotsecurity** : `logLevel=Debug` .
+1. Per log più dettagliati, aggiungere la variabile di ambiente seguente alla distribuzione del modulo **azureiotsecurity:** `logLevel=Debug` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulle opzioni di configurazione, passare alla Guida alle procedure per la configurazione del modulo.
+Per altre informazioni sulle opzioni di configurazione, continuare con la guida alle procedura per la configurazione del modulo.
 > [!div class="nextstepaction"]
-> [Guida alle procedure di configurazione del modulo](./how-to-agent-configuration.md)
+> [Guida alle procedura di configurazione dei moduli](./how-to-agent-configuration.md)

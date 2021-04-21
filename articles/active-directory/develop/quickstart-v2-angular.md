@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: bab92a6d7e30f5aefdd28d06b34a006d065cee3c
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: d53ce97c4af302801098d9abaa633ced98c93f3a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105966844"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814029"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Guida introduttiva: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola Angular
 
@@ -25,33 +25,35 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Una sottoscrizione di Azure. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/).
 * [Visual Studio Code](https://code.visualstudio.com/download) per modificare i file di progetto oppure [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) per eseguire il progetto.
 
 > [!div renderon="docs"]
+>
 > ## <a name="register-and-download-the-quickstart-app"></a>Registrare e scaricare l'app di avvio rapido
+>
 > Per avviare l'app di avvio rapido, usare una delle opzioni descritte di seguito.
 >
 > ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Opzione 1 (rapida): Registrare e configurare automaticamente l'app e quindi scaricare il codice di esempio
 >
 > 1. Passare all'esperienza di avvio rapido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Portale di Azure - Registrazioni app</a>.
 > 1. Immettere un nome per l'applicazione e quindi fare clic su **Registra**.
-> 1. Passare al riquadro Avvio rapido e visualizzare la guida di avvio rapido per Angular. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione.
+> 1. Nel riquadro di avvio rapido trovare la guida introduttiva di Angular. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione.
 >
 > ### <a name="option-2-manual-register-and-manually-configure-the-application-and-code-sample"></a>Opzione 2 (manuale): Registrare e configurare manualmente l'applicazione e il codice di esempio
 >
 > #### <a name="step-1-register-the-application"></a>Passaggio 1: Registrare l'applicazione
 >
-> 1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure</a>.
-> 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 > 1. Seguire le istruzioni per [registrare un'applicazione a pagina singola](./scenario-spa-app-registration.md) nel portale di Azure.
 > 1. Aggiungere una nuova piattaforma nel riquadro **Autenticazione** della registrazione dell'app e registrare l'URI di reindirizzamento: `http://localhost:4200/`.
-> 1. Questo avvio rapido usa il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md). Nella sezione **concessione implicita e flussi ibridi** selezionare **token ID** e token di **accesso**. I token ID e i token di accesso sono obbligatori perché l'app consente l'accesso agli utenti e chiama un'API.
+> 1. Questo avvio rapido usa il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md). Nella sezione **Concessione implicita e flussi ibridi** selezionare **Token ID e** Token di **accesso.** I token ID e i token di accesso sono necessari perché questa app consente agli utenti di accedere e chiama un'API.
 
 > [!div class="sxs-lookup" renderon="portal"]
+>
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per il funzionamento dell'esempio di codice in questa Guida introduttiva, è necessario aggiungere un URI di reindirizzamento come **http://localhost:4200/** e abilitare la **concessione implicita**.
+>
+> Per il funzionamento dell'esempio di codice in questa guida introduttiva, è necessario aggiungere un URI di reindirizzamento a `http://localhost:4200/` e abilitare **Concessione implicita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta queste modifiche per me]()
 >
@@ -60,7 +62,7 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 
 #### <a name="step-2-download-the-code-sample"></a>Passaggio 2: Scaricare il codice di esempio
 >[!div renderon="docs"]
->Per eseguire il progetto con un server Web usando Node.js, [clonare il repository di esempio](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) oppure [scaricare i file di progetto di base](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip). Aprire i file con un editor come Visual Studio Code.
+>Per eseguire il progetto con un server Web usando Node.js, clonare il [repository](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) di esempio o [scaricare i file di progetto principali](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip). Aprire i file in un editor, ad esempio Visual Studio Code.
 
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Scaricare il codice di esempio](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip)
@@ -89,7 +91,6 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 > > [!NOTE]
 > > Enter_the_Supported_Account_Info_Here
 
-
 > [!div renderon="docs"]
 >
 > Sostituire questi valori:
@@ -97,11 +98,11 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 >|Nome del valore|Descrizione|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|Nella pagina **Panoramica** della registrazione dell'applicazione, è il valore di **ID applicazione (client)** . |
->|Enter_the_Cloud_Instance_Id_Here|Si tratta dell'istanza del cloud di Azure. Per il cloud globale o principale di Azure, immettere **https://login.microsoftonline.com** . Per i cloud nazionali (ad esempio, Cina), vedere [Cloud nazionali](./authentication-national-cloud.md).|
->|Enter_the_Tenant_Info_Here| Impostare il valore su una delle opzioni seguenti: Se l'applicazione supporta *account in questa directory dell'organizzazione*, sostituire questo valore con l'ID della directory (tenant) o il nome del tenant (ad esempio, **contoso.microsoft.com**). Se l'applicazione supporta *Account in qualsiasi directory organizzativa*, sostituire questo valore con **organizations**. Se l'applicazione supporta *Account in qualsiasi directory organizzativa e account Microsoft personali*, sostituire questo valore con **common**. Per limitare il supporto ai *soli account Microsoft personali*, sostituire questo valore con **consumers**. |
->|Enter_the_Redirect_Uri_Here|Sostituire con **http://localhost:4200** .|
->|cacheLocation  | (Facoltativo) Impostare l'archiviazione browser per lo stato di autenticazione. L'impostazione predefinita è **sessionStorage**.   |
->|storeAuthStateInCookie  | (Facoltativo) Identificare la libreria in cui è archiviato lo stato della richiesta di autenticazione. Questo stato è necessario per convalidare i flussi di autenticazione nei cookie del browser. Questo cookie è impostato per Internet Explorer e Microsoft Edge allo scopo di supportare questi due browser. Per altri dettagli, vedere i [problemi noti](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
+>|Enter_the_Cloud_Instance_Id_Here|Si tratta dell'istanza cloud di Azure. Per il cloud di Azure principale o globale immettere `https://login.microsoftonline.com`. Per i cloud nazionali (ad esempio, Cina), vedere [Cloud nazionali](./authentication-national-cloud.md).|
+>|Enter_the_Tenant_Info_Here| Impostare su una delle opzioni seguenti: se l'applicazione supporta gli account in questa *directory* organizzativa, sostituire questo valore con l'ID della directory (tenant) o il nome del tenant (ad esempio, `contoso.microsoft.com` ). Se l'applicazione supporta *account in qualsiasi directory organizzativa*, sostituire questo valore con `organizations`. Se l'applicazione supporta *account in qualsiasi directory organizzativa e account Microsoft personali*, sostituire questo valore con `common`. Per limitare il supporto ai *soli account Microsoft personali*, sostituire questo valore con `consumers`. |
+>|Enter_the_Redirect_Uri_Here|Sostituire con `http://localhost:4200` .|
+>|cacheLocation  | (Facoltativo) Impostare l'archiviazione browser per lo stato di autenticazione. Il valore predefinito è `sessionStorage`.   |
+>|storeAuthStateInCookie  | (Facoltativo) Identificare la libreria in cui è archiviato lo stato della richiesta di autenticazione. Questo stato è necessario per convalidare i flussi di autenticazione nei cookie del browser. Questo cookie è impostato per Internet Explorer e Microsoft Edge per supportare questi due browser. Per altri dettagli, vedere i [problemi noti](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
 >
 > Per trovare i valori di **ID applicazione (client)** , **ID della directory (tenant)** e **Tipi di account supportati**, passare alla pagina di **panoramica** dell'app nel portale di Azure.
 
@@ -140,20 +141,17 @@ Se si usa Node.js:
    npm start
    ```
 
-1. Passare a **http://localhost:4200/** .
-1. Selezionare **Accedi**.
-1. Selezionare **Profilo** per chiamare Microsoft Graph.
-
-Dopo che il browser ha caricato l'applicazione, selezionare **Accedi**. Quando si avvia l'accesso per la prima volta, viene richiesto di fornire il consenso per consentire all'applicazione di accedere al profilo e completare la procedura di accesso. Dopo aver effettuato l'accesso, selezionare **Profilo** e le informazioni del profilo utente verranno visualizzate nella pagina.
+1. Passare a `http://localhost:4200/`.
+1. Selezionare **Accedi**. La prima volta che si accede, viene richiesto di consentire all'applicazione di accedere al profilo e di accedere automaticamente.
+1. Selezionare **Profilo** per chiamare Microsoft Graph. Le informazioni sul profilo utente vengono visualizzate nella pagina.
 
 ## <a name="how-the-sample-works"></a>Funzionamento dell'esempio
 
-![Diagramma che illustra il funzionamento dell'app di esempio di questo argomento di avvio rapido](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
-
+![Diagramma che illustra il funzionamento dell'app di esempio in questa guida introduttiva.](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'esercitazione su Angular illustra come consentire l'accesso a un utente e acquisire i token:
+Per informazioni su come accedere a un utente e acquisire i token, vedere l'esercitazione su Angular:
 
 > [!div class="nextstepaction"]
 > [Esercitazioni su Angular](./tutorial-v2-angular.md)

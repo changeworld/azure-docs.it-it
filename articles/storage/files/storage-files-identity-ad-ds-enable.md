@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: f38911b1fffb083902ba67e262141b6780a43ada
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 7187563824fd7e371d6352510b9ab71c920fc1ef
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817847"
+ms.locfileid: "107835111"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Prima parte: abilitare l'autenticazione di Servizi di dominio Active Directory per le condivisioni file di Azure 
 
@@ -28,7 +28,7 @@ I cmdlet nel modulo AzFilesHybrid di PowerShell apportano le modifiche necessari
 
 ### <a name="download-azfileshybrid-module"></a>Scaricare il modulo AzFilesHybrid
 
-- [Scaricare e decomprimere il modulo AzFilesHybrid (modulo ga: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Si noti che la crittografia Kerberos AES 256 è supportata nella versione 0.2.2 o successive. Se è stata abilitata la funzionalità con una versione AzFilesHybrid precedente alla versione 0.2.2 e si vuole eseguire l'aggiornamento per supportare la crittografia Kerberos AES 256, vedere questo [articolo.](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) 
+- [Scaricare e decomprimere il modulo AzFilesHybrid (modulo ga: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Si noti che la crittografia Kerberos AES 256 è supportata nella versione 0.2.2 o successive. Se la funzionalità è stata abilitata con una versione AzFilesHybrid precedente alla versione 0.2.2 e si vuole eseguire l'aggiornamento per supportare la crittografia Kerberos AES 256, vedere questo [articolo.](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) 
 - Installare ed eseguire il modulo in un dispositivo aggiunto a un dominio di Servizi di dominio Active Directory locale con credenziali di Servizi di dominio Active Directory che dispongono delle autorizzazioni per creare un account di accesso al servizio o un account computer nell'Istanza di Active Directory di destinazione.
 -  Eseguire lo script usando una credenziale di Servizi di dominio Active Directory locale sincronizzata con il Azure AD. Le credenziali di Servizi di dominio Active Directory locali devono avere il proprietario dell'account di archiviazione o le autorizzazioni del ruolo di Azure collaboratore.
 
@@ -59,7 +59,7 @@ Import-Module -Name AzFilesHybrid
 # for more information.
 Connect-AzAccount
 
-# Define parameters
+# Define parameters, $StorageAccountName currently has a maximum limit of 15 characters
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"

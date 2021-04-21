@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: e698061122fcc8ff8019907b5fdeba5b2df58407
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 605d1e0f67ac959d2c7325e04e2fd10d9d2419be
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779346"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829495"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurare un'app Python in Linux per il servizio app di Azure
 
@@ -67,13 +67,13 @@ Per la configurazione, è possibile usare il [portale di Azure](https://portal.a
 
 Il sistema di compilazione del servizio app, Oryx, esegue i passaggi seguenti quando si distribuisce l'app usando pacchetti Git o ZIP:
 
-1. Esegue uno script di pre-compilazione personalizzato se specificato dall'impostazione `PRE_BUILD_COMMAND`. Lo script stesso può eseguire altri script Python e Node.js, comandi pip e npm e strumenti basati su Node come yarn, `yarn install` ad esempio e `yarn build` .
+1. Esegue uno script di pre-compilazione personalizzato se specificato dall'impostazione `PRE_BUILD_COMMAND`. Lo script stesso può eseguire altri script Python e Node.js, comandi pip e npm e strumenti basati su nodi come yarn, `yarn install` ad esempio e `yarn build` .
 
 1. Eseguire `pip install -r requirements.txt`. Il file *requirements.txt* deve essere presente nella cartella radice del progetto. In caso contrario, il processo di compilazione segnala l'errore con un messaggio analogo al seguente: "Non è stato possibile trovare setup.py o requirements.txt; l'installazione di pip non verrà eseguita".
 
 1. Se nella radice del repository viene trovato *manage.py* (che indica un'app Django), esegue *manage.py collectstatic*. Tuttavia, se l'impostazione `DISABLE_COLLECTSTATIC` è `true`, questo passaggio viene ignorato.
 
-1. Esegue uno script di post-compilazione personalizzato se specificato dall'impostazione `POST_BUILD_COMMAND`. Anche in questo caso, lo script può eseguire altri script Python Node.js, comandi pip e npm e strumenti basati su Node.
+1. Esegue uno script di post-compilazione personalizzato se specificato dall'impostazione `POST_BUILD_COMMAND`. Anche in questo caso, lo script può eseguire altri script Python e Node.js, comandi pip e npm e strumenti basati su nodo.
 
 Per impostazione predefinita, le impostazioni `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` e `DISABLE_COLLECTSTATIC` sono vuote. 
 
@@ -136,29 +136,29 @@ La tabella seguente descrive le impostazioni di produzione pertinenti per Azure.
 
 ## <a name="serve-static-files-for-django-apps"></a>Gestire file statici per le app Django
 
-Se l'app Web Django include file front-end statici, seguire prima le istruzioni in Gestione dei file [statici](https://docs.djangoproject.com/en/3.1/howto/static-files/) nella documentazione di Django.
+Se l'app Web Django include file front-end statici, seguire prima le istruzioni sulla gestione dei file [statici](https://docs.djangoproject.com/en/3.1/howto/static-files/) nella documentazione di Django.
 
 Per il servizio app, apportare le modifiche seguenti:
 
-1. È consigliabile usare le variabili di ambiente (per lo sviluppo locale) e le impostazioni dell'app (durante la distribuzione nel cloud) per impostare dinamicamente le variabili Django `STATIC_URL` `STATIC_ROOT` e . Ad esempio:    
+1. È consigliabile usare variabili di ambiente (per lo sviluppo locale) e Impostazioni app (durante la distribuzione nel cloud) per impostare dinamicamente le variabili Django `STATIC_URL` `STATIC_ROOT` e . Ad esempio:    
 
     ```python
     STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
     STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")    
     ```
 
-    `DJANGO_STATIC_URL` e `DJANGO_STATIC_ROOT` possono essere modificati in base alle esigenze per gli ambienti locali e cloud. Ad esempio, se il processo di compilazione per i file statici li inserisce in una cartella denominata , è possibile impostare su per evitare di `django-static` `DJANGO_STATIC_URL` usare `/django-static/` l'impostazione predefinita.
+    `DJANGO_STATIC_URL` e `DJANGO_STATIC_ROOT` possono essere modificati in base alle esigenze per gli ambienti locali e cloud. Ad esempio, se il processo di compilazione per i file statici li inserisce in una cartella denominata , è possibile impostare su per evitare di `django-static` `DJANGO_STATIC_URL` usare il valore `/django-static/` predefinito.
 
-1. Se si dispone di uno script di pre-compilazione che genera file statici in una cartella diversa, includere tale cartella nella variabile Django in modo che il processo di `STATICFILES_DIRS` Django li `collectstatic` trovi. Ad esempio, se si esegue nella cartella front-end e yarn genera una cartella contenente file `yarn build` `build/static` statici, includere tale cartella come segue:
+1. Se si dispone di uno script di pre-compilazione che genera file statici in una cartella diversa, includere tale cartella nella variabile Django in modo che il processo `STATICFILES_DIRS` di Django li `collectstatic` trovi. Ad esempio, se si esegue nella cartella front-end e yarn genera una cartella contenente file statici, includere tale cartella `yarn build` `build/static` come segue:
 
     ```python
     FRONTEND_DIR = "path-to-frontend-folder" 
     STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]    
     ```
 
-    In questo `FRONTEND_DIR` caso, , per compilare un percorso in cui viene eseguito uno strumento di compilazione come yarn. È possibile usare di nuovo una variabile di ambiente e un'impostazione dell'app in base alle esigenze.
+    In questo caso, , per compilare un percorso in cui viene eseguito uno strumento `FRONTEND_DIR` di compilazione come yarn. È nuovamente possibile usare una variabile di ambiente e l'impostazione dell'app in base alle esigenze.
 
-1. Aggiungere `whitenoise` al file *requirements.txt.* [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) è un pacchetto Python che rende più semplice per un'app Django di produzione rendere disponibili i propri file statici. Whitenoise fornisce in modo specifico i file che si trovano nella cartella specificata dalla variabile `STATIC_ROOT` Django.
+1. Aggiungere `whitenoise` al file *requirements.txt* file. [Whitenoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) è un pacchetto Python che rende più semplice per un'app Django di produzione gestire i propri file statici. Whitenoise fornisce in modo specifico i file che si trovano nella cartella specificata dalla variabile `STATIC_ROOT` Django.
 
 1. Nel file *settings.py* aggiungere la riga seguente per Whitenoise:
 
@@ -169,8 +169,10 @@ Per il servizio app, apportare le modifiche seguenti:
 1. Modificare anche gli `MIDDLEWARE` elenchi e per includere `INSTALLED_APPS` Whitenoise:
 
     ```python
-    MIDDLEWARE = [
-        "whitenoise.middleware.WhiteNoiseMiddleware",
+    MIDDLEWARE = [                                                                   
+        'django.middleware.security.SecurityMiddleware',
+        # Add whitenoise middleware after the security middleware                             
+        'whitenoise.middleware.WhiteNoiseMiddleware',
         # Other values follow
     ]
 
@@ -199,7 +201,7 @@ Questo contenitore presenta le caratteristiche seguenti:
 
 - Il servizio app definisce automaticamente una variabile di ambiente denominata `WEBSITE_HOSTNAME` con l'URL dell'app Web, ad esempio `msdocs-hello-world.azurewebsites.net`. Definisce anche `WEBSITE_SITE_NAME` con il nome dell'app, ad esempio `msdocs-hello-world`. 
    
-- npm e Node.js vengono installati nel contenitore per poter eseguire strumenti di compilazione basati su Node, ad esempio yarn.
+- npm e Node.js installati nel contenitore in modo da poter eseguire strumenti di compilazione basati su nodo, ad esempio yarn.
 
 ## <a name="container-startup-process"></a>Processo di avvio del contenitore
 
@@ -409,13 +411,13 @@ Le sezioni seguenti forniscono indicazioni aggiuntive per problemi specifici.
 
 #### <a name="modulenotfounderror-when-app-starts"></a>ModuleNotFoundError all'avvio dell'app
 
-Se viene visualizzato un errore come , significa che Python non è stato in grado di trovare uno o `ModuleNotFoundError: No module named 'example'` più moduli all'avvio dell'applicazione. Ciò si verifica più spesso se si distribuisce l'ambiente virtuale con il codice. Gli ambienti virtuali non sono portabili, quindi un ambiente virtuale non deve essere distribuito con il codice dell'applicazione. Consentire invece a Oryx di creare un ambiente virtuale e installare i pacchetti nell'app Web creando un'impostazione dell'app, `SCM_DO_BUILD_DURING_DEPLOYMENT` e impostandola su `1` . In questo modo Oryx installerà i pacchetti ogni volta che si esegue la distribuzione nel servizio app. Per altre informazioni, vedere questo articolo sulla [portabilità dell'ambiente virtuale.](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html)
+Se viene visualizzato un errore come , significa che Python non è stato in grado di trovare uno o `ModuleNotFoundError: No module named 'example'` più moduli all'avvio dell'applicazione. Questa situazione si verifica più spesso se si distribuisce l'ambiente virtuale con il codice. Gli ambienti virtuali non sono portabili, quindi un ambiente virtuale non deve essere distribuito con il codice dell'applicazione. Al contrario, lasciare che Oryx crei un ambiente virtuale e installi i pacchetti nell'app Web creando un'impostazione dell'app, `SCM_DO_BUILD_DURING_DEPLOYMENT` , e impostandola su `1` . In questo modo Oryx dovrà installare i pacchetti ogni volta che si esegue la distribuzione nel servizio app. Per altre informazioni, vedere questo articolo [sulla portabilità dell'ambiente virtuale.](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html)
 
 ### <a name="database-is-locked"></a>Il database è bloccato
 
-Quando si tenta di eseguire migrazioni di database con un'app Django, è possibile che venga visualizzato "sqlite3. OperationalError: il database è bloccato." L'errore indica che l'applicazione usa un database SQLite per cui Django è configurato per impostazione predefinita, anziché usare un database cloud come PostgreSQL per Azure.
+Quando si tenta di eseguire migrazioni di database con un'app Django, è possibile che venga visualizzato "sqlite3. OperationalError: il database è bloccato." L'errore indica che l'applicazione usa un database SQLite per il quale Django è configurato per impostazione predefinita, invece di usare un database cloud come PostgreSQL per Azure.
 
-Controllare la variabile nel file di settings.py'app per assicurarsi che l'app utilizzi un `DATABASES` database cloud anziché SQLite. 
+Controllare la variabile nel file settings.py'app per assicurarsi che l'app utilizzi un `DATABASES` database cloud anziché SQLite. 
 
 Se si verifica questo errore con l'esempio in Esercitazione: Distribuire un'app Web [Django con PostgreSQL,](tutorial-python-postgresql-app.md)verificare di aver completato i passaggi descritti in Configurare le variabili di ambiente per connettere il [database](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
 

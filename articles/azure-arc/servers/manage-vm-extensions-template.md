@@ -1,26 +1,27 @@
 ---
 title: Abilitare l'estensione della macchina virtuale Azure Resource Manager modello
-description: Questo articolo descrive come distribuire estensioni di macchina virtuale Azure Arc server abilitati in esecuzione in ambienti cloud ibridi usando un modello Azure Resource Manager configurazione.
+description: Questo articolo descrive come distribuire estensioni macchina virtuale in Azure Arc server abilitati per l'esecuzione in ambienti cloud ibridi usando un Azure Resource Manager configurazione.
 ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 095f95192a2054d34e438d8683ac9c2e20a824f1
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d32be184a7e5bb713aee83cd3023f271299d3872
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389639"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832861"
 ---
-# <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Abilitare le estensioni di macchine virtuali di Azure usando il modello di Azure Azure Azure
+# <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Abilitare le estensioni di macchina virtuale di Azure usando il modello di Azure Arm
 
-Questo articolo illustra come usare un modello di Azure Resource Manager (modello arm) per distribuire estensioni di macchine virtuali di Azure, supportate Azure Arc server abilitati.
+Questo articolo illustra come usare un modello di Azure Resource Manager (modello ARM) per distribuire le estensioni macchina virtuale di Azure, supportate dai server Azure Arc abilitati.
 
-Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Con le estensioni vm supportate dai server abilitati per Arc, è possibile distribuire l'estensione di macchina virtuale supportata in computer Linux o Windows usando Azure PowerShell. Ogni esempio seguente include un file modello e un file di parametri con valori di esempio da fornire al modello.
+Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Con le estensioni macchina virtuale supportate dai server abilitati per Arc, è possibile distribuire l'estensione di macchina virtuale supportata in computer Linux o Windows usando Azure PowerShell. Ogni esempio seguente include un file di modello e un file di parametri con valori di esempio da fornire al modello.
 
 >[!NOTE]
 >Anche se più estensioni possono essere riunite ed elaborate in batch, vengono installate in serie. Al termine dell'installazione della prima estensione, viene tentata l'installazione dell'estensione successiva.
 
 > [!NOTE]
-> Azure Arc server abilitati non supporta la distribuzione e la gestione delle estensioni vm nelle macchine virtuali di Azure. Per le macchine virtuali di Azure, vedere l'articolo panoramica [dell'estensione vm](../../virtual-machines/extensions/overview.md) seguente.
+> Azure Arc server abilitati non supportano la distribuzione e la gestione delle estensioni macchina virtuale nelle macchine virtuali di Azure. Per le macchine virtuali di Azure, vedere l'articolo panoramica [dell'estensione vm](../../virtual-machines/extensions/overview.md) seguente.
 
 ## <a name="deploy-the-log-analytics-vm-extension"></a>Distribuire l'estensione macchina virtuale Log Analytics
 
@@ -67,7 +68,7 @@ Per distribuire facilmente l'agente di Log Analytics, viene fornito l'esempio se
 }
 ```
 
-### <a name="template-file-for-windows"></a>File modello per Windows
+### <a name="template-file-for-windows"></a>File di modello per Windows
 
 ```json
 {
@@ -138,15 +139,15 @@ Salvare i file del modello e dei parametri su disco e modificare il file dei par
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\LogAnalyticsAgent.json" -TemplateParameterFile "D:\Azure\Templates\LogAnalyticsAgentParms.json"
 ```
 
-## <a name="deploy-the-custom-script-extension"></a>Distribuire l'estensione script personalizzato
+## <a name="deploy-the-custom-script-extension"></a>Distribuire l'estensione Script personalizzato
 
-Per usare l'estensione Script personalizzato, viene fornito l'esempio seguente per l'esecuzione in Windows e Linux. Se non si ha familiarità con l'estensione Script personalizzato, vedere Estensione script personalizzato per [Windows](../../virtual-machines/extensions/custom-script-windows.md) o [Estensione script personalizzato per Linux.](../../virtual-machines/extensions/custom-script-linux.md) Esistono due caratteristiche diverse che è necessario comprendere quando si usa questa estensione con computer ibridi:
+Per usare l'estensione Script personalizzato, viene fornito l'esempio seguente per l'esecuzione in Windows e Linux. Se non si ha familiarità con l'estensione script personalizzato, vedere [Estensione dello script](../../virtual-machines/extensions/custom-script-windows.md) personalizzato per Windows o Estensione dello script personalizzato per [Linux.](../../virtual-machines/extensions/custom-script-linux.md) Esistono due caratteristiche diverse che è necessario comprendere quando si usa questa estensione con computer ibridi:
 
 * L'elenco dei sistemi operativi supportati con l'estensione script personalizzato della macchina virtuale di Azure non è applicabile Azure Arc server abilitati. L'elenco dei sistemi operativi supportati per i server abilitati per Arc è disponibile [qui.](agent-overview.md#supported-operating-systems)
 
 * I dettagli di configurazione relativi ai set di scalabilità di macchine virtuali di Azure o alle macchine virtuali classiche non sono applicabili.
 
-* Se i computer devono scaricare uno script esternamente e possono comunicare solo tramite un server proxy, è necessario configurare l'agente [del](manage-agent.md#update-or-remove-proxy-settings) computer connesso per impostare la variabile di ambiente del server proxy.
+* Se i computer devono scaricare uno script esternamente e possono comunicare solo tramite un server proxy, è necessario configurare l'agente [connected machine](manage-agent.md#update-or-remove-proxy-settings) per impostare la variabile di ambiente del server proxy.
 
 La configurazione dell'estensione Script personalizzato specifica elementi come il percorso dello script e il comando da eseguire. Questa configurazione viene specificata in un modello Azure Resource Manager, fornito di seguito per i computer ibridi Linux e Windows.
 
@@ -382,11 +383,11 @@ Salvare il file modello su disco. È quindi possibile distribuire l'estensione n
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\DependencyAgent.json"
 ```
 
-## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Distribuire Azure Key Vault macchina virtuale (anteprima)
+## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Distribuire Azure Key Vault'estensione vm (anteprima)
 
 Il codice JSON seguente mostra lo schema per l'estensione Key Vault macchina virtuale (anteprima). L'estensione non richiede impostazioni protette. Tutte le impostazioni sono considerate informazioni pubbliche. L'estensione richiede un elenco di certificati monitorati, la frequenza di polling e l'archivio certificati di destinazione. In particolare:
 
-### <a name="template-file-for-linux"></a>File di modello per Linux
+### <a name="template-file-for-linux"></a>File modello per Linux
 
 ```json
 {
@@ -450,7 +451,7 @@ Il codice JSON seguente mostra lo schema per l'estensione Key Vault macchina vir
 }
 ```
 
-### <a name="template-file-for-windows"></a>File modello per Windows
+### <a name="template-file-for-windows"></a>File di modello per Windows
 
 ```json
 {
@@ -532,7 +533,7 @@ Il codice JSON seguente mostra lo schema per l'estensione Key Vault macchina vir
 Salvare il file modello su disco. È quindi possibile distribuire l'estensione nel computer connesso con il comando seguente.
 
 > [!NOTE]
-> L'estensione vm richiede l'assegnazione di un'identità assegnata dal sistema per l'autenticazione nell'insieme di credenziali delle chiavi. Vedere How to authenticate to Key Vault using managed identity for Windows and Linux Arc enabled servers (Come eseguire l'autenticazione Key Vault [usando l'identità gestita](managed-identity-authentication.md) per i server abilitati per Windows e Linux Arc).
+> L'estensione vm richiede l'assegnazione di un'identità assegnata dal sistema per l'autenticazione all'insieme di credenziali delle chiavi. Vedere How to authenticate to Key Vault using managed identity for Windows and Linux Arc enabled servers (Come eseguire l'autenticazione Key Vault [usando l'identità gestita](managed-identity-authentication.md) per i server abilitati per Windows e Linux Arc).
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
@@ -540,7 +541,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 ## <a name="deploy-the-azure-defender-integrated-scanner"></a>Distribuire lo scanner Azure Defender integrato
 
-Per usare l'Azure Defender dello scanner integrata, viene fornito l'esempio seguente per l'esecuzione in Windows e Linux. Se non si ha familiarità con lo scanner integrato, vedere Panoramica della soluzione di valutazione Azure Defender [della](../../security-center/deploy-vulnerability-assessment-vm.md) vulnerabilità per i computer ibridi.
+Per usare l Azure Defender'estensione dello scanner integrata, viene fornito l'esempio seguente per l'esecuzione in Windows e Linux. Se non si ha familiarità con lo scanner integrato, vedere Panoramica della soluzione di valutazione Azure Defender [della](../../security-center/deploy-vulnerability-assessment-vm.md) vulnerabilità per i computer ibridi.
 
 ### <a name="template-file-for-windows"></a>File di modello per Windows
 

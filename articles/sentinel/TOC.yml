@@ -61,7 +61,9 @@
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Normalizzare i dati tra le tabelle
       href: normalization.md
-    - name: Sicurezza
+    - name: Usare Esplora dati di Azure per la conservazione dei log a lungo termine
+      href: store-logs-in-azure-data-explorer.md
+    - name: Security
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -152,7 +154,7 @@
               href: connect-f5-big-ip.md
             - name: Forcepoint DLP
               href: connect-forcepoint-dlp.md
-            - name: Area di lavoro Di Google (G Suite)
+            - name: Google Workspace (G Suite)
               href: connect-google-workspace.md
             - name: Infoblox NIOS
               href: connect-infoblox.md
@@ -212,7 +214,7 @@
                   items:
                     - name: AI Vectra Detect
                       href: connect-ai-vectra-detect.md
-                    - name: Eventi di sicurezza Akamai
+                    - name: Eventi di sicurezza di Akamai
                       href: connect-akamai-security-events.md
                     - name: Aruba ClearPass
                       href: connect-aruba-clearpass.md
@@ -313,7 +315,7 @@
           href: watchlist-with-rest-api.md
     - name: Connettore per app per la logica di Azure Sentinel
       href: /connectors/azuresentinel/
-    - name: Informazioni di riferimento per le entità
+    - name: Informazioni di riferimento su entità
       href: entities-reference.md
     - name: Schema di normalizzazione della rete
       href: normalization-schema.md
@@ -329,7 +331,7 @@
           href: ../azure-monitor/logs/query-optimization.md
     - name: Arricchimenti tramite UEBA
       href: ueba-enrichments.md
-    - name: Mapping dei campi di log CEF
+    - name: Mapping dei campi del log CEF
       href: cef-name-mapping.md
 - name: Risorse
   items:

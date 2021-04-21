@@ -8,12 +8,12 @@ ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: 75cb7b6c9225e8579561f980df10da8994257133
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ecebeb6d14a00a92ef845001cf04a59f10345e23
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777186"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815577"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Avvio rapido: Libreria client di chiavi di Azure Key Vault per Java
 Introduzione alla libreria client di chiavi di Azure Key Vault per Java. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
@@ -269,6 +269,6 @@ public class App {
 In questa guida di avvio rapido è stato creato un insieme di credenziali delle chiavi e quindi è stata creata, recuperata ed eliminata una chiave. Per altre informazioni sul servizio Key Vault e su come integrarlo nelle applicazioni, continuare con gli articoli seguenti.
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
-- Vedere la [panoramica della sicurezza di Key Vault](../general/security-overview.md)
+- Vedere la [panoramica della sicurezza di Key Vault](../general/security-features.md)
 - Vedere la [Guida per gli sviluppatori per Azure Key Vault](../general/developers-guide.md)
-- Come [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/security-overview.md)
+- Come [Proteggere l'accesso a un insieme di credenziali delle chiavi](../general/security-features.md)

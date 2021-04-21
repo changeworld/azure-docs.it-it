@@ -7,13 +7,13 @@ ms.author: jken
 ms.date: 10/16/2020
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.openlocfilehash: c5976053e32bcc97e57ef8f74b3249df83d322c4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 92ca80a6c807394c45be8f0187c7add736ba83ce
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933237"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831781"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Avvio rapido: Creare un archivio di Configurazione app di Azure con un modello di Resource Manager
 
@@ -108,7 +108,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sull'aggiunta del flag funzionalità e Key Vault riferimento a un archivio di configurazione dell'app, vedere gli esempi di modelli ARM.
+Per altre informazioni sull'aggiunta del flag di funzionalità e Key Vault riferimento a un archivio di Configurazione app, vedere gli esempi di modelli arm di seguito.
 
-- [101-app-Configuration-Store-FF](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-ff)
-- [101-app-Configuration-Store-keyvaultref](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-keyvaultref)
+- [101-app-configuration-store-ff](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-ff)
+- [101-app-configuration-store-keyvaultref](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-keyvaultref)

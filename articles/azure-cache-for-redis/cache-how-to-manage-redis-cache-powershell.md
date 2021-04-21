@@ -6,12 +6,13 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 88e433dbfa87d8ea483789b1fd838c62a6a481c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ac1456e2dc640e1076857da78cf4145b61ea69d4
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92536760"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832789"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gestire Cache Redis di Azure con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -57,7 +58,7 @@ Per specificare la sottoscrizione, eseguire il comando seguente. Nell'esempio se
 
 Per usare Windows PowerShell con Gestione risorse di Azure, è necessario disporre di quanto indicato di seguito:
 
-* Windows PowerShell, versione 3.0 o 4.0. Per individuare la versione di Windows PowerShell, digitare `$PSVersionTable` e verificare che il valore di `PSVersion` sia 3.0 o 4.0. Per installare una versione compatibile, vedere [Windows Management Framework 3,0](https://www.microsoft.com/download/details.aspx?id=34595).
+* Windows PowerShell, versione 3.0 o 4.0. Per individuare la versione di Windows PowerShell, digitare `$PSVersionTable` e verificare che il valore di `PSVersion` sia 3.0 o 4.0. Per installare una versione compatibile, vedere [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595).
 
 Per informazioni dettagliate sui cmdlet usati in questa esercitazione, eseguire il cmdlet Get-Help.
 
@@ -655,7 +656,7 @@ Nell'esempio seguente viene rimossa la cache denominata `myCache` .
 È possibile importare dati in un'istanza di Cache Redis di Azure usando il cmdlet `Import-AzRedisCache`.
 
 > [!IMPORTANT]
-> Importazione/esportazione è disponibile solo per le cache di [livello Premium](cache-overview.md#service-tiers) . Per altre informazioni sull'importazione/esportazione, vedere [Importare ed esportare dati in Cache Redis di Azure](cache-how-to-import-export-data.md).
+> L'importazione/esportazione è disponibile solo per le cache [di livello](cache-overview.md#service-tiers) Premium. Per altre informazioni sull'importazione/esportazione, vedere [Importare ed esportare dati in Cache Redis di Azure](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -719,7 +720,7 @@ Il comando seguente importa dati dal BLOB specificato dall’URI della firma di 
 È possibile esportare dati da un'istanza di Cache Redis di Azure usando il cmdlet `Export-AzRedisCache`.
 
 > [!IMPORTANT]
-> Importazione/esportazione è disponibile solo per le cache di [livello Premium](cache-overview.md#service-tiers) . Per altre informazioni sull'importazione/esportazione, vedere [Importare ed esportare dati in Cache Redis di Azure](cache-how-to-import-export-data.md).
+> L'importazione/esportazione è disponibile solo per le cache [di livello](cache-overview.md#service-tiers) Premium. Per altre informazioni sull'importazione/esportazione, vedere [Importare ed esportare dati in Cache Redis di Azure](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -784,7 +785,7 @@ Il seguente comando consente di esportare dati da un’istanza di Cache Redis di
 È possibile riavviare un'istanza della Cache Redis di Azure usando il cmdlet `Reset-AzRedisCache`.
 
 > [!IMPORTANT]
-> Il riavvio è disponibile solo per le cache di [livello Premium](cache-overview.md#service-tiers) . Per altre informazioni sul riavvio della cache, vedere [Come amministrare Cache Redis di Azure - Riavviare](cache-administration.md#reboot).
+> Il riavvio è disponibile solo per le cache [di livello](cache-overview.md#service-tiers) Premium. Per altre informazioni sul riavvio della cache, vedere [Come amministrare Cache Redis di Azure - Riavviare](cache-administration.md#reboot).
 > 
 > 
 

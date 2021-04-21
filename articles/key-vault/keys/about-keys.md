@@ -10,21 +10,21 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 3c4bb61217c7b972220a55a4837c2b3db980f2ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9565095a40052a940d7a7b31f0fd3a27e0e75c2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095987"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107814997"
 ---
 # <a name="about-keys"></a>Informazioni sulle chiavi
 
-Azure Key Vault fornisce due tipi di risorse per archiviare e gestire le chiavi crittografiche. Gli insiemi di credenziali supportano chiavi protette da software e con modulo di protezione hardware. I HSM gestiti supportano solo chiavi protette da HSM. 
+Azure Key Vault fornisce due tipi di risorse per archiviare e gestire le chiavi crittografiche. Gli insiemi di credenziali supportano chiavi protette da software e HSM (Hardware Security Module). I HSM gestiti supportano solo chiavi protette da HSM. 
 
 |Tipo di risorsa|Metodi di protezione della chiave|URL di base dell'endpoint del piano dati|
 |--|--|--|
 | **Insiemi di credenziali** | Protetta da software<br/><br/>e<br/><br/>Con protezione HSM (con SKU Premium)</li></ul> | https://{nome-insiemecredenziali}.vault.azure.net |
-| * * HSM gestito * * | Con protezione HSM | https://{nome-hsm}.managedhsm.azure.net |
+| **HMS gestiti** | Con protezione HSM | https://{nome-hsm}.managedhsm.azure.net |
 ||||
 
 - **Insiemi di credenziali**: gli insiemi di credenziali offrono una soluzione di gestione delle chiavi a basso costo, facile da distribuire, multi-tenant, con resilienza della zona (dove disponibile) e a disponibilità elevata adatta per gli scenari di applicazioni cloud più comuni.
@@ -45,7 +45,7 @@ Le specifiche JWK/JWA di base vengono inoltre estese per abilitare tipi di chiav
 Le chiavi con protezione HSM vengono elaborate in un modulo di protezione hardware e rimangono sempre entro i limiti di questa protezione. 
 
 - Gli insiemi di credenziali usano moduli di protezione hardware convalidati in base agli standard **FIPS 140-2 livello 2** per proteggere le chiavi con protezione HSM nell'infrastruttura back-end HSM. 
-- Il modulo HSM gestito USA moduli HSM convalidati **FIPS 140-2 di livello 3** per proteggere le chiavi. Ogni pool di moduli di protezione hardware è un'istanza a tenant singolo isolata con il proprio [dominio di sicurezza](../managed-hsm/security-domain.md) che fornisce un isolamento crittografico completo da tutte le altre HSM che condividono la stessa infrastruttura hardware.
+- Il modulo di protezione HSM gestito usa moduli HSM convalidati **fiPS 140-2 livello 3** per proteggere le chiavi. Ogni pool di moduli di protezione hardware [](../managed-hsm/security-domain.md) è un'istanza a tenant singolo isolata con un proprio dominio di sicurezza che fornisce l'isolamento crittografico completo da tutti gli altri moduli di protezione hardware che condividono la stessa infrastruttura hardware.
 
 Queste chiavi sono protette nei pool di moduli di protezione hardware a tenant singolo. È possibile importare una chiave RSA, EC o simmetrica protetta tramite software o mediante l'esportazione da un modulo di protezione hardware supportato. È possibile anche generare chiavi nei pool di moduli di protezione hardware. Quando si importano chiavi con protezione HSM usando il metodo descritto nella [specifica BYOK (Bring Your Own Key)](../keys/byok-specification.md), viene abilitato il materiale della chiave di trasporto sicuro nei pool di moduli di protezione hardware gestiti. 
 
@@ -53,20 +53,20 @@ Per ulteriori informazioni sui limiti geografici, vedere [Centro di protezione M
 
 ## <a name="key-types-and-protection-methods"></a>Tipi di chiave e metodi di protezione
 
-Key Vault supporta chiavi RSA e EC. Il modulo di protezione hardware gestito supporta RSA, EC e chiavi simmetriche. 
+Key Vault supporta chiavi RSA ed EC. Il servizio HSM gestito supporta le chiavi RSA, EC e simmetriche. 
 
 ### <a name="hsm-protected-keys"></a>Chiavi protette dal modulo di protezione hardware
 
-|Tipo di chiave|Insiemi di credenziali (solo SKU Premium)|HSM gestito|
+|Tipo di chiave|Insiemi di credenziali (solo SKU Premium)|HMS gestiti|
 |--|--|--|
 |**EC-HSM**: chiave a curva ellittica | Supportato | Supportato|
 |**RSA-HSM**: chiave RSA|Supportato|Supportato|
-|**Oct-HSM**: chiave simmetrica|Non supportato|Supportato|
+|**oct-HSM:** chiave simmetrica|Non supportato|Supportato|
 |||
 
 ### <a name="software-protected-keys"></a>Chiavi protette tramite software
 
-|Tipo di chiave|Insiemi di credenziali|HSM gestito|
+|Tipo di chiave|Insiemi di credenziali|HMS gestiti|
 |--|--|--|
 **RSA**: chiave RSA protetta tramite software|Supportato|Non supportato
 **EC**: chiave a curva ellittica protetta tramite software|Supportato|Non supportato
@@ -76,14 +76,14 @@ Key Vault supporta chiavi RSA e EC. Il modulo di protezione hardware gestito sup
 
 |Tipo di chiave e destinazione|Conformità|
 |---|---|
-|Chiavi protette da software negli insiemi di credenziali (SKU Premium & standard) | FIPS 140-2 livello 1|
-|Chiavi protette da HSM negli insiemi di credenziali (SKU Premium)| FIPS 140-2 livello 2|
-|Chiavi protette da HSM in HSM gestito|FIPS 140-2 livello 3|
+|Chiavi protette tramite software negli insiemi di credenziali (SKU Premium & Standard) | FIPS 140-2 livello 1|
+|Chiavi con protezione HSM negli insiemi di credenziali (SKU Premium)| FIPS 140-2 livello 2|
+|Chiavi protette con HSM in HSM gestito|FIPS 140-2 Livello 3|
 |||
 
 
 
-Per informazioni dettagliate su ogni tipo di chiave, algoritmi, operazioni, attributi e tag, vedere [tipi di chiave, algoritmi e operazioni](about-keys-details.md) .
+Per [informazioni dettagliate su ogni](about-keys-details.md) tipo di chiave, algoritmi, operazioni, attributi e tag, vedere Tipi di chiave, algoritmi e operazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Informazioni su Key Vault](../general/overview.md)

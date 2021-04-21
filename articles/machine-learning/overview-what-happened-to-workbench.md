@@ -1,7 +1,7 @@
 ---
 title: Modifiche apportate al Workbench
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning è una soluzione data science integrata per modellare e distribuire le applicazioni ML su scala cloud. La funzionalità Workbench è stata ritirata.
+description: Azure Machine Learning è una soluzione integrata data science per modellare e distribuire applicazioni di Machine Learning su scala cloud. La funzionalità Workbench è stata ritirata.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020
-ms.openlocfilehash: c800901ae139b16e75613b0cc8de3a9485186896
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c680be897c4c1bf2ccf20df1d34ab6f59f559f2
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521374"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816153"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Che cosa è successo ad Azure Machine Learning Workbench?
 
@@ -34,20 +34,20 @@ Questo articolo illustra cosa è cambiato e come questi cambiamenti possono infl
 ## <a name="what-changed"></a>Cosa è cambiato?
 
 L'ultima versione di Azure Machine Learning include le funzionalità seguenti:
-+ [Modello di risorse di Azure semplificato](concept-azure-machine-learning-architecture.md).
-+ La [nuova interfaccia utente del portale](how-to-track-experiments.md) per gestire gli esperimenti e le destinazioni di calcolo.
-+ Un nuovo <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>Python più completo.
++ Modello [di risorse di Azure semplificato.](concept-azure-machine-learning-architecture.md)
++ La [nuova interfaccia utente del portale](how-to-log-view-metrics.md) per gestire gli esperimenti e le destinazioni di calcolo.
++ Un nuovo, più completo Python <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>.
 + Una nuova [estensione ampliata dell'interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md) per l'apprendimento automatico.
 
 L'[architettura](concept-azure-machine-learning-architecture.md) è stata riprogettata per una maggiore facilità d'uso. Invece di più risorse e account di Azure, è sufficiente avere un'[area di lavoro di Azure Machine Learning](concept-workspace.md). Le aree di lavoro possono essere create rapidamente nel [portale di Azure](how-to-manage-workspace.md). Usando un'area di lavoro, più utenti possono archiviare destinazioni di calcolo per training e distribuzione, esperimenti di modello, immagini Docker, modelli distribuiti e così via.
 
-Anche se nella versione corrente sono disponibili interfaccia della riga di comando e client SDK nuovi e migliorati, l'applicazione desktop Workbench stessa è stata ritirata. È possibile gestire gli esperimenti nel [dashboard dell'area di lavoro di Azure Machine Learning Studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal). Attraverso il dashboard è possibile accedere alla cronologia degli esperimenti, gestire le destinazioni di calcolo collegate all'area di lavoro, gestire i modelli e le immagini Docker, nonché distribuire servizi Web.
+Anche se nella versione corrente sono disponibili interfaccia della riga di comando e client SDK nuovi e migliorati, l'applicazione desktop Workbench stessa è stata ritirata. È possibile gestire gli esperimenti nel [dashboard dell'area di lavoro di Azure Machine Learning Studio](how-to-log-view-metrics.md#view-the-experiment-in-the-web-portal). Attraverso il dashboard è possibile accedere alla cronologia degli esperimenti, gestire le destinazioni di calcolo collegate all'area di lavoro, gestire i modelli e le immagini Docker, nonché distribuire servizi Web.
 
 <a name="timeline"></a>
 
 ## <a name="support-timeline"></a>Sequenza temporale del supporto
 
-Il 9 gennaio 2019 il supporto per Machine Learning Workbench, account Sperimentazione di Azure Machine Learning e Gestione modelli e l'SDK e l'interfaccia della riga di comando associati sono terminati.
+Il 9 gennaio 2019 è terminato il supporto per gli account Machine Learning Workbench, Sperimentazione di Azure Machine Learning e Gestione modelli e l'SDK e l'interfaccia della riga di comando associati.
 
 Tutte le funzionalità più recenti sono disponibili questo <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK</a>, l'[interfaccia della riga di comando](reference-azure-machine-learning-cli.md) e il [portale](how-to-manage-workspace.md).
 
@@ -65,7 +65,7 @@ Iniziare ad eseguire il training dei modelli e a rilevare le cronologie di esecu
 
 ## <a name="will-projects-persist"></a>I progetti saranno mantenuti?
 
-Non si perderà il codice o il lavoro svolto. Nella versione precedente, i progetti sono entità cloud con una directory locale. Nell'ultima versione si associano le directory locali all'area di lavoro di Azure Machine Learning con un file di configurazione locale. Vedere un [diagramma dell'architettura più recente](concept-azure-machine-learning-architecture.md).
+Non si perderà il codice o il lavoro svolto. Nella versione precedente, i progetti sono entità cloud con una directory locale. Nell'ultima versione si associano le directory locali all'area di lavoro di Azure Machine Learning con un file di configurazione locale. Vedere un [diagramma dell'architettura più recente.](concept-azure-machine-learning-architecture.md)
 
 Gran parte del contenuto del progetto era già nel computer locale. È quindi sufficiente creare un file di configurazione in tale directory e farvi riferimento nel codice per collegarlo all'area di lavoro. Per continuare a usare la directory locale che contiene i file e gli script, specificare il nome della directory nel comando Python "[experiment.submit](/python/api/azureml-core/azureml.core.experiment.experiment)" o usando il comando `az ml project attach` dell'interfaccia della riga di comando.  Ad esempio:
 ```python
@@ -89,7 +89,7 @@ Nella versione più recente, i modelli sono distribuiti come servizi Web in Ista
 
 Altre informazioni sono disponibili in questi articoli:
 + [Dove e come eseguire la distribuzione dei modelli](how-to-deploy-and-where.md)
-+ [Esercitazione: distribuire modelli con Azure Machine Learning](tutorial-deploy-models-with-aml.md)
++ [Esercitazione: Distribuire modelli con Azure Machine Learning](tutorial-deploy-models-with-aml.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -99,7 +99,7 @@ Per una panoramica del servizio, vedere [Informazioni su Azure Machine Learning]
 
 Creare il primo esperimento con il metodo preferito:
 
-  + [Usa il tuo ambiente](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Usare il proprio ambiente](tutorial-1st-experiment-sdk-setup-local.md)
   + [Usare i notebook di Python](tutorial-1st-experiment-sdk-setup.md)
   + [Usare R Markdown](https://github.com/Azure/azureml-sdk-for-r) 
   + [Usare Machine Learning automatizzato](tutorial-designer-automobile-price-train-score.md) 

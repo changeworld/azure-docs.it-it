@@ -1,18 +1,19 @@
 ---
-title: Configurare l'output del Runbook e i flussi di messaggi
-description: Questo articolo illustra come implementare la logica di gestione degli errori e descrive i flussi di output e messaggi nei manuali operativi di automazione di Azure.
+title: Configurare l'output del runbook e i flussi di messaggi
+description: Questo articolo illustra come implementare la logica di gestione degli errori e descrive i flussi di output e di messaggi Automazione di Azure runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb14d5227204a69f8a2ef9e0bf2da05bd7bde51c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 033900ddd0bd19332b4a9a996c68b3b187d631c4
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169097"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833563"
 ---
-# <a name="configure-runbook-output-and-message-streams"></a>Configurare l'output del Runbook e i flussi di messaggi
+# <a name="configure-runbook-output-and-message-streams"></a>Configurare l'output del runbook e i flussi di messaggi
 
 La maggior parte dei runbook di Automazione Azure ha una forma di output. L'output può essere un messaggio di errore destinato all'utente o un oggetto complesso il cui uso era destinato a un altro runbook. Windows PowerShell fornisce [più flussi](/powershell/module/microsoft.powershell.core/about/about_redirection) per inviare l'output da uno script o flusso di lavoro. Automazione di Azure funziona con ogni flusso in modo diverso. Seguire le procedure consigliate per usare i flussi quando si crea un runbook.
 
@@ -123,11 +124,11 @@ La prima attività chiama il runbook **AuthenticateTo-Azure**. La seconda attivi
 
 L'output risultante è il nome della sottoscrizione.<br> ![Risultati del runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
-## <a name="working-with-message-streams"></a>Utilizzo dei flussi di messaggi
+## <a name="working-with-message-streams"></a>Uso dei flussi di messaggi
 
 A differenza del flusso di output, i flussi di messaggi comunicano le informazioni all'utente. Esistono più flussi di messaggi per diversi tipi di informazioni e ciascuno viene gestito diversamente da Automazione di Azure.
 
-### <a name="write-output-to-warning-and-error-streams"></a>Scrivi output in flussi di avviso ed errore
+### <a name="write-output-to-warning-and-error-streams"></a>Scrivere l'output nei flussi di avviso ed errore
 
 I flussi di errore e di avviso registrano i problemi che si verificano in un runbook. Automazione di Azure scrive questi flussi nella cronologia processo durante l'esecuzione di un runbook. Automazione include i flussi nel riquadro di output del test del portale di Azure quando viene testato un runbook.
 
@@ -143,32 +144,32 @@ Write-Warning -Message "This is a warning message."
 Write-Error -Message "This is an error message that will stop the runbook because of the preference variable."
 ```
 
-### <a name="write-output-to-debug-stream"></a>Scrivi output nel flusso di debug
+### <a name="write-output-to-debug-stream"></a>Scrivere l'output nel flusso di debug
 
-Automazione di Azure usa il flusso dei messaggi di debug per gli utenti interattivi. Per impostazione predefinita, automazione di Azure non acquisisce i dati del flusso di debug, vengono acquisiti solo i dati di output, di errore e di avviso, oltre ai dati dettagliati se il Runbook è configurato per l'acquisizione.
+Automazione di Azure usa il flusso dei messaggi di debug per gli utenti interattivi. Per impostazione Automazione di Azure non acquisisce dati di flusso di debug, vengono acquisiti solo i dati di output, di errore e di avviso, nonché i dati dettagliati se il runbook è configurato per l'acquisizione.
 
-Per acquisire i dati del flusso di debug, è necessario eseguire due azioni in manuali operativi:
+Per acquisire i dati del flusso di debug, è necessario eseguire due azioni nei runbook:
 
-1. Impostare la variabile `$GLOBAL:DebugPreference="Continue"` , che indica a PowerShell di continuare ogni volta che viene rilevato un messaggio di debug.  La parte **$Global:** indica a PowerShell di eseguire questa operazione nell'ambito globale anziché nell'ambito locale in cui si trova lo script al momento dell'esecuzione dell'istruzione.
+1. Impostare la variabile `$GLOBAL:DebugPreference="Continue"` , che indica a PowerShell di continuare ogni volta che viene rilevato un messaggio di debug.  La **$GLOBAL:** indica a PowerShell di eseguire questa operazione nell'ambito globale anziché nell'ambito locale in cui si trova lo script al momento dell'esecuzione dell'istruzione.
 
-1. Reindirizzare il flusso di debug che non viene acquisito in un flusso che viene acquisito come *output*. Questa operazione viene eseguita impostando il reindirizzamento di PowerShell sull'istruzione da eseguire. Per ulteriori informazioni sul reindirizzamento PowerShell, vedere informazioni sul [Reindirizzamento](/powershell/module/microsoft.powershell.core/about/about_redirection).
+1. Reindirizzare il flusso di debug che non si acquisisce a un flusso che si acquisisce, ad esempio *l'output*. Questa operazione viene eseguita impostando il reindirizzamento di PowerShell sull'istruzione da eseguire. Per altre informazioni sul reindirizzamento di PowerShell, vedere [Informazioni sul reindirizzamento.](/powershell/module/microsoft.powershell.core/about/about_redirection)
 
 #### <a name="examples"></a>Esempio
 
-In questo esempio, Runbook viene configurato usando i `Write-Output` cmdlet e `Write-Debug` con l'intenzione di output di due flussi diversi.
+In questo esempio il runbook viene configurato usando i cmdlet e con l'intenzione di `Write-Output` `Write-Debug` eseguire l'output di due flussi diversi.
 
 ```powershell
 Write-Output "This is an output message." 
 Write-Debug "This is a debug message."
 ```
 
-Se il Runbook deve essere eseguito così com'è, il riquadro di output per il processo Runbook eseguirà il flusso dell'output seguente:
+Se questo runbook deve essere eseguito così com'è, il riquadro di output per il processo runbook trasmetterebbe l'output seguente:
 
 ```output
 This is an output message.
 ```
 
-In questo esempio, Runbook è configurato in modo simile all'esempio precedente, ad eccezione del fatto che l'istruzione `$GLOBAL:DebugPreference="Continue"` è inclusa con l'aggiunta di `5>&1` alla fine dell' `Write-Debug` istruzione.
+In questo esempio il runbook è configurato in modo simile all'esempio precedente, ad eccezione del fatto che l'istruzione viene inclusa con l'aggiunta di `$GLOBAL:DebugPreference="Continue"` `5>&1` alla fine `Write-Debug` dell'istruzione .
 
 ```powershell
 Write-Output "This is an output message." 
@@ -176,16 +177,16 @@ $GLOBAL:DebugPreference="Continue"
 Write-Debug "This is a debug message." 5>&1
 ```
 
-Se questo runbook venisse eseguito, il riquadro di output per il processo Runbook avrebbe trasmesso l'output seguente:
+Se questo runbook fosse eseguito, il riquadro di output per il processo runbook avrebbe trasmesso l'output seguente:
 
 ```output
 This is an output message.
 This is a debug message.
 ```
 
-Questo problema si verifica perché l' `$GLOBAL:DebugPreference="Continue"` istruzione indica a PowerShell di visualizzare i messaggi di debug e l'aggiunta di `5>&1` alla fine dell' `Write-Debug` istruzione indica a PowerShell di reindirizzare il flusso 5 (debug) al flusso 1 (output).
+Ciò si verifica perché l'istruzione indica a PowerShell di visualizzare i messaggi di debug e l'aggiunta di alla fine dell'istruzione indica a PowerShell di reindirizzare il flusso 5 (debug) al flusso `$GLOBAL:DebugPreference="Continue"` `5>&1` `Write-Debug` 1 (output).
 
-### <a name="write-output-to-verbose-stream"></a>Scrivi output nel flusso dettagliato
+### <a name="write-output-to-verbose-stream"></a>Scrivere l'output nel flusso dettagliato
 
 Il flusso del messaggio dettagliato supporta informazioni generali sul funzionamento del runbook. Poiché il flusso di debug non è disponibile per il runbook, questo deve usare i messaggi dettagliati per le informazioni di debug.
 
@@ -293,10 +294,10 @@ Automazione di Azure può inviare lo stato e i flussi del processo del runbook a
 * Correlare i processi tra account di Automazione.
 * Visualizzare la cronologia processo.
 
-Per altre informazioni sulla configurazione dell'integrazione con i log di monitoraggio di Azure per raccogliere, correlare e agire sui dati del processo, vedere [trasmettere lo stato e i flussi del processo dall'automazione ai log di monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).
+Per altre informazioni sulla configurazione dell'integrazione con Monitoraggio di Azure Logs per raccogliere, correlare e agire sui dati del processo, vedere Inoltrare lo stato e i flussi dei processi da [Automazione](automation-manage-send-joblogs-log-analytics.md)Monitoraggio di Azure Log .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per usare i runbook, vedere [Gestire runbook in Automazione di Azure](manage-runbooks.md).
-* Se non si ha familiarità con gli script di PowerShell, vedere la documentazione di [PowerShell](/powershell/scripting/overview) .
-* Per informazioni di riferimento sui cmdlet di PowerShell per automazione di Azure, vedere [AZ. Automation](/powershell/module/az.automation).
+* Se non si ha familiarità con gli script di PowerShell, vedere la [documentazione di PowerShell.](/powershell/scripting/overview)
+* Per informazioni Automazione di Azure riferimento ai cmdlet di PowerShell, vedere [Az.Automation.](/powershell/module/az.automation)

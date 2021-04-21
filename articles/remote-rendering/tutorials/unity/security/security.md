@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e595f7ff313ff85a12209e8c124b9aa376b20b6
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: d30ab051e58573daefd16f178feb4fc94f2ec83f
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739747"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107835471"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Esercitazione: Protezione di Rendering remoto di Azure e dello spazio di archiviazione dei modelli
 
@@ -188,7 +188,7 @@ Lo stato corrente dell'applicazione e il relativo accesso alle risorse di Azure 
 
 Con l'autenticazione di AAD sarà possibile determinare quali utenti o gruppi usano Rendering remoto di Azure in modo più controllato. Rendering remoto di Azure prevede il supporto predefinito per accettare [token di accesso](../../../../active-directory/develop/access-tokens.md) invece dell'uso di una chiave dell'account. I token di accesso possono essere paragonati a una chiave specifica dell'utente, limitata nel tempo, che sblocca solo determinate parti della risorsa specifica per cui è stata richiesta.
 
-Lo script **RemoteRenderingCoordinator** ha un delegato denominato **ARRCredentialGetter** che contiene un metodo che restituisce un **oggetto SessionConfiguration,** usato per configurare la gestione della sessione remota. È possibile assegnare un metodo diverso ad **ARRCredentialGetter,** consentendo di usare un flusso di accesso di Azure, generando un oggetto **SessionConfiguration** contenente un token di accesso di Azure. Questo token di accesso sarà specifico per l'utente che effettua l'accesso.
+Lo script **RemoteRenderingCoordinator** ha un delegato denominato **ARRCredentialGetter** che contiene un metodo che restituisce un **oggetto SessionConfiguration,** usato per configurare la gestione della sessione remota. È possibile assegnare un metodo diverso ad **ARRCredentialGetter,** consentendo di usare un flusso di accesso di Azure, generando un oggetto **SessionConfiguration** che contiene un token di accesso di Azure. Questo token di accesso sarà specifico per l'utente che effettua l'accesso.
 
 1. Seguire l'argomento [Procedura: Configurare l'autenticazione - Autenticazione per le applicazioni distribuite](../../../how-tos/authentication.md#authentication-for-deployed-applications), in particolare seguire le istruzioni riportate nella sezione [Autenticazione degli utenti di Azure AD](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) nella documentazione di Ancoraggi nello spazio di Azure. Ciò comporta la registrazione di una nuova applicazione di Azure Active Directory e la configurazione dell'accesso all'istanza di Rendering remoto di Azure.
 1. Dopo aver configurato la nuova applicazione di AAD, controllare che l'applicazione corrisponda alle immagini seguenti:
@@ -405,8 +405,10 @@ Nell'editor di Unity, se l'autenticazione di AAD è attiva, sarà necessario ese
     Poiché il componente **AADAuthentication** include un controller di visualizzazione, viene collegato automaticamente per visualizzare una richiesta dopo il pannello modale di autorizzazione della sessione.
 1. Seguire le istruzioni disponibili nel pannello a destra di **AppMenu**.
     Dovrebbe essere visualizzata una schermata simile alla seguente: ![Illustrazione che mostra il riquadro delle istruzioni visualizzato a destra di AppMenu.](./media/device-flow-instructions.png)
-    Dopo aver immesso il codice fornito nel dispositivo secondario (o nel browser sullo stesso dispositivo) e aver eseguito l'accesso con le credenziali, all'applicazione richiedente, in questo caso l'editor di Unity, verrà restituito un token di accesso.
-1. A questo punto, tutti gli elementi dell'applicazione dovrebbero procedere normalmente. Se non si procede attraverso le fasi come previsto, verificare la presenza di eventuali errori nella console di Unity.
+    
+    Dopo aver immesso il codice fornito nel dispositivo secondario (o nel browser nello stesso dispositivo) e aver fatto l'accesso usando le credenziali, verrà restituito un token di accesso all'applicazione richiedente, in questo caso l'editor unity.
+
+A questo punto, tutti gli elementi dell'applicazione dovrebbero procedere normalmente. Se non si procede attraverso le fasi come previsto, verificare la presenza di eventuali errori nella console di Unity.
 
 ## <a name="build-to-device"></a>Compilare nel dispositivo
 

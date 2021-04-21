@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 04/21/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a88bb7904143f69a0eea84ea291c65e3244c70a1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 436a972693aafd220d277d7411c0da12636e9cc6
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765864"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829801"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Abilitare l'accesso con chiave di sicurezza senza password 
 
-Per le aziende che usano attualmente le password e hanno un ambiente PC condiviso, le chiavi di sicurezza consentono ai ruoli di lavoro di eseguire l'autenticazione senza immettere un nome utente o una password. Le chiavi di sicurezza offrono una produttività migliorata per i ruoli di lavoro e offrono una maggiore sicurezza.
+Per le aziende che usano le password oggi stesso e hanno un ambiente PC condiviso, le chiavi di sicurezza consentono ai ruoli di lavoro di eseguire l'autenticazione senza immettere un nome utente o una password. Le chiavi di sicurezza offrono una maggiore produttività per i ruoli di lavoro e una maggiore sicurezza.
 
-Questo documento è in particolare sull'abilitazione dell'autenticazione senza password basata su chiave di sicurezza. Alla fine di questo articolo sarà possibile accedere alle applicazioni basate sul Web con l'account Azure AD usando una chiave di sicurezza FIDO2.
+Questo documento è in particolare sull'abilitazione dell'autenticazione senza password basata su chiave di sicurezza. Alla fine di questo articolo, sarà possibile accedere alle applicazioni basate sul Web con l'account Azure AD usando una chiave di sicurezza FIDO2.
 
 ## <a name="requirements"></a>Requisiti
 
@@ -31,13 +31,14 @@ Questo documento è in particolare sull'abilitazione dell'autenticazione senza p
 - Chiavi di [sicurezza FIDO2 compatibili](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN richiede Windows 10 versione 1903 o successiva**
 
-Per usare le chiavi di sicurezza per l'accesso ad app e servizi Web, è necessario disporre di un browser che supporti il protocollo WebAuthN. Questi includono Microsoft Edge, Chrome, Firefox e Safari.
+Per usare le chiavi di sicurezza per l'accesso ad app e servizi Web, è necessario disporre di un browser che supporti il protocollo WebAuthN. Sono inclusi Microsoft Edge, Chrome, Firefox e Safari.
+
 
 ## <a name="prepare-devices"></a>Preparare i dispositivi
 
 Per Azure AD dispositivi aggiunti, l'esperienza migliore è Windows 10 versione 1903 o successiva.
 
-Azure AD ibrido dispositivi aggiunti devono essere eseguiti Windows 10 versione 2004 o successiva.
+Azure AD ibrido dispositivi aggiunti devono essere Windows 10 versione 2004 o successiva.
 
 ## <a name="enable-passwordless-authentication-method"></a>Abilitare il metodo di autenticazione senza password
 
@@ -51,7 +52,7 @@ Le funzionalità di registrazione per i metodi di autenticazione senza password 
 1. Passare a Metodi **Azure Active Directory**  >  **autenticazione**  >  **di sicurezza Criteri** del metodo di  >  **autenticazione.**
 1. Nel metodo **Chiave di sicurezza FIDO2** scegliere le opzioni seguenti:
    1. **Abilita** - Sì o No
-   1. **Destinazione-** Tutti gli utenti o Seleziona utenti
+   1. **Destinazione** - Tutti gli utenti o Seleziona utenti
 1. **Salvare** la configurazione.
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>Registrazione e gestione degli utenti delle chiavi di sicurezza FIDO2

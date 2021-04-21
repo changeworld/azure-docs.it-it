@@ -5,12 +5,13 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 70631490e248c801b9465c51548efe8dff704a3e
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99053568"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830143"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Configurare i computer allo stato desiderato
 
@@ -27,7 +28,7 @@ Per questa esercitazione si usa una semplice [configurazione DSC](/powershell/sc
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un account di automazione di Azure. Per altre informazioni su un account di automazione e sui relativi requisiti, vedere [Panoramica dell'autenticazione degli account di automazione](./automation-security-overview.md).
+- Un account di automazione di Azure. Per altre informazioni su un account di Automazione e sui relativi requisiti, vedere Panoramica [dell'autenticazione dell'account di Automazione](./automation-security-overview.md).
 - Una VM di Azure Resource Manager (non classica) che esegue Windows Server 2008 R2 o versioni successive. Per istruzioni sulla creazione di una VM, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/windows/quick-create-portal.md)
 - Modulo Azure PowerShell 3.6 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 - Familiarità con DSC (Desired State Configuration). Per informazioni su DSC, vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview).

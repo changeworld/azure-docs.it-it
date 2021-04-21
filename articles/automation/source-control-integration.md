@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 281da27ce95649e85dae5d0795bb743f21fdb578
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d94da9792d40a389e3981163e565d85d82a9cdc9
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102631745"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831241"
 ---
 # <a name="use-source-control-integration"></a>Usare l'integrazione del controllo del codice sorgente
 
@@ -30,7 +31,7 @@ Automazione di Azure supporta tre tipi di controllo del codice sorgente:
 
 * Un repository di controllo del codice sorgente (GitHub o Azure Repos)
 * Un [account RunAs](automation-security-overview.md#run-as-accounts)
-* Il [ `AzureRM.Profile` modulo](/powershell/module/azurerm.profile/) deve essere importato nell'account di automazione. Si noti che l'equivalente AZ Module ( `Az.Accounts` ) non funzionerà con il controllo del codice sorgente di automazione.
+* Il [ `AzureRM.Profile` modulo](/powershell/module/azurerm.profile/) deve essere importato nell'account di Automazione. Si noti che il modulo Az equivalente ( ) non funzionerà con il controllo del codice `Az.Accounts` sorgente di Automazione.
 
 > [!NOTE]
 > I processi di sincronizzazione del controllo del codice sorgente vengono eseguiti nell'account di Automazione dell'utente e vengono fatturati alla stessa tariffa degli altri processi di automazione.
@@ -116,8 +117,8 @@ La tabella seguente definisce le autorizzazioni minime per il token di accesso p
 |`repo:status`     | Accedere allo stato del commit         |
 |`repo_deployment`      | Accedere allo stato della distribuzione         |
 |`public_repo`     | Accedere ai repository pubblici         |
-|`repo:invite` | Accedi agli inviti del repository |
-|`security_events` | Lettura e scrittura di eventi di sicurezza |
+|`repo:invite` | Accedere agli inviti al repository |
+|`security_events` | Leggere e scrivere eventi di sicurezza |
 |**`admin:repo_hook`**     |         |
 |`write:repo_hook`     | Scrivere gli hook del repository         |
 |`read:repo_hook`|Leggere gli hook del repository|
@@ -209,4 +210,4 @@ Non è al momento possibile usare il portale di Azure per aggiornare il token di
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per l'integrazione del controllo del codice sorgente in Automazione di Azure, vedere [Automazione di Azure: Integrazione del controllo del codice sorgente in Automazione di Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
-* Per l'integrazione del controllo del codice sorgente di runbook con gli spazi dei dati di Visual Studio, vedere [automazione di Azure: integrazione del controllo del codice sorgente di runbook con gli spazi dei comandi di Visual Studio](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).
+* Per l'integrazione del controllo del codice sorgente del runbook con Visual Studio Codespaces, vedere Automazione di Azure: Integrazione del controllo del codice sorgente [runbook tramite Visual Studio Codespaces](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

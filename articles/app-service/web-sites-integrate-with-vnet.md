@@ -6,19 +6,19 @@ ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 4666f03e529c568177ff56a2db84e226bc906132
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: 42391a073d7cb1d7e6850e298c2be32d550bb813
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182911"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832069"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app con una rete virtuale di Azure
 
-Questo articolo descrive la funzionalità di integrazione rete virtuale di Servizio app di Azure e come configurarla con le app di [Servizio app di Azure](./overview.md). Con [Rete virtuale di Azure][VNETOverview], è possibile inserire molte risorse di Azure in una rete non instradabile su Internet. La funzionalità di integrazione VNet consente alle app di accedere alle risorse in o tramite un VNet. L'integrazione di VNet non consente l'accesso privato alle app.
+Questo articolo descrive la funzionalità di integrazione rete virtuale di Servizio app di Azure e come configurarla con le app di [Servizio app di Azure](./overview.md). Con [Rete virtuale di Azure][VNETOverview], è possibile inserire molte risorse di Azure in una rete non instradabile su Internet. La funzionalità Integrazione rete virtuale consente alle app di accedere alle risorse in o tramite una rete virtuale. L'integrazione della rete virtuale non consente l'accesso privato alle app.
 
-App Azure servizio presenta due varianti sulla funzionalità di integrazione VNet:
+Servizio app di Azure sono disponibili due varianti per la funzionalità di integrazione della rete virtuale:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
@@ -77,7 +77,7 @@ Non è possibile usare l'integrazione rete virtuale richiesta dal gateway:
 
 * Con una rete virtuale connessa con Azure ExpressRoute.
 * Da un'app Linux.
-* Da un [contenitore di Windows](quickstart-custom-container.md).
+* Da un [contenitore windows](quickstart-custom-container.md).
 * Per accedere alle risorse protette dall'endpoint di servizio.
 * Con un gateway di coesistenza che supporta le VPN sia ExpressRoute che da punto a sito o da sito a sito.
 
@@ -131,10 +131,10 @@ L'interfaccia utente di Integrazione rete virtuale del piano di servizio app mos
 * **Sincronizzare la rete**: l'operazione di sincronizzazione della rete viene usata solo per la funzionalità di integrazione rete virtuale dipendente dal gateway. L'esecuzione di un'operazione di sincronizzazione della rete assicura che i certificati e le informazioni di rete siano sincronizzati. Se si aggiunge o modifica il DNS della rete virtuale, eseguire un'operazione di sincronizzazione della rete. Questa operazione riavvia tutte le app che usano questa rete virtuale. Questa operazione non funzionerà se si usano un'app e una rete virtuale appartenenti a sottoscrizioni diverse.
 * **Aggiungere route**: l'aggiunta di route indirizzerà il traffico in uscita nella rete virtuale.
 
-L'indirizzo IP privato assegnato all'istanza viene esposto tramite la variabile di ambiente, **WEBSITE_PRIVATE_IP**. L'interfaccia utente della console Kudu Mostra anche l'elenco delle variabili di ambiente disponibili per l'app Web. Questo IP viene assegnato dall'intervallo di indirizzi della subnet integrata. Per l'integrazione VNet a livello di area, il valore di WEBSITE_PRIVATE_IP è un indirizzo IP dall'intervallo di indirizzi della subnet delegata e per l'integrazione VNet richiesta dal gateway, il valore è un indirizzo IP dall'intervallo di indirizzi del pool di indirizzi da punto a sito configurato nel gateway di rete virtuale. Si tratta dell'indirizzo IP che verrà usato dall'app Web per connettersi alle risorse tramite la rete virtuale. 
+L'indirizzo IP privato assegnato all'istanza viene esposto tramite la variabile di ambiente **WEBSITE_PRIVATE_IP**. L'interfaccia utente della console Kudu mostra anche l'elenco delle variabili di ambiente disponibili per l'app Web. Questo indirizzo IP viene assegnato dall'intervallo di indirizzi della subnet integrata. Per l'integrazione della rete virtuale a livello di area, il valore di WEBSITE_PRIVATE_IP è un indirizzo IP compreso nell'intervallo di indirizzi della subnet delegata e per l'integrazione della rete virtuale richiesta dal gateway, il valore è un INDIRIZZO IP dell'intervallo di indirizzi del pool di indirizzi da punto a sito configurato nel gateway di rete virtuale. Si tratta dell'indirizzo IP che verrà usato dall'app Web per connettersi alle risorse tramite la rete virtuale. 
 
 > [!NOTE]
-> Il valore di WEBSITE_PRIVATE_IP è associato alla modifica. Tuttavia, sarà un IP compreso nell'intervallo di indirizzi della subnet di integrazione o nell'intervallo di indirizzi da punto a sito, pertanto sarà necessario consentire l'accesso dall'intero intervallo di indirizzi.
+> Il valore di WEBSITE_PRIVATE_IP è associato a modifiche. Tuttavia, sarà un indirizzo IP compreso nell'intervallo di indirizzi della subnet di integrazione o dell'intervallo di indirizzi da punto a sito, quindi sarà necessario consentire l'accesso dall'intero intervallo di indirizzi.
 >
 
 ### <a name="gateway-required-vnet-integration-routing"></a>Routing dell'integrazione rete virtuale richiesta dal gateway
@@ -150,15 +150,15 @@ La funzionalità di integrazione Sync Network a livello di area non prevede cost
 
 L'uso della funzionalità di integrazione rete virtuale richiesta dal gateway comporta tre tipi di addebiti:
 
-* **Costi del piano tariffario del piano di servizio app**: le app devono essere in un piano di servizio app standard, Premium, PremiumV2 o PremiumV3. Per altre informazioni sui costi, vedere [Prezzi di Servizio app][ASPricing].
+* **Addebiti del piano tariffario** del piano di servizio app: le app devono essere in un piano di servizio app Standard, Premium, PremiumV2 o PremiumV3. Per altre informazioni sui costi, vedere [Prezzi di Servizio app][ASPricing].
 * **Costi di trasferimento dei dati**: è previsto un addebito per i dati in uscita, anche se la rete virtuale si trova nello stesso data center. Gli addebiti sono descritti nei [dettagli relativi ai prezzi dei trasferimenti dei dati][DataPricing].
 * **Costi del gateway VPN**: è previsto un costo per il gateway di rete virtuale necessario per la connessione VPN da punto a sito. Per altre informazioni, vedere [Prezzi di Gateway VPN][VNETPricing].
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 > [!NOTE]
-> L'integrazione di VNET non è supportata per gli scenari di Docker Compose nel servizio app.
-> Le restrizioni di accesso di funzioni di Azure vengono ignorate se è presente un endpoint privato.
+> L'integrazione della rete virtuale non è supportata per Docker Compose nel servizio app.
+> Funzioni di Azure restrizioni di accesso vengono ignorate se è presente un endpoint privato.
 >
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
@@ -189,7 +189,7 @@ Commands:
     list : List the virtual network integrations used in an appservice plan.
 ```
 
-È disponibile anche il supporto di PowerShell per l'integrazione VNet a livello di area, ma è necessario creare una risorsa generica con una matrice di proprietà della subnet resourceID
+È disponibile anche il supporto di PowerShell per l'integrazione della rete virtuale a livello di regione, ma è necessario creare una risorsa generica con una matrice di proprietà dell'ID risorsa subnet
 
 ```azurepowershell
 # Parameters

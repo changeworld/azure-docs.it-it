@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 93c55c21bf740f2851cac1926bc673cebcd914b0
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0416ce25ed03be35c56e7fa2ed7175ad65ae6555
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107514802"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831547"
 ---
 # <a name="enable-a-managed-identity-for-your-azure-automation-account-preview"></a>Abilitare un'identità gestita per l'account Automazione di Azure (anteprima)
 
@@ -22,7 +23,7 @@ Questo argomento illustra come creare un'identità gestita per un account Automa
 
 - La versione più recente dei moduli Automazione di Azure account. Attualmente è 1.6.0. Per informazioni [dettagliate su questa versione, vedere Az.Automation 1.6.0.](https://www.powershellgallery.com/packages/Az.Automation/1.6.0)
 
-- Una risorsa di Azure a cui si vuole accedere dal runbook di Automazione. Questa risorsa deve avere un ruolo definito per l'identità gestita, che consente al runbook di Automazione di autenticare l'accesso alla risorsa. Per aggiungere ruoli, è necessario essere un proprietario per la risorsa nel tenant di Azure AD corrispondente.
+- Una risorsa di Azure a cui si vuole accedere dal runbook di Automazione. Questa risorsa deve avere un ruolo definito per l'identità gestita, che consente al runbook di Automazione di autenticare l'accesso alla risorsa. Per aggiungere ruoli, è necessario essere un proprietario per la risorsa nel tenant Azure AD corrispondente.
 
 - Se si vogliono eseguire processi ibridi usando un'identità gestita, aggiornare il ruolo di lavoro ibrido per runbook alla versione più recente. Le versioni minime richieste sono:
 
@@ -45,7 +46,7 @@ La configurazione delle identità assegnate dal sistema per Automazione di Azure
 
 1. Passare all'account di Automazione e selezionare **Identità in** **Impostazioni account.**
 
-1. Impostare **l'opzione Assegnata** dal sistema **su On e** premere **Salva**. Quando viene richiesto di confermare, selezionare **Sì.**
+1. Impostare **l'opzione Assegnata** dal sistema **su Attivata** e fare clic **su Salva**. Quando viene richiesto di confermare, selezionare **Sì.**
 
 :::image type="content" source="media/managed-identity/managed-identity-on.png" alt-text="Abilitazione dell'identità assegnata dal sistema in portale di Azure.":::
 
@@ -89,7 +90,7 @@ Testo della richiesta
 
 |Proprietà (JSON) | valore | Descrizione|
 |----------|-----------|------------|
-| principalid | \<principal-ID\> | Identificatore univoco globale (GUID) dell'oggetto entità servizio per l'identità gestita che rappresenta l'account di Automazione nel tenant Azure AD servizio. Questo GUID viene talvolta visualizzato come "ID oggetto" o OBJECTID. |
+| principalid | \<principal-ID\> | Identificatore univoco globale (GUID) dell'oggetto entità servizio per l'identità gestita che rappresenta l'account di Automazione nel tenant Azure AD servizio. Questo GUID viene talvolta visualizzato come "ID oggetto" o objectID. |
 | tenantid | \<Azure-AD-tenant-ID\> | Identificatore univoco globale (GUID) che rappresenta il tenant Azure AD cui l'account di Automazione è ora membro. All'interno Azure AD tenant, l'entità servizio ha lo stesso nome dell'account di Automazione. |
 
 ## <a name="give-identity-access-to-azure-resources-by-obtaining-a-token"></a>Concedere all'identità l'accesso alle risorse di Azure ottenendo un token
@@ -120,7 +121,7 @@ Connect-AzAccount -Identity
 Per gli endpoint HTTP assicurarsi di quanto segue.
 - L'intestazione dei metadati deve essere presente e deve essere impostata su "true".
 - Una risorsa deve essere passata insieme alla richiesta, come parametro di query per una richiesta GET e come dati del modulo per una richiesta POST.
-- X-IDENTITY-HEADER deve essere impostato sul valore della variabile di ambiente IDENTITY_HEADER per i dipendenti ibridi per runbook. 
+- X-IDENTITY-HEADER deve essere impostata sul valore della variabile di ambiente IDENTITY_HEADER per i dipendenti ibridi per runbook. 
 - Il tipo di contenuto per la richiesta Post deve essere 'application/x-www-form-urlencoded'. 
 
 ### <a name="sample-get-request"></a>Richiesta GET di esempio

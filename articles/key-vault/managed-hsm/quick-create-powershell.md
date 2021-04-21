@@ -12,12 +12,12 @@ tags:
 - azure-resource-manager
 ms.custom:
 - mode-api
-ms.openlocfilehash: ba1cd8d6b1410be30eefe9dca9675daaf6c16256
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: aa984a8f3899db72ead878e2c4381ea6a080e32d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534671"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107815433"
 ---
 # <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>Guida introduttiva: Impostare e recuperare una chiave gestita da Azure Key Vault tramite PowerShell
 
@@ -54,10 +54,10 @@ L'ID entità verrà restituito nel formato "xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxx
 
 Usare il Azure PowerShell [cmdlet New-AzKeyVaultManagedHsm](/powershell/module/az.keyvault/new-azkeyvaultmanagedhsm) per creare un nuovo Key Vault HSM gestito. Sarà necessario specificare alcune informazioni:
 
-- Nome HSM gestito: stringa da 3 a 24 caratteri che può contenere solo numeri (0-9), lettere (a-z, A-Z) e trattini (-)
+- Nome HSM gestito: stringa di 3-24 caratteri che può contenere solo numeri (0-9), lettere (a-z, A-Z) e trattini (-)
 
   > [!Important]
-  > Ogni HSM gestito deve avere un nome univoco. Sostituire <your-unique-managed-hsm-name> con il nome dell'HSM gestito negli esempi seguenti.
+  > Ogni HSM gestito deve avere un nome univoco. Sostituire <your-unique-managed-hsm-name> con il nome del servizio HSM gestito negli esempi seguenti.
 
 - Nome del gruppo di risorse: **myResourceGroup**.
 - Posizione: **EastUS**.
@@ -70,13 +70,13 @@ New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupNa
 L'output di questo cmdlet mostra le proprietà del nuovo HSM gestito creato. Prendere nota delle due proprietà elencate di seguito:
 
 - **Nome HSM gestito:** nome specificato al parametro --name precedente.
-- **URI dell'insieme** di credenziali: nell'esempio si tratta https:// nome univoco-gestito-hsm &lt; &gt; .vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
+- **URI dell'insieme** di credenziali: nell'esempio https:// nome univoco-gestito-hsm &lt; &gt; .vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
 
 A questo punto, l'account Azure è l'unico autorizzato a eseguire qualsiasi operazione su questo nuovo insieme di credenziali.
 
 ## <a name="activate-your-managed-hsm"></a>Attivare il modulo di protezione hardware gestito
 
-Tutti i comandi del piano dati vengono disabilitati fino a quando non viene attivato il servizio HSM. Non sarà possibile creare chiavi o assegnare ruoli. Solo gli amministratori designati assegnati durante il comando di creazione possono attivare il modulo di protezione hardware. Per attivare il modulo di protezione hardware, è necessario scaricare il [dominio di sicurezza](security-domain.md).
+Tutti i comandi del piano dati sono disabilitati fino a quando non viene attivato il servizio HSM. Non sarà possibile creare chiavi o assegnare ruoli. Solo gli amministratori designati assegnati durante il comando di creazione possono attivare il modulo di protezione hardware. Per attivare il modulo di protezione hardware, è necessario scaricare il [dominio di sicurezza](security-domain.md).
 
 Per attivare il modulo di protezione hardware occorre:
 - Almeno 3 coppie di chiavi RSA (al massimo 10)
@@ -115,4 +115,4 @@ In questa guida di avvio rapido è stata creata un'istanza di Key Vault in cui �
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Vedere le informazioni di riferimento sui [cmdlet di Azure PowerShell Key Vault](/powershell/module/az.keyvault/)
-- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-features.md)

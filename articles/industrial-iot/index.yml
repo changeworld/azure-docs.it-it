@@ -1,43 +1,41 @@
 ### YamlMime:Landing
-title: Documentazione della piattaforma Azure Industrial Internet
-summary: La piattaforma Azure Industrial Internet è una suite Microsoft di moduli e servizi distribuiti in Azure.
+title: Documentazione della piattaforma IoT industriale di Azure
+summary: La piattaforma IoT industriale di Azure è una suite Microsoft di moduli e servizi distribuiti in Azure.
 metadata:
-  description: Scopri di più
+  description: Informazioni su
   ms.service: industrial-iot
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
   ms.date: 3/22/2021
-  ms.openlocfilehash: 8419316a452b9258e8b54cb333aa5fe1ef87b5b9
-  ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+  ms.openlocfilehash: bced3bdbb854af75e7b521f7c5c3f2e1022a161b
+  ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/23/2021
-  ms.locfileid: "104800177"
+  ms.lasthandoff: 04/21/2021
+  ms.locfileid: "107813831"
 landingContent:
-- title: Informazioni sulla piattaforma Azure Industrial Internet
+- title: Informazioni sulla piattaforma IoT industriale di Azure
   linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è un sacco industriale (IIoT)?
+    - text: Che cos'è Industrial IoT (IIoT)?
       url: overview-what-is-industrial-iot.md
-    - text: Che cos'è la piattaforma IIoT (Industrial tutto)?
-      url: overview-what-is-industrial-iot-platform.md
-    - text: Che cos'è il server di pubblicazione OPC?
+    - text: Che cos'è OPC Publisher?
       url: overview-what-is-opc-publisher.md
-- title: Inizia a usare la piattaforma IIoT (Industrial Internet Internet)
+- title: Introduzione alla piattaforma IoT industriale (IIoT)
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Distribuire la piattaforma Azure Industrial Internet
+    - text: Distribuire la piattaforma IoT industriale di Azure
       url: tutorial-deploy-industrial-iot-platform.md
-    - text: Configurare i componenti dell'it industriale
+    - text: Configurare i componenti IoT industriali
       url: tutorial-configure-industrial-iot-components.md
-    - text: Pull dei dati di Azure Industrial Internet in ADX
+    - text: Eseguire il pull dei dati IoT industriali di Azure in ADX
       url: tutorial-industrial-iot-azure-data-explorer.md
     - text: Visualizzare i dati con Time Series Insights (TSI)
       url: tutorial-visualize-data-time-series-insights.md
-- title: Usare il server di pubblicazione OPC
+- title: Usare OPC Publisher
   linkLists:
   - linkListType: tutorial
     links:

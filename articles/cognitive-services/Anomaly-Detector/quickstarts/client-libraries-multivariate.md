@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: rilevamento anomalie con la libreria client di anomalie Detector per il rilevamento di anomalie multivariate'
+title: 'Avvio rapido: Rilevamento anomalie con la libreria client Rilevamento anomalie per il rilevamento di anomalie multivariate'
 titleSuffix: Azure Cognitive Services
-description: Il rilevatore di anomalie MultiVariante offre librerie client per rilevare le anomalie nelle serie di dati, sia come batch che come dati in streaming.
+description: Il Rilevamento anomalie multivariate offre librerie client per rilevare le anomalie nelle serie di dati come batch o in streaming.
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
@@ -9,17 +9,17 @@ zone_pivot_groups: anomaly-detector-quickstart-multivariate
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 04/01/2020
+ms.date: 04/21/2021
 ms.author: mbullwin
 keywords: rilevamento anomalie, algoritmi
-ms.openlocfilehash: c522675f90cd716725ecaba23d5b6ce5921665a6
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c19365719dddb01521010c742ac774762060bed9
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107316020"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830737"
 ---
-# <a name="quickstart-use-the-anomaly-detector-multivariate-client-library"></a>Guida introduttiva: usare la libreria client multivariata del rilevatore di anomalie
+# <a name="quickstart-use-the-anomaly-detector-multivariate-client-library"></a>Guida introduttiva: Usare la Rilevamento anomalie client multivariata
 
 ::: zone pivot="programming-language-csharp"
 

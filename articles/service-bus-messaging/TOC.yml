@@ -110,8 +110,6 @@
           href: message-transfers-locks-settlement.md
         - name: Coda di messaggi non recapitabili
           href: service-bus-dead-letter-queues.md
-        - name: Contatori di messaggi
-          href: message-counters.md
         - name: Ottimizzare le prestazioni
           href: service-bus-performance-improvements.md
         - name: Ripristino di emergenza geografico e replica geografica
@@ -164,7 +162,7 @@
           href: network-security.md
     - name: Integrazione con altri servizi
       items:
-        - name: integrazione bus di servizio di Azure e Griglia di eventi di Azure
+        - name: bus di servizio di Azure e Griglia di eventi di Azure'integrazione
           href: service-bus-to-event-grid-integration-concept.md
 - name: Guide pratiche
   items:
@@ -176,7 +174,7 @@
           href: service-bus-filter-examples.md
         - name: Gestione dei messaggi
           items:
-            - name: Entità java message service (JMS) 2.0
+            - name: Entità del servizio messaggi Java (JMS) 2.0
               href: java-message-service-20-entities.md
             - name: Java Message Service (JMS) Developer guide.md
               href: jms-developer-guide.md
@@ -238,12 +236,16 @@
       items:
         - name: Abilitare le sessioni per una coda o una sottoscrizione
           href: enable-message-sessions.md
-        - name: Abilitare il rilevamento dei duplicati per una coda o un argomento
+        - name: Abilitare il rilevamento duplicati per una coda o un argomento
           href: enable-duplicate-detection.md
         - name: Abilitare le partizioni per una coda o un argomento
           href: enable-partitions.md
         - name: Abilitare l'inoltro automatico per una coda o una sottoscrizione
           href: enable-auto-forward.md
+        - name: Abilitare i messaggi non recapitbili per una coda o una sottoscrizione
+          href: enable-dead-letter.md
+        - name: Ottenere i contatori dei messaggi
+          href: message-counters.md
         - name: Spostarsi tra aree
           href: move-across-regions.md
         - name: Aggiornare automaticamente le unità di messaggistica
